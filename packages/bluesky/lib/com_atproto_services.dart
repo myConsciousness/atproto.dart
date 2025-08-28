@@ -11,12 +11,12 @@
 // LexGenerator
 // **************************************************************************
 
+export 'package:atproto/src/services/codegen/com/atproto/lexicon_service.dart';
+export 'package:atproto/src/services/codegen/com/atproto/identity_service.dart';
+export 'package:atproto/src/services/codegen/com/atproto/admin_service.dart';
+export 'package:atproto/src/services/codegen/com/atproto/label_service.dart';
+export 'package:atproto/src/services/codegen/com/atproto/sync_service.dart';
+export 'package:atproto/src/services/codegen/com/atproto/temp_service.dart';
 export 'package:atproto/src/services/codegen/com/atproto/server_service.dart';
 export 'package:atproto/src/services/codegen/com/atproto/repo_service.dart';
-export 'package:atproto/src/services/codegen/com/atproto/admin_service.dart';
-export 'package:atproto/src/services/codegen/com/atproto/sync_service.dart';
 export 'package:atproto/src/services/codegen/com/atproto/moderation_service.dart';
-export 'package:atproto/src/services/codegen/com/atproto/identity_service.dart';
-export 'package:atproto/src/services/codegen/com/atproto/temp_service.dart';
-export 'package:atproto/src/services/codegen/com/atproto/lexicon_service.dart';
-export 'package:atproto/src/services/codegen/com/atproto/label_service.dart';

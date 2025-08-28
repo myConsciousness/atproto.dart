@@ -39,18 +39,6 @@ Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
   to: const TempFetchLabelsOutputConverter().fromJson,
 );
 
-/// Request a verification code to be sent to the supplied phone number
-Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
-  required String phoneNumber,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoTempRequestPhoneVerification,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'phoneNumber': phoneNumber},
-);
-
 /// Check accounts location in signup queue.
 Future<XRPCResponse<TempCheckSignupQueueOutput>>
 comAtprotoTempCheckSignupQueue({
@@ -62,6 +50,30 @@ comAtprotoTempCheckSignupQueue({
   headers: $headers,
   parameters: {...?$unknown},
   to: const TempCheckSignupQueueOutputConverter().fromJson,
+);
+
+/// Add a handle to the set of reserved handles.
+Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
+  required String handle,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoTempAddReservedHandle,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'handle': handle},
+);
+
+/// Request a verification code to be sent to the supplied phone number
+Future<XRPCResponse<EmptyData>> comAtprotoTempRequestPhoneVerification({
+  required String phoneNumber,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoTempRequestPhoneVerification,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'phoneNumber': phoneNumber},
 );
 
 /// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
@@ -85,16 +97,16 @@ comAtprotoTempCheckHandleAvailability({
   to: const TempCheckHandleAvailabilityOutputConverter().fromJson,
 );
 
-/// Add a handle to the set of reserved handles.
-Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
-  required String handle,
+/// Revoke sessions, password, and app passwords associated with account. May be resolved by a password reset.
+Future<XRPCResponse<EmptyData>> comAtprotoTempRevokeAccountCredentials({
+  required String account,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.comAtprotoTempAddReservedHandle,
+  ns.comAtprotoTempRevokeAccountCredentials,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'handle': handle},
+  body: {...?$unknown, 'account': account},
 );
 
 /// `com.atproto.temp.*`
@@ -118,6 +130,28 @@ base class TempService {
     $unknown: $unknown,
   );
 
+  /// Check accounts location in signup queue.
+  Future<XRPCResponse<TempCheckSignupQueueOutput>> checkSignupQueue({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoTempCheckSignupQueue(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Add a handle to the set of reserved handles.
+  Future<XRPCResponse<EmptyData>> addReservedHandle({
+    required String handle,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoTempAddReservedHandle(
+    handle: handle,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Request a verification code to be sent to the supplied phone number
   Future<XRPCResponse<EmptyData>> requestPhoneVerification({
     required String phoneNumber,
@@ -125,16 +159,6 @@ base class TempService {
     Map<String, String>? $unknown,
   }) async => await comAtprotoTempRequestPhoneVerification(
     phoneNumber: phoneNumber,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Check accounts location in signup queue.
-  Future<XRPCResponse<TempCheckSignupQueueOutput>> checkSignupQueue({
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoTempCheckSignupQueue(
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -157,13 +181,13 @@ base class TempService {
     $unknown: $unknown,
   );
 
-  /// Add a handle to the set of reserved handles.
-  Future<XRPCResponse<EmptyData>> addReservedHandle({
-    required String handle,
+  /// Revoke sessions, password, and app passwords associated with account. May be resolved by a password reset.
+  Future<XRPCResponse<EmptyData>> revokeAccountCredentials({
+    required String account,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoTempAddReservedHandle(
-    handle: handle,
+  }) async => await comAtprotoTempRevokeAccountCredentials(
+    account: account,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

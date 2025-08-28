@@ -67,12 +67,12 @@ base class ActorService {
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// A declaration of a Bluesky chat account.
-  ActorDeclarationRecordAccessor get declaration => _declaration;
   Future<XRPCResponse<EmptyData>> deleteAccount({
     Map<String, String>? $headers,
   }) async => await chatBskyActorDeleteAccount($ctx: _ctx, $headers: $headers);
+
+  /// A declaration of a Bluesky chat account.
+  ActorDeclarationRecordAccessor get declaration => _declaration;
 }
 
 final class ActorDeclarationRecordAccessor {

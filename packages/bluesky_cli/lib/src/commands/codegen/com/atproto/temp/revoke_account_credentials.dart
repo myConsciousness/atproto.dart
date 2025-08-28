@@ -7,32 +7,32 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-// Package imports:
-import 'package:args/command_runner.dart';
-
 // Project imports:
-import 'safelink/add_rule.dart';
-import 'safelink/query_events.dart';
-import 'safelink/query_rules.dart';
-import 'safelink/remove_rule.dart';
-import 'safelink/update_rule.dart';
+import '../../../../procedure_command.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-final class ToolsOzoneSafelinkCommand extends Command<void> {
-  ToolsOzoneSafelinkCommand() {
-    addSubcommand(AddRuleCommand());
-    addSubcommand(RemoveRuleCommand());
-    addSubcommand(QueryRulesCommand());
-    addSubcommand(QueryEventsCommand());
-    addSubcommand(UpdateRuleCommand());
+final class RevokeAccountCredentialsCommand extends ProcedureCommand {
+  RevokeAccountCredentialsCommand() {
+    argParser..addOption("account", mandatory: true);
   }
 
   @override
-  String get name => "tools-ozone-safelink";
+  final String name = "revoke-account-credentials";
 
   @override
-  String get description => "Provides commands for tools.ozone.safelink.*";
+  final String description =
+      r"Revoke sessions, password, and app passwords associated with account. May be resolved by a password reset.";
+
+  @override
+  final String invocation =
+      "bsky com-atproto-temp revoke-account-credentials [account]";
+
+  @override
+  String get methodId => "com.atproto.temp.revokeAccountCredentials";
+
+  @override
+  Map<String, dynamic>? get body => {"account": argResults!["account"]};
 }

@@ -33,21 +33,21 @@ import 'sync/request_crawl.dart';
 
 final class ComAtprotoSyncCommand extends Command<void> {
   ComAtprotoSyncCommand() {
-    addSubcommand(NotifyOfUpdateCommand());
-    addSubcommand(GetBlobCommand());
-    addSubcommand(ListBlobsCommand());
-    addSubcommand(GetRepoStatusCommand());
+    addSubcommand(ListReposCommand());
     addSubcommand(GetLatestCommitCommand());
+    addSubcommand(GetRecordCommand());
+    addSubcommand(ListBlobsCommand());
     addSubcommand(RequestCrawlCommand());
     addSubcommand(GetHeadCommand());
-    addSubcommand(GetBlocksCommand());
-    addSubcommand(GetRecordCommand());
-    addSubcommand(ListReposCommand());
     addSubcommand(ListReposByCollectionCommand());
-    addSubcommand(ListHostsCommand());
-    addSubcommand(GetCheckoutCommand());
     addSubcommand(GetRepoCommand());
     addSubcommand(GetHostStatusCommand());
+    addSubcommand(ListHostsCommand());
+    addSubcommand(NotifyOfUpdateCommand());
+    addSubcommand(GetCheckoutCommand());
+    addSubcommand(GetBlobCommand());
+    addSubcommand(GetRepoStatusCommand());
+    addSubcommand(GetBlocksCommand());
   }
 
   @override

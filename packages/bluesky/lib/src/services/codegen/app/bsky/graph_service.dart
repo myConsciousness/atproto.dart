@@ -55,6 +55,45 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
+/// Get mod lists that the requesting account (actor) is blocking. Requires auth.
+Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphGetListBlocks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetListBlocksOutputConverter().fromJson,
+);
+
+/// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
+Future<XRPCResponse<GraphGetStarterPacksWithMembershipOutput>>
+appBskyGraphGetStarterPacksWithMembership({
+  required String actor,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphGetStarterPacksWithMembership,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetStarterPacksWithMembershipOutputConverter().fromJson,
+);
+
 /// Unmutes the specified thread. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
   required String root,
@@ -67,36 +106,46 @@ Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
   body: {...?$unknown, 'root': root},
 );
 
-/// Gets a 'view' (with additional context) of a specified list.
-Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
-  required String list,
+/// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
+Future<XRPCResponse<GraphGetKnownFollowersOutput>>
+appBskyGraphGetKnownFollowers({
+  required String actor,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyGraphGetList,
+  ns.appBskyGraphGetKnownFollowers,
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'list': list,
+    'actor': actor,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
-  to: const GraphGetListOutputConverter().fromJson,
+  to: const GraphGetKnownFollowersOutputConverter().fromJson,
 );
 
-/// Unmutes the specified account. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
-  required String actor,
+/// Find starter packs matching search criteria. Does not require auth.
+Future<XRPCResponse<GraphSearchStarterPacksOutput>>
+appBskyGraphSearchStarterPacks({
+  required String q,
+  int? limit,
+  String? cursor,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyGraphUnmuteActor,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'actor': actor},
+}) async => await $ctx.get(
+  ns.appBskyGraphSearchStarterPacks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphSearchStarterPacksOutputConverter().fromJson,
 );
 
 /// Get a list of starter packs created by the actor.
@@ -120,24 +169,6 @@ appBskyGraphGetActorStarterPacks({
   to: const GraphGetActorStarterPacksOutputConverter().fromJson,
 );
 
-/// Enumerates which accounts the requesting account is currently blocking. Requires auth.
-Future<XRPCResponse<GraphGetBlocksOutput>> appBskyGraphGetBlocks({
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetBlocks,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const GraphGetBlocksOutputConverter().fromJson,
-);
-
 /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
   required String actor,
@@ -148,6 +179,26 @@ Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
   ns.appBskyGraphMuteActor,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'actor': actor},
+);
+
+/// Gets a 'view' (with additional context) of a specified list.
+Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
+  required String list,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphGetList,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'list': list,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetListOutputConverter().fromJson,
 );
 
 /// Enumerates the lists created by a specified account (actor).
@@ -172,74 +223,8 @@ Future<XRPCResponse<GraphGetListsOutput>> appBskyGraphGetLists({
   to: const GraphGetListsOutputConverter().fromJson,
 );
 
-/// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
-Future<XRPCResponse<GraphGetListsWithMembershipOutput>>
-appBskyGraphGetListsWithMembership({
-  required String actor,
-  int? limit,
-  String? cursor,
-  List<GraphGetListsWithMembershipPurposes>? purposes,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetListsWithMembership,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'actor': actor,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-    if (purposes != null) 'purposes': purposes.map((e) => e.toJson()).toList(),
-  },
-  to: const GraphGetListsWithMembershipOutputConverter().fromJson,
-);
-
-/// Get views for a list of starter packs.
-Future<XRPCResponse<GraphGetStarterPacksOutput>> appBskyGraphGetStarterPacks({
-  required List<String> uris,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetStarterPacks,
-  headers: $headers,
-  parameters: {...?$unknown, 'uris': uris},
-  to: const GraphGetStarterPacksOutputConverter().fromJson,
-);
-
-/// Get mod lists that the requesting account (actor) is blocking. Requires auth.
-Future<XRPCResponse<GraphGetListBlocksOutput>> appBskyGraphGetListBlocks({
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetListBlocks,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const GraphGetListBlocksOutputConverter().fromJson,
-);
-
-/// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
-  required String root,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyGraphMuteThread,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'root': root},
-);
-
-/// Enumerates accounts which follow a specified account (actor).
-Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
+/// Enumerates accounts which a specified account (actor) follows.
+Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
   required String actor,
   int? limit,
   String? cursor,
@@ -247,7 +232,7 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyGraphGetFollowers,
+  ns.appBskyGraphGetFollows,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -255,76 +240,7 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
-  to: const GraphGetFollowersOutputConverter().fromJson,
-);
-
-/// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
-Future<XRPCResponse<GraphGetListMutesOutput>> appBskyGraphGetListMutes({
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetListMutes,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const GraphGetListMutesOutputConverter().fromJson,
-);
-
-/// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
-Future<XRPCResponse<GraphGetKnownFollowersOutput>>
-appBskyGraphGetKnownFollowers({
-  required String actor,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetKnownFollowers,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'actor': actor,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const GraphGetKnownFollowersOutputConverter().fromJson,
-);
-
-/// Unmutes the specified list of accounts. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
-  required String list,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyGraphUnmuteActorList,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'list': list},
-);
-
-/// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
-Future<XRPCResponse<GraphGetRelationshipsOutput>> appBskyGraphGetRelationships({
-  required String actor,
-  List<String>? others,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyGraphGetRelationships,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'actor': actor,
-    if (others != null) 'others': others,
-  },
-  to: const GraphGetRelationshipsOutputConverter().fromJson,
+  to: const GraphGetFollowsOutputConverter().fromJson,
 );
 
 /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
@@ -352,25 +268,46 @@ Future<XRPCResponse<GraphGetStarterPackOutput>> appBskyGraphGetStarterPack({
   to: const GraphGetStarterPackOutputConverter().fromJson,
 );
 
-/// Find starter packs matching search criteria. Does not require auth.
-Future<XRPCResponse<GraphSearchStarterPacksOutput>>
-appBskyGraphSearchStarterPacks({
-  required String q,
-  int? limit,
-  String? cursor,
+/// Unmutes the specified list of accounts. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
+  required String list,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyGraphUnmuteActorList,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'list': list},
+);
+
+/// Unmutes the specified account. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
+  required String actor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyGraphUnmuteActor,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'actor': actor},
+);
+
+/// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
+Future<XRPCResponse<GraphGetRelationshipsOutput>> appBskyGraphGetRelationships({
+  required String actor,
+  List<String>? others,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyGraphSearchStarterPacks,
+  ns.appBskyGraphGetRelationships,
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'q': q,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
+    'actor': actor,
+    if (others != null) 'others': others,
   },
-  to: const GraphSearchStarterPacksOutputConverter().fromJson,
+  to: const GraphGetRelationshipsOutputConverter().fromJson,
 );
 
 /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
@@ -391,29 +328,62 @@ Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
   to: const GraphGetMutesOutputConverter().fromJson,
 );
 
-/// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
-Future<XRPCResponse<GraphGetStarterPacksWithMembershipOutput>>
-appBskyGraphGetStarterPacksWithMembership({
+/// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
+Future<XRPCResponse<GraphGetListsWithMembershipOutput>>
+appBskyGraphGetListsWithMembership({
   required String actor,
   int? limit,
   String? cursor,
+  List<GraphGetListsWithMembershipPurposes>? purposes,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyGraphGetStarterPacksWithMembership,
+  ns.appBskyGraphGetListsWithMembership,
   headers: $headers,
   parameters: {
     ...?$unknown,
     'actor': actor,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
+    if (purposes != null) 'purposes': purposes.map((e) => e.toJson()).toList(),
   },
-  to: const GraphGetStarterPacksWithMembershipOutputConverter().fromJson,
+  to: const GraphGetListsWithMembershipOutputConverter().fromJson,
 );
 
-/// Enumerates accounts which a specified account (actor) follows.
-Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
+/// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
+Future<XRPCResponse<GraphGetListMutesOutput>> appBskyGraphGetListMutes({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphGetListMutes,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetListMutesOutputConverter().fromJson,
+);
+
+/// Get views for a list of starter packs.
+Future<XRPCResponse<GraphGetStarterPacksOutput>> appBskyGraphGetStarterPacks({
+  required List<String> uris,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphGetStarterPacks,
+  headers: $headers,
+  parameters: {...?$unknown, 'uris': uris},
+  to: const GraphGetStarterPacksOutputConverter().fromJson,
+);
+
+/// Enumerates accounts which follow a specified account (actor).
+Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
   required String actor,
   int? limit,
   String? cursor,
@@ -421,7 +391,7 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyGraphGetFollows,
+  ns.appBskyGraphGetFollowers,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -429,7 +399,19 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
-  to: const GraphGetFollowsOutputConverter().fromJson,
+  to: const GraphGetFollowersOutputConverter().fromJson,
+);
+
+/// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
+  required String root,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyGraphMuteThread,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'root': root},
 );
 
 /// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
@@ -446,170 +428,45 @@ appBskyGraphGetSuggestedFollowsByActor({
   to: const GraphGetSuggestedFollowsByActorOutputConverter().fromJson,
 );
 
+/// Enumerates which accounts the requesting account is currently blocking. Requires auth.
+Future<XRPCResponse<GraphGetBlocksOutput>> appBskyGraphGetBlocks({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphGetBlocks,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphGetBlocksOutputConverter().fromJson,
+);
+
 /// `app.bsky.graph.*`
 base class GraphService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
-  final GraphListRecordAccessor _list;
   final GraphVerificationRecordAccessor _verification;
-  final GraphStarterpackRecordAccessor _starterpack;
-  final GraphFollowRecordAccessor _follow;
-  final GraphListitemRecordAccessor _listitem;
   final GraphListblockRecordAccessor _listblock;
+  final GraphListRecordAccessor _list;
+  final GraphFollowRecordAccessor _follow;
   final GraphBlockRecordAccessor _block;
+  final GraphListitemRecordAccessor _listitem;
+  final GraphStarterpackRecordAccessor _starterpack;
 
   GraphService(this._ctx)
-    : _list = GraphListRecordAccessor(_ctx),
-      _verification = GraphVerificationRecordAccessor(_ctx),
-      _starterpack = GraphStarterpackRecordAccessor(_ctx),
-      _follow = GraphFollowRecordAccessor(_ctx),
-      _listitem = GraphListitemRecordAccessor(_ctx),
+    : _verification = GraphVerificationRecordAccessor(_ctx),
       _listblock = GraphListblockRecordAccessor(_ctx),
-      _block = GraphBlockRecordAccessor(_ctx);
-
-  /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
-  GraphListRecordAccessor get list => _list;
-
-  /// Unmutes the specified thread. Requires auth.
-  Future<XRPCResponse<EmptyData>> unmuteThread({
-    required String root,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphUnmuteThread(
-    root: root,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Gets a 'view' (with additional context) of a specified list.
-  Future<XRPCResponse<GraphGetListOutput>> getList({
-    required String list,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetList(
-    list: list,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Unmutes the specified account. Requires auth.
-  Future<XRPCResponse<EmptyData>> unmuteActor({
-    required String actor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphUnmuteActor(
-    actor: actor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get a list of starter packs created by the actor.
-  Future<XRPCResponse<GraphGetActorStarterPacksOutput>> getActorStarterPacks({
-    required String actor,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetActorStarterPacks(
-    actor: actor,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Enumerates which accounts the requesting account is currently blocking. Requires auth.
-  Future<XRPCResponse<GraphGetBlocksOutput>> getBlocks({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetBlocks(
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.
-  GraphVerificationRecordAccessor get verification => _verification;
-
-  /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
-  Future<XRPCResponse<EmptyData>> muteActor({
-    required String actor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphMuteActor(
-    actor: actor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Record defining a starter pack of actors and feeds for new users.
-  GraphStarterpackRecordAccessor get starterpack => _starterpack;
-
-  /// Enumerates the lists created by a specified account (actor).
-  Future<XRPCResponse<GraphGetListsOutput>> getLists({
-    required String actor,
-    int? limit,
-    String? cursor,
-    List<GraphGetListsPurposes>? purposes,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetLists(
-    actor: actor,
-    limit: limit,
-    cursor: cursor,
-    purposes: purposes,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
-  GraphFollowRecordAccessor get follow => _follow;
-
-  /// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
-  Future<XRPCResponse<GraphGetListsWithMembershipOutput>>
-  getListsWithMembership({
-    required String actor,
-    int? limit,
-    String? cursor,
-    List<GraphGetListsWithMembershipPurposes>? purposes,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetListsWithMembership(
-    actor: actor,
-    limit: limit,
-    cursor: cursor,
-    purposes: purposes,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get views for a list of starter packs.
-  Future<XRPCResponse<GraphGetStarterPacksOutput>> getStarterPacks({
-    required List<String> uris,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetStarterPacks(
-    uris: uris,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+      _list = GraphListRecordAccessor(_ctx),
+      _follow = GraphFollowRecordAccessor(_ctx),
+      _block = GraphBlockRecordAccessor(_ctx),
+      _listitem = GraphListitemRecordAccessor(_ctx),
+      _starterpack = GraphStarterpackRecordAccessor(_ctx);
 
   /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
   Future<XRPCResponse<GraphGetListBlocksOutput>> getListBlocks({
@@ -625,26 +482,15 @@ base class GraphService {
     $unknown: $unknown,
   );
 
-  /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
-  Future<XRPCResponse<EmptyData>> muteThread({
-    required String root,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphMuteThread(
-    root: root,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Enumerates accounts which follow a specified account (actor).
-  Future<XRPCResponse<GraphGetFollowersOutput>> getFollowers({
+  /// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
+  Future<XRPCResponse<GraphGetStarterPacksWithMembershipOutput>>
+  getStarterPacksWithMembership({
     required String actor,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetFollowers(
+  }) async => await appBskyGraphGetStarterPacksWithMembership(
     actor: actor,
     limit: limit,
     cursor: cursor,
@@ -653,18 +499,13 @@ base class GraphService {
     $unknown: $unknown,
   );
 
-  /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
-  GraphListitemRecordAccessor get listitem => _listitem;
-
-  /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
-  Future<XRPCResponse<GraphGetListMutesOutput>> getListMutes({
-    int? limit,
-    String? cursor,
+  /// Unmutes the specified thread. Requires auth.
+  Future<XRPCResponse<EmptyData>> unmuteThread({
+    required String root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetListMutes(
-    limit: limit,
-    cursor: cursor,
+  }) async => await appBskyGraphUnmuteThread(
+    root: root,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -686,34 +527,108 @@ base class GraphService {
     $unknown: $unknown,
   );
 
+  /// Find starter packs matching search criteria. Does not require auth.
+  Future<XRPCResponse<GraphSearchStarterPacksOutput>> searchStarterPacks({
+    required String q,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphSearchStarterPacks(
+    q: q,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a list of starter packs created by the actor.
+  Future<XRPCResponse<GraphGetActorStarterPacksOutput>> getActorStarterPacks({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetActorStarterPacks(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+  Future<XRPCResponse<EmptyData>> muteActor({
+    required String actor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphMuteActor(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Gets a 'view' (with additional context) of a specified list.
+  Future<XRPCResponse<GraphGetListOutput>> getList({
+    required String list,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetList(
+    list: list,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerates the lists created by a specified account (actor).
+  Future<XRPCResponse<GraphGetListsOutput>> getLists({
+    required String actor,
+    int? limit,
+    String? cursor,
+    List<GraphGetListsPurposes>? purposes,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetLists(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    purposes: purposes,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerates accounts which a specified account (actor) follows.
+  Future<XRPCResponse<GraphGetFollowsOutput>> getFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetFollows(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.
+  GraphVerificationRecordAccessor get verification => _verification;
+
   /// Record representing a block relationship against an entire an entire list of accounts (actors).
   GraphListblockRecordAccessor get listblock => _listblock;
 
-  /// Unmutes the specified list of accounts. Requires auth.
-  Future<XRPCResponse<EmptyData>> unmuteActorList({
-    required String list,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphUnmuteActorList(
-    list: list,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
-  Future<XRPCResponse<GraphGetRelationshipsOutput>> getRelationships({
-    required String actor,
-    List<String>? others,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetRelationships(
-    actor: actor,
-    others: others,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
+  GraphListRecordAccessor get list => _list;
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteActorList({
@@ -739,24 +654,52 @@ base class GraphService {
     $unknown: $unknown,
   );
 
-  /// Find starter packs matching search criteria. Does not require auth.
-  Future<XRPCResponse<GraphSearchStarterPacksOutput>> searchStarterPacks({
-    required String q,
-    int? limit,
-    String? cursor,
+  /// Unmutes the specified list of accounts. Requires auth.
+  Future<XRPCResponse<EmptyData>> unmuteActorList({
+    required String list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyGraphSearchStarterPacks(
-    q: q,
-    limit: limit,
-    cursor: cursor,
+  }) async => await appBskyGraphUnmuteActorList(
+    list: list,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
 
+  /// Unmutes the specified account. Requires auth.
+  Future<XRPCResponse<EmptyData>> unmuteActor({
+    required String actor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphUnmuteActor(
+    actor: actor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
+  Future<XRPCResponse<GraphGetRelationshipsOutput>> getRelationships({
+    required String actor,
+    List<String>? others,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetRelationships(
+    actor: actor,
+    others: others,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
+  GraphFollowRecordAccessor get follow => _follow;
+
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
   GraphBlockRecordAccessor get block => _block;
+
+  /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
+  GraphListitemRecordAccessor get listitem => _listitem;
 
   /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
   Future<XRPCResponse<GraphGetMutesOutput>> getMutes({
@@ -772,15 +715,59 @@ base class GraphService {
     $unknown: $unknown,
   );
 
-  /// Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.
-  Future<XRPCResponse<GraphGetStarterPacksWithMembershipOutput>>
-  getStarterPacksWithMembership({
+  /// Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.
+  Future<XRPCResponse<GraphGetListsWithMembershipOutput>>
+  getListsWithMembership({
+    required String actor,
+    int? limit,
+    String? cursor,
+    List<GraphGetListsWithMembershipPurposes>? purposes,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetListsWithMembership(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    purposes: purposes,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
+  Future<XRPCResponse<GraphGetListMutesOutput>> getListMutes({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetListMutes(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get views for a list of starter packs.
+  Future<XRPCResponse<GraphGetStarterPacksOutput>> getStarterPacks({
+    required List<String> uris,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetStarterPacks(
+    uris: uris,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerates accounts which follow a specified account (actor).
+  Future<XRPCResponse<GraphGetFollowersOutput>> getFollowers({
     required String actor,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetStarterPacksWithMembership(
+  }) async => await appBskyGraphGetFollowers(
     actor: actor,
     limit: limit,
     cursor: cursor,
@@ -789,17 +776,16 @@ base class GraphService {
     $unknown: $unknown,
   );
 
-  /// Enumerates accounts which a specified account (actor) follows.
-  Future<XRPCResponse<GraphGetFollowsOutput>> getFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
+  /// Record defining a starter pack of actors and feeds for new users.
+  GraphStarterpackRecordAccessor get starterpack => _starterpack;
+
+  /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
+  Future<XRPCResponse<EmptyData>> muteThread({
+    required String root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyGraphGetFollows(
-    actor: actor,
-    limit: limit,
-    cursor: cursor,
+  }) async => await appBskyGraphMuteThread(
+    root: root,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -816,6 +802,228 @@ base class GraphService {
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
+  );
+
+  /// Enumerates which accounts the requesting account is currently blocking. Requires auth.
+  Future<XRPCResponse<GraphGetBlocksOutput>> getBlocks({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphGetBlocks(
+    limit: limit,
+    cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+}
+
+final class GraphVerificationRecordAccessor {
+  final ServiceContext _ctx;
+
+  const GraphVerificationRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyGraphVerification,
+    rkey: rkey,
+    cid: cid,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyGraphVerification,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required String subject,
+    required String handle,
+    required String displayName,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphVerification,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'subject': subject,
+      'handle': handle,
+      'displayName': displayName,
+      'createdAt': iso8601(createdAt),
+    },
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required String subject,
+    required String handle,
+    required String displayName,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphVerification,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'subject': subject,
+      'handle': handle,
+      'displayName': displayName,
+      'createdAt': iso8601(createdAt),
+    },
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphVerification,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+}
+
+final class GraphListblockRecordAccessor {
+  final ServiceContext _ctx;
+
+  const GraphListblockRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyGraphListblock,
+    rkey: rkey,
+    cid: cid,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyGraphListblock,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required String subject,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphListblock,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required String subject,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphListblock,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphListblock,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
   );
 }
 
@@ -945,10 +1153,10 @@ final class GraphListRecordAccessor {
   );
 }
 
-final class GraphVerificationRecordAccessor {
+final class GraphFollowRecordAccessor {
   final ServiceContext _ctx;
 
-  const GraphVerificationRecordAccessor(this._ctx);
+  const GraphFollowRecordAccessor(this._ctx);
 
   Future<XRPCResponse<RepoGetRecordOutput>> get({
     required String repo,
@@ -958,7 +1166,7 @@ final class GraphVerificationRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoGetRecord(
     repo: repo,
-    collection: ids.appBskyGraphVerification,
+    collection: ids.appBskyGraphFollow,
     rkey: rkey,
     cid: cid,
     $ctx: _ctx,
@@ -975,7 +1183,7 @@ final class GraphVerificationRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoListRecords(
     repo: repo,
-    collection: ids.appBskyGraphVerification,
+    collection: ids.appBskyGraphFollow,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
@@ -986,8 +1194,6 @@ final class GraphVerificationRecordAccessor {
 
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
     required String subject,
-    required String handle,
-    required String displayName,
     DateTime? createdAt,
     String? rkey,
     bool? validate,
@@ -996,16 +1202,10 @@ final class GraphVerificationRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoCreateRecord(
     repo: _ctx.repo,
-    collection: ids.appBskyGraphVerification,
+    collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'handle': handle,
-      'displayName': displayName,
-      'createdAt': iso8601(createdAt),
-    },
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
     swapCommit: swapCommit,
     $ctx: _ctx,
     $headers: $headers,
@@ -1013,8 +1213,6 @@ final class GraphVerificationRecordAccessor {
 
   Future<XRPCResponse<RepoPutRecordOutput>> put({
     required String subject,
-    required String handle,
-    required String displayName,
     DateTime? createdAt,
     required String rkey,
     bool? validate,
@@ -1024,14 +1222,212 @@ final class GraphVerificationRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoPutRecord(
     repo: _ctx.repo,
-    collection: ids.appBskyGraphVerification,
+    collection: ids.appBskyGraphFollow,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphFollow,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+}
+
+final class GraphBlockRecordAccessor {
+  final ServiceContext _ctx;
+
+  const GraphBlockRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyGraphBlock,
+    rkey: rkey,
+    cid: cid,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyGraphBlock,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required String subject,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphBlock,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required String subject,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphBlock,
+    rkey: rkey,
+    validate: validate,
+    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphBlock,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+}
+
+final class GraphListitemRecordAccessor {
+  final ServiceContext _ctx;
+
+  const GraphListitemRecordAccessor(this._ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyGraphListitem,
+    rkey: rkey,
+    cid: cid,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyGraphListitem,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required String subject,
+    required String list,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphListitem,
     rkey: rkey,
     validate: validate,
     record: {
       ...?$unknown,
       'subject': subject,
-      'handle': handle,
-      'displayName': displayName,
+      'list': list,
+      'createdAt': iso8601(createdAt),
+    },
+    swapCommit: swapCommit,
+    $ctx: _ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required String subject,
+    required String list,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: _ctx.repo,
+    collection: ids.appBskyGraphListitem,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'subject': subject,
+      'list': list,
       'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
@@ -1048,7 +1444,7 @@ final class GraphVerificationRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoDeleteRecord(
     repo: _ctx.repo,
-    collection: ids.appBskyGraphVerification,
+    collection: ids.appBskyGraphListitem,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1171,402 +1567,6 @@ final class GraphStarterpackRecordAccessor {
   }) async => await comAtprotoRepoDeleteRecord(
     repo: _ctx.repo,
     collection: ids.appBskyGraphStarterpack,
-    rkey: rkey,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-}
-
-final class GraphFollowRecordAccessor {
-  final ServiceContext _ctx;
-
-  const GraphFollowRecordAccessor(this._ctx);
-
-  Future<XRPCResponse<RepoGetRecordOutput>> get({
-    required String repo,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoGetRecord(
-    repo: repo,
-    collection: ids.appBskyGraphFollow,
-    rkey: rkey,
-    cid: cid,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoListRecordsOutput>> list({
-    required String repo,
-    int? limit,
-    String? cursor,
-    bool? reverse,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
-    repo: repo,
-    collection: ids.appBskyGraphFollow,
-    limit: limit,
-    cursor: cursor,
-    reverse: reverse,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String subject,
-    DateTime? createdAt,
-    String? rkey,
-    bool? validate,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphFollow,
-    rkey: rkey,
-    validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String subject,
-    DateTime? createdAt,
-    required String rkey,
-    bool? validate,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphFollow,
-    rkey: rkey,
-    validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
-    required String rkey,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphFollow,
-    rkey: rkey,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-}
-
-final class GraphListitemRecordAccessor {
-  final ServiceContext _ctx;
-
-  const GraphListitemRecordAccessor(this._ctx);
-
-  Future<XRPCResponse<RepoGetRecordOutput>> get({
-    required String repo,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoGetRecord(
-    repo: repo,
-    collection: ids.appBskyGraphListitem,
-    rkey: rkey,
-    cid: cid,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoListRecordsOutput>> list({
-    required String repo,
-    int? limit,
-    String? cursor,
-    bool? reverse,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
-    repo: repo,
-    collection: ids.appBskyGraphListitem,
-    limit: limit,
-    cursor: cursor,
-    reverse: reverse,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String subject,
-    required String list,
-    DateTime? createdAt,
-    String? rkey,
-    bool? validate,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphListitem,
-    rkey: rkey,
-    validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'list': list,
-      'createdAt': iso8601(createdAt),
-    },
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String subject,
-    required String list,
-    DateTime? createdAt,
-    required String rkey,
-    bool? validate,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphListitem,
-    rkey: rkey,
-    validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject,
-      'list': list,
-      'createdAt': iso8601(createdAt),
-    },
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
-    required String rkey,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphListitem,
-    rkey: rkey,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-}
-
-final class GraphListblockRecordAccessor {
-  final ServiceContext _ctx;
-
-  const GraphListblockRecordAccessor(this._ctx);
-
-  Future<XRPCResponse<RepoGetRecordOutput>> get({
-    required String repo,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoGetRecord(
-    repo: repo,
-    collection: ids.appBskyGraphListblock,
-    rkey: rkey,
-    cid: cid,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoListRecordsOutput>> list({
-    required String repo,
-    int? limit,
-    String? cursor,
-    bool? reverse,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
-    repo: repo,
-    collection: ids.appBskyGraphListblock,
-    limit: limit,
-    cursor: cursor,
-    reverse: reverse,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String subject,
-    DateTime? createdAt,
-    String? rkey,
-    bool? validate,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphListblock,
-    rkey: rkey,
-    validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String subject,
-    DateTime? createdAt,
-    required String rkey,
-    bool? validate,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphListblock,
-    rkey: rkey,
-    validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
-    required String rkey,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphListblock,
-    rkey: rkey,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-}
-
-final class GraphBlockRecordAccessor {
-  final ServiceContext _ctx;
-
-  const GraphBlockRecordAccessor(this._ctx);
-
-  Future<XRPCResponse<RepoGetRecordOutput>> get({
-    required String repo,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoGetRecord(
-    repo: repo,
-    collection: ids.appBskyGraphBlock,
-    rkey: rkey,
-    cid: cid,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoListRecordsOutput>> list({
-    required String repo,
-    int? limit,
-    String? cursor,
-    bool? reverse,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
-    repo: repo,
-    collection: ids.appBskyGraphBlock,
-    limit: limit,
-    cursor: cursor,
-    reverse: reverse,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String subject,
-    DateTime? createdAt,
-    String? rkey,
-    bool? validate,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphBlock,
-    rkey: rkey,
-    validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String subject,
-    DateTime? createdAt,
-    required String rkey,
-    bool? validate,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphBlock,
-    rkey: rkey,
-    validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
-    required String rkey,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyGraphBlock,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,

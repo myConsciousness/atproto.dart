@@ -36,18 +36,6 @@ Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
     if (ref != null) 'ref': ref,
   },
 );
-Future<XRPCResponse<ModerationGetActorMetadataOutput>>
-chatBskyModerationGetActorMetadata({
-  required String actor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.chatBskyModerationGetActorMetadata,
-  headers: $headers,
-  parameters: {...?$unknown, 'actor': actor},
-  to: const ModerationGetActorMetadataOutputConverter().fromJson,
-);
 Future<XRPCResponse<ModerationGetMessageContextOutput>>
 chatBskyModerationGetMessageContext({
   String? convoId,
@@ -68,6 +56,18 @@ chatBskyModerationGetMessageContext({
     if (after != null) 'after': after,
   },
   to: const ModerationGetMessageContextOutputConverter().fromJson,
+);
+Future<XRPCResponse<ModerationGetActorMetadataOutput>>
+chatBskyModerationGetActorMetadata({
+  required String actor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.chatBskyModerationGetActorMetadata,
+  headers: $headers,
+  parameters: {...?$unknown, 'actor': actor},
+  to: const ModerationGetActorMetadataOutputConverter().fromJson,
 );
 
 /// `chat.bsky.moderation.*`
@@ -91,16 +91,6 @@ base class ModerationService {
     $headers: $headers,
     $unknown: $unknown,
   );
-  Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
-    required String actor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await chatBskyModerationGetActorMetadata(
-    actor: actor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
   Future<XRPCResponse<ModerationGetMessageContextOutput>> getMessageContext({
     String? convoId,
     required String messageId,
@@ -113,6 +103,16 @@ base class ModerationService {
     messageId: messageId,
     before: before,
     after: after,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+  Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
+    required String actor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await chatBskyModerationGetActorMetadata(
+    actor: actor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

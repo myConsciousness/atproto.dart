@@ -21,9 +21,9 @@ import 'setting/upsert_option.dart';
 
 final class ToolsOzoneSettingCommand extends Command<void> {
   ToolsOzoneSettingCommand() {
-    addSubcommand(RemoveOptionsCommand());
     addSubcommand(UpsertOptionCommand());
     addSubcommand(ListOptionsCommand());
+    addSubcommand(RemoveOptionsCommand());
   }
 
   @override

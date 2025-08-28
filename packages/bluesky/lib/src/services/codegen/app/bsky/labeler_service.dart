@@ -63,6 +63,9 @@ base class LabelerService {
 
   LabelerService(this._ctx) : _service = LabelerServiceRecordAccessor(_ctx);
 
+  /// A declaration of the existence of labeler service.
+  LabelerServiceRecordAccessor get service => _service;
+
   /// Get information about a list of labeler services.
   Future<XRPCResponse<LabelerGetServicesOutput>> getServices({
     required List<String> dids,
@@ -76,9 +79,6 @@ base class LabelerService {
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// A declaration of the existence of labeler service.
-  LabelerServiceRecordAccessor get service => _service;
 }
 
 final class LabelerServiceRecordAccessor {

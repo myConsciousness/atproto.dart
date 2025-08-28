@@ -26,8 +26,8 @@ final class ToolsOzoneSetCommand extends Command<void> {
     addSubcommand(AddValuesCommand());
     addSubcommand(DeleteSetCommand());
     addSubcommand(QuerySetsCommand());
-    addSubcommand(DeleteValuesCommand());
     addSubcommand(GetValuesCommand());
+    addSubcommand(DeleteValuesCommand());
   }
 
   @override

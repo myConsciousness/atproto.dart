@@ -20,8 +20,8 @@ import 'labeler/service.dart';
 
 final class AppBskyLabelerCommand extends Command<void> {
   AppBskyLabelerCommand() {
-    addSubcommand(GetServicesCommand());
     addSubcommand(ServiceCommand());
+    addSubcommand(GetServicesCommand());
   }
 
   @override

@@ -16,6 +16,7 @@ import 'temp/check_handle_availability.dart';
 import 'temp/check_signup_queue.dart';
 import 'temp/fetch_labels.dart';
 import 'temp/request_phone_verification.dart';
+import 'temp/revoke_account_credentials.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -24,10 +25,11 @@ import 'temp/request_phone_verification.dart';
 final class ComAtprotoTempCommand extends Command<void> {
   ComAtprotoTempCommand() {
     addSubcommand(FetchLabelsCommand());
-    addSubcommand(RequestPhoneVerificationCommand());
     addSubcommand(CheckSignupQueueCommand());
-    addSubcommand(CheckHandleAvailabilityCommand());
     addSubcommand(AddReservedHandleCommand());
+    addSubcommand(RequestPhoneVerificationCommand());
+    addSubcommand(CheckHandleAvailabilityCommand());
+    addSubcommand(RevokeAccountCredentialsCommand());
   }
 
   @override

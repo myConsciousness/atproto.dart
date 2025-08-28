@@ -21,9 +21,9 @@ import 'verification/revoke_verifications.dart';
 
 final class ToolsOzoneVerificationCommand extends Command<void> {
   ToolsOzoneVerificationCommand() {
-    addSubcommand(RevokeVerificationsCommand());
-    addSubcommand(GrantVerificationsCommand());
     addSubcommand(ListVerificationsCommand());
+    addSubcommand(GrantVerificationsCommand());
+    addSubcommand(RevokeVerificationsCommand());
   }
 
   @override
