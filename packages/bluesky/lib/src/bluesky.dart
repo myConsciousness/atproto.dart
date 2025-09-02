@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
 import 'services/codegen/app/bsky/actor_service.dart';
+import 'services/codegen/app/bsky/bookmark_service.dart';
 import 'services/codegen/app/bsky/feed_service.dart';
 import 'services/codegen/app/bsky/graph_service.dart';
 import 'services/codegen/app/bsky/labeler_service.dart';
@@ -176,6 +177,10 @@ sealed class Bluesky {
   /// Returns the video service.
   /// This service represents `app.bsky.video.*`.
   VideoService get video;
+
+  /// Returns the bookmark service.
+  /// This service represents `app.bsky.bookmark.*`.
+  BookmarkService get bookmark;
 }
 
 final class _Bluesky implements Bluesky {
@@ -187,6 +192,7 @@ final class _Bluesky implements Bluesky {
       unspecced = UnspeccedService(ctx),
       labeler = LabelerService(ctx),
       video = VideoService(ctx),
+      bookmark = BookmarkService(ctx),
       _ctx = ctx;
 
   final core.ServiceContext _ctx;
@@ -229,4 +235,7 @@ final class _Bluesky implements Bluesky {
 
   @override
   final VideoService video;
+
+  @override
+  final BookmarkService bookmark;
 }

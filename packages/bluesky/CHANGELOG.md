@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.0.9
+
+- chore: Sync Lexicon Data for Bookmark feature. ([#2105](https://github.com/myConsciousness/atproto.dart/pull/2105), [#2107](https://github.com/myConsciousness/atproto.dart/pull/2107))
+- feat: Add Bookmark feature support. ([#2108](https://github.com/myConsciousness/atproto.dart/pull/2108))
+
 ## v1.0.8
 
 - chore: Sync Lexicon Data. ([#2100](https://github.com/myConsciousness/atproto.dart/pull/2100))
