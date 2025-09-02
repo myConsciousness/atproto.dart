@@ -34,6 +34,10 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
         const UPostViewEmbedConverter().fromJson,
       ),
     ),
+    bookmarkCount: $checkedConvert(
+      'bookmarkCount',
+      (v) => (v as num?)?.toInt(),
+    ),
     replyCount: $checkedConvert('replyCount', (v) => (v as num?)?.toInt()),
     repostCount: $checkedConvert('repostCount', (v) => (v as num?)?.toInt()),
     likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
@@ -79,6 +83,7 @@ Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
     instance.embed,
     const UPostViewEmbedConverter().toJson,
   ),
+  'bookmarkCount': ?instance.bookmarkCount,
   'replyCount': ?instance.replyCount,
   'repostCount': ?instance.repostCount,
   'likeCount': ?instance.likeCount,

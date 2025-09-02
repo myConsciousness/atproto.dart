@@ -17,6 +17,7 @@ _ViewerState _$ViewerStateFromJson(Map json) =>
         ),
         repost: $checkedConvert('repost', (v) => v as String?),
         like: $checkedConvert('like', (v) => v as String?),
+        bookmarked: $checkedConvert('bookmarked', (v) => v as bool?),
         threadMuted: $checkedConvert('threadMuted', (v) => v as bool?),
         replyDisabled: $checkedConvert('replyDisabled', (v) => v as bool?),
         embeddingDisabled: $checkedConvert(
@@ -37,6 +38,7 @@ Map<String, dynamic> _$ViewerStateToJson(_ViewerState instance) =>
       r'$type': instance.$type,
       'repost': ?instance.repost,
       'like': ?instance.like,
+      'bookmarked': ?instance.bookmarked,
       'threadMuted': ?instance.threadMuted,
       'replyDisabled': ?instance.replyDisabled,
       'embeddingDisabled': ?instance.embeddingDisabled,

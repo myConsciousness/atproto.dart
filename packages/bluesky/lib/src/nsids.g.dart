@@ -44,6 +44,15 @@ const appBskyActorStatus = NSID(ids.appBskyActorStatus);
 /// `app.bsky.actor.status#live`
 const appBskyActorStatusLive = NSID(ids.appBskyActorStatusLive);
 
+/// `app.bsky.bookmark.createBookmark`
+const appBskyBookmarkCreateBookmark = NSID(ids.appBskyBookmarkCreateBookmark);
+
+/// `app.bsky.bookmark.deleteBookmark`
+const appBskyBookmarkDeleteBookmark = NSID(ids.appBskyBookmarkDeleteBookmark);
+
+/// `app.bsky.bookmark.getBookmarks`
+const appBskyBookmarkGetBookmarks = NSID(ids.appBskyBookmarkGetBookmarks);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 

@@ -24,6 +24,7 @@ abstract class ViewerState with _$ViewerState {
   static const knownProps = <String>[
     'repost',
     'like',
+    'bookmarked',
     'threadMuted',
     'replyDisabled',
     'embeddingDisabled',
@@ -35,6 +36,7 @@ abstract class ViewerState with _$ViewerState {
     @Default('app.bsky.feed.defs#viewerState') String $type,
     String? repost,
     String? like,
+    bool? bookmarked,
     bool? threadMuted,
     bool? replyDisabled,
     bool? embeddingDisabled,
@@ -57,6 +59,8 @@ extension ViewerStateExtension on ViewerState {
   bool get hasNotRepost => !hasRepost;
   bool get hasLike => like != null;
   bool get hasNotLike => !hasLike;
+  bool get isBookmarked => bookmarked ?? false;
+  bool get isNotBookmarked => !isBookmarked;
   bool get isThreadMuted => threadMuted ?? false;
   bool get isNotThreadMuted => !isThreadMuted;
   bool get isReplyDisabled => replyDisabled ?? false;
