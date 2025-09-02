@@ -33,6 +33,7 @@ abstract class PostView with _$PostView {
     'author',
     'record',
     'embed',
+    'bookmarkCount',
     'replyCount',
     'repostCount',
     'likeCount',
@@ -51,6 +52,7 @@ abstract class PostView with _$PostView {
     @ProfileViewBasicConverter() required ProfileViewBasic author,
     required Map<String, dynamic> record,
     @UPostViewEmbedConverter() UPostViewEmbed? embed,
+    int? bookmarkCount,
     int? replyCount,
     int? repostCount,
     int? likeCount,
@@ -75,6 +77,8 @@ abstract class PostView with _$PostView {
 extension PostViewExtension on PostView {
   bool get hasEmbed => embed != null;
   bool get hasNotEmbed => !hasEmbed;
+  bool get hasBookmarkCount => bookmarkCount != null;
+  bool get hasNotBookmarkCount => !hasBookmarkCount;
   bool get hasReplyCount => replyCount != null;
   bool get hasNotReplyCount => !hasReplyCount;
   bool get hasRepostCount => repostCount != null;

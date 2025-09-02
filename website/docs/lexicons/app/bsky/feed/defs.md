@@ -14,6 +14,7 @@ description: app.bsky.feed.defs
 | **author** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **record** | unknown | - | ✅ | - |
 | **embed** | union of <br/>[app.bsky.embed.images#view](../../../../lexicons/app/bsky/embed/images.md#view)<br/>[app.bsky.embed.video#view](../../../../lexicons/app/bsky/embed/video.md#view)<br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view)<br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br/>[app.bsky.embed.recordWithMedia#view](../../../../lexicons/app/bsky/embed/recordWithMedia.md#view) | - | ❌ | - |
+| **bookmarkCount** | integer | - | ❌ | - |
 | **replyCount** | integer | - | ❌ | - |
 | **repostCount** | integer | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
@@ -31,6 +32,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **repost** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **like** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+| **bookmarked** | boolean | - | ❌ | - |
 | **threadMuted** | boolean | - | ❌ | - |
 | **replyDisabled** | boolean | - | ❌ | - |
 | **embeddingDisabled** | boolean | - | ❌ | - |

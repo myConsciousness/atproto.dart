@@ -9,6 +9,7 @@
 
 // Project imports:
 import 'app/bsky/actor.dart';
+import 'app/bsky/bookmark.dart';
 import 'app/bsky/feed.dart';
 import 'app/bsky/graph.dart';
 import 'app/bsky/labeler.dart';
@@ -55,6 +56,7 @@ final lexCommands = [
   AppBskyFeedCommand(),
   AppBskyVideoCommand(),
   AppBskyUnspeccedCommand(),
+  AppBskyBookmarkCommand(),
   AppBskyNotificationCommand(),
   AppBskyGraphCommand(),
   AppBskyActorCommand(),

@@ -209,6 +209,14 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.unspecced.searchPostsSkeleton](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/searchPostsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchPostsSkeleton.md) | ✅ |
 | **[app.bsky.unspecced.searchStarterPacksSkeleton](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/searchStarterPacksSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchStarterPacksSkeleton.md) | ✅ |
 
+### app.bsky.bookmark
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[app.bsky.bookmark.createBookmark](https://pub.dev/documentation/bluesky/latest/app_bsky_services/BookmarkService/createBookmark.html)** | [Reference](lexicons/app/bsky/bookmark/createBookmark.md) | ❌ |
+| **[app.bsky.bookmark.deleteBookmark](https://pub.dev/documentation/bluesky/latest/app_bsky_services/BookmarkService/deleteBookmark.html)** | [Reference](lexicons/app/bsky/bookmark/deleteBookmark.md) | ❌ |
+| **[app.bsky.bookmark.getBookmarks](https://pub.dev/documentation/bluesky/latest/app_bsky_services/BookmarkService/getBookmarks.html)** | [Reference](lexicons/app/bsky/bookmark/getBookmarks.md) | ✅ |
+
 ### app.bsky.notification
 
 | Method | Docs | Paging (cursor) |

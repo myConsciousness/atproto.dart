@@ -5086,6 +5086,7 @@ const appBskyFeedDefs = <String, dynamic>{
             "app.bsky.embed.recordWithMedia#view",
           ],
         },
+        "bookmarkCount": {"type": "integer"},
         "replyCount": {"type": "integer"},
         "repostCount": {"type": "integer"},
         "likeCount": {"type": "integer"},
@@ -5106,6 +5107,7 @@ const appBskyFeedDefs = <String, dynamic>{
       "properties": {
         "repost": {"type": "string", "format": "at-uri"},
         "like": {"type": "string", "format": "at-uri"},
+        "bookmarked": {"type": "boolean"},
         "threadMuted": {"type": "boolean"},
         "replyDisabled": {"type": "boolean"},
         "embeddingDisabled": {"type": "boolean"},
@@ -7391,6 +7393,150 @@ const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
               "items": {
                 "type": "ref",
                 "ref": "app.bsky.unspecced.defs#trendingTopic",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.bookmark.createBookmark`
+const appBskyBookmarkCreateBookmark = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.createBookmark",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "cid"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "UnsupportedCollection",
+          "description":
+              "The URI to be bookmarked is for an unsupported collection.",
+        },
+      ],
+    },
+  },
+};
+
+/// `app.bsky.bookmark.defs`
+const appBskyBookmarkDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.defs",
+  "defs": {
+    "bookmark": {
+      "type": "object",
+      "description": "Object used to store bookmark data in stash.",
+      "required": ["subject"],
+      "properties": {
+        "subject": {
+          "type": "ref",
+          "description":
+              "A strong ref to the record to be bookmarked. Currently, only `app.bsky.feed.post` records are supported.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+      },
+    },
+    "bookmarkView": {
+      "type": "object",
+      "required": ["subject", "item"],
+      "properties": {
+        "subject": {
+          "type": "ref",
+          "description": "A strong ref to the bookmarked record.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "item": {
+          "type": "union",
+          "refs": [
+            "app.bsky.feed.defs#blockedPost",
+            "app.bsky.feed.defs#notFoundPost",
+            "app.bsky.feed.defs#postView",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.bookmark.deleteBookmark`
+const appBskyBookmarkDeleteBookmark = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.deleteBookmark",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "UnsupportedCollection",
+          "description":
+              "The URI to be bookmarked is for an unsupported collection.",
+        },
+      ],
+    },
+  },
+};
+
+/// `app.bsky.bookmark.getBookmarks`
+const appBskyBookmarkGetBookmarks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.getBookmarks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Gets views of records bookmarked by the authenticated user. Requires authentication.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["bookmarks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "bookmarks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.bookmark.defs#bookmarkView",
               },
             },
           },
@@ -15456,6 +15602,10 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedGetSuggestionsSkeleton,
   appBskyUnspeccedGetTrendsSkeleton,
   appBskyUnspeccedGetTrendingTopics,
+  appBskyBookmarkCreateBookmark,
+  appBskyBookmarkDefs,
+  appBskyBookmarkDeleteBookmark,
+  appBskyBookmarkGetBookmarks,
   appBskyNotificationUpdateSeen,
   appBskyNotificationPutActivitySubscription,
   appBskyNotificationGetUnreadCount,

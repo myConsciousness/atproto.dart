@@ -145,6 +145,24 @@ const appBskyActorStatus = 'app.bsky.actor.status';
 /// `app.bsky.actor.status#live`
 const appBskyActorStatusLive = 'app.bsky.actor.status#live';
 
+/// `app.bsky.bookmark.createBookmark`
+const appBskyBookmarkCreateBookmark = 'app.bsky.bookmark.createBookmark';
+
+/// `app.bsky.bookmark.defs`
+const appBskyBookmarkDefs = 'app.bsky.bookmark.defs';
+
+/// `app.bsky.bookmark.defs#bookmark`
+const appBskyBookmarkDefsBookmark = 'app.bsky.bookmark.defs#bookmark';
+
+/// `app.bsky.bookmark.defs#bookmarkView`
+const appBskyBookmarkDefsBookmarkView = 'app.bsky.bookmark.defs#bookmarkView';
+
+/// `app.bsky.bookmark.deleteBookmark`
+const appBskyBookmarkDeleteBookmark = 'app.bsky.bookmark.deleteBookmark';
+
+/// `app.bsky.bookmark.getBookmarks`
+const appBskyBookmarkGetBookmarks = 'app.bsky.bookmark.getBookmarks';
+
 /// `app.bsky.embed.defs`
 const appBskyEmbedDefs = 'app.bsky.embed.defs';
 

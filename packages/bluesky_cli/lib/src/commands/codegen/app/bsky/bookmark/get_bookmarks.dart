@@ -7,15 +7,37 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Project imports:
+import '../../../../query_command.dart';
+
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/codegen/app/bsky/feed_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/video_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/unspecced_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/bookmark_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/notification_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/graph_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/actor_service.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/labeler_service.dart';
+final class GetBookmarksCommand extends QueryCommand {
+  GetBookmarksCommand() {
+    argParser
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor");
+  }
+
+  @override
+  final String name = "get-bookmarks";
+
+  @override
+  final String description =
+      r"Gets views of records bookmarked by the authenticated user. Requires authentication.";
+
+  @override
+  final String invocation =
+      "bsky app-bsky-bookmark get-bookmarks [limit] [cursor]";
+
+  @override
+  String get methodId => "app.bsky.bookmark.getBookmarks";
+
+  @override
+  Map<String, dynamic>? get parameters => {
+    "limit": argResults!["limit"],
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+  };
+}
