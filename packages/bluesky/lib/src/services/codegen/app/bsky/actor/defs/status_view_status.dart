@@ -76,7 +76,7 @@ final class StatusViewStatusConverter
 
 enum KnownStatusViewStatus implements Serializable {
   @JsonValue('app.bsky.actor.status#live')
-  live('app.bsky.actor.status#live');
+  appBskyActorStatuslive('app.bsky.actor.status#live');
 
   @override
   final String value;

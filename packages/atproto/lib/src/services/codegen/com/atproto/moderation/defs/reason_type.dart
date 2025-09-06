@@ -87,127 +87,183 @@ enum KnownReasonType implements Serializable {
   @JsonValue('com.atproto.moderation.defs#reasonAppeal')
   reasonAppeal('com.atproto.moderation.defs#reasonAppeal'),
   @JsonValue('tools.ozone.report.defs#reasonAppeal')
-  reasonAppeal('tools.ozone.report.defs#reasonAppeal'),
+  toolsOzoneReportDefsreasonAppeal('tools.ozone.report.defs#reasonAppeal'),
   @JsonValue('tools.ozone.report.defs#reasonViolenceAnimalWelfare')
-  reasonViolenceAnimalWelfare(
+  toolsOzoneReportDefsreasonViolenceAnimalWelfare(
     'tools.ozone.report.defs#reasonViolenceAnimalWelfare',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceThreats')
-  reasonViolenceThreats('tools.ozone.report.defs#reasonViolenceThreats'),
+  toolsOzoneReportDefsreasonViolenceThreats(
+    'tools.ozone.report.defs#reasonViolenceThreats',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceGraphicContent')
-  reasonViolenceGraphicContent(
+  toolsOzoneReportDefsreasonViolenceGraphicContent(
     'tools.ozone.report.defs#reasonViolenceGraphicContent',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceSelfHarm')
-  reasonViolenceSelfHarm('tools.ozone.report.defs#reasonViolenceSelfHarm'),
+  toolsOzoneReportDefsreasonViolenceSelfHarm(
+    'tools.ozone.report.defs#reasonViolenceSelfHarm',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceGlorification')
-  reasonViolenceGlorification(
+  toolsOzoneReportDefsreasonViolenceGlorification(
     'tools.ozone.report.defs#reasonViolenceGlorification',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceExtremistContent')
-  reasonViolenceExtremistContent(
+  toolsOzoneReportDefsreasonViolenceExtremistContent(
     'tools.ozone.report.defs#reasonViolenceExtremistContent',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceTrafficking')
-  reasonViolenceTrafficking(
+  toolsOzoneReportDefsreasonViolenceTrafficking(
     'tools.ozone.report.defs#reasonViolenceTrafficking',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceOther')
-  reasonViolenceOther('tools.ozone.report.defs#reasonViolenceOther'),
+  toolsOzoneReportDefsreasonViolenceOther(
+    'tools.ozone.report.defs#reasonViolenceOther',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualAbuseContent')
-  reasonSexualAbuseContent('tools.ozone.report.defs#reasonSexualAbuseContent'),
+  toolsOzoneReportDefsreasonSexualAbuseContent(
+    'tools.ozone.report.defs#reasonSexualAbuseContent',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualNCII')
-  reasonSexualNCII('tools.ozone.report.defs#reasonSexualNCII'),
+  toolsOzoneReportDefsreasonSexualNCII(
+    'tools.ozone.report.defs#reasonSexualNCII',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualSextortion')
-  reasonSexualSextortion('tools.ozone.report.defs#reasonSexualSextortion'),
+  toolsOzoneReportDefsreasonSexualSextortion(
+    'tools.ozone.report.defs#reasonSexualSextortion',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualDeepfake')
-  reasonSexualDeepfake('tools.ozone.report.defs#reasonSexualDeepfake'),
+  toolsOzoneReportDefsreasonSexualDeepfake(
+    'tools.ozone.report.defs#reasonSexualDeepfake',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualAnimal')
-  reasonSexualAnimal('tools.ozone.report.defs#reasonSexualAnimal'),
+  toolsOzoneReportDefsreasonSexualAnimal(
+    'tools.ozone.report.defs#reasonSexualAnimal',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualUnlabeled')
-  reasonSexualUnlabeled('tools.ozone.report.defs#reasonSexualUnlabeled'),
+  toolsOzoneReportDefsreasonSexualUnlabeled(
+    'tools.ozone.report.defs#reasonSexualUnlabeled',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualOther')
-  reasonSexualOther('tools.ozone.report.defs#reasonSexualOther'),
+  toolsOzoneReportDefsreasonSexualOther(
+    'tools.ozone.report.defs#reasonSexualOther',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyCSAM')
-  reasonChildSafetyCSAM('tools.ozone.report.defs#reasonChildSafetyCSAM'),
+  toolsOzoneReportDefsreasonChildSafetyCSAM(
+    'tools.ozone.report.defs#reasonChildSafetyCSAM',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyGroom')
-  reasonChildSafetyGroom('tools.ozone.report.defs#reasonChildSafetyGroom'),
+  toolsOzoneReportDefsreasonChildSafetyGroom(
+    'tools.ozone.report.defs#reasonChildSafetyGroom',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyMinorPrivacy')
-  reasonChildSafetyMinorPrivacy(
+  toolsOzoneReportDefsreasonChildSafetyMinorPrivacy(
     'tools.ozone.report.defs#reasonChildSafetyMinorPrivacy',
   ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyEndangerment')
-  reasonChildSafetyEndangerment(
+  toolsOzoneReportDefsreasonChildSafetyEndangerment(
     'tools.ozone.report.defs#reasonChildSafetyEndangerment',
   ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyHarassment')
-  reasonChildSafetyHarassment(
+  toolsOzoneReportDefsreasonChildSafetyHarassment(
     'tools.ozone.report.defs#reasonChildSafetyHarassment',
   ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyPromotion')
-  reasonChildSafetyPromotion(
+  toolsOzoneReportDefsreasonChildSafetyPromotion(
     'tools.ozone.report.defs#reasonChildSafetyPromotion',
   ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyOther')
-  reasonChildSafetyOther('tools.ozone.report.defs#reasonChildSafetyOther'),
+  toolsOzoneReportDefsreasonChildSafetyOther(
+    'tools.ozone.report.defs#reasonChildSafetyOther',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonHarassmentTroll')
-  reasonHarassmentTroll('tools.ozone.report.defs#reasonHarassmentTroll'),
+  toolsOzoneReportDefsreasonHarassmentTroll(
+    'tools.ozone.report.defs#reasonHarassmentTroll',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonHarassmentTargeted')
-  reasonHarassmentTargeted('tools.ozone.report.defs#reasonHarassmentTargeted'),
+  toolsOzoneReportDefsreasonHarassmentTargeted(
+    'tools.ozone.report.defs#reasonHarassmentTargeted',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonHarassmentHateSpeech')
-  reasonHarassmentHateSpeech(
+  toolsOzoneReportDefsreasonHarassmentHateSpeech(
     'tools.ozone.report.defs#reasonHarassmentHateSpeech',
   ),
   @JsonValue('tools.ozone.report.defs#reasonHarassmentDoxxing')
-  reasonHarassmentDoxxing('tools.ozone.report.defs#reasonHarassmentDoxxing'),
+  toolsOzoneReportDefsreasonHarassmentDoxxing(
+    'tools.ozone.report.defs#reasonHarassmentDoxxing',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonHarassmentOther')
-  reasonHarassmentOther('tools.ozone.report.defs#reasonHarassmentOther'),
+  toolsOzoneReportDefsreasonHarassmentOther(
+    'tools.ozone.report.defs#reasonHarassmentOther',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingBot')
-  reasonMisleadingBot('tools.ozone.report.defs#reasonMisleadingBot'),
+  toolsOzoneReportDefsreasonMisleadingBot(
+    'tools.ozone.report.defs#reasonMisleadingBot',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingImpersonation')
-  reasonMisleadingImpersonation(
+  toolsOzoneReportDefsreasonMisleadingImpersonation(
     'tools.ozone.report.defs#reasonMisleadingImpersonation',
   ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingSpam')
-  reasonMisleadingSpam('tools.ozone.report.defs#reasonMisleadingSpam'),
+  toolsOzoneReportDefsreasonMisleadingSpam(
+    'tools.ozone.report.defs#reasonMisleadingSpam',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingScam')
-  reasonMisleadingScam('tools.ozone.report.defs#reasonMisleadingScam'),
+  toolsOzoneReportDefsreasonMisleadingScam(
+    'tools.ozone.report.defs#reasonMisleadingScam',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingSyntheticContent')
-  reasonMisleadingSyntheticContent(
+  toolsOzoneReportDefsreasonMisleadingSyntheticContent(
     'tools.ozone.report.defs#reasonMisleadingSyntheticContent',
   ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingMisinformation')
-  reasonMisleadingMisinformation(
+  toolsOzoneReportDefsreasonMisleadingMisinformation(
     'tools.ozone.report.defs#reasonMisleadingMisinformation',
   ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingOther')
-  reasonMisleadingOther('tools.ozone.report.defs#reasonMisleadingOther'),
+  toolsOzoneReportDefsreasonMisleadingOther(
+    'tools.ozone.report.defs#reasonMisleadingOther',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonRuleSiteSecurity')
-  reasonRuleSiteSecurity('tools.ozone.report.defs#reasonRuleSiteSecurity'),
+  toolsOzoneReportDefsreasonRuleSiteSecurity(
+    'tools.ozone.report.defs#reasonRuleSiteSecurity',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonRuleStolenContent')
-  reasonRuleStolenContent('tools.ozone.report.defs#reasonRuleStolenContent'),
+  toolsOzoneReportDefsreasonRuleStolenContent(
+    'tools.ozone.report.defs#reasonRuleStolenContent',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonRuleProhibitedSales')
-  reasonRuleProhibitedSales(
+  toolsOzoneReportDefsreasonRuleProhibitedSales(
     'tools.ozone.report.defs#reasonRuleProhibitedSales',
   ),
   @JsonValue('tools.ozone.report.defs#reasonRuleBanEvasion')
-  reasonRuleBanEvasion('tools.ozone.report.defs#reasonRuleBanEvasion'),
+  toolsOzoneReportDefsreasonRuleBanEvasion(
+    'tools.ozone.report.defs#reasonRuleBanEvasion',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonRuleOther')
-  reasonRuleOther('tools.ozone.report.defs#reasonRuleOther'),
+  toolsOzoneReportDefsreasonRuleOther(
+    'tools.ozone.report.defs#reasonRuleOther',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonCivicElectoralProcess')
-  reasonCivicElectoralProcess(
+  toolsOzoneReportDefsreasonCivicElectoralProcess(
     'tools.ozone.report.defs#reasonCivicElectoralProcess',
   ),
   @JsonValue('tools.ozone.report.defs#reasonCivicDisclosure')
-  reasonCivicDisclosure('tools.ozone.report.defs#reasonCivicDisclosure'),
+  toolsOzoneReportDefsreasonCivicDisclosure(
+    'tools.ozone.report.defs#reasonCivicDisclosure',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonCivicInterference')
-  reasonCivicInterference('tools.ozone.report.defs#reasonCivicInterference'),
+  toolsOzoneReportDefsreasonCivicInterference(
+    'tools.ozone.report.defs#reasonCivicInterference',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonCivicMisinformation')
-  reasonCivicMisinformation(
+  toolsOzoneReportDefsreasonCivicMisinformation(
     'tools.ozone.report.defs#reasonCivicMisinformation',
   ),
   @JsonValue('tools.ozone.report.defs#reasonCivicImpersonation')
-  reasonCivicImpersonation('tools.ozone.report.defs#reasonCivicImpersonation');
+  toolsOzoneReportDefsreasonCivicImpersonation(
+    'tools.ozone.report.defs#reasonCivicImpersonation',
+  );
 
   @override
   final String value;

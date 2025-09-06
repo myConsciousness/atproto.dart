@@ -76,13 +76,13 @@ final class OptionManagerRoleConverter
 
 enum KnownOptionManagerRole implements Serializable {
   @JsonValue('tools.ozone.team.defs#roleModerator')
-  roleModerator('tools.ozone.team.defs#roleModerator'),
+  toolsOzoneTeamDefsroleModerator('tools.ozone.team.defs#roleModerator'),
   @JsonValue('tools.ozone.team.defs#roleTriage')
-  roleTriage('tools.ozone.team.defs#roleTriage'),
+  toolsOzoneTeamDefsroleTriage('tools.ozone.team.defs#roleTriage'),
   @JsonValue('tools.ozone.team.defs#roleAdmin')
-  roleAdmin('tools.ozone.team.defs#roleAdmin'),
+  toolsOzoneTeamDefsroleAdmin('tools.ozone.team.defs#roleAdmin'),
   @JsonValue('tools.ozone.team.defs#roleVerifier')
-  roleVerifier('tools.ozone.team.defs#roleVerifier');
+  toolsOzoneTeamDefsroleVerifier('tools.ozone.team.defs#roleVerifier');
 
   @override
   final String value;

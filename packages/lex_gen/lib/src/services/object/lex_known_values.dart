@@ -56,7 +56,9 @@ final class LexKnownValues extends LexType {
         .map((e) {
           final buffer = StringBuffer();
           buffer.writeln("@JsonValue('$e')");
-          buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
+          buffer.write(
+            "${rule.getLexKnownValuesElementName(lexiconId, e)}('$e'),",
+          );
           return buffer.toString();
         })
         .join('\n');
