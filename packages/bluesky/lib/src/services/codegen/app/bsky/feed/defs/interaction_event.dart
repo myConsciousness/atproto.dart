@@ -76,29 +76,31 @@ final class InteractionEventConverter
 
 enum KnownInteractionEvent implements Serializable {
   @JsonValue('app.bsky.feed.defs#requestLess')
-  requestLess('app.bsky.feed.defs#requestLess'),
+  appBskyFeedDefsrequestLess('app.bsky.feed.defs#requestLess'),
   @JsonValue('app.bsky.feed.defs#requestMore')
-  requestMore('app.bsky.feed.defs#requestMore'),
+  appBskyFeedDefsrequestMore('app.bsky.feed.defs#requestMore'),
   @JsonValue('app.bsky.feed.defs#clickthroughItem')
-  clickthroughItem('app.bsky.feed.defs#clickthroughItem'),
+  appBskyFeedDefsclickthroughItem('app.bsky.feed.defs#clickthroughItem'),
   @JsonValue('app.bsky.feed.defs#clickthroughAuthor')
-  clickthroughAuthor('app.bsky.feed.defs#clickthroughAuthor'),
+  appBskyFeedDefsclickthroughAuthor('app.bsky.feed.defs#clickthroughAuthor'),
   @JsonValue('app.bsky.feed.defs#clickthroughReposter')
-  clickthroughReposter('app.bsky.feed.defs#clickthroughReposter'),
+  appBskyFeedDefsclickthroughReposter(
+    'app.bsky.feed.defs#clickthroughReposter',
+  ),
   @JsonValue('app.bsky.feed.defs#clickthroughEmbed')
-  clickthroughEmbed('app.bsky.feed.defs#clickthroughEmbed'),
+  appBskyFeedDefsclickthroughEmbed('app.bsky.feed.defs#clickthroughEmbed'),
   @JsonValue('app.bsky.feed.defs#interactionSeen')
-  interactionSeen('app.bsky.feed.defs#interactionSeen'),
+  appBskyFeedDefsinteractionSeen('app.bsky.feed.defs#interactionSeen'),
   @JsonValue('app.bsky.feed.defs#interactionLike')
-  interactionLike('app.bsky.feed.defs#interactionLike'),
+  appBskyFeedDefsinteractionLike('app.bsky.feed.defs#interactionLike'),
   @JsonValue('app.bsky.feed.defs#interactionRepost')
-  interactionRepost('app.bsky.feed.defs#interactionRepost'),
+  appBskyFeedDefsinteractionRepost('app.bsky.feed.defs#interactionRepost'),
   @JsonValue('app.bsky.feed.defs#interactionReply')
-  interactionReply('app.bsky.feed.defs#interactionReply'),
+  appBskyFeedDefsinteractionReply('app.bsky.feed.defs#interactionReply'),
   @JsonValue('app.bsky.feed.defs#interactionQuote')
-  interactionQuote('app.bsky.feed.defs#interactionQuote'),
+  appBskyFeedDefsinteractionQuote('app.bsky.feed.defs#interactionQuote'),
   @JsonValue('app.bsky.feed.defs#interactionShare')
-  interactionShare('app.bsky.feed.defs#interactionShare');
+  appBskyFeedDefsinteractionShare('app.bsky.feed.defs#interactionShare');
 
   @override
   final String value;

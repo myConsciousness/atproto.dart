@@ -351,10 +351,7 @@ String getLexObjectAbsolutePathForService(
   return '${_getHomeDirForExport(lexiconId)}/$root/$fileName.dart';
 }
 
-String getLexKnownValuesElementName(
-  final String lexiconId,
-  final String value,
-) {
+String getLexKnownValuesElementName(final String value) {
   final parts = value.split('#');
   String val = parts.last;
 
@@ -366,12 +363,10 @@ String getLexKnownValuesElementName(
   }
 
   if (value.contains('#')) {
-    return parts.first == lexiconId
-        ? toFirstLowerCase(val)
-        : toFirstLowerCase(
-                parts.first.split('.').map(toFirstUpperCase).join(),
-              ) +
-              val;
+    return toFirstLowerCase(
+          parts.first.split('.').map(toFirstUpperCase).join(),
+        ) +
+        val;
   }
 
   return toFirstLowerCase(val);

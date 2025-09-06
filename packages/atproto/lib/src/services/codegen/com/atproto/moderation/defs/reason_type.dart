@@ -73,19 +73,29 @@ final class ReasonTypeConverter extends JsonConverter<ReasonType, String> {
 
 enum KnownReasonType implements Serializable {
   @JsonValue('com.atproto.moderation.defs#reasonSpam')
-  reasonSpam('com.atproto.moderation.defs#reasonSpam'),
+  comAtprotoModerationDefsreasonSpam('com.atproto.moderation.defs#reasonSpam'),
   @JsonValue('com.atproto.moderation.defs#reasonViolation')
-  reasonViolation('com.atproto.moderation.defs#reasonViolation'),
+  comAtprotoModerationDefsreasonViolation(
+    'com.atproto.moderation.defs#reasonViolation',
+  ),
   @JsonValue('com.atproto.moderation.defs#reasonMisleading')
-  reasonMisleading('com.atproto.moderation.defs#reasonMisleading'),
+  comAtprotoModerationDefsreasonMisleading(
+    'com.atproto.moderation.defs#reasonMisleading',
+  ),
   @JsonValue('com.atproto.moderation.defs#reasonSexual')
-  reasonSexual('com.atproto.moderation.defs#reasonSexual'),
+  comAtprotoModerationDefsreasonSexual(
+    'com.atproto.moderation.defs#reasonSexual',
+  ),
   @JsonValue('com.atproto.moderation.defs#reasonRude')
-  reasonRude('com.atproto.moderation.defs#reasonRude'),
+  comAtprotoModerationDefsreasonRude('com.atproto.moderation.defs#reasonRude'),
   @JsonValue('com.atproto.moderation.defs#reasonOther')
-  reasonOther('com.atproto.moderation.defs#reasonOther'),
+  comAtprotoModerationDefsreasonOther(
+    'com.atproto.moderation.defs#reasonOther',
+  ),
   @JsonValue('com.atproto.moderation.defs#reasonAppeal')
-  reasonAppeal('com.atproto.moderation.defs#reasonAppeal'),
+  comAtprotoModerationDefsreasonAppeal(
+    'com.atproto.moderation.defs#reasonAppeal',
+  ),
   @JsonValue('tools.ozone.report.defs#reasonAppeal')
   toolsOzoneReportDefsreasonAppeal('tools.ozone.report.defs#reasonAppeal'),
   @JsonValue('tools.ozone.report.defs#reasonViolenceAnimalWelfare')
