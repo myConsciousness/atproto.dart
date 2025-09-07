@@ -1,5 +1,15 @@
 # Release Note
 
+## v1.0.9
+
+- **BREAKING CHANGE**: Enhanced lexicon known values naming with proper camelCase convention
+  - Enum values now use consistent namespaced naming (e.g., `reasonAppeal` → `toolsOzoneReportDefsReasonAppeal`)
+  - Improved code generation for lexicon fragments and full URIs
+  - Updated test cases to match new enum naming convention
+- feat: Added support for lexicon fragment-only values (starting with '#')
+- feat: Enhanced lexicon generation with context-aware naming based on lexicon ID
+- fix: Improved enum naming consistency across all generated lexicon types
+
 ## v1.0.8
 
 - chore: Sync Lexicon Data. ([#2105](https://github.com/myConsciousness/atproto.dart/pull/2105), [#2107](https://github.com/myConsciousness/atproto.dart/pull/2107))
