@@ -74,11 +74,11 @@ final class ListPurposeConverter extends JsonConverter<ListPurpose, String> {
 
 enum KnownListPurpose implements Serializable {
   @JsonValue('app.bsky.graph.defs#modlist')
-  appBskyGraphDefsmodlist('app.bsky.graph.defs#modlist'),
+  appBskyGraphDefsModlist('app.bsky.graph.defs#modlist'),
   @JsonValue('app.bsky.graph.defs#curatelist')
-  appBskyGraphDefscuratelist('app.bsky.graph.defs#curatelist'),
+  appBskyGraphDefsCuratelist('app.bsky.graph.defs#curatelist'),
   @JsonValue('app.bsky.graph.defs#referencelist')
-  appBskyGraphDefsreferencelist('app.bsky.graph.defs#referencelist');
+  appBskyGraphDefsReferencelist('app.bsky.graph.defs#referencelist');
 
   @override
   final String value;
