@@ -79,13 +79,13 @@ final class SettingUpsertOptionManagerRoleConverter
 
 enum KnownSettingUpsertOptionManagerRole implements Serializable {
   @JsonValue('tools.ozone.team.defs#roleModerator')
-  roleModerator('tools.ozone.team.defs#roleModerator'),
+  toolsOzoneTeamDefsRoleModerator('tools.ozone.team.defs#roleModerator'),
   @JsonValue('tools.ozone.team.defs#roleTriage')
-  roleTriage('tools.ozone.team.defs#roleTriage'),
+  toolsOzoneTeamDefsRoleTriage('tools.ozone.team.defs#roleTriage'),
   @JsonValue('tools.ozone.team.defs#roleVerifier')
-  roleVerifier('tools.ozone.team.defs#roleVerifier'),
+  toolsOzoneTeamDefsRoleVerifier('tools.ozone.team.defs#roleVerifier'),
   @JsonValue('tools.ozone.team.defs#roleAdmin')
-  roleAdmin('tools.ozone.team.defs#roleAdmin');
+  toolsOzoneTeamDefsRoleAdmin('tools.ozone.team.defs#roleAdmin');
 
   @override
   final String value;

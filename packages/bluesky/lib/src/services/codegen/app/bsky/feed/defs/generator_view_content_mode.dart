@@ -76,9 +76,11 @@ final class GeneratorViewContentModeConverter
 
 enum KnownGeneratorViewContentMode implements Serializable {
   @JsonValue('app.bsky.feed.defs#contentModeUnspecified')
-  contentModeUnspecified('app.bsky.feed.defs#contentModeUnspecified'),
+  appBskyFeedDefsContentModeUnspecified(
+    'app.bsky.feed.defs#contentModeUnspecified',
+  ),
   @JsonValue('app.bsky.feed.defs#contentModeVideo')
-  contentModeVideo('app.bsky.feed.defs#contentModeVideo');
+  appBskyFeedDefsContentModeVideo('app.bsky.feed.defs#contentModeVideo');
 
   @override
   final String value;

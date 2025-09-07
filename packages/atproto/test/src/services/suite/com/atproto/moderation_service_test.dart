@@ -10,7 +10,7 @@ void main() {
   testModeration<ModerationCreateReportOutput>(
     (m, s) => s.createReport(
       reasonType: const ReasonType.knownValue(
-        data: KnownReasonType.reasonAppeal,
+        data: KnownReasonType.toolsOzoneReportDefsReasonAppeal,
       ),
       subject: UModerationCreateReportSubject.repoRef(
         data: RepoRef(did: m.did),

@@ -78,69 +78,117 @@ final class TimelineItemSummaryEventTypeConverter
 
 enum KnownTimelineItemSummaryEventType implements Serializable {
   @JsonValue('tools.ozone.moderation.defs#modEventTakedown')
-  modEventTakedown('tools.ozone.moderation.defs#modEventTakedown'),
+  toolsOzoneModerationDefsModEventTakedown(
+    'tools.ozone.moderation.defs#modEventTakedown',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventReverseTakedown')
-  modEventReverseTakedown(
+  toolsOzoneModerationDefsModEventReverseTakedown(
     'tools.ozone.moderation.defs#modEventReverseTakedown',
   ),
   @JsonValue('tools.ozone.moderation.defs#modEventComment')
-  modEventComment('tools.ozone.moderation.defs#modEventComment'),
+  toolsOzoneModerationDefsModEventComment(
+    'tools.ozone.moderation.defs#modEventComment',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventReport')
-  modEventReport('tools.ozone.moderation.defs#modEventReport'),
+  toolsOzoneModerationDefsModEventReport(
+    'tools.ozone.moderation.defs#modEventReport',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventLabel')
-  modEventLabel('tools.ozone.moderation.defs#modEventLabel'),
+  toolsOzoneModerationDefsModEventLabel(
+    'tools.ozone.moderation.defs#modEventLabel',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventAcknowledge')
-  modEventAcknowledge('tools.ozone.moderation.defs#modEventAcknowledge'),
+  toolsOzoneModerationDefsModEventAcknowledge(
+    'tools.ozone.moderation.defs#modEventAcknowledge',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventEscalate')
-  modEventEscalate('tools.ozone.moderation.defs#modEventEscalate'),
+  toolsOzoneModerationDefsModEventEscalate(
+    'tools.ozone.moderation.defs#modEventEscalate',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventMute')
-  modEventMute('tools.ozone.moderation.defs#modEventMute'),
+  toolsOzoneModerationDefsModEventMute(
+    'tools.ozone.moderation.defs#modEventMute',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventUnmute')
-  modEventUnmute('tools.ozone.moderation.defs#modEventUnmute'),
+  toolsOzoneModerationDefsModEventUnmute(
+    'tools.ozone.moderation.defs#modEventUnmute',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventMuteReporter')
-  modEventMuteReporter('tools.ozone.moderation.defs#modEventMuteReporter'),
+  toolsOzoneModerationDefsModEventMuteReporter(
+    'tools.ozone.moderation.defs#modEventMuteReporter',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventUnmuteReporter')
-  modEventUnmuteReporter('tools.ozone.moderation.defs#modEventUnmuteReporter'),
+  toolsOzoneModerationDefsModEventUnmuteReporter(
+    'tools.ozone.moderation.defs#modEventUnmuteReporter',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventEmail')
-  modEventEmail('tools.ozone.moderation.defs#modEventEmail'),
+  toolsOzoneModerationDefsModEventEmail(
+    'tools.ozone.moderation.defs#modEventEmail',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventResolveAppeal')
-  modEventResolveAppeal('tools.ozone.moderation.defs#modEventResolveAppeal'),
+  toolsOzoneModerationDefsModEventResolveAppeal(
+    'tools.ozone.moderation.defs#modEventResolveAppeal',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventDivert')
-  modEventDivert('tools.ozone.moderation.defs#modEventDivert'),
+  toolsOzoneModerationDefsModEventDivert(
+    'tools.ozone.moderation.defs#modEventDivert',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventTag')
-  modEventTag('tools.ozone.moderation.defs#modEventTag'),
+  toolsOzoneModerationDefsModEventTag(
+    'tools.ozone.moderation.defs#modEventTag',
+  ),
   @JsonValue('tools.ozone.moderation.defs#accountEvent')
-  accountEvent('tools.ozone.moderation.defs#accountEvent'),
+  toolsOzoneModerationDefsAccountEvent(
+    'tools.ozone.moderation.defs#accountEvent',
+  ),
   @JsonValue('tools.ozone.moderation.defs#identityEvent')
-  identityEvent('tools.ozone.moderation.defs#identityEvent'),
+  toolsOzoneModerationDefsIdentityEvent(
+    'tools.ozone.moderation.defs#identityEvent',
+  ),
   @JsonValue('tools.ozone.moderation.defs#recordEvent')
-  recordEvent('tools.ozone.moderation.defs#recordEvent'),
+  toolsOzoneModerationDefsRecordEvent(
+    'tools.ozone.moderation.defs#recordEvent',
+  ),
   @JsonValue('tools.ozone.moderation.defs#modEventPriorityScore')
-  modEventPriorityScore('tools.ozone.moderation.defs#modEventPriorityScore'),
+  toolsOzoneModerationDefsModEventPriorityScore(
+    'tools.ozone.moderation.defs#modEventPriorityScore',
+  ),
   @JsonValue('tools.ozone.moderation.defs#ageAssuranceEvent')
-  ageAssuranceEvent('tools.ozone.moderation.defs#ageAssuranceEvent'),
+  toolsOzoneModerationDefsAgeAssuranceEvent(
+    'tools.ozone.moderation.defs#ageAssuranceEvent',
+  ),
   @JsonValue('tools.ozone.moderation.defs#ageAssuranceOverrideEvent')
-  ageAssuranceOverrideEvent(
+  toolsOzoneModerationDefsAgeAssuranceOverrideEvent(
     'tools.ozone.moderation.defs#ageAssuranceOverrideEvent',
   ),
   @JsonValue('tools.ozone.moderation.defs#timelineEventPlcCreate')
-  timelineEventPlcCreate('tools.ozone.moderation.defs#timelineEventPlcCreate'),
+  toolsOzoneModerationDefsTimelineEventPlcCreate(
+    'tools.ozone.moderation.defs#timelineEventPlcCreate',
+  ),
   @JsonValue('tools.ozone.moderation.defs#timelineEventPlcOperation')
-  timelineEventPlcOperation(
+  toolsOzoneModerationDefsTimelineEventPlcOperation(
     'tools.ozone.moderation.defs#timelineEventPlcOperation',
   ),
   @JsonValue('tools.ozone.moderation.defs#timelineEventPlcTombstone')
-  timelineEventPlcTombstone(
+  toolsOzoneModerationDefsTimelineEventPlcTombstone(
     'tools.ozone.moderation.defs#timelineEventPlcTombstone',
   ),
   @JsonValue('tools.ozone.hosting.getAccountHistory#accountCreated')
-  accountCreated('tools.ozone.hosting.getAccountHistory#accountCreated'),
+  toolsOzoneHostingGetAccountHistoryAccountCreated(
+    'tools.ozone.hosting.getAccountHistory#accountCreated',
+  ),
   @JsonValue('tools.ozone.hosting.getAccountHistory#emailConfirmed')
-  emailConfirmed('tools.ozone.hosting.getAccountHistory#emailConfirmed'),
+  toolsOzoneHostingGetAccountHistoryEmailConfirmed(
+    'tools.ozone.hosting.getAccountHistory#emailConfirmed',
+  ),
   @JsonValue('tools.ozone.hosting.getAccountHistory#passwordUpdated')
-  passwordUpdated('tools.ozone.hosting.getAccountHistory#passwordUpdated'),
+  toolsOzoneHostingGetAccountHistoryPasswordUpdated(
+    'tools.ozone.hosting.getAccountHistory#passwordUpdated',
+  ),
   @JsonValue('tools.ozone.hosting.getAccountHistory#handleUpdated')
-  handleUpdated('tools.ozone.hosting.getAccountHistory#handleUpdated');
+  toolsOzoneHostingGetAccountHistoryHandleUpdated(
+    'tools.ozone.hosting.getAccountHistory#handleUpdated',
+  );
 
   @override
   final String value;

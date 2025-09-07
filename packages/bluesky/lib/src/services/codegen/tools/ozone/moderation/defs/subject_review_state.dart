@@ -75,14 +75,18 @@ final class SubjectReviewStateConverter
 }
 
 enum KnownSubjectReviewState implements Serializable {
-  @JsonValue('#reviewOpen')
-  reviewOpen('#reviewOpen'),
-  @JsonValue('#reviewEscalated')
-  reviewEscalated('#reviewEscalated'),
-  @JsonValue('#reviewClosed')
-  reviewClosed('#reviewClosed'),
-  @JsonValue('#reviewNone')
-  reviewNone('#reviewNone');
+  @JsonValue('tools.ozone.moderation.defs#reviewOpen')
+  toolsOzoneModerationDefsReviewOpen('tools.ozone.moderation.defs#reviewOpen'),
+  @JsonValue('tools.ozone.moderation.defs#reviewEscalated')
+  toolsOzoneModerationDefsReviewEscalated(
+    'tools.ozone.moderation.defs#reviewEscalated',
+  ),
+  @JsonValue('tools.ozone.moderation.defs#reviewClosed')
+  toolsOzoneModerationDefsReviewClosed(
+    'tools.ozone.moderation.defs#reviewClosed',
+  ),
+  @JsonValue('tools.ozone.moderation.defs#reviewNone')
+  toolsOzoneModerationDefsReviewNone('tools.ozone.moderation.defs#reviewNone');
 
   @override
   final String value;
