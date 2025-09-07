@@ -16,7 +16,7 @@ import 'utils.dart' as utils;
 class GenSupportedApiMatrixScript extends BaseScript {
   static const _tableHeader = '| Method | Docs | Paging (cursor) |';
   static const _tableDivider = '| --- | --- | :---: |';
-  
+
   GenSupportedApiMatrixScript({
     required super.logger,
     required super.progress,
@@ -32,22 +32,20 @@ class GenSupportedApiMatrixScript extends BaseScript {
   @override
   Future<void> execute(List<String> args) async {
     logger.info('Loading lexicon documents...');
-    
+
     // Filter lexicon documents efficiently using parallel processing
     final filteredDocs = await _filterLexiconDocs();
     logger.info('Found ${filteredDocs.length} API endpoints');
-    
+
     // Group services efficiently
     progress.startOperation('Grouping services', 1);
     final services = _groupByServiceOptimized(filteredDocs);
     progress.updateProgress(1);
-    progress.completeOperation(stats: {
-      'Services grouped': services.length,
-    });
-    
+    progress.completeOperation(stats: {'Services grouped': services.length});
+
     // Generate matrix with progress reporting
     final matrix = await _generateMatrix(services);
-    
+
     // Write output file
     progress.startOperation('Writing output file', 1);
     try {
@@ -69,23 +67,25 @@ class GenSupportedApiMatrixScript extends BaseScript {
   Future<List<LexiconDoc>> _filterLexiconDocs() async {
     final allDocs = utils.lexiconDocs;
     progress.startOperation('Filtering lexicon documents', allDocs.length);
-    
+
     final filteredDocs = <LexiconDoc>[];
-    
+
     for (int i = 0; i < allDocs.length; i++) {
       final doc = allDocs[i];
       progress.updateProgress(i + 1, currentItem: doc.id.toString());
-      
+
       if (_hasApiEndpoint(doc)) {
         filteredDocs.add(doc);
       }
     }
-    
-    progress.completeOperation(stats: {
-      'Total documents': allDocs.length,
-      'API endpoints found': filteredDocs.length,
-    });
-    
+
+    progress.completeOperation(
+      stats: {
+        'Total documents': allDocs.length,
+        'API endpoints found': filteredDocs.length,
+      },
+    );
+
     return filteredDocs;
   }
 
@@ -107,15 +107,15 @@ class GenSupportedApiMatrixScript extends BaseScript {
     List<LexiconDoc> lexiconDocs,
   ) {
     final grouped = <String, List<LexiconDoc>>{};
-    
+
     for (final lexiconDoc in lexiconDocs) {
       final segments = lexiconDoc.id.toString().split('.');
       final authority = segments.sublist(0, 3).join('.');
-      
+
       // Use putIfAbsent for better performance
       grouped.putIfAbsent(authority, () => <LexiconDoc>[]).add(lexiconDoc);
     }
-    
+
     return grouped;
   }
 
@@ -129,33 +129,37 @@ class GenSupportedApiMatrixScript extends BaseScript {
       ..writeln('# Supported API');
 
     final packageConfigs = <String, List<Map<String, List<LexiconDoc>>>>{
-      'atproto': [_filterServicesByAuthority(services, 'com.atproto')],
+      'atproto': [
+        _filterServicesByAuthority(services, 'com.atproto'),
+        _filterServicesByAuthority(services, 'tools.ozone'),
+      ],
       'bluesky': [
         _filterServicesByAuthority(services, 'app.bsky'),
         _filterServicesByAuthority(services, 'chat.bsky'),
-        _filterServicesByAuthority(services, 'tools.ozone'),
       ],
     };
 
     final totalPackages = packageConfigs.length;
     progress.startOperation('Generating package documentation', totalPackages);
-    
+
     int packageIndex = 0;
     for (final entry in packageConfigs.entries) {
       final packageName = entry.key;
       final packageServices = entry.value;
-      
+
       progress.updateProgress(packageIndex + 1, currentItem: packageName);
-      
+
       await _generatePackageSection(matrix, packageName, packageServices);
       packageIndex++;
     }
-    
-    progress.completeOperation(stats: {
-      'Packages processed': totalPackages,
-      'Matrix size (chars)': matrix.length,
-    });
-    
+
+    progress.completeOperation(
+      stats: {
+        'Packages processed': totalPackages,
+        'Matrix size (chars)': matrix.length,
+      },
+    );
+
     return matrix.toString();
   }
 
@@ -185,7 +189,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
       for (final entry in serviceMap.entries) {
         final authority = entry.key;
         final lexiconDocs = entry.value;
-        
+
         if (lexiconDocs.isNotEmpty) {
           _generateServiceSection(matrix, authority, packageName, lexiconDocs);
         }
@@ -207,7 +211,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
       ..write(')](https://pub.dev/packages/')
       ..write(packageName)
       ..writeln('/)');
-    
+
     return buffer.toString();
   }
 
@@ -232,7 +236,13 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
       ..sort((a, b) => a.id.toString().compareTo(b.id.toString()));
 
     for (final lexiconDoc in sortedDocs) {
-      _generateMethodRow(matrix, lexiconDoc, authority, packageName, serviceName);
+      _generateMethodRow(
+        matrix,
+        lexiconDoc,
+        authority,
+        packageName,
+        serviceName,
+      );
     }
 
     matrix.writeln();
@@ -250,7 +260,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
     final method = lexiconId.split('.').last;
     final referencePath = lexiconId.replaceAll('.', '/');
     final pageable = _isPageable(lexiconDoc) ? '✅' : '❌';
-    
+
     matrix
       ..writeln()
       ..write('| **[')
@@ -270,13 +280,13 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
     String authorityPrefix,
   ) {
     final filtered = <String, List<LexiconDoc>>{};
-    
+
     for (final entry in services.entries) {
       if (entry.key.startsWith(authorityPrefix)) {
         filtered[entry.key] = entry.value;
       }
     }
-    
+
     return filtered;
   }
 
