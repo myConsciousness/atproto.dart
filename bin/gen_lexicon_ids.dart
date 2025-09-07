@@ -12,8 +12,8 @@ import 'utils.dart';
 
 /// Configuration for package lexicon mappings.
 const packages = {
-  'atproto': ['com.atproto'],
-  'bluesky': ['app.bsky', 'chat.bsky', 'tools.ozone'],
+  'atproto': ['com.atproto', 'tools.ozone'],
+  'bluesky': ['app.bsky', 'chat.bsky'],
 };
 
 const _idsFileName = 'ids.g.dart';

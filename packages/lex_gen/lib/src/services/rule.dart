@@ -147,11 +147,11 @@ String getLexObjectTypeId(final String lexiconId, final String defName) {
 }
 
 String getHomeDir(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
+  if (lexiconId.startsWith('com.atproto.') ||
+      lexiconId.startsWith('tools.ozone.')) {
     return 'packages/atproto/lib/src/services/codegen';
   } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
+      lexiconId.startsWith('chat.bsky.')) {
     return 'packages/bluesky/lib/src/services/codegen';
   }
 
@@ -159,11 +159,11 @@ String getHomeDir(final String lexiconId) {
 }
 
 String _getHomeDirForExport(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
+  if (lexiconId.startsWith('com.atproto.') ||
+      lexiconId.startsWith('tools.ozone.')) {
     return 'package:atproto/src/services/codegen';
   } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
+      lexiconId.startsWith('chat.bsky.')) {
     return 'package:bluesky/src/services/codegen';
   }
 
@@ -171,11 +171,11 @@ String _getHomeDirForExport(final String lexiconId) {
 }
 
 String _getHomeDirForService(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
+  if (lexiconId.startsWith('com.atproto.') ||
+      lexiconId.startsWith('tools.ozone.')) {
     return 'package:atproto';
   } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
+      lexiconId.startsWith('chat.bsky.')) {
     return 'package:bluesky';
   }
 
@@ -315,11 +315,11 @@ String getRecordTypeName(final String lexiconId) {
 }
 
 String getRootPackageName(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
+  if (lexiconId.startsWith('com.atproto.') ||
+      lexiconId.startsWith('tools.ozone.')) {
     return 'atproto';
   } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
+      lexiconId.startsWith('chat.bsky.')) {
     return 'bluesky';
   }
 

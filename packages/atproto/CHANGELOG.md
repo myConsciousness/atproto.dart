@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.0.10
+
+- feat: Enhanced lexicon code generation with improved type handling and formatting
+- feat: Added support for better lexicon fragment processing and URI generation
+- feat: Improved lexicon type generator with enhanced rule-based processing
+- fix: Enhanced lexicon package generation with better structure and organization
+- chore: Updated lexicon generation tools for better maintainability
+
 ## v1.0.9
 
 - **BREAKING CHANGE**: Enhanced lexicon known values naming with proper camelCase convention
