@@ -83,6 +83,7 @@ sidebar_position: 4
 | **[com.atproto.temp.addReservedHandle](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/addReservedHandle.html)** | [Reference](lexicons/com/atproto/temp/addReservedHandle.md) | ❌ |
 | **[com.atproto.temp.checkHandleAvailability](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/checkHandleAvailability.html)** | [Reference](lexicons/com/atproto/temp/checkHandleAvailability.md) | ❌ |
 | **[com.atproto.temp.checkSignupQueue](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/checkSignupQueue.html)** | [Reference](lexicons/com/atproto/temp/checkSignupQueue.md) | ❌ |
+| **[com.atproto.temp.dereferenceScope](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/dereferenceScope.html)** | [Reference](lexicons/com/atproto/temp/dereferenceScope.md) | ❌ |
 | **[com.atproto.temp.fetchLabels](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/fetchLabels.html)** | [Reference](lexicons/com/atproto/temp/fetchLabels.md) | ❌ |
 | **[com.atproto.temp.requestPhoneVerification](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/requestPhoneVerification.html)** | [Reference](lexicons/com/atproto/temp/requestPhoneVerification.md) | ❌ |
 | **[com.atproto.temp.revokeAccountCredentials](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/revokeAccountCredentials.html)** | [Reference](lexicons/com/atproto/temp/revokeAccountCredentials.md) | ❌ |

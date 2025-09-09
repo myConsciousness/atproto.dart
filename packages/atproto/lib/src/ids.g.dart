@@ -496,6 +496,9 @@ const comAtprotoTempCheckHandleAvailabilitySuggestion =
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = 'com.atproto.temp.checkSignupQueue';
 
+/// `com.atproto.temp.dereferenceScope`
+const comAtprotoTempDereferenceScope = 'com.atproto.temp.dereferenceScope';
+
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = 'com.atproto.temp.fetchLabels';
 

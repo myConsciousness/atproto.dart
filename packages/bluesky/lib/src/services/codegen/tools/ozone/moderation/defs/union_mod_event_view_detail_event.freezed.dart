@@ -55,7 +55,7 @@ extension UModEventViewDetailEventPatterns on UModEventViewDetailEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModEventViewDetailEventModEventTakedown value)?  modEventTakedown,TResult Function( UModEventViewDetailEventModEventReverseTakedown value)?  modEventReverseTakedown,TResult Function( UModEventViewDetailEventModEventComment value)?  modEventComment,TResult Function( UModEventViewDetailEventModEventReport value)?  modEventReport,TResult Function( UModEventViewDetailEventModEventLabel value)?  modEventLabel,TResult Function( UModEventViewDetailEventModEventAcknowledge value)?  modEventAcknowledge,TResult Function( UModEventViewDetailEventModEventEscalate value)?  modEventEscalate,TResult Function( UModEventViewDetailEventModEventMute value)?  modEventMute,TResult Function( UModEventViewDetailEventModEventUnmute value)?  modEventUnmute,TResult Function( UModEventViewDetailEventModEventMuteReporter value)?  modEventMuteReporter,TResult Function( UModEventViewDetailEventModEventUnmuteReporter value)?  modEventUnmuteReporter,TResult Function( UModEventViewDetailEventModEventEmail value)?  modEventEmail,TResult Function( UModEventViewDetailEventModEventResolveAppeal value)?  modEventResolveAppeal,TResult Function( UModEventViewDetailEventModEventDivert value)?  modEventDivert,TResult Function( UModEventViewDetailEventModEventTag value)?  modEventTag,TResult Function( UModEventViewDetailEventAccountEvent value)?  accountEvent,TResult Function( UModEventViewDetailEventIdentityEvent value)?  identityEvent,TResult Function( UModEventViewDetailEventRecordEvent value)?  recordEvent,TResult Function( UModEventViewDetailEventModEventPriorityScore value)?  modEventPriorityScore,TResult Function( UModEventViewDetailEventAgeAssuranceEvent value)?  ageAssuranceEvent,TResult Function( UModEventViewDetailEventAgeAssuranceOverrideEvent value)?  ageAssuranceOverrideEvent,TResult Function( UModEventViewDetailEventUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModEventViewDetailEventModEventTakedown value)?  modEventTakedown,TResult Function( UModEventViewDetailEventModEventReverseTakedown value)?  modEventReverseTakedown,TResult Function( UModEventViewDetailEventModEventComment value)?  modEventComment,TResult Function( UModEventViewDetailEventModEventReport value)?  modEventReport,TResult Function( UModEventViewDetailEventModEventLabel value)?  modEventLabel,TResult Function( UModEventViewDetailEventModEventAcknowledge value)?  modEventAcknowledge,TResult Function( UModEventViewDetailEventModEventEscalate value)?  modEventEscalate,TResult Function( UModEventViewDetailEventModEventMute value)?  modEventMute,TResult Function( UModEventViewDetailEventModEventUnmute value)?  modEventUnmute,TResult Function( UModEventViewDetailEventModEventMuteReporter value)?  modEventMuteReporter,TResult Function( UModEventViewDetailEventModEventUnmuteReporter value)?  modEventUnmuteReporter,TResult Function( UModEventViewDetailEventModEventEmail value)?  modEventEmail,TResult Function( UModEventViewDetailEventModEventResolveAppeal value)?  modEventResolveAppeal,TResult Function( UModEventViewDetailEventModEventDivert value)?  modEventDivert,TResult Function( UModEventViewDetailEventModEventTag value)?  modEventTag,TResult Function( UModEventViewDetailEventAccountEvent value)?  accountEvent,TResult Function( UModEventViewDetailEventIdentityEvent value)?  identityEvent,TResult Function( UModEventViewDetailEventRecordEvent value)?  recordEvent,TResult Function( UModEventViewDetailEventModEventPriorityScore value)?  modEventPriorityScore,TResult Function( UModEventViewDetailEventAgeAssuranceEvent value)?  ageAssuranceEvent,TResult Function( UModEventViewDetailEventAgeAssuranceOverrideEvent value)?  ageAssuranceOverrideEvent,TResult Function( UModEventViewDetailEventRevokeAccountCredentialsEvent value)?  revokeAccountCredentialsEvent,TResult Function( UModEventViewDetailEventUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UModEventViewDetailEventModEventTakedown() when modEventTakedown != null:
@@ -79,7 +79,8 @@ return identityEvent(_that);case UModEventViewDetailEventRecordEvent() when reco
 return recordEvent(_that);case UModEventViewDetailEventModEventPriorityScore() when modEventPriorityScore != null:
 return modEventPriorityScore(_that);case UModEventViewDetailEventAgeAssuranceEvent() when ageAssuranceEvent != null:
 return ageAssuranceEvent(_that);case UModEventViewDetailEventAgeAssuranceOverrideEvent() when ageAssuranceOverrideEvent != null:
-return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventUnknown() when unknown != null:
+return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventRevokeAccountCredentialsEvent() when revokeAccountCredentialsEvent != null:
+return revokeAccountCredentialsEvent(_that);case UModEventViewDetailEventUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -98,7 +99,7 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModEventViewDetailEventModEventTakedown value)  modEventTakedown,required TResult Function( UModEventViewDetailEventModEventReverseTakedown value)  modEventReverseTakedown,required TResult Function( UModEventViewDetailEventModEventComment value)  modEventComment,required TResult Function( UModEventViewDetailEventModEventReport value)  modEventReport,required TResult Function( UModEventViewDetailEventModEventLabel value)  modEventLabel,required TResult Function( UModEventViewDetailEventModEventAcknowledge value)  modEventAcknowledge,required TResult Function( UModEventViewDetailEventModEventEscalate value)  modEventEscalate,required TResult Function( UModEventViewDetailEventModEventMute value)  modEventMute,required TResult Function( UModEventViewDetailEventModEventUnmute value)  modEventUnmute,required TResult Function( UModEventViewDetailEventModEventMuteReporter value)  modEventMuteReporter,required TResult Function( UModEventViewDetailEventModEventUnmuteReporter value)  modEventUnmuteReporter,required TResult Function( UModEventViewDetailEventModEventEmail value)  modEventEmail,required TResult Function( UModEventViewDetailEventModEventResolveAppeal value)  modEventResolveAppeal,required TResult Function( UModEventViewDetailEventModEventDivert value)  modEventDivert,required TResult Function( UModEventViewDetailEventModEventTag value)  modEventTag,required TResult Function( UModEventViewDetailEventAccountEvent value)  accountEvent,required TResult Function( UModEventViewDetailEventIdentityEvent value)  identityEvent,required TResult Function( UModEventViewDetailEventRecordEvent value)  recordEvent,required TResult Function( UModEventViewDetailEventModEventPriorityScore value)  modEventPriorityScore,required TResult Function( UModEventViewDetailEventAgeAssuranceEvent value)  ageAssuranceEvent,required TResult Function( UModEventViewDetailEventAgeAssuranceOverrideEvent value)  ageAssuranceOverrideEvent,required TResult Function( UModEventViewDetailEventUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModEventViewDetailEventModEventTakedown value)  modEventTakedown,required TResult Function( UModEventViewDetailEventModEventReverseTakedown value)  modEventReverseTakedown,required TResult Function( UModEventViewDetailEventModEventComment value)  modEventComment,required TResult Function( UModEventViewDetailEventModEventReport value)  modEventReport,required TResult Function( UModEventViewDetailEventModEventLabel value)  modEventLabel,required TResult Function( UModEventViewDetailEventModEventAcknowledge value)  modEventAcknowledge,required TResult Function( UModEventViewDetailEventModEventEscalate value)  modEventEscalate,required TResult Function( UModEventViewDetailEventModEventMute value)  modEventMute,required TResult Function( UModEventViewDetailEventModEventUnmute value)  modEventUnmute,required TResult Function( UModEventViewDetailEventModEventMuteReporter value)  modEventMuteReporter,required TResult Function( UModEventViewDetailEventModEventUnmuteReporter value)  modEventUnmuteReporter,required TResult Function( UModEventViewDetailEventModEventEmail value)  modEventEmail,required TResult Function( UModEventViewDetailEventModEventResolveAppeal value)  modEventResolveAppeal,required TResult Function( UModEventViewDetailEventModEventDivert value)  modEventDivert,required TResult Function( UModEventViewDetailEventModEventTag value)  modEventTag,required TResult Function( UModEventViewDetailEventAccountEvent value)  accountEvent,required TResult Function( UModEventViewDetailEventIdentityEvent value)  identityEvent,required TResult Function( UModEventViewDetailEventRecordEvent value)  recordEvent,required TResult Function( UModEventViewDetailEventModEventPriorityScore value)  modEventPriorityScore,required TResult Function( UModEventViewDetailEventAgeAssuranceEvent value)  ageAssuranceEvent,required TResult Function( UModEventViewDetailEventAgeAssuranceOverrideEvent value)  ageAssuranceOverrideEvent,required TResult Function( UModEventViewDetailEventRevokeAccountCredentialsEvent value)  revokeAccountCredentialsEvent,required TResult Function( UModEventViewDetailEventUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UModEventViewDetailEventModEventTakedown():
@@ -122,7 +123,8 @@ return identityEvent(_that);case UModEventViewDetailEventRecordEvent():
 return recordEvent(_that);case UModEventViewDetailEventModEventPriorityScore():
 return modEventPriorityScore(_that);case UModEventViewDetailEventAgeAssuranceEvent():
 return ageAssuranceEvent(_that);case UModEventViewDetailEventAgeAssuranceOverrideEvent():
-return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventUnknown():
+return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventRevokeAccountCredentialsEvent():
+return revokeAccountCredentialsEvent(_that);case UModEventViewDetailEventUnknown():
 return unknown(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -140,7 +142,7 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModEventViewDetailEventModEventTakedown value)?  modEventTakedown,TResult? Function( UModEventViewDetailEventModEventReverseTakedown value)?  modEventReverseTakedown,TResult? Function( UModEventViewDetailEventModEventComment value)?  modEventComment,TResult? Function( UModEventViewDetailEventModEventReport value)?  modEventReport,TResult? Function( UModEventViewDetailEventModEventLabel value)?  modEventLabel,TResult? Function( UModEventViewDetailEventModEventAcknowledge value)?  modEventAcknowledge,TResult? Function( UModEventViewDetailEventModEventEscalate value)?  modEventEscalate,TResult? Function( UModEventViewDetailEventModEventMute value)?  modEventMute,TResult? Function( UModEventViewDetailEventModEventUnmute value)?  modEventUnmute,TResult? Function( UModEventViewDetailEventModEventMuteReporter value)?  modEventMuteReporter,TResult? Function( UModEventViewDetailEventModEventUnmuteReporter value)?  modEventUnmuteReporter,TResult? Function( UModEventViewDetailEventModEventEmail value)?  modEventEmail,TResult? Function( UModEventViewDetailEventModEventResolveAppeal value)?  modEventResolveAppeal,TResult? Function( UModEventViewDetailEventModEventDivert value)?  modEventDivert,TResult? Function( UModEventViewDetailEventModEventTag value)?  modEventTag,TResult? Function( UModEventViewDetailEventAccountEvent value)?  accountEvent,TResult? Function( UModEventViewDetailEventIdentityEvent value)?  identityEvent,TResult? Function( UModEventViewDetailEventRecordEvent value)?  recordEvent,TResult? Function( UModEventViewDetailEventModEventPriorityScore value)?  modEventPriorityScore,TResult? Function( UModEventViewDetailEventAgeAssuranceEvent value)?  ageAssuranceEvent,TResult? Function( UModEventViewDetailEventAgeAssuranceOverrideEvent value)?  ageAssuranceOverrideEvent,TResult? Function( UModEventViewDetailEventUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModEventViewDetailEventModEventTakedown value)?  modEventTakedown,TResult? Function( UModEventViewDetailEventModEventReverseTakedown value)?  modEventReverseTakedown,TResult? Function( UModEventViewDetailEventModEventComment value)?  modEventComment,TResult? Function( UModEventViewDetailEventModEventReport value)?  modEventReport,TResult? Function( UModEventViewDetailEventModEventLabel value)?  modEventLabel,TResult? Function( UModEventViewDetailEventModEventAcknowledge value)?  modEventAcknowledge,TResult? Function( UModEventViewDetailEventModEventEscalate value)?  modEventEscalate,TResult? Function( UModEventViewDetailEventModEventMute value)?  modEventMute,TResult? Function( UModEventViewDetailEventModEventUnmute value)?  modEventUnmute,TResult? Function( UModEventViewDetailEventModEventMuteReporter value)?  modEventMuteReporter,TResult? Function( UModEventViewDetailEventModEventUnmuteReporter value)?  modEventUnmuteReporter,TResult? Function( UModEventViewDetailEventModEventEmail value)?  modEventEmail,TResult? Function( UModEventViewDetailEventModEventResolveAppeal value)?  modEventResolveAppeal,TResult? Function( UModEventViewDetailEventModEventDivert value)?  modEventDivert,TResult? Function( UModEventViewDetailEventModEventTag value)?  modEventTag,TResult? Function( UModEventViewDetailEventAccountEvent value)?  accountEvent,TResult? Function( UModEventViewDetailEventIdentityEvent value)?  identityEvent,TResult? Function( UModEventViewDetailEventRecordEvent value)?  recordEvent,TResult? Function( UModEventViewDetailEventModEventPriorityScore value)?  modEventPriorityScore,TResult? Function( UModEventViewDetailEventAgeAssuranceEvent value)?  ageAssuranceEvent,TResult? Function( UModEventViewDetailEventAgeAssuranceOverrideEvent value)?  ageAssuranceOverrideEvent,TResult? Function( UModEventViewDetailEventRevokeAccountCredentialsEvent value)?  revokeAccountCredentialsEvent,TResult? Function( UModEventViewDetailEventUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UModEventViewDetailEventModEventTakedown() when modEventTakedown != null:
@@ -164,7 +166,8 @@ return identityEvent(_that);case UModEventViewDetailEventRecordEvent() when reco
 return recordEvent(_that);case UModEventViewDetailEventModEventPriorityScore() when modEventPriorityScore != null:
 return modEventPriorityScore(_that);case UModEventViewDetailEventAgeAssuranceEvent() when ageAssuranceEvent != null:
 return ageAssuranceEvent(_that);case UModEventViewDetailEventAgeAssuranceOverrideEvent() when ageAssuranceOverrideEvent != null:
-return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventUnknown() when unknown != null:
+return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventRevokeAccountCredentialsEvent() when revokeAccountCredentialsEvent != null:
+return revokeAccountCredentialsEvent(_that);case UModEventViewDetailEventUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -182,7 +185,7 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ModEventTakedown data)?  modEventTakedown,TResult Function( ModEventReverseTakedown data)?  modEventReverseTakedown,TResult Function( ModEventComment data)?  modEventComment,TResult Function( ModEventReport data)?  modEventReport,TResult Function( ModEventLabel data)?  modEventLabel,TResult Function( ModEventAcknowledge data)?  modEventAcknowledge,TResult Function( ModEventEscalate data)?  modEventEscalate,TResult Function( ModEventMute data)?  modEventMute,TResult Function( ModEventUnmute data)?  modEventUnmute,TResult Function( ModEventMuteReporter data)?  modEventMuteReporter,TResult Function( ModEventUnmuteReporter data)?  modEventUnmuteReporter,TResult Function( ModEventEmail data)?  modEventEmail,TResult Function( ModEventResolveAppeal data)?  modEventResolveAppeal,TResult Function( ModEventDivert data)?  modEventDivert,TResult Function( ModEventTag data)?  modEventTag,TResult Function( AccountEvent data)?  accountEvent,TResult Function( IdentityEvent data)?  identityEvent,TResult Function( RecordEvent data)?  recordEvent,TResult Function( ModEventPriorityScore data)?  modEventPriorityScore,TResult Function( AgeAssuranceEvent data)?  ageAssuranceEvent,TResult Function( AgeAssuranceOverrideEvent data)?  ageAssuranceOverrideEvent,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ModEventTakedown data)?  modEventTakedown,TResult Function( ModEventReverseTakedown data)?  modEventReverseTakedown,TResult Function( ModEventComment data)?  modEventComment,TResult Function( ModEventReport data)?  modEventReport,TResult Function( ModEventLabel data)?  modEventLabel,TResult Function( ModEventAcknowledge data)?  modEventAcknowledge,TResult Function( ModEventEscalate data)?  modEventEscalate,TResult Function( ModEventMute data)?  modEventMute,TResult Function( ModEventUnmute data)?  modEventUnmute,TResult Function( ModEventMuteReporter data)?  modEventMuteReporter,TResult Function( ModEventUnmuteReporter data)?  modEventUnmuteReporter,TResult Function( ModEventEmail data)?  modEventEmail,TResult Function( ModEventResolveAppeal data)?  modEventResolveAppeal,TResult Function( ModEventDivert data)?  modEventDivert,TResult Function( ModEventTag data)?  modEventTag,TResult Function( AccountEvent data)?  accountEvent,TResult Function( IdentityEvent data)?  identityEvent,TResult Function( RecordEvent data)?  recordEvent,TResult Function( ModEventPriorityScore data)?  modEventPriorityScore,TResult Function( AgeAssuranceEvent data)?  ageAssuranceEvent,TResult Function( AgeAssuranceOverrideEvent data)?  ageAssuranceOverrideEvent,TResult Function( RevokeAccountCredentialsEvent data)?  revokeAccountCredentialsEvent,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UModEventViewDetailEventModEventTakedown() when modEventTakedown != null:
 return modEventTakedown(_that.data);case UModEventViewDetailEventModEventReverseTakedown() when modEventReverseTakedown != null:
@@ -205,7 +208,8 @@ return identityEvent(_that.data);case UModEventViewDetailEventRecordEvent() when
 return recordEvent(_that.data);case UModEventViewDetailEventModEventPriorityScore() when modEventPriorityScore != null:
 return modEventPriorityScore(_that.data);case UModEventViewDetailEventAgeAssuranceEvent() when ageAssuranceEvent != null:
 return ageAssuranceEvent(_that.data);case UModEventViewDetailEventAgeAssuranceOverrideEvent() when ageAssuranceOverrideEvent != null:
-return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventUnknown() when unknown != null:
+return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventRevokeAccountCredentialsEvent() when revokeAccountCredentialsEvent != null:
+return revokeAccountCredentialsEvent(_that.data);case UModEventViewDetailEventUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -224,7 +228,7 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ModEventTakedown data)  modEventTakedown,required TResult Function( ModEventReverseTakedown data)  modEventReverseTakedown,required TResult Function( ModEventComment data)  modEventComment,required TResult Function( ModEventReport data)  modEventReport,required TResult Function( ModEventLabel data)  modEventLabel,required TResult Function( ModEventAcknowledge data)  modEventAcknowledge,required TResult Function( ModEventEscalate data)  modEventEscalate,required TResult Function( ModEventMute data)  modEventMute,required TResult Function( ModEventUnmute data)  modEventUnmute,required TResult Function( ModEventMuteReporter data)  modEventMuteReporter,required TResult Function( ModEventUnmuteReporter data)  modEventUnmuteReporter,required TResult Function( ModEventEmail data)  modEventEmail,required TResult Function( ModEventResolveAppeal data)  modEventResolveAppeal,required TResult Function( ModEventDivert data)  modEventDivert,required TResult Function( ModEventTag data)  modEventTag,required TResult Function( AccountEvent data)  accountEvent,required TResult Function( IdentityEvent data)  identityEvent,required TResult Function( RecordEvent data)  recordEvent,required TResult Function( ModEventPriorityScore data)  modEventPriorityScore,required TResult Function( AgeAssuranceEvent data)  ageAssuranceEvent,required TResult Function( AgeAssuranceOverrideEvent data)  ageAssuranceOverrideEvent,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ModEventTakedown data)  modEventTakedown,required TResult Function( ModEventReverseTakedown data)  modEventReverseTakedown,required TResult Function( ModEventComment data)  modEventComment,required TResult Function( ModEventReport data)  modEventReport,required TResult Function( ModEventLabel data)  modEventLabel,required TResult Function( ModEventAcknowledge data)  modEventAcknowledge,required TResult Function( ModEventEscalate data)  modEventEscalate,required TResult Function( ModEventMute data)  modEventMute,required TResult Function( ModEventUnmute data)  modEventUnmute,required TResult Function( ModEventMuteReporter data)  modEventMuteReporter,required TResult Function( ModEventUnmuteReporter data)  modEventUnmuteReporter,required TResult Function( ModEventEmail data)  modEventEmail,required TResult Function( ModEventResolveAppeal data)  modEventResolveAppeal,required TResult Function( ModEventDivert data)  modEventDivert,required TResult Function( ModEventTag data)  modEventTag,required TResult Function( AccountEvent data)  accountEvent,required TResult Function( IdentityEvent data)  identityEvent,required TResult Function( RecordEvent data)  recordEvent,required TResult Function( ModEventPriorityScore data)  modEventPriorityScore,required TResult Function( AgeAssuranceEvent data)  ageAssuranceEvent,required TResult Function( AgeAssuranceOverrideEvent data)  ageAssuranceOverrideEvent,required TResult Function( RevokeAccountCredentialsEvent data)  revokeAccountCredentialsEvent,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UModEventViewDetailEventModEventTakedown():
 return modEventTakedown(_that.data);case UModEventViewDetailEventModEventReverseTakedown():
@@ -247,7 +251,8 @@ return identityEvent(_that.data);case UModEventViewDetailEventRecordEvent():
 return recordEvent(_that.data);case UModEventViewDetailEventModEventPriorityScore():
 return modEventPriorityScore(_that.data);case UModEventViewDetailEventAgeAssuranceEvent():
 return ageAssuranceEvent(_that.data);case UModEventViewDetailEventAgeAssuranceOverrideEvent():
-return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventUnknown():
+return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventRevokeAccountCredentialsEvent():
+return revokeAccountCredentialsEvent(_that.data);case UModEventViewDetailEventUnknown():
 return unknown(_that.data);case _:
   throw StateError('Unexpected subclass');
 
@@ -265,7 +270,7 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ModEventTakedown data)?  modEventTakedown,TResult? Function( ModEventReverseTakedown data)?  modEventReverseTakedown,TResult? Function( ModEventComment data)?  modEventComment,TResult? Function( ModEventReport data)?  modEventReport,TResult? Function( ModEventLabel data)?  modEventLabel,TResult? Function( ModEventAcknowledge data)?  modEventAcknowledge,TResult? Function( ModEventEscalate data)?  modEventEscalate,TResult? Function( ModEventMute data)?  modEventMute,TResult? Function( ModEventUnmute data)?  modEventUnmute,TResult? Function( ModEventMuteReporter data)?  modEventMuteReporter,TResult? Function( ModEventUnmuteReporter data)?  modEventUnmuteReporter,TResult? Function( ModEventEmail data)?  modEventEmail,TResult? Function( ModEventResolveAppeal data)?  modEventResolveAppeal,TResult? Function( ModEventDivert data)?  modEventDivert,TResult? Function( ModEventTag data)?  modEventTag,TResult? Function( AccountEvent data)?  accountEvent,TResult? Function( IdentityEvent data)?  identityEvent,TResult? Function( RecordEvent data)?  recordEvent,TResult? Function( ModEventPriorityScore data)?  modEventPriorityScore,TResult? Function( AgeAssuranceEvent data)?  ageAssuranceEvent,TResult? Function( AgeAssuranceOverrideEvent data)?  ageAssuranceOverrideEvent,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ModEventTakedown data)?  modEventTakedown,TResult? Function( ModEventReverseTakedown data)?  modEventReverseTakedown,TResult? Function( ModEventComment data)?  modEventComment,TResult? Function( ModEventReport data)?  modEventReport,TResult? Function( ModEventLabel data)?  modEventLabel,TResult? Function( ModEventAcknowledge data)?  modEventAcknowledge,TResult? Function( ModEventEscalate data)?  modEventEscalate,TResult? Function( ModEventMute data)?  modEventMute,TResult? Function( ModEventUnmute data)?  modEventUnmute,TResult? Function( ModEventMuteReporter data)?  modEventMuteReporter,TResult? Function( ModEventUnmuteReporter data)?  modEventUnmuteReporter,TResult? Function( ModEventEmail data)?  modEventEmail,TResult? Function( ModEventResolveAppeal data)?  modEventResolveAppeal,TResult? Function( ModEventDivert data)?  modEventDivert,TResult? Function( ModEventTag data)?  modEventTag,TResult? Function( AccountEvent data)?  accountEvent,TResult? Function( IdentityEvent data)?  identityEvent,TResult? Function( RecordEvent data)?  recordEvent,TResult? Function( ModEventPriorityScore data)?  modEventPriorityScore,TResult? Function( AgeAssuranceEvent data)?  ageAssuranceEvent,TResult? Function( AgeAssuranceOverrideEvent data)?  ageAssuranceOverrideEvent,TResult? Function( RevokeAccountCredentialsEvent data)?  revokeAccountCredentialsEvent,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UModEventViewDetailEventModEventTakedown() when modEventTakedown != null:
 return modEventTakedown(_that.data);case UModEventViewDetailEventModEventReverseTakedown() when modEventReverseTakedown != null:
@@ -288,7 +293,8 @@ return identityEvent(_that.data);case UModEventViewDetailEventRecordEvent() when
 return recordEvent(_that.data);case UModEventViewDetailEventModEventPriorityScore() when modEventPriorityScore != null:
 return modEventPriorityScore(_that.data);case UModEventViewDetailEventAgeAssuranceEvent() when ageAssuranceEvent != null:
 return ageAssuranceEvent(_that.data);case UModEventViewDetailEventAgeAssuranceOverrideEvent() when ageAssuranceOverrideEvent != null:
-return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventUnknown() when unknown != null:
+return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventRevokeAccountCredentialsEvent() when revokeAccountCredentialsEvent != null:
+return revokeAccountCredentialsEvent(_that.data);case UModEventViewDetailEventUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -1867,6 +1873,81 @@ as AgeAssuranceOverrideEvent,
 $AgeAssuranceOverrideEventCopyWith<$Res> get data {
   
   return $AgeAssuranceOverrideEventCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UModEventViewDetailEventRevokeAccountCredentialsEvent extends UModEventViewDetailEvent {
+  const UModEventViewDetailEventRevokeAccountCredentialsEvent({required this.data}): super._();
+  
+
+@override final  RevokeAccountCredentialsEvent data;
+
+/// Create a copy of UModEventViewDetailEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailEventRevokeAccountCredentialsEventCopyWith<UModEventViewDetailEventRevokeAccountCredentialsEvent> get copyWith => _$UModEventViewDetailEventRevokeAccountCredentialsEventCopyWithImpl<UModEventViewDetailEventRevokeAccountCredentialsEvent>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailEventRevokeAccountCredentialsEvent&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'UModEventViewDetailEvent.revokeAccountCredentialsEvent(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModEventViewDetailEventRevokeAccountCredentialsEventCopyWith<$Res> implements $UModEventViewDetailEventCopyWith<$Res> {
+  factory $UModEventViewDetailEventRevokeAccountCredentialsEventCopyWith(UModEventViewDetailEventRevokeAccountCredentialsEvent value, $Res Function(UModEventViewDetailEventRevokeAccountCredentialsEvent) _then) = _$UModEventViewDetailEventRevokeAccountCredentialsEventCopyWithImpl;
+@useResult
+$Res call({
+ RevokeAccountCredentialsEvent data
+});
+
+
+$RevokeAccountCredentialsEventCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModEventViewDetailEventRevokeAccountCredentialsEventCopyWithImpl<$Res>
+    implements $UModEventViewDetailEventRevokeAccountCredentialsEventCopyWith<$Res> {
+  _$UModEventViewDetailEventRevokeAccountCredentialsEventCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailEventRevokeAccountCredentialsEvent _self;
+  final $Res Function(UModEventViewDetailEventRevokeAccountCredentialsEvent) _then;
+
+/// Create a copy of UModEventViewDetailEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailEventRevokeAccountCredentialsEvent(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as RevokeAccountCredentialsEvent,
+  ));
+}
+
+/// Create a copy of UModEventViewDetailEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RevokeAccountCredentialsEventCopyWith<$Res> get data {
+  
+  return $RevokeAccountCredentialsEventCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

@@ -2170,6 +2170,48 @@ const comAtprotoTempFetchLabels = <String, dynamic>{
   },
 };
 
+/// `com.atproto.temp.dereferenceScope`
+const comAtprotoTempDereferenceScope = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.temp.dereferenceScope",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Allows finding the oauth permission scope from a reference",
+      "parameters": {
+        "type": "params",
+        "required": ["scope"],
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope reference (starts with 'ref:')",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["scope"],
+          "properties": {
+            "scope": {
+              "type": "string",
+              "description": "The full oauth permission scope",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidScopeReference",
+          "description": "An invalid scope reference was provided.",
+        },
+      ],
+    },
+  },
+};
+
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = <String, dynamic>{
   "lexicon": 1,
@@ -13165,6 +13207,7 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
                 "tools.ozone.moderation.defs#modEventPriorityScore",
                 "tools.ozone.moderation.defs#ageAssuranceEvent",
                 "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
+                "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
               ],
             },
             "subject": {
@@ -13477,6 +13520,7 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventPriorityScore",
             "#ageAssuranceEvent",
             "#ageAssuranceOverrideEvent",
+            "#revokeAccountCredentialsEvent",
           ],
         },
         "subject": {
@@ -13534,6 +13578,7 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventPriorityScore",
             "#ageAssuranceEvent",
             "#ageAssuranceOverrideEvent",
+            "#revokeAccountCredentialsEvent",
           ],
         },
         "subject": {
@@ -13915,6 +13960,18 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "comment": {
           "type": "string",
           "description": "Comment describing the reason for the override.",
+        },
+      },
+    },
+    "revokeAccountCredentialsEvent": {
+      "type": "object",
+      "description":
+          "Account credentials revocation by moderators. Only works on DID subjects.",
+      "required": ["comment"],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "Comment describing the reason for the revocation.",
         },
       },
     },
@@ -14918,6 +14975,7 @@ const toolsOzoneModerationGetAccountTimeline = <String, dynamic>{
             "tools.ozone.moderation.defs#identityEvent",
             "tools.ozone.moderation.defs#recordEvent",
             "tools.ozone.moderation.defs#modEventPriorityScore",
+            "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
             "tools.ozone.moderation.defs#ageAssuranceEvent",
             "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
             "tools.ozone.moderation.defs#timelineEventPlcCreate",
@@ -15774,6 +15832,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoSyncGetRepoStatus,
   comAtprotoSyncGetBlocks,
   comAtprotoTempFetchLabels,
+  comAtprotoTempDereferenceScope,
   comAtprotoTempCheckSignupQueue,
   comAtprotoTempAddReservedHandle,
   comAtprotoTempRequestPhoneVerification,

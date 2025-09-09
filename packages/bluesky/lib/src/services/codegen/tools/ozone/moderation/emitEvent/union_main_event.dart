@@ -33,6 +33,7 @@ import '../../../../tools/ozone/moderation/defs/mod_event_takedown.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute_reporter.dart';
 import '../../../../tools/ozone/moderation/defs/record_event.dart';
+import '../../../../tools/ozone/moderation/defs/revoke_account_credentials_event.dart';
 
 part 'union_main_event.freezed.dart';
 
@@ -107,6 +108,9 @@ abstract class UModerationEmitEventEvent with _$UModerationEmitEventEvent {
   const factory UModerationEmitEventEvent.ageAssuranceOverrideEvent({
     required AgeAssuranceOverrideEvent data,
   }) = UModerationEmitEventEventAgeAssuranceOverrideEvent;
+  const factory UModerationEmitEventEvent.revokeAccountCredentialsEvent({
+    required RevokeAccountCredentialsEvent data,
+  }) = UModerationEmitEventEventRevokeAccountCredentialsEvent;
 
   const factory UModerationEmitEventEvent.unknown({
     required Map<String, dynamic> data,
@@ -213,6 +217,14 @@ extension UModerationEmitEventEventExtension on UModerationEmitEventEvent {
   bool get isNotAgeAssuranceOverrideEvent => !isAgeAssuranceOverrideEvent;
   AgeAssuranceOverrideEvent? get ageAssuranceOverrideEvent =>
       isAgeAssuranceOverrideEvent ? data as AgeAssuranceOverrideEvent : null;
+  bool get isRevokeAccountCredentialsEvent =>
+      isA<UModerationEmitEventEventRevokeAccountCredentialsEvent>(this);
+  bool get isNotRevokeAccountCredentialsEvent =>
+      !isRevokeAccountCredentialsEvent;
+  RevokeAccountCredentialsEvent? get revokeAccountCredentialsEvent =>
+      isRevokeAccountCredentialsEvent
+      ? data as RevokeAccountCredentialsEvent
+      : null;
   bool get isUnknown => isA<UModerationEmitEventEventUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -331,6 +343,11 @@ final class UModerationEmitEventEventConverter
           data: const AgeAssuranceOverrideEventConverter().fromJson(json),
         );
       }
+      if (RevokeAccountCredentialsEvent.validate(json)) {
+        return UModerationEmitEventEvent.revokeAccountCredentialsEvent(
+          data: const RevokeAccountCredentialsEventConverter().fromJson(json),
+        );
+      }
 
       return UModerationEmitEventEvent.unknown(data: json);
     } catch (_) {
@@ -369,6 +386,8 @@ final class UModerationEmitEventEventConverter
         const AgeAssuranceEventConverter().toJson(data),
     ageAssuranceOverrideEvent: (data) =>
         const AgeAssuranceOverrideEventConverter().toJson(data),
+    revokeAccountCredentialsEvent: (data) =>
+        const RevokeAccountCredentialsEventConverter().toJson(data),
 
     unknown: (data) => data,
   );

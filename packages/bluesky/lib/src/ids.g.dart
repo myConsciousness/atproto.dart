@@ -1234,6 +1234,10 @@ const toolsOzoneModerationDefsReviewNone =
 const toolsOzoneModerationDefsReviewOpen =
     'tools.ozone.moderation.defs#reviewOpen';
 
+/// `tools.ozone.moderation.defs#revokeAccountCredentialsEvent`
+const toolsOzoneModerationDefsRevokeAccountCredentialsEvent =
+    'tools.ozone.moderation.defs#revokeAccountCredentialsEvent';
+
 /// `tools.ozone.moderation.defs#subjectReviewState`
 const toolsOzoneModerationDefsSubjectReviewState =
     'tools.ozone.moderation.defs#subjectReviewState';

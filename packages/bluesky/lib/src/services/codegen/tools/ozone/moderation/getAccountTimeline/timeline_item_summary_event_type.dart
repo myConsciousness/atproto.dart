@@ -153,6 +153,10 @@ enum KnownTimelineItemSummaryEventType implements Serializable {
   toolsOzoneModerationDefsModEventPriorityScore(
     'tools.ozone.moderation.defs#modEventPriorityScore',
   ),
+  @JsonValue('tools.ozone.moderation.defs#revokeAccountCredentialsEvent')
+  toolsOzoneModerationDefsRevokeAccountCredentialsEvent(
+    'tools.ozone.moderation.defs#revokeAccountCredentialsEvent',
+  ),
   @JsonValue('tools.ozone.moderation.defs#ageAssuranceEvent')
   toolsOzoneModerationDefsAgeAssuranceEvent(
     'tools.ozone.moderation.defs#ageAssuranceEvent',
