@@ -33,6 +33,7 @@ import './mod_event_takedown.dart';
 import './mod_event_unmute.dart';
 import './mod_event_unmute_reporter.dart';
 import './record_event.dart';
+import './revoke_account_credentials_event.dart';
 
 part 'union_mod_event_view_detail_event.freezed.dart';
 
@@ -107,6 +108,9 @@ abstract class UModEventViewDetailEvent with _$UModEventViewDetailEvent {
   const factory UModEventViewDetailEvent.ageAssuranceOverrideEvent({
     required AgeAssuranceOverrideEvent data,
   }) = UModEventViewDetailEventAgeAssuranceOverrideEvent;
+  const factory UModEventViewDetailEvent.revokeAccountCredentialsEvent({
+    required RevokeAccountCredentialsEvent data,
+  }) = UModEventViewDetailEventRevokeAccountCredentialsEvent;
 
   const factory UModEventViewDetailEvent.unknown({
     required Map<String, dynamic> data,
@@ -213,6 +217,14 @@ extension UModEventViewDetailEventExtension on UModEventViewDetailEvent {
   bool get isNotAgeAssuranceOverrideEvent => !isAgeAssuranceOverrideEvent;
   AgeAssuranceOverrideEvent? get ageAssuranceOverrideEvent =>
       isAgeAssuranceOverrideEvent ? data as AgeAssuranceOverrideEvent : null;
+  bool get isRevokeAccountCredentialsEvent =>
+      isA<UModEventViewDetailEventRevokeAccountCredentialsEvent>(this);
+  bool get isNotRevokeAccountCredentialsEvent =>
+      !isRevokeAccountCredentialsEvent;
+  RevokeAccountCredentialsEvent? get revokeAccountCredentialsEvent =>
+      isRevokeAccountCredentialsEvent
+      ? data as RevokeAccountCredentialsEvent
+      : null;
   bool get isUnknown => isA<UModEventViewDetailEventUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -331,6 +343,11 @@ final class UModEventViewDetailEventConverter
           data: const AgeAssuranceOverrideEventConverter().fromJson(json),
         );
       }
+      if (RevokeAccountCredentialsEvent.validate(json)) {
+        return UModEventViewDetailEvent.revokeAccountCredentialsEvent(
+          data: const RevokeAccountCredentialsEventConverter().fromJson(json),
+        );
+      }
 
       return UModEventViewDetailEvent.unknown(data: json);
     } catch (_) {
@@ -369,6 +386,8 @@ final class UModEventViewDetailEventConverter
         const AgeAssuranceEventConverter().toJson(data),
     ageAssuranceOverrideEvent: (data) =>
         const AgeAssuranceOverrideEventConverter().toJson(data),
+    revokeAccountCredentialsEvent: (data) =>
+        const RevokeAccountCredentialsEventConverter().toJson(data),
 
     unknown: (data) => data,
   );

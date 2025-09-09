@@ -38,6 +38,7 @@ export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/age_ass
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/age_assurance_event_status.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/age_assurance_override_event.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/age_assurance_override_event_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/revoke_account_credentials_event.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_acknowledge.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_escalate.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_mute.dart';

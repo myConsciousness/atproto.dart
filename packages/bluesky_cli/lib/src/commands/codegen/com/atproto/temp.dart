@@ -14,6 +14,7 @@ import 'package:args/command_runner.dart';
 import 'temp/add_reserved_handle.dart';
 import 'temp/check_handle_availability.dart';
 import 'temp/check_signup_queue.dart';
+import 'temp/dereference_scope.dart';
 import 'temp/fetch_labels.dart';
 import 'temp/request_phone_verification.dart';
 import 'temp/revoke_account_credentials.dart';
@@ -25,6 +26,7 @@ import 'temp/revoke_account_credentials.dart';
 final class ComAtprotoTempCommand extends Command<void> {
   ComAtprotoTempCommand() {
     addSubcommand(FetchLabelsCommand());
+    addSubcommand(DereferenceScopeCommand());
     addSubcommand(CheckSignupQueueCommand());
     addSubcommand(AddReservedHandleCommand());
     addSubcommand(RequestPhoneVerificationCommand());

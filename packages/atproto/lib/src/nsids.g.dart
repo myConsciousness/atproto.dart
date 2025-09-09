@@ -465,6 +465,9 @@ const comAtprotoTempCheckHandleAvailabilitySuggestion = NSID(
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = NSID(ids.comAtprotoTempCheckSignupQueue);
 
+/// `com.atproto.temp.dereferenceScope`
+const comAtprotoTempDereferenceScope = NSID(ids.comAtprotoTempDereferenceScope);
+
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = NSID(ids.comAtprotoTempFetchLabels);
 
