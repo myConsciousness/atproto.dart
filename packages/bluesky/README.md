@@ -37,6 +37,7 @@ Use this package when building applications specifically for Bluesky Social. For
 - **Real-time Notifications** - Push notifications and notification management  
 - **Chat & Messaging** - Direct messages and conversation management  
 - **Content Moderation** - Advanced moderation tools and content filtering  
+- **Ozone Moderation Tools** - Complete `tools.ozone.*` API for administrative operations  
 - **Media Support** - Image, video, and blob upload with processing  
 - **Built-in AT Protocol** - Includes all `atproto` package functionality  
 - **Advanced Authentication** - Session management and OAuth DPoP support  
@@ -62,6 +63,12 @@ flutter pub add bluesky
 
 ```dart
 import 'package:bluesky/bluesky.dart';
+```
+
+**For Ozone moderation tools:**
+
+```dart
+import 'package:bluesky/ozone.dart';
 ```
 
 ### 1.2.3. Implementation
@@ -208,6 +215,37 @@ Future<void> main(List<String> args) async {
 }
 ```
 
+#### Ozone Moderation Tools
+
+```dart
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/ozone.dart';
+
+Future<void> main(List<String> args) async {
+  // Create a session with your Bluesky credentials
+  final session = await createSession(
+    service: 'bsky.social',
+    identifier: 'your.handle.bsky.social',
+    password: 'your-app-password',
+  );
+
+  // Initialize Ozone client for moderation tools
+  final ozone = OzoneTool.fromSession(session.data);
+
+  // Query moderation events
+  final events = await ozone.moderation.queryEvents(limit: 50);
+
+  // Get moderation subjects
+  final subjects = await ozone.moderation.getSubjects();
+
+  // Access team management
+  final teamMembers = await ozone.team.listMembers();
+
+  // Server configuration
+  final serverConfig = await ozone.server.getConfig();
+}
+```
+
 ## 1.3. Supported Endpoints 👀
 
 The `bluesky` package provides comprehensive coverage of both AT Protocol and Bluesky-specific services:
@@ -247,6 +285,34 @@ The `bluesky` package provides comprehensive coverage of both AT Protocol and Bl
 - **Message Management** - Send, receive, and manage messages
 - **Conversation Operations** - Create, list, and manage conversations
 - **Chat Moderation** - Report and moderate chat content
+
+### Ozone Moderation Services (`tools.ozone.*`)
+
+#### Communication Service (`tools.ozone.communication.*`)
+- **Communication Management** - Handle moderation communications and templates
+
+#### Hosting Service (`tools.ozone.hosting.*`)
+- **Hosting Operations** - Manage hosting configurations and settings
+
+#### Moderation Service (`tools.ozone.moderation.*`)
+- **Event Management** - Query and manage moderation events
+- **Subject Operations** - Handle moderation subjects and actions
+- **Reporter Statistics** - Access reporting metrics and analytics
+
+#### Server Service (`tools.ozone.server.*`)
+- **Server Configuration** - Manage server settings and configurations
+- **Administrative Tools** - Server administration and monitoring
+
+#### Team Service (`tools.ozone.team.*`)
+- **Team Management** - Manage moderation team members and roles
+- **Permission Control** - Handle team permissions and access levels
+
+#### Additional Ozone Services
+- **Safelink Service** - URL safety and link verification
+- **Set Service** - Manage moderation rule sets and configurations
+- **Setting Service** - Administrative settings and preferences
+- **Signature Service** - Digital signatures and verification
+- **Verification Service** - Identity and content verification
 
 ### AT Protocol Services (Inherited from `atproto`)
 
