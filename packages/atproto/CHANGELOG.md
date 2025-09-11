@@ -1,5 +1,12 @@
 # Release Note
 
+## v1.1.0
+
+- chore: Update source files automatically ([#2117](https://github.com/myConsciousness/atproto.dart/pull/2117))
+  - Added new `com.atproto.temp.dereferenceScope` endpoint for temporary scope dereferencing operations
+  - Generated corresponding service methods, input/output types, and documentation
+  - Enhanced AT Protocol temporary service capabilities
+
 ## v1.0.10
 
 - chore: Update source files automatically ([#2117](https://github.com/myConsciousness/atproto.dart/pull/2117))

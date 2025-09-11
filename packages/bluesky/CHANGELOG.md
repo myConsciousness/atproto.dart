@@ -1,6 +1,6 @@
 # Release Note
 
-## v1.0.11
+## v1.1.0
 
 - feat: Added OzoneTool client for comprehensive `tools.ozone.*` API support
   - New `OzoneTool` class provides access to all Ozone moderation and administrative services
