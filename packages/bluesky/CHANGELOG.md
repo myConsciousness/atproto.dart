@@ -8,6 +8,11 @@
   - Available via separate `package:bluesky/ozone.dart` import for modular usage
   - Requires session-based authentication for secure administrative operations
   - Complete API coverage for moderation events, team management, server configuration, and more
+- chore: Update source files automatically ([#2117](https://github.com/myConsciousness/atproto.dart/pull/2117))
+  - Added new `com.atproto.temp.dereferenceScope` endpoint for temporary scope dereferencing
+  - Added `tools.ozone.moderation.defs.revokeAccountCredentialsEvent` for account credential revocation
+  - Updated Ozone moderation event unions to include new revoke credentials event type
+  - Generated corresponding service methods, types, and documentation
 
 ## v1.0.10
 
