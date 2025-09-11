@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.1.0
+
+- feat: Version bump to v1.1.0 to reflect enhanced AT Protocol capabilities
+  - Minor version bump appropriate for new `com.atproto.temp.dereferenceScope` endpoint
+  - Maintains compatibility while signaling new functionality
+
 ## v1.0.10
 
 - chore: Update source files automatically ([#2117](https://github.com/myConsciousness/atproto.dart/pull/2117))

@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.1.0
+
+- feat: Version bump to v1.1.0 to reflect significant new functionality
+  - Updated dependency to `atproto: ^1.1.0` for compatibility with latest AT Protocol features
+  - Minor version bump appropriate for major new OzoneTool capabilities
+
 ## v1.0.11
 
 - feat: Added OzoneTool client for comprehensive `tools.ozone.*` API support
