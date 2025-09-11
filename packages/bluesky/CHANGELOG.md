@@ -1,5 +1,14 @@
 # Release Note
 
+## v1.0.11
+
+- feat: Added OzoneTool client for comprehensive `tools.ozone.*` API support
+  - New `OzoneTool` class provides access to all Ozone moderation and administrative services
+  - Includes Communication, Hosting, Moderation, Server, Team, and additional Ozone services
+  - Available via separate `package:bluesky/ozone.dart` import for modular usage
+  - Requires session-based authentication for secure administrative operations
+  - Complete API coverage for moderation events, team management, server configuration, and more
+
 ## v1.0.10
 
 - **BREAKING CHANGE**: Enhanced lexicon known values naming with proper camelCase convention
