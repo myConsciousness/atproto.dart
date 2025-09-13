@@ -10,6 +10,8 @@ funding:
 environment:
   sdk: ">=3.8.0 <4.0.0"
 
+resolution: workspace
+
 topics:
   - atproto
   - bluesky
@@ -24,7 +26,7 @@ dependencies:
   convert: ^3.1.2
 
 dev_dependencies:
-  lints: ^4.0.0
+  lints: ^6.0.0
   test: ^1.24.0
   build_runner: ^2.5.4
   json_serializable: ^6.9.5

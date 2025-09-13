@@ -1,5 +1,0 @@
-dependency_overrides:
-  nsid:
-    path: packages/nsid
-  lexicon:
-    path: packages/lexicon

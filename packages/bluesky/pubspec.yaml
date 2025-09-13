@@ -11,6 +11,8 @@ funding:
 environment:
   sdk: ">=3.8.0 <4.0.0"
 
+resolution: workspace
+
 topics:
   - atproto
   - bluesky
@@ -30,7 +32,7 @@ dev_dependencies:
   json_serializable: ^6.9.5
   freezed: ^3.2.0
   import_sorter: ^4.6.0
-  bluesky_text: ^0.6.9
+  bluesky_text: ^1.0.0
 
   atproto_test:
     path: ../atproto_test
