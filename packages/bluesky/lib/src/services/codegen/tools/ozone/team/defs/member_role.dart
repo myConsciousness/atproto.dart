@@ -72,14 +72,14 @@ final class MemberRoleConverter extends JsonConverter<MemberRole, String> {
 }
 
 enum KnownMemberRole implements Serializable {
-  @JsonValue('#roleAdmin')
-  roleAdmin('#roleAdmin'),
-  @JsonValue('#roleModerator')
-  roleModerator('#roleModerator'),
-  @JsonValue('#roleTriage')
-  roleTriage('#roleTriage'),
-  @JsonValue('#roleVerifier')
-  roleVerifier('#roleVerifier');
+  @JsonValue('tools.ozone.team.defs#roleAdmin')
+  toolsOzoneTeamDefsRoleAdmin('tools.ozone.team.defs#roleAdmin'),
+  @JsonValue('tools.ozone.team.defs#roleModerator')
+  toolsOzoneTeamDefsRoleModerator('tools.ozone.team.defs#roleModerator'),
+  @JsonValue('tools.ozone.team.defs#roleTriage')
+  toolsOzoneTeamDefsRoleTriage('tools.ozone.team.defs#roleTriage'),
+  @JsonValue('tools.ozone.team.defs#roleVerifier')
+  toolsOzoneTeamDefsRoleVerifier('tools.ozone.team.defs#roleVerifier');
 
   @override
   final String value;

@@ -15,6 +15,7 @@ import 'package:atproto_core/internals.dart' show iso8601;
 import '../../../../nsids.g.dart' as ns;
 import 'temp/checkHandleAvailability/output.dart';
 import 'temp/checkSignupQueue/output.dart';
+import 'temp/dereferenceScope/output.dart';
 import 'temp/fetchLabels/output.dart';
 
 // **************************************************************************
@@ -37,6 +38,20 @@ Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
     if (limit != null) 'limit': limit,
   },
   to: const TempFetchLabelsOutputConverter().fromJson,
+);
+
+/// Allows finding the oauth permission scope from a reference
+Future<XRPCResponse<TempDereferenceScopeOutput>>
+comAtprotoTempDereferenceScope({
+  required String scope,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoTempDereferenceScope,
+  headers: $headers,
+  parameters: {...?$unknown, 'scope': scope},
+  to: const TempDereferenceScopeOutputConverter().fromJson,
 );
 
 /// Check accounts location in signup queue.
@@ -125,6 +140,18 @@ base class TempService {
   }) async => await comAtprotoTempFetchLabels(
     since: since,
     limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Allows finding the oauth permission scope from a reference
+  Future<XRPCResponse<TempDereferenceScopeOutput>> dereferenceScope({
+    required String scope,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoTempDereferenceScope(
+    scope: scope,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

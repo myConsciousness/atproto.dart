@@ -1,5 +1,35 @@
 # Release Note
 
+## v1.1.0
+
+- feat: Version bump to v1.1.0 to reflect significant new functionality
+  - Updated dependency to `atproto: ^1.1.0` for compatibility with latest AT Protocol features
+  - Minor version bump appropriate for major new OzoneTool capabilities
+
+## v1.0.11
+
+- feat: Added OzoneTool client for comprehensive `tools.ozone.*` API support
+  - New `OzoneTool` class provides access to all Ozone moderation and administrative services
+  - Includes Communication, Hosting, Moderation, Server, Team, and additional Ozone services
+  - Available via separate `package:bluesky/ozone.dart` import for modular usage
+  - Requires session-based authentication for secure administrative operations
+  - Complete API coverage for moderation events, team management, server configuration, and more
+- chore: Update source files automatically ([#2117](https://github.com/myConsciousness/atproto.dart/pull/2117))
+  - Added new `com.atproto.temp.dereferenceScope` endpoint for temporary scope dereferencing
+  - Added `tools.ozone.moderation.defs.revokeAccountCredentialsEvent` for account credential revocation
+  - Updated Ozone moderation event unions to include new revoke credentials event type
+  - Generated corresponding service methods, types, and documentation
+
+## v1.0.10
+
+- **BREAKING CHANGE**: Enhanced lexicon known values naming with proper camelCase convention
+  - Enum values now use consistent namespaced naming (e.g., `live` → `appBskyActorStatusLive`)
+  - Actor, feed, graph, and moderation enum values updated with improved naming
+  - Updated test cases to match new enum naming convention (e.g., `curatelist` → `appBskyGraphDefsCuratelist`)
+- feat: Added support for lexicon fragment-only values in code generation
+- feat: Enhanced lexicon generation with context-aware naming for better consistency
+- fix: Improved enum naming consistency across all Bluesky lexicon types
+
 ## v1.0.9
 
 - chore: Sync Lexicon Data for Bookmark feature. ([#2105](https://github.com/myConsciousness/atproto.dart/pull/2105), [#2107](https://github.com/myConsciousness/atproto.dart/pull/2107))

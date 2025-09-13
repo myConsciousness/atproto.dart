@@ -60,7 +60,9 @@ void main() {
 
   testGraph<RepoCreateRecordOutput>(
     (m, s) => s.list.create(
-      purpose: ListPurpose.knownValue(data: KnownListPurpose.curatelist),
+      purpose: ListPurpose.knownValue(
+        data: KnownListPurpose.appBskyGraphDefsCuratelist,
+      ),
       name: m.name,
     ),
     id: appBskyGraphList,
