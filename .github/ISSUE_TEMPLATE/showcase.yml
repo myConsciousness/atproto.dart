@@ -1,0 +1,138 @@
+name: Add Showcase
+description: Submit your app built with atproto.dart to be featured on our showcase page
+title: "[Showcase]: "
+labels: ["website", "untriaged"]
+assignees:
+  - myConsciousness
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for building something awesome with atproto.dart! We'd love to feature your project on our [Showcase page](https://atprotodart.com/showcase).
+        
+        Please provide the following information about your application.
+
+  - type: input
+    id: app-name
+    attributes:
+      label: Application Name
+      description: What's the name of your application?
+      placeholder: "e.g., My Awesome Bluesky Client"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a brief description of your application
+      placeholder: A clear and engaging description of what your app does and what makes it special
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: packages-used
+    attributes:
+      label: Packages Used
+      description: Which atproto.dart packages does your app use?
+      options:
+        - label: at_identifier
+        - label: at_uri
+        - label: atproto
+        - label: atproto_core
+        - label: atproto_oauth
+        - label: bluesky
+        - label: bluesky_cli
+        - label: bluesky_text
+        - label: did_plc
+        - label: lex_annotation
+        - label: lex_gen
+        - label: lexicon
+        - label: multiformats
+        - label: nsid
+        - label: xrpc
+
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Platforms
+      description: Which platforms does your app support?
+      options:
+        - label: Android
+        - label: iOS
+        - label: Web
+        - label: Windows
+        - label: macOS
+        - label: Linux
+        - label: Other (please specify in additional context)
+
+  - type: input
+    id: app-store-url
+    attributes:
+      label: App Store URL (Optional)
+      description: Link to your app on Google Play, App Store, etc.
+      placeholder: "https://play.google.com/store/apps/details?id=..."
+
+  - type: input
+    id: website-url
+    attributes:
+      label: Website URL (Optional)
+      description: Link to your app's website or landing page
+      placeholder: "https://myapp.com"
+
+  - type: input
+    id: demo-url
+    attributes:
+      label: Demo URL (Optional)
+      description: Link to a live demo of your app (for web apps)
+      placeholder: "https://demo.myapp.com"
+
+  - type: input
+    id: bluesky-handle
+    attributes:
+      label: Your Bluesky Handle (Optional)
+      description: Your Bluesky handle so we can credit you
+      placeholder: "@username.bsky.social"
+
+  - type: input
+    id: repository-url
+    attributes:
+      label: Repository URL (Optional)
+      description: Link to your project's source code repository
+      placeholder: "https://github.com/username/project"
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Media
+      description: Please provide links to screenshots, videos, or other media showcasing your app
+      placeholder: |
+        You can drag and drop images here, or provide links:
+        - Screenshot 1: https://...
+        - Screenshot 2: https://...
+        - Demo video: https://...
+
+  - type: dropdown
+    id: app-status
+    attributes:
+      label: Application Status
+      description: What's the current status of your application?
+      options:
+        - Released/Production
+        - Beta/Testing
+        - In Development
+        - Prototype/Demo
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other information you'd like to share about your project
+      placeholder: |
+        Feel free to share:
+        - Interesting technical details
+        - Challenges you overcame
+        - Future plans
+        - Special features
