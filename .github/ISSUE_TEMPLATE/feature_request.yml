@@ -1,0 +1,106 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for atproto.dart packages
+title: "[Feature]: "
+labels: ["feat", "help wanted", "untriaged"]
+assignees:
+  - myConsciousness
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please provide as much detail as possible to help us understand your request.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: Which package should this feature be added to?
+      options:
+        - at_identifier
+        - at_uri
+        - atproto
+        - atproto_core
+        - atproto_oauth
+        - atproto_test
+        - bluesky
+        - bluesky_cli
+        - bluesky_text
+        - did_plc
+        - lex_annotation
+        - lex_gen
+        - lexicon
+        - multiformats
+        - nsid
+        - xrpc
+        - New package
+        - Multiple packages
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? What use case does it address?
+      placeholder: Describe the problem or limitation you're facing that this feature would solve
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like to see implemented
+      placeholder: A clear and concise description of what you want to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: Describe any alternative solutions or features you've considered
+
+  - type: textarea
+    id: api-design
+    attributes:
+      label: API Design (Optional)
+      description: If you have ideas about how the API should look, please share them
+      render: dart
+      placeholder: |
+        // Example API design
+        class MyNewFeature {
+          void doSomething() {
+            // ...
+          }
+        }
+
+  - type: checkboxes
+    id: breaking-changes
+    attributes:
+      label: Breaking Changes
+      description: Would this feature require breaking changes?
+      options:
+        - label: This feature would require breaking changes
+        - label: This feature can be implemented without breaking changes
+        - label: I'm not sure about breaking changes
+
+  - type: textarea
+    id: risks-considerations
+    attributes:
+      label: Risks and Considerations
+      description: Are there any risks or considerations we should be aware of?
+      placeholder: |
+        Consider:
+        - Performance implications
+        - Compatibility with existing code
+        - Maintenance burden
+        - Security considerations
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or examples about the feature request
+      placeholder: Any additional information that might help us understand your request better
