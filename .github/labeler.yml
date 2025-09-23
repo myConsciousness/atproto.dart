@@ -71,8 +71,4 @@ build:
 - packages/*/pubspec.yaml
 - packages/*/analysis_options.yaml
 
-# Website and examples (if they exist in the future)
-website:
-- website/**/*
-examples:
-- examples/**/*
+
