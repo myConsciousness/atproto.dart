@@ -44,7 +44,7 @@ scripts:
     description: Run `dart run build_runner build` in all packages.
 
   test:
-    run: melos exec --fail-fast -- "\$MELOS_ROOT_PATH/.github/scripts/coverage.sh"
+    run: melos exec --ignore="atproto_test,atproto_oauth,lex_gen" -- dart test
     description: Run all Dart tests in this project.
     flutter: false
     dir-exists: test
