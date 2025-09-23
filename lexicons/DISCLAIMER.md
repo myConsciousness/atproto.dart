@@ -1,11 +1,50 @@
-# Disclaimer
+# 📋 Lexicon Files Disclaimer
 
-The definition files for the lexicon in this repository are resources that are synchronized daily with the official [bluesky-social/atproto](https://github.com/bluesky-social/atproto) repository.
+## 🔄 Automated Synchronization
 
-These Lexicon files are used solely to improve development productivity in [atproto.dart](https://github.com/myConsciousness/atproto.dart), and please do not manually modify these definition files in this repository. We do not accept any issues or pull requests related to the definition of Lexicon files.
+The lexicon definition files in this directory are **automatically synchronized** daily at 18:00 UTC with the official [bluesky-social/atproto](https://github.com/bluesky-social/atproto) repository.
 
-So, if you find any problems or areas for improvement in Lexicon's definition files, please create an issue or pull request in the official [bluesky-social/atproto](https://github.com/bluesky-social/atproto) repository via the following link.
+## ⚠️ Important Notice
 
-- [bluesky-social/atproto](https://github.com/bluesky-social/atproto)
-  - [Issues](https://github.com/bluesky-social/atproto/issues)
-  - [Pull Requests](https://github.com/bluesky-social/atproto/pulls)
+### ❌ Do NOT Modify These Files
+
+- **Manual modifications are not permitted** and will be overwritten during the next sync
+- These files are **read-only resources** for development purposes only
+- Any changes must be made in the upstream repository
+
+### 🚫 Issues & Pull Requests
+
+We **do not accept**:
+- Issues related to lexicon definitions
+- Pull requests modifying lexicon files
+- Bug reports about lexicon content
+
+## 🔧 How to Contribute
+
+If you find issues or want to improve lexicon definitions:
+
+### 1. Report Issues
+Create an issue in the official repository:
+- 🔗 [bluesky-social/atproto Issues](https://github.com/bluesky-social/atproto/issues)
+
+### 2. Submit Changes
+Submit pull requests to the upstream repository:
+- 🔗 [bluesky-social/atproto Pull Requests](https://github.com/bluesky-social/atproto/pulls)
+
+### 3. Documentation
+Refer to the official lexicon documentation:
+- 📚 [AT Protocol Lexicon Docs](https://atproto.com/specs/lexicon)
+
+## 📅 Sync Schedule
+
+- **Frequency**: Daily
+- **Time**: 18:00 UTC
+- **Process**: Automated via GitHub Actions
+- **Updates**: Reflected in the next release of atproto.dart
+
+## 🤝 Questions?
+
+For questions about:
+- **Lexicon usage in atproto.dart**: Create an issue in this repository
+- **Lexicon definitions**: Use the official atproto repository
+- **AT Protocol specifications**: Check the [AT Protocol website](https://atproto.com)
