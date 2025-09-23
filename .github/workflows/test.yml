@@ -57,8 +57,8 @@ jobs:
         run: |
           if test -d "test"; then
             if grep -q flutter "pubspec.yaml"; then
-              flutter test --coverage
+              flutter test
             else
-              ${{github.workspace}}/.github/scripts/coverage.sh
+              dart test
             fi
           fi
