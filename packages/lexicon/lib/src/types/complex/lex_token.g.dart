@@ -19,5 +19,5 @@ _LexToken _$LexTokenFromJson(Map json) =>
 
 Map<String, dynamic> _$LexTokenToJson(_LexToken instance) => <String, dynamic>{
   'type': instance.type,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
 };

@@ -21,7 +21,7 @@ _LexBytes _$LexBytesFromJson(Map json) =>
 
 Map<String, dynamic> _$LexBytesToJson(_LexBytes instance) => <String, dynamic>{
   'type': instance.type,
-  if (instance.description case final value?) 'description': value,
-  if (instance.maxLength case final value?) 'maxLength': value,
-  if (instance.minLength case final value?) 'minLength': value,
+  'description': ?instance.description,
+  'maxLength': ?instance.maxLength,
+  'minLength': ?instance.minLength,
 };

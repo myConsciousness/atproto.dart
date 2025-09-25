@@ -1,12 +1,9 @@
 dependency_overrides:
-  at_identifier:
-    path: ../at_identifier
-  nsid:
-    path: ../nsid
+  at_primitives:
+    path: ../at_primitives
   multiformats:
     path: ../multiformats
-  at_uri:
-    path: ../at_uri
+
   xrpc:
     path: ../xrpc
   lexicon:

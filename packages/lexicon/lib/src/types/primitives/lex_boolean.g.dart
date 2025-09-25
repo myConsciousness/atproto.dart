@@ -26,7 +26,7 @@ _LexBoolean _$LexBooleanFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$LexBooleanToJson(_LexBoolean instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.defaultValue case final value?) 'default': value,
-      if (instance.constValue case final value?) 'const': value,
+      'description': ?instance.description,
+      'default': ?instance.defaultValue,
+      'const': ?instance.constValue,
     };

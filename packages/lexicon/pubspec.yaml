@@ -11,7 +11,7 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
-  nsid: ^1.0.2
+  at_primitives: ^1.0.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
 

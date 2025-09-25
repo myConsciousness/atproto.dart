@@ -1,12 +1,8 @@
 # Package-specific labels
-at_identifier:
-- packages/at_identifier/**/*
-nsid:
-- packages/nsid/**/*
+at_primitives:
+- packages/at_primitives/**/*
 lexicon:
 - packages/lexicon/**/*
-at_uri:
-- packages/at_uri/**/*
 xrpc:
 - packages/xrpc/**/*
 multiformats:
@@ -34,10 +30,8 @@ bluesky_cli:
 
 # Test-related changes (only for packages that actually have tests)
 test:
-- packages/at_identifier/test/**/*.dart
-- packages/nsid/test/**/*.dart
+- packages/at_primitives/test/**/*.dart
 - packages/lexicon/test/**/*.dart
-- packages/at_uri/test/**/*.dart
 - packages/xrpc/test/**/*.dart
 - packages/multiformats/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
@@ -70,5 +64,3 @@ build:
 - bin/**/*
 - packages/*/pubspec.yaml
 - packages/*/analysis_options.yaml
-
-

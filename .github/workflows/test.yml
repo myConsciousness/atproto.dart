@@ -21,10 +21,8 @@ jobs:
         channel:
           - stable
         package_path:
-          - packages/at_identifier
-          - packages/nsid
+          - packages/at_primitives
           - packages/lexicon
-          - packages/at_uri
           - packages/xrpc
           - packages/multiformats
           - packages/atproto_core

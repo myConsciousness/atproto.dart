@@ -5,20 +5,40 @@
 </p>
 
 <p align="center">
-  <b>Core library for parsing NSIDs in the AT Protocol standard 🦋</b>
+  <b>⚠️ DEPRECATED - Use at_primitives instead</b>
 </p>
 
-<!-- TOC -->
+# ⚠️ Package Deprecated
 
-- [1. Guide 🌎](#1-guide-)
-  - [1.1. Getting Started ⚡](#11-getting-started-)
-    - [1.1.1. Install Library](#111-install-library)
-    - [1.1.2. Import](#112-import)
-    - [1.1.3. Implementation](#113-implementation)
+This package has been **deprecated** and is no longer maintained. All functionality has been moved to the `at_primitives` package.
 
-<!-- /TOC -->
+## Migration Guide
 
-# 1. Guide 🌎
+Please migrate to the `at_primitives` package:
+
+```bash
+# Remove the old package
+dart pub remove nsid
+
+# Add the new package
+dart pub add at_primitives
+```
+
+Update your imports:
+
+```dart
+// Old
+import 'package:nsid/nsid.dart';
+
+// New
+import 'package:at_primitives/at_primitives.dart';
+```
+
+The API remains the same, so no code changes are required beyond updating the import statement.
+
+---
+
+# 1. Guide 🌎 (Legacy Documentation)
 
 This library provides the easiest way to use **_[NSID](https://atproto.com/specs/nsid)_** supported by **_[AT Protocol](https://atproto.com)_** in Dart and Flutter apps.
 

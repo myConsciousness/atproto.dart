@@ -20,5 +20,5 @@ _LexXrpcError _$LexXrpcErrorFromJson(Map json) =>
 Map<String, dynamic> _$LexXrpcErrorToJson(_LexXrpcError instance) =>
     <String, dynamic>{
       'name': instance.name,
-      if (instance.description case final value?) 'description': value,
+      'description': ?instance.description,
     };
