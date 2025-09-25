@@ -38,6 +38,14 @@ const Users: User[] = [
     tags: ['desktop'],
   },
   {
+    title: 'Himmel',
+    description: 'An offline-capable feed reader for Bluesky with simplicity in mind.',
+    preview: null,
+    website: 'https://himmel.app',
+    source: null,
+    tags: ['mobile'],
+  },
+  {
     title: 'SkyBridge',
     author: 'videah.net',
     description: 'The bridge/proxy that allows you to use Mastodon apps with Bluesky.',
