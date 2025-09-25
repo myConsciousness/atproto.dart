@@ -2,7 +2,7 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-export 'package:nsid/nsid.dart' show NSID;
+export 'package:at_primitives/nsid.dart' show NSID;
 
 export 'package:lexicon/src/types/blobs/lex_blob.dart';
 export 'package:lexicon/src/types/complex/lex_array.dart';

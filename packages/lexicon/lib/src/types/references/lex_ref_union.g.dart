@@ -25,7 +25,7 @@ _LexRefUnion _$LexRefUnionFromJson(Map json) =>
 Map<String, dynamic> _$LexRefUnionToJson(_LexRefUnion instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.refs case final value?) 'refs': value,
-      if (instance.closed case final value?) 'closed': value,
+      'description': ?instance.description,
+      'refs': ?instance.refs,
+      'closed': ?instance.closed,
     };

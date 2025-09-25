@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.3
+
+- **DEPRECATED**: This package has been deprecated. All functionality has been moved to the `at_primitives` package. Please migrate to `at_primitives` for future updates and support.
+
 ## v1.0.2
 
 - Fix SDK constraint to '">=3.8.0 <4.0.0"'.

@@ -25,7 +25,7 @@ _LexRecord _$LexRecordFromJson(Map json) =>
 Map<String, dynamic> _$LexRecordToJson(_LexRecord instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.key case final value?) 'key': value,
+      'description': ?instance.description,
+      'key': ?instance.key,
       'record': instance.record.toJson(),
     };

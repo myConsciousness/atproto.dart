@@ -1,5 +1,3 @@
 dependency_overrides:
-  at_identifier:
-    path: ../at_identifier
-  nsid:
-    path: ../nsid
+  at_primitives:
+    path: ../at_primitives

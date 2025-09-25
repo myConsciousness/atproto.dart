@@ -46,12 +46,10 @@ _LexObject _$LexObjectFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$LexObjectToJson(_LexObject instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.requiredProperties case final value?) 'required': value,
-      if (instance.nullableProperties case final value?) 'nullable': value,
-      if (instance.properties?.map(
-            (k, e) => MapEntry(k, const LexObjectPropertyConverter().toJson(e)),
-          )
-          case final value?)
-        'properties': value,
+      'description': ?instance.description,
+      'required': ?instance.requiredProperties,
+      'nullable': ?instance.nullableProperties,
+      'properties': ?instance.properties?.map(
+        (k, e) => MapEntry(k, const LexObjectPropertyConverter().toJson(e)),
+      ),
     };

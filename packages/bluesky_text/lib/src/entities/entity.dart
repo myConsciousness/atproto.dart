@@ -2,15 +2,11 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 // Project imports:
 import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
 import 'facetable.dart';
 
-@freezed
 final class Entity implements Facetable {
   final EntityType type;
   final String value;

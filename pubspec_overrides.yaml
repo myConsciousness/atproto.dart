@@ -1,5 +1,5 @@
 dependency_overrides:
-  nsid:
-    path: packages/nsid
+  at_primitives:
+    path: packages/at_primitives
   lexicon:
     path: packages/lexicon

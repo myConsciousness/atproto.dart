@@ -41,9 +41,8 @@ _LexXrpcQuery _$LexXrpcQueryFromJson(Map json) =>
 Map<String, dynamic> _$LexXrpcQueryToJson(_LexXrpcQuery instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
-      if (instance.parameters?.toJson() case final value?) 'parameters': value,
-      if (instance.output?.toJson() case final value?) 'output': value,
-      if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
-        'errors': value,
+      'description': ?instance.description,
+      'parameters': ?instance.parameters?.toJson(),
+      'output': ?instance.output?.toJson(),
+      'errors': ?instance.errors?.map((e) => e.toJson()).toList(),
     };

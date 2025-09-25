@@ -4,8 +4,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 // Package imports:
+import 'package:at_primitives/nsid.dart';
 import 'package:http/http.dart';
-import 'package:nsid/nsid.dart';
 import 'package:test/test.dart';
 
 // Project imports:

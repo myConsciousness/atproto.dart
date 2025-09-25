@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:at_uri/at_uri.dart';
+import 'package:at_primitives/at_uri.dart';
 import 'package:test/test.dart';
 
 // Project imports:

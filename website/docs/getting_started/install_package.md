@@ -32,7 +32,7 @@ For lower-level AT Protocol development:
 flutter pub add atproto
 
 # Individual protocol components
-flutter pub add at_uri nsid xrpc multiformats
+flutter pub add at_primitives xrpc multiformats
 ```
 
 ## Installation Examples
@@ -110,7 +110,7 @@ Choose packages based on your use case:
 |---------|----------|----------|
 | `bluesky` | Social media apps | Most developers |
 | `atproto` | Custom AT Protocol apps | Advanced use cases |
-| `at_uri` | URI handling only | Specific utilities |
+| `at_primitives` | Protocol primitives only | Specific utilities |
 | `xrpc` | HTTP RPC only | Custom protocols |
 
 ## Next Steps

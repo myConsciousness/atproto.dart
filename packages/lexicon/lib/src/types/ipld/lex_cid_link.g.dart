@@ -20,5 +20,5 @@ _LexCidLink _$LexCidLinkFromJson(Map json) =>
 Map<String, dynamic> _$LexCidLinkToJson(_LexCidLink instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
+      'description': ?instance.description,
     };
