@@ -97,7 +97,7 @@ class ConfigLoader {
 
   /// Get default configuration file path
   static String _getDefaultConfigPath() {
-    return File('bin/config/$_defaultConfigFileName').absolute.path;
+    return File('scripts/config/$_defaultConfigFileName').absolute.path;
   }
 
   /// Load configuration from JSON file
@@ -167,7 +167,7 @@ class ConfigLoader {
     String environment,
   ) async {
     final envConfigPath =
-        'bin/config/${_environmentConfigPrefix}_$environment.json';
+        'scripts/config/${_environmentConfigPrefix}_$environment.json';
 
     if (!File(envConfigPath).existsSync()) {
       return baseConfig; // No environment-specific config found
