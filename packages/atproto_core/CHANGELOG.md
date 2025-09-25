@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.0.7
+
+- **MIGRATION**: Updated to use the consolidated `at_primitives` package for all primitive AT Protocol types.
+- **IMPROVEMENT**: Simplified dependency management by adopting unified primitive types from `at_primitives`.
+
 ## v1.0.6
 
 - fix: Drop `universal_io` for WASM compatibility.

@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.1.1
+
+- **MIGRATION**: Updated to use the consolidated `at_primitives` package for all AT Protocol primitive types.
+- **IMPROVEMENT**: Simplified dependency management by adopting unified primitive types from `at_primitives`.
+
 ## v1.1.0
 
 - feat: Version bump to v1.1.0 to reflect significant new functionality

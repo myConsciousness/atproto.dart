@@ -5,7 +5,7 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
- lexicon: ^1.0.2
+ lexicon: ^1.0.3
 
 dev_dependencies:
   lints: ^6.0.0
