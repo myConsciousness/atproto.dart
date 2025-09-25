@@ -37,6 +37,20 @@ import 'moderation/searchRepos/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Get timeline of all available events of an account. This includes moderation events, account history and did history.
+Future<XRPCResponse<ModerationGetAccountTimelineOutput>>
+toolsOzoneModerationGetAccountTimeline({
+  required String did,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationGetAccountTimeline,
+  headers: $headers,
+  parameters: {...?$unknown, 'did': did},
+  to: const ModerationGetAccountTimelineOutputConverter().fromJson,
+);
+
 /// Take a moderation action on an actor.
 Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
   required UModerationEmitEventEvent event,
@@ -77,19 +91,6 @@ Future<XRPCResponse<RecordViewDetail>> toolsOzoneModerationGetRecord({
   to: const RecordViewDetailConverter().fromJson,
 );
 
-/// Get details about some repositories.
-Future<XRPCResponse<ModerationGetReposOutput>> toolsOzoneModerationGetRepos({
-  required List<String> dids,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneModerationGetRepos,
-  headers: $headers,
-  parameters: {...?$unknown, 'dids': dids},
-  to: const ModerationGetReposOutputConverter().fromJson,
-);
-
 /// Get details about some records.
 Future<XRPCResponse<ModerationGetRecordsOutput>>
 toolsOzoneModerationGetRecords({
@@ -102,83 +103,6 @@ toolsOzoneModerationGetRecords({
   headers: $headers,
   parameters: {...?$unknown, 'uris': uris},
   to: const ModerationGetRecordsOutputConverter().fromJson,
-);
-
-/// Get details about subjects.
-Future<XRPCResponse<ModerationGetSubjectsOutput>>
-toolsOzoneModerationGetSubjects({
-  required List<String> subjects,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneModerationGetSubjects,
-  headers: $headers,
-  parameters: {...?$unknown, 'subjects': subjects},
-  to: const ModerationGetSubjectsOutputConverter().fromJson,
-);
-
-/// Get details about a moderation event.
-Future<XRPCResponse<ModEventViewDetail>> toolsOzoneModerationGetEvent({
-  required int id,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneModerationGetEvent,
-  headers: $headers,
-  parameters: {...?$unknown, 'id': id},
-  to: const ModEventViewDetailConverter().fromJson,
-);
-
-/// Find repositories based on a search term.
-Future<XRPCResponse<ModerationSearchReposOutput>>
-toolsOzoneModerationSearchRepos({
-  String? term,
-  String? q,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneModerationSearchRepos,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (term != null) 'term': term,
-    if (q != null) 'q': q,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const ModerationSearchReposOutputConverter().fromJson,
-);
-
-/// Get details about a repository.
-Future<XRPCResponse<RepoViewDetail>> toolsOzoneModerationGetRepo({
-  required String did,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneModerationGetRepo,
-  headers: $headers,
-  parameters: {...?$unknown, 'did': did},
-  to: const RepoViewDetailConverter().fromJson,
-);
-
-/// Get reporter stats for a list of users.
-Future<XRPCResponse<ModerationGetReporterStatsOutput>>
-toolsOzoneModerationGetReporterStats({
-  required List<String> dids,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneModerationGetReporterStats,
-  headers: $headers,
-  parameters: {...?$unknown, 'dids': dids},
-  to: const ModerationGetReporterStatsOutputConverter().fromJson,
 );
 
 /// View moderation statuses of subjects (record or repo).
@@ -275,6 +199,47 @@ toolsOzoneModerationQueryStatuses({
   to: const ModerationQueryStatusesOutputConverter().fromJson,
 );
 
+/// Get details about a moderation event.
+Future<XRPCResponse<ModEventViewDetail>> toolsOzoneModerationGetEvent({
+  required int id,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationGetEvent,
+  headers: $headers,
+  parameters: {...?$unknown, 'id': id},
+  to: const ModEventViewDetailConverter().fromJson,
+);
+
+/// Get details about subjects.
+Future<XRPCResponse<ModerationGetSubjectsOutput>>
+toolsOzoneModerationGetSubjects({
+  required List<String> subjects,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationGetSubjects,
+  headers: $headers,
+  parameters: {...?$unknown, 'subjects': subjects},
+  to: const ModerationGetSubjectsOutputConverter().fromJson,
+);
+
+/// Get reporter stats for a list of users.
+Future<XRPCResponse<ModerationGetReporterStatsOutput>>
+toolsOzoneModerationGetReporterStats({
+  required List<String> dids,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationGetReporterStats,
+  headers: $headers,
+  parameters: {...?$unknown, 'dids': dids},
+  to: const ModerationGetReporterStatsOutputConverter().fromJson,
+);
+
 /// List moderation events related to a subject.
 Future<XRPCResponse<ModerationQueryEventsOutput>>
 toolsOzoneModerationQueryEvents({
@@ -336,18 +301,53 @@ toolsOzoneModerationQueryEvents({
   to: const ModerationQueryEventsOutputConverter().fromJson,
 );
 
-/// Get timeline of all available events of an account. This includes moderation events, account history and did history.
-Future<XRPCResponse<ModerationGetAccountTimelineOutput>>
-toolsOzoneModerationGetAccountTimeline({
+/// Get details about a repository.
+Future<XRPCResponse<RepoViewDetail>> toolsOzoneModerationGetRepo({
   required String did,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.toolsOzoneModerationGetAccountTimeline,
+  ns.toolsOzoneModerationGetRepo,
   headers: $headers,
   parameters: {...?$unknown, 'did': did},
-  to: const ModerationGetAccountTimelineOutputConverter().fromJson,
+  to: const RepoViewDetailConverter().fromJson,
+);
+
+/// Get details about some repositories.
+Future<XRPCResponse<ModerationGetReposOutput>> toolsOzoneModerationGetRepos({
+  required List<String> dids,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationGetRepos,
+  headers: $headers,
+  parameters: {...?$unknown, 'dids': dids},
+  to: const ModerationGetReposOutputConverter().fromJson,
+);
+
+/// Find repositories based on a search term.
+Future<XRPCResponse<ModerationSearchReposOutput>>
+toolsOzoneModerationSearchRepos({
+  String? term,
+  String? q,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationSearchRepos,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (term != null) 'term': term,
+    if (q != null) 'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ModerationSearchReposOutputConverter().fromJson,
 );
 
 /// `tools.ozone.moderation.*`
@@ -356,6 +356,18 @@ base class ModerationService {
   final ServiceContext _ctx;
 
   ModerationService(this._ctx);
+
+  /// Get timeline of all available events of an account. This includes moderation events, account history and did history.
+  Future<XRPCResponse<ModerationGetAccountTimelineOutput>> getAccountTimeline({
+    required String did,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationGetAccountTimeline(
+    did: did,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Take a moderation action on an actor.
   Future<XRPCResponse<ModEventView>> emitEvent({
@@ -393,18 +405,6 @@ base class ModerationService {
     $unknown: $unknown,
   );
 
-  /// Get details about some repositories.
-  Future<XRPCResponse<ModerationGetReposOutput>> getRepos({
-    required List<String> dids,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationGetRepos(
-    dids: dids,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
   /// Get details about some records.
   Future<XRPCResponse<ModerationGetRecordsOutput>> getRecords({
     required List<String> uris,
@@ -412,72 +412,6 @@ base class ModerationService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneModerationGetRecords(
     uris: uris,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get details about subjects.
-  Future<XRPCResponse<ModerationGetSubjectsOutput>> getSubjects({
-    required List<String> subjects,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationGetSubjects(
-    subjects: subjects,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get details about a moderation event.
-  Future<XRPCResponse<ModEventViewDetail>> getEvent({
-    required int id,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationGetEvent(
-    id: id,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Find repositories based on a search term.
-  Future<XRPCResponse<ModerationSearchReposOutput>> searchRepos({
-    String? term,
-    String? q,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationSearchRepos(
-    term: term,
-    q: q,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get details about a repository.
-  Future<XRPCResponse<RepoViewDetail>> getRepo({
-    required String did,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationGetRepo(
-    did: did,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get reporter stats for a list of users.
-  Future<XRPCResponse<ModerationGetReporterStatsOutput>> getReporterStats({
-    required List<String> dids,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationGetReporterStats(
-    dids: dids,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -563,6 +497,42 @@ base class ModerationService {
     $unknown: $unknown,
   );
 
+  /// Get details about a moderation event.
+  Future<XRPCResponse<ModEventViewDetail>> getEvent({
+    required int id,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationGetEvent(
+    id: id,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get details about subjects.
+  Future<XRPCResponse<ModerationGetSubjectsOutput>> getSubjects({
+    required List<String> subjects,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationGetSubjects(
+    subjects: subjects,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get reporter stats for a list of users.
+  Future<XRPCResponse<ModerationGetReporterStatsOutput>> getReporterStats({
+    required List<String> dids,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationGetReporterStats(
+    dids: dids,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// List moderation events related to a subject.
   Future<XRPCResponse<ModerationQueryEventsOutput>> queryEvents({
     List<String>? types,
@@ -617,13 +587,43 @@ base class ModerationService {
     $unknown: $unknown,
   );
 
-  /// Get timeline of all available events of an account. This includes moderation events, account history and did history.
-  Future<XRPCResponse<ModerationGetAccountTimelineOutput>> getAccountTimeline({
+  /// Get details about a repository.
+  Future<XRPCResponse<RepoViewDetail>> getRepo({
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneModerationGetAccountTimeline(
+  }) async => await toolsOzoneModerationGetRepo(
     did: did,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get details about some repositories.
+  Future<XRPCResponse<ModerationGetReposOutput>> getRepos({
+    required List<String> dids,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationGetRepos(
+    dids: dids,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Find repositories based on a search term.
+  Future<XRPCResponse<ModerationSearchReposOutput>> searchRepos({
+    String? term,
+    String? q,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationSearchRepos(
+    term: term,
+    q: q,
+    limit: limit,
+    cursor: cursor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

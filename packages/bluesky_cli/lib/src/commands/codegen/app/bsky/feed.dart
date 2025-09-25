@@ -43,29 +43,29 @@ import 'feed/threadgate.dart';
 final class AppBskyFeedCommand extends Command<void> {
   AppBskyFeedCommand() {
     addSubcommand(GetFeedGeneratorCommand());
-    addSubcommand(GetTimelineCommand());
-    addSubcommand(GetRepostedByCommand());
-    addSubcommand(PostgateCommand());
-    addSubcommand(GetSuggestedFeedsCommand());
-    addSubcommand(LikeCommand());
-    addSubcommand(GetListFeedCommand());
-    addSubcommand(GetAuthorFeedCommand());
-    addSubcommand(PostCommand());
-    addSubcommand(SearchPostsCommand());
     addSubcommand(GetActorFeedsCommand());
-    addSubcommand(GetQuotesCommand());
-    addSubcommand(SendInteractionsCommand());
-    addSubcommand(ThreadgateCommand());
-    addSubcommand(GeneratorCommand());
-    addSubcommand(GetFeedCommand());
-    addSubcommand(GetActorLikesCommand());
-    addSubcommand(GetPostThreadCommand());
-    addSubcommand(GetLikesCommand());
-    addSubcommand(GetPostsCommand());
-    addSubcommand(GetFeedSkeletonCommand());
-    addSubcommand(GetFeedGeneratorsCommand());
-    addSubcommand(DescribeFeedGeneratorCommand());
     addSubcommand(RepostCommand());
+    addSubcommand(GetTimelineCommand());
+    addSubcommand(GetLikesCommand());
+    addSubcommand(ThreadgateCommand());
+    addSubcommand(GetFeedGeneratorsCommand());
+    addSubcommand(GetFeedCommand());
+    addSubcommand(GetFeedSkeletonCommand());
+    addSubcommand(DescribeFeedGeneratorCommand());
+    addSubcommand(GeneratorCommand());
+    addSubcommand(GetActorLikesCommand());
+    addSubcommand(GetAuthorFeedCommand());
+    addSubcommand(SendInteractionsCommand());
+    addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(GetPostThreadCommand());
+    addSubcommand(PostgateCommand());
+    addSubcommand(GetQuotesCommand());
+    addSubcommand(GetPostsCommand());
+    addSubcommand(SearchPostsCommand());
+    addSubcommand(PostCommand());
+    addSubcommand(GetListFeedCommand());
+    addSubcommand(LikeCommand());
+    addSubcommand(GetRepostedByCommand());
   }
 
   @override

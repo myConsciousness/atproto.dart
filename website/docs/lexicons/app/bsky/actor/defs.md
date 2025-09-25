@@ -45,6 +45,8 @@ description: app.bsky.actor.defs
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
+| **pronouns** | string | - | ❌ | - |
+| **website** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **banner** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **followersCount** | integer | - | ❌ | - |

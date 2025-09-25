@@ -23,10 +23,10 @@ import 'set/query_sets.dart';
 
 final class ToolsOzoneSetCommand extends Command<void> {
   ToolsOzoneSetCommand() {
-    addSubcommand(AddValuesCommand());
-    addSubcommand(DeleteSetCommand());
-    addSubcommand(QuerySetsCommand());
     addSubcommand(GetValuesCommand());
+    addSubcommand(QuerySetsCommand());
+    addSubcommand(DeleteSetCommand());
+    addSubcommand(AddValuesCommand());
     addSubcommand(DeleteValuesCommand());
   }
 
