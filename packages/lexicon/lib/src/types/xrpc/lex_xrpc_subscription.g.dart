@@ -53,11 +53,9 @@ Map<String, dynamic> _$LexXrpcSubscriptionToJson(
   _LexXrpcSubscription instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  if (instance.description case final value?) 'description': value,
-  if (instance.parameters?.toJson() case final value?) 'parameters': value,
-  if (instance.message?.toJson() case final value?) 'message': value,
-  if (instance.infos?.map((e) => e.toJson()).toList() case final value?)
-    'infos': value,
-  if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
-    'errors': value,
+  'description': ?instance.description,
+  'parameters': ?instance.parameters?.toJson(),
+  'message': ?instance.message?.toJson(),
+  'infos': ?instance.infos?.map((e) => e.toJson()).toList(),
+  'errors': ?instance.errors?.map((e) => e.toJson()).toList(),
 };

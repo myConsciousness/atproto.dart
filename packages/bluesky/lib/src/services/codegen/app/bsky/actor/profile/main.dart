@@ -29,6 +29,8 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
   static const knownProps = <String>[
     'displayName',
     'description',
+    'pronouns',
+    'website',
     'avatar',
     'banner',
     'labels',
@@ -44,6 +46,10 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
 
     /// Free-form profile description text.
     String? description,
+
+    /// Free-form pronouns text.
+    String? pronouns,
+    @AtUriConverter() AtUri? website,
 
     /// Small image to be displayed next to posts from account. AKA, 'profile picture'
     @BlobConverter() Blob? avatar,
@@ -72,6 +78,10 @@ extension ActorProfileRecordExtension on ActorProfileRecord {
   bool get hasNotDisplayName => !hasDisplayName;
   bool get hasDescription => description != null;
   bool get hasNotDescription => !hasDescription;
+  bool get hasPronouns => pronouns != null;
+  bool get hasNotPronouns => !hasPronouns;
+  bool get hasWebsite => website != null;
+  bool get hasNotWebsite => !hasWebsite;
   bool get hasAvatar => avatar != null;
   bool get hasNotAvatar => !hasAvatar;
   bool get hasBanner => banner != null;

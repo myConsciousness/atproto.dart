@@ -22,13 +22,13 @@ topics:
   - cli
 
 dependencies:
-  xrpc: ^1.0.2
-  at_uri: ^1.0.2
+  xrpc: ^1.0.3
+  at_primitives: ^1.0.0
   ansi_styles: ^0.3.1
   args: ^2.7.0
   cli_launcher: ^0.3.1
   cli_util: ^0.4.2
-  bluesky_text: ^1.0.3
+  bluesky_text: ^1.0.4
 
 dev_dependencies:
   lints: ^6.0.0

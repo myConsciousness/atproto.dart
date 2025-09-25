@@ -29,7 +29,6 @@
 - [3. Quick Start Guide 🚀](#3-quick-start-guide-)
   - [3.1. Building a Bluesky Social App](#31-building-a-bluesky-social-app)
   - [3.2. Building AT Protocol Services](#32-building-at-protocol-services)
-  - [3.3. Working with AT Protocol Primitives](#33-working-with-at-protocol-primitives)
 - [4. Project Development Setup 🛠️](#4-project-development-setup-️)
   - [4.1. Prerequisites](#41-prerequisites)
   - [4.2. Quick Setup](#42-quick-setup)
@@ -78,9 +77,7 @@ The atproto.dart ecosystem is organized into focused packages that work together
 
 | Package | Description | pub.dev | Docs |
 | ------- | ----------- | :-----: | :--: |
-| **[at_identifier](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier)** | AT Protocol identifier validation and parsing | [![pub package](https://img.shields.io/pub/v/at_identifier.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_identifier) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier/README.md) |
-| **[nsid](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid)** | [NSID](https://atproto.com/specs/nsid) parsing and validation for method/schema identification | [![pub package](https://img.shields.io/pub/v/nsid.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/nsid) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid/README.md) |
-| **[at_uri](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri)** | [AT URI](https://atproto.com/specs/at-uri-scheme) parsing for resource identification | [![pub package](https://img.shields.io/pub/v/at_uri.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_uri) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri/README.md) |
+| **[at_primitives](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_primitives)** | AT Protocol primitive types (identifiers, URIs, NSIDs) - unified package | [![pub package](https://img.shields.io/pub/v/at_primitives.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/at_primitives) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_primitives/README.md) |
 | **[xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)** | [XRPC](https://atproto.com/specs/xrpc) HTTP client with built-in retry and error handling | [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/xrpc) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc/README.md) |
 | **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)** | IPFS multiformats support for content addressing (CIDs, multihash, etc.) | [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/multiformats) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats/README.md) |
 | **[lexicon](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon)** | [Lexicon](https://atproto.com/guides/lexicon) schema parsing and validation | [![pub package](https://img.shields.io/pub/v/lexicon.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/lexicon) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/lexicon/README.md) |

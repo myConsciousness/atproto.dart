@@ -22,9 +22,9 @@ import 'communication/update_template.dart';
 
 final class ToolsOzoneCommunicationCommand extends Command<void> {
   ToolsOzoneCommunicationCommand() {
-    addSubcommand(UpdateTemplateCommand());
-    addSubcommand(DeleteTemplateCommand());
     addSubcommand(ListTemplatesCommand());
+    addSubcommand(DeleteTemplateCommand());
+    addSubcommand(UpdateTemplateCommand());
     addSubcommand(CreateTemplateCommand());
   }
 

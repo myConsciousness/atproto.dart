@@ -21,9 +21,9 @@ import 'bookmark/get_bookmarks.dart';
 
 final class AppBskyBookmarkCommand extends Command<void> {
   AppBskyBookmarkCommand() {
-    addSubcommand(CreateBookmarkCommand());
     addSubcommand(DeleteBookmarkCommand());
     addSubcommand(GetBookmarksCommand());
+    addSubcommand(CreateBookmarkCommand());
   }
 
   @override

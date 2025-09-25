@@ -83,8 +83,7 @@ Designed to support any AT Protocol service, not just Bluesky.
 - **Custom Lexicons**: Easy integration of new AT Protocol schemas and endpoints
 
 ### 📦 **Essential Protocol Packages**
-- **[at_uri](https://pub.dev/packages/at_uri)**: AT URI parsing and manipulation
-- **[nsid](https://pub.dev/packages/nsid)**: Namespaced identifier handling  
+- **[at_primitives](https://pub.dev/packages/at_primitives)**: AT Protocol primitive types (URIs, identifiers, NSIDs)
 - **[xrpc](https://pub.dev/packages/xrpc)**: HTTP-based RPC protocol implementation
 - **[multiformats](https://pub.dev/packages/multiformats)**: Content addressing and cryptographic hashing
 

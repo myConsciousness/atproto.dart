@@ -1,0 +1,9 @@
+{
+  "jobStatus": {
+    "jobId": "upload-job-456",
+    "did": "did:plc:test123456789",
+    "state": "JOB_STATE_PROCESSING",
+    "progress": 25,
+    "message": "Video upload in progress"
+  }
+}

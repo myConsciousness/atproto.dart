@@ -1,5 +1,17 @@
 # Release Note
 
+## v1.2.0
+
+- feat: Added Admin and Lexicon services to ATProto
+  - Added AdminService for `com.atproto.admin.*` endpoints
+  - Added LexiconService for `com.atproto.lexicon.*` endpoints
+  - Enhanced AT Protocol service coverage with comprehensive admin and lexicon functionality
+
+## v1.1.1
+
+- **MIGRATION**: Updated to use the consolidated `at_primitives` package for all AT Protocol primitive types.
+- **IMPROVEMENT**: Simplified dependency management by adopting unified primitive types from `at_primitives`.
+
 ## v1.1.0
 
 - feat: Version bump to v1.1.0 to reflect enhanced AT Protocol capabilities

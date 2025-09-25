@@ -1,6 +1,6 @@
 name: lexicon
 description: Core library for parsing Lexicon in the AT Protocol standard.
-version: 1.0.2
+version: 1.0.3
 homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/packages/lexicon
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
@@ -13,7 +13,7 @@ environment:
 resolution: workspace
 
 dependencies:
-  nsid: ^1.0.2
+  at_primitives: ^1.0.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
 

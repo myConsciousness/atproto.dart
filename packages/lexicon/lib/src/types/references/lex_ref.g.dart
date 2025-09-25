@@ -20,6 +20,6 @@ _LexRef _$LexRefFromJson(Map json) =>
 
 Map<String, dynamic> _$LexRefToJson(_LexRef instance) => <String, dynamic>{
   'type': instance.type,
-  if (instance.description case final value?) 'description': value,
-  if (instance.ref case final value?) 'ref': value,
+  'description': ?instance.description,
+  'ref': ?instance.ref,
 };

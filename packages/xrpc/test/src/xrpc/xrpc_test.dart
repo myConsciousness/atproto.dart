@@ -4,8 +4,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 // Package imports:
+import 'package:at_primitives/nsid.dart';
 import 'package:http/http.dart';
-import 'package:nsid/nsid.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -416,7 +416,7 @@ void main() {
   });
 
   group('.subscribe', () {
-    test('connect 5 seconds', () async {
+    test('connect 1 second', () async {
       final subscription = subscribe(
         NSID.create('sync.atproto.com', 'subscribeRepos'),
       );
@@ -425,7 +425,7 @@ void main() {
       expect(subscription.data, isA<Subscription>());
       expect(subscription.rateLimit, isA<RateLimit>());
 
-      final oneMinuteLater = DateTime.now().add(Duration(seconds: 5));
+      final oneMinuteLater = DateTime.now().add(Duration(seconds: 1));
 
       await for (final _ in subscription.data.stream) {
         if (DateTime.now().isAfter(oneMinuteLater)) {

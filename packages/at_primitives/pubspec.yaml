@@ -1,0 +1,30 @@
+name: at_primitives
+description: Primitive types and utilities for AT Protocol. This package provides basic data structures and utilities used across AT Protocol implementations.
+version: 1.0.0
+homepage: https://atprotodart.com
+documentation: https://atprotodart.com/docs/intro
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_primitives
+issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
+funding:
+  - https://github.com/sponsors/myConsciousness
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+
+topics:
+  - atproto
+  - bluesky
+  - primitives
+  - utilities
+
+dependencies:
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.26.2
+  build_runner: ^2.5.4
+  json_serializable: ^6.9.5
+  freezed: ^3.2.0
+  import_sorter: ^4.6.0

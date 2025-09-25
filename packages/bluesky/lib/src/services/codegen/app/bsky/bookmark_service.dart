@@ -18,19 +18,6 @@ import 'bookmark/getBookmarks/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
-Future<XRPCResponse<EmptyData>> appBskyBookmarkCreateBookmark({
-  required String uri,
-  required String cid,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyBookmarkCreateBookmark,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'uri': uri, 'cid': cid},
-);
-
 /// Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyBookmarkDeleteBookmark({
   required String uri,
@@ -61,26 +48,25 @@ Future<XRPCResponse<BookmarkGetBookmarksOutput>> appBskyBookmarkGetBookmarks({
   to: const BookmarkGetBookmarksOutputConverter().fromJson,
 );
 
+/// Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
+Future<XRPCResponse<EmptyData>> appBskyBookmarkCreateBookmark({
+  required String uri,
+  required String cid,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyBookmarkCreateBookmark,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'uri': uri, 'cid': cid},
+);
+
 /// `app.bsky.bookmark.*`
 base class BookmarkService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
   BookmarkService(this._ctx);
-
-  /// Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
-  Future<XRPCResponse<EmptyData>> createBookmark({
-    required String uri,
-    required String cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyBookmarkCreateBookmark(
-    uri: uri,
-    cid: cid,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
   Future<XRPCResponse<EmptyData>> deleteBookmark({
@@ -103,6 +89,20 @@ base class BookmarkService {
   }) async => await appBskyBookmarkGetBookmarks(
     limit: limit,
     cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
+  Future<XRPCResponse<EmptyData>> createBookmark({
+    required String uri,
+    required String cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyBookmarkCreateBookmark(
+    uri: uri,
+    cid: cid,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

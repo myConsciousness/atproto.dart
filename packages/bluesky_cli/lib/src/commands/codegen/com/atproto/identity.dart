@@ -26,14 +26,14 @@ import 'identity/update_handle.dart';
 
 final class ComAtprotoIdentityCommand extends Command<void> {
   ComAtprotoIdentityCommand() {
-    addSubcommand(SignPlcOperationCommand());
-    addSubcommand(UpdateHandleCommand());
     addSubcommand(ResolveIdentityCommand());
+    addSubcommand(GetRecommendedDidCredentialsCommand());
+    addSubcommand(ResolveHandleCommand());
+    addSubcommand(UpdateHandleCommand());
+    addSubcommand(SubmitPlcOperationCommand());
     addSubcommand(ResolveDidCommand());
     addSubcommand(RefreshIdentityCommand());
-    addSubcommand(ResolveHandleCommand());
-    addSubcommand(GetRecommendedDidCredentialsCommand());
-    addSubcommand(SubmitPlcOperationCommand());
+    addSubcommand(SignPlcOperationCommand());
   }
 
   @override

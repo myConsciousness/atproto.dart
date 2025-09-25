@@ -1,0 +1,16 @@
+{
+  "options": [
+    {
+      "key": "test-key",
+      "did": "did:plc:admin123",
+      "value": {"setting": "test-value"},
+      "description": "Test setting option",
+      "scope": "instance",
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z",
+      "createdBy": "did:plc:admin123",
+      "lastUpdatedBy": "did:plc:admin123",
+      "managerRole": "tools.ozone.team.defs#roleAdmin"
+    }
+  ]
+}

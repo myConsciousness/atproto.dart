@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
+import 'package:at_primitives/nsid.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:xrpc/xrpc.dart';
 
 final class NSIDConverter implements JsonConverter<NSID, String> {
   const NSIDConverter();

@@ -26,8 +26,8 @@ _LexArray _$LexArrayFromJson(Map json) =>
 
 Map<String, dynamic> _$LexArrayToJson(_LexArray instance) => <String, dynamic>{
   'type': instance.type,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'items': const LexArrayItemConverter().toJson(instance.items),
-  if (instance.minLength case final value?) 'minLength': value,
-  if (instance.maxLength case final value?) 'maxLength': value,
+  'minLength': ?instance.minLength,
+  'maxLength': ?instance.maxLength,
 };

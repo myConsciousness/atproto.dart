@@ -1,0 +1,35 @@
+{
+  "lexiconsPath": "lexicons",
+  "packagesPath": "packages",
+  "websitePath": "website",
+  "binPath": "scripts",
+  "packageMappings": {
+    "atproto": "packages/atproto",
+    "atproto_core": "packages/atproto_core",
+    "atproto_oauth": "packages/atproto_oauth",
+    "atproto_test": "packages/atproto_test",
+    "bluesky": "packages/bluesky",
+    "bluesky_cli": "packages/bluesky_cli",
+    "bluesky_text": "packages/bluesky_text",
+    "did_plc": "packages/did_plc",
+    "lex_gen": "packages/lex_gen",
+    "lexicon": "packages/lexicon",
+    "multiformats": "packages/multiformats",
+    "xrpc": "packages/xrpc"
+  },
+  "networkConfig": {
+    "maxRetries": 3,
+    "initialDelayMs": 1000,
+    "backoffMultiplier": 2.0,
+    "timeoutMs": 30000,
+    "maxConcurrentConnections": 10
+  },
+  "loggingConfig": {
+    "level": "info",
+    "includeTimestamp": true,
+    "includeLocation": false
+  },
+  "maxParallelOperations": 4,
+  "enableCaching": true,
+  "cacheDirectory": ".dart_tool/scripts_cache"
+}

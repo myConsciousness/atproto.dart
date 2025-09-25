@@ -17,6 +17,8 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | --- | --- | --- | :---: | --- |
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | Free-form profile description text. |
+| **pronouns** | string | - | ❌ | Free-form pronouns text. |
+| **website** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **avatar** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | Small image to be displayed next to posts from account. AKA, 'profile picture' |
 | **banner** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | Larger horizontal image to display behind profile view. |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |

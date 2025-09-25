@@ -1,5 +1,29 @@
 # Release Note
 
+## v1.2.0
+
+- feat: Merged #2137 - Added comprehensive Ozone moderation and administration services
+  - Added CommunicationService for `tools.ozone.communication.*` endpoints
+  - Added HostingService for `tools.ozone.hosting.*` endpoints  
+  - Added ModerationService for `tools.ozone.moderation.*` endpoints
+  - Added SafelinkService for `tools.ozone.safelink.*` endpoints
+  - Added ServerService for `tools.ozone.server.*` endpoints
+  - Added SetService for `tools.ozone.set.*` endpoints
+  - Added SettingService for `tools.ozone.setting.*` endpoints
+  - Added SignatureService for `tools.ozone.signature.*` endpoints
+  - Added TeamService for `tools.ozone.team.*` endpoints
+  - Added VerificationService for `tools.ozone.verification.*` endpoints
+  - Enhanced moderation and administrative capabilities for Bluesky applications
+- feat: Enhanced actor profile support
+  - Added `pronouns` field to `app.bsky.actor.defs#profileViewDetailed` and `app.bsky.actor.profile` record
+  - Added `website` field to `app.bsky.actor.defs#profileViewDetailed` and `app.bsky.actor.profile` record
+  - Improved user profile customization capabilities with pronouns and website information
+
+## v1.1.1
+
+- **MIGRATION**: Updated to use the consolidated `at_primitives` package for all AT Protocol primitive types.
+- **IMPROVEMENT**: Simplified dependency management by adopting unified primitive types from `at_primitives`.
+
 ## v1.1.0
 
 - feat: Version bump to v1.1.0 to reflect significant new functionality

@@ -23,18 +23,6 @@ import 'video/uploadVideo/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Get video upload limits for the authenticated user.
-Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyVideoGetUploadLimits,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const VideoGetUploadLimitsOutputConverter().fromJson,
-);
-
 /// Get status details for a video processing job.
 Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
   required String jobId,
@@ -46,6 +34,18 @@ Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
   headers: $headers,
   parameters: {...?$unknown, 'jobId': jobId},
   to: const VideoGetJobStatusOutputConverter().fromJson,
+);
+
+/// Get video upload limits for the authenticated user.
+Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyVideoGetUploadLimits,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const VideoGetUploadLimitsOutputConverter().fromJson,
 );
 
 /// Upload a video to be processed then stored on the PDS.
@@ -69,16 +69,6 @@ base class VideoService {
 
   VideoService(this._ctx);
 
-  /// Get video upload limits for the authenticated user.
-  Future<XRPCResponse<VideoGetUploadLimitsOutput>> getUploadLimits({
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyVideoGetUploadLimits(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
   /// Get status details for a video processing job.
   Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
     required String jobId,
@@ -86,6 +76,16 @@ base class VideoService {
     Map<String, String>? $unknown,
   }) async => await appBskyVideoGetJobStatus(
     jobId: jobId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get video upload limits for the authenticated user.
+  Future<XRPCResponse<VideoGetUploadLimitsOutput>> getUploadLimits({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyVideoGetUploadLimits(
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

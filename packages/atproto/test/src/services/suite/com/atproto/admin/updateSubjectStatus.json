@@ -1,0 +1,9 @@
+{
+  "subject": {
+    "did": "did:plc:test123456789"
+  },
+  "takedown": {
+    "applied": true,
+    "ref": "admin-action-123"
+  }
+}

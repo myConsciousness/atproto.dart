@@ -52,17 +52,16 @@ _LexString _$LexStringFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$LexStringToJson(_LexString instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (_$LexStringFormatEnumMap[instance.format] case final value?)
-        'format': value,
-      if (instance.description case final value?) 'description': value,
-      if (instance.defaultValue case final value?) 'default': value,
-      if (instance.minLength case final value?) 'minLength': value,
-      if (instance.maxLength case final value?) 'maxLength': value,
-      if (instance.minGraphemes case final value?) 'minGraphemes': value,
-      if (instance.maxGraphemes case final value?) 'maxGraphemes': value,
-      if (instance.enumValues case final value?) 'enum': value,
-      if (instance.constValue case final value?) 'const': value,
-      if (instance.knownValues case final value?) 'knownValues': value,
+      'format': ?_$LexStringFormatEnumMap[instance.format],
+      'description': ?instance.description,
+      'default': ?instance.defaultValue,
+      'minLength': ?instance.minLength,
+      'maxLength': ?instance.maxLength,
+      'minGraphemes': ?instance.minGraphemes,
+      'maxGraphemes': ?instance.maxGraphemes,
+      'enum': ?instance.enumValues,
+      'const': ?instance.constValue,
+      'knownValues': ?instance.knownValues,
     };
 
 const _$LexStringFormatEnumMap = {

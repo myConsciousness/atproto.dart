@@ -3,15 +3,15 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
-import 'package:atproto/src/services/codegen/com/atproto/identity_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/label_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/moderation_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/repo_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/server_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/sync_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/temp_service.dart';
+import 'package:atproto/com_atproto_services.dart';
 
 const _runner = _ServiceRunner();
+
+void testAdmin<D>(
+  final atp_test.ServiceCallback<AdminService, D> endpoint, {
+  required String id,
+  String? label,
+}) => atp_test.testService<AdminService, D>(_runner, endpoint, id, label);
 
 void testIdentity<D>(
   final atp_test.ServiceCallback<IdentityService, D> endpoint, {
@@ -24,6 +24,12 @@ void testLabel<D>(
   required String id,
   String? label,
 }) => atp_test.testService<LabelService, D>(_runner, endpoint, id, label);
+
+void testLexicon<D>(
+  final atp_test.ServiceCallback<LexiconService, D> endpoint, {
+  required String id,
+  String? label,
+}) => atp_test.testService<LexiconService, D>(_runner, endpoint, id, label);
 
 void testModeration<D>(
   final atp_test.ServiceCallback<ModerationService, D> endpoint, {
@@ -75,10 +81,14 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   ]) {
-    if (S == IdentityService) {
+    if (S == AdminService) {
+      return _getAdminService(getClient, postClient) as S;
+    } else if (S == IdentityService) {
       return _getIdentityService(getClient, postClient) as S;
     } else if (S == LabelService) {
       return _getLabelService(getClient, postClient) as S;
+    } else if (S == LexiconService) {
+      return _getLexiconService(getClient, postClient) as S;
     } else if (S == ModerationService) {
       return _getModerationService(getClient, postClient) as S;
     } else if (S == RepoService) {
@@ -94,6 +104,13 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     throw UnsupportedError('Unsupported Service: $S');
   }
 
+  AdminService _getAdminService(
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ) => AdminService(
+    core.ServiceContext(getClient: getClient, postClient: postClient),
+  );
+
   IdentityService _getIdentityService(
     final core.GetClient? getClient,
     final core.PostClient? postClient,
@@ -105,6 +122,13 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   ) => LabelService(
+    core.ServiceContext(getClient: getClient, postClient: postClient),
+  );
+
+  LexiconService _getLexiconService(
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ) => LexiconService(
     core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 

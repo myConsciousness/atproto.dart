@@ -5,8 +5,8 @@
 // ignore_for_file: invalid_annotation_target
 
 // Package imports:
+import 'package:at_primitives/nsid.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:nsid/nsid.dart';
 
 // Project imports:
 import '../converter/lex_user_type_converter.dart';

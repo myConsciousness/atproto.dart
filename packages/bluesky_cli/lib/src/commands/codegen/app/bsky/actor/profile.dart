@@ -45,6 +45,8 @@ final class _CreateProfileCommand extends CreateRecordCommand {
     argParser
       ..addOption("displayName")
       ..addOption("description", help: r"Free-form profile description text.")
+      ..addOption("pronouns", help: r"Free-form pronouns text.")
+      ..addOption("website")
       ..addOption(
         "avatar",
         help:
@@ -74,7 +76,7 @@ final class _CreateProfileCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile create [displayName] [description] [avatar] [banner] [labels] [joinedViaStarterPack] [pinnedPost] [createdAt] [rkey]";
+      "bsky app-bsky-actor profile create [displayName] [description] [pronouns] [website] [avatar] [banner] [labels] [joinedViaStarterPack] [pinnedPost] [createdAt] [rkey]";
 
   @override
   String get rkey => "self";
@@ -88,6 +90,8 @@ final class _CreateProfileCommand extends CreateRecordCommand {
       "displayName": argResults!["displayName"],
     if (argResults!["description"] != null)
       "description": argResults!["description"],
+    if (argResults!["pronouns"] != null) "pronouns": argResults!["pronouns"],
+    if (argResults!["website"] != null) "website": argResults!["website"],
     if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
     if (argResults!["banner"] != null) "banner": argResults!["banner"],
     if (argResults!["labels"] != null)
@@ -105,6 +109,8 @@ final class _PutProfileCommand extends PutRecordCommand {
     argParser
       ..addOption("displayName")
       ..addOption("description", help: r"Free-form profile description text.")
+      ..addOption("pronouns", help: r"Free-form pronouns text.")
+      ..addOption("website")
       ..addOption(
         "avatar",
         help:
@@ -133,7 +139,7 @@ final class _PutProfileCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile put [displayName] [description] [avatar] [banner] [labels] [joinedViaStarterPack] [pinnedPost] [createdAt] [rkey]";
+      "bsky app-bsky-actor profile put [displayName] [description] [pronouns] [website] [avatar] [banner] [labels] [joinedViaStarterPack] [pinnedPost] [createdAt] [rkey]";
 
   @override
   String get rkey => "self";
@@ -147,6 +153,8 @@ final class _PutProfileCommand extends PutRecordCommand {
       "displayName": argResults!["displayName"],
     if (argResults!["description"] != null)
       "description": argResults!["description"],
+    if (argResults!["pronouns"] != null) "pronouns": argResults!["pronouns"],
+    if (argResults!["website"] != null) "website": argResults!["website"],
     if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
     if (argResults!["banner"] != null) "banner": argResults!["banner"],
     if (argResults!["labels"] != null)

@@ -26,14 +26,12 @@ _LexXrpcBody _$LexXrpcBodyFromJson(Map json) =>
 
 Map<String, dynamic> _$LexXrpcBodyToJson(_LexXrpcBody instance) =>
     <String, dynamic>{
-      if (instance.description case final value?) 'description': value,
+      'description': ?instance.description,
       'encoding': instance.encoding,
-      if (_$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
-            instance.schema,
-            const LexXrpcSchemaConverter().toJson,
-          )
-          case final value?)
-        'schema': value,
+      'schema': ?_$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
+        instance.schema,
+        const LexXrpcSchemaConverter().toJson,
+      ),
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

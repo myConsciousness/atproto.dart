@@ -1,0 +1,17 @@
+{
+  "appview": {
+    "url": "https://bsky.app"
+  },
+  "pds": {
+    "url": "https://bsky.social"
+  },
+  "blobDivert": {
+    "url": "https://cdn.bsky.app"
+  },
+  "chat": {
+    "url": "https://chat.bsky.app"
+  },
+  "viewer": {
+    "role": "tools.ozone.team.defs#roleModerator"
+  }
+}

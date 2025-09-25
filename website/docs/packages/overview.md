@@ -35,9 +35,7 @@ These packages are automatically included as dependencies and typically don't ne
 
 | Package | pub.dev | Description |
 | ------- | ------- | ----------- |
-| **[at_identifier](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_identifier)** | [![pub package](https://img.shields.io/pub/v/at_identifier.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/at_identifier) | AT Protocol identifier validation and parsing |
-| **[nsid](https://github.com/myConsciousness/atproto.dart/tree/main/packages/nsid)** | [![pub package](https://img.shields.io/pub/v/nsid.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/nsid) | Namespaced identifier (NSID) handling for AT Protocol |
-| **[at_uri](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_uri)** | [![pub package](https://img.shields.io/pub/v/at_uri.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/at_uri) | AT URI parsing and manipulation utilities |
+| **[at_primitives](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_primitives)** | [![pub package](https://img.shields.io/pub/v/at_primitives.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/at_primitives) | AT Protocol primitive types (identifiers, URIs, NSIDs) - replaces at_identifier, at_uri, and nsid |
 | **[xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)** | [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/xrpc) | HTTP client specialized for XRPC communication in AT Protocol |
 | **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)** | [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/multiformats) | Content addressing and [CID](https://docs.ipfs.tech/concepts/content-addressing/) support for AT Protocol |
 | **[atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)** | [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_core) | Core functionality and utilities for AT Protocol services |
@@ -67,12 +65,10 @@ The dependency graph below shows how packages relate to each other. Solid lines 
 ```mermaid
 flowchart TD
     subgraph atproto.dart
-    at_identifier --> at_uri;
-    nsid --> at_uri;
+    at_primitives --> atproto_core;
     multiformats --> atproto_core;
 
-    nsid --> xrpc;
-    at_uri --> atproto_core;
+    at_primitives --> xrpc;
     atproto_oauth --> atproto_core;
     xrpc --> atproto_core;
 
