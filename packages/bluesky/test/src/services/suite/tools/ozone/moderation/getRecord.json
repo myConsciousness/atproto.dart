@@ -1,0 +1,23 @@
+{
+  "uri": "at://did:plc:test123456789/app.bsky.feed.post/test123",
+  "cid": "bafyreihash123456789",
+  "value": {
+    "$type": "app.bsky.feed.post",
+    "text": "This is a test post",
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  },
+  "blobs": [],
+  "indexedAt": "2023-01-01T00:00:00.000Z",
+  "moderation": {},
+  "repo": {
+    "did": "did:plc:test123456789",
+    "handle": "test.bsky.social",
+    "email": "test@example.com",
+    "relatedRecords": [],
+    "indexedAt": "2023-01-01T00:00:00.000Z",
+    "moderation": {},
+    "invitedBy": null,
+    "invites": [],
+    "invitesDisabled": false
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "codes": [
+    {
+      "code": "test-invite-code-123",
+      "available": 5,
+      "disabled": false,
+      "forAccount": "test.bsky.social",
+      "createdBy": "admin.bsky.social",
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "uses": [
+        {
+          "usedBy": "user1.bsky.social",
+          "usedAt": "2023-01-02T00:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "cursor": "next-cursor"
+}

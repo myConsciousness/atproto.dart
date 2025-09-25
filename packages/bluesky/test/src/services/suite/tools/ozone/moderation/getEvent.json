@@ -1,0 +1,16 @@
+{
+  "id": 123,
+  "event": {
+    "$type": "tools.ozone.moderation.defs#modEventComment",
+    "comment": "Test moderation comment"
+  },
+  "subject": {
+    "$type": "com.atproto.admin.defs#repoRef",
+    "did": "did:plc:test123456789"
+  },
+  "subjectBlobs": [],
+  "createdBy": "did:plc:moderator123",
+  "createdAt": "2023-01-01T00:00:00.000Z",
+  "creatorHandle": "moderator.bsky.social",
+  "subjectHandle": "test.bsky.social"
+}

@@ -3,13 +3,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 // Project imports:
+import 'package:atproto/com_atproto_services.dart';
 import 'package:atproto/src/atproto.dart';
-import 'package:atproto/src/services/codegen/com/atproto/identity_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/label_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/moderation_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/repo_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/server_service.dart';
-import 'package:atproto/src/services/codegen/com/atproto/sync_service.dart';
 
 void main() {
   group('.session', () {
@@ -75,6 +70,18 @@ void main() {
     final service = ATProto.anonymous().label;
 
     expect(service, isA<LabelService>());
+  });
+
+  test('.admin', () {
+    final service = ATProto.anonymous().admin;
+
+    expect(service, isA<AdminService>());
+  });
+
+  test('.lexicon', () {
+    final service = ATProto.anonymous().lexicon;
+
+    expect(service, isA<LexiconService>());
   });
 
   group('.service', () {

@@ -1,0 +1,10 @@
+{
+  "id": 123,
+  "eventType": "addRule",
+  "url": "https://example.com",
+  "pattern": "domain",
+  "action": "block",
+  "reason": "spam",
+  "createdBy": "did:plc:admin123",
+  "createdAt": "2023-01-01T00:00:00.000Z"
+}

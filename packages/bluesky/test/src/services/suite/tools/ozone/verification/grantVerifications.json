@@ -1,0 +1,13 @@
+{
+  "verifications": [
+    {
+      "issuer": "did:plc:admin123",
+      "uri": "at://did:plc:test123456789/tools.ozone.verification.defs/3k2akjh3kjh",
+      "subject": "did:plc:test123456789",
+      "handle": "test.bsky.social",
+      "displayName": "Test User",
+      "createdAt": "2023-01-01T00:00:00.000Z"
+    }
+  ],
+  "failedVerifications": []
+}
