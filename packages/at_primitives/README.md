@@ -128,7 +128,7 @@ import 'package:nsid/nsid.dart';
 
 // New
 import 'package:at_primitives/at_identifier.dart';
-import 'package:at_primitives/at_identifier.dart';
+import 'package:at_primitives/at_uri.dart';
 import 'package:at_primitives/nsid.dart';
 ```
 
