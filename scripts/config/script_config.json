@@ -12,7 +12,6 @@
     "bluesky_cli": "packages/bluesky_cli",
     "bluesky_text": "packages/bluesky_text",
     "did_plc": "packages/did_plc",
-    "lex_annotation": "packages/lex_annotation",
     "lex_gen": "packages/lex_gen",
     "lexicon": "packages/lexicon",
     "multiformats": "packages/multiformats",

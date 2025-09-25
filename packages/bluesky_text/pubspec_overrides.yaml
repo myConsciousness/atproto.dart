@@ -7,8 +7,6 @@ dependency_overrides:
     path: ../multiformats
   lexicon:
     path: ../lexicon
-  lex_annotation:
-    path: ../lex_annotation
   atproto_oauth:
     path: ../atproto_oauth
   atproto_core:
