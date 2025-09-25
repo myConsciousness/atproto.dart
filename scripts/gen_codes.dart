@@ -294,7 +294,7 @@ Future<void> main(List<String> args) async {
 /// Print usage information.
 void _printUsage() {
   print('''
-Usage: dart bin/gen_codes.dart [options]
+Usage: dart scripts/gen_codes.dart [options]
 
 Options:
   --parallel      Enable parallel code generation (default if supported)
@@ -303,9 +303,9 @@ Options:
   --help, -h      Show this help message
 
 Examples:
-  dart bin/gen_codes.dart
-  dart bin/gen_codes.dart --parallel --verbose
-  dart bin/gen_codes.dart --sequential
+  dart scripts/gen_codes.dart
+  dart scripts/gen_codes.dart --parallel --verbose
+  dart scripts/gen_codes.dart --sequential
 ''');
 }
 

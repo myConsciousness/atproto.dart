@@ -97,7 +97,7 @@ class ConfigLoader {
 
   /// Get default configuration file path
   static String _getDefaultConfigPath() {
-    return File('bin/config/$_defaultConfigFileName').absolute.path;
+    return File('scripts/config/$_defaultConfigFileName').absolute.path;
   }
 
   /// Load configuration from JSON file
@@ -121,9 +121,9 @@ class ConfigLoader {
       lexiconsPath: '$projectRoot/lexicons',
       packagesPath: '$projectRoot/packages',
       websitePath: '$projectRoot/website',
-      binPath: '$projectRoot/bin',
+      binPath: '$projectRoot/scripts',
       packageMappings: _getDefaultPackageMappings(projectRoot),
-      cacheDirectory: '$projectRoot/.dart_tool/bin_cache',
+      cacheDirectory: '$projectRoot/.dart_tool/scripts_cache',
     );
   }
 
@@ -167,7 +167,7 @@ class ConfigLoader {
     String environment,
   ) async {
     final envConfigPath =
-        'bin/config/${_environmentConfigPrefix}_$environment.json';
+        'scripts/config/${_environmentConfigPrefix}_$environment.json';
 
     if (!File(envConfigPath).existsSync()) {
       return baseConfig; // No environment-specific config found

@@ -61,6 +61,6 @@ ci:
 
 # Build and development tools
 build:
-- bin/**/*
+- scripts/**/*
 - packages/*/pubspec.yaml
 - packages/*/analysis_options.yaml
