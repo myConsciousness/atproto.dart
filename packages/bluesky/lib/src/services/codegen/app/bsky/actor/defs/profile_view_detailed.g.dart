@@ -20,6 +20,14 @@ _ProfileViewDetailed _$ProfileViewDetailedFromJson(
     handle: $checkedConvert('handle', (v) => v as String),
     displayName: $checkedConvert('displayName', (v) => v as String?),
     description: $checkedConvert('description', (v) => v as String?),
+    pronouns: $checkedConvert('pronouns', (v) => v as String?),
+    website: $checkedConvert(
+      'website',
+      (v) => _$JsonConverterFromJson<String, AtUri>(
+        v,
+        const AtUriConverter().fromJson,
+      ),
+    ),
     avatar: $checkedConvert(
       'avatar',
       (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -115,6 +123,11 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
   'handle': instance.handle,
   'displayName': ?instance.displayName,
   'description': ?instance.description,
+  'pronouns': ?instance.pronouns,
+  'website': ?_$JsonConverterToJson<String, AtUri>(
+    instance.website,
+    const AtUriConverter().toJson,
+  ),
   'avatar': ?_$JsonConverterToJson<String, AtUri>(
     instance.avatar,
     const AtUriConverter().toJson,

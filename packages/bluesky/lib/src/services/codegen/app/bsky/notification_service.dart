@@ -45,16 +45,42 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
-/// Notify server that the requesting account has seen notifications. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
-  required DateTime seenAt,
+/// Get notification-related preferences for an account. Requires auth.
+Future<XRPCResponse<NotificationGetPreferencesOutput>>
+appBskyNotificationGetPreferences({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyNotificationUpdateSeen,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'seenAt': iso8601(seenAt)},
+}) async => await $ctx.get(
+  ns.appBskyNotificationGetPreferences,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const NotificationGetPreferencesOutputConverter().fromJson,
+);
+
+/// Enumerate notifications for the requesting account. Requires auth.
+Future<XRPCResponse<NotificationListNotificationsOutput>>
+appBskyNotificationListNotifications({
+  List<String>? reasons,
+  int? limit,
+  bool? priority,
+  String? cursor,
+  DateTime? seenAt,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyNotificationListNotifications,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (reasons != null) 'reasons': reasons,
+    if (limit != null) 'limit': limit,
+    if (priority != null) 'priority': priority,
+    if (cursor != null) 'cursor': cursor,
+    if (seenAt != null) 'seenAt': iso8601(seenAt),
+  },
+  to: const NotificationListNotificationsOutputConverter().fromJson,
 );
 
 /// Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.
@@ -95,56 +121,6 @@ appBskyNotificationGetUnreadCount({
   to: const NotificationGetUnreadCountOutputConverter().fromJson,
 );
 
-/// Enumerate notifications for the requesting account. Requires auth.
-Future<XRPCResponse<NotificationListNotificationsOutput>>
-appBskyNotificationListNotifications({
-  List<String>? reasons,
-  int? limit,
-  bool? priority,
-  String? cursor,
-  DateTime? seenAt,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyNotificationListNotifications,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (reasons != null) 'reasons': reasons,
-    if (limit != null) 'limit': limit,
-    if (priority != null) 'priority': priority,
-    if (cursor != null) 'cursor': cursor,
-    if (seenAt != null) 'seenAt': iso8601(seenAt),
-  },
-  to: const NotificationListNotificationsOutputConverter().fromJson,
-);
-
-/// Set notification-related preferences for an account. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyNotificationPutPreferences({
-  required bool priority,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyNotificationPutPreferences,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'priority': priority},
-);
-
-/// Get notification-related preferences for an account. Requires auth.
-Future<XRPCResponse<NotificationGetPreferencesOutput>>
-appBskyNotificationGetPreferences({
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyNotificationGetPreferences,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const NotificationGetPreferencesOutputConverter().fromJson,
-);
-
 /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
 Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
 appBskyNotificationListActivitySubscriptions({
@@ -162,6 +138,51 @@ appBskyNotificationListActivitySubscriptions({
     if (cursor != null) 'cursor': cursor,
   },
   to: const NotificationListActivitySubscriptionsOutputConverter().fromJson,
+);
+
+/// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyNotificationUnregisterPush({
+  required String serviceDid,
+  required String token,
+  required NotificationUnregisterPushPlatform platform,
+  required String appId,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyNotificationUnregisterPush,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'serviceDid': serviceDid,
+    'token': token,
+    'platform': platform.toJson(),
+    'appId': appId,
+  },
+);
+
+/// Notify server that the requesting account has seen notifications. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyNotificationUpdateSeen({
+  required DateTime seenAt,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyNotificationUpdateSeen,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'seenAt': iso8601(seenAt)},
+);
+
+/// Set notification-related preferences for an account. Requires auth.
+Future<XRPCResponse<EmptyData>> appBskyNotificationPutPreferences({
+  required bool priority,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyNotificationPutPreferences,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'priority': priority},
 );
 
 /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
@@ -184,27 +205,6 @@ Future<XRPCResponse<EmptyData>> appBskyNotificationRegisterPush({
     'platform': platform.toJson(),
     'appId': appId,
     if (ageRestricted != null) 'ageRestricted': ageRestricted,
-  },
-);
-
-/// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
-Future<XRPCResponse<EmptyData>> appBskyNotificationUnregisterPush({
-  required String serviceDid,
-  required String token,
-  required NotificationUnregisterPushPlatform platform,
-  required String appId,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyNotificationUnregisterPush,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'serviceDid': serviceDid,
-    'token': token,
-    'platform': platform.toJson(),
-    'appId': appId,
   },
 );
 
@@ -260,12 +260,30 @@ base class NotificationService {
   NotificationService(this._ctx)
     : _declaration = NotificationDeclarationRecordAccessor(_ctx);
 
-  /// Notify server that the requesting account has seen notifications. Requires auth.
-  Future<XRPCResponse<EmptyData>> updateSeen({
-    required DateTime seenAt,
+  /// Get notification-related preferences for an account. Requires auth.
+  Future<XRPCResponse<NotificationGetPreferencesOutput>> getPreferences({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyNotificationUpdateSeen(
+  }) async => await appBskyNotificationGetPreferences(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Enumerate notifications for the requesting account. Requires auth.
+  Future<XRPCResponse<NotificationListNotificationsOutput>> listNotifications({
+    List<String>? reasons,
+    int? limit,
+    bool? priority,
+    String? cursor,
+    DateTime? seenAt,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyNotificationListNotifications(
+    reasons: reasons,
+    limit: limit,
+    priority: priority,
+    cursor: cursor,
     seenAt: seenAt,
     $ctx: _ctx,
     $headers: $headers,
@@ -301,20 +319,48 @@ base class NotificationService {
     $unknown: $unknown,
   );
 
-  /// Enumerate notifications for the requesting account. Requires auth.
-  Future<XRPCResponse<NotificationListNotificationsOutput>> listNotifications({
-    List<String>? reasons,
+  /// A declaration of the user's choices related to notifications that can be produced by them.
+  NotificationDeclarationRecordAccessor get declaration => _declaration;
+
+  /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
+  Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
+  listActivitySubscriptions({
     int? limit,
-    bool? priority,
     String? cursor,
-    DateTime? seenAt,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyNotificationListNotifications(
-    reasons: reasons,
+  }) async => await appBskyNotificationListActivitySubscriptions(
     limit: limit,
-    priority: priority,
     cursor: cursor,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
+  Future<XRPCResponse<EmptyData>> unregisterPush({
+    required String serviceDid,
+    required String token,
+    required NotificationUnregisterPushPlatform platform,
+    required String appId,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyNotificationUnregisterPush(
+    serviceDid: serviceDid,
+    token: token,
+    platform: platform,
+    appId: appId,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Notify server that the requesting account has seen notifications. Requires auth.
+  Future<XRPCResponse<EmptyData>> updateSeen({
+    required DateTime seenAt,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyNotificationUpdateSeen(
     seenAt: seenAt,
     $ctx: _ctx,
     $headers: $headers,
@@ -328,31 +374,6 @@ base class NotificationService {
     Map<String, String>? $unknown,
   }) async => await appBskyNotificationPutPreferences(
     priority: priority,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get notification-related preferences for an account. Requires auth.
-  Future<XRPCResponse<NotificationGetPreferencesOutput>> getPreferences({
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyNotificationGetPreferences(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.
-  Future<XRPCResponse<NotificationListActivitySubscriptionsOutput>>
-  listActivitySubscriptions({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyNotificationListActivitySubscriptions(
-    limit: limit,
-    cursor: cursor,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,
@@ -377,27 +398,6 @@ base class NotificationService {
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.
-  Future<XRPCResponse<EmptyData>> unregisterPush({
-    required String serviceDid,
-    required String token,
-    required NotificationUnregisterPushPlatform platform,
-    required String appId,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyNotificationUnregisterPush(
-    serviceDid: serviceDid,
-    token: token,
-    platform: platform,
-    appId: appId,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// A declaration of the user's choices related to notifications that can be produced by them.
-  NotificationDeclarationRecordAccessor get declaration => _declaration;
 
   /// Set notification-related preferences for an account. Requires auth.
   Future<XRPCResponse<NotificationPutPreferencesV2Output>> putPreferencesV2({
