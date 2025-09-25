@@ -52,6 +52,14 @@ export type TagType =
 // prettier-ignore
 const Users: User[] = [
   {
+    title: 'Himmel',
+    description: 'An offline-capable feed reader for Bluesky with simplicity in mind.',
+    preview: null,
+    website: 'https://himmel.app',
+    source: null,
+    tags: ['mobile'],
+  },
+  {
     title: 'SkyBridge',
     description: 'The bridge/proxy that allows you to use Mastodon apps with Bluesky.',
     preview: require('./showcase/SkyBridge.png'),
