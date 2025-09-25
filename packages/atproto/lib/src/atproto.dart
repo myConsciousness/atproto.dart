@@ -7,13 +7,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
-import 'services/codegen/com/atproto/identity_service.dart';
-import 'services/codegen/com/atproto/label_service.dart';
-import 'services/codegen/com/atproto/moderation_service.dart';
-import 'services/codegen/com/atproto/repo_service.dart';
-import 'services/codegen/com/atproto/server_service.dart';
-import 'services/codegen/com/atproto/sync_service.dart';
-import 'services/codegen/com/atproto/temp_service.dart';
+import '../com_atproto_services.dart';
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {
@@ -113,6 +107,10 @@ sealed class ATProto {
   /// Defaults to `bsky.network`.
   String get relayService;
 
+  /// Returns the admin service.
+  /// This service represents `com.atproto.admin.*`.
+  AdminService get admin;
+
   /// Returns the servers service.
   /// This service represents `com.atproto.server.*`.
   ServerService get server;
@@ -136,6 +134,10 @@ sealed class ATProto {
   /// Returns the labels service.
   /// This service represents `com.atproto.label.*`.
   LabelService get label;
+
+  /// Returns the lexicon service.
+  /// This service represents `com.atproto.lexicon.*`.
+  LexiconService get lexicon;
 
   /// Returns the temp service.
   /// This service represents `com.atproto.temp.*`.
@@ -187,12 +189,14 @@ sealed class ATProto {
 
 final class _ATProto implements ATProto {
   _ATProto(final core.ServiceContext ctx)
-    : server = ServerService(ctx),
+    : admin = AdminService(ctx),
+      server = ServerService(ctx),
       identity = IdentityService(ctx),
       repo = RepoService(ctx),
       moderation = ModerationService(ctx),
       sync = SyncService(ctx),
       label = LabelService(ctx),
+      lexicon = LexiconService(ctx),
       temp = TempService(ctx),
       _ctx = ctx;
 
@@ -212,6 +216,9 @@ final class _ATProto implements ATProto {
   String get relayService => _ctx.relayService;
 
   @override
+  final AdminService admin;
+
+  @override
   final ServerService server;
 
   @override
@@ -228,6 +235,9 @@ final class _ATProto implements ATProto {
 
   @override
   final LabelService label;
+
+  @override
+  final LexiconService lexicon;
 
   @override
   final TempService temp;

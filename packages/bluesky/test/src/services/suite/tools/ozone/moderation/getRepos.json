@@ -1,0 +1,17 @@
+{
+  "repos": [
+    {
+      "did": "did:plc:test123456789",
+      "handle": "test.bsky.social",
+      "email": "test@example.com",
+      "relatedRecords": [],
+      "indexedAt": "2023-01-01T00:00:00.000Z",
+      "moderation": {},
+      "labels": [],
+      "invitedBy": null,
+      "invites": [],
+      "invitesDisabled": false,
+      "emailConfirmedAt": "2023-01-01T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "timeline": [
+    {
+      "day": "2023-01-01",
+      "summary": [],
+      "events": [
+        {
+          "id": 123,
+          "event": {
+            "$type": "tools.ozone.moderation.defs#modEventComment",
+            "comment": "Account timeline event"
+          },
+          "subject": {
+            "$type": "com.atproto.admin.defs#repoRef",
+            "did": "did:plc:test123456789"
+          },
+          "subjectBlobCids": [],
+          "createdBy": "did:plc:moderator123",
+          "createdAt": "2023-01-01T00:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "cursor": "next-cursor"
+}

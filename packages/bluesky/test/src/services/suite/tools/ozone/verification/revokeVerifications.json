@@ -1,0 +1,6 @@
+{
+  "revokedVerifications": [
+    "at://did:plc:test123456789/tools.ozone.verification.defs/3k2akjh3kjh"
+  ],
+  "failedRevocations": []
+}

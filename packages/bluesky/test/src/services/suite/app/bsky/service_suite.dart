@@ -3,12 +3,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
-import 'package:bluesky/src/services/codegen/app/bsky/actor_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/feed_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/graph_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/labeler_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/notification_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/unspecced_service.dart';
+import 'package:bluesky/app_bsky_services.dart';
 
 const _runner = _ServiceRunner();
 
@@ -17,6 +12,12 @@ void testActor<D>(
   required String id,
   String? label,
 }) => atp_test.testService<ActorService, D>(_runner, endpoint, id, label);
+
+void testBookmark<D>(
+  final atp_test.ServiceCallback<BookmarkService, D> endpoint, {
+  required String id,
+  String? label,
+}) => atp_test.testService<BookmarkService, D>(_runner, endpoint, id, label);
 
 void testFeed<D>(
   final atp_test.ServiceCallback<FeedService, D> endpoint, {
@@ -63,6 +64,12 @@ void testLabeler<D>(
   String? label,
 }) => atp_test.testService<LabelerService, D>(_runner, endpoint, id, label);
 
+void testVideo<D>(
+  final atp_test.ServiceCallback<VideoService, D> endpoint, {
+  required String id,
+  String? label,
+}) => atp_test.testService<VideoService, D>(_runner, endpoint, id, label);
+
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
 
@@ -73,6 +80,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
   ]) {
     if (S == ActorService) {
       return _getActorService(getClient, postClient) as S;
+    } else if (S == BookmarkService) {
+      return _getBookmarkService(getClient, postClient) as S;
     } else if (S == FeedService) {
       return _getFeedService(getClient, postClient) as S;
     } else if (S == GraphService) {
@@ -83,6 +92,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       return _getUnspeccedService(getClient, postClient) as S;
     } else if (S == LabelerService) {
       return _getLabelerService(getClient, postClient) as S;
+    } else if (S == VideoService) {
+      return _getVideoService(getClient, postClient) as S;
     }
 
     throw UnsupportedError('Unsupported Service: $S');
@@ -92,6 +103,13 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   ) => ActorService(
+    core.ServiceContext(getClient: getClient, postClient: postClient),
+  );
+
+  BookmarkService _getBookmarkService(
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ) => BookmarkService(
     core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 
@@ -127,6 +145,13 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   ) => LabelerService(
+    core.ServiceContext(getClient: getClient, postClient: postClient),
+  );
+
+  VideoService _getVideoService(
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  ) => VideoService(
     core.ServiceContext(getClient: getClient, postClient: postClient),
   );
 }
