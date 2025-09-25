@@ -121,9 +121,9 @@ class ConfigLoader {
       lexiconsPath: '$projectRoot/lexicons',
       packagesPath: '$projectRoot/packages',
       websitePath: '$projectRoot/website',
-      binPath: '$projectRoot/bin',
+      binPath: '$projectRoot/scripts',
       packageMappings: _getDefaultPackageMappings(projectRoot),
-      cacheDirectory: '$projectRoot/.dart_tool/bin_cache',
+      cacheDirectory: '$projectRoot/.dart_tool/scripts_cache',
     );
   }
 

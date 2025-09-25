@@ -37,7 +37,7 @@ The main configuration file that defines default settings for all scripts.
   },
   "maxParallelOperations": 4,
   "enableCaching": true,
-  "cacheDirectory": ".dart_tool/bin_cache"
+  "cacheDirectory": ".dart_tool/scripts_cache"
 }
 ```
 

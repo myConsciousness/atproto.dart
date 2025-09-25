@@ -2,7 +2,7 @@
   "lexiconsPath": "lexicons",
   "packagesPath": "packages",
   "websitePath": "website",
-  "binPath": "bin",
+  "binPath": "scripts",
   "packageMappings": {
     "atproto": "packages/atproto",
     "atproto_core": "packages/atproto_core",
@@ -32,5 +32,5 @@
   },
   "maxParallelOperations": 4,
   "enableCaching": true,
-  "cacheDirectory": ".dart_tool/bin_cache"
+  "cacheDirectory": ".dart_tool/scripts_cache"
 }

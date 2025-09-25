@@ -8,16 +8,16 @@ import 'dart:io';
 class NetworkConfig {
   /// Maximum number of retry attempts for failed requests
   final int maxRetries;
-  
+
   /// Initial delay before first retry
   final Duration initialDelay;
-  
+
   /// Multiplier for exponential backoff
   final double backoffMultiplier;
-  
+
   /// Request timeout duration
   final Duration timeout;
-  
+
   /// Maximum concurrent connections
   final int maxConcurrentConnections;
 
@@ -37,9 +37,7 @@ class NetworkConfig {
         milliseconds: json['initialDelayMs'] as int? ?? 1000,
       ),
       backoffMultiplier: (json['backoffMultiplier'] as num?)?.toDouble() ?? 2.0,
-      timeout: Duration(
-        milliseconds: json['timeoutMs'] as int? ?? 30000,
-      ),
+      timeout: Duration(milliseconds: json['timeoutMs'] as int? ?? 30000),
       maxConcurrentConnections: json['maxConcurrentConnections'] as int? ?? 10,
     );
   }
@@ -58,27 +56,33 @@ class NetworkConfig {
   /// Validate configuration values
   List<String> validate() {
     final errors = <String>[];
-    
+
     if (maxRetries < 0) {
       errors.add('maxRetries must be non-negative, got: $maxRetries');
     }
-    
+
     if (initialDelay.inMilliseconds <= 0) {
-      errors.add('initialDelay must be positive, got: ${initialDelay.inMilliseconds}ms');
+      errors.add(
+        'initialDelay must be positive, got: ${initialDelay.inMilliseconds}ms',
+      );
     }
-    
+
     if (backoffMultiplier <= 1.0) {
-      errors.add('backoffMultiplier must be greater than 1.0, got: $backoffMultiplier');
+      errors.add(
+        'backoffMultiplier must be greater than 1.0, got: $backoffMultiplier',
+      );
     }
-    
+
     if (timeout.inMilliseconds <= 0) {
       errors.add('timeout must be positive, got: ${timeout.inMilliseconds}ms');
     }
-    
+
     if (maxConcurrentConnections <= 0) {
-      errors.add('maxConcurrentConnections must be positive, got: $maxConcurrentConnections');
+      errors.add(
+        'maxConcurrentConnections must be positive, got: $maxConcurrentConnections',
+      );
     }
-    
+
     return errors;
   }
 }
@@ -87,13 +91,13 @@ class NetworkConfig {
 class LoggingConfig {
   /// Minimum log level to output
   final String level;
-  
+
   /// Whether to include timestamps in log output
   final bool includeTimestamp;
-  
+
   /// Whether to include source location in log output
   final bool includeLocation;
-  
+
   /// Log file path (null for console only)
   final String? logFile;
 
@@ -128,11 +132,13 @@ class LoggingConfig {
   List<String> validate() {
     final errors = <String>[];
     final validLevels = {'debug', 'info', 'warning', 'error'};
-    
+
     if (!validLevels.contains(level.toLowerCase())) {
-      errors.add('Invalid log level: $level. Valid levels: ${validLevels.join(', ')}');
+      errors.add(
+        'Invalid log level: $level. Valid levels: ${validLevels.join(', ')}',
+      );
     }
-    
+
     return errors;
   }
 }
@@ -141,31 +147,31 @@ class LoggingConfig {
 class ScriptConfig {
   /// Path to lexicons directory
   final String lexiconsPath;
-  
+
   /// Path to packages directory
   final String packagesPath;
-  
+
   /// Path to website directory
   final String websitePath;
-  
+
   /// Path to bin directory
   final String binPath;
-  
+
   /// Mapping of package names to their paths
   final Map<String, String> packageMappings;
-  
+
   /// Network operation configuration
   final NetworkConfig networkConfig;
-  
+
   /// Logging configuration
   final LoggingConfig loggingConfig;
-  
+
   /// Maximum number of parallel operations
   final int maxParallelOperations;
-  
+
   /// Whether to use caching for expensive operations
   final bool enableCaching;
-  
+
   /// Cache directory path
   final String? cacheDirectory;
 
@@ -188,7 +194,7 @@ class ScriptConfig {
       lexiconsPath: json['lexiconsPath'] as String? ?? 'lexicons',
       packagesPath: json['packagesPath'] as String? ?? 'packages',
       websitePath: json['websitePath'] as String? ?? 'website',
-      binPath: json['binPath'] as String? ?? 'bin',
+      binPath: json['binPath'] as String? ?? 'scripts',
       packageMappings: Map<String, String>.from(
         json['packageMappings'] as Map<String, dynamic>? ?? {},
       ),
@@ -223,7 +229,7 @@ class ScriptConfig {
   /// Validate all configuration values
   List<String> validate() {
     final errors = <String>[];
-    
+
     // Validate required paths exist
     final pathsToCheck = [
       ('lexiconsPath', lexiconsPath),
@@ -231,13 +237,13 @@ class ScriptConfig {
       ('websitePath', websitePath),
       ('binPath', binPath),
     ];
-    
+
     for (final (name, path) in pathsToCheck) {
       if (!Directory(path).existsSync()) {
         errors.add('$name directory does not exist: $path');
       }
     }
-    
+
     // Validate cache directory if specified
     if (cacheDirectory != null && !Directory(cacheDirectory!).existsSync()) {
       try {
@@ -246,16 +252,18 @@ class ScriptConfig {
         errors.add('Cannot create cache directory: $cacheDirectory ($e)');
       }
     }
-    
+
     // Validate parallel operations count
     if (maxParallelOperations <= 0) {
-      errors.add('maxParallelOperations must be positive, got: $maxParallelOperations');
+      errors.add(
+        'maxParallelOperations must be positive, got: $maxParallelOperations',
+      );
     }
-    
+
     // Validate nested configurations
     errors.addAll(networkConfig.validate().map((e) => 'NetworkConfig: $e'));
     errors.addAll(loggingConfig.validate().map((e) => 'LoggingConfig: $e'));
-    
+
     return errors;
   }
 }
