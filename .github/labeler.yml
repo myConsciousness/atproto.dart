@@ -1,8 +1,4 @@
-examples:
-- examples/**/*
-website:
-- packages/website/**/*
-
+# Package-specific labels
 at_identifier:
 - packages/at_identifier/**/*
 nsid:
@@ -23,6 +19,8 @@ atproto_core:
 - packages/atproto_core/**/*
 lex_annotation:
 - packages/lex_annotation/**/*
+lex_gen:
+- packages/lex_gen/**/*
 did_plc:
 - packages/did_plc/**/*
 atproto:
@@ -34,6 +32,7 @@ bluesky:
 bluesky_cli:
 - packages/bluesky_cli/**/*
 
+# Test-related changes (only for packages that actually have tests)
 test:
 - packages/at_identifier/test/**/*.dart
 - packages/nsid/test/**/*.dart
@@ -41,8 +40,6 @@ test:
 - packages/at_uri/test/**/*.dart
 - packages/xrpc/test/**/*.dart
 - packages/multiformats/test/**/*.dart
-- packages/atproto_test/test/**/*.dart
-- packages/atproto_oauth/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
 - packages/lex_annotation/test/**/*.dart
 - packages/did_plc/test/**/*.dart
@@ -51,38 +48,27 @@ test:
 - packages/bluesky/test/**/*.dart
 - packages/bluesky_cli/test/**/*.dart
 
+# Documentation changes
 documentation:
-- packages/at_identifier/CHANGELOG.md
-- packages/at_identifier/README.md
-- packages/nsid/CHANGELOG.md
-- packages/nsid/README.md
-- packages/lexicon/CHANGELOG.md
-- packages/lexicon/README.md
-- packages/at_uri/CHANGELOG.md
-- packages/at_uri/README.md
-- packages/xrpc/CHANGELOG.md
-- packages/xrpc/README.md
-- packages/multiformats/CHANGELOG.md
-- packages/multiformats/README.md
-- packages/atproto_test/CHANGELOG.md
-- packages/atproto_test/README.md
-- packages/atproto_oauth/CHANGELOG.md
-- packages/atproto_oauth/README.md
-- packages/atproto_core/CHANGELOG.md
-- packages/atproto_core/README.md
-- packages/lex_annotation/CHANGELOG.md
-- packages/lex_annotation/README.md
-- packages/did_plc/CHANGELOG.md
-- packages/did_plc/README.md
-- packages/atproto/CHANGELOG.md
-- packages/atproto/README.md
-- packages/bluesky_text/CHANGELOG.md
-- packages/bluesky_text/README.md
-- packages/bluesky/CHANGELOG.md
-- packages/bluesky/README.md
-- packages/bluesky_cli/CHANGELOG.md
-- packages/bluesky_cli/README.md
+- packages/*/CHANGELOG.md
+- packages/*/README.md
 - CODE_OF_CONDUCT.md
 - CONTRIBUTING.md
-- SECURITY.md
-- STYLEGUIDE.md
+- README.md
+
+# CI/CD and tooling
+ci:
+- .github/workflows/**/*
+- .github/labeler.yml
+- melos.yaml
+- pubspec.yaml
+- pubspec_overrides.yaml
+- analysis_options.yaml
+
+# Build and development tools
+build:
+- bin/**/*
+- packages/*/pubspec.yaml
+- packages/*/analysis_options.yaml
+
+
