@@ -1,7 +1,9 @@
 // Package imports:
+import 'package:test/test.dart';
+
+// Project imports:
 import 'package:at_primitives/src/at_uri/invalid_at_uri_error.dart';
 import 'package:at_primitives/src/at_uri/validation.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('.ensureValidAtUri', () {

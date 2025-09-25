@@ -2,12 +2,10 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Project imports:
 import '../at_identifier/did.dart';
 import '../at_identifier/handle.dart';
-
 import '../nsid/validation.dart';
-
-// Project imports:
 import 'invalid_at_uri_error.dart';
 
 void ensureValidAtUri(String uri) {

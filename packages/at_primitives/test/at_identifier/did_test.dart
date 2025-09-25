@@ -1,6 +1,8 @@
 // Package imports:
-import 'package:at_primitives/src/at_identifier/did.dart';
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:at_primitives/src/at_identifier/did.dart';
 
 void main() {
   group('.ensureValidDid', () {

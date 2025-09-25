@@ -1,7 +1,9 @@
 // Package imports:
+import 'package:test/test.dart';
+
+// Project imports:
 import 'package:at_primitives/src/nsid/invalid_nsid_error.dart';
 import 'package:at_primitives/src/nsid/nsid.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('NSID parsing & creation', () {

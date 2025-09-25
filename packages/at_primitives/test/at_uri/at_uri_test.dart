@@ -1,6 +1,8 @@
 // Package imports:
-import 'package:at_primitives/src/at_uri/at_uri.dart';
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:at_primitives/src/at_uri/at_uri.dart';
 
 void main() {
   test('parses valid at uris', () {

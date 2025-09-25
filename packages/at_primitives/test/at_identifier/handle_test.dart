@@ -1,6 +1,8 @@
 // Package imports:
-import 'package:at_primitives/src/at_identifier/handle.dart';
 import 'package:test/test.dart';
+
+// Project imports:
+import 'package:at_primitives/src/at_identifier/handle.dart';
 
 void main() {
   group('.ensureValidHandle', () {
