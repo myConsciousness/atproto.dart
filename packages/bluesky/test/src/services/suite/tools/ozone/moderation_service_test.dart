@@ -1,9 +1,7 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_view.dart';
 import 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_view_detail.dart';
 import 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/record_view_detail.dart';
 import 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/repo_view_detail.dart';
