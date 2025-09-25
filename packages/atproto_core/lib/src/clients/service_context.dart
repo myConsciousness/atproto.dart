@@ -6,6 +6,7 @@
 import 'dart:async';
 
 // Package imports:
+import 'package:at_primitives/nsid.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
@@ -76,7 +77,7 @@ base class ServiceContext {
   String get repo => session?.did ?? oAuthSession?.sub ?? '';
 
   Future<xrpc.XRPCResponse<T>> get<T>(
-    final xrpc.NSID methodId, {
+    final NSID methodId, {
     final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
@@ -100,7 +101,7 @@ base class ServiceContext {
   );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
-    final xrpc.NSID methodId, {
+    final NSID methodId, {
     final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
@@ -124,7 +125,7 @@ base class ServiceContext {
   );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
-    final xrpc.NSID methodId, {
+    final NSID methodId, {
     final Map<String, dynamic>? parameters,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,

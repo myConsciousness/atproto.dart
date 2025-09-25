@@ -4,12 +4,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 // Project imports:
+import 'package:bluesky/app_bsky_services.dart';
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/actor_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/feed_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/graph_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/notification_service.dart';
-import 'package:bluesky/src/services/codegen/app/bsky/unspecced_service.dart';
 
 void main() {
   group('.session', () {
@@ -97,6 +93,32 @@ void main() {
     ).unspecced;
 
     expect(service, isA<UnspeccedService>());
+  });
+
+  test('.bookmark', () {
+    final service = Bluesky.fromSession(
+      core.Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).bookmark;
+
+    expect(service, isA<BookmarkService>());
+  });
+
+  test('.video', () {
+    final service = Bluesky.fromSession(
+      core.Session(
+        did: 'aaaa',
+        handle: 'shinyakato.dev',
+        accessJwt: 'test',
+        refreshJwt: 'test',
+      ),
+    ).video;
+
+    expect(service, isA<VideoService>());
   });
 
   group('.service', () {

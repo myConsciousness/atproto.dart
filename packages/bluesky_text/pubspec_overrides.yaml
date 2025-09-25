@@ -1,18 +1,12 @@
 dependency_overrides:
-  at_identifier:
-    path: ../at_identifier
-  nsid:
-    path: ../nsid
-  at_uri:
-    path: ../at_uri
+  at_primitives:
+    path: ../at_primitives
   xrpc:
     path: ../xrpc
   multiformats:
     path: ../multiformats
   lexicon:
     path: ../lexicon
-  lex_annotation:
-    path: ../lex_annotation
   atproto_oauth:
     path: ../atproto_oauth
   atproto_core:

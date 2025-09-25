@@ -20,5 +20,5 @@ _LexUnknown _$LexUnknownFromJson(Map json) =>
 Map<String, dynamic> _$LexUnknownToJson(_LexUnknown instance) =>
     <String, dynamic>{
       'type': instance.type,
-      if (instance.description case final value?) 'description': value,
+      'description': ?instance.description,
     };

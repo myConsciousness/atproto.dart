@@ -38,26 +38,26 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
-    addSubcommand(GetSuggestedStarterPacksCommand());
-    addSubcommand(SearchActorsSkeletonCommand());
-    addSubcommand(GetTrendsCommand());
-    addSubcommand(GetSuggestedFeedsCommand());
-    addSubcommand(SearchStarterPacksSkeletonCommand());
-    addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(SearchPostsSkeletonCommand());
-    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(InitAgeAssuranceCommand());
-    addSubcommand(GetPostThreadV2Command());
-    addSubcommand(GetSuggestedUsersCommand());
-    addSubcommand(GetTaggedSuggestionsCommand());
     addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(GetSuggestedFeedsSkeletonCommand());
-    addSubcommand(GetAgeAssuranceStateCommand());
-    addSubcommand(GetConfigCommand());
-    addSubcommand(GetSuggestedUsersSkeletonCommand());
-    addSubcommand(GetSuggestionsSkeletonCommand());
     addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(SearchStarterPacksSkeletonCommand());
     addSubcommand(GetTrendingTopicsCommand());
+    addSubcommand(GetSuggestionsSkeletonCommand());
+    addSubcommand(GetSuggestedFeedsSkeletonCommand());
+    addSubcommand(GetPostThreadOtherV2Command());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetTrendsCommand());
+    addSubcommand(GetSuggestedUsersSkeletonCommand());
+    addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(GetSuggestedStarterPacksCommand());
+    addSubcommand(GetTaggedSuggestionsCommand());
+    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetPostThreadV2Command());
+    addSubcommand(SearchActorsSkeletonCommand());
+    addSubcommand(GetConfigCommand());
+    addSubcommand(SearchPostsSkeletonCommand());
   }
 
   @override

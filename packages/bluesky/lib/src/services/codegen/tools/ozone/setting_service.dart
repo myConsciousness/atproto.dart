@@ -23,30 +23,6 @@ import 'setting/upsertOption/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Create or update setting option
-Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
-  required String key,
-  required SettingUpsertOptionScope scope,
-  required Map<String, dynamic> value,
-  String? description,
-  SettingUpsertOptionManagerRole? managerRole,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneSettingUpsertOption,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'key': key,
-    'scope': scope.toJson(),
-    'value': value,
-    if (description != null) 'description': description,
-    if (managerRole != null) 'managerRole': managerRole.toJson(),
-  },
-  to: const SettingUpsertOptionOutputConverter().fromJson,
-);
-
 /// List settings with optional filtering
 Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
   int? limit,
@@ -71,6 +47,30 @@ Future<XRPCResponse<SettingListOptionsOutput>> toolsOzoneSettingListOptions({
   to: const SettingListOptionsOutputConverter().fromJson,
 );
 
+/// Create or update setting option
+Future<XRPCResponse<SettingUpsertOptionOutput>> toolsOzoneSettingUpsertOption({
+  required String key,
+  required SettingUpsertOptionScope scope,
+  required Map<String, dynamic> value,
+  String? description,
+  SettingUpsertOptionManagerRole? managerRole,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneSettingUpsertOption,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'key': key,
+    'scope': scope.toJson(),
+    'value': value,
+    if (description != null) 'description': description,
+    if (managerRole != null) 'managerRole': managerRole.toJson(),
+  },
+  to: const SettingUpsertOptionOutputConverter().fromJson,
+);
+
 /// Delete settings by key
 Future<XRPCResponse<EmptyData>> toolsOzoneSettingRemoveOptions({
   required List<String> keys,
@@ -91,26 +91,6 @@ base class SettingService {
 
   SettingService(this._ctx);
 
-  /// Create or update setting option
-  Future<XRPCResponse<SettingUpsertOptionOutput>> upsertOption({
-    required String key,
-    required SettingUpsertOptionScope scope,
-    required Map<String, dynamic> value,
-    String? description,
-    SettingUpsertOptionManagerRole? managerRole,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneSettingUpsertOption(
-    key: key,
-    scope: scope,
-    value: value,
-    description: description,
-    managerRole: managerRole,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
   /// List settings with optional filtering
   Future<XRPCResponse<SettingListOptionsOutput>> listOptions({
     int? limit,
@@ -126,6 +106,26 @@ base class SettingService {
     scope: scope,
     prefix: prefix,
     keys: keys,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Create or update setting option
+  Future<XRPCResponse<SettingUpsertOptionOutput>> upsertOption({
+    required String key,
+    required SettingUpsertOptionScope scope,
+    required Map<String, dynamic> value,
+    String? description,
+    SettingUpsertOptionManagerRole? managerRole,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneSettingUpsertOption(
+    key: key,
+    scope: scope,
+    value: value,
+    description: description,
+    managerRole: managerRole,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

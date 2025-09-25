@@ -16,8 +16,6 @@ body:
       label: Package
       description: Which package should this feature be added to?
       options:
-        - at_identifier
-        - at_uri
         - atproto
         - atproto_core
         - atproto_oauth
@@ -26,11 +24,9 @@ body:
         - bluesky_cli
         - bluesky_text
         - did_plc
-        - lex_annotation
         - lex_gen
         - lexicon
         - multiformats
-        - nsid
         - xrpc
         - New package
         - Multiple packages

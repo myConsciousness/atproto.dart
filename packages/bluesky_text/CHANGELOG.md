@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.0.4
+
+- **DEPENDENCY**: Updated `xrpc` dependency to `^1.0.3` for compatibility with `at_primitives` consolidation.
+
 ## v1.0.3
 
 - chore: update example.

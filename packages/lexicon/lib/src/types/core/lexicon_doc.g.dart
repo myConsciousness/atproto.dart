@@ -32,8 +32,8 @@ Map<String, dynamic> _$LexiconDocToJson(_LexiconDoc instance) =>
     <String, dynamic>{
       'lexicon': instance.lexicon,
       'id': nsidConverter.toJson(instance.id),
-      if (instance.revision case final value?) 'revision': value,
-      if (instance.description case final value?) 'description': value,
+      'revision': ?instance.revision,
+      'description': ?instance.description,
       'defs': instance.defs.map(
         (k, e) => MapEntry(k, const LexUserTypeConverter().toJson(e)),
       ),

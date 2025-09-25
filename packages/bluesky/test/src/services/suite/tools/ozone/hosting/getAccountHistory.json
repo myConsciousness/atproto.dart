@@ -1,0 +1,12 @@
+{
+  "events": [
+    {
+      "$type": "tools.ozone.hosting.getAccountHistory#accountCreated",
+      "timestamp": "2023-01-01T00:00:00.000Z",
+      "details": {},
+      "createdBy": "system",
+      "createdAt": "2023-01-01T00:00:00.000Z"
+    }
+  ],
+  "cursor": "next-cursor"
+}

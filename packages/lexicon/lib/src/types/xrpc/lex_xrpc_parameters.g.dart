@@ -32,16 +32,13 @@ _LexXrpcParameters _$LexXrpcParametersFromJson(Map json) =>
       return val;
     }, fieldKeyMap: const {'requiredProperties': 'required'});
 
-Map<String, dynamic> _$LexXrpcParametersToJson(
-  _LexXrpcParameters instance,
-) => <String, dynamic>{
-  'type': instance.type,
-  if (instance.description case final value?) 'description': value,
-  if (instance.requiredProperties case final value?) 'required': value,
-  if (instance.properties?.map(
+Map<String, dynamic> _$LexXrpcParametersToJson(_LexXrpcParameters instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'description': ?instance.description,
+      'required': ?instance.requiredProperties,
+      'properties': ?instance.properties?.map(
         (k, e) =>
             MapEntry(k, const LexXrpcParametersPropertyConverter().toJson(e)),
-      )
-      case final value?)
-    'properties': value,
-};
+      ),
+    };

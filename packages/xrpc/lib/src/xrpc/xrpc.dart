@@ -8,9 +8,9 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 // Package imports:
+import 'package:at_primitives/nsid.dart' as nsid;
 import 'package:http/http.dart' as http;
 import 'package:mime/mime.dart';
-import 'package:nsid/nsid.dart' as nsid;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // Project imports:

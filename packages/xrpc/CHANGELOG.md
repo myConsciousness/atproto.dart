@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.0.3
+
+- **MIGRATION**: Updated to use the consolidated `at_primitives` package for AT Protocol primitive types.
+- **IMPROVEMENT**: Reduced dependency complexity by adopting unified primitive types.
+
 ## v1.0.2
 
 - Fix SDK constraint to '">=3.8.0 <4.0.0"'.

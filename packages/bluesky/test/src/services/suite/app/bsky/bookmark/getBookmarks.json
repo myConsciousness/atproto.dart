@@ -1,0 +1,36 @@
+{
+  "bookmarks": [
+    {
+      "subject": {
+        "uri": "at://did:plc:test123456789/app.bsky.feed.post/test123",
+        "cid": "bafyreihash123456789"
+      },
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "item": {
+        "$type": "app.bsky.feed.defs#postView",
+        "uri": "at://did:plc:test123456789/app.bsky.feed.post/test123",
+        "cid": "bafyreihash123456789",
+        "author": {
+          "did": "did:plc:test123456789",
+          "handle": "test.bsky.social",
+          "displayName": "Test User",
+          "avatar": "https://example.com/avatar.jpg"
+        },
+        "record": {
+          "$type": "app.bsky.feed.post",
+          "text": "This is a test post",
+          "createdAt": "2023-01-01T00:00:00.000Z"
+        },
+        "indexedAt": "2023-01-01T00:00:00.000Z",
+        "replyCount": 0,
+        "repostCount": 0,
+        "likeCount": 1,
+        "bookmarkCount": 1,
+        "viewer": {
+          "bookmarked": true
+        }
+      }
+    }
+  ],
+  "cursor": "next-cursor"
+}

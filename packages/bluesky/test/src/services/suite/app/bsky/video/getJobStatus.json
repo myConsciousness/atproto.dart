@@ -1,0 +1,17 @@
+{
+  "jobStatus": {
+    "jobId": "test-job-123",
+    "did": "did:plc:test123456789",
+    "state": "JOB_STATE_COMPLETED",
+    "progress": 100,
+    "blob": {
+      "$type": "blob",
+      "ref": {
+        "$link": "bafyreihash123456789"
+      },
+      "mimeType": "video/mp4",
+      "size": 1024000
+    },
+    "message": "Video processing completed successfully"
+  }
+}

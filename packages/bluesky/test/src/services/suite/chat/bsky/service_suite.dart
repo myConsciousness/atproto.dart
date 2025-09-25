@@ -3,9 +3,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
-import 'package:bluesky/src/services/codegen/chat/bsky/actor_service.dart';
-import 'package:bluesky/src/services/codegen/chat/bsky/convo_service.dart';
-import 'package:bluesky/src/services/codegen/chat/bsky/moderation_service.dart';
+import 'package:bluesky/chat_bsky_services.dart';
 
 const _runner = _ServiceRunner();
 

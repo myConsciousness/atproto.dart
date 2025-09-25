@@ -49,11 +49,11 @@ jobs:
 
       - name: Generate
         run: |
-          dart run ./bin/gen_lexicon_docs.dart
-          dart run ./bin/gen_lexicon_ids.dart
-          dart run ./bin/gen_lexicon_matrix.dart
-          dart run ./bin/gen_supported_api_matrix.dart
-          dart run ./bin/gen_codes.dart
+          dart run ./scripts/gen_lexicon_docs.dart
+          dart run ./scripts/gen_lexicon_ids.dart
+          dart run ./scripts/gen_lexicon_matrix.dart
+          dart run ./scripts/gen_supported_api_matrix.dart
+          dart run ./scripts/gen_codes.dart
 
       - name: Build
         run: |

@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "did": "did:plc:test123456789",
+      "handle": "test.bsky.social",
+      "email": "test@example.com",
+      "indexedAt": "2023-01-01T00:00:00.000Z"
+    }
+  ],
+  "cursor": "next-cursor"
+}

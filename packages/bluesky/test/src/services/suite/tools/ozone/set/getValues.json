@@ -1,0 +1,11 @@
+{
+  "set": {
+    "name": "test-set",
+    "description": "Test set description",
+    "setSize": 3,
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  "values": ["value1", "value2", "value3"],
+  "cursor": "next-cursor"
+}

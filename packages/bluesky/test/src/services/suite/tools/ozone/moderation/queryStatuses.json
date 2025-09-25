@@ -1,0 +1,32 @@
+{
+  "subjectStatuses": [
+    {
+      "id": 456,
+      "subject": {
+        "$type": "com.atproto.admin.defs#repoRef",
+        "did": "did:plc:test123456789"
+      },
+      "hosting": {
+        "status": "active",
+        "updatedAt": "2023-01-01T00:00:00.000Z"
+      },
+      "subjectBlobCids": [],
+      "subjectRepoHandle": "test.bsky.social",
+      "updatedAt": "2023-01-01T00:00:00.000Z",
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "reviewState": "open",
+      "comment": "Test status comment",
+      "muteUntil": null,
+      "muteReporting": false,
+      "lastReviewedBy": "did:plc:moderator123",
+      "lastReviewedAt": "2023-01-01T00:00:00.000Z",
+      "lastReportedAt": "2023-01-01T00:00:00.000Z",
+      "lastAppealedAt": null,
+      "takendown": false,
+      "appealed": false,
+      "suspendUntil": null,
+      "tags": []
+    }
+  ],
+  "cursor": "next-cursor"
+}

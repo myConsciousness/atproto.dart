@@ -3,8 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
-
-// Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 
