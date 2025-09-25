@@ -4,8 +4,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:bluesky/src/bluesky.dart';
 import 'package:bluesky/app_bsky_services.dart';
+import 'package:bluesky/src/bluesky.dart';
 
 void main() {
   group('.session', () {

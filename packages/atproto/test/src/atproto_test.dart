@@ -3,8 +3,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:atproto/src/atproto.dart';
 import 'package:atproto/com_atproto_services.dart';
+import 'package:atproto/src/atproto.dart';
 
 void main() {
   group('.session', () {

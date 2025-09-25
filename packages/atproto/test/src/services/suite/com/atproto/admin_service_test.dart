@@ -9,7 +9,6 @@ import 'package:atproto/src/services/codegen/com/atproto/admin/getInviteCodes/ou
 import 'package:atproto/src/services/codegen/com/atproto/admin/getSubjectStatus/output.dart';
 import 'package:atproto/src/services/codegen/com/atproto/admin/searchAccounts/output.dart';
 import 'package:atproto/src/services/codegen/com/atproto/admin/sendEmail/output.dart';
-
 import 'service_suite.dart';
 
 void main() {
