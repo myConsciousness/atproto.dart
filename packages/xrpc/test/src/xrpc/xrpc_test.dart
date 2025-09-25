@@ -416,7 +416,7 @@ void main() {
   });
 
   group('.subscribe', () {
-    test('connect 5 seconds', () async {
+    test('connect 1 second', () async {
       final subscription = subscribe(
         NSID.create('sync.atproto.com', 'subscribeRepos'),
       );
@@ -425,7 +425,7 @@ void main() {
       expect(subscription.data, isA<Subscription>());
       expect(subscription.rateLimit, isA<RateLimit>());
 
-      final oneMinuteLater = DateTime.now().add(Duration(seconds: 5));
+      final oneMinuteLater = DateTime.now().add(Duration(seconds: 1));
 
       await for (final _ in subscription.data.stream) {
         if (DateTime.now().isAfter(oneMinuteLater)) {
