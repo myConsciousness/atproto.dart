@@ -36,8 +36,6 @@ body:
       label: Packages Used
       description: Which atproto.dart packages does your app use?
       options:
-        - label: at_identifier
-        - label: at_uri
         - label: atproto
         - label: atproto_core
         - label: atproto_oauth
@@ -49,7 +47,6 @@ body:
         - label: lex_gen
         - label: lexicon
         - label: multiformats
-        - label: nsid
         - label: xrpc
 
   - type: checkboxes
