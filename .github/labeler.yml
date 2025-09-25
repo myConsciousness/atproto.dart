@@ -13,8 +13,6 @@ atproto_oauth:
 - packages/atproto_oauth/**/*
 atproto_core:
 - packages/atproto_core/**/*
-lex_annotation:
-- packages/lex_annotation/**/*
 lex_gen:
 - packages/lex_gen/**/*
 did_plc:
@@ -35,7 +33,6 @@ test:
 - packages/xrpc/test/**/*.dart
 - packages/multiformats/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
-- packages/lex_annotation/test/**/*.dart
 - packages/did_plc/test/**/*.dart
 - packages/atproto/test/**/*.dart
 - packages/bluesky_text/test/**/*.dart

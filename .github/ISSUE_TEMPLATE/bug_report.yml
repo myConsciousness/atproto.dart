@@ -24,7 +24,6 @@ body:
         - bluesky_cli
         - bluesky_text
         - did_plc
-        - lex_annotation
         - lex_gen
         - lexicon
         - multiformats

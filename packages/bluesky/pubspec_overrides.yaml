@@ -6,8 +6,6 @@ dependency_overrides:
     path: ../xrpc
   multiformats:
     path: ../multiformats
-  lex_annotation:
-    path: ../lex_annotation
   atproto_oauth:
     path: ../atproto_oauth
   atproto_core:
