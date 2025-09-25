@@ -11,14 +11,11 @@
     "bluesky": "packages/bluesky",
     "bluesky_cli": "packages/bluesky_cli",
     "bluesky_text": "packages/bluesky_text",
-    "at_identifier": "packages/at_identifier",
-    "at_uri": "packages/at_uri",
     "did_plc": "packages/did_plc",
     "lex_annotation": "packages/lex_annotation",
     "lex_gen": "packages/lex_gen",
     "lexicon": "packages/lexicon",
     "multiformats": "packages/multiformats",
-    "nsid": "packages/nsid",
     "xrpc": "packages/xrpc"
   },
   "networkConfig": {

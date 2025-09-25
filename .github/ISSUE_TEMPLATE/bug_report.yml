@@ -16,8 +16,6 @@ body:
       label: Package
       description: Which package is affected by this bug?
       options:
-        - at_identifier
-        - at_uri
         - atproto
         - atproto_core
         - atproto_oauth
@@ -30,7 +28,6 @@ body:
         - lex_gen
         - lexicon
         - multiformats
-        - nsid
         - xrpc
         - Other/Multiple packages
     validations:
