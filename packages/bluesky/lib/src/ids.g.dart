@@ -759,6 +759,14 @@ const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 const appBskyUnspeccedGetConfigLiveNowConfig =
     'app.bsky.unspecced.getConfig#liveNowConfig';
 
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacks`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacks =
+    'app.bsky.unspecced.getOnboardingSuggestedStarterPacks';
+
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton =
+    'app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton';
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';

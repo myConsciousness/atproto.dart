@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.2.1
+
+- feat: Merged #2143 - Added onboarding suggested starter packs support
+  - Added `getOnboardingSuggestedStarterPacks` endpoint for retrieving suggested starter packs during onboarding
+  - Added `getOnboardingSuggestedStarterPacksSkeleton` endpoint for skeleton data of suggested starter packs
+  - Enhanced onboarding experience with curated starter pack recommendations
+  - New endpoints available via `UnspeccedService` for improved user onboarding flow
+
 ## v1.2.0
 
 - feat: Merged #2137 - Added comprehensive Ozone moderation and administration services

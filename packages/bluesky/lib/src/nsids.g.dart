@@ -434,6 +434,16 @@ const appBskyUnspeccedGetConfigLiveNowConfig = NSID(
   ids.appBskyUnspeccedGetConfigLiveNowConfig,
 );
 
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacks`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacks = NSID(
+  ids.appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
+);
+
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = NSID(
+  ids.appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
+);
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators = NSID(
   ids.appBskyUnspeccedGetPopularFeedGenerators,

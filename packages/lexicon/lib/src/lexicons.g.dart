@@ -8798,6 +8798,49 @@ const appBskyUnspeccedSearchStarterPacksSkeleton = <String, dynamic>{
   },
 };
 
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {"type": "string", "format": "at-uri"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
   "lexicon": 1,
@@ -9508,6 +9551,45 @@ const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
             "starterPacks": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacks`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getOnboardingSuggestedStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested starterpacks for onboarding",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackView",
+              },
             },
           },
         },
@@ -15967,6 +16049,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedGetPopularFeedGenerators,
   appBskyUnspeccedGetTrendsSkeleton,
   appBskyUnspeccedSearchStarterPacksSkeleton,
+  appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
   appBskyUnspeccedGetTrendingTopics,
   appBskyUnspeccedGetSuggestionsSkeleton,
   appBskyUnspeccedGetSuggestedFeedsSkeleton,
@@ -15979,6 +16062,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedGetSuggestedStarterPacks,
   appBskyUnspeccedGetTaggedSuggestions,
   appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
+  appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
   appBskyUnspeccedGetAgeAssuranceState,
   appBskyUnspeccedGetSuggestedUsers,
   appBskyUnspeccedGetPostThreadV2,
