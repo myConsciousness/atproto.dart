@@ -14,6 +14,8 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import 'unspecced/defs/age_assurance_state.dart';
 import 'unspecced/getConfig/output.dart';
+import 'unspecced/getOnboardingSuggestedStarterPacks/output.dart';
+import 'unspecced/getOnboardingSuggestedStarterPacksSkeleton/output.dart';
 import 'unspecced/getPopularFeedGenerators/output.dart';
 import 'unspecced/getPostThreadOtherV2/output.dart';
 import 'unspecced/getPostThreadV2/main_sort.dart';
@@ -99,6 +101,26 @@ appBskyUnspeccedSearchStarterPacksSkeleton({
     if (cursor != null) 'cursor': cursor,
   },
   to: const UnspeccedSearchStarterPacksSkeletonOutputConverter().fromJson,
+);
+
+/// Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks
+Future<XRPCResponse<UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput>>
+appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton({
+  String? viewer,
+  int? limit,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputConverter()
+      .fromJson,
 );
 
 /// Get a list of trending topics
@@ -296,6 +318,21 @@ appBskyUnspeccedGetSuggestedStarterPacksSkeleton({
   to: const UnspeccedGetSuggestedStarterPacksSkeletonOutputConverter().fromJson,
 );
 
+/// Get a list of suggested starterpacks for onboarding
+Future<XRPCResponse<UnspeccedGetOnboardingSuggestedStarterPacksOutput>>
+appBskyUnspeccedGetOnboardingSuggestedStarterPacks({
+  int? limit,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
+  headers: $headers,
+  parameters: {...?$unknown, if (limit != null) 'limit': limit},
+  to: const UnspeccedGetOnboardingSuggestedStarterPacksOutputConverter()
+      .fromJson,
+);
+
 /// Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.
 Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedGetAgeAssuranceState({
   required ServiceContext $ctx,
@@ -490,6 +527,23 @@ base class UnspeccedService {
     $unknown: $unknown,
   );
 
+  /// Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks
+  Future<
+    XRPCResponse<UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput>
+  >
+  getOnboardingSuggestedStarterPacksSkeleton({
+    String? viewer,
+    int? limit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton(
+    viewer: viewer,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Get a list of trending topics
   Future<XRPCResponse<UnspeccedGetTrendingTopicsOutput>> getTrendingTopics({
     String? viewer,
@@ -643,6 +697,19 @@ base class UnspeccedService {
     Map<String, String>? $unknown,
   }) async => await appBskyUnspeccedGetSuggestedStarterPacksSkeleton(
     viewer: viewer,
+    limit: limit,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a list of suggested starterpacks for onboarding
+  Future<XRPCResponse<UnspeccedGetOnboardingSuggestedStarterPacksOutput>>
+  getOnboardingSuggestedStarterPacks({
+    int? limit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetOnboardingSuggestedStarterPacks(
     limit: limit,
     $ctx: _ctx,
     $headers: $headers,

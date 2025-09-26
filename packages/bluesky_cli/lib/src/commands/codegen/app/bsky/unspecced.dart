@@ -13,6 +13,8 @@ import 'package:args/command_runner.dart';
 // Project imports:
 import 'unspecced/get_age_assurance_state.dart';
 import 'unspecced/get_config.dart';
+import 'unspecced/get_onboarding_suggested_starter_packs.dart';
+import 'unspecced/get_onboarding_suggested_starter_packs_skeleton.dart';
 import 'unspecced/get_popular_feed_generators.dart';
 import 'unspecced/get_post_thread_other_v_2.dart';
 import 'unspecced/get_post_thread_v_2.dart';
@@ -41,6 +43,7 @@ final class AppBskyUnspeccedCommand extends Command<void> {
     addSubcommand(GetPopularFeedGeneratorsCommand());
     addSubcommand(GetTrendsSkeletonCommand());
     addSubcommand(SearchStarterPacksSkeletonCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());
     addSubcommand(GetTrendingTopicsCommand());
     addSubcommand(GetSuggestionsSkeletonCommand());
     addSubcommand(GetSuggestedFeedsSkeletonCommand());
@@ -52,6 +55,7 @@ final class AppBskyUnspeccedCommand extends Command<void> {
     addSubcommand(GetSuggestedStarterPacksCommand());
     addSubcommand(GetTaggedSuggestionsCommand());
     addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
     addSubcommand(GetAgeAssuranceStateCommand());
     addSubcommand(GetSuggestedUsersCommand());
     addSubcommand(GetPostThreadV2Command());
