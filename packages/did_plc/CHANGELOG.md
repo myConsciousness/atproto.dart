@@ -1,6 +1,29 @@
 # Release Note
 
-## v1.0.0 - 2025-01-27 - Major Release: Independent Implementation
+## v1.0.1 
+
+**🔧 PATCH RELEASE - Documentation and API Reference Corrections**
+
+This patch release fixes documentation issues and ensures all code examples work with the actual implementation.
+
+### 📝 Documentation Fixes
+
+- **README Corrections**: Fixed all API method names to match actual implementation
+  - `findDocument` → `getDocument`
+  - `findOperationLog` → `getOperationLog`
+  - `findAuditLog` → `getAuditableLog`
+  - `findLastOperation` → `getLastOp`
+  - `findDocuments` → `getDocuments`
+- **Removed Non-Existent Features**: Cleaned up documentation to only include implemented functionality
+  - Removed references to `evictionPolicy` parameter (use `enableLru` instead)
+  - Removed unimplemented parameters: `httpTimeout`, `maxConcurrentRequests`, `bufferSize`, `maxConcurrency`
+  - Removed unimplemented methods: `createOperation`, `submitOperation`, `PLC.withClient`
+  - Removed unimplemented properties: `cacheStats`, `performanceMetrics`
+- **Fixed Broken Links**: Removed references to non-existent files (`MIGRATION.md`, `PERFORMANCE.md`)
+- **Updated Code Examples**: All code examples now work with the actual API implementation
+- **Corrected Streaming Examples**: Updated to use correct method names (`exportOpsStream`)
+
+## v1.0.0
 
 **🎉 BREAKING CHANGES - Complete rewrite for independence from atproto**
 

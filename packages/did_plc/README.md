@@ -58,12 +58,12 @@ Future<void> main() async {
 
   try {
     // Fetch a DID document
-    final document = await plc.findDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
+    final document = await plc.getDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
     print('DID Document: ${document.id}');
     
     // Get operation log
-    final operationLog = await plc.findOperationLog('did:plc:iijrtk7ocored6zuziwmqq3c');
-    print('Operations: ${operationLog.operations.length}');
+    final operationLog = await plc.getOperationLog('did:plc:iijrtk7ocored6zuziwmqq3c');
+    print('Operations: ${operationLog.log.length}');
     
   } on NetworkException catch (e) {
     print('Network error: ${e.message}');
@@ -84,16 +84,16 @@ Future<void> main() async {
 final plc = PLC();
 
 // Document operations
-final document = await plc.findDocument(did);
-final documentData = await plc.findDocumentData(did);
+final document = await plc.getDocument(did);
+final documentData = await plc.getDocumentData(did);
 
 // Operation log operations
-final operationLog = await plc.findOperationLog(did);
-final auditLog = await plc.findAuditLog(did);
-final lastOperation = await plc.findLastOperation(did);
+final operationLog = await plc.getOperationLog(did);
+final auditLog = await plc.getAuditableLog(did);
+final lastOperation = await plc.getLastOp(did);
 
 // Batch operations
-final documents = await plc.findDocuments([did1, did2, did3]);
+final documents = await plc.getDocuments([did1, did2, did3]);
 
 // Health check
 final health = await plc.health();
@@ -102,28 +102,23 @@ final health = await plc.health();
 ### Advanced Features
 
 ```dart
-// Custom configuration with comprehensive options
+// Custom configuration
 final plc = PLC(
   service: 'https://plc.directory',
   cachePolicy: CachePolicy(
     ttl: Duration(minutes: 10),
     maxSize: 1000,
-    evictionPolicy: EvictionPolicy.lru,
+    enableLru: true,
   ),
   retryPolicy: RetryPolicy(
     maxAttempts: 3,
     initialDelay: Duration(seconds: 1),
     backoffMultiplier: 2.0,
   ),
-  httpTimeout: Duration(seconds: 30),
-  maxConcurrentRequests: 10,
 );
 
-// Streaming large datasets with backpressure control
-await for (final entry in plc.exportStream(
-  bufferSize: 1000,
-  maxConcurrency: 5,
-)) {
+// Streaming large datasets
+await for (final entry in plc.exportStream()) {
   print('Processing: ${entry.did}');
 }
 ```
@@ -139,7 +134,7 @@ final plc = PLC(
   cachePolicy: CachePolicy(
     ttl: Duration(minutes: 15),      // Cache for 15 minutes
     maxSize: 2000,                   // Maximum 2000 entries
-    evictionPolicy: EvictionPolicy.lru, // LRU eviction
+    enableLru: true,                 // LRU eviction
   ),
 );
 ```
@@ -150,7 +145,7 @@ Efficiently process multiple DIDs in parallel:
 
 ```dart
 final dids = ['did:plc:abc123', 'did:plc:def456', 'did:plc:ghi789'];
-final documents = await plc.findDocuments(dids);
+final documents = await plc.getDocuments(dids);
 
 // Process results
 for (final entry in documents.entries) {
@@ -163,31 +158,28 @@ for (final entry in documents.entries) {
 Handle large datasets efficiently with streaming:
 
 ```dart
-await for (final entry in plc.exportStream(
+await for (final entry in plc.exportOpsStream(
   after: DateTime.now().subtract(Duration(days: 1)),
   count: 1000,
 )) {
   // Process each entry as it arrives
-  await processAuditLogEntry(entry);
+  print('Processing: ${entry.did}');
 }
 ```
 
-### Cryptographic Operations
+### Resource Management
 
-Create and verify PLC operations:
+Proper resource management:
 
 ```dart
-// Create operation builder
-final builder = OperationBuilder()
-  ..type = 'plc_operation'
-  ..rotationKeys = ['did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK']
-  ..verificationMethods = {
-    'atproto': 'did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK'
-  };
-
-// Sign and submit operation
-final operation = await plc.createOperation(builder);
-final cid = await plc.submitOperation(operation);
+final plc = PLC();
+try {
+  final document = await plc.getDocument('did:plc:example');
+  print('Document: ${document.id}');
+} finally {
+  // Always close the client
+  plc.close();
+}
 ```
 
 ## 1.6. Migration Guide 📋
@@ -261,16 +253,16 @@ final doc2 = await plc.findDocument(did2);
 final doc3 = await plc.findDocument(did3);
 
 // Use batch processing
-final documents = await plc.findDocuments([did1, did2, did3]);
+final documents = await plc.getDocuments([did1, did2, did3]);
 ```
 
 ### 3. Use Streaming for Large Datasets
 
 ```dart
 // For processing large amounts of data
-await for (final entry in plc.exportStream(count: 10000)) {
+await for (final entry in plc.exportOpsStream(count: 10000)) {
   // Process incrementally to avoid memory issues
-  await processEntry(entry);
+  print('Processing: ${entry.did}');
 }
 ```
 
@@ -293,32 +285,17 @@ Future<void> processDocuments() async {
   final plc = PLC();
   try {
     // Your processing logic
-    await plc.findDocument(did);
+    await plc.getDocument(did);
   } finally {
     // Always close to free resources
     plc.close();
   }
 }
 
-// Or use automatic resource management
-await PLC.withClient((plc) async {
-  return await plc.findDocument(did);
-});
+
 ```
 
-### 6. Performance Monitoring
 
-```dart
-// Monitor cache performance
-final stats = plc.cacheStats;
-print('Cache hit rate: ${stats.hitRate}%');
-print('Memory usage: ${stats.memoryUsage}MB');
-
-// Monitor concurrent operations
-final metrics = plc.performanceMetrics;
-print('Active requests: ${metrics.activeRequests}');
-print('Average response time: ${metrics.avgResponseTime}ms');
-```
 
 ## 1.8. Examples 💡
 
@@ -333,5 +310,3 @@ See the [examples](example/) directory for complete working examples:
 
 For more detailed documentation, see:
 - [API Reference](https://pub.dev/documentation/did_plc/latest/)
-- [Migration Guide](MIGRATION.md)
-- [Performance Guide](PERFORMANCE.md)
