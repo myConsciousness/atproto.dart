@@ -2,18 +2,20 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
 import 'dart:async';
 import 'dart:math';
 
+// Project imports:
 import 'package:did_plc/src/client/http_client.dart';
 import 'package:did_plc/src/client/response.dart';
 import 'package:did_plc/src/exceptions.dart';
 import 'package:did_plc/src/types/auditable_log.dart';
+import 'package:did_plc/src/types/compatible_op_or_tombstone.dart';
 import 'package:did_plc/src/types/did_document.dart';
 import 'package:did_plc/src/types/exported_operation.dart';
 import 'package:did_plc/src/types/operation.dart';
 import 'package:did_plc/src/types/operation_log.dart';
-import 'package:did_plc/src/types/compatible_op_or_tombstone.dart';
 
 /// Mock implementation of PLC Directory for testing without external dependencies
 class MockPlcDirectory {

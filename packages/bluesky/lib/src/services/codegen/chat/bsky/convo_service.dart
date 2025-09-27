@@ -37,7 +37,6 @@ import 'convo/updateAllRead/main_status.dart';
 import 'convo/updateAllRead/output.dart';
 import 'convo/updateRead/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

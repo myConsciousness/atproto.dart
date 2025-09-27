@@ -38,7 +38,6 @@ import 'unspecced/searchPostsSkeleton/main_sort.dart';
 import 'unspecced/searchPostsSkeleton/output.dart';
 import 'unspecced/searchStarterPacksSkeleton/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

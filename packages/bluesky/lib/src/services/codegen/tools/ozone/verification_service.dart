@@ -20,7 +20,6 @@ import 'verification/grantVerifications/verification_input.dart';
 import 'verification/listVerifications/output.dart';
 import 'verification/revokeVerifications/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

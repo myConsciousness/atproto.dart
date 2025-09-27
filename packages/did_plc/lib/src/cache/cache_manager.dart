@@ -2,11 +2,12 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Project imports:
+import '../types/auditable_log.dart';
 import '../types/did_document.dart';
 import '../types/document_data.dart';
-import '../types/operation_log.dart';
-import '../types/auditable_log.dart';
 import '../types/instance.dart';
+import '../types/operation_log.dart';
 import 'cache_policy.dart';
 import 'memory_cache.dart';
 

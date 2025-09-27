@@ -19,7 +19,6 @@ import 'moderation/createReport/output.dart';
 import 'moderation/createReport/union_main_subject.dart';
 import 'moderation/defs/reason_type.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

@@ -19,7 +19,6 @@ import 'team/defs/member.dart';
 import 'team/listMembers/output.dart';
 import 'team/updateMember/main_role.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

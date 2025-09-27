@@ -21,7 +21,6 @@ import 'setting/upsertOption/main_manager_role.dart';
 import 'setting/upsertOption/main_scope.dart';
 import 'setting/upsertOption/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

@@ -23,7 +23,6 @@ import 'safelink/queryEvents/output.dart';
 import 'safelink/queryRules/main_sort_direction.dart';
 import 'safelink/queryRules/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

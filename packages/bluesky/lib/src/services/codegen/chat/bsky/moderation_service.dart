@@ -17,7 +17,6 @@ import '../../../../nsids.g.dart' as ns;
 import 'moderation/getActorMetadata/output.dart';
 import 'moderation/getMessageContext/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

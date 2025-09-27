@@ -2,12 +2,15 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
 import 'dart:async' as dart_async;
 import 'dart:convert';
 import 'dart:io';
 
+// Package imports:
 import 'package:http/http.dart' as http;
 
+// Project imports:
 import '../exceptions.dart';
 import '../streaming/jsonl_parser.dart';
 import 'response.dart';

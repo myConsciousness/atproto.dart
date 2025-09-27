@@ -20,7 +20,6 @@ import 'temp/checkSignupQueue/output.dart';
 import 'temp/dereferenceScope/output.dart';
 import 'temp/fetchLabels/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

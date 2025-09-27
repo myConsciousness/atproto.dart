@@ -17,7 +17,6 @@ import '../../../../nsids.g.dart' as ns;
 import 'communication/defs/template_view.dart';
 import 'communication/listTemplates/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

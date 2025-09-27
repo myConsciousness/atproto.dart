@@ -35,7 +35,6 @@ import 'moderation/queryStatuses/main_subject_type.dart';
 import 'moderation/queryStatuses/output.dart';
 import 'moderation/searchRepos/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

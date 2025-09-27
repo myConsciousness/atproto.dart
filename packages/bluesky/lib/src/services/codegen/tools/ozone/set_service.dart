@@ -18,7 +18,6 @@ import 'set/defs/set_view.dart';
 import 'set/getValues/output.dart';
 import 'set/querySets/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

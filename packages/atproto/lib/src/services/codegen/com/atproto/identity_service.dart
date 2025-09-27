@@ -20,7 +20,6 @@ import 'identity/resolveDid/output.dart';
 import 'identity/resolveHandle/output.dart';
 import 'identity/signPlcOperation/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

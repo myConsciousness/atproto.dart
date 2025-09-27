@@ -16,7 +16,6 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import 'server/getConfig/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

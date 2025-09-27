@@ -25,7 +25,6 @@ import 'admin/sendEmail/output.dart';
 import 'admin/updateSubjectStatus/output.dart';
 import 'admin/updateSubjectStatus/union_main_subject.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************

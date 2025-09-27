@@ -17,7 +17,6 @@ import '../../../../nsids.g.dart' as ns;
 import 'hosting/getAccountHistory/main_events.dart';
 import 'hosting/getAccountHistory/output.dart';
 
-
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
