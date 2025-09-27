@@ -1,5 +1,24 @@
 # Release Note
 
+## v1.0.3
+
+**🔧 PATCH RELEASE - README Method Name Corrections**
+
+This patch release fixes outdated method names in the README documentation to ensure all examples work with the current API.
+
+### 📝 Documentation Fixes
+
+- **Fixed Batch Processing Example**: Updated `findDocument()` to `getDocument()` in performance best practices section
+- **Corrected Streaming Examples**: Fixed variable names from `entry` to `operation` to match actual return types
+- **Updated Method References**: Changed `exportStream()` to `exportOpsStream()` to use correct method name
+- **Ensured API Consistency**: All code examples now accurately reflect the current API implementation
+
+### 🎯 Impact
+
+- **No Breaking Changes**: All existing code continues to work unchanged
+- **Improved Documentation Accuracy**: All README examples are now functional and tested
+- **Better Developer Experience**: Users can copy-paste examples directly from documentation
+
 ## v1.0.2
 
 **🔧 PATCH RELEASE - Documentation Formatting and Consistency**

@@ -32,6 +32,7 @@ abstract class ProfileView with _$ProfileView {
     'did',
     'handle',
     'displayName',
+    'pronouns',
     'description',
     'avatar',
     'associated',
@@ -49,6 +50,7 @@ abstract class ProfileView with _$ProfileView {
     required String did,
     required String handle,
     String? displayName,
+    String? pronouns,
     String? description,
     @AtUriConverter() AtUri? avatar,
     @ProfileAssociatedConverter() ProfileAssociated? associated,
@@ -74,6 +76,8 @@ abstract class ProfileView with _$ProfileView {
 extension ProfileViewExtension on ProfileView {
   bool get hasDisplayName => displayName != null;
   bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasPronouns => pronouns != null;
+  bool get hasNotPronouns => !hasPronouns;
   bool get hasDescription => description != null;
   bool get hasNotDescription => !hasDescription;
   bool get hasAvatar => avatar != null;

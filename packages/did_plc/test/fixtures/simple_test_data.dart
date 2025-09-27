@@ -2,15 +2,17 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
 import 'dart:convert';
 import 'dart:math';
 
+// Project imports:
+import 'package:did_plc/src/types/compatible_op_or_tombstone.dart';
 import 'package:did_plc/src/types/did_document.dart';
 import 'package:did_plc/src/types/exported_operation.dart';
 import 'package:did_plc/src/types/operation.dart';
 import 'package:did_plc/src/types/service.dart';
 import 'package:did_plc/src/types/verification_method.dart';
-import 'package:did_plc/src/types/compatible_op_or_tombstone.dart';
 
 /// Simple test data generator for PLC operations and documents
 class TestDataGenerator {

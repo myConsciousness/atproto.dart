@@ -117,8 +117,8 @@ final plc = PLC(
 );
 
 // Streaming large datasets
-await for (final entry in plc.exportStream()) {
-  print('Processing: ${entry.did}');
+await for (final operation in plc.exportOpsStream()) {
+  print('Processing: ${operation.did}');
 }
 ```
 
@@ -199,9 +199,9 @@ final plc = PLC(
 
 ```dart
 // Instead of multiple individual requests
-final doc1 = await plc.findDocument(did1);
-final doc2 = await plc.findDocument(did2);
-final doc3 = await plc.findDocument(did3);
+final doc1 = await plc.getDocument(did1);
+final doc2 = await plc.getDocument(did2);
+final doc3 = await plc.getDocument(did3);
 
 // Use batch processing
 final documents = await plc.getDocuments([did1, did2, did3]);
@@ -211,9 +211,9 @@ final documents = await plc.getDocuments([did1, did2, did3]);
 
 ```dart
 // For processing large amounts of data
-await for (final entry in plc.exportOpsStream(count: 10000)) {
+await for (final operation in plc.exportOpsStream(count: 10000)) {
   // Process incrementally to avoid memory issues
-  print('Processing: ${entry.did}');
+  print('Processing: ${operation.did}');
 }
 ```
 

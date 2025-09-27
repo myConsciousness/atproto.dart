@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileView {
 
- String get $type; String get did; String get handle; String? get displayName; String? get description;@AtUriConverter() AtUri? get avatar;@ProfileAssociatedConverter() ProfileAssociated? get associated; DateTime? get indexedAt; DateTime? get createdAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@VerificationStateConverter() VerificationState? get verification;@StatusViewConverter() StatusView? get status; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; String get handle; String? get displayName; String? get pronouns; String? get description;@AtUriConverter() AtUri? get avatar;@ProfileAssociatedConverter() ProfileAssociated? get associated; DateTime? get indexedAt; DateTime? get createdAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@VerificationStateConverter() VerificationState? get verification;@StatusViewConverter() StatusView? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProfileViewCopyWith<ProfileView> get copyWith => _$ProfileViewCopyWithImpl<Prof
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.verification, verification) || other.verification == verification)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.pronouns, pronouns) || other.pronouns == pronouns)&&(identical(other.description, description) || other.description == description)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.verification, verification) || other.verification == verification)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,description,avatar,associated,indexedAt,createdAt,viewer,const DeepCollectionEquality().hash(labels),verification,status,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,pronouns,description,avatar,associated,indexedAt,createdAt,viewer,const DeepCollectionEquality().hash(labels),verification,status,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ProfileView(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, indexedAt: $indexedAt, createdAt: $createdAt, viewer: $viewer, labels: $labels, verification: $verification, status: $status, \$unknown: ${$unknown})';
+  return 'ProfileView(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, pronouns: $pronouns, description: $description, avatar: $avatar, associated: $associated, indexedAt: $indexedAt, createdAt: $createdAt, viewer: $viewer, labels: $labels, verification: $verification, status: $status, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ProfileViewCopyWith<$Res>  {
   factory $ProfileViewCopyWith(ProfileView value, $Res Function(ProfileView) _then) = _$ProfileViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? description,@AtUriConverter() AtUri? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? pronouns, String? description,@AtUriConverter() AtUri? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +65,13 @@ class _$ProfileViewCopyWithImpl<$Res>
 
 /// Create a copy of ProfileView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? description = freezed,Object? avatar = freezed,Object? associated = freezed,Object? indexedAt = freezed,Object? createdAt = freezed,Object? viewer = freezed,Object? labels = freezed,Object? verification = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? pronouns = freezed,Object? description = freezed,Object? avatar = freezed,Object? associated = freezed,Object? indexedAt = freezed,Object? createdAt = freezed,Object? viewer = freezed,Object? labels = freezed,Object? verification = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
+as String?,pronouns: freezed == pronouns ? _self.pronouns : pronouns // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as AtUri?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
@@ -214,10 +215,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? pronouns,  String? description, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileView() when $default != null:
-return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.avatar,_that.associated,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.verification,_that.status,_that.$unknown);case _:
+return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.pronouns,_that.description,_that.avatar,_that.associated,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.verification,_that.status,_that.$unknown);case _:
   return orElse();
 
 }
@@ -235,10 +236,10 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? pronouns,  String? description, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileView():
-return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.avatar,_that.associated,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.verification,_that.status,_that.$unknown);case _:
+return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.pronouns,_that.description,_that.avatar,_that.associated,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.verification,_that.status,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -255,10 +256,10 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? description, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? pronouns,  String? description, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileView() when $default != null:
-return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.avatar,_that.associated,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.verification,_that.status,_that.$unknown);case _:
+return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.pronouns,_that.description,_that.avatar,_that.associated,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.verification,_that.status,_that.$unknown);case _:
   return null;
 
 }
@@ -270,13 +271,14 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileView implements ProfileView {
-  const _ProfileView({this.$type = 'app.bsky.actor.defs#profileView', required this.did, required this.handle, this.displayName, this.description, @AtUriConverter() this.avatar, @ProfileAssociatedConverter() this.associated, this.indexedAt, this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _ProfileView({this.$type = 'app.bsky.actor.defs#profileView', required this.did, required this.handle, this.displayName, this.pronouns, this.description, @AtUriConverter() this.avatar, @ProfileAssociatedConverter() this.associated, this.indexedAt, this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ProfileView.fromJson(Map<String, dynamic> json) => _$ProfileViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String did;
 @override final  String handle;
 @override final  String? displayName;
+@override final  String? pronouns;
 @override final  String? description;
 @override@AtUriConverter() final  AtUri? avatar;
 @override@ProfileAssociatedConverter() final  ProfileAssociated? associated;
@@ -317,16 +319,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.verification, verification) || other.verification == verification)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.pronouns, pronouns) || other.pronouns == pronouns)&&(identical(other.description, description) || other.description == description)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.verification, verification) || other.verification == verification)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,description,avatar,associated,indexedAt,createdAt,viewer,const DeepCollectionEquality().hash(_labels),verification,status,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,pronouns,description,avatar,associated,indexedAt,createdAt,viewer,const DeepCollectionEquality().hash(_labels),verification,status,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ProfileView(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, indexedAt: $indexedAt, createdAt: $createdAt, viewer: $viewer, labels: $labels, verification: $verification, status: $status, \$unknown: ${$unknown})';
+  return 'ProfileView(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, pronouns: $pronouns, description: $description, avatar: $avatar, associated: $associated, indexedAt: $indexedAt, createdAt: $createdAt, viewer: $viewer, labels: $labels, verification: $verification, status: $status, \$unknown: ${$unknown})';
 }
 
 
@@ -337,7 +339,7 @@ abstract mixin class _$ProfileViewCopyWith<$Res> implements $ProfileViewCopyWith
   factory _$ProfileViewCopyWith(_ProfileView value, $Res Function(_ProfileView) _then) = __$ProfileViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? description,@AtUriConverter() AtUri? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? pronouns, String? description,@AtUriConverter() AtUri? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -354,12 +356,13 @@ class __$ProfileViewCopyWithImpl<$Res>
 
 /// Create a copy of ProfileView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? description = freezed,Object? avatar = freezed,Object? associated = freezed,Object? indexedAt = freezed,Object? createdAt = freezed,Object? viewer = freezed,Object? labels = freezed,Object? verification = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? pronouns = freezed,Object? description = freezed,Object? avatar = freezed,Object? associated = freezed,Object? indexedAt = freezed,Object? createdAt = freezed,Object? viewer = freezed,Object? labels = freezed,Object? verification = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_ProfileView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
+as String?,pronouns: freezed == pronouns ? _self.pronouns : pronouns // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as AtUri?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable

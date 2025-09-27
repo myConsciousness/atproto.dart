@@ -12,6 +12,7 @@ description: app.bsky.actor.defs
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
+| **pronouns** | string | - | ❌ | - |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
@@ -27,6 +28,7 @@ description: app.bsky.actor.defs
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
+| **pronouns** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |

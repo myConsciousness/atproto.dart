@@ -2,12 +2,15 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Package imports:
+import 'package:test/test.dart';
+
+// Project imports:
 import 'package:did_plc/src/cache/cache_policy.dart';
 import 'package:did_plc/src/cache/memory_cache.dart';
 import 'package:did_plc/src/exceptions.dart';
 import 'package:did_plc/src/streaming/jsonl_parser.dart';
 import 'package:did_plc/src/streaming/stream_processor.dart';
-import 'package:test/test.dart';
 
 /// Unit tests for core components
 void main() {

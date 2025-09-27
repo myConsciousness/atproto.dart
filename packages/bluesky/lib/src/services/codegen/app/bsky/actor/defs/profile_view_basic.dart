@@ -32,6 +32,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     'did',
     'handle',
     'displayName',
+    'pronouns',
     'avatar',
     'associated',
     'viewer',
@@ -47,6 +48,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     required String did,
     required String handle,
     String? displayName,
+    String? pronouns,
     @AtUriConverter() AtUri? avatar,
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     @ViewerStateConverter() ViewerState? viewer,
@@ -70,6 +72,8 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
 extension ProfileViewBasicExtension on ProfileViewBasic {
   bool get hasDisplayName => displayName != null;
   bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasPronouns => pronouns != null;
+  bool get hasNotPronouns => !hasPronouns;
   bool get hasAvatar => avatar != null;
   bool get hasNotAvatar => !hasAvatar;
   bool get hasAssociated => associated != null;

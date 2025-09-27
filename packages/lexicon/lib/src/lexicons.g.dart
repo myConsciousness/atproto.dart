@@ -6120,6 +6120,7 @@ const appBskyActorDefs = <String, dynamic>{
         "did": {"type": "string", "format": "did"},
         "handle": {"type": "string", "format": "handle"},
         "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+        "pronouns": {"type": "string"},
         "avatar": {"type": "string", "format": "uri"},
         "associated": {"type": "ref", "ref": "#profileAssociated"},
         "viewer": {"type": "ref", "ref": "#viewerState"},
@@ -6139,6 +6140,7 @@ const appBskyActorDefs = <String, dynamic>{
         "did": {"type": "string", "format": "did"},
         "handle": {"type": "string", "format": "handle"},
         "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+        "pronouns": {"type": "string"},
         "description": {
           "type": "string",
           "maxLength": 2560,

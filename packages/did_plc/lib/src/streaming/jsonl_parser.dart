@@ -2,9 +2,11 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
 import 'dart:async';
 import 'dart:convert';
 
+// Project imports:
 import '../exceptions.dart';
 
 /// A parser for JSONL (JSON Lines) format streams.

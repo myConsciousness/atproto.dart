@@ -18,6 +18,7 @@ _ProfileView _$ProfileViewFromJson(Map json) =>
         did: $checkedConvert('did', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String?),
+        pronouns: $checkedConvert('pronouns', (v) => v as String?),
         description: $checkedConvert('description', (v) => v as String?),
         avatar: $checkedConvert(
           'avatar',
@@ -88,6 +89,7 @@ Map<String, dynamic> _$ProfileViewToJson(
   'did': instance.did,
   'handle': instance.handle,
   'displayName': ?instance.displayName,
+  'pronouns': ?instance.pronouns,
   'description': ?instance.description,
   'avatar': ?_$JsonConverterToJson<String, AtUri>(
     instance.avatar,

@@ -2,7 +2,6 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Dart imports:
 import 'dart:async';
 import 'dart:convert';
 
@@ -22,10 +21,10 @@ import 'utils.dart' as utils;
 class GenLexiconDocsScript extends BaseScript {
   static const _fileName = 'lexicons.g.dart';
   static const _outputPath = 'packages/lexicon/lib/src/$_fileName';
-  
+
   final FileManager _fileManager;
   final JsonEncoder _jsonEncoder = const JsonEncoder.withIndent('  ');
-  
+
   GenLexiconDocsScript({
     required super.logger,
     required super.progress,
@@ -42,24 +41,26 @@ class GenLexiconDocsScript extends BaseScript {
   @override
   Future<void> execute(List<String> args) async {
     logger.info('Starting lexicon documentation generation');
-    
+
     // Get all lexicon documents
     final lexiconDocs = utils.lexiconDocs;
     logger.info('Found ${lexiconDocs.length} lexicon documents');
-    
+
     progress.startOperation('Processing lexicons', lexiconDocs.length);
-    
+
     // Process lexicons in parallel batches for better performance
     final processedLexicons = await _processLexiconsInParallel(lexiconDocs);
-    
+
     // Generate the final output using streaming operations
     await _generateOutputFile(processedLexicons);
-    
-    progress.completeOperation(stats: {
-      'Total lexicons': lexiconDocs.length,
-      'Successfully processed': processedLexicons.length,
-      'Output file': _outputPath,
-    });
+
+    progress.completeOperation(
+      stats: {
+        'Total lexicons': lexiconDocs.length,
+        'Successfully processed': processedLexicons.length,
+        'Output file': _outputPath,
+      },
+    );
   }
 
   /// Processes lexicons in parallel batches to optimize performance.
@@ -68,21 +69,24 @@ class GenLexiconDocsScript extends BaseScript {
   ) async {
     const batchSize = 10; // Process in batches to control memory usage
     final results = <ProcessedLexicon>[];
-    
+
     for (int i = 0; i < lexiconDocs.length; i += batchSize) {
       final batch = lexiconDocs.skip(i).take(batchSize).toList();
-      logger.debug('Processing batch ${(i ~/ batchSize) + 1} with ${batch.length} lexicons');
-      
+      logger.debug(
+        'Processing batch ${(i ~/ batchSize) + 1} with ${batch.length} lexicons',
+      );
+
       // Process batch in parallel using isolates for CPU-intensive operations
       final batchResults = await _processBatchInIsolates(batch);
       results.addAll(batchResults);
-      
+
       progress.updateProgress(
         results.length,
-        currentItem: 'Batch ${(i ~/ batchSize) + 1}/${(lexiconDocs.length / batchSize).ceil()}',
+        currentItem:
+            'Batch ${(i ~/ batchSize) + 1}/${(lexiconDocs.length / batchSize).ceil()}',
       );
     }
-    
+
     return results;
   }
 
@@ -92,7 +96,10 @@ class GenLexiconDocsScript extends BaseScript {
   ) async {
     final futures = batch.map((lexicon) => _processLexiconInIsolate(lexicon));
     final results = await Future.wait(futures);
-    return results.where((result) => result != null).cast<ProcessedLexicon>().toList();
+    return results
+        .where((result) => result != null)
+        .cast<ProcessedLexicon>()
+        .toList();
   }
 
   /// Processes a single lexicon in an isolate for better performance.
@@ -111,12 +118,12 @@ class GenLexiconDocsScript extends BaseScript {
   /// Processes a single lexicon document.
   Future<ProcessedLexicon> _processLexicon(LexiconDoc lexicon) async {
     final variableName = _toVariableName(lexicon.id.toString());
-    
+
     // Optimize JSON encoding by reusing encoder and handling escaping efficiently
     final lexiconJson = _jsonEncoder
         .convert(lexicon.toJson())
         .replaceAll(r'$', r'\$');
-    
+
     return ProcessedLexicon(
       id: lexicon.id.toString(),
       variableName: variableName,
@@ -125,44 +132,50 @@ class GenLexiconDocsScript extends BaseScript {
   }
 
   /// Generates the output file using streaming operations for memory efficiency.
-  Future<void> _generateOutputFile(List<ProcessedLexicon> processedLexicons) async {
+  Future<void> _generateOutputFile(
+    List<ProcessedLexicon> processedLexicons,
+  ) async {
     logger.info('Generating output file: $_outputPath');
-    
+
     // Create a stream of content chunks to write
     final contentStream = _createContentStream(processedLexicons);
-    
+
     // Write using streaming operations to handle large files efficiently
     await _fileManager.writeFileStream(_outputPath, contentStream);
-    
+
     logger.info('Successfully generated $_outputPath');
   }
 
   /// Creates a stream of content chunks for efficient memory usage.
-  Stream<String> _createContentStream(List<ProcessedLexicon> processedLexicons) async* {
+  Stream<String> _createContentStream(
+    List<ProcessedLexicon> processedLexicons,
+  ) async* {
     // Yield header
     yield utils.getFileHeader('Lexicon Docs Generator');
     yield '\n\n';
-    
+
     // Yield individual lexicon constants
     for (final lexicon in processedLexicons) {
       yield '\n';
       yield '/// `${lexicon.id}`\n';
       yield 'const ${lexicon.variableName} = <String, dynamic>${lexicon.jsonContent};\n';
     }
-    
+
     // Yield collection header
     yield '\n';
     yield '/// The collection of official lexicons.\n';
     yield 'const lexicons = <Map<String, dynamic>>[\n';
-    
+
     // Yield collection items in chunks to avoid building large strings in memory
     const chunkSize = 50;
     for (int i = 0; i < processedLexicons.length; i += chunkSize) {
       final chunk = processedLexicons.skip(i).take(chunkSize);
-      final chunkContent = chunk.map((lexicon) => '  ${lexicon.variableName},\n').join();
+      final chunkContent = chunk
+          .map((lexicon) => '  ${lexicon.variableName},\n')
+          .join();
       yield chunkContent;
     }
-    
+
     // Yield collection footer
     yield '];\n';
   }
@@ -170,7 +183,7 @@ class GenLexiconDocsScript extends BaseScript {
   /// Converts an NSID to a valid Dart variable name.
   String _toVariableName(String nsid) {
     final segments = nsid.split('.');
-    
+
     return [
       ...segments.sublist(0, 1),
       ...segments
@@ -185,7 +198,7 @@ class ProcessedLexicon {
   final String id;
   final String variableName;
   final String jsonContent;
-  
+
   const ProcessedLexicon({
     required this.id,
     required this.variableName,
@@ -196,7 +209,7 @@ class ProcessedLexicon {
 /// Main entry point for the script.
 Future<void> main(List<String> args) async {
   final config = await ConfigLoader.load();
-  
+
   // Convert string log level to LogLevel enum
   LogLevel logLevel;
   switch (config.loggingConfig.level.toLowerCase()) {
@@ -212,19 +225,19 @@ Future<void> main(List<String> args) async {
     default:
       logLevel = LogLevel.info;
   }
-  
+
   final logger = Logger(level: logLevel);
   final progress = ProgressReporter();
   final errorHandler = ErrorHandler(logger);
   final fileManager = FileManager(logger, errorHandler);
-  
+
   final script = GenLexiconDocsScript(
     logger: logger,
     progress: progress,
     errorHandler: errorHandler,
     fileManager: fileManager,
   );
-  
+
   try {
     await script.run(args);
   } finally {

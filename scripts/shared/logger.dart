@@ -2,7 +2,6 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Dart imports:
 import 'dart:io';
 
 /// Log levels for controlling output verbosity.
@@ -22,11 +21,9 @@ class Logger {
   final bool _useColors;
 
   /// Creates a new Logger with the specified minimum log level.
-  Logger({
-    LogLevel level = LogLevel.info,
-    bool useColors = true,
-  }) : _level = level,
-       _useColors = useColors && stdout.hasTerminal;
+  Logger({LogLevel level = LogLevel.info, bool useColors = true})
+    : _level = level,
+      _useColors = useColors && stdout.hasTerminal;
 
   /// Logs a debug message.
   void debug(String message) => _log(LogLevel.debug, message);
@@ -48,9 +45,10 @@ class Logger {
     final levelStr = level.name.toUpperCase().padRight(7);
     final colorCode = _useColors ? _getColorCode(level) : '';
     final resetCode = _useColors ? '\x1B[0m' : '';
-    
-    final formattedMessage = '$colorCode[$timestamp] $levelStr: $message$resetCode';
-    
+
+    final formattedMessage =
+        '$colorCode[$timestamp] $levelStr: $message$resetCode';
+
     if (level == LogLevel.error) {
       stderr.writeln(formattedMessage);
     } else {
