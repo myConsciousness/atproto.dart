@@ -38,91 +38,335 @@ abstract class PLC {
     RetryPolicy? retryPolicy,
   }) = _PLCImpl;
 
-  /// Gets a DID document by DID.
+  /// Resolves a DID to its current DID document.
   ///
-  /// Returns the resolved DID document for the given DID.
-  /// Throws [PlcException] if the DID is not found or invalid.
+  /// Retrieves the current DID document for the specified DID from the PLC directory.
+  /// The DID document contains the public keys, services, and other metadata
+  /// associated with the decentralized identifier.
+  ///
+  /// **Parameters:**
+  /// - [did] - The DID to resolve (e.g., 'did:plc:example123')
+  ///
+  /// **Returns:**
+  /// A [DidDocument] containing the resolved DID document.
+  ///
+  /// **Throws:**
+  /// - [ValidationException] if the DID format is invalid
+  /// - [NotFoundException] if the DID is not registered
+  /// - [NetworkException] for network-related errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final document = await plc.getDocument('did:plc:example123');
+  /// print('DID: ${document.id}');
+  /// print('Services: ${document.service.length}');
+  /// ```
   Future<DidDocument> getDocument(String did);
 
-  /// Gets document data by DID.
+  /// Retrieves the document data for a DID.
   ///
-  /// Returns the document data including metadata for the given DID.
-  /// Throws [PlcException] if the DID is not found or invalid.
+  /// Returns the structured document data including rotation keys, verification methods,
+  /// also known as identifiers, and services. This is the raw data used to construct
+  /// the DID document.
+  ///
+  /// **Parameters:**
+  /// - [did] - The DID to retrieve data for
+  ///
+  /// **Returns:**
+  /// A [DocumentData] containing the structured document information.
+  ///
+  /// **Throws:**
+  /// - [ValidationException] if the DID format is invalid
+  /// - [NotFoundException] if the DID is not registered
+  /// - [NetworkException] for network-related errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final data = await plc.getDocumentData('did:plc:example123');
+  /// print('Rotation keys: ${data.rotationKeys.length}');
+  /// print('Services: ${data.services.keys}');
+  /// ```
   Future<DocumentData> getDocumentData(String did);
 
-  /// Gets the operation log for a DID.
+  /// Retrieves the complete operation log for a DID.
   ///
-  /// Returns the complete operation log for the given DID.
-  /// Throws [PlcException] if the DID is not found or invalid.
+  /// Returns all operations that have been applied to the DID, in chronological order.
+  /// Each operation represents a change to the DID document, such as key rotations,
+  /// service updates, or handle changes.
+  ///
+  /// **Parameters:**
+  /// - [did] - The DID to retrieve the operation log for
+  ///
+  /// **Returns:**
+  /// An [OperationLog] containing all operations for the DID.
+  ///
+  /// **Throws:**
+  /// - [ValidationException] if the DID format is invalid
+  /// - [NotFoundException] if the DID is not registered
+  /// - [NetworkException] for network-related errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final log = await plc.getOperationLog('did:plc:example123');
+  /// print('Total operations: ${log.operations.length}');
+  /// for (final op in log.operations) {
+  ///   print('Operation type: ${op.type}');
+  /// }
+  /// ```
   Future<OperationLog> getOperationLog(String did);
 
-  /// Gets the auditable log for a DID.
+  /// Retrieves the auditable log for a DID.
   ///
-  /// Returns the auditable log with additional metadata for the given DID.
-  /// Throws [PlcException] if the DID is not found or invalid.
+  /// Returns the operation log with additional audit metadata including timestamps,
+  /// CIDs, and nullification status. This provides a complete audit trail for
+  /// all changes made to the DID.
+  ///
+  /// **Parameters:**
+  /// - [did] - The DID to retrieve the auditable log for
+  ///
+  /// **Returns:**
+  /// An [AuditableLog] containing operations with audit metadata.
+  ///
+  /// **Throws:**
+  /// - [ValidationException] if the DID format is invalid
+  /// - [NotFoundException] if the DID is not registered
+  /// - [NetworkException] for network-related errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final auditLog = await plc.getAuditableLog('did:plc:example123');
+  /// for (final entry in auditLog.log) {
+  ///   print('CID: ${entry.cid}');
+  ///   print('Created: ${entry.createdAt}');
+  ///   print('Nullified: ${entry.isNullified}');
+  /// }
+  /// ```
   Future<AuditableLog> getAuditableLog(String did);
 
-  /// Gets the last operation for a DID.
+  /// Retrieves the most recent operation for a DID.
   ///
-  /// Returns the most recent operation or tombstone for the given DID.
-  /// Throws [PlcException] if the DID is not found or invalid.
+  /// Returns the last operation applied to the DID, which could be either a
+  /// regular operation or a tombstone (indicating the DID has been deactivated).
+  /// This is useful for checking the current state without fetching the entire log.
+  ///
+  /// **Parameters:**
+  /// - [did] - The DID to retrieve the last operation for
+  ///
+  /// **Returns:**
+  /// A [CompatibleOpOrTombstone] representing the most recent operation.
+  ///
+  /// **Throws:**
+  /// - [ValidationException] if the DID format is invalid
+  /// - [NotFoundException] if the DID is not registered
+  /// - [NetworkException] for network-related errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final lastOp = await plc.getLastOp('did:plc:example123');
+  /// lastOp.when(
+  ///   operation: (op) => print('Last operation: ${op.type}'),
+  ///   tombstone: (tombstone) => print('DID is deactivated'),
+  ///   createOpV1: (createOp) => print('Create operation: ${createOp.handle}'),
+  ///   unknown: (data) => print('Unknown operation type'),
+  /// );
+  /// ```
   Future<CompatibleOpOrTombstone> getLastOp(String did);
 
   /// Exports operations from the PLC directory.
   ///
-  /// [after] - Optional timestamp to export operations after
-  /// [count] - Optional maximum number of operations to export
+  /// Retrieves a batch of operations from the directory, optionally filtered by
+  /// timestamp and limited by count. This is useful for synchronizing with the
+  /// directory or building analytics.
   ///
-  /// Returns an auditable log containing the exported operations.
-  /// Throws [PlcException] if the export fails.
+  /// **Parameters:**
+  /// - [after] - Optional timestamp to export operations after (ISO 8601 format)
+  /// - [count] - Optional maximum number of operations to export
+  ///
+  /// **Returns:**
+  /// An [AuditableLog] containing the exported operations with metadata.
+  ///
+  /// **Throws:**
+  /// - [NetworkException] for network-related errors
+  /// - [GenericPlcException] for unexpected errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// // Export recent operations
+  /// final recent = await plc.exportOps(
+  ///   after: DateTime.now().subtract(Duration(hours: 1)),
+  ///   count: 100,
+  /// );
+  /// print('Exported ${recent.log.length} operations');
+  ///
+  /// // Export all operations
+  /// final all = await plc.exportOps();
+  /// ```
   Future<AuditableLog> exportOps({DateTime? after, int? count});
 
-  /// Checks the health status of the PLC directory.
+  /// Checks the health status of the PLC directory service.
   ///
-  /// Returns instance information including health status.
-  /// Throws [PlcException] if the health check fails.
+  /// Returns information about the directory instance including version,
+  /// availability, and other health metrics. This is useful for monitoring
+  /// and ensuring the service is operational.
+  ///
+  /// **Returns:**
+  /// An [Instance] containing health and version information.
+  ///
+  /// **Throws:**
+  /// - [NetworkException] for network-related errors
+  /// - [ServiceUnavailableException] if the service is down
+  /// - [GenericPlcException] for unexpected errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final health = await plc.health();
+  /// print('Service version: ${health.version}');
+  /// print('Service available: ${health.available}');
+  /// ```
   Future<Instance> health();
 
-  /// Batch retrieval of multiple DID documents.
+  /// Retrieves multiple DID documents in parallel.
   ///
-  /// [dids] - List of DIDs to retrieve
+  /// Efficiently fetches multiple DID documents concurrently, which is much faster
+  /// than sequential requests. Failed retrievals are silently omitted from the result.
+  /// For detailed error information, use [getDocumentsBatch] instead.
   ///
-  /// Returns a map of DID to DidDocument for successful retrievals.
-  /// Failed retrievals are omitted from the result.
+  /// **Parameters:**
+  /// - [dids] - List of DIDs to retrieve
+  ///
+  /// **Returns:**
+  /// A map of DID to [DidDocument] for successful retrievals only.
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final dids = ['did:plc:example1', 'did:plc:example2', 'did:plc:example3'];
+  /// final documents = await plc.getDocuments(dids);
+  ///
+  /// for (final entry in documents.entries) {
+  ///   print('${entry.key}: ${entry.value.id}');
+  /// }
+  /// print('Retrieved ${documents.length}/${dids.length} documents');
+  /// ```
   Future<Map<String, DidDocument>> getDocuments(List<String> dids);
 
-  /// Batch retrieval of multiple DID documents with detailed results.
+  /// Retrieves multiple DID documents with detailed success/failure information.
   ///
-  /// [dids] - List of DIDs to retrieve
-  /// [config] - Optional batch processing configuration
+  /// Similar to [getDocuments] but provides detailed information about both
+  /// successful and failed retrievals. This is useful when you need to handle
+  /// errors for specific DIDs or get statistics about the batch operation.
   ///
-  /// Returns a [BatchResult] containing both successes and failures.
+  /// **Parameters:**
+  /// - [dids] - List of DIDs to retrieve
+  /// - [config] - Optional batch processing configuration (concurrency, retries, etc.)
+  ///
+  /// **Returns:**
+  /// A [BatchResult] containing both successful and failed retrievals.
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final result = await plc.getDocumentsBatch(
+  ///   ['did:plc:valid', 'did:plc:invalid'],
+  ///   config: BatchProcessorConfig(maxConcurrency: 5),
+  /// );
+  ///
+  /// print('Successes: ${result.successes.length}');
+  /// print('Failures: ${result.failures.length}');
+  /// print('Success rate: ${result.successRate * 100}%');
+  ///
+  /// for (final failure in result.failures.entries) {
+  ///   print('Failed ${failure.key}: ${failure.value}');
+  /// }
+  /// ```
   Future<BatchResult<String, DidDocument>> getDocumentsBatch(
     List<String> dids, {
     BatchProcessorConfig? config,
   });
 
-  /// Streams export operations from the PLC directory.
+  /// Streams operations from the PLC directory export endpoint.
   ///
-  /// [after] - Optional timestamp to export operations after
-  /// [count] - Optional maximum number of operations to export
+  /// Provides a memory-efficient way to process large numbers of operations
+  /// by streaming them one at a time. This is ideal for building analytics,
+  /// synchronization tools, or processing the entire directory contents.
   ///
-  /// Returns a stream of exported operations for efficient processing
-  /// of large datasets.
+  /// **Parameters:**
+  /// - [after] - Optional timestamp to stream operations after (ISO 8601 format)
+  /// - [count] - Optional maximum number of operations to stream
+  ///
+  /// **Returns:**
+  /// A stream of [ExportedOperation] objects.
+  ///
+  /// **Throws:**
+  /// - [NetworkException] for network-related errors
+  /// - [GenericPlcException] for unexpected errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// await for (final operation in plc.exportOpsStream(count: 1000)) {
+  ///   print('Processing DID: ${operation.did}');
+  ///   print('Operation CID: ${operation.cid}');
+  ///   print('Created: ${operation.createdAt}');
+  ///
+  ///   // Process the operation
+  ///   await processOperation(operation);
+  /// }
+  /// ```
   Stream<ExportedOperation> exportOpsStream({DateTime? after, int? count});
 
-  /// Streams export operations as auditable log entries.
+  /// Streams raw auditable operations from the PLC directory.
   ///
-  /// [after] - Optional timestamp to export operations after
-  /// [count] - Optional maximum number of operations to export
+  /// Similar to [exportOpsStream] but returns raw JSON data for each operation.
+  /// This is useful when you need access to the complete raw data or want to
+  /// implement custom parsing logic.
   ///
-  /// Returns a stream of auditable log entries with metadata.
+  /// **Parameters:**
+  /// - [after] - Optional timestamp to stream operations after (ISO 8601 format)
+  /// - [count] - Optional maximum number of operations to stream
+  ///
+  /// **Returns:**
+  /// A stream of raw JSON maps containing operation data.
+  ///
+  /// **Throws:**
+  /// - [NetworkException] for network-related errors
+  /// - [GenericPlcException] for unexpected errors
+  ///
+  /// **Example:**
+  /// ```dart
+  /// await for (final rawOp in plc.exportAuditableOpsStream()) {
+  ///   final did = rawOp['did'] as String;
+  ///   final cid = rawOp['cid'] as String;
+  ///   final operation = rawOp['operation'] as Map<String, dynamic>;
+  ///
+  ///   // Custom processing of raw operation data
+  ///   await processRawOperation(did, cid, operation);
+  /// }
+  /// ```
   Stream<Map<String, dynamic>> exportAuditableOpsStream({
     DateTime? after,
     int? count,
   });
 
-  /// Closes the HTTP client and releases resources.
+  /// Closes the HTTP client and releases all associated resources.
+  ///
+  /// This should be called when you're done using the PLC client to ensure
+  /// proper cleanup of network connections and other resources. After calling
+  /// this method, the client instance should not be used for further operations.
+  ///
+  /// **Example:**
+  /// ```dart
+  /// final plc = PLC();
+  /// try {
+  ///   // Use the client
+  ///   final document = await plc.getDocument('did:plc:example');
+  /// } finally {
+  ///   // Always close the client
+  ///   plc.close();
+  /// }
+  ///
+  /// // Or use automatic resource management
+  /// await PLC.withClient((plc) async {
+  ///   return await plc.getDocument('did:plc:example');
+  /// });
+  /// ```
   void close();
 }
 
