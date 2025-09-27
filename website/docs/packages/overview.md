@@ -39,7 +39,7 @@ These packages are automatically included as dependencies and typically don't ne
 | **[xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)** | [![pub package](https://img.shields.io/pub/v/xrpc.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/xrpc) | HTTP client specialized for XRPC communication in AT Protocol |
 | **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)** | [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/multiformats) | Content addressing and [CID](https://docs.ipfs.tech/concepts/content-addressing/) support for AT Protocol |
 | **[atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)** | [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_core) | Core functionality and utilities for AT Protocol services |
-| **[did_plc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc)** | [![pub package](https://img.shields.io/pub/v/did_plc.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/did_plc) | DID PLC Directory endpoint support for identity resolution |
+| **[did_plc](./did_plc.md)** | [![pub package](https://img.shields.io/pub/v/did_plc.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/did_plc) | Independent DID PLC Directory client with high-performance caching and streaming. **[→ Documentation](./did_plc.md)** |
 | **[atproto_oauth](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_oauth)** | [![pub package](https://img.shields.io/pub/v/atproto_oauth.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_oauth) | OAuth 2.0 with DPoP authentication for AT Protocol services |
 
 ## Tools
@@ -73,7 +73,7 @@ flowchart TD
     xrpc --> atproto_core;
 
     atproto_core --> atproto;
-    atproto_core --> did_plc;
+    did_plc;
     atproto --> bluesky;
 
     xrpc --> bluesky_text
@@ -81,5 +81,7 @@ flowchart TD
 
     bluesky_text -.-> bluesky
     bluesky_text --> bluesky_cli
+    
+    style did_plc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     end
 ```
