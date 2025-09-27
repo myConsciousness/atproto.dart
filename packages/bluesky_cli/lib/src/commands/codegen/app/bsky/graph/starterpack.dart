@@ -9,6 +9,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // Package imports:
 import 'package:args/command_runner.dart';
