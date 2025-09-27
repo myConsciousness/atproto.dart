@@ -10,9 +10,8 @@
   - [1.3. Quick Start 🚀](#13-quick-start-)
   - [1.4. API Overview 📚](#14-api-overview-)
   - [1.5. Advanced Features 🔧](#15-advanced-features-)
-  - [1.6. Migration Guide 📋](#16-migration-guide-)
-  - [1.7. Performance Best Practices 🚄](#17-performance-best-practices-)
-  - [1.8. Examples 💡](#18-examples-)
+  - [1.6. Performance Best Practices 🚄](#16-performance-best-practices-)
+  - [1.7. Examples 💡](#17-examples-)
 
 <!-- /TOC -->
 
@@ -182,55 +181,7 @@ try {
 }
 ```
 
-## 1.6. Migration Guide 📋
-
-### From atproto-dependent version
-
-If you're migrating from a version that depended on `atproto_core`:
-
-#### Before (atproto-dependent):
-```dart
-import 'package:atproto/atproto.dart' as atproto;
-import 'package:did_plc/did_plc.dart' as plc;
-
-final session = atproto.Session.fromJson(sessionData);
-final plcClient = plc.PLC(session: session);
-```
-
-#### After (independent):
-```dart
-import 'package:did_plc/did_plc.dart';
-
-// No session needed - direct PLC directory access
-final plc = PLC();
-```
-
-#### Key Changes:
-
-1. **No Session Required**: Direct access to PLC directory without authentication
-2. **New Import Structure**: Single import covers all functionality
-3. **Enhanced Error Handling**: More specific exception types
-4. **Improved Performance**: Built-in caching and batching
-
-### Data Type Changes
-
-#### Before:
-```dart
-// Old entity classes
-import 'package:did_plc/src/entities/did_document.dart';
-```
-
-#### After:
-```dart
-// New freezed types
-import 'package:did_plc/did_plc.dart'; // All types included
-
-// Types are now immutable and have better JSON support
-final document = DidDocument.fromJson(jsonData);
-final copy = document.copyWith(id: 'new-id');
-```
-
-## 1.7. Performance Best Practices 🚄
+## 1.6. Performance Best Practices 🚄
 
 ### 1. Use Caching Effectively
 
@@ -297,7 +248,7 @@ Future<void> processDocuments() async {
 
 
 
-## 1.8. Examples 💡
+## 1.7. Examples 💡
 
 See the [examples](example/) directory for complete working examples:
 
