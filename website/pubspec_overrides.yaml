@@ -5,6 +5,8 @@ dependency_overrides:
     path: ../packages/xrpc
   multiformats:
     path: ../packages/multiformats
+  did_plc:
+    path: ../packages/did_plc
   atproto_core:
     path: ../packages/atproto_core
   atproto:
