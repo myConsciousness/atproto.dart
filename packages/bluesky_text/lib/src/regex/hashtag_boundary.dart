@@ -23,7 +23,11 @@ import 'hashtag_alpha_numeric.dart';
 ///    an alphanumeric hashtag character or an ampersand (`&`).
 /// 5. `$codePoint`: Matches any valid Unicode code point, ensuring the
 ///    boundary is set accurately with respect to the surrounding text.
+/// 6. Unicode space characters: Various space characters including
+///    ideographic space (U+3000) and other Unicode whitespace characters
 const hashtagBoundary =
-    r'(?:^|\uFE0E|\uFE0F|$|(?!'
+    r'(?:^|\uFE0E|\uFE0F|$|'
+    r'[ \u00A0\u3000]|'
+    '(?!'
     '$hashtagAlphaNumeric|&)'
     '$codePoint)';
