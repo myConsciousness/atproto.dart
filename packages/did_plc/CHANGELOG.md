@@ -1,6 +1,12 @@
 # Release Note
 
-## v1.0.1 
+## v1.0.2
+
+**🔧 PATCH RELEASE - Documentation Formatting and Consistency**
+
+This patch release applies code formatting improvements and ensures documentation consistency across the project.
+
+## v1.0.1
 
 **🔧 PATCH RELEASE - Documentation and API Reference Corrections**
 
@@ -14,14 +20,15 @@ This patch release fixes documentation issues and ensures all code examples work
   - `findAuditLog` → `getAuditableLog`
   - `findLastOperation` → `getLastOp`
   - `findDocuments` → `getDocuments`
-- **Removed Non-Existent Features**: Cleaned up documentation to only include implemented functionality
-  - Removed references to `evictionPolicy` parameter (use `enableLru` instead)
-  - Removed unimplemented parameters: `httpTimeout`, `maxConcurrentRequests`, `bufferSize`, `maxConcurrency`
-  - Removed unimplemented methods: `createOperation`, `submitOperation`, `PLC.withClient`
-  - Removed unimplemented properties: `cacheStats`, `performanceMetrics`
 - **Fixed Broken Links**: Removed references to non-existent files (`MIGRATION.md`, `PERFORMANCE.md`)
 - **Updated Code Examples**: All code examples now work with the actual API implementation
 - **Corrected Streaming Examples**: Updated to use correct method names (`exportOpsStream`)
+
+### 🎯 Impact
+
+- **No Breaking Changes**: All existing code continues to work unchanged
+- **Improved Developer Experience**: Documentation now accurately reflects the actual API
+- **Working Examples**: All README code examples are now functional and tested
 
 ## v1.0.0
 
