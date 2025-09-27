@@ -12,7 +12,6 @@ import 'dart:typed_data';
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart' show iso8601;
 
 // Project imports:
 import 'package:atproto/com_atproto_repo_createrecord.dart';
@@ -20,7 +19,6 @@ import 'package:atproto/com_atproto_repo_deleterecord.dart';
 import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
-import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import 'repo/applyWrites/output.dart';
 import 'repo/applyWrites/union_main_writes.dart';
@@ -33,13 +31,6 @@ import 'repo/listRecords/output.dart';
 import 'repo/putRecord/output.dart';
 import 'repo/uploadBlob/output.dart';
 
-import 'package:atproto/com_atproto_services.dart'
-    show
-        comAtprotoRepoGetRecord,
-        comAtprotoRepoListRecords,
-        comAtprotoRepoCreateRecord,
-        comAtprotoRepoPutRecord,
-        comAtprotoRepoDeleteRecord;
 
 // **************************************************************************
 // LexGenerator

@@ -33,7 +33,7 @@ extension USubjectViewProfileExtension on USubjectViewProfile {
   bool get isUnknown => isA<USubjectViewProfileUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
-      isUnknown ? data as Map<String, dynamic> : null;
+      isUnknown ? data : null;
 }
 
 final class USubjectViewProfileConverter

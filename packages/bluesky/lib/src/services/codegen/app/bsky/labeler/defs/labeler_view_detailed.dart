@@ -10,7 +10,6 @@
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto/com_atproto_moderation_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

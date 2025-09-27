@@ -35,7 +35,7 @@ extension UVerificationViewSubjectProfileExtension
   bool get isUnknown => isA<UVerificationViewSubjectProfileUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
-      isUnknown ? data as Map<String, dynamic> : null;
+      isUnknown ? data : null;
 }
 
 final class UVerificationViewSubjectProfileConverter
