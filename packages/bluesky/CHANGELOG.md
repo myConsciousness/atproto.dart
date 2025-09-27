@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.2.2
+
+- feat: Merged #2150 - Added pronouns field support to actor profiles
+  - Added `pronouns` field to `app.bsky.actor.defs#profileViewDetailed` for displaying user pronouns in detailed profile views
+  - Added `pronouns` field to `app.bsky.actor.profile` record for storing user pronouns in profile data
+  - Enhanced user profile customization with pronouns information support
+  - Synchronized with latest Bluesky lexicon updates for improved profile representation
+
 ## v1.2.1
 
 - feat: Merged #2143 - Added onboarding suggested starter packs support
