@@ -4,10 +4,12 @@ publish_to: none
 environment:
   sdk: ">=3.8.0 <4.0.0"
 
+resolution: workspace
+
 dependencies:
- lexicon: ^1.0.3
+  lexicon: ^1.0.3
+  import_sorter: ^4.6.0
 
 dev_dependencies:
   lints: ^6.0.0
   test: ^1.26.2
-  import_sorter: ^4.6.0
