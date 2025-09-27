@@ -23,19 +23,7 @@ This patch release fixes documentation issues and ensures all code examples work
 - **Updated Code Examples**: All code examples now work with the actual API implementation
 - **Corrected Streaming Examples**: Updated to use correct method names (`exportOpsStream`)
 
-### 🎯 Impact
-
-- **No Breaking Changes**: All existing code continues to work unchanged
-- **Improved Developer Experience**: Documentation now accurately reflects the actual API
-- **Working Examples**: All README code examples are now functional and tested
-
-### 📊 Changes Summary
-
-- **1 file changed**: README.md
-- **32 insertions, 57 deletions**: Streamlined and corrected documentation
-- **Zero functional changes**: Only documentation improvements
-
-## v1.0.0 
+## v1.0.0
 
 **🎉 BREAKING CHANGES - Complete rewrite for independence from atproto**
 
