@@ -16,8 +16,6 @@ topics:
   - identity
   - decentralized
   - atproto
-  - bluesky
-  - resolver
 
 dependencies:
   http: ^1.2.0
