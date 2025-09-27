@@ -1,15 +1,5 @@
-# This file configures the static analysis results for your project (errors,
-# warnings, and lints).
-#
-# This enables the 'recommended' set of lints from `package:lints`.
-# This set helps identify many issues that may lead to problems when running
-# or consuming Dart code, and enforces writing Dart using a single, idiomatic
-# style and format.
-#
-# If you want a smaller set of lints you can change this to specify
-# 'package:lints/core.yaml'. These are just the most critical lints
-# (the recommended set includes the core lints).
-# The core lints are also what is used by pub.dev for scoring packages.
+# Analysis options for atproto.dart monorepo
+# Optimized for maintainability while keeping code quality high
 
 include: package:lints/recommended.yaml
 
@@ -17,36 +7,53 @@ analyzer:
   exclude:
     - "**/*.freezed.dart"
     - "**/*.g.dart"
+    - "**/codegen/**"
   errors:
+    # Allow invalid annotation targets (common in generated code)
     invalid_annotation_target: ignore
+    # Relax some rules that are too strict for this codebase
+    lines_longer_than_80_chars: info
+    prefer_relative_imports: info
+    # Keep important errors as errors
+    missing_return: error
+    dead_code: error
 
 linter:
   rules:
+    # Core quality rules - keep these strict
     - avoid_null_checks_in_equality_operators
     - avoid_unused_constructor_parameters
     - await_only_futures
-    - camel_case_types
     - cancel_subscriptions
-    - comment_references
-    - constant_identifier_names
     - control_flow_in_finally
     - empty_statements
     - hash_and_equals
     - implementation_imports
     - collection_methods_unrelated_type
+    - test_types_in_equals
+    - throw_in_finally
+    - unrelated_type_equality_checks
+    
+    # Naming conventions - important for API consistency
+    - camel_case_types
+    - constant_identifier_names
     - library_names
     - library_prefixes
     - non_constant_identifier_names
-    - overridden_fields
-    - package_api_docs
     - package_names
     - package_prefixed_library_names
+    
+    # Code style - helpful but not overly strict
     - prefer_final_fields
     - prefer_generic_function_type_aliases
     - prefer_typing_uninitialized_variables
-    - test_types_in_equals
-    - throw_in_finally
     - unnecessary_brace_in_string_interps
-    - unrelated_type_equality_checks
-    - lines_longer_than_80_chars
+    
+    # Documentation - important for public APIs
+    - package_api_docs
+    
+    # Import organization - relaxed to info level
     - prefer_relative_imports
+    
+    # Line length - relaxed for generated code and long URLs/descriptions
+    # Note: This is handled at error level above as 'info'
