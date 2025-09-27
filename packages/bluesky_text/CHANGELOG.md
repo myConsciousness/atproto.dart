@@ -1,5 +1,23 @@
 # Release Note
 
+## v1.1.0
+
+- **FEATURE**: Added support for Unicode space characters as hashtag delimiters. ([#1933](https://github.com/myConsciousness/atproto.dart/issues/1933))
+  - Full-width space (U+3000) and other Unicode space characters are now recognized as valid hashtag boundaries
+  - Improved compatibility with Bluesky's official client behavior
+  - Enhanced hashtag recognition for international users, especially Japanese users
+- **ENHANCEMENT**: Comprehensive test coverage expansion
+  - Added extensive tests for hashtags, handles, and links with real-world scenarios
+  - Added security tests to prevent Unicode normalization attacks and ReDoS vulnerabilities
+  - Added performance tests with large numbers of entities
+  - Added multilingual support tests for various languages
+  - Added boundary detection tests for edge cases
+- **IMPROVEMENT**: Enhanced hashtag boundary detection with support for:
+  - Ideographic space (U+3000) - commonly used in Japanese text
+  - No-break space (U+00A0) - commonly used in HTML
+  - Regular space (U+0020) - standard ASCII space
+- **TEST**: Added 22+ new comprehensive test cases covering edge cases and real-world usage patterns
+
 ## v1.0.4
 
 - **DEPENDENCY**: Updated `xrpc` dependency to `^1.0.3` for compatibility with `at_primitives` consolidation.
