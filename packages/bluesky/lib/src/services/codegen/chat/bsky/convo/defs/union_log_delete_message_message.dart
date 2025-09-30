@@ -22,7 +22,7 @@ part 'union_log_delete_message_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ULogDeleteMessageMessage with _$ULogDeleteMessageMessage {
+sealed class ULogDeleteMessageMessage with _$ULogDeleteMessageMessage {
   const ULogDeleteMessageMessage._();
 
   const factory ULogDeleteMessageMessage.messageView({

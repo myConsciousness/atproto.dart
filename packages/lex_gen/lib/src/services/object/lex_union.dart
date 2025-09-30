@@ -63,7 +63,7 @@ part '$fileName.freezed.dart';
 $kHeader
 
 @freezed
-abstract class $name with _\$$name {
+sealed class $name with _\$$name {
   const $name._();
 
   $factories

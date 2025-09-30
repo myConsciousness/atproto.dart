@@ -22,7 +22,7 @@ part 'union_skeleton_feed_post_reason.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class USkeletonFeedPostReason with _$USkeletonFeedPostReason {
+sealed class USkeletonFeedPostReason with _$USkeletonFeedPostReason {
   const USkeletonFeedPostReason._();
 
   const factory USkeletonFeedPostReason.skeletonReasonRepost({

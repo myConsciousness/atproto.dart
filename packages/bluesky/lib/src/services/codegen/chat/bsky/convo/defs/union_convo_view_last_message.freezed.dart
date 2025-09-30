@@ -85,10 +85,7 @@ switch (_that) {
 case UConvoViewLastMessageMessageView():
 return messageView(_that);case UConvoViewLastMessageDeletedMessageView():
 return deletedMessageView(_that);case UConvoViewLastMessageUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -153,10 +150,7 @@ switch (_that) {
 case UConvoViewLastMessageMessageView():
 return messageView(_that.data);case UConvoViewLastMessageDeletedMessageView():
 return deletedMessageView(_that.data);case UConvoViewLastMessageUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

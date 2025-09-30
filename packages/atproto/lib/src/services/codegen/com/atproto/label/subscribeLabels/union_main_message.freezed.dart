@@ -85,10 +85,7 @@ switch (_that) {
 case ULabelSubscribeLabelsMessageLabels():
 return labels(_that);case ULabelSubscribeLabelsMessageInfo():
 return info(_that);case ULabelSubscribeLabelsMessageUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -153,10 +150,7 @@ switch (_that) {
 case ULabelSubscribeLabelsMessageLabels():
 return labels(_that.data);case ULabelSubscribeLabelsMessageInfo():
 return info(_that.data);case ULabelSubscribeLabelsMessageUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

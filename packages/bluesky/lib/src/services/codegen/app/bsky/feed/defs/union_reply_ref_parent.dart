@@ -23,7 +23,7 @@ part 'union_reply_ref_parent.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UReplyRefParent with _$UReplyRefParent {
+sealed class UReplyRefParent with _$UReplyRefParent {
   const UReplyRefParent._();
 
   const factory UReplyRefParent.postView({required PostView data}) =

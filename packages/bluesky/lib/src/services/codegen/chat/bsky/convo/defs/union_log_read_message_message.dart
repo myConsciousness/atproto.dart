@@ -22,7 +22,7 @@ part 'union_log_read_message_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ULogReadMessageMessage with _$ULogReadMessageMessage {
+sealed class ULogReadMessageMessage with _$ULogReadMessageMessage {
   const ULogReadMessageMessage._();
 
   const factory ULogReadMessageMessage.messageView({

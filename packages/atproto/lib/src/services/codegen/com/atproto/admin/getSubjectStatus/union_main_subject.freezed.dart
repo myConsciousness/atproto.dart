@@ -87,10 +87,7 @@ case UAdminGetSubjectStatusSubjectRepoRef():
 return repoRef(_that);case UAdminGetSubjectStatusSubjectRepoStrongRef():
 return repoStrongRef(_that);case UAdminGetSubjectStatusSubjectRepoBlobRef():
 return repoBlobRef(_that);case UAdminGetSubjectStatusSubjectUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case UAdminGetSubjectStatusSubjectRepoRef():
 return repoRef(_that.data);case UAdminGetSubjectStatusSubjectRepoStrongRef():
 return repoStrongRef(_that.data);case UAdminGetSubjectStatusSubjectRepoBlobRef():
 return repoBlobRef(_that.data);case UAdminGetSubjectStatusSubjectUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

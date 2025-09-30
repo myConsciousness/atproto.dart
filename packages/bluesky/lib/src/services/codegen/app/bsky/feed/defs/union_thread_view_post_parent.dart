@@ -23,7 +23,7 @@ part 'union_thread_view_post_parent.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UThreadViewPostParent with _$UThreadViewPostParent {
+sealed class UThreadViewPostParent with _$UThreadViewPostParent {
   const UThreadViewPostParent._();
 
   const factory UThreadViewPostParent.threadViewPost({

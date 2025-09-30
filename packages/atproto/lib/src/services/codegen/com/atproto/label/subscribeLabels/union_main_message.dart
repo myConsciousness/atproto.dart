@@ -22,8 +22,7 @@ part 'union_main_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ULabelSubscribeLabelsMessage
-    with _$ULabelSubscribeLabelsMessage {
+sealed class ULabelSubscribeLabelsMessage with _$ULabelSubscribeLabelsMessage {
   const ULabelSubscribeLabelsMessage._();
 
   const factory ULabelSubscribeLabelsMessage.labels({required Labels data}) =

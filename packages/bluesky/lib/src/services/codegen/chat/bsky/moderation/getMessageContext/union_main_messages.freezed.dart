@@ -85,10 +85,7 @@ switch (_that) {
 case UModerationGetMessageContextMessagesMessageView():
 return messageView(_that);case UModerationGetMessageContextMessagesDeletedMessageView():
 return deletedMessageView(_that);case UModerationGetMessageContextMessagesUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -153,10 +150,7 @@ switch (_that) {
 case UModerationGetMessageContextMessagesMessageView():
 return messageView(_that.data);case UModerationGetMessageContextMessagesDeletedMessageView():
 return deletedMessageView(_that.data);case UModerationGetMessageContextMessagesUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

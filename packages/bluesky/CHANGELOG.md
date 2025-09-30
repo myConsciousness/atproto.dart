@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.2.3
+
+- **IMPROVEMENT**: Enhanced union type classes with sealed class implementation
+  - Union type classes are now generated as `sealed` classes instead of `abstract` classes
+  - Enabled Dart's exhaustiveness checking for switch statements on union types
+  - Improved compile-time safety by ensuring all union cases are handled
+  - Prevents runtime errors from unhandled union variants through static analysis
+
 ## v1.2.2
 
 - feat: Merged #2150 - Added pronouns field support to actor profiles

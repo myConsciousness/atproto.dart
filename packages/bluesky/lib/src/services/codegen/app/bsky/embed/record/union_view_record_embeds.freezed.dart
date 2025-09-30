@@ -91,10 +91,7 @@ return embedVideoView(_that);case UEmbedRecordViewRecordEmbedsEmbedExternalView(
 return embedExternalView(_that);case UEmbedRecordViewRecordEmbedsEmbedRecordView():
 return embedRecordView(_that);case UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView():
 return embedRecordWithMediaView(_that);case UEmbedRecordViewRecordEmbedsUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -168,10 +165,7 @@ return embedVideoView(_that.data);case UEmbedRecordViewRecordEmbedsEmbedExternal
 return embedExternalView(_that.data);case UEmbedRecordViewRecordEmbedsEmbedRecordView():
 return embedRecordView(_that.data);case UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView():
 return embedRecordWithMediaView(_that.data);case UEmbedRecordViewRecordEmbedsUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

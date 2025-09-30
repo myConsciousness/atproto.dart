@@ -21,7 +21,7 @@ part 'union_status_view_embed.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UStatusViewEmbed with _$UStatusViewEmbed {
+sealed class UStatusViewEmbed with _$UStatusViewEmbed {
   const UStatusViewEmbed._();
 
   const factory UStatusViewEmbed.embedExternalView({

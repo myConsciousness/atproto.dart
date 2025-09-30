@@ -87,10 +87,7 @@ case UBookmarkViewItemBlockedPost():
 return blockedPost(_that);case UBookmarkViewItemNotFoundPost():
 return notFoundPost(_that);case UBookmarkViewItemPostView():
 return postView(_that);case UBookmarkViewItemUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case UBookmarkViewItemBlockedPost():
 return blockedPost(_that.data);case UBookmarkViewItemNotFoundPost():
 return notFoundPost(_that.data);case UBookmarkViewItemPostView():
 return postView(_that.data);case UBookmarkViewItemUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -42,7 +42,7 @@ part 'union_main_event.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UModerationEmitEventEvent with _$UModerationEmitEventEvent {
+sealed class UModerationEmitEventEvent with _$UModerationEmitEventEvent {
   const UModerationEmitEventEvent._();
 
   const factory UModerationEmitEventEvent.modEventTakedown({

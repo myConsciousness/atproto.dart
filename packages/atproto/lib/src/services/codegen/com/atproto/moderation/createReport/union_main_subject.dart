@@ -22,7 +22,7 @@ part 'union_main_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UModerationCreateReportSubject
+sealed class UModerationCreateReportSubject
     with _$UModerationCreateReportSubject {
   const UModerationCreateReportSubject._();
 
