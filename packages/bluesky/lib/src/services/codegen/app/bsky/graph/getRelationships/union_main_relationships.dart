@@ -22,7 +22,7 @@ part 'union_main_relationships.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UGraphGetRelationshipsRelationships
+sealed class UGraphGetRelationshipsRelationships
     with _$UGraphGetRelationshipsRelationships {
   const UGraphGetRelationshipsRelationships._();
 

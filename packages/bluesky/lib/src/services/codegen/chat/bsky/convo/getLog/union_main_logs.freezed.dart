@@ -101,10 +101,7 @@ return logDeleteMessage(_that);case UConvoGetLogLogsLogReadMessage():
 return logReadMessage(_that);case UConvoGetLogLogsLogAddReaction():
 return logAddReaction(_that);case UConvoGetLogLogsLogRemoveReaction():
 return logRemoveReaction(_that);case UConvoGetLogLogsUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -193,10 +190,7 @@ return logDeleteMessage(_that.data);case UConvoGetLogLogsLogReadMessage():
 return logReadMessage(_that.data);case UConvoGetLogLogsLogAddReaction():
 return logAddReaction(_that.data);case UConvoGetLogLogsLogRemoveReaction():
 return logRemoveReaction(_that.data);case UConvoGetLogLogsUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

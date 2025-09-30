@@ -18,7 +18,7 @@ part 'union_verification_view_issuer_profile.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UVerificationViewIssuerProfile
+sealed class UVerificationViewIssuerProfile
     with _$UVerificationViewIssuerProfile {
   const UVerificationViewIssuerProfile._();
 

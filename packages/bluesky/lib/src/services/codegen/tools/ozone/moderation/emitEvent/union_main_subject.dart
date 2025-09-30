@@ -20,7 +20,7 @@ part 'union_main_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UModerationEmitEventSubject with _$UModerationEmitEventSubject {
+sealed class UModerationEmitEventSubject with _$UModerationEmitEventSubject {
   const UModerationEmitEventSubject._();
 
   const factory UModerationEmitEventSubject.repoRef({required RepoRef data}) =

@@ -87,10 +87,7 @@ case UReplyRefRootPostView():
 return postView(_that);case UReplyRefRootNotFoundPost():
 return notFoundPost(_that);case UReplyRefRootBlockedPost():
 return blockedPost(_that);case UReplyRefRootUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case UReplyRefRootPostView():
 return postView(_that.data);case UReplyRefRootNotFoundPost():
 return notFoundPost(_that.data);case UReplyRefRootBlockedPost():
 return blockedPost(_that.data);case UReplyRefRootUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

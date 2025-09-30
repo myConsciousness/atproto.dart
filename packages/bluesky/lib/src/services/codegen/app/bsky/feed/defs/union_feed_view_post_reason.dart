@@ -22,7 +22,7 @@ part 'union_feed_view_post_reason.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UFeedViewPostReason with _$UFeedViewPostReason {
+sealed class UFeedViewPostReason with _$UFeedViewPostReason {
   const UFeedViewPostReason._();
 
   const factory UFeedViewPostReason.reasonRepost({required ReasonRepost data}) =

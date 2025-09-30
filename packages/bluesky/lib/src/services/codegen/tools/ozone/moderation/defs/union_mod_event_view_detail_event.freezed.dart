@@ -125,10 +125,7 @@ return modEventPriorityScore(_that);case UModEventViewDetailEventAgeAssuranceEve
 return ageAssuranceEvent(_that);case UModEventViewDetailEventAgeAssuranceOverrideEvent():
 return ageAssuranceOverrideEvent(_that);case UModEventViewDetailEventRevokeAccountCredentialsEvent():
 return revokeAccountCredentialsEvent(_that);case UModEventViewDetailEventUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -253,10 +250,7 @@ return modEventPriorityScore(_that.data);case UModEventViewDetailEventAgeAssuran
 return ageAssuranceEvent(_that.data);case UModEventViewDetailEventAgeAssuranceOverrideEvent():
 return ageAssuranceOverrideEvent(_that.data);case UModEventViewDetailEventRevokeAccountCredentialsEvent():
 return revokeAccountCredentialsEvent(_that.data);case UModEventViewDetailEventUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

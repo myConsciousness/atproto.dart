@@ -22,7 +22,7 @@ part 'union_subject_status_view_hosting.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class USubjectStatusViewHosting with _$USubjectStatusViewHosting {
+sealed class USubjectStatusViewHosting with _$USubjectStatusViewHosting {
   const USubjectStatusViewHosting._();
 
   const factory USubjectStatusViewHosting.accountHosting({

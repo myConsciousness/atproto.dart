@@ -24,7 +24,7 @@ part 'union_main_allow.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UFeedThreadgateAllow with _$UFeedThreadgateAllow {
+sealed class UFeedThreadgateAllow with _$UFeedThreadgateAllow {
   const UFeedThreadgateAllow._();
 
   const factory UFeedThreadgateAllow.mentionRule({required MentionRule data}) =

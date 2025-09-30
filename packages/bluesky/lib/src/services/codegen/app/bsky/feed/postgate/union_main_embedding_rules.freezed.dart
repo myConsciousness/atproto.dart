@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case UFeedPostgateEmbeddingRulesDisableRule():
 return disableRule(_that);case UFeedPostgateEmbeddingRulesUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return unknown(_that.data);case _:
 switch (_that) {
 case UFeedPostgateEmbeddingRulesDisableRule():
 return disableRule(_that.data);case UFeedPostgateEmbeddingRulesUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

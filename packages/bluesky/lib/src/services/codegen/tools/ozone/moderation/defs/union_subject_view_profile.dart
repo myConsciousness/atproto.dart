@@ -18,7 +18,7 @@ part 'union_subject_view_profile.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class USubjectViewProfile with _$USubjectViewProfile {
+sealed class USubjectViewProfile with _$USubjectViewProfile {
   const USubjectViewProfile._();
 
   const factory USubjectViewProfile.unknown({

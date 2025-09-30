@@ -91,10 +91,7 @@ return embedVideo(_that);case UFeedPostEmbedEmbedExternal():
 return embedExternal(_that);case UFeedPostEmbedEmbedRecord():
 return embedRecord(_that);case UFeedPostEmbedEmbedRecordWithMedia():
 return embedRecordWithMedia(_that);case UFeedPostEmbedUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -168,10 +165,7 @@ return embedVideo(_that.data);case UFeedPostEmbedEmbedExternal():
 return embedExternal(_that.data);case UFeedPostEmbedEmbedRecord():
 return embedRecord(_that.data);case UFeedPostEmbedEmbedRecordWithMedia():
 return embedRecordWithMedia(_that.data);case UFeedPostEmbedUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

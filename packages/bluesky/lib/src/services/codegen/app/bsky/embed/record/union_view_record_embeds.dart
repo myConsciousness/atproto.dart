@@ -25,8 +25,7 @@ part 'union_view_record_embeds.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UEmbedRecordViewRecordEmbeds
-    with _$UEmbedRecordViewRecordEmbeds {
+sealed class UEmbedRecordViewRecordEmbeds with _$UEmbedRecordViewRecordEmbeds {
   const UEmbedRecordViewRecordEmbeds._();
 
   const factory UEmbedRecordViewRecordEmbeds.embedImagesView({

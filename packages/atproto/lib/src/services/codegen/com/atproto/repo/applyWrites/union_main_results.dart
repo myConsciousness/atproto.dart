@@ -23,7 +23,7 @@ part 'union_main_results.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class URepoApplyWritesResults with _$URepoApplyWritesResults {
+sealed class URepoApplyWritesResults with _$URepoApplyWritesResults {
   const URepoApplyWritesResults._();
 
   const factory URepoApplyWritesResults.createResult({

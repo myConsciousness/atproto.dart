@@ -91,10 +91,7 @@ return sync(_that);case USyncSubscribeReposMessageIdentity():
 return identity(_that);case USyncSubscribeReposMessageAccount():
 return account(_that);case USyncSubscribeReposMessageInfo():
 return info(_that);case USyncSubscribeReposMessageUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -168,10 +165,7 @@ return sync(_that.data);case USyncSubscribeReposMessageIdentity():
 return identity(_that.data);case USyncSubscribeReposMessageAccount():
 return account(_that.data);case USyncSubscribeReposMessageInfo():
 return info(_that.data);case USyncSubscribeReposMessageUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

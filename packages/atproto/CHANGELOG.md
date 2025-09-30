@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.2.1
+
+- **IMPROVEMENT**: Enhanced union type classes with sealed class implementation
+  - Union type classes are now generated as `sealed` classes instead of `abstract` classes
+  - Enabled Dart's exhaustiveness checking for switch statements on union types
+  - Improved compile-time safety by ensuring all union cases are handled
+  - Prevents runtime errors from unhandled union variants through static analysis
+
 ## v1.2.0
 
 - feat: Added Admin and Lexicon services to ATProto

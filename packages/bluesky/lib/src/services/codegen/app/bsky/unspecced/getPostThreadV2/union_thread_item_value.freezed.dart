@@ -89,10 +89,7 @@ return threadItemPost(_that);case UThreadItemValueThreadItemNoUnauthenticated():
 return threadItemNoUnauthenticated(_that);case UThreadItemValueThreadItemNotFound():
 return threadItemNotFound(_that);case UThreadItemValueThreadItemBlocked():
 return threadItemBlocked(_that);case UThreadItemValueUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -163,10 +160,7 @@ return threadItemPost(_that.data);case UThreadItemValueThreadItemNoUnauthenticat
 return threadItemNoUnauthenticated(_that.data);case UThreadItemValueThreadItemNotFound():
 return threadItemNotFound(_that.data);case UThreadItemValueThreadItemBlocked():
 return threadItemBlocked(_that.data);case UThreadItemValueUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

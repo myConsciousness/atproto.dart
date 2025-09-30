@@ -87,10 +87,7 @@ case USubjectStatusViewSubjectRepoRef():
 return repoRef(_that);case USubjectStatusViewSubjectRepoStrongRef():
 return repoStrongRef(_that);case USubjectStatusViewSubjectMessageRef():
 return messageRef(_that);case USubjectStatusViewSubjectUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case USubjectStatusViewSubjectRepoRef():
 return repoRef(_that.data);case USubjectStatusViewSubjectRepoStrongRef():
 return repoStrongRef(_that.data);case USubjectStatusViewSubjectMessageRef():
 return messageRef(_that.data);case USubjectStatusViewSubjectUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
