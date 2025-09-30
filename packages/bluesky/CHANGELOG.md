@@ -7,6 +7,7 @@
   - Enabled Dart's exhaustiveness checking for switch statements on union types
   - Improved compile-time safety by ensuring all union cases are handled
   - Prevents runtime errors from unhandled union variants through static analysis
+- **FIX**: Downgraded characters dependency from ^1.4.1 to ^1.4.0 for compatibility
 
 ## v1.2.2
 

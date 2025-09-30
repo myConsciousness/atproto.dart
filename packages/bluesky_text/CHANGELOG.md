@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.1.1
+
+- **FIX**: Downgraded characters dependency from ^1.4.1 to ^1.4.0 for compatibility
+
 ## v1.1.0
 
 - **FEATURE**: Added support for Unicode space characters as hashtag delimiters. ([#1933](https://github.com/myConsciousness/atproto.dart/issues/1933))
