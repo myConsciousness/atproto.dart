@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetPostsInput {
 
- List<String> get uris; Map<String, dynamic>? get $unknown;
+@AtUriConverter() List<AtUri> get uris; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetPostsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedGetPostsInputCopyWith<$Res>  {
   factory $FeedGetPostsInputCopyWith(FeedGetPostsInput value, $Res Function(FeedGetPostsInput) _then) = _$FeedGetPostsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> uris, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> uris, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$FeedGetPostsInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uris = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uris: null == uris ? _self.uris : uris // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> uris,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> uris,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetPostsInput() when $default != null:
 return $default(_that.uris,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.uris,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> uris,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> uris,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetPostsInput():
 return $default(_that.uris,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.uris,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> uris,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> uris,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetPostsInput() when $default != null:
 return $default(_that.uris,_that.$unknown);case _:
@@ -210,11 +210,11 @@ return $default(_that.uris,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetPostsInput implements FeedGetPostsInput {
-  const _FeedGetPostsInput({required final  List<String> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
+  const _FeedGetPostsInput({@AtUriConverter() required final  List<AtUri> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _FeedGetPostsInput.fromJson(Map<String, dynamic> json) => _$FeedGetPostsInputFromJson(json);
 
- final  List<String> _uris;
-@override List<String> get uris {
+ final  List<AtUri> _uris;
+@override@AtUriConverter() List<AtUri> get uris {
   if (_uris is EqualUnmodifiableListView) return _uris;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_uris);
@@ -263,7 +263,7 @@ abstract mixin class _$FeedGetPostsInputCopyWith<$Res> implements $FeedGetPostsI
   factory _$FeedGetPostsInputCopyWith(_FeedGetPostsInput value, $Res Function(_FeedGetPostsInput) _then) = __$FeedGetPostsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> uris, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> uris, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$FeedGetPostsInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uris = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetPostsInput(
 uris: null == uris ? _self._uris : uris // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

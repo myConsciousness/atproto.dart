@@ -10,6 +10,7 @@
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto/com_atproto_moderation_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -44,7 +45,7 @@ abstract class LabelerViewDetailed with _$LabelerViewDetailed {
   @JsonSerializable(includeIfNull: false)
   const factory LabelerViewDetailed({
     @Default('app.bsky.labeler.defs#labelerViewDetailed') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     @ProfileViewConverter() required ProfileView creator,
     @LabelerPoliciesConverter() required LabelerPolicies policies,

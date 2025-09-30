@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.2.2
+
+- **FIX**: Fixed type compatibility issues with AtUri parameters
+  - Corrected service method calls to properly handle AtUri objects instead of strings
+  - Improved type safety in API parameter handling
+
 ## v1.2.1
 
 - **IMPROVEMENT**: Enhanced union type classes with sealed class implementation

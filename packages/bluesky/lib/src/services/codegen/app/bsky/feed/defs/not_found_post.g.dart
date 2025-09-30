@@ -15,7 +15,10 @@ _NotFoundPost _$NotFoundPostFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.defs#notFoundPost',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         notFound: $checkedConvert('notFound', (v) => v as bool),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -28,7 +31,7 @@ _NotFoundPost _$NotFoundPostFromJson(Map json) =>
 Map<String, dynamic> _$NotFoundPostToJson(_NotFoundPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'notFound': instance.notFound,
       r'$unknown': ?instance.$unknown,
     };

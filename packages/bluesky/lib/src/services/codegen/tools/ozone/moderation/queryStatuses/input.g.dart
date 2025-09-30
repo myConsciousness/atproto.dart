@@ -19,13 +19,7 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
       'includeAllUserRecords',
       (v) => v as bool?,
     ),
-    subject: $checkedConvert(
-      'subject',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
+    subject: $checkedConvert('subject', (v) => v as String?),
     comment: $checkedConvert('comment', (v) => v as String?),
     reportedAfter: $checkedConvert(
       'reportedAfter',
@@ -68,9 +62,7 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
     reviewState: $checkedConvert('reviewState', (v) => v as String?),
     ignoreSubjects: $checkedConvert(
       'ignoreSubjects',
-      (v) => (v as List<dynamic>?)
-          ?.map((e) => const AtUriConverter().fromJson(e as String))
-          .toList(),
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
     lastReviewedBy: $checkedConvert('lastReviewedBy', (v) => v as String?),
     sortField: $checkedConvert(
@@ -147,10 +139,7 @@ Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
   'queueIndex': ?instance.queueIndex,
   'queueSeed': ?instance.queueSeed,
   'includeAllUserRecords': ?instance.includeAllUserRecords,
-  'subject': ?_$JsonConverterToJson<String, AtUri>(
-    instance.subject,
-    const AtUriConverter().toJson,
-  ),
+  'subject': ?instance.subject,
   'comment': ?instance.comment,
   'reportedAfter': ?instance.reportedAfter?.toIso8601String(),
   'reportedBefore': ?instance.reportedBefore?.toIso8601String(),
@@ -164,9 +153,7 @@ Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
   'includeMuted': ?instance.includeMuted,
   'onlyMuted': ?instance.onlyMuted,
   'reviewState': ?instance.reviewState,
-  'ignoreSubjects': ?instance.ignoreSubjects
-      ?.map(const AtUriConverter().toJson)
-      .toList(),
+  'ignoreSubjects': ?instance.ignoreSubjects,
   'lastReviewedBy': ?instance.lastReviewedBy,
   'sortField': instance.sortField,
   'sortDirection': instance.sortDirection,

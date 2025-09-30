@@ -15,7 +15,10 @@ _RepoListRecordsRecord _$RepoListRecordsRecordFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'com.atproto.repo.listRecords#record',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String),
         value: $checkedConvert(
           'value',
@@ -33,7 +36,7 @@ Map<String, dynamic> _$RepoListRecordsRecordToJson(
   _RepoListRecordsRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'value': instance.value,
   r'$unknown': ?instance.$unknown,

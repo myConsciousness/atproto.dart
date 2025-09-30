@@ -49,7 +49,7 @@ abstract class ActorProfileRecord with _$ActorProfileRecord {
 
     /// Free-form pronouns text.
     String? pronouns,
-    @AtUriConverter() AtUri? website,
+    String? website,
 
     /// Small image to be displayed next to posts from account. AKA, 'profile picture'
     @BlobConverter() Blob? avatar,

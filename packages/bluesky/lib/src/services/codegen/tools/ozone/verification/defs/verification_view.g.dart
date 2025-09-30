@@ -17,7 +17,10 @@ _VerificationView _$VerificationViewFromJson(Map json) =>
               v as String? ?? 'tools.ozone.verification.defs#verificationView',
         ),
         issuer: $checkedConvert('issuer', (v) => v as String),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         subject: $checkedConvert('subject', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String),
@@ -76,7 +79,7 @@ Map<String, dynamic> _$VerificationViewToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'issuer': instance.issuer,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'subject': instance.subject,
   'handle': instance.handle,
   'displayName': instance.displayName,

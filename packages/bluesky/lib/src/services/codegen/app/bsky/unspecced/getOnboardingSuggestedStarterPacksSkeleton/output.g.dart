@@ -17,7 +17,9 @@ _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputFromJson(Map json) =>
         final val = _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput(
           starterPacks: $checkedConvert(
             'starterPacks',
-            (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+            (v) => (v as List<dynamic>)
+                .map((e) => const AtUriConverter().fromJson(e as String))
+                .toList(),
           ),
           $unknown: $checkedConvert(
             r'$unknown',
@@ -32,6 +34,8 @@ Map<String, dynamic>
 _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputToJson(
   _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput instance,
 ) => <String, dynamic>{
-  'starterPacks': instance.starterPacks,
+  'starterPacks': instance.starterPacks
+      .map(const AtUriConverter().toJson)
+      .toList(),
   r'$unknown': ?instance.$unknown,
 };

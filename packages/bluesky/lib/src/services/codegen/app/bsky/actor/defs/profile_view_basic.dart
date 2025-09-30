@@ -9,7 +9,6 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -49,7 +48,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     required String handle,
     String? displayName,
     String? pronouns,
-    @AtUriConverter() AtUri? avatar,
+    String? avatar,
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,

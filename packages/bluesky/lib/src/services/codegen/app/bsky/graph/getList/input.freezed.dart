@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$GraphGetListInput {
 
 /// Reference (AT-URI) of the list record to hydrate.
- String get list; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get list; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphGetListInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $GraphGetListInputCopyWith<$Res>  {
   factory $GraphGetListInputCopyWith(GraphGetListInput value, $Res Function(GraphGetListInput) _then) = _$GraphGetListInputCopyWithImpl;
 @useResult
 $Res call({
- String list, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri list, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$GraphGetListInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? list = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
-as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as AtUri,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String list,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri list,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphGetListInput() when $default != null:
 return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String list,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri list,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetListInput():
 return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String list,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri list,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetListInput() when $default != null:
 return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -213,11 +213,11 @@ return $default(_that.list,_that.limit,_that.cursor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GraphGetListInput implements GraphGetListInput {
-  const _GraphGetListInput({required this.list, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphGetListInput({@AtUriConverter() required this.list, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetListInput.fromJson(Map<String, dynamic> json) => _$GraphGetListInputFromJson(json);
 
 /// Reference (AT-URI) of the list record to hydrate.
-@override final  String list;
+@override@AtUriConverter() final  AtUri list;
 @override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
@@ -263,7 +263,7 @@ abstract mixin class _$GraphGetListInputCopyWith<$Res> implements $GraphGetListI
   factory _$GraphGetListInputCopyWith(_GraphGetListInput value, $Res Function(_GraphGetListInput) _then) = __$GraphGetListInputCopyWithImpl;
 @override @useResult
 $Res call({
- String list, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri list, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$GraphGetListInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? list = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_GraphGetListInput(
 list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
-as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as AtUri,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

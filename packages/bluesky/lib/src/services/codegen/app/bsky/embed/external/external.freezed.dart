@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedExternalExternal {
 
- String get $type;@AtUriConverter() AtUri get uri; String get title; String get description;@BlobConverter() Blob? get thumb; Map<String, dynamic>? get $unknown;
+ String get $type; String get uri; String get title; String get description;@BlobConverter() Blob? get thumb; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalExternal
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $EmbedExternalExternalCopyWith<$Res>  {
   factory $EmbedExternalExternalCopyWith(EmbedExternalExternal value, $Res Function(EmbedExternalExternal) _then) = _$EmbedExternalExternalCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String title, String description,@BlobConverter() Blob? thumb, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description,@BlobConverter() Blob? thumb, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$EmbedExternalExternalCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as AtUri,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,thumb: freezed == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
 as Blob?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String title,  String description, @BlobConverter()  Blob? thumb,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalExternal() when $default != null:
 return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.$unknown);case _:
@@ -191,7 +191,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String title,  String description, @BlobConverter()  Blob? thumb,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalExternal():
 return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String title,  String description, @BlobConverter()  Blob? thumb,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalExternal() when $default != null:
 return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.$unknown);case _:
@@ -226,11 +226,11 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalExternal implements EmbedExternalExternal {
-  const _EmbedExternalExternal({this.$type = 'app.bsky.embed.external#external', @AtUriConverter() required this.uri, required this.title, required this.description, @BlobConverter() this.thumb, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedExternalExternal({this.$type = 'app.bsky.embed.external#external', required this.uri, required this.title, required this.description, @BlobConverter() this.thumb, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedExternalExternal.fromJson(Map<String, dynamic> json) => _$EmbedExternalExternalFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override@AtUriConverter() final  AtUri uri;
+@override final  String uri;
 @override final  String title;
 @override final  String description;
 @override@BlobConverter() final  Blob? thumb;
@@ -277,7 +277,7 @@ abstract mixin class _$EmbedExternalExternalCopyWith<$Res> implements $EmbedExte
   factory _$EmbedExternalExternalCopyWith(_EmbedExternalExternal value, $Res Function(_EmbedExternalExternal) _then) = __$EmbedExternalExternalCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String title, String description,@BlobConverter() Blob? thumb, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description,@BlobConverter() Blob? thumb, Map<String, dynamic>? $unknown
 });
 
 
@@ -298,7 +298,7 @@ class __$EmbedExternalExternalCopyWithImpl<$Res>
   return _then(_EmbedExternalExternal(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as AtUri,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,thumb: freezed == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
 as Blob?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

@@ -16,7 +16,10 @@ _RecordViewNotFound _$RecordViewNotFoundFromJson(Map json) =>
           (v) =>
               v as String? ?? 'tools.ozone.moderation.defs#recordViewNotFound',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -28,6 +31,6 @@ _RecordViewNotFound _$RecordViewNotFoundFromJson(Map json) =>
 Map<String, dynamic> _$RecordViewNotFoundToJson(_RecordViewNotFound instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       r'$unknown': ?instance.$unknown,
     };

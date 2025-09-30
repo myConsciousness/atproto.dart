@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$IdentityEvent {
 
- String get $type; String? get comment; String? get handle;@AtUriConverter() AtUri? get pdsHost; bool? get tombstone; DateTime get timestamp; Map<String, dynamic>? get $unknown;
+ String get $type; String? get comment; String? get handle; String? get pdsHost; bool? get tombstone; DateTime get timestamp; Map<String, dynamic>? get $unknown;
 /// Create a copy of IdentityEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $IdentityEventCopyWith<$Res>  {
   factory $IdentityEventCopyWith(IdentityEvent value, $Res Function(IdentityEvent) _then) = _$IdentityEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, String? handle,@AtUriConverter() AtUri? pdsHost, bool? tombstone, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment, String? handle, String? pdsHost, bool? tombstone, DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,7 +71,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,handle: freezed == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String?,pdsHost: freezed == pdsHost ? _self.pdsHost : pdsHost // ignore: cast_nullable_to_non_nullable
-as AtUri?,tombstone: freezed == tombstone ? _self.tombstone : tombstone // ignore: cast_nullable_to_non_nullable
+as String?,tombstone: freezed == tombstone ? _self.tombstone : tombstone // ignore: cast_nullable_to_non_nullable
 as bool?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  String? handle, @AtUriConverter()  AtUri? pdsHost,  bool? tombstone,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  String? handle,  String? pdsHost,  bool? tombstone,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _IdentityEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombstone,_that.timestamp,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombs
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  String? handle, @AtUriConverter()  AtUri? pdsHost,  bool? tombstone,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  String? handle,  String? pdsHost,  bool? tombstone,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _IdentityEvent():
 return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombstone,_that.timestamp,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombs
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  String? handle, @AtUriConverter()  AtUri? pdsHost,  bool? tombstone,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  String? handle,  String? pdsHost,  bool? tombstone,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _IdentityEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombstone,_that.timestamp,_that.$unknown);case _:
@@ -215,13 +215,13 @@ return $default(_that.$type,_that.comment,_that.handle,_that.pdsHost,_that.tombs
 
 @JsonSerializable(includeIfNull: false)
 class _IdentityEvent implements IdentityEvent {
-  const _IdentityEvent({this.$type = 'tools.ozone.moderation.defs#identityEvent', this.comment, this.handle, @AtUriConverter() this.pdsHost, this.tombstone, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _IdentityEvent({this.$type = 'tools.ozone.moderation.defs#identityEvent', this.comment, this.handle, this.pdsHost, this.tombstone, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _IdentityEvent.fromJson(Map<String, dynamic> json) => _$IdentityEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String? comment;
 @override final  String? handle;
-@override@AtUriConverter() final  AtUri? pdsHost;
+@override final  String? pdsHost;
 @override final  bool? tombstone;
 @override final  DateTime timestamp;
  final  Map<String, dynamic>? _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$IdentityEventCopyWith<$Res> implements $IdentityEventCopy
   factory _$IdentityEventCopyWith(_IdentityEvent value, $Res Function(_IdentityEvent) _then) = __$IdentityEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, String? handle,@AtUriConverter() AtUri? pdsHost, bool? tombstone, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment, String? handle, String? pdsHost, bool? tombstone, DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,7 +290,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,handle: freezed == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String?,pdsHost: freezed == pdsHost ? _self.pdsHost : pdsHost // ignore: cast_nullable_to_non_nullable
-as AtUri?,tombstone: freezed == tombstone ? _self.tombstone : tombstone // ignore: cast_nullable_to_non_nullable
+as String?,tombstone: freezed == tombstone ? _self.tombstone : tombstone // ignore: cast_nullable_to_non_nullable
 as bool?,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

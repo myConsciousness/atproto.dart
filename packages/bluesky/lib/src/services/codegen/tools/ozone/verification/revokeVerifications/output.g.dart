@@ -16,7 +16,9 @@ _$VerificationRevokeVerificationsOutputFromJson(Map json) => $checkedCreate(
     final val = _VerificationRevokeVerificationsOutput(
       revokedVerifications: $checkedConvert(
         'revokedVerifications',
-        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        (v) => (v as List<dynamic>)
+            .map((e) => const AtUriConverter().fromJson(e as String))
+            .toList(),
       ),
       failedRevocations: $checkedConvert(
         'failedRevocations',
@@ -40,7 +42,9 @@ _$VerificationRevokeVerificationsOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$VerificationRevokeVerificationsOutputToJson(
   _VerificationRevokeVerificationsOutput instance,
 ) => <String, dynamic>{
-  'revokedVerifications': instance.revokedVerifications,
+  'revokedVerifications': instance.revokedVerifications
+      .map(const AtUriConverter().toJson)
+      .toList(),
   'failedRevocations': instance.failedRevocations
       .map(const RevokeErrorConverter().toJson)
       .toList(),

@@ -187,7 +187,7 @@ appBskyUnspeccedGetSuggestedFeedsSkeleton({
 /// (NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get additional posts under a thread e.g. replies hidden by threadgate. Based on an anchor post at any depth of the tree, returns top-level replies below that anchor. It does not include ancestors nor the anchor itself. This should be called after exhausting `app.bsky.unspecced.getPostThreadV2`. Does not require auth, but additional metadata and filtering will be applied for authed requests.
 Future<XRPCResponse<UnspeccedGetPostThreadOtherV2Output>>
 appBskyUnspeccedGetPostThreadOtherV2({
-  required String anchor,
+  required AtUri anchor,
   bool? prioritizeFollowedUsers,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -197,7 +197,7 @@ appBskyUnspeccedGetPostThreadOtherV2({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'anchor': anchor,
+    'anchor': anchor.toString(),
     if (prioritizeFollowedUsers != null)
       'prioritizeFollowedUsers': prioritizeFollowedUsers,
   },
@@ -367,7 +367,7 @@ appBskyUnspeccedGetSuggestedUsers({
 /// (NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get posts in a thread. It is based in an anchor post at any depth of the tree, and returns posts above it (recursively resolving the parent, without further branching to their replies) and below it (recursive replies, with branching to their replies). Does not require auth, but additional metadata and filtering will be applied for authed requests.
 Future<XRPCResponse<UnspeccedGetPostThreadV2Output>>
 appBskyUnspeccedGetPostThreadV2({
-  required String anchor,
+  required AtUri anchor,
   bool? above,
   int? below,
   int? branchingFactor,
@@ -381,7 +381,7 @@ appBskyUnspeccedGetPostThreadV2({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'anchor': anchor,
+    'anchor': anchor.toString(),
     if (above != null) 'above': above,
     if (below != null) 'below': below,
     if (branchingFactor != null) 'branchingFactor': branchingFactor,
@@ -440,7 +440,7 @@ appBskyUnspeccedSearchPostsSkeleton({
   String? author,
   String? lang,
   String? domain,
-  AtUri? url,
+  String? url,
   List<String>? tag,
   String? viewer,
   int? limit,
@@ -595,7 +595,7 @@ base class UnspeccedService {
   /// (NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get additional posts under a thread e.g. replies hidden by threadgate. Based on an anchor post at any depth of the tree, returns top-level replies below that anchor. It does not include ancestors nor the anchor itself. This should be called after exhausting `app.bsky.unspecced.getPostThreadV2`. Does not require auth, but additional metadata and filtering will be applied for authed requests.
   Future<XRPCResponse<UnspeccedGetPostThreadOtherV2Output>>
   getPostThreadOtherV2({
-    required String anchor,
+    required AtUri anchor,
     bool? prioritizeFollowedUsers,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -742,7 +742,7 @@ base class UnspeccedService {
 
   /// (NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get posts in a thread. It is based in an anchor post at any depth of the tree, and returns posts above it (recursively resolving the parent, without further branching to their replies) and below it (recursive replies, with branching to their replies). Does not require auth, but additional metadata and filtering will be applied for authed requests.
   Future<XRPCResponse<UnspeccedGetPostThreadV2Output>> getPostThreadV2({
-    required String anchor,
+    required AtUri anchor,
     bool? above,
     int? below,
     int? branchingFactor,
@@ -803,7 +803,7 @@ base class UnspeccedService {
     String? author,
     String? lang,
     String? domain,
-    AtUri? url,
+    String? url,
     List<String>? tag,
     String? viewer,
     int? limit,

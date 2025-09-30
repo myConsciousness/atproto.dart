@@ -13,7 +13,9 @@ _GraphGetStarterPacksInput _$GraphGetStarterPacksInputFromJson(Map json) =>
       final val = _GraphGetStarterPacksInput(
         uris: $checkedConvert(
           'uris',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+          (v) => (v as List<dynamic>)
+              .map((e) => const AtUriConverter().fromJson(e as String))
+              .toList(),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -25,4 +27,7 @@ _GraphGetStarterPacksInput _$GraphGetStarterPacksInputFromJson(Map json) =>
 
 Map<String, dynamic> _$GraphGetStarterPacksInputToJson(
   _GraphGetStarterPacksInput instance,
-) => <String, dynamic>{'uris': instance.uris, r'$unknown': ?instance.$unknown};
+) => <String, dynamic>{
+  'uris': instance.uris.map(const AtUriConverter().toJson).toList(),
+  r'$unknown': ?instance.$unknown,
+};

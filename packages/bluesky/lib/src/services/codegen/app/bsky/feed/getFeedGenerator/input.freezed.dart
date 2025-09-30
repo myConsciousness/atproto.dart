@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$FeedGetFeedGeneratorInput {
 
 /// AT-URI of the feed generator record.
- String get feed; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get feed; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetFeedGeneratorInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $FeedGetFeedGeneratorInputCopyWith<$Res>  {
   factory $FeedGetFeedGeneratorInputCopyWith(FeedGetFeedGeneratorInput value, $Res Function(FeedGetFeedGeneratorInput) _then) = _$FeedGetFeedGeneratorInputCopyWithImpl;
 @useResult
 $Res call({
- String feed, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri feed, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$FeedGetFeedGeneratorInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? feed = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String feed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri feed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetFeedGeneratorInput() when $default != null:
 return $default(_that.feed,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.feed,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String feed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri feed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetFeedGeneratorInput():
 return $default(_that.feed,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.feed,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String feed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri feed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetFeedGeneratorInput() when $default != null:
 return $default(_that.feed,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.feed,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetFeedGeneratorInput implements FeedGetFeedGeneratorInput {
-  const _FeedGetFeedGeneratorInput({required this.feed, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetFeedGeneratorInput({@AtUriConverter() required this.feed, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetFeedGeneratorInput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedGeneratorInputFromJson(json);
 
 /// AT-URI of the feed generator record.
-@override final  String feed;
+@override@AtUriConverter() final  AtUri feed;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$FeedGetFeedGeneratorInputCopyWith<$Res> implements $FeedG
   factory _$FeedGetFeedGeneratorInputCopyWith(_FeedGetFeedGeneratorInput value, $Res Function(_FeedGetFeedGeneratorInput) _then) = __$FeedGetFeedGeneratorInputCopyWithImpl;
 @override @useResult
 $Res call({
- String feed, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri feed, Map<String, dynamic>? $unknown
 });
 
 
@@ -279,7 +279,7 @@ class __$FeedGetFeedGeneratorInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? feed = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetFeedGeneratorInput(
 feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

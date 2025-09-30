@@ -15,7 +15,10 @@ _EmbedRecordViewNotFound _$EmbedRecordViewNotFoundFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.embed.record#viewNotFound',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         notFound: $checkedConvert('notFound', (v) => v as bool),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -29,7 +32,7 @@ Map<String, dynamic> _$EmbedRecordViewNotFoundToJson(
   _EmbedRecordViewNotFound instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'notFound': instance.notFound,
   r'$unknown': ?instance.$unknown,
 };

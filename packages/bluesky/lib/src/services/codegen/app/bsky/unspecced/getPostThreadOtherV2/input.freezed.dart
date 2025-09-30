@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$UnspeccedGetPostThreadOtherV2Input {
 
 /// Reference (AT-URI) to post record. This is the anchor post.
- String get anchor;/// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
+@AtUriConverter() AtUri get anchor;/// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
  bool get prioritizeFollowedUsers; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetPostThreadOtherV2Input
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $UnspeccedGetPostThreadOtherV2InputCopyWith<$Res>  {
   factory $UnspeccedGetPostThreadOtherV2InputCopyWith(UnspeccedGetPostThreadOtherV2Input value, $Res Function(UnspeccedGetPostThreadOtherV2Input) _then) = _$UnspeccedGetPostThreadOtherV2InputCopyWithImpl;
 @useResult
 $Res call({
- String anchor, bool prioritizeFollowedUsers, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri anchor, bool prioritizeFollowedUsers, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$UnspeccedGetPostThreadOtherV2InputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? anchor = null,Object? prioritizeFollowedUsers = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 anchor: null == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
-as String,prioritizeFollowedUsers: null == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
+as AtUri,prioritizeFollowedUsers: null == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String anchor,  bool prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri anchor,  bool prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetPostThreadOtherV2Input() when $default != null:
 return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String anchor,  bool prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri anchor,  bool prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetPostThreadOtherV2Input():
 return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String anchor,  bool prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri anchor,  bool prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetPostThreadOtherV2Input() when $default != null:
 return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case _:
@@ -213,11 +213,11 @@ return $default(_that.anchor,_that.prioritizeFollowedUsers,_that.$unknown);case 
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadOtherV2Input implements UnspeccedGetPostThreadOtherV2Input {
-  const _UnspeccedGetPostThreadOtherV2Input({required this.anchor, this.prioritizeFollowedUsers = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetPostThreadOtherV2Input({@AtUriConverter() required this.anchor, this.prioritizeFollowedUsers = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetPostThreadOtherV2Input.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadOtherV2InputFromJson(json);
 
 /// Reference (AT-URI) to post record. This is the anchor post.
-@override final  String anchor;
+@override@AtUriConverter() final  AtUri anchor;
 /// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
 @override@JsonKey() final  bool prioritizeFollowedUsers;
  final  Map<String, dynamic>? _$unknown;
@@ -263,7 +263,7 @@ abstract mixin class _$UnspeccedGetPostThreadOtherV2InputCopyWith<$Res> implemen
   factory _$UnspeccedGetPostThreadOtherV2InputCopyWith(_UnspeccedGetPostThreadOtherV2Input value, $Res Function(_UnspeccedGetPostThreadOtherV2Input) _then) = __$UnspeccedGetPostThreadOtherV2InputCopyWithImpl;
 @override @useResult
 $Res call({
- String anchor, bool prioritizeFollowedUsers, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri anchor, bool prioritizeFollowedUsers, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$UnspeccedGetPostThreadOtherV2InputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? anchor = null,Object? prioritizeFollowedUsers = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetPostThreadOtherV2Input(
 anchor: null == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
-as String,prioritizeFollowedUsers: null == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
+as AtUri,prioritizeFollowedUsers: null == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

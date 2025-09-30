@@ -11,7 +11,10 @@ part of 'input.dart';
 _GraphGetStarterPackInput _$GraphGetStarterPackInputFromJson(Map json) =>
     $checkedCreate('_GraphGetStarterPackInput', json, ($checkedConvert) {
       final val = _GraphGetStarterPackInput(
-        starterPack: $checkedConvert('starterPack', (v) => v as String),
+        starterPack: $checkedConvert(
+          'starterPack',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -23,6 +26,6 @@ _GraphGetStarterPackInput _$GraphGetStarterPackInputFromJson(Map json) =>
 Map<String, dynamic> _$GraphGetStarterPackInputToJson(
   _GraphGetStarterPackInput instance,
 ) => <String, dynamic>{
-  'starterPack': instance.starterPack,
+  'starterPack': const AtUriConverter().toJson(instance.starterPack),
   r'$unknown': ?instance.$unknown,
 };

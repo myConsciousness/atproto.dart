@@ -27,6 +27,7 @@ final class DartType {
   bool get isBoolean => name == 'bool';
   bool get isRef => ref != null;
   bool get isKnownValues => knownValues != null;
+  bool get isAtUri => name == 'AtUri';
 
   const DartType({
     required this.name,

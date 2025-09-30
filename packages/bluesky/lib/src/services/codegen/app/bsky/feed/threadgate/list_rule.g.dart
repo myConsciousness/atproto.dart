@@ -15,7 +15,10 @@ _ListRule _$ListRuleFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.threadgate#listRule',
         ),
-        list: $checkedConvert('list', (v) => v as String),
+        list: $checkedConvert(
+          'list',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -26,6 +29,6 @@ _ListRule _$ListRuleFromJson(Map json) =>
 
 Map<String, dynamic> _$ListRuleToJson(_ListRule instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'list': instance.list,
+  'list': const AtUriConverter().toJson(instance.list),
   r'$unknown': ?instance.$unknown,
 };

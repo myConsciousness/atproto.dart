@@ -75,7 +75,7 @@ Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
 
 /// Gets a 'view' (with additional context) of a specified list.
 Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
-  required String list,
+  required AtUri list,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
@@ -86,7 +86,7 @@ Future<XRPCResponse<GraphGetListOutput>> appBskyGraphGetList({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'list': list,
+    'list': list.toString(),
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
@@ -115,14 +115,14 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
 
 /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteThread({
-  required String root,
+  required AtUri root,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyGraphMuteThread,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'root': root},
+  body: {...?$unknown, 'root': root.toString()},
 );
 
 /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
@@ -211,27 +211,27 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
 
 /// Gets a view of a starter pack.
 Future<XRPCResponse<GraphGetStarterPackOutput>> appBskyGraphGetStarterPack({
-  required String starterPack,
+  required AtUri starterPack,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyGraphGetStarterPack,
   headers: $headers,
-  parameters: {...?$unknown, 'starterPack': starterPack},
+  parameters: {...?$unknown, 'starterPack': starterPack.toString()},
   to: const GraphGetStarterPackOutputConverter().fromJson,
 );
 
 /// Get views for a list of starter packs.
 Future<XRPCResponse<GraphGetStarterPacksOutput>> appBskyGraphGetStarterPacks({
-  required List<String> uris,
+  required List<AtUri> uris,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyGraphGetStarterPacks,
   headers: $headers,
-  parameters: {...?$unknown, 'uris': uris},
+  parameters: {...?$unknown, 'uris': uris.map((e) => e.toString()).toList()},
   to: const GraphGetStarterPacksOutputConverter().fromJson,
 );
 
@@ -272,26 +272,26 @@ appBskyGraphGetSuggestedFollowsByActor({
 
 /// Unmutes the specified list of accounts. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActorList({
-  required String list,
+  required AtUri list,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyGraphUnmuteActorList,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'list': list},
+  body: {...?$unknown, 'list': list.toString()},
 );
 
 /// Unmutes the specified thread. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteThread({
-  required String root,
+  required AtUri root,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyGraphUnmuteThread,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'root': root},
+  body: {...?$unknown, 'root': root.toString()},
 );
 
 /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
@@ -356,14 +356,14 @@ appBskyGraphGetStarterPacksWithMembership({
 
 /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActorList({
-  required String list,
+  required AtUri list,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyGraphMuteActorList,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'list': list},
+  body: {...?$unknown, 'list': list.toString()},
 );
 
 /// Enumerates which accounts the requesting account is currently blocking. Requires auth.
@@ -487,7 +487,7 @@ base class GraphService {
 
   /// Gets a 'view' (with additional context) of a specified list.
   Future<XRPCResponse<GraphGetListOutput>> getList({
-    required String list,
+    required AtUri list,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
@@ -522,7 +522,7 @@ base class GraphService {
 
   /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteThread({
-    required String root,
+    required AtUri root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphMuteThread(
@@ -615,7 +615,7 @@ base class GraphService {
 
   /// Gets a view of a starter pack.
   Future<XRPCResponse<GraphGetStarterPackOutput>> getStarterPack({
-    required String starterPack,
+    required AtUri starterPack,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphGetStarterPack(
@@ -630,7 +630,7 @@ base class GraphService {
 
   /// Get views for a list of starter packs.
   Future<XRPCResponse<GraphGetStarterPacksOutput>> getStarterPacks({
-    required List<String> uris,
+    required List<AtUri> uris,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphGetStarterPacks(
@@ -674,7 +674,7 @@ base class GraphService {
 
   /// Unmutes the specified list of accounts. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteActorList({
-    required String list,
+    required AtUri list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphUnmuteActorList(
@@ -686,7 +686,7 @@ base class GraphService {
 
   /// Unmutes the specified thread. Requires auth.
   Future<XRPCResponse<EmptyData>> unmuteThread({
-    required String root,
+    required AtUri root,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphUnmuteThread(
@@ -745,7 +745,7 @@ base class GraphService {
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteActorList({
-    required String list,
+    required AtUri list,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphMuteActorList(
@@ -862,7 +862,7 @@ final class GraphStarterpackRecordAccessor {
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    required String list,
+    required AtUri list,
     List<FeedItem>? feeds,
     DateTime? createdAt,
     String? rkey,
@@ -881,7 +881,7 @@ final class GraphStarterpackRecordAccessor {
       if (description != null) 'description': description,
       if (descriptionFacets != null)
         'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
-      'list': list,
+      'list': list.toString(),
       if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
       'createdAt': iso8601(createdAt),
     },
@@ -894,7 +894,7 @@ final class GraphStarterpackRecordAccessor {
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    required String list,
+    required AtUri list,
     List<FeedItem>? feeds,
     DateTime? createdAt,
     required String rkey,
@@ -914,7 +914,7 @@ final class GraphStarterpackRecordAccessor {
       if (description != null) 'description': description,
       if (descriptionFacets != null)
         'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
-      'list': list,
+      'list': list.toString(),
       if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
       'createdAt': iso8601(createdAt),
     },
@@ -1077,7 +1077,7 @@ final class GraphListblockRecordAccessor {
   );
 
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String subject,
+    required AtUri subject,
     DateTime? createdAt,
     String? rkey,
     bool? validate,
@@ -1089,14 +1089,18 @@ final class GraphListblockRecordAccessor {
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    record: {
+      ...?$unknown,
+      'subject': subject.toString(),
+      'createdAt': iso8601(createdAt),
+    },
     swapCommit: swapCommit,
     $ctx: _ctx,
     $headers: $headers,
   );
 
   Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String subject,
+    required AtUri subject,
     DateTime? createdAt,
     required String rkey,
     bool? validate,
@@ -1109,7 +1113,11 @@ final class GraphListblockRecordAccessor {
     collection: ids.appBskyGraphListblock,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    record: {
+      ...?$unknown,
+      'subject': subject.toString(),
+      'createdAt': iso8601(createdAt),
+    },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $ctx: _ctx,
@@ -1396,7 +1404,7 @@ final class GraphListitemRecordAccessor {
 
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
     required String subject,
-    required String list,
+    required AtUri list,
     DateTime? createdAt,
     String? rkey,
     bool? validate,
@@ -1411,7 +1419,7 @@ final class GraphListitemRecordAccessor {
     record: {
       ...?$unknown,
       'subject': subject,
-      'list': list,
+      'list': list.toString(),
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
@@ -1421,7 +1429,7 @@ final class GraphListitemRecordAccessor {
 
   Future<XRPCResponse<RepoPutRecordOutput>> put({
     required String subject,
-    required String list,
+    required AtUri list,
     DateTime? createdAt,
     required String rkey,
     bool? validate,
@@ -1437,7 +1445,7 @@ final class GraphListitemRecordAccessor {
     record: {
       ...?$unknown,
       'subject': subject,
-      'list': list,
+      'list': list.toString(),
       'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,

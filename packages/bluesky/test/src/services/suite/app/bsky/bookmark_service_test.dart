@@ -8,12 +8,12 @@ import 'service_suite.dart';
 
 void main() {
   testBookmark<EmptyData>(
-    (m, s) => s.createBookmark(uri: m.uri.toString(), cid: m.cid),
+    (m, s) => s.createBookmark(uri: m.uri, cid: m.cid),
     id: appBskyBookmarkCreateBookmark,
   );
 
   testBookmark<EmptyData>(
-    (m, s) => s.deleteBookmark(uri: m.uri.toString()),
+    (m, s) => s.deleteBookmark(uri: m.uri),
     id: appBskyBookmarkDeleteBookmark,
   );
 

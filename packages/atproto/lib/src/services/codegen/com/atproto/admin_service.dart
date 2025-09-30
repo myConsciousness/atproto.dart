@@ -108,7 +108,7 @@ Future<XRPCResponse<EmptyData>> comAtprotoAdminDisableAccountInvites({
 Future<XRPCResponse<AdminGetSubjectStatusOutput>>
 comAtprotoAdminGetSubjectStatus({
   String? did,
-  String? uri,
+  AtUri? uri,
   String? blob,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -119,7 +119,7 @@ comAtprotoAdminGetSubjectStatus({
   parameters: {
     ...?$unknown,
     if (did != null) 'did': did,
-    if (uri != null) 'uri': uri,
+    if (uri != null) 'uri': uri.toString(),
     if (blob != null) 'blob': blob,
   },
   to: const AdminGetSubjectStatusOutputConverter().fromJson,
@@ -347,7 +347,7 @@ base class AdminService {
   /// Get the service-specific admin status of a subject (account, record, or blob).
   Future<XRPCResponse<AdminGetSubjectStatusOutput>> getSubjectStatus({
     String? did,
-    String? uri,
+    AtUri? uri,
     String? blob,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,

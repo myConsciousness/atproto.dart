@@ -27,7 +27,7 @@ import 'service_suite.dart';
 void main() {
   testFeed<RepoCreateRecordOutput>(
     (m, s) => s.repost.create(
-      subject: RepoStrongRef(uri: m.uri.toString(), cid: 'test'),
+      subject: RepoStrongRef(uri: m.uri, cid: 'test'),
     ),
     id: appBskyFeedPost,
   );
@@ -39,7 +39,7 @@ void main() {
 
   testFeed<RepoCreateRecordOutput>(
     (m, s) => s.like.create(
-      subject: RepoStrongRef(uri: m.uri.toString(), cid: 'test'),
+      subject: RepoStrongRef(uri: m.uri, cid: 'test'),
     ),
     id: appBskyFeedPost,
   );
@@ -50,12 +50,12 @@ void main() {
   );
 
   testFeed<FeedGetFeedOutput>(
-    (m, s) => s.getFeed(feed: m.uri.toString()),
+    (m, s) => s.getFeed(feed: m.uri),
     id: appBskyFeedGetFeed,
   );
 
   testFeed<FeedGetFeedSkeletonOutput>(
-    (m, s) => s.getFeedSkeleton(feed: m.uri.toString()),
+    (m, s) => s.getFeedSkeleton(feed: m.uri),
     id: appBskyFeedGetFeedSkeleton,
   );
 
@@ -65,22 +65,22 @@ void main() {
   );
 
   testFeed<FeedGetLikesOutput>(
-    (m, s) => s.getLikes(uri: m.uri.toString()),
+    (m, s) => s.getLikes(uri: m.uri),
     id: appBskyFeedGetLikes,
   );
 
   testFeed<FeedGetRepostedByOutput>(
-    (m, s) => s.getRepostedBy(uri: m.uri.toString()),
+    (m, s) => s.getRepostedBy(uri: m.uri),
     id: appBskyFeedGetRepostedBy,
   );
 
   testFeed<FeedGetPostThreadOutput>(
-    (m, s) => s.getPostThread(uri: m.uri.toString()),
+    (m, s) => s.getPostThread(uri: m.uri),
     id: appBskyFeedGetPostThread,
   );
 
   testFeed<FeedGetPostsOutput>(
-    (m, s) => s.getPosts(uris: [m.uri.toString()]),
+    (m, s) => s.getPosts(uris: [m.uri]),
     id: appBskyFeedGetPosts,
   );
 
@@ -90,12 +90,12 @@ void main() {
   );
 
   testFeed<FeedGetFeedGeneratorOutput>(
-    (m, s) => s.getFeedGenerator(feed: m.uri.toString()),
+    (m, s) => s.getFeedGenerator(feed: m.uri),
     id: appBskyFeedGetFeedGenerator,
   );
 
   testFeed<FeedGetFeedGeneratorsOutput>(
-    (m, s) => s.getFeedGenerators(feeds: [m.uri.toString()]),
+    (m, s) => s.getFeedGenerators(feeds: [m.uri]),
     id: appBskyFeedGetFeedGenerators,
   );
 
@@ -115,12 +115,12 @@ void main() {
   );
 
   testFeed<FeedGetListFeedOutput>(
-    (m, s) => s.getListFeed(list: m.uri.toString()),
+    (m, s) => s.getListFeed(list: m.uri),
     id: appBskyFeedGetListFeed,
   );
 
   testFeed<RepoCreateRecordOutput>(
-    (m, s) => s.threadgate.create(post: m.uri.toString()),
+    (m, s) => s.threadgate.create(post: m.uri),
     id: appBskyFeedThreadgate,
   );
 

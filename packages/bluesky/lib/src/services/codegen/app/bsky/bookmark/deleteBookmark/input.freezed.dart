@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BookmarkDeleteBookmarkInput {
 
- String get uri; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get uri; Map<String, dynamic>? get $unknown;
 /// Create a copy of BookmarkDeleteBookmarkInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $BookmarkDeleteBookmarkInputCopyWith<$Res>  {
   factory $BookmarkDeleteBookmarkInputCopyWith(BookmarkDeleteBookmarkInput value, $Res Function(BookmarkDeleteBookmarkInput) _then) = _$BookmarkDeleteBookmarkInputCopyWithImpl;
 @useResult
 $Res call({
- String uri, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$BookmarkDeleteBookmarkInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BookmarkDeleteBookmarkInput() when $default != null:
 return $default(_that.uri,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _BookmarkDeleteBookmarkInput():
 return $default(_that.uri,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _BookmarkDeleteBookmarkInput() when $default != null:
 return $default(_that.uri,_that.$unknown);case _:
@@ -210,10 +210,10 @@ return $default(_that.uri,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _BookmarkDeleteBookmarkInput implements BookmarkDeleteBookmarkInput {
-  const _BookmarkDeleteBookmarkInput({required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BookmarkDeleteBookmarkInput({@AtUriConverter() required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BookmarkDeleteBookmarkInput.fromJson(Map<String, dynamic> json) => _$BookmarkDeleteBookmarkInputFromJson(json);
 
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,7 +257,7 @@ abstract mixin class _$BookmarkDeleteBookmarkInputCopyWith<$Res> implements $Boo
   factory _$BookmarkDeleteBookmarkInputCopyWith(_BookmarkDeleteBookmarkInput value, $Res Function(_BookmarkDeleteBookmarkInput) _then) = __$BookmarkDeleteBookmarkInputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -277,7 +277,7 @@ class __$BookmarkDeleteBookmarkInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? $unknown = freezed,}) {
   return _then(_BookmarkDeleteBookmarkInput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

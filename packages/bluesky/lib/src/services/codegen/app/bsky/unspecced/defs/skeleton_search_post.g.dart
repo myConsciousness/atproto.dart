@@ -15,7 +15,10 @@ _SkeletonSearchPost _$SkeletonSearchPostFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.unspecced.defs#skeletonSearchPost',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -27,6 +30,6 @@ _SkeletonSearchPost _$SkeletonSearchPostFromJson(Map json) =>
 Map<String, dynamic> _$SkeletonSearchPostToJson(_SkeletonSearchPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       r'$unknown': ?instance.$unknown,
     };

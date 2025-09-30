@@ -16,7 +16,9 @@ _$VerificationRevokeVerificationsInputFromJson(Map json) => $checkedCreate(
     final val = _VerificationRevokeVerificationsInput(
       uris: $checkedConvert(
         'uris',
-        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        (v) => (v as List<dynamic>)
+            .map((e) => const AtUriConverter().fromJson(e as String))
+            .toList(),
       ),
       revokeReason: $checkedConvert('revokeReason', (v) => v as String?),
       $unknown: $checkedConvert(
@@ -31,7 +33,7 @@ _$VerificationRevokeVerificationsInputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$VerificationRevokeVerificationsInputToJson(
   _VerificationRevokeVerificationsInput instance,
 ) => <String, dynamic>{
-  'uris': instance.uris,
+  'uris': instance.uris.map(const AtUriConverter().toJson).toList(),
   'revokeReason': ?instance.revokeReason,
   r'$unknown': ?instance.$unknown,
 };

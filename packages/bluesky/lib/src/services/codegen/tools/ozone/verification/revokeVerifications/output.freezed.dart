@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$VerificationRevokeVerificationsOutput {
 
- List<String> get revokedVerifications;@RevokeErrorConverter() List<RevokeError> get failedRevocations; Map<String, dynamic>? get $unknown;
+@AtUriConverter() List<AtUri> get revokedVerifications;@RevokeErrorConverter() List<RevokeError> get failedRevocations; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationRevokeVerificationsOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $VerificationRevokeVerificationsOutputCopyWith<$Res>  {
   factory $VerificationRevokeVerificationsOutputCopyWith(VerificationRevokeVerificationsOutput value, $Res Function(VerificationRevokeVerificationsOutput) _then) = _$VerificationRevokeVerificationsOutputCopyWithImpl;
 @useResult
 $Res call({
- List<String> revokedVerifications,@RevokeErrorConverter() List<RevokeError> failedRevocations, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> revokedVerifications,@RevokeErrorConverter() List<RevokeError> failedRevocations, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$VerificationRevokeVerificationsOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? revokedVerifications = null,Object? failedRevocations = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 revokedVerifications: null == revokedVerifications ? _self.revokedVerifications : revokedVerifications // ignore: cast_nullable_to_non_nullable
-as List<String>,failedRevocations: null == failedRevocations ? _self.failedRevocations : failedRevocations // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,failedRevocations: null == failedRevocations ? _self.failedRevocations : failedRevocations // ignore: cast_nullable_to_non_nullable
 as List<RevokeError>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> revokedVerifications, @RevokeErrorConverter()  List<RevokeError> failedRevocations,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> revokedVerifications, @RevokeErrorConverter()  List<RevokeError> failedRevocations,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationRevokeVerificationsOutput() when $default != null:
 return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknow
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> revokedVerifications, @RevokeErrorConverter()  List<RevokeError> failedRevocations,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> revokedVerifications, @RevokeErrorConverter()  List<RevokeError> failedRevocations,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationRevokeVerificationsOutput():
 return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknow
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> revokedVerifications, @RevokeErrorConverter()  List<RevokeError> failedRevocations,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> revokedVerifications, @RevokeErrorConverter()  List<RevokeError> failedRevocations,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationRevokeVerificationsOutput() when $default != null:
 return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.revokedVerifications,_that.failedRevocations,_that.$unknow
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationRevokeVerificationsOutput implements VerificationRevokeVerificationsOutput {
-  const _VerificationRevokeVerificationsOutput({required final  List<String> revokedVerifications, @RevokeErrorConverter() required final  List<RevokeError> failedRevocations, final  Map<String, dynamic>? $unknown}): _revokedVerifications = revokedVerifications,_failedRevocations = failedRevocations,_$unknown = $unknown;
+  const _VerificationRevokeVerificationsOutput({@AtUriConverter() required final  List<AtUri> revokedVerifications, @RevokeErrorConverter() required final  List<RevokeError> failedRevocations, final  Map<String, dynamic>? $unknown}): _revokedVerifications = revokedVerifications,_failedRevocations = failedRevocations,_$unknown = $unknown;
   factory _VerificationRevokeVerificationsOutput.fromJson(Map<String, dynamic> json) => _$VerificationRevokeVerificationsOutputFromJson(json);
 
- final  List<String> _revokedVerifications;
-@override List<String> get revokedVerifications {
+ final  List<AtUri> _revokedVerifications;
+@override@AtUriConverter() List<AtUri> get revokedVerifications {
   if (_revokedVerifications is EqualUnmodifiableListView) return _revokedVerifications;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_revokedVerifications);
@@ -271,7 +271,7 @@ abstract mixin class _$VerificationRevokeVerificationsOutputCopyWith<$Res> imple
   factory _$VerificationRevokeVerificationsOutputCopyWith(_VerificationRevokeVerificationsOutput value, $Res Function(_VerificationRevokeVerificationsOutput) _then) = __$VerificationRevokeVerificationsOutputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> revokedVerifications,@RevokeErrorConverter() List<RevokeError> failedRevocations, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> revokedVerifications,@RevokeErrorConverter() List<RevokeError> failedRevocations, Map<String, dynamic>? $unknown
 });
 
 
@@ -291,7 +291,7 @@ class __$VerificationRevokeVerificationsOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? revokedVerifications = null,Object? failedRevocations = null,Object? $unknown = freezed,}) {
   return _then(_VerificationRevokeVerificationsOutput(
 revokedVerifications: null == revokedVerifications ? _self._revokedVerifications : revokedVerifications // ignore: cast_nullable_to_non_nullable
-as List<String>,failedRevocations: null == failedRevocations ? _self._failedRevocations : failedRevocations // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,failedRevocations: null == failedRevocations ? _self._failedRevocations : failedRevocations // ignore: cast_nullable_to_non_nullable
 as List<RevokeError>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

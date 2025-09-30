@@ -48,7 +48,7 @@ Future<void> main() async {
       },
     );
 
-    final recordUri = AtUri.parse(createdRecord.data.uri);
+    final recordUri = createdRecord.data.uri;
 
     //! And delete it.
     await atproto.repo.deleteRecord(

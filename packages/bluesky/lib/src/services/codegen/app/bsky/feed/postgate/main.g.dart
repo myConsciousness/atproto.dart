@@ -19,10 +19,15 @@ _FeedPostgateRecord _$FeedPostgateRecordFromJson(Map json) =>
           'createdAt',
           (v) => DateTime.parse(v as String),
         ),
-        post: $checkedConvert('post', (v) => v as String),
+        post: $checkedConvert(
+          'post',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         detachedEmbeddingUris: $checkedConvert(
           'detachedEmbeddingUris',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+          (v) => (v as List<dynamic>?)
+              ?.map((e) => const AtUriConverter().fromJson(e as String))
+              .toList(),
         ),
         embeddingRules: $checkedConvert(
           'embeddingRules',
@@ -46,8 +51,10 @@ Map<String, dynamic> _$FeedPostgateRecordToJson(_FeedPostgateRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'createdAt': instance.createdAt.toIso8601String(),
-      'post': instance.post,
-      'detachedEmbeddingUris': ?instance.detachedEmbeddingUris,
+      'post': const AtUriConverter().toJson(instance.post),
+      'detachedEmbeddingUris': ?instance.detachedEmbeddingUris
+          ?.map(const AtUriConverter().toJson)
+          .toList(),
       'embeddingRules': ?instance.embeddingRules
           ?.map(const UFeedPostgateEmbeddingRulesConverter().toJson)
           .toList(),

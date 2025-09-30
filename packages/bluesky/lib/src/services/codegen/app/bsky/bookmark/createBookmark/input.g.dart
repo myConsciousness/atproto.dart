@@ -11,7 +11,10 @@ part of 'input.dart';
 _BookmarkCreateBookmarkInput _$BookmarkCreateBookmarkInputFromJson(Map json) =>
     $checkedCreate('_BookmarkCreateBookmarkInput', json, ($checkedConvert) {
       final val = _BookmarkCreateBookmarkInput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -24,7 +27,7 @@ _BookmarkCreateBookmarkInput _$BookmarkCreateBookmarkInputFromJson(Map json) =>
 Map<String, dynamic> _$BookmarkCreateBookmarkInputToJson(
   _BookmarkCreateBookmarkInput instance,
 ) => <String, dynamic>{
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   r'$unknown': ?instance.$unknown,
 };

@@ -15,7 +15,10 @@ _EmbedRecordViewDetached _$EmbedRecordViewDetachedFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.embed.record#viewDetached',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         detached: $checkedConvert('detached', (v) => v as bool),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -29,7 +32,7 @@ Map<String, dynamic> _$EmbedRecordViewDetachedToJson(
   _EmbedRecordViewDetached instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'detached': instance.detached,
   r'$unknown': ?instance.$unknown,
 };

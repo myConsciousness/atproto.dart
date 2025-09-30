@@ -15,8 +15,20 @@ _ViewerState _$ViewerStateFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.defs#viewerState',
         ),
-        repost: $checkedConvert('repost', (v) => v as String?),
-        like: $checkedConvert('like', (v) => v as String?),
+        repost: $checkedConvert(
+          'repost',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
+        like: $checkedConvert(
+          'like',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         bookmarked: $checkedConvert('bookmarked', (v) => v as bool?),
         threadMuted: $checkedConvert('threadMuted', (v) => v as bool?),
         replyDisabled: $checkedConvert('replyDisabled', (v) => v as bool?),
@@ -36,8 +48,14 @@ _ViewerState _$ViewerStateFromJson(Map json) =>
 Map<String, dynamic> _$ViewerStateToJson(_ViewerState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'repost': ?instance.repost,
-      'like': ?instance.like,
+      'repost': ?_$JsonConverterToJson<String, AtUri>(
+        instance.repost,
+        const AtUriConverter().toJson,
+      ),
+      'like': ?_$JsonConverterToJson<String, AtUri>(
+        instance.like,
+        const AtUriConverter().toJson,
+      ),
       'bookmarked': ?instance.bookmarked,
       'threadMuted': ?instance.threadMuted,
       'replyDisabled': ?instance.replyDisabled,
@@ -45,3 +63,13 @@ Map<String, dynamic> _$ViewerStateToJson(_ViewerState instance) =>
       'pinned': ?instance.pinned,
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

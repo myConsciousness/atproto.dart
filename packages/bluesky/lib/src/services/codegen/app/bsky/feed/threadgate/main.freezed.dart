@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$FeedThreadgateRecord {
 
  String get $type;/// Reference (AT-URI) to the post record.
- String get post;@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? get allow; DateTime get createdAt; List<String>? get hiddenReplies; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get post;@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? get allow; DateTime get createdAt;@AtUriConverter() List<AtUri>? get hiddenReplies; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedThreadgateRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $FeedThreadgateRecordCopyWith<$Res>  {
   factory $FeedThreadgateRecordCopyWith(FeedThreadgateRecord value, $Res Function(FeedThreadgateRecord) _then) = _$FeedThreadgateRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String post,@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow, DateTime createdAt, List<String>? hiddenReplies, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri post,@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow, DateTime createdAt,@AtUriConverter() List<AtUri>? hiddenReplies, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,10 +70,10 @@ class _$FeedThreadgateRecordCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as String,allow: freezed == allow ? _self.allow : allow // ignore: cast_nullable_to_non_nullable
+as AtUri,allow: freezed == allow ? _self.allow : allow // ignore: cast_nullable_to_non_nullable
 as List<UFeedThreadgateAllow>?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,hiddenReplies: freezed == hiddenReplies ? _self.hiddenReplies : hiddenReplies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt,  List<String>? hiddenReplies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt, @AtUriConverter()  List<AtUri>? hiddenReplies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedThreadgateRecord() when $default != null:
 return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenReplies,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenR
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt,  List<String>? hiddenReplies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt, @AtUriConverter()  List<AtUri>? hiddenReplies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedThreadgateRecord():
 return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenReplies,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenR
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt,  List<String>? hiddenReplies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow,  DateTime createdAt, @AtUriConverter()  List<AtUri>? hiddenReplies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedThreadgateRecord() when $default != null:
 return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenReplies,_that.$unknown);case _:
@@ -215,12 +215,12 @@ return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenR
 
 @JsonSerializable(includeIfNull: false)
 class _FeedThreadgateRecord implements FeedThreadgateRecord {
-  const _FeedThreadgateRecord({this.$type = 'app.bsky.feed.threadgate', required this.post, @UFeedThreadgateAllowConverter() final  List<UFeedThreadgateAllow>? allow, required this.createdAt, final  List<String>? hiddenReplies, final  Map<String, dynamic>? $unknown}): _allow = allow,_hiddenReplies = hiddenReplies,_$unknown = $unknown;
+  const _FeedThreadgateRecord({this.$type = 'app.bsky.feed.threadgate', @AtUriConverter() required this.post, @UFeedThreadgateAllowConverter() final  List<UFeedThreadgateAllow>? allow, required this.createdAt, @AtUriConverter() final  List<AtUri>? hiddenReplies, final  Map<String, dynamic>? $unknown}): _allow = allow,_hiddenReplies = hiddenReplies,_$unknown = $unknown;
   factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) => _$FeedThreadgateRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Reference (AT-URI) to the post record.
-@override final  String post;
+@override@AtUriConverter() final  AtUri post;
  final  List<UFeedThreadgateAllow>? _allow;
 @override@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? get allow {
   final value = _allow;
@@ -231,8 +231,8 @@ class _FeedThreadgateRecord implements FeedThreadgateRecord {
 }
 
 @override final  DateTime createdAt;
- final  List<String>? _hiddenReplies;
-@override List<String>? get hiddenReplies {
+ final  List<AtUri>? _hiddenReplies;
+@override@AtUriConverter() List<AtUri>? get hiddenReplies {
   final value = _hiddenReplies;
   if (value == null) return null;
   if (_hiddenReplies is EqualUnmodifiableListView) return _hiddenReplies;
@@ -283,7 +283,7 @@ abstract mixin class _$FeedThreadgateRecordCopyWith<$Res> implements $FeedThread
   factory _$FeedThreadgateRecordCopyWith(_FeedThreadgateRecord value, $Res Function(_FeedThreadgateRecord) _then) = __$FeedThreadgateRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String post,@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow, DateTime createdAt, List<String>? hiddenReplies, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri post,@UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow, DateTime createdAt,@AtUriConverter() List<AtUri>? hiddenReplies, Map<String, dynamic>? $unknown
 });
 
 
@@ -304,10 +304,10 @@ class __$FeedThreadgateRecordCopyWithImpl<$Res>
   return _then(_FeedThreadgateRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as String,allow: freezed == allow ? _self._allow : allow // ignore: cast_nullable_to_non_nullable
+as AtUri,allow: freezed == allow ? _self._allow : allow // ignore: cast_nullable_to_non_nullable
 as List<UFeedThreadgateAllow>?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,hiddenReplies: freezed == hiddenReplies ? _self._hiddenReplies : hiddenReplies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

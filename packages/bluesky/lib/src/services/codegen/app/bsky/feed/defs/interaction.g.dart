@@ -15,7 +15,13 @@ _Interaction _$InteractionFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.defs#interaction',
         ),
-        item: $checkedConvert('item', (v) => v as String?),
+        item: $checkedConvert(
+          'item',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         event: $checkedConvert(
           'event',
           (v) => _$JsonConverterFromJson<String, InteractionEvent>(
@@ -36,7 +42,10 @@ _Interaction _$InteractionFromJson(Map json) =>
 Map<String, dynamic> _$InteractionToJson(_Interaction instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'item': ?instance.item,
+      'item': ?_$JsonConverterToJson<String, AtUri>(
+        instance.item,
+        const AtUriConverter().toJson,
+      ),
       'event': ?_$JsonConverterToJson<String, InteractionEvent>(
         instance.event,
         const InteractionEventConverter().toJson,

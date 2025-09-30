@@ -15,7 +15,13 @@ _LabelerViewerState _$LabelerViewerStateFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.labeler.defs#labelerViewerState',
         ),
-        like: $checkedConvert('like', (v) => v as String?),
+        like: $checkedConvert(
+          'like',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -27,6 +33,19 @@ _LabelerViewerState _$LabelerViewerStateFromJson(Map json) =>
 Map<String, dynamic> _$LabelerViewerStateToJson(_LabelerViewerState instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'like': ?instance.like,
+      'like': ?_$JsonConverterToJson<String, AtUri>(
+        instance.like,
+        const AtUriConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

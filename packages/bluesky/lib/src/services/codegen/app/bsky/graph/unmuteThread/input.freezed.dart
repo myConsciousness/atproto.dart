@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GraphUnmuteThreadInput {
 
- String get root; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get root; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphUnmuteThreadInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GraphUnmuteThreadInputCopyWith<$Res>  {
   factory $GraphUnmuteThreadInputCopyWith(GraphUnmuteThreadInput value, $Res Function(GraphUnmuteThreadInput) _then) = _$GraphUnmuteThreadInputCopyWithImpl;
 @useResult
 $Res call({
- String root, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri root, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$GraphUnmuteThreadInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? root = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 root: null == root ? _self.root : root // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String root,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri root,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphUnmuteThreadInput() when $default != null:
 return $default(_that.root,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.root,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String root,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri root,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphUnmuteThreadInput():
 return $default(_that.root,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.root,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String root,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri root,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphUnmuteThreadInput() when $default != null:
 return $default(_that.root,_that.$unknown);case _:
@@ -210,10 +210,10 @@ return $default(_that.root,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GraphUnmuteThreadInput implements GraphUnmuteThreadInput {
-  const _GraphUnmuteThreadInput({required this.root, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphUnmuteThreadInput({@AtUriConverter() required this.root, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphUnmuteThreadInput.fromJson(Map<String, dynamic> json) => _$GraphUnmuteThreadInputFromJson(json);
 
-@override final  String root;
+@override@AtUriConverter() final  AtUri root;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,7 +257,7 @@ abstract mixin class _$GraphUnmuteThreadInputCopyWith<$Res> implements $GraphUnm
   factory _$GraphUnmuteThreadInputCopyWith(_GraphUnmuteThreadInput value, $Res Function(_GraphUnmuteThreadInput) _then) = __$GraphUnmuteThreadInputCopyWithImpl;
 @override @useResult
 $Res call({
- String root, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri root, Map<String, dynamic>? $unknown
 });
 
 
@@ -277,7 +277,7 @@ class __$GraphUnmuteThreadInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? root = null,Object? $unknown = freezed,}) {
   return _then(_GraphUnmuteThreadInput(
 root: null == root ? _self.root : root // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

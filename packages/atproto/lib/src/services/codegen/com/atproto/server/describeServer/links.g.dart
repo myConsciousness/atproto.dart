@@ -15,20 +15,8 @@ _Links _$LinksFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'com.atproto.server.describeServer#links',
         ),
-        privacyPolicy: $checkedConvert(
-          'privacyPolicy',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
-        termsOfService: $checkedConvert(
-          'termsOfService',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
+        termsOfService: $checkedConvert('termsOfService', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -39,23 +27,7 @@ _Links _$LinksFromJson(Map json) =>
 
 Map<String, dynamic> _$LinksToJson(_Links instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'privacyPolicy': ?_$JsonConverterToJson<String, AtUri>(
-    instance.privacyPolicy,
-    const AtUriConverter().toJson,
-  ),
-  'termsOfService': ?_$JsonConverterToJson<String, AtUri>(
-    instance.termsOfService,
-    const AtUriConverter().toJson,
-  ),
+  'privacyPolicy': ?instance.privacyPolicy,
+  'termsOfService': ?instance.termsOfService,
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

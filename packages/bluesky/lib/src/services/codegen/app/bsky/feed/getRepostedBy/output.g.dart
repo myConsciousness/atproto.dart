@@ -11,7 +11,10 @@ part of 'output.dart';
 _FeedGetRepostedByOutput _$FeedGetRepostedByOutputFromJson(Map json) =>
     $checkedCreate('_FeedGetRepostedByOutput', json, ($checkedConvert) {
       final val = _FeedGetRepostedByOutput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String?),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         repostedBy: $checkedConvert(
@@ -35,7 +38,7 @@ _FeedGetRepostedByOutput _$FeedGetRepostedByOutputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetRepostedByOutputToJson(
   _FeedGetRepostedByOutput instance,
 ) => <String, dynamic>{
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': ?instance.cid,
   'cursor': ?instance.cursor,
   'repostedBy': instance.repostedBy

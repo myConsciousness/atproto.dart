@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ServiceConfig {
 
- String get $type;@AtUriConverter() AtUri? get url; Map<String, dynamic>? get $unknown;
+ String get $type; String? get url; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServiceConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ServiceConfigCopyWith<$Res>  {
   factory $ServiceConfigCopyWith(ServiceConfig value, $Res Function(ServiceConfig) _then) = _$ServiceConfigCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? url, Map<String, dynamic>? $unknown
+ String $type, String? url, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$ServiceConfigCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? url,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? url,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServiceConfig() when $default != null:
 return $default(_that.$type,_that.url,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.url,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? url,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? url,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServiceConfig():
 return $default(_that.$type,_that.url,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.url,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? url,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? url,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServiceConfig() when $default != null:
 return $default(_that.$type,_that.url,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.url,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ServiceConfig implements ServiceConfig {
-  const _ServiceConfig({this.$type = 'tools.ozone.server.getConfig#serviceConfig', @AtUriConverter() this.url, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ServiceConfig({this.$type = 'tools.ozone.server.getConfig#serviceConfig', this.url, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServiceConfig.fromJson(Map<String, dynamic> json) => _$ServiceConfigFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override@AtUriConverter() final  AtUri? url;
+@override final  String? url;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$ServiceConfigCopyWith<$Res> implements $ServiceConfigCopy
   factory _$ServiceConfigCopyWith(_ServiceConfig value, $Res Function(_ServiceConfig) _then) = __$ServiceConfigCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? url, Map<String, dynamic>? $unknown
+ String $type, String? url, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$ServiceConfigCopyWithImpl<$Res>
   return _then(_ServiceConfig(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

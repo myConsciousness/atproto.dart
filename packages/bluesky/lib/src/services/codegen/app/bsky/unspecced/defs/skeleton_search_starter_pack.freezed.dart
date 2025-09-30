@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonSearchStarterPack {
 
- String get $type; String get uri; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonSearchStarterPack
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SkeletonSearchStarterPackCopyWith<$Res>  {
   factory $SkeletonSearchStarterPackCopyWith(SkeletonSearchStarterPack value, $Res Function(SkeletonSearchStarterPack) _then) = _$SkeletonSearchStarterPackCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$SkeletonSearchStarterPackCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonSearchStarterPack() when $default != null:
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonSearchStarterPack():
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonSearchStarterPack() when $default != null:
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonSearchStarterPack implements SkeletonSearchStarterPack {
-  const _SkeletonSearchStarterPack({this.$type = 'app.bsky.unspecced.defs#skeletonSearchStarterPack', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonSearchStarterPack({this.$type = 'app.bsky.unspecced.defs#skeletonSearchStarterPack', @AtUriConverter() required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchStarterPack.fromJson(Map<String, dynamic> json) => _$SkeletonSearchStarterPackFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$SkeletonSearchStarterPackCopyWith<$Res> implements $Skele
   factory _$SkeletonSearchStarterPackCopyWith(_SkeletonSearchStarterPack value, $Res Function(_SkeletonSearchStarterPack) _then) = __$SkeletonSearchStarterPackCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$SkeletonSearchStarterPackCopyWithImpl<$Res>
   return _then(_SkeletonSearchStarterPack(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

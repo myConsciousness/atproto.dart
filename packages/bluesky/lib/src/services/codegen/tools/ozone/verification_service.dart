@@ -25,7 +25,7 @@ import 'verification/revokeVerifications/output.dart';
 /// Revoke previously granted verifications in batches of up to 100.
 Future<XRPCResponse<VerificationRevokeVerificationsOutput>>
 toolsOzoneVerificationRevokeVerifications({
-  required List<String> uris,
+  required List<AtUri> uris,
   String? revokeReason,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -35,7 +35,7 @@ toolsOzoneVerificationRevokeVerifications({
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
-    'uris': uris,
+    'uris': uris.map((e) => e.toString()).toList(),
     if (revokeReason != null) 'revokeReason': revokeReason,
   },
   to: const VerificationRevokeVerificationsOutputConverter().fromJson,
@@ -99,7 +99,7 @@ base class VerificationService {
   /// Revoke previously granted verifications in batches of up to 100.
   Future<XRPCResponse<VerificationRevokeVerificationsOutput>>
   revokeVerifications({
-    required List<String> uris,
+    required List<AtUri> uris,
     String? revokeReason,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,

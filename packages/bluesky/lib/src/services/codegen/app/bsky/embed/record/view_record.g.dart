@@ -16,7 +16,10 @@ _EmbedRecordViewRecord _$EmbedRecordViewRecordFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.embed.record#viewRecord',
     ),
-    uri: $checkedConvert('uri', (v) => v as String),
+    uri: $checkedConvert(
+      'uri',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     cid: $checkedConvert('cid', (v) => v as String),
     author: $checkedConvert(
       'author',
@@ -59,7 +62,7 @@ Map<String, dynamic> _$EmbedRecordViewRecordToJson(
   _EmbedRecordViewRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'author': const ProfileViewBasicConverter().toJson(instance.author),
   'value': instance.value,

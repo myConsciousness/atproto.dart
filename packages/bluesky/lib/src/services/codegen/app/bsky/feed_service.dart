@@ -63,14 +63,14 @@ import 'package:atproto/com_atproto_services.dart'
 
 /// Get information about a feed generator. Implemented by AppView.
 Future<XRPCResponse<FeedGetFeedGeneratorOutput>> appBskyFeedGetFeedGenerator({
-  required String feed,
+  required AtUri feed,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetFeedGenerator,
   headers: $headers,
-  parameters: {...?$unknown, 'feed': feed},
+  parameters: {...?$unknown, 'feed': feed.toString()},
   to: const FeedGetFeedGeneratorOutputConverter().fromJson,
 );
 
@@ -116,7 +116,7 @@ Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
 
 /// Get like records which reference a subject (by AT-URI and CID).
 Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
-  required String uri,
+  required AtUri uri,
   String? cid,
   int? limit,
   String? cursor,
@@ -128,7 +128,7 @@ Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'uri': uri,
+    'uri': uri.toString(),
     if (cid != null) 'cid': cid,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
@@ -138,20 +138,20 @@ Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
 
 /// Get information about a list of feed generators.
 Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> appBskyFeedGetFeedGenerators({
-  required List<String> feeds,
+  required List<AtUri> feeds,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetFeedGenerators,
   headers: $headers,
-  parameters: {...?$unknown, 'feeds': feeds},
+  parameters: {...?$unknown, 'feeds': feeds.map((e) => e.toString()).toList()},
   to: const FeedGetFeedGeneratorsOutputConverter().fromJson,
 );
 
 /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
 Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
-  required String feed,
+  required AtUri feed,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
@@ -162,7 +162,7 @@ Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'feed': feed,
+    'feed': feed.toString(),
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
@@ -171,7 +171,7 @@ Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
 
 /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
 Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
-  required String feed,
+  required AtUri feed,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
@@ -182,7 +182,7 @@ Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'feed': feed,
+    'feed': feed.toString(),
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
@@ -281,7 +281,7 @@ Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> appBskyFeedGetSuggestedFeeds({
 
 /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
 Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
-  required String uri,
+  required AtUri uri,
   int? depth,
   int? parentHeight,
   required ServiceContext $ctx,
@@ -292,7 +292,7 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'uri': uri,
+    'uri': uri.toString(),
     if (depth != null) 'depth': depth,
     if (parentHeight != null) 'parentHeight': parentHeight,
   },
@@ -301,7 +301,7 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
 
 /// Get a list of quotes for a given post.
 Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
-  required String uri,
+  required AtUri uri,
   String? cid,
   int? limit,
   String? cursor,
@@ -313,7 +313,7 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'uri': uri,
+    'uri': uri.toString(),
     if (cid != null) 'cid': cid,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
@@ -323,14 +323,14 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
 
 /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
 Future<XRPCResponse<FeedGetPostsOutput>> appBskyFeedGetPosts({
-  required List<String> uris,
+  required List<AtUri> uris,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetPosts,
   headers: $headers,
-  parameters: {...?$unknown, 'uris': uris},
+  parameters: {...?$unknown, 'uris': uris.map((e) => e.toString()).toList()},
   to: const FeedGetPostsOutputConverter().fromJson,
 );
 
@@ -344,7 +344,7 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
   String? author,
   String? lang,
   String? domain,
-  AtUri? url,
+  String? url,
   List<String>? tag,
   int? limit,
   String? cursor,
@@ -374,7 +374,7 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
 
 /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
 Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
-  required String list,
+  required AtUri list,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
@@ -385,7 +385,7 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'list': list,
+    'list': list.toString(),
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
@@ -394,7 +394,7 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
 
 /// Get a list of reposts for a given post.
 Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
-  required String uri,
+  required AtUri uri,
   String? cid,
   int? limit,
   String? cursor,
@@ -406,7 +406,7 @@ Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'uri': uri,
+    'uri': uri.toString(),
     if (cid != null) 'cid': cid,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
@@ -436,7 +436,7 @@ base class FeedService {
 
   /// Get information about a feed generator. Implemented by AppView.
   Future<XRPCResponse<FeedGetFeedGeneratorOutput>> getFeedGenerator({
-    required String feed,
+    required AtUri feed,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedGetFeedGenerator(
@@ -483,7 +483,7 @@ base class FeedService {
 
   /// Get like records which reference a subject (by AT-URI and CID).
   Future<XRPCResponse<FeedGetLikesOutput>> getLikes({
-    required String uri,
+    required AtUri uri,
     String? cid,
     int? limit,
     String? cursor,
@@ -504,7 +504,7 @@ base class FeedService {
 
   /// Get information about a list of feed generators.
   Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> getFeedGenerators({
-    required List<String> feeds,
+    required List<AtUri> feeds,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedGetFeedGenerators(
@@ -516,7 +516,7 @@ base class FeedService {
 
   /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
   Future<XRPCResponse<FeedGetFeedOutput>> getFeed({
-    required String feed,
+    required AtUri feed,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
@@ -532,7 +532,7 @@ base class FeedService {
 
   /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
   Future<XRPCResponse<FeedGetFeedSkeletonOutput>> getFeedSkeleton({
-    required String feed,
+    required AtUri feed,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
@@ -623,7 +623,7 @@ base class FeedService {
 
   /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
   Future<XRPCResponse<FeedGetPostThreadOutput>> getPostThread({
-    required String uri,
+    required AtUri uri,
     int? depth,
     int? parentHeight,
     Map<String, String>? $headers,
@@ -642,7 +642,7 @@ base class FeedService {
 
   /// Get a list of quotes for a given post.
   Future<XRPCResponse<FeedGetQuotesOutput>> getQuotes({
-    required String uri,
+    required AtUri uri,
     String? cid,
     int? limit,
     String? cursor,
@@ -660,7 +660,7 @@ base class FeedService {
 
   /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
   Future<XRPCResponse<FeedGetPostsOutput>> getPosts({
-    required List<String> uris,
+    required List<AtUri> uris,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedGetPosts(
@@ -680,7 +680,7 @@ base class FeedService {
     String? author,
     String? lang,
     String? domain,
-    AtUri? url,
+    String? url,
     List<String>? tag,
     int? limit,
     String? cursor,
@@ -709,7 +709,7 @@ base class FeedService {
 
   /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
   Future<XRPCResponse<FeedGetListFeedOutput>> getListFeed({
-    required String list,
+    required AtUri list,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,
@@ -728,7 +728,7 @@ base class FeedService {
 
   /// Get a list of reposts for a given post.
   Future<XRPCResponse<FeedGetRepostedByOutput>> getRepostedBy({
-    required String uri,
+    required AtUri uri,
     String? cid,
     int? limit,
     String? cursor,
@@ -893,10 +893,10 @@ final class FeedThreadgateRecordAccessor {
   );
 
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String post,
+    required AtUri post,
     List<UFeedThreadgateAllow>? allow,
     DateTime? createdAt,
-    List<String>? hiddenReplies,
+    List<AtUri>? hiddenReplies,
     String? rkey,
     bool? validate,
     String? swapCommit,
@@ -909,10 +909,11 @@ final class FeedThreadgateRecordAccessor {
     validate: validate,
     record: {
       ...?$unknown,
-      'post': post,
+      'post': post.toString(),
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
       'createdAt': iso8601(createdAt),
-      if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
+      if (hiddenReplies != null)
+        'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
     },
     swapCommit: swapCommit,
     $ctx: _ctx,
@@ -920,10 +921,10 @@ final class FeedThreadgateRecordAccessor {
   );
 
   Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String post,
+    required AtUri post,
     List<UFeedThreadgateAllow>? allow,
     DateTime? createdAt,
-    List<String>? hiddenReplies,
+    List<AtUri>? hiddenReplies,
     required String rkey,
     bool? validate,
     String? swapRecord,
@@ -937,10 +938,11 @@ final class FeedThreadgateRecordAccessor {
     validate: validate,
     record: {
       ...?$unknown,
-      'post': post,
+      'post': post.toString(),
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
       'createdAt': iso8601(createdAt),
-      if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
+      if (hiddenReplies != null)
+        'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1142,8 +1144,8 @@ final class FeedPostgateRecordAccessor {
 
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
     DateTime? createdAt,
-    required String post,
-    List<String>? detachedEmbeddingUris,
+    required AtUri post,
+    List<AtUri>? detachedEmbeddingUris,
     List<UFeedPostgateEmbeddingRules>? embeddingRules,
     String? rkey,
     bool? validate,
@@ -1158,9 +1160,11 @@ final class FeedPostgateRecordAccessor {
     record: {
       ...?$unknown,
       'createdAt': iso8601(createdAt),
-      'post': post,
+      'post': post.toString(),
       if (detachedEmbeddingUris != null)
-        'detachedEmbeddingUris': detachedEmbeddingUris,
+        'detachedEmbeddingUris': detachedEmbeddingUris
+            .map((e) => e.toString())
+            .toList(),
       if (embeddingRules != null)
         'embeddingRules': embeddingRules.map((e) => e.toJson()).toList(),
     },
@@ -1171,8 +1175,8 @@ final class FeedPostgateRecordAccessor {
 
   Future<XRPCResponse<RepoPutRecordOutput>> put({
     DateTime? createdAt,
-    required String post,
-    List<String>? detachedEmbeddingUris,
+    required AtUri post,
+    List<AtUri>? detachedEmbeddingUris,
     List<UFeedPostgateEmbeddingRules>? embeddingRules,
     required String rkey,
     bool? validate,
@@ -1188,9 +1192,11 @@ final class FeedPostgateRecordAccessor {
     record: {
       ...?$unknown,
       'createdAt': iso8601(createdAt),
-      'post': post,
+      'post': post.toString(),
       if (detachedEmbeddingUris != null)
-        'detachedEmbeddingUris': detachedEmbeddingUris,
+        'detachedEmbeddingUris': detachedEmbeddingUris
+            .map((e) => e.toString())
+            .toList(),
       if (embeddingRules != null)
         'embeddingRules': embeddingRules.map((e) => e.toJson()).toList(),
     },

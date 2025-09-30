@@ -40,7 +40,7 @@ PostView postView({
   return PostView(
     record: record,
     author: author,
-    uri: 'at://${author.did}/app.bsky.feed.post/fake',
+    uri: AtUri('at://${author.did}/app.bsky.feed.post/fake'),
     cid: _kFakeCid,
     embed: embed,
     labels: labels,
@@ -66,7 +66,7 @@ ProfileViewBasic profileViewBasic({
 
 ListViewBasic listViewBasic({required String name}) {
   return ListViewBasic(
-    uri: 'at://did:plc:fake/app.bsky.graph.list/fake',
+    uri: AtUri('at://did:plc:fake/app.bsky.graph.list/fake'),
     cid: _kFakeCid,
     name: name,
     purpose: const ListPurpose.knownValue(
@@ -79,7 +79,7 @@ ListViewBasic listViewBasic({required String name}) {
 Label label({required String uri, required String val, String? src}) {
   return Label(
     src: src ?? 'did:plc:fake-labeler',
-    uri: AtUri(uri),
+    uri: uri,
     val: val,
     cts: DateTime.now().toUtc(),
   );
@@ -94,7 +94,7 @@ UPostViewEmbed embedRecordView({
     data: EmbedRecordView(
       record: UEmbedRecordViewRecord.embedRecordViewRecord(
         data: EmbedRecordViewRecord(
-          uri: 'at://${author.did}/app.bsky.feed.post/fake',
+          uri: AtUri('at://${author.did}/app.bsky.feed.post/fake'),
           cid: _kFakeCid,
           author: author,
           value: record,

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ThreadItem {
 
- String get $type; String get uri;/// The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.
+ String get $type;@AtUriConverter() AtUri get uri;/// The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.
  int get depth;@UThreadItemValueConverter() UThreadItemValue get value; Map<String, dynamic>? get $unknown;
 /// Create a copy of ThreadItem
 /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +49,7 @@ abstract mixin class $ThreadItemCopyWith<$Res>  {
   factory $ThreadItemCopyWith(ThreadItem value, $Res Function(ThreadItem) _then) = _$ThreadItemCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, int depth,@UThreadItemValueConverter() UThreadItemValue value, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, int depth,@UThreadItemValueConverter() UThreadItemValue value, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$ThreadItemCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,depth: null == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
+as AtUri,depth: null == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
 as int,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as UThreadItemValue,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  int depth, @UThreadItemValueConverter()  UThreadItemValue value,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  int depth, @UThreadItemValueConverter()  UThreadItemValue value,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThreadItem() when $default != null:
 return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  int depth, @UThreadItemValueConverter()  UThreadItemValue value,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  int depth, @UThreadItemValueConverter()  UThreadItemValue value,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ThreadItem():
 return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  int depth, @UThreadItemValueConverter()  UThreadItemValue value,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  int depth, @UThreadItemValueConverter()  UThreadItemValue value,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ThreadItem() when $default != null:
 return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);case _:
@@ -223,11 +223,11 @@ return $default(_that.$type,_that.uri,_that.depth,_that.value,_that.$unknown);ca
 
 @JsonSerializable(includeIfNull: false)
 class _ThreadItem implements ThreadItem {
-  const _ThreadItem({this.$type = 'app.bsky.unspecced.getPostThreadV2#threadItem', required this.uri, required this.depth, @UThreadItemValueConverter() required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadItem({this.$type = 'app.bsky.unspecced.getPostThreadV2#threadItem', @AtUriConverter() required this.uri, required this.depth, @UThreadItemValueConverter() required this.value, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItem.fromJson(Map<String, dynamic> json) => _$ThreadItemFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 /// The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.
 @override final  int depth;
 @override@UThreadItemValueConverter() final  UThreadItemValue value;
@@ -274,7 +274,7 @@ abstract mixin class _$ThreadItemCopyWith<$Res> implements $ThreadItemCopyWith<$
   factory _$ThreadItemCopyWith(_ThreadItem value, $Res Function(_ThreadItem) _then) = __$ThreadItemCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, int depth,@UThreadItemValueConverter() UThreadItemValue value, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, int depth,@UThreadItemValueConverter() UThreadItemValue value, Map<String, dynamic>? $unknown
 });
 
 
@@ -295,7 +295,7 @@ class __$ThreadItemCopyWithImpl<$Res>
   return _then(_ThreadItem(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,depth: null == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
+as AtUri,depth: null == depth ? _self.depth : depth // ignore: cast_nullable_to_non_nullable
 as int,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as UThreadItemValue,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

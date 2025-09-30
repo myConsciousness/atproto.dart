@@ -18,7 +18,7 @@ mixin _$ModerationQueryEventsInput {
  List<String>? get types; String? get createdBy;/// Sort direction for the events. Defaults to descending order of created at timestamp.
  String get sortDirection;/// Retrieve events created after a given timestamp
  DateTime? get createdAfter;/// Retrieve events created before a given timestamp
- DateTime? get createdBefore;@AtUriConverter() AtUri? get subject; List<String>? get collections;/// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+ DateTime? get createdBefore; String? get subject; List<String>? get collections;/// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
 @ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? get subjectType;/// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
  bool get includeAllUserRecords; int get limit;/// If true, only events with comments are returned
  bool? get hasComment;/// If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.
@@ -58,7 +58,7 @@ abstract mixin class $ModerationQueryEventsInputCopyWith<$Res>  {
   factory $ModerationQueryEventsInputCopyWith(ModerationQueryEventsInput value, $Res Function(ModerationQueryEventsInput) _then) = _$ModerationQueryEventsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? types, String? createdBy, String sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections,@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? subjectType, bool includeAllUserRecords, int limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? batchId,@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? types, String? createdBy, String sortDirection, DateTime? createdAfter, DateTime? createdBefore, String? subject, List<String>? collections,@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? subjectType, bool includeAllUserRecords, int limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? batchId,@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -83,7 +83,7 @@ as String?,sortDirection: null == sortDirection ? _self.sortDirection : sortDire
 as String,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : createdBefore // ignore: cast_nullable_to_non_nullable
 as DateTime?,subject: freezed == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
-as AtUri?,collections: freezed == collections ? _self.collections : collections // ignore: cast_nullable_to_non_nullable
+as String?,collections: freezed == collections ? _self.collections : collections // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
 as ModerationQueryEventsSubjectType?,includeAllUserRecords: null == includeAllUserRecords ? _self.includeAllUserRecords : includeAllUserRecords // ignore: cast_nullable_to_non_nullable
 as bool,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
@@ -209,7 +209,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool includeAllUserRecords,  int limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? batchId, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String sortDirection,  DateTime? createdAfter,  DateTime? createdBefore,  String? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool includeAllUserRecords,  int limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? batchId, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput() when $default != null:
 return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.batchId,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
@@ -230,7 +230,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool includeAllUserRecords,  int limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? batchId, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? types,  String? createdBy,  String sortDirection,  DateTime? createdAfter,  DateTime? createdBefore,  String? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool includeAllUserRecords,  int limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? batchId, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput():
 return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.batchId,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
@@ -250,7 +250,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? types,  String? createdBy,  String sortDirection,  DateTime? createdAfter,  DateTime? createdBefore, @AtUriConverter()  AtUri? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool includeAllUserRecords,  int limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? batchId, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? types,  String? createdBy,  String sortDirection,  DateTime? createdAfter,  DateTime? createdBefore,  String? subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter()  ModerationQueryEventsSubjectType? subjectType,  bool includeAllUserRecords,  int limit,  bool? hasComment,  String? comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool,  String? batchId, @ModerationQueryEventsAgeAssuranceStateConverter()  ModerationQueryEventsAgeAssuranceState? ageAssuranceState,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationQueryEventsInput() when $default != null:
 return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAfter,_that.createdBefore,_that.subject,_that.collections,_that.subjectType,_that.includeAllUserRecords,_that.limit,_that.hasComment,_that.comment,_that.addedLabels,_that.removedLabels,_that.addedTags,_that.removedTags,_that.reportTypes,_that.policies,_that.modTool,_that.batchId,_that.ageAssuranceState,_that.cursor,_that.$unknown);case _:
@@ -265,7 +265,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
-  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection = 'desc', this.createdAfter, this.createdBefore, @AtUriConverter() this.subject, final  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter() this.subjectType, this.includeAllUserRecords = false, this.limit = 50, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, this.batchId, @ModerationQueryEventsAgeAssuranceStateConverter() this.ageAssuranceState, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
+  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection = 'desc', this.createdAfter, this.createdBefore, this.subject, final  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter() this.subjectType, this.includeAllUserRecords = false, this.limit = 50, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, this.batchId, @ModerationQueryEventsAgeAssuranceStateConverter() this.ageAssuranceState, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
   factory _ModerationQueryEventsInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryEventsInputFromJson(json);
 
  final  List<String>? _types;
@@ -284,7 +284,7 @@ class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
 @override final  DateTime? createdAfter;
 /// Retrieve events created before a given timestamp
 @override final  DateTime? createdBefore;
-@override@AtUriConverter() final  AtUri? subject;
+@override final  String? subject;
  final  List<String>? _collections;
 @override List<String>? get collections {
   final value = _collections;
@@ -416,7 +416,7 @@ abstract mixin class _$ModerationQueryEventsInputCopyWith<$Res> implements $Mode
   factory _$ModerationQueryEventsInputCopyWith(_ModerationQueryEventsInput value, $Res Function(_ModerationQueryEventsInput) _then) = __$ModerationQueryEventsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? types, String? createdBy, String sortDirection, DateTime? createdAfter, DateTime? createdBefore,@AtUriConverter() AtUri? subject, List<String>? collections,@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? subjectType, bool includeAllUserRecords, int limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? batchId,@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? types, String? createdBy, String sortDirection, DateTime? createdAfter, DateTime? createdBefore, String? subject, List<String>? collections,@ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? subjectType, bool includeAllUserRecords, int limit, bool? hasComment, String? comment, List<String>? addedLabels, List<String>? removedLabels, List<String>? addedTags, List<String>? removedTags, List<String>? reportTypes, List<String>? policies, List<String>? modTool, String? batchId,@ModerationQueryEventsAgeAssuranceStateConverter() ModerationQueryEventsAgeAssuranceState? ageAssuranceState, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -441,7 +441,7 @@ as String?,sortDirection: null == sortDirection ? _self.sortDirection : sortDire
 as String,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : createdBefore // ignore: cast_nullable_to_non_nullable
 as DateTime?,subject: freezed == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
-as AtUri?,collections: freezed == collections ? _self._collections : collections // ignore: cast_nullable_to_non_nullable
+as String?,collections: freezed == collections ? _self._collections : collections // ignore: cast_nullable_to_non_nullable
 as List<String>?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
 as ModerationQueryEventsSubjectType?,includeAllUserRecords: null == includeAllUserRecords ? _self.includeAllUserRecords : includeAllUserRecords // ignore: cast_nullable_to_non_nullable
 as bool,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable

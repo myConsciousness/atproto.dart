@@ -11,7 +11,10 @@ part of 'input.dart';
 _FeedGetFeedInput _$FeedGetFeedInputFromJson(Map json) =>
     $checkedCreate('_FeedGetFeedInput', json, ($checkedConvert) {
       final val = _FeedGetFeedInput(
-        feed: $checkedConvert('feed', (v) => v as String),
+        feed: $checkedConvert(
+          'feed',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         $unknown: $checkedConvert(
@@ -24,7 +27,7 @@ _FeedGetFeedInput _$FeedGetFeedInputFromJson(Map json) =>
 
 Map<String, dynamic> _$FeedGetFeedInputToJson(_FeedGetFeedInput instance) =>
     <String, dynamic>{
-      'feed': instance.feed,
+      'feed': const AtUriConverter().toJson(instance.feed),
       'limit': instance.limit,
       'cursor': ?instance.cursor,
       r'$unknown': ?instance.$unknown,

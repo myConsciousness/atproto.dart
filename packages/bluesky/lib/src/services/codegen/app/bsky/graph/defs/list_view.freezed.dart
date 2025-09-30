@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListView {
 
- String get $type; String get uri; String get cid;@ProfileViewConverter() ProfileView get creator; String get name;@ListPurposeConverter() ListPurpose get purpose; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets;@AtUriConverter() AtUri? get avatar; int? get listItemCount;@LabelConverter() List<Label>? get labels;@ListViewerStateConverter() ListViewerState? get viewer; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator; String get name;@ListPurposeConverter() ListPurpose get purpose; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets; String? get avatar; int? get listItemCount;@LabelConverter() List<Label>? get labels;@ListViewerStateConverter() ListViewerState? get viewer; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ListViewCopyWith<$Res>  {
   factory $ListViewCopyWith(ListView value, $Res Function(ListView) _then) = _$ListViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,14 +69,14 @@ class _$ListViewCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,creator: null == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as ProfileView,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,purpose: null == purpose ? _self.purpose : purpose // ignore: cast_nullable_to_non_nullable
 as ListPurpose,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,descriptionFacets: freezed == descriptionFacets ? _self.descriptionFacets : descriptionFacets // ignore: cast_nullable_to_non_nullable
 as List<RichtextFacet>?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,listItemCount: freezed == listItemCount ? _self.listItemCount : listItemCount // ignore: cast_nullable_to_non_nullable
+as String?,listItemCount: freezed == listItemCount ? _self.listItemCount : listItemCount // ignore: cast_nullable_to_non_nullable
 as int?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as ListViewerState?,indexedAt: null == indexedAt ? _self.indexedAt : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.purpose,_that.description,_that.descriptionFacets,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListView():
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.purpose,_that.description,_that.descriptionFacets,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -237,7 +237,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.purpose,_that.description,_that.descriptionFacets,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -252,11 +252,11 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 
 @JsonSerializable(includeIfNull: false)
 class _ListView implements ListView {
-  const _ListView({this.$type = 'app.bsky.graph.defs#listView', required this.uri, required this.cid, @ProfileViewConverter() required this.creator, required this.name, @ListPurposeConverter() required this.purpose, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
+  const _ListView({this.$type = 'app.bsky.graph.defs#listView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, required this.name, @ListPurposeConverter() required this.purpose, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
   factory _ListView.fromJson(Map<String, dynamic> json) => _$ListViewFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String cid;
 @override@ProfileViewConverter() final  ProfileView creator;
 @override final  String name;
@@ -271,7 +271,7 @@ class _ListView implements ListView {
   return EqualUnmodifiableListView(value);
 }
 
-@override@AtUriConverter() final  AtUri? avatar;
+@override final  String? avatar;
 @override final  int? listItemCount;
  final  List<Label>? _labels;
 @override@LabelConverter() List<Label>? get labels {
@@ -327,7 +327,7 @@ abstract mixin class _$ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res>
   factory _$ListViewCopyWith(_ListView value, $Res Function(_ListView) _then) = __$ListViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -348,14 +348,14 @@ class __$ListViewCopyWithImpl<$Res>
   return _then(_ListView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,creator: null == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as ProfileView,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,purpose: null == purpose ? _self.purpose : purpose // ignore: cast_nullable_to_non_nullable
 as ListPurpose,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,descriptionFacets: freezed == descriptionFacets ? _self._descriptionFacets : descriptionFacets // ignore: cast_nullable_to_non_nullable
 as List<RichtextFacet>?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,listItemCount: freezed == listItemCount ? _self.listItemCount : listItemCount // ignore: cast_nullable_to_non_nullable
+as String?,listItemCount: freezed == listItemCount ? _self.listItemCount : listItemCount // ignore: cast_nullable_to_non_nullable
 as int?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as ListViewerState?,indexedAt: null == indexedAt ? _self.indexedAt : indexedAt // ignore: cast_nullable_to_non_nullable

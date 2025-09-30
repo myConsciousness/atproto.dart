@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Feed {
 
- String get $type; String get uri; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; Map<String, dynamic>? get $unknown;
 /// Create a copy of Feed
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedCopyWith<$Res>  {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) _then) = _$FeedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$FeedCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Feed() when $default != null:
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Feed():
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Feed() when $default != null:
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _Feed implements Feed {
-  const _Feed({this.$type = 'app.bsky.feed.describeFeedGenerator#feed', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Feed({this.$type = 'app.bsky.feed.describeFeedGenerator#feed', @AtUriConverter() required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
   factory _$FeedCopyWith(_Feed value, $Res Function(_Feed) _then) = __$FeedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$FeedCopyWithImpl<$Res>
   return _then(_Feed(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

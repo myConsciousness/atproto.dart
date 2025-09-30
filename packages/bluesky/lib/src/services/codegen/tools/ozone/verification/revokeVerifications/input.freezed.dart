@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$VerificationRevokeVerificationsInput {
 
 /// The AT-URI of the verification record to revoke.
- List<String> get uris;/// Reason for revoking the verification. This is optional and can be omitted if not needed.
+@AtUriConverter() List<AtUri> get uris;/// Reason for revoking the verification. This is optional and can be omitted if not needed.
  String? get revokeReason; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationRevokeVerificationsInput
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $VerificationRevokeVerificationsInputCopyWith<$Res>  {
   factory $VerificationRevokeVerificationsInputCopyWith(VerificationRevokeVerificationsInput value, $Res Function(VerificationRevokeVerificationsInput) _then) = _$VerificationRevokeVerificationsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> uris, String? revokeReason, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> uris, String? revokeReason, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$VerificationRevokeVerificationsInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uris = null,Object? revokeReason = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uris: null == uris ? _self.uris : uris // ignore: cast_nullable_to_non_nullable
-as List<String>,revokeReason: freezed == revokeReason ? _self.revokeReason : revokeReason // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,revokeReason: freezed == revokeReason ? _self.revokeReason : revokeReason // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> uris,  String? revokeReason,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> uris,  String? revokeReason,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationRevokeVerificationsInput() when $default != null:
 return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> uris,  String? revokeReason,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> uris,  String? revokeReason,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationRevokeVerificationsInput():
 return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> uris,  String? revokeReason,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> uris,  String? revokeReason,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationRevokeVerificationsInput() when $default != null:
 return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
@@ -213,13 +213,13 @@ return $default(_that.uris,_that.revokeReason,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationRevokeVerificationsInput implements VerificationRevokeVerificationsInput {
-  const _VerificationRevokeVerificationsInput({required final  List<String> uris, this.revokeReason, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
+  const _VerificationRevokeVerificationsInput({@AtUriConverter() required final  List<AtUri> uris, this.revokeReason, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _VerificationRevokeVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationRevokeVerificationsInputFromJson(json);
 
 /// The AT-URI of the verification record to revoke.
- final  List<String> _uris;
+ final  List<AtUri> _uris;
 /// The AT-URI of the verification record to revoke.
-@override List<String> get uris {
+@override@AtUriConverter() List<AtUri> get uris {
   if (_uris is EqualUnmodifiableListView) return _uris;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_uris);
@@ -270,7 +270,7 @@ abstract mixin class _$VerificationRevokeVerificationsInputCopyWith<$Res> implem
   factory _$VerificationRevokeVerificationsInputCopyWith(_VerificationRevokeVerificationsInput value, $Res Function(_VerificationRevokeVerificationsInput) _then) = __$VerificationRevokeVerificationsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> uris, String? revokeReason, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> uris, String? revokeReason, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,7 +290,7 @@ class __$VerificationRevokeVerificationsInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uris = null,Object? revokeReason = freezed,Object? $unknown = freezed,}) {
   return _then(_VerificationRevokeVerificationsInput(
 uris: null == uris ? _self._uris : uris // ignore: cast_nullable_to_non_nullable
-as List<String>,revokeReason: freezed == revokeReason ? _self.revokeReason : revokeReason // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,revokeReason: freezed == revokeReason ? _self.revokeReason : revokeReason // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

@@ -11,7 +11,10 @@ part of 'input.dart';
 _FeedGetRepostedByInput _$FeedGetRepostedByInputFromJson(Map json) =>
     $checkedCreate('_FeedGetRepostedByInput', json, ($checkedConvert) {
       final val = _FeedGetRepostedByInput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String?),
         limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -26,7 +29,7 @@ _FeedGetRepostedByInput _$FeedGetRepostedByInputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetRepostedByInputToJson(
   _FeedGetRepostedByInput instance,
 ) => <String, dynamic>{
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': ?instance.cid,
   'limit': instance.limit,
   'cursor': ?instance.cursor,

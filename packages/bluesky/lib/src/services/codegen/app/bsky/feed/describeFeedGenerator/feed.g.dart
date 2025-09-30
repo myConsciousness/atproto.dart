@@ -15,7 +15,10 @@ _Feed _$FeedFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.describeFeedGenerator#feed',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -26,6 +29,6 @@ _Feed _$FeedFromJson(Map json) =>
 
 Map<String, dynamic> _$FeedToJson(_Feed instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   r'$unknown': ?instance.$unknown,
 };

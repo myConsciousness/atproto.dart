@@ -16,7 +16,10 @@ _GeneratorView _$GeneratorViewFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.feed.defs#generatorView',
     ),
-    uri: $checkedConvert('uri', (v) => v as String),
+    uri: $checkedConvert(
+      'uri',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     cid: $checkedConvert('cid', (v) => v as String),
     did: $checkedConvert('did', (v) => v as String),
     creator: $checkedConvert(
@@ -35,13 +38,7 @@ _GeneratorView _$GeneratorViewFromJson(
           )
           .toList(),
     ),
-    avatar: $checkedConvert(
-      'avatar',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
+    avatar: $checkedConvert('avatar', (v) => v as String?),
     likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
     acceptsInteractions: $checkedConvert(
       'acceptsInteractions',
@@ -83,7 +80,7 @@ Map<String, dynamic> _$GeneratorViewToJson(
   _GeneratorView instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'did': instance.did,
   'creator': const ProfileViewConverter().toJson(instance.creator),
@@ -92,10 +89,7 @@ Map<String, dynamic> _$GeneratorViewToJson(
   'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
-  'avatar': ?_$JsonConverterToJson<String, AtUri>(
-    instance.avatar,
-    const AtUriConverter().toJson,
-  ),
+  'avatar': ?instance.avatar,
   'likeCount': ?instance.likeCount,
   'acceptsInteractions': ?instance.acceptsInteractions,
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),

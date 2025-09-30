@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetRepostedByOutput {
 
- String get uri; String? get cid; String? get cursor;@ProfileViewConverter() List<ProfileView> get repostedBy; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get uri; String? get cid; String? get cursor;@ProfileViewConverter() List<ProfileView> get repostedBy; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetRepostedByOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedGetRepostedByOutputCopyWith<$Res>  {
   factory $FeedGetRepostedByOutputCopyWith(FeedGetRepostedByOutput value, $Res Function(FeedGetRepostedByOutput) _then) = _$FeedGetRepostedByOutputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String? cid, String? cursor,@ProfileViewConverter() List<ProfileView> repostedBy, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, String? cursor,@ProfileViewConverter() List<ProfileView> repostedBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$FeedGetRepostedByOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? cursor = freezed,Object? repostedBy = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,repostedBy: null == repostedBy ? _self.repostedBy : repostedBy // ignore: cast_nullable_to_non_nullable
 as List<ProfileView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  String? cursor, @ProfileViewConverter()  List<ProfileView> repostedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  String? cursor, @ProfileViewConverter()  List<ProfileView> repostedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetRepostedByOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  String? cursor, @ProfileViewConverter()  List<ProfileView> repostedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  String? cursor, @ProfileViewConverter()  List<ProfileView> repostedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetRepostedByOutput():
 return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  String? cursor, @ProfileViewConverter()  List<ProfileView> repostedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String? cid,  String? cursor, @ProfileViewConverter()  List<ProfileView> repostedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetRepostedByOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown);case _:
@@ -213,10 +213,10 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.repostedBy,_that.$unknown
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetRepostedByOutput implements FeedGetRepostedByOutput {
-  const _FeedGetRepostedByOutput({required this.uri, this.cid, this.cursor, @ProfileViewConverter() required final  List<ProfileView> repostedBy, final  Map<String, dynamic>? $unknown}): _repostedBy = repostedBy,_$unknown = $unknown;
+  const _FeedGetRepostedByOutput({@AtUriConverter() required this.uri, this.cid, this.cursor, @ProfileViewConverter() required final  List<ProfileView> repostedBy, final  Map<String, dynamic>? $unknown}): _repostedBy = repostedBy,_$unknown = $unknown;
   factory _FeedGetRepostedByOutput.fromJson(Map<String, dynamic> json) => _$FeedGetRepostedByOutputFromJson(json);
 
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String? cid;
 @override final  String? cursor;
  final  List<ProfileView> _repostedBy;
@@ -269,7 +269,7 @@ abstract mixin class _$FeedGetRepostedByOutputCopyWith<$Res> implements $FeedGet
   factory _$FeedGetRepostedByOutputCopyWith(_FeedGetRepostedByOutput value, $Res Function(_FeedGetRepostedByOutput) _then) = __$FeedGetRepostedByOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String? cid, String? cursor,@ProfileViewConverter() List<ProfileView> repostedBy, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, String? cursor,@ProfileViewConverter() List<ProfileView> repostedBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -289,7 +289,7 @@ class __$FeedGetRepostedByOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? cursor = freezed,Object? repostedBy = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetRepostedByOutput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,repostedBy: null == repostedBy ? _self._repostedBy : repostedBy // ignore: cast_nullable_to_non_nullable
 as List<ProfileView>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
