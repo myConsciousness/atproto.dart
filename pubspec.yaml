@@ -15,5 +15,5 @@ dependencies:
 
 dev_dependencies:
   lints: ^6.0.0
-  melos: ^6.0.0
+  melos: ^7.1.1
   import_sorter: ^4.6.0
