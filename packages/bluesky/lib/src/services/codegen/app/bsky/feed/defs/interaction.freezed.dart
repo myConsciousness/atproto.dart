@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Interaction {
 
- String get $type; String? get item;@InteractionEventConverter() InteractionEvent? get event;/// Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.
+ String get $type;@AtUriConverter() AtUri? get item;@InteractionEventConverter() InteractionEvent? get event;/// Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.
  String? get feedContext;/// Unique identifier per request that may be passed back alongside interactions.
  String? get reqId; Map<String, dynamic>? get $unknown;
 /// Create a copy of Interaction
@@ -50,7 +50,7 @@ abstract mixin class $InteractionCopyWith<$Res>  {
   factory $InteractionCopyWith(Interaction value, $Res Function(Interaction) _then) = _$InteractionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? item,@InteractionEventConverter() InteractionEvent? event, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? item,@InteractionEventConverter() InteractionEvent? event, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,7 +71,7 @@ class _$InteractionCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,item: freezed == item ? _self.item : item // ignore: cast_nullable_to_non_nullable
-as String?,event: freezed == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
+as AtUri?,event: freezed == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
 as InteractionEvent?,feedContext: freezed == feedContext ? _self.feedContext : feedContext // ignore: cast_nullable_to_non_nullable
 as String?,reqId: freezed == reqId ? _self.reqId : reqId // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? item, @InteractionEventConverter()  InteractionEvent? event,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? item, @InteractionEventConverter()  InteractionEvent? event,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Interaction() when $default != null:
 return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? item, @InteractionEventConverter()  InteractionEvent? event,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? item, @InteractionEventConverter()  InteractionEvent? event,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Interaction():
 return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? item, @InteractionEventConverter()  InteractionEvent? event,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? item, @InteractionEventConverter()  InteractionEvent? event,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Interaction() when $default != null:
 return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId,_that.$unknown);case _:
@@ -228,11 +228,11 @@ return $default(_that.$type,_that.item,_that.event,_that.feedContext,_that.reqId
 
 @JsonSerializable(includeIfNull: false)
 class _Interaction implements Interaction {
-  const _Interaction({this.$type = 'app.bsky.feed.defs#interaction', this.item, @InteractionEventConverter() this.event, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Interaction({this.$type = 'app.bsky.feed.defs#interaction', @AtUriConverter() this.item, @InteractionEventConverter() this.event, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Interaction.fromJson(Map<String, dynamic> json) => _$InteractionFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String? item;
+@override@AtUriConverter() final  AtUri? item;
 @override@InteractionEventConverter() final  InteractionEvent? event;
 /// Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.
 @override final  String? feedContext;
@@ -281,7 +281,7 @@ abstract mixin class _$InteractionCopyWith<$Res> implements $InteractionCopyWith
   factory _$InteractionCopyWith(_Interaction value, $Res Function(_Interaction) _then) = __$InteractionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? item,@InteractionEventConverter() InteractionEvent? event, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? item,@InteractionEventConverter() InteractionEvent? event, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
 });
 
 
@@ -302,7 +302,7 @@ class __$InteractionCopyWithImpl<$Res>
   return _then(_Interaction(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,item: freezed == item ? _self.item : item // ignore: cast_nullable_to_non_nullable
-as String?,event: freezed == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
+as AtUri?,event: freezed == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
 as InteractionEvent?,feedContext: freezed == feedContext ? _self.feedContext : feedContext // ignore: cast_nullable_to_non_nullable
 as String?,reqId: freezed == reqId ? _self.reqId : reqId // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

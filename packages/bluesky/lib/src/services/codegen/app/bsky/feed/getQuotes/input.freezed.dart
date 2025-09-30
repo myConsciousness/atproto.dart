@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$FeedGetQuotesInput {
 
 /// Reference (AT-URI) of post record
- String get uri;/// If supplied, filters to quotes of specific version (by CID) of the post record.
+@AtUriConverter() AtUri get uri;/// If supplied, filters to quotes of specific version (by CID) of the post record.
  String? get cid; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetQuotesInput
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $FeedGetQuotesInputCopyWith<$Res>  {
   factory $FeedGetQuotesInputCopyWith(FeedGetQuotesInput value, $Res Function(FeedGetQuotesInput) _then) = _$FeedGetQuotesInputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$FeedGetQuotesInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetQuotesInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetQuotesInput():
 return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetQuotesInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -215,11 +215,11 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetQuotesInput implements FeedGetQuotesInput {
-  const _FeedGetQuotesInput({required this.uri, this.cid, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetQuotesInput({@AtUriConverter() required this.uri, this.cid, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetQuotesInput.fromJson(Map<String, dynamic> json) => _$FeedGetQuotesInputFromJson(json);
 
 /// Reference (AT-URI) of post record
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 /// If supplied, filters to quotes of specific version (by CID) of the post record.
 @override final  String? cid;
 @override@JsonKey() final  int limit;
@@ -267,7 +267,7 @@ abstract mixin class _$FeedGetQuotesInputCopyWith<$Res> implements $FeedGetQuote
   factory _$FeedGetQuotesInputCopyWith(_FeedGetQuotesInput value, $Res Function(_FeedGetQuotesInput) _then) = __$FeedGetQuotesInputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -287,7 +287,7 @@ class __$FeedGetQuotesInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedGetQuotesInput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

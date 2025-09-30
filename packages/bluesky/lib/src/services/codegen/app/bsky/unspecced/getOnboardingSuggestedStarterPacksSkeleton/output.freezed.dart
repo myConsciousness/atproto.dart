@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput {
 
- List<String> get starterPacks; Map<String, dynamic>? get $unknown;
+@AtUriConverter() List<AtUri> get starterPacks; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputC
   factory $UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputCopyWith(UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput value, $Res Function(UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput) _then) = _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputCopyWithImpl;
 @useResult
 $Res call({
- List<String> starterPacks, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> starterPacks, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputCopyWithImpl<$R
 @pragma('vm:prefer-inline') @override $Res call({Object? starterPacks = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 starterPacks: null == starterPacks ? _self.starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> starterPacks,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> starterPacks,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput() when $default != null:
 return $default(_that.starterPacks,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> starterPacks,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> starterPacks,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput():
 return $default(_that.starterPacks,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> starterPacks,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> starterPacks,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput() when $default != null:
 return $default(_that.starterPacks,_that.$unknown);case _:
@@ -210,11 +210,11 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput implements UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput {
-  const _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput({required final  List<String> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
+  const _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput({@AtUriConverter() required final  List<AtUri> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
   factory _UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputFromJson(json);
 
- final  List<String> _starterPacks;
-@override List<String> get starterPacks {
+ final  List<AtUri> _starterPacks;
+@override@AtUriConverter() List<AtUri> get starterPacks {
   if (_starterPacks is EqualUnmodifiableListView) return _starterPacks;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_starterPacks);
@@ -263,7 +263,7 @@ abstract mixin class _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput
   factory _$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputCopyWith(_UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput value, $Res Function(_UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput) _then) = __$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> starterPacks, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> starterPacks, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutputCopyWithImpl<$
 @override @pragma('vm:prefer-inline') $Res call({Object? starterPacks = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetOnboardingSuggestedStarterPacksSkeletonOutput(
 starterPacks: null == starterPacks ? _self._starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

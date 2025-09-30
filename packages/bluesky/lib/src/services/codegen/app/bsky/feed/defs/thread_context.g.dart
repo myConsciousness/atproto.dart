@@ -15,7 +15,13 @@ _ThreadContext _$ThreadContextFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.defs#threadContext',
         ),
-        rootAuthorLike: $checkedConvert('rootAuthorLike', (v) => v as String?),
+        rootAuthorLike: $checkedConvert(
+          'rootAuthorLike',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -27,6 +33,19 @@ _ThreadContext _$ThreadContextFromJson(Map json) =>
 Map<String, dynamic> _$ThreadContextToJson(_ThreadContext instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'rootAuthorLike': ?instance.rootAuthorLike,
+      'rootAuthorLike': ?_$JsonConverterToJson<String, AtUri>(
+        instance.rootAuthorLike,
+        const AtUriConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

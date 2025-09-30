@@ -17,13 +17,7 @@ _IdentityEvent _$IdentityEventFromJson(Map json) =>
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
         handle: $checkedConvert('handle', (v) => v as String?),
-        pdsHost: $checkedConvert(
-          'pdsHost',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        pdsHost: $checkedConvert('pdsHost', (v) => v as String?),
         tombstone: $checkedConvert('tombstone', (v) => v as bool?),
         timestamp: $checkedConvert(
           'timestamp',
@@ -42,21 +36,8 @@ Map<String, dynamic> _$IdentityEventToJson(_IdentityEvent instance) =>
       r'$type': instance.$type,
       'comment': ?instance.comment,
       'handle': ?instance.handle,
-      'pdsHost': ?_$JsonConverterToJson<String, AtUri>(
-        instance.pdsHost,
-        const AtUriConverter().toJson,
-      ),
+      'pdsHost': ?instance.pdsHost,
       'tombstone': ?instance.tombstone,
       'timestamp': instance.timestamp.toIso8601String(),
       r'$unknown': ?instance.$unknown,
     };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

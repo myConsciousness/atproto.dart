@@ -48,14 +48,14 @@ abstract class GeneratorView with _$GeneratorView {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorView({
     @Default('app.bsky.feed.defs#generatorView') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required String did,
     @ProfileViewConverter() required ProfileView creator,
     required String displayName,
     String? description,
     @RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,
-    @AtUriConverter() AtUri? avatar,
+    String? avatar,
     int? likeCount,
     bool? acceptsInteractions,
     @LabelConverter() List<Label>? labels,

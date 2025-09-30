@@ -79,7 +79,7 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
 
 /// Get details about a record.
 Future<XRPCResponse<RecordViewDetail>> toolsOzoneModerationGetRecord({
-  required String uri,
+  required AtUri uri,
   String? cid,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -87,21 +87,25 @@ Future<XRPCResponse<RecordViewDetail>> toolsOzoneModerationGetRecord({
 }) async => await $ctx.get(
   ns.toolsOzoneModerationGetRecord,
   headers: $headers,
-  parameters: {...?$unknown, 'uri': uri, if (cid != null) 'cid': cid},
+  parameters: {
+    ...?$unknown,
+    'uri': uri.toString(),
+    if (cid != null) 'cid': cid,
+  },
   to: const RecordViewDetailConverter().fromJson,
 );
 
 /// Get details about some records.
 Future<XRPCResponse<ModerationGetRecordsOutput>>
 toolsOzoneModerationGetRecords({
-  required List<String> uris,
+  required List<AtUri> uris,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.toolsOzoneModerationGetRecords,
   headers: $headers,
-  parameters: {...?$unknown, 'uris': uris},
+  parameters: {...?$unknown, 'uris': uris.map((e) => e.toString()).toList()},
   to: const ModerationGetRecordsOutputConverter().fromJson,
 );
 
@@ -112,7 +116,7 @@ toolsOzoneModerationQueryStatuses({
   int? queueIndex,
   String? queueSeed,
   bool? includeAllUserRecords,
-  AtUri? subject,
+  String? subject,
   String? comment,
   DateTime? reportedAfter,
   DateTime? reportedBefore,
@@ -126,7 +130,7 @@ toolsOzoneModerationQueryStatuses({
   bool? includeMuted,
   bool? onlyMuted,
   String? reviewState,
-  List<AtUri>? ignoreSubjects,
+  List<String>? ignoreSubjects,
   String? lastReviewedBy,
   String? sortField,
   String? sortDirection,
@@ -248,7 +252,7 @@ toolsOzoneModerationQueryEvents({
   String? sortDirection,
   DateTime? createdAfter,
   DateTime? createdBefore,
-  AtUri? subject,
+  String? subject,
   List<String>? collections,
   ModerationQueryEventsSubjectType? subjectType,
   bool? includeAllUserRecords,
@@ -393,7 +397,7 @@ base class ModerationService {
 
   /// Get details about a record.
   Future<XRPCResponse<RecordViewDetail>> getRecord({
-    required String uri,
+    required AtUri uri,
     String? cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -407,7 +411,7 @@ base class ModerationService {
 
   /// Get details about some records.
   Future<XRPCResponse<ModerationGetRecordsOutput>> getRecords({
-    required List<String> uris,
+    required List<AtUri> uris,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneModerationGetRecords(
@@ -423,7 +427,7 @@ base class ModerationService {
     int? queueIndex,
     String? queueSeed,
     bool? includeAllUserRecords,
-    AtUri? subject,
+    String? subject,
     String? comment,
     DateTime? reportedAfter,
     DateTime? reportedBefore,
@@ -437,7 +441,7 @@ base class ModerationService {
     bool? includeMuted,
     bool? onlyMuted,
     String? reviewState,
-    List<AtUri>? ignoreSubjects,
+    List<String>? ignoreSubjects,
     String? lastReviewedBy,
     String? sortField,
     String? sortDirection,
@@ -540,7 +544,7 @@ base class ModerationService {
     String? sortDirection,
     DateTime? createdAfter,
     DateTime? createdBefore,
-    AtUri? subject,
+    String? subject,
     List<String>? collections,
     ModerationQueryEventsSubjectType? subjectType,
     bool? includeAllUserRecords,

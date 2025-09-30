@@ -16,17 +16,8 @@ _EmbedVideoView _$EmbedVideoViewFromJson(Map json) =>
           (v) => v as String? ?? 'app.bsky.embed.video#view',
         ),
         cid: $checkedConvert('cid', (v) => v as String),
-        playlist: $checkedConvert(
-          'playlist',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
-        thumbnail: $checkedConvert(
-          'thumbnail',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        playlist: $checkedConvert('playlist', (v) => v as String),
+        thumbnail: $checkedConvert('thumbnail', (v) => v as String?),
         alt: $checkedConvert('alt', (v) => v as String?),
         aspectRatio: $checkedConvert(
           'aspectRatio',
@@ -47,11 +38,8 @@ Map<String, dynamic> _$EmbedVideoViewToJson(_EmbedVideoView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'cid': instance.cid,
-      'playlist': const AtUriConverter().toJson(instance.playlist),
-      'thumbnail': ?_$JsonConverterToJson<String, AtUri>(
-        instance.thumbnail,
-        const AtUriConverter().toJson,
-      ),
+      'playlist': instance.playlist,
+      'thumbnail': ?instance.thumbnail,
       'alt': ?instance.alt,
       'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
         instance.aspectRatio,

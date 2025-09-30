@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListItemView {
 
- String get $type; String get uri;@ProfileViewConverter() ProfileView get subject; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri;@ProfileViewConverter() ProfileView get subject; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListItemView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ListItemViewCopyWith<$Res>  {
   factory $ListItemViewCopyWith(ListItemView value, $Res Function(ListItemView) _then) = _$ListItemViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri,@ProfileViewConverter() ProfileView subject, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri,@ProfileViewConverter() ProfileView subject, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$ListItemViewCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
+as AtUri,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as ProfileView,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -165,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListItemView() when $default != null:
 return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
@@ -186,7 +186,7 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListItemView():
 return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
@@ -206,7 +206,7 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListItemView() when $default != null:
 return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
@@ -221,11 +221,11 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ListItemView implements ListItemView {
-  const _ListItemView({this.$type = 'app.bsky.graph.defs#listItemView', required this.uri, @ProfileViewConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListItemView({this.$type = 'app.bsky.graph.defs#listItemView', @AtUriConverter() required this.uri, @ProfileViewConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListItemView.fromJson(Map<String, dynamic> json) => _$ListItemViewFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override@ProfileViewConverter() final  ProfileView subject;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -270,7 +270,7 @@ abstract mixin class _$ListItemViewCopyWith<$Res> implements $ListItemViewCopyWi
   factory _$ListItemViewCopyWith(_ListItemView value, $Res Function(_ListItemView) _then) = __$ListItemViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri,@ProfileViewConverter() ProfileView subject, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri,@ProfileViewConverter() ProfileView subject, Map<String, dynamic>? $unknown
 });
 
 
@@ -291,7 +291,7 @@ class __$ListItemViewCopyWithImpl<$Res>
   return _then(_ListItemView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
+as AtUri,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as ProfileView,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

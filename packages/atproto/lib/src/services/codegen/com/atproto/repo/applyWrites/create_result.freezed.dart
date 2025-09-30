@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateResult {
 
- String get $type; String get uri; String get cid;@CreateResultValidationStatusConverter() CreateResultValidationStatus? get validationStatus; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@CreateResultValidationStatusConverter() CreateResultValidationStatus? get validationStatus; Map<String, dynamic>? get $unknown;
 /// Create a copy of CreateResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CreateResultCopyWith<$Res>  {
   factory $CreateResultCopyWith(CreateResult value, $Res Function(CreateResult) _then) = _$CreateResultCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String cid,@CreateResultValidationStatusConverter() CreateResultValidationStatus? validationStatus, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@CreateResultValidationStatusConverter() CreateResultValidationStatus? validationStatus, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$CreateResultCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,validationStatus: freezed == validationStatus ? _self.validationStatus : validationStatus // ignore: cast_nullable_to_non_nullable
 as CreateResultValidationStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid, @CreateResultValidationStatusConverter()  CreateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @CreateResultValidationStatusConverter()  CreateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateResult() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$unknown);case _:
@@ -190,7 +190,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid, @CreateResultValidationStatusConverter()  CreateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @CreateResultValidationStatusConverter()  CreateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _CreateResult():
 return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid, @CreateResultValidationStatusConverter()  CreateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @CreateResultValidationStatusConverter()  CreateResultValidationStatus? validationStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateResult() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$unknown);case _:
@@ -225,11 +225,11 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _CreateResult implements CreateResult {
-  const _CreateResult({this.$type = 'com.atproto.repo.applyWrites#createResult', required this.uri, required this.cid, @CreateResultValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _CreateResult({this.$type = 'com.atproto.repo.applyWrites#createResult', @AtUriConverter() required this.uri, required this.cid, @CreateResultValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _CreateResult.fromJson(Map<String, dynamic> json) => _$CreateResultFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String cid;
 @override@CreateResultValidationStatusConverter() final  CreateResultValidationStatus? validationStatus;
  final  Map<String, dynamic>? _$unknown;
@@ -275,7 +275,7 @@ abstract mixin class _$CreateResultCopyWith<$Res> implements $CreateResultCopyWi
   factory _$CreateResultCopyWith(_CreateResult value, $Res Function(_CreateResult) _then) = __$CreateResultCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String cid,@CreateResultValidationStatusConverter() CreateResultValidationStatus? validationStatus, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@CreateResultValidationStatusConverter() CreateResultValidationStatus? validationStatus, Map<String, dynamic>? $unknown
 });
 
 
@@ -296,7 +296,7 @@ class __$CreateResultCopyWithImpl<$Res>
   return _then(_CreateResult(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,validationStatus: freezed == validationStatus ? _self.validationStatus : validationStatus // ignore: cast_nullable_to_non_nullable
 as CreateResultValidationStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

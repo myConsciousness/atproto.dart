@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListRule {
 
- String get $type; String get list; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get list; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListRule
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ListRuleCopyWith<$Res>  {
   factory $ListRuleCopyWith(ListRule value, $Res Function(ListRule) _then) = _$ListRuleCopyWithImpl;
 @useResult
 $Res call({
- String $type, String list, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri list, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$ListRuleCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String list,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri list,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListRule() when $default != null:
 return $default(_that.$type,_that.list,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.list,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String list,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri list,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListRule():
 return $default(_that.$type,_that.list,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.list,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String list,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri list,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListRule() when $default != null:
 return $default(_that.$type,_that.list,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.list,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ListRule implements ListRule {
-  const _ListRule({this.$type = 'app.bsky.feed.threadgate#listRule', required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListRule({this.$type = 'app.bsky.feed.threadgate#listRule', @AtUriConverter() required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListRule.fromJson(Map<String, dynamic> json) => _$ListRuleFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String list;
+@override@AtUriConverter() final  AtUri list;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$ListRuleCopyWith<$Res> implements $ListRuleCopyWith<$Res>
   factory _$ListRuleCopyWith(_ListRule value, $Res Function(_ListRule) _then) = __$ListRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String list, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri list, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$ListRuleCopyWithImpl<$Res>
   return _then(_ListRule(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

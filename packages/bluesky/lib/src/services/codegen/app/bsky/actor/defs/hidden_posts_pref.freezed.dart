@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HiddenPostsPref {
 
- String get $type; List<String> get items; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() List<AtUri> get items; Map<String, dynamic>? get $unknown;
 /// Create a copy of HiddenPostsPref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $HiddenPostsPrefCopyWith<$Res>  {
   factory $HiddenPostsPrefCopyWith(HiddenPostsPref value, $Res Function(HiddenPostsPref) _then) = _$HiddenPostsPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, List<String> items, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() List<AtUri> items, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$HiddenPostsPrefCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<String> items,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  List<AtUri> items,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HiddenPostsPref() when $default != null:
 return $default(_that.$type,_that.items,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<String> items,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  List<AtUri> items,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _HiddenPostsPref():
 return $default(_that.$type,_that.items,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<String> items,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  List<AtUri> items,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _HiddenPostsPref() when $default != null:
 return $default(_that.$type,_that.items,_that.$unknown);case _:
@@ -211,12 +211,12 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _HiddenPostsPref implements HiddenPostsPref {
-  const _HiddenPostsPref({this.$type = 'app.bsky.actor.defs#hiddenPostsPref', required final  List<String> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
+  const _HiddenPostsPref({this.$type = 'app.bsky.actor.defs#hiddenPostsPref', @AtUriConverter() required final  List<AtUri> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) => _$HiddenPostsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
- final  List<String> _items;
-@override List<String> get items {
+ final  List<AtUri> _items;
+@override@AtUriConverter() List<AtUri> get items {
   if (_items is EqualUnmodifiableListView) return _items;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_items);
@@ -265,7 +265,7 @@ abstract mixin class _$HiddenPostsPrefCopyWith<$Res> implements $HiddenPostsPref
   factory _$HiddenPostsPrefCopyWith(_HiddenPostsPref value, $Res Function(_HiddenPostsPref) _then) = __$HiddenPostsPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, List<String> items, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() List<AtUri> items, Map<String, dynamic>? $unknown
 });
 
 
@@ -286,7 +286,7 @@ class __$HiddenPostsPrefCopyWithImpl<$Res>
   return _then(_HiddenPostsPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

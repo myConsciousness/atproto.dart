@@ -178,7 +178,9 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
       } else if (preference.isMutedWordsPref) {
         mutedWords.addAll(preference.mutedWordsPref!.items);
       } else if (preference.isHiddenPostsPref) {
-        hiddenPosts.addAll(preference.hiddenPostsPref!.items);
+        hiddenPosts.addAll(
+          preference.hiddenPostsPref!.items.map((e) => e.toString()),
+        );
       } else if (preference.isContentLabelPref) {
         labelPrefs.add(preference.contentLabelPref!);
       }

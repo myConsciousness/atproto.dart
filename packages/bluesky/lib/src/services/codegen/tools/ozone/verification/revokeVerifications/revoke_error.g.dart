@@ -17,7 +17,10 @@ _RevokeError _$RevokeErrorFromJson(Map json) =>
               v as String? ??
               'tools.ozone.verification.revokeVerifications#revokeError',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         error: $checkedConvert('error', (v) => v as String),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -30,7 +33,7 @@ _RevokeError _$RevokeErrorFromJson(Map json) =>
 Map<String, dynamic> _$RevokeErrorToJson(_RevokeError instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'error': instance.error,
       r'$unknown': ?instance.$unknown,
     };

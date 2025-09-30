@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileViewDetailed {
 
- String get $type; String get did; String get handle; String? get displayName; String? get description; String? get pronouns;@AtUriConverter() AtUri? get website;@AtUriConverter() AtUri? get avatar;@AtUriConverter() AtUri? get banner; int? get followersCount; int? get followsCount; int? get postsCount;@ProfileAssociatedConverter() ProfileAssociated? get associated;@StarterPackViewBasicConverter() StarterPackViewBasic? get joinedViaStarterPack; DateTime? get indexedAt; DateTime? get createdAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() RepoStrongRef? get pinnedPost;@VerificationStateConverter() VerificationState? get verification;@StatusViewConverter() StatusView? get status; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; String get handle; String? get displayName; String? get description; String? get pronouns; String? get website; String? get avatar; String? get banner; int? get followersCount; int? get followsCount; int? get postsCount;@ProfileAssociatedConverter() ProfileAssociated? get associated;@StarterPackViewBasicConverter() StarterPackViewBasic? get joinedViaStarterPack; DateTime? get indexedAt; DateTime? get createdAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() RepoStrongRef? get pinnedPost;@VerificationStateConverter() VerificationState? get verification;@StatusViewConverter() StatusView? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileViewDetailed
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ProfileViewDetailedCopyWith<$Res>  {
   factory $ProfileViewDetailedCopyWith(ProfileViewDetailed value, $Res Function(ProfileViewDetailed) _then) = _$ProfileViewDetailedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? description, String? pronouns,@AtUriConverter() AtUri? website,@AtUriConverter() AtUri? avatar,@AtUriConverter() AtUri? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? description, String? pronouns, String? website, String? avatar, String? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -74,9 +74,9 @@ as String,displayName: freezed == displayName ? _self.displayName : displayName 
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,pronouns: freezed == pronouns ? _self.pronouns : pronouns // ignore: cast_nullable_to_non_nullable
 as String?,website: freezed == website ? _self.website : website // ignore: cast_nullable_to_non_nullable
-as AtUri?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
-as AtUri?,followersCount: freezed == followersCount ? _self.followersCount : followersCount // ignore: cast_nullable_to_non_nullable
+as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
+as String?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
+as String?,followersCount: freezed == followersCount ? _self.followersCount : followersCount // ignore: cast_nullable_to_non_nullable
 as int?,followsCount: freezed == followsCount ? _self.followsCount : followsCount // ignore: cast_nullable_to_non_nullable
 as int?,postsCount: freezed == postsCount ? _self.postsCount : postsCount // ignore: cast_nullable_to_non_nullable
 as int?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
@@ -246,7 +246,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns, @AtUriConverter()  AtUri? website, @AtUriConverter()  AtUri? avatar, @AtUriConverter()  AtUri? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileViewDetailed() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.followersCount,_that.followsCount,_that.postsCount,_that.associated,_that.joinedViaStarterPack,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.pinnedPost,_that.verification,_that.status,_that.$unknown);case _:
@@ -267,7 +267,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns, @AtUriConverter()  AtUri? website, @AtUriConverter()  AtUri? avatar, @AtUriConverter()  AtUri? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewDetailed():
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.followersCount,_that.followsCount,_that.postsCount,_that.associated,_that.joinedViaStarterPack,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.pinnedPost,_that.verification,_that.status,_that.$unknown);case _:
@@ -287,7 +287,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns, @AtUriConverter()  AtUri? website, @AtUriConverter()  AtUri? avatar, @AtUriConverter()  AtUri? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewDetailed() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.followersCount,_that.followsCount,_that.postsCount,_that.associated,_that.joinedViaStarterPack,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.pinnedPost,_that.verification,_that.status,_that.$unknown);case _:
@@ -302,7 +302,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileViewDetailed implements ProfileViewDetailed {
-  const _ProfileViewDetailed({this.$type = 'app.bsky.actor.defs#profileViewDetailed', required this.did, required this.handle, this.displayName, this.description, this.pronouns, @AtUriConverter() this.website, @AtUriConverter() this.avatar, @AtUriConverter() this.banner, this.followersCount, this.followsCount, this.postsCount, @ProfileAssociatedConverter() this.associated, @StarterPackViewBasicConverter() this.joinedViaStarterPack, this.indexedAt, this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() this.pinnedPost, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _ProfileViewDetailed({this.$type = 'app.bsky.actor.defs#profileViewDetailed', required this.did, required this.handle, this.displayName, this.description, this.pronouns, this.website, this.avatar, this.banner, this.followersCount, this.followsCount, this.postsCount, @ProfileAssociatedConverter() this.associated, @StarterPackViewBasicConverter() this.joinedViaStarterPack, this.indexedAt, this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() this.pinnedPost, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ProfileViewDetailed.fromJson(Map<String, dynamic> json) => _$ProfileViewDetailedFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -311,9 +311,9 @@ class _ProfileViewDetailed implements ProfileViewDetailed {
 @override final  String? displayName;
 @override final  String? description;
 @override final  String? pronouns;
-@override@AtUriConverter() final  AtUri? website;
-@override@AtUriConverter() final  AtUri? avatar;
-@override@AtUriConverter() final  AtUri? banner;
+@override final  String? website;
+@override final  String? avatar;
+@override final  String? banner;
 @override final  int? followersCount;
 @override final  int? followsCount;
 @override final  int? postsCount;
@@ -377,7 +377,7 @@ abstract mixin class _$ProfileViewDetailedCopyWith<$Res> implements $ProfileView
   factory _$ProfileViewDetailedCopyWith(_ProfileViewDetailed value, $Res Function(_ProfileViewDetailed) _then) = __$ProfileViewDetailedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? description, String? pronouns,@AtUriConverter() AtUri? website,@AtUriConverter() AtUri? avatar,@AtUriConverter() AtUri? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? description, String? pronouns, String? website, String? avatar, String? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -403,9 +403,9 @@ as String,displayName: freezed == displayName ? _self.displayName : displayName 
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,pronouns: freezed == pronouns ? _self.pronouns : pronouns // ignore: cast_nullable_to_non_nullable
 as String?,website: freezed == website ? _self.website : website // ignore: cast_nullable_to_non_nullable
-as AtUri?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
-as AtUri?,followersCount: freezed == followersCount ? _self.followersCount : followersCount // ignore: cast_nullable_to_non_nullable
+as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
+as String?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
+as String?,followersCount: freezed == followersCount ? _self.followersCount : followersCount // ignore: cast_nullable_to_non_nullable
 as int?,followsCount: freezed == followsCount ? _self.followsCount : followsCount // ignore: cast_nullable_to_non_nullable
 as int?,postsCount: freezed == postsCount ? _self.postsCount : postsCount // ignore: cast_nullable_to_non_nullable
 as int?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable

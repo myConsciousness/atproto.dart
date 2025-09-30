@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordView {
 
- String get $type; String get uri; String get cid; Map<String, dynamic> get value; List<String> get blobCids; DateTime get indexedAt;@ModerationConverter() Moderation get moderation;@RepoViewConverter() RepoView get repo; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic> get value; List<String> get blobCids; DateTime get indexedAt;@ModerationConverter() Moderation get moderation;@RepoViewConverter() RepoView get repo; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RecordViewCopyWith<$Res>  {
   factory $RecordViewCopyWith(RecordView value, $Res Function(RecordView) _then) = _$RecordViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String cid, Map<String, dynamic> value, List<String> blobCids, DateTime indexedAt,@ModerationConverter() Moderation moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value, List<String> blobCids, DateTime indexedAt,@ModerationConverter() Moderation moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$RecordViewCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,blobCids: null == blobCids ? _self.blobCids : blobCids // ignore: cast_nullable_to_non_nullable
 as List<String>,indexedAt: null == indexedAt ? _self.indexedAt : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  Map<String, dynamic> value,  List<String> blobCids,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value,  List<String> blobCids,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that.indexedAt,_that.moderation,_that.repo,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  Map<String, dynamic> value,  List<String> blobCids,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value,  List<String> blobCids,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordView():
 return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that.indexedAt,_that.moderation,_that.repo,_that.$unknown);case _:
@@ -220,7 +220,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid,  Map<String, dynamic> value,  List<String> blobCids,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value,  List<String> blobCids,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that.indexedAt,_that.moderation,_that.repo,_that.$unknown);case _:
@@ -235,11 +235,11 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobCids,_that
 
 @JsonSerializable(includeIfNull: false)
 class _RecordView implements RecordView {
-  const _RecordView({this.$type = 'tools.ozone.moderation.defs#recordView', required this.uri, required this.cid, required final  Map<String, dynamic> value, required final  List<String> blobCids, required this.indexedAt, @ModerationConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobCids = blobCids,_$unknown = $unknown;
+  const _RecordView({this.$type = 'tools.ozone.moderation.defs#recordView', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> value, required final  List<String> blobCids, required this.indexedAt, @ModerationConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobCids = blobCids,_$unknown = $unknown;
   factory _RecordView.fromJson(Map<String, dynamic> json) => _$RecordViewFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String cid;
  final  Map<String, dynamic> _value;
 @override Map<String, dynamic> get value {
@@ -301,7 +301,7 @@ abstract mixin class _$RecordViewCopyWith<$Res> implements $RecordViewCopyWith<$
   factory _$RecordViewCopyWith(_RecordView value, $Res Function(_RecordView) _then) = __$RecordViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String cid, Map<String, dynamic> value, List<String> blobCids, DateTime indexedAt,@ModerationConverter() Moderation moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value, List<String> blobCids, DateTime indexedAt,@ModerationConverter() Moderation moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
 });
 
 
@@ -322,7 +322,7 @@ class __$RecordViewCopyWithImpl<$Res>
   return _then(_RecordView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self._value : value // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,blobCids: null == blobCids ? _self._blobCids : blobCids // ignore: cast_nullable_to_non_nullable
 as List<String>,indexedAt: null == indexedAt ? _self.indexedAt : indexedAt // ignore: cast_nullable_to_non_nullable

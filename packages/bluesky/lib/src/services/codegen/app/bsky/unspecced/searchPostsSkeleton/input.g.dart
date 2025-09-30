@@ -28,13 +28,7 @@ _UnspeccedSearchPostsSkeletonInput _$UnspeccedSearchPostsSkeletonInputFromJson(
     author: $checkedConvert('author', (v) => v as String?),
     lang: $checkedConvert('lang', (v) => v as String?),
     domain: $checkedConvert('domain', (v) => v as String?),
-    url: $checkedConvert(
-      'url',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
+    url: $checkedConvert('url', (v) => v as String?),
     tag: $checkedConvert(
       'tag',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -64,10 +58,7 @@ Map<String, dynamic> _$UnspeccedSearchPostsSkeletonInputToJson(
   'author': ?instance.author,
   'lang': ?instance.lang,
   'domain': ?instance.domain,
-  'url': ?_$JsonConverterToJson<String, AtUri>(
-    instance.url,
-    const AtUriConverter().toJson,
-  ),
+  'url': ?instance.url,
   'tag': ?instance.tag,
   'viewer': ?instance.viewer,
   'limit': instance.limit,

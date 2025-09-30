@@ -65,6 +65,12 @@ final class LexParameter {
       } else {
         buffer.write('$name.toJson()');
       }
+    } else if (type.isAtUri) {
+      if (type.isArray) {
+        buffer.write('$name.map((e) => e.toString()).toList()');
+      } else {
+        buffer.write('$name.toString()');
+      }
     } else {
       buffer.write(name);
     }

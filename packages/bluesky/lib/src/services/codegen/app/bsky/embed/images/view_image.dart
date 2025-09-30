@@ -8,7 +8,6 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -31,10 +30,10 @@ abstract class EmbedImagesViewImage with _$EmbedImagesViewImage {
     @Default('app.bsky.embed.images#viewImage') String $type,
 
     /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
-    @AtUriConverter() required AtUri thumb,
+    required String thumb,
 
     /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
-    @AtUriConverter() required AtUri fullsize,
+    required String fullsize,
 
     /// Alt text description of the image, for accessibility.
     required String alt,

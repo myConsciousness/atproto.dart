@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GeneratorViewerState {
 
- String get $type; String? get like; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri? get like; Map<String, dynamic>? get $unknown;
 /// Create a copy of GeneratorViewerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GeneratorViewerStateCopyWith<$Res>  {
   factory $GeneratorViewerStateCopyWith(GeneratorViewerState value, $Res Function(GeneratorViewerState) _then) = _$GeneratorViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? like, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? like, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$GeneratorViewerStateCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? like,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? like,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GeneratorViewerState() when $default != null:
 return $default(_that.$type,_that.like,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.like,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? like,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? like,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GeneratorViewerState():
 return $default(_that.$type,_that.like,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.like,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? like,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? like,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GeneratorViewerState() when $default != null:
 return $default(_that.$type,_that.like,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.like,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GeneratorViewerState implements GeneratorViewerState {
-  const _GeneratorViewerState({this.$type = 'app.bsky.feed.defs#generatorViewerState', this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GeneratorViewerState({this.$type = 'app.bsky.feed.defs#generatorViewerState', @AtUriConverter() this.like, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) => _$GeneratorViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String? like;
+@override@AtUriConverter() final  AtUri? like;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$GeneratorViewerStateCopyWith<$Res> implements $GeneratorV
   factory _$GeneratorViewerStateCopyWith(_GeneratorViewerState value, $Res Function(_GeneratorViewerState) _then) = __$GeneratorViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? like, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? like, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$GeneratorViewerStateCopyWithImpl<$Res>
   return _then(_GeneratorViewerState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

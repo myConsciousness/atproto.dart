@@ -15,7 +15,10 @@ _GraphListblockRecord _$GraphListblockRecordFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.graph.listblock',
         ),
-        subject: $checkedConvert('subject', (v) => v as String),
+        subject: $checkedConvert(
+          'subject',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         createdAt: $checkedConvert(
           'createdAt',
           (v) => DateTime.parse(v as String),
@@ -32,7 +35,7 @@ Map<String, dynamic> _$GraphListblockRecordToJson(
   _GraphListblockRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'subject': instance.subject,
+  'subject': const AtUriConverter().toJson(instance.subject),
   'createdAt': instance.createdAt.toIso8601String(),
   r'$unknown': ?instance.$unknown,
 };

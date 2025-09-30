@@ -26,7 +26,7 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalExternal({
     @Default('app.bsky.embed.external#external') String $type,
-    @AtUriConverter() required AtUri uri,
+    required String uri,
     required String title,
     required String description,
     @BlobConverter() Blob? thumb,

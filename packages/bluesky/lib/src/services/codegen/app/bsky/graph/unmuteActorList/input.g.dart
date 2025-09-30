@@ -11,7 +11,10 @@ part of 'input.dart';
 _GraphUnmuteActorListInput _$GraphUnmuteActorListInputFromJson(Map json) =>
     $checkedCreate('_GraphUnmuteActorListInput', json, ($checkedConvert) {
       final val = _GraphUnmuteActorListInput(
-        list: $checkedConvert('list', (v) => v as String),
+        list: $checkedConvert(
+          'list',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -22,4 +25,7 @@ _GraphUnmuteActorListInput _$GraphUnmuteActorListInputFromJson(Map json) =>
 
 Map<String, dynamic> _$GraphUnmuteActorListInputToJson(
   _GraphUnmuteActorListInput instance,
-) => <String, dynamic>{'list': instance.list, r'$unknown': ?instance.$unknown};
+) => <String, dynamic>{
+  'list': const AtUriConverter().toJson(instance.list),
+  r'$unknown': ?instance.$unknown,
+};

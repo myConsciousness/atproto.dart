@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Links {
 
- String get $type;@AtUriConverter() AtUri? get privacyPolicy;@AtUriConverter() AtUri? get termsOfService; Map<String, dynamic>? get $unknown;
+ String get $type; String? get privacyPolicy; String? get termsOfService; Map<String, dynamic>? get $unknown;
 /// Create a copy of Links
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LinksCopyWith<$Res>  {
   factory $LinksCopyWith(Links value, $Res Function(Links) _then) = _$LinksCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? privacyPolicy,@AtUriConverter() AtUri? termsOfService, Map<String, dynamic>? $unknown
+ String $type, String? privacyPolicy, String? termsOfService, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,8 +69,8 @@ class _$LinksCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,privacyPolicy: freezed == privacyPolicy ? _self.privacyPolicy : privacyPolicy // ignore: cast_nullable_to_non_nullable
-as AtUri?,termsOfService: freezed == termsOfService ? _self.termsOfService : termsOfService // ignore: cast_nullable_to_non_nullable
-as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,termsOfService: freezed == termsOfService ? _self.termsOfService : termsOfService // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? privacyPolicy, @AtUriConverter()  AtUri? termsOfService,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? privacyPolicy,  String? termsOfService,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Links() when $default != null:
 return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? privacyPolicy, @AtUriConverter()  AtUri? termsOfService,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? privacyPolicy,  String? termsOfService,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Links():
 return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? privacyPolicy, @AtUriConverter()  AtUri? termsOfService,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? privacyPolicy,  String? termsOfService,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Links() when $default != null:
 return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _Links implements Links {
-  const _Links({this.$type = 'com.atproto.server.describeServer#links', @AtUriConverter() this.privacyPolicy, @AtUriConverter() this.termsOfService, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Links({this.$type = 'com.atproto.server.describeServer#links', this.privacyPolicy, this.termsOfService, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override@AtUriConverter() final  AtUri? privacyPolicy;
-@override@AtUriConverter() final  AtUri? termsOfService;
+@override final  String? privacyPolicy;
+@override final  String? termsOfService;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$LinksCopyWith<$Res> implements $LinksCopyWith<$Res> {
   factory _$LinksCopyWith(_Links value, $Res Function(_Links) _then) = __$LinksCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? privacyPolicy,@AtUriConverter() AtUri? termsOfService, Map<String, dynamic>? $unknown
+ String $type, String? privacyPolicy, String? termsOfService, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,8 +282,8 @@ class __$LinksCopyWithImpl<$Res>
   return _then(_Links(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,privacyPolicy: freezed == privacyPolicy ? _self.privacyPolicy : privacyPolicy // ignore: cast_nullable_to_non_nullable
-as AtUri?,termsOfService: freezed == termsOfService ? _self.termsOfService : termsOfService // ignore: cast_nullable_to_non_nullable
-as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,termsOfService: freezed == termsOfService ? _self.termsOfService : termsOfService // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

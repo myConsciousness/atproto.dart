@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedRecordViewBlocked {
 
- String get $type; String get uri; bool get blocked;@BlockedAuthorConverter() BlockedAuthor get author; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; bool get blocked;@BlockedAuthorConverter() BlockedAuthor get author; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedRecordViewBlocked
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $EmbedRecordViewBlockedCopyWith<$Res>  {
   factory $EmbedRecordViewBlockedCopyWith(EmbedRecordViewBlocked value, $Res Function(EmbedRecordViewBlocked) _then) = _$EmbedRecordViewBlockedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, bool blocked,@BlockedAuthorConverter() BlockedAuthor author, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, bool blocked,@BlockedAuthorConverter() BlockedAuthor author, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$EmbedRecordViewBlockedCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,blocked: null == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
+as AtUri,blocked: null == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
 as bool,author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
 as BlockedAuthor,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  bool blocked, @BlockedAuthorConverter()  BlockedAuthor author,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  bool blocked, @BlockedAuthorConverter()  BlockedAuthor author,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewBlocked() when $default != null:
 return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown)
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  bool blocked, @BlockedAuthorConverter()  BlockedAuthor author,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  bool blocked, @BlockedAuthorConverter()  BlockedAuthor author,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewBlocked():
 return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown)
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  bool blocked, @BlockedAuthorConverter()  BlockedAuthor author,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  bool blocked, @BlockedAuthorConverter()  BlockedAuthor author,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewBlocked() when $default != null:
 return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown);case _:
@@ -222,11 +222,11 @@ return $default(_that.$type,_that.uri,_that.blocked,_that.author,_that.$unknown)
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedRecordViewBlocked implements EmbedRecordViewBlocked {
-  const _EmbedRecordViewBlocked({this.$type = 'app.bsky.embed.record#viewBlocked', required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordViewBlocked({this.$type = 'app.bsky.embed.record#viewBlocked', @AtUriConverter() required this.uri, required this.blocked, @BlockedAuthorConverter() required this.author, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordViewBlocked.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewBlockedFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  bool blocked;
 @override@BlockedAuthorConverter() final  BlockedAuthor author;
  final  Map<String, dynamic>? _$unknown;
@@ -272,7 +272,7 @@ abstract mixin class _$EmbedRecordViewBlockedCopyWith<$Res> implements $EmbedRec
   factory _$EmbedRecordViewBlockedCopyWith(_EmbedRecordViewBlocked value, $Res Function(_EmbedRecordViewBlocked) _then) = __$EmbedRecordViewBlockedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, bool blocked,@BlockedAuthorConverter() BlockedAuthor author, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, bool blocked,@BlockedAuthorConverter() BlockedAuthor author, Map<String, dynamic>? $unknown
 });
 
 
@@ -293,7 +293,7 @@ class __$EmbedRecordViewBlockedCopyWithImpl<$Res>
   return _then(_EmbedRecordViewBlocked(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,blocked: null == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
+as AtUri,blocked: null == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
 as bool,author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
 as BlockedAuthor,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

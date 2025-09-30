@@ -16,7 +16,10 @@ _StarterPackViewBasic _$StarterPackViewBasicFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.graph.defs#starterPackViewBasic',
     ),
-    uri: $checkedConvert('uri', (v) => v as String),
+    uri: $checkedConvert(
+      'uri',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     cid: $checkedConvert('cid', (v) => v as String),
     record: $checkedConvert(
       'record',
@@ -60,7 +63,7 @@ Map<String, dynamic> _$StarterPackViewBasicToJson(
   _StarterPackViewBasic instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'record': instance.record,
   'creator': const ProfileViewBasicConverter().toJson(instance.creator),

@@ -16,7 +16,10 @@ _RecordBlob _$RecordBlobFromJson(Map json) =>
           (v) => v as String? ?? 'com.atproto.repo.listMissingBlobs#recordBlob',
         ),
         cid: $checkedConvert('cid', (v) => v as String),
-        recordUri: $checkedConvert('recordUri', (v) => v as String),
+        recordUri: $checkedConvert(
+          'recordUri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -29,6 +32,6 @@ Map<String, dynamic> _$RecordBlobToJson(_RecordBlob instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'cid': instance.cid,
-      'recordUri': instance.recordUri,
+      'recordUri': const AtUriConverter().toJson(instance.recordUri),
       r'$unknown': ?instance.$unknown,
     };

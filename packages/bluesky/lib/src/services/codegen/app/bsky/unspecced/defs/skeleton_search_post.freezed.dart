@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonSearchPost {
 
- String get $type; String get uri; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonSearchPost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SkeletonSearchPostCopyWith<$Res>  {
   factory $SkeletonSearchPostCopyWith(SkeletonSearchPost value, $Res Function(SkeletonSearchPost) _then) = _$SkeletonSearchPostCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$SkeletonSearchPostCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonSearchPost() when $default != null:
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonSearchPost():
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonSearchPost() when $default != null:
 return $default(_that.$type,_that.uri,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.uri,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonSearchPost implements SkeletonSearchPost {
-  const _SkeletonSearchPost({this.$type = 'app.bsky.unspecced.defs#skeletonSearchPost', required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonSearchPost({this.$type = 'app.bsky.unspecced.defs#skeletonSearchPost', @AtUriConverter() required this.uri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonSearchPost.fromJson(Map<String, dynamic> json) => _$SkeletonSearchPostFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$SkeletonSearchPostCopyWith<$Res> implements $SkeletonSear
   factory _$SkeletonSearchPostCopyWith(_SkeletonSearchPost value, $Res Function(_SkeletonSearchPost) _then) = __$SkeletonSearchPostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$SkeletonSearchPostCopyWithImpl<$Res>
   return _then(_SkeletonSearchPost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

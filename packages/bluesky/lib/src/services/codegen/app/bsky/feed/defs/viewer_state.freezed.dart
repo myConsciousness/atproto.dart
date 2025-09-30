@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ViewerState {
 
- String get $type; String? get repost; String? get like; bool? get bookmarked; bool? get threadMuted; bool? get replyDisabled; bool? get embeddingDisabled; bool? get pinned; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri? get repost;@AtUriConverter() AtUri? get like; bool? get bookmarked; bool? get threadMuted; bool? get replyDisabled; bool? get embeddingDisabled; bool? get pinned; Map<String, dynamic>? get $unknown;
 /// Create a copy of ViewerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ViewerStateCopyWith<$Res>  {
   factory $ViewerStateCopyWith(ViewerState value, $Res Function(ViewerState) _then) = _$ViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? repost, String? like, bool? bookmarked, bool? threadMuted, bool? replyDisabled, bool? embeddingDisabled, bool? pinned, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? repost,@AtUriConverter() AtUri? like, bool? bookmarked, bool? threadMuted, bool? replyDisabled, bool? embeddingDisabled, bool? pinned, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,8 +69,8 @@ class _$ViewerStateCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,repost: freezed == repost ? _self.repost : repost // ignore: cast_nullable_to_non_nullable
-as String?,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
-as String?,bookmarked: freezed == bookmarked ? _self.bookmarked : bookmarked // ignore: cast_nullable_to_non_nullable
+as AtUri?,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
+as AtUri?,bookmarked: freezed == bookmarked ? _self.bookmarked : bookmarked // ignore: cast_nullable_to_non_nullable
 as bool?,threadMuted: freezed == threadMuted ? _self.threadMuted : threadMuted // ignore: cast_nullable_to_non_nullable
 as bool?,replyDisabled: freezed == replyDisabled ? _self.replyDisabled : replyDisabled // ignore: cast_nullable_to_non_nullable
 as bool?,embeddingDisabled: freezed == embeddingDisabled ? _self.embeddingDisabled : embeddingDisabled // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? repost,  String? like,  bool? bookmarked,  bool? threadMuted,  bool? replyDisabled,  bool? embeddingDisabled,  bool? pinned,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? repost, @AtUriConverter()  AtUri? like,  bool? bookmarked,  bool? threadMuted,  bool? replyDisabled,  bool? embeddingDisabled,  bool? pinned,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ViewerState() when $default != null:
 return $default(_that.$type,_that.repost,_that.like,_that.bookmarked,_that.threadMuted,_that.replyDisabled,_that.embeddingDisabled,_that.pinned,_that.$unknown);case _:
@@ -182,7 +182,7 @@ return $default(_that.$type,_that.repost,_that.like,_that.bookmarked,_that.threa
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? repost,  String? like,  bool? bookmarked,  bool? threadMuted,  bool? replyDisabled,  bool? embeddingDisabled,  bool? pinned,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? repost, @AtUriConverter()  AtUri? like,  bool? bookmarked,  bool? threadMuted,  bool? replyDisabled,  bool? embeddingDisabled,  bool? pinned,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ViewerState():
 return $default(_that.$type,_that.repost,_that.like,_that.bookmarked,_that.threadMuted,_that.replyDisabled,_that.embeddingDisabled,_that.pinned,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.$type,_that.repost,_that.like,_that.bookmarked,_that.threa
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? repost,  String? like,  bool? bookmarked,  bool? threadMuted,  bool? replyDisabled,  bool? embeddingDisabled,  bool? pinned,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? repost, @AtUriConverter()  AtUri? like,  bool? bookmarked,  bool? threadMuted,  bool? replyDisabled,  bool? embeddingDisabled,  bool? pinned,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ViewerState() when $default != null:
 return $default(_that.$type,_that.repost,_that.like,_that.bookmarked,_that.threadMuted,_that.replyDisabled,_that.embeddingDisabled,_that.pinned,_that.$unknown);case _:
@@ -217,12 +217,12 @@ return $default(_that.$type,_that.repost,_that.like,_that.bookmarked,_that.threa
 
 @JsonSerializable(includeIfNull: false)
 class _ViewerState implements ViewerState {
-  const _ViewerState({this.$type = 'app.bsky.feed.defs#viewerState', this.repost, this.like, this.bookmarked, this.threadMuted, this.replyDisabled, this.embeddingDisabled, this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerState({this.$type = 'app.bsky.feed.defs#viewerState', @AtUriConverter() this.repost, @AtUriConverter() this.like, this.bookmarked, this.threadMuted, this.replyDisabled, this.embeddingDisabled, this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerState.fromJson(Map<String, dynamic> json) => _$ViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String? repost;
-@override final  String? like;
+@override@AtUriConverter() final  AtUri? repost;
+@override@AtUriConverter() final  AtUri? like;
 @override final  bool? bookmarked;
 @override final  bool? threadMuted;
 @override final  bool? replyDisabled;
@@ -271,7 +271,7 @@ abstract mixin class _$ViewerStateCopyWith<$Res> implements $ViewerStateCopyWith
   factory _$ViewerStateCopyWith(_ViewerState value, $Res Function(_ViewerState) _then) = __$ViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? repost, String? like, bool? bookmarked, bool? threadMuted, bool? replyDisabled, bool? embeddingDisabled, bool? pinned, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? repost,@AtUriConverter() AtUri? like, bool? bookmarked, bool? threadMuted, bool? replyDisabled, bool? embeddingDisabled, bool? pinned, Map<String, dynamic>? $unknown
 });
 
 
@@ -292,8 +292,8 @@ class __$ViewerStateCopyWithImpl<$Res>
   return _then(_ViewerState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,repost: freezed == repost ? _self.repost : repost // ignore: cast_nullable_to_non_nullable
-as String?,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
-as String?,bookmarked: freezed == bookmarked ? _self.bookmarked : bookmarked // ignore: cast_nullable_to_non_nullable
+as AtUri?,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
+as AtUri?,bookmarked: freezed == bookmarked ? _self.bookmarked : bookmarked // ignore: cast_nullable_to_non_nullable
 as bool?,threadMuted: freezed == threadMuted ? _self.threadMuted : threadMuted // ignore: cast_nullable_to_non_nullable
 as bool?,replyDisabled: freezed == replyDisabled ? _self.replyDisabled : replyDisabled // ignore: cast_nullable_to_non_nullable
 as bool?,embeddingDisabled: freezed == embeddingDisabled ? _self.embeddingDisabled : embeddingDisabled // ignore: cast_nullable_to_non_nullable

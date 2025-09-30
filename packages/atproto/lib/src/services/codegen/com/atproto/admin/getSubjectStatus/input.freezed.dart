@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AdminGetSubjectStatusInput {
 
- String? get did; String? get uri; String? get blob; Map<String, dynamic>? get $unknown;
+ String? get did;@AtUriConverter() AtUri? get uri; String? get blob; Map<String, dynamic>? get $unknown;
 /// Create a copy of AdminGetSubjectStatusInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AdminGetSubjectStatusInputCopyWith<$Res>  {
   factory $AdminGetSubjectStatusInputCopyWith(AdminGetSubjectStatusInput value, $Res Function(AdminGetSubjectStatusInput) _then) = _$AdminGetSubjectStatusInputCopyWithImpl;
 @useResult
 $Res call({
- String? did, String? uri, String? blob, Map<String, dynamic>? $unknown
+ String? did,@AtUriConverter() AtUri? uri, String? blob, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$AdminGetSubjectStatusInputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 did: freezed == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String?,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
+as AtUri?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? did,  String? uri,  String? blob,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? did, @AtUriConverter()  AtUri? uri,  String? blob,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AdminGetSubjectStatusInput() when $default != null:
 return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? did,  String? uri,  String? blob,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? did, @AtUriConverter()  AtUri? uri,  String? blob,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AdminGetSubjectStatusInput():
 return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? did,  String? uri,  String? blob,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? did, @AtUriConverter()  AtUri? uri,  String? blob,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AdminGetSubjectStatusInput() when $default != null:
 return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
@@ -212,11 +212,11 @@ return $default(_that.did,_that.uri,_that.blob,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _AdminGetSubjectStatusInput implements AdminGetSubjectStatusInput {
-  const _AdminGetSubjectStatusInput({this.did, this.uri, this.blob, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AdminGetSubjectStatusInput({this.did, @AtUriConverter() this.uri, this.blob, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AdminGetSubjectStatusInput.fromJson(Map<String, dynamic> json) => _$AdminGetSubjectStatusInputFromJson(json);
 
 @override final  String? did;
-@override final  String? uri;
+@override@AtUriConverter() final  AtUri? uri;
 @override final  String? blob;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,7 +261,7 @@ abstract mixin class _$AdminGetSubjectStatusInputCopyWith<$Res> implements $Admi
   factory _$AdminGetSubjectStatusInputCopyWith(_AdminGetSubjectStatusInput value, $Res Function(_AdminGetSubjectStatusInput) _then) = __$AdminGetSubjectStatusInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? did, String? uri, String? blob, Map<String, dynamic>? $unknown
+ String? did,@AtUriConverter() AtUri? uri, String? blob, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,7 +282,7 @@ class __$AdminGetSubjectStatusInputCopyWithImpl<$Res>
   return _then(_AdminGetSubjectStatusInput(
 did: freezed == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String?,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
+as AtUri?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

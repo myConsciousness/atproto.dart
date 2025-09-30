@@ -13,7 +13,9 @@ _FeedGetFeedGeneratorsInput _$FeedGetFeedGeneratorsInputFromJson(Map json) =>
       final val = _FeedGetFeedGeneratorsInput(
         feeds: $checkedConvert(
           'feeds',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+          (v) => (v as List<dynamic>)
+              .map((e) => const AtUriConverter().fromJson(e as String))
+              .toList(),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -26,6 +28,6 @@ _FeedGetFeedGeneratorsInput _$FeedGetFeedGeneratorsInputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetFeedGeneratorsInputToJson(
   _FeedGetFeedGeneratorsInput instance,
 ) => <String, dynamic>{
-  'feeds': instance.feeds,
+  'feeds': instance.feeds.map(const AtUriConverter().toJson).toList(),
   r'$unknown': ?instance.$unknown,
 };

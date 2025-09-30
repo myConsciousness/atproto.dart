@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$FeedGetLikesInput {
 
 /// AT-URI of the subject (eg, a post record).
- String get uri;/// CID of the subject record (aka, specific version of record), to filter likes.
+@AtUriConverter() AtUri get uri;/// CID of the subject record (aka, specific version of record), to filter likes.
  String? get cid; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetLikesInput
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $FeedGetLikesInputCopyWith<$Res>  {
   factory $FeedGetLikesInputCopyWith(FeedGetLikesInput value, $Res Function(FeedGetLikesInput) _then) = _$FeedGetLikesInputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$FeedGetLikesInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetLikesInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetLikesInput():
 return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String? cid,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetLikesInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -215,11 +215,11 @@ return $default(_that.uri,_that.cid,_that.limit,_that.cursor,_that.$unknown);cas
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetLikesInput implements FeedGetLikesInput {
-  const _FeedGetLikesInput({required this.uri, this.cid, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetLikesInput({@AtUriConverter() required this.uri, this.cid, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetLikesInput.fromJson(Map<String, dynamic> json) => _$FeedGetLikesInputFromJson(json);
 
 /// AT-URI of the subject (eg, a post record).
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 /// CID of the subject record (aka, specific version of record), to filter likes.
 @override final  String? cid;
 @override@JsonKey() final  int limit;
@@ -267,7 +267,7 @@ abstract mixin class _$FeedGetLikesInputCopyWith<$Res> implements $FeedGetLikesI
   factory _$FeedGetLikesInputCopyWith(_FeedGetLikesInput value, $Res Function(_FeedGetLikesInput) _then) = __$FeedGetLikesInputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -287,7 +287,7 @@ class __$FeedGetLikesInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedGetLikesInput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

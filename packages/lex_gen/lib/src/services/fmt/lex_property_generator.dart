@@ -209,7 +209,7 @@ DartType _getLexPrimitiveType(
     case lex.ULexPrimitiveString string:
       if (string.data.format?.value == 'datetime') {
         return DartType.dateTime(description: string.data.description);
-      } else if (string.data.format?.value == 'uri') {
+      } else if (string.data.format?.value == 'at-uri') {
         return DartType.uri(description: string.data.description);
       }
 

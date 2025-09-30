@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonFeedPost {
 
- String get $type; String get post;@USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? get reason;/// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
+ String get $type;@AtUriConverter() AtUri get post;@USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? get reason;/// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
  String? get feedContext; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonFeedPost
 /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +49,7 @@ abstract mixin class $SkeletonFeedPostCopyWith<$Res>  {
   factory $SkeletonFeedPostCopyWith(SkeletonFeedPost value, $Res Function(SkeletonFeedPost) _then) = _$SkeletonFeedPostCopyWithImpl;
 @useResult
 $Res call({
- String $type, String post,@USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason, String? feedContext, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri post,@USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason, String? feedContext, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$SkeletonFeedPostCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as String,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as AtUri,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as USkeletonFeedPostReason?,feedContext: freezed == feedContext ? _self.feedContext : feedContext // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String post, @USkeletonFeedPostReasonConverter()  USkeletonFeedPostReason? reason,  String? feedContext,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri post, @USkeletonFeedPostReasonConverter()  USkeletonFeedPostReason? reason,  String? feedContext,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonFeedPost() when $default != null:
 return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unknown);case _:
@@ -191,7 +191,7 @@ return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unk
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String post, @USkeletonFeedPostReasonConverter()  USkeletonFeedPostReason? reason,  String? feedContext,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri post, @USkeletonFeedPostReasonConverter()  USkeletonFeedPostReason? reason,  String? feedContext,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonFeedPost():
 return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unk
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String post, @USkeletonFeedPostReasonConverter()  USkeletonFeedPostReason? reason,  String? feedContext,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri post, @USkeletonFeedPostReasonConverter()  USkeletonFeedPostReason? reason,  String? feedContext,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonFeedPost() when $default != null:
 return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unknown);case _:
@@ -226,11 +226,11 @@ return $default(_that.$type,_that.post,_that.reason,_that.feedContext,_that.$unk
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonFeedPost implements SkeletonFeedPost {
-  const _SkeletonFeedPost({this.$type = 'app.bsky.feed.defs#skeletonFeedPost', required this.post, @USkeletonFeedPostReasonConverter() this.reason, this.feedContext, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonFeedPost({this.$type = 'app.bsky.feed.defs#skeletonFeedPost', @AtUriConverter() required this.post, @USkeletonFeedPostReasonConverter() this.reason, this.feedContext, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) => _$SkeletonFeedPostFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String post;
+@override@AtUriConverter() final  AtUri post;
 @override@USkeletonFeedPostReasonConverter() final  USkeletonFeedPostReason? reason;
 /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
 @override final  String? feedContext;
@@ -277,7 +277,7 @@ abstract mixin class _$SkeletonFeedPostCopyWith<$Res> implements $SkeletonFeedPo
   factory _$SkeletonFeedPostCopyWith(_SkeletonFeedPost value, $Res Function(_SkeletonFeedPost) _then) = __$SkeletonFeedPostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String post,@USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason, String? feedContext, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri post,@USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason, String? feedContext, Map<String, dynamic>? $unknown
 });
 
 
@@ -298,7 +298,7 @@ class __$SkeletonFeedPostCopyWithImpl<$Res>
   return _then(_SkeletonFeedPost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as String,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as AtUri,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as USkeletonFeedPostReason?,feedContext: freezed == feedContext ? _self.feedContext : feedContext // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

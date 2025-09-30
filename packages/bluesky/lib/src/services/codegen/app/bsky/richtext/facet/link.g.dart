@@ -15,10 +15,7 @@ _RichtextFacetLink _$RichtextFacetLinkFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.richtext.facet#link',
         ),
-        uri: $checkedConvert(
-          'uri',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
+        uri: $checkedConvert('uri', (v) => v as String),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -30,6 +27,6 @@ _RichtextFacetLink _$RichtextFacetLinkFromJson(Map json) =>
 Map<String, dynamic> _$RichtextFacetLinkToJson(_RichtextFacetLink instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': const AtUriConverter().toJson(instance.uri),
+      'uri': instance.uri,
       r'$unknown': ?instance.$unknown,
     };

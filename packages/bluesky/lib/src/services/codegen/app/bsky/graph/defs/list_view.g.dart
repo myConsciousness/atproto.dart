@@ -16,7 +16,10 @@ _ListView _$ListViewFromJson(Map json) => $checkedCreate('_ListView', json, (
       r'$type',
       (v) => v as String? ?? 'app.bsky.graph.defs#listView',
     ),
-    uri: $checkedConvert('uri', (v) => v as String),
+    uri: $checkedConvert(
+      'uri',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     cid: $checkedConvert('cid', (v) => v as String),
     creator: $checkedConvert(
       'creator',
@@ -38,13 +41,7 @@ _ListView _$ListViewFromJson(Map json) => $checkedCreate('_ListView', json, (
           )
           .toList(),
     ),
-    avatar: $checkedConvert(
-      'avatar',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
+    avatar: $checkedConvert('avatar', (v) => v as String?),
     listItemCount: $checkedConvert(
       'listItemCount',
       (v) => (v as num?)?.toInt(),
@@ -75,7 +72,7 @@ _ListView _$ListViewFromJson(Map json) => $checkedCreate('_ListView', json, (
 
 Map<String, dynamic> _$ListViewToJson(_ListView instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'creator': const ProfileViewConverter().toJson(instance.creator),
   'name': instance.name,
@@ -84,10 +81,7 @@ Map<String, dynamic> _$ListViewToJson(_ListView instance) => <String, dynamic>{
   'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
-  'avatar': ?_$JsonConverterToJson<String, AtUri>(
-    instance.avatar,
-    const AtUriConverter().toJson,
-  ),
+  'avatar': ?instance.avatar,
   'listItemCount': ?instance.listItemCount,
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
   'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewerState>(

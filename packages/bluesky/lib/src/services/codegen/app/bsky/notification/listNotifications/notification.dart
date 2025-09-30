@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -41,13 +42,13 @@ abstract class Notification with _$Notification {
   const factory Notification({
     @Default('app.bsky.notification.listNotifications#notification')
     String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     @ProfileViewConverter() required ProfileView author,
 
     /// The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.
     @NotificationReasonConverter() required NotificationReason reason,
-    String? reasonSubject,
+    @AtUriConverter() AtUri? reasonSubject,
     required Map<String, dynamic> record,
     required bool isRead,
     required DateTime indexedAt,

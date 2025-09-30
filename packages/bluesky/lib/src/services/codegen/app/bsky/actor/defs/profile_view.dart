@@ -9,7 +9,6 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -52,7 +51,7 @@ abstract class ProfileView with _$ProfileView {
     String? displayName,
     String? pronouns,
     String? description,
-    @AtUriConverter() AtUri? avatar,
+    String? avatar,
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     DateTime? indexedAt,
     DateTime? createdAt,

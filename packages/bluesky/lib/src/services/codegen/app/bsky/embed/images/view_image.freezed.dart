@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$EmbedImagesViewImage {
 
  String get $type;/// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
-@AtUriConverter() AtUri get thumb;/// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
-@AtUriConverter() AtUri get fullsize;/// Alt text description of the image, for accessibility.
+ String get thumb;/// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
+ String get fullsize;/// Alt text description of the image, for accessibility.
  String get alt;@AspectRatioConverter() AspectRatio? get aspectRatio; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedImagesViewImage
 /// with the given fields replaced by the non-null parameter values.
@@ -51,7 +51,7 @@ abstract mixin class $EmbedImagesViewImageCopyWith<$Res>  {
   factory $EmbedImagesViewImageCopyWith(EmbedImagesViewImage value, $Res Function(EmbedImagesViewImage) _then) = _$EmbedImagesViewImageCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri thumb,@AtUriConverter() AtUri fullsize, String alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
+ String $type, String thumb, String fullsize, String alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
 });
 
 
@@ -72,8 +72,8 @@ class _$EmbedImagesViewImageCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,thumb: null == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
-as AtUri,fullsize: null == fullsize ? _self.fullsize : fullsize // ignore: cast_nullable_to_non_nullable
-as AtUri,alt: null == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
+as String,fullsize: null == fullsize ? _self.fullsize : fullsize // ignore: cast_nullable_to_non_nullable
+as String,alt: null == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
 as String,aspectRatio: freezed == aspectRatio ? _self.aspectRatio : aspectRatio // ignore: cast_nullable_to_non_nullable
 as AspectRatio?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -173,7 +173,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri thumb, @AtUriConverter()  AtUri fullsize,  String alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String thumb,  String fullsize,  String alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedImagesViewImage() when $default != null:
 return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRatio,_that.$unknown);case _:
@@ -194,7 +194,7 @@ return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri thumb, @AtUriConverter()  AtUri fullsize,  String alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String thumb,  String fullsize,  String alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedImagesViewImage():
 return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRatio,_that.$unknown);case _:
@@ -214,7 +214,7 @@ return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri thumb, @AtUriConverter()  AtUri fullsize,  String alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String thumb,  String fullsize,  String alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedImagesViewImage() when $default != null:
 return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRatio,_that.$unknown);case _:
@@ -229,14 +229,14 @@ return $default(_that.$type,_that.thumb,_that.fullsize,_that.alt,_that.aspectRat
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedImagesViewImage implements EmbedImagesViewImage {
-  const _EmbedImagesViewImage({this.$type = 'app.bsky.embed.images#viewImage', @AtUriConverter() required this.thumb, @AtUriConverter() required this.fullsize, required this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedImagesViewImage({this.$type = 'app.bsky.embed.images#viewImage', required this.thumb, required this.fullsize, required this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedImagesViewImage.fromJson(Map<String, dynamic> json) => _$EmbedImagesViewImageFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
-@override@AtUriConverter() final  AtUri thumb;
+@override final  String thumb;
 /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
-@override@AtUriConverter() final  AtUri fullsize;
+@override final  String fullsize;
 /// Alt text description of the image, for accessibility.
 @override final  String alt;
 @override@AspectRatioConverter() final  AspectRatio? aspectRatio;
@@ -283,7 +283,7 @@ abstract mixin class _$EmbedImagesViewImageCopyWith<$Res> implements $EmbedImage
   factory _$EmbedImagesViewImageCopyWith(_EmbedImagesViewImage value, $Res Function(_EmbedImagesViewImage) _then) = __$EmbedImagesViewImageCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri thumb,@AtUriConverter() AtUri fullsize, String alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
+ String $type, String thumb, String fullsize, String alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
 });
 
 
@@ -304,8 +304,8 @@ class __$EmbedImagesViewImageCopyWithImpl<$Res>
   return _then(_EmbedImagesViewImage(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,thumb: null == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
-as AtUri,fullsize: null == fullsize ? _self.fullsize : fullsize // ignore: cast_nullable_to_non_nullable
-as AtUri,alt: null == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
+as String,fullsize: null == fullsize ? _self.fullsize : fullsize // ignore: cast_nullable_to_non_nullable
+as String,alt: null == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
 as String,aspectRatio: freezed == aspectRatio ? _self.aspectRatio : aspectRatio // ignore: cast_nullable_to_non_nullable
 as AspectRatio?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

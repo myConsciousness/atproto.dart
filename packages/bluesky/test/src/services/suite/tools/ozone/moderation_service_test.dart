@@ -14,7 +14,7 @@ import 'service_suite.dart';
 
 void main() {
   testOzoneModeration<RecordViewDetail>(
-    (m, s) => s.getRecord(uri: m.uri.toString()),
+    (m, s) => s.getRecord(uri: m.uri),
     id: toolsOzoneModerationGetRecord,
   );
 
@@ -34,7 +34,7 @@ void main() {
   );
 
   testOzoneModeration<ModerationGetRecordsOutput>(
-    (m, s) => s.getRecords(uris: [m.uri.toString()]),
+    (m, s) => s.getRecords(uris: [m.uri]),
     id: toolsOzoneModerationGetRecords,
   );
 

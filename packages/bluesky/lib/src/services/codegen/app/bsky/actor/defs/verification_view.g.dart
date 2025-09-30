@@ -16,7 +16,10 @@ _VerificationView _$VerificationViewFromJson(Map json) =>
           (v) => v as String? ?? 'app.bsky.actor.defs#verificationView',
         ),
         issuer: $checkedConvert('issuer', (v) => v as String),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         isValid: $checkedConvert('isValid', (v) => v as bool),
         createdAt: $checkedConvert(
           'createdAt',
@@ -34,7 +37,7 @@ Map<String, dynamic> _$VerificationViewToJson(_VerificationView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'issuer': instance.issuer,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'isValid': instance.isValid,
       'createdAt': instance.createdAt.toIso8601String(),
       r'$unknown': ?instance.$unknown,

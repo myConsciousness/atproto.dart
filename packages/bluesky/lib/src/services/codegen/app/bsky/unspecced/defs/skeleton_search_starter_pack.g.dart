@@ -17,7 +17,10 @@ _SkeletonSearchStarterPack _$SkeletonSearchStarterPackFromJson(Map json) =>
               v as String? ??
               'app.bsky.unspecced.defs#skeletonSearchStarterPack',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -30,6 +33,6 @@ Map<String, dynamic> _$SkeletonSearchStarterPackToJson(
   _SkeletonSearchStarterPack instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   r'$unknown': ?instance.$unknown,
 };

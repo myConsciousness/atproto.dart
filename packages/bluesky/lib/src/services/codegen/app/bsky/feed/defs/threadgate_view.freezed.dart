@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ThreadgateView {
 
- String get $type; String? get uri; String? get cid; Map<String, dynamic>? get record;@ListViewBasicConverter() List<ListViewBasic>? get lists; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri? get uri; String? get cid; Map<String, dynamic>? get record;@ListViewBasicConverter() List<ListViewBasic>? get lists; Map<String, dynamic>? get $unknown;
 /// Create a copy of ThreadgateView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ThreadgateViewCopyWith<$Res>  {
   factory $ThreadgateViewCopyWith(ThreadgateView value, $Res Function(ThreadgateView) _then) = _$ThreadgateViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? uri, String? cid, Map<String, dynamic>? record,@ListViewBasicConverter() List<ListViewBasic>? lists, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? uri, String? cid, Map<String, dynamic>? record,@ListViewBasicConverter() List<ListViewBasic>? lists, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$ThreadgateViewCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,record: freezed == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,lists: freezed == lists ? _self.lists : lists // ignore: cast_nullable_to_non_nullable
 as List<ListViewBasic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? uri,  String? cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThreadgateView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? uri,  String? cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ThreadgateView():
 return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? uri,  String? cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ThreadgateView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$unknown);case _:
@@ -214,11 +214,11 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _ThreadgateView implements ThreadgateView {
-  const _ThreadgateView({this.$type = 'app.bsky.feed.defs#threadgateView', this.uri, this.cid, final  Map<String, dynamic>? record, @ListViewBasicConverter() final  List<ListViewBasic>? lists, final  Map<String, dynamic>? $unknown}): _record = record,_lists = lists,_$unknown = $unknown;
+  const _ThreadgateView({this.$type = 'app.bsky.feed.defs#threadgateView', @AtUriConverter() this.uri, this.cid, final  Map<String, dynamic>? record, @ListViewBasicConverter() final  List<ListViewBasic>? lists, final  Map<String, dynamic>? $unknown}): _record = record,_lists = lists,_$unknown = $unknown;
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) => _$ThreadgateViewFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String? uri;
+@override@AtUriConverter() final  AtUri? uri;
 @override final  String? cid;
  final  Map<String, dynamic>? _record;
 @override Map<String, dynamic>? get record {
@@ -281,7 +281,7 @@ abstract mixin class _$ThreadgateViewCopyWith<$Res> implements $ThreadgateViewCo
   factory _$ThreadgateViewCopyWith(_ThreadgateView value, $Res Function(_ThreadgateView) _then) = __$ThreadgateViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? uri, String? cid, Map<String, dynamic>? record,@ListViewBasicConverter() List<ListViewBasic>? lists, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? uri, String? cid, Map<String, dynamic>? record,@ListViewBasicConverter() List<ListViewBasic>? lists, Map<String, dynamic>? $unknown
 });
 
 
@@ -302,7 +302,7 @@ class __$ThreadgateViewCopyWithImpl<$Res>
   return _then(_ThreadgateView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,record: freezed == record ? _self._record : record // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,lists: freezed == lists ? _self._lists : lists // ignore: cast_nullable_to_non_nullable
 as List<ListViewBasic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

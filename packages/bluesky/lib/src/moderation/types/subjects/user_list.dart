@@ -17,7 +17,7 @@ ModerationDecision decideUserList(
   final ModerationOpts opts,
 ) {
   final (creator, labels, uri) = subject.when(
-    listViewBasic: (data) => (null, data.labels, data.uri),
+    listViewBasic: (data) => (null, data.labels, data.uri.toString()),
     listView: (data) => (data.creator, data.labels, null),
   );
 

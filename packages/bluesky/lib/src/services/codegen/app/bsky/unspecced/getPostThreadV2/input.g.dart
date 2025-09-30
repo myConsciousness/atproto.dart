@@ -12,7 +12,10 @@ _UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
   Map json,
 ) => $checkedCreate('_UnspeccedGetPostThreadV2Input', json, ($checkedConvert) {
   final val = _UnspeccedGetPostThreadV2Input(
-    anchor: $checkedConvert('anchor', (v) => v as String),
+    anchor: $checkedConvert(
+      'anchor',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     above: $checkedConvert('above', (v) => v as bool? ?? true),
     below: $checkedConvert('below', (v) => (v as num?)?.toInt() ?? 6),
     branchingFactor: $checkedConvert(
@@ -41,7 +44,7 @@ _UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
 Map<String, dynamic> _$UnspeccedGetPostThreadV2InputToJson(
   _UnspeccedGetPostThreadV2Input instance,
 ) => <String, dynamic>{
-  'anchor': instance.anchor,
+  'anchor': const AtUriConverter().toJson(instance.anchor),
   'above': instance.above,
   'below': instance.below,
   'branchingFactor': instance.branchingFactor,

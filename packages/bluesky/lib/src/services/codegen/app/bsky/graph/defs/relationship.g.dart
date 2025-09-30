@@ -16,8 +16,20 @@ _Relationship _$RelationshipFromJson(Map json) =>
           (v) => v as String? ?? 'app.bsky.graph.defs#relationship',
         ),
         did: $checkedConvert('did', (v) => v as String),
-        following: $checkedConvert('following', (v) => v as String?),
-        followedBy: $checkedConvert('followedBy', (v) => v as String?),
+        following: $checkedConvert(
+          'following',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
+        followedBy: $checkedConvert(
+          'followedBy',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -30,7 +42,23 @@ Map<String, dynamic> _$RelationshipToJson(_Relationship instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
-      'following': ?instance.following,
-      'followedBy': ?instance.followedBy,
+      'following': ?_$JsonConverterToJson<String, AtUri>(
+        instance.following,
+        const AtUriConverter().toJson,
+      ),
+      'followedBy': ?_$JsonConverterToJson<String, AtUri>(
+        instance.followedBy,
+        const AtUriConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

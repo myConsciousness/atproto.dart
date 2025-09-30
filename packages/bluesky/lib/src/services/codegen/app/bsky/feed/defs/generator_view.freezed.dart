@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GeneratorView {
 
- String get $type; String get uri; String get cid; String get did;@ProfileViewConverter() ProfileView get creator; String get displayName; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets;@AtUriConverter() AtUri? get avatar; int? get likeCount; bool? get acceptsInteractions;@LabelConverter() List<Label>? get labels;@GeneratorViewerStateConverter() GeneratorViewerState? get viewer;@GeneratorViewContentModeConverter() GeneratorViewContentMode? get contentMode; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid; String get did;@ProfileViewConverter() ProfileView get creator; String get displayName; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets; String? get avatar; int? get likeCount; bool? get acceptsInteractions;@LabelConverter() List<Label>? get labels;@GeneratorViewerStateConverter() GeneratorViewerState? get viewer;@GeneratorViewContentModeConverter() GeneratorViewContentMode? get contentMode; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GeneratorView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GeneratorViewCopyWith<$Res>  {
   factory $GeneratorViewCopyWith(GeneratorView value, $Res Function(GeneratorView) _then) = _$GeneratorViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String cid, String did,@ProfileViewConverter() ProfileView creator, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri? avatar, int? likeCount, bool? acceptsInteractions,@LabelConverter() List<Label>? labels,@GeneratorViewerStateConverter() GeneratorViewerState? viewer,@GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, String did,@ProfileViewConverter() ProfileView creator, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? likeCount, bool? acceptsInteractions,@LabelConverter() List<Label>? labels,@GeneratorViewerStateConverter() GeneratorViewerState? viewer,@GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode, DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,14 +69,14 @@ class _$GeneratorViewCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,creator: null == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as ProfileView,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,descriptionFacets: freezed == descriptionFacets ? _self.descriptionFacets : descriptionFacets // ignore: cast_nullable_to_non_nullable
 as List<RichtextFacet>?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
+as String?,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
 as int?,acceptsInteractions: freezed == acceptsInteractions ? _self.acceptsInteractions : acceptsInteractions // ignore: cast_nullable_to_non_nullable
 as bool?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
@@ -201,7 +201,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  String did, @ProfileViewConverter()  ProfileView creator,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri? avatar,  int? likeCount,  bool? acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter()  GeneratorViewerState? viewer, @GeneratorViewContentModeConverter()  GeneratorViewContentMode? contentMode,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String did, @ProfileViewConverter()  ProfileView creator,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? likeCount,  bool? acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter()  GeneratorViewerState? viewer, @GeneratorViewContentModeConverter()  GeneratorViewContentMode? contentMode,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GeneratorView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.displayName,_that.description,_that.descriptionFacets,_that.avatar,_that.likeCount,_that.acceptsInteractions,_that.labels,_that.viewer,_that.contentMode,_that.indexedAt,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.di
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  String did, @ProfileViewConverter()  ProfileView creator,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri? avatar,  int? likeCount,  bool? acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter()  GeneratorViewerState? viewer, @GeneratorViewContentModeConverter()  GeneratorViewContentMode? contentMode,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String did, @ProfileViewConverter()  ProfileView creator,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? likeCount,  bool? acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter()  GeneratorViewerState? viewer, @GeneratorViewContentModeConverter()  GeneratorViewContentMode? contentMode,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GeneratorView():
 return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.displayName,_that.description,_that.descriptionFacets,_that.avatar,_that.likeCount,_that.acceptsInteractions,_that.labels,_that.viewer,_that.contentMode,_that.indexedAt,_that.$unknown);case _:
@@ -242,7 +242,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.di
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid,  String did, @ProfileViewConverter()  ProfileView creator,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri? avatar,  int? likeCount,  bool? acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter()  GeneratorViewerState? viewer, @GeneratorViewContentModeConverter()  GeneratorViewContentMode? contentMode,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String did, @ProfileViewConverter()  ProfileView creator,  String displayName,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? likeCount,  bool? acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter()  GeneratorViewerState? viewer, @GeneratorViewContentModeConverter()  GeneratorViewContentMode? contentMode,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GeneratorView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.displayName,_that.description,_that.descriptionFacets,_that.avatar,_that.likeCount,_that.acceptsInteractions,_that.labels,_that.viewer,_that.contentMode,_that.indexedAt,_that.$unknown);case _:
@@ -257,11 +257,11 @@ return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.di
 
 @JsonSerializable(includeIfNull: false)
 class _GeneratorView implements GeneratorView {
-  const _GeneratorView({this.$type = 'app.bsky.feed.defs#generatorView', required this.uri, required this.cid, required this.did, @ProfileViewConverter() required this.creator, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() this.avatar, this.likeCount, this.acceptsInteractions, @LabelConverter() final  List<Label>? labels, @GeneratorViewerStateConverter() this.viewer, @GeneratorViewContentModeConverter() this.contentMode, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
+  const _GeneratorView({this.$type = 'app.bsky.feed.defs#generatorView', @AtUriConverter() required this.uri, required this.cid, required this.did, @ProfileViewConverter() required this.creator, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, this.avatar, this.likeCount, this.acceptsInteractions, @LabelConverter() final  List<Label>? labels, @GeneratorViewerStateConverter() this.viewer, @GeneratorViewContentModeConverter() this.contentMode, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
   factory _GeneratorView.fromJson(Map<String, dynamic> json) => _$GeneratorViewFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String cid;
 @override final  String did;
 @override@ProfileViewConverter() final  ProfileView creator;
@@ -276,7 +276,7 @@ class _GeneratorView implements GeneratorView {
   return EqualUnmodifiableListView(value);
 }
 
-@override@AtUriConverter() final  AtUri? avatar;
+@override final  String? avatar;
 @override final  int? likeCount;
 @override final  bool? acceptsInteractions;
  final  List<Label>? _labels;
@@ -334,7 +334,7 @@ abstract mixin class _$GeneratorViewCopyWith<$Res> implements $GeneratorViewCopy
   factory _$GeneratorViewCopyWith(_GeneratorView value, $Res Function(_GeneratorView) _then) = __$GeneratorViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String cid, String did,@ProfileViewConverter() ProfileView creator, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri? avatar, int? likeCount, bool? acceptsInteractions,@LabelConverter() List<Label>? labels,@GeneratorViewerStateConverter() GeneratorViewerState? viewer,@GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, String did,@ProfileViewConverter() ProfileView creator, String displayName, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? likeCount, bool? acceptsInteractions,@LabelConverter() List<Label>? labels,@GeneratorViewerStateConverter() GeneratorViewerState? viewer,@GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode, DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -355,14 +355,14 @@ class __$GeneratorViewCopyWithImpl<$Res>
   return _then(_GeneratorView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,creator: null == creator ? _self.creator : creator // ignore: cast_nullable_to_non_nullable
 as ProfileView,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,descriptionFacets: freezed == descriptionFacets ? _self._descriptionFacets : descriptionFacets // ignore: cast_nullable_to_non_nullable
 as List<RichtextFacet>?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
+as String?,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
 as int?,acceptsInteractions: freezed == acceptsInteractions ? _self.acceptsInteractions : acceptsInteractions // ignore: cast_nullable_to_non_nullable
 as bool?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable

@@ -25,13 +25,7 @@ _FeedSearchPostsInput _$FeedSearchPostsInputFromJson(Map json) =>
         author: $checkedConvert('author', (v) => v as String?),
         lang: $checkedConvert('lang', (v) => v as String?),
         domain: $checkedConvert('domain', (v) => v as String?),
-        url: $checkedConvert(
-          'url',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        url: $checkedConvert('url', (v) => v as String?),
         tag: $checkedConvert(
           'tag',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -60,10 +54,7 @@ Map<String, dynamic> _$FeedSearchPostsInputToJson(
   'author': ?instance.author,
   'lang': ?instance.lang,
   'domain': ?instance.domain,
-  'url': ?_$JsonConverterToJson<String, AtUri>(
-    instance.url,
-    const AtUriConverter().toJson,
-  ),
+  'url': ?instance.url,
   'tag': ?instance.tag,
   'limit': instance.limit,
   'cursor': ?instance.cursor,

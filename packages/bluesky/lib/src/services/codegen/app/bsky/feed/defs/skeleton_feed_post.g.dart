@@ -15,7 +15,10 @@ _SkeletonFeedPost _$SkeletonFeedPostFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.defs#skeletonFeedPost',
         ),
-        post: $checkedConvert('post', (v) => v as String),
+        post: $checkedConvert(
+          'post',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         reason: $checkedConvert(
           'reason',
           (v) =>
@@ -36,7 +39,7 @@ _SkeletonFeedPost _$SkeletonFeedPostFromJson(Map json) =>
 Map<String, dynamic> _$SkeletonFeedPostToJson(_SkeletonFeedPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'post': instance.post,
+      'post': const AtUriConverter().toJson(instance.post),
       'reason':
           ?_$JsonConverterToJson<Map<String, dynamic>, USkeletonFeedPostReason>(
             instance.reason,

@@ -12,7 +12,13 @@ _AdminGetSubjectStatusInput _$AdminGetSubjectStatusInputFromJson(Map json) =>
     $checkedCreate('_AdminGetSubjectStatusInput', json, ($checkedConvert) {
       final val = _AdminGetSubjectStatusInput(
         did: $checkedConvert('did', (v) => v as String?),
-        uri: $checkedConvert('uri', (v) => v as String?),
+        uri: $checkedConvert(
+          'uri',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         blob: $checkedConvert('blob', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -26,7 +32,20 @@ Map<String, dynamic> _$AdminGetSubjectStatusInputToJson(
   _AdminGetSubjectStatusInput instance,
 ) => <String, dynamic>{
   'did': ?instance.did,
-  'uri': ?instance.uri,
+  'uri': ?_$JsonConverterToJson<String, AtUri>(
+    instance.uri,
+    const AtUriConverter().toJson,
+  ),
   'blob': ?instance.blob,
   r'$unknown': ?instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

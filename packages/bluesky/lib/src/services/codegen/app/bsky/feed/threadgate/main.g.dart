@@ -15,7 +15,10 @@ _FeedThreadgateRecord _$FeedThreadgateRecordFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.feed.threadgate',
         ),
-        post: $checkedConvert('post', (v) => v as String),
+        post: $checkedConvert(
+          'post',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         allow: $checkedConvert(
           'allow',
           (v) => (v as List<dynamic>?)
@@ -32,7 +35,9 @@ _FeedThreadgateRecord _$FeedThreadgateRecordFromJson(Map json) =>
         ),
         hiddenReplies: $checkedConvert(
           'hiddenReplies',
-          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+          (v) => (v as List<dynamic>?)
+              ?.map((e) => const AtUriConverter().fromJson(e as String))
+              .toList(),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -46,11 +51,13 @@ Map<String, dynamic> _$FeedThreadgateRecordToJson(
   _FeedThreadgateRecord instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'post': instance.post,
+  'post': const AtUriConverter().toJson(instance.post),
   'allow': ?instance.allow
       ?.map(const UFeedThreadgateAllowConverter().toJson)
       .toList(),
   'createdAt': instance.createdAt.toIso8601String(),
-  'hiddenReplies': ?instance.hiddenReplies,
+  'hiddenReplies': ?instance.hiddenReplies
+      ?.map(const AtUriConverter().toJson)
+      .toList(),
   r'$unknown': ?instance.$unknown,
 };

@@ -16,7 +16,10 @@ _RecordView _$RecordViewFromJson(
       r'$type',
       (v) => v as String? ?? 'tools.ozone.moderation.defs#recordView',
     ),
-    uri: $checkedConvert('uri', (v) => v as String),
+    uri: $checkedConvert(
+      'uri',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     cid: $checkedConvert('cid', (v) => v as String),
     value: $checkedConvert('value', (v) => Map<String, dynamic>.from(v as Map)),
     blobCids: $checkedConvert(
@@ -43,7 +46,7 @@ _RecordView _$RecordViewFromJson(
 Map<String, dynamic> _$RecordViewToJson(_RecordView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'value': instance.value,
       'blobCids': instance.blobCids,

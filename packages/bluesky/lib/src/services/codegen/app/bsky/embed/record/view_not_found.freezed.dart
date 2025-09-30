@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedRecordViewNotFound {
 
- String get $type; String get uri; bool get notFound; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; bool get notFound; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedRecordViewNotFound
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $EmbedRecordViewNotFoundCopyWith<$Res>  {
   factory $EmbedRecordViewNotFoundCopyWith(EmbedRecordViewNotFound value, $Res Function(EmbedRecordViewNotFound) _then) = _$EmbedRecordViewNotFoundCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, bool notFound, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, bool notFound, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$EmbedRecordViewNotFoundCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,notFound: null == notFound ? _self.notFound : notFound // ignore: cast_nullable_to_non_nullable
+as AtUri,notFound: null == notFound ? _self.notFound : notFound // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  bool notFound,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  bool notFound,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewNotFound() when $default != null:
 return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  bool notFound,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  bool notFound,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewNotFound():
 return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  bool notFound,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  bool notFound,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewNotFound() when $default != null:
 return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
@@ -212,11 +212,11 @@ return $default(_that.$type,_that.uri,_that.notFound,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedRecordViewNotFound implements EmbedRecordViewNotFound {
-  const _EmbedRecordViewNotFound({this.$type = 'app.bsky.embed.record#viewNotFound', required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedRecordViewNotFound({this.$type = 'app.bsky.embed.record#viewNotFound', @AtUriConverter() required this.uri, required this.notFound, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedRecordViewNotFound.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewNotFoundFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  bool notFound;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,7 +261,7 @@ abstract mixin class _$EmbedRecordViewNotFoundCopyWith<$Res> implements $EmbedRe
   factory _$EmbedRecordViewNotFoundCopyWith(_EmbedRecordViewNotFound value, $Res Function(_EmbedRecordViewNotFound) _then) = __$EmbedRecordViewNotFoundCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, bool notFound, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, bool notFound, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,7 +282,7 @@ class __$EmbedRecordViewNotFoundCopyWithImpl<$Res>
   return _then(_EmbedRecordViewNotFound(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,notFound: null == notFound ? _self.notFound : notFound // ignore: cast_nullable_to_non_nullable
+as AtUri,notFound: null == notFound ? _self.notFound : notFound // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
