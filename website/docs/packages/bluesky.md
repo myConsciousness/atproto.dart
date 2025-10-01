@@ -107,11 +107,18 @@ For chat functionality, you can also import the chat-specific library:
 import 'package:bluesky/bluesky_chat.dart';
 ```
 
-Or import both for full functionality:
+For Ozone moderation tools:
+
+```dart
+import 'package:bluesky/ozone.dart';
+```
+
+Or import all for full functionality:
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/bluesky_chat.dart' as chat;
+import 'package:bluesky/ozone.dart' as ozone;
 ```
 
 ### Instantiate **Bluesky**
@@ -213,6 +220,45 @@ Future<void> main() async {
   // Access chat services
   final conversations = await bskyChat.convo.listConvos();
   print(conversations);
+}
+```
+
+### Ozone Services
+
+For Ozone moderation tools, **[bluesky](https://pub.dev/packages/bluesky)** provides a separate **[OzoneTool](https://pub.dev/documentation/bluesky/latest/ozone/OzoneTool-class.html)** class with comprehensive moderation services:
+
+| Service | Description |
+| ------- | ----------- |
+| **Communication** | Handle moderation communications and templates |
+| **Hosting** | Manage hosting configurations and settings |
+| **Moderation** | Query and manage moderation events, subjects, and actions |
+| **Server** | Server configuration and administrative tools |
+| **Team** | Manage moderation team members and roles |
+| **Additional Services** | Safelink, Set, Setting, Signature, and Verification services |
+
+To use Ozone services, create an **[OzoneTool](https://pub.dev/documentation/bluesky/latest/ozone/OzoneTool-class.html)** instance:
+
+```dart
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/ozone.dart';
+
+Future<void> main() async {
+  final session = await createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  // Create OzoneTool instance for moderation tools
+  final ozone = OzoneTool.fromSession(session.data);
+
+  // Query moderation events
+  final events = await ozone.moderation.queryEvents(limit: 50);
+  
+  // Get moderation subjects
+  final subjects = await ozone.moderation.getSubjects();
+  
+  // Access team management
+  final teamMembers = await ozone.team.listMembers();
 }
 ```
 
