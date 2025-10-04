@@ -192,6 +192,14 @@ enum KnownTimelineItemSummaryEventType implements Serializable {
   @JsonValue('tools.ozone.hosting.getAccountHistory#handleUpdated')
   toolsOzoneHostingGetAccountHistoryHandleUpdated(
     'tools.ozone.hosting.getAccountHistory#handleUpdated',
+  ),
+  @JsonValue('tools.ozone.moderation.defs#scheduleTakedownEvent')
+  toolsOzoneModerationDefsScheduleTakedownEvent(
+    'tools.ozone.moderation.defs#scheduleTakedownEvent',
+  ),
+  @JsonValue('tools.ozone.moderation.defs#cancelScheduledTakedownEvent')
+  toolsOzoneModerationDefsCancelScheduledTakedownEvent(
+    'tools.ozone.moderation.defs#cancelScheduledTakedownEvent',
   );
 
   @override

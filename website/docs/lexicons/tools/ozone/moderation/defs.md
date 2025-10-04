@@ -10,7 +10,7 @@ description: tools.ozone.moderation.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent)<br/>[#revokeAccountCredentialsEvent](#revokeaccountcredentialsevent) | - | ✅ | - |
+| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent)<br/>[#revokeAccountCredentialsEvent](#revokeaccountcredentialsevent)<br/>[#scheduleTakedownEvent](#scheduletakedownevent)<br/>[#cancelScheduledTakedownEvent](#cancelscheduledtakedownevent) | - | ✅ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
@@ -24,7 +24,7 @@ description: tools.ozone.moderation.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent)<br/>[#revokeAccountCredentialsEvent](#revokeaccountcredentialsevent) | - | ✅ | - |
+| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent)<br/>[#revokeAccountCredentialsEvent](#revokeaccountcredentialsevent)<br/>[#scheduleTakedownEvent](#scheduletakedownevent)<br/>[#cancelScheduledTakedownEvent](#cancelscheduledtakedownevent) | - | ✅ | - |
 | **subject** | union of <br/>[#repoView](#repoview)<br/>[#repoViewNotFound](#repoviewnotfound)<br/>[#recordView](#recordview)<br/>[#recordViewNotFound](#recordviewnotfound) | - | ✅ | - |
 | **subjectBlobs** | array of [#blobView](#blobview) | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
@@ -328,6 +328,25 @@ Logs lifecycle event on a record subject. Normally captured by automod from the 
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 | **timestamp** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
+## #scheduleTakedownEvent
+
+Logs a scheduled takedown action for an account.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **comment** | string | - | ❌ | - |
+| **executeAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **executeAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **executeUntil** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+
+## #cancelScheduledTakedownEvent
+
+Logs cancellation of a scheduled takedown action for an account.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **comment** | string | - | ❌ | - |
+
 ## #repoView
 
 | Property | Type | Known Values | Required | Description |
@@ -492,3 +511,25 @@ Moderation tool information for tracing the source of the action
 ## #timelineEventPlcTombstone
 
 **TOKEN**: Moderation event timeline event for a PLC tombstone operation
+
+## #scheduledActionView
+
+View of a scheduled moderation action
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **id** | integer | - | ✅ | Auto-incrementing row ID |
+| **action** | string | takedown | ✅ | Type of action to be executed |
+| **eventData** | unknown | - | ❌ | Serialized event object that will be propagated to the event when performed |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | Subject DID for the action |
+| **executeAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Exact time to execute the action |
+| **executeAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Earliest time to execute the action (for randomized scheduling) |
+| **executeUntil** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Latest time to execute the action (for randomized scheduling) |
+| **randomizeExecution** | boolean | - | ❌ | Whether execution time should be randomized within the specified range |
+| **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the user who created this scheduled action |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | When the scheduled action was created |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the scheduled action was last updated |
+| **status** | string | pending<br/>executed<br/>cancelled<br/>failed | ✅ | Current status of the scheduled action |
+| **lastExecutedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the action was last attempted to be executed |
+| **lastFailureReason** | string | - | ❌ | Reason for the last execution failure |
+| **executionEventId** | integer | - | ❌ | ID of the moderation event created when action was successfully executed |

@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../tools/ozone/moderation/defs/account_event.dart';
 import '../../../../tools/ozone/moderation/defs/age_assurance_event.dart';
 import '../../../../tools/ozone/moderation/defs/age_assurance_override_event.dart';
+import '../../../../tools/ozone/moderation/defs/cancel_scheduled_takedown_event.dart';
 import '../../../../tools/ozone/moderation/defs/identity_event.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_acknowledge.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_comment.dart';
@@ -34,6 +35,7 @@ import '../../../../tools/ozone/moderation/defs/mod_event_unmute.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute_reporter.dart';
 import '../../../../tools/ozone/moderation/defs/record_event.dart';
 import '../../../../tools/ozone/moderation/defs/revoke_account_credentials_event.dart';
+import '../../../../tools/ozone/moderation/defs/schedule_takedown_event.dart';
 
 part 'union_main_event.freezed.dart';
 
@@ -111,6 +113,12 @@ sealed class UModerationEmitEventEvent with _$UModerationEmitEventEvent {
   const factory UModerationEmitEventEvent.revokeAccountCredentialsEvent({
     required RevokeAccountCredentialsEvent data,
   }) = UModerationEmitEventEventRevokeAccountCredentialsEvent;
+  const factory UModerationEmitEventEvent.scheduleTakedownEvent({
+    required ScheduleTakedownEvent data,
+  }) = UModerationEmitEventEventScheduleTakedownEvent;
+  const factory UModerationEmitEventEvent.cancelScheduledTakedownEvent({
+    required CancelScheduledTakedownEvent data,
+  }) = UModerationEmitEventEventCancelScheduledTakedownEvent;
 
   const factory UModerationEmitEventEvent.unknown({
     required Map<String, dynamic> data,
@@ -224,6 +232,18 @@ extension UModerationEmitEventEventExtension on UModerationEmitEventEvent {
   RevokeAccountCredentialsEvent? get revokeAccountCredentialsEvent =>
       isRevokeAccountCredentialsEvent
       ? data as RevokeAccountCredentialsEvent
+      : null;
+  bool get isScheduleTakedownEvent =>
+      isA<UModerationEmitEventEventScheduleTakedownEvent>(this);
+  bool get isNotScheduleTakedownEvent => !isScheduleTakedownEvent;
+  ScheduleTakedownEvent? get scheduleTakedownEvent =>
+      isScheduleTakedownEvent ? data as ScheduleTakedownEvent : null;
+  bool get isCancelScheduledTakedownEvent =>
+      isA<UModerationEmitEventEventCancelScheduledTakedownEvent>(this);
+  bool get isNotCancelScheduledTakedownEvent => !isCancelScheduledTakedownEvent;
+  CancelScheduledTakedownEvent? get cancelScheduledTakedownEvent =>
+      isCancelScheduledTakedownEvent
+      ? data as CancelScheduledTakedownEvent
       : null;
   bool get isUnknown => isA<UModerationEmitEventEventUnknown>(this);
   bool get isNotUnknown => !isUnknown;
@@ -348,6 +368,16 @@ final class UModerationEmitEventEventConverter
           data: const RevokeAccountCredentialsEventConverter().fromJson(json),
         );
       }
+      if (ScheduleTakedownEvent.validate(json)) {
+        return UModerationEmitEventEvent.scheduleTakedownEvent(
+          data: const ScheduleTakedownEventConverter().fromJson(json),
+        );
+      }
+      if (CancelScheduledTakedownEvent.validate(json)) {
+        return UModerationEmitEventEvent.cancelScheduledTakedownEvent(
+          data: const CancelScheduledTakedownEventConverter().fromJson(json),
+        );
+      }
 
       return UModerationEmitEventEvent.unknown(data: json);
     } catch (_) {
@@ -388,6 +418,10 @@ final class UModerationEmitEventEventConverter
         const AgeAssuranceOverrideEventConverter().toJson(data),
     revokeAccountCredentialsEvent: (data) =>
         const RevokeAccountCredentialsEventConverter().toJson(data),
+    scheduleTakedownEvent: (data) =>
+        const ScheduleTakedownEventConverter().toJson(data),
+    cancelScheduledTakedownEvent: (data) =>
+        const CancelScheduledTakedownEventConverter().toJson(data),
 
     unknown: (data) => data,
   );
