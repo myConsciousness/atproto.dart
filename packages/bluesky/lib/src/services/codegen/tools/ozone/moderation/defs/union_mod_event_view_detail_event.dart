@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import './account_event.dart';
 import './age_assurance_event.dart';
 import './age_assurance_override_event.dart';
+import './cancel_scheduled_takedown_event.dart';
 import './identity_event.dart';
 import './mod_event_acknowledge.dart';
 import './mod_event_comment.dart';
@@ -34,6 +35,7 @@ import './mod_event_unmute.dart';
 import './mod_event_unmute_reporter.dart';
 import './record_event.dart';
 import './revoke_account_credentials_event.dart';
+import './schedule_takedown_event.dart';
 
 part 'union_mod_event_view_detail_event.freezed.dart';
 
@@ -111,6 +113,12 @@ sealed class UModEventViewDetailEvent with _$UModEventViewDetailEvent {
   const factory UModEventViewDetailEvent.revokeAccountCredentialsEvent({
     required RevokeAccountCredentialsEvent data,
   }) = UModEventViewDetailEventRevokeAccountCredentialsEvent;
+  const factory UModEventViewDetailEvent.scheduleTakedownEvent({
+    required ScheduleTakedownEvent data,
+  }) = UModEventViewDetailEventScheduleTakedownEvent;
+  const factory UModEventViewDetailEvent.cancelScheduledTakedownEvent({
+    required CancelScheduledTakedownEvent data,
+  }) = UModEventViewDetailEventCancelScheduledTakedownEvent;
 
   const factory UModEventViewDetailEvent.unknown({
     required Map<String, dynamic> data,
@@ -224,6 +232,18 @@ extension UModEventViewDetailEventExtension on UModEventViewDetailEvent {
   RevokeAccountCredentialsEvent? get revokeAccountCredentialsEvent =>
       isRevokeAccountCredentialsEvent
       ? data as RevokeAccountCredentialsEvent
+      : null;
+  bool get isScheduleTakedownEvent =>
+      isA<UModEventViewDetailEventScheduleTakedownEvent>(this);
+  bool get isNotScheduleTakedownEvent => !isScheduleTakedownEvent;
+  ScheduleTakedownEvent? get scheduleTakedownEvent =>
+      isScheduleTakedownEvent ? data as ScheduleTakedownEvent : null;
+  bool get isCancelScheduledTakedownEvent =>
+      isA<UModEventViewDetailEventCancelScheduledTakedownEvent>(this);
+  bool get isNotCancelScheduledTakedownEvent => !isCancelScheduledTakedownEvent;
+  CancelScheduledTakedownEvent? get cancelScheduledTakedownEvent =>
+      isCancelScheduledTakedownEvent
+      ? data as CancelScheduledTakedownEvent
       : null;
   bool get isUnknown => isA<UModEventViewDetailEventUnknown>(this);
   bool get isNotUnknown => !isUnknown;
@@ -348,6 +368,16 @@ final class UModEventViewDetailEventConverter
           data: const RevokeAccountCredentialsEventConverter().fromJson(json),
         );
       }
+      if (ScheduleTakedownEvent.validate(json)) {
+        return UModEventViewDetailEvent.scheduleTakedownEvent(
+          data: const ScheduleTakedownEventConverter().fromJson(json),
+        );
+      }
+      if (CancelScheduledTakedownEvent.validate(json)) {
+        return UModEventViewDetailEvent.cancelScheduledTakedownEvent(
+          data: const CancelScheduledTakedownEventConverter().fromJson(json),
+        );
+      }
 
       return UModEventViewDetailEvent.unknown(data: json);
     } catch (_) {
@@ -388,6 +418,10 @@ final class UModEventViewDetailEventConverter
         const AgeAssuranceOverrideEventConverter().toJson(data),
     revokeAccountCredentialsEvent: (data) =>
         const RevokeAccountCredentialsEventConverter().toJson(data),
+    scheduleTakedownEvent: (data) =>
+        const ScheduleTakedownEventConverter().toJson(data),
+    cancelScheduledTakedownEvent: (data) =>
+        const CancelScheduledTakedownEventConverter().toJson(data),
 
     unknown: (data) => data,
   );

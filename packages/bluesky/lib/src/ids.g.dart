@@ -1070,6 +1070,18 @@ const toolsOzoneHostingGetAccountHistoryHandleUpdated =
 const toolsOzoneHostingGetAccountHistoryPasswordUpdated =
     'tools.ozone.hosting.getAccountHistory#passwordUpdated';
 
+/// `tools.ozone.moderation.cancelScheduledActions`
+const toolsOzoneModerationCancelScheduledActions =
+    'tools.ozone.moderation.cancelScheduledActions';
+
+/// `tools.ozone.moderation.cancelScheduledActions#cancellationResults`
+const toolsOzoneModerationCancelScheduledActionsCancellationResults =
+    'tools.ozone.moderation.cancelScheduledActions#cancellationResults';
+
+/// `tools.ozone.moderation.cancelScheduledActions#failedCancellation`
+const toolsOzoneModerationCancelScheduledActionsFailedCancellation =
+    'tools.ozone.moderation.cancelScheduledActions#failedCancellation';
+
 /// `tools.ozone.moderation.defs`
 const toolsOzoneModerationDefs = 'tools.ozone.moderation.defs';
 
@@ -1095,6 +1107,10 @@ const toolsOzoneModerationDefsAgeAssuranceOverrideEvent =
 
 /// `tools.ozone.moderation.defs#blobView`
 const toolsOzoneModerationDefsBlobView = 'tools.ozone.moderation.defs#blobView';
+
+/// `tools.ozone.moderation.defs#cancelScheduledTakedownEvent`
+const toolsOzoneModerationDefsCancelScheduledTakedownEvent =
+    'tools.ozone.moderation.defs#cancelScheduledTakedownEvent';
 
 /// `tools.ozone.moderation.defs#identityEvent`
 const toolsOzoneModerationDefsIdentityEvent =
@@ -1246,6 +1262,14 @@ const toolsOzoneModerationDefsReviewOpen =
 const toolsOzoneModerationDefsRevokeAccountCredentialsEvent =
     'tools.ozone.moderation.defs#revokeAccountCredentialsEvent';
 
+/// `tools.ozone.moderation.defs#scheduleTakedownEvent`
+const toolsOzoneModerationDefsScheduleTakedownEvent =
+    'tools.ozone.moderation.defs#scheduleTakedownEvent';
+
+/// `tools.ozone.moderation.defs#scheduledActionView`
+const toolsOzoneModerationDefsScheduledActionView =
+    'tools.ozone.moderation.defs#scheduledActionView';
+
 /// `tools.ozone.moderation.defs#subjectReviewState`
 const toolsOzoneModerationDefsSubjectReviewState =
     'tools.ozone.moderation.defs#subjectReviewState';
@@ -1311,12 +1335,36 @@ const toolsOzoneModerationGetRepos = 'tools.ozone.moderation.getRepos';
 /// `tools.ozone.moderation.getSubjects`
 const toolsOzoneModerationGetSubjects = 'tools.ozone.moderation.getSubjects';
 
+/// `tools.ozone.moderation.listScheduledActions`
+const toolsOzoneModerationListScheduledActions =
+    'tools.ozone.moderation.listScheduledActions';
+
 /// `tools.ozone.moderation.queryEvents`
 const toolsOzoneModerationQueryEvents = 'tools.ozone.moderation.queryEvents';
 
 /// `tools.ozone.moderation.queryStatuses`
 const toolsOzoneModerationQueryStatuses =
     'tools.ozone.moderation.queryStatuses';
+
+/// `tools.ozone.moderation.scheduleAction`
+const toolsOzoneModerationScheduleAction =
+    'tools.ozone.moderation.scheduleAction';
+
+/// `tools.ozone.moderation.scheduleAction#failedScheduling`
+const toolsOzoneModerationScheduleActionFailedScheduling =
+    'tools.ozone.moderation.scheduleAction#failedScheduling';
+
+/// `tools.ozone.moderation.scheduleAction#scheduledActionResults`
+const toolsOzoneModerationScheduleActionScheduledActionResults =
+    'tools.ozone.moderation.scheduleAction#scheduledActionResults';
+
+/// `tools.ozone.moderation.scheduleAction#schedulingConfig`
+const toolsOzoneModerationScheduleActionSchedulingConfig =
+    'tools.ozone.moderation.scheduleAction#schedulingConfig';
+
+/// `tools.ozone.moderation.scheduleAction#takedown`
+const toolsOzoneModerationScheduleActionTakedown =
+    'tools.ozone.moderation.scheduleAction#takedown';
 
 /// `tools.ozone.moderation.searchRepos`
 const toolsOzoneModerationSearchRepos = 'tools.ozone.moderation.searchRepos';

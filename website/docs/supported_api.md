@@ -357,6 +357,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[tools.ozone.moderation.cancelScheduledActions](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/cancelScheduledActions.html)** | [Reference](lexicons/tools/ozone/moderation/cancelScheduledActions.md) | ❌ |
 | **[tools.ozone.moderation.emitEvent](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/emitEvent.html)** | [Reference](lexicons/tools/ozone/moderation/emitEvent.md) | ❌ |
 | **[tools.ozone.moderation.getAccountTimeline](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getAccountTimeline.html)** | [Reference](lexicons/tools/ozone/moderation/getAccountTimeline.md) | ❌ |
 | **[tools.ozone.moderation.getEvent](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getEvent.html)** | [Reference](lexicons/tools/ozone/moderation/getEvent.md) | ❌ |
@@ -366,8 +367,10 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[tools.ozone.moderation.getReporterStats](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getReporterStats.html)** | [Reference](lexicons/tools/ozone/moderation/getReporterStats.md) | ❌ |
 | **[tools.ozone.moderation.getRepos](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getRepos.html)** | [Reference](lexicons/tools/ozone/moderation/getRepos.md) | ❌ |
 | **[tools.ozone.moderation.getSubjects](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getSubjects.html)** | [Reference](lexicons/tools/ozone/moderation/getSubjects.md) | ❌ |
+| **[tools.ozone.moderation.listScheduledActions](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/listScheduledActions.html)** | [Reference](lexicons/tools/ozone/moderation/listScheduledActions.md) | ❌ |
 | **[tools.ozone.moderation.queryEvents](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/queryEvents.html)** | [Reference](lexicons/tools/ozone/moderation/queryEvents.md) | ✅ |
 | **[tools.ozone.moderation.queryStatuses](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/queryStatuses.html)** | [Reference](lexicons/tools/ozone/moderation/queryStatuses.md) | ✅ |
+| **[tools.ozone.moderation.scheduleAction](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/scheduleAction.html)** | [Reference](lexicons/tools/ozone/moderation/scheduleAction.md) | ❌ |
 | **[tools.ozone.moderation.searchRepos](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/searchRepos.html)** | [Reference](lexicons/tools/ozone/moderation/searchRepos.md) | ✅ |
 
 ### tools.ozone.hosting
