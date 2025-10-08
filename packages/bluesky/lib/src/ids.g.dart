@@ -1379,10 +1379,6 @@ const toolsOzoneReportDefsReasonAppeal = 'tools.ozone.report.defs#reasonAppeal';
 const toolsOzoneReportDefsReasonChildSafetyCSAM =
     'tools.ozone.report.defs#reasonChildSafetyCSAM';
 
-/// `tools.ozone.report.defs#reasonChildSafetyEndangerment`
-const toolsOzoneReportDefsReasonChildSafetyEndangerment =
-    'tools.ozone.report.defs#reasonChildSafetyEndangerment';
-
 /// `tools.ozone.report.defs#reasonChildSafetyGroom`
 const toolsOzoneReportDefsReasonChildSafetyGroom =
     'tools.ozone.report.defs#reasonChildSafetyGroom';
@@ -1391,37 +1387,13 @@ const toolsOzoneReportDefsReasonChildSafetyGroom =
 const toolsOzoneReportDefsReasonChildSafetyHarassment =
     'tools.ozone.report.defs#reasonChildSafetyHarassment';
 
-/// `tools.ozone.report.defs#reasonChildSafetyMinorPrivacy`
-const toolsOzoneReportDefsReasonChildSafetyMinorPrivacy =
-    'tools.ozone.report.defs#reasonChildSafetyMinorPrivacy';
-
 /// `tools.ozone.report.defs#reasonChildSafetyOther`
 const toolsOzoneReportDefsReasonChildSafetyOther =
     'tools.ozone.report.defs#reasonChildSafetyOther';
 
-/// `tools.ozone.report.defs#reasonChildSafetyPromotion`
-const toolsOzoneReportDefsReasonChildSafetyPromotion =
-    'tools.ozone.report.defs#reasonChildSafetyPromotion';
-
-/// `tools.ozone.report.defs#reasonCivicDisclosure`
-const toolsOzoneReportDefsReasonCivicDisclosure =
-    'tools.ozone.report.defs#reasonCivicDisclosure';
-
-/// `tools.ozone.report.defs#reasonCivicElectoralProcess`
-const toolsOzoneReportDefsReasonCivicElectoralProcess =
-    'tools.ozone.report.defs#reasonCivicElectoralProcess';
-
-/// `tools.ozone.report.defs#reasonCivicImpersonation`
-const toolsOzoneReportDefsReasonCivicImpersonation =
-    'tools.ozone.report.defs#reasonCivicImpersonation';
-
-/// `tools.ozone.report.defs#reasonCivicInterference`
-const toolsOzoneReportDefsReasonCivicInterference =
-    'tools.ozone.report.defs#reasonCivicInterference';
-
-/// `tools.ozone.report.defs#reasonCivicMisinformation`
-const toolsOzoneReportDefsReasonCivicMisinformation =
-    'tools.ozone.report.defs#reasonCivicMisinformation';
+/// `tools.ozone.report.defs#reasonChildSafetyPrivacy`
+const toolsOzoneReportDefsReasonChildSafetyPrivacy =
+    'tools.ozone.report.defs#reasonChildSafetyPrivacy';
 
 /// `tools.ozone.report.defs#reasonHarassmentDoxxing`
 const toolsOzoneReportDefsReasonHarassmentDoxxing =
@@ -1447,13 +1419,13 @@ const toolsOzoneReportDefsReasonHarassmentTroll =
 const toolsOzoneReportDefsReasonMisleadingBot =
     'tools.ozone.report.defs#reasonMisleadingBot';
 
+/// `tools.ozone.report.defs#reasonMisleadingElections`
+const toolsOzoneReportDefsReasonMisleadingElections =
+    'tools.ozone.report.defs#reasonMisleadingElections';
+
 /// `tools.ozone.report.defs#reasonMisleadingImpersonation`
 const toolsOzoneReportDefsReasonMisleadingImpersonation =
     'tools.ozone.report.defs#reasonMisleadingImpersonation';
-
-/// `tools.ozone.report.defs#reasonMisleadingMisinformation`
-const toolsOzoneReportDefsReasonMisleadingMisinformation =
-    'tools.ozone.report.defs#reasonMisleadingMisinformation';
 
 /// `tools.ozone.report.defs#reasonMisleadingOther`
 const toolsOzoneReportDefsReasonMisleadingOther =
@@ -1467,9 +1439,8 @@ const toolsOzoneReportDefsReasonMisleadingScam =
 const toolsOzoneReportDefsReasonMisleadingSpam =
     'tools.ozone.report.defs#reasonMisleadingSpam';
 
-/// `tools.ozone.report.defs#reasonMisleadingSyntheticContent`
-const toolsOzoneReportDefsReasonMisleadingSyntheticContent =
-    'tools.ozone.report.defs#reasonMisleadingSyntheticContent';
+/// `tools.ozone.report.defs#reasonOther`
+const toolsOzoneReportDefsReasonOther = 'tools.ozone.report.defs#reasonOther';
 
 /// `tools.ozone.report.defs#reasonRuleBanEvasion`
 const toolsOzoneReportDefsReasonRuleBanEvasion =
@@ -1487,9 +1458,25 @@ const toolsOzoneReportDefsReasonRuleProhibitedSales =
 const toolsOzoneReportDefsReasonRuleSiteSecurity =
     'tools.ozone.report.defs#reasonRuleSiteSecurity';
 
-/// `tools.ozone.report.defs#reasonRuleStolenContent`
-const toolsOzoneReportDefsReasonRuleStolenContent =
-    'tools.ozone.report.defs#reasonRuleStolenContent';
+/// `tools.ozone.report.defs#reasonSelfHarmContent`
+const toolsOzoneReportDefsReasonSelfHarmContent =
+    'tools.ozone.report.defs#reasonSelfHarmContent';
+
+/// `tools.ozone.report.defs#reasonSelfHarmED`
+const toolsOzoneReportDefsReasonSelfHarmED =
+    'tools.ozone.report.defs#reasonSelfHarmED';
+
+/// `tools.ozone.report.defs#reasonSelfHarmOther`
+const toolsOzoneReportDefsReasonSelfHarmOther =
+    'tools.ozone.report.defs#reasonSelfHarmOther';
+
+/// `tools.ozone.report.defs#reasonSelfHarmStunts`
+const toolsOzoneReportDefsReasonSelfHarmStunts =
+    'tools.ozone.report.defs#reasonSelfHarmStunts';
+
+/// `tools.ozone.report.defs#reasonSelfHarmSubstances`
+const toolsOzoneReportDefsReasonSelfHarmSubstances =
+    'tools.ozone.report.defs#reasonSelfHarmSubstances';
 
 /// `tools.ozone.report.defs#reasonSexualAbuseContent`
 const toolsOzoneReportDefsReasonSexualAbuseContent =
@@ -1511,10 +1498,6 @@ const toolsOzoneReportDefsReasonSexualNCII =
 const toolsOzoneReportDefsReasonSexualOther =
     'tools.ozone.report.defs#reasonSexualOther';
 
-/// `tools.ozone.report.defs#reasonSexualSextortion`
-const toolsOzoneReportDefsReasonSexualSextortion =
-    'tools.ozone.report.defs#reasonSexualSextortion';
-
 /// `tools.ozone.report.defs#reasonSexualUnlabeled`
 const toolsOzoneReportDefsReasonSexualUnlabeled =
     'tools.ozone.report.defs#reasonSexualUnlabeled';
@@ -1522,9 +1505,9 @@ const toolsOzoneReportDefsReasonSexualUnlabeled =
 /// `tools.ozone.report.defs#reasonType`
 const toolsOzoneReportDefsReasonType = 'tools.ozone.report.defs#reasonType';
 
-/// `tools.ozone.report.defs#reasonViolenceAnimalWelfare`
-const toolsOzoneReportDefsReasonViolenceAnimalWelfare =
-    'tools.ozone.report.defs#reasonViolenceAnimalWelfare';
+/// `tools.ozone.report.defs#reasonViolenceAnimal`
+const toolsOzoneReportDefsReasonViolenceAnimal =
+    'tools.ozone.report.defs#reasonViolenceAnimal';
 
 /// `tools.ozone.report.defs#reasonViolenceExtremistContent`
 const toolsOzoneReportDefsReasonViolenceExtremistContent =
@@ -1541,10 +1524,6 @@ const toolsOzoneReportDefsReasonViolenceGraphicContent =
 /// `tools.ozone.report.defs#reasonViolenceOther`
 const toolsOzoneReportDefsReasonViolenceOther =
     'tools.ozone.report.defs#reasonViolenceOther';
-
-/// `tools.ozone.report.defs#reasonViolenceSelfHarm`
-const toolsOzoneReportDefsReasonViolenceSelfHarm =
-    'tools.ozone.report.defs#reasonViolenceSelfHarm';
 
 /// `tools.ozone.report.defs#reasonViolenceThreats`
 const toolsOzoneReportDefsReasonViolenceThreats =
