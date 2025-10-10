@@ -4578,7 +4578,7 @@ const appBskyFeedThreadgate = <String, dynamic>{
             "type": "array",
             "description": "List of hidden reply URIs.",
             "items": {"type": "string", "format": "at-uri"},
-            "maxLength": 50,
+            "maxLength": 300,
           },
         },
       },
