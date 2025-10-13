@@ -144,7 +144,7 @@ ModerationDecision decideBlockedQuotedPost(
     }
 
     if (subject.author.viewer!.hasBlocking) {
-      if (subject.author.viewer!.hasNotBlockingByList) {
+      if (subject.author.viewer!.hasBlockingByList) {
         decision.addBlockingByList(subject.author.viewer!.blockingByList!);
       } else {
         decision.addBlocking();
