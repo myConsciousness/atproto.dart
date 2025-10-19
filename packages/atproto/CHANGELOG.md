@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.3
+
+- chore: Sync Lexicon Data. ([#2165](https://github.com/myConsciousness/atproto.dart/pull/2165))
+
 ## v1.2.2
 
 - **FIX**: Fixed type compatibility issues with AtUri parameters
