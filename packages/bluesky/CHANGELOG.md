@@ -1,5 +1,14 @@
 # Release Note
 
+## v1.2.5
+
+- chore: Sync Lexicon Data.
+  - ([#2165](https://github.com/myConsciousness/atproto.dart/pull/2165))
+  - ([#2163](https://github.com/myConsciousness/atproto.dart/pull/2163))
+  - ([#2168](https://github.com/myConsciousness/atproto.dart/pull/2168))
+- Fix typo causing crash in moderation code.
+  - ([#2170](https://github.com/myConsciousness/atproto.dart/pull/2170))
+
 ## v1.2.4
 
 - **FIX**: Fixed type compatibility issues with AtUri parameters
