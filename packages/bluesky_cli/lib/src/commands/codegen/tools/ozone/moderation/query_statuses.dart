@@ -137,6 +137,11 @@ final class QueryStatusesCommand extends QueryCommand {
             r"If specified, only subjects that have priority score value above the given value will be returned.",
       )
       ..addOption(
+        "minStrikeCount",
+        help:
+            r"If specified, only subjects that belong to an account that has at least this many active strikes will be returned.",
+      )
+      ..addOption(
         "ageAssuranceState",
         help:
             r"If specified, only subjects with the given age assurance state will be returned.",
@@ -152,7 +157,7 @@ final class QueryStatusesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation query-statuses [queueCount] [queueIndex] [queueSeed] [includeAllUserRecords] [subject] [comment] [reportedAfter] [reportedBefore] [reviewedAfter] [hostingDeletedAfter] [hostingDeletedBefore] [hostingUpdatedAfter] [hostingUpdatedBefore] [hostingStatuses] [reviewedBefore] [includeMuted] [onlyMuted] [reviewState] [ignoreSubjects] [lastReviewedBy] [sortField] [sortDirection] [takendown] [appealed] [limit] [tags] [excludeTags] [cursor] [collections] [subjectType] [minAccountSuspendCount] [minReportedRecordsCount] [minTakendownRecordsCount] [minPriorityScore] [ageAssuranceState]";
+      "bsky tools-ozone-moderation query-statuses [queueCount] [queueIndex] [queueSeed] [includeAllUserRecords] [subject] [comment] [reportedAfter] [reportedBefore] [reviewedAfter] [hostingDeletedAfter] [hostingDeletedBefore] [hostingUpdatedAfter] [hostingUpdatedBefore] [hostingStatuses] [reviewedBefore] [includeMuted] [onlyMuted] [reviewState] [ignoreSubjects] [lastReviewedBy] [sortField] [sortDirection] [takendown] [appealed] [limit] [tags] [excludeTags] [cursor] [collections] [subjectType] [minAccountSuspendCount] [minReportedRecordsCount] [minTakendownRecordsCount] [minPriorityScore] [minStrikeCount] [ageAssuranceState]";
 
   @override
   String get methodId => "tools.ozone.moderation.queryStatuses";
@@ -216,6 +221,8 @@ final class QueryStatusesCommand extends QueryCommand {
       "minTakendownRecordsCount": argResults!["minTakendownRecordsCount"],
     if (argResults!["minPriorityScore"] != null)
       "minPriorityScore": argResults!["minPriorityScore"],
+    if (argResults!["minStrikeCount"] != null)
+      "minStrikeCount": argResults!["minStrikeCount"],
     if (argResults!["ageAssuranceState"] != null)
       "ageAssuranceState": argResults!["ageAssuranceState"],
   };

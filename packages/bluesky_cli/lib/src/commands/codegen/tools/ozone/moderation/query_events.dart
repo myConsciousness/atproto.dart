@@ -101,6 +101,11 @@ final class QueryEventsCommand extends QueryCommand {
         help:
             r"If specified, only events where the age assurance state matches the given value are returned",
       )
+      ..addFlag(
+        "withStrike",
+        help:
+            r"If specified, only events where strikeCount value is set are returned.",
+      )
       ..addOption("cursor");
   }
 
@@ -112,7 +117,7 @@ final class QueryEventsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation query-events [types] [createdBy] [sortDirection] [createdAfter] [createdBefore] [subject] [collections] [subjectType] [includeAllUserRecords] [limit] [hasComment] [comment] [addedLabels] [removedLabels] [addedTags] [removedTags] [reportTypes] [policies] [modTool] [batchId] [ageAssuranceState] [cursor]";
+      "bsky tools-ozone-moderation query-events [types] [createdBy] [sortDirection] [createdAfter] [createdBefore] [subject] [collections] [subjectType] [includeAllUserRecords] [limit] [hasComment] [comment] [addedLabels] [removedLabels] [addedTags] [removedTags] [reportTypes] [policies] [modTool] [batchId] [ageAssuranceState] [withStrike] [cursor]";
 
   @override
   String get methodId => "tools.ozone.moderation.queryEvents";
@@ -150,6 +155,8 @@ final class QueryEventsCommand extends QueryCommand {
     if (argResults!["batchId"] != null) "batchId": argResults!["batchId"],
     if (argResults!["ageAssuranceState"] != null)
       "ageAssuranceState": argResults!["ageAssuranceState"],
+    if (argResults!["withStrike"] != null)
+      "withStrike": argResults!["withStrike"],
     if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
   };
 }

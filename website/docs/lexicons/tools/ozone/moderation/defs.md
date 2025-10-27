@@ -57,6 +57,7 @@ description: tools.ozone.moderation.defs
 | **tags** | array of string | - | ❌ | - |
 | **accountStats** | [#accountStats](#accountstats) | - | ❌ | - |
 | **recordsStats** | [#recordsStats](#recordsstats) | - | ❌ | - |
+| **accountStrike** | [#accountStrike](#accountstrike) | - | ❌ | - |
 | **ageAssuranceState** | string | pending<br/>assured<br/>unknown<br/>reset<br/>blocked | ❌ | Current age assurance state of the subject. |
 | **ageAssuranceUpdatedBy** | string | admin<br/>user | ❌ | Whether or not the last successful update to age assurance was made by the user or admin. |
 
@@ -100,6 +101,17 @@ Statistics about a set of record subject items
 | **processedCount** | integer | - | ❌ | Number of item currently in "reviewNone" or "reviewClosed" state |
 | **takendownCount** | integer | - | ❌ | Number of item currently taken down |
 
+## #accountStrike
+
+Strike information for an account
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **activeStrikeCount** | integer | - | ❌ | Current number of active strikes (excluding expired strikes) |
+| **totalStrikeCount** | integer | - | ❌ | Total number of strikes ever received (including expired strikes) |
+| **firstStrikeAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Timestamp of the first strike received |
+| **lastStrikeAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Timestamp of the most recent strike received |
+
 ## #subjectReviewState
 
 | Property | Type | Known Values | Required | Description |
@@ -132,6 +144,9 @@ Take down a subject permanently or temporarily
 | **durationInHours** | integer | - | ❌ | Indicates how long the takedown should be in effect before automatically expiring. |
 | **acknowledgeAccountSubjects** | boolean | - | ❌ | If true, all other reports on content authored by this account will be resolved (acknowledged). |
 | **policies** | array of string | - | ❌ | Names/Keywords of the policies that drove the decision. |
+| **severityLevel** | string | - | ❌ | Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.). |
+| **strikeCount** | integer | - | ❌ | Number of strikes to assign to the user for this violation. |
+| **strikeExpiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the strike should expire. If not provided, the strike never expires. |
 
 ## #modEventReverseTakedown
 
@@ -140,6 +155,9 @@ Revert take down action on a subject
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **comment** | string | - | ❌ | Describe reasoning behind the reversal. |
+| **policies** | array of string | - | ❌ | Names/Keywords of the policy infraction for which takedown is being reversed. |
+| **severityLevel** | string | - | ❌ | Severity level of the violation. Usually set from the last policy infraction's severity. |
+| **strikeCount** | integer | - | ❌ | Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity. |
 
 ## #modEventResolveAppeal
 
@@ -275,6 +293,10 @@ Keep a log of outgoing email to a user
 | **subjectLine** | string | - | ✅ | The subject line of the email sent to the user. |
 | **content** | string | - | ❌ | The content of the email sent to the user. |
 | **comment** | string | - | ❌ | Additional comment about the outgoing comm. |
+| **policies** | array of string | - | ❌ | Names/Keywords of the policies that necessitated the email. |
+| **severityLevel** | string | - | ❌ | Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense |
+| **strikeCount** | integer | - | ❌ | Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense. |
+| **strikeExpiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the strike should expire. If not provided, the strike never expires. |
 
 ## #modEventDivert
 

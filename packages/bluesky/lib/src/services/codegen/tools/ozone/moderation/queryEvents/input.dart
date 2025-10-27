@@ -46,6 +46,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     'modTool',
     'batchId',
     'ageAssuranceState',
+    'withStrike',
     'cursor',
   ];
 
@@ -94,6 +95,9 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     /// If specified, only events where the age assurance state matches the given value are returned
     @ModerationQueryEventsAgeAssuranceStateConverter()
     ModerationQueryEventsAgeAssuranceState? ageAssuranceState,
+
+    /// If specified, only events where strikeCount value is set are returned.
+    bool? withStrike,
     String? cursor,
 
     Map<String, dynamic>? $unknown,
@@ -121,6 +125,8 @@ extension ModerationQueryEventsInputExtension on ModerationQueryEventsInput {
   bool get hasNotBatchId => !hasBatchId;
   bool get hasAgeAssuranceState => ageAssuranceState != null;
   bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
+  bool get isWithStrike => withStrike ?? false;
+  bool get isNotWithStrike => !isWithStrike;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

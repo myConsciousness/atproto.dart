@@ -60,6 +60,7 @@ abstract class ModerationQueryStatusesInput
     'minReportedRecordsCount',
     'minTakendownRecordsCount',
     'minPriorityScore',
+    'minStrikeCount',
     'ageAssuranceState',
   ];
 
@@ -152,6 +153,9 @@ abstract class ModerationQueryStatusesInput
     /// If specified, only subjects that have priority score value above the given value will be returned.
     int? minPriorityScore,
 
+    /// If specified, only subjects that belong to an account that has at least this many active strikes will be returned.
+    int? minStrikeCount,
+
     /// If specified, only subjects with the given age assurance state will be returned.
     @ModerationQueryStatusesAgeAssuranceStateConverter()
     ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
@@ -217,6 +221,8 @@ extension ModerationQueryStatusesInputExtension
   bool get hasNotMinTakendownRecordsCount => !hasMinTakendownRecordsCount;
   bool get hasMinPriorityScore => minPriorityScore != null;
   bool get hasNotMinPriorityScore => !hasMinPriorityScore;
+  bool get hasMinStrikeCount => minStrikeCount != null;
+  bool get hasNotMinStrikeCount => !hasMinStrikeCount;
   bool get hasAgeAssuranceState => ageAssuranceState != null;
   bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
 }

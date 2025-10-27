@@ -21,7 +21,15 @@ part 'mod_event_email.g.dart';
 /// Keep a log of outgoing email to a user
 @freezed
 abstract class ModEventEmail with _$ModEventEmail {
-  static const knownProps = <String>['subjectLine', 'content', 'comment'];
+  static const knownProps = <String>[
+    'subjectLine',
+    'content',
+    'comment',
+    'policies',
+    'severityLevel',
+    'strikeCount',
+    'strikeExpiresAt',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ModEventEmail({
@@ -35,6 +43,16 @@ abstract class ModEventEmail with _$ModEventEmail {
 
     /// Additional comment about the outgoing comm.
     String? comment,
+    List<String>? policies,
+
+    /// Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense
+    String? severityLevel,
+
+    /// Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense.
+    int? strikeCount,
+
+    /// When the strike should expire. If not provided, the strike never expires.
+    DateTime? strikeExpiresAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ModEventEmail;
@@ -53,6 +71,12 @@ extension ModEventEmailExtension on ModEventEmail {
   bool get hasNotContent => !hasContent;
   bool get hasComment => comment != null;
   bool get hasNotComment => !hasComment;
+  bool get hasSeverityLevel => severityLevel != null;
+  bool get hasNotSeverityLevel => !hasSeverityLevel;
+  bool get hasStrikeCount => strikeCount != null;
+  bool get hasNotStrikeCount => !hasStrikeCount;
+  bool get hasStrikeExpiresAt => strikeExpiresAt != null;
+  bool get hasNotStrikeExpiresAt => !hasStrikeExpiresAt;
 }
 
 final class ModEventEmailConverter

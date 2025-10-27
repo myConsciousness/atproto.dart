@@ -88,6 +88,7 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
             const ModerationQueryEventsAgeAssuranceStateConverter().fromJson,
           ),
     ),
+    withStrike: $checkedConvert('withStrike', (v) => v as bool?),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -129,6 +130,7 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
         instance.ageAssuranceState,
         const ModerationQueryEventsAgeAssuranceStateConverter().toJson,
       ),
+  'withStrike': ?instance.withStrike,
   'cursor': ?instance.cursor,
   r'$unknown': ?instance.$unknown,
 };
