@@ -113,6 +113,10 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
       'minPriorityScore',
       (v) => (v as num?)?.toInt(),
     ),
+    minStrikeCount: $checkedConvert(
+      'minStrikeCount',
+      (v) => (v as num?)?.toInt(),
+    ),
     ageAssuranceState: $checkedConvert(
       'ageAssuranceState',
       (v) =>
@@ -173,6 +177,7 @@ Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
   'minReportedRecordsCount': ?instance.minReportedRecordsCount,
   'minTakendownRecordsCount': ?instance.minTakendownRecordsCount,
   'minPriorityScore': ?instance.minPriorityScore,
+  'minStrikeCount': ?instance.minStrikeCount,
   'ageAssuranceState':
       ?_$JsonConverterToJson<String, ModerationQueryStatusesAgeAssuranceState>(
         instance.ageAssuranceState,

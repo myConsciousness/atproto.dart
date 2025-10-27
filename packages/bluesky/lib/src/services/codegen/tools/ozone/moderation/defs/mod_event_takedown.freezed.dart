@@ -17,7 +17,10 @@ mixin _$ModEventTakedown {
 
  String get $type; String? get comment;/// Indicates how long the takedown should be in effect before automatically expiring.
  int? get durationInHours;/// If true, all other reports on content authored by this account will be resolved (acknowledged).
- bool? get acknowledgeAccountSubjects; List<String>? get policies; Map<String, dynamic>? get $unknown;
+ bool? get acknowledgeAccountSubjects; List<String>? get policies;/// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
+ String? get severityLevel;/// Number of strikes to assign to the user for this violation.
+ int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
+ DateTime? get strikeExpiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventTakedown
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +33,16 @@ $ModEventTakedownCopyWith<ModEventTakedown> get copyWith => _$ModEventTakedownCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other.policies, policies)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other.policies, policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(policies),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(policies),severityLevel,strikeCount,strikeExpiresAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModEventTakedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, \$unknown: ${$unknown})';
+  return 'ModEventTakedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +53,7 @@ abstract mixin class $ModEventTakedownCopyWith<$Res>  {
   factory $ModEventTakedownCopyWith(ModEventTakedown value, $Res Function(ModEventTakedown) _then) = _$ModEventTakedownCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,14 +70,17 @@ class _$ModEventTakedownCopyWithImpl<$Res>
 
 /// Create a copy of ModEventTakedown
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
 as int?,acknowledgeAccountSubjects: freezed == acknowledgeAccountSubjects ? _self.acknowledgeAccountSubjects : acknowledgeAccountSubjects // ignore: cast_nullable_to_non_nullable
 as bool?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
+as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -160,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventTakedown() when $default != null:
-return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -181,10 +187,10 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventTakedown():
-return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +207,10 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventTakedown() when $default != null:
-return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   return null;
 
 }
@@ -216,7 +222,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventTakedown implements ModEventTakedown {
-  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, this.strikeCount, this.strikeExpiresAt, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _ModEventTakedown.fromJson(Map<String, dynamic> json) => _$ModEventTakedownFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -234,6 +240,12 @@ class _ModEventTakedown implements ModEventTakedown {
   return EqualUnmodifiableListView(value);
 }
 
+/// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
+@override final  String? severityLevel;
+/// Number of strikes to assign to the user for this violation.
+@override final  int? strikeCount;
+/// When the strike should expire. If not provided, the strike never expires.
+@override final  DateTime? strikeExpiresAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,16 +269,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other._policies, _policies)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other._policies, _policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(_policies),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(_policies),severityLevel,strikeCount,strikeExpiresAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModEventTakedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, \$unknown: ${$unknown})';
+  return 'ModEventTakedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -277,7 +289,7 @@ abstract mixin class _$ModEventTakedownCopyWith<$Res> implements $ModEventTakedo
   factory _$ModEventTakedownCopyWith(_ModEventTakedown value, $Res Function(_ModEventTakedown) _then) = __$ModEventTakedownCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -294,14 +306,17 @@ class __$ModEventTakedownCopyWithImpl<$Res>
 
 /// Create a copy of ModEventTakedown
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_ModEventTakedown(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
 as int?,acknowledgeAccountSubjects: freezed == acknowledgeAccountSubjects ? _self.acknowledgeAccountSubjects : acknowledgeAccountSubjects // ignore: cast_nullable_to_non_nullable
 as bool?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
+as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

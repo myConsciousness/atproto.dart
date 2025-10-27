@@ -13015,6 +13015,12 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
             "minimum": 0,
             "maximum": 100,
           },
+          "minStrikeCount": {
+            "type": "integer",
+            "description":
+                "If specified, only subjects that belong to an account that has at least this many active strikes will be returned.",
+            "minimum": 1,
+          },
           "ageAssuranceState": {
             "type": "string",
             "description":
@@ -13433,6 +13439,12 @@ const toolsOzoneModerationDefs = <String, dynamic>{
               "Statistics related to the record subjects authored by the subject's account",
           "ref": "#recordsStats",
         },
+        "accountStrike": {
+          "type": "ref",
+          "description":
+              "Strike information for the account (account-level only)",
+          "ref": "#accountStrike",
+        },
         "ageAssuranceState": {
           "type": "string",
           "description": "Current age assurance state of the subject.",
@@ -13531,6 +13543,32 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         },
       },
     },
+    "accountStrike": {
+      "type": "object",
+      "description": "Strike information for an account",
+      "properties": {
+        "activeStrikeCount": {
+          "type": "integer",
+          "description":
+              "Current number of active strikes (excluding expired strikes)",
+        },
+        "totalStrikeCount": {
+          "type": "integer",
+          "description":
+              "Total number of strikes ever received (including expired strikes)",
+        },
+        "firstStrikeAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp of the first strike received",
+        },
+        "lastStrikeAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp of the most recent strike received",
+        },
+      },
+    },
     "subjectReviewState": {
       "type": "string",
       "knownValues": [
@@ -13582,6 +13620,22 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "items": {"type": "string"},
           "maxLength": 5,
         },
+        "severityLevel": {
+          "type": "string",
+          "description":
+              "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).",
+        },
+        "strikeCount": {
+          "type": "integer",
+          "description":
+              "Number of strikes to assign to the user for this violation.",
+        },
+        "strikeExpiresAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the strike should expire. If not provided, the strike never expires.",
+        },
       },
     },
     "modEventReverseTakedown": {
@@ -13591,6 +13645,23 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "comment": {
           "type": "string",
           "description": "Describe reasoning behind the reversal.",
+        },
+        "policies": {
+          "type": "array",
+          "description":
+              "Names/Keywords of the policy infraction for which takedown is being reversed.",
+          "items": {"type": "string"},
+          "maxLength": 5,
+        },
+        "severityLevel": {
+          "type": "string",
+          "description":
+              "Severity level of the violation. Usually set from the last policy infraction's severity.",
+        },
+        "strikeCount": {
+          "type": "integer",
+          "description":
+              "Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity.",
         },
       },
     },
@@ -13807,6 +13878,29 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "comment": {
           "type": "string",
           "description": "Additional comment about the outgoing comm.",
+        },
+        "policies": {
+          "type": "array",
+          "description":
+              "Names/Keywords of the policies that necessitated the email.",
+          "items": {"type": "string"},
+          "maxLength": 5,
+        },
+        "severityLevel": {
+          "type": "string",
+          "description":
+              "Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense",
+        },
+        "strikeCount": {
+          "type": "integer",
+          "description":
+              "Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense.",
+        },
+        "strikeExpiresAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the strike should expire. If not provided, the strike never expires.",
         },
       },
     },
@@ -14472,6 +14566,11 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
               "reset",
               "blocked",
             ],
+          },
+          "withStrike": {
+            "type": "boolean",
+            "description":
+                "If specified, only events where strikeCount value is set are returned.",
           },
           "cursor": {"type": "string"},
         },

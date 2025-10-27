@@ -21,7 +21,12 @@ part 'mod_event_reverse_takedown.g.dart';
 /// Revert take down action on a subject
 @freezed
 abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
-  static const knownProps = <String>['comment'];
+  static const knownProps = <String>[
+    'comment',
+    'policies',
+    'severityLevel',
+    'strikeCount',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ModEventReverseTakedown({
@@ -30,6 +35,13 @@ abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
 
     /// Describe reasoning behind the reversal.
     String? comment,
+    List<String>? policies,
+
+    /// Severity level of the violation. Usually set from the last policy infraction's severity.
+    String? severityLevel,
+
+    /// Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity.
+    int? strikeCount,
 
     Map<String, dynamic>? $unknown,
   }) = _ModEventReverseTakedown;
@@ -47,6 +59,10 @@ abstract class ModEventReverseTakedown with _$ModEventReverseTakedown {
 extension ModEventReverseTakedownExtension on ModEventReverseTakedown {
   bool get hasComment => comment != null;
   bool get hasNotComment => !hasComment;
+  bool get hasSeverityLevel => severityLevel != null;
+  bool get hasNotSeverityLevel => !hasSeverityLevel;
+  bool get hasStrikeCount => strikeCount != null;
+  bool get hasNotStrikeCount => !hasStrikeCount;
 }
 
 final class ModEventReverseTakedownConverter

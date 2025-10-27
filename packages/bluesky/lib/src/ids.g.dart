@@ -1097,6 +1097,10 @@ const toolsOzoneModerationDefsAccountHosting =
 const toolsOzoneModerationDefsAccountStats =
     'tools.ozone.moderation.defs#accountStats';
 
+/// `tools.ozone.moderation.defs#accountStrike`
+const toolsOzoneModerationDefsAccountStrike =
+    'tools.ozone.moderation.defs#accountStrike';
+
 /// `tools.ozone.moderation.defs#ageAssuranceEvent`
 const toolsOzoneModerationDefsAgeAssuranceEvent =
     'tools.ozone.moderation.defs#ageAssuranceEvent';

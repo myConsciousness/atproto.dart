@@ -95,6 +95,13 @@ _SubjectStatusView _$SubjectStatusViewFromJson(
         const RecordsStatsConverter().fromJson,
       ),
     ),
+    accountStrike: $checkedConvert(
+      'accountStrike',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, AccountStrike>(
+        v,
+        const AccountStrikeConverter().fromJson,
+      ),
+    ),
     ageAssuranceState: $checkedConvert(
       'ageAssuranceState',
       (v) =>
@@ -161,6 +168,10 @@ Map<String, dynamic> _$SubjectStatusViewToJson(
   'recordsStats': ?_$JsonConverterToJson<Map<String, dynamic>, RecordsStats>(
     instance.recordsStats,
     const RecordsStatsConverter().toJson,
+  ),
+  'accountStrike': ?_$JsonConverterToJson<Map<String, dynamic>, AccountStrike>(
+    instance.accountStrike,
+    const AccountStrikeConverter().toJson,
   ),
   'ageAssuranceState':
       ?_$JsonConverterToJson<String, SubjectStatusViewAgeAssuranceState>(
