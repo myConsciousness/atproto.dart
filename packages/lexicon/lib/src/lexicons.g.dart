@@ -4890,6 +4890,10 @@ const appBskyFeedDefs = <String, dynamic>{
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
         },
         "threadgate": {"type": "ref", "ref": "#threadgateView"},
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development",
+        },
       },
     },
     "viewerState": {
@@ -6126,6 +6130,10 @@ const appBskyActorDefs = <String, dynamic>{
         "createdAt": {"type": "string", "format": "datetime"},
         "verification": {"type": "ref", "ref": "#verificationState"},
         "status": {"type": "ref", "ref": "#statusView"},
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development",
+        },
       },
     },
     "profileView": {
@@ -6152,6 +6160,10 @@ const appBskyActorDefs = <String, dynamic>{
         },
         "verification": {"type": "ref", "ref": "#verificationState"},
         "status": {"type": "ref", "ref": "#statusView"},
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development",
+        },
       },
     },
     "profileViewDetailed": {
@@ -6188,6 +6200,10 @@ const appBskyActorDefs = <String, dynamic>{
         "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
         "verification": {"type": "ref", "ref": "#verificationState"},
         "status": {"type": "ref", "ref": "#statusView"},
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development",
+        },
       },
     },
     "profileAssociated": {

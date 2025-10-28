@@ -68,6 +68,10 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
         const ThreadgateViewConverter().fromJson,
       ),
     ),
+    debug: $checkedConvert(
+      'debug',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -101,6 +105,7 @@ Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
     instance.threadgate,
     const ThreadgateViewConverter().toJson,
   ),
+  'debug': ?instance.debug,
   r'$unknown': ?instance.$unknown,
 };
 

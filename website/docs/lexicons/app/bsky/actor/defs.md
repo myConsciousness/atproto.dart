@@ -20,6 +20,7 @@ description: app.bsky.actor.defs
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
 | **status** | [#statusView](#statusview) | - | ❌ | - |
+| **debug** | unknown | - | ❌ | Debug information for internal development |
 
 ## #profileView
 
@@ -38,6 +39,7 @@ description: app.bsky.actor.defs
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
 | **status** | [#statusView](#statusview) | - | ❌ | - |
+| **debug** | unknown | - | ❌ | Debug information for internal development |
 
 ## #profileViewDetailed
 
@@ -63,6 +65,7 @@ description: app.bsky.actor.defs
 | **pinnedPost** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
 | **status** | [#statusView](#statusview) | - | ❌ | - |
+| **debug** | unknown | - | ❌ | Debug information for internal development |
 
 ## #profileAssociated
 
