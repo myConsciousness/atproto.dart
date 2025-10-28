@@ -41,6 +41,7 @@ abstract class ProfileView with _$ProfileView {
     'labels',
     'verification',
     'status',
+    'debug',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -59,6 +60,7 @@ abstract class ProfileView with _$ProfileView {
     @LabelConverter() List<Label>? labels,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
+    Map<String, dynamic>? debug,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileView;
@@ -93,6 +95,8 @@ extension ProfileViewExtension on ProfileView {
   bool get hasNotVerification => !hasVerification;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasDebug => debug != null;
+  bool get hasNotDebug => !hasDebug;
 }
 
 final class ProfileViewConverter

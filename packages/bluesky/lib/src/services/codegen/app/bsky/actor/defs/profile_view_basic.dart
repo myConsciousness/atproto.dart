@@ -39,6 +39,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     'createdAt',
     'verification',
     'status',
+    'debug',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -55,6 +56,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     DateTime? createdAt,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
+    Map<String, dynamic>? debug,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewBasic;
@@ -85,6 +87,8 @@ extension ProfileViewBasicExtension on ProfileViewBasic {
   bool get hasNotVerification => !hasVerification;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasDebug => debug != null;
+  bool get hasNotDebug => !hasDebug;
 }
 
 final class ProfileViewBasicConverter
