@@ -7280,6 +7280,7 @@ const appBskyGraphFollow = <String, dynamic>{
         "properties": {
           "subject": {"type": "string", "format": "did"},
           "createdAt": {"type": "string", "format": "datetime"},
+          "via": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
         },
       },
     },

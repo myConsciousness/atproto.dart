@@ -13,6 +13,7 @@ import 'package:atproto/com_atproto_repo_deleterecord.dart';
 import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
+import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart' show iso8601;
 
@@ -1183,6 +1184,7 @@ final class GraphFollowRecordAccessor {
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
     required String subject,
     DateTime? createdAt,
+    RepoStrongRef? via,
     String? rkey,
     bool? validate,
     String? swapCommit,
@@ -1193,7 +1195,12 @@ final class GraphFollowRecordAccessor {
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    record: {
+      ...?$unknown,
+      'subject': subject,
+      'createdAt': iso8601(createdAt),
+      if (via != null) 'via': via.toJson(),
+    },
     swapCommit: swapCommit,
     $ctx: _ctx,
     $headers: $headers,
@@ -1202,6 +1209,7 @@ final class GraphFollowRecordAccessor {
   Future<XRPCResponse<RepoPutRecordOutput>> put({
     required String subject,
     DateTime? createdAt,
+    RepoStrongRef? via,
     required String rkey,
     bool? validate,
     String? swapRecord,
@@ -1213,7 +1221,12 @@ final class GraphFollowRecordAccessor {
     collection: ids.appBskyGraphFollow,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    record: {
+      ...?$unknown,
+      'subject': subject,
+      'createdAt': iso8601(createdAt),
+      if (via != null) 'via': via.toJson(),
+    },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $ctx: _ctx,

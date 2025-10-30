@@ -9,6 +9,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // Package imports:
 import 'package:args/command_runner.dart';
@@ -45,6 +46,7 @@ final class _CreateFollowCommand extends CreateRecordCommand {
     argParser
       ..addOption("subject", mandatory: true)
       ..addOption("createdAt", mandatory: true)
+      ..addOption("via")
       ..addOption("rkey");
   }
 
@@ -56,7 +58,7 @@ final class _CreateFollowCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph follow create [subject] [createdAt] [rkey]";
+      "bsky app-bsky-graph follow create [subject] [createdAt] [via] [rkey]";
 
   @override
   String get rkey => "${argResults!['rkey']}";
@@ -68,6 +70,7 @@ final class _CreateFollowCommand extends CreateRecordCommand {
   Map<String, dynamic> get record => {
     "subject": argResults!["subject"],
     "createdAt": argResults!["createdAt"],
+    if (argResults!["via"] != null) "via": jsonDecode(argResults!["via"]),
   };
 }
 
@@ -76,6 +79,7 @@ final class _PutFollowCommand extends PutRecordCommand {
     argParser
       ..addOption("subject", mandatory: true)
       ..addOption("createdAt", mandatory: true)
+      ..addOption("via")
       ..addOption("rkey");
   }
 
@@ -87,7 +91,7 @@ final class _PutFollowCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph follow put [subject] [createdAt] [rkey]";
+      "bsky app-bsky-graph follow put [subject] [createdAt] [via] [rkey]";
 
   @override
   String get rkey => "${argResults!['rkey']}";
@@ -99,6 +103,7 @@ final class _PutFollowCommand extends PutRecordCommand {
   Map<String, dynamic> get record => {
     "subject": argResults!["subject"],
     "createdAt": argResults!["createdAt"],
+    if (argResults!["via"] != null) "via": jsonDecode(argResults!["via"]),
   };
 }
 
