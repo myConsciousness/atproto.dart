@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.2.4
+
+- chore: Sync Lexicon Data.
+  - ([#2173](https://github.com/myConsciousness/atproto.dart/pull/2173))
+  - ([#2175](https://github.com/myConsciousness/atproto.dart/pull/2175))
+  - ([#2177](https://github.com/myConsciousness/atproto.dart/pull/2177))
+- fix: Codegen errors. ([#2182](https://github.com/myConsciousness/atproto.dart/pull/2182))
+
 ## v1.2.3
 
 - chore: Sync Lexicon Data. ([#2165](https://github.com/myConsciousness/atproto.dart/pull/2165))
