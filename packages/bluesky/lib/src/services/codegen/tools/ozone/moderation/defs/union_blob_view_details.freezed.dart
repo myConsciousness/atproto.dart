@@ -85,10 +85,7 @@ switch (_that) {
 case UBlobViewDetailsImageDetails():
 return imageDetails(_that);case UBlobViewDetailsVideoDetails():
 return videoDetails(_that);case UBlobViewDetailsUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -153,10 +150,7 @@ switch (_that) {
 case UBlobViewDetailsImageDetails():
 return imageDetails(_that.data);case UBlobViewDetailsVideoDetails():
 return videoDetails(_that.data);case UBlobViewDetailsUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

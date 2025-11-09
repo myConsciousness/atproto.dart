@@ -20,14 +20,14 @@ import 'bookmark/getBookmarks/output.dart';
 
 /// Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyBookmarkDeleteBookmark({
-  required String uri,
+  required AtUri uri,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyBookmarkDeleteBookmark,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'uri': uri},
+  body: {...?$unknown, 'uri': uri.toString()},
 );
 
 /// Gets views of records bookmarked by the authenticated user. Requires authentication.
@@ -50,7 +50,7 @@ Future<XRPCResponse<BookmarkGetBookmarksOutput>> appBskyBookmarkGetBookmarks({
 
 /// Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyBookmarkCreateBookmark({
-  required String uri,
+  required AtUri uri,
   required String cid,
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -58,7 +58,7 @@ Future<XRPCResponse<EmptyData>> appBskyBookmarkCreateBookmark({
 }) async => await $ctx.post(
   ns.appBskyBookmarkCreateBookmark,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'uri': uri, 'cid': cid},
+  body: {...?$unknown, 'uri': uri.toString(), 'cid': cid},
 );
 
 /// `app.bsky.bookmark.*`
@@ -70,7 +70,7 @@ base class BookmarkService {
 
   /// Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
   Future<XRPCResponse<EmptyData>> deleteBookmark({
-    required String uri,
+    required AtUri uri,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyBookmarkDeleteBookmark(
@@ -96,7 +96,7 @@ base class BookmarkService {
 
   /// Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
   Future<XRPCResponse<EmptyData>> createBookmark({
-    required String uri,
+    required AtUri uri,
     required String cid,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,

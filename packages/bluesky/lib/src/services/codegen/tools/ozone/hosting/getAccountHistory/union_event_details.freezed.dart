@@ -91,10 +91,7 @@ return emailUpdated(_that);case UEventDetailsEmailConfirmed():
 return emailConfirmed(_that);case UEventDetailsPasswordUpdated():
 return passwordUpdated(_that);case UEventDetailsHandleUpdated():
 return handleUpdated(_that);case UEventDetailsUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -168,10 +165,7 @@ return emailUpdated(_that.data);case UEventDetailsEmailConfirmed():
 return emailConfirmed(_that.data);case UEventDetailsPasswordUpdated():
 return passwordUpdated(_that.data);case UEventDetailsHandleUpdated():
 return handleUpdated(_that.data);case UEventDetailsUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

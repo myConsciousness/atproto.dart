@@ -59,6 +59,7 @@ The AT Protocol represents a paradigm shift toward decentralized social networki
 - Create powerful automation tools and bots with comprehensive API coverage
 - Process real-time data streams using our optimized Firehose implementation
 - Build custom AT Protocol services and bridges to other platforms
+- Access Ozone moderation tools for administrative operations
 
 **For AT Protocol Enthusiasts:**
 - Work with all core AT Protocol primitives: DIDs, NSIDs, AT URIs, Lexicons, and XRPC
@@ -125,7 +126,7 @@ dart pub add bluesky
 ```
 
 ```dart
-import 'package:atproto/atproto.dart';
+import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 
 void main() async {
@@ -163,7 +164,6 @@ dart pub add atproto
 ```dart
 import 'package:atproto/atproto.dart';
 import 'package:atproto/firehose.dart';
-
 import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 
 void main() async {
@@ -178,11 +178,11 @@ void main() async {
 
   // Create a record
   await atproto.repo.createRecord(
-    repo: 'your-did',
+    repo: session.data.did,
     collection: 'app.bsky.feed.post',
     record: {
       'text': 'Hello AT Protocol!',
-      'createdAt': DateTime.now().toIso8601String(),
+      'createdAt': DateTime.now().toUtc().toIso8601String(),
     },
   );
 

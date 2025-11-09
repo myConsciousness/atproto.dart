@@ -22,10 +22,6 @@ _ThreadViewPref _$ThreadViewPrefFromJson(Map json) =>
             const ThreadViewPrefSortConverter().fromJson,
           ),
         ),
-        prioritizeFollowedUsers: $checkedConvert(
-          'prioritizeFollowedUsers',
-          (v) => v as bool?,
-        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -41,7 +37,6 @@ Map<String, dynamic> _$ThreadViewPrefToJson(_ThreadViewPref instance) =>
         instance.sort,
         const ThreadViewPrefSortConverter().toJson,
       ),
-      'prioritizeFollowedUsers': ?instance.prioritizeFollowedUsers,
       r'$unknown': ?instance.$unknown,
     };
 

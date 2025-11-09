@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -42,12 +43,13 @@ abstract class PostView with _$PostView {
     'viewer',
     'labels',
     'threadgate',
+    'debug',
   ];
 
   @JsonSerializable(includeIfNull: false)
   const factory PostView({
     @Default('app.bsky.feed.defs#postView') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     @ProfileViewBasicConverter() required ProfileViewBasic author,
     required Map<String, dynamic> record,
@@ -61,6 +63,7 @@ abstract class PostView with _$PostView {
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
     @ThreadgateViewConverter() ThreadgateView? threadgate,
+    Map<String, dynamic>? debug,
 
     Map<String, dynamic>? $unknown,
   }) = _PostView;
@@ -91,6 +94,8 @@ extension PostViewExtension on PostView {
   bool get hasNotViewer => !hasViewer;
   bool get hasThreadgate => threadgate != null;
   bool get hasNotThreadgate => !hasThreadgate;
+  bool get hasDebug => debug != null;
+  bool get hasNotDebug => !hasDebug;
 }
 
 final class PostViewConverter

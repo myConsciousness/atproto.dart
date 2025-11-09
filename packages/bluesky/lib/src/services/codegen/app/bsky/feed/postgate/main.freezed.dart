@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$FeedPostgateRecord {
 
  String get $type; DateTime get createdAt;/// Reference (AT-URI) to the post record.
- String get post; List<String>? get detachedEmbeddingUris;@UFeedPostgateEmbeddingRulesConverter() List<UFeedPostgateEmbeddingRules>? get embeddingRules; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get post;@AtUriConverter() List<AtUri>? get detachedEmbeddingUris;@UFeedPostgateEmbeddingRulesConverter() List<UFeedPostgateEmbeddingRules>? get embeddingRules; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedPostgateRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $FeedPostgateRecordCopyWith<$Res>  {
   factory $FeedPostgateRecordCopyWith(FeedPostgateRecord value, $Res Function(FeedPostgateRecord) _then) = _$FeedPostgateRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime createdAt, String post, List<String>? detachedEmbeddingUris,@UFeedPostgateEmbeddingRulesConverter() List<UFeedPostgateEmbeddingRules>? embeddingRules, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt,@AtUriConverter() AtUri post,@AtUriConverter() List<AtUri>? detachedEmbeddingUris,@UFeedPostgateEmbeddingRulesConverter() List<UFeedPostgateEmbeddingRules>? embeddingRules, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,8 +71,8 @@ class _$FeedPostgateRecordCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as String,detachedEmbeddingUris: freezed == detachedEmbeddingUris ? _self.detachedEmbeddingUris : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
-as List<String>?,embeddingRules: freezed == embeddingRules ? _self.embeddingRules : embeddingRules // ignore: cast_nullable_to_non_nullable
+as AtUri,detachedEmbeddingUris: freezed == detachedEmbeddingUris ? _self.detachedEmbeddingUris : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
+as List<AtUri>?,embeddingRules: freezed == embeddingRules ? _self.embeddingRules : embeddingRules // ignore: cast_nullable_to_non_nullable
 as List<UFeedPostgateEmbeddingRules>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String post,  List<String>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter()  List<UFeedPostgateEmbeddingRules>? embeddingRules,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AtUriConverter()  AtUri post, @AtUriConverter()  List<AtUri>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter()  List<UFeedPostgateEmbeddingRules>? embeddingRules,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedPostgateRecord() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUris,_that.embeddingRules,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUr
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String post,  List<String>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter()  List<UFeedPostgateEmbeddingRules>? embeddingRules,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AtUriConverter()  AtUri post, @AtUriConverter()  List<AtUri>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter()  List<UFeedPostgateEmbeddingRules>? embeddingRules,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedPostgateRecord():
 return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUris,_that.embeddingRules,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUr
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt,  String post,  List<String>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter()  List<UFeedPostgateEmbeddingRules>? embeddingRules,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt, @AtUriConverter()  AtUri post, @AtUriConverter()  List<AtUri>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter()  List<UFeedPostgateEmbeddingRules>? embeddingRules,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedPostgateRecord() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUris,_that.embeddingRules,_that.$unknown);case _:
@@ -215,15 +215,15 @@ return $default(_that.$type,_that.createdAt,_that.post,_that.detachedEmbeddingUr
 
 @JsonSerializable(includeIfNull: false)
 class _FeedPostgateRecord implements FeedPostgateRecord {
-  const _FeedPostgateRecord({this.$type = 'app.bsky.feed.postgate', required this.createdAt, required this.post, final  List<String>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter() final  List<UFeedPostgateEmbeddingRules>? embeddingRules, final  Map<String, dynamic>? $unknown}): _detachedEmbeddingUris = detachedEmbeddingUris,_embeddingRules = embeddingRules,_$unknown = $unknown;
+  const _FeedPostgateRecord({this.$type = 'app.bsky.feed.postgate', required this.createdAt, @AtUriConverter() required this.post, @AtUriConverter() final  List<AtUri>? detachedEmbeddingUris, @UFeedPostgateEmbeddingRulesConverter() final  List<UFeedPostgateEmbeddingRules>? embeddingRules, final  Map<String, dynamic>? $unknown}): _detachedEmbeddingUris = detachedEmbeddingUris,_embeddingRules = embeddingRules,_$unknown = $unknown;
   factory _FeedPostgateRecord.fromJson(Map<String, dynamic> json) => _$FeedPostgateRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  DateTime createdAt;
 /// Reference (AT-URI) to the post record.
-@override final  String post;
- final  List<String>? _detachedEmbeddingUris;
-@override List<String>? get detachedEmbeddingUris {
+@override@AtUriConverter() final  AtUri post;
+ final  List<AtUri>? _detachedEmbeddingUris;
+@override@AtUriConverter() List<AtUri>? get detachedEmbeddingUris {
   final value = _detachedEmbeddingUris;
   if (value == null) return null;
   if (_detachedEmbeddingUris is EqualUnmodifiableListView) return _detachedEmbeddingUris;
@@ -283,7 +283,7 @@ abstract mixin class _$FeedPostgateRecordCopyWith<$Res> implements $FeedPostgate
   factory _$FeedPostgateRecordCopyWith(_FeedPostgateRecord value, $Res Function(_FeedPostgateRecord) _then) = __$FeedPostgateRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime createdAt, String post, List<String>? detachedEmbeddingUris,@UFeedPostgateEmbeddingRulesConverter() List<UFeedPostgateEmbeddingRules>? embeddingRules, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt,@AtUriConverter() AtUri post,@AtUriConverter() List<AtUri>? detachedEmbeddingUris,@UFeedPostgateEmbeddingRulesConverter() List<UFeedPostgateEmbeddingRules>? embeddingRules, Map<String, dynamic>? $unknown
 });
 
 
@@ -305,8 +305,8 @@ class __$FeedPostgateRecordCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as String,detachedEmbeddingUris: freezed == detachedEmbeddingUris ? _self._detachedEmbeddingUris : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
-as List<String>?,embeddingRules: freezed == embeddingRules ? _self._embeddingRules : embeddingRules // ignore: cast_nullable_to_non_nullable
+as AtUri,detachedEmbeddingUris: freezed == detachedEmbeddingUris ? _self._detachedEmbeddingUris : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
+as List<AtUri>?,embeddingRules: freezed == embeddingRules ? _self._embeddingRules : embeddingRules // ignore: cast_nullable_to_non_nullable
 as List<UFeedPostgateEmbeddingRules>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

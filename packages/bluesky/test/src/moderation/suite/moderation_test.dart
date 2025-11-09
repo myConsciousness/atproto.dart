@@ -1,6 +1,5 @@
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -31,7 +30,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:bob.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),
@@ -67,7 +66,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:bob.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),
@@ -103,7 +102,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),
@@ -141,7 +140,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.actor.profile/self'),
+                uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),
@@ -228,13 +227,13 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: '!hide',
                 cts: DateTime.now().toUtc(),
               ),
@@ -300,7 +299,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),
@@ -389,7 +388,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: '!hide',
                 cts: DateTime.now().toUtc(),
               ),
@@ -482,13 +481,13 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'BadLabel',
                 cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'bad/label',
                 cts: DateTime.now().toUtc(),
               ),
@@ -587,7 +586,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'default-hide',
                 cts: DateTime.now().toUtc(),
               ),
@@ -690,7 +689,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'default-warn',
                 cts: DateTime.now().toUtc(),
               ),
@@ -790,7 +789,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'default-ignore',
                 cts: DateTime.now().toUtc(),
               ),
@@ -890,7 +889,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'adult',
                 cts: DateTime.now().toUtc(),
               ),
@@ -987,7 +986,7 @@ void main() {
             labels: [
               Label(
                 src: 'did:web:labeler.test',
-                uri: AtUri('at://did:web:bob.test/app.bsky.post/fake'),
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
                 val: 'porn',
                 cts: DateTime.now().toUtc(),
               ),

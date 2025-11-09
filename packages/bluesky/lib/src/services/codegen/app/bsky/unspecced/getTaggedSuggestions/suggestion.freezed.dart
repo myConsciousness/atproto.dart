@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Suggestion {
 
- String get $type; String get tag;@SuggestionSubjectTypeConverter() SuggestionSubjectType get subjectType;@AtUriConverter() AtUri get subject; Map<String, dynamic>? get $unknown;
+ String get $type; String get tag;@SuggestionSubjectTypeConverter() SuggestionSubjectType get subjectType; String get subject; Map<String, dynamic>? get $unknown;
 /// Create a copy of Suggestion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SuggestionCopyWith<$Res>  {
   factory $SuggestionCopyWith(Suggestion value, $Res Function(Suggestion) _then) = _$SuggestionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String tag,@SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,@AtUriConverter() AtUri subject, Map<String, dynamic>? $unknown
+ String $type, String tag,@SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType, String subject, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,7 +71,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,tag: null == tag ? _self.tag : tag // ignore: cast_nullable_to_non_nullable
 as String,subjectType: null == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
 as SuggestionSubjectType,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
-as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String tag, @SuggestionSubjectTypeConverter()  SuggestionSubjectType subjectType, @AtUriConverter()  AtUri subject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String tag, @SuggestionSubjectTypeConverter()  SuggestionSubjectType subjectType,  String subject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Suggestion() when $default != null:
 return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unk
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String tag, @SuggestionSubjectTypeConverter()  SuggestionSubjectType subjectType, @AtUriConverter()  AtUri subject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String tag, @SuggestionSubjectTypeConverter()  SuggestionSubjectType subjectType,  String subject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Suggestion():
 return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unk
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String tag, @SuggestionSubjectTypeConverter()  SuggestionSubjectType subjectType, @AtUriConverter()  AtUri subject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String tag, @SuggestionSubjectTypeConverter()  SuggestionSubjectType subjectType,  String subject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Suggestion() when $default != null:
 return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unknown);case _:
@@ -222,13 +222,13 @@ return $default(_that.$type,_that.tag,_that.subjectType,_that.subject,_that.$unk
 
 @JsonSerializable(includeIfNull: false)
 class _Suggestion implements Suggestion {
-  const _Suggestion({this.$type = 'app.bsky.unspecced.getTaggedSuggestions#suggestion', required this.tag, @SuggestionSubjectTypeConverter() required this.subjectType, @AtUriConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Suggestion({this.$type = 'app.bsky.unspecced.getTaggedSuggestions#suggestion', required this.tag, @SuggestionSubjectTypeConverter() required this.subjectType, required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String tag;
 @override@SuggestionSubjectTypeConverter() final  SuggestionSubjectType subjectType;
-@override@AtUriConverter() final  AtUri subject;
+@override final  String subject;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -272,7 +272,7 @@ abstract mixin class _$SuggestionCopyWith<$Res> implements $SuggestionCopyWith<$
   factory _$SuggestionCopyWith(_Suggestion value, $Res Function(_Suggestion) _then) = __$SuggestionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String tag,@SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,@AtUriConverter() AtUri subject, Map<String, dynamic>? $unknown
+ String $type, String tag,@SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType, String subject, Map<String, dynamic>? $unknown
 });
 
 
@@ -295,7 +295,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,tag: null == tag ? _self.tag : tag // ignore: cast_nullable_to_non_nullable
 as String,subjectType: null == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
 as SuggestionSubjectType,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
-as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

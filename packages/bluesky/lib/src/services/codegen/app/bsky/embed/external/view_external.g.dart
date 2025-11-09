@@ -15,19 +15,10 @@ _EmbedExternalViewExternal _$EmbedExternalViewExternalFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.embed.external#viewExternal',
         ),
-        uri: $checkedConvert(
-          'uri',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
+        uri: $checkedConvert('uri', (v) => v as String),
         title: $checkedConvert('title', (v) => v as String),
         description: $checkedConvert('description', (v) => v as String),
-        thumb: $checkedConvert(
-          'thumb',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        thumb: $checkedConvert('thumb', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -40,22 +31,9 @@ Map<String, dynamic> _$EmbedExternalViewExternalToJson(
   _EmbedExternalViewExternal instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': const AtUriConverter().toJson(instance.uri),
+  'uri': instance.uri,
   'title': instance.title,
   'description': instance.description,
-  'thumb': ?_$JsonConverterToJson<String, AtUri>(
-    instance.thumb,
-    const AtUriConverter().toJson,
-  ),
+  'thumb': ?instance.thumb,
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

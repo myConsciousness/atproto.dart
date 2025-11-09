@@ -9,7 +9,6 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -32,6 +31,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     'did',
     'handle',
     'displayName',
+    'pronouns',
     'avatar',
     'associated',
     'viewer',
@@ -39,6 +39,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     'createdAt',
     'verification',
     'status',
+    'debug',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -47,13 +48,15 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     required String did,
     required String handle,
     String? displayName,
-    @AtUriConverter() AtUri? avatar,
+    String? pronouns,
+    String? avatar,
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
     DateTime? createdAt,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
+    Map<String, dynamic>? debug,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewBasic;
@@ -70,6 +73,8 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
 extension ProfileViewBasicExtension on ProfileViewBasic {
   bool get hasDisplayName => displayName != null;
   bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasPronouns => pronouns != null;
+  bool get hasNotPronouns => !hasPronouns;
   bool get hasAvatar => avatar != null;
   bool get hasNotAvatar => !hasAvatar;
   bool get hasAssociated => associated != null;
@@ -82,6 +87,8 @@ extension ProfileViewBasicExtension on ProfileViewBasic {
   bool get hasNotVerification => !hasVerification;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasDebug => debug != null;
+  bool get hasNotDebug => !hasDebug;
 }
 
 final class ProfileViewBasicConverter

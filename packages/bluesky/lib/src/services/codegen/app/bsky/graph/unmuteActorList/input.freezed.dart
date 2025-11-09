@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GraphUnmuteActorListInput {
 
- String get list; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get list; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphUnmuteActorListInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GraphUnmuteActorListInputCopyWith<$Res>  {
   factory $GraphUnmuteActorListInputCopyWith(GraphUnmuteActorListInput value, $Res Function(GraphUnmuteActorListInput) _then) = _$GraphUnmuteActorListInputCopyWithImpl;
 @useResult
 $Res call({
- String list, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri list, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$GraphUnmuteActorListInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? list = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String list,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri list,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphUnmuteActorListInput() when $default != null:
 return $default(_that.list,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.list,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String list,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri list,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphUnmuteActorListInput():
 return $default(_that.list,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.list,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String list,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri list,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphUnmuteActorListInput() when $default != null:
 return $default(_that.list,_that.$unknown);case _:
@@ -210,10 +210,10 @@ return $default(_that.list,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GraphUnmuteActorListInput implements GraphUnmuteActorListInput {
-  const _GraphUnmuteActorListInput({required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphUnmuteActorListInput({@AtUriConverter() required this.list, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphUnmuteActorListInput.fromJson(Map<String, dynamic> json) => _$GraphUnmuteActorListInputFromJson(json);
 
-@override final  String list;
+@override@AtUriConverter() final  AtUri list;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,7 +257,7 @@ abstract mixin class _$GraphUnmuteActorListInputCopyWith<$Res> implements $Graph
   factory _$GraphUnmuteActorListInputCopyWith(_GraphUnmuteActorListInput value, $Res Function(_GraphUnmuteActorListInput) _then) = __$GraphUnmuteActorListInputCopyWithImpl;
 @override @useResult
 $Res call({
- String list, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri list, Map<String, dynamic>? $unknown
 });
 
 
@@ -277,7 +277,7 @@ class __$GraphUnmuteActorListInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? list = null,Object? $unknown = freezed,}) {
   return _then(_GraphUnmuteActorListInput(
 list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

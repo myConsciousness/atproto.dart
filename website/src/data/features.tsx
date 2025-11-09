@@ -1,9 +1,9 @@
-import React from "react";
 import Translate, { translate } from "@docusaurus/Translate";
 import SnippetFirehoseApi from "!!raw-loader!/static/snippets/firehose.dart";
 import SnippetAtprotoAndBluesky from "!!raw-loader!/static/snippets/atproto_and_bluesky.dart";
 import SnippetRetry from "!!raw-loader!/static/snippets/retry.dart";
 import SnippetBlueskyText from "!!raw-loader!/static/snippets/bluesky_text.dart";
+import SnippetDidPlc from "!!raw-loader!/static/snippets/did_plc.dart";
 import { IFeatureProps } from "../components/Feature";
 
 export const features: IFeatureProps[] = [
@@ -130,6 +130,40 @@ export const features: IFeatureProps[] = [
         while we handle the technical formatting requirements.{br}{br}
         Essential for any Bluesky application that handles user-generated content.
         {bluesky_text} eliminates the complexity of rich text processing in social applications.`}
+      </Translate>
+    ),
+  },
+  {
+    snippet: SnippetDidPlc,
+    title: translate({
+      id: "home.did_plc",
+      message: "High-Performance DID Operations",
+    }),
+
+    description: (
+      <Translate
+        id="home.did_plc"
+        description="The homepage input placeholder"
+        values={{
+          did_plc: <a href={"https://pub.dev/packages/did_plc"}><strong>did_plc</strong></a>,
+          DID: <strong>DID</strong>,
+          PLC: <strong>PLC Directory</strong>,
+          br: <br></br>,
+          zero_dependencies: <strong>zero atproto dependencies</strong>,
+          high_performance: <strong>high-performance</strong>,
+          intelligent_caching: <strong>intelligent caching</strong>,
+          streaming: <strong>streaming support</strong>,
+          batch_processing: <strong>batch processing</strong>,
+        }}
+      >
+        {`Resolve {DID} identities and interact with {PLC} services efficiently using {did_plc}.
+        This independent library provides {high_performance} identity resolution with {zero_dependencies}
+        on other atproto packages, making it perfect for specialized applications.{br}{br}
+        Features {intelligent_caching} with LRU eviction, {batch_processing} for multiple DIDs,
+        and {streaming} for large datasets. Built-in retry logic and backpressure control
+        ensure reliable operation even under heavy load.{br}{br}
+        Ideal for identity services, analytics tools, or any application requiring
+        efficient DID resolution without the overhead of full AT Protocol functionality.`}
       </Translate>
     ),
   },

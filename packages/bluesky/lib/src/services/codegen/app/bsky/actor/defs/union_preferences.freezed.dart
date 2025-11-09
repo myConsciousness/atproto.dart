@@ -109,10 +109,7 @@ return bskyAppStatePref(_that);case UPreferencesLabelersPref():
 return labelersPref(_that);case UPreferencesPostInteractionSettingsPref():
 return postInteractionSettingsPref(_that);case UPreferencesVerificationPrefs():
 return verificationPrefs(_that);case UPreferencesUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -213,10 +210,7 @@ return bskyAppStatePref(_that.data);case UPreferencesLabelersPref():
 return labelersPref(_that.data);case UPreferencesPostInteractionSettingsPref():
 return postInteractionSettingsPref(_that.data);case UPreferencesVerificationPrefs():
 return verificationPrefs(_that.data);case UPreferencesUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

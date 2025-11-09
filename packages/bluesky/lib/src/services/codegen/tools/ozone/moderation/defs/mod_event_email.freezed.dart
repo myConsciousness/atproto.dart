@@ -18,7 +18,10 @@ mixin _$ModEventEmail {
  String get $type;/// The subject line of the email sent to the user.
  String get subjectLine;/// The content of the email sent to the user.
  String? get content;/// Additional comment about the outgoing comm.
- String? get comment; Map<String, dynamic>? get $unknown;
+ String? get comment; List<String>? get policies;/// Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense
+ String? get severityLevel;/// Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense.
+ int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
+ DateTime? get strikeExpiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventEmail
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +34,16 @@ $ModEventEmailCopyWith<ModEventEmail> get copyWith => _$ModEventEmailCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventEmail&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subjectLine, subjectLine) || other.subjectLine == subjectLine)&&(identical(other.content, content) || other.content == content)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventEmail&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subjectLine, subjectLine) || other.subjectLine == subjectLine)&&(identical(other.content, content) || other.content == content)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.policies, policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,subjectLine,content,comment,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,subjectLine,content,comment,const DeepCollectionEquality().hash(policies),severityLevel,strikeCount,strikeExpiresAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModEventEmail(\$type: ${$type}, subjectLine: $subjectLine, content: $content, comment: $comment, \$unknown: ${$unknown})';
+  return 'ModEventEmail(\$type: ${$type}, subjectLine: $subjectLine, content: $content, comment: $comment, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -51,7 +54,7 @@ abstract mixin class $ModEventEmailCopyWith<$Res>  {
   factory $ModEventEmailCopyWith(ModEventEmail value, $Res Function(ModEventEmail) _then) = _$ModEventEmailCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subjectLine, String? content, String? comment, Map<String, dynamic>? $unknown
+ String $type, String subjectLine, String? content, String? comment, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,13 +71,17 @@ class _$ModEventEmailCopyWithImpl<$Res>
 
 /// Create a copy of ModEventEmail
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? subjectLine = null,Object? content = freezed,Object? comment = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? subjectLine = null,Object? content = freezed,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,subjectLine: null == subjectLine ? _self.subjectLine : subjectLine // ignore: cast_nullable_to_non_nullable
 as String,content: freezed == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
+as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
+as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -160,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventEmail() when $default != null:
-return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -181,10 +188,10 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventEmail():
-return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +208,10 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subjectLine,  String? content,  String? comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventEmail() when $default != null:
-return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   return null;
 
 }
@@ -216,7 +223,7 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventEmail implements ModEventEmail {
-  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  List<String>? policies, this.severityLevel, this.strikeCount, this.strikeExpiresAt, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _ModEventEmail.fromJson(Map<String, dynamic> json) => _$ModEventEmailFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -226,6 +233,21 @@ class _ModEventEmail implements ModEventEmail {
 @override final  String? content;
 /// Additional comment about the outgoing comm.
 @override final  String? comment;
+ final  List<String>? _policies;
+@override List<String>? get policies {
+  final value = _policies;
+  if (value == null) return null;
+  if (_policies is EqualUnmodifiableListView) return _policies;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+/// Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense
+@override final  String? severityLevel;
+/// Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense.
+@override final  int? strikeCount;
+/// When the strike should expire. If not provided, the strike never expires.
+@override final  DateTime? strikeExpiresAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -249,16 +271,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventEmail&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subjectLine, subjectLine) || other.subjectLine == subjectLine)&&(identical(other.content, content) || other.content == content)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventEmail&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subjectLine, subjectLine) || other.subjectLine == subjectLine)&&(identical(other.content, content) || other.content == content)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._policies, _policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,subjectLine,content,comment,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,subjectLine,content,comment,const DeepCollectionEquality().hash(_policies),severityLevel,strikeCount,strikeExpiresAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModEventEmail(\$type: ${$type}, subjectLine: $subjectLine, content: $content, comment: $comment, \$unknown: ${$unknown})';
+  return 'ModEventEmail(\$type: ${$type}, subjectLine: $subjectLine, content: $content, comment: $comment, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -269,7 +291,7 @@ abstract mixin class _$ModEventEmailCopyWith<$Res> implements $ModEventEmailCopy
   factory _$ModEventEmailCopyWith(_ModEventEmail value, $Res Function(_ModEventEmail) _then) = __$ModEventEmailCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subjectLine, String? content, String? comment, Map<String, dynamic>? $unknown
+ String $type, String subjectLine, String? content, String? comment, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -286,13 +308,17 @@ class __$ModEventEmailCopyWithImpl<$Res>
 
 /// Create a copy of ModEventEmail
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? subjectLine = null,Object? content = freezed,Object? comment = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? subjectLine = null,Object? content = freezed,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_ModEventEmail(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,subjectLine: null == subjectLine ? _self.subjectLine : subjectLine // ignore: cast_nullable_to_non_nullable
 as String,content: freezed == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
+as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
+as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

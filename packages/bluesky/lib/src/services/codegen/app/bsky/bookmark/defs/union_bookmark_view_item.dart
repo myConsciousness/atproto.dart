@@ -23,7 +23,7 @@ part 'union_bookmark_view_item.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UBookmarkViewItem with _$UBookmarkViewItem {
+sealed class UBookmarkViewItem with _$UBookmarkViewItem {
   const UBookmarkViewItem._();
 
   const factory UBookmarkViewItem.blockedPost({required BlockedPost data}) =

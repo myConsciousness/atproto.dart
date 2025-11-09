@@ -1,4 +1,5 @@
 // Project imports:
+import 'package:atproto/com_atproto_lexicon_resolvelexicon.dart';
 import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto/com_atproto_repo_deleterecord.dart';
 import 'package:atproto/com_atproto_repo_getrecord.dart';
@@ -8,6 +9,12 @@ import 'package:atproto/src/ids.g.dart';
 import 'service_suite.dart';
 
 void main() {
+  testLexicon<LexiconResolveLexiconOutput>(
+    (m, s) => s.resolveLexicon(nsid: 'com.atproto.server.createSession'),
+    id: comAtprotoLexiconResolveLexicon,
+    label: 'lexicon resolveLexicon',
+  );
+
   testLexicon<RepoGetRecordOutput>(
     (m, s) => s.schema.get(repo: m.did, rkey: 'test-schema'),
     id: comAtprotoRepoGetRecord,

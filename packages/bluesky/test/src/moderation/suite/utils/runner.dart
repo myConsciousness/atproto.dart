@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -193,7 +194,7 @@ final class ModerationBehaviorSuiteRunner {
             : null,
         blockedBy: def.blockedBy,
         blocking: def.blocking || def.blockingByList
-            ? 'at://did:web:self.test/app.bsky.graph.block/fake'
+            ? AtUri('at://did:web:self.test/app.bsky.graph.block/fake')
             : null,
         blockingByList: def.blockingByList
             ? m.listViewBasic(name: 'Fake List')

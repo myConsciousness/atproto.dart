@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -38,7 +39,7 @@ abstract class LabelerView with _$LabelerView {
   @JsonSerializable(includeIfNull: false)
   const factory LabelerView({
     @Default('app.bsky.labeler.defs#labelerView') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     @ProfileViewConverter() required ProfileView creator,
     int? likeCount,

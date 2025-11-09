@@ -87,10 +87,7 @@ case URepoApplyWritesResultsCreateResult():
 return createResult(_that);case URepoApplyWritesResultsUpdateResult():
 return updateResult(_that);case URepoApplyWritesResultsDeleteResult():
 return deleteResult(_that);case URepoApplyWritesResultsUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case URepoApplyWritesResultsCreateResult():
 return createResult(_that.data);case URepoApplyWritesResultsUpdateResult():
 return updateResult(_that.data);case URepoApplyWritesResultsDeleteResult():
 return deleteResult(_that.data);case URepoApplyWritesResultsUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

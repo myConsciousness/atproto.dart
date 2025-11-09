@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListViewerState {
 
- String get $type; bool? get muted; String? get blocked; Map<String, dynamic>? get $unknown;
+ String get $type; bool? get muted;@AtUriConverter() AtUri? get blocked; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListViewerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ListViewerStateCopyWith<$Res>  {
   factory $ListViewerStateCopyWith(ListViewerState value, $Res Function(ListViewerState) _then) = _$ListViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool? muted, String? blocked, Map<String, dynamic>? $unknown
+ String $type, bool? muted,@AtUriConverter() AtUri? blocked, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$ListViewerStateCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool?,blocked: freezed == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted,  String? blocked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListViewerState() when $default != null:
 return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted,  String? blocked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListViewerState():
 return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted,  String? blocked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListViewerState() when $default != null:
 return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ListViewerState implements ListViewerState {
-  const _ListViewerState({this.$type = 'app.bsky.graph.defs#listViewerState', this.muted, this.blocked, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListViewerState({this.$type = 'app.bsky.graph.defs#listViewerState', this.muted, @AtUriConverter() this.blocked, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListViewerState.fromJson(Map<String, dynamic> json) => _$ListViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  bool? muted;
-@override final  String? blocked;
+@override@AtUriConverter() final  AtUri? blocked;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$ListViewerStateCopyWith<$Res> implements $ListViewerState
   factory _$ListViewerStateCopyWith(_ListViewerState value, $Res Function(_ListViewerState) _then) = __$ListViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool? muted, String? blocked, Map<String, dynamic>? $unknown
+ String $type, bool? muted,@AtUriConverter() AtUri? blocked, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$ListViewerStateCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool?,blocked: freezed == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

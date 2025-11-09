@@ -1,6 +1,6 @@
 name: did_plc
-description: Support for DID PLC Directory endpoints used by atproto and other services.
-version: 0.0.22
+description: High-performance, independent DID PLC Directory client with caching, streaming, and batch processing for Dart/Flutter applications.
+version: 1.0.3
 homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
@@ -11,12 +11,15 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 topics:
-  - atproto
-  - bluesky
+  - did
   - plc
+  - identity
+  - decentralized
+  - atproto
 
 dependencies:
-  atproto_core: ^1.0.2
+  http: ^1.2.0
+  crypto: ^3.0.3
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
 
@@ -27,5 +30,3 @@ dev_dependencies:
   json_serializable: ^6.9.5
   freezed: ^3.2.0
   import_sorter: ^4.6.0
-  atproto_test:
-    path: ../atproto_test

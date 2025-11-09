@@ -20,13 +20,7 @@ _ActorProfileRecord _$ActorProfileRecordFromJson(Map json) => $checkedCreate(
       displayName: $checkedConvert('displayName', (v) => v as String?),
       description: $checkedConvert('description', (v) => v as String?),
       pronouns: $checkedConvert('pronouns', (v) => v as String?),
-      website: $checkedConvert(
-        'website',
-        (v) => _$JsonConverterFromJson<String, AtUri>(
-          v,
-          const AtUriConverter().fromJson,
-        ),
-      ),
+      website: $checkedConvert('website', (v) => v as String?),
       avatar: $checkedConvert(
         'avatar',
         (v) => _$JsonConverterFromJson<Map<String, dynamic>, Blob>(
@@ -83,10 +77,7 @@ Map<String, dynamic> _$ActorProfileRecordToJson(
   'displayName': ?instance.displayName,
   'description': ?instance.description,
   'pronouns': ?instance.pronouns,
-  'website': ?_$JsonConverterToJson<String, AtUri>(
-    instance.website,
-    const AtUriConverter().toJson,
-  ),
+  'website': ?instance.website,
   'avatar': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(
     instance.avatar,
     const BlobConverter().toJson,

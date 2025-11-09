@@ -22,7 +22,7 @@ part 'union_log_add_reaction_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ULogAddReactionMessage with _$ULogAddReactionMessage {
+sealed class ULogAddReactionMessage with _$ULogAddReactionMessage {
   const ULogAddReactionMessage._();
 
   const factory ULogAddReactionMessage.messageView({

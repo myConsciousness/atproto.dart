@@ -33,12 +33,13 @@ const Users: User[] = [
     author: 'dfly.app',
     description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
     preview: require('./showcase/dfly_showcase.png'), // Placeholder image
-    website:'https://dfly.app',
+    website: 'https://dfly.app',
     source: null,
     tags: ['desktop'],
   },
   {
     title: 'Himmel',
+    author: 'himmel.app',
     description: 'An offline-capable feed reader for Bluesky with simplicity in mind.',
     preview: null,
     website: 'https://himmel.app',
@@ -73,7 +74,7 @@ const Users: User[] = [
     tags: ['bot'],
   },
   {
-    title: 'Penumbra PR BOT',
+    title: 'Penumbra',
     author: 'penumbra.zone',
     description: 'This BOT uses bluesky-post to post that a pull request has been merged from GitHub Actions.',
     preview: require('./showcase/Penumbra.png'),
@@ -84,7 +85,7 @@ const Users: User[] = [
   {
     title: 'APOD BOT',
     author: 'shinyakato.dev',
-    description: 'Unofficial APOD BOT that uses the NASA API to post APOD images to Bluesky at scheduled times.',
+    description: 'Official APOD BOT that uses the NASA API to post APOD images to Bluesky at scheduled times.',
     preview: require('./showcase/APOD_BOT.png'),
     website: 'https://bsky.app/profile/apod.shinyakato.dev',
     source: 'https://github.com/myConsciousness/bluesky-apod-bot',
@@ -100,7 +101,7 @@ const Users: User[] = [
     tags: ['mobile'],
   },
   {
-    title: 'DeckBlue',
+    title: 'deck.blue',
     author: 'deck.blue',
     description: 'A multi-column web app that aims to be a TweetDeck Alternative for Bluesky. The timeline flows in real time.',
     preview: require('./showcase/BlueskyDeck.png'),
@@ -153,9 +154,9 @@ export type Tag = {
   color: string;
 };
 
-export const Tags: {[type in TagType]: Tag} = {
+export const Tags: { [type in TagType]: Tag } = {
   opensource: {
-    label: translate({message: 'Open-Source'}),
+    label: translate({ message: 'Open-Source' }),
     description: translate({
       message: 'Open-Source AT Protocol and Bluesky related services using atproto.dart!',
       id: 'showcase.tag.opensource.description',
@@ -164,7 +165,7 @@ export const Tags: {[type in TagType]: Tag} = {
   },
 
   web: {
-    label: translate({message: 'Web-App'}),
+    label: translate({ message: 'Web-App' }),
     description: translate({
       message: 'Web App using atproto.dart!',
       id: 'showcase.tag.web.description',
@@ -173,7 +174,7 @@ export const Tags: {[type in TagType]: Tag} = {
   },
 
   mobile: {
-    label: translate({message: 'Mobile-App'}),
+    label: translate({ message: 'Mobile-App' }),
     description: translate({
       message: 'Mobile App using atproto.dart!',
       id: 'showcase.tag.mobile.description',
@@ -191,7 +192,7 @@ export const Tags: {[type in TagType]: Tag} = {
   },
 
   console: {
-    label: translate({message: 'Console-App'}),
+    label: translate({ message: 'Console-App' }),
     description: translate({
       message: 'Console App using atproto.dart!',
       id: 'showcase.tag.console.description',
@@ -200,7 +201,7 @@ export const Tags: {[type in TagType]: Tag} = {
   },
 
   bot: {
-    label: translate({message: 'BOT'}),
+    label: translate({ message: 'BOT' }),
     description: translate({
       message: 'BOT using atproto.dart!',
       id: 'showcase.tag.bot.description',

@@ -17,7 +17,10 @@ _Notification _$NotificationFromJson(Map json) =>
               v as String? ??
               'app.bsky.notification.listNotifications#notification',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String),
         author: $checkedConvert(
           'author',
@@ -28,7 +31,13 @@ _Notification _$NotificationFromJson(Map json) =>
           'reason',
           (v) => const NotificationReasonConverter().fromJson(v as String),
         ),
-        reasonSubject: $checkedConvert('reasonSubject', (v) => v as String?),
+        reasonSubject: $checkedConvert(
+          'reasonSubject',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         record: $checkedConvert(
           'record',
           (v) => Map<String, dynamic>.from(v as Map),
@@ -58,14 +67,27 @@ _Notification _$NotificationFromJson(Map json) =>
 Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'author': const ProfileViewConverter().toJson(instance.author),
       'reason': const NotificationReasonConverter().toJson(instance.reason),
-      'reasonSubject': ?instance.reasonSubject,
+      'reasonSubject': ?_$JsonConverterToJson<String, AtUri>(
+        instance.reasonSubject,
+        const AtUriConverter().toJson,
+      ),
       'record': instance.record,
       'isRead': instance.isRead,
       'indexedAt': instance.indexedAt.toIso8601String(),
       'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

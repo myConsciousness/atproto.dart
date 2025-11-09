@@ -22,10 +22,7 @@ _Suggestion _$SuggestionFromJson(Map json) =>
           'subjectType',
           (v) => const SuggestionSubjectTypeConverter().fromJson(v as String),
         ),
-        subject: $checkedConvert(
-          'subject',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
+        subject: $checkedConvert('subject', (v) => v as String),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -41,6 +38,6 @@ Map<String, dynamic> _$SuggestionToJson(_Suggestion instance) =>
       'subjectType': const SuggestionSubjectTypeConverter().toJson(
         instance.subjectType,
       ),
-      'subject': const AtUriConverter().toJson(instance.subject),
+      'subject': instance.subject,
       r'$unknown': ?instance.$unknown,
     };

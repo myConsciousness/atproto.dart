@@ -26,7 +26,13 @@ _ViewerState _$ViewerStateFromJson(Map json) => $checkedCreate(
         ),
       ),
       blockedBy: $checkedConvert('blockedBy', (v) => v as bool?),
-      blocking: $checkedConvert('blocking', (v) => v as String?),
+      blocking: $checkedConvert(
+        'blocking',
+        (v) => _$JsonConverterFromJson<String, AtUri>(
+          v,
+          const AtUriConverter().fromJson,
+        ),
+      ),
       blockingByList: $checkedConvert(
         'blockingByList',
         (v) => _$JsonConverterFromJson<Map<String, dynamic>, ListViewBasic>(
@@ -34,8 +40,20 @@ _ViewerState _$ViewerStateFromJson(Map json) => $checkedCreate(
           const ListViewBasicConverter().fromJson,
         ),
       ),
-      following: $checkedConvert('following', (v) => v as String?),
-      followedBy: $checkedConvert('followedBy', (v) => v as String?),
+      following: $checkedConvert(
+        'following',
+        (v) => _$JsonConverterFromJson<String, AtUri>(
+          v,
+          const AtUriConverter().fromJson,
+        ),
+      ),
+      followedBy: $checkedConvert(
+        'followedBy',
+        (v) => _$JsonConverterFromJson<String, AtUri>(
+          v,
+          const AtUriConverter().fromJson,
+        ),
+      ),
       knownFollowers: $checkedConvert(
         'knownFollowers',
         (v) => _$JsonConverterFromJson<Map<String, dynamic>, KnownFollowers>(
@@ -70,13 +88,22 @@ Map<String, dynamic> _$ViewerStateToJson(
     const ListViewBasicConverter().toJson,
   ),
   'blockedBy': ?instance.blockedBy,
-  'blocking': ?instance.blocking,
+  'blocking': ?_$JsonConverterToJson<String, AtUri>(
+    instance.blocking,
+    const AtUriConverter().toJson,
+  ),
   'blockingByList': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
     instance.blockingByList,
     const ListViewBasicConverter().toJson,
   ),
-  'following': ?instance.following,
-  'followedBy': ?instance.followedBy,
+  'following': ?_$JsonConverterToJson<String, AtUri>(
+    instance.following,
+    const AtUriConverter().toJson,
+  ),
+  'followedBy': ?_$JsonConverterToJson<String, AtUri>(
+    instance.followedBy,
+    const AtUriConverter().toJson,
+  ),
   'knownFollowers':
       ?_$JsonConverterToJson<Map<String, dynamic>, KnownFollowers>(
         instance.knownFollowers,

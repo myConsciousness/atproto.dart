@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SavedFeedsPref {
 
- String get $type; List<String> get pinned; List<String> get saved; int? get timelineIndex; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() List<AtUri> get pinned;@AtUriConverter() List<AtUri> get saved; int? get timelineIndex; Map<String, dynamic>? get $unknown;
 /// Create a copy of SavedFeedsPref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SavedFeedsPrefCopyWith<$Res>  {
   factory $SavedFeedsPrefCopyWith(SavedFeedsPref value, $Res Function(SavedFeedsPref) _then) = _$SavedFeedsPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, List<String> pinned, List<String> saved, int? timelineIndex, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() List<AtUri> pinned,@AtUriConverter() List<AtUri> saved, int? timelineIndex, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,8 +69,8 @@ class _$SavedFeedsPrefCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pinned: null == pinned ? _self.pinned : pinned // ignore: cast_nullable_to_non_nullable
-as List<String>,saved: null == saved ? _self.saved : saved // ignore: cast_nullable_to_non_nullable
-as List<String>,timelineIndex: freezed == timelineIndex ? _self.timelineIndex : timelineIndex // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,saved: null == saved ? _self.saved : saved // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,timelineIndex: freezed == timelineIndex ? _self.timelineIndex : timelineIndex // ignore: cast_nullable_to_non_nullable
 as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<String> pinned,  List<String> saved,  int? timelineIndex,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  List<AtUri> pinned, @AtUriConverter()  List<AtUri> saved,  int? timelineIndex,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SavedFeedsPref() when $default != null:
 return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<String> pinned,  List<String> saved,  int? timelineIndex,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  List<AtUri> pinned, @AtUriConverter()  List<AtUri> saved,  int? timelineIndex,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SavedFeedsPref():
 return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<String> pinned,  List<String> saved,  int? timelineIndex,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  List<AtUri> pinned, @AtUriConverter()  List<AtUri> saved,  int? timelineIndex,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SavedFeedsPref() when $default != null:
 return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$unknown);case _:
@@ -213,19 +213,19 @@ return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _SavedFeedsPref implements SavedFeedsPref {
-  const _SavedFeedsPref({this.$type = 'app.bsky.actor.defs#savedFeedsPref', required final  List<String> pinned, required final  List<String> saved, this.timelineIndex, final  Map<String, dynamic>? $unknown}): _pinned = pinned,_saved = saved,_$unknown = $unknown;
+  const _SavedFeedsPref({this.$type = 'app.bsky.actor.defs#savedFeedsPref', @AtUriConverter() required final  List<AtUri> pinned, @AtUriConverter() required final  List<AtUri> saved, this.timelineIndex, final  Map<String, dynamic>? $unknown}): _pinned = pinned,_saved = saved,_$unknown = $unknown;
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) => _$SavedFeedsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
- final  List<String> _pinned;
-@override List<String> get pinned {
+ final  List<AtUri> _pinned;
+@override@AtUriConverter() List<AtUri> get pinned {
   if (_pinned is EqualUnmodifiableListView) return _pinned;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pinned);
 }
 
- final  List<String> _saved;
-@override List<String> get saved {
+ final  List<AtUri> _saved;
+@override@AtUriConverter() List<AtUri> get saved {
   if (_saved is EqualUnmodifiableListView) return _saved;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_saved);
@@ -275,7 +275,7 @@ abstract mixin class _$SavedFeedsPrefCopyWith<$Res> implements $SavedFeedsPrefCo
   factory _$SavedFeedsPrefCopyWith(_SavedFeedsPref value, $Res Function(_SavedFeedsPref) _then) = __$SavedFeedsPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, List<String> pinned, List<String> saved, int? timelineIndex, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() List<AtUri> pinned,@AtUriConverter() List<AtUri> saved, int? timelineIndex, Map<String, dynamic>? $unknown
 });
 
 
@@ -296,8 +296,8 @@ class __$SavedFeedsPrefCopyWithImpl<$Res>
   return _then(_SavedFeedsPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pinned: null == pinned ? _self._pinned : pinned // ignore: cast_nullable_to_non_nullable
-as List<String>,saved: null == saved ? _self._saved : saved // ignore: cast_nullable_to_non_nullable
-as List<String>,timelineIndex: freezed == timelineIndex ? _self.timelineIndex : timelineIndex // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,saved: null == saved ? _self._saved : saved // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,timelineIndex: freezed == timelineIndex ? _self.timelineIndex : timelineIndex // ignore: cast_nullable_to_non_nullable
 as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

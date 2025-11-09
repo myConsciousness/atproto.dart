@@ -16,7 +16,10 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
       r'$type',
       (v) => v as String? ?? 'app.bsky.feed.defs#postView',
     ),
-    uri: $checkedConvert('uri', (v) => v as String),
+    uri: $checkedConvert(
+      'uri',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     cid: $checkedConvert('cid', (v) => v as String),
     author: $checkedConvert(
       'author',
@@ -65,6 +68,10 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
         const ThreadgateViewConverter().fromJson,
       ),
     ),
+    debug: $checkedConvert(
+      'debug',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -75,7 +82,7 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
 
 Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'author': const ProfileViewBasicConverter().toJson(instance.author),
   'record': instance.record,
@@ -98,6 +105,7 @@ Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
     instance.threadgate,
     const ThreadgateViewConverter().toJson,
   ),
+  'debug': ?instance.debug,
   r'$unknown': ?instance.$unknown,
 };
 

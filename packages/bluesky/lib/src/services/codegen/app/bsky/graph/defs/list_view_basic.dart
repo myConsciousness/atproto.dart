@@ -41,11 +41,11 @@ abstract class ListViewBasic with _$ListViewBasic {
   @JsonSerializable(includeIfNull: false)
   const factory ListViewBasic({
     @Default('app.bsky.graph.defs#listViewBasic') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required String name,
     @ListPurposeConverter() required ListPurpose purpose,
-    @AtUriConverter() AtUri? avatar,
+    String? avatar,
     int? listItemCount,
     @LabelConverter() List<Label>? labels,
     @ListViewerStateConverter() ListViewerState? viewer,

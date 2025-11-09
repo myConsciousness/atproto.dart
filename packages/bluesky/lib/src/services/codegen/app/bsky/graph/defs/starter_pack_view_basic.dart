@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -39,7 +40,7 @@ abstract class StarterPackViewBasic with _$StarterPackViewBasic {
   @JsonSerializable(includeIfNull: false)
   const factory StarterPackViewBasic({
     @Default('app.bsky.graph.defs#starterPackViewBasic') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required Map<String, dynamic> record,
     @ProfileViewBasicConverter() required ProfileViewBasic creator,

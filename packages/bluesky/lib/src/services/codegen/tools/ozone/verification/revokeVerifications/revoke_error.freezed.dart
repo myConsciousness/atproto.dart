@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$RevokeError {
 
  String get $type;/// The AT-URI of the verification record that failed to revoke.
- String get uri;/// Description of the error that occurred during revocation.
+@AtUriConverter() AtUri get uri;/// Description of the error that occurred during revocation.
  String get error; Map<String, dynamic>? get $unknown;
 /// Create a copy of RevokeError
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $RevokeErrorCopyWith<$Res>  {
   factory $RevokeErrorCopyWith(RevokeError value, $Res Function(RevokeError) _then) = _$RevokeErrorCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String error, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String error, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,7 +71,7 @@ class _$RevokeErrorCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as AtUri,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String error,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String error,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RevokeError() when $default != null:
 return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String error,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String error,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RevokeError():
 return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String error,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String error,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RevokeError() when $default != null:
 return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
@@ -214,12 +214,12 @@ return $default(_that.$type,_that.uri,_that.error,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _RevokeError implements RevokeError {
-  const _RevokeError({this.$type = 'tools.ozone.verification.revokeVerifications#revokeError', required this.uri, required this.error, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RevokeError({this.$type = 'tools.ozone.verification.revokeVerifications#revokeError', @AtUriConverter() required this.uri, required this.error, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RevokeError.fromJson(Map<String, dynamic> json) => _$RevokeErrorFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The AT-URI of the verification record that failed to revoke.
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 /// Description of the error that occurred during revocation.
 @override final  String error;
  final  Map<String, dynamic>? _$unknown;
@@ -265,7 +265,7 @@ abstract mixin class _$RevokeErrorCopyWith<$Res> implements $RevokeErrorCopyWith
   factory _$RevokeErrorCopyWith(_RevokeError value, $Res Function(_RevokeError) _then) = __$RevokeErrorCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String error, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String error, Map<String, dynamic>? $unknown
 });
 
 
@@ -286,7 +286,7 @@ class __$RevokeErrorCopyWithImpl<$Res>
   return _then(_RevokeError(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as AtUri,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

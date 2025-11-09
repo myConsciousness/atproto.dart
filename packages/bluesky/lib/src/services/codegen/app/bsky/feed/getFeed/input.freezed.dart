@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetFeedInput {
 
- String get feed; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get feed; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetFeedInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedGetFeedInputCopyWith<$Res>  {
   factory $FeedGetFeedInputCopyWith(FeedGetFeedInput value, $Res Function(FeedGetFeedInput) _then) = _$FeedGetFeedInputCopyWithImpl;
 @useResult
 $Res call({
- String feed, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri feed, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$FeedGetFeedInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? feed = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
-as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as AtUri,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetFeedInput() when $default != null:
 return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetFeedInput():
 return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri feed,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetFeedInput() when $default != null:
 return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -212,10 +212,10 @@ return $default(_that.feed,_that.limit,_that.cursor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetFeedInput implements FeedGetFeedInput {
-  const _FeedGetFeedInput({required this.feed, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetFeedInput({@AtUriConverter() required this.feed, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetFeedInput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedInputFromJson(json);
 
-@override final  String feed;
+@override@AtUriConverter() final  AtUri feed;
 @override@JsonKey() final  int limit;
 @override final  String? cursor;
  final  Map<String, dynamic>? _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$FeedGetFeedInputCopyWith<$Res> implements $FeedGetFeedInp
   factory _$FeedGetFeedInputCopyWith(_FeedGetFeedInput value, $Res Function(_FeedGetFeedInput) _then) = __$FeedGetFeedInputCopyWithImpl;
 @override @useResult
 $Res call({
- String feed, int limit, String? cursor, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri feed, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -281,7 +281,7 @@ class __$FeedGetFeedInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? feed = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedGetFeedInput(
 feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
-as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as AtUri,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

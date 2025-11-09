@@ -18,7 +18,7 @@ mixin _$Label {
  String get $type;/// The AT Protocol version of the label object.
  int? get ver;/// DID of the actor who created this label.
  String get src;/// AT URI of the record, repository (account), or other resource that this label applies to.
-@AtUriConverter() AtUri get uri;/// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
+ String get uri;/// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
  String? get cid;/// The short string name of the value or type of this label.
  String get val;/// If true, this is a negation label, overwriting a previous label.
  bool? get neg;/// Timestamp when this label was created.
@@ -57,7 +57,7 @@ abstract mixin class $LabelCopyWith<$Res>  {
   factory $LabelCopyWith(Label value, $Res Function(Label) _then) = _$LabelCopyWithImpl;
 @useResult
 $Res call({
- String $type, int? ver, String src,@AtUriConverter() AtUri uri, String? cid, String val, bool? neg, DateTime cts, DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
+ String $type, int? ver, String src, String uri, String? cid, String val, bool? neg, DateTime cts, DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
 });
 
 
@@ -80,7 +80,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,ver: freezed == ver ? _self.ver : ver // ignore: cast_nullable_to_non_nullable
 as int?,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,val: null == val ? _self.val : val // ignore: cast_nullable_to_non_nullable
 as String,neg: freezed == neg ? _self.neg : neg // ignore: cast_nullable_to_non_nullable
 as bool?,cts: null == cts ? _self.cts : cts // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src, @AtUriConverter()  AtUri uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Label() when $default != null:
 return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_that.neg,_that.cts,_that.exp,_that.sig,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src, @AtUriConverter()  AtUri uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Label():
 return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_that.neg,_that.cts,_that.exp,_that.sig,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? ver,  String src, @AtUriConverter()  AtUri uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Label() when $default != null:
 return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_that.neg,_that.cts,_that.exp,_that.sig,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 
 @JsonSerializable(includeIfNull: false)
 class _Label implements Label {
-  const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, @AtUriConverter() required this.uri, this.cid, required this.val, this.neg, required this.cts, this.exp, final  Map<String, dynamic>? sig, final  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
+  const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, required this.uri, this.cid, required this.val, this.neg, required this.cts, this.exp, final  Map<String, dynamic>? sig, final  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
   factory _Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -237,7 +237,7 @@ class _Label implements Label {
 /// DID of the actor who created this label.
 @override final  String src;
 /// AT URI of the record, repository (account), or other resource that this label applies to.
-@override@AtUriConverter() final  AtUri uri;
+@override final  String uri;
 /// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
 @override final  String? cid;
 /// The short string name of the value or type of this label.
@@ -302,7 +302,7 @@ abstract mixin class _$LabelCopyWith<$Res> implements $LabelCopyWith<$Res> {
   factory _$LabelCopyWith(_Label value, $Res Function(_Label) _then) = __$LabelCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int? ver, String src,@AtUriConverter() AtUri uri, String? cid, String val, bool? neg, DateTime cts, DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
+ String $type, int? ver, String src, String uri, String? cid, String val, bool? neg, DateTime cts, DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
 });
 
 
@@ -325,7 +325,7 @@ $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nulla
 as String,ver: freezed == ver ? _self.ver : ver // ignore: cast_nullable_to_non_nullable
 as int?,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,val: null == val ? _self.val : val // ignore: cast_nullable_to_non_nullable
 as String,neg: freezed == neg ? _self.neg : neg // ignore: cast_nullable_to_non_nullable
 as bool?,cts: null == cts ? _self.cts : cts // ignore: cast_nullable_to_non_nullable

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileViewBasic {
 
- String get $type; String get did; String get handle; String? get displayName;@AtUriConverter() AtUri? get avatar;@ProfileAssociatedConverter() ProfileAssociated? get associated;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;/// Set to true when the actor cannot actively participate in conversations
+ String get $type; String get did; String get handle; String? get displayName; String? get avatar;@ProfileAssociatedConverter() ProfileAssociated? get associated;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;/// Set to true when the actor cannot actively participate in conversations
  bool? get chatDisabled;@VerificationStateConverter() VerificationState? get verification; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileViewBasic
 /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +49,7 @@ abstract mixin class $ProfileViewBasicCopyWith<$Res>  {
   factory $ProfileViewBasicCopyWith(ProfileViewBasic value, $Res Function(ProfileViewBasic) _then) = _$ProfileViewBasicCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? displayName,@AtUriConverter() AtUri? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification, Map<String, dynamic>? $unknown
 });
 
 
@@ -73,7 +73,7 @@ as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nul
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
+as String?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
 as ProfileAssociated?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as ViewerState?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>?,chatDisabled: freezed == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
@@ -200,7 +200,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileViewBasic() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.chatDisabled,_that.verification,_that.$unknown);case _:
@@ -221,7 +221,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avata
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewBasic():
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.chatDisabled,_that.verification,_that.$unknown);case _:
@@ -241,7 +241,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avata
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName, @AtUriConverter()  AtUri? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewBasic() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.chatDisabled,_that.verification,_that.$unknown);case _:
@@ -256,14 +256,14 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avata
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileViewBasic implements ProfileViewBasic {
-  const _ProfileViewBasic({this.$type = 'chat.bsky.actor.defs#profileViewBasic', required this.did, required this.handle, this.displayName, @AtUriConverter() this.avatar, @ProfileAssociatedConverter() this.associated, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, this.chatDisabled, @VerificationStateConverter() this.verification, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _ProfileViewBasic({this.$type = 'chat.bsky.actor.defs#profileViewBasic', required this.did, required this.handle, this.displayName, this.avatar, @ProfileAssociatedConverter() this.associated, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, this.chatDisabled, @VerificationStateConverter() this.verification, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) => _$ProfileViewBasicFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String did;
 @override final  String handle;
 @override final  String? displayName;
-@override@AtUriConverter() final  AtUri? avatar;
+@override final  String? avatar;
 @override@ProfileAssociatedConverter() final  ProfileAssociated? associated;
 @override@ViewerStateConverter() final  ViewerState? viewer;
  final  List<Label>? _labels;
@@ -321,7 +321,7 @@ abstract mixin class _$ProfileViewBasicCopyWith<$Res> implements $ProfileViewBas
   factory _$ProfileViewBasicCopyWith(_ProfileViewBasic value, $Res Function(_ProfileViewBasic) _then) = __$ProfileViewBasicCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? displayName,@AtUriConverter() AtUri? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification, Map<String, dynamic>? $unknown
 });
 
 
@@ -345,7 +345,7 @@ as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nul
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
-as AtUri?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
+as String?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
 as ProfileAssociated?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as ViewerState?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>?,chatDisabled: freezed == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable

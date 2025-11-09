@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationGetRecordInput {
 
- String get uri; String? get cid; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get uri; String? get cid; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationGetRecordInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ModerationGetRecordInputCopyWith<$Res>  {
   factory $ModerationGetRecordInputCopyWith(ModerationGetRecordInput value, $Res Function(ModerationGetRecordInput) _then) = _$ModerationGetRecordInputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String? cid, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$ModerationGetRecordInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationGetRecordInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.uri,_that.cid,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationGetRecordInput():
 return $default(_that.uri,_that.cid,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.uri,_that.cid,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String? cid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationGetRecordInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.$unknown);case _:
@@ -211,10 +211,10 @@ return $default(_that.uri,_that.cid,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationGetRecordInput implements ModerationGetRecordInput {
-  const _ModerationGetRecordInput({required this.uri, this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationGetRecordInput({@AtUriConverter() required this.uri, this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetRecordInput.fromJson(Map<String, dynamic> json) => _$ModerationGetRecordInputFromJson(json);
 
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String? cid;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -259,7 +259,7 @@ abstract mixin class _$ModerationGetRecordInputCopyWith<$Res> implements $Modera
   factory _$ModerationGetRecordInputCopyWith(_ModerationGetRecordInput value, $Res Function(_ModerationGetRecordInput) _then) = __$ModerationGetRecordInputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String? cid, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic>? $unknown
 });
 
 
@@ -279,7 +279,7 @@ class __$ModerationGetRecordInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? $unknown = freezed,}) {
   return _then(_ModerationGetRecordInput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

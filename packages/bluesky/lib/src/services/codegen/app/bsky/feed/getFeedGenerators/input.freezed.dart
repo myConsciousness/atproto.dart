@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetFeedGeneratorsInput {
 
- List<String> get feeds; Map<String, dynamic>? get $unknown;
+@AtUriConverter() List<AtUri> get feeds; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetFeedGeneratorsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedGetFeedGeneratorsInputCopyWith<$Res>  {
   factory $FeedGetFeedGeneratorsInputCopyWith(FeedGetFeedGeneratorsInput value, $Res Function(FeedGetFeedGeneratorsInput) _then) = _$FeedGetFeedGeneratorsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String> feeds, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> feeds, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$FeedGetFeedGeneratorsInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? feeds = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 feeds: null == feeds ? _self.feeds : feeds // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> feeds,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> feeds,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetFeedGeneratorsInput() when $default != null:
 return $default(_that.feeds,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.feeds,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> feeds,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> feeds,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetFeedGeneratorsInput():
 return $default(_that.feeds,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.feeds,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> feeds,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> feeds,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetFeedGeneratorsInput() when $default != null:
 return $default(_that.feeds,_that.$unknown);case _:
@@ -210,11 +210,11 @@ return $default(_that.feeds,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetFeedGeneratorsInput implements FeedGetFeedGeneratorsInput {
-  const _FeedGetFeedGeneratorsInput({required final  List<String> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
+  const _FeedGetFeedGeneratorsInput({@AtUriConverter() required final  List<AtUri> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _FeedGetFeedGeneratorsInput.fromJson(Map<String, dynamic> json) => _$FeedGetFeedGeneratorsInputFromJson(json);
 
- final  List<String> _feeds;
-@override List<String> get feeds {
+ final  List<AtUri> _feeds;
+@override@AtUriConverter() List<AtUri> get feeds {
   if (_feeds is EqualUnmodifiableListView) return _feeds;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_feeds);
@@ -263,7 +263,7 @@ abstract mixin class _$FeedGetFeedGeneratorsInputCopyWith<$Res> implements $Feed
   factory _$FeedGetFeedGeneratorsInputCopyWith(_FeedGetFeedGeneratorsInput value, $Res Function(_FeedGetFeedGeneratorsInput) _then) = __$FeedGetFeedGeneratorsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> feeds, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> feeds, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$FeedGetFeedGeneratorsInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? feeds = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetFeedGeneratorsInput(
 feeds: null == feeds ? _self._feeds : feeds // ignore: cast_nullable_to_non_nullable
-as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

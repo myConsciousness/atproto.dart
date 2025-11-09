@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ViewerState {
 
- String get $type; bool? get muted;@ListViewBasicConverter() ListViewBasic? get mutedByList; bool? get blockedBy; String? get blocking;@ListViewBasicConverter() ListViewBasic? get blockingByList; String? get following; String? get followedBy;/// This property is present only in selected cases, as an optimization.
+ String get $type; bool? get muted;@ListViewBasicConverter() ListViewBasic? get mutedByList; bool? get blockedBy;@AtUriConverter() AtUri? get blocking;@ListViewBasicConverter() ListViewBasic? get blockingByList;@AtUriConverter() AtUri? get following;@AtUriConverter() AtUri? get followedBy;/// This property is present only in selected cases, as an optimization.
 @KnownFollowersConverter() KnownFollowers? get knownFollowers;/// This property is present only in selected cases, as an optimization.
 @ActivitySubscriptionConverter() ActivitySubscription? get activitySubscription; Map<String, dynamic>? get $unknown;
 /// Create a copy of ViewerState
@@ -50,7 +50,7 @@ abstract mixin class $ViewerStateCopyWith<$Res>  {
   factory $ViewerStateCopyWith(ViewerState value, $Res Function(ViewerState) _then) = _$ViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool? muted,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy, String? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList, String? following, String? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
+ String $type, bool? muted,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy,@AtUriConverter() AtUri? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
 });
 
 
@@ -74,10 +74,10 @@ as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable
 as bool?,mutedByList: freezed == mutedByList ? _self.mutedByList : mutedByList // ignore: cast_nullable_to_non_nullable
 as ListViewBasic?,blockedBy: freezed == blockedBy ? _self.blockedBy : blockedBy // ignore: cast_nullable_to_non_nullable
 as bool?,blocking: freezed == blocking ? _self.blocking : blocking // ignore: cast_nullable_to_non_nullable
-as String?,blockingByList: freezed == blockingByList ? _self.blockingByList : blockingByList // ignore: cast_nullable_to_non_nullable
+as AtUri?,blockingByList: freezed == blockingByList ? _self.blockingByList : blockingByList // ignore: cast_nullable_to_non_nullable
 as ListViewBasic?,following: freezed == following ? _self.following : following // ignore: cast_nullable_to_non_nullable
-as String?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
-as String?,knownFollowers: freezed == knownFollowers ? _self.knownFollowers : knownFollowers // ignore: cast_nullable_to_non_nullable
+as AtUri?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
+as AtUri?,knownFollowers: freezed == knownFollowers ? _self.knownFollowers : knownFollowers // ignore: cast_nullable_to_non_nullable
 as KnownFollowers?,activitySubscription: freezed == activitySubscription ? _self.activitySubscription : activitySubscription // ignore: cast_nullable_to_non_nullable
 as ActivitySubscription?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -213,7 +213,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy,  String? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList,  String? following,  String? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ViewerState() when $default != null:
 return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
@@ -234,7 +234,7 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy,  String? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList,  String? following,  String? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ViewerState():
 return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
@@ -254,7 +254,7 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy,  String? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList,  String? following,  String? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ViewerState() when $default != null:
 return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
@@ -269,17 +269,17 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ViewerState implements ViewerState {
-  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, this.blocking, @ListViewBasicConverter() this.blockingByList, this.following, this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, @AtUriConverter() this.blocking, @ListViewBasicConverter() this.blockingByList, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerState.fromJson(Map<String, dynamic> json) => _$ViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  bool? muted;
 @override@ListViewBasicConverter() final  ListViewBasic? mutedByList;
 @override final  bool? blockedBy;
-@override final  String? blocking;
+@override@AtUriConverter() final  AtUri? blocking;
 @override@ListViewBasicConverter() final  ListViewBasic? blockingByList;
-@override final  String? following;
-@override final  String? followedBy;
+@override@AtUriConverter() final  AtUri? following;
+@override@AtUriConverter() final  AtUri? followedBy;
 /// This property is present only in selected cases, as an optimization.
 @override@KnownFollowersConverter() final  KnownFollowers? knownFollowers;
 /// This property is present only in selected cases, as an optimization.
@@ -327,7 +327,7 @@ abstract mixin class _$ViewerStateCopyWith<$Res> implements $ViewerStateCopyWith
   factory _$ViewerStateCopyWith(_ViewerState value, $Res Function(_ViewerState) _then) = __$ViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool? muted,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy, String? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList, String? following, String? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
+ String $type, bool? muted,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy,@AtUriConverter() AtUri? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
 });
 
 
@@ -351,10 +351,10 @@ as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable
 as bool?,mutedByList: freezed == mutedByList ? _self.mutedByList : mutedByList // ignore: cast_nullable_to_non_nullable
 as ListViewBasic?,blockedBy: freezed == blockedBy ? _self.blockedBy : blockedBy // ignore: cast_nullable_to_non_nullable
 as bool?,blocking: freezed == blocking ? _self.blocking : blocking // ignore: cast_nullable_to_non_nullable
-as String?,blockingByList: freezed == blockingByList ? _self.blockingByList : blockingByList // ignore: cast_nullable_to_non_nullable
+as AtUri?,blockingByList: freezed == blockingByList ? _self.blockingByList : blockingByList // ignore: cast_nullable_to_non_nullable
 as ListViewBasic?,following: freezed == following ? _self.following : following // ignore: cast_nullable_to_non_nullable
-as String?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
-as String?,knownFollowers: freezed == knownFollowers ? _self.knownFollowers : knownFollowers // ignore: cast_nullable_to_non_nullable
+as AtUri?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
+as AtUri?,knownFollowers: freezed == knownFollowers ? _self.knownFollowers : knownFollowers // ignore: cast_nullable_to_non_nullable
 as KnownFollowers?,activitySubscription: freezed == activitySubscription ? _self.activitySubscription : activitySubscription // ignore: cast_nullable_to_non_nullable
 as ActivitySubscription?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

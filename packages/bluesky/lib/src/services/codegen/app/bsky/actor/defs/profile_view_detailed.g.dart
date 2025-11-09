@@ -21,27 +21,9 @@ _ProfileViewDetailed _$ProfileViewDetailedFromJson(
     displayName: $checkedConvert('displayName', (v) => v as String?),
     description: $checkedConvert('description', (v) => v as String?),
     pronouns: $checkedConvert('pronouns', (v) => v as String?),
-    website: $checkedConvert(
-      'website',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
-    avatar: $checkedConvert(
-      'avatar',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
-    banner: $checkedConvert(
-      'banner',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
+    website: $checkedConvert('website', (v) => v as String?),
+    avatar: $checkedConvert('avatar', (v) => v as String?),
+    banner: $checkedConvert('banner', (v) => v as String?),
     followersCount: $checkedConvert(
       'followersCount',
       (v) => (v as num?)?.toInt(),
@@ -107,6 +89,10 @@ _ProfileViewDetailed _$ProfileViewDetailedFromJson(
         const StatusViewConverter().fromJson,
       ),
     ),
+    debug: $checkedConvert(
+      'debug',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -124,18 +110,9 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
   'displayName': ?instance.displayName,
   'description': ?instance.description,
   'pronouns': ?instance.pronouns,
-  'website': ?_$JsonConverterToJson<String, AtUri>(
-    instance.website,
-    const AtUriConverter().toJson,
-  ),
-  'avatar': ?_$JsonConverterToJson<String, AtUri>(
-    instance.avatar,
-    const AtUriConverter().toJson,
-  ),
-  'banner': ?_$JsonConverterToJson<String, AtUri>(
-    instance.banner,
-    const AtUriConverter().toJson,
-  ),
+  'website': ?instance.website,
+  'avatar': ?instance.avatar,
+  'banner': ?instance.banner,
   'followersCount': ?instance.followersCount,
   'followsCount': ?instance.followsCount,
   'postsCount': ?instance.postsCount,
@@ -168,6 +145,7 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
     instance.status,
     const StatusViewConverter().toJson,
   ),
+  'debug': ?instance.debug,
   r'$unknown': ?instance.$unknown,
 };
 

@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -42,7 +43,7 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
   @JsonSerializable(includeIfNull: false)
   const factory EmbedRecordViewRecord({
     @Default('app.bsky.embed.record#viewRecord') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     @ProfileViewBasicConverter() required ProfileViewBasic author,
     required Map<String, dynamic> value,

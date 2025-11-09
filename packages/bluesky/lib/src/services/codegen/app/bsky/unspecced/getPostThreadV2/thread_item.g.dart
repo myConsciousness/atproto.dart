@@ -16,7 +16,10 @@ _ThreadItem _$ThreadItemFromJson(Map json) =>
           (v) =>
               v as String? ?? 'app.bsky.unspecced.getPostThreadV2#threadItem',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         depth: $checkedConvert('depth', (v) => (v as num).toInt()),
         value: $checkedConvert(
           'value',
@@ -35,7 +38,7 @@ _ThreadItem _$ThreadItemFromJson(Map json) =>
 Map<String, dynamic> _$ThreadItemToJson(_ThreadItem instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'depth': instance.depth,
       'value': const UThreadItemValueConverter().toJson(instance.value),
       r'$unknown': ?instance.$unknown,

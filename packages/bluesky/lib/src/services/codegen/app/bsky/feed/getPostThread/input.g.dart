@@ -11,7 +11,10 @@ part of 'input.dart';
 _FeedGetPostThreadInput _$FeedGetPostThreadInputFromJson(Map json) =>
     $checkedCreate('_FeedGetPostThreadInput', json, ($checkedConvert) {
       final val = _FeedGetPostThreadInput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         depth: $checkedConvert('depth', (v) => (v as num?)?.toInt() ?? 6),
         parentHeight: $checkedConvert(
           'parentHeight',
@@ -28,7 +31,7 @@ _FeedGetPostThreadInput _$FeedGetPostThreadInputFromJson(Map json) =>
 Map<String, dynamic> _$FeedGetPostThreadInputToJson(
   _FeedGetPostThreadInput instance,
 ) => <String, dynamic>{
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'depth': instance.depth,
   'parentHeight': instance.parentHeight,
   r'$unknown': ?instance.$unknown,

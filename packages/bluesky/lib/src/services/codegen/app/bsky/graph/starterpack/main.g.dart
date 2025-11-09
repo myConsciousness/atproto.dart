@@ -28,7 +28,10 @@ _GraphStarterpackRecord _$GraphStarterpackRecordFromJson(
           )
           .toList(),
     ),
-    list: $checkedConvert('list', (v) => v as String),
+    list: $checkedConvert(
+      'list',
+      (v) => const AtUriConverter().fromJson(v as String),
+    ),
     feeds: $checkedConvert(
       'feeds',
       (v) => (v as List<dynamic>?)
@@ -56,7 +59,7 @@ Map<String, dynamic> _$GraphStarterpackRecordToJson(
   'descriptionFacets': ?instance.descriptionFacets
       ?.map(const RichtextFacetConverter().toJson)
       .toList(),
-  'list': instance.list,
+  'list': const AtUriConverter().toJson(instance.list),
   'feeds': ?instance.feeds?.map(const FeedItemConverter().toJson).toList(),
   'createdAt': instance.createdAt.toIso8601String(),
   r'$unknown': ?instance.$unknown,

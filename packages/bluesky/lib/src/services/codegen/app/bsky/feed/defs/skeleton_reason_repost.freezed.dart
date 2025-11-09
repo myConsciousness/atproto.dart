@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonReasonRepost {
 
- String get $type; String get repost; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get repost; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonReasonRepost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SkeletonReasonRepostCopyWith<$Res>  {
   factory $SkeletonReasonRepostCopyWith(SkeletonReasonRepost value, $Res Function(SkeletonReasonRepost) _then) = _$SkeletonReasonRepostCopyWithImpl;
 @useResult
 $Res call({
- String $type, String repost, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri repost, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$SkeletonReasonRepostCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,repost: null == repost ? _self.repost : repost // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String repost,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri repost,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonReasonRepost() when $default != null:
 return $default(_that.$type,_that.repost,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.repost,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String repost,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri repost,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonReasonRepost():
 return $default(_that.$type,_that.repost,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.repost,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String repost,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri repost,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonReasonRepost() when $default != null:
 return $default(_that.$type,_that.repost,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.repost,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonReasonRepost implements SkeletonReasonRepost {
-  const _SkeletonReasonRepost({this.$type = 'app.bsky.feed.defs#skeletonReasonRepost', required this.repost, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SkeletonReasonRepost({this.$type = 'app.bsky.feed.defs#skeletonReasonRepost', @AtUriConverter() required this.repost, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) => _$SkeletonReasonRepostFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String repost;
+@override@AtUriConverter() final  AtUri repost;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$SkeletonReasonRepostCopyWith<$Res> implements $SkeletonRe
   factory _$SkeletonReasonRepostCopyWith(_SkeletonReasonRepost value, $Res Function(_SkeletonReasonRepost) _then) = __$SkeletonReasonRepostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String repost, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri repost, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$SkeletonReasonRepostCopyWithImpl<$Res>
   return _then(_SkeletonReasonRepost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,repost: null == repost ? _self.repost : repost // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

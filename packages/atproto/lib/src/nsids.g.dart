@@ -132,6 +132,11 @@ const comAtprotoLabelSubscribeLabelsLabels = NSID(
   ids.comAtprotoLabelSubscribeLabelsLabels,
 );
 
+/// `com.atproto.lexicon.resolveLexicon`
+const comAtprotoLexiconResolveLexicon = NSID(
+  ids.comAtprotoLexiconResolveLexicon,
+);
+
 /// `com.atproto.lexicon.schema`
 const comAtprotoLexiconSchema = NSID(ids.comAtprotoLexiconSchema);
 

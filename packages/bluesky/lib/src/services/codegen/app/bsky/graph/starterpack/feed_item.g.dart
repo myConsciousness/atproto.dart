@@ -15,7 +15,10 @@ _FeedItem _$FeedItemFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.graph.starterpack#feedItem',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -26,6 +29,6 @@ _FeedItem _$FeedItemFromJson(Map json) =>
 
 Map<String, dynamic> _$FeedItemToJson(_FeedItem instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   r'$unknown': ?instance.$unknown,
 };

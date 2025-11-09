@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'moderation/cancel_scheduled_actions.dart';
 import 'moderation/emit_event.dart';
 import 'moderation/get_account_timeline.dart';
 import 'moderation/get_event.dart';
@@ -20,8 +21,10 @@ import 'moderation/get_repo.dart';
 import 'moderation/get_reporter_stats.dart';
 import 'moderation/get_repos.dart';
 import 'moderation/get_subjects.dart';
+import 'moderation/list_scheduled_actions.dart';
 import 'moderation/query_events.dart';
 import 'moderation/query_statuses.dart';
+import 'moderation/schedule_action.dart';
 import 'moderation/search_repos.dart';
 
 // **************************************************************************
@@ -30,18 +33,21 @@ import 'moderation/search_repos.dart';
 
 final class ToolsOzoneModerationCommand extends Command<void> {
   ToolsOzoneModerationCommand() {
-    addSubcommand(GetAccountTimelineCommand());
-    addSubcommand(EmitEventCommand());
-    addSubcommand(GetRecordCommand());
-    addSubcommand(GetRecordsCommand());
-    addSubcommand(QueryStatusesCommand());
-    addSubcommand(GetEventCommand());
-    addSubcommand(GetSubjectsCommand());
     addSubcommand(GetReporterStatsCommand());
-    addSubcommand(QueryEventsCommand());
+    addSubcommand(CancelScheduledActionsCommand());
+    addSubcommand(ListScheduledActionsCommand());
+    addSubcommand(QueryStatusesCommand());
     addSubcommand(GetRepoCommand());
-    addSubcommand(GetReposCommand());
+    addSubcommand(GetSubjectsCommand());
+    addSubcommand(GetRecordsCommand());
+    addSubcommand(ScheduleActionCommand());
+    addSubcommand(GetEventCommand());
+    addSubcommand(QueryEventsCommand());
+    addSubcommand(GetRecordCommand());
+    addSubcommand(EmitEventCommand());
     addSubcommand(SearchReposCommand());
+    addSubcommand(GetAccountTimelineCommand());
+    addSubcommand(GetReposCommand());
   }
 
   @override

@@ -13,6 +13,8 @@ import 'package:args/command_runner.dart';
 // Project imports:
 import 'unspecced/get_age_assurance_state.dart';
 import 'unspecced/get_config.dart';
+import 'unspecced/get_onboarding_suggested_starter_packs.dart';
+import 'unspecced/get_onboarding_suggested_starter_packs_skeleton.dart';
 import 'unspecced/get_popular_feed_generators.dart';
 import 'unspecced/get_post_thread_other_v_2.dart';
 import 'unspecced/get_post_thread_v_2.dart';
@@ -38,26 +40,28 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
-    addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(GetTrendsSkeletonCommand());
-    addSubcommand(SearchStarterPacksSkeletonCommand());
-    addSubcommand(GetTrendingTopicsCommand());
-    addSubcommand(GetSuggestionsSkeletonCommand());
     addSubcommand(GetSuggestedFeedsSkeletonCommand());
-    addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(InitAgeAssuranceCommand());
-    addSubcommand(GetTrendsCommand());
-    addSubcommand(GetSuggestedUsersSkeletonCommand());
-    addSubcommand(GetSuggestedFeedsCommand());
-    addSubcommand(GetSuggestedStarterPacksCommand());
-    addSubcommand(GetTaggedSuggestionsCommand());
-    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(SearchStarterPacksSkeletonCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());
     addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetPostThreadOtherV2Command());
+    addSubcommand(GetSuggestedStarterPacksCommand());
+    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
+    addSubcommand(GetSuggestedUsersSkeletonCommand());
     addSubcommand(GetPostThreadV2Command());
+    addSubcommand(GetTrendsCommand());
     addSubcommand(SearchActorsSkeletonCommand());
-    addSubcommand(GetConfigCommand());
+    addSubcommand(GetSuggestionsSkeletonCommand());
     addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetPopularFeedGeneratorsCommand());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetTrendingTopicsCommand());
+    addSubcommand(GetTaggedSuggestionsCommand());
+    addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(GetConfigCommand());
   }
 
   @override

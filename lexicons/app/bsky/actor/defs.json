@@ -13,6 +13,7 @@
           "maxGraphemes": 64,
           "maxLength": 640
         },
+        "pronouns": { "type": "string" },
         "avatar": { "type": "string", "format": "uri" },
         "associated": {
           "type": "ref",
@@ -31,6 +32,10 @@
         "status": {
           "type": "ref",
           "ref": "#statusView"
+        },
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development"
         }
       }
     },
@@ -45,6 +50,7 @@
           "maxGraphemes": 64,
           "maxLength": 640
         },
+        "pronouns": { "type": "string" },
         "description": {
           "type": "string",
           "maxGraphemes": 256,
@@ -69,6 +75,10 @@
         "status": {
           "type": "ref",
           "ref": "#statusView"
+        },
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development"
         }
       }
     },
@@ -121,6 +131,10 @@
         "status": {
           "type": "ref",
           "ref": "#statusView"
+        },
+        "debug": {
+          "type": "unknown",
+          "description": "Debug information for internal development"
         }
       }
     },
@@ -400,10 +414,6 @@
           "type": "string",
           "description": "Sorting mode for threads.",
           "knownValues": ["oldest", "newest", "most-likes", "random", "hotness"]
-        },
-        "prioritizeFollowedUsers": {
-          "type": "boolean",
-          "description": "Show followed users at the top of all replies."
         }
       }
     },

@@ -29,13 +29,7 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
       'createdBefore',
       (v) => v == null ? null : DateTime.parse(v as String),
     ),
-    subject: $checkedConvert(
-      'subject',
-      (v) => _$JsonConverterFromJson<String, AtUri>(
-        v,
-        const AtUriConverter().fromJson,
-      ),
-    ),
+    subject: $checkedConvert('subject', (v) => v as String?),
     collections: $checkedConvert(
       'collections',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -94,6 +88,7 @@ _ModerationQueryEventsInput _$ModerationQueryEventsInputFromJson(
             const ModerationQueryEventsAgeAssuranceStateConverter().fromJson,
           ),
     ),
+    withStrike: $checkedConvert('withStrike', (v) => v as bool?),
     cursor: $checkedConvert('cursor', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -111,10 +106,7 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   'sortDirection': instance.sortDirection,
   'createdAfter': ?instance.createdAfter?.toIso8601String(),
   'createdBefore': ?instance.createdBefore?.toIso8601String(),
-  'subject': ?_$JsonConverterToJson<String, AtUri>(
-    instance.subject,
-    const AtUriConverter().toJson,
-  ),
+  'subject': ?instance.subject,
   'collections': ?instance.collections,
   'subjectType':
       ?_$JsonConverterToJson<String, ModerationQueryEventsSubjectType>(
@@ -138,6 +130,7 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
         instance.ageAssuranceState,
         const ModerationQueryEventsAgeAssuranceStateConverter().toJson,
       ),
+  'withStrike': ?instance.withStrike,
   'cursor': ?instance.cursor,
   r'$unknown': ?instance.$unknown,
 };

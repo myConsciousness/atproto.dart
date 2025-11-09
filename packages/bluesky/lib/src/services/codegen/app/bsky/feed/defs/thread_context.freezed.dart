@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ThreadContext {
 
- String get $type; String? get rootAuthorLike; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri? get rootAuthorLike; Map<String, dynamic>? get $unknown;
 /// Create a copy of ThreadContext
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ThreadContextCopyWith<$Res>  {
   factory $ThreadContextCopyWith(ThreadContext value, $Res Function(ThreadContext) _then) = _$ThreadContextCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? rootAuthorLike, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? rootAuthorLike, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$ThreadContextCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rootAuthorLike: freezed == rootAuthorLike ? _self.rootAuthorLike : rootAuthorLike // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? rootAuthorLike,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? rootAuthorLike,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThreadContext() when $default != null:
 return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? rootAuthorLike,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? rootAuthorLike,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ThreadContext():
 return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? rootAuthorLike,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? rootAuthorLike,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ThreadContext() when $default != null:
 return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.rootAuthorLike,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ThreadContext implements ThreadContext {
-  const _ThreadContext({this.$type = 'app.bsky.feed.defs#threadContext', this.rootAuthorLike, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadContext({this.$type = 'app.bsky.feed.defs#threadContext', @AtUriConverter() this.rootAuthorLike, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadContext.fromJson(Map<String, dynamic> json) => _$ThreadContextFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String? rootAuthorLike;
+@override@AtUriConverter() final  AtUri? rootAuthorLike;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$ThreadContextCopyWith<$Res> implements $ThreadContextCopy
   factory _$ThreadContextCopyWith(_ThreadContext value, $Res Function(_ThreadContext) _then) = __$ThreadContextCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? rootAuthorLike, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? rootAuthorLike, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,7 +280,7 @@ class __$ThreadContextCopyWithImpl<$Res>
   return _then(_ThreadContext(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rootAuthorLike: freezed == rootAuthorLike ? _self.rootAuthorLike : rootAuthorLike // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

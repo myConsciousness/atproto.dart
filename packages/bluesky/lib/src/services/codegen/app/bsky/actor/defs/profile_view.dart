@@ -9,7 +9,6 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -32,6 +31,7 @@ abstract class ProfileView with _$ProfileView {
     'did',
     'handle',
     'displayName',
+    'pronouns',
     'description',
     'avatar',
     'associated',
@@ -41,6 +41,7 @@ abstract class ProfileView with _$ProfileView {
     'labels',
     'verification',
     'status',
+    'debug',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -49,8 +50,9 @@ abstract class ProfileView with _$ProfileView {
     required String did,
     required String handle,
     String? displayName,
+    String? pronouns,
     String? description,
-    @AtUriConverter() AtUri? avatar,
+    String? avatar,
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     DateTime? indexedAt,
     DateTime? createdAt,
@@ -58,6 +60,7 @@ abstract class ProfileView with _$ProfileView {
     @LabelConverter() List<Label>? labels,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
+    Map<String, dynamic>? debug,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileView;
@@ -74,6 +77,8 @@ abstract class ProfileView with _$ProfileView {
 extension ProfileViewExtension on ProfileView {
   bool get hasDisplayName => displayName != null;
   bool get hasNotDisplayName => !hasDisplayName;
+  bool get hasPronouns => pronouns != null;
+  bool get hasNotPronouns => !hasPronouns;
   bool get hasDescription => description != null;
   bool get hasNotDescription => !hasDescription;
   bool get hasAvatar => avatar != null;
@@ -90,6 +95,8 @@ extension ProfileViewExtension on ProfileView {
   bool get hasNotVerification => !hasVerification;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasDebug => debug != null;
+  bool get hasNotDebug => !hasDebug;
 }
 
 final class ProfileViewConverter

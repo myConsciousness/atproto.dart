@@ -25,7 +25,7 @@ part 'union_event_details.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UEventDetails with _$UEventDetails {
+sealed class UEventDetails with _$UEventDetails {
   const UEventDetails._();
 
   const factory UEventDetails.accountCreated({required AccountCreated data}) =

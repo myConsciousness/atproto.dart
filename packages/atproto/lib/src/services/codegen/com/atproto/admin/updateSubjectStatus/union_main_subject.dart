@@ -23,7 +23,7 @@ part 'union_main_subject.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UAdminUpdateSubjectStatusSubject
+sealed class UAdminUpdateSubjectStatusSubject
     with _$UAdminUpdateSubjectStatusSubject {
   const UAdminUpdateSubjectStatusSubject._();
 

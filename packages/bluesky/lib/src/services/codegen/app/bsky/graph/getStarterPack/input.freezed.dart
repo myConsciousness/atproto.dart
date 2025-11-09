@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$GraphGetStarterPackInput {
 
 /// Reference (AT-URI) of the starter pack record.
- String get starterPack; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get starterPack; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphGetStarterPackInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $GraphGetStarterPackInputCopyWith<$Res>  {
   factory $GraphGetStarterPackInputCopyWith(GraphGetStarterPackInput value, $Res Function(GraphGetStarterPackInput) _then) = _$GraphGetStarterPackInputCopyWithImpl;
 @useResult
 $Res call({
- String starterPack, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri starterPack, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$GraphGetStarterPackInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? starterPack = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 starterPack: null == starterPack ? _self.starterPack : starterPack // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String starterPack,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri starterPack,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphGetStarterPackInput() when $default != null:
 return $default(_that.starterPack,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.starterPack,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String starterPack,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri starterPack,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetStarterPackInput():
 return $default(_that.starterPack,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.starterPack,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String starterPack,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri starterPack,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphGetStarterPackInput() when $default != null:
 return $default(_that.starterPack,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.starterPack,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GraphGetStarterPackInput implements GraphGetStarterPackInput {
-  const _GraphGetStarterPackInput({required this.starterPack, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphGetStarterPackInput({@AtUriConverter() required this.starterPack, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphGetStarterPackInput.fromJson(Map<String, dynamic> json) => _$GraphGetStarterPackInputFromJson(json);
 
 /// Reference (AT-URI) of the starter pack record.
-@override final  String starterPack;
+@override@AtUriConverter() final  AtUri starterPack;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$GraphGetStarterPackInputCopyWith<$Res> implements $GraphG
   factory _$GraphGetStarterPackInputCopyWith(_GraphGetStarterPackInput value, $Res Function(_GraphGetStarterPackInput) _then) = __$GraphGetStarterPackInputCopyWithImpl;
 @override @useResult
 $Res call({
- String starterPack, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri starterPack, Map<String, dynamic>? $unknown
 });
 
 
@@ -279,7 +279,7 @@ class __$GraphGetStarterPackInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? starterPack = null,Object? $unknown = freezed,}) {
   return _then(_GraphGetStarterPackInput(
 starterPack: null == starterPack ? _self.starterPack : starterPack // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

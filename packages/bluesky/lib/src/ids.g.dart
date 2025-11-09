@@ -759,6 +759,14 @@ const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 const appBskyUnspeccedGetConfigLiveNowConfig =
     'app.bsky.unspecced.getConfig#liveNowConfig';
 
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacks`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacks =
+    'app.bsky.unspecced.getOnboardingSuggestedStarterPacks';
+
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton =
+    'app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton';
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
@@ -1062,6 +1070,18 @@ const toolsOzoneHostingGetAccountHistoryHandleUpdated =
 const toolsOzoneHostingGetAccountHistoryPasswordUpdated =
     'tools.ozone.hosting.getAccountHistory#passwordUpdated';
 
+/// `tools.ozone.moderation.cancelScheduledActions`
+const toolsOzoneModerationCancelScheduledActions =
+    'tools.ozone.moderation.cancelScheduledActions';
+
+/// `tools.ozone.moderation.cancelScheduledActions#cancellationResults`
+const toolsOzoneModerationCancelScheduledActionsCancellationResults =
+    'tools.ozone.moderation.cancelScheduledActions#cancellationResults';
+
+/// `tools.ozone.moderation.cancelScheduledActions#failedCancellation`
+const toolsOzoneModerationCancelScheduledActionsFailedCancellation =
+    'tools.ozone.moderation.cancelScheduledActions#failedCancellation';
+
 /// `tools.ozone.moderation.defs`
 const toolsOzoneModerationDefs = 'tools.ozone.moderation.defs';
 
@@ -1077,6 +1097,10 @@ const toolsOzoneModerationDefsAccountHosting =
 const toolsOzoneModerationDefsAccountStats =
     'tools.ozone.moderation.defs#accountStats';
 
+/// `tools.ozone.moderation.defs#accountStrike`
+const toolsOzoneModerationDefsAccountStrike =
+    'tools.ozone.moderation.defs#accountStrike';
+
 /// `tools.ozone.moderation.defs#ageAssuranceEvent`
 const toolsOzoneModerationDefsAgeAssuranceEvent =
     'tools.ozone.moderation.defs#ageAssuranceEvent';
@@ -1087,6 +1111,10 @@ const toolsOzoneModerationDefsAgeAssuranceOverrideEvent =
 
 /// `tools.ozone.moderation.defs#blobView`
 const toolsOzoneModerationDefsBlobView = 'tools.ozone.moderation.defs#blobView';
+
+/// `tools.ozone.moderation.defs#cancelScheduledTakedownEvent`
+const toolsOzoneModerationDefsCancelScheduledTakedownEvent =
+    'tools.ozone.moderation.defs#cancelScheduledTakedownEvent';
 
 /// `tools.ozone.moderation.defs#identityEvent`
 const toolsOzoneModerationDefsIdentityEvent =
@@ -1238,6 +1266,14 @@ const toolsOzoneModerationDefsReviewOpen =
 const toolsOzoneModerationDefsRevokeAccountCredentialsEvent =
     'tools.ozone.moderation.defs#revokeAccountCredentialsEvent';
 
+/// `tools.ozone.moderation.defs#scheduleTakedownEvent`
+const toolsOzoneModerationDefsScheduleTakedownEvent =
+    'tools.ozone.moderation.defs#scheduleTakedownEvent';
+
+/// `tools.ozone.moderation.defs#scheduledActionView`
+const toolsOzoneModerationDefsScheduledActionView =
+    'tools.ozone.moderation.defs#scheduledActionView';
+
 /// `tools.ozone.moderation.defs#subjectReviewState`
 const toolsOzoneModerationDefsSubjectReviewState =
     'tools.ozone.moderation.defs#subjectReviewState';
@@ -1303,12 +1339,36 @@ const toolsOzoneModerationGetRepos = 'tools.ozone.moderation.getRepos';
 /// `tools.ozone.moderation.getSubjects`
 const toolsOzoneModerationGetSubjects = 'tools.ozone.moderation.getSubjects';
 
+/// `tools.ozone.moderation.listScheduledActions`
+const toolsOzoneModerationListScheduledActions =
+    'tools.ozone.moderation.listScheduledActions';
+
 /// `tools.ozone.moderation.queryEvents`
 const toolsOzoneModerationQueryEvents = 'tools.ozone.moderation.queryEvents';
 
 /// `tools.ozone.moderation.queryStatuses`
 const toolsOzoneModerationQueryStatuses =
     'tools.ozone.moderation.queryStatuses';
+
+/// `tools.ozone.moderation.scheduleAction`
+const toolsOzoneModerationScheduleAction =
+    'tools.ozone.moderation.scheduleAction';
+
+/// `tools.ozone.moderation.scheduleAction#failedScheduling`
+const toolsOzoneModerationScheduleActionFailedScheduling =
+    'tools.ozone.moderation.scheduleAction#failedScheduling';
+
+/// `tools.ozone.moderation.scheduleAction#scheduledActionResults`
+const toolsOzoneModerationScheduleActionScheduledActionResults =
+    'tools.ozone.moderation.scheduleAction#scheduledActionResults';
+
+/// `tools.ozone.moderation.scheduleAction#schedulingConfig`
+const toolsOzoneModerationScheduleActionSchedulingConfig =
+    'tools.ozone.moderation.scheduleAction#schedulingConfig';
+
+/// `tools.ozone.moderation.scheduleAction#takedown`
+const toolsOzoneModerationScheduleActionTakedown =
+    'tools.ozone.moderation.scheduleAction#takedown';
 
 /// `tools.ozone.moderation.searchRepos`
 const toolsOzoneModerationSearchRepos = 'tools.ozone.moderation.searchRepos';
@@ -1323,10 +1383,6 @@ const toolsOzoneReportDefsReasonAppeal = 'tools.ozone.report.defs#reasonAppeal';
 const toolsOzoneReportDefsReasonChildSafetyCSAM =
     'tools.ozone.report.defs#reasonChildSafetyCSAM';
 
-/// `tools.ozone.report.defs#reasonChildSafetyEndangerment`
-const toolsOzoneReportDefsReasonChildSafetyEndangerment =
-    'tools.ozone.report.defs#reasonChildSafetyEndangerment';
-
 /// `tools.ozone.report.defs#reasonChildSafetyGroom`
 const toolsOzoneReportDefsReasonChildSafetyGroom =
     'tools.ozone.report.defs#reasonChildSafetyGroom';
@@ -1335,37 +1391,13 @@ const toolsOzoneReportDefsReasonChildSafetyGroom =
 const toolsOzoneReportDefsReasonChildSafetyHarassment =
     'tools.ozone.report.defs#reasonChildSafetyHarassment';
 
-/// `tools.ozone.report.defs#reasonChildSafetyMinorPrivacy`
-const toolsOzoneReportDefsReasonChildSafetyMinorPrivacy =
-    'tools.ozone.report.defs#reasonChildSafetyMinorPrivacy';
-
 /// `tools.ozone.report.defs#reasonChildSafetyOther`
 const toolsOzoneReportDefsReasonChildSafetyOther =
     'tools.ozone.report.defs#reasonChildSafetyOther';
 
-/// `tools.ozone.report.defs#reasonChildSafetyPromotion`
-const toolsOzoneReportDefsReasonChildSafetyPromotion =
-    'tools.ozone.report.defs#reasonChildSafetyPromotion';
-
-/// `tools.ozone.report.defs#reasonCivicDisclosure`
-const toolsOzoneReportDefsReasonCivicDisclosure =
-    'tools.ozone.report.defs#reasonCivicDisclosure';
-
-/// `tools.ozone.report.defs#reasonCivicElectoralProcess`
-const toolsOzoneReportDefsReasonCivicElectoralProcess =
-    'tools.ozone.report.defs#reasonCivicElectoralProcess';
-
-/// `tools.ozone.report.defs#reasonCivicImpersonation`
-const toolsOzoneReportDefsReasonCivicImpersonation =
-    'tools.ozone.report.defs#reasonCivicImpersonation';
-
-/// `tools.ozone.report.defs#reasonCivicInterference`
-const toolsOzoneReportDefsReasonCivicInterference =
-    'tools.ozone.report.defs#reasonCivicInterference';
-
-/// `tools.ozone.report.defs#reasonCivicMisinformation`
-const toolsOzoneReportDefsReasonCivicMisinformation =
-    'tools.ozone.report.defs#reasonCivicMisinformation';
+/// `tools.ozone.report.defs#reasonChildSafetyPrivacy`
+const toolsOzoneReportDefsReasonChildSafetyPrivacy =
+    'tools.ozone.report.defs#reasonChildSafetyPrivacy';
 
 /// `tools.ozone.report.defs#reasonHarassmentDoxxing`
 const toolsOzoneReportDefsReasonHarassmentDoxxing =
@@ -1391,13 +1423,13 @@ const toolsOzoneReportDefsReasonHarassmentTroll =
 const toolsOzoneReportDefsReasonMisleadingBot =
     'tools.ozone.report.defs#reasonMisleadingBot';
 
+/// `tools.ozone.report.defs#reasonMisleadingElections`
+const toolsOzoneReportDefsReasonMisleadingElections =
+    'tools.ozone.report.defs#reasonMisleadingElections';
+
 /// `tools.ozone.report.defs#reasonMisleadingImpersonation`
 const toolsOzoneReportDefsReasonMisleadingImpersonation =
     'tools.ozone.report.defs#reasonMisleadingImpersonation';
-
-/// `tools.ozone.report.defs#reasonMisleadingMisinformation`
-const toolsOzoneReportDefsReasonMisleadingMisinformation =
-    'tools.ozone.report.defs#reasonMisleadingMisinformation';
 
 /// `tools.ozone.report.defs#reasonMisleadingOther`
 const toolsOzoneReportDefsReasonMisleadingOther =
@@ -1411,9 +1443,8 @@ const toolsOzoneReportDefsReasonMisleadingScam =
 const toolsOzoneReportDefsReasonMisleadingSpam =
     'tools.ozone.report.defs#reasonMisleadingSpam';
 
-/// `tools.ozone.report.defs#reasonMisleadingSyntheticContent`
-const toolsOzoneReportDefsReasonMisleadingSyntheticContent =
-    'tools.ozone.report.defs#reasonMisleadingSyntheticContent';
+/// `tools.ozone.report.defs#reasonOther`
+const toolsOzoneReportDefsReasonOther = 'tools.ozone.report.defs#reasonOther';
 
 /// `tools.ozone.report.defs#reasonRuleBanEvasion`
 const toolsOzoneReportDefsReasonRuleBanEvasion =
@@ -1431,9 +1462,25 @@ const toolsOzoneReportDefsReasonRuleProhibitedSales =
 const toolsOzoneReportDefsReasonRuleSiteSecurity =
     'tools.ozone.report.defs#reasonRuleSiteSecurity';
 
-/// `tools.ozone.report.defs#reasonRuleStolenContent`
-const toolsOzoneReportDefsReasonRuleStolenContent =
-    'tools.ozone.report.defs#reasonRuleStolenContent';
+/// `tools.ozone.report.defs#reasonSelfHarmContent`
+const toolsOzoneReportDefsReasonSelfHarmContent =
+    'tools.ozone.report.defs#reasonSelfHarmContent';
+
+/// `tools.ozone.report.defs#reasonSelfHarmED`
+const toolsOzoneReportDefsReasonSelfHarmED =
+    'tools.ozone.report.defs#reasonSelfHarmED';
+
+/// `tools.ozone.report.defs#reasonSelfHarmOther`
+const toolsOzoneReportDefsReasonSelfHarmOther =
+    'tools.ozone.report.defs#reasonSelfHarmOther';
+
+/// `tools.ozone.report.defs#reasonSelfHarmStunts`
+const toolsOzoneReportDefsReasonSelfHarmStunts =
+    'tools.ozone.report.defs#reasonSelfHarmStunts';
+
+/// `tools.ozone.report.defs#reasonSelfHarmSubstances`
+const toolsOzoneReportDefsReasonSelfHarmSubstances =
+    'tools.ozone.report.defs#reasonSelfHarmSubstances';
 
 /// `tools.ozone.report.defs#reasonSexualAbuseContent`
 const toolsOzoneReportDefsReasonSexualAbuseContent =
@@ -1455,10 +1502,6 @@ const toolsOzoneReportDefsReasonSexualNCII =
 const toolsOzoneReportDefsReasonSexualOther =
     'tools.ozone.report.defs#reasonSexualOther';
 
-/// `tools.ozone.report.defs#reasonSexualSextortion`
-const toolsOzoneReportDefsReasonSexualSextortion =
-    'tools.ozone.report.defs#reasonSexualSextortion';
-
 /// `tools.ozone.report.defs#reasonSexualUnlabeled`
 const toolsOzoneReportDefsReasonSexualUnlabeled =
     'tools.ozone.report.defs#reasonSexualUnlabeled';
@@ -1466,9 +1509,9 @@ const toolsOzoneReportDefsReasonSexualUnlabeled =
 /// `tools.ozone.report.defs#reasonType`
 const toolsOzoneReportDefsReasonType = 'tools.ozone.report.defs#reasonType';
 
-/// `tools.ozone.report.defs#reasonViolenceAnimalWelfare`
-const toolsOzoneReportDefsReasonViolenceAnimalWelfare =
-    'tools.ozone.report.defs#reasonViolenceAnimalWelfare';
+/// `tools.ozone.report.defs#reasonViolenceAnimal`
+const toolsOzoneReportDefsReasonViolenceAnimal =
+    'tools.ozone.report.defs#reasonViolenceAnimal';
 
 /// `tools.ozone.report.defs#reasonViolenceExtremistContent`
 const toolsOzoneReportDefsReasonViolenceExtremistContent =
@@ -1485,10 +1528,6 @@ const toolsOzoneReportDefsReasonViolenceGraphicContent =
 /// `tools.ozone.report.defs#reasonViolenceOther`
 const toolsOzoneReportDefsReasonViolenceOther =
     'tools.ozone.report.defs#reasonViolenceOther';
-
-/// `tools.ozone.report.defs#reasonViolenceSelfHarm`
-const toolsOzoneReportDefsReasonViolenceSelfHarm =
-    'tools.ozone.report.defs#reasonViolenceSelfHarm';
 
 /// `tools.ozone.report.defs#reasonViolenceThreats`
 const toolsOzoneReportDefsReasonViolenceThreats =

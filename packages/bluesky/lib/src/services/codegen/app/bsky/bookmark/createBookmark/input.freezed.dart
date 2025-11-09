@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BookmarkCreateBookmarkInput {
 
- String get uri; String get cid; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic>? get $unknown;
 /// Create a copy of BookmarkCreateBookmarkInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $BookmarkCreateBookmarkInputCopyWith<$Res>  {
   factory $BookmarkCreateBookmarkInputCopyWith(BookmarkCreateBookmarkInput value, $Res Function(BookmarkCreateBookmarkInput) _then) = _$BookmarkCreateBookmarkInputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String cid, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String cid, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$BookmarkCreateBookmarkInputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BookmarkCreateBookmarkInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.uri,_that.cid,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String cid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _BookmarkCreateBookmarkInput():
 return $default(_that.uri,_that.cid,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.uri,_that.cid,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _BookmarkCreateBookmarkInput() when $default != null:
 return $default(_that.uri,_that.cid,_that.$unknown);case _:
@@ -211,10 +211,10 @@ return $default(_that.uri,_that.cid,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _BookmarkCreateBookmarkInput implements BookmarkCreateBookmarkInput {
-  const _BookmarkCreateBookmarkInput({required this.uri, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BookmarkCreateBookmarkInput({@AtUriConverter() required this.uri, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BookmarkCreateBookmarkInput.fromJson(Map<String, dynamic> json) => _$BookmarkCreateBookmarkInputFromJson(json);
 
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String cid;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -259,7 +259,7 @@ abstract mixin class _$BookmarkCreateBookmarkInputCopyWith<$Res> implements $Boo
   factory _$BookmarkCreateBookmarkInputCopyWith(_BookmarkCreateBookmarkInput value, $Res Function(_BookmarkCreateBookmarkInput) _then) = __$BookmarkCreateBookmarkInputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String cid, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String cid, Map<String, dynamic>? $unknown
 });
 
 
@@ -279,7 +279,7 @@ class __$BookmarkCreateBookmarkInputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = null,Object? $unknown = freezed,}) {
   return _then(_BookmarkCreateBookmarkInput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

@@ -89,10 +89,7 @@ return mentionRule(_that);case UPostInteractionSettingsPrefThreadgateAllowRulesF
 return followerRule(_that);case UPostInteractionSettingsPrefThreadgateAllowRulesFollowingRule():
 return followingRule(_that);case UPostInteractionSettingsPrefThreadgateAllowRulesListRule():
 return listRule(_that);case UPostInteractionSettingsPrefThreadgateAllowRulesUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -163,10 +160,7 @@ return mentionRule(_that.data);case UPostInteractionSettingsPrefThreadgateAllowR
 return followerRule(_that.data);case UPostInteractionSettingsPrefThreadgateAllowRulesFollowingRule():
 return followingRule(_that.data);case UPostInteractionSettingsPrefThreadgateAllowRulesListRule():
 return listRule(_that.data);case UPostInteractionSettingsPrefThreadgateAllowRulesUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

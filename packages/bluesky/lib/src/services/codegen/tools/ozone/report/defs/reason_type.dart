@@ -74,9 +74,11 @@ final class ReasonTypeConverter extends JsonConverter<ReasonType, String> {
 enum KnownReasonType implements Serializable {
   @JsonValue('tools.ozone.report.defs#reasonAppeal')
   toolsOzoneReportDefsReasonAppeal('tools.ozone.report.defs#reasonAppeal'),
-  @JsonValue('tools.ozone.report.defs#reasonViolenceAnimalWelfare')
-  toolsOzoneReportDefsReasonViolenceAnimalWelfare(
-    'tools.ozone.report.defs#reasonViolenceAnimalWelfare',
+  @JsonValue('tools.ozone.report.defs#reasonOther')
+  toolsOzoneReportDefsReasonOther('tools.ozone.report.defs#reasonOther'),
+  @JsonValue('tools.ozone.report.defs#reasonViolenceAnimal')
+  toolsOzoneReportDefsReasonViolenceAnimal(
+    'tools.ozone.report.defs#reasonViolenceAnimal',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceThreats')
   toolsOzoneReportDefsReasonViolenceThreats(
@@ -85,10 +87,6 @@ enum KnownReasonType implements Serializable {
   @JsonValue('tools.ozone.report.defs#reasonViolenceGraphicContent')
   toolsOzoneReportDefsReasonViolenceGraphicContent(
     'tools.ozone.report.defs#reasonViolenceGraphicContent',
-  ),
-  @JsonValue('tools.ozone.report.defs#reasonViolenceSelfHarm')
-  toolsOzoneReportDefsReasonViolenceSelfHarm(
-    'tools.ozone.report.defs#reasonViolenceSelfHarm',
   ),
   @JsonValue('tools.ozone.report.defs#reasonViolenceGlorification')
   toolsOzoneReportDefsReasonViolenceGlorification(
@@ -114,10 +112,6 @@ enum KnownReasonType implements Serializable {
   toolsOzoneReportDefsReasonSexualNCII(
     'tools.ozone.report.defs#reasonSexualNCII',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonSexualSextortion')
-  toolsOzoneReportDefsReasonSexualSextortion(
-    'tools.ozone.report.defs#reasonSexualSextortion',
-  ),
   @JsonValue('tools.ozone.report.defs#reasonSexualDeepfake')
   toolsOzoneReportDefsReasonSexualDeepfake(
     'tools.ozone.report.defs#reasonSexualDeepfake',
@@ -142,21 +136,13 @@ enum KnownReasonType implements Serializable {
   toolsOzoneReportDefsReasonChildSafetyGroom(
     'tools.ozone.report.defs#reasonChildSafetyGroom',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonChildSafetyMinorPrivacy')
-  toolsOzoneReportDefsReasonChildSafetyMinorPrivacy(
-    'tools.ozone.report.defs#reasonChildSafetyMinorPrivacy',
-  ),
-  @JsonValue('tools.ozone.report.defs#reasonChildSafetyEndangerment')
-  toolsOzoneReportDefsReasonChildSafetyEndangerment(
-    'tools.ozone.report.defs#reasonChildSafetyEndangerment',
+  @JsonValue('tools.ozone.report.defs#reasonChildSafetyPrivacy')
+  toolsOzoneReportDefsReasonChildSafetyPrivacy(
+    'tools.ozone.report.defs#reasonChildSafetyPrivacy',
   ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyHarassment')
   toolsOzoneReportDefsReasonChildSafetyHarassment(
     'tools.ozone.report.defs#reasonChildSafetyHarassment',
-  ),
-  @JsonValue('tools.ozone.report.defs#reasonChildSafetyPromotion')
-  toolsOzoneReportDefsReasonChildSafetyPromotion(
-    'tools.ozone.report.defs#reasonChildSafetyPromotion',
   ),
   @JsonValue('tools.ozone.report.defs#reasonChildSafetyOther')
   toolsOzoneReportDefsReasonChildSafetyOther(
@@ -198,13 +184,9 @@ enum KnownReasonType implements Serializable {
   toolsOzoneReportDefsReasonMisleadingScam(
     'tools.ozone.report.defs#reasonMisleadingScam',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonMisleadingSyntheticContent')
-  toolsOzoneReportDefsReasonMisleadingSyntheticContent(
-    'tools.ozone.report.defs#reasonMisleadingSyntheticContent',
-  ),
-  @JsonValue('tools.ozone.report.defs#reasonMisleadingMisinformation')
-  toolsOzoneReportDefsReasonMisleadingMisinformation(
-    'tools.ozone.report.defs#reasonMisleadingMisinformation',
+  @JsonValue('tools.ozone.report.defs#reasonMisleadingElections')
+  toolsOzoneReportDefsReasonMisleadingElections(
+    'tools.ozone.report.defs#reasonMisleadingElections',
   ),
   @JsonValue('tools.ozone.report.defs#reasonMisleadingOther')
   toolsOzoneReportDefsReasonMisleadingOther(
@@ -213,10 +195,6 @@ enum KnownReasonType implements Serializable {
   @JsonValue('tools.ozone.report.defs#reasonRuleSiteSecurity')
   toolsOzoneReportDefsReasonRuleSiteSecurity(
     'tools.ozone.report.defs#reasonRuleSiteSecurity',
-  ),
-  @JsonValue('tools.ozone.report.defs#reasonRuleStolenContent')
-  toolsOzoneReportDefsReasonRuleStolenContent(
-    'tools.ozone.report.defs#reasonRuleStolenContent',
   ),
   @JsonValue('tools.ozone.report.defs#reasonRuleProhibitedSales')
   toolsOzoneReportDefsReasonRuleProhibitedSales(
@@ -230,25 +208,25 @@ enum KnownReasonType implements Serializable {
   toolsOzoneReportDefsReasonRuleOther(
     'tools.ozone.report.defs#reasonRuleOther',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonCivicElectoralProcess')
-  toolsOzoneReportDefsReasonCivicElectoralProcess(
-    'tools.ozone.report.defs#reasonCivicElectoralProcess',
+  @JsonValue('tools.ozone.report.defs#reasonSelfHarmContent')
+  toolsOzoneReportDefsReasonSelfHarmContent(
+    'tools.ozone.report.defs#reasonSelfHarmContent',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonCivicDisclosure')
-  toolsOzoneReportDefsReasonCivicDisclosure(
-    'tools.ozone.report.defs#reasonCivicDisclosure',
+  @JsonValue('tools.ozone.report.defs#reasonSelfHarmED')
+  toolsOzoneReportDefsReasonSelfHarmED(
+    'tools.ozone.report.defs#reasonSelfHarmED',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonCivicInterference')
-  toolsOzoneReportDefsReasonCivicInterference(
-    'tools.ozone.report.defs#reasonCivicInterference',
+  @JsonValue('tools.ozone.report.defs#reasonSelfHarmStunts')
+  toolsOzoneReportDefsReasonSelfHarmStunts(
+    'tools.ozone.report.defs#reasonSelfHarmStunts',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonCivicMisinformation')
-  toolsOzoneReportDefsReasonCivicMisinformation(
-    'tools.ozone.report.defs#reasonCivicMisinformation',
+  @JsonValue('tools.ozone.report.defs#reasonSelfHarmSubstances')
+  toolsOzoneReportDefsReasonSelfHarmSubstances(
+    'tools.ozone.report.defs#reasonSelfHarmSubstances',
   ),
-  @JsonValue('tools.ozone.report.defs#reasonCivicImpersonation')
-  toolsOzoneReportDefsReasonCivicImpersonation(
-    'tools.ozone.report.defs#reasonCivicImpersonation',
+  @JsonValue('tools.ozone.report.defs#reasonSelfHarmOther')
+  toolsOzoneReportDefsReasonSelfHarmOther(
+    'tools.ozone.report.defs#reasonSelfHarmOther',
   );
 
   @override

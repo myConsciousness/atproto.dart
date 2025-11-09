@@ -13,7 +13,10 @@ _FeedGetQuotesOutput _$FeedGetQuotesOutputFromJson(Map json) => $checkedCreate(
   json,
   ($checkedConvert) {
     final val = _FeedGetQuotesOutput(
-      uri: $checkedConvert('uri', (v) => v as String),
+      uri: $checkedConvert(
+        'uri',
+        (v) => const AtUriConverter().fromJson(v as String),
+      ),
       cid: $checkedConvert('cid', (v) => v as String?),
       cursor: $checkedConvert('cursor', (v) => v as String?),
       posts: $checkedConvert(
@@ -37,7 +40,7 @@ _FeedGetQuotesOutput _$FeedGetQuotesOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$FeedGetQuotesOutputToJson(
   _FeedGetQuotesOutput instance,
 ) => <String, dynamic>{
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': ?instance.cid,
   'cursor': ?instance.cursor,
   'posts': instance.posts.map(const PostViewConverter().toJson).toList(),

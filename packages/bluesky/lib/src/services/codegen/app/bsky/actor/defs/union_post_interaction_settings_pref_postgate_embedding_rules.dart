@@ -21,7 +21,7 @@ part 'union_post_interaction_settings_pref_postgate_embedding_rules.freezed.dart
 // **************************************************************************
 
 @freezed
-abstract class UPostInteractionSettingsPrefPostgateEmbeddingRules
+sealed class UPostInteractionSettingsPrefPostgateEmbeddingRules
     with _$UPostInteractionSettingsPrefPostgateEmbeddingRules {
   const UPostInteractionSettingsPrefPostgateEmbeddingRules._();
 

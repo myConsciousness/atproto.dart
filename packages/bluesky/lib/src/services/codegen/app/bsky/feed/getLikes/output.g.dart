@@ -11,7 +11,10 @@ part of 'output.dart';
 _FeedGetLikesOutput _$FeedGetLikesOutputFromJson(Map json) =>
     $checkedCreate('_FeedGetLikesOutput', json, ($checkedConvert) {
       final val = _FeedGetLikesOutput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String?),
         cursor: $checkedConvert('cursor', (v) => v as String?),
         likes: $checkedConvert(
@@ -33,7 +36,7 @@ _FeedGetLikesOutput _$FeedGetLikesOutputFromJson(Map json) =>
 
 Map<String, dynamic> _$FeedGetLikesOutputToJson(_FeedGetLikesOutput instance) =>
     <String, dynamic>{
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': ?instance.cid,
       'cursor': ?instance.cursor,
       'likes': instance.likes.map(const LikeConverter().toJson).toList(),

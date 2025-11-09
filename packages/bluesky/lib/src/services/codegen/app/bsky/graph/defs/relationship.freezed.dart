@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$Relationship {
 
  String get $type; String get did;/// if the actor follows this DID, this is the AT-URI of the follow record
- String? get following;/// if the actor is followed by this DID, contains the AT-URI of the follow record
- String? get followedBy; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri? get following;/// if the actor is followed by this DID, contains the AT-URI of the follow record
+@AtUriConverter() AtUri? get followedBy; Map<String, dynamic>? get $unknown;
 /// Create a copy of Relationship
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $RelationshipCopyWith<$Res>  {
   factory $RelationshipCopyWith(Relationship value, $Res Function(Relationship) _then) = _$RelationshipCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String? following, String? followedBy, Map<String, dynamic>? $unknown
+ String $type, String did,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -72,8 +72,8 @@ class _$RelationshipCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,following: freezed == following ? _self.following : following // ignore: cast_nullable_to_non_nullable
-as String?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String? following,  String? followedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Relationship() when $default != null:
 return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String? following,  String? followedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Relationship():
 return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String? following,  String? followedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Relationship() when $default != null:
 return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$unknown);case _:
@@ -215,15 +215,15 @@ return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _Relationship implements Relationship {
-  const _Relationship({this.$type = 'app.bsky.graph.defs#relationship', required this.did, this.following, this.followedBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Relationship({this.$type = 'app.bsky.graph.defs#relationship', required this.did, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Relationship.fromJson(Map<String, dynamic> json) => _$RelationshipFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String did;
 /// if the actor follows this DID, this is the AT-URI of the follow record
-@override final  String? following;
+@override@AtUriConverter() final  AtUri? following;
 /// if the actor is followed by this DID, contains the AT-URI of the follow record
-@override final  String? followedBy;
+@override@AtUriConverter() final  AtUri? followedBy;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$RelationshipCopyWith<$Res> implements $RelationshipCopyWi
   factory _$RelationshipCopyWith(_Relationship value, $Res Function(_Relationship) _then) = __$RelationshipCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String? following, String? followedBy, Map<String, dynamic>? $unknown
+ String $type, String did,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -289,8 +289,8 @@ class __$RelationshipCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,following: freezed == following ? _self.following : following // ignore: cast_nullable_to_non_nullable
-as String?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,followedBy: freezed == followedBy ? _self.followedBy : followedBy // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

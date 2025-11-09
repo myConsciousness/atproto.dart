@@ -2,7 +2,6 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Dart imports:
 import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
@@ -15,7 +14,7 @@ import 'logger.dart';
 abstract class Disposable {
   /// Disposes of the resource and cleans up any associated state.
   Future<void> dispose();
-  
+
   /// Whether the resource has been disposed.
   bool get isDisposed;
 }
@@ -30,11 +29,11 @@ class ResourceManager implements Disposable {
   final List<Isolate> _isolates = [];
   final Set<File> _tempFiles = <File>{};
   final Set<Directory> _tempDirectories = <Directory>{};
-  
+
   bool _isDisposed = false;
   Timer? _memoryMonitorTimer;
   MemoryStats? _lastMemoryStats;
-  
+
   /// Creates a new ResourceManager with the specified logger.
   ResourceManager(this._logger);
 
@@ -50,7 +49,9 @@ class ResourceManager implements Disposable {
   }
 
   /// Registers a stream subscription for automatic cleanup.
-  StreamSubscription<T> registerSubscription<T>(StreamSubscription<T> subscription) {
+  StreamSubscription<T> registerSubscription<T>(
+    StreamSubscription<T> subscription,
+  ) {
     _checkNotDisposed();
     _subscriptions.add(subscription);
     _logger.debug('Registered stream subscription');
@@ -76,38 +77,40 @@ class ResourceManager implements Disposable {
   /// Creates and registers a temporary file.
   Future<File> createTempFile({String? prefix, String? suffix}) async {
     _checkNotDisposed();
-    
+
     final tempDir = Directory.systemTemp;
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final fileName = '${prefix ?? 'temp'}_$timestamp${suffix ?? '.tmp'}';
     final tempFile = File('${tempDir.path}/$fileName');
-    
+
     _tempFiles.add(tempFile);
     _logger.debug('Created temporary file: ${tempFile.path}');
-    
+
     return tempFile;
   }
 
   /// Creates and registers a temporary directory.
   Future<Directory> createTempDirectory({String? prefix}) async {
     _checkNotDisposed();
-    
+
     final tempDir = Directory.systemTemp;
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final dirName = '${prefix ?? 'temp'}_$timestamp';
     final tempDirectory = Directory('${tempDir.path}/$dirName');
-    
+
     await tempDirectory.create(recursive: true);
     _tempDirectories.add(tempDirectory);
     _logger.debug('Created temporary directory: ${tempDirectory.path}');
-    
+
     return tempDirectory;
   }
 
   /// Starts memory monitoring with the specified interval.
-  void startMemoryMonitoring({Duration interval = const Duration(seconds: 30)}) {
+  void startMemoryMonitoring({
+    Duration interval = const Duration(seconds: 30),
+  }) {
     _checkNotDisposed();
-    
+
     if (_memoryMonitorTimer != null) {
       _logger.warning('Memory monitoring is already active');
       return;
@@ -116,8 +119,10 @@ class ResourceManager implements Disposable {
     _memoryMonitorTimer = Timer.periodic(interval, (_) async {
       await _checkMemoryUsage();
     });
-    
-    _logger.info('Started memory monitoring with ${interval.inSeconds}s interval');
+
+    _logger.info(
+      'Started memory monitoring with ${interval.inSeconds}s interval',
+    );
   }
 
   /// Stops memory monitoring.
@@ -129,8 +134,13 @@ class ResourceManager implements Disposable {
 
   /// Gets current memory statistics.
   Future<MemoryStats> getMemoryStats() async {
-    final processInfo = await Process.run('ps', ['-o', 'pid,rss,vsz', '-p', '$pid']);
-    
+    final processInfo = await Process.run('ps', [
+      '-o',
+      'pid,rss,vsz',
+      '-p',
+      '$pid',
+    ]);
+
     if (processInfo.exitCode == 0) {
       final lines = processInfo.stdout.toString().trim().split('\n');
       if (lines.length >= 2) {
@@ -145,7 +155,7 @@ class ResourceManager implements Disposable {
         }
       }
     }
-    
+
     // Fallback to basic stats if ps command fails
     return MemoryStats(
       pid: pid,
@@ -158,33 +168,37 @@ class ResourceManager implements Disposable {
   /// Forces garbage collection and reports memory usage.
   Future<void> forceGarbageCollection() async {
     _logger.debug('Forcing garbage collection');
-    
+
     // Force GC by creating and releasing memory pressure
     var largeList = <int>[];
     largeList.addAll(List.filled(1000000, 0));
     largeList.clear();
-    
+
     // Give GC time to run
     await Future.delayed(const Duration(milliseconds: 100));
-    
+
     final stats = await getMemoryStats();
-    _logger.info('Memory after GC: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident');
+    _logger.info(
+      'Memory after GC: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident',
+    );
   }
 
   /// Optimizes memory usage by clearing caches and forcing GC.
   Future<void> optimizeMemoryUsage() async {
     _checkNotDisposed();
-    
+
     _logger.info('Optimizing memory usage');
-    
+
     // Clear any internal caches
     await _clearInternalCaches();
-    
+
     // Force garbage collection
     await forceGarbageCollection();
-    
+
     final stats = await getMemoryStats();
-    _logger.info('Memory optimization complete: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident');
+    _logger.info(
+      'Memory optimization complete: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident',
+    );
   }
 
   /// Creates a memory-efficient stream processor.
@@ -193,13 +207,13 @@ class ResourceManager implements Disposable {
     Duration flushInterval = const Duration(seconds: 5),
   }) {
     _checkNotDisposed();
-    
+
     final processor = StreamProcessor<T>(
       bufferSize: bufferSize,
       flushInterval: flushInterval,
       logger: _logger,
     );
-    
+
     registerResource(processor);
     return processor;
   }
@@ -211,14 +225,14 @@ class ResourceManager implements Disposable {
     int maxSize = 10,
   }) {
     _checkNotDisposed();
-    
+
     final pool = ResourcePool<T>(
       factory: factory,
       reset: reset,
       maxSize: maxSize,
       logger: _logger,
     );
-    
+
     registerResource(pool);
     return pool;
   }
@@ -226,7 +240,7 @@ class ResourceManager implements Disposable {
   @override
   Future<void> dispose() async {
     if (_isDisposed) return;
-    
+
     _logger.info('Disposing ResourceManager and cleaning up resources');
     _isDisposed = true;
 
@@ -279,34 +293,39 @@ class ResourceManager implements Disposable {
   Future<void> _checkMemoryUsage() async {
     try {
       final stats = await getMemoryStats();
-      
+
       if (_lastMemoryStats != null) {
-        final memoryDelta = stats.residentMemoryKB - _lastMemoryStats!.residentMemoryKB;
-        
-        if (memoryDelta > 50000) { // More than 50MB increase
+        final memoryDelta =
+            stats.residentMemoryKB - _lastMemoryStats!.residentMemoryKB;
+
+        if (memoryDelta > 50000) {
+          // More than 50MB increase
           _logger.warning(
             'Memory usage increased by ${(memoryDelta / 1024).toStringAsFixed(1)} MB '
-            'to ${stats.residentMemoryMB.toStringAsFixed(1)} MB'
+            'to ${stats.residentMemoryMB.toStringAsFixed(1)} MB',
           );
         }
-        
-        if (stats.residentMemoryMB > 500) { // More than 500MB
+
+        if (stats.residentMemoryMB > 500) {
+          // More than 500MB
           _logger.warning(
-            'High memory usage detected: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident'
+            'High memory usage detected: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident',
           );
-          
+
           // Suggest optimization
           if (stats.residentMemoryMB > 1000) {
-            _logger.warning('Consider calling optimizeMemoryUsage() to reduce memory footprint');
+            _logger.warning(
+              'Consider calling optimizeMemoryUsage() to reduce memory footprint',
+            );
           }
         }
       }
-      
+
       _lastMemoryStats = stats;
-      
+
       _logger.debug(
         'Memory: ${stats.residentMemoryMB.toStringAsFixed(1)} MB resident, '
-        '${stats.virtualMemoryMB.toStringAsFixed(1)} MB virtual'
+        '${stats.virtualMemoryMB.toStringAsFixed(1)} MB virtual',
       );
     } catch (e) {
       _logger.warning('Failed to check memory usage: $e');
@@ -336,7 +355,9 @@ class ResourceManager implements Disposable {
           _logger.debug('Deleted temporary directory: ${directory.path}');
         }
       } catch (e) {
-        _logger.warning('Failed to delete temporary directory ${directory.path}: $e');
+        _logger.warning(
+          'Failed to delete temporary directory ${directory.path}: $e',
+        );
       }
     }
     _tempDirectories.clear();
@@ -377,7 +398,7 @@ class MemoryStats {
   @override
   String toString() {
     return 'MemoryStats(pid: $pid, resident: ${residentMemoryMB.toStringAsFixed(1)} MB, '
-           'virtual: ${virtualMemoryMB.toStringAsFixed(1)} MB, time: $timestamp)';
+        'virtual: ${virtualMemoryMB.toStringAsFixed(1)} MB, time: $timestamp)';
   }
 }
 
@@ -386,13 +407,13 @@ class StreamProcessor<T> implements Disposable {
   final int bufferSize;
   final Duration flushInterval;
   final Logger _logger;
-  
+
   final List<T> _buffer = [];
   Timer? _flushTimer;
   bool _isDisposed = false;
-  
+
   StreamController<List<T>>? _controller;
-  
+
   StreamProcessor({
     required this.bufferSize,
     required this.flushInterval,
@@ -411,9 +432,9 @@ class StreamProcessor<T> implements Disposable {
   /// Adds an item to the buffer for processing.
   void add(T item) {
     if (_isDisposed) return;
-    
+
     _buffer.add(item);
-    
+
     if (_buffer.length >= bufferSize) {
       _flush();
     }
@@ -422,7 +443,7 @@ class StreamProcessor<T> implements Disposable {
   /// Adds multiple items to the buffer.
   void addAll(Iterable<T> items) {
     if (_isDisposed) return;
-    
+
     for (final item in items) {
       add(item);
     }
@@ -431,10 +452,10 @@ class StreamProcessor<T> implements Disposable {
   /// Forces a flush of the current buffer.
   void _flush() {
     if (_buffer.isEmpty || _isDisposed) return;
-    
+
     final chunk = List<T>.from(_buffer);
     _buffer.clear();
-    
+
     _controller?.add(chunk);
     _logger.debug('Flushed ${chunk.length} items from stream processor');
   }
@@ -447,16 +468,16 @@ class StreamProcessor<T> implements Disposable {
   @override
   Future<void> dispose() async {
     if (_isDisposed) return;
-    
+
     _isDisposed = true;
     _flushTimer?.cancel();
-    
+
     // Flush any remaining items
     _flush();
-    
+
     await _controller?.close();
     _controller = null;
-    
+
     _logger.debug('StreamProcessor disposed');
   }
 }
@@ -467,7 +488,7 @@ class ResourcePool<T> implements Disposable {
   final void Function(T) reset;
   final int maxSize;
   final Logger _logger;
-  
+
   final Queue<T> _available = Queue<T>();
   final Set<T> _inUse = <T>{};
   bool _isDisposed = false;
@@ -498,15 +519,17 @@ class ResourcePool<T> implements Disposable {
     }
 
     T resource;
-    
+
     if (_available.isNotEmpty) {
       resource = _available.removeFirst();
-      _logger.debug('Reused resource from pool (${_available.length} remaining)');
+      _logger.debug(
+        'Reused resource from pool (${_available.length} remaining)',
+      );
     } else {
       resource = factory();
       _logger.debug('Created new resource for pool');
     }
-    
+
     _inUse.add(resource);
     return resource;
   }
@@ -518,12 +541,14 @@ class ResourcePool<T> implements Disposable {
     }
 
     _inUse.remove(resource);
-    
+
     if (_available.length < maxSize) {
       try {
         reset(resource);
         _available.add(resource);
-        _logger.debug('Returned resource to pool (${_available.length} available)');
+        _logger.debug(
+          'Returned resource to pool (${_available.length} available)',
+        );
       } catch (e) {
         _logger.warning('Failed to reset resource for pool reuse: $e');
       }
@@ -555,13 +580,13 @@ class ResourcePool<T> implements Disposable {
   @override
   Future<void> dispose() async {
     if (_isDisposed) return;
-    
+
     _isDisposed = true;
-    
+
     // Clear all resources
     _available.clear();
     _inUse.clear();
-    
+
     _logger.debug('ResourcePool disposed');
   }
 }

@@ -11,7 +11,10 @@ part of 'input.dart';
 _BookmarkDeleteBookmarkInput _$BookmarkDeleteBookmarkInputFromJson(Map json) =>
     $checkedCreate('_BookmarkDeleteBookmarkInput', json, ($checkedConvert) {
       final val = _BookmarkDeleteBookmarkInput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -22,4 +25,7 @@ _BookmarkDeleteBookmarkInput _$BookmarkDeleteBookmarkInputFromJson(Map json) =>
 
 Map<String, dynamic> _$BookmarkDeleteBookmarkInputToJson(
   _BookmarkDeleteBookmarkInput instance,
-) => <String, dynamic>{'uri': instance.uri, r'$unknown': ?instance.$unknown};
+) => <String, dynamic>{
+  'uri': const AtUriConverter().toJson(instance.uri),
+  r'$unknown': ?instance.$unknown,
+};

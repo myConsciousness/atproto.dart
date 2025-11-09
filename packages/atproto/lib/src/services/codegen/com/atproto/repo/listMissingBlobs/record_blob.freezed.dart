@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordBlob {
 
- String get $type; String get cid; String get recordUri; Map<String, dynamic>? get $unknown;
+ String get $type; String get cid;@AtUriConverter() AtUri get recordUri; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordBlob
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RecordBlobCopyWith<$Res>  {
   factory $RecordBlobCopyWith(RecordBlob value, $Res Function(RecordBlob) _then) = _$RecordBlobCopyWithImpl;
 @useResult
 $Res call({
- String $type, String cid, String recordUri, Map<String, dynamic>? $unknown
+ String $type, String cid,@AtUriConverter() AtUri recordUri, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$RecordBlobCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,recordUri: null == recordUri ? _self.recordUri : recordUri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid,  String recordUri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid, @AtUriConverter()  AtUri recordUri,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordBlob() when $default != null:
 return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid,  String recordUri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid, @AtUriConverter()  AtUri recordUri,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordBlob():
 return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid,  String recordUri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid, @AtUriConverter()  AtUri recordUri,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordBlob() when $default != null:
 return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.cid,_that.recordUri,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _RecordBlob implements RecordBlob {
-  const _RecordBlob({this.$type = 'com.atproto.repo.listMissingBlobs#recordBlob', required this.cid, required this.recordUri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordBlob({this.$type = 'com.atproto.repo.listMissingBlobs#recordBlob', required this.cid, @AtUriConverter() required this.recordUri, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordBlob.fromJson(Map<String, dynamic> json) => _$RecordBlobFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String cid;
-@override final  String recordUri;
+@override@AtUriConverter() final  AtUri recordUri;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$RecordBlobCopyWith<$Res> implements $RecordBlobCopyWith<$
   factory _$RecordBlobCopyWith(_RecordBlob value, $Res Function(_RecordBlob) _then) = __$RecordBlobCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String cid, String recordUri, Map<String, dynamic>? $unknown
+ String $type, String cid,@AtUriConverter() AtUri recordUri, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$RecordBlobCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,recordUri: null == recordUri ? _self.recordUri : recordUri // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

@@ -15,20 +15,17 @@ _ListViewBasic _$ListViewBasicFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.graph.defs#listViewBasic',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String),
         name: $checkedConvert('name', (v) => v as String),
         purpose: $checkedConvert(
           'purpose',
           (v) => const ListPurposeConverter().fromJson(v as String),
         ),
-        avatar: $checkedConvert(
-          'avatar',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        avatar: $checkedConvert('avatar', (v) => v as String?),
         listItemCount: $checkedConvert(
           'listItemCount',
           (v) => (v as num?)?.toInt(),
@@ -64,14 +61,11 @@ _ListViewBasic _$ListViewBasicFromJson(Map json) =>
 Map<String, dynamic> _$ListViewBasicToJson(_ListViewBasic instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'name': instance.name,
       'purpose': const ListPurposeConverter().toJson(instance.purpose),
-      'avatar': ?_$JsonConverterToJson<String, AtUri>(
-        instance.avatar,
-        const AtUriConverter().toJson,
-      ),
+      'avatar': ?instance.avatar,
       'listItemCount': ?instance.listItemCount,
       'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
       'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ListViewerState>(

@@ -58,6 +58,7 @@ scripts:
 
   gen:
     run: |
+      dart run ./scripts/gen_lexicon_docs.dart
       dart run ./scripts/gen_lexicon_ids.dart
       dart run ./scripts/gen_codes.dart
       cd packages/atproto

@@ -11,7 +11,10 @@ part of 'input.dart';
 _FeedGetFeedGeneratorInput _$FeedGetFeedGeneratorInputFromJson(Map json) =>
     $checkedCreate('_FeedGetFeedGeneratorInput', json, ($checkedConvert) {
       final val = _FeedGetFeedGeneratorInput(
-        feed: $checkedConvert('feed', (v) => v as String),
+        feed: $checkedConvert(
+          'feed',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -22,4 +25,7 @@ _FeedGetFeedGeneratorInput _$FeedGetFeedGeneratorInputFromJson(Map json) =>
 
 Map<String, dynamic> _$FeedGetFeedGeneratorInputToJson(
   _FeedGetFeedGeneratorInput instance,
-) => <String, dynamic>{'feed': instance.feed, r'$unknown': ?instance.$unknown};
+) => <String, dynamic>{
+  'feed': const AtUriConverter().toJson(instance.feed),
+  r'$unknown': ?instance.$unknown,
+};

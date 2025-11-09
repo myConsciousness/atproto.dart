@@ -30,7 +30,7 @@ part 'union_main_logs.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UConvoGetLogLogs with _$UConvoGetLogLogs {
+sealed class UConvoGetLogLogs with _$UConvoGetLogLogs {
   const UConvoGetLogLogs._();
 
   const factory UConvoGetLogLogs.logBeginConvo({required LogBeginConvo data}) =

@@ -34,6 +34,7 @@ List moderation events related to a subject.
 | **modTool** | array | - | ❌ | - |
 | **batchId** | string | - | ❌ | If specified, only events where the batchId matches the given value are returned |
 | **ageAssuranceState** | string | pending<br/>assured<br/>unknown<br/>reset<br/>blocked | ❌ | If specified, only events where the age assurance state matches the given value are returned |
+| **withStrike** | boolean | - | ❌ | If specified, only events where strikeCount value is set are returned. |
 | **cursor** | string | - | ❌ | - |
 
 ### Output

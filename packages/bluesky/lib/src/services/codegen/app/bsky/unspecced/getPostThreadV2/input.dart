@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -29,14 +30,13 @@ abstract class UnspeccedGetPostThreadV2Input
     'above',
     'below',
     'branchingFactor',
-    'prioritizeFollowedUsers',
     'sort',
   ];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPostThreadV2Input({
     /// Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.
-    required String anchor,
+    @AtUriConverter() required AtUri anchor,
 
     /// Whether to include parents above the anchor.
     @Default(true) bool above,
@@ -46,9 +46,6 @@ abstract class UnspeccedGetPostThreadV2Input
 
     /// Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).
     @Default(10) int branchingFactor,
-
-    /// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
-    @Default(false) bool prioritizeFollowedUsers,
 
     /// Sorting for the thread replies.
     @UnspeccedGetPostThreadV2SortConverter() UnspeccedGetPostThreadV2Sort? sort,
@@ -64,8 +61,6 @@ extension UnspeccedGetPostThreadV2InputExtension
     on UnspeccedGetPostThreadV2Input {
   bool get isAbove => above;
   bool get isNotAbove => !isAbove;
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
-  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
   bool get hasSort => sort != null;
   bool get hasNotSort => !hasSort;
 }

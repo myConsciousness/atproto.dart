@@ -85,10 +85,7 @@ switch (_that) {
 case USkeletonFeedPostReasonSkeletonReasonRepost():
 return skeletonReasonRepost(_that);case USkeletonFeedPostReasonSkeletonReasonPin():
 return skeletonReasonPin(_that);case USkeletonFeedPostReasonUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -153,10 +150,7 @@ switch (_that) {
 case USkeletonFeedPostReasonSkeletonReasonRepost():
 return skeletonReasonRepost(_that.data);case USkeletonFeedPostReasonSkeletonReasonPin():
 return skeletonReasonPin(_that.data);case USkeletonFeedPostReasonUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RepoGetRecordOutput {
 
- String get uri; String? get cid; Map<String, dynamic> get value; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get uri; String? get cid; Map<String, dynamic> get value; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoGetRecordOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RepoGetRecordOutputCopyWith<$Res>  {
   factory $RepoGetRecordOutputCopyWith(RepoGetRecordOutput value, $Res Function(RepoGetRecordOutput) _then) = _$RepoGetRecordOutputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String? cid, Map<String, dynamic> value, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$RepoGetRecordOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? value = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  Map<String, dynamic> value,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  Map<String, dynamic> value,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoGetRecordOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  Map<String, dynamic> value,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  Map<String, dynamic> value,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoGetRecordOutput():
 return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  Map<String, dynamic> value,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String? cid,  Map<String, dynamic> value,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoGetRecordOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
@@ -212,10 +212,10 @@ return $default(_that.uri,_that.cid,_that.value,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _RepoGetRecordOutput implements RepoGetRecordOutput {
-  const _RepoGetRecordOutput({required this.uri, this.cid, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _RepoGetRecordOutput({@AtUriConverter() required this.uri, this.cid, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _RepoGetRecordOutput.fromJson(Map<String, dynamic> json) => _$RepoGetRecordOutputFromJson(json);
 
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String? cid;
  final  Map<String, dynamic> _value;
 @override Map<String, dynamic> get value {
@@ -267,7 +267,7 @@ abstract mixin class _$RepoGetRecordOutputCopyWith<$Res> implements $RepoGetReco
   factory _$RepoGetRecordOutputCopyWith(_RepoGetRecordOutput value, $Res Function(_RepoGetRecordOutput) _then) = __$RepoGetRecordOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String? cid, Map<String, dynamic> value, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value, Map<String, dynamic>? $unknown
 });
 
 
@@ -287,7 +287,7 @@ class __$RepoGetRecordOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? value = null,Object? $unknown = freezed,}) {
   return _then(_RepoGetRecordOutput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,value: null == value ? _self._value : value // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

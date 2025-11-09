@@ -11,7 +11,10 @@ part of 'output.dart';
 _RepoCreateRecordOutput _$RepoCreateRecordOutputFromJson(Map json) =>
     $checkedCreate('_RepoCreateRecordOutput', json, ($checkedConvert) {
       final val = _RepoCreateRecordOutput(
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String),
         commit: $checkedConvert(
           'commit',
@@ -39,7 +42,7 @@ _RepoCreateRecordOutput _$RepoCreateRecordOutputFromJson(Map json) =>
 Map<String, dynamic> _$RepoCreateRecordOutputToJson(
   _RepoCreateRecordOutput instance,
 ) => <String, dynamic>{
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'commit': ?_$JsonConverterToJson<Map<String, dynamic>, CommitMeta>(
     instance.commit,

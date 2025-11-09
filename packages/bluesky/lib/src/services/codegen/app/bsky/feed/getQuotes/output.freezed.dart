@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetQuotesOutput {
 
- String get uri; String? get cid; String? get cursor;@PostViewConverter() List<PostView> get posts; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get uri; String? get cid; String? get cursor;@PostViewConverter() List<PostView> get posts; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetQuotesOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedGetQuotesOutputCopyWith<$Res>  {
   factory $FeedGetQuotesOutputCopyWith(FeedGetQuotesOutput value, $Res Function(FeedGetQuotesOutput) _then) = _$FeedGetQuotesOutputCopyWithImpl;
 @useResult
 $Res call({
- String uri, String? cid, String? cursor,@PostViewConverter() List<PostView> posts, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, String? cursor,@PostViewConverter() List<PostView> posts, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$FeedGetQuotesOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? uri = null,Object? cid = freezed,Object? cursor = freezed,Object? posts = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
 as List<PostView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uri,  String? cid,  String? cursor, @PostViewConverter()  List<PostView> posts,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  String? cursor, @PostViewConverter()  List<PostView> posts,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetQuotesOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uri,  String? cid,  String? cursor, @PostViewConverter()  List<PostView> posts,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri uri,  String? cid,  String? cursor, @PostViewConverter()  List<PostView> posts,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetQuotesOutput():
 return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uri,  String? cid,  String? cursor, @PostViewConverter()  List<PostView> posts,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri uri,  String? cid,  String? cursor, @PostViewConverter()  List<PostView> posts,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetQuotesOutput() when $default != null:
 return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);case _:
@@ -213,10 +213,10 @@ return $default(_that.uri,_that.cid,_that.cursor,_that.posts,_that.$unknown);cas
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetQuotesOutput implements FeedGetQuotesOutput {
-  const _FeedGetQuotesOutput({required this.uri, this.cid, this.cursor, @PostViewConverter() required final  List<PostView> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
+  const _FeedGetQuotesOutput({@AtUriConverter() required this.uri, this.cid, this.cursor, @PostViewConverter() required final  List<PostView> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _FeedGetQuotesOutput.fromJson(Map<String, dynamic> json) => _$FeedGetQuotesOutputFromJson(json);
 
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String? cid;
 @override final  String? cursor;
  final  List<PostView> _posts;
@@ -269,7 +269,7 @@ abstract mixin class _$FeedGetQuotesOutputCopyWith<$Res> implements $FeedGetQuot
   factory _$FeedGetQuotesOutputCopyWith(_FeedGetQuotesOutput value, $Res Function(_FeedGetQuotesOutput) _then) = __$FeedGetQuotesOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String uri, String? cid, String? cursor,@PostViewConverter() List<PostView> posts, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri uri, String? cid, String? cursor,@PostViewConverter() List<PostView> posts, Map<String, dynamic>? $unknown
 });
 
 
@@ -289,7 +289,7 @@ class __$FeedGetQuotesOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? uri = null,Object? cid = freezed,Object? cursor = freezed,Object? posts = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetQuotesOutput(
 uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,posts: null == posts ? _self._posts : posts // ignore: cast_nullable_to_non_nullable
 as List<PostView>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

@@ -18,14 +18,9 @@ _ProfileView _$ProfileViewFromJson(Map json) =>
         did: $checkedConvert('did', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String?),
+        pronouns: $checkedConvert('pronouns', (v) => v as String?),
         description: $checkedConvert('description', (v) => v as String?),
-        avatar: $checkedConvert(
-          'avatar',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        avatar: $checkedConvert('avatar', (v) => v as String?),
         associated: $checkedConvert(
           'associated',
           (v) =>
@@ -73,6 +68,10 @@ _ProfileView _$ProfileViewFromJson(Map json) =>
             const StatusViewConverter().fromJson,
           ),
         ),
+        debug: $checkedConvert(
+          'debug',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -88,11 +87,9 @@ Map<String, dynamic> _$ProfileViewToJson(
   'did': instance.did,
   'handle': instance.handle,
   'displayName': ?instance.displayName,
+  'pronouns': ?instance.pronouns,
   'description': ?instance.description,
-  'avatar': ?_$JsonConverterToJson<String, AtUri>(
-    instance.avatar,
-    const AtUriConverter().toJson,
-  ),
+  'avatar': ?instance.avatar,
   'associated': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
     instance.associated,
     const ProfileAssociatedConverter().toJson,
@@ -113,6 +110,7 @@ Map<String, dynamic> _$ProfileViewToJson(
     instance.status,
     const StatusViewConverter().toJson,
   ),
+  'debug': ?instance.debug,
   r'$unknown': ?instance.$unknown,
 };
 

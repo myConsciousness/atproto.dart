@@ -17,7 +17,9 @@ _HiddenPostsPref _$HiddenPostsPrefFromJson(Map json) =>
         ),
         items: $checkedConvert(
           'items',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+          (v) => (v as List<dynamic>)
+              .map((e) => const AtUriConverter().fromJson(e as String))
+              .toList(),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -30,6 +32,6 @@ _HiddenPostsPref _$HiddenPostsPrefFromJson(Map json) =>
 Map<String, dynamic> _$HiddenPostsPrefToJson(_HiddenPostsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'items': instance.items,
+      'items': instance.items.map(const AtUriConverter().toJson).toList(),
       r'$unknown': ?instance.$unknown,
     };

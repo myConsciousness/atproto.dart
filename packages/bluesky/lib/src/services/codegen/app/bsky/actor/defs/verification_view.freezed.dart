@@ -17,7 +17,7 @@ mixin _$VerificationView {
 
  String get $type;/// The user who issued this verification.
  String get issuer;/// The AT-URI of the verification record.
- String get uri;/// True if the verification passes validation, otherwise false.
+@AtUriConverter() AtUri get uri;/// True if the verification passes validation, otherwise false.
  bool get isValid;/// Timestamp when the verification was created.
  DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationView
@@ -52,7 +52,7 @@ abstract mixin class $VerificationViewCopyWith<$Res>  {
   factory $VerificationViewCopyWith(VerificationView value, $Res Function(VerificationView) _then) = _$VerificationViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String issuer, String uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String issuer,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -74,7 +74,7 @@ class _$VerificationViewCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,issuer: null == issuer ? _self.issuer : issuer // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,isValid: null == isValid ? _self.isValid : isValid // ignore: cast_nullable_to_non_nullable
+as AtUri,isValid: null == isValid ? _self.isValid : isValid // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer,  String uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
 return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer,  String uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView():
 return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer,  String uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
 return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
@@ -218,14 +218,14 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.isValid,_that.createdAt
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationView implements VerificationView {
-  const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, required this.uri, required this.isValid, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, @AtUriConverter() required this.uri, required this.isValid, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationView.fromJson(Map<String, dynamic> json) => _$VerificationViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The user who issued this verification.
 @override final  String issuer;
 /// The AT-URI of the verification record.
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 /// True if the verification passes validation, otherwise false.
 @override final  bool isValid;
 /// Timestamp when the verification was created.
@@ -273,7 +273,7 @@ abstract mixin class _$VerificationViewCopyWith<$Res> implements $VerificationVi
   factory _$VerificationViewCopyWith(_VerificationView value, $Res Function(_VerificationView) _then) = __$VerificationViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String issuer, String uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String issuer,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -295,7 +295,7 @@ class __$VerificationViewCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,issuer: null == issuer ? _self.issuer : issuer // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,isValid: null == isValid ? _self.isValid : isValid // ignore: cast_nullable_to_non_nullable
+as AtUri,isValid: null == isValid ? _self.isValid : isValid // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

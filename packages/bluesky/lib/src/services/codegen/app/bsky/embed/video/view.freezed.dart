@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedVideoView {
 
- String get $type; String get cid;@AtUriConverter() AtUri get playlist;@AtUriConverter() AtUri? get thumbnail; String? get alt;@AspectRatioConverter() AspectRatio? get aspectRatio; Map<String, dynamic>? get $unknown;
+ String get $type; String get cid; String get playlist; String? get thumbnail; String? get alt;@AspectRatioConverter() AspectRatio? get aspectRatio; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedVideoView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $EmbedVideoViewCopyWith<$Res>  {
   factory $EmbedVideoViewCopyWith(EmbedVideoView value, $Res Function(EmbedVideoView) _then) = _$EmbedVideoViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String cid,@AtUriConverter() AtUri playlist,@AtUriConverter() AtUri? thumbnail, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
+ String $type, String cid, String playlist, String? thumbnail, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,8 +70,8 @@ class _$EmbedVideoViewCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,playlist: null == playlist ? _self.playlist : playlist // ignore: cast_nullable_to_non_nullable
-as AtUri,thumbnail: freezed == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
-as AtUri?,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
+as String,thumbnail: freezed == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
+as String?,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
 as String?,aspectRatio: freezed == aspectRatio ? _self.aspectRatio : aspectRatio // ignore: cast_nullable_to_non_nullable
 as AspectRatio?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -171,7 +171,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid, @AtUriConverter()  AtUri playlist, @AtUriConverter()  AtUri? thumbnail,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid,  String playlist,  String? thumbnail,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedVideoView() when $default != null:
 return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_that.aspectRatio,_that.$unknown);case _:
@@ -192,7 +192,7 @@ return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid, @AtUriConverter()  AtUri playlist, @AtUriConverter()  AtUri? thumbnail,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid,  String playlist,  String? thumbnail,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedVideoView():
 return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_that.aspectRatio,_that.$unknown);case _:
@@ -212,7 +212,7 @@ return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid, @AtUriConverter()  AtUri playlist, @AtUriConverter()  AtUri? thumbnail,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid,  String playlist,  String? thumbnail,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedVideoView() when $default != null:
 return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_that.aspectRatio,_that.$unknown);case _:
@@ -227,13 +227,13 @@ return $default(_that.$type,_that.cid,_that.playlist,_that.thumbnail,_that.alt,_
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedVideoView implements EmbedVideoView {
-  const _EmbedVideoView({this.$type = 'app.bsky.embed.video#view', required this.cid, @AtUriConverter() required this.playlist, @AtUriConverter() this.thumbnail, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedVideoView({this.$type = 'app.bsky.embed.video#view', required this.cid, required this.playlist, this.thumbnail, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedVideoView.fromJson(Map<String, dynamic> json) => _$EmbedVideoViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String cid;
-@override@AtUriConverter() final  AtUri playlist;
-@override@AtUriConverter() final  AtUri? thumbnail;
+@override final  String playlist;
+@override final  String? thumbnail;
 @override final  String? alt;
 @override@AspectRatioConverter() final  AspectRatio? aspectRatio;
  final  Map<String, dynamic>? _$unknown;
@@ -279,7 +279,7 @@ abstract mixin class _$EmbedVideoViewCopyWith<$Res> implements $EmbedVideoViewCo
   factory _$EmbedVideoViewCopyWith(_EmbedVideoView value, $Res Function(_EmbedVideoView) _then) = __$EmbedVideoViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String cid,@AtUriConverter() AtUri playlist,@AtUriConverter() AtUri? thumbnail, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
+ String $type, String cid, String playlist, String? thumbnail, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
 });
 
 
@@ -301,8 +301,8 @@ class __$EmbedVideoViewCopyWithImpl<$Res>
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,playlist: null == playlist ? _self.playlist : playlist // ignore: cast_nullable_to_non_nullable
-as AtUri,thumbnail: freezed == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
-as AtUri?,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
+as String,thumbnail: freezed == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
+as String?,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
 as String?,aspectRatio: freezed == aspectRatio ? _self.aspectRatio : aspectRatio // ignore: cast_nullable_to_non_nullable
 as AspectRatio?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

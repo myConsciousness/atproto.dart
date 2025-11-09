@@ -9,13 +9,17 @@ description: tools.ozone.report.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **reasonType** | string | [tools.ozone.report.defs#reasonAppeal](../../../../lexicons/tools/ozone/report/defs.md#reasonappeal)<br/>[tools.ozone.report.defs#reasonViolenceAnimalWelfare](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceanimalwelfare)<br/>[tools.ozone.report.defs#reasonViolenceThreats](../../../../lexicons/tools/ozone/report/defs.md#reasonviolencethreats)<br/>[tools.ozone.report.defs#reasonViolenceGraphicContent](../../../../lexicons/tools/ozone/report/defs.md#reasonviolencegraphiccontent)<br/>[tools.ozone.report.defs#reasonViolenceSelfHarm](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceselfharm)<br/>[tools.ozone.report.defs#reasonViolenceGlorification](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceglorification)<br/>[tools.ozone.report.defs#reasonViolenceExtremistContent](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceextremistcontent)<br/>[tools.ozone.report.defs#reasonViolenceTrafficking](../../../../lexicons/tools/ozone/report/defs.md#reasonviolencetrafficking)<br/>[tools.ozone.report.defs#reasonViolenceOther](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceother)<br/>[tools.ozone.report.defs#reasonSexualAbuseContent](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualabusecontent)<br/>[tools.ozone.report.defs#reasonSexualNCII](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualncii)<br/>[tools.ozone.report.defs#reasonSexualSextortion](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualsextortion)<br/>[tools.ozone.report.defs#reasonSexualDeepfake](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualdeepfake)<br/>[tools.ozone.report.defs#reasonSexualAnimal](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualanimal)<br/>[tools.ozone.report.defs#reasonSexualUnlabeled](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualunlabeled)<br/>[tools.ozone.report.defs#reasonSexualOther](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualother)<br/>[tools.ozone.report.defs#reasonChildSafetyCSAM](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetycsam)<br/>[tools.ozone.report.defs#reasonChildSafetyGroom](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetygroom)<br/>[tools.ozone.report.defs#reasonChildSafetyMinorPrivacy](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyminorprivacy)<br/>[tools.ozone.report.defs#reasonChildSafetyEndangerment](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyendangerment)<br/>[tools.ozone.report.defs#reasonChildSafetyHarassment](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyharassment)<br/>[tools.ozone.report.defs#reasonChildSafetyPromotion](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetypromotion)<br/>[tools.ozone.report.defs#reasonChildSafetyOther](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyother)<br/>[tools.ozone.report.defs#reasonHarassmentTroll](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmenttroll)<br/>[tools.ozone.report.defs#reasonHarassmentTargeted](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmenttargeted)<br/>[tools.ozone.report.defs#reasonHarassmentHateSpeech](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmenthatespeech)<br/>[tools.ozone.report.defs#reasonHarassmentDoxxing](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmentdoxxing)<br/>[tools.ozone.report.defs#reasonHarassmentOther](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmentother)<br/>[tools.ozone.report.defs#reasonMisleadingBot](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingbot)<br/>[tools.ozone.report.defs#reasonMisleadingImpersonation](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingimpersonation)<br/>[tools.ozone.report.defs#reasonMisleadingSpam](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingspam)<br/>[tools.ozone.report.defs#reasonMisleadingScam](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingscam)<br/>[tools.ozone.report.defs#reasonMisleadingSyntheticContent](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingsyntheticcontent)<br/>[tools.ozone.report.defs#reasonMisleadingMisinformation](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingmisinformation)<br/>[tools.ozone.report.defs#reasonMisleadingOther](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingother)<br/>[tools.ozone.report.defs#reasonRuleSiteSecurity](../../../../lexicons/tools/ozone/report/defs.md#reasonrulesitesecurity)<br/>[tools.ozone.report.defs#reasonRuleStolenContent](../../../../lexicons/tools/ozone/report/defs.md#reasonrulestolencontent)<br/>[tools.ozone.report.defs#reasonRuleProhibitedSales](../../../../lexicons/tools/ozone/report/defs.md#reasonruleprohibitedsales)<br/>[tools.ozone.report.defs#reasonRuleBanEvasion](../../../../lexicons/tools/ozone/report/defs.md#reasonrulebanevasion)<br/>[tools.ozone.report.defs#reasonRuleOther](../../../../lexicons/tools/ozone/report/defs.md#reasonruleother)<br/>[tools.ozone.report.defs#reasonCivicElectoralProcess](../../../../lexicons/tools/ozone/report/defs.md#reasoncivicelectoralprocess)<br/>[tools.ozone.report.defs#reasonCivicDisclosure](../../../../lexicons/tools/ozone/report/defs.md#reasoncivicdisclosure)<br/>[tools.ozone.report.defs#reasonCivicInterference](../../../../lexicons/tools/ozone/report/defs.md#reasoncivicinterference)<br/>[tools.ozone.report.defs#reasonCivicMisinformation](../../../../lexicons/tools/ozone/report/defs.md#reasoncivicmisinformation)<br/>[tools.ozone.report.defs#reasonCivicImpersonation](../../../../lexicons/tools/ozone/report/defs.md#reasoncivicimpersonation) | ❌ | - |
+| **reasonType** | string | [tools.ozone.report.defs#reasonAppeal](../../../../lexicons/tools/ozone/report/defs.md#reasonappeal)<br/>[tools.ozone.report.defs#reasonOther](../../../../lexicons/tools/ozone/report/defs.md#reasonother)<br/>[tools.ozone.report.defs#reasonViolenceAnimal](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceanimal)<br/>[tools.ozone.report.defs#reasonViolenceThreats](../../../../lexicons/tools/ozone/report/defs.md#reasonviolencethreats)<br/>[tools.ozone.report.defs#reasonViolenceGraphicContent](../../../../lexicons/tools/ozone/report/defs.md#reasonviolencegraphiccontent)<br/>[tools.ozone.report.defs#reasonViolenceGlorification](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceglorification)<br/>[tools.ozone.report.defs#reasonViolenceExtremistContent](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceextremistcontent)<br/>[tools.ozone.report.defs#reasonViolenceTrafficking](../../../../lexicons/tools/ozone/report/defs.md#reasonviolencetrafficking)<br/>[tools.ozone.report.defs#reasonViolenceOther](../../../../lexicons/tools/ozone/report/defs.md#reasonviolenceother)<br/>[tools.ozone.report.defs#reasonSexualAbuseContent](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualabusecontent)<br/>[tools.ozone.report.defs#reasonSexualNCII](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualncii)<br/>[tools.ozone.report.defs#reasonSexualDeepfake](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualdeepfake)<br/>[tools.ozone.report.defs#reasonSexualAnimal](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualanimal)<br/>[tools.ozone.report.defs#reasonSexualUnlabeled](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualunlabeled)<br/>[tools.ozone.report.defs#reasonSexualOther](../../../../lexicons/tools/ozone/report/defs.md#reasonsexualother)<br/>[tools.ozone.report.defs#reasonChildSafetyCSAM](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetycsam)<br/>[tools.ozone.report.defs#reasonChildSafetyGroom](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetygroom)<br/>[tools.ozone.report.defs#reasonChildSafetyPrivacy](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyprivacy)<br/>[tools.ozone.report.defs#reasonChildSafetyHarassment](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyharassment)<br/>[tools.ozone.report.defs#reasonChildSafetyOther](../../../../lexicons/tools/ozone/report/defs.md#reasonchildsafetyother)<br/>[tools.ozone.report.defs#reasonHarassmentTroll](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmenttroll)<br/>[tools.ozone.report.defs#reasonHarassmentTargeted](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmenttargeted)<br/>[tools.ozone.report.defs#reasonHarassmentHateSpeech](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmenthatespeech)<br/>[tools.ozone.report.defs#reasonHarassmentDoxxing](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmentdoxxing)<br/>[tools.ozone.report.defs#reasonHarassmentOther](../../../../lexicons/tools/ozone/report/defs.md#reasonharassmentother)<br/>[tools.ozone.report.defs#reasonMisleadingBot](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingbot)<br/>[tools.ozone.report.defs#reasonMisleadingImpersonation](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingimpersonation)<br/>[tools.ozone.report.defs#reasonMisleadingSpam](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingspam)<br/>[tools.ozone.report.defs#reasonMisleadingScam](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingscam)<br/>[tools.ozone.report.defs#reasonMisleadingElections](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingelections)<br/>[tools.ozone.report.defs#reasonMisleadingOther](../../../../lexicons/tools/ozone/report/defs.md#reasonmisleadingother)<br/>[tools.ozone.report.defs#reasonRuleSiteSecurity](../../../../lexicons/tools/ozone/report/defs.md#reasonrulesitesecurity)<br/>[tools.ozone.report.defs#reasonRuleProhibitedSales](../../../../lexicons/tools/ozone/report/defs.md#reasonruleprohibitedsales)<br/>[tools.ozone.report.defs#reasonRuleBanEvasion](../../../../lexicons/tools/ozone/report/defs.md#reasonrulebanevasion)<br/>[tools.ozone.report.defs#reasonRuleOther](../../../../lexicons/tools/ozone/report/defs.md#reasonruleother)<br/>[tools.ozone.report.defs#reasonSelfHarmContent](../../../../lexicons/tools/ozone/report/defs.md#reasonselfharmcontent)<br/>[tools.ozone.report.defs#reasonSelfHarmED](../../../../lexicons/tools/ozone/report/defs.md#reasonselfharmed)<br/>[tools.ozone.report.defs#reasonSelfHarmStunts](../../../../lexicons/tools/ozone/report/defs.md#reasonselfharmstunts)<br/>[tools.ozone.report.defs#reasonSelfHarmSubstances](../../../../lexicons/tools/ozone/report/defs.md#reasonselfharmsubstances)<br/>[tools.ozone.report.defs#reasonSelfHarmOther](../../../../lexicons/tools/ozone/report/defs.md#reasonselfharmother) | ❌ | - |
 
 ## #reasonAppeal
 
 **TOKEN**: Appeal a previously taken moderation action
 
-## #reasonViolenceAnimalWelfare
+## #reasonOther
+
+**TOKEN**: An issue not included in these options
+
+## #reasonViolenceAnimal
 
 **TOKEN**: Animal welfare violations
 
@@ -26,10 +30,6 @@ description: tools.ozone.report.defs
 ## #reasonViolenceGraphicContent
 
 **TOKEN**: Graphic violent content
-
-## #reasonViolenceSelfHarm
-
-**TOKEN**: Self harm
 
 ## #reasonViolenceGlorification
 
@@ -55,10 +55,6 @@ description: tools.ozone.report.defs
 
 **TOKEN**: Non-consensual intimate imagery
 
-## #reasonSexualSextortion
-
-**TOKEN**: Sextortion
-
 ## #reasonSexualDeepfake
 
 **TOKEN**: Deepfake adult content
@@ -83,21 +79,13 @@ description: tools.ozone.report.defs
 
 **TOKEN**: Grooming or predatory behavior. These reports will be sent only be sent to the application's Moderation Authority.
 
-## #reasonChildSafetyMinorPrivacy
+## #reasonChildSafetyPrivacy
 
 **TOKEN**: Privacy violation involving a minor
-
-## #reasonChildSafetyEndangerment
-
-**TOKEN**: Child endangerment. These reports will be sent only be sent to the application's Moderation Authority.
 
 ## #reasonChildSafetyHarassment
 
 **TOKEN**: Harassment or bullying of minors
-
-## #reasonChildSafetyPromotion
-
-**TOKEN**: Promotion of child exploitation. These reports will be sent only be sent to the application's Moderation Authority.
 
 ## #reasonChildSafetyOther
 
@@ -139,13 +127,9 @@ description: tools.ozone.report.defs
 
 **TOKEN**: Scam
 
-## #reasonMisleadingSyntheticContent
+## #reasonMisleadingElections
 
-**TOKEN**: Unlabelled gen-AI or synthetic content
-
-## #reasonMisleadingMisinformation
-
-**TOKEN**: Harmful false claims
+**TOKEN**: False information about elections
 
 ## #reasonMisleadingOther
 
@@ -154,10 +138,6 @@ description: tools.ozone.report.defs
 ## #reasonRuleSiteSecurity
 
 **TOKEN**: Hacking or system attacks
-
-## #reasonRuleStolenContent
-
-**TOKEN**: Stolen content
 
 ## #reasonRuleProhibitedSales
 
@@ -171,22 +151,22 @@ description: tools.ozone.report.defs
 
 **TOKEN**: Other
 
-## #reasonCivicElectoralProcess
+## #reasonSelfHarmContent
 
-**TOKEN**: Electoral process violations
+**TOKEN**: Content promoting or depicting self-harm
 
-## #reasonCivicDisclosure
+## #reasonSelfHarmED
 
-**TOKEN**: Disclosure & transparency violations
+**TOKEN**: Eating disorders
 
-## #reasonCivicInterference
+## #reasonSelfHarmStunts
 
-**TOKEN**: Voter intimidation or interference
+**TOKEN**: Dangerous challenges or activities
 
-## #reasonCivicMisinformation
+## #reasonSelfHarmSubstances
 
-**TOKEN**: Election misinformation
+**TOKEN**: Dangerous substances or drug abuse
 
-## #reasonCivicImpersonation
+## #reasonSelfHarmOther
 
-**TOKEN**: Impersonation of electoral officials/entities
+**TOKEN**: Other dangerous content

@@ -22,7 +22,7 @@ part 'union_main_result.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UTempCheckHandleAvailabilityResult
+sealed class UTempCheckHandleAvailabilityResult
     with _$UTempCheckHandleAvailabilityResult {
   const UTempCheckHandleAvailabilityResult._();
 

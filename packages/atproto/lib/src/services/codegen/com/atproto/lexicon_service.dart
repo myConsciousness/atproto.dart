@@ -17,6 +17,8 @@ import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import '../../../../ids.g.dart' as ids;
+import '../../../../nsids.g.dart' as ns;
+import 'lexicon/resolveLexicon/output.dart';
 
 import 'package:atproto/com_atproto_services.dart'
     show
@@ -30,6 +32,20 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
+/// Resolves an atproto lexicon (NSID) to a schema.
+Future<XRPCResponse<LexiconResolveLexiconOutput>>
+comAtprotoLexiconResolveLexicon({
+  required String nsid,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoLexiconResolveLexicon,
+  headers: $headers,
+  parameters: {...?$unknown, 'nsid': nsid},
+  to: const LexiconResolveLexiconOutputConverter().fromJson,
+);
+
 /// `com.atproto.lexicon.*`
 base class LexiconService {
   // ignore: unused_field
@@ -38,6 +54,18 @@ base class LexiconService {
   final LexiconSchemaRecordAccessor _schema;
 
   LexiconService(this._ctx) : _schema = LexiconSchemaRecordAccessor(_ctx);
+
+  /// Resolves an atproto lexicon (NSID) to a schema.
+  Future<XRPCResponse<LexiconResolveLexiconOutput>> resolveLexicon({
+    required String nsid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoLexiconResolveLexicon(
+    nsid: nsid,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
   LexiconSchemaRecordAccessor get schema => _schema;

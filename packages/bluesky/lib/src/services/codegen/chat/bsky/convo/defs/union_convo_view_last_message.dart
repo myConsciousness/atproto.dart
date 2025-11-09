@@ -22,7 +22,7 @@ part 'union_convo_view_last_message.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UConvoViewLastMessage with _$UConvoViewLastMessage {
+sealed class UConvoViewLastMessage with _$UConvoViewLastMessage {
   const UConvoViewLastMessage._();
 
   const factory UConvoViewLastMessage.messageView({required MessageView data}) =

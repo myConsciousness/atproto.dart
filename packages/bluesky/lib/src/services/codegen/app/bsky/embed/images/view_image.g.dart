@@ -15,14 +15,8 @@ _EmbedImagesViewImage _$EmbedImagesViewImageFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.embed.images#viewImage',
         ),
-        thumb: $checkedConvert(
-          'thumb',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
-        fullsize: $checkedConvert(
-          'fullsize',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
+        thumb: $checkedConvert('thumb', (v) => v as String),
+        fullsize: $checkedConvert('fullsize', (v) => v as String),
         alt: $checkedConvert('alt', (v) => v as String),
         aspectRatio: $checkedConvert(
           'aspectRatio',
@@ -43,8 +37,8 @@ Map<String, dynamic> _$EmbedImagesViewImageToJson(
   _EmbedImagesViewImage instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'thumb': const AtUriConverter().toJson(instance.thumb),
-  'fullsize': const AtUriConverter().toJson(instance.fullsize),
+  'thumb': instance.thumb,
+  'fullsize': instance.fullsize,
   'alt': instance.alt,
   'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
     instance.aspectRatio,

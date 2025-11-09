@@ -1,5 +1,23 @@
 # Release Note
 
+## v1.2.3
+
+- chore: Sync Lexicon Data. ([#2165](https://github.com/myConsciousness/atproto.dart/pull/2165))
+
+## v1.2.2
+
+- **FIX**: Fixed type compatibility issues with AtUri parameters
+  - Corrected service method calls to properly handle AtUri objects instead of strings
+  - Improved type safety in API parameter handling
+
+## v1.2.1
+
+- **IMPROVEMENT**: Enhanced union type classes with sealed class implementation
+  - Union type classes are now generated as `sealed` classes instead of `abstract` classes
+  - Enabled Dart's exhaustiveness checking for switch statements on union types
+  - Improved compile-time safety by ensuring all union cases are handled
+  - Prevents runtime errors from unhandled union variants through static analysis
+
 ## v1.2.0
 
 - feat: Added Admin and Lexicon services to ATProto

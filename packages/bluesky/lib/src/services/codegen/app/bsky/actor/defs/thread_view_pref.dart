@@ -23,7 +23,7 @@ part 'thread_view_pref.g.dart';
 
 @freezed
 abstract class ThreadViewPref with _$ThreadViewPref {
-  static const knownProps = <String>['sort', 'prioritizeFollowedUsers'];
+  static const knownProps = <String>['sort'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ThreadViewPref({
@@ -31,9 +31,6 @@ abstract class ThreadViewPref with _$ThreadViewPref {
 
     /// Sorting mode for threads.
     @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
-
-    /// Show followed users at the top of all replies.
-    bool? prioritizeFollowedUsers,
 
     Map<String, dynamic>? $unknown,
   }) = _ThreadViewPref;
@@ -50,8 +47,6 @@ abstract class ThreadViewPref with _$ThreadViewPref {
 extension ThreadViewPrefExtension on ThreadViewPref {
   bool get hasSort => sort != null;
   bool get hasNotSort => !hasSort;
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers ?? false;
-  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
 }
 
 final class ThreadViewPrefConverter

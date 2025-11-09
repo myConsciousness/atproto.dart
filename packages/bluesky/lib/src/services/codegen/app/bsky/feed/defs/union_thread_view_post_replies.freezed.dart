@@ -87,10 +87,7 @@ case UThreadViewPostRepliesThreadViewPost():
 return threadViewPost(_that);case UThreadViewPostRepliesNotFoundPost():
 return notFoundPost(_that);case UThreadViewPostRepliesBlockedPost():
 return blockedPost(_that);case UThreadViewPostRepliesUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case UThreadViewPostRepliesThreadViewPost():
 return threadViewPost(_that.data);case UThreadViewPostRepliesNotFoundPost():
 return notFoundPost(_that.data);case UThreadViewPostRepliesBlockedPost():
 return blockedPost(_that.data);case UThreadViewPostRepliesUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

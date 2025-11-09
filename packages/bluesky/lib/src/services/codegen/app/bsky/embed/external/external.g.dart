@@ -15,10 +15,7 @@ _EmbedExternalExternal _$EmbedExternalExternalFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.embed.external#external',
         ),
-        uri: $checkedConvert(
-          'uri',
-          (v) => const AtUriConverter().fromJson(v as String),
-        ),
+        uri: $checkedConvert('uri', (v) => v as String),
         title: $checkedConvert('title', (v) => v as String),
         description: $checkedConvert('description', (v) => v as String),
         thumb: $checkedConvert(
@@ -40,7 +37,7 @@ Map<String, dynamic> _$EmbedExternalExternalToJson(
   _EmbedExternalExternal instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': const AtUriConverter().toJson(instance.uri),
+  'uri': instance.uri,
   'title': instance.title,
   'description': instance.description,
   'thumb': ?_$JsonConverterToJson<Map<String, dynamic>, Blob>(

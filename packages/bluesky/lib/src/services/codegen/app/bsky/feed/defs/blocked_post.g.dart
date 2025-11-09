@@ -17,7 +17,10 @@ _BlockedPost _$BlockedPostFromJson(Map json) => $checkedCreate(
         r'$type',
         (v) => v as String? ?? 'app.bsky.feed.defs#blockedPost',
       ),
-      uri: $checkedConvert('uri', (v) => v as String),
+      uri: $checkedConvert(
+        'uri',
+        (v) => const AtUriConverter().fromJson(v as String),
+      ),
       blocked: $checkedConvert('blocked', (v) => v as bool),
       author: $checkedConvert(
         'author',
@@ -36,7 +39,7 @@ _BlockedPost _$BlockedPostFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$BlockedPostToJson(_BlockedPost instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'blocked': instance.blocked,
       'author': const BlockedAuthorConverter().toJson(instance.author),
       r'$unknown': ?instance.$unknown,

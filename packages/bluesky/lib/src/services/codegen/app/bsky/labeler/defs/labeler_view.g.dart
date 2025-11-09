@@ -15,7 +15,10 @@ _LabelerView _$LabelerViewFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.labeler.defs#labelerView',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         cid: $checkedConvert('cid', (v) => v as String),
         creator: $checkedConvert(
           'creator',
@@ -56,7 +59,7 @@ Map<String, dynamic> _$LabelerViewToJson(
   _LabelerView instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'uri': instance.uri,
+  'uri': const AtUriConverter().toJson(instance.uri),
   'cid': instance.cid,
   'creator': const ProfileViewConverter().toJson(instance.creator),
   'likeCount': ?instance.likeCount,

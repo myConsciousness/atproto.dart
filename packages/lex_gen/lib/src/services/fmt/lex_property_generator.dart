@@ -209,7 +209,7 @@ DartType _getLexPrimitiveType(
     case lex.ULexPrimitiveString string:
       if (string.data.format?.value == 'datetime') {
         return DartType.dateTime(description: string.data.description);
-      } else if (string.data.format?.value == 'uri') {
+      } else if (string.data.format?.value == 'at-uri') {
         return DartType.uri(description: string.data.description);
       }
 
@@ -287,6 +287,8 @@ DartType _getLexRefVariantType(
         }
       }
 
+      final isRecord = relatedDoc?.whenOrNull(record: (e) => e) != null;
+
       final name = rule.getLexObjectNameFromRef(
         lexiconId.toString(),
         ref.data.ref!,
@@ -294,7 +296,11 @@ DartType _getLexRefVariantType(
       );
 
       return DartType(
-        name: isUnion ? 'U$name' : name,
+        name: isUnion
+            ? 'U$name'
+            : isRecord
+            ? '${name}Record'
+            : name,
         lexiconId: lexiconId.toString(),
         fieldName: isUnion ? fieldName : '',
         ref: ref.data.ref!,
@@ -303,7 +309,11 @@ DartType _getLexRefVariantType(
           ref.data.ref!,
           isUnion: isUnion,
         ),
-        annotation: isUnion ? '@U${name}Converter()' : '@${name}Converter()',
+        annotation: isUnion
+            ? '@U${name}Converter()'
+            : isRecord
+            ? '@${name}RecordConverter()'
+            : '@${name}Converter()',
         description: ref.data.description,
         isArray: isArray,
         isUnion: isUnion,

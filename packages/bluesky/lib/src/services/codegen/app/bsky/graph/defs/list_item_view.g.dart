@@ -15,7 +15,10 @@ _ListItemView _$ListItemViewFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.graph.defs#listItemView',
         ),
-        uri: $checkedConvert('uri', (v) => v as String),
+        uri: $checkedConvert(
+          'uri',
+          (v) => const AtUriConverter().fromJson(v as String),
+        ),
         subject: $checkedConvert(
           'subject',
           (v) =>
@@ -32,7 +35,7 @@ _ListItemView _$ListItemViewFromJson(Map json) =>
 Map<String, dynamic> _$ListItemViewToJson(_ListItemView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'uri': instance.uri,
+      'uri': const AtUriConverter().toJson(instance.uri),
       'subject': const ProfileViewConverter().toJson(instance.subject),
       r'$unknown': ?instance.$unknown,
     };

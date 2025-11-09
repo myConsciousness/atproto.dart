@@ -79,12 +79,12 @@ void main() {
   );
 
   testGraph<GraphGetListOutput>(
-    (m, s) => s.getList(list: m.uri.toString()),
+    (m, s) => s.getList(list: m.uri),
     id: appBskyGraphGetList,
   );
 
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.listitem.create(subject: m.did, list: m.uri.toString()),
+    (m, s) => s.listitem.create(subject: m.did, list: m.uri),
     id: appBskyGraphListitem,
   );
 
@@ -94,12 +94,12 @@ void main() {
   );
 
   testGraph<EmptyData>(
-    (m, s) => s.muteActorList(list: m.uri.toString()),
+    (m, s) => s.muteActorList(list: m.uri),
     id: appBskyGraphMuteActorList,
   );
 
   testGraph<EmptyData>(
-    (m, s) => s.unmuteActorList(list: m.uri.toString()),
+    (m, s) => s.unmuteActorList(list: m.uri),
     id: appBskyGraphUnmuteActorList,
   );
 
@@ -109,7 +109,7 @@ void main() {
   );
 
   testGraph<RepoCreateRecordOutput>(
-    (m, s) => s.listblock.create(subject: m.uri.toString()),
+    (m, s) => s.listblock.create(subject: m.uri),
     id: appBskyGraphListblock,
   );
 

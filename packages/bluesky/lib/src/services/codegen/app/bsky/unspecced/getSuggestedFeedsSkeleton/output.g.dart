@@ -16,7 +16,9 @@ _$UnspeccedGetSuggestedFeedsSkeletonOutputFromJson(Map json) => $checkedCreate(
     final val = _UnspeccedGetSuggestedFeedsSkeletonOutput(
       feeds: $checkedConvert(
         'feeds',
-        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+        (v) => (v as List<dynamic>)
+            .map((e) => const AtUriConverter().fromJson(e as String))
+            .toList(),
       ),
       $unknown: $checkedConvert(
         r'$unknown',
@@ -30,6 +32,6 @@ _$UnspeccedGetSuggestedFeedsSkeletonOutputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$UnspeccedGetSuggestedFeedsSkeletonOutputToJson(
   _UnspeccedGetSuggestedFeedsSkeletonOutput instance,
 ) => <String, dynamic>{
-  'feeds': instance.feeds,
+  'feeds': instance.feeds.map(const AtUriConverter().toJson).toList(),
   r'$unknown': ?instance.$unknown,
 };

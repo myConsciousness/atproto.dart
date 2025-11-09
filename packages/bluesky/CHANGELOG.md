@@ -1,5 +1,46 @@
 # Release Note
 
+## v1.2.5
+
+- chore: Sync Lexicon Data.
+  - ([#2165](https://github.com/myConsciousness/atproto.dart/pull/2165))
+  - ([#2163](https://github.com/myConsciousness/atproto.dart/pull/2163))
+  - ([#2168](https://github.com/myConsciousness/atproto.dart/pull/2168))
+- Fix typo causing crash in moderation code.
+  - ([#2170](https://github.com/myConsciousness/atproto.dart/pull/2170))
+
+## v1.2.4
+
+- **FIX**: Fixed type compatibility issues with AtUri parameters
+  - Corrected service method calls to properly handle AtUri objects instead of strings
+  - Fixed moderation test data to use string URIs instead of AtUri objects where appropriate
+  - Improved type safety in API parameter handling and mock data generation
+
+## v1.2.3
+
+- **IMPROVEMENT**: Enhanced union type classes with sealed class implementation
+  - Union type classes are now generated as `sealed` classes instead of `abstract` classes
+  - Enabled Dart's exhaustiveness checking for switch statements on union types
+  - Improved compile-time safety by ensuring all union cases are handled
+  - Prevents runtime errors from unhandled union variants through static analysis
+- **FIX**: Downgraded characters dependency from ^1.4.1 to ^1.4.0 for compatibility
+
+## v1.2.2
+
+- feat: Merged #2150 - Added pronouns field support to actor profiles
+  - Added `pronouns` field to `app.bsky.actor.defs#profileViewDetailed` for displaying user pronouns in detailed profile views
+  - Added `pronouns` field to `app.bsky.actor.profile` record for storing user pronouns in profile data
+  - Enhanced user profile customization with pronouns information support
+  - Synchronized with latest Bluesky lexicon updates for improved profile representation
+
+## v1.2.1
+
+- feat: Merged #2143 - Added onboarding suggested starter packs support
+  - Added `getOnboardingSuggestedStarterPacks` endpoint for retrieving suggested starter packs during onboarding
+  - Added `getOnboardingSuggestedStarterPacksSkeleton` endpoint for skeleton data of suggested starter packs
+  - Enhanced onboarding experience with curated starter pack recommendations
+  - New endpoints available via `UnspeccedService` for improved user onboarding flow
+
 ## v1.2.0
 
 - feat: Merged #2137 - Added comprehensive Ozone moderation and administration services

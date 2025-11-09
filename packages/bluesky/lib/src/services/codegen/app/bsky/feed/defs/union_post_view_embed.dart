@@ -25,7 +25,7 @@ part 'union_post_view_embed.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UPostViewEmbed with _$UPostViewEmbed {
+sealed class UPostViewEmbed with _$UPostViewEmbed {
   const UPostViewEmbed._();
 
   const factory UPostViewEmbed.embedImagesView({

@@ -15,13 +15,7 @@ _ServiceConfig _$ServiceConfigFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'tools.ozone.server.getConfig#serviceConfig',
         ),
-        url: $checkedConvert(
-          'url',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        url: $checkedConvert('url', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -33,19 +27,6 @@ _ServiceConfig _$ServiceConfigFromJson(Map json) =>
 Map<String, dynamic> _$ServiceConfigToJson(_ServiceConfig instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'url': ?_$JsonConverterToJson<String, AtUri>(
-        instance.url,
-        const AtUriConverter().toJson,
-      ),
+      'url': ?instance.url,
       r'$unknown': ?instance.$unknown,
     };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -40,7 +41,7 @@ abstract class RecordViewDetail with _$RecordViewDetail {
   @JsonSerializable(includeIfNull: false)
   const factory RecordViewDetail({
     @Default('tools.ozone.moderation.defs#recordViewDetail') String $type,
-    required String uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required Map<String, dynamic> value,
     @BlobViewConverter() required List<BlobView> blobs,

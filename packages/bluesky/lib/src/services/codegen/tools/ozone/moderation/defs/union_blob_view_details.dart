@@ -22,7 +22,7 @@ part 'union_blob_view_details.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UBlobViewDetails with _$UBlobViewDetails {
+sealed class UBlobViewDetails with _$UBlobViewDetails {
   const UBlobViewDetails._();
 
   const factory UBlobViewDetails.imageDetails({required ImageDetails data}) =

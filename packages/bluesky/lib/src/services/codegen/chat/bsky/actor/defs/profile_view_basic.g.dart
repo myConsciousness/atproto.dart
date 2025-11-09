@@ -18,13 +18,7 @@ _ProfileViewBasic _$ProfileViewBasicFromJson(Map json) =>
         did: $checkedConvert('did', (v) => v as String),
         handle: $checkedConvert('handle', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String?),
-        avatar: $checkedConvert(
-          'avatar',
-          (v) => _$JsonConverterFromJson<String, AtUri>(
-            v,
-            const AtUriConverter().fromJson,
-          ),
-        ),
+        avatar: $checkedConvert('avatar', (v) => v as String?),
         associated: $checkedConvert(
           'associated',
           (v) =>
@@ -73,10 +67,7 @@ Map<String, dynamic> _$ProfileViewBasicToJson(
   'did': instance.did,
   'handle': instance.handle,
   'displayName': ?instance.displayName,
-  'avatar': ?_$JsonConverterToJson<String, AtUri>(
-    instance.avatar,
-    const AtUriConverter().toJson,
-  ),
+  'avatar': ?instance.avatar,
   'associated': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
     instance.associated,
     const ProfileAssociatedConverter().toJson,

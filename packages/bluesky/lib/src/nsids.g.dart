@@ -434,6 +434,16 @@ const appBskyUnspeccedGetConfigLiveNowConfig = NSID(
   ids.appBskyUnspeccedGetConfigLiveNowConfig,
 );
 
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacks`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacks = NSID(
+  ids.appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
+);
+
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = NSID(
+  ids.appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
+);
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators = NSID(
   ids.appBskyUnspeccedGetPopularFeedGenerators,
@@ -692,6 +702,21 @@ const toolsOzoneHostingGetAccountHistoryPasswordUpdated = NSID(
   ids.toolsOzoneHostingGetAccountHistoryPasswordUpdated,
 );
 
+/// `tools.ozone.moderation.cancelScheduledActions`
+const toolsOzoneModerationCancelScheduledActions = NSID(
+  ids.toolsOzoneModerationCancelScheduledActions,
+);
+
+/// `tools.ozone.moderation.cancelScheduledActions#cancellationResults`
+const toolsOzoneModerationCancelScheduledActionsCancellationResults = NSID(
+  ids.toolsOzoneModerationCancelScheduledActionsCancellationResults,
+);
+
+/// `tools.ozone.moderation.cancelScheduledActions#failedCancellation`
+const toolsOzoneModerationCancelScheduledActionsFailedCancellation = NSID(
+  ids.toolsOzoneModerationCancelScheduledActionsFailedCancellation,
+);
+
 /// `tools.ozone.moderation.emitEvent`
 const toolsOzoneModerationEmitEvent = NSID(ids.toolsOzoneModerationEmitEvent);
 
@@ -735,6 +760,11 @@ const toolsOzoneModerationGetSubjects = NSID(
   ids.toolsOzoneModerationGetSubjects,
 );
 
+/// `tools.ozone.moderation.listScheduledActions`
+const toolsOzoneModerationListScheduledActions = NSID(
+  ids.toolsOzoneModerationListScheduledActions,
+);
+
 /// `tools.ozone.moderation.queryEvents`
 const toolsOzoneModerationQueryEvents = NSID(
   ids.toolsOzoneModerationQueryEvents,
@@ -743,6 +773,31 @@ const toolsOzoneModerationQueryEvents = NSID(
 /// `tools.ozone.moderation.queryStatuses`
 const toolsOzoneModerationQueryStatuses = NSID(
   ids.toolsOzoneModerationQueryStatuses,
+);
+
+/// `tools.ozone.moderation.scheduleAction`
+const toolsOzoneModerationScheduleAction = NSID(
+  ids.toolsOzoneModerationScheduleAction,
+);
+
+/// `tools.ozone.moderation.scheduleAction#failedScheduling`
+const toolsOzoneModerationScheduleActionFailedScheduling = NSID(
+  ids.toolsOzoneModerationScheduleActionFailedScheduling,
+);
+
+/// `tools.ozone.moderation.scheduleAction#scheduledActionResults`
+const toolsOzoneModerationScheduleActionScheduledActionResults = NSID(
+  ids.toolsOzoneModerationScheduleActionScheduledActionResults,
+);
+
+/// `tools.ozone.moderation.scheduleAction#schedulingConfig`
+const toolsOzoneModerationScheduleActionSchedulingConfig = NSID(
+  ids.toolsOzoneModerationScheduleActionSchedulingConfig,
+);
+
+/// `tools.ozone.moderation.scheduleAction#takedown`
+const toolsOzoneModerationScheduleActionTakedown = NSID(
+  ids.toolsOzoneModerationScheduleActionTakedown,
 );
 
 /// `tools.ozone.moderation.searchRepos`

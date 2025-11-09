@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RepoStrongRef {
 
- String get $type; String get uri; String get cid; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoStrongRef
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RepoStrongRefCopyWith<$Res>  {
   factory $RepoStrongRefCopyWith(RepoStrongRef value, $Res Function(RepoStrongRef) _then) = _$RepoStrongRefCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String cid, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$RepoStrongRefCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoStrongRef() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String cid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoStrongRef():
 return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoStrongRef() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
@@ -212,11 +212,11 @@ return $default(_that.$type,_that.uri,_that.cid,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _RepoStrongRef implements RepoStrongRef {
-  const _RepoStrongRef({this.$type = 'com.atproto.repo.strongRef', required this.uri, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoStrongRef({this.$type = 'com.atproto.repo.strongRef', @AtUriConverter() required this.uri, required this.cid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoStrongRef.fromJson(Map<String, dynamic> json) => _$RepoStrongRefFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  String uri;
+@override@AtUriConverter() final  AtUri uri;
 @override final  String cid;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -261,7 +261,7 @@ abstract mixin class _$RepoStrongRefCopyWith<$Res> implements $RepoStrongRefCopy
   factory _$RepoStrongRefCopyWith(_RepoStrongRef value, $Res Function(_RepoStrongRef) _then) = __$RepoStrongRefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String cid, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,7 +282,7 @@ class __$RepoStrongRefCopyWithImpl<$Res>
   return _then(_RepoStrongRef(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
-as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
+as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
