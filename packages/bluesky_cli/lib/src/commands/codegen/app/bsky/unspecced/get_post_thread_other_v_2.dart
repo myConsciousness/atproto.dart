@@ -16,18 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetPostThreadOtherV2Command extends QueryCommand {
   GetPostThreadOtherV2Command() {
-    argParser
-      ..addOption(
-        "anchor",
-        help: r"Reference (AT-URI) to post record. This is the anchor post.",
-        mandatory: true,
-      )
-      ..addFlag(
-        "prioritizeFollowedUsers",
-        help:
-            r"Whether to prioritize posts from followed users. It only has effect when the user is authenticated.",
-        defaultsTo: false,
-      );
+    argParser..addOption(
+      "anchor",
+      help: r"Reference (AT-URI) to post record. This is the anchor post.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -39,14 +32,11 @@ final class GetPostThreadOtherV2Command extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-post-thread-other-v-2 [anchor] [prioritizeFollowedUsers]";
+      "bsky app-bsky-unspecced get-post-thread-other-v-2 [anchor]";
 
   @override
   String get methodId => "app.bsky.unspecced.getPostThreadOtherV2";
 
   @override
-  Map<String, dynamic>? get parameters => {
-    "anchor": argResults!["anchor"],
-    "prioritizeFollowedUsers": argResults!["prioritizeFollowedUsers"],
-  };
+  Map<String, dynamic>? get parameters => {"anchor": argResults!["anchor"]};
 }

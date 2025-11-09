@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'lexicon/resolve_lexicon.dart';
 import 'lexicon/schema.dart';
 
 // **************************************************************************
@@ -19,6 +20,7 @@ import 'lexicon/schema.dart';
 
 final class ComAtprotoLexiconCommand extends Command<void> {
   ComAtprotoLexiconCommand() {
+    addSubcommand(ResolveLexiconCommand());
     addSubcommand(SchemaCommand());
   }
 

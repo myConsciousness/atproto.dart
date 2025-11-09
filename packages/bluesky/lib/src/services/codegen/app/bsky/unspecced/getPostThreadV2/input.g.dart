@@ -22,10 +22,6 @@ _UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
       'branchingFactor',
       (v) => (v as num?)?.toInt() ?? 10,
     ),
-    prioritizeFollowedUsers: $checkedConvert(
-      'prioritizeFollowedUsers',
-      (v) => v as bool? ?? false,
-    ),
     sort: $checkedConvert(
       'sort',
       (v) => _$JsonConverterFromJson<String, UnspeccedGetPostThreadV2Sort>(
@@ -48,7 +44,6 @@ Map<String, dynamic> _$UnspeccedGetPostThreadV2InputToJson(
   'above': instance.above,
   'below': instance.below,
   'branchingFactor': instance.branchingFactor,
-  'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
   'sort': ?_$JsonConverterToJson<String, UnspeccedGetPostThreadV2Sort>(
     instance.sort,
     const UnspeccedGetPostThreadV2SortConverter().toJson,

@@ -16,8 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ThreadViewPref {
 
  String get $type;/// Sorting mode for threads.
-@ThreadViewPrefSortConverter() ThreadViewPrefSort? get sort;/// Show followed users at the top of all replies.
- bool? get prioritizeFollowedUsers; Map<String, dynamic>? get $unknown;
+@ThreadViewPrefSortConverter() ThreadViewPrefSort? get sort; Map<String, dynamic>? get $unknown;
 /// Create a copy of ThreadViewPref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +29,16 @@ $ThreadViewPrefCopyWith<ThreadViewPref> get copyWith => _$ThreadViewPrefCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThreadViewPref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.sort, sort) || other.sort == sort)&&(identical(other.prioritizeFollowedUsers, prioritizeFollowedUsers) || other.prioritizeFollowedUsers == prioritizeFollowedUsers)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThreadViewPref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.sort, sort) || other.sort == sort)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,sort,prioritizeFollowedUsers,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,sort,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ThreadViewPref(\$type: ${$type}, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers, \$unknown: ${$unknown})';
+  return 'ThreadViewPref(\$type: ${$type}, sort: $sort, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +49,7 @@ abstract mixin class $ThreadViewPrefCopyWith<$Res>  {
   factory $ThreadViewPrefCopyWith(ThreadViewPref value, $Res Function(ThreadViewPref) _then) = _$ThreadViewPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type,@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort, bool? prioritizeFollowedUsers, Map<String, dynamic>? $unknown
+ String $type,@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,12 +66,11 @@ class _$ThreadViewPrefCopyWithImpl<$Res>
 
 /// Create a copy of ThreadViewPref
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? sort = freezed,Object? prioritizeFollowedUsers = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? sort = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as ThreadViewPrefSort?,prioritizeFollowedUsers: freezed == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ThreadViewPrefSort?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -170,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThreadViewPref() when $default != null:
-return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unknown);case _:
+return $default(_that.$type,_that.sort,_that.$unknown);case _:
   return orElse();
 
 }
@@ -191,10 +189,10 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ThreadViewPref():
-return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unknown);case _:
+return $default(_that.$type,_that.sort,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -211,10 +209,10 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  bool? prioritizeFollowedUsers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ThreadViewPrefSortConverter()  ThreadViewPrefSort? sort,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ThreadViewPref() when $default != null:
-return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unknown);case _:
+return $default(_that.$type,_that.sort,_that.$unknown);case _:
   return null;
 
 }
@@ -226,14 +224,12 @@ return $default(_that.$type,_that.sort,_that.prioritizeFollowedUsers,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _ThreadViewPref implements ThreadViewPref {
-  const _ThreadViewPref({this.$type = 'app.bsky.actor.defs#threadViewPref', @ThreadViewPrefSortConverter() this.sort, this.prioritizeFollowedUsers, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadViewPref({this.$type = 'app.bsky.actor.defs#threadViewPref', @ThreadViewPrefSortConverter() this.sort, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) => _$ThreadViewPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Sorting mode for threads.
 @override@ThreadViewPrefSortConverter() final  ThreadViewPrefSort? sort;
-/// Show followed users at the top of all replies.
-@override final  bool? prioritizeFollowedUsers;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ThreadViewPref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.sort, sort) || other.sort == sort)&&(identical(other.prioritizeFollowedUsers, prioritizeFollowedUsers) || other.prioritizeFollowedUsers == prioritizeFollowedUsers)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ThreadViewPref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.sort, sort) || other.sort == sort)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,sort,prioritizeFollowedUsers,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,sort,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ThreadViewPref(\$type: ${$type}, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers, \$unknown: ${$unknown})';
+  return 'ThreadViewPref(\$type: ${$type}, sort: $sort, \$unknown: ${$unknown})';
 }
 
 
@@ -277,7 +273,7 @@ abstract mixin class _$ThreadViewPrefCopyWith<$Res> implements $ThreadViewPrefCo
   factory _$ThreadViewPrefCopyWith(_ThreadViewPref value, $Res Function(_ThreadViewPref) _then) = __$ThreadViewPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort, bool? prioritizeFollowedUsers, Map<String, dynamic>? $unknown
+ String $type,@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort, Map<String, dynamic>? $unknown
 });
 
 
@@ -294,12 +290,11 @@ class __$ThreadViewPrefCopyWithImpl<$Res>
 
 /// Create a copy of ThreadViewPref
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? sort = freezed,Object? prioritizeFollowedUsers = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? sort = freezed,Object? $unknown = freezed,}) {
   return _then(_ThreadViewPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,sort: freezed == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
-as ThreadViewPrefSort?,prioritizeFollowedUsers: freezed == prioritizeFollowedUsers ? _self.prioritizeFollowedUsers : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ThreadViewPrefSort?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
