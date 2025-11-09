@@ -50,6 +50,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     'pinnedPost',
     'verification',
     'status',
+    'debug',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -75,6 +76,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     @RepoStrongRefConverter() RepoStrongRef? pinnedPost,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
+    Map<String, dynamic>? debug,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewDetailed;
@@ -123,6 +125,8 @@ extension ProfileViewDetailedExtension on ProfileViewDetailed {
   bool get hasNotVerification => !hasVerification;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasDebug => debug != null;
+  bool get hasNotDebug => !hasDebug;
 }
 
 final class ProfileViewDetailedConverter

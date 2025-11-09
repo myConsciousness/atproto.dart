@@ -22,15 +22,12 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetPostThreadOtherV2Input
     with _$UnspeccedGetPostThreadOtherV2Input {
-  static const knownProps = <String>['anchor', 'prioritizeFollowedUsers'];
+  static const knownProps = <String>['anchor'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetPostThreadOtherV2Input({
     /// Reference (AT-URI) to post record. This is the anchor post.
     @AtUriConverter() required AtUri anchor,
-
-    /// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
-    @Default(false) bool prioritizeFollowedUsers,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadOtherV2Input;
@@ -38,12 +35,6 @@ abstract class UnspeccedGetPostThreadOtherV2Input
   factory UnspeccedGetPostThreadOtherV2Input.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetPostThreadOtherV2InputFromJson(json);
-}
-
-extension UnspeccedGetPostThreadOtherV2InputExtension
-    on UnspeccedGetPostThreadOtherV2Input {
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
-  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
 }
 
 final class UnspeccedGetPostThreadOtherV2InputConverter

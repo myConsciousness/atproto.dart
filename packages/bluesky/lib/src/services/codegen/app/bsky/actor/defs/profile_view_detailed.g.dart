@@ -89,6 +89,10 @@ _ProfileViewDetailed _$ProfileViewDetailedFromJson(
         const StatusViewConverter().fromJson,
       ),
     ),
+    debug: $checkedConvert(
+      'debug',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -141,6 +145,7 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
     instance.status,
     const StatusViewConverter().toJson,
   ),
+  'debug': ?instance.debug,
   r'$unknown': ?instance.$unknown,
 };
 

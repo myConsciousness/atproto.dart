@@ -23,6 +23,7 @@ description: app.bsky.feed.defs
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **threadgate** | [#threadgateView](#threadgateview) | - | ❌ | - |
+| **debug** | unknown | - | ❌ | Debug information for internal development |
 
 ## #viewerState
 

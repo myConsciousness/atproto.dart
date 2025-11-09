@@ -19,31 +19,6 @@ import 'communication/listTemplates/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Get list of all communication templates.
-Future<XRPCResponse<CommunicationListTemplatesOutput>>
-toolsOzoneCommunicationListTemplates({
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneCommunicationListTemplates,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const CommunicationListTemplatesOutputConverter().fromJson,
-);
-
-/// Delete a communication template.
-Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
-  required String id,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneCommunicationDeleteTemplate,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'id': id},
-);
-
 /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
 Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
   required String id,
@@ -96,34 +71,37 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
   to: const TemplateViewConverter().fromJson,
 );
 
+/// Get list of all communication templates.
+Future<XRPCResponse<CommunicationListTemplatesOutput>>
+toolsOzoneCommunicationListTemplates({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneCommunicationListTemplates,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const CommunicationListTemplatesOutputConverter().fromJson,
+);
+
+/// Delete a communication template.
+Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
+  required String id,
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneCommunicationDeleteTemplate,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'id': id},
+);
+
 /// `tools.ozone.communication.*`
 base class CommunicationService {
   // ignore: unused_field
   final ServiceContext _ctx;
 
   CommunicationService(this._ctx);
-
-  /// Get list of all communication templates.
-  Future<XRPCResponse<CommunicationListTemplatesOutput>> listTemplates({
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneCommunicationListTemplates(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Delete a communication template.
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
-    required String id,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneCommunicationDeleteTemplate(
-    id: id,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
   Future<XRPCResponse<TemplateView>> updateTemplate({
@@ -164,6 +142,28 @@ base class CommunicationService {
     subject: subject,
     lang: lang,
     createdBy: createdBy,
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get list of all communication templates.
+  Future<XRPCResponse<CommunicationListTemplatesOutput>> listTemplates({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneCommunicationListTemplates(
+    $ctx: _ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Delete a communication template.
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneCommunicationDeleteTemplate(
+    id: id,
     $ctx: _ctx,
     $headers: $headers,
     $unknown: $unknown,

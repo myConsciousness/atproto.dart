@@ -18,10 +18,6 @@ _$UnspeccedGetPostThreadOtherV2InputFromJson(Map json) => $checkedCreate(
         'anchor',
         (v) => const AtUriConverter().fromJson(v as String),
       ),
-      prioritizeFollowedUsers: $checkedConvert(
-        'prioritizeFollowedUsers',
-        (v) => v as bool? ?? false,
-      ),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -35,6 +31,5 @@ Map<String, dynamic> _$UnspeccedGetPostThreadOtherV2InputToJson(
   _UnspeccedGetPostThreadOtherV2Input instance,
 ) => <String, dynamic>{
   'anchor': const AtUriConverter().toJson(instance.anchor),
-  'prioritizeFollowedUsers': instance.prioritizeFollowedUsers,
   r'$unknown': ?instance.$unknown,
 };

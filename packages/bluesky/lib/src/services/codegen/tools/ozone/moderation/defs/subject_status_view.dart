@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './account_stats.dart';
+import './account_strike.dart';
 import './records_stats.dart';
 import './subject_review_state.dart';
 import './subject_status_view_age_assurance_state.dart';
@@ -52,6 +53,7 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     'tags',
     'accountStats',
     'recordsStats',
+    'accountStrike',
     'ageAssuranceState',
     'ageAssuranceUpdatedBy',
   ];
@@ -98,6 +100,9 @@ abstract class SubjectStatusView with _$SubjectStatusView {
 
     /// Statistics related to the record subjects authored by the subject's account
     @RecordsStatsConverter() RecordsStats? recordsStats,
+
+    /// Strike information for the account (account-level only)
+    @AccountStrikeConverter() AccountStrike? accountStrike,
 
     /// Current age assurance state of the subject.
     @SubjectStatusViewAgeAssuranceStateConverter()
@@ -150,6 +155,8 @@ extension SubjectStatusViewExtension on SubjectStatusView {
   bool get hasNotAccountStats => !hasAccountStats;
   bool get hasRecordsStats => recordsStats != null;
   bool get hasNotRecordsStats => !hasRecordsStats;
+  bool get hasAccountStrike => accountStrike != null;
+  bool get hasNotAccountStrike => !hasAccountStrike;
   bool get hasAgeAssuranceState => ageAssuranceState != null;
   bool get hasNotAgeAssuranceState => !hasAgeAssuranceState;
   bool get hasAgeAssuranceUpdatedBy => ageAssuranceUpdatedBy != null;

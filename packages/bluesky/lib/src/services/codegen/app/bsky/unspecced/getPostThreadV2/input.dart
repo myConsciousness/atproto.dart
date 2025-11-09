@@ -30,7 +30,6 @@ abstract class UnspeccedGetPostThreadV2Input
     'above',
     'below',
     'branchingFactor',
-    'prioritizeFollowedUsers',
     'sort',
   ];
 
@@ -48,9 +47,6 @@ abstract class UnspeccedGetPostThreadV2Input
     /// Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).
     @Default(10) int branchingFactor,
 
-    /// Whether to prioritize posts from followed users. It only has effect when the user is authenticated.
-    @Default(false) bool prioritizeFollowedUsers,
-
     /// Sorting for the thread replies.
     @UnspeccedGetPostThreadV2SortConverter() UnspeccedGetPostThreadV2Sort? sort,
 
@@ -65,8 +61,6 @@ extension UnspeccedGetPostThreadV2InputExtension
     on UnspeccedGetPostThreadV2Input {
   bool get isAbove => above;
   bool get isNotAbove => !isAbove;
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
-  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
   bool get hasSort => sort != null;
   bool get hasNotSort => !hasSort;
 }
