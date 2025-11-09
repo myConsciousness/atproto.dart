@@ -155,6 +155,9 @@ const comAtprotoLabelSubscribeLabelsInfo =
 const comAtprotoLabelSubscribeLabelsLabels =
     'com.atproto.label.subscribeLabels#labels';
 
+/// `com.atproto.lexicon.resolveLexicon`
+const comAtprotoLexiconResolveLexicon = 'com.atproto.lexicon.resolveLexicon';
+
 /// `com.atproto.lexicon.schema`
 const comAtprotoLexiconSchema = 'com.atproto.lexicon.schema';
 

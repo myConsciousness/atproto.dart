@@ -1,0 +1,8 @@
+{
+    "uri": "at://did:plc:example123/com.atproto.lexicon.schema/com.atproto.server.createSession",
+    "cid": "bafyreihqvzz2qqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvqvq",
+    "schema": {
+        "$type": "com.atproto.lexicon.schema",
+        "lexicon": 1
+    }
+}

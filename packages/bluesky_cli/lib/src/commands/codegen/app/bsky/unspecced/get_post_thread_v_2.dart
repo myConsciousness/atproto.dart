@@ -39,12 +39,6 @@ final class GetPostThreadV2Command extends QueryCommand {
             r"Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).",
         defaultsTo: "10",
       )
-      ..addFlag(
-        "prioritizeFollowedUsers",
-        help:
-            r"Whether to prioritize posts from followed users. It only has effect when the user is authenticated.",
-        defaultsTo: false,
-      )
       ..addOption(
         "sort",
         help: r"Sorting for the thread replies.",
@@ -61,7 +55,7 @@ final class GetPostThreadV2Command extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-post-thread-v-2 [anchor] [above] [below] [branchingFactor] [prioritizeFollowedUsers] [sort]";
+      "bsky app-bsky-unspecced get-post-thread-v-2 [anchor] [above] [below] [branchingFactor] [sort]";
 
   @override
   String get methodId => "app.bsky.unspecced.getPostThreadV2";
@@ -72,7 +66,6 @@ final class GetPostThreadV2Command extends QueryCommand {
     "above": argResults!["above"],
     "below": argResults!["below"],
     "branchingFactor": argResults!["branchingFactor"],
-    "prioritizeFollowedUsers": argResults!["prioritizeFollowedUsers"],
     "sort": argResults!["sort"],
   };
 }

@@ -8,7 +8,6 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,39 +19,33 @@ part 'input.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class UnspeccedGetPostThreadOtherV2Input
-    with _$UnspeccedGetPostThreadOtherV2Input {
-  static const knownProps = <String>['anchor'];
+abstract class LexiconResolveLexiconInput with _$LexiconResolveLexiconInput {
+  static const knownProps = <String>['nsid'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory UnspeccedGetPostThreadOtherV2Input({
-    /// Reference (AT-URI) to post record. This is the anchor post.
-    @AtUriConverter() required AtUri anchor,
+  const factory LexiconResolveLexiconInput({
+    /// The lexicon NSID to resolve.
+    required String nsid,
 
     Map<String, dynamic>? $unknown,
-  }) = _UnspeccedGetPostThreadOtherV2Input;
+  }) = _LexiconResolveLexiconInput;
 
-  factory UnspeccedGetPostThreadOtherV2Input.fromJson(
-    Map<String, Object?> json,
-  ) => _$UnspeccedGetPostThreadOtherV2InputFromJson(json);
+  factory LexiconResolveLexiconInput.fromJson(Map<String, Object?> json) =>
+      _$LexiconResolveLexiconInputFromJson(json);
 }
 
-final class UnspeccedGetPostThreadOtherV2InputConverter
-    extends
-        JsonConverter<
-          UnspeccedGetPostThreadOtherV2Input,
-          Map<String, dynamic>
-        > {
-  const UnspeccedGetPostThreadOtherV2InputConverter();
+final class LexiconResolveLexiconInputConverter
+    extends JsonConverter<LexiconResolveLexiconInput, Map<String, dynamic>> {
+  const LexiconResolveLexiconInputConverter();
 
   @override
-  UnspeccedGetPostThreadOtherV2Input fromJson(Map<String, dynamic> json) {
-    return UnspeccedGetPostThreadOtherV2Input.fromJson(
-      translate(json, UnspeccedGetPostThreadOtherV2Input.knownProps),
+  LexiconResolveLexiconInput fromJson(Map<String, dynamic> json) {
+    return LexiconResolveLexiconInput.fromJson(
+      translate(json, LexiconResolveLexiconInput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(UnspeccedGetPostThreadOtherV2Input object) =>
+  Map<String, dynamic> toJson(LexiconResolveLexiconInput object) =>
       untranslate(object.toJson());
 }
