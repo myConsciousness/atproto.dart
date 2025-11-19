@@ -26,6 +26,11 @@ abstract class Takedown with _$Takedown {
     'durationInHours',
     'acknowledgeAccountSubjects',
     'policies',
+    'severityLevel',
+    'strikeCount',
+    'strikeExpiresAt',
+    'emailContent',
+    'emailSubject',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -39,6 +44,21 @@ abstract class Takedown with _$Takedown {
     /// If true, all other reports on content authored by this account will be resolved (acknowledged).
     bool? acknowledgeAccountSubjects,
     List<String>? policies,
+
+    /// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
+    String? severityLevel,
+
+    /// Number of strikes to assign to the user when takedown is applied.
+    int? strikeCount,
+
+    /// When the strike should expire. If not provided, the strike never expires.
+    DateTime? strikeExpiresAt,
+
+    /// Email content to be sent to the user upon takedown.
+    String? emailContent,
+
+    /// Subject of the email to be sent to the user upon takedown.
+    String? emailSubject,
 
     Map<String, dynamic>? $unknown,
   }) = _Takedown;
@@ -59,6 +79,16 @@ extension TakedownExtension on Takedown {
   bool get hasNotDurationInHours => !hasDurationInHours;
   bool get isAcknowledgeAccountSubjects => acknowledgeAccountSubjects ?? false;
   bool get isNotAcknowledgeAccountSubjects => !isAcknowledgeAccountSubjects;
+  bool get hasSeverityLevel => severityLevel != null;
+  bool get hasNotSeverityLevel => !hasSeverityLevel;
+  bool get hasStrikeCount => strikeCount != null;
+  bool get hasNotStrikeCount => !hasStrikeCount;
+  bool get hasStrikeExpiresAt => strikeExpiresAt != null;
+  bool get hasNotStrikeExpiresAt => !hasStrikeExpiresAt;
+  bool get hasEmailContent => emailContent != null;
+  bool get hasNotEmailContent => !hasEmailContent;
+  bool get hasEmailSubject => emailSubject != null;
+  bool get hasNotEmailSubject => !hasEmailSubject;
 }
 
 final class TakedownConverter

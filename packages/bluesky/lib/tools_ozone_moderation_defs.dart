@@ -29,6 +29,7 @@ export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/records
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/account_strike.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/subject_review_state.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_takedown.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_takedown_target_services.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_reverse_takedown.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_resolve_appeal.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/mod_event_comment.dart';

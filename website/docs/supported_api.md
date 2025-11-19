@@ -109,6 +109,7 @@ sidebar_position: 4
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[com.atproto.lexicon.resolveLexicon](https://pub.dev/documentation/atproto/latest/com_atproto_services/LexiconService/resolveLexicon.html)** | [Reference](lexicons/com/atproto/lexicon/resolveLexicon.md) | ❌ |
 | **[com.atproto.lexicon.schema](https://pub.dev/documentation/atproto/latest/com_atproto_services/LexiconService/schema.html)** | [Reference](lexicons/com/atproto/lexicon/schema.md) | ❌ |
 
 ### com.atproto.sync

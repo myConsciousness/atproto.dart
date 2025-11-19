@@ -39,6 +39,11 @@ Schedule a takedown action
 | **durationInHours** | integer | - | ❌ | Indicates how long the takedown should be in effect before automatically expiring. |
 | **acknowledgeAccountSubjects** | boolean | - | ❌ | If true, all other reports on content authored by this account will be resolved (acknowledged). |
 | **policies** | array of string | - | ❌ | Names/Keywords of the policies that drove the decision. |
+| **severityLevel** | string | - | ❌ | Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.). |
+| **strikeCount** | integer | - | ❌ | Number of strikes to assign to the user when takedown is applied. |
+| **strikeExpiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the strike should expire. If not provided, the strike never expires. |
+| **emailContent** | string | - | ❌ | Email content to be sent to the user upon takedown. |
+| **emailSubject** | string | - | ❌ | Subject of the email to be sent to the user upon takedown. |
 
 ## #schedulingConfig
 

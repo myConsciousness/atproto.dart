@@ -55,6 +55,9 @@ base class LexiconService {
 
   LexiconService(this._ctx) : _schema = LexiconSchemaRecordAccessor(_ctx);
 
+  /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
+  LexiconSchemaRecordAccessor get schema => _schema;
+
   /// Resolves an atproto lexicon (NSID) to a schema.
   Future<XRPCResponse<LexiconResolveLexiconOutput>> resolveLexicon({
     required String nsid,
@@ -66,9 +69,6 @@ base class LexiconService {
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).
-  LexiconSchemaRecordAccessor get schema => _schema;
 }
 
 final class LexiconSchemaRecordAccessor {

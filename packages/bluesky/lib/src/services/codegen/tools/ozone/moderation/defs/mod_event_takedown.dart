@@ -11,6 +11,9 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './mod_event_takedown_target_services.dart';
+
 part 'mod_event_takedown.freezed.dart';
 part 'mod_event_takedown.g.dart';
 
@@ -27,6 +30,7 @@ abstract class ModEventTakedown with _$ModEventTakedown {
     'acknowledgeAccountSubjects',
     'policies',
     'severityLevel',
+    'targetServices',
     'strikeCount',
     'strikeExpiresAt',
   ];
@@ -45,6 +49,8 @@ abstract class ModEventTakedown with _$ModEventTakedown {
 
     /// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
     String? severityLevel,
+    @ModEventTakedownTargetServicesConverter()
+    List<ModEventTakedownTargetServices>? targetServices,
 
     /// Number of strikes to assign to the user for this violation.
     int? strikeCount,

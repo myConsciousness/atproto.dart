@@ -31,6 +31,16 @@ _ModEventTakedown _$ModEventTakedownFromJson(Map json) => $checkedCreate(
         (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
       ),
       severityLevel: $checkedConvert('severityLevel', (v) => v as String?),
+      targetServices: $checkedConvert(
+        'targetServices',
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) => const ModEventTakedownTargetServicesConverter().fromJson(
+                e as String,
+              ),
+            )
+            .toList(),
+      ),
       strikeCount: $checkedConvert('strikeCount', (v) => (v as num?)?.toInt()),
       strikeExpiresAt: $checkedConvert(
         'strikeExpiresAt',
@@ -53,6 +63,9 @@ Map<String, dynamic> _$ModEventTakedownToJson(_ModEventTakedown instance) =>
       'acknowledgeAccountSubjects': ?instance.acknowledgeAccountSubjects,
       'policies': ?instance.policies,
       'severityLevel': ?instance.severityLevel,
+      'targetServices': ?instance.targetServices
+          ?.map(const ModEventTakedownTargetServicesConverter().toJson)
+          .toList(),
       'strikeCount': ?instance.strikeCount,
       'strikeExpiresAt': ?instance.strikeExpiresAt?.toIso8601String(),
       r'$unknown': ?instance.$unknown,

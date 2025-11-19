@@ -14,7 +14,6 @@ description: app.bsky.unspecced.getPostThreadOtherV2
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **anchor** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) to post record. This is the anchor post. |
-| **prioritizeFollowedUsers** | boolean | - | ❌ | Whether to prioritize posts from followed users. It only has effect when the user is authenticated. |
 
 ### Output
 

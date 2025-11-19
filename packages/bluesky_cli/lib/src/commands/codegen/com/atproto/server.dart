@@ -37,25 +37,25 @@ import 'server/update_email.dart';
 
 final class ComAtprotoServerCommand extends Command<void> {
   ComAtprotoServerCommand() {
+    addSubcommand(CreateAccountCommand());
+    addSubcommand(ConfirmEmailCommand());
+    addSubcommand(ResetPasswordCommand());
+    addSubcommand(DescribeServerCommand());
+    addSubcommand(RequestPasswordResetCommand());
     addSubcommand(ReserveSigningKeyCommand());
+    addSubcommand(CheckAccountStatusCommand());
+    addSubcommand(ListAppPasswordsCommand());
+    addSubcommand(DeleteAccountCommand());
+    addSubcommand(GetSessionCommand());
+    addSubcommand(CreateAppPasswordCommand());
+    addSubcommand(UpdateEmailCommand());
     addSubcommand(GetServiceAuthCommand());
     addSubcommand(GetAccountInviteCodesCommand());
-    addSubcommand(CreateSessionCommand());
-    addSubcommand(ListAppPasswordsCommand());
-    addSubcommand(CreateInviteCodesCommand());
     addSubcommand(RevokeAppPasswordCommand());
-    addSubcommand(CreateAppPasswordCommand());
-    addSubcommand(DescribeServerCommand());
-    addSubcommand(ConfirmEmailCommand());
-    addSubcommand(GetSessionCommand());
     addSubcommand(DeactivateAccountCommand());
-    addSubcommand(UpdateEmailCommand());
-    addSubcommand(ResetPasswordCommand());
-    addSubcommand(CheckAccountStatusCommand());
-    addSubcommand(RequestPasswordResetCommand());
-    addSubcommand(CreateAccountCommand());
-    addSubcommand(DeleteAccountCommand());
     addSubcommand(CreateInviteCodeCommand());
+    addSubcommand(CreateSessionCommand());
+    addSubcommand(CreateInviteCodesCommand());
   }
 
   @override

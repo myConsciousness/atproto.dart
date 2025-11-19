@@ -145,6 +145,7 @@ Take down a subject permanently or temporarily
 | **acknowledgeAccountSubjects** | boolean | - | ❌ | If true, all other reports on content authored by this account will be resolved (acknowledged). |
 | **policies** | array of string | - | ❌ | Names/Keywords of the policies that drove the decision. |
 | **severityLevel** | string | - | ❌ | Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.). |
+| **targetServices** | array of string | - | ❌ | List of services where the takedown should be applied. If empty or not provided, takedown is applied on all configured services. |
 | **strikeCount** | integer | - | ❌ | Number of strikes to assign to the user for this violation. |
 | **strikeExpiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the strike should expire. If not provided, the strike never expires. |
 
@@ -297,6 +298,7 @@ Keep a log of outgoing email to a user
 | **severityLevel** | string | - | ❌ | Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense |
 | **strikeCount** | integer | - | ❌ | Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense. |
 | **strikeExpiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the strike should expire. If not provided, the strike never expires. |
+| **isDelivered** | boolean | - | ❌ | Indicates whether the email was successfully delivered to the user's inbox. |
 
 ## #modEventDivert
 
