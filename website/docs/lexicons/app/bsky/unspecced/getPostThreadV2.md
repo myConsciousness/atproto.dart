@@ -17,7 +17,6 @@ description: app.bsky.unspecced.getPostThreadV2
 | **above** | boolean | - | ❌ | Whether to include parents above the anchor. |
 | **below** | integer | - | ❌ | How many levels of replies to include below the anchor. |
 | **branchingFactor** | integer | - | ❌ | Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated). |
-| **prioritizeFollowedUsers** | boolean | - | ❌ | Whether to prioritize posts from followed users. It only has effect when the user is authenticated. |
 | **sort** | string | newest<br/>oldest<br/>top | ❌ | Sorting for the thread replies. |
 
 ### Output

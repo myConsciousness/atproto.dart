@@ -201,7 +201,6 @@ An individual verification for an associated subject.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **sort** | string | oldest<br/>newest<br/>most-likes<br/>random<br/>hotness | ❌ | Sorting mode for threads. |
-| **prioritizeFollowedUsers** | boolean | - | ❌ | Show followed users at the top of all replies. |
 
 ## #interestsPref
 

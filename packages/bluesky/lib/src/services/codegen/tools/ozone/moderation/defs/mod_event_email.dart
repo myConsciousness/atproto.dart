@@ -29,6 +29,7 @@ abstract class ModEventEmail with _$ModEventEmail {
     'severityLevel',
     'strikeCount',
     'strikeExpiresAt',
+    'isDelivered',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -54,6 +55,9 @@ abstract class ModEventEmail with _$ModEventEmail {
     /// When the strike should expire. If not provided, the strike never expires.
     DateTime? strikeExpiresAt,
 
+    /// Indicates whether the email was successfully delivered to the user's inbox.
+    bool? isDelivered,
+
     Map<String, dynamic>? $unknown,
   }) = _ModEventEmail;
 
@@ -77,6 +81,8 @@ extension ModEventEmailExtension on ModEventEmail {
   bool get hasNotStrikeCount => !hasStrikeCount;
   bool get hasStrikeExpiresAt => strikeExpiresAt != null;
   bool get hasNotStrikeExpiresAt => !hasStrikeExpiresAt;
+  bool get isIsDelivered => isDelivered ?? false;
+  bool get isNotIsDelivered => !isIsDelivered;
 }
 
 final class ModEventEmailConverter

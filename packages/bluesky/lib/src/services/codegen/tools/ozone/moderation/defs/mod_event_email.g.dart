@@ -30,6 +30,7 @@ _ModEventEmail _$ModEventEmailFromJson(Map json) => $checkedCreate(
         'strikeExpiresAt',
         (v) => v == null ? null : DateTime.parse(v as String),
       ),
+      isDelivered: $checkedConvert('isDelivered', (v) => v as bool?),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -49,5 +50,6 @@ Map<String, dynamic> _$ModEventEmailToJson(_ModEventEmail instance) =>
       'severityLevel': ?instance.severityLevel,
       'strikeCount': ?instance.strikeCount,
       'strikeExpiresAt': ?instance.strikeExpiresAt?.toIso8601String(),
+      'isDelivered': ?instance.isDelivered,
       r'$unknown': ?instance.$unknown,
     };

@@ -17,7 +17,12 @@ mixin _$Takedown {
 
  String get $type; String? get comment;/// Indicates how long the takedown should be in effect before automatically expiring.
  int? get durationInHours;/// If true, all other reports on content authored by this account will be resolved (acknowledged).
- bool? get acknowledgeAccountSubjects; List<String>? get policies; Map<String, dynamic>? get $unknown;
+ bool? get acknowledgeAccountSubjects; List<String>? get policies;/// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
+ String? get severityLevel;/// Number of strikes to assign to the user when takedown is applied.
+ int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
+ DateTime? get strikeExpiresAt;/// Email content to be sent to the user upon takedown.
+ String? get emailContent;/// Subject of the email to be sent to the user upon takedown.
+ String? get emailSubject; Map<String, dynamic>? get $unknown;
 /// Create a copy of Takedown
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +35,16 @@ $TakedownCopyWith<Takedown> get copyWith => _$TakedownCopyWithImpl<Takedown>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Takedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other.policies, policies)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Takedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other.policies, policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&(identical(other.emailContent, emailContent) || other.emailContent == emailContent)&&(identical(other.emailSubject, emailSubject) || other.emailSubject == emailSubject)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(policies),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(policies),severityLevel,strikeCount,strikeExpiresAt,emailContent,emailSubject,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'Takedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, \$unknown: ${$unknown})';
+  return 'Takedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, emailContent: $emailContent, emailSubject: $emailSubject, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +55,7 @@ abstract mixin class $TakedownCopyWith<$Res>  {
   factory $TakedownCopyWith(Takedown value, $Res Function(Takedown) _then) = _$TakedownCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, String? emailContent, String? emailSubject, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,14 +72,19 @@ class _$TakedownCopyWithImpl<$Res>
 
 /// Create a copy of Takedown
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? emailContent = freezed,Object? emailSubject = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
 as int?,acknowledgeAccountSubjects: freezed == acknowledgeAccountSubjects ? _self.acknowledgeAccountSubjects : acknowledgeAccountSubjects // ignore: cast_nullable_to_non_nullable
 as bool?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
+as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,emailContent: freezed == emailContent ? _self.emailContent : emailContent // ignore: cast_nullable_to_non_nullable
+as String?,emailSubject: freezed == emailSubject ? _self.emailSubject : emailSubject // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -160,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Takedown() when $default != null:
-return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.emailContent,_that.emailSubject,_that.$unknown);case _:
   return orElse();
 
 }
@@ -181,10 +191,10 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Takedown():
-return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.emailContent,_that.emailSubject,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +211,10 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Takedown() when $default != null:
-return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.emailContent,_that.emailSubject,_that.$unknown);case _:
   return null;
 
 }
@@ -216,7 +226,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 
 @JsonSerializable(includeIfNull: false)
 class _Takedown implements Takedown {
-  const _Takedown({this.$type = 'tools.ozone.moderation.scheduleAction#takedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _Takedown({this.$type = 'tools.ozone.moderation.scheduleAction#takedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, this.strikeCount, this.strikeExpiresAt, this.emailContent, this.emailSubject, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _Takedown.fromJson(Map<String, dynamic> json) => _$TakedownFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -234,6 +244,16 @@ class _Takedown implements Takedown {
   return EqualUnmodifiableListView(value);
 }
 
+/// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
+@override final  String? severityLevel;
+/// Number of strikes to assign to the user when takedown is applied.
+@override final  int? strikeCount;
+/// When the strike should expire. If not provided, the strike never expires.
+@override final  DateTime? strikeExpiresAt;
+/// Email content to be sent to the user upon takedown.
+@override final  String? emailContent;
+/// Subject of the email to be sent to the user upon takedown.
+@override final  String? emailSubject;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,16 +277,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Takedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other._policies, _policies)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Takedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&(identical(other.acknowledgeAccountSubjects, acknowledgeAccountSubjects) || other.acknowledgeAccountSubjects == acknowledgeAccountSubjects)&&const DeepCollectionEquality().equals(other._policies, _policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&(identical(other.emailContent, emailContent) || other.emailContent == emailContent)&&(identical(other.emailSubject, emailSubject) || other.emailSubject == emailSubject)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(_policies),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,comment,durationInHours,acknowledgeAccountSubjects,const DeepCollectionEquality().hash(_policies),severityLevel,strikeCount,strikeExpiresAt,emailContent,emailSubject,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'Takedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, \$unknown: ${$unknown})';
+  return 'Takedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, emailContent: $emailContent, emailSubject: $emailSubject, \$unknown: ${$unknown})';
 }
 
 
@@ -277,7 +297,7 @@ abstract mixin class _$TakedownCopyWith<$Res> implements $TakedownCopyWith<$Res>
   factory _$TakedownCopyWith(_Takedown value, $Res Function(_Takedown) _then) = __$TakedownCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, String? emailContent, String? emailSubject, Map<String, dynamic>? $unknown
 });
 
 
@@ -294,14 +314,19 @@ class __$TakedownCopyWithImpl<$Res>
 
 /// Create a copy of Takedown
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? emailContent = freezed,Object? emailSubject = freezed,Object? $unknown = freezed,}) {
   return _then(_Takedown(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
 as int?,acknowledgeAccountSubjects: freezed == acknowledgeAccountSubjects ? _self.acknowledgeAccountSubjects : acknowledgeAccountSubjects // ignore: cast_nullable_to_non_nullable
 as bool?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
+as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,emailContent: freezed == emailContent ? _self.emailContent : emailContent // ignore: cast_nullable_to_non_nullable
+as String?,emailSubject: freezed == emailSubject ? _self.emailSubject : emailSubject // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

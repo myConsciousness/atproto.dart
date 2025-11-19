@@ -35,6 +35,11 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
+Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
+  required ServiceContext $ctx,
+  Map<String, String>? $headers,
+}) async =>
+    await $ctx.post(ns.chatBskyActorDeleteAccount, headers: {...?$headers});
 Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
   required ServiceContext $ctx,
   Map<String, String>? $headers,
@@ -44,11 +49,6 @@ Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
   headers: $headers,
   parameters: {...?$unknown},
 );
-Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-}) async =>
-    await $ctx.post(ns.chatBskyActorDeleteAccount, headers: {...?$headers});
 
 /// `chat.bsky.actor.*`
 base class ActorService {
@@ -61,6 +61,9 @@ base class ActorService {
 
   /// A declaration of a Bluesky chat account.
   ActorDeclarationRecordAccessor get declaration => _declaration;
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    Map<String, String>? $headers,
+  }) async => await chatBskyActorDeleteAccount($ctx: _ctx, $headers: $headers);
   Future<XRPCResponse<Uint8List>> exportAccountData({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -69,9 +72,6 @@ base class ActorService {
     $headers: $headers,
     $unknown: $unknown,
   );
-  Future<XRPCResponse<EmptyData>> deleteAccount({
-    Map<String, String>? $headers,
-  }) async => await chatBskyActorDeleteAccount($ctx: _ctx, $headers: $headers);
 }
 
 final class ActorDeclarationRecordAccessor {
