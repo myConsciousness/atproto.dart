@@ -59,7 +59,14 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
     ),
     includeMuted: $checkedConvert('includeMuted', (v) => v as bool?),
     onlyMuted: $checkedConvert('onlyMuted', (v) => v as bool?),
-    reviewState: $checkedConvert('reviewState', (v) => v as String?),
+    reviewState: $checkedConvert(
+      'reviewState',
+      (v) =>
+          _$JsonConverterFromJson<String, ModerationQueryStatusesReviewState>(
+            v,
+            const ModerationQueryStatusesReviewStateConverter().fromJson,
+          ),
+    ),
     ignoreSubjects: $checkedConvert(
       'ignoreSubjects',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -156,7 +163,11 @@ Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
   'reviewedBefore': ?instance.reviewedBefore?.toIso8601String(),
   'includeMuted': ?instance.includeMuted,
   'onlyMuted': ?instance.onlyMuted,
-  'reviewState': ?instance.reviewState,
+  'reviewState':
+      ?_$JsonConverterToJson<String, ModerationQueryStatusesReviewState>(
+        instance.reviewState,
+        const ModerationQueryStatusesReviewStateConverter().toJson,
+      ),
   'ignoreSubjects': ?instance.ignoreSubjects,
   'lastReviewedBy': ?instance.lastReviewedBy,
   'sortField': instance.sortField,
