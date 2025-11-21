@@ -32,6 +32,7 @@ import 'moderation/queryEvents/main_age_assurance_state.dart';
 import 'moderation/queryEvents/main_subject_type.dart';
 import 'moderation/queryEvents/output.dart';
 import 'moderation/queryStatuses/main_age_assurance_state.dart';
+import 'moderation/queryStatuses/main_review_state.dart';
 import 'moderation/queryStatuses/main_subject_type.dart';
 import 'moderation/queryStatuses/output.dart';
 import 'moderation/scheduleAction/scheduled_action_results.dart';
@@ -154,7 +155,7 @@ toolsOzoneModerationQueryStatuses({
   DateTime? reviewedBefore,
   bool? includeMuted,
   bool? onlyMuted,
-  String? reviewState,
+  ModerationQueryStatusesReviewState? reviewState,
   List<String>? ignoreSubjects,
   String? lastReviewedBy,
   String? sortField,
@@ -203,7 +204,7 @@ toolsOzoneModerationQueryStatuses({
     if (reviewedBefore != null) 'reviewedBefore': iso8601(reviewedBefore),
     if (includeMuted != null) 'includeMuted': includeMuted,
     if (onlyMuted != null) 'onlyMuted': onlyMuted,
-    if (reviewState != null) 'reviewState': reviewState,
+    if (reviewState != null) 'reviewState': reviewState.toJson(),
     if (ignoreSubjects != null) 'ignoreSubjects': ignoreSubjects,
     if (lastReviewedBy != null) 'lastReviewedBy': lastReviewedBy,
     if (sortField != null) 'sortField': sortField,
@@ -535,7 +536,7 @@ base class ModerationService {
     DateTime? reviewedBefore,
     bool? includeMuted,
     bool? onlyMuted,
-    String? reviewState,
+    ModerationQueryStatusesReviewState? reviewState,
     List<String>? ignoreSubjects,
     String? lastReviewedBy,
     String? sortField,

@@ -30,7 +30,7 @@ View moderation statuses of subjects (record or repo).
 | **reviewedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reviewed before a given timestamp |
 | **includeMuted** | boolean | - | ❌ | By default, we don't include muted subjects in the results. Set this to true to include them. |
 | **onlyMuted** | boolean | - | ❌ | When set to true, only muted subjects and reporters will be returned. |
-| **reviewState** | string | - | ❌ | Specify when fetching subjects in a certain state |
+| **reviewState** | string | [tools.ozone.moderation.defs#reviewOpen](../../../../lexicons/tools/ozone/moderation/defs.md#reviewopen)<br/>[tools.ozone.moderation.defs#reviewClosed](../../../../lexicons/tools/ozone/moderation/defs.md#reviewclosed)<br/>[tools.ozone.moderation.defs#reviewEscalated](../../../../lexicons/tools/ozone/moderation/defs.md#reviewescalated)<br/>[tools.ozone.moderation.defs#reviewNone](../../../../lexicons/tools/ozone/moderation/defs.md#reviewnone) | ❌ | Specify when fetching subjects in a certain state |
 | **ignoreSubjects** | array of [uri](https://atproto.com/specs/lexicon#uri) | - | ❌ | - |
 | **lastReviewedBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Get all subject statuses that were reviewed by a specific moderator |
 | **sortField** | string | - | ❌ | - |

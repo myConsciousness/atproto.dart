@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './main_age_assurance_state.dart';
+import './main_review_state.dart';
 import './main_subject_type.dart';
 
 part 'input.freezed.dart';
@@ -116,7 +117,8 @@ abstract class ModerationQueryStatusesInput
     bool? onlyMuted,
 
     /// Specify when fetching subjects in a certain state
-    String? reviewState,
+    @ModerationQueryStatusesReviewStateConverter()
+    ModerationQueryStatusesReviewState? reviewState,
     List<String>? ignoreSubjects,
 
     /// Get all subject statuses that were reviewed by a specific moderator
