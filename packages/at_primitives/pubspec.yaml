@@ -1,4 +1,5 @@
 name: at_primitives
+resolution: workspace
 description: Primitive types and utilities for AT Protocol. This package provides basic data structures and utilities used across AT Protocol implementations.
 version: 1.0.0
 homepage: https://atprotodart.com
@@ -28,4 +29,6 @@ dev_dependencies:
   json_serializable: ^6.9.5
   freezed: ^3.2.0
   import_sorter:
-    git: https://github.com/myConsciousness/import_sorter.git
+    git:
+      url: https://github.com/myConsciousness/import_sorter.git
+      ref: fix/monorepo-pub-workspaces

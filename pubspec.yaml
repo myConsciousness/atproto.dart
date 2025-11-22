@@ -4,17 +4,31 @@ publish_to: none
 environment:
   sdk: ">=3.8.0 <4.0.0"
 
+workspace:
+  - packages/at_primitives
+  - packages/atproto
+  - packages/atproto_core
+  - packages/atproto_oauth
+  - packages/atproto_test
+  - packages/bluesky
+  - packages/bluesky_cli
+  - packages/bluesky_text
+  - packages/did_plc
+  - packages/lex_gen
+  - packages/lexicon
+  - packages/multiformats
+  - packages/xrpc
+
 dependencies:
   github: ^9.12.0
   http: ^1.4.0
   pubspec: ^2.3.0
   test: ^1.26.2
-  lexicon: ^1.0.0
-  lex_gen:
-    path: packages/lex_gen
 
 dev_dependencies:
   lints: ^6.0.0
   melos: ^6.0.0
   import_sorter:
-    git: https://github.com/myConsciousness/import_sorter.git
+    git:
+      url: https://github.com/myConsciousness/import_sorter.git
+      ref: fix/monorepo-pub-workspaces

@@ -1,4 +1,5 @@
 name: bluesky
+resolution: workspace
 description: The most famous and powerful Dart/Flutter library for Bluesky Social.
 version: 1.2.6
 homepage: https://atprotodart.com
@@ -30,8 +31,10 @@ dev_dependencies:
   json_serializable: ^6.9.5
   freezed: ^3.2.0
   import_sorter:
-    git: https://github.com/myConsciousness/import_sorter.git
-  bluesky_text: ^0.6.9
+    git:
+      url: https://github.com/myConsciousness/import_sorter.git
+      ref: fix/monorepo-pub-workspaces
+  bluesky_text: ^1.0.0
 
   atproto_test:
     path: ../atproto_test
