@@ -1,9 +1,5 @@
 name: atproto
 
-command:
-  bootstrap:
-    usePubspecOverrides: true
-
 packages:
   - website/**
   - packages/**
@@ -31,7 +27,7 @@ scripts:
 
   fmt:
     run: |
-      melos exec --depends-on="import_sorter" -c 20 -- dart run import_sorter:main
+      melos exec --depends-on="import_sorter" -c 20 -- dart run import_sorter
       melos exec -c 20 -- dart format .
     description: Run `dart format` and `dart run import_sorter:main` in all packages.
 
