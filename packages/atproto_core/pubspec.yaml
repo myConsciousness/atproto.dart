@@ -1,4 +1,5 @@
 name: atproto_core
+resolution: workspace
 description: Core library for clients and tools. This package is mainly used by https://atprotodart.com packages.
 version: 1.0.7
 homepage: https://atprotodart.com
@@ -32,7 +33,10 @@ dev_dependencies:
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
   freezed: ^3.2.0
-  import_sorter: ^4.6.0
+  import_sorter:
+    git:
+      url: https://github.com/myConsciousness/import_sorter.git
+      ref: fix/monorepo-pub-workspaces
 
   atproto_test:
     path: ../atproto_test

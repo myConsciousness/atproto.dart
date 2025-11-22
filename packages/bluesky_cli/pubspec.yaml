@@ -1,4 +1,5 @@
 name: bluesky_cli
+resolution: workspace
 description: A powerful CLI tool that allows Bluesky Social's APIs to be executed from the command line powered by Dart language.
 version: 0.4.7
 homepage: https://atprotodart.com
@@ -31,4 +32,7 @@ dependencies:
 dev_dependencies:
   lints: ^6.0.0
   test: ^1.26.2
-  import_sorter: ^4.6.0
+  import_sorter:
+    git:
+      url: https://github.com/myConsciousness/import_sorter.git
+      ref: fix/monorepo-pub-workspaces
