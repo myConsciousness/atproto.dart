@@ -13,4 +13,5 @@ dependencies:
 
 dev_dependencies:
   lints: ^6.0.0
-  import_sorter: ^4.6.0
+  import_sorter:
+    git: https://github.com/myConsciousness/import_sorter.git

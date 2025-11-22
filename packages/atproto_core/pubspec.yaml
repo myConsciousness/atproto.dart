@@ -32,7 +32,8 @@ dev_dependencies:
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
   freezed: ^3.2.0
-  import_sorter: ^4.6.0
+  import_sorter:
+    git: https://github.com/myConsciousness/import_sorter.git
 
   atproto_test:
     path: ../atproto_test
