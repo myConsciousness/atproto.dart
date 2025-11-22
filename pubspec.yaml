@@ -27,8 +27,73 @@ dependencies:
 
 dev_dependencies:
   lints: ^6.0.0
-  melos: ^6.0.0
+  melos: ^7.1.0
   import_sorter:
     git:
       url: https://github.com/myConsciousness/import_sorter.git
       ref: fix/monorepo-pub-workspaces
+
+melos:
+  scripts:
+    setup:
+      run: |
+        melos get
+        melos build
+      description: Set up the atproto.dart project when cloned. Run `dart pub get` and `dart run build_runner build` in all Dart packages.
+
+    get:
+      run: melos exec -c 20 -- \
+            dart pub get
+      description: Run `dart pub get` command in all packages.
+
+    analyze:
+      run: |
+        melos exec -c 20 -- \
+          flutter analyze .
+      description: |
+        Run `dart analyze` in all packages.
+        - Note: you can also rely on your IDEs Dart Analysis / Issues window.
+
+    fmt:
+      run: |
+        melos exec --depends-on="import_sorter" -c 20 -- dart run import_sorter
+        melos exec -c 20 -- dart format .
+      description: Run `dart format` and `dart run import_sorter:main` in all packages.
+
+    build:
+      run: |
+        melos exec --depends-on="build_runner" -c 20 -- \
+          dart run build_runner build clean
+        melos exec --depends-on="build_runner" -c 1 -- \
+          dart run build_runner build --delete-conflicting-outputs
+      description: Run `dart run build_runner build` in all packages.
+
+    test:
+      run: melos exec --ignore="atproto_test,atproto_oauth,lex_gen" -- dart test
+      description: Run all Dart tests in this project.
+      flutter: false
+      dir-exists: test
+
+    publish_all:
+      run: |
+        melos publish
+        melos publish --no-dry-run --git-tag-version
+        git push origin --tags
+      description: Publish all packages, create git tags and push them to origin.
+
+    gen:
+      run: |
+        dart run ./scripts/gen_lexicon_docs.dart
+        dart run ./scripts/gen_lexicon_ids.dart
+        dart run ./scripts/gen_codes.dart
+        cd packages/atproto
+        dart run build_runner build --delete-conflicting-outputs
+        dart fix --apply
+        cd ../../packages/bluesky
+        dart run build_runner build --delete-conflicting-outputs
+        dart fix --apply
+        cd ../../packages/bluesky_cli
+        dart fix --apply
+        cd ../../
+        melos fmt
+      description: Generate code for atproto and blueksy based on lexicons.
