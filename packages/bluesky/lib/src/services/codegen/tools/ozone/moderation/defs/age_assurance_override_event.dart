@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import 'package:bluesky/app_bsky_ageassurance_defs.dart';
 import './age_assurance_override_event_status.dart';
 
 part 'age_assurance_override_event.freezed.dart';
@@ -24,7 +25,7 @@ part 'age_assurance_override_event.g.dart';
 /// Age assurance status override by moderators. Only works on DID subjects.
 @freezed
 abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
-  static const knownProps = <String>['status', 'comment'];
+  static const knownProps = <String>['status', 'access', 'comment'];
 
   @JsonSerializable(includeIfNull: false)
   const factory AgeAssuranceOverrideEvent({
@@ -34,6 +35,7 @@ abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
     /// The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.
     @AgeAssuranceOverrideEventStatusConverter()
     required AgeAssuranceOverrideEventStatus status,
+    @AccessConverter() Access? access,
 
     /// Comment describing the reason for the override.
     required String comment,
@@ -49,6 +51,11 @@ abstract class AgeAssuranceOverrideEvent with _$AgeAssuranceOverrideEvent {
     return object['\$type'] ==
         'tools.ozone.moderation.defs#ageAssuranceOverrideEvent';
   }
+}
+
+extension AgeAssuranceOverrideEventExtension on AgeAssuranceOverrideEvent {
+  bool get hasAccess => access != null;
+  bool get hasNotAccess => !hasAccess;
 }
 
 final class AgeAssuranceOverrideEventConverter

@@ -20,11 +20,20 @@ _AgeAssuranceEvent _$AgeAssuranceEventFromJson(Map json) =>
           'createdAt',
           (v) => DateTime.parse(v as String),
         ),
+        attemptId: $checkedConvert('attemptId', (v) => v as String),
         status: $checkedConvert(
           'status',
           (v) => const AgeAssuranceEventStatusConverter().fromJson(v as String),
         ),
-        attemptId: $checkedConvert('attemptId', (v) => v as String),
+        access: $checkedConvert(
+          'access',
+          (v) => _$JsonConverterFromJson<String, Access>(
+            v,
+            const AccessConverter().fromJson,
+          ),
+        ),
+        countryCode: $checkedConvert('countryCode', (v) => v as String?),
+        regionCode: $checkedConvert('regionCode', (v) => v as String?),
         initIp: $checkedConvert('initIp', (v) => v as String?),
         initUa: $checkedConvert('initUa', (v) => v as String?),
         completeIp: $checkedConvert('completeIp', (v) => v as String?),
@@ -42,11 +51,27 @@ Map<String, dynamic> _$AgeAssuranceEventToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'createdAt': instance.createdAt.toIso8601String(),
-  'status': const AgeAssuranceEventStatusConverter().toJson(instance.status),
   'attemptId': instance.attemptId,
+  'status': const AgeAssuranceEventStatusConverter().toJson(instance.status),
+  'access': ?_$JsonConverterToJson<String, Access>(
+    instance.access,
+    const AccessConverter().toJson,
+  ),
+  'countryCode': ?instance.countryCode,
+  'regionCode': ?instance.regionCode,
   'initIp': ?instance.initIp,
   'initUa': ?instance.initUa,
   'completeIp': ?instance.completeIp,
   'completeUa': ?instance.completeUa,
   r'$unknown': ?instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

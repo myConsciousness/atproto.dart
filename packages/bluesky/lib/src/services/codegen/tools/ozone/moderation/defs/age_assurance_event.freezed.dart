@@ -16,9 +16,11 @@ T _$identity<T>(T value) => value;
 mixin _$AgeAssuranceEvent {
 
  String get $type;/// The date and time of this write operation.
- DateTime get createdAt;/// The status of the age assurance process.
-@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus get status;/// The unique identifier for this instance of the age assurance flow, in UUID format.
- String get attemptId;/// The IP address used when initiating the AA flow.
+ DateTime get createdAt;/// The unique identifier for this instance of the age assurance flow, in UUID format.
+ String get attemptId;/// The status of the Age Assurance process.
+@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus get status;@AccessConverter() Access? get access;/// The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow.
+ String? get countryCode;/// The ISO 3166-2 region code provided when beginning the Age Assurance flow.
+ String? get regionCode;/// The IP address used when initiating the AA flow.
  String? get initIp;/// The user agent used when initiating the AA flow.
  String? get initUa;/// The IP address used when completing the AA flow.
  String? get completeIp;/// The user agent used when completing the AA flow.
@@ -35,16 +37,16 @@ $AgeAssuranceEventCopyWith<AgeAssuranceEvent> get copyWith => _$AgeAssuranceEven
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgeAssuranceEvent&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.status, status) || other.status == status)&&(identical(other.attemptId, attemptId) || other.attemptId == attemptId)&&(identical(other.initIp, initIp) || other.initIp == initIp)&&(identical(other.initUa, initUa) || other.initUa == initUa)&&(identical(other.completeIp, completeIp) || other.completeIp == completeIp)&&(identical(other.completeUa, completeUa) || other.completeUa == completeUa)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgeAssuranceEvent&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.attemptId, attemptId) || other.attemptId == attemptId)&&(identical(other.status, status) || other.status == status)&&(identical(other.access, access) || other.access == access)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&(identical(other.initIp, initIp) || other.initIp == initIp)&&(identical(other.initUa, initUa) || other.initUa == initUa)&&(identical(other.completeIp, completeIp) || other.completeIp == completeIp)&&(identical(other.completeUa, completeUa) || other.completeUa == completeUa)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,createdAt,status,attemptId,initIp,initUa,completeIp,completeUa,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,createdAt,attemptId,status,access,countryCode,regionCode,initIp,initUa,completeIp,completeUa,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'AgeAssuranceEvent(\$type: ${$type}, createdAt: $createdAt, status: $status, attemptId: $attemptId, initIp: $initIp, initUa: $initUa, completeIp: $completeIp, completeUa: $completeUa, \$unknown: ${$unknown})';
+  return 'AgeAssuranceEvent(\$type: ${$type}, createdAt: $createdAt, attemptId: $attemptId, status: $status, access: $access, countryCode: $countryCode, regionCode: $regionCode, initIp: $initIp, initUa: $initUa, completeIp: $completeIp, completeUa: $completeUa, \$unknown: ${$unknown})';
 }
 
 
@@ -55,11 +57,11 @@ abstract mixin class $AgeAssuranceEventCopyWith<$Res>  {
   factory $AgeAssuranceEventCopyWith(AgeAssuranceEvent value, $Res Function(AgeAssuranceEvent) _then) = _$AgeAssuranceEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt, String attemptId,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status,@AccessConverter() Access? access, String? countryCode, String? regionCode, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 
-$AgeAssuranceEventStatusCopyWith<$Res> get status;
+$AgeAssuranceEventStatusCopyWith<$Res> get status;$AccessCopyWith<$Res>? get access;
 
 }
 /// @nodoc
@@ -72,13 +74,16 @@ class _$AgeAssuranceEventCopyWithImpl<$Res>
 
 /// Create a copy of AgeAssuranceEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? createdAt = null,Object? status = null,Object? attemptId = null,Object? initIp = freezed,Object? initUa = freezed,Object? completeIp = freezed,Object? completeUa = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? createdAt = null,Object? attemptId = null,Object? status = null,Object? access = freezed,Object? countryCode = freezed,Object? regionCode = freezed,Object? initIp = freezed,Object? initUa = freezed,Object? completeIp = freezed,Object? completeUa = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as AgeAssuranceEventStatus,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
-as String,initIp: freezed == initIp ? _self.initIp : initIp // ignore: cast_nullable_to_non_nullable
+as DateTime,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceEventStatus,access: freezed == access ? _self.access : access // ignore: cast_nullable_to_non_nullable
+as Access?,countryCode: freezed == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
+as String?,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
+as String?,initIp: freezed == initIp ? _self.initIp : initIp // ignore: cast_nullable_to_non_nullable
 as String?,initUa: freezed == initUa ? _self.initUa : initUa // ignore: cast_nullable_to_non_nullable
 as String?,completeIp: freezed == completeIp ? _self.completeIp : completeIp // ignore: cast_nullable_to_non_nullable
 as String?,completeUa: freezed == completeUa ? _self.completeUa : completeUa // ignore: cast_nullable_to_non_nullable
@@ -94,6 +99,18 @@ $AgeAssuranceEventStatusCopyWith<$Res> get status {
   
   return $AgeAssuranceEventStatusCopyWith<$Res>(_self.status, (value) {
     return _then(_self.copyWith(status: value));
+  });
+}/// Create a copy of AgeAssuranceEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccessCopyWith<$Res>? get access {
+    if (_self.access == null) {
+    return null;
+  }
+
+  return $AccessCopyWith<$Res>(_self.access!, (value) {
+    return _then(_self.copyWith(access: value));
   });
 }
 }
@@ -177,10 +194,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
-return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
+return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.access,_that.countryCode,_that.regionCode,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
   return orElse();
 
 }
@@ -198,10 +215,10 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.i
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent():
-return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
+return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.access,_that.countryCode,_that.regionCode,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -218,10 +235,10 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.i
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
-return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
+return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.access,_that.countryCode,_that.regionCode,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
   return null;
 
 }
@@ -233,16 +250,21 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.i
 
 @JsonSerializable(includeIfNull: false)
 class _AgeAssuranceEvent implements AgeAssuranceEvent {
-  const _AgeAssuranceEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceEvent', required this.createdAt, @AgeAssuranceEventStatusConverter() required this.status, required this.attemptId, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceEvent', required this.createdAt, required this.attemptId, @AgeAssuranceEventStatusConverter() required this.status, @AccessConverter() this.access, this.countryCode, this.regionCode, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The date and time of this write operation.
 @override final  DateTime createdAt;
-/// The status of the age assurance process.
-@override@AgeAssuranceEventStatusConverter() final  AgeAssuranceEventStatus status;
 /// The unique identifier for this instance of the age assurance flow, in UUID format.
 @override final  String attemptId;
+/// The status of the Age Assurance process.
+@override@AgeAssuranceEventStatusConverter() final  AgeAssuranceEventStatus status;
+@override@AccessConverter() final  Access? access;
+/// The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow.
+@override final  String? countryCode;
+/// The ISO 3166-2 region code provided when beginning the Age Assurance flow.
+@override final  String? regionCode;
 /// The IP address used when initiating the AA flow.
 @override final  String? initIp;
 /// The user agent used when initiating the AA flow.
@@ -274,16 +296,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgeAssuranceEvent&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.status, status) || other.status == status)&&(identical(other.attemptId, attemptId) || other.attemptId == attemptId)&&(identical(other.initIp, initIp) || other.initIp == initIp)&&(identical(other.initUa, initUa) || other.initUa == initUa)&&(identical(other.completeIp, completeIp) || other.completeIp == completeIp)&&(identical(other.completeUa, completeUa) || other.completeUa == completeUa)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgeAssuranceEvent&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.attemptId, attemptId) || other.attemptId == attemptId)&&(identical(other.status, status) || other.status == status)&&(identical(other.access, access) || other.access == access)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&(identical(other.initIp, initIp) || other.initIp == initIp)&&(identical(other.initUa, initUa) || other.initUa == initUa)&&(identical(other.completeIp, completeIp) || other.completeIp == completeIp)&&(identical(other.completeUa, completeUa) || other.completeUa == completeUa)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,createdAt,status,attemptId,initIp,initUa,completeIp,completeUa,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,createdAt,attemptId,status,access,countryCode,regionCode,initIp,initUa,completeIp,completeUa,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'AgeAssuranceEvent(\$type: ${$type}, createdAt: $createdAt, status: $status, attemptId: $attemptId, initIp: $initIp, initUa: $initUa, completeIp: $completeIp, completeUa: $completeUa, \$unknown: ${$unknown})';
+  return 'AgeAssuranceEvent(\$type: ${$type}, createdAt: $createdAt, attemptId: $attemptId, status: $status, access: $access, countryCode: $countryCode, regionCode: $regionCode, initIp: $initIp, initUa: $initUa, completeIp: $completeIp, completeUa: $completeUa, \$unknown: ${$unknown})';
 }
 
 
@@ -294,11 +316,11 @@ abstract mixin class _$AgeAssuranceEventCopyWith<$Res> implements $AgeAssuranceE
   factory _$AgeAssuranceEventCopyWith(_AgeAssuranceEvent value, $Res Function(_AgeAssuranceEvent) _then) = __$AgeAssuranceEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt, String attemptId,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status,@AccessConverter() Access? access, String? countryCode, String? regionCode, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 
-@override $AgeAssuranceEventStatusCopyWith<$Res> get status;
+@override $AgeAssuranceEventStatusCopyWith<$Res> get status;@override $AccessCopyWith<$Res>? get access;
 
 }
 /// @nodoc
@@ -311,13 +333,16 @@ class __$AgeAssuranceEventCopyWithImpl<$Res>
 
 /// Create a copy of AgeAssuranceEvent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? createdAt = null,Object? status = null,Object? attemptId = null,Object? initIp = freezed,Object? initUa = freezed,Object? completeIp = freezed,Object? completeUa = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? createdAt = null,Object? attemptId = null,Object? status = null,Object? access = freezed,Object? countryCode = freezed,Object? regionCode = freezed,Object? initIp = freezed,Object? initUa = freezed,Object? completeIp = freezed,Object? completeUa = freezed,Object? $unknown = freezed,}) {
   return _then(_AgeAssuranceEvent(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as AgeAssuranceEventStatus,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
-as String,initIp: freezed == initIp ? _self.initIp : initIp // ignore: cast_nullable_to_non_nullable
+as DateTime,attemptId: null == attemptId ? _self.attemptId : attemptId // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as AgeAssuranceEventStatus,access: freezed == access ? _self.access : access // ignore: cast_nullable_to_non_nullable
+as Access?,countryCode: freezed == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
+as String?,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
+as String?,initIp: freezed == initIp ? _self.initIp : initIp // ignore: cast_nullable_to_non_nullable
 as String?,initUa: freezed == initUa ? _self.initUa : initUa // ignore: cast_nullable_to_non_nullable
 as String?,completeIp: freezed == completeIp ? _self.completeIp : completeIp // ignore: cast_nullable_to_non_nullable
 as String?,completeUa: freezed == completeUa ? _self.completeUa : completeUa // ignore: cast_nullable_to_non_nullable
@@ -334,6 +359,18 @@ $AgeAssuranceEventStatusCopyWith<$Res> get status {
   
   return $AgeAssuranceEventStatusCopyWith<$Res>(_self.status, (value) {
     return _then(_self.copyWith(status: value));
+  });
+}/// Create a copy of AgeAssuranceEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccessCopyWith<$Res>? get access {
+    if (_self.access == null) {
+    return null;
+  }
+
+  return $AccessCopyWith<$Res>(_self.access!, (value) {
+    return _then(_self.copyWith(access: value));
   });
 }
 }

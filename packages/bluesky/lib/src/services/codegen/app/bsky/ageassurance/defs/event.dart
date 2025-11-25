@@ -12,19 +12,19 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import 'package:bluesky/app_bsky_ageassurance_defs.dart';
-import './age_assurance_event_status.dart';
+import './event_access.dart';
+import './event_status.dart';
 
-part 'age_assurance_event.freezed.dart';
-part 'age_assurance_event.g.dart';
+part 'event.freezed.dart';
+part 'event.g.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-/// Age assurance info coming directly from users. Only works on DID subjects.
+/// Object used to store Age Assurance data in stash.
 @freezed
-abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
+abstract class Event with _$Event {
   static const knownProps = <String>[
     'createdAt',
     'attemptId',
@@ -32,6 +32,7 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
     'access',
     'countryCode',
     'regionCode',
+    'email',
     'initIp',
     'initUa',
     'completeIp',
@@ -39,56 +40,58 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
   ];
 
   @JsonSerializable(includeIfNull: false)
-  const factory AgeAssuranceEvent({
-    @Default('tools.ozone.moderation.defs#ageAssuranceEvent') String $type,
+  const factory Event({
+    @Default('app.bsky.ageassurance.defs#event') String $type,
 
     /// The date and time of this write operation.
     required DateTime createdAt,
 
-    /// The unique identifier for this instance of the age assurance flow, in UUID format.
+    /// The unique identifier for this instance of the Age Assurance flow, in UUID format.
     required String attemptId,
 
     /// The status of the Age Assurance process.
-    @AgeAssuranceEventStatusConverter() required AgeAssuranceEventStatus status,
-    @AccessConverter() Access? access,
+    @EventStatusConverter() required EventStatus status,
+
+    /// The access level granted based on Age Assurance data we've processed.
+    @EventAccessConverter() required EventAccess access,
 
     /// The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow.
-    String? countryCode,
+    required String countryCode,
 
     /// The ISO 3166-2 region code provided when beginning the Age Assurance flow.
     String? regionCode,
 
-    /// The IP address used when initiating the AA flow.
+    /// The email used for Age Assurance.
+    String? email,
+
+    /// The IP address used when initiating the Age Assurance flow.
     String? initIp,
 
-    /// The user agent used when initiating the AA flow.
+    /// The user agent used when initiating the Age Assurance flow.
     String? initUa,
 
-    /// The IP address used when completing the AA flow.
+    /// The IP address used when completing the Age Assurance flow.
     String? completeIp,
 
-    /// The user agent used when completing the AA flow.
+    /// The user agent used when completing the Age Assurance flow.
     String? completeUa,
 
     Map<String, dynamic>? $unknown,
-  }) = _AgeAssuranceEvent;
+  }) = _Event;
 
-  factory AgeAssuranceEvent.fromJson(Map<String, Object?> json) =>
-      _$AgeAssuranceEventFromJson(json);
+  factory Event.fromJson(Map<String, Object?> json) => _$EventFromJson(json);
 
   static bool validate(final Map<String, dynamic> object) {
     if (!object.containsKey('\$type')) return false;
-    return object['\$type'] == 'tools.ozone.moderation.defs#ageAssuranceEvent';
+    return object['\$type'] == 'app.bsky.ageassurance.defs#event';
   }
 }
 
-extension AgeAssuranceEventExtension on AgeAssuranceEvent {
-  bool get hasAccess => access != null;
-  bool get hasNotAccess => !hasAccess;
-  bool get hasCountryCode => countryCode != null;
-  bool get hasNotCountryCode => !hasCountryCode;
+extension EventExtension on Event {
   bool get hasRegionCode => regionCode != null;
   bool get hasNotRegionCode => !hasRegionCode;
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
   bool get hasInitIp => initIp != null;
   bool get hasNotInitIp => !hasInitIp;
   bool get hasInitUa => initUa != null;
@@ -99,18 +102,14 @@ extension AgeAssuranceEventExtension on AgeAssuranceEvent {
   bool get hasNotCompleteUa => !hasCompleteUa;
 }
 
-final class AgeAssuranceEventConverter
-    extends JsonConverter<AgeAssuranceEvent, Map<String, dynamic>> {
-  const AgeAssuranceEventConverter();
+final class EventConverter extends JsonConverter<Event, Map<String, dynamic>> {
+  const EventConverter();
 
   @override
-  AgeAssuranceEvent fromJson(Map<String, dynamic> json) {
-    return AgeAssuranceEvent.fromJson(
-      translate(json, AgeAssuranceEvent.knownProps),
-    );
+  Event fromJson(Map<String, dynamic> json) {
+    return Event.fromJson(translate(json, Event.knownProps));
   }
 
   @override
-  Map<String, dynamic> toJson(AgeAssuranceEvent object) =>
-      untranslate(object.toJson());
+  Map<String, dynamic> toJson(Event object) => untranslate(object.toJson());
 }

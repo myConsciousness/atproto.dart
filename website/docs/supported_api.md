@@ -269,6 +269,14 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.labeler.getServices](https://pub.dev/documentation/bluesky/latest/app_bsky_services/LabelerService/getServices.html)** | [Reference](lexicons/app/bsky/labeler/getServices.md) | ❌ |
 | **[app.bsky.labeler.service](https://pub.dev/documentation/bluesky/latest/app_bsky_services/LabelerService/service.html)** | [Reference](lexicons/app/bsky/labeler/service.md) | ❌ |
 
+### app.bsky.ageassurance
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[app.bsky.ageassurance.begin](https://pub.dev/documentation/bluesky/latest/app_bsky_services/AgeassuranceService/begin.html)** | [Reference](lexicons/app/bsky/ageassurance/begin.md) | ❌ |
+| **[app.bsky.ageassurance.getConfig](https://pub.dev/documentation/bluesky/latest/app_bsky_services/AgeassuranceService/getConfig.html)** | [Reference](lexicons/app/bsky/ageassurance/getConfig.md) | ❌ |
+| **[app.bsky.ageassurance.getState](https://pub.dev/documentation/bluesky/latest/app_bsky_services/AgeassuranceService/getState.html)** | [Reference](lexicons/app/bsky/ageassurance/getState.md) | ❌ |
+
 ### app.bsky.video
 
 | Method | Docs | Paging (cursor) |
