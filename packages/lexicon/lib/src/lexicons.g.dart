@@ -12426,10 +12426,10 @@ const toolsOzoneTeamDefs = <String, dynamic>{
         "role": {
           "type": "string",
           "knownValues": [
-            "#roleAdmin",
-            "#roleModerator",
-            "#roleTriage",
-            "#roleVerifier",
+            "tools.ozone.team.defs#roleAdmin",
+            "tools.ozone.team.defs#roleModerator",
+            "tools.ozone.team.defs#roleTriage",
+            "tools.ozone.team.defs#roleVerifier",
           ],
         },
       },
@@ -14005,10 +14005,10 @@ const toolsOzoneModerationDefs = <String, dynamic>{
     "subjectReviewState": {
       "type": "string",
       "knownValues": [
-        "#reviewOpen",
-        "#reviewEscalated",
-        "#reviewClosed",
-        "#reviewNone",
+        "tools.ozone.moderation.defs#reviewOpen",
+        "tools.ozone.moderation.defs#reviewEscalated",
+        "tools.ozone.moderation.defs#reviewClosed",
+        "tools.ozone.moderation.defs#reviewNone",
       ],
     },
     "reviewOpen": {

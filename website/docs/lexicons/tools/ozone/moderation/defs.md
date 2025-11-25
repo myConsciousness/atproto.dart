@@ -116,7 +116,7 @@ Strike information for an account
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **subjectReviewState** | string | [#reviewOpen](#reviewopen)<br/>[#reviewEscalated](#reviewescalated)<br/>[#reviewClosed](#reviewclosed)<br/>[#reviewNone](#reviewnone) | ❌ | - |
+| **subjectReviewState** | string | [tools.ozone.moderation.defs#reviewOpen](../../../../lexicons/tools/ozone/moderation/defs.md#reviewopen)<br/>[tools.ozone.moderation.defs#reviewEscalated](../../../../lexicons/tools/ozone/moderation/defs.md#reviewescalated)<br/>[tools.ozone.moderation.defs#reviewClosed](../../../../lexicons/tools/ozone/moderation/defs.md#reviewclosed)<br/>[tools.ozone.moderation.defs#reviewNone](../../../../lexicons/tools/ozone/moderation/defs.md#reviewnone) | ❌ | - |
 
 ## #reviewOpen
 
