@@ -214,8 +214,11 @@ Age assurance info coming directly from users. Only works on DID subjects.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | The date and time of this write operation. |
-| **status** | string | unknown<br/>pending<br/>assured | ✅ | The status of the age assurance process. |
 | **attemptId** | string | - | ✅ | The unique identifier for this instance of the age assurance flow, in UUID format. |
+| **status** | string | unknown<br/>pending<br/>assured | ✅ | The status of the Age Assurance process. |
+| **access** | [app.bsky.ageassurance.defs#access](../../../../lexicons/app/bsky/ageassurance/defs.md#access) | - | ❌ | - |
+| **countryCode** | string | - | ❌ | The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow. |
+| **regionCode** | string | - | ❌ | The ISO 3166-2 region code provided when beginning the Age Assurance flow. |
 | **initIp** | string | - | ❌ | The IP address used when initiating the AA flow. |
 | **initUa** | string | - | ❌ | The user agent used when initiating the AA flow. |
 | **completeIp** | string | - | ❌ | The IP address used when completing the AA flow. |
@@ -228,6 +231,7 @@ Age assurance status override by moderators. Only works on DID subjects.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **status** | string | assured<br/>reset<br/>blocked | ✅ | The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state. |
+| **access** | [app.bsky.ageassurance.defs#access](../../../../lexicons/app/bsky/ageassurance/defs.md#access) | - | ❌ | - |
 | **comment** | string | - | ✅ | Comment describing the reason for the override. |
 
 ## #revokeAccountCredentialsEvent

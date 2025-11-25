@@ -145,6 +145,69 @@ const appBskyActorStatus = 'app.bsky.actor.status';
 /// `app.bsky.actor.status#live`
 const appBskyActorStatusLive = 'app.bsky.actor.status#live';
 
+/// `app.bsky.ageassurance.begin`
+const appBskyAgeassuranceBegin = 'app.bsky.ageassurance.begin';
+
+/// `app.bsky.ageassurance.defs`
+const appBskyAgeassuranceDefs = 'app.bsky.ageassurance.defs';
+
+/// `app.bsky.ageassurance.defs#access`
+const appBskyAgeassuranceDefsAccess = 'app.bsky.ageassurance.defs#access';
+
+/// `app.bsky.ageassurance.defs#config`
+const appBskyAgeassuranceDefsConfig = 'app.bsky.ageassurance.defs#config';
+
+/// `app.bsky.ageassurance.defs#configRegion`
+const appBskyAgeassuranceDefsConfigRegion =
+    'app.bsky.ageassurance.defs#configRegion';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleDefault`
+const appBskyAgeassuranceDefsConfigRegionRuleDefault =
+    'app.bsky.ageassurance.defs#configRegionRuleDefault';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleIfAccountNewerThan`
+const appBskyAgeassuranceDefsConfigRegionRuleIfAccountNewerThan =
+    'app.bsky.ageassurance.defs#configRegionRuleIfAccountNewerThan';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleIfAccountOlderThan`
+const appBskyAgeassuranceDefsConfigRegionRuleIfAccountOlderThan =
+    'app.bsky.ageassurance.defs#configRegionRuleIfAccountOlderThan';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleIfAssuredOverAge`
+const appBskyAgeassuranceDefsConfigRegionRuleIfAssuredOverAge =
+    'app.bsky.ageassurance.defs#configRegionRuleIfAssuredOverAge';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleIfAssuredUnderAge`
+const appBskyAgeassuranceDefsConfigRegionRuleIfAssuredUnderAge =
+    'app.bsky.ageassurance.defs#configRegionRuleIfAssuredUnderAge';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleIfDeclaredOverAge`
+const appBskyAgeassuranceDefsConfigRegionRuleIfDeclaredOverAge =
+    'app.bsky.ageassurance.defs#configRegionRuleIfDeclaredOverAge';
+
+/// `app.bsky.ageassurance.defs#configRegionRuleIfDeclaredUnderAge`
+const appBskyAgeassuranceDefsConfigRegionRuleIfDeclaredUnderAge =
+    'app.bsky.ageassurance.defs#configRegionRuleIfDeclaredUnderAge';
+
+/// `app.bsky.ageassurance.defs#event`
+const appBskyAgeassuranceDefsEvent = 'app.bsky.ageassurance.defs#event';
+
+/// `app.bsky.ageassurance.defs#state`
+const appBskyAgeassuranceDefsState = 'app.bsky.ageassurance.defs#state';
+
+/// `app.bsky.ageassurance.defs#stateMetadata`
+const appBskyAgeassuranceDefsStateMetadata =
+    'app.bsky.ageassurance.defs#stateMetadata';
+
+/// `app.bsky.ageassurance.defs#status`
+const appBskyAgeassuranceDefsStatus = 'app.bsky.ageassurance.defs#status';
+
+/// `app.bsky.ageassurance.getConfig`
+const appBskyAgeassuranceGetConfig = 'app.bsky.ageassurance.getConfig';
+
+/// `app.bsky.ageassurance.getState`
+const appBskyAgeassuranceGetState = 'app.bsky.ageassurance.getState';
+
 /// `app.bsky.bookmark.createBookmark`
 const appBskyBookmarkCreateBookmark = 'app.bsky.bookmark.createBookmark';
 

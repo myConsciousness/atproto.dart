@@ -23,6 +23,13 @@ _AgeAssuranceOverrideEvent _$AgeAssuranceOverrideEventFromJson(Map json) =>
             v as String,
           ),
         ),
+        access: $checkedConvert(
+          'access',
+          (v) => _$JsonConverterFromJson<String, Access>(
+            v,
+            const AccessConverter().fromJson,
+          ),
+        ),
         comment: $checkedConvert('comment', (v) => v as String),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -39,6 +46,20 @@ Map<String, dynamic> _$AgeAssuranceOverrideEventToJson(
   'status': const AgeAssuranceOverrideEventStatusConverter().toJson(
     instance.status,
   ),
+  'access': ?_$JsonConverterToJson<String, Access>(
+    instance.access,
+    const AccessConverter().toJson,
+  ),
   'comment': instance.comment,
   r'$unknown': ?instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);
