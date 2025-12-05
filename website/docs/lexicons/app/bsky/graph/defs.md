@@ -116,3 +116,7 @@ lists the bi-directional graph relationships between one actor (not indicated in
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **following** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor follows this DID, this is the AT-URI of the follow record |
 | **followedBy** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor is followed by this DID, contains the AT-URI of the follow record |
+| **blocking** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor blocks this DID, this is the AT-URI of the block record |
+| **blockedBy** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor is blocked by this DID, contains the AT-URI of the block record |
+| **blockingByList** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor blocks this DID via a block list, this is the AT-URI of the listblock record |
+| **blockedByList** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record |
