@@ -22,7 +22,15 @@ part 'relationship.g.dart';
 /// lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)
 @freezed
 abstract class Relationship with _$Relationship {
-  static const knownProps = <String>['did', 'following', 'followedBy'];
+  static const knownProps = <String>[
+    'did',
+    'following',
+    'followedBy',
+    'blocking',
+    'blockedBy',
+    'blockingByList',
+    'blockedByList',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory Relationship({
@@ -34,6 +42,18 @@ abstract class Relationship with _$Relationship {
 
     /// if the actor is followed by this DID, contains the AT-URI of the follow record
     @AtUriConverter() AtUri? followedBy,
+
+    /// if the actor blocks this DID, this is the AT-URI of the block record
+    @AtUriConverter() AtUri? blocking,
+
+    /// if the actor is blocked by this DID, contains the AT-URI of the block record
+    @AtUriConverter() AtUri? blockedBy,
+
+    /// if the actor blocks this DID via a block list, this is the AT-URI of the listblock record
+    @AtUriConverter() AtUri? blockingByList,
+
+    /// if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record
+    @AtUriConverter() AtUri? blockedByList,
 
     Map<String, dynamic>? $unknown,
   }) = _Relationship;
@@ -52,6 +72,14 @@ extension RelationshipExtension on Relationship {
   bool get hasNotFollowing => !hasFollowing;
   bool get hasFollowedBy => followedBy != null;
   bool get hasNotFollowedBy => !hasFollowedBy;
+  bool get hasBlocking => blocking != null;
+  bool get hasNotBlocking => !hasBlocking;
+  bool get hasBlockedBy => blockedBy != null;
+  bool get hasNotBlockedBy => !hasBlockedBy;
+  bool get hasBlockingByList => blockingByList != null;
+  bool get hasNotBlockingByList => !hasBlockingByList;
+  bool get hasBlockedByList => blockedByList != null;
+  bool get hasNotBlockedByList => !hasBlockedByList;
 }
 
 final class RelationshipConverter
