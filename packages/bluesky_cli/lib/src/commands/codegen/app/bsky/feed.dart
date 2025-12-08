@@ -42,30 +42,30 @@ import 'feed/threadgate.dart';
 
 final class AppBskyFeedCommand extends Command<void> {
   AppBskyFeedCommand() {
-    addSubcommand(GetFeedGeneratorCommand());
-    addSubcommand(GetActorFeedsCommand());
-    addSubcommand(RepostCommand());
-    addSubcommand(GetTimelineCommand());
-    addSubcommand(GetLikesCommand());
-    addSubcommand(ThreadgateCommand());
-    addSubcommand(GetFeedGeneratorsCommand());
-    addSubcommand(GetFeedCommand());
-    addSubcommand(GetFeedSkeletonCommand());
-    addSubcommand(DescribeFeedGeneratorCommand());
     addSubcommand(GeneratorCommand());
-    addSubcommand(GetActorLikesCommand());
-    addSubcommand(GetAuthorFeedCommand());
     addSubcommand(SendInteractionsCommand());
-    addSubcommand(GetSuggestedFeedsCommand());
-    addSubcommand(GetPostThreadCommand());
+    addSubcommand(GetFeedGeneratorsCommand());
+    addSubcommand(GetTimelineCommand());
+    addSubcommand(GetFeedGeneratorCommand());
+    addSubcommand(GetAuthorFeedCommand());
+    addSubcommand(GetLikesCommand());
     addSubcommand(PostgateCommand());
-    addSubcommand(GetQuotesCommand());
-    addSubcommand(GetPostsCommand());
-    addSubcommand(SearchPostsCommand());
-    addSubcommand(PostCommand());
-    addSubcommand(GetListFeedCommand());
+    addSubcommand(ThreadgateCommand());
+    addSubcommand(GetPostThreadCommand());
+    addSubcommand(GetActorLikesCommand());
     addSubcommand(LikeCommand());
     addSubcommand(GetRepostedByCommand());
+    addSubcommand(RepostCommand());
+    addSubcommand(DescribeFeedGeneratorCommand());
+    addSubcommand(SearchPostsCommand());
+    addSubcommand(GetPostsCommand());
+    addSubcommand(GetFeedCommand());
+    addSubcommand(GetQuotesCommand());
+    addSubcommand(GetFeedSkeletonCommand());
+    addSubcommand(GetListFeedCommand());
+    addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(GetActorFeedsCommand());
+    addSubcommand(PostCommand());
   }
 
   @override

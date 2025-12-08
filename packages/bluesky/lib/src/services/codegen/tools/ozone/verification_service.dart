@@ -10,6 +10,7 @@
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart' show iso8601;
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
@@ -28,10 +29,12 @@ toolsOzoneVerificationRevokeVerifications({
   required List<AtUri> uris,
   String? revokeReason,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.toolsOzoneVerificationRevokeVerifications,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
@@ -46,10 +49,12 @@ Future<XRPCResponse<VerificationGrantVerificationsOutput>>
 toolsOzoneVerificationGrantVerifications({
   required List<VerificationInput> verifications,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.toolsOzoneVerificationGrantVerifications,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
@@ -70,10 +75,12 @@ toolsOzoneVerificationListVerifications({
   String? sortDirection,
   bool? isRevoked,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.toolsOzoneVerificationListVerifications,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -91,22 +98,24 @@ toolsOzoneVerificationListVerifications({
 
 /// `tools.ozone.verification.*`
 base class VerificationService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  VerificationService(this._ctx);
+  VerificationService(this.ctx);
 
   /// Revoke previously granted verifications in batches of up to 100.
   Future<XRPCResponse<VerificationRevokeVerificationsOutput>>
   revokeVerifications({
     required List<AtUri> uris,
     String? revokeReason,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneVerificationRevokeVerifications(
     uris: uris,
     revokeReason: revokeReason,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -115,11 +124,13 @@ base class VerificationService {
   Future<XRPCResponse<VerificationGrantVerificationsOutput>>
   grantVerifications({
     required List<VerificationInput> verifications,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneVerificationGrantVerifications(
     verifications: verifications,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -134,6 +145,7 @@ base class VerificationService {
     List<String>? subjects,
     String? sortDirection,
     bool? isRevoked,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneVerificationListVerifications(
@@ -145,7 +157,8 @@ base class VerificationService {
     subjects: subjects,
     sortDirection: sortDirection,
     isRevoked: isRevoked,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );

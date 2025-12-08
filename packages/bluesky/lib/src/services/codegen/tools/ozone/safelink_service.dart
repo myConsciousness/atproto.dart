@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
@@ -25,32 +26,6 @@ import 'safelink/queryRules/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Update an existing URL safety rule
-Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
-  required String url,
-  required PatternType pattern,
-  required ActionType action,
-  required ReasonType reason,
-  String? comment,
-  String? createdBy,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneSafelinkUpdateRule,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'url': url,
-    'pattern': pattern.toJson(),
-    'action': action.toJson(),
-    'reason': reason.toJson(),
-    if (comment != null) 'comment': comment,
-    if (createdBy != null) 'createdBy': createdBy,
-  },
-  to: const EventConverter().fromJson,
-);
-
 /// Add a new URL safety rule
 Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   required String url,
@@ -60,10 +35,12 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   String? comment,
   String? createdBy,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.toolsOzoneSafelinkAddRule,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
@@ -84,15 +61,45 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
   String? comment,
   String? createdBy,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.toolsOzoneSafelinkRemoveRule,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
     'url': url,
     'pattern': pattern.toJson(),
+    if (comment != null) 'comment': comment,
+    if (createdBy != null) 'createdBy': createdBy,
+  },
+  to: const EventConverter().fromJson,
+);
+
+/// Update an existing URL safety rule
+Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
+  required String url,
+  required PatternType pattern,
+  required ActionType action,
+  required ReasonType reason,
+  String? comment,
+  String? createdBy,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneSafelinkUpdateRule,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'url': url,
+    'pattern': pattern.toJson(),
+    'action': action.toJson(),
+    'reason': reason.toJson(),
     if (comment != null) 'comment': comment,
     if (createdBy != null) 'createdBy': createdBy,
   },
@@ -107,10 +114,12 @@ Future<XRPCResponse<SafelinkQueryEventsOutput>> toolsOzoneSafelinkQueryEvents({
   String? patternType,
   SafelinkQueryEventsSortDirection? sortDirection,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.toolsOzoneSafelinkQueryEvents,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
@@ -134,10 +143,12 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
   String? createdBy,
   SafelinkQueryRulesSortDirection? sortDirection,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.toolsOzoneSafelinkQueryRules,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
@@ -155,32 +166,10 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
 
 /// `tools.ozone.safelink.*`
 base class SafelinkService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  SafelinkService(this._ctx);
-
-  /// Update an existing URL safety rule
-  Future<XRPCResponse<Event>> updateRule({
-    required String url,
-    required PatternType pattern,
-    required ActionType action,
-    required ReasonType reason,
-    String? comment,
-    String? createdBy,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneSafelinkUpdateRule(
-    url: url,
-    pattern: pattern,
-    action: action,
-    reason: reason,
-    comment: comment,
-    createdBy: createdBy,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
+  SafelinkService(this.ctx);
 
   /// Add a new URL safety rule
   Future<XRPCResponse<Event>> addRule({
@@ -190,6 +179,7 @@ base class SafelinkService {
     required ReasonType reason,
     String? comment,
     String? createdBy,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneSafelinkAddRule(
@@ -199,7 +189,8 @@ base class SafelinkService {
     reason: reason,
     comment: comment,
     createdBy: createdBy,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -210,6 +201,7 @@ base class SafelinkService {
     required PatternType pattern,
     String? comment,
     String? createdBy,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneSafelinkRemoveRule(
@@ -217,7 +209,32 @@ base class SafelinkService {
     pattern: pattern,
     comment: comment,
     createdBy: createdBy,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Update an existing URL safety rule
+  Future<XRPCResponse<Event>> updateRule({
+    required String url,
+    required PatternType pattern,
+    required ActionType action,
+    required ReasonType reason,
+    String? comment,
+    String? createdBy,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneSafelinkUpdateRule(
+    url: url,
+    pattern: pattern,
+    action: action,
+    reason: reason,
+    comment: comment,
+    createdBy: createdBy,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -229,6 +246,7 @@ base class SafelinkService {
     List<String>? urls,
     String? patternType,
     SafelinkQueryEventsSortDirection? sortDirection,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneSafelinkQueryEvents(
@@ -237,7 +255,8 @@ base class SafelinkService {
     urls: urls,
     patternType: patternType,
     sortDirection: sortDirection,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -252,6 +271,7 @@ base class SafelinkService {
     String? reason,
     String? createdBy,
     SafelinkQueryRulesSortDirection? sortDirection,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneSafelinkQueryRules(
@@ -263,7 +283,8 @@ base class SafelinkService {
     reason: reason,
     createdBy: createdBy,
     sortDirection: sortDirection,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
