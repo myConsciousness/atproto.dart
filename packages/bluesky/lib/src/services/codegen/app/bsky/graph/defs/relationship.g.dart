@@ -30,6 +30,34 @@ _Relationship _$RelationshipFromJson(Map json) =>
             const AtUriConverter().fromJson,
           ),
         ),
+        blocking: $checkedConvert(
+          'blocking',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
+        blockedBy: $checkedConvert(
+          'blockedBy',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
+        blockingByList: $checkedConvert(
+          'blockingByList',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
+        blockedByList: $checkedConvert(
+          'blockedByList',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -48,6 +76,22 @@ Map<String, dynamic> _$RelationshipToJson(_Relationship instance) =>
       ),
       'followedBy': ?_$JsonConverterToJson<String, AtUri>(
         instance.followedBy,
+        const AtUriConverter().toJson,
+      ),
+      'blocking': ?_$JsonConverterToJson<String, AtUri>(
+        instance.blocking,
+        const AtUriConverter().toJson,
+      ),
+      'blockedBy': ?_$JsonConverterToJson<String, AtUri>(
+        instance.blockedBy,
+        const AtUriConverter().toJson,
+      ),
+      'blockingByList': ?_$JsonConverterToJson<String, AtUri>(
+        instance.blockingByList,
+        const AtUriConverter().toJson,
+      ),
+      'blockedByList': ?_$JsonConverterToJson<String, AtUri>(
+        instance.blockedByList,
         const AtUriConverter().toJson,
       ),
       r'$unknown': ?instance.$unknown,
