@@ -21,20 +21,27 @@ import 'signature/searchAccounts/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Find all correlated threat signatures between 2 or more accounts.
-Future<XRPCResponse<SignatureFindCorrelationOutput>>
-toolsOzoneSignatureFindCorrelation({
-  required List<String> dids,
+/// Get accounts that share some matching threat signatures with the root account.
+Future<XRPCResponse<SignatureFindRelatedAccountsOutput>>
+toolsOzoneSignatureFindRelatedAccounts({
+  required String did,
+  String? cursor,
+  int? limit,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.toolsOzoneSignatureFindCorrelation,
+  ns.toolsOzoneSignatureFindRelatedAccounts,
   service: $service,
   headers: $headers,
-  parameters: {...?$unknown, 'dids': dids},
-  to: const SignatureFindCorrelationOutputConverter().fromJson,
+  parameters: {
+    ...?$unknown,
+    'did': did,
+    if (cursor != null) 'cursor': cursor,
+    if (limit != null) 'limit': limit,
+  },
+  to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
 );
 
 /// Search for accounts that match one or more threat signature values.
@@ -60,27 +67,20 @@ toolsOzoneSignatureSearchAccounts({
   to: const SignatureSearchAccountsOutputConverter().fromJson,
 );
 
-/// Get accounts that share some matching threat signatures with the root account.
-Future<XRPCResponse<SignatureFindRelatedAccountsOutput>>
-toolsOzoneSignatureFindRelatedAccounts({
-  required String did,
-  String? cursor,
-  int? limit,
+/// Find all correlated threat signatures between 2 or more accounts.
+Future<XRPCResponse<SignatureFindCorrelationOutput>>
+toolsOzoneSignatureFindCorrelation({
+  required List<String> dids,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.toolsOzoneSignatureFindRelatedAccounts,
+  ns.toolsOzoneSignatureFindCorrelation,
   service: $service,
   headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'did': did,
-    if (cursor != null) 'cursor': cursor,
-    if (limit != null) 'limit': limit,
-  },
-  to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
+  parameters: {...?$unknown, 'dids': dids},
+  to: const SignatureFindCorrelationOutputConverter().fromJson,
 );
 
 /// `tools.ozone.signature.*`
@@ -90,14 +90,18 @@ base class SignatureService {
 
   SignatureService(this.ctx);
 
-  /// Find all correlated threat signatures between 2 or more accounts.
-  Future<XRPCResponse<SignatureFindCorrelationOutput>> findCorrelation({
-    required List<String> dids,
+  /// Get accounts that share some matching threat signatures with the root account.
+  Future<XRPCResponse<SignatureFindRelatedAccountsOutput>> findRelatedAccounts({
+    required String did,
+    String? cursor,
+    int? limit,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneSignatureFindCorrelation(
-    dids: dids,
+  }) async => await toolsOzoneSignatureFindRelatedAccounts(
+    did: did,
+    cursor: cursor,
+    limit: limit,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -122,18 +126,14 @@ base class SignatureService {
     $unknown: $unknown,
   );
 
-  /// Get accounts that share some matching threat signatures with the root account.
-  Future<XRPCResponse<SignatureFindRelatedAccountsOutput>> findRelatedAccounts({
-    required String did,
-    String? cursor,
-    int? limit,
+  /// Find all correlated threat signatures between 2 or more accounts.
+  Future<XRPCResponse<SignatureFindCorrelationOutput>> findCorrelation({
+    required List<String> dids,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneSignatureFindRelatedAccounts(
-    did: did,
-    cursor: cursor,
-    limit: limit,
+  }) async => await toolsOzoneSignatureFindCorrelation(
+    dids: dids,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

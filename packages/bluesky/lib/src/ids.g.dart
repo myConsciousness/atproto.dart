@@ -226,6 +226,38 @@ const appBskyBookmarkDeleteBookmark = 'app.bsky.bookmark.deleteBookmark';
 /// `app.bsky.bookmark.getBookmarks`
 const appBskyBookmarkGetBookmarks = 'app.bsky.bookmark.getBookmarks';
 
+/// `app.bsky.contact.defs`
+const appBskyContactDefs = 'app.bsky.contact.defs';
+
+/// `app.bsky.contact.defs#matchAndContactIndex`
+const appBskyContactDefsMatchAndContactIndex =
+    'app.bsky.contact.defs#matchAndContactIndex';
+
+/// `app.bsky.contact.defs#syncStatus`
+const appBskyContactDefsSyncStatus = 'app.bsky.contact.defs#syncStatus';
+
+/// `app.bsky.contact.dismissMatch`
+const appBskyContactDismissMatch = 'app.bsky.contact.dismissMatch';
+
+/// `app.bsky.contact.getMatches`
+const appBskyContactGetMatches = 'app.bsky.contact.getMatches';
+
+/// `app.bsky.contact.getSyncStatus`
+const appBskyContactGetSyncStatus = 'app.bsky.contact.getSyncStatus';
+
+/// `app.bsky.contact.importContacts`
+const appBskyContactImportContacts = 'app.bsky.contact.importContacts';
+
+/// `app.bsky.contact.removeData`
+const appBskyContactRemoveData = 'app.bsky.contact.removeData';
+
+/// `app.bsky.contact.startPhoneVerification`
+const appBskyContactStartPhoneVerification =
+    'app.bsky.contact.startPhoneVerification';
+
+/// `app.bsky.contact.verifyPhone`
+const appBskyContactVerifyPhone = 'app.bsky.contact.verifyPhone';
+
 /// `app.bsky.embed.defs`
 const appBskyEmbedDefs = 'app.bsky.embed.defs';
 

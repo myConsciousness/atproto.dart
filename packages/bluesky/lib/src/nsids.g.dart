@@ -62,6 +62,29 @@ const appBskyBookmarkDeleteBookmark = NSID(ids.appBskyBookmarkDeleteBookmark);
 /// `app.bsky.bookmark.getBookmarks`
 const appBskyBookmarkGetBookmarks = NSID(ids.appBskyBookmarkGetBookmarks);
 
+/// `app.bsky.contact.dismissMatch`
+const appBskyContactDismissMatch = NSID(ids.appBskyContactDismissMatch);
+
+/// `app.bsky.contact.getMatches`
+const appBskyContactGetMatches = NSID(ids.appBskyContactGetMatches);
+
+/// `app.bsky.contact.getSyncStatus`
+const appBskyContactGetSyncStatus = NSID(ids.appBskyContactGetSyncStatus);
+
+/// `app.bsky.contact.importContacts`
+const appBskyContactImportContacts = NSID(ids.appBskyContactImportContacts);
+
+/// `app.bsky.contact.removeData`
+const appBskyContactRemoveData = NSID(ids.appBskyContactRemoveData);
+
+/// `app.bsky.contact.startPhoneVerification`
+const appBskyContactStartPhoneVerification = NSID(
+  ids.appBskyContactStartPhoneVerification,
+);
+
+/// `app.bsky.contact.verifyPhone`
+const appBskyContactVerifyPhone = NSID(ids.appBskyContactVerifyPhone);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 

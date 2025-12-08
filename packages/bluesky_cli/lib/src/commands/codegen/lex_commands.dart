@@ -11,6 +11,7 @@
 import 'app/bsky/actor.dart';
 import 'app/bsky/ageassurance.dart';
 import 'app/bsky/bookmark.dart';
+import 'app/bsky/contact.dart';
 import 'app/bsky/feed.dart';
 import 'app/bsky/graph.dart';
 import 'app/bsky/labeler.dart';
@@ -45,35 +46,36 @@ import 'tools/ozone/verification.dart';
 // **************************************************************************
 
 final lexCommands = [
-  ComAtprotoTempCommand(),
-  ComAtprotoIdentityCommand(),
   ComAtprotoAdminCommand(),
-  ComAtprotoLabelCommand(),
+  ComAtprotoTempCommand(),
   ComAtprotoServerCommand(),
+  ComAtprotoModerationCommand(),
+  ComAtprotoIdentityCommand(),
+  ComAtprotoRepoCommand(),
   ComAtprotoLexiconCommand(),
   ComAtprotoSyncCommand(),
-  ComAtprotoRepoCommand(),
-  ComAtprotoModerationCommand(),
-  AppBskyVideoCommand(),
+  ComAtprotoLabelCommand(),
   AppBskyBookmarkCommand(),
-  AppBskyNotificationCommand(),
-  AppBskyUnspeccedCommand(),
-  AppBskyGraphCommand(),
   AppBskyFeedCommand(),
-  AppBskyAgeassuranceCommand(),
   AppBskyActorCommand(),
+  AppBskyGraphCommand(),
+  AppBskyUnspeccedCommand(),
   AppBskyLabelerCommand(),
-  ChatBskyConvoCommand(),
-  ChatBskyActorCommand(),
+  AppBskyAgeassuranceCommand(),
+  AppBskyVideoCommand(),
+  AppBskyContactCommand(),
+  AppBskyNotificationCommand(),
   ChatBskyModerationCommand(),
-  ToolsOzoneSignatureCommand(),
-  ToolsOzoneServerCommand(),
-  ToolsOzoneVerificationCommand(),
-  ToolsOzoneSafelinkCommand(),
+  ChatBskyActorCommand(),
+  ChatBskyConvoCommand(),
   ToolsOzoneTeamCommand(),
+  ToolsOzoneVerificationCommand(),
+  ToolsOzoneServerCommand(),
+  ToolsOzoneModerationCommand(),
   ToolsOzoneHostingCommand(),
   ToolsOzoneCommunicationCommand(),
+  ToolsOzoneSignatureCommand(),
   ToolsOzoneSetCommand(),
+  ToolsOzoneSafelinkCommand(),
   ToolsOzoneSettingCommand(),
-  ToolsOzoneModerationCommand(),
 ];
