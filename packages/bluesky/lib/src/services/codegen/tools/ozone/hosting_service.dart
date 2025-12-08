@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
@@ -27,10 +28,12 @@ toolsOzoneHostingGetAccountHistory({
   String? cursor,
   int? limit,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.toolsOzoneHostingGetAccountHistory,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -44,10 +47,10 @@ toolsOzoneHostingGetAccountHistory({
 
 /// `tools.ozone.hosting.*`
 base class HostingService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  HostingService(this._ctx);
+  HostingService(this.ctx);
 
   /// Get account history, e.g. log of updated email addresses or other identity information.
   Future<XRPCResponse<HostingGetAccountHistoryOutput>> getAccountHistory({
@@ -55,6 +58,7 @@ base class HostingService {
     List<HostingGetAccountHistoryEvents>? events,
     String? cursor,
     int? limit,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneHostingGetAccountHistory(
@@ -62,7 +66,8 @@ base class HostingService {
     events: events,
     cursor: cursor,
     limit: limit,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );

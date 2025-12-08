@@ -16,6 +16,7 @@ import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart' show iso8601;
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -61,37 +62,36 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
-/// Get information about a feed generator. Implemented by AppView.
-Future<XRPCResponse<FeedGetFeedGeneratorOutput>> appBskyFeedGetFeedGenerator({
-  required AtUri feed,
+/// Send information about interactions with feed items back to the feed generator that served them.
+Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
+  required List<Interaction> interactions,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyFeedGetFeedGenerator,
-  headers: $headers,
-  parameters: {...?$unknown, 'feed': feed.toString()},
-  to: const FeedGetFeedGeneratorOutputConverter().fromJson,
+}) async => await $ctx.post(
+  ns.appBskyFeedSendInteractions,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'interactions': interactions.map((e) => e.toJson()).toList(),
+  },
 );
 
-/// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
-Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
-  required String actor,
-  int? limit,
-  String? cursor,
+/// Get information about a list of feed generators.
+Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> appBskyFeedGetFeedGenerators({
+  required List<AtUri> feeds,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyFeedGetActorFeeds,
+  ns.appBskyFeedGetFeedGenerators,
+  service: $service,
   headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'actor': actor,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const FeedGetActorFeedsOutputConverter().fromJson,
+  parameters: {...?$unknown, 'feeds': feeds.map((e) => e.toString()).toList()},
+  to: const FeedGetFeedGeneratorsOutputConverter().fromJson,
 );
 
 /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
@@ -100,10 +100,12 @@ Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetTimeline,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -114,112 +116,19 @@ Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
   to: const FeedGetTimelineOutputConverter().fromJson,
 );
 
-/// Get like records which reference a subject (by AT-URI and CID).
-Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
-  required AtUri uri,
-  String? cid,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyFeedGetLikes,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'uri': uri.toString(),
-    if (cid != null) 'cid': cid,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const FeedGetLikesOutputConverter().fromJson,
-);
-
-/// Get information about a list of feed generators.
-Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> appBskyFeedGetFeedGenerators({
-  required List<AtUri> feeds,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyFeedGetFeedGenerators,
-  headers: $headers,
-  parameters: {...?$unknown, 'feeds': feeds.map((e) => e.toString()).toList()},
-  to: const FeedGetFeedGeneratorsOutputConverter().fromJson,
-);
-
-/// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
-Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
+/// Get information about a feed generator. Implemented by AppView.
+Future<XRPCResponse<FeedGetFeedGeneratorOutput>> appBskyFeedGetFeedGenerator({
   required AtUri feed,
-  int? limit,
-  String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyFeedGetFeed,
+  ns.appBskyFeedGetFeedGenerator,
+  service: $service,
   headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'feed': feed.toString(),
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const FeedGetFeedOutputConverter().fromJson,
-);
-
-/// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
-Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
-  required AtUri feed,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyFeedGetFeedSkeleton,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'feed': feed.toString(),
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const FeedGetFeedSkeletonOutputConverter().fromJson,
-);
-
-/// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
-Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>>
-appBskyFeedDescribeFeedGenerator({
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyFeedDescribeFeedGenerator,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const FeedDescribeFeedGeneratorOutputConverter().fromJson,
-);
-
-/// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
-Future<XRPCResponse<FeedGetActorLikesOutput>> appBskyFeedGetActorLikes({
-  required String actor,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyFeedGetActorLikes,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'actor': actor,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const FeedGetActorLikesOutputConverter().fromJson,
+  parameters: {...?$unknown, 'feed': feed.toString()},
+  to: const FeedGetFeedGeneratorOutputConverter().fromJson,
 );
 
 /// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
@@ -230,10 +139,12 @@ Future<XRPCResponse<FeedGetAuthorFeedOutput>> appBskyFeedGetAuthorFeed({
   FeedGetAuthorFeedFilter? filter,
   bool? includePins,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetAuthorFeed,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -246,37 +157,28 @@ Future<XRPCResponse<FeedGetAuthorFeedOutput>> appBskyFeedGetAuthorFeed({
   to: const FeedGetAuthorFeedOutputConverter().fromJson,
 );
 
-/// Send information about interactions with feed items back to the feed generator that served them.
-Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
-  required List<Interaction> interactions,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyFeedSendInteractions,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'interactions': interactions.map((e) => e.toJson()).toList(),
-  },
-);
-
-/// Get a list of suggested feeds (feed generators) for the requesting account.
-Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> appBskyFeedGetSuggestedFeeds({
+/// Get like records which reference a subject (by AT-URI and CID).
+Future<XRPCResponse<FeedGetLikesOutput>> appBskyFeedGetLikes({
+  required AtUri uri,
+  String? cid,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyFeedGetSuggestedFeeds,
+  ns.appBskyFeedGetLikes,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
+    'uri': uri.toString(),
+    if (cid != null) 'cid': cid,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
-  to: const FeedGetSuggestedFeedsOutputConverter().fromJson,
+  to: const FeedGetLikesOutputConverter().fromJson,
 );
 
 /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
@@ -285,10 +187,12 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
   int? depth,
   int? parentHeight,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetPostThread,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -299,17 +203,41 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
   to: const FeedGetPostThreadOutputConverter().fromJson,
 );
 
-/// Get a list of quotes for a given post.
-Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
+/// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
+Future<XRPCResponse<FeedGetActorLikesOutput>> appBskyFeedGetActorLikes({
+  required String actor,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetActorLikes,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetActorLikesOutputConverter().fromJson,
+);
+
+/// Get a list of reposts for a given post.
+Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
   required AtUri uri,
   String? cid,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyFeedGetQuotes,
+  ns.appBskyFeedGetRepostedBy,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -318,20 +246,22 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
-  to: const FeedGetQuotesOutputConverter().fromJson,
+  to: const FeedGetRepostedByOutputConverter().fromJson,
 );
 
-/// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
-Future<XRPCResponse<FeedGetPostsOutput>> appBskyFeedGetPosts({
-  required List<AtUri> uris,
+/// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
+Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>>
+appBskyFeedDescribeFeedGenerator({
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyFeedGetPosts,
+  ns.appBskyFeedDescribeFeedGenerator,
+  service: $service,
   headers: $headers,
-  parameters: {...?$unknown, 'uris': uris.map((e) => e.toString()).toList()},
-  to: const FeedGetPostsOutputConverter().fromJson,
+  parameters: {...?$unknown},
+  to: const FeedDescribeFeedGeneratorOutputConverter().fromJson,
 );
 
 /// Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.
@@ -349,10 +279,12 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedSearchPosts,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -372,16 +304,101 @@ Future<XRPCResponse<FeedSearchPostsOutput>> appBskyFeedSearchPosts({
   to: const FeedSearchPostsOutputConverter().fromJson,
 );
 
+/// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
+Future<XRPCResponse<FeedGetPostsOutput>> appBskyFeedGetPosts({
+  required List<AtUri> uris,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetPosts,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, 'uris': uris.map((e) => e.toString()).toList()},
+  to: const FeedGetPostsOutputConverter().fromJson,
+);
+
+/// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
+Future<XRPCResponse<FeedGetFeedOutput>> appBskyFeedGetFeed({
+  required AtUri feed,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetFeed,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'feed': feed.toString(),
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetFeedOutputConverter().fromJson,
+);
+
+/// Get a list of quotes for a given post.
+Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
+  required AtUri uri,
+  String? cid,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetQuotes,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uri': uri.toString(),
+    if (cid != null) 'cid': cid,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetQuotesOutputConverter().fromJson,
+);
+
+/// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
+Future<XRPCResponse<FeedGetFeedSkeletonOutput>> appBskyFeedGetFeedSkeleton({
+  required AtUri feed,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetFeedSkeleton,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'feed': feed.toString(),
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetFeedSkeletonOutputConverter().fromJson,
+);
+
 /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
 Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
   required AtUri list,
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyFeedGetListFeed,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -392,185 +409,127 @@ Future<XRPCResponse<FeedGetListFeedOutput>> appBskyFeedGetListFeed({
   to: const FeedGetListFeedOutputConverter().fromJson,
 );
 
-/// Get a list of reposts for a given post.
-Future<XRPCResponse<FeedGetRepostedByOutput>> appBskyFeedGetRepostedBy({
-  required AtUri uri,
-  String? cid,
+/// Get a list of suggested feeds (feed generators) for the requesting account.
+Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> appBskyFeedGetSuggestedFeeds({
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.appBskyFeedGetRepostedBy,
+  ns.appBskyFeedGetSuggestedFeeds,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
-    'uri': uri.toString(),
-    if (cid != null) 'cid': cid,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
   },
-  to: const FeedGetRepostedByOutputConverter().fromJson,
+  to: const FeedGetSuggestedFeedsOutputConverter().fromJson,
+);
+
+/// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
+Future<XRPCResponse<FeedGetActorFeedsOutput>> appBskyFeedGetActorFeeds({
+  required String actor,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetActorFeeds,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'actor': actor,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const FeedGetActorFeedsOutputConverter().fromJson,
 );
 
 /// `app.bsky.feed.*`
 base class FeedService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  final FeedRepostRecordAccessor _repost;
-  final FeedThreadgateRecordAccessor _threadgate;
   final FeedGeneratorRecordAccessor _generator;
   final FeedPostgateRecordAccessor _postgate;
-  final FeedPostRecordAccessor _post;
+  final FeedThreadgateRecordAccessor _threadgate;
   final FeedLikeRecordAccessor _like;
+  final FeedRepostRecordAccessor _repost;
+  final FeedPostRecordAccessor _post;
 
-  FeedService(this._ctx)
-    : _repost = FeedRepostRecordAccessor(_ctx),
-      _threadgate = FeedThreadgateRecordAccessor(_ctx),
-      _generator = FeedGeneratorRecordAccessor(_ctx),
-      _postgate = FeedPostgateRecordAccessor(_ctx),
-      _post = FeedPostRecordAccessor(_ctx),
-      _like = FeedLikeRecordAccessor(_ctx);
+  FeedService(this.ctx)
+    : _generator = FeedGeneratorRecordAccessor(ctx),
+      _postgate = FeedPostgateRecordAccessor(ctx),
+      _threadgate = FeedThreadgateRecordAccessor(ctx),
+      _like = FeedLikeRecordAccessor(ctx),
+      _repost = FeedRepostRecordAccessor(ctx),
+      _post = FeedPostRecordAccessor(ctx);
 
-  /// Get information about a feed generator. Implemented by AppView.
-  Future<XRPCResponse<FeedGetFeedGeneratorOutput>> getFeedGenerator({
-    required AtUri feed,
+  /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
+  FeedGeneratorRecordAccessor get generator => _generator;
+
+  /// Send information about interactions with feed items back to the feed generator that served them.
+  Future<XRPCResponse<EmptyData>> sendInteractions({
+    required List<Interaction> interactions,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetFeedGenerator(
-    feed: feed,
-    $ctx: _ctx,
+  }) async => await appBskyFeedSendInteractions(
+    interactions: interactions,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
-  Future<XRPCResponse<FeedGetActorFeedsOutput>> getActorFeeds({
-    required String actor,
-    int? limit,
-    String? cursor,
+  /// Get information about a list of feed generators.
+  Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> getFeedGenerators({
+    required List<AtUri> feeds,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetActorFeeds(
-    actor: actor,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
+  }) async => await appBskyFeedGetFeedGenerators(
+    feeds: feeds,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// Record representing a 'repost' of an existing Bluesky post.
-  FeedRepostRecordAccessor get repost => _repost;
 
   /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
   Future<XRPCResponse<FeedGetTimelineOutput>> getTimeline({
     String? algorithm,
     int? limit,
     String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedGetTimeline(
     algorithm: algorithm,
     limit: limit,
     cursor: cursor,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Get like records which reference a subject (by AT-URI and CID).
-  Future<XRPCResponse<FeedGetLikesOutput>> getLikes({
-    required AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetLikes(
-    uri: uri,
-    cid: cid,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.
-  FeedThreadgateRecordAccessor get threadgate => _threadgate;
-
-  /// Get information about a list of feed generators.
-  Future<XRPCResponse<FeedGetFeedGeneratorsOutput>> getFeedGenerators({
-    required List<AtUri> feeds,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetFeedGenerators(
-    feeds: feeds,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
-  Future<XRPCResponse<FeedGetFeedOutput>> getFeed({
+  /// Get information about a feed generator. Implemented by AppView.
+  Future<XRPCResponse<FeedGetFeedGeneratorOutput>> getFeedGenerator({
     required AtUri feed,
-    int? limit,
-    String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetFeed(
+  }) async => await appBskyFeedGetFeedGenerator(
     feed: feed,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
-  Future<XRPCResponse<FeedGetFeedSkeletonOutput>> getFeedSkeleton({
-    required AtUri feed,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetFeedSkeleton(
-    feed: feed,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
-  Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>> describeFeedGenerator({
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedDescribeFeedGenerator(
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
-  FeedGeneratorRecordAccessor get generator => _generator;
-
-  /// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
-  Future<XRPCResponse<FeedGetActorLikesOutput>> getActorLikes({
-    required String actor,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetActorLikes(
-    actor: actor,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -582,6 +541,7 @@ base class FeedService {
     String? cursor,
     FeedGetAuthorFeedFilter? filter,
     bool? includePins,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedGetAuthorFeed(
@@ -590,49 +550,28 @@ base class FeedService {
     cursor: cursor,
     filter: filter,
     includePins: includePins,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Send information about interactions with feed items back to the feed generator that served them.
-  Future<XRPCResponse<EmptyData>> sendInteractions({
-    required List<Interaction> interactions,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedSendInteractions(
-    interactions: interactions,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get a list of suggested feeds (feed generators) for the requesting account.
-  Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> getSuggestedFeeds({
+  /// Get like records which reference a subject (by AT-URI and CID).
+  Future<XRPCResponse<FeedGetLikesOutput>> getLikes({
+    required AtUri uri,
+    String? cid,
     int? limit,
     String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetSuggestedFeeds(
+  }) async => await appBskyFeedGetLikes(
+    uri: uri,
+    cid: cid,
     limit: limit,
     cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
-  Future<XRPCResponse<FeedGetPostThreadOutput>> getPostThread({
-    required AtUri uri,
-    int? depth,
-    int? parentHeight,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetPostThread(
-    uri: uri,
-    depth: depth,
-    parentHeight: parentHeight,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -640,32 +579,79 @@ base class FeedService {
   /// Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.
   FeedPostgateRecordAccessor get postgate => _postgate;
 
-  /// Get a list of quotes for a given post.
-  Future<XRPCResponse<FeedGetQuotesOutput>> getQuotes({
+  /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.
+  FeedThreadgateRecordAccessor get threadgate => _threadgate;
+
+  /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
+  Future<XRPCResponse<FeedGetPostThreadOutput>> getPostThread({
     required AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
+    int? depth,
+    int? parentHeight,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetQuotes(
+  }) async => await appBskyFeedGetPostThread(
     uri: uri,
-    cid: cid,
-    limit: limit,
-    cursor: cursor,
-    $ctx: _ctx,
+    depth: depth,
+    parentHeight: parentHeight,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
-  Future<XRPCResponse<FeedGetPostsOutput>> getPosts({
-    required List<AtUri> uris,
+  /// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
+  Future<XRPCResponse<FeedGetActorLikesOutput>> getActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetPosts(
-    uris: uris,
-    $ctx: _ctx,
+  }) async => await appBskyFeedGetActorLikes(
+    actor: actor,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Record declaring a 'like' of a piece of subject content.
+  FeedLikeRecordAccessor get like => _like;
+
+  /// Get a list of reposts for a given post.
+  Future<XRPCResponse<FeedGetRepostedByOutput>> getRepostedBy({
+    required AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedGetRepostedBy(
+    uri: uri,
+    cid: cid,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Record representing a 'repost' of an existing Bluesky post.
+  FeedRepostRecordAccessor get repost => _repost;
+
+  /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
+  Future<XRPCResponse<FeedDescribeFeedGeneratorOutput>> describeFeedGenerator({
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedDescribeFeedGenerator(
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -684,6 +670,7 @@ base class FeedService {
     List<String>? tag,
     int? limit,
     String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedSearchPosts(
@@ -699,278 +686,142 @@ base class FeedService {
     tag: tag,
     limit: limit,
     cursor: cursor,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Record containing a Bluesky post.
-  FeedPostRecordAccessor get post => _post;
+  /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
+  Future<XRPCResponse<FeedGetPostsOutput>> getPosts({
+    required List<AtUri> uris,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedGetPosts(
+    uris: uris,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
+  Future<XRPCResponse<FeedGetFeedOutput>> getFeed({
+    required AtUri feed,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedGetFeed(
+    feed: feed,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a list of quotes for a given post.
+  Future<XRPCResponse<FeedGetQuotesOutput>> getQuotes({
+    required AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedGetQuotes(
+    uri: uri,
+    cid: cid,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
+  Future<XRPCResponse<FeedGetFeedSkeletonOutput>> getFeedSkeleton({
+    required AtUri feed,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedGetFeedSkeleton(
+    feed: feed,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
   Future<XRPCResponse<FeedGetListFeedOutput>> getListFeed({
     required AtUri list,
     int? limit,
     String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyFeedGetListFeed(
     list: list,
     limit: limit,
     cursor: cursor,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Record declaring a 'like' of a piece of subject content.
-  FeedLikeRecordAccessor get like => _like;
-
-  /// Get a list of reposts for a given post.
-  Future<XRPCResponse<FeedGetRepostedByOutput>> getRepostedBy({
-    required AtUri uri,
-    String? cid,
+  /// Get a list of suggested feeds (feed generators) for the requesting account.
+  Future<XRPCResponse<FeedGetSuggestedFeedsOutput>> getSuggestedFeeds({
     int? limit,
     String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyFeedGetRepostedBy(
-    uri: uri,
-    cid: cid,
+  }) async => await appBskyFeedGetSuggestedFeeds(
     limit: limit,
     cursor: cursor,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-}
-
-final class FeedRepostRecordAccessor {
-  final ServiceContext _ctx;
-
-  const FeedRepostRecordAccessor(this._ctx);
-
-  Future<XRPCResponse<RepoGetRecordOutput>> get({
-    required String repo,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoGetRecord(
-    repo: repo,
-    collection: ids.appBskyFeedRepost,
-    rkey: rkey,
-    cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  Future<XRPCResponse<RepoListRecordsOutput>> list({
-    required String repo,
+  /// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
+  Future<XRPCResponse<FeedGetActorFeedsOutput>> getActorFeeds({
+    required String actor,
     int? limit,
     String? cursor,
-    bool? reverse,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
-    repo: repo,
-    collection: ids.appBskyFeedRepost,
+  }) async => await appBskyFeedGetActorFeeds(
+    actor: actor,
     limit: limit,
     cursor: cursor,
-    reverse: reverse,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required RepoStrongRef subject,
-    DateTime? createdAt,
-    RepoStrongRef? via,
-    String? rkey,
-    bool? validate,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedRepost,
-    rkey: rkey,
-    validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject.toJson(),
-      'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
-    },
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required RepoStrongRef subject,
-    DateTime? createdAt,
-    RepoStrongRef? via,
-    required String rkey,
-    bool? validate,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedRepost,
-    rkey: rkey,
-    validate: validate,
-    record: {
-      ...?$unknown,
-      'subject': subject.toJson(),
-      'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
-    },
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
-    required String rkey,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedRepost,
-    rkey: rkey,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-}
-
-final class FeedThreadgateRecordAccessor {
-  final ServiceContext _ctx;
-
-  const FeedThreadgateRecordAccessor(this._ctx);
-
-  Future<XRPCResponse<RepoGetRecordOutput>> get({
-    required String repo,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoGetRecord(
-    repo: repo,
-    collection: ids.appBskyFeedThreadgate,
-    rkey: rkey,
-    cid: cid,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoListRecordsOutput>> list({
-    required String repo,
-    int? limit,
-    String? cursor,
-    bool? reverse,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
-    repo: repo,
-    collection: ids.appBskyFeedThreadgate,
-    limit: limit,
-    cursor: cursor,
-    reverse: reverse,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required AtUri post,
-    List<UFeedThreadgateAllow>? allow,
-    DateTime? createdAt,
-    List<AtUri>? hiddenReplies,
-    String? rkey,
-    bool? validate,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedThreadgate,
-    rkey: rkey,
-    validate: validate,
-    record: {
-      ...?$unknown,
-      'post': post.toString(),
-      if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
-      'createdAt': iso8601(createdAt),
-      if (hiddenReplies != null)
-        'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
-    },
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required AtUri post,
-    List<UFeedThreadgateAllow>? allow,
-    DateTime? createdAt,
-    List<AtUri>? hiddenReplies,
-    required String rkey,
-    bool? validate,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedThreadgate,
-    rkey: rkey,
-    validate: validate,
-    record: {
-      ...?$unknown,
-      'post': post.toString(),
-      if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
-      'createdAt': iso8601(createdAt),
-      if (hiddenReplies != null)
-        'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
-    },
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
-
-  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
-    required String rkey,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedThreadgate,
-    rkey: rkey,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: _ctx,
-    $headers: $headers,
-  );
+  /// Record containing a Bluesky post.
+  FeedPostRecordAccessor get post => _post;
 }
 
 final class FeedGeneratorRecordAccessor {
-  final ServiceContext _ctx;
+  final ServiceContext ctx;
 
-  const FeedGeneratorRecordAccessor(this._ctx);
+  const FeedGeneratorRecordAccessor(this.ctx);
 
   Future<XRPCResponse<RepoGetRecordOutput>> get({
     required String repo,
@@ -983,7 +834,7 @@ final class FeedGeneratorRecordAccessor {
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1001,7 +852,7 @@ final class FeedGeneratorRecordAccessor {
     limit: limit,
     cursor: cursor,
     reverse: reverse,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1022,7 +873,7 @@ final class FeedGeneratorRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     validate: validate,
@@ -1041,7 +892,7 @@ final class FeedGeneratorRecordAccessor {
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1062,7 +913,7 @@ final class FeedGeneratorRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     validate: validate,
@@ -1082,7 +933,7 @@ final class FeedGeneratorRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1093,20 +944,20 @@ final class FeedGeneratorRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedGenerator,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 }
 
 final class FeedPostgateRecordAccessor {
-  final ServiceContext _ctx;
+  final ServiceContext ctx;
 
-  const FeedPostgateRecordAccessor(this._ctx);
+  const FeedPostgateRecordAccessor(this.ctx);
 
   Future<XRPCResponse<RepoGetRecordOutput>> get({
     required String repo,
@@ -1119,7 +970,7 @@ final class FeedPostgateRecordAccessor {
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1137,7 +988,7 @@ final class FeedPostgateRecordAccessor {
     limit: limit,
     cursor: cursor,
     reverse: reverse,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1153,7 +1004,7 @@ final class FeedPostgateRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     validate: validate,
@@ -1169,7 +1020,7 @@ final class FeedPostgateRecordAccessor {
         'embeddingRules': embeddingRules.map((e) => e.toJson()).toList(),
     },
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1185,7 +1036,7 @@ final class FeedPostgateRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     validate: validate,
@@ -1202,7 +1053,7 @@ final class FeedPostgateRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1213,20 +1064,20 @@ final class FeedPostgateRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedPostgate,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 }
 
-final class FeedPostRecordAccessor {
-  final ServiceContext _ctx;
+final class FeedThreadgateRecordAccessor {
+  final ServiceContext ctx;
 
-  const FeedPostRecordAccessor(this._ctx);
+  const FeedThreadgateRecordAccessor(this.ctx);
 
   Future<XRPCResponse<RepoGetRecordOutput>> get({
     required String repo,
@@ -1236,10 +1087,10 @@ final class FeedPostRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoGetRecord(
     repo: repo,
-    collection: ids.appBskyFeedPost,
+    collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1253,59 +1104,48 @@ final class FeedPostRecordAccessor {
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoListRecords(
     repo: repo,
-    collection: ids.appBskyFeedPost,
+    collection: ids.appBskyFeedThreadgate,
     limit: limit,
     cursor: cursor,
     reverse: reverse,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
 
   Future<XRPCResponse<RepoCreateRecordOutput>> create({
-    required String text,
-    List<RichtextFacet>? facets,
-    ReplyRef? reply,
-    UFeedPostEmbed? embed,
-    List<String>? langs,
-    UFeedPostLabels? labels,
-    List<String>? tags,
+    required AtUri post,
+    List<UFeedThreadgateAllow>? allow,
     DateTime? createdAt,
+    List<AtUri>? hiddenReplies,
     String? rkey,
     bool? validate,
     String? swapCommit,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedPost,
+    repo: ctx.repo,
+    collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     validate: validate,
     record: {
       ...?$unknown,
-      'text': text,
-      if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
-      if (reply != null) 'reply': reply.toJson(),
-      if (embed != null) 'embed': embed.toJson(),
-      if (langs != null) 'langs': langs,
-      if (labels != null) 'labels': labels.toJson(),
-      if (tags != null) 'tags': tags,
+      'post': post.toString(),
+      if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
       'createdAt': iso8601(createdAt),
+      if (hiddenReplies != null)
+        'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
     },
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
   Future<XRPCResponse<RepoPutRecordOutput>> put({
-    required String text,
-    List<RichtextFacet>? facets,
-    ReplyRef? reply,
-    UFeedPostEmbed? embed,
-    List<String>? langs,
-    UFeedPostLabels? labels,
-    List<String>? tags,
+    required AtUri post,
+    List<UFeedThreadgateAllow>? allow,
     DateTime? createdAt,
+    List<AtUri>? hiddenReplies,
     required String rkey,
     bool? validate,
     String? swapRecord,
@@ -1313,24 +1153,21 @@ final class FeedPostRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedPost,
+    repo: ctx.repo,
+    collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     validate: validate,
     record: {
       ...?$unknown,
-      'text': text,
-      if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
-      if (reply != null) 'reply': reply.toJson(),
-      if (embed != null) 'embed': embed.toJson(),
-      if (langs != null) 'langs': langs,
-      if (labels != null) 'labels': labels.toJson(),
-      if (tags != null) 'tags': tags,
+      'post': post.toString(),
+      if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
       'createdAt': iso8601(createdAt),
+      if (hiddenReplies != null)
+        'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1341,20 +1178,20 @@ final class FeedPostRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
-    collection: ids.appBskyFeedPost,
+    repo: ctx.repo,
+    collection: ids.appBskyFeedThreadgate,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 }
 
 final class FeedLikeRecordAccessor {
-  final ServiceContext _ctx;
+  final ServiceContext ctx;
 
-  const FeedLikeRecordAccessor(this._ctx);
+  const FeedLikeRecordAccessor(this.ctx);
 
   Future<XRPCResponse<RepoGetRecordOutput>> get({
     required String repo,
@@ -1367,7 +1204,7 @@ final class FeedLikeRecordAccessor {
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1385,7 +1222,7 @@ final class FeedLikeRecordAccessor {
     limit: limit,
     cursor: cursor,
     reverse: reverse,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -1400,7 +1237,7 @@ final class FeedLikeRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     validate: validate,
@@ -1411,7 +1248,7 @@ final class FeedLikeRecordAccessor {
       if (via != null) 'via': via.toJson(),
     },
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1426,7 +1263,7 @@ final class FeedLikeRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     validate: validate,
@@ -1438,7 +1275,7 @@ final class FeedLikeRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -1449,12 +1286,248 @@ final class FeedLikeRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyFeedLike,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+}
+
+final class FeedRepostRecordAccessor {
+  final ServiceContext ctx;
+
+  const FeedRepostRecordAccessor(this.ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyFeedRepost,
+    rkey: rkey,
+    cid: cid,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyFeedRepost,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required RepoStrongRef subject,
+    DateTime? createdAt,
+    RepoStrongRef? via,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyFeedRepost,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'subject': subject.toJson(),
+      'createdAt': iso8601(createdAt),
+      if (via != null) 'via': via.toJson(),
+    },
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required RepoStrongRef subject,
+    DateTime? createdAt,
+    RepoStrongRef? via,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyFeedRepost,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'subject': subject.toJson(),
+      'createdAt': iso8601(createdAt),
+      if (via != null) 'via': via.toJson(),
+    },
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyFeedRepost,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+}
+
+final class FeedPostRecordAccessor {
+  final ServiceContext ctx;
+
+  const FeedPostRecordAccessor(this.ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyFeedPost,
+    rkey: rkey,
+    cid: cid,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyFeedPost,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required String text,
+    List<RichtextFacet>? facets,
+    ReplyRef? reply,
+    UFeedPostEmbed? embed,
+    List<String>? langs,
+    UFeedPostLabels? labels,
+    List<String>? tags,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyFeedPost,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'text': text,
+      if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
+      if (reply != null) 'reply': reply.toJson(),
+      if (embed != null) 'embed': embed.toJson(),
+      if (langs != null) 'langs': langs,
+      if (labels != null) 'labels': labels.toJson(),
+      if (tags != null) 'tags': tags,
+      'createdAt': iso8601(createdAt),
+    },
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required String text,
+    List<RichtextFacet>? facets,
+    ReplyRef? reply,
+    UFeedPostEmbed? embed,
+    List<String>? langs,
+    UFeedPostLabels? labels,
+    List<String>? tags,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyFeedPost,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      ...?$unknown,
+      'text': text,
+      if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
+      if (reply != null) 'reply': reply.toJson(),
+      if (embed != null) 'embed': embed.toJson(),
+      if (langs != null) 'langs': langs,
+      if (labels != null) 'labels': labels.toJson(),
+      if (tags != null) 'tags': tags,
+      'createdAt': iso8601(createdAt),
+    },
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyFeedPost,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
     $headers: $headers,
   );
 }

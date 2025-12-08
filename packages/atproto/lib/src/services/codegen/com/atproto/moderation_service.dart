@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
@@ -29,10 +30,12 @@ comAtprotoModerationCreateReport({
   required UModerationCreateReportSubject subject,
   ModTool? modTool,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.comAtprotoModerationCreateReport,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
@@ -46,10 +49,10 @@ comAtprotoModerationCreateReport({
 
 /// `com.atproto.moderation.*`
 base class ModerationService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  ModerationService(this._ctx);
+  ModerationService(this.ctx);
 
   /// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
   Future<XRPCResponse<ModerationCreateReportOutput>> createReport({
@@ -57,6 +60,7 @@ base class ModerationService {
     String? reason,
     required UModerationCreateReportSubject subject,
     ModTool? modTool,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoModerationCreateReport(
@@ -64,7 +68,8 @@ base class ModerationService {
     reason: reason,
     subject: subject,
     modTool: modTool,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );

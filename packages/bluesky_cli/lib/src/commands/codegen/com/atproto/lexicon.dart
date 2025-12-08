@@ -20,8 +20,8 @@ import 'lexicon/schema.dart';
 
 final class ComAtprotoLexiconCommand extends Command<void> {
   ComAtprotoLexiconCommand() {
-    addSubcommand(SchemaCommand());
     addSubcommand(ResolveLexiconCommand());
+    addSubcommand(SchemaCommand());
   }
 
   @override

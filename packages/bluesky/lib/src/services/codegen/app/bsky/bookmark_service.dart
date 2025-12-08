@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
@@ -22,10 +23,12 @@ import 'bookmark/getBookmarks/output.dart';
 Future<XRPCResponse<EmptyData>> appBskyBookmarkDeleteBookmark({
   required AtUri uri,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyBookmarkDeleteBookmark,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'uri': uri.toString()},
 );
@@ -35,10 +38,12 @@ Future<XRPCResponse<BookmarkGetBookmarksOutput>> appBskyBookmarkGetBookmarks({
   int? limit,
   String? cursor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyBookmarkGetBookmarks,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -53,29 +58,33 @@ Future<XRPCResponse<EmptyData>> appBskyBookmarkCreateBookmark({
   required AtUri uri,
   required String cid,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
   ns.appBskyBookmarkCreateBookmark,
+  service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'uri': uri.toString(), 'cid': cid},
 );
 
 /// `app.bsky.bookmark.*`
 base class BookmarkService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  BookmarkService(this._ctx);
+  BookmarkService(this.ctx);
 
   /// Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
   Future<XRPCResponse<EmptyData>> deleteBookmark({
     required AtUri uri,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyBookmarkDeleteBookmark(
     uri: uri,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -84,12 +93,14 @@ base class BookmarkService {
   Future<XRPCResponse<BookmarkGetBookmarksOutput>> getBookmarks({
     int? limit,
     String? cursor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyBookmarkGetBookmarks(
     limit: limit,
     cursor: cursor,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -98,12 +109,14 @@ base class BookmarkService {
   Future<XRPCResponse<EmptyData>> createBookmark({
     required AtUri uri,
     required String cid,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyBookmarkCreateBookmark(
     uri: uri,
     cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );

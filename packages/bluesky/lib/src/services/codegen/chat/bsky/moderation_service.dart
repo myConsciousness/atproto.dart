@@ -9,6 +9,7 @@
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
@@ -19,31 +20,16 @@ import 'moderation/getMessageContext/output.dart';
 // LexGenerator
 // **************************************************************************
 
-Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
-  required String actor,
-  required bool allowAccess,
-  String? ref,
-  required ServiceContext $ctx,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.chatBskyModerationUpdateActorAccess,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'actor': actor,
-    'allowAccess': allowAccess,
-    if (ref != null) 'ref': ref,
-  },
-);
 Future<XRPCResponse<ModerationGetActorMetadataOutput>>
 chatBskyModerationGetActorMetadata({
   required String actor,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.chatBskyModerationGetActorMetadata,
+  service: $service,
   headers: $headers,
   parameters: {...?$unknown, 'actor': actor},
   to: const ModerationGetActorMetadataOutputConverter().fromJson,
@@ -55,10 +41,12 @@ chatBskyModerationGetMessageContext({
   int? before,
   int? after,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.chatBskyModerationGetMessageContext,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -69,35 +57,42 @@ chatBskyModerationGetMessageContext({
   },
   to: const ModerationGetMessageContextOutputConverter().fromJson,
 );
+Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
+  required String actor,
+  required bool allowAccess,
+  String? ref,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.chatBskyModerationUpdateActorAccess,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'actor': actor,
+    'allowAccess': allowAccess,
+    if (ref != null) 'ref': ref,
+  },
+);
 
 /// `chat.bsky.moderation.*`
 base class ModerationService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
-  ModerationService(this._ctx);
+  ModerationService(this.ctx);
 
-  Future<XRPCResponse<EmptyData>> updateActorAccess({
-    required String actor,
-    required bool allowAccess,
-    String? ref,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await chatBskyModerationUpdateActorAccess(
-    actor: actor,
-    allowAccess: allowAccess,
-    ref: ref,
-    $ctx: _ctx,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
   Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
     required String actor,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await chatBskyModerationGetActorMetadata(
     actor: actor,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -106,6 +101,7 @@ base class ModerationService {
     required String messageId,
     int? before,
     int? after,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await chatBskyModerationGetMessageContext(
@@ -113,7 +109,24 @@ base class ModerationService {
     messageId: messageId,
     before: before,
     after: after,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+  Future<XRPCResponse<EmptyData>> updateActorAccess({
+    required String actor,
+    required bool allowAccess,
+    String? ref,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await chatBskyModerationUpdateActorAccess(
+    actor: actor,
+    allowAccess: allowAccess,
+    ref: ref,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );

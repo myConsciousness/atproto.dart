@@ -16,6 +16,7 @@ import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart' show iso8601;
+import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../ids.g.dart' as ids;
@@ -41,10 +42,12 @@ Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
   required List<String> dids,
   bool? detailed,
   required ServiceContext $ctx,
+  String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
   ns.appBskyLabelerGetServices,
+  service: $service,
   headers: $headers,
   parameters: {
     ...?$unknown,
@@ -56,12 +59,12 @@ Future<XRPCResponse<LabelerGetServicesOutput>> appBskyLabelerGetServices({
 
 /// `app.bsky.labeler.*`
 base class LabelerService {
-  // ignore: unused_field
-  final ServiceContext _ctx;
+  @protected
+  final ServiceContext ctx;
 
   final LabelerServiceRecordAccessor _service;
 
-  LabelerService(this._ctx) : _service = LabelerServiceRecordAccessor(_ctx);
+  LabelerService(this.ctx) : _service = LabelerServiceRecordAccessor(ctx);
 
   /// A declaration of the existence of labeler service.
   LabelerServiceRecordAccessor get service => _service;
@@ -70,21 +73,23 @@ base class LabelerService {
   Future<XRPCResponse<LabelerGetServicesOutput>> getServices({
     required List<String> dids,
     bool? detailed,
+    String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyLabelerGetServices(
     dids: dids,
     detailed: detailed,
-    $ctx: _ctx,
+    $ctx: ctx,
+    $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 }
 
 final class LabelerServiceRecordAccessor {
-  final ServiceContext _ctx;
+  final ServiceContext ctx;
 
-  const LabelerServiceRecordAccessor(this._ctx);
+  const LabelerServiceRecordAccessor(this.ctx);
 
   Future<XRPCResponse<RepoGetRecordOutput>> get({
     required String repo,
@@ -97,7 +102,7 @@ final class LabelerServiceRecordAccessor {
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     cid: cid,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -115,7 +120,7 @@ final class LabelerServiceRecordAccessor {
     limit: limit,
     cursor: cursor,
     reverse: reverse,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
     $unknown: $unknown,
   );
@@ -133,7 +138,7 @@ final class LabelerServiceRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoCreateRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     validate: validate,
@@ -149,7 +154,7 @@ final class LabelerServiceRecordAccessor {
       if (subjectCollections != null) 'subjectCollections': subjectCollections,
     },
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -167,7 +172,7 @@ final class LabelerServiceRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoPutRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     validate: validate,
@@ -184,7 +189,7 @@ final class LabelerServiceRecordAccessor {
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 
@@ -195,12 +200,12 @@ final class LabelerServiceRecordAccessor {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await comAtprotoRepoDeleteRecord(
-    repo: _ctx.repo,
+    repo: ctx.repo,
     collection: ids.appBskyLabelerService,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,
-    $ctx: _ctx,
+    $ctx: ctx,
     $headers: $headers,
   );
 }
