@@ -10713,6 +10713,322 @@ const appBskyVideoUploadVideo = <String, dynamic>{
   },
 };
 
+/// `app.bsky.contact.startPhoneVerification`
+const appBskyContactStartPhoneVerification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.startPhoneVerification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["phone"],
+          "properties": {
+            "phone": {
+              "type": "string",
+              "description": "The phone number to receive the code via SMS.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.dismissMatch`
+const appBskyContactDismissMatch = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.dismissMatch",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {
+              "type": "string",
+              "format": "did",
+              "description": "The subject's DID to dismiss the match with.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.importContacts`
+const appBskyContactImportContacts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.importContacts",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["token", "contacts"],
+          "properties": {
+            "token": {
+              "type": "string",
+              "description":
+                  "JWT to authenticate the call. Use the JWT received as a response to the call to `app.bsky.contact.verifyPhone`.",
+            },
+            "contacts": {
+              "type": "array",
+              "description":
+                  "List of phone numbers in global E.164 format (e.g., '+12125550123'). Phone numbers that cannot be normalized into a valid phone number will be discarded. Should not repeat the 'phone' input used in `app.bsky.contact.verifyPhone`.",
+              "items": {"type": "string"},
+              "minLength": 1,
+              "maxLength": 1000,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["matchesAndContactIndexes"],
+          "properties": {
+            "matchesAndContactIndexes": {
+              "type": "array",
+              "description":
+                  "The users that matched during import and their indexes on the input contacts, so the client can correlate with its local list.",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.contact.defs#matchAndContactIndex",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.removeData`
+const appBskyContactRemoveData = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.removeData",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.defs`
+const appBskyContactDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.defs",
+  "defs": {
+    "matchAndContactIndex": {
+      "type": "object",
+      "description":
+          "Associates a profile with the positional index of the contact import input in the call to `app.bsky.contact.importContacts`, so clients can know which phone caused a particular match.",
+      "required": ["match", "contactIndex"],
+      "properties": {
+        "match": {
+          "type": "ref",
+          "description": "Profile of the matched user.",
+          "ref": "app.bsky.actor.defs#profileView",
+        },
+        "contactIndex": {
+          "type": "integer",
+          "description": "The index of this match in the import contact input.",
+          "minimum": 0,
+          "maximum": 999,
+        },
+      },
+    },
+    "syncStatus": {
+      "type": "object",
+      "required": ["syncedAt", "matchesCount"],
+      "properties": {
+        "syncedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Last date when contacts where imported.",
+        },
+        "matchesCount": {
+          "type": "integer",
+          "description":
+              "Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.",
+          "minimum": 0,
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.contact.verifyPhone`
+const appBskyContactVerifyPhone = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.verifyPhone",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["phone", "code"],
+          "properties": {
+            "phone": {
+              "type": "string",
+              "description":
+                  "The phone number to verify. Should be the same as the one passed to `app.bsky.contact.startPhoneVerification`.",
+            },
+            "code": {
+              "type": "string",
+              "description":
+                  "The code received via SMS as a result of the call to `app.bsky.contact.startPhoneVerification`.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["token"],
+          "properties": {
+            "token": {
+              "type": "string",
+              "description":
+                  "JWT to be used in a call to `app.bsky.contact.importContacts`. It is only valid for a single call.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.getMatches`
+const appBskyContactGetMatches = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.getMatches",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["matches"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "matches": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.getSyncStatus`
+const appBskyContactGetSyncStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.getSyncStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. Gets the user's current contact import status. Requires authentication.",
+      "parameters": {"type": "params", "properties": {}},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "syncStatus": {
+              "type": "ref",
+              "description":
+                  "If present, indicates the user has imported their contacts. If not present, indicates the user never used the feature or called `app.bsky.contact.removeData` and didn't import again since.",
+              "ref": "app.bsky.contact.defs#syncStatus",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "TODO", "description": "TODO"},
+      ],
+    },
+  },
+};
+
 /// `app.bsky.notification.getPreferences`
 const appBskyNotificationGetPreferences = <String, dynamic>{
   "lexicon": 1,
@@ -17002,6 +17318,14 @@ const lexicons = <Map<String, dynamic>>[
   appBskyVideoGetJobStatus,
   appBskyVideoGetUploadLimits,
   appBskyVideoUploadVideo,
+  appBskyContactStartPhoneVerification,
+  appBskyContactDismissMatch,
+  appBskyContactImportContacts,
+  appBskyContactRemoveData,
+  appBskyContactDefs,
+  appBskyContactVerifyPhone,
+  appBskyContactGetMatches,
+  appBskyContactGetSyncStatus,
   appBskyNotificationGetPreferences,
   appBskyNotificationListNotifications,
   appBskyNotificationPutActivitySubscription,

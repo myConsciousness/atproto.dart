@@ -285,6 +285,18 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.video.getUploadLimits](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/getUploadLimits.html)** | [Reference](lexicons/app/bsky/video/getUploadLimits.md) | ❌ |
 | **[app.bsky.video.uploadVideo](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/uploadVideo.html)** | [Reference](lexicons/app/bsky/video/uploadVideo.md) | ❌ |
 
+### app.bsky.contact
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[app.bsky.contact.dismissMatch](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/dismissMatch.html)** | [Reference](lexicons/app/bsky/contact/dismissMatch.md) | ❌ |
+| **[app.bsky.contact.getMatches](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/getMatches.html)** | [Reference](lexicons/app/bsky/contact/getMatches.md) | ✅ |
+| **[app.bsky.contact.getSyncStatus](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/getSyncStatus.html)** | [Reference](lexicons/app/bsky/contact/getSyncStatus.md) | ❌ |
+| **[app.bsky.contact.importContacts](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/importContacts.html)** | [Reference](lexicons/app/bsky/contact/importContacts.md) | ❌ |
+| **[app.bsky.contact.removeData](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/removeData.html)** | [Reference](lexicons/app/bsky/contact/removeData.md) | ❌ |
+| **[app.bsky.contact.startPhoneVerification](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/startPhoneVerification.html)** | [Reference](lexicons/app/bsky/contact/startPhoneVerification.md) | ❌ |
+| **[app.bsky.contact.verifyPhone](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/verifyPhone.html)** | [Reference](lexicons/app/bsky/contact/verifyPhone.md) | ❌ |
+
 ### app.bsky.notification
 
 | Method | Docs | Paging (cursor) |
