@@ -14264,6 +14264,7 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "comment": {
           "type": "string",
           "description": "Comment describing the reason for the override.",
+          "minLength": 1,
         },
       },
     },
@@ -14276,6 +14277,7 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "comment": {
           "type": "string",
           "description": "Comment describing the reason for the revocation.",
+          "minLength": 1,
         },
       },
     },
