@@ -34,6 +34,7 @@ export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/saved_feed_type
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/saved_feeds_pref_v_2.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/saved_feeds_pref.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/personal_details_pref.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/declared_age_pref.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/feed_view_pref.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/thread_view_pref.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/thread_view_pref_sort.dart';

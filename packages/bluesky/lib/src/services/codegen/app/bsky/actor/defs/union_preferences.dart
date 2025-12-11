@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import './adult_content_pref.dart';
 import './bsky_app_state_pref.dart';
 import './content_label_pref.dart';
+import './declared_age_pref.dart';
 import './feed_view_pref.dart';
 import './hidden_posts_pref.dart';
 import './interests_pref.dart';
@@ -51,6 +52,8 @@ sealed class UPreferences with _$UPreferences {
   const factory UPreferences.personalDetailsPref({
     required PersonalDetailsPref data,
   }) = UPreferencesPersonalDetailsPref;
+  const factory UPreferences.declaredAgePref({required DeclaredAgePref data}) =
+      UPreferencesDeclaredAgePref;
   const factory UPreferences.feedViewPref({required FeedViewPref data}) =
       UPreferencesFeedViewPref;
   const factory UPreferences.threadViewPref({required ThreadViewPref data}) =
@@ -100,6 +103,10 @@ extension UPreferencesExtension on UPreferences {
   bool get isNotPersonalDetailsPref => !isPersonalDetailsPref;
   PersonalDetailsPref? get personalDetailsPref =>
       isPersonalDetailsPref ? data as PersonalDetailsPref : null;
+  bool get isDeclaredAgePref => isA<UPreferencesDeclaredAgePref>(this);
+  bool get isNotDeclaredAgePref => !isDeclaredAgePref;
+  DeclaredAgePref? get declaredAgePref =>
+      isDeclaredAgePref ? data as DeclaredAgePref : null;
   bool get isFeedViewPref => isA<UPreferencesFeedViewPref>(this);
   bool get isNotFeedViewPref => !isFeedViewPref;
   FeedViewPref? get feedViewPref =>
@@ -177,6 +184,11 @@ final class UPreferencesConverter
           data: const PersonalDetailsPrefConverter().fromJson(json),
         );
       }
+      if (DeclaredAgePref.validate(json)) {
+        return UPreferences.declaredAgePref(
+          data: const DeclaredAgePrefConverter().fromJson(json),
+        );
+      }
       if (FeedViewPref.validate(json)) {
         return UPreferences.feedViewPref(
           data: const FeedViewPrefConverter().fromJson(json),
@@ -237,6 +249,7 @@ final class UPreferencesConverter
     savedFeedsPrefV2: (data) => const SavedFeedsPrefV2Converter().toJson(data),
     personalDetailsPref: (data) =>
         const PersonalDetailsPrefConverter().toJson(data),
+    declaredAgePref: (data) => const DeclaredAgePrefConverter().toJson(data),
     feedViewPref: (data) => const FeedViewPrefConverter().toJson(data),
     threadViewPref: (data) => const ThreadViewPrefConverter().toJson(data),
     interestsPref: (data) => const InterestsPrefConverter().toJson(data),

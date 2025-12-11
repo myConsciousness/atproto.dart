@@ -16,6 +16,7 @@ import 'contact/get_matches.dart';
 import 'contact/get_sync_status.dart';
 import 'contact/import_contacts.dart';
 import 'contact/remove_data.dart';
+import 'contact/send_notification.dart';
 import 'contact/start_phone_verification.dart';
 import 'contact/verify_phone.dart';
 
@@ -25,6 +26,7 @@ import 'contact/verify_phone.dart';
 
 final class AppBskyContactCommand extends Command<void> {
   AppBskyContactCommand() {
+    addSubcommand(SendNotificationCommand());
     addSubcommand(StartPhoneVerificationCommand());
     addSubcommand(DismissMatchCommand());
     addSubcommand(ImportContactsCommand());
