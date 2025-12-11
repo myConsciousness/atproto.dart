@@ -11,6 +11,4 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/codegen/app/bsky/contact/defs/match_and_contact_index.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/contact/defs/sync_status.dart';
-export 'package:bluesky/src/services/codegen/app/bsky/contact/defs/notification.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/contact/sendNotification/input.dart';

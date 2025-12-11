@@ -294,6 +294,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.contact.getSyncStatus](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/getSyncStatus.html)** | [Reference](lexicons/app/bsky/contact/getSyncStatus.md) | ❌ |
 | **[app.bsky.contact.importContacts](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/importContacts.html)** | [Reference](lexicons/app/bsky/contact/importContacts.md) | ❌ |
 | **[app.bsky.contact.removeData](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/removeData.html)** | [Reference](lexicons/app/bsky/contact/removeData.md) | ❌ |
+| **[app.bsky.contact.sendNotification](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/sendNotification.html)** | [Reference](lexicons/app/bsky/contact/sendNotification.md) | ❌ |
 | **[app.bsky.contact.startPhoneVerification](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/startPhoneVerification.html)** | [Reference](lexicons/app/bsky/contact/startPhoneVerification.md) | ❌ |
 | **[app.bsky.contact.verifyPhone](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ContactService/verifyPhone.html)** | [Reference](lexicons/app/bsky/contact/verifyPhone.md) | ❌ |
 

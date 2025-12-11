@@ -98,7 +98,9 @@ enum KnownNotificationReason implements Serializable {
   @JsonValue('repost-via-repost')
   repostViaRepost('repost-via-repost'),
   @JsonValue('subscribed-post')
-  subscribedPost('subscribed-post');
+  subscribedPost('subscribed-post'),
+  @JsonValue('contact-match')
+  contactMatch('contact-match');
 
   @override
   final String value;

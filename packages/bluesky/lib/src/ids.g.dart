@@ -22,6 +22,9 @@ const appBskyActorDefsBskyAppStatePref = 'app.bsky.actor.defs#bskyAppStatePref';
 /// `app.bsky.actor.defs#contentLabelPref`
 const appBskyActorDefsContentLabelPref = 'app.bsky.actor.defs#contentLabelPref';
 
+/// `app.bsky.actor.defs#declaredAgePref`
+const appBskyActorDefsDeclaredAgePref = 'app.bsky.actor.defs#declaredAgePref';
+
 /// `app.bsky.actor.defs#feedViewPref`
 const appBskyActorDefsFeedViewPref = 'app.bsky.actor.defs#feedViewPref';
 
@@ -233,6 +236,9 @@ const appBskyContactDefs = 'app.bsky.contact.defs';
 const appBskyContactDefsMatchAndContactIndex =
     'app.bsky.contact.defs#matchAndContactIndex';
 
+/// `app.bsky.contact.defs#notification`
+const appBskyContactDefsNotification = 'app.bsky.contact.defs#notification';
+
 /// `app.bsky.contact.defs#syncStatus`
 const appBskyContactDefsSyncStatus = 'app.bsky.contact.defs#syncStatus';
 
@@ -250,6 +256,9 @@ const appBskyContactImportContacts = 'app.bsky.contact.importContacts';
 
 /// `app.bsky.contact.removeData`
 const appBskyContactRemoveData = 'app.bsky.contact.removeData';
+
+/// `app.bsky.contact.sendNotification`
+const appBskyContactSendNotification = 'app.bsky.contact.sendNotification';
 
 /// `app.bsky.contact.startPhoneVerification`
 const appBskyContactStartPhoneVerification =

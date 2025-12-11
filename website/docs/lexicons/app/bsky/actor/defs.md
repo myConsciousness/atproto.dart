@@ -140,7 +140,7 @@ An individual verification for an associated subject.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref)<br/>[#postInteractionSettingsPref](#postinteractionsettingspref)<br/>[#verificationPrefs](#verificationprefs) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#declaredAgePref](#declaredagepref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref)<br/>[#postInteractionSettingsPref](#postinteractionsettingspref)<br/>[#verificationPrefs](#verificationprefs) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -184,6 +184,16 @@ An individual verification for an associated subject.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **birthDate** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The birth date of account owner. |
+
+## #declaredAgePref
+
+Read-only preference containing value(s) inferred from the user's declared birthdate. Absence of this preference object in the response indicates that the user has not made a declaration.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **isOverAge13** | boolean | - | ❌ | Indicates if the user has declared that they are over 13 years of age. |
+| **isOverAge16** | boolean | - | ❌ | Indicates if the user has declared that they are over 16 years of age. |
+| **isOverAge18** | boolean | - | ❌ | Indicates if the user has declared that they are over 18 years of age. |
 
 ## #feedViewPref
 

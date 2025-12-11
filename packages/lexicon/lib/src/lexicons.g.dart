@@ -6400,6 +6400,7 @@ const appBskyActorDefs = <String, dynamic>{
           "#savedFeedsPref",
           "#savedFeedsPrefV2",
           "#personalDetailsPref",
+          "#declaredAgePref",
           "#feedViewPref",
           "#threadViewPref",
           "#interestsPref",
@@ -6481,6 +6482,28 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "string",
           "format": "datetime",
           "description": "The birth date of account owner.",
+        },
+      },
+    },
+    "declaredAgePref": {
+      "type": "object",
+      "description":
+          "Read-only preference containing value(s) inferred from the user's declared birthdate. Absence of this preference object in the response indicates that the user has not made a declaration.",
+      "properties": {
+        "isOverAge13": {
+          "type": "boolean",
+          "description":
+              "Indicates if the user has declared that they are over 13 years of age.",
+        },
+        "isOverAge16": {
+          "type": "boolean",
+          "description":
+              "Indicates if the user has declared that they are over 16 years of age.",
+        },
+        "isOverAge18": {
+          "type": "boolean",
+          "description":
+              "Indicates if the user has declared that they are over 18 years of age.",
         },
       },
     },
@@ -10713,6 +10736,42 @@ const appBskyVideoUploadVideo = <String, dynamic>{
   },
 };
 
+/// `app.bsky.contact.sendNotification`
+const appBskyContactSendNotification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.sendNotification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["from", "to"],
+          "properties": {
+            "from": {
+              "type": "string",
+              "format": "did",
+              "description": "The DID of who this notification comes from.",
+            },
+            "to": {
+              "type": "string",
+              "format": "did",
+              "description": "The DID of who this notification should go to.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+    },
+  },
+};
+
 /// `app.bsky.contact.startPhoneVerification`
 const appBskyContactStartPhoneVerification = <String, dynamic>{
   "lexicon": 1,
@@ -10898,6 +10957,24 @@ const appBskyContactDefs = <String, dynamic>{
           "description":
               "Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.",
           "minimum": 0,
+        },
+      },
+    },
+    "notification": {
+      "type": "object",
+      "description":
+          "A stash object to be sent via bsync representing a notification to be created.",
+      "required": ["from", "to"],
+      "properties": {
+        "from": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of who this notification comes from.",
+        },
+        "to": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of who this notification should go to.",
         },
       },
     },
@@ -11137,6 +11214,7 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "like-via-repost",
             "repost-via-repost",
             "subscribed-post",
+            "contact-match",
           ],
         },
         "reasonSubject": {"type": "string", "format": "at-uri"},
@@ -17318,6 +17396,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyVideoGetJobStatus,
   appBskyVideoGetUploadLimits,
   appBskyVideoUploadVideo,
+  appBskyContactSendNotification,
   appBskyContactStartPhoneVerification,
   appBskyContactDismissMatch,
   appBskyContactImportContacts,

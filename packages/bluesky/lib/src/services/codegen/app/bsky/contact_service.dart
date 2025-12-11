@@ -22,6 +22,21 @@ import 'contact/verifyPhone/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.
+Future<XRPCResponse<EmptyData>> appBskyContactSendNotification({
+  required String from,
+  required String to,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyContactSendNotification,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'from': from, 'to': to},
+);
+
 /// WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyContactStartPhoneVerification({
   required String phone,
@@ -133,6 +148,22 @@ base class ContactService {
   final ServiceContext ctx;
 
   ContactService(this.ctx);
+
+  /// WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.
+  Future<XRPCResponse<EmptyData>> sendNotification({
+    required String from,
+    required String to,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyContactSendNotification(
+    from: from,
+    to: to,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
   Future<XRPCResponse<EmptyData>> startPhoneVerification({

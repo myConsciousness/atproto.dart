@@ -77,6 +77,9 @@ const appBskyContactImportContacts = NSID(ids.appBskyContactImportContacts);
 /// `app.bsky.contact.removeData`
 const appBskyContactRemoveData = NSID(ids.appBskyContactRemoveData);
 
+/// `app.bsky.contact.sendNotification`
+const appBskyContactSendNotification = NSID(ids.appBskyContactSendNotification);
+
 /// `app.bsky.contact.startPhoneVerification`
 const appBskyContactStartPhoneVerification = NSID(
   ids.appBskyContactStartPhoneVerification,
