@@ -34,7 +34,7 @@ final class SendNotificationCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.";
+      r"System endpoint to send notifications related to contact imports. Requires role authentication.";
 
   @override
   final String invocation =

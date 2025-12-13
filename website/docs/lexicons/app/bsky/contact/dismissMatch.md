@@ -7,7 +7,7 @@ description: app.bsky.contact.dismissMatch
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.
+Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.
 
 ### Input
 

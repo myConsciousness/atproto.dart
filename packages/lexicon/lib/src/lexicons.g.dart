@@ -10744,7 +10744,7 @@ const appBskyContactSendNotification = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.",
+          "System endpoint to send notifications related to contact imports. Requires role authentication.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -10780,7 +10780,7 @@ const appBskyContactStartPhoneVerification = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.",
+          "Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -10799,7 +10799,10 @@ const appBskyContactStartPhoneVerification = <String, dynamic>{
         "schema": {"type": "object", "properties": {}},
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "RateLimitExceeded"},
+        {"name": "InvalidDid"},
+        {"name": "InvalidPhone"},
+        {"name": "InternalError"},
       ],
     },
   },
@@ -10813,7 +10816,7 @@ const appBskyContactDismissMatch = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.",
+          "Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -10833,7 +10836,8 @@ const appBskyContactDismissMatch = <String, dynamic>{
         "schema": {"type": "object", "properties": {}},
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "InvalidDid"},
+        {"name": "InternalError"},
       ],
     },
   },
@@ -10847,7 +10851,7 @@ const appBskyContactImportContacts = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.",
+          "Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -10889,7 +10893,11 @@ const appBskyContactImportContacts = <String, dynamic>{
         },
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "InvalidDid"},
+        {"name": "InvalidContacts"},
+        {"name": "TooManyContacts"},
+        {"name": "InvalidToken"},
+        {"name": "InternalError"},
       ],
     },
   },
@@ -10903,7 +10911,7 @@ const appBskyContactRemoveData = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.",
+          "Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.",
       "input": {
         "encoding": "application/json",
         "schema": {"type": "object", "properties": {}},
@@ -10913,7 +10921,8 @@ const appBskyContactRemoveData = <String, dynamic>{
         "schema": {"type": "object", "properties": {}},
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "InvalidDid"},
+        {"name": "InternalError"},
       ],
     },
   },
@@ -10989,7 +10998,7 @@ const appBskyContactVerifyPhone = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.",
+          "Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -11024,7 +11033,11 @@ const appBskyContactVerifyPhone = <String, dynamic>{
         },
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "RateLimitExceeded"},
+        {"name": "InvalidDid"},
+        {"name": "InvalidPhone"},
+        {"name": "InvalidCode"},
+        {"name": "InternalError"},
       ],
     },
   },
@@ -11038,7 +11051,7 @@ const appBskyContactGetMatches = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.",
+          "Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -11069,7 +11082,10 @@ const appBskyContactGetMatches = <String, dynamic>{
         },
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "InvalidDid"},
+        {"name": "InvalidLimit"},
+        {"name": "InvalidCursor"},
+        {"name": "InternalError"},
       ],
     },
   },
@@ -11083,7 +11099,7 @@ const appBskyContactGetSyncStatus = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "WARNING: This is unstable and under active development, don't use it while this warning is here. Gets the user's current contact import status. Requires authentication.",
+          "Gets the user's current contact import status. Requires authentication.",
       "parameters": {"type": "params", "properties": {}},
       "output": {
         "encoding": "application/json",
@@ -11100,7 +11116,8 @@ const appBskyContactGetSyncStatus = <String, dynamic>{
         },
       },
       "errors": [
-        {"name": "TODO", "description": "TODO"},
+        {"name": "InvalidDid"},
+        {"name": "InternalError"},
       ],
     },
   },
