@@ -7,7 +7,7 @@ description: app.bsky.contact.verifyPhone
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.
+Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.
 
 ### Input
 

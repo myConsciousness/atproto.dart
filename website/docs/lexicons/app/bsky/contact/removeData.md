@@ -7,7 +7,7 @@ description: app.bsky.contact.removeData
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
+Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
 
 ### Input
 

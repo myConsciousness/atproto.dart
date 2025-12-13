@@ -7,7 +7,7 @@ description: app.bsky.contact.getSyncStatus
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. Gets the user's current contact import status. Requires authentication.
+Gets the user's current contact import status. Requires authentication.
 
 ### Output
 

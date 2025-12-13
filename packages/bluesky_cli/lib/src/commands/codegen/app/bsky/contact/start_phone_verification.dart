@@ -28,7 +28,7 @@ final class StartPhoneVerificationCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.";
+      r"Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.";
 
   @override
   final String invocation =

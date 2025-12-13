@@ -7,7 +7,7 @@ description: app.bsky.contact.importContacts
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.
+Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.
 
 ### Input
 

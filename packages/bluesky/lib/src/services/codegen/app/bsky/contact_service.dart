@@ -22,7 +22,7 @@ import 'contact/verifyPhone/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.
+/// System endpoint to send notifications related to contact imports. Requires role authentication.
 Future<XRPCResponse<EmptyData>> appBskyContactSendNotification({
   required String from,
   required String to,
@@ -37,7 +37,7 @@ Future<XRPCResponse<EmptyData>> appBskyContactSendNotification({
   body: {...?$unknown, 'from': from, 'to': to},
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
+/// Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyContactStartPhoneVerification({
   required String phone,
   required ServiceContext $ctx,
@@ -51,7 +51,7 @@ Future<XRPCResponse<EmptyData>> appBskyContactStartPhoneVerification({
   body: {...?$unknown, 'phone': phone},
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.
+/// Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyContactDismissMatch({
   required String subject,
   required ServiceContext $ctx,
@@ -65,7 +65,7 @@ Future<XRPCResponse<EmptyData>> appBskyContactDismissMatch({
   body: {...?$unknown, 'subject': subject},
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.
+/// Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.
 Future<XRPCResponse<ContactImportContactsOutput>> appBskyContactImportContacts({
   required String token,
   required List<String> contacts,
@@ -81,7 +81,7 @@ Future<XRPCResponse<ContactImportContactsOutput>> appBskyContactImportContacts({
   to: const ContactImportContactsOutputConverter().fromJson,
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
+/// Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
 Future<XRPCResponse<EmptyData>> appBskyContactRemoveData({
   required ServiceContext $ctx,
   String? $service,
@@ -92,7 +92,7 @@ Future<XRPCResponse<EmptyData>> appBskyContactRemoveData({
   headers: {...?$headers},
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.
+/// Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.
 Future<XRPCResponse<ContactVerifyPhoneOutput>> appBskyContactVerifyPhone({
   required String phone,
   required String code,
@@ -108,7 +108,7 @@ Future<XRPCResponse<ContactVerifyPhoneOutput>> appBskyContactVerifyPhone({
   to: const ContactVerifyPhoneOutputConverter().fromJson,
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.
+/// Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.
 Future<XRPCResponse<ContactGetMatchesOutput>> appBskyContactGetMatches({
   int? limit,
   String? cursor,
@@ -128,7 +128,7 @@ Future<XRPCResponse<ContactGetMatchesOutput>> appBskyContactGetMatches({
   to: const ContactGetMatchesOutputConverter().fromJson,
 );
 
-/// WARNING: This is unstable and under active development, don't use it while this warning is here. Gets the user's current contact import status. Requires authentication.
+/// Gets the user's current contact import status. Requires authentication.
 Future<XRPCResponse<ContactGetSyncStatusOutput>> appBskyContactGetSyncStatus({
   required ServiceContext $ctx,
   String? $service,
@@ -149,7 +149,7 @@ base class ContactService {
 
   ContactService(this.ctx);
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.
+  /// System endpoint to send notifications related to contact imports. Requires role authentication.
   Future<XRPCResponse<EmptyData>> sendNotification({
     required String from,
     required String to,
@@ -165,7 +165,7 @@ base class ContactService {
     $unknown: $unknown,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
+  /// Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
   Future<XRPCResponse<EmptyData>> startPhoneVerification({
     required String phone,
     String? $service,
@@ -179,7 +179,7 @@ base class ContactService {
     $unknown: $unknown,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.
+  /// Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.
   Future<XRPCResponse<EmptyData>> dismissMatch({
     required String subject,
     String? $service,
@@ -193,7 +193,7 @@ base class ContactService {
     $unknown: $unknown,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.
+  /// Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.
   Future<XRPCResponse<ContactImportContactsOutput>> importContacts({
     required String token,
     required List<String> contacts,
@@ -209,7 +209,7 @@ base class ContactService {
     $unknown: $unknown,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
+  /// Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
   Future<XRPCResponse<EmptyData>> removeData({
     String? $service,
     Map<String, String>? $headers,
@@ -219,7 +219,7 @@ base class ContactService {
     $headers: $headers,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.
+  /// Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.
   Future<XRPCResponse<ContactVerifyPhoneOutput>> verifyPhone({
     required String phone,
     required String code,
@@ -235,7 +235,7 @@ base class ContactService {
     $unknown: $unknown,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.
+  /// Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.
   Future<XRPCResponse<ContactGetMatchesOutput>> getMatches({
     int? limit,
     String? cursor,
@@ -251,7 +251,7 @@ base class ContactService {
     $unknown: $unknown,
   );
 
-  /// WARNING: This is unstable and under active development, don't use it while this warning is here. Gets the user's current contact import status. Requires authentication.
+  /// Gets the user's current contact import status. Requires authentication.
   Future<XRPCResponse<ContactGetSyncStatusOutput>> getSyncStatus({
     String? $service,
     Map<String, String>? $headers,

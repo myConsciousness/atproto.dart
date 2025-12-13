@@ -7,7 +7,7 @@ description: app.bsky.contact.sendNotification
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. System endpoint to send notifications related to contact imports. Requires role authentication.
+System endpoint to send notifications related to contact imports. Requires role authentication.
 
 ### Input
 

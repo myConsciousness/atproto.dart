@@ -28,7 +28,7 @@ final class DismissMatchCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"WARNING: This is unstable and under active development, don't use it while this warning is here. Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.";
+      r"Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.";
 
   @override
   final String invocation = "bsky app-bsky-contact dismiss-match [subject]";

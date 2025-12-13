@@ -7,7 +7,7 @@ description: app.bsky.contact.getMatches
 
 ## #main
 
-WARNING: This is unstable and under active development, don't use it while this warning is here. Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.
+Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.
 
 ### Parameters
 

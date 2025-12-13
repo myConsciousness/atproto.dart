@@ -36,7 +36,7 @@ final class VerifyPhoneCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"WARNING: This is unstable and under active development, don't use it while this warning is here. Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.";
+      r"Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.";
 
   @override
   final String invocation = "bsky app-bsky-contact verify-phone [phone] [code]";
