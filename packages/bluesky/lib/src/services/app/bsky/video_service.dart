@@ -13,11 +13,11 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart' show nanoid;
 
 // Project imports:
+import '../../../../app_bsky_video_defs.dart';
 import '../../../../com_atproto_server_getserviceauth.dart';
 import '../../../ids.g.dart' as bsky_id;
 import '../../codegen/app/bsky/video/getJobStatus/output.dart';
 import '../../codegen/app/bsky/video/getUploadLimits/output.dart';
-import '../../codegen/app/bsky/video/uploadVideo/output.dart';
 import '../../codegen/app/bsky/video_service.dart';
 
 const _videoService = 'video.bsky.app';
@@ -26,7 +26,7 @@ final class VideoServiceImpl extends VideoService {
   VideoServiceImpl(super.ctx);
 
   @override
-  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo({
+  Future<XRPCResponse<JobStatus>> uploadVideo({
     required Uint8List bytes,
     String? $service,
     Map<String, String>? $headers,
@@ -89,7 +89,7 @@ final class VideoServiceImpl extends VideoService {
   ///   bytes: videoBytes,
   /// );
   /// ```
-  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideoWithAuthToken(
+  Future<XRPCResponse<JobStatus>> uploadVideoWithAuthToken(
     final String authToken, {
     required Uint8List bytes,
     String? $service,

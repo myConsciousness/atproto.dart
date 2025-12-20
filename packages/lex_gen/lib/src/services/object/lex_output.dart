@@ -42,12 +42,31 @@ final class LexOutput extends LexType {
 
   @override
   String? getRef() {
-    return ref;
+    if (ref != null) return ref;
+
+    if (properties.length == 1 &&
+        properties.first.type.isRef &&
+        lexiconId.contains('upload')) {
+      // Duct tape solution
+      return properties.first.type.ref;
+    }
+
+    return null;
   }
 
   @override
   bool isShouldNotBeGenerated() {
-    return getRef() != null || isBytes();
+    if (getRef() != null) return true;
+    if (isBytes()) return true;
+
+    if (properties.length == 1 &&
+        properties.first.type.isRef &&
+        lexiconId.contains('upload')) {
+      // Duct tape solution
+      return true;
+    }
+
+    return false;
   }
 
   @override

@@ -16,16 +16,16 @@ import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
+import 'video/defs/job_status.dart';
 import 'video/getJobStatus/output.dart';
 import 'video/getUploadLimits/output.dart';
-import 'video/uploadVideo/output.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
 /// Upload a video to be processed then stored on the PDS.
-Future<XRPCResponse<VideoUploadVideoOutput>> appBskyVideoUploadVideo({
+Future<XRPCResponse<JobStatus>> appBskyVideoUploadVideo({
   required Uint8List bytes,
   required ServiceContext $ctx,
   String? $service,
@@ -37,7 +37,7 @@ Future<XRPCResponse<VideoUploadVideoOutput>> appBskyVideoUploadVideo({
   headers: {'Content-type': 'video/mp4', ...?$headers},
   parameters: $parameters,
   body: bytes,
-  to: const VideoUploadVideoOutputConverter().fromJson,
+  to: const JobStatusConverter().fromJson,
 );
 
 /// Get status details for a video processing job.
@@ -77,7 +77,7 @@ base class VideoService {
   VideoService(this.ctx);
 
   /// Upload a video to be processed then stored on the PDS.
-  Future<XRPCResponse<VideoUploadVideoOutput>> uploadVideo({
+  Future<XRPCResponse<JobStatus>> uploadVideo({
     required Uint8List bytes,
     String? $service,
     Map<String, String>? $headers,
