@@ -148,6 +148,10 @@ sealed class Bluesky {
   /// This service represents `app.bsky.actor.*`.
   ActorService get actor;
 
+  /// Returns the ageassurance service.
+  /// This service represents `app.bsky.ageassurance.*`.
+  AgeassuranceService get ageassurance;
+
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
   FeedService get feed;
@@ -175,11 +179,16 @@ sealed class Bluesky {
   /// Returns the bookmark service.
   /// This service represents `app.bsky.bookmark.*`.
   BookmarkService get bookmark;
+
+  /// Returns the contact service.
+  /// This service represents `app.bsky.contact.*`.
+  ContactService get contact;
 }
 
 final class _Bluesky implements Bluesky {
   _Bluesky(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),
+      ageassurance = AgeassuranceService(ctx),
       feed = FeedService(ctx),
       notification = NotificationService(ctx),
       graph = GraphService(ctx),
@@ -187,6 +196,7 @@ final class _Bluesky implements Bluesky {
       labeler = LabelerService(ctx),
       video = VideoServiceImpl(ctx),
       bookmark = BookmarkService(ctx),
+      contact = ContactService(ctx),
       _ctx = ctx;
 
   final core.ServiceContext _ctx;
@@ -213,6 +223,9 @@ final class _Bluesky implements Bluesky {
   final ActorService actor;
 
   @override
+  final AgeassuranceService ageassurance;
+
+  @override
   final FeedService feed;
 
   @override
@@ -232,4 +245,7 @@ final class _Bluesky implements Bluesky {
 
   @override
   final BookmarkService bookmark;
+
+  @override
+  final ContactService contact;
 }

@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.1.0
+
+- Add optional $service parameter to video service methods (getJobStatus, getUploadLimits, uploadVideo).
+- Export nanoid and @Protected annotation from atproto_core/internals.dart.
+
 ## v1.0.7
 
 - **MIGRATION**: Updated to use the consolidated `at_primitives` package for all primitive AT Protocol types.
