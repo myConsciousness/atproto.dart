@@ -1,5 +1,19 @@
 # Release Note
 
+## v1.3.0
+
+- chore: Sync Lexicon Data.
+  - ([#2188](https://github.com/myConsciousness/atproto.dart/pull/2188))
+  - ([#2190](https://github.com/myConsciousness/atproto.dart/pull/2190))
+  - ([#2195](https://github.com/myConsciousness/atproto.dart/pull/2195))
+  - ([#2197](https://github.com/myConsciousness/atproto.dart/pull/2197))
+  - ([#2203](https://github.com/myConsciousness/atproto.dart/pull/2203))
+  - ([#2205](https://github.com/myConsciousness/atproto.dart/pull/2205))
+  - ([#2208](https://github.com/myConsciousness/atproto.dart/pull/2208))
+  - ([#2210](https://github.com/myConsciousness/atproto.dart/pull/2210))
+  - ([#2213](https://github.com/myConsciousness/atproto.dart/pull/2213))
+- fix: errors on video service. ([#2215](https://github.com/myConsciousness/atproto.dart/pull/2215))
+
 ## v1.2.6
 
 - chore: Sync Lexicon Data.

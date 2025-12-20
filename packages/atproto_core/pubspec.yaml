@@ -1,7 +1,7 @@
 name: atproto_core
 resolution: workspace
 description: Core library for clients and tools. This package is mainly used by https://atprotodart.com packages.
-version: 1.0.8
+version: 1.1.0
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core
