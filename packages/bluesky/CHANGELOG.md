@@ -13,6 +13,7 @@
   - ([#2210](https://github.com/myConsciousness/atproto.dart/pull/2210))
   - ([#2213](https://github.com/myConsciousness/atproto.dart/pull/2213))
 - fix: errors on video service. ([#2215](https://github.com/myConsciousness/atproto.dart/pull/2215))
+- feat: support `AgeassuranceService` and `ContactService`.
 
 ## v1.2.6
 
