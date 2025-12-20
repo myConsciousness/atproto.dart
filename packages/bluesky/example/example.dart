@@ -92,7 +92,7 @@ Future<void> main() async {
     bsky.feed.post.create(
       text: 'Hello, Bluesky!',
       embed: UFeedPostEmbed.embedVideo(
-        data: EmbedVideo(video: uploadedVideo.data.jobStatus.blob!),
+        data: EmbedVideo(video: uploadedVideo.data.blob!),
       ),
     );
 
