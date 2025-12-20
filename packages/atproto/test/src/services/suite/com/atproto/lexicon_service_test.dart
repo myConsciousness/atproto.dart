@@ -5,6 +5,7 @@ import 'package:atproto/com_atproto_repo_getrecord.dart';
 import 'package:atproto/com_atproto_repo_listrecords.dart';
 import 'package:atproto/com_atproto_repo_putrecord.dart';
 import 'package:atproto/src/ids.g.dart';
+import 'package:atproto/src/services/codegen/com/atproto/repo/deleteRecord/output.dart';
 import 'service_suite.dart';
 
 void main() {
