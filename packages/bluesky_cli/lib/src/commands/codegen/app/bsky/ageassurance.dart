@@ -21,8 +21,8 @@ import 'ageassurance/get_state.dart';
 
 final class AppBskyAgeassuranceCommand extends Command<void> {
   AppBskyAgeassuranceCommand() {
-    addSubcommand(GetStateCommand());
     addSubcommand(BeginCommand());
+    addSubcommand(GetStateCommand());
     addSubcommand(GetConfigCommand());
   }
 

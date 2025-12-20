@@ -20,35 +20,6 @@ import 'communication/listTemplates/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Get list of all communication templates.
-Future<XRPCResponse<CommunicationListTemplatesOutput>>
-toolsOzoneCommunicationListTemplates({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneCommunicationListTemplates,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const CommunicationListTemplatesOutputConverter().fromJson,
-);
-
-/// Delete a communication template.
-Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
-  required String id,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneCommunicationDeleteTemplate,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'id': id},
-);
-
 /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
 Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
   required String id,
@@ -105,38 +76,41 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
   to: const TemplateViewConverter().fromJson,
 );
 
+/// Get list of all communication templates.
+Future<XRPCResponse<CommunicationListTemplatesOutput>>
+toolsOzoneCommunicationListTemplates({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneCommunicationListTemplates,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const CommunicationListTemplatesOutputConverter().fromJson,
+);
+
+/// Delete a communication template.
+Future<XRPCResponse<EmptyData>> toolsOzoneCommunicationDeleteTemplate({
+  required String id,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneCommunicationDeleteTemplate,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'id': id},
+);
+
 /// `tools.ozone.communication.*`
 base class CommunicationService {
   @protected
   final ServiceContext ctx;
 
   CommunicationService(this.ctx);
-
-  /// Get list of all communication templates.
-  Future<XRPCResponse<CommunicationListTemplatesOutput>> listTemplates({
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneCommunicationListTemplates(
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Delete a communication template.
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
-    required String id,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneCommunicationDeleteTemplate(
-    id: id,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
   Future<XRPCResponse<TemplateView>> updateTemplate({
@@ -180,6 +154,32 @@ base class CommunicationService {
     subject: subject,
     lang: lang,
     createdBy: createdBy,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get list of all communication templates.
+  Future<XRPCResponse<CommunicationListTemplatesOutput>> listTemplates({
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneCommunicationListTemplates(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Delete a communication template.
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneCommunicationDeleteTemplate(
+    id: id,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
