@@ -7,4 +7,4 @@ description: com.atproto.server.deleteSession
 
 ## #main
 
-Delete the current session. Requires auth.
+Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').

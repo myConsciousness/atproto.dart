@@ -26,10 +26,10 @@ abstract class ServerGetSessionOutput with _$ServerGetSessionOutput {
   static const knownProps = <String>[
     'handle',
     'did',
+    'didDoc',
     'email',
     'emailConfirmed',
     'emailAuthFactor',
-    'didDoc',
     'active',
     'status',
   ];
@@ -38,10 +38,10 @@ abstract class ServerGetSessionOutput with _$ServerGetSessionOutput {
   const factory ServerGetSessionOutput({
     required String handle,
     required String did,
+    Map<String, dynamic>? didDoc,
     String? email,
     bool? emailConfirmed,
     bool? emailAuthFactor,
-    Map<String, dynamic>? didDoc,
     bool? active,
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
@@ -55,14 +55,14 @@ abstract class ServerGetSessionOutput with _$ServerGetSessionOutput {
 }
 
 extension ServerGetSessionOutputExtension on ServerGetSessionOutput {
+  bool get hasDidDoc => didDoc != null;
+  bool get hasNotDidDoc => !hasDidDoc;
   bool get hasEmail => email != null;
   bool get hasNotEmail => !hasEmail;
   bool get isEmailConfirmed => emailConfirmed ?? false;
   bool get isNotEmailConfirmed => !isEmailConfirmed;
   bool get isEmailAuthFactor => emailAuthFactor ?? false;
   bool get isNotEmailAuthFactor => !isEmailAuthFactor;
-  bool get hasDidDoc => didDoc != null;
-  bool get hasNotDidDoc => !hasDidDoc;
   bool get isActive => active ?? false;
   bool get isNotActive => !isActive;
   bool get hasStatus => status != null;

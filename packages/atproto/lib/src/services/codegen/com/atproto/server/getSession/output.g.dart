@@ -13,13 +13,13 @@ _ServerGetSessionOutput _$ServerGetSessionOutputFromJson(Map json) =>
       final val = _ServerGetSessionOutput(
         handle: $checkedConvert('handle', (v) => v as String),
         did: $checkedConvert('did', (v) => v as String),
-        email: $checkedConvert('email', (v) => v as String?),
-        emailConfirmed: $checkedConvert('emailConfirmed', (v) => v as bool?),
-        emailAuthFactor: $checkedConvert('emailAuthFactor', (v) => v as bool?),
         didDoc: $checkedConvert(
           'didDoc',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
         ),
+        email: $checkedConvert('email', (v) => v as String?),
+        emailConfirmed: $checkedConvert('emailConfirmed', (v) => v as bool?),
+        emailAuthFactor: $checkedConvert('emailAuthFactor', (v) => v as bool?),
         active: $checkedConvert('active', (v) => v as bool?),
         status: $checkedConvert(
           'status',
@@ -41,10 +41,10 @@ Map<String, dynamic> _$ServerGetSessionOutputToJson(
 ) => <String, dynamic>{
   'handle': instance.handle,
   'did': instance.did,
+  'didDoc': ?instance.didDoc,
   'email': ?instance.email,
   'emailConfirmed': ?instance.emailConfirmed,
   'emailAuthFactor': ?instance.emailAuthFactor,
-  'didDoc': ?instance.didDoc,
   'active': ?instance.active,
   'status': ?_$JsonConverterToJson<String, ServerGetSessionStatus>(
     instance.status,

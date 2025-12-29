@@ -27,13 +27,13 @@ import 'contact/verify_phone.dart';
 final class AppBskyContactCommand extends Command<void> {
   AppBskyContactCommand() {
     addSubcommand(SendNotificationCommand());
-    addSubcommand(GetSyncStatusCommand());
     addSubcommand(StartPhoneVerificationCommand());
-    addSubcommand(GetMatchesCommand());
-    addSubcommand(ImportContactsCommand());
     addSubcommand(DismissMatchCommand());
+    addSubcommand(ImportContactsCommand());
     addSubcommand(RemoveDataCommand());
     addSubcommand(VerifyPhoneCommand());
+    addSubcommand(GetMatchesCommand());
+    addSubcommand(GetSyncStatusCommand());
   }
 
   @override

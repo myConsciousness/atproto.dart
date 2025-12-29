@@ -20,5 +20,8 @@ Refresh an authentication session. Requires auth using the 'refreshJwt' (not the
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **didDoc** | unknown | - | ❌ | - |
+| **email** | string | - | ❌ | - |
+| **emailConfirmed** | boolean | - | ❌ | - |
+| **emailAuthFactor** | boolean | - | ❌ | - |
 | **active** | boolean | - | ❌ | - |
 | **status** | string | takendown<br/>suspended<br/>deactivated | ❌ | Hosting status of the account. If not specified, then assume 'active'. |

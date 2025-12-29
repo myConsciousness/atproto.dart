@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ServerRefreshSessionOutput {
 
- String get accessJwt; String get refreshJwt; String get handle; String get did; Map<String, dynamic>? get didDoc; bool? get active;/// Hosting status of the account. If not specified, then assume 'active'.
+ String get accessJwt; String get refreshJwt; String get handle; String get did; Map<String, dynamic>? get didDoc; String? get email; bool? get emailConfirmed; bool? get emailAuthFactor; bool? get active;/// Hosting status of the account. If not specified, then assume 'active'.
 @ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServerRefreshSessionOutput
 /// with the given fields replaced by the non-null parameter values.
@@ -29,16 +29,16 @@ $ServerRefreshSessionOutputCopyWith<ServerRefreshSessionOutput> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerRefreshSessionOutput&&(identical(other.accessJwt, accessJwt) || other.accessJwt == accessJwt)&&(identical(other.refreshJwt, refreshJwt) || other.refreshJwt == refreshJwt)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other.didDoc, didDoc)&&(identical(other.active, active) || other.active == active)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerRefreshSessionOutput&&(identical(other.accessJwt, accessJwt) || other.accessJwt == accessJwt)&&(identical(other.refreshJwt, refreshJwt) || other.refreshJwt == refreshJwt)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other.didDoc, didDoc)&&(identical(other.email, email) || other.email == email)&&(identical(other.emailConfirmed, emailConfirmed) || other.emailConfirmed == emailConfirmed)&&(identical(other.emailAuthFactor, emailAuthFactor) || other.emailAuthFactor == emailAuthFactor)&&(identical(other.active, active) || other.active == active)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,accessJwt,refreshJwt,handle,did,const DeepCollectionEquality().hash(didDoc),active,status,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,accessJwt,refreshJwt,handle,did,const DeepCollectionEquality().hash(didDoc),email,emailConfirmed,emailAuthFactor,active,status,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ServerRefreshSessionOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, active: $active, status: $status, \$unknown: ${$unknown})';
+  return 'ServerRefreshSessionOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, email: $email, emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, active: $active, status: $status, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $ServerRefreshSessionOutputCopyWith<$Res>  {
   factory $ServerRefreshSessionOutputCopyWith(ServerRefreshSessionOutput value, $Res Function(ServerRefreshSessionOutput) _then) = _$ServerRefreshSessionOutputCopyWithImpl;
 @useResult
 $Res call({
- String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, bool? active,@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status, Map<String, dynamic>? $unknown
+ String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, String? email, bool? emailConfirmed, bool? emailAuthFactor, bool? active,@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,14 +66,17 @@ class _$ServerRefreshSessionOutputCopyWithImpl<$Res>
 
 /// Create a copy of ServerRefreshSessionOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? accessJwt = null,Object? refreshJwt = null,Object? handle = null,Object? did = null,Object? didDoc = freezed,Object? active = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? accessJwt = null,Object? refreshJwt = null,Object? handle = null,Object? did = null,Object? didDoc = freezed,Object? email = freezed,Object? emailConfirmed = freezed,Object? emailAuthFactor = freezed,Object? active = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 accessJwt: null == accessJwt ? _self.accessJwt : accessJwt // ignore: cast_nullable_to_non_nullable
 as String,refreshJwt: null == refreshJwt ? _self.refreshJwt : refreshJwt // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,didDoc: freezed == didDoc ? _self.didDoc : didDoc // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String?,emailConfirmed: freezed == emailConfirmed ? _self.emailConfirmed : emailConfirmed // ignore: cast_nullable_to_non_nullable
+as bool?,emailAuthFactor: freezed == emailAuthFactor ? _self.emailAuthFactor : emailAuthFactor // ignore: cast_nullable_to_non_nullable
+as bool?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ServerRefreshSessionStatus?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -173,10 +176,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServerRefreshSessionOutput() when $default != null:
-return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
+return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.email,_that.emailConfirmed,_that.emailAuthFactor,_that.active,_that.status,_that.$unknown);case _:
   return orElse();
 
 }
@@ -194,10 +197,10 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServerRefreshSessionOutput():
-return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
+return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.email,_that.emailConfirmed,_that.emailAuthFactor,_that.active,_that.status,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +217,10 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String accessJwt,  String refreshJwt,  String handle,  String did,  Map<String, dynamic>? didDoc,  String? email,  bool? emailConfirmed,  bool? emailAuthFactor,  bool? active, @ServerRefreshSessionStatusConverter()  ServerRefreshSessionStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServerRefreshSessionOutput() when $default != null:
-return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.active,_that.status,_that.$unknown);case _:
+return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.didDoc,_that.email,_that.emailConfirmed,_that.emailAuthFactor,_that.active,_that.status,_that.$unknown);case _:
   return null;
 
 }
@@ -229,7 +232,7 @@ return $default(_that.accessJwt,_that.refreshJwt,_that.handle,_that.did,_that.di
 
 @JsonSerializable(includeIfNull: false)
 class _ServerRefreshSessionOutput implements ServerRefreshSessionOutput {
-  const _ServerRefreshSessionOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, this.active, @ServerRefreshSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
+  const _ServerRefreshSessionOutput({required this.accessJwt, required this.refreshJwt, required this.handle, required this.did, final  Map<String, dynamic>? didDoc, this.email, this.emailConfirmed, this.emailAuthFactor, this.active, @ServerRefreshSessionStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _ServerRefreshSessionOutput.fromJson(Map<String, dynamic> json) => _$ServerRefreshSessionOutputFromJson(json);
 
 @override final  String accessJwt;
@@ -245,6 +248,9 @@ class _ServerRefreshSessionOutput implements ServerRefreshSessionOutput {
   return EqualUnmodifiableMapView(value);
 }
 
+@override final  String? email;
+@override final  bool? emailConfirmed;
+@override final  bool? emailAuthFactor;
 @override final  bool? active;
 /// Hosting status of the account. If not specified, then assume 'active'.
 @override@ServerRefreshSessionStatusConverter() final  ServerRefreshSessionStatus? status;
@@ -271,16 +277,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerRefreshSessionOutput&&(identical(other.accessJwt, accessJwt) || other.accessJwt == accessJwt)&&(identical(other.refreshJwt, refreshJwt) || other.refreshJwt == refreshJwt)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other._didDoc, _didDoc)&&(identical(other.active, active) || other.active == active)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerRefreshSessionOutput&&(identical(other.accessJwt, accessJwt) || other.accessJwt == accessJwt)&&(identical(other.refreshJwt, refreshJwt) || other.refreshJwt == refreshJwt)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other._didDoc, _didDoc)&&(identical(other.email, email) || other.email == email)&&(identical(other.emailConfirmed, emailConfirmed) || other.emailConfirmed == emailConfirmed)&&(identical(other.emailAuthFactor, emailAuthFactor) || other.emailAuthFactor == emailAuthFactor)&&(identical(other.active, active) || other.active == active)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,accessJwt,refreshJwt,handle,did,const DeepCollectionEquality().hash(_didDoc),active,status,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,accessJwt,refreshJwt,handle,did,const DeepCollectionEquality().hash(_didDoc),email,emailConfirmed,emailAuthFactor,active,status,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ServerRefreshSessionOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, active: $active, status: $status, \$unknown: ${$unknown})';
+  return 'ServerRefreshSessionOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, email: $email, emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, active: $active, status: $status, \$unknown: ${$unknown})';
 }
 
 
@@ -291,7 +297,7 @@ abstract mixin class _$ServerRefreshSessionOutputCopyWith<$Res> implements $Serv
   factory _$ServerRefreshSessionOutputCopyWith(_ServerRefreshSessionOutput value, $Res Function(_ServerRefreshSessionOutput) _then) = __$ServerRefreshSessionOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, bool? active,@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status, Map<String, dynamic>? $unknown
+ String accessJwt, String refreshJwt, String handle, String did, Map<String, dynamic>? didDoc, String? email, bool? emailConfirmed, bool? emailAuthFactor, bool? active,@ServerRefreshSessionStatusConverter() ServerRefreshSessionStatus? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -308,14 +314,17 @@ class __$ServerRefreshSessionOutputCopyWithImpl<$Res>
 
 /// Create a copy of ServerRefreshSessionOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? accessJwt = null,Object? refreshJwt = null,Object? handle = null,Object? did = null,Object? didDoc = freezed,Object? active = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? accessJwt = null,Object? refreshJwt = null,Object? handle = null,Object? did = null,Object? didDoc = freezed,Object? email = freezed,Object? emailConfirmed = freezed,Object? emailAuthFactor = freezed,Object? active = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
   return _then(_ServerRefreshSessionOutput(
 accessJwt: null == accessJwt ? _self.accessJwt : accessJwt // ignore: cast_nullable_to_non_nullable
 as String,refreshJwt: null == refreshJwt ? _self.refreshJwt : refreshJwt // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,didDoc: freezed == didDoc ? _self._didDoc : didDoc // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String?,emailConfirmed: freezed == emailConfirmed ? _self.emailConfirmed : emailConfirmed // ignore: cast_nullable_to_non_nullable
+as bool?,emailAuthFactor: freezed == emailAuthFactor ? _self.emailAuthFactor : emailAuthFactor // ignore: cast_nullable_to_non_nullable
+as bool?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ServerRefreshSessionStatus?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

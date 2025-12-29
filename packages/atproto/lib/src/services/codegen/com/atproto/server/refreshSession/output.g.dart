@@ -19,6 +19,9 @@ _ServerRefreshSessionOutput _$ServerRefreshSessionOutputFromJson(Map json) =>
           'didDoc',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
         ),
+        email: $checkedConvert('email', (v) => v as String?),
+        emailConfirmed: $checkedConvert('emailConfirmed', (v) => v as bool?),
+        emailAuthFactor: $checkedConvert('emailAuthFactor', (v) => v as bool?),
         active: $checkedConvert('active', (v) => v as bool?),
         status: $checkedConvert(
           'status',
@@ -43,6 +46,9 @@ Map<String, dynamic> _$ServerRefreshSessionOutputToJson(
   'handle': instance.handle,
   'did': instance.did,
   'didDoc': ?instance.didDoc,
+  'email': ?instance.email,
+  'emailConfirmed': ?instance.emailConfirmed,
+  'emailAuthFactor': ?instance.emailAuthFactor,
   'active': ?instance.active,
   'status': ?_$JsonConverterToJson<String, ServerRefreshSessionStatus>(
     instance.status,
