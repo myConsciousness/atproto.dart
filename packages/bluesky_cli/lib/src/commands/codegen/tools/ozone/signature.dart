@@ -21,9 +21,9 @@ import 'signature/search_accounts.dart';
 
 final class ToolsOzoneSignatureCommand extends Command<void> {
   ToolsOzoneSignatureCommand() {
-    addSubcommand(FindCorrelationCommand());
-    addSubcommand(SearchAccountsCommand());
     addSubcommand(FindRelatedAccountsCommand());
+    addSubcommand(SearchAccountsCommand());
+    addSubcommand(FindCorrelationCommand());
   }
 
   @override

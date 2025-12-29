@@ -29,6 +29,9 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
     'handle',
     'did',
     'didDoc',
+    'email',
+    'emailConfirmed',
+    'emailAuthFactor',
     'active',
     'status',
   ];
@@ -40,6 +43,9 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
     required String handle,
     required String did,
     Map<String, dynamic>? didDoc,
+    String? email,
+    bool? emailConfirmed,
+    bool? emailAuthFactor,
     bool? active,
 
     /// Hosting status of the account. If not specified, then assume 'active'.
@@ -55,6 +61,12 @@ abstract class ServerRefreshSessionOutput with _$ServerRefreshSessionOutput {
 extension ServerRefreshSessionOutputExtension on ServerRefreshSessionOutput {
   bool get hasDidDoc => didDoc != null;
   bool get hasNotDidDoc => !hasDidDoc;
+  bool get hasEmail => email != null;
+  bool get hasNotEmail => !hasEmail;
+  bool get isEmailConfirmed => emailConfirmed ?? false;
+  bool get isNotEmailConfirmed => !isEmailConfirmed;
+  bool get isEmailAuthFactor => emailAuthFactor ?? false;
+  bool get isNotEmailAuthFactor => !isEmailAuthFactor;
   bool get isActive => active ?? false;
   bool get isNotActive => !isActive;
   bool get hasStatus => status != null;
