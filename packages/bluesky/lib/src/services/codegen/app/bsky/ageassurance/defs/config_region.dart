@@ -24,7 +24,12 @@ part 'config_region.g.dart';
 /// The Age Assurance configuration for a specific region.
 @freezed
 abstract class ConfigRegion with _$ConfigRegion {
-  static const knownProps = <String>['countryCode', 'regionCode', 'rules'];
+  static const knownProps = <String>[
+    'countryCode',
+    'regionCode',
+    'minAccessAge',
+    'rules',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ConfigRegion({
@@ -35,6 +40,9 @@ abstract class ConfigRegion with _$ConfigRegion {
 
     /// The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country.
     String? regionCode,
+
+    /// The minimum age (as a whole integer) required to use Bluesky in this region.
+    required int minAccessAge,
     @UConfigRegionRulesConverter() required List<UConfigRegionRules> rules,
 
     Map<String, dynamic>? $unknown,

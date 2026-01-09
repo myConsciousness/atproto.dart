@@ -17,7 +17,8 @@ mixin _$ConfigRegion {
 
  String get $type;/// The ISO 3166-1 alpha-2 country code this configuration applies to.
  String get countryCode;/// The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country.
- String? get regionCode;@UConfigRegionRulesConverter() List<UConfigRegionRules> get rules; Map<String, dynamic>? get $unknown;
+ String? get regionCode;/// The minimum age (as a whole integer) required to use Bluesky in this region.
+ int get minAccessAge;@UConfigRegionRulesConverter() List<UConfigRegionRules> get rules; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConfigRegion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +31,16 @@ $ConfigRegionCopyWith<ConfigRegion> get copyWith => _$ConfigRegionCopyWithImpl<C
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConfigRegion&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&const DeepCollectionEquality().equals(other.rules, rules)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConfigRegion&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&(identical(other.minAccessAge, minAccessAge) || other.minAccessAge == minAccessAge)&&const DeepCollectionEquality().equals(other.rules, rules)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,countryCode,regionCode,const DeepCollectionEquality().hash(rules),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,countryCode,regionCode,minAccessAge,const DeepCollectionEquality().hash(rules),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ConfigRegion(\$type: ${$type}, countryCode: $countryCode, regionCode: $regionCode, rules: $rules, \$unknown: ${$unknown})';
+  return 'ConfigRegion(\$type: ${$type}, countryCode: $countryCode, regionCode: $regionCode, minAccessAge: $minAccessAge, rules: $rules, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +51,7 @@ abstract mixin class $ConfigRegionCopyWith<$Res>  {
   factory $ConfigRegionCopyWith(ConfigRegion value, $Res Function(ConfigRegion) _then) = _$ConfigRegionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String countryCode, String? regionCode,@UConfigRegionRulesConverter() List<UConfigRegionRules> rules, Map<String, dynamic>? $unknown
+ String $type, String countryCode, String? regionCode, int minAccessAge,@UConfigRegionRulesConverter() List<UConfigRegionRules> rules, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,12 +68,13 @@ class _$ConfigRegionCopyWithImpl<$Res>
 
 /// Create a copy of ConfigRegion
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? countryCode = null,Object? regionCode = freezed,Object? rules = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? countryCode = null,Object? regionCode = freezed,Object? minAccessAge = null,Object? rules = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,countryCode: null == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
 as String,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
-as String?,rules: null == rules ? _self.rules : rules // ignore: cast_nullable_to_non_nullable
+as String?,minAccessAge: null == minAccessAge ? _self.minAccessAge : minAccessAge // ignore: cast_nullable_to_non_nullable
+as int,rules: null == rules ? _self.rules : rules // ignore: cast_nullable_to_non_nullable
 as List<UConfigRegionRules>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -159,10 +161,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String countryCode,  String? regionCode, @UConfigRegionRulesConverter()  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String countryCode,  String? regionCode,  int minAccessAge, @UConfigRegionRulesConverter()  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConfigRegion() when $default != null:
-return $default(_that.$type,_that.countryCode,_that.regionCode,_that.rules,_that.$unknown);case _:
+return $default(_that.$type,_that.countryCode,_that.regionCode,_that.minAccessAge,_that.rules,_that.$unknown);case _:
   return orElse();
 
 }
@@ -180,10 +182,10 @@ return $default(_that.$type,_that.countryCode,_that.regionCode,_that.rules,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String countryCode,  String? regionCode, @UConfigRegionRulesConverter()  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String countryCode,  String? regionCode,  int minAccessAge, @UConfigRegionRulesConverter()  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConfigRegion():
-return $default(_that.$type,_that.countryCode,_that.regionCode,_that.rules,_that.$unknown);case _:
+return $default(_that.$type,_that.countryCode,_that.regionCode,_that.minAccessAge,_that.rules,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -200,10 +202,10 @@ return $default(_that.$type,_that.countryCode,_that.regionCode,_that.rules,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String countryCode,  String? regionCode, @UConfigRegionRulesConverter()  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String countryCode,  String? regionCode,  int minAccessAge, @UConfigRegionRulesConverter()  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConfigRegion() when $default != null:
-return $default(_that.$type,_that.countryCode,_that.regionCode,_that.rules,_that.$unknown);case _:
+return $default(_that.$type,_that.countryCode,_that.regionCode,_that.minAccessAge,_that.rules,_that.$unknown);case _:
   return null;
 
 }
@@ -215,7 +217,7 @@ return $default(_that.$type,_that.countryCode,_that.regionCode,_that.rules,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ConfigRegion implements ConfigRegion {
-  const _ConfigRegion({this.$type = 'app.bsky.ageassurance.defs#configRegion', required this.countryCode, this.regionCode, @UConfigRegionRulesConverter() required final  List<UConfigRegionRules> rules, final  Map<String, dynamic>? $unknown}): _rules = rules,_$unknown = $unknown;
+  const _ConfigRegion({this.$type = 'app.bsky.ageassurance.defs#configRegion', required this.countryCode, this.regionCode, required this.minAccessAge, @UConfigRegionRulesConverter() required final  List<UConfigRegionRules> rules, final  Map<String, dynamic>? $unknown}): _rules = rules,_$unknown = $unknown;
   factory _ConfigRegion.fromJson(Map<String, dynamic> json) => _$ConfigRegionFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -223,6 +225,8 @@ class _ConfigRegion implements ConfigRegion {
 @override final  String countryCode;
 /// The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country.
 @override final  String? regionCode;
+/// The minimum age (as a whole integer) required to use Bluesky in this region.
+@override final  int minAccessAge;
  final  List<UConfigRegionRules> _rules;
 @override@UConfigRegionRulesConverter() List<UConfigRegionRules> get rules {
   if (_rules is EqualUnmodifiableListView) return _rules;
@@ -253,16 +257,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConfigRegion&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&const DeepCollectionEquality().equals(other._rules, _rules)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConfigRegion&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&(identical(other.minAccessAge, minAccessAge) || other.minAccessAge == minAccessAge)&&const DeepCollectionEquality().equals(other._rules, _rules)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,countryCode,regionCode,const DeepCollectionEquality().hash(_rules),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,countryCode,regionCode,minAccessAge,const DeepCollectionEquality().hash(_rules),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ConfigRegion(\$type: ${$type}, countryCode: $countryCode, regionCode: $regionCode, rules: $rules, \$unknown: ${$unknown})';
+  return 'ConfigRegion(\$type: ${$type}, countryCode: $countryCode, regionCode: $regionCode, minAccessAge: $minAccessAge, rules: $rules, \$unknown: ${$unknown})';
 }
 
 
@@ -273,7 +277,7 @@ abstract mixin class _$ConfigRegionCopyWith<$Res> implements $ConfigRegionCopyWi
   factory _$ConfigRegionCopyWith(_ConfigRegion value, $Res Function(_ConfigRegion) _then) = __$ConfigRegionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String countryCode, String? regionCode,@UConfigRegionRulesConverter() List<UConfigRegionRules> rules, Map<String, dynamic>? $unknown
+ String $type, String countryCode, String? regionCode, int minAccessAge,@UConfigRegionRulesConverter() List<UConfigRegionRules> rules, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,12 +294,13 @@ class __$ConfigRegionCopyWithImpl<$Res>
 
 /// Create a copy of ConfigRegion
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? countryCode = null,Object? regionCode = freezed,Object? rules = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? countryCode = null,Object? regionCode = freezed,Object? minAccessAge = null,Object? rules = null,Object? $unknown = freezed,}) {
   return _then(_ConfigRegion(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,countryCode: null == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
 as String,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
-as String?,rules: null == rules ? _self._rules : rules // ignore: cast_nullable_to_non_nullable
+as String?,minAccessAge: null == minAccessAge ? _self.minAccessAge : minAccessAge // ignore: cast_nullable_to_non_nullable
+as int,rules: null == rules ? _self._rules : rules // ignore: cast_nullable_to_non_nullable
 as List<UConfigRegionRules>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

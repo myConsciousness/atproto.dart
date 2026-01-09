@@ -15,6 +15,14 @@ _StatusView _$StatusViewFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#statusView',
         ),
+        uri: $checkedConvert(
+          'uri',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
+        cid: $checkedConvert('cid', (v) => v as String?),
         status: $checkedConvert(
           'status',
           (v) => const StatusViewStatusConverter().fromJson(v as String),
@@ -36,6 +44,7 @@ _StatusView _$StatusViewFromJson(Map json) =>
           (v) => v == null ? null : DateTime.parse(v as String),
         ),
         isActive: $checkedConvert('isActive', (v) => v as bool?),
+        isDisabled: $checkedConvert('isDisabled', (v) => v as bool?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -47,6 +56,11 @@ _StatusView _$StatusViewFromJson(Map json) =>
 Map<String, dynamic> _$StatusViewToJson(_StatusView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
+      'uri': ?_$JsonConverterToJson<String, AtUri>(
+        instance.uri,
+        const AtUriConverter().toJson,
+      ),
+      'cid': ?instance.cid,
       'status': const StatusViewStatusConverter().toJson(instance.status),
       'record': instance.record,
       'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UStatusViewEmbed>(
@@ -55,6 +69,7 @@ Map<String, dynamic> _$StatusViewToJson(_StatusView instance) =>
       ),
       'expiresAt': ?instance.expiresAt?.toIso8601String(),
       'isActive': ?instance.isActive,
+      'isDisabled': ?instance.isDisabled,
       r'$unknown': ?instance.$unknown,
     };
 

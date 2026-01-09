@@ -6763,6 +6763,8 @@ const appBskyActorDefs = <String, dynamic>{
       "type": "object",
       "required": ["status", "record"],
       "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
         "status": {
           "type": "string",
           "description": "The status for the account.",
@@ -6784,6 +6786,11 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "boolean",
           "description":
               "True if the status is not expired, false if it is expired. Only present if expiration was set.",
+        },
+        "isDisabled": {
+          "type": "boolean",
+          "description":
+              "True if the user's go-live access has been disabled by a moderator, false otherwise.",
         },
       },
     },
@@ -10354,7 +10361,7 @@ const appBskyAgeassuranceDefs = <String, dynamic>{
     "configRegion": {
       "type": "object",
       "description": "The Age Assurance configuration for a specific region.",
-      "required": ["countryCode", "rules"],
+      "required": ["countryCode", "minAccessAge", "rules"],
       "properties": {
         "countryCode": {
           "type": "string",
@@ -10365,6 +10372,11 @@ const appBskyAgeassuranceDefs = <String, dynamic>{
           "type": "string",
           "description":
               "The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country.",
+        },
+        "minAccessAge": {
+          "type": "integer",
+          "description":
+              "The minimum age (as a whole integer) required to use Bluesky in this region.",
         },
         "rules": {
           "type": "array",
