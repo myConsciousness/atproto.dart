@@ -6420,6 +6420,7 @@ const appBskyActorDefs = <String, dynamic>{
           "#labelersPref",
           "#postInteractionSettingsPref",
           "#verificationPrefs",
+          "#liveEventPreferences",
         ],
       },
     },
@@ -6722,6 +6723,23 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "boolean",
           "description":
               "Hide the blue check badges for verified accounts and trusted verifiers.",
+          "default": false,
+        },
+      },
+    },
+    "liveEventPreferences": {
+      "type": "object",
+      "description": "Preferences for live events.",
+      "properties": {
+        "hiddenFeedIds": {
+          "type": "array",
+          "description":
+              "A list of feed IDs that the user has hidden from live events.",
+          "items": {"type": "string"},
+        },
+        "hideAllFeeds": {
+          "type": "boolean",
+          "description": "Whether to hide all feeds from live events.",
           "default": false,
         },
       },

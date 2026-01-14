@@ -20,6 +20,7 @@ import './feed_view_pref.dart';
 import './hidden_posts_pref.dart';
 import './interests_pref.dart';
 import './labelers_pref.dart';
+import './live_event_preferences.dart';
 import './muted_words_pref.dart';
 import './personal_details_pref.dart';
 import './post_interaction_settings_pref.dart';
@@ -75,6 +76,9 @@ sealed class UPreferences with _$UPreferences {
   const factory UPreferences.verificationPrefs({
     required VerificationPrefs data,
   }) = UPreferencesVerificationPrefs;
+  const factory UPreferences.liveEventPreferences({
+    required LiveEventPreferences data,
+  }) = UPreferencesLiveEventPreferences;
 
   const factory UPreferences.unknown({required Map<String, dynamic> data}) =
       UPreferencesUnknown;
@@ -146,6 +150,11 @@ extension UPreferencesExtension on UPreferences {
   bool get isNotVerificationPrefs => !isVerificationPrefs;
   VerificationPrefs? get verificationPrefs =>
       isVerificationPrefs ? data as VerificationPrefs : null;
+  bool get isLiveEventPreferences =>
+      isA<UPreferencesLiveEventPreferences>(this);
+  bool get isNotLiveEventPreferences => !isLiveEventPreferences;
+  LiveEventPreferences? get liveEventPreferences =>
+      isLiveEventPreferences ? data as LiveEventPreferences : null;
   bool get isUnknown => isA<UPreferencesUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -234,6 +243,11 @@ final class UPreferencesConverter
           data: const VerificationPrefsConverter().fromJson(json),
         );
       }
+      if (LiveEventPreferences.validate(json)) {
+        return UPreferences.liveEventPreferences(
+          data: const LiveEventPreferencesConverter().fromJson(json),
+        );
+      }
 
       return UPreferences.unknown(data: json);
     } catch (_) {
@@ -261,6 +275,8 @@ final class UPreferencesConverter
         const PostInteractionSettingsPrefConverter().toJson(data),
     verificationPrefs: (data) =>
         const VerificationPrefsConverter().toJson(data),
+    liveEventPreferences: (data) =>
+        const LiveEventPreferencesConverter().toJson(data),
 
     unknown: (data) => data,
   );

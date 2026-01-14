@@ -50,6 +50,7 @@ export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/bsky_app_state_
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/bsky_app_progress_guide.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/nux.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/verification_prefs.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/live_event_preferences.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/post_interaction_settings_pref.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/union_post_interaction_settings_pref_threadgate_allow_rules.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/union_post_interaction_settings_pref_postgate_embedding_rules.dart';
