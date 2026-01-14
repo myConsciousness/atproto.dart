@@ -140,7 +140,7 @@ An individual verification for an associated subject.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#declaredAgePref](#declaredagepref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref)<br/>[#postInteractionSettingsPref](#postinteractionsettingspref)<br/>[#verificationPrefs](#verificationprefs) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#declaredAgePref](#declaredagepref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref)<br/>[#postInteractionSettingsPref](#postinteractionsettingspref)<br/>[#verificationPrefs](#verificationprefs)<br/>[#liveEventPreferences](#liveeventpreferences) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -296,6 +296,15 @@ Preferences for how verified accounts appear in the app.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **hideBadges** | boolean | - | ❌ | Hide the blue check badges for verified accounts and trusted verifiers. |
+
+## #liveEventPreferences
+
+Preferences for live events.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **hiddenFeedIds** | array of string | - | ❌ | A list of feed IDs that the user has hidden from live events. |
+| **hideAllFeeds** | boolean | - | ❌ | Whether to hide all feeds from live events. |
 
 ## #postInteractionSettingsPref
 
