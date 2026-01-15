@@ -43,6 +43,10 @@ const appBskyActorDefsLabelerPrefItem = 'app.bsky.actor.defs#labelerPrefItem';
 /// `app.bsky.actor.defs#labelersPref`
 const appBskyActorDefsLabelersPref = 'app.bsky.actor.defs#labelersPref';
 
+/// `app.bsky.actor.defs#liveEventPreferences`
+const appBskyActorDefsLiveEventPreferences =
+    'app.bsky.actor.defs#liveEventPreferences';
+
 /// `app.bsky.actor.defs#mutedWord`
 const appBskyActorDefsMutedWord = 'app.bsky.actor.defs#mutedWord';
 
