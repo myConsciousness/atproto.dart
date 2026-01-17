@@ -11,6 +11,7 @@
 // LexGenerator
 // **************************************************************************
 
+export 'package:bluesky/src/services/codegen/app/bsky/draft_service.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/bookmark_service.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed_service.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor_service.dart';

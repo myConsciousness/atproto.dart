@@ -1,0 +1,37 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'draft_with_id.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_DraftWithId _$DraftWithIdFromJson(Map json) =>
+    $checkedCreate('_DraftWithId', json, ($checkedConvert) {
+      final val = _DraftWithId(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? 'app.bsky.draft.defs#draftWithId',
+        ),
+        id: $checkedConvert('id', (v) => v as String),
+        draft: $checkedConvert(
+          'draft',
+          (v) => const DraftConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
+
+Map<String, dynamic> _$DraftWithIdToJson(_DraftWithId instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'id': instance.id,
+      'draft': const DraftConverter().toJson(instance.draft),
+      r'$unknown': ?instance.$unknown,
+    };
