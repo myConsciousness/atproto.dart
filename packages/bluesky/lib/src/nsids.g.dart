@@ -88,6 +88,18 @@ const appBskyContactStartPhoneVerification = NSID(
 /// `app.bsky.contact.verifyPhone`
 const appBskyContactVerifyPhone = NSID(ids.appBskyContactVerifyPhone);
 
+/// `app.bsky.draft.createDraft`
+const appBskyDraftCreateDraft = NSID(ids.appBskyDraftCreateDraft);
+
+/// `app.bsky.draft.deleteDraft`
+const appBskyDraftDeleteDraft = NSID(ids.appBskyDraftDeleteDraft);
+
+/// `app.bsky.draft.getDrafts`
+const appBskyDraftGetDrafts = NSID(ids.appBskyDraftGetDrafts);
+
+/// `app.bsky.draft.updateDraft`
+const appBskyDraftUpdateDraft = NSID(ids.appBskyDraftUpdateDraft);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 

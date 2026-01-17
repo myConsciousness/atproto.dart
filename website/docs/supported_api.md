@@ -149,6 +149,15 @@ The [bluesky](#bluesky) package is designed based on the [atproto](#atproto) pac
 So all endpoints in the [atproto](#atproto) table are also available from [bluesky](#bluesky) package.
 :::
 
+### app.bsky.draft
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[app.bsky.draft.createDraft](https://pub.dev/documentation/bluesky/latest/app_bsky_services/DraftService/createDraft.html)** | [Reference](lexicons/app/bsky/draft/createDraft.md) | ❌ |
+| **[app.bsky.draft.deleteDraft](https://pub.dev/documentation/bluesky/latest/app_bsky_services/DraftService/deleteDraft.html)** | [Reference](lexicons/app/bsky/draft/deleteDraft.md) | ❌ |
+| **[app.bsky.draft.getDrafts](https://pub.dev/documentation/bluesky/latest/app_bsky_services/DraftService/getDrafts.html)** | [Reference](lexicons/app/bsky/draft/getDrafts.md) | ✅ |
+| **[app.bsky.draft.updateDraft](https://pub.dev/documentation/bluesky/latest/app_bsky_services/DraftService/updateDraft.html)** | [Reference](lexicons/app/bsky/draft/updateDraft.md) | ❌ |
+
 ### app.bsky.bookmark
 
 | Method | Docs | Paging (cursor) |

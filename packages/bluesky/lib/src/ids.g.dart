@@ -271,6 +271,54 @@ const appBskyContactStartPhoneVerification =
 /// `app.bsky.contact.verifyPhone`
 const appBskyContactVerifyPhone = 'app.bsky.contact.verifyPhone';
 
+/// `app.bsky.draft.createDraft`
+const appBskyDraftCreateDraft = 'app.bsky.draft.createDraft';
+
+/// `app.bsky.draft.defs`
+const appBskyDraftDefs = 'app.bsky.draft.defs';
+
+/// `app.bsky.draft.defs#draft`
+const appBskyDraftDefsDraft = 'app.bsky.draft.defs#draft';
+
+/// `app.bsky.draft.defs#draftEmbedCaption`
+const appBskyDraftDefsDraftEmbedCaption =
+    'app.bsky.draft.defs#draftEmbedCaption';
+
+/// `app.bsky.draft.defs#draftEmbedExternal`
+const appBskyDraftDefsDraftEmbedExternal =
+    'app.bsky.draft.defs#draftEmbedExternal';
+
+/// `app.bsky.draft.defs#draftEmbedImage`
+const appBskyDraftDefsDraftEmbedImage = 'app.bsky.draft.defs#draftEmbedImage';
+
+/// `app.bsky.draft.defs#draftEmbedLocalRef`
+const appBskyDraftDefsDraftEmbedLocalRef =
+    'app.bsky.draft.defs#draftEmbedLocalRef';
+
+/// `app.bsky.draft.defs#draftEmbedRecord`
+const appBskyDraftDefsDraftEmbedRecord = 'app.bsky.draft.defs#draftEmbedRecord';
+
+/// `app.bsky.draft.defs#draftEmbedVideo`
+const appBskyDraftDefsDraftEmbedVideo = 'app.bsky.draft.defs#draftEmbedVideo';
+
+/// `app.bsky.draft.defs#draftPost`
+const appBskyDraftDefsDraftPost = 'app.bsky.draft.defs#draftPost';
+
+/// `app.bsky.draft.defs#draftView`
+const appBskyDraftDefsDraftView = 'app.bsky.draft.defs#draftView';
+
+/// `app.bsky.draft.defs#draftWithId`
+const appBskyDraftDefsDraftWithId = 'app.bsky.draft.defs#draftWithId';
+
+/// `app.bsky.draft.deleteDraft`
+const appBskyDraftDeleteDraft = 'app.bsky.draft.deleteDraft';
+
+/// `app.bsky.draft.getDrafts`
+const appBskyDraftGetDrafts = 'app.bsky.draft.getDrafts';
+
+/// `app.bsky.draft.updateDraft`
+const appBskyDraftUpdateDraft = 'app.bsky.draft.updateDraft';
+
 /// `app.bsky.embed.defs`
 const appBskyEmbedDefs = 'app.bsky.embed.defs';
 

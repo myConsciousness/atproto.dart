@@ -4238,6 +4238,318 @@ const comAtprotoLabelSubscribeLabels = <String, dynamic>{
   },
 };
 
+/// `app.bsky.draft.createDraft`
+const appBskyDraftCreateDraft = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.createDraft",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Inserts a draft using private storage (stash). An upper limit of drafts might be enforced. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["draft"],
+          "properties": {
+            "draft": {"type": "ref", "ref": "app.bsky.draft.defs#draft"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The ID of the created draft.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "DraftLimitReached",
+          "description":
+              "Trying to insert a new draft when the limit was already reached.",
+        },
+      ],
+    },
+  },
+};
+
+/// `app.bsky.draft.deleteDraft`
+const appBskyDraftDeleteDraft = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.deleteDraft",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Deletes a draft by ID. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {"type": "string", "format": "tid"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.draft.defs`
+const appBskyDraftDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.defs",
+  "defs": {
+    "draftWithId": {
+      "type": "object",
+      "description":
+          "A draft with an identifier, used to store drafts in private storage (stash).",
+      "required": ["id", "draft"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "tid",
+          "description": "A TID to be used as a draft identifier.",
+        },
+        "draft": {"type": "ref", "ref": "#draft"},
+      },
+    },
+    "draft": {
+      "type": "object",
+      "description": "A draft containing an array of draft posts.",
+      "required": ["posts"],
+      "properties": {
+        "posts": {
+          "type": "array",
+          "description": "Array of draft posts that compose this draft.",
+          "items": {"type": "ref", "ref": "#draftPost"},
+          "minLength": 1,
+          "maxLength": 100,
+        },
+        "langs": {
+          "type": "array",
+          "description":
+              "Indicates human language of posts primary text content.",
+          "items": {"type": "string", "format": "language"},
+          "maxLength": 3,
+        },
+        "postgateEmbeddingRules": {
+          "type": "array",
+          "description":
+              "Embedding rules for the postgates to be created when this draft is published.",
+          "items": {
+            "type": "union",
+            "refs": ["app.bsky.feed.postgate#disableRule"],
+          },
+          "maxLength": 5,
+        },
+        "threadgateAllow": {
+          "type": "array",
+          "description":
+              "Allow-rules for the threadgate to be created when this draft is published.",
+          "items": {
+            "type": "union",
+            "refs": [
+              "app.bsky.feed.threadgate#mentionRule",
+              "app.bsky.feed.threadgate#followerRule",
+              "app.bsky.feed.threadgate#followingRule",
+              "app.bsky.feed.threadgate#listRule",
+            ],
+          },
+          "maxLength": 5,
+        },
+      },
+    },
+    "draftPost": {
+      "type": "object",
+      "description": "One of the posts that compose a draft.",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The primary post content.",
+          "maxLength": 3000,
+          "maxGraphemes": 300,
+        },
+        "labels": {
+          "type": "union",
+          "description":
+              "Self-label values for this post. Effectively content warnings.",
+          "refs": ["com.atproto.label.defs#selfLabels"],
+        },
+        "embedImages": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#draftEmbedImage"},
+          "maxLength": 4,
+        },
+        "embedVideos": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#draftEmbedVideo"},
+          "maxLength": 1,
+        },
+        "embedExternals": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#draftEmbedExternal"},
+          "maxLength": 1,
+        },
+        "embedRecords": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#draftEmbedRecord"},
+          "maxLength": 1,
+        },
+      },
+    },
+    "draftView": {
+      "type": "object",
+      "description": "View to present drafts data to users.",
+      "required": ["id", "draft", "createdAt", "updatedAt"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "tid",
+          "description": "A TID to be used as a draft identifier.",
+        },
+        "draft": {"type": "ref", "ref": "#draft"},
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The time the draft was created.",
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The time the draft was last updated.",
+        },
+      },
+    },
+    "draftEmbedLocalRef": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description":
+              "Local, on-device ref to file to be embedded. Embeds are currently device-bound for drafts.",
+          "minLength": 1,
+          "maxLength": 1024,
+        },
+      },
+    },
+    "draftEmbedCaption": {
+      "type": "object",
+      "required": ["lang", "content"],
+      "properties": {
+        "lang": {"type": "string", "format": "language"},
+        "content": {"type": "string", "maxLength": 10000},
+      },
+    },
+    "draftEmbedImage": {
+      "type": "object",
+      "required": ["localRef"],
+      "properties": {
+        "localRef": {"type": "ref", "ref": "#draftEmbedLocalRef"},
+        "alt": {"type": "string", "maxGraphemes": 2000},
+      },
+    },
+    "draftEmbedVideo": {
+      "type": "object",
+      "required": ["localRef"],
+      "properties": {
+        "localRef": {"type": "ref", "ref": "#draftEmbedLocalRef"},
+        "alt": {"type": "string", "maxGraphemes": 2000},
+        "captions": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#draftEmbedCaption"},
+          "maxLength": 20,
+        },
+      },
+    },
+    "draftEmbedExternal": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+      },
+    },
+    "draftEmbedRecord": {
+      "type": "object",
+      "required": ["record"],
+      "properties": {
+        "record": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.draft.getDrafts`
+const appBskyDraftGetDrafts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.getDrafts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Gets views of user drafts. Requires authentication.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["drafts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "drafts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.draft.defs#draftView"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.draft.updateDraft`
+const appBskyDraftUpdateDraft = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.updateDraft",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Updates a draft using private storage (stash). If the draft ID points to a non-existing ID, the update will be silently ignored. This is done because updates don't enforce draft limit, so it accepts all writes, but will ignore invalid ones. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["draft"],
+          "properties": {
+            "draft": {"type": "ref", "ref": "app.bsky.draft.defs#draftWithId"},
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.bookmark.deleteBookmark`
 const appBskyBookmarkDeleteBookmark = <String, dynamic>{
   "lexicon": 1,
@@ -17352,6 +17664,11 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoLabelDefs,
   comAtprotoLabelQueryLabels,
   comAtprotoLabelSubscribeLabels,
+  appBskyDraftCreateDraft,
+  appBskyDraftDeleteDraft,
+  appBskyDraftDefs,
+  appBskyDraftGetDrafts,
+  appBskyDraftUpdateDraft,
   appBskyBookmarkDeleteBookmark,
   appBskyBookmarkDefs,
   appBskyBookmarkGetBookmarks,
