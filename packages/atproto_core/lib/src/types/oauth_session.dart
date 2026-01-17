@@ -23,7 +23,7 @@ OAuthSession restoreOAuthSession({
     accessToken: accessToken,
     refreshToken: refreshToken,
     tokenType: 'DPoP',
-    scope: jwt.scope,
+    scope: jwt.scope ?? '',
     expiresAt: jwt.exp,
     sub: jwt.sub,
     $dPoPNonce: dPoPNonce ?? '',

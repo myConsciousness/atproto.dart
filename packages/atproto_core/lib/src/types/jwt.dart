@@ -22,7 +22,7 @@ abstract class Jwt with _$Jwt {
     String? jti,
     Map<String, dynamic>? cnf,
     String? clientId,
-    required String scope,
+    String? scope,
     String? iss,
     @dateTimeConverter required DateTime exp,
     @dateTimeConverter required DateTime iat,
