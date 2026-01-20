@@ -9843,11 +9843,6 @@ const appBskyUnspeccedGetSuggestedUsersSkeleton = <String, dynamic>{
               "type": "array",
               "items": {"type": "string", "format": "did"},
             },
-            "recId": {
-              "type": "integer",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
           },
         },
       },
@@ -10109,11 +10104,6 @@ const appBskyUnspeccedGetSuggestedUsers = <String, dynamic>{
                 "type": "ref",
                 "ref": "app.bsky.actor.defs#profileView",
               },
-            },
-            "recId": {
-              "type": "integer",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
