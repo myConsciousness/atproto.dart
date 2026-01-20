@@ -21,14 +21,11 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedUsersSkeletonOutput
     with _$UnspeccedGetSuggestedUsersSkeletonOutput {
-  static const knownProps = <String>['dids', 'recId'];
+  static const knownProps = <String>['dids'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedUsersSkeletonOutput({
     required List<String> dids,
-
-    /// Snowflake for this recommendation, use when submitting recommendation events.
-    int? recId,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersSkeletonOutput;
@@ -36,12 +33,6 @@ abstract class UnspeccedGetSuggestedUsersSkeletonOutput
   factory UnspeccedGetSuggestedUsersSkeletonOutput.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetSuggestedUsersSkeletonOutputFromJson(json);
-}
-
-extension UnspeccedGetSuggestedUsersSkeletonOutputExtension
-    on UnspeccedGetSuggestedUsersSkeletonOutput {
-  bool get hasRecId => recId != null;
-  bool get hasNotRecId => !hasRecId;
 }
 
 final class UnspeccedGetSuggestedUsersSkeletonOutputConverter
