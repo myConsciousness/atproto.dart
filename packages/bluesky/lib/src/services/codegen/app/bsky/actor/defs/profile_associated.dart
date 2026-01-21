@@ -14,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import './profile_associated_activity_subscription.dart';
 import './profile_associated_chat.dart';
+import './profile_associated_germ.dart';
 
 part 'profile_associated.freezed.dart';
 part 'profile_associated.g.dart';
@@ -31,6 +32,7 @@ abstract class ProfileAssociated with _$ProfileAssociated {
     'labeler',
     'chat',
     'activitySubscription',
+    'germ',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -43,6 +45,7 @@ abstract class ProfileAssociated with _$ProfileAssociated {
     @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
     @ProfileAssociatedActivitySubscriptionConverter()
     ProfileAssociatedActivitySubscription? activitySubscription,
+    @ProfileAssociatedGermConverter() ProfileAssociatedGerm? germ,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociated;
@@ -69,6 +72,8 @@ extension ProfileAssociatedExtension on ProfileAssociated {
   bool get hasNotChat => !hasChat;
   bool get hasActivitySubscription => activitySubscription != null;
   bool get hasNotActivitySubscription => !hasActivitySubscription;
+  bool get hasGerm => germ != null;
+  bool get hasNotGerm => !hasGerm;
 }
 
 final class ProfileAssociatedConverter

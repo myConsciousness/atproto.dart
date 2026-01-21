@@ -77,12 +77,20 @@ description: app.bsky.actor.defs
 | **labeler** | boolean | - | ❌ | - |
 | **chat** | [#profileAssociatedChat](#profileassociatedchat) | - | ❌ | - |
 | **activitySubscription** | [#profileAssociatedActivitySubscription](#profileassociatedactivitysubscription) | - | ❌ | - |
+| **germ** | [#profileAssociatedGerm](#profileassociatedgerm) | - | ❌ | - |
 
 ## #profileAssociatedChat
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **allowIncoming** | string | all<br/>none<br/>following | ✅ | - |
+
+## #profileAssociatedGerm
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **messageMeUrl** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
+| **showButtonTo** | string | usersIFollow<br/>everyone | ✅ | - |
 
 ## #profileAssociatedActivitySubscription
 
