@@ -18,6 +18,7 @@ _$UnspeccedGetSuggestedUsersSkeletonOutputFromJson(Map json) => $checkedCreate(
         'dids',
         (v) => (v as List<dynamic>).map((e) => e as String).toList(),
       ),
+      recId: $checkedConvert('recId', (v) => v as String?),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -29,4 +30,8 @@ _$UnspeccedGetSuggestedUsersSkeletonOutputFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$UnspeccedGetSuggestedUsersSkeletonOutputToJson(
   _UnspeccedGetSuggestedUsersSkeletonOutput instance,
-) => <String, dynamic>{'dids': instance.dids, r'$unknown': ?instance.$unknown};
+) => <String, dynamic>{
+  'dids': instance.dids,
+  'recId': ?instance.recId,
+  r'$unknown': ?instance.$unknown,
+};

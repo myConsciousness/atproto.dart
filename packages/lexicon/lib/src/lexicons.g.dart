@@ -6593,6 +6593,7 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "ref",
           "ref": "#profileAssociatedActivitySubscription",
         },
+        "germ": {"type": "ref", "ref": "#profileAssociatedGerm"},
       },
     },
     "profileAssociatedChat": {
@@ -6602,6 +6603,17 @@ const appBskyActorDefs = <String, dynamic>{
         "allowIncoming": {
           "type": "string",
           "knownValues": ["all", "none", "following"],
+        },
+      },
+    },
+    "profileAssociatedGerm": {
+      "type": "object",
+      "required": ["showButtonTo", "messageMeUrl"],
+      "properties": {
+        "messageMeUrl": {"type": "string", "format": "uri"},
+        "showButtonTo": {
+          "type": "string",
+          "knownValues": ["usersIFollow", "everyone"],
         },
       },
     },
@@ -9843,6 +9855,11 @@ const appBskyUnspeccedGetSuggestedUsersSkeleton = <String, dynamic>{
               "type": "array",
               "items": {"type": "string", "format": "did"},
             },
+            "recId": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
           },
         },
       },
@@ -10104,6 +10121,11 @@ const appBskyUnspeccedGetSuggestedUsers = <String, dynamic>{
                 "type": "ref",
                 "ref": "app.bsky.actor.defs#profileView",
               },
+            },
+            "recId": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },

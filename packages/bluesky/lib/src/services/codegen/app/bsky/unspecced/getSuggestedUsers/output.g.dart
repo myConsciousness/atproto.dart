@@ -24,6 +24,7 @@ _UnspeccedGetSuggestedUsersOutput _$UnspeccedGetSuggestedUsersOutputFromJson(
           )
           .toList(),
     ),
+    recId: $checkedConvert('recId', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -36,5 +37,6 @@ Map<String, dynamic> _$UnspeccedGetSuggestedUsersOutputToJson(
   _UnspeccedGetSuggestedUsersOutput instance,
 ) => <String, dynamic>{
   'actors': instance.actors.map(const ProfileViewConverter().toJson).toList(),
+  'recId': ?instance.recId,
   r'$unknown': ?instance.$unknown,
 };

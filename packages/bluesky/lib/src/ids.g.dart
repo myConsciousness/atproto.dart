@@ -82,6 +82,10 @@ const appBskyActorDefsProfileAssociatedActivitySubscription =
 const appBskyActorDefsProfileAssociatedChat =
     'app.bsky.actor.defs#profileAssociatedChat';
 
+/// `app.bsky.actor.defs#profileAssociatedGerm`
+const appBskyActorDefsProfileAssociatedGerm =
+    'app.bsky.actor.defs#profileAssociatedGerm';
+
 /// `app.bsky.actor.defs#profileView`
 const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
 

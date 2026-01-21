@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileAssociated {
 
- String get $type; int? get lists; int? get feedgens; int? get starterPacks; bool? get labeler;@ProfileAssociatedChatConverter() ProfileAssociatedChat? get chat;@ProfileAssociatedActivitySubscriptionConverter() ProfileAssociatedActivitySubscription? get activitySubscription; Map<String, dynamic>? get $unknown;
+ String get $type; int? get lists; int? get feedgens; int? get starterPacks; bool? get labeler;@ProfileAssociatedChatConverter() ProfileAssociatedChat? get chat;@ProfileAssociatedActivitySubscriptionConverter() ProfileAssociatedActivitySubscription? get activitySubscription;@ProfileAssociatedGermConverter() ProfileAssociatedGerm? get germ; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileAssociated
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProfileAssociatedCopyWith<ProfileAssociated> get copyWith => _$ProfileAssociate
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileAssociated&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.lists, lists) || other.lists == lists)&&(identical(other.feedgens, feedgens) || other.feedgens == feedgens)&&(identical(other.starterPacks, starterPacks) || other.starterPacks == starterPacks)&&(identical(other.labeler, labeler) || other.labeler == labeler)&&(identical(other.chat, chat) || other.chat == chat)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileAssociated&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.lists, lists) || other.lists == lists)&&(identical(other.feedgens, feedgens) || other.feedgens == feedgens)&&(identical(other.starterPacks, starterPacks) || other.starterPacks == starterPacks)&&(identical(other.labeler, labeler) || other.labeler == labeler)&&(identical(other.chat, chat) || other.chat == chat)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&(identical(other.germ, germ) || other.germ == germ)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,lists,feedgens,starterPacks,labeler,chat,activitySubscription,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,lists,feedgens,starterPacks,labeler,chat,activitySubscription,germ,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, starterPacks: $starterPacks, labeler: $labeler, chat: $chat, activitySubscription: $activitySubscription, \$unknown: ${$unknown})';
+  return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, starterPacks: $starterPacks, labeler: $labeler, chat: $chat, activitySubscription: $activitySubscription, germ: $germ, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ProfileAssociatedCopyWith<$Res>  {
   factory $ProfileAssociatedCopyWith(ProfileAssociated value, $Res Function(ProfileAssociated) _then) = _$ProfileAssociatedCopyWithImpl;
 @useResult
 $Res call({
- String $type, int? lists, int? feedgens, int? starterPacks, bool? labeler,@ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,@ProfileAssociatedActivitySubscriptionConverter() ProfileAssociatedActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
+ String $type, int? lists, int? feedgens, int? starterPacks, bool? labeler,@ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,@ProfileAssociatedActivitySubscriptionConverter() ProfileAssociatedActivitySubscription? activitySubscription,@ProfileAssociatedGermConverter() ProfileAssociatedGerm? germ, Map<String, dynamic>? $unknown
 });
 
 
-$ProfileAssociatedChatCopyWith<$Res>? get chat;$ProfileAssociatedActivitySubscriptionCopyWith<$Res>? get activitySubscription;
+$ProfileAssociatedChatCopyWith<$Res>? get chat;$ProfileAssociatedActivitySubscriptionCopyWith<$Res>? get activitySubscription;$ProfileAssociatedGermCopyWith<$Res>? get germ;
 
 }
 /// @nodoc
@@ -65,7 +65,7 @@ class _$ProfileAssociatedCopyWithImpl<$Res>
 
 /// Create a copy of ProfileAssociated
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? lists = freezed,Object? feedgens = freezed,Object? starterPacks = freezed,Object? labeler = freezed,Object? chat = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? lists = freezed,Object? feedgens = freezed,Object? starterPacks = freezed,Object? labeler = freezed,Object? chat = freezed,Object? activitySubscription = freezed,Object? germ = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,lists: freezed == lists ? _self.lists : lists // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,8 @@ as int?,starterPacks: freezed == starterPacks ? _self.starterPacks : starterPack
 as int?,labeler: freezed == labeler ? _self.labeler : labeler // ignore: cast_nullable_to_non_nullable
 as bool?,chat: freezed == chat ? _self.chat : chat // ignore: cast_nullable_to_non_nullable
 as ProfileAssociatedChat?,activitySubscription: freezed == activitySubscription ? _self.activitySubscription : activitySubscription // ignore: cast_nullable_to_non_nullable
-as ProfileAssociatedActivitySubscription?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedActivitySubscription?,germ: freezed == germ ? _self.germ : germ // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedGerm?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -101,6 +102,18 @@ $ProfileAssociatedActivitySubscriptionCopyWith<$Res>? get activitySubscription {
 
   return $ProfileAssociatedActivitySubscriptionCopyWith<$Res>(_self.activitySubscription!, (value) {
     return _then(_self.copyWith(activitySubscription: value));
+  });
+}/// Create a copy of ProfileAssociated
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileAssociatedGermCopyWith<$Res>? get germ {
+    if (_self.germ == null) {
+    return null;
+  }
+
+  return $ProfileAssociatedGermCopyWith<$Res>(_self.germ!, (value) {
+    return _then(_self.copyWith(germ: value));
   });
 }
 }
@@ -184,10 +197,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? lists,  int? feedgens,  int? starterPacks,  bool? labeler, @ProfileAssociatedChatConverter()  ProfileAssociatedChat? chat, @ProfileAssociatedActivitySubscriptionConverter()  ProfileAssociatedActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? lists,  int? feedgens,  int? starterPacks,  bool? labeler, @ProfileAssociatedChatConverter()  ProfileAssociatedChat? chat, @ProfileAssociatedActivitySubscriptionConverter()  ProfileAssociatedActivitySubscription? activitySubscription, @ProfileAssociatedGermConverter()  ProfileAssociatedGerm? germ,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileAssociated() when $default != null:
-return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.labeler,_that.chat,_that.activitySubscription,_that.$unknown);case _:
+return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.labeler,_that.chat,_that.activitySubscription,_that.germ,_that.$unknown);case _:
   return orElse();
 
 }
@@ -205,10 +218,10 @@ return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? lists,  int? feedgens,  int? starterPacks,  bool? labeler, @ProfileAssociatedChatConverter()  ProfileAssociatedChat? chat, @ProfileAssociatedActivitySubscriptionConverter()  ProfileAssociatedActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? lists,  int? feedgens,  int? starterPacks,  bool? labeler, @ProfileAssociatedChatConverter()  ProfileAssociatedChat? chat, @ProfileAssociatedActivitySubscriptionConverter()  ProfileAssociatedActivitySubscription? activitySubscription, @ProfileAssociatedGermConverter()  ProfileAssociatedGerm? germ,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileAssociated():
-return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.labeler,_that.chat,_that.activitySubscription,_that.$unknown);case _:
+return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.labeler,_that.chat,_that.activitySubscription,_that.germ,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -225,10 +238,10 @@ return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? lists,  int? feedgens,  int? starterPacks,  bool? labeler, @ProfileAssociatedChatConverter()  ProfileAssociatedChat? chat, @ProfileAssociatedActivitySubscriptionConverter()  ProfileAssociatedActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? lists,  int? feedgens,  int? starterPacks,  bool? labeler, @ProfileAssociatedChatConverter()  ProfileAssociatedChat? chat, @ProfileAssociatedActivitySubscriptionConverter()  ProfileAssociatedActivitySubscription? activitySubscription, @ProfileAssociatedGermConverter()  ProfileAssociatedGerm? germ,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileAssociated() when $default != null:
-return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.labeler,_that.chat,_that.activitySubscription,_that.$unknown);case _:
+return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.labeler,_that.chat,_that.activitySubscription,_that.germ,_that.$unknown);case _:
   return null;
 
 }
@@ -240,7 +253,7 @@ return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileAssociated implements ProfileAssociated {
-  const _ProfileAssociated({this.$type = 'app.bsky.actor.defs#profileAssociated', this.lists, this.feedgens, this.starterPacks, this.labeler, @ProfileAssociatedChatConverter() this.chat, @ProfileAssociatedActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociated({this.$type = 'app.bsky.actor.defs#profileAssociated', this.lists, this.feedgens, this.starterPacks, this.labeler, @ProfileAssociatedChatConverter() this.chat, @ProfileAssociatedActivitySubscriptionConverter() this.activitySubscription, @ProfileAssociatedGermConverter() this.germ, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -250,6 +263,7 @@ class _ProfileAssociated implements ProfileAssociated {
 @override final  bool? labeler;
 @override@ProfileAssociatedChatConverter() final  ProfileAssociatedChat? chat;
 @override@ProfileAssociatedActivitySubscriptionConverter() final  ProfileAssociatedActivitySubscription? activitySubscription;
+@override@ProfileAssociatedGermConverter() final  ProfileAssociatedGerm? germ;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -273,16 +287,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileAssociated&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.lists, lists) || other.lists == lists)&&(identical(other.feedgens, feedgens) || other.feedgens == feedgens)&&(identical(other.starterPacks, starterPacks) || other.starterPacks == starterPacks)&&(identical(other.labeler, labeler) || other.labeler == labeler)&&(identical(other.chat, chat) || other.chat == chat)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileAssociated&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.lists, lists) || other.lists == lists)&&(identical(other.feedgens, feedgens) || other.feedgens == feedgens)&&(identical(other.starterPacks, starterPacks) || other.starterPacks == starterPacks)&&(identical(other.labeler, labeler) || other.labeler == labeler)&&(identical(other.chat, chat) || other.chat == chat)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&(identical(other.germ, germ) || other.germ == germ)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,lists,feedgens,starterPacks,labeler,chat,activitySubscription,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,lists,feedgens,starterPacks,labeler,chat,activitySubscription,germ,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, starterPacks: $starterPacks, labeler: $labeler, chat: $chat, activitySubscription: $activitySubscription, \$unknown: ${$unknown})';
+  return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, starterPacks: $starterPacks, labeler: $labeler, chat: $chat, activitySubscription: $activitySubscription, germ: $germ, \$unknown: ${$unknown})';
 }
 
 
@@ -293,11 +307,11 @@ abstract mixin class _$ProfileAssociatedCopyWith<$Res> implements $ProfileAssoci
   factory _$ProfileAssociatedCopyWith(_ProfileAssociated value, $Res Function(_ProfileAssociated) _then) = __$ProfileAssociatedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int? lists, int? feedgens, int? starterPacks, bool? labeler,@ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,@ProfileAssociatedActivitySubscriptionConverter() ProfileAssociatedActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
+ String $type, int? lists, int? feedgens, int? starterPacks, bool? labeler,@ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,@ProfileAssociatedActivitySubscriptionConverter() ProfileAssociatedActivitySubscription? activitySubscription,@ProfileAssociatedGermConverter() ProfileAssociatedGerm? germ, Map<String, dynamic>? $unknown
 });
 
 
-@override $ProfileAssociatedChatCopyWith<$Res>? get chat;@override $ProfileAssociatedActivitySubscriptionCopyWith<$Res>? get activitySubscription;
+@override $ProfileAssociatedChatCopyWith<$Res>? get chat;@override $ProfileAssociatedActivitySubscriptionCopyWith<$Res>? get activitySubscription;@override $ProfileAssociatedGermCopyWith<$Res>? get germ;
 
 }
 /// @nodoc
@@ -310,7 +324,7 @@ class __$ProfileAssociatedCopyWithImpl<$Res>
 
 /// Create a copy of ProfileAssociated
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? lists = freezed,Object? feedgens = freezed,Object? starterPacks = freezed,Object? labeler = freezed,Object? chat = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? lists = freezed,Object? feedgens = freezed,Object? starterPacks = freezed,Object? labeler = freezed,Object? chat = freezed,Object? activitySubscription = freezed,Object? germ = freezed,Object? $unknown = freezed,}) {
   return _then(_ProfileAssociated(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,lists: freezed == lists ? _self.lists : lists // ignore: cast_nullable_to_non_nullable
@@ -319,7 +333,8 @@ as int?,starterPacks: freezed == starterPacks ? _self.starterPacks : starterPack
 as int?,labeler: freezed == labeler ? _self.labeler : labeler // ignore: cast_nullable_to_non_nullable
 as bool?,chat: freezed == chat ? _self.chat : chat // ignore: cast_nullable_to_non_nullable
 as ProfileAssociatedChat?,activitySubscription: freezed == activitySubscription ? _self.activitySubscription : activitySubscription // ignore: cast_nullable_to_non_nullable
-as ProfileAssociatedActivitySubscription?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedActivitySubscription?,germ: freezed == germ ? _self.germ : germ // ignore: cast_nullable_to_non_nullable
+as ProfileAssociatedGerm?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -347,6 +362,18 @@ $ProfileAssociatedActivitySubscriptionCopyWith<$Res>? get activitySubscription {
 
   return $ProfileAssociatedActivitySubscriptionCopyWith<$Res>(_self.activitySubscription!, (value) {
     return _then(_self.copyWith(activitySubscription: value));
+  });
+}/// Create a copy of ProfileAssociated
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ProfileAssociatedGermCopyWith<$Res>? get germ {
+    if (_self.germ == null) {
+    return null;
+  }
+
+  return $ProfileAssociatedGermCopyWith<$Res>(_self.germ!, (value) {
+    return _then(_self.copyWith(germ: value));
   });
 }
 }
