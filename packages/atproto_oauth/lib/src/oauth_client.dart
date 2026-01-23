@@ -106,12 +106,16 @@ final class OAuthClient {
   ///
   /// Example:
   /// ```dart
+  /// // With login hint
   /// final authUrl = await authorize('shinyakato.dev');
+  /// // Without login hint
+  /// final authUrl = await authorize();
   /// // Redirect user to authUrl for authentication
   /// ```
   ///
   /// Parameters:
-  /// - [identity]: The user's identifier (typically email) used as login_hint
+  /// - [identity]: Optional user identifier (typically handle or email) used as login_hint.
+  ///   If not provided, the login_hint parameter will not be included in the request.
   ///
   /// Security measures implemented:
   /// - Generates cryptographically secure random values for PKCE and state
@@ -126,23 +130,29 @@ final class OAuthClient {
   /// Returns:
   /// - [Uri]: The authorization URL where the user should be redirected to
   ///   complete authentication
-  Future<(Uri, OAuthContext)> authorize(final String identity) async {
+  Future<(Uri, OAuthContext)> authorize([final String? identity]) async {
     final codeVerifier = random(46);
     final codeChallenge = hashS256(codeVerifier);
     final state = random(64);
 
+    final bodyParams = <String, String>{
+      'client_id': metadata.clientId,
+      'redirect_uri': metadata.redirectUris.firstOrNull ?? '',
+      'state': state,
+      'code_challenge': codeChallenge,
+      'code_challenge_method': 'S256',
+      'response_type': 'code',
+      'scope': metadata.scope,
+    };
+
+    // Only include login_hint if identity is provided
+    if (identity != null && identity.isNotEmpty) {
+      bodyParams['login_hint'] = identity;
+    }
+
     final response = await http.post(
       Uri.https(service, '/oauth/par'),
-      body: {
-        'client_id': metadata.clientId,
-        'redirect_uri': metadata.redirectUris.firstOrNull,
-        'login_hint': identity,
-        'state': state,
-        'code_challenge': codeChallenge,
-        'code_challenge_method': 'S256',
-        'response_type': 'code',
-        'scope': metadata.scope,
-      },
+      body: bodyParams,
     );
 
     if (response.statusCode != 201) {
