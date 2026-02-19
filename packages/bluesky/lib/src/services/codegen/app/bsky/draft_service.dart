@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -37,18 +37,18 @@ Future<XRPCResponse<DraftCreateDraftOutput>> appBskyDraftCreateDraft({
   to: const DraftCreateDraftOutputConverter().fromJson,
 );
 
-/// Deletes a draft by ID. Requires authentication.
-Future<XRPCResponse<EmptyData>> appBskyDraftDeleteDraft({
-  required String id,
+/// Updates a draft using private storage (stash). If the draft ID points to a non-existing ID, the update will be silently ignored. This is done because updates don't enforce draft limit, so it accepts all writes, but will ignore invalid ones. Requires authentication.
+Future<XRPCResponse<EmptyData>> appBskyDraftUpdateDraft({
+  required DraftWithId draft,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.appBskyDraftDeleteDraft,
+  ns.appBskyDraftUpdateDraft,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'id': id},
+  body: {...?$unknown, 'draft': draft.toJson()},
 );
 
 /// Gets views of user drafts. Requires authentication.
@@ -71,18 +71,18 @@ Future<XRPCResponse<DraftGetDraftsOutput>> appBskyDraftGetDrafts({
   to: const DraftGetDraftsOutputConverter().fromJson,
 );
 
-/// Updates a draft using private storage (stash). If the draft ID points to a non-existing ID, the update will be silently ignored. This is done because updates don't enforce draft limit, so it accepts all writes, but will ignore invalid ones. Requires authentication.
-Future<XRPCResponse<EmptyData>> appBskyDraftUpdateDraft({
-  required DraftWithId draft,
+/// Deletes a draft by ID. Requires authentication.
+Future<XRPCResponse<EmptyData>> appBskyDraftDeleteDraft({
+  required String id,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.appBskyDraftUpdateDraft,
+  ns.appBskyDraftDeleteDraft,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'draft': draft.toJson()},
+  body: {...?$unknown, 'id': id},
 );
 
 /// `app.bsky.draft.*`
@@ -106,14 +106,14 @@ base class DraftService {
     $unknown: $unknown,
   );
 
-  /// Deletes a draft by ID. Requires authentication.
-  Future<XRPCResponse<EmptyData>> deleteDraft({
-    required String id,
+  /// Updates a draft using private storage (stash). If the draft ID points to a non-existing ID, the update will be silently ignored. This is done because updates don't enforce draft limit, so it accepts all writes, but will ignore invalid ones. Requires authentication.
+  Future<XRPCResponse<EmptyData>> updateDraft({
+    required DraftWithId draft,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyDraftDeleteDraft(
-    id: id,
+  }) async => await appBskyDraftUpdateDraft(
+    draft: draft,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -136,14 +136,14 @@ base class DraftService {
     $unknown: $unknown,
   );
 
-  /// Updates a draft using private storage (stash). If the draft ID points to a non-existing ID, the update will be silently ignored. This is done because updates don't enforce draft limit, so it accepts all writes, but will ignore invalid ones. Requires authentication.
-  Future<XRPCResponse<EmptyData>> updateDraft({
-    required DraftWithId draft,
+  /// Deletes a draft by ID. Requires authentication.
+  Future<XRPCResponse<EmptyData>> deleteDraft({
+    required String id,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyDraftUpdateDraft(
-    draft: draft,
+  }) async => await appBskyDraftDeleteDraft(
+    id: id,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

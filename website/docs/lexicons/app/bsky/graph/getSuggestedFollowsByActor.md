@@ -23,4 +23,5 @@ Enumerates follows similar to a given account (actor). Expected use is to recomm
 | --- | --- | --- | :---: | --- |
 | **suggestions** | array of [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
 | **isFallback** | boolean | - | ❌ | If true, response has fallen-back to generic results, and is not scoped using relativeToDid |
-| **recId** | integer | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |
+| **recId** | integer | - | ❌ | DEPRECATED: use recIdStr instead. |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

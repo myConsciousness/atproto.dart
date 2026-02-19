@@ -17,7 +17,7 @@ mixin _$UnspeccedGetSuggestionsSkeletonOutput {
 
  String? get cursor;@SkeletonSearchActorConverter() List<SkeletonSearchActor> get actors;/// DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer.
  String? get relativeToDid;/// Snowflake for this recommendation, use when submitting recommendation events.
- int? get recId; Map<String, dynamic>? get $unknown;
+ String? get recIdStr; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestionsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +30,16 @@ $UnspeccedGetSuggestionsSkeletonOutputCopyWith<UnspeccedGetSuggestionsSkeletonOu
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestionsSkeletonOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.actors, actors)&&(identical(other.relativeToDid, relativeToDid) || other.relativeToDid == relativeToDid)&&(identical(other.recId, recId) || other.recId == recId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestionsSkeletonOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.actors, actors)&&(identical(other.relativeToDid, relativeToDid) || other.relativeToDid == relativeToDid)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(actors),relativeToDid,recId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(actors),relativeToDid,recIdStr,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestionsSkeletonOutput(cursor: $cursor, actors: $actors, relativeToDid: $relativeToDid, recId: $recId, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestionsSkeletonOutput(cursor: $cursor, actors: $actors, relativeToDid: $relativeToDid, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +50,7 @@ abstract mixin class $UnspeccedGetSuggestionsSkeletonOutputCopyWith<$Res>  {
   factory $UnspeccedGetSuggestionsSkeletonOutputCopyWith(UnspeccedGetSuggestionsSkeletonOutput value, $Res Function(UnspeccedGetSuggestionsSkeletonOutput) _then) = _$UnspeccedGetSuggestionsSkeletonOutputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor,@SkeletonSearchActorConverter() List<SkeletonSearchActor> actors, String? relativeToDid, int? recId, Map<String, dynamic>? $unknown
+ String? cursor,@SkeletonSearchActorConverter() List<SkeletonSearchActor> actors, String? relativeToDid, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,13 +67,13 @@ class _$UnspeccedGetSuggestionsSkeletonOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestionsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? actors = null,Object? relativeToDid = freezed,Object? recId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? actors = null,Object? relativeToDid = freezed,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self.actors : actors // ignore: cast_nullable_to_non_nullable
 as List<SkeletonSearchActor>,relativeToDid: freezed == relativeToDid ? _self.relativeToDid : relativeToDid // ignore: cast_nullable_to_non_nullable
-as String?,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -159,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @SkeletonSearchActorConverter()  List<SkeletonSearchActor> actors,  String? relativeToDid,  int? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @SkeletonSearchActorConverter()  List<SkeletonSearchActor> actors,  String? relativeToDid,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestionsSkeletonOutput() when $default != null:
-return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.$unknown);case _:
+return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recIdStr,_that.$unknown);case _:
   return orElse();
 
 }
@@ -180,10 +180,10 @@ return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @SkeletonSearchActorConverter()  List<SkeletonSearchActor> actors,  String? relativeToDid,  int? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @SkeletonSearchActorConverter()  List<SkeletonSearchActor> actors,  String? relativeToDid,  String? recIdStr,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestionsSkeletonOutput():
-return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.$unknown);case _:
+return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recIdStr,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -200,10 +200,10 @@ return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @SkeletonSearchActorConverter()  List<SkeletonSearchActor> actors,  String? relativeToDid,  int? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @SkeletonSearchActorConverter()  List<SkeletonSearchActor> actors,  String? relativeToDid,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestionsSkeletonOutput() when $default != null:
-return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.$unknown);case _:
+return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recIdStr,_that.$unknown);case _:
   return null;
 
 }
@@ -215,7 +215,7 @@ return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recId,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestionsSkeletonOutput implements UnspeccedGetSuggestionsSkeletonOutput {
-  const _UnspeccedGetSuggestionsSkeletonOutput({this.cursor, @SkeletonSearchActorConverter() required final  List<SkeletonSearchActor> actors, this.relativeToDid, this.recId, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
+  const _UnspeccedGetSuggestionsSkeletonOutput({this.cursor, @SkeletonSearchActorConverter() required final  List<SkeletonSearchActor> actors, this.relativeToDid, this.recIdStr, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _UnspeccedGetSuggestionsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestionsSkeletonOutputFromJson(json);
 
 @override final  String? cursor;
@@ -229,7 +229,7 @@ class _UnspeccedGetSuggestionsSkeletonOutput implements UnspeccedGetSuggestionsS
 /// DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer.
 @override final  String? relativeToDid;
 /// Snowflake for this recommendation, use when submitting recommendation events.
-@override final  int? recId;
+@override final  String? recIdStr;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -253,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestionsSkeletonOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._actors, _actors)&&(identical(other.relativeToDid, relativeToDid) || other.relativeToDid == relativeToDid)&&(identical(other.recId, recId) || other.recId == recId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestionsSkeletonOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._actors, _actors)&&(identical(other.relativeToDid, relativeToDid) || other.relativeToDid == relativeToDid)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_actors),relativeToDid,recId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_actors),relativeToDid,recIdStr,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestionsSkeletonOutput(cursor: $cursor, actors: $actors, relativeToDid: $relativeToDid, recId: $recId, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestionsSkeletonOutput(cursor: $cursor, actors: $actors, relativeToDid: $relativeToDid, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -273,7 +273,7 @@ abstract mixin class _$UnspeccedGetSuggestionsSkeletonOutputCopyWith<$Res> imple
   factory _$UnspeccedGetSuggestionsSkeletonOutputCopyWith(_UnspeccedGetSuggestionsSkeletonOutput value, $Res Function(_UnspeccedGetSuggestionsSkeletonOutput) _then) = __$UnspeccedGetSuggestionsSkeletonOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor,@SkeletonSearchActorConverter() List<SkeletonSearchActor> actors, String? relativeToDid, int? recId, Map<String, dynamic>? $unknown
+ String? cursor,@SkeletonSearchActorConverter() List<SkeletonSearchActor> actors, String? relativeToDid, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,13 +290,13 @@ class __$UnspeccedGetSuggestionsSkeletonOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestionsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? actors = null,Object? relativeToDid = freezed,Object? recId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? actors = null,Object? relativeToDid = freezed,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestionsSkeletonOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self._actors : actors // ignore: cast_nullable_to_non_nullable
 as List<SkeletonSearchActor>,relativeToDid: freezed == relativeToDid ? _self.relativeToDid : relativeToDid // ignore: cast_nullable_to_non_nullable
-as String?,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

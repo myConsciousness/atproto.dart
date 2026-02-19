@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -48,36 +48,36 @@ import 'graph/verification.dart';
 
 final class AppBskyGraphCommand extends Command<void> {
   AppBskyGraphCommand() {
-    addSubcommand(StarterpackCommand());
-    addSubcommand(GetMutesCommand());
-    addSubcommand(GetListCommand());
-    addSubcommand(GetFollowsCommand());
-    addSubcommand(BlockCommand());
-    addSubcommand(MuteThreadCommand());
-    addSubcommand(MuteActorCommand());
-    addSubcommand(UnmuteActorCommand());
-    addSubcommand(ListblockCommand());
-    addSubcommand(FollowCommand());
-    addSubcommand(ListCommand());
-    addSubcommand(GetListsCommand());
-    addSubcommand(GetRelationshipsCommand());
-    addSubcommand(GetFollowersCommand());
-    addSubcommand(GetStarterPackCommand());
-    addSubcommand(ListitemCommand());
     addSubcommand(GetStarterPacksCommand());
-    addSubcommand(VerificationCommand());
-    addSubcommand(SearchStarterPacksCommand());
     addSubcommand(GetSuggestedFollowsByActorCommand());
-    addSubcommand(UnmuteActorListCommand());
-    addSubcommand(UnmuteThreadCommand());
-    addSubcommand(GetKnownFollowersCommand());
-    addSubcommand(GetListBlocksCommand());
+    addSubcommand(BlockCommand());
     addSubcommand(GetStarterPacksWithMembershipCommand());
-    addSubcommand(MuteActorListCommand());
-    addSubcommand(GetBlocksCommand());
-    addSubcommand(GetListMutesCommand());
+    addSubcommand(FollowCommand());
     addSubcommand(GetListsWithMembershipCommand());
+    addSubcommand(UnmuteActorListCommand());
+    addSubcommand(GetListBlocksCommand());
+    addSubcommand(ListblockCommand());
+    addSubcommand(GetStarterPackCommand());
+    addSubcommand(StarterpackCommand());
+    addSubcommand(MuteActorListCommand());
+    addSubcommand(MuteThreadCommand());
+    addSubcommand(SearchStarterPacksCommand());
     addSubcommand(GetActorStarterPacksCommand());
+    addSubcommand(GetListsCommand());
+    addSubcommand(GetFollowersCommand());
+    addSubcommand(UnmuteThreadCommand());
+    addSubcommand(MuteActorCommand());
+    addSubcommand(GetMutesCommand());
+    addSubcommand(ListitemCommand());
+    addSubcommand(ListCommand());
+    addSubcommand(GetKnownFollowersCommand());
+    addSubcommand(VerificationCommand());
+    addSubcommand(GetListMutesCommand());
+    addSubcommand(GetFollowsCommand());
+    addSubcommand(GetBlocksCommand());
+    addSubcommand(GetRelationshipsCommand());
+    addSubcommand(UnmuteActorCommand());
+    addSubcommand(GetListCommand());
   }
 
   @override

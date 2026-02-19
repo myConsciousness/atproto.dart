@@ -927,6 +927,10 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacks =
 const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton =
     'app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton';
 
+/// `app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton =
+    'app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton';
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
@@ -953,6 +957,10 @@ const appBskyUnspeccedGetSuggestedFeeds =
 /// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
 const appBskyUnspeccedGetSuggestedFeedsSkeleton =
     'app.bsky.unspecced.getSuggestedFeedsSkeleton';
+
+/// `app.bsky.unspecced.getSuggestedOnboardingUsers`
+const appBskyUnspeccedGetSuggestedOnboardingUsers =
+    'app.bsky.unspecced.getSuggestedOnboardingUsers';
 
 /// `app.bsky.unspecced.getSuggestedStarterPacks`
 const appBskyUnspeccedGetSuggestedStarterPacks =

@@ -16,6 +16,8 @@ _Draft _$DraftFromJson(Map json) => $checkedCreate('_Draft', json, (
       r'$type',
       (v) => v as String? ?? 'app.bsky.draft.defs#draft',
     ),
+    deviceId: $checkedConvert('deviceId', (v) => v as String?),
+    deviceName: $checkedConvert('deviceName', (v) => v as String?),
     posts: $checkedConvert(
       'posts',
       (v) => (v as List<dynamic>)
@@ -59,6 +61,8 @@ _Draft _$DraftFromJson(Map json) => $checkedCreate('_Draft', json, (
 
 Map<String, dynamic> _$DraftToJson(_Draft instance) => <String, dynamic>{
   r'$type': instance.$type,
+  'deviceId': ?instance.deviceId,
+  'deviceName': ?instance.deviceName,
   'posts': instance.posts.map(const DraftPostConverter().toJson).toList(),
   'langs': ?instance.langs,
   'postgateEmbeddingRules': ?instance.postgateEmbeddingRules

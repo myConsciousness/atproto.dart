@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -33,21 +33,21 @@ import 'moderation/search_repos.dart';
 
 final class ToolsOzoneModerationCommand extends Command<void> {
   ToolsOzoneModerationCommand() {
-    addSubcommand(GetAccountTimelineCommand());
-    addSubcommand(CancelScheduledActionsCommand());
-    addSubcommand(EmitEventCommand());
-    addSubcommand(GetRecordCommand());
-    addSubcommand(GetRecordsCommand());
-    addSubcommand(QueryStatusesCommand());
-    addSubcommand(GetEventCommand());
-    addSubcommand(ScheduleActionCommand());
-    addSubcommand(GetSubjectsCommand());
     addSubcommand(GetReporterStatsCommand());
-    addSubcommand(QueryEventsCommand());
+    addSubcommand(CancelScheduledActionsCommand());
     addSubcommand(ListScheduledActionsCommand());
+    addSubcommand(QueryStatusesCommand());
     addSubcommand(GetRepoCommand());
-    addSubcommand(GetReposCommand());
+    addSubcommand(GetSubjectsCommand());
+    addSubcommand(GetRecordsCommand());
+    addSubcommand(ScheduleActionCommand());
+    addSubcommand(GetEventCommand());
+    addSubcommand(QueryEventsCommand());
+    addSubcommand(GetRecordCommand());
+    addSubcommand(EmitEventCommand());
     addSubcommand(SearchReposCommand());
+    addSubcommand(GetAccountTimelineCommand());
+    addSubcommand(GetReposCommand());
   }
 
   @override

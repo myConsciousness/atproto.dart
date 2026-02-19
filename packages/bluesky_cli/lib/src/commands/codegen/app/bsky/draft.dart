@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -23,9 +23,9 @@ import 'draft/update_draft.dart';
 final class AppBskyDraftCommand extends Command<void> {
   AppBskyDraftCommand() {
     addSubcommand(CreateDraftCommand());
-    addSubcommand(DeleteDraftCommand());
-    addSubcommand(GetDraftsCommand());
     addSubcommand(UpdateDraftCommand());
+    addSubcommand(GetDraftsCommand());
+    addSubcommand(DeleteDraftCommand());
   }
 
   @override

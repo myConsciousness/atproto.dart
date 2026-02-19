@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,15 +27,15 @@ import 'actor/status.dart';
 
 final class AppBskyActorCommand extends Command<void> {
   AppBskyActorCommand() {
-    addSubcommand(GetPreferencesCommand());
-    addSubcommand(ProfileCommand());
+    addSubcommand(SearchActorsTypeaheadCommand());
+    addSubcommand(PutPreferencesCommand());
+    addSubcommand(GetProfileCommand());
+    addSubcommand(GetSuggestionsCommand());
+    addSubcommand(SearchActorsCommand());
     addSubcommand(GetProfilesCommand());
     addSubcommand(StatusCommand());
-    addSubcommand(SearchActorsTypeaheadCommand());
-    addSubcommand(SearchActorsCommand());
-    addSubcommand(PutPreferencesCommand());
-    addSubcommand(GetSuggestionsCommand());
-    addSubcommand(GetProfileCommand());
+    addSubcommand(GetPreferencesCommand());
+    addSubcommand(ProfileCommand());
   }
 
   @override

@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -24,7 +24,7 @@ part 'output.g.dart';
 @freezed
 abstract class GraphGetSuggestedFollowsByActorOutput
     with _$GraphGetSuggestedFollowsByActorOutput {
-  static const knownProps = <String>['suggestions', 'isFallback', 'recId'];
+  static const knownProps = <String>['suggestions', 'isFallback', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory GraphGetSuggestedFollowsByActorOutput({
@@ -34,7 +34,7 @@ abstract class GraphGetSuggestedFollowsByActorOutput
     @Default(false) bool isFallback,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
-    int? recId,
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphGetSuggestedFollowsByActorOutput;
@@ -48,8 +48,8 @@ extension GraphGetSuggestedFollowsByActorOutputExtension
     on GraphGetSuggestedFollowsByActorOutput {
   bool get isIsFallback => isFallback;
   bool get isNotIsFallback => !isIsFallback;
-  bool get hasRecId => recId != null;
-  bool get hasNotRecId => !hasRecId;
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class GraphGetSuggestedFollowsByActorOutputConverter

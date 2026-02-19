@@ -37,6 +37,13 @@ _EmbedVideo _$EmbedVideoFromJson(Map json) =>
             const AspectRatioConverter().fromJson,
           ),
         ),
+        presentation: $checkedConvert(
+          'presentation',
+          (v) => _$JsonConverterFromJson<String, EmbedVideoPresentation>(
+            v,
+            const EmbedVideoPresentationConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -56,6 +63,10 @@ Map<String, dynamic> _$EmbedVideoToJson(_EmbedVideo instance) =>
       'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
         instance.aspectRatio,
         const AspectRatioConverter().toJson,
+      ),
+      'presentation': ?_$JsonConverterToJson<String, EmbedVideoPresentation>(
+        instance.presentation,
+        const EmbedVideoPresentationConverter().toJson,
       ),
       r'$unknown': ?instance.$unknown,
     };

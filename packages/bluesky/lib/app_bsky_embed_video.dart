@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -12,5 +12,7 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/codegen/app/bsky/embed/video/main.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/video/main_presentation.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/video/caption.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/video/view.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/video/view_presentation.dart';

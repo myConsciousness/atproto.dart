@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -35,23 +35,23 @@ import 'convo/update_read.dart';
 
 final class ChatBskyConvoCommand extends Command<void> {
   ChatBskyConvoCommand() {
-    addSubcommand(RemoveReactionCommand());
-    addSubcommand(GetLogCommand());
-    addSubcommand(SendMessageBatchCommand());
-    addSubcommand(GetConvoForMembersCommand());
-    addSubcommand(LeaveConvoCommand());
     addSubcommand(ListConvosCommand());
-    addSubcommand(AddReactionCommand());
-    addSubcommand(GetConvoCommand());
+    addSubcommand(UnmuteConvoCommand());
     addSubcommand(GetConvoAvailabilityCommand());
-    addSubcommand(DeleteMessageForSelfCommand());
-    addSubcommand(MuteConvoCommand());
+    addSubcommand(GetLogCommand());
     addSubcommand(SendMessageCommand());
+    addSubcommand(LeaveConvoCommand());
+    addSubcommand(AddReactionCommand());
     addSubcommand(AcceptConvoCommand());
+    addSubcommand(MuteConvoCommand());
+    addSubcommand(DeleteMessageForSelfCommand());
+    addSubcommand(RemoveReactionCommand());
     addSubcommand(UpdateReadCommand());
     addSubcommand(UpdateAllReadCommand());
+    addSubcommand(GetConvoCommand());
     addSubcommand(GetMessagesCommand());
-    addSubcommand(UnmuteConvoCommand());
+    addSubcommand(GetConvoForMembersCommand());
+    addSubcommand(SendMessageBatchCommand());
   }
 
   @override

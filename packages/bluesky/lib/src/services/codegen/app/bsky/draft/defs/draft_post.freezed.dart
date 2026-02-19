@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DraftPost {
 
- String get $type;/// The primary post content.
+ String get $type;/// The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts.
  String get text;@UDraftPostLabelsConverter() UDraftPostLabels? get labels;@DraftEmbedImageConverter() List<DraftEmbedImage>? get embedImages;@DraftEmbedVideoConverter() List<DraftEmbedVideo>? get embedVideos;@DraftEmbedExternalConverter() List<DraftEmbedExternal>? get embedExternals;@DraftEmbedRecordConverter() List<DraftEmbedRecord>? get embedRecords; Map<String, dynamic>? get $unknown;
 /// Create a copy of DraftPost
 /// with the given fields replaced by the non-null parameter values.
@@ -233,7 +233,7 @@ class _DraftPost implements DraftPost {
   factory _DraftPost.fromJson(Map<String, dynamic> json) => _$DraftPostFromJson(json);
 
 @override@JsonKey() final  String $type;
-/// The primary post content.
+/// The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts.
 @override final  String text;
 @override@UDraftPostLabelsConverter() final  UDraftPostLabels? labels;
  final  List<DraftEmbedImage>? _embedImages;

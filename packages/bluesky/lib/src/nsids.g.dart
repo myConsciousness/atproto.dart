@@ -491,6 +491,11 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = NSID(
   ids.appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
 );
 
+/// `app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton = NSID(
+  ids.appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton,
+);
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators = NSID(
   ids.appBskyUnspeccedGetPopularFeedGenerators,
@@ -524,6 +529,11 @@ const appBskyUnspeccedGetSuggestedFeeds = NSID(
 /// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
 const appBskyUnspeccedGetSuggestedFeedsSkeleton = NSID(
   ids.appBskyUnspeccedGetSuggestedFeedsSkeleton,
+);
+
+/// `app.bsky.unspecced.getSuggestedOnboardingUsers`
+const appBskyUnspeccedGetSuggestedOnboardingUsers = NSID(
+  ids.appBskyUnspeccedGetSuggestedOnboardingUsers,
 );
 
 /// `app.bsky.unspecced.getSuggestedStarterPacks`

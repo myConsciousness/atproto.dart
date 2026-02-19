@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -27,6 +27,8 @@ part 'draft.g.dart';
 @freezed
 abstract class Draft with _$Draft {
   static const knownProps = <String>[
+    'deviceId',
+    'deviceName',
     'posts',
     'langs',
     'postgateEmbeddingRules',
@@ -36,6 +38,12 @@ abstract class Draft with _$Draft {
   @JsonSerializable(includeIfNull: false)
   const factory Draft({
     @Default('app.bsky.draft.defs#draft') String $type,
+
+    /// UUIDv4 identifier of the device that created this draft.
+    String? deviceId,
+
+    /// The device and/or platform on which the draft was created.
+    String? deviceName,
     @DraftPostConverter() required List<DraftPost> posts,
     List<String>? langs,
     @UDraftPostgateEmbeddingRulesConverter()
@@ -52,6 +60,13 @@ abstract class Draft with _$Draft {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'app.bsky.draft.defs#draft';
   }
+}
+
+extension DraftExtension on Draft {
+  bool get hasDeviceId => deviceId != null;
+  bool get hasNotDeviceId => !hasDeviceId;
+  bool get hasDeviceName => deviceName != null;
+  bool get hasNotDeviceName => !hasDeviceName;
 }
 
 final class DraftConverter extends JsonConverter<Draft, Map<String, dynamic>> {
