@@ -20,6 +20,8 @@ A draft containing an array of draft posts.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **deviceId** | string | - | ❌ | UUIDv4 identifier of the device that created this draft. |
+| **deviceName** | string | - | ❌ | The device and/or platform on which the draft was created. |
 | **posts** | array of [#draftPost](#draftpost) | - | ✅ | Array of draft posts that compose this draft. |
 | **langs** | array of string | - | ❌ | Indicates human language of posts primary text content. |
 | **postgateEmbeddingRules** | array of union<br/>[app.bsky.feed.postgate#disableRule](../../../../lexicons/app/bsky/feed/postgate.md#disablerule) | - | ❌ | Embedding rules for the postgates to be created when this draft is published. |
@@ -31,7 +33,7 @@ One of the posts that compose a draft.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **text** | string | - | ✅ | The primary post content. |
+| **text** | string | - | ✅ | The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts. |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **embedImages** | array of [#draftEmbedImage](#draftembedimage) | - | ❌ | - |
 | **embedVideos** | array of [#draftEmbedVideo](#draftembedvideo) | - | ❌ | - |

@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -21,9 +21,9 @@ import 'signature/search_accounts.dart';
 
 final class ToolsOzoneSignatureCommand extends Command<void> {
   ToolsOzoneSignatureCommand() {
-    addSubcommand(FindRelatedAccountsCommand());
-    addSubcommand(SearchAccountsCommand());
     addSubcommand(FindCorrelationCommand());
+    addSubcommand(SearchAccountsCommand());
+    addSubcommand(FindRelatedAccountsCommand());
   }
 
   @override

@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -41,7 +41,7 @@ abstract class DraftPost with _$DraftPost {
   const factory DraftPost({
     @Default('app.bsky.draft.defs#draftPost') String $type,
 
-    /// The primary post content.
+    /// The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts.
     required String text,
     @UDraftPostLabelsConverter() UDraftPostLabels? labels,
     @DraftEmbedImageConverter() List<DraftEmbedImage>? embedImages,

@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -33,21 +33,21 @@ import 'sync/request_crawl.dart';
 
 final class ComAtprotoSyncCommand extends Command<void> {
   ComAtprotoSyncCommand() {
-    addSubcommand(GetRecordCommand());
-    addSubcommand(ListBlobsCommand());
-    addSubcommand(NotifyOfUpdateCommand());
-    addSubcommand(GetBlobCommand());
-    addSubcommand(ListHostsCommand());
-    addSubcommand(GetCheckoutCommand());
-    addSubcommand(GetLatestCommitCommand());
-    addSubcommand(GetHostStatusCommand());
-    addSubcommand(ListReposByCollectionCommand());
     addSubcommand(GetHeadCommand());
-    addSubcommand(GetBlocksCommand());
-    addSubcommand(ListReposCommand());
+    addSubcommand(GetBlobCommand());
     addSubcommand(GetRepoCommand());
+    addSubcommand(NotifyOfUpdateCommand());
     addSubcommand(RequestCrawlCommand());
+    addSubcommand(ListBlobsCommand());
+    addSubcommand(GetLatestCommitCommand());
     addSubcommand(GetRepoStatusCommand());
+    addSubcommand(GetRecordCommand());
+    addSubcommand(ListHostsCommand());
+    addSubcommand(ListReposCommand());
+    addSubcommand(GetHostStatusCommand());
+    addSubcommand(GetBlocksCommand());
+    addSubcommand(ListReposByCollectionCommand());
+    addSubcommand(GetCheckoutCommand());
   }
 
   @override

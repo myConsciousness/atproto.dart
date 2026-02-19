@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -37,25 +37,25 @@ import 'server/update_email.dart';
 
 final class ComAtprotoServerCommand extends Command<void> {
   ComAtprotoServerCommand() {
-    addSubcommand(CreateAccountCommand());
-    addSubcommand(ConfirmEmailCommand());
-    addSubcommand(ResetPasswordCommand());
-    addSubcommand(DescribeServerCommand());
-    addSubcommand(RequestPasswordResetCommand());
     addSubcommand(ReserveSigningKeyCommand());
-    addSubcommand(CheckAccountStatusCommand());
-    addSubcommand(ListAppPasswordsCommand());
-    addSubcommand(DeleteAccountCommand());
-    addSubcommand(GetSessionCommand());
-    addSubcommand(CreateAppPasswordCommand());
-    addSubcommand(UpdateEmailCommand());
     addSubcommand(GetServiceAuthCommand());
     addSubcommand(GetAccountInviteCodesCommand());
-    addSubcommand(RevokeAppPasswordCommand());
-    addSubcommand(DeactivateAccountCommand());
-    addSubcommand(CreateInviteCodeCommand());
     addSubcommand(CreateSessionCommand());
+    addSubcommand(ListAppPasswordsCommand());
     addSubcommand(CreateInviteCodesCommand());
+    addSubcommand(RevokeAppPasswordCommand());
+    addSubcommand(CreateAppPasswordCommand());
+    addSubcommand(DescribeServerCommand());
+    addSubcommand(ConfirmEmailCommand());
+    addSubcommand(GetSessionCommand());
+    addSubcommand(DeactivateAccountCommand());
+    addSubcommand(UpdateEmailCommand());
+    addSubcommand(ResetPasswordCommand());
+    addSubcommand(CheckAccountStatusCommand());
+    addSubcommand(RequestPasswordResetCommand());
+    addSubcommand(CreateAccountCommand());
+    addSubcommand(DeleteAccountCommand());
+    addSubcommand(CreateInviteCodeCommand());
   }
 
   @override

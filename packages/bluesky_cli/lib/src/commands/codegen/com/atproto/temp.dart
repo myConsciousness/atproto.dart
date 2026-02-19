@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -25,13 +25,13 @@ import 'temp/revoke_account_credentials.dart';
 
 final class ComAtprotoTempCommand extends Command<void> {
   ComAtprotoTempCommand() {
-    addSubcommand(CheckHandleAvailabilityCommand());
-    addSubcommand(AddReservedHandleCommand());
-    addSubcommand(RevokeAccountCredentialsCommand());
-    addSubcommand(RequestPhoneVerificationCommand());
-    addSubcommand(FetchLabelsCommand());
     addSubcommand(DereferenceScopeCommand());
+    addSubcommand(AddReservedHandleCommand());
     addSubcommand(CheckSignupQueueCommand());
+    addSubcommand(CheckHandleAvailabilityCommand());
+    addSubcommand(RequestPhoneVerificationCommand());
+    addSubcommand(RevokeAccountCredentialsCommand());
+    addSubcommand(FetchLabelsCommand());
   }
 
   @override

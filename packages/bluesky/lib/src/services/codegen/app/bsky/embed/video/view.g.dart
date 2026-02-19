@@ -26,6 +26,13 @@ _EmbedVideoView _$EmbedVideoViewFromJson(Map json) =>
             const AspectRatioConverter().fromJson,
           ),
         ),
+        presentation: $checkedConvert(
+          'presentation',
+          (v) => _$JsonConverterFromJson<String, EmbedVideoViewPresentation>(
+            v,
+            const EmbedVideoViewPresentationConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -34,19 +41,24 @@ _EmbedVideoView _$EmbedVideoViewFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$EmbedVideoViewToJson(_EmbedVideoView instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'cid': instance.cid,
-      'playlist': instance.playlist,
-      'thumbnail': ?instance.thumbnail,
-      'alt': ?instance.alt,
-      'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
-        instance.aspectRatio,
-        const AspectRatioConverter().toJson,
-      ),
-      r'$unknown': ?instance.$unknown,
-    };
+Map<String, dynamic> _$EmbedVideoViewToJson(
+  _EmbedVideoView instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'cid': instance.cid,
+  'playlist': instance.playlist,
+  'thumbnail': ?instance.thumbnail,
+  'alt': ?instance.alt,
+  'aspectRatio': ?_$JsonConverterToJson<Map<String, dynamic>, AspectRatio>(
+    instance.aspectRatio,
+    const AspectRatioConverter().toJson,
+  ),
+  'presentation': ?_$JsonConverterToJson<String, EmbedVideoViewPresentation>(
+    instance.presentation,
+    const EmbedVideoViewPresentationConverter().toJson,
+  ),
+  r'$unknown': ?instance.$unknown,
+};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

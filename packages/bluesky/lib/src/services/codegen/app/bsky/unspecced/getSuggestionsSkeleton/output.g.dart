@@ -26,7 +26,7 @@ _$UnspeccedGetSuggestionsSkeletonOutputFromJson(Map json) => $checkedCreate(
             .toList(),
       ),
       relativeToDid: $checkedConvert('relativeToDid', (v) => v as String?),
-      recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
+      recIdStr: $checkedConvert('recIdStr', (v) => v as String?),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -44,6 +44,6 @@ Map<String, dynamic> _$UnspeccedGetSuggestionsSkeletonOutputToJson(
       .map(const SkeletonSearchActorConverter().toJson)
       .toList(),
   'relativeToDid': ?instance.relativeToDid,
-  'recId': ?instance.recId,
+  'recIdStr': ?instance.recIdStr,
   r'$unknown': ?instance.$unknown,
 };

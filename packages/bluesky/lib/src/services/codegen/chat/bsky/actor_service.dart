@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -36,15 +36,6 @@ import 'package:atproto/com_atproto_services.dart'
 // LexGenerator
 // **************************************************************************
 
-Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-}) async => await $ctx.post(
-  ns.chatBskyActorDeleteAccount,
-  service: $service,
-  headers: {...?$headers},
-);
 Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
   required ServiceContext $ctx,
   String? $service,
@@ -55,6 +46,15 @@ Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
   service: $service,
   headers: $headers,
   parameters: {...?$unknown},
+);
+Future<XRPCResponse<EmptyData>> chatBskyActorDeleteAccount({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+}) async => await $ctx.post(
+  ns.chatBskyActorDeleteAccount,
+  service: $service,
+  headers: {...?$headers},
 );
 
 /// `chat.bsky.actor.*`
@@ -68,14 +68,6 @@ base class ActorService {
 
   /// A declaration of a Bluesky chat account.
   ActorDeclarationRecordAccessor get declaration => _declaration;
-  Future<XRPCResponse<EmptyData>> deleteAccount({
-    String? $service,
-    Map<String, String>? $headers,
-  }) async => await chatBskyActorDeleteAccount(
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-  );
   Future<XRPCResponse<Uint8List>> exportAccountData({
     String? $service,
     Map<String, String>? $headers,
@@ -85,6 +77,14 @@ base class ActorService {
     $service: $service,
     $headers: $headers,
     $unknown: $unknown,
+  );
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    String? $service,
+    Map<String, String>? $headers,
+  }) async => await chatBskyActorDeleteAccount(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
   );
 }
 

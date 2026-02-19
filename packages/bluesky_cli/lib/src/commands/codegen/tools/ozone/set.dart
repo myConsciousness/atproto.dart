@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -23,11 +23,11 @@ import 'set/query_sets.dart';
 
 final class ToolsOzoneSetCommand extends Command<void> {
   ToolsOzoneSetCommand() {
-    addSubcommand(GetValuesCommand());
-    addSubcommand(QuerySetsCommand());
-    addSubcommand(DeleteSetCommand());
     addSubcommand(AddValuesCommand());
+    addSubcommand(GetValuesCommand());
+    addSubcommand(DeleteSetCommand());
     addSubcommand(DeleteValuesCommand());
+    addSubcommand(QuerySetsCommand());
   }
 
   @override

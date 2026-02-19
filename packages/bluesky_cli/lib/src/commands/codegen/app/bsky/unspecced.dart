@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -15,11 +15,13 @@ import 'unspecced/get_age_assurance_state.dart';
 import 'unspecced/get_config.dart';
 import 'unspecced/get_onboarding_suggested_starter_packs.dart';
 import 'unspecced/get_onboarding_suggested_starter_packs_skeleton.dart';
+import 'unspecced/get_onboarding_suggested_users_skeleton.dart';
 import 'unspecced/get_popular_feed_generators.dart';
 import 'unspecced/get_post_thread_other_v_2.dart';
 import 'unspecced/get_post_thread_v_2.dart';
 import 'unspecced/get_suggested_feeds.dart';
 import 'unspecced/get_suggested_feeds_skeleton.dart';
+import 'unspecced/get_suggested_onboarding_users.dart';
 import 'unspecced/get_suggested_starter_packs.dart';
 import 'unspecced/get_suggested_starter_packs_skeleton.dart';
 import 'unspecced/get_suggested_users.dart';
@@ -40,28 +42,30 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
-    addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(GetSuggestedFeedsSkeletonCommand());
     addSubcommand(SearchStarterPacksSkeletonCommand());
     addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetTrendingTopicsCommand());
-    addSubcommand(GetSuggestionsSkeletonCommand());
-    addSubcommand(GetSuggestedFeedsSkeletonCommand());
+    addSubcommand(GetSuggestedUsersCommand());
     addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(InitAgeAssuranceCommand());
-    addSubcommand(GetTrendsCommand());
-    addSubcommand(GetSuggestedUsersSkeletonCommand());
-    addSubcommand(GetSuggestedFeedsCommand());
     addSubcommand(GetSuggestedStarterPacksCommand());
-    addSubcommand(GetTaggedSuggestionsCommand());
     addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
     addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
-    addSubcommand(GetAgeAssuranceStateCommand());
-    addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetSuggestedUsersSkeletonCommand());
     addSubcommand(GetPostThreadV2Command());
+    addSubcommand(GetTrendsCommand());
     addSubcommand(SearchActorsSkeletonCommand());
-    addSubcommand(GetConfigCommand());
+    addSubcommand(GetSuggestionsSkeletonCommand());
     addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(GetOnboardingSuggestedUsersSkeletonCommand());
+    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetPopularFeedGeneratorsCommand());
+    addSubcommand(GetSuggestedOnboardingUsersCommand());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetTrendingTopicsCommand());
+    addSubcommand(GetTaggedSuggestionsCommand());
+    addSubcommand(GetSuggestedFeedsCommand());
+    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(GetConfigCommand());
   }
 
   @override

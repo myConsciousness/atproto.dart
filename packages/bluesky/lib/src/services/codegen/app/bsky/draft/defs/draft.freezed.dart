@@ -15,7 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Draft {
 
- String get $type;@DraftPostConverter() List<DraftPost> get posts; List<String>? get langs;@UDraftPostgateEmbeddingRulesConverter() List<UDraftPostgateEmbeddingRules>? get postgateEmbeddingRules;@UDraftThreadgateAllowConverter() List<UDraftThreadgateAllow>? get threadgateAllow; Map<String, dynamic>? get $unknown;
+ String get $type;/// UUIDv4 identifier of the device that created this draft.
+ String? get deviceId;/// The device and/or platform on which the draft was created.
+ String? get deviceName;@DraftPostConverter() List<DraftPost> get posts; List<String>? get langs;@UDraftPostgateEmbeddingRulesConverter() List<UDraftPostgateEmbeddingRules>? get postgateEmbeddingRules;@UDraftThreadgateAllowConverter() List<UDraftThreadgateAllow>? get threadgateAllow; Map<String, dynamic>? get $unknown;
 /// Create a copy of Draft
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +30,16 @@ $DraftCopyWith<Draft> get copyWith => _$DraftCopyWithImpl<Draft>(this as Draft, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Draft&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other.posts, posts)&&const DeepCollectionEquality().equals(other.langs, langs)&&const DeepCollectionEquality().equals(other.postgateEmbeddingRules, postgateEmbeddingRules)&&const DeepCollectionEquality().equals(other.threadgateAllow, threadgateAllow)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Draft&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.deviceId, deviceId) || other.deviceId == deviceId)&&(identical(other.deviceName, deviceName) || other.deviceName == deviceName)&&const DeepCollectionEquality().equals(other.posts, posts)&&const DeepCollectionEquality().equals(other.langs, langs)&&const DeepCollectionEquality().equals(other.postgateEmbeddingRules, postgateEmbeddingRules)&&const DeepCollectionEquality().equals(other.threadgateAllow, threadgateAllow)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(posts),const DeepCollectionEquality().hash(langs),const DeepCollectionEquality().hash(postgateEmbeddingRules),const DeepCollectionEquality().hash(threadgateAllow),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,deviceId,deviceName,const DeepCollectionEquality().hash(posts),const DeepCollectionEquality().hash(langs),const DeepCollectionEquality().hash(postgateEmbeddingRules),const DeepCollectionEquality().hash(threadgateAllow),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'Draft(\$type: ${$type}, posts: $posts, langs: $langs, postgateEmbeddingRules: $postgateEmbeddingRules, threadgateAllow: $threadgateAllow, \$unknown: ${$unknown})';
+  return 'Draft(\$type: ${$type}, deviceId: $deviceId, deviceName: $deviceName, posts: $posts, langs: $langs, postgateEmbeddingRules: $postgateEmbeddingRules, threadgateAllow: $threadgateAllow, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +50,7 @@ abstract mixin class $DraftCopyWith<$Res>  {
   factory $DraftCopyWith(Draft value, $Res Function(Draft) _then) = _$DraftCopyWithImpl;
 @useResult
 $Res call({
- String $type,@DraftPostConverter() List<DraftPost> posts, List<String>? langs,@UDraftPostgateEmbeddingRulesConverter() List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules,@UDraftThreadgateAllowConverter() List<UDraftThreadgateAllow>? threadgateAllow, Map<String, dynamic>? $unknown
+ String $type, String? deviceId, String? deviceName,@DraftPostConverter() List<DraftPost> posts, List<String>? langs,@UDraftPostgateEmbeddingRulesConverter() List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules,@UDraftThreadgateAllowConverter() List<UDraftThreadgateAllow>? threadgateAllow, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +67,12 @@ class _$DraftCopyWithImpl<$Res>
 
 /// Create a copy of Draft
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? posts = null,Object? langs = freezed,Object? postgateEmbeddingRules = freezed,Object? threadgateAllow = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? deviceId = freezed,Object? deviceName = freezed,Object? posts = null,Object? langs = freezed,Object? postgateEmbeddingRules = freezed,Object? threadgateAllow = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
+as String,deviceId: freezed == deviceId ? _self.deviceId : deviceId // ignore: cast_nullable_to_non_nullable
+as String?,deviceName: freezed == deviceName ? _self.deviceName : deviceName // ignore: cast_nullable_to_non_nullable
+as String?,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
 as List<DraftPost>,langs: freezed == langs ? _self.langs : langs // ignore: cast_nullable_to_non_nullable
 as List<String>?,postgateEmbeddingRules: freezed == postgateEmbeddingRules ? _self.postgateEmbeddingRules : postgateEmbeddingRules // ignore: cast_nullable_to_non_nullable
 as List<UDraftPostgateEmbeddingRules>?,threadgateAllow: freezed == threadgateAllow ? _self.threadgateAllow : threadgateAllow // ignore: cast_nullable_to_non_nullable
@@ -158,10 +162,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @DraftPostConverter()  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? deviceId,  String? deviceName, @DraftPostConverter()  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Draft() when $default != null:
-return $default(_that.$type,_that.posts,_that.langs,_that.postgateEmbeddingRules,_that.threadgateAllow,_that.$unknown);case _:
+return $default(_that.$type,_that.deviceId,_that.deviceName,_that.posts,_that.langs,_that.postgateEmbeddingRules,_that.threadgateAllow,_that.$unknown);case _:
   return orElse();
 
 }
@@ -179,10 +183,10 @@ return $default(_that.$type,_that.posts,_that.langs,_that.postgateEmbeddingRules
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @DraftPostConverter()  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? deviceId,  String? deviceName, @DraftPostConverter()  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Draft():
-return $default(_that.$type,_that.posts,_that.langs,_that.postgateEmbeddingRules,_that.threadgateAllow,_that.$unknown);case _:
+return $default(_that.$type,_that.deviceId,_that.deviceName,_that.posts,_that.langs,_that.postgateEmbeddingRules,_that.threadgateAllow,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +203,10 @@ return $default(_that.$type,_that.posts,_that.langs,_that.postgateEmbeddingRules
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @DraftPostConverter()  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? deviceId,  String? deviceName, @DraftPostConverter()  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Draft() when $default != null:
-return $default(_that.$type,_that.posts,_that.langs,_that.postgateEmbeddingRules,_that.threadgateAllow,_that.$unknown);case _:
+return $default(_that.$type,_that.deviceId,_that.deviceName,_that.posts,_that.langs,_that.postgateEmbeddingRules,_that.threadgateAllow,_that.$unknown);case _:
   return null;
 
 }
@@ -214,10 +218,14 @@ return $default(_that.$type,_that.posts,_that.langs,_that.postgateEmbeddingRules
 
 @JsonSerializable(includeIfNull: false)
 class _Draft implements Draft {
-  const _Draft({this.$type = 'app.bsky.draft.defs#draft', @DraftPostConverter() required final  List<DraftPost> posts, final  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter() final  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter() final  List<UDraftThreadgateAllow>? threadgateAllow, final  Map<String, dynamic>? $unknown}): _posts = posts,_langs = langs,_postgateEmbeddingRules = postgateEmbeddingRules,_threadgateAllow = threadgateAllow,_$unknown = $unknown;
+  const _Draft({this.$type = 'app.bsky.draft.defs#draft', this.deviceId, this.deviceName, @DraftPostConverter() required final  List<DraftPost> posts, final  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter() final  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter() final  List<UDraftThreadgateAllow>? threadgateAllow, final  Map<String, dynamic>? $unknown}): _posts = posts,_langs = langs,_postgateEmbeddingRules = postgateEmbeddingRules,_threadgateAllow = threadgateAllow,_$unknown = $unknown;
   factory _Draft.fromJson(Map<String, dynamic> json) => _$DraftFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// UUIDv4 identifier of the device that created this draft.
+@override final  String? deviceId;
+/// The device and/or platform on which the draft was created.
+@override final  String? deviceName;
  final  List<DraftPost> _posts;
 @override@DraftPostConverter() List<DraftPost> get posts {
   if (_posts is EqualUnmodifiableListView) return _posts;
@@ -275,16 +283,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Draft&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other._posts, _posts)&&const DeepCollectionEquality().equals(other._langs, _langs)&&const DeepCollectionEquality().equals(other._postgateEmbeddingRules, _postgateEmbeddingRules)&&const DeepCollectionEquality().equals(other._threadgateAllow, _threadgateAllow)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Draft&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.deviceId, deviceId) || other.deviceId == deviceId)&&(identical(other.deviceName, deviceName) || other.deviceName == deviceName)&&const DeepCollectionEquality().equals(other._posts, _posts)&&const DeepCollectionEquality().equals(other._langs, _langs)&&const DeepCollectionEquality().equals(other._postgateEmbeddingRules, _postgateEmbeddingRules)&&const DeepCollectionEquality().equals(other._threadgateAllow, _threadgateAllow)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(_posts),const DeepCollectionEquality().hash(_langs),const DeepCollectionEquality().hash(_postgateEmbeddingRules),const DeepCollectionEquality().hash(_threadgateAllow),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,deviceId,deviceName,const DeepCollectionEquality().hash(_posts),const DeepCollectionEquality().hash(_langs),const DeepCollectionEquality().hash(_postgateEmbeddingRules),const DeepCollectionEquality().hash(_threadgateAllow),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'Draft(\$type: ${$type}, posts: $posts, langs: $langs, postgateEmbeddingRules: $postgateEmbeddingRules, threadgateAllow: $threadgateAllow, \$unknown: ${$unknown})';
+  return 'Draft(\$type: ${$type}, deviceId: $deviceId, deviceName: $deviceName, posts: $posts, langs: $langs, postgateEmbeddingRules: $postgateEmbeddingRules, threadgateAllow: $threadgateAllow, \$unknown: ${$unknown})';
 }
 
 
@@ -295,7 +303,7 @@ abstract mixin class _$DraftCopyWith<$Res> implements $DraftCopyWith<$Res> {
   factory _$DraftCopyWith(_Draft value, $Res Function(_Draft) _then) = __$DraftCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@DraftPostConverter() List<DraftPost> posts, List<String>? langs,@UDraftPostgateEmbeddingRulesConverter() List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules,@UDraftThreadgateAllowConverter() List<UDraftThreadgateAllow>? threadgateAllow, Map<String, dynamic>? $unknown
+ String $type, String? deviceId, String? deviceName,@DraftPostConverter() List<DraftPost> posts, List<String>? langs,@UDraftPostgateEmbeddingRulesConverter() List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules,@UDraftThreadgateAllowConverter() List<UDraftThreadgateAllow>? threadgateAllow, Map<String, dynamic>? $unknown
 });
 
 
@@ -312,10 +320,12 @@ class __$DraftCopyWithImpl<$Res>
 
 /// Create a copy of Draft
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? posts = null,Object? langs = freezed,Object? postgateEmbeddingRules = freezed,Object? threadgateAllow = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? deviceId = freezed,Object? deviceName = freezed,Object? posts = null,Object? langs = freezed,Object? postgateEmbeddingRules = freezed,Object? threadgateAllow = freezed,Object? $unknown = freezed,}) {
   return _then(_Draft(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,posts: null == posts ? _self._posts : posts // ignore: cast_nullable_to_non_nullable
+as String,deviceId: freezed == deviceId ? _self.deviceId : deviceId // ignore: cast_nullable_to_non_nullable
+as String?,deviceName: freezed == deviceName ? _self.deviceName : deviceName // ignore: cast_nullable_to_non_nullable
+as String?,posts: null == posts ? _self._posts : posts // ignore: cast_nullable_to_non_nullable
 as List<DraftPost>,langs: freezed == langs ? _self._langs : langs // ignore: cast_nullable_to_non_nullable
 as List<String>?,postgateEmbeddingRules: freezed == postgateEmbeddingRules ? _self._postgateEmbeddingRules : postgateEmbeddingRules // ignore: cast_nullable_to_non_nullable
 as List<UDraftPostgateEmbeddingRules>?,threadgateAllow: freezed == threadgateAllow ? _self._threadgateAllow : threadgateAllow // ignore: cast_nullable_to_non_nullable
