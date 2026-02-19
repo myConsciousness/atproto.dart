@@ -381,7 +381,9 @@ String getLexKnownValuesElementName(
     }
   }
 
-  return toFirstLowerCase(val);
+  val = toFirstLowerCase(val);
+
+  return val == 'default' ? 'defaultValue' : val;
 }
 
 String getNamespaceIdForApi(final String lexiconId) {

@@ -96,4 +96,6 @@ melos:
         dart fix --apply
         cd ../../
         melos fmt
+        dart run ./scripts/gen_lexicon_matrix.dart
+        dart run ./scripts/gen_supported_api_matrix.dart
       description: Generate code for atproto and blueksy based on lexicons.
