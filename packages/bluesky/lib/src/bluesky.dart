@@ -183,6 +183,10 @@ sealed class Bluesky {
   /// Returns the contact service.
   /// This service represents `app.bsky.contact.*`.
   ContactService get contact;
+
+  /// Returns the draft service.
+  /// This service represents `app.bsky.draft.*`.
+  DraftService get draft;
 }
 
 final class _Bluesky implements Bluesky {
@@ -197,6 +201,7 @@ final class _Bluesky implements Bluesky {
       video = VideoServiceImpl(ctx),
       bookmark = BookmarkService(ctx),
       contact = ContactService(ctx),
+      draft = DraftService(ctx),
       _ctx = ctx;
 
   final core.ServiceContext _ctx;
@@ -248,4 +253,7 @@ final class _Bluesky implements Bluesky {
 
   @override
   final ContactService contact;
+
+  @override
+  final DraftService draft;
 }
