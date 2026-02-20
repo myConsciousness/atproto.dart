@@ -18,7 +18,7 @@ _Jwt _$JwtFromJson(Map json) => $checkedCreate('_Jwt', json, ($checkedConvert) {
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
     ),
     clientId: $checkedConvert('client_id', (v) => v as String?),
-    scope: $checkedConvert('scope', (v) => v as String),
+    scope: $checkedConvert('scope', (v) => v as String?),
     iss: $checkedConvert('iss', (v) => v as String?),
     exp: $checkedConvert(
       'exp',
@@ -38,7 +38,7 @@ Map<String, dynamic> _$JwtToJson(_Jwt instance) => <String, dynamic>{
   'jti': ?instance.jti,
   'cnf': ?instance.cnf,
   'client_id': ?instance.clientId,
-  'scope': instance.scope,
+  'scope': ?instance.scope,
   'iss': ?instance.iss,
   'exp': dateTimeConverter.toJson(instance.exp),
   'iat': dateTimeConverter.toJson(instance.iat),
