@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -17,6 +17,8 @@ export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_view_de
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_chat.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_chat_allow_incoming.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_germ.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_germ_show_button_to.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_activity_subscription.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_activity_subscription_allow_subscriptions.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/viewer_state.dart';

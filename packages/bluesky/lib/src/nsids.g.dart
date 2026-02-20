@@ -88,6 +88,18 @@ const appBskyContactStartPhoneVerification = NSID(
 /// `app.bsky.contact.verifyPhone`
 const appBskyContactVerifyPhone = NSID(ids.appBskyContactVerifyPhone);
 
+/// `app.bsky.draft.createDraft`
+const appBskyDraftCreateDraft = NSID(ids.appBskyDraftCreateDraft);
+
+/// `app.bsky.draft.deleteDraft`
+const appBskyDraftDeleteDraft = NSID(ids.appBskyDraftDeleteDraft);
+
+/// `app.bsky.draft.getDrafts`
+const appBskyDraftGetDrafts = NSID(ids.appBskyDraftGetDrafts);
+
+/// `app.bsky.draft.updateDraft`
+const appBskyDraftUpdateDraft = NSID(ids.appBskyDraftUpdateDraft);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 
@@ -479,6 +491,11 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = NSID(
   ids.appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
 );
 
+/// `app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton = NSID(
+  ids.appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton,
+);
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators = NSID(
   ids.appBskyUnspeccedGetPopularFeedGenerators,
@@ -512,6 +529,11 @@ const appBskyUnspeccedGetSuggestedFeeds = NSID(
 /// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
 const appBskyUnspeccedGetSuggestedFeedsSkeleton = NSID(
   ids.appBskyUnspeccedGetSuggestedFeedsSkeleton,
+);
+
+/// `app.bsky.unspecced.getSuggestedOnboardingUsers`
+const appBskyUnspeccedGetSuggestedOnboardingUsers = NSID(
+  ids.appBskyUnspeccedGetSuggestedOnboardingUsers,
 );
 
 /// `app.bsky.unspecced.getSuggestedStarterPacks`

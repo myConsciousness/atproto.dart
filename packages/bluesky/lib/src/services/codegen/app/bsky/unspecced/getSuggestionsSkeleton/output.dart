@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,7 +28,7 @@ abstract class UnspeccedGetSuggestionsSkeletonOutput
     'cursor',
     'actors',
     'relativeToDid',
-    'recId',
+    'recIdStr',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -40,7 +40,7 @@ abstract class UnspeccedGetSuggestionsSkeletonOutput
     String? relativeToDid,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
-    int? recId,
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestionsSkeletonOutput;
@@ -56,8 +56,8 @@ extension UnspeccedGetSuggestionsSkeletonOutputExtension
   bool get hasNotCursor => !hasCursor;
   bool get hasRelativeToDid => relativeToDid != null;
   bool get hasNotRelativeToDid => !hasRelativeToDid;
-  bool get hasRecId => recId != null;
-  bool get hasNotRecId => !hasRecId;
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class UnspeccedGetSuggestionsSkeletonOutputConverter

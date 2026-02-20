@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
+import './view_presentation.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';
@@ -29,6 +30,7 @@ abstract class EmbedVideoView with _$EmbedVideoView {
     'thumbnail',
     'alt',
     'aspectRatio',
+    'presentation',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -39,6 +41,10 @@ abstract class EmbedVideoView with _$EmbedVideoView {
     String? thumbnail,
     String? alt,
     @AspectRatioConverter() AspectRatio? aspectRatio,
+
+    /// A hint to the client about how to present the video.
+    @EmbedVideoViewPresentationConverter()
+    EmbedVideoViewPresentation? presentation,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedVideoView;
@@ -59,6 +65,8 @@ extension EmbedVideoViewExtension on EmbedVideoView {
   bool get hasNotAlt => !hasAlt;
   bool get hasAspectRatio => aspectRatio != null;
   bool get hasNotAspectRatio => !hasAspectRatio;
+  bool get hasPresentation => presentation != null;
+  bool get hasNotPresentation => !hasPresentation;
 }
 
 final class EmbedVideoViewConverter

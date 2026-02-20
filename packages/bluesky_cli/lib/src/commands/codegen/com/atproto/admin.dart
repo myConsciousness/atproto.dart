@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -33,21 +33,21 @@ import 'admin/update_subject_status.dart';
 
 final class ComAtprotoAdminCommand extends Command<void> {
   ComAtprotoAdminCommand() {
-    addSubcommand(DisableInviteCodesCommand());
-    addSubcommand(GetAccountInfoCommand());
-    addSubcommand(UpdateSubjectStatusCommand());
-    addSubcommand(EnableAccountInvitesCommand());
-    addSubcommand(DisableAccountInvitesCommand());
-    addSubcommand(GetSubjectStatusCommand());
-    addSubcommand(DeleteAccountCommand());
-    addSubcommand(SendEmailCommand());
-    addSubcommand(SearchAccountsCommand());
     addSubcommand(UpdateAccountEmailCommand());
-    addSubcommand(UpdateAccountSigningKeyCommand());
+    addSubcommand(GetAccountInfoCommand());
+    addSubcommand(GetSubjectStatusCommand());
+    addSubcommand(SearchAccountsCommand());
     addSubcommand(UpdateAccountPasswordCommand());
     addSubcommand(UpdateAccountHandleCommand());
     addSubcommand(GetInviteCodesCommand());
+    addSubcommand(UpdateAccountSigningKeyCommand());
+    addSubcommand(EnableAccountInvitesCommand());
+    addSubcommand(DisableAccountInvitesCommand());
+    addSubcommand(DisableInviteCodesCommand());
+    addSubcommand(UpdateSubjectStatusCommand());
+    addSubcommand(SendEmailCommand());
     addSubcommand(GetAccountInfosCommand());
+    addSubcommand(DeleteAccountCommand());
   }
 
   @override

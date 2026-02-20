@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -29,17 +29,17 @@ import 'notification/update_seen.dart';
 
 final class AppBskyNotificationCommand extends Command<void> {
   AppBskyNotificationCommand() {
-    addSubcommand(GetPreferencesCommand());
-    addSubcommand(ListNotificationsCommand());
+    addSubcommand(RegisterPushCommand());
+    addSubcommand(PutPreferencesCommand());
     addSubcommand(PutActivitySubscriptionCommand());
-    addSubcommand(GetUnreadCountCommand());
     addSubcommand(DeclarationCommand());
+    addSubcommand(PutPreferencesV2Command());
+    addSubcommand(UpdateSeenCommand());
     addSubcommand(ListActivitySubscriptionsCommand());
     addSubcommand(UnregisterPushCommand());
-    addSubcommand(UpdateSeenCommand());
-    addSubcommand(PutPreferencesCommand());
-    addSubcommand(RegisterPushCommand());
-    addSubcommand(PutPreferencesV2Command());
+    addSubcommand(GetPreferencesCommand());
+    addSubcommand(ListNotificationsCommand());
+    addSubcommand(GetUnreadCountCommand());
   }
 
   @override

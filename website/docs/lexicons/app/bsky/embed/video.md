@@ -13,6 +13,7 @@ description: app.bsky.embed.video
 | **captions** | array of [#caption](#caption) | - | ❌ | - |
 | **alt** | string | - | ❌ | Alt text description of the video, for accessibility. |
 | **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
+| **presentation** | string | default<br/>gif | ❌ | A hint to the client about how to present the video. |
 
 ## #caption
 
@@ -30,3 +31,4 @@ description: app.bsky.embed.video
 | **thumbnail** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **alt** | string | - | ❌ | - |
 | **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
+| **presentation** | string | default<br/>gif | ❌ | A hint to the client about how to present the video. |

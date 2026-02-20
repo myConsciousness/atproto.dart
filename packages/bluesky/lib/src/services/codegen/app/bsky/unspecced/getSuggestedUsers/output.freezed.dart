@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$UnspeccedGetSuggestedUsersOutput {
 
 @ProfileViewConverter() List<ProfileView> get actors;/// Snowflake for this recommendation, use when submitting recommendation events.
- int? get recId; Map<String, dynamic>? get $unknown;
+ String? get recId; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedUsersOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $UnspeccedGetSuggestedUsersOutputCopyWith<$Res>  {
   factory $UnspeccedGetSuggestedUsersOutputCopyWith(UnspeccedGetSuggestedUsersOutput value, $Res Function(UnspeccedGetSuggestedUsersOutput) _then) = _$UnspeccedGetSuggestedUsersOutputCopyWithImpl;
 @useResult
 $Res call({
-@ProfileViewConverter() List<ProfileView> actors, int? recId, Map<String, dynamic>? $unknown
+@ProfileViewConverter() List<ProfileView> actors, String? recId, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$UnspeccedGetSuggestedUsersOutputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 actors: null == actors ? _self.actors : actors // ignore: cast_nullable_to_non_nullable
 as List<ProfileView>,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  int? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedUsersOutput() when $default != null:
 return $default(_that.actors,_that.recId,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.actors,_that.recId,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  int? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedUsersOutput():
 return $default(_that.actors,_that.recId,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.actors,_that.recId,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ProfileViewConverter()  List<ProfileView> actors,  int? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedUsersOutput() when $default != null:
 return $default(_that.actors,_that.recId,_that.$unknown);case _:
@@ -223,7 +223,7 @@ class _UnspeccedGetSuggestedUsersOutput implements UnspeccedGetSuggestedUsersOut
 }
 
 /// Snowflake for this recommendation, use when submitting recommendation events.
-@override final  int? recId;
+@override final  String? recId;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$UnspeccedGetSuggestedUsersOutputCopyWith<$Res> implements
   factory _$UnspeccedGetSuggestedUsersOutputCopyWith(_UnspeccedGetSuggestedUsersOutput value, $Res Function(_UnspeccedGetSuggestedUsersOutput) _then) = __$UnspeccedGetSuggestedUsersOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@ProfileViewConverter() List<ProfileView> actors, int? recId, Map<String, dynamic>? $unknown
+@ProfileViewConverter() List<ProfileView> actors, String? recId, Map<String, dynamic>? $unknown
 });
 
 
@@ -288,7 +288,7 @@ class __$UnspeccedGetSuggestedUsersOutputCopyWithImpl<$Res>
   return _then(_UnspeccedGetSuggestedUsersOutput(
 actors: null == actors ? _self._actors : actors // ignore: cast_nullable_to_non_nullable
 as List<ProfileView>,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

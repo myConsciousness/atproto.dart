@@ -1,5 +1,22 @@
 # Release Note
 
+## v1.4.0
+
+- chore: Sync Lexicon Data.
+  - ([#2217](https://github.com/myConsciousness/atproto.dart/pull/2217))
+  - ([#2219](https://github.com/myConsciousness/atproto.dart/pull/2219))
+  - ([#2222](https://github.com/myConsciousness/atproto.dart/pull/2222))
+  - ([#2225](https://github.com/myConsciousness/atproto.dart/pull/2225))
+  - ([#2228](https://github.com/myConsciousness/atproto.dart/pull/2228))
+  - ([#2230](https://github.com/myConsciousness/atproto.dart/pull/2230))
+  - ([#2233](https://github.com/myConsciousness/atproto.dart/pull/2233))
+  - ([#2237](https://github.com/myConsciousness/atproto.dart/pull/2237))
+  - ([#2238](https://github.com/myConsciousness/atproto.dart/pull/2238))
+  - ([#2239](https://github.com/myConsciousness/atproto.dart/pull/2239))
+  - ([#2243](https://github.com/myConsciousness/atproto.dart/pull/2243))
+  - ([#2244](https://github.com/myConsciousness/atproto.dart/pull/2244))
+- feat: Support Draft service.
+
 ## v1.3.0
 
 - chore: Sync Lexicon Data.

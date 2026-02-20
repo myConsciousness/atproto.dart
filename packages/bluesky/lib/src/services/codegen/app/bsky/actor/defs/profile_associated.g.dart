@@ -36,6 +36,14 @@ _ProfileAssociated _$ProfileAssociatedFromJson(
             ProfileAssociatedActivitySubscription
           >(v, const ProfileAssociatedActivitySubscriptionConverter().fromJson),
     ),
+    germ: $checkedConvert(
+      'germ',
+      (v) =>
+          _$JsonConverterFromJson<Map<String, dynamic>, ProfileAssociatedGerm>(
+            v,
+            const ProfileAssociatedGermConverter().fromJson,
+          ),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -64,6 +72,10 @@ Map<String, dynamic> _$ProfileAssociatedToJson(
         instance.activitySubscription,
         const ProfileAssociatedActivitySubscriptionConverter().toJson,
       ),
+  'germ': ?_$JsonConverterToJson<Map<String, dynamic>, ProfileAssociatedGerm>(
+    instance.germ,
+    const ProfileAssociatedGermConverter().toJson,
+  ),
   r'$unknown': ?instance.$unknown,
 };
 

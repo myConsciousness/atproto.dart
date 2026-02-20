@@ -17,7 +17,8 @@ mixin _$EmbedVideo {
 
  String get $type;/// The mp4 video file. May be up to 100mb, formerly limited to 50mb.
 @BlobConverter() Blob get video;@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? get captions;/// Alt text description of the video, for accessibility.
- String? get alt;@AspectRatioConverter() AspectRatio? get aspectRatio; Map<String, dynamic>? get $unknown;
+ String? get alt;@AspectRatioConverter() AspectRatio? get aspectRatio;/// A hint to the client about how to present the video.
+@EmbedVideoPresentationConverter() EmbedVideoPresentation? get presentation; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedVideo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +31,16 @@ $EmbedVideoCopyWith<EmbedVideo> get copyWith => _$EmbedVideoCopyWithImpl<EmbedVi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedVideo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.video, video) || other.video == video)&&const DeepCollectionEquality().equals(other.captions, captions)&&(identical(other.alt, alt) || other.alt == alt)&&(identical(other.aspectRatio, aspectRatio) || other.aspectRatio == aspectRatio)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedVideo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.video, video) || other.video == video)&&const DeepCollectionEquality().equals(other.captions, captions)&&(identical(other.alt, alt) || other.alt == alt)&&(identical(other.aspectRatio, aspectRatio) || other.aspectRatio == aspectRatio)&&(identical(other.presentation, presentation) || other.presentation == presentation)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,video,const DeepCollectionEquality().hash(captions),alt,aspectRatio,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,video,const DeepCollectionEquality().hash(captions),alt,aspectRatio,presentation,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedVideo(\$type: ${$type}, video: $video, captions: $captions, alt: $alt, aspectRatio: $aspectRatio, \$unknown: ${$unknown})';
+  return 'EmbedVideo(\$type: ${$type}, video: $video, captions: $captions, alt: $alt, aspectRatio: $aspectRatio, presentation: $presentation, \$unknown: ${$unknown})';
 }
 
 
@@ -50,11 +51,11 @@ abstract mixin class $EmbedVideoCopyWith<$Res>  {
   factory $EmbedVideoCopyWith(EmbedVideo value, $Res Function(EmbedVideo) _then) = _$EmbedVideoCopyWithImpl;
 @useResult
 $Res call({
- String $type,@BlobConverter() Blob video,@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? captions, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
+ String $type,@BlobConverter() Blob video,@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? captions, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio,@EmbedVideoPresentationConverter() EmbedVideoPresentation? presentation, Map<String, dynamic>? $unknown
 });
 
 
-$BlobCopyWith<$Res> get video;$AspectRatioCopyWith<$Res>? get aspectRatio;
+$BlobCopyWith<$Res> get video;$AspectRatioCopyWith<$Res>? get aspectRatio;$EmbedVideoPresentationCopyWith<$Res>? get presentation;
 
 }
 /// @nodoc
@@ -67,14 +68,15 @@ class _$EmbedVideoCopyWithImpl<$Res>
 
 /// Create a copy of EmbedVideo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? video = null,Object? captions = freezed,Object? alt = freezed,Object? aspectRatio = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? video = null,Object? captions = freezed,Object? alt = freezed,Object? aspectRatio = freezed,Object? presentation = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,video: null == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
 as Blob,captions: freezed == captions ? _self.captions : captions // ignore: cast_nullable_to_non_nullable
 as List<EmbedVideoCaption>?,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
 as String?,aspectRatio: freezed == aspectRatio ? _self.aspectRatio : aspectRatio // ignore: cast_nullable_to_non_nullable
-as AspectRatio?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AspectRatio?,presentation: freezed == presentation ? _self.presentation : presentation // ignore: cast_nullable_to_non_nullable
+as EmbedVideoPresentation?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -98,6 +100,18 @@ $AspectRatioCopyWith<$Res>? get aspectRatio {
 
   return $AspectRatioCopyWith<$Res>(_self.aspectRatio!, (value) {
     return _then(_self.copyWith(aspectRatio: value));
+  });
+}/// Create a copy of EmbedVideo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedVideoPresentationCopyWith<$Res>? get presentation {
+    if (_self.presentation == null) {
+    return null;
+  }
+
+  return $EmbedVideoPresentationCopyWith<$Res>(_self.presentation!, (value) {
+    return _then(_self.copyWith(presentation: value));
   });
 }
 }
@@ -181,10 +195,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @BlobConverter()  Blob video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @BlobConverter()  Blob video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio, @EmbedVideoPresentationConverter()  EmbedVideoPresentation? presentation,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedVideo() when $default != null:
-return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRatio,_that.$unknown);case _:
+return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRatio,_that.presentation,_that.$unknown);case _:
   return orElse();
 
 }
@@ -202,10 +216,10 @@ return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @BlobConverter()  Blob video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @BlobConverter()  Blob video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio, @EmbedVideoPresentationConverter()  EmbedVideoPresentation? presentation,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedVideo():
-return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRatio,_that.$unknown);case _:
+return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRatio,_that.presentation,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -222,10 +236,10 @@ return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @BlobConverter()  Blob video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @BlobConverter()  Blob video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions,  String? alt, @AspectRatioConverter()  AspectRatio? aspectRatio, @EmbedVideoPresentationConverter()  EmbedVideoPresentation? presentation,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedVideo() when $default != null:
-return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRatio,_that.$unknown);case _:
+return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRatio,_that.presentation,_that.$unknown);case _:
   return null;
 
 }
@@ -237,7 +251,7 @@ return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRat
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedVideo implements EmbedVideo {
-  const _EmbedVideo({this.$type = 'app.bsky.embed.video', @BlobConverter() required this.video, @EmbedVideoCaptionConverter() final  List<EmbedVideoCaption>? captions, this.alt, @AspectRatioConverter() this.aspectRatio, final  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
+  const _EmbedVideo({this.$type = 'app.bsky.embed.video', @BlobConverter() required this.video, @EmbedVideoCaptionConverter() final  List<EmbedVideoCaption>? captions, this.alt, @AspectRatioConverter() this.aspectRatio, @EmbedVideoPresentationConverter() this.presentation, final  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
   factory _EmbedVideo.fromJson(Map<String, dynamic> json) => _$EmbedVideoFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -255,6 +269,8 @@ class _EmbedVideo implements EmbedVideo {
 /// Alt text description of the video, for accessibility.
 @override final  String? alt;
 @override@AspectRatioConverter() final  AspectRatio? aspectRatio;
+/// A hint to the client about how to present the video.
+@override@EmbedVideoPresentationConverter() final  EmbedVideoPresentation? presentation;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -278,16 +294,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedVideo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.video, video) || other.video == video)&&const DeepCollectionEquality().equals(other._captions, _captions)&&(identical(other.alt, alt) || other.alt == alt)&&(identical(other.aspectRatio, aspectRatio) || other.aspectRatio == aspectRatio)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedVideo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.video, video) || other.video == video)&&const DeepCollectionEquality().equals(other._captions, _captions)&&(identical(other.alt, alt) || other.alt == alt)&&(identical(other.aspectRatio, aspectRatio) || other.aspectRatio == aspectRatio)&&(identical(other.presentation, presentation) || other.presentation == presentation)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,video,const DeepCollectionEquality().hash(_captions),alt,aspectRatio,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,video,const DeepCollectionEquality().hash(_captions),alt,aspectRatio,presentation,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedVideo(\$type: ${$type}, video: $video, captions: $captions, alt: $alt, aspectRatio: $aspectRatio, \$unknown: ${$unknown})';
+  return 'EmbedVideo(\$type: ${$type}, video: $video, captions: $captions, alt: $alt, aspectRatio: $aspectRatio, presentation: $presentation, \$unknown: ${$unknown})';
 }
 
 
@@ -298,11 +314,11 @@ abstract mixin class _$EmbedVideoCopyWith<$Res> implements $EmbedVideoCopyWith<$
   factory _$EmbedVideoCopyWith(_EmbedVideo value, $Res Function(_EmbedVideo) _then) = __$EmbedVideoCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@BlobConverter() Blob video,@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? captions, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio, Map<String, dynamic>? $unknown
+ String $type,@BlobConverter() Blob video,@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? captions, String? alt,@AspectRatioConverter() AspectRatio? aspectRatio,@EmbedVideoPresentationConverter() EmbedVideoPresentation? presentation, Map<String, dynamic>? $unknown
 });
 
 
-@override $BlobCopyWith<$Res> get video;@override $AspectRatioCopyWith<$Res>? get aspectRatio;
+@override $BlobCopyWith<$Res> get video;@override $AspectRatioCopyWith<$Res>? get aspectRatio;@override $EmbedVideoPresentationCopyWith<$Res>? get presentation;
 
 }
 /// @nodoc
@@ -315,14 +331,15 @@ class __$EmbedVideoCopyWithImpl<$Res>
 
 /// Create a copy of EmbedVideo
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? video = null,Object? captions = freezed,Object? alt = freezed,Object? aspectRatio = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? video = null,Object? captions = freezed,Object? alt = freezed,Object? aspectRatio = freezed,Object? presentation = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedVideo(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,video: null == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
 as Blob,captions: freezed == captions ? _self._captions : captions // ignore: cast_nullable_to_non_nullable
 as List<EmbedVideoCaption>?,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
 as String?,aspectRatio: freezed == aspectRatio ? _self.aspectRatio : aspectRatio // ignore: cast_nullable_to_non_nullable
-as AspectRatio?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AspectRatio?,presentation: freezed == presentation ? _self.presentation : presentation // ignore: cast_nullable_to_non_nullable
+as EmbedVideoPresentation?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -347,6 +364,18 @@ $AspectRatioCopyWith<$Res>? get aspectRatio {
 
   return $AspectRatioCopyWith<$Res>(_self.aspectRatio!, (value) {
     return _then(_self.copyWith(aspectRatio: value));
+  });
+}/// Create a copy of EmbedVideo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedVideoPresentationCopyWith<$Res>? get presentation {
+    if (_self.presentation == null) {
+    return null;
+  }
+
+  return $EmbedVideoPresentationCopyWith<$Res>(_self.presentation!, (value) {
+    return _then(_self.copyWith(presentation: value));
   });
 }
 }

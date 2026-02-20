@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
 import './caption.dart';
+import './main_presentation.dart';
 
 part 'main.freezed.dart';
 part 'main.g.dart';
@@ -25,7 +26,13 @@ part 'main.g.dart';
 
 @freezed
 abstract class EmbedVideo with _$EmbedVideo {
-  static const knownProps = <String>['video', 'captions', 'alt', 'aspectRatio'];
+  static const knownProps = <String>[
+    'video',
+    'captions',
+    'alt',
+    'aspectRatio',
+    'presentation',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedVideo({
@@ -38,6 +45,9 @@ abstract class EmbedVideo with _$EmbedVideo {
     /// Alt text description of the video, for accessibility.
     String? alt,
     @AspectRatioConverter() AspectRatio? aspectRatio,
+
+    /// A hint to the client about how to present the video.
+    @EmbedVideoPresentationConverter() EmbedVideoPresentation? presentation,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedVideo;
@@ -57,6 +67,8 @@ extension EmbedVideoExtension on EmbedVideo {
   bool get hasNotAlt => !hasAlt;
   bool get hasAspectRatio => aspectRatio != null;
   bool get hasNotAspectRatio => !hasAspectRatio;
+  bool get hasPresentation => presentation != null;
+  bool get hasNotPresentation => !hasPresentation;
 }
 
 final class EmbedVideoConverter

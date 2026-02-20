@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -26,14 +26,14 @@ import 'identity/update_handle.dart';
 
 final class ComAtprotoIdentityCommand extends Command<void> {
   ComAtprotoIdentityCommand() {
-    addSubcommand(ResolveIdentityCommand());
-    addSubcommand(GetRecommendedDidCredentialsCommand());
-    addSubcommand(ResolveHandleCommand());
     addSubcommand(UpdateHandleCommand());
-    addSubcommand(SubmitPlcOperationCommand());
-    addSubcommand(ResolveDidCommand());
-    addSubcommand(RefreshIdentityCommand());
     addSubcommand(SignPlcOperationCommand());
+    addSubcommand(SubmitPlcOperationCommand());
+    addSubcommand(ResolveIdentityCommand());
+    addSubcommand(RefreshIdentityCommand());
+    addSubcommand(ResolveHandleCommand());
+    addSubcommand(GetRecommendedDidCredentialsCommand());
+    addSubcommand(ResolveDidCommand());
   }
 
   @override

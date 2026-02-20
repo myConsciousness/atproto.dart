@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -28,7 +28,7 @@ abstract class UnspeccedGetSuggestedUsersSkeletonOutput
     required List<String> dids,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
-    int? recId,
+    String? recId,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersSkeletonOutput;

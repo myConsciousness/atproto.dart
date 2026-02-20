@@ -24,7 +24,7 @@ _UnspeccedGetSuggestedUsersOutput _$UnspeccedGetSuggestedUsersOutputFromJson(
           )
           .toList(),
     ),
-    recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
+    recId: $checkedConvert('recId', (v) => v as String?),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),

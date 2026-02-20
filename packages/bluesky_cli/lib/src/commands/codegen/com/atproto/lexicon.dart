@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -20,8 +20,8 @@ import 'lexicon/schema.dart';
 
 final class ComAtprotoLexiconCommand extends Command<void> {
   ComAtprotoLexiconCommand() {
-    addSubcommand(SchemaCommand());
     addSubcommand(ResolveLexiconCommand());
+    addSubcommand(SchemaCommand());
   }
 
   @override
