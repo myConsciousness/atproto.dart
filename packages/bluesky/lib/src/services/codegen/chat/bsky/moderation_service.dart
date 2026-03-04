@@ -20,19 +20,24 @@ import 'moderation/getMessageContext/output.dart';
 // LexGenerator
 // **************************************************************************
 
-Future<XRPCResponse<ModerationGetActorMetadataOutput>>
-chatBskyModerationGetActorMetadata({
+Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
   required String actor,
+  required bool allowAccess,
+  String? ref,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.chatBskyModerationGetActorMetadata,
+}) async => await $ctx.post(
+  ns.chatBskyModerationUpdateActorAccess,
   service: $service,
-  headers: $headers,
-  parameters: {...?$unknown, 'actor': actor},
-  to: const ModerationGetActorMetadataOutputConverter().fromJson,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'actor': actor,
+    'allowAccess': allowAccess,
+    if (ref != null) 'ref': ref,
+  },
 );
 Future<XRPCResponse<ModerationGetMessageContextOutput>>
 chatBskyModerationGetMessageContext({
@@ -57,24 +62,19 @@ chatBskyModerationGetMessageContext({
   },
   to: const ModerationGetMessageContextOutputConverter().fromJson,
 );
-Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
+Future<XRPCResponse<ModerationGetActorMetadataOutput>>
+chatBskyModerationGetActorMetadata({
   required String actor,
-  required bool allowAccess,
-  String? ref,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.chatBskyModerationUpdateActorAccess,
+}) async => await $ctx.get(
+  ns.chatBskyModerationGetActorMetadata,
   service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'actor': actor,
-    'allowAccess': allowAccess,
-    if (ref != null) 'ref': ref,
-  },
+  headers: $headers,
+  parameters: {...?$unknown, 'actor': actor},
+  to: const ModerationGetActorMetadataOutputConverter().fromJson,
 );
 
 /// `chat.bsky.moderation.*`
@@ -84,13 +84,17 @@ base class ModerationService {
 
   ModerationService(this.ctx);
 
-  Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
+  Future<XRPCResponse<EmptyData>> updateActorAccess({
     required String actor,
+    required bool allowAccess,
+    String? ref,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await chatBskyModerationGetActorMetadata(
+  }) async => await chatBskyModerationUpdateActorAccess(
     actor: actor,
+    allowAccess: allowAccess,
+    ref: ref,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -114,17 +118,13 @@ base class ModerationService {
     $headers: $headers,
     $unknown: $unknown,
   );
-  Future<XRPCResponse<EmptyData>> updateActorAccess({
+  Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
     required String actor,
-    required bool allowAccess,
-    String? ref,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await chatBskyModerationUpdateActorAccess(
+  }) async => await chatBskyModerationGetActorMetadata(
     actor: actor,
-    allowAccess: allowAccess,
-    ref: ref,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

@@ -20,6 +20,32 @@ import 'communication/listTemplates/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Administrative action to create a new, re-usable communication (email for now) template.
+Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
+  required String name,
+  required String contentMarkdown,
+  required String subject,
+  String? lang,
+  String? createdBy,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneCommunicationCreateTemplate,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'name': name,
+    'contentMarkdown': contentMarkdown,
+    'subject': subject,
+    if (lang != null) 'lang': lang,
+    if (createdBy != null) 'createdBy': createdBy,
+  },
+  to: const TemplateViewConverter().fromJson,
+);
+
 /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
 Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
   required String id,
@@ -46,32 +72,6 @@ Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationUpdateTemplate({
     if (subject != null) 'subject': subject,
     if (updatedBy != null) 'updatedBy': updatedBy,
     if (disabled != null) 'disabled': disabled,
-  },
-  to: const TemplateViewConverter().fromJson,
-);
-
-/// Administrative action to create a new, re-usable communication (email for now) template.
-Future<XRPCResponse<TemplateView>> toolsOzoneCommunicationCreateTemplate({
-  required String name,
-  required String contentMarkdown,
-  required String subject,
-  String? lang,
-  String? createdBy,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneCommunicationCreateTemplate,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'name': name,
-    'contentMarkdown': contentMarkdown,
-    'subject': subject,
-    if (lang != null) 'lang': lang,
-    if (createdBy != null) 'createdBy': createdBy,
   },
   to: const TemplateViewConverter().fromJson,
 );
@@ -112,6 +112,28 @@ base class CommunicationService {
 
   CommunicationService(this.ctx);
 
+  /// Administrative action to create a new, re-usable communication (email for now) template.
+  Future<XRPCResponse<TemplateView>> createTemplate({
+    required String name,
+    required String contentMarkdown,
+    required String subject,
+    String? lang,
+    String? createdBy,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneCommunicationCreateTemplate(
+    name: name,
+    contentMarkdown: contentMarkdown,
+    subject: subject,
+    lang: lang,
+    createdBy: createdBy,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
   Future<XRPCResponse<TemplateView>> updateTemplate({
     required String id,
@@ -132,28 +154,6 @@ base class CommunicationService {
     subject: subject,
     updatedBy: updatedBy,
     disabled: disabled,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Administrative action to create a new, re-usable communication (email for now) template.
-  Future<XRPCResponse<TemplateView>> createTemplate({
-    required String name,
-    required String contentMarkdown,
-    required String subject,
-    String? lang,
-    String? createdBy,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneCommunicationCreateTemplate(
-    name: name,
-    contentMarkdown: contentMarkdown,
-    subject: subject,
-    lang: lang,
-    createdBy: createdBy,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

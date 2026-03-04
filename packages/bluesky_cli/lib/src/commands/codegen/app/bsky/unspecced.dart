@@ -42,30 +42,30 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
+    addSubcommand(GetSuggestedFeedsCommand());
     addSubcommand(GetSuggestedFeedsSkeletonCommand());
     addSubcommand(SearchStarterPacksSkeletonCommand());
     addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetSuggestedUsersCommand());
     addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(GetSuggestedStarterPacksCommand());
-    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
+    addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(GetConfigCommand());
     addSubcommand(GetSuggestedUsersSkeletonCommand());
-    addSubcommand(GetPostThreadV2Command());
+    addSubcommand(GetSuggestedOnboardingUsersCommand());
     addSubcommand(GetTrendsCommand());
     addSubcommand(SearchActorsSkeletonCommand());
-    addSubcommand(GetSuggestionsSkeletonCommand());
-    addSubcommand(SearchPostsSkeletonCommand());
     addSubcommand(GetOnboardingSuggestedUsersSkeletonCommand());
-    addSubcommand(GetAgeAssuranceStateCommand());
-    addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(GetSuggestedOnboardingUsersCommand());
-    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetPostThreadV2Command());
+    addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetTrendsSkeletonCommand());
     addSubcommand(GetTrendingTopicsCommand());
     addSubcommand(GetTaggedSuggestionsCommand());
-    addSubcommand(GetSuggestedFeedsCommand());
-    addSubcommand(GetTrendsSkeletonCommand());
-    addSubcommand(GetConfigCommand());
+    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(GetPopularFeedGeneratorsCommand());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
+    addSubcommand(GetSuggestedStarterPacksCommand());
+    addSubcommand(GetSuggestionsSkeletonCommand());
   }
 
   @override

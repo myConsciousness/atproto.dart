@@ -21,6 +21,40 @@ import 'ageassurance/getState/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Returns Age Assurance configuration for use on the client.
+Future<XRPCResponse<Config>> appBskyAgeassuranceGetConfig({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyAgeassuranceGetConfig,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ConfigConverter().fromJson,
+);
+
+/// Returns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.
+Future<XRPCResponse<AgeassuranceGetStateOutput>> appBskyAgeassuranceGetState({
+  required String countryCode,
+  String? regionCode,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyAgeassuranceGetState,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'countryCode': countryCode,
+    if (regionCode != null) 'regionCode': regionCode,
+  },
+  to: const AgeassuranceGetStateOutputConverter().fromJson,
+);
+
 /// Initiate Age Assurance for an account.
 Future<XRPCResponse<State>> appBskyAgeassuranceBegin({
   required String email,
@@ -45,40 +79,6 @@ Future<XRPCResponse<State>> appBskyAgeassuranceBegin({
   to: const StateConverter().fromJson,
 );
 
-/// Returns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.
-Future<XRPCResponse<AgeassuranceGetStateOutput>> appBskyAgeassuranceGetState({
-  required String countryCode,
-  String? regionCode,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyAgeassuranceGetState,
-  service: $service,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'countryCode': countryCode,
-    if (regionCode != null) 'regionCode': regionCode,
-  },
-  to: const AgeassuranceGetStateOutputConverter().fromJson,
-);
-
-/// Returns Age Assurance configuration for use on the client.
-Future<XRPCResponse<Config>> appBskyAgeassuranceGetConfig({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyAgeassuranceGetConfig,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const ConfigConverter().fromJson,
-);
-
 /// `app.bsky.ageassurance.*`
 base class AgeassuranceService {
   @protected
@@ -86,20 +86,12 @@ base class AgeassuranceService {
 
   AgeassuranceService(this.ctx);
 
-  /// Initiate Age Assurance for an account.
-  Future<XRPCResponse<State>> begin({
-    required String email,
-    required String language,
-    required String countryCode,
-    String? regionCode,
+  /// Returns Age Assurance configuration for use on the client.
+  Future<XRPCResponse<Config>> getConfig({
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyAgeassuranceBegin(
-    email: email,
-    language: language,
-    countryCode: countryCode,
-    regionCode: regionCode,
+  }) async => await appBskyAgeassuranceGetConfig(
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -122,12 +114,20 @@ base class AgeassuranceService {
     $unknown: $unknown,
   );
 
-  /// Returns Age Assurance configuration for use on the client.
-  Future<XRPCResponse<Config>> getConfig({
+  /// Initiate Age Assurance for an account.
+  Future<XRPCResponse<State>> begin({
+    required String email,
+    required String language,
+    required String countryCode,
+    String? regionCode,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyAgeassuranceGetConfig(
+  }) async => await appBskyAgeassuranceBegin(
+    email: email,
+    language: language,
+    countryCode: countryCode,
+    regionCode: regionCode,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

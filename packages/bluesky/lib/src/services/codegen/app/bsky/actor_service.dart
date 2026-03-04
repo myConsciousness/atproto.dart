@@ -67,6 +67,50 @@ appBskyActorSearchActorsTypeahead({
   to: const ActorSearchActorsTypeaheadOutputConverter().fromJson,
 );
 
+/// Find actors (profiles) matching search criteria. Does not require auth.
+Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
+  String? term,
+  String? q,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorSearchActors,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (term != null) 'term': term,
+    if (q != null) 'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ActorSearchActorsOutputConverter().fromJson,
+);
+
+/// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
+Future<XRPCResponse<ActorGetSuggestionsOutput>> appBskyActorGetSuggestions({
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyActorGetSuggestions,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ActorGetSuggestionsOutputConverter().fromJson,
+);
+
 /// Set the private preferences attached to the account.
 Future<XRPCResponse<EmptyData>> appBskyActorPutPreferences({
   required List<UPreferences> preferences,
@@ -97,50 +141,6 @@ Future<XRPCResponse<ProfileViewDetailed>> appBskyActorGetProfile({
   headers: $headers,
   parameters: {...?$unknown, 'actor': actor},
   to: const ProfileViewDetailedConverter().fromJson,
-);
-
-/// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
-Future<XRPCResponse<ActorGetSuggestionsOutput>> appBskyActorGetSuggestions({
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyActorGetSuggestions,
-  service: $service,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const ActorGetSuggestionsOutputConverter().fromJson,
-);
-
-/// Find actors (profiles) matching search criteria. Does not require auth.
-Future<XRPCResponse<ActorSearchActorsOutput>> appBskyActorSearchActors({
-  String? term,
-  String? q,
-  int? limit,
-  String? cursor,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyActorSearchActors,
-  service: $service,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    if (term != null) 'term': term,
-    if (q != null) 'q': q,
-    if (limit != null) 'limit': limit,
-    if (cursor != null) 'cursor': cursor,
-  },
-  to: const ActorSearchActorsOutputConverter().fromJson,
 );
 
 /// Get detailed profile views of multiple actors.
@@ -202,28 +202,20 @@ base class ActorService {
     $unknown: $unknown,
   );
 
-  /// Set the private preferences attached to the account.
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required List<UPreferences> preferences,
+  /// Find actors (profiles) matching search criteria. Does not require auth.
+  Future<XRPCResponse<ActorSearchActorsOutput>> searchActors({
+    String? term,
+    String? q,
+    int? limit,
+    String? cursor,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyActorPutPreferences(
-    preferences: preferences,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
-  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
-    required String actor,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyActorGetProfile(
-    actor: actor,
+  }) async => await appBskyActorSearchActors(
+    term: term,
+    q: q,
+    limit: limit,
+    cursor: cursor,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -246,20 +238,34 @@ base class ActorService {
     $unknown: $unknown,
   );
 
-  /// Find actors (profiles) matching search criteria. Does not require auth.
-  Future<XRPCResponse<ActorSearchActorsOutput>> searchActors({
-    String? term,
-    String? q,
-    int? limit,
-    String? cursor,
+  /// Set the private preferences attached to the account.
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required List<UPreferences> preferences,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await appBskyActorSearchActors(
-    term: term,
-    q: q,
-    limit: limit,
-    cursor: cursor,
+  }) async => await appBskyActorPutPreferences(
+    preferences: preferences,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// A declaration of a Bluesky account status.
+  ActorStatusRecordAccessor get status => _status;
+
+  /// A declaration of a Bluesky account profile.
+  ActorProfileRecordAccessor get profile => _profile;
+
+  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
+  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
+    required String actor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyActorGetProfile(
+    actor: actor,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -280,9 +286,6 @@ base class ActorService {
     $unknown: $unknown,
   );
 
-  /// A declaration of a Bluesky account status.
-  ActorStatusRecordAccessor get status => _status;
-
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
   Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
     String? $service,
@@ -294,9 +297,6 @@ base class ActorService {
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// A declaration of a Bluesky account profile.
-  ActorProfileRecordAccessor get profile => _profile;
 }
 
 final class ActorStatusRecordAccessor {
