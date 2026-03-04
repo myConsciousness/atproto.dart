@@ -21,6 +21,29 @@ import 'signature/searchAccounts/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Get accounts that share some matching threat signatures with the root account.
+Future<XRPCResponse<SignatureFindRelatedAccountsOutput>>
+toolsOzoneSignatureFindRelatedAccounts({
+  required String did,
+  String? cursor,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneSignatureFindRelatedAccounts,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'did': did,
+    if (cursor != null) 'cursor': cursor,
+    if (limit != null) 'limit': limit,
+  },
+  to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
+);
+
 /// Find all correlated threat signatures between 2 or more accounts.
 Future<XRPCResponse<SignatureFindCorrelationOutput>>
 toolsOzoneSignatureFindCorrelation({
@@ -60,35 +83,30 @@ toolsOzoneSignatureSearchAccounts({
   to: const SignatureSearchAccountsOutputConverter().fromJson,
 );
 
-/// Get accounts that share some matching threat signatures with the root account.
-Future<XRPCResponse<SignatureFindRelatedAccountsOutput>>
-toolsOzoneSignatureFindRelatedAccounts({
-  required String did,
-  String? cursor,
-  int? limit,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.toolsOzoneSignatureFindRelatedAccounts,
-  service: $service,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'did': did,
-    if (cursor != null) 'cursor': cursor,
-    if (limit != null) 'limit': limit,
-  },
-  to: const SignatureFindRelatedAccountsOutputConverter().fromJson,
-);
-
 /// `tools.ozone.signature.*`
 base class SignatureService {
   @protected
   final ServiceContext ctx;
 
   SignatureService(this.ctx);
+
+  /// Get accounts that share some matching threat signatures with the root account.
+  Future<XRPCResponse<SignatureFindRelatedAccountsOutput>> findRelatedAccounts({
+    required String did,
+    String? cursor,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneSignatureFindRelatedAccounts(
+    did: did,
+    cursor: cursor,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Find all correlated threat signatures between 2 or more accounts.
   Future<XRPCResponse<SignatureFindCorrelationOutput>> findCorrelation({
@@ -114,24 +132,6 @@ base class SignatureService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneSignatureSearchAccounts(
     values: values,
-    cursor: cursor,
-    limit: limit,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get accounts that share some matching threat signatures with the root account.
-  Future<XRPCResponse<SignatureFindRelatedAccountsOutput>> findRelatedAccounts({
-    required String did,
-    String? cursor,
-    int? limit,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneSignatureFindRelatedAccounts(
-    did: did,
     cursor: cursor,
     limit: limit,
     $ctx: ctx,

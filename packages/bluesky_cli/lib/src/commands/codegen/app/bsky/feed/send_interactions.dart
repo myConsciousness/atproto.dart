@@ -16,7 +16,9 @@ import '../../../../procedure_command.dart';
 
 final class SendInteractionsCommand extends ProcedureCommand {
   SendInteractionsCommand() {
-    argParser..addMultiOption("interactions");
+    argParser
+      ..addOption("feed")
+      ..addMultiOption("interactions");
   }
 
   @override
@@ -28,13 +30,14 @@ final class SendInteractionsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed send-interactions [interactions]";
+      "bsky app-bsky-feed send-interactions [feed] [interactions]";
 
   @override
   String get methodId => "app.bsky.feed.sendInteractions";
 
   @override
   Map<String, dynamic>? get body => {
+    if (argResults!["feed"] != null) "feed": argResults!["feed"],
     "interactions": argResults!["interactions"],
   };
 }

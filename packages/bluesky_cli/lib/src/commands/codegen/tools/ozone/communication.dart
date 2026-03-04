@@ -22,8 +22,8 @@ import 'communication/update_template.dart';
 
 final class ToolsOzoneCommunicationCommand extends Command<void> {
   ToolsOzoneCommunicationCommand() {
-    addSubcommand(UpdateTemplateCommand());
     addSubcommand(CreateTemplateCommand());
+    addSubcommand(UpdateTemplateCommand());
     addSubcommand(ListTemplatesCommand());
     addSubcommand(DeleteTemplateCommand());
   }

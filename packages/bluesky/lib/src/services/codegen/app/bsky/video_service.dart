@@ -40,6 +40,20 @@ Future<XRPCResponse<JobStatus>> appBskyVideoUploadVideo({
   to: const JobStatusConverter().fromJson,
 );
 
+/// Get video upload limits for the authenticated user.
+Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyVideoGetUploadLimits,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const VideoGetUploadLimitsOutputConverter().fromJson,
+);
+
 /// Get status details for a video processing job.
 Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
   required String jobId,
@@ -53,20 +67,6 @@ Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
   headers: $headers,
   parameters: {...?$unknown, 'jobId': jobId},
   to: const VideoGetJobStatusOutputConverter().fromJson,
-);
-
-/// Get video upload limits for the authenticated user.
-Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyVideoGetUploadLimits,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const VideoGetUploadLimitsOutputConverter().fromJson,
 );
 
 /// `app.bsky.video.*`
@@ -90,6 +90,18 @@ base class VideoService {
     $headers: $headers,
   );
 
+  /// Get video upload limits for the authenticated user.
+  Future<XRPCResponse<VideoGetUploadLimitsOutput>> getUploadLimits({
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyVideoGetUploadLimits(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Get status details for a video processing job.
   Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
     required String jobId,
@@ -98,18 +110,6 @@ base class VideoService {
     Map<String, String>? $unknown,
   }) async => await appBskyVideoGetJobStatus(
     jobId: jobId,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get video upload limits for the authenticated user.
-  Future<XRPCResponse<VideoGetUploadLimitsOutput>> getUploadLimits({
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyVideoGetUploadLimits(
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

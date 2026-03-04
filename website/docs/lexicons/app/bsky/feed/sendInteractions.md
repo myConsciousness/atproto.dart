@@ -15,6 +15,7 @@ Send information about interactions with feed items back to the feed generator t
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **feed** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **interactions** | array of [app.bsky.feed.defs#interaction](../../../../lexicons/app/bsky/feed/defs.md#interaction) | - | ✅ | - |
 
 ### Output

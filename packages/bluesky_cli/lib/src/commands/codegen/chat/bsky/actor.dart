@@ -20,8 +20,8 @@ import 'actor/export_account_data.dart';
 
 final class ChatBskyActorCommand extends Command<void> {
   ChatBskyActorCommand() {
-    addSubcommand(DeclarationCommand());
     addSubcommand(ExportAccountDataCommand());
+    addSubcommand(DeclarationCommand());
   }
 
   @override

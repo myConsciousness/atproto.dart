@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedSendInteractionsInput {
 
-@InteractionConverter() List<Interaction> get interactions; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri? get feed;@InteractionConverter() List<Interaction> get interactions; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedSendInteractionsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $FeedSendInteractionsInputCopyWith<FeedSendInteractionsInput> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedSendInteractionsInput&&const DeepCollectionEquality().equals(other.interactions, interactions)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedSendInteractionsInput&&(identical(other.feed, feed) || other.feed == feed)&&const DeepCollectionEquality().equals(other.interactions, interactions)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(interactions),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,feed,const DeepCollectionEquality().hash(interactions),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'FeedSendInteractionsInput(interactions: $interactions, \$unknown: ${$unknown})';
+  return 'FeedSendInteractionsInput(feed: $feed, interactions: $interactions, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $FeedSendInteractionsInputCopyWith<$Res>  {
   factory $FeedSendInteractionsInputCopyWith(FeedSendInteractionsInput value, $Res Function(FeedSendInteractionsInput) _then) = _$FeedSendInteractionsInputCopyWithImpl;
 @useResult
 $Res call({
-@InteractionConverter() List<Interaction> interactions, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri? feed,@InteractionConverter() List<Interaction> interactions, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,9 +65,10 @@ class _$FeedSendInteractionsInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedSendInteractionsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? interactions = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? feed = freezed,Object? interactions = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-interactions: null == interactions ? _self.interactions : interactions // ignore: cast_nullable_to_non_nullable
+feed: freezed == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
+as AtUri?,interactions: null == interactions ? _self.interactions : interactions // ignore: cast_nullable_to_non_nullable
 as List<Interaction>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -154,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@InteractionConverter()  List<Interaction> interactions,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri? feed, @InteractionConverter()  List<Interaction> interactions,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedSendInteractionsInput() when $default != null:
-return $default(_that.interactions,_that.$unknown);case _:
+return $default(_that.feed,_that.interactions,_that.$unknown);case _:
   return orElse();
 
 }
@@ -175,10 +176,10 @@ return $default(_that.interactions,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@InteractionConverter()  List<Interaction> interactions,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  AtUri? feed, @InteractionConverter()  List<Interaction> interactions,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedSendInteractionsInput():
-return $default(_that.interactions,_that.$unknown);case _:
+return $default(_that.feed,_that.interactions,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +196,10 @@ return $default(_that.interactions,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@InteractionConverter()  List<Interaction> interactions,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  AtUri? feed, @InteractionConverter()  List<Interaction> interactions,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedSendInteractionsInput() when $default != null:
-return $default(_that.interactions,_that.$unknown);case _:
+return $default(_that.feed,_that.interactions,_that.$unknown);case _:
   return null;
 
 }
@@ -210,9 +211,10 @@ return $default(_that.interactions,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedSendInteractionsInput implements FeedSendInteractionsInput {
-  const _FeedSendInteractionsInput({@InteractionConverter() required final  List<Interaction> interactions, final  Map<String, dynamic>? $unknown}): _interactions = interactions,_$unknown = $unknown;
+  const _FeedSendInteractionsInput({@AtUriConverter() this.feed, @InteractionConverter() required final  List<Interaction> interactions, final  Map<String, dynamic>? $unknown}): _interactions = interactions,_$unknown = $unknown;
   factory _FeedSendInteractionsInput.fromJson(Map<String, dynamic> json) => _$FeedSendInteractionsInputFromJson(json);
 
+@override@AtUriConverter() final  AtUri? feed;
  final  List<Interaction> _interactions;
 @override@InteractionConverter() List<Interaction> get interactions {
   if (_interactions is EqualUnmodifiableListView) return _interactions;
@@ -243,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedSendInteractionsInput&&const DeepCollectionEquality().equals(other._interactions, _interactions)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedSendInteractionsInput&&(identical(other.feed, feed) || other.feed == feed)&&const DeepCollectionEquality().equals(other._interactions, _interactions)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_interactions),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,feed,const DeepCollectionEquality().hash(_interactions),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'FeedSendInteractionsInput(interactions: $interactions, \$unknown: ${$unknown})';
+  return 'FeedSendInteractionsInput(feed: $feed, interactions: $interactions, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +265,7 @@ abstract mixin class _$FeedSendInteractionsInputCopyWith<$Res> implements $FeedS
   factory _$FeedSendInteractionsInputCopyWith(_FeedSendInteractionsInput value, $Res Function(_FeedSendInteractionsInput) _then) = __$FeedSendInteractionsInputCopyWithImpl;
 @override @useResult
 $Res call({
-@InteractionConverter() List<Interaction> interactions, Map<String, dynamic>? $unknown
+@AtUriConverter() AtUri? feed,@InteractionConverter() List<Interaction> interactions, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,9 +282,10 @@ class __$FeedSendInteractionsInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedSendInteractionsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? interactions = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? feed = freezed,Object? interactions = null,Object? $unknown = freezed,}) {
   return _then(_FeedSendInteractionsInput(
-interactions: null == interactions ? _self._interactions : interactions // ignore: cast_nullable_to_non_nullable
+feed: freezed == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
+as AtUri?,interactions: null == interactions ? _self._interactions : interactions // ignore: cast_nullable_to_non_nullable
 as List<Interaction>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
