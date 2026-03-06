@@ -6396,6 +6396,10 @@ const appBskyUnspeccedGetSuggestedUsersSkeleton = <String, dynamic>{
             },
             "recId": {
               "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
               "description":
                   "Snowflake for this recommendation, use when submitting recommendation events.",
             },
@@ -6443,6 +6447,10 @@ const appBskyUnspeccedGetSuggestedOnboardingUsers = <String, dynamic>{
               },
             },
             "recId": {
+              "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
               "type": "string",
               "description":
                   "Snowflake for this recommendation, use when submitting recommendation events.",
@@ -6604,6 +6612,10 @@ const appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton = <String, dynamic>{
             },
             "recId": {
               "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
               "description":
                   "Snowflake for this recommendation, use when submitting recommendation events.",
             },
@@ -6748,6 +6760,10 @@ const appBskyUnspeccedGetSuggestedUsers = <String, dynamic>{
               },
             },
             "recId": {
+              "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
               "type": "string",
               "description":
                   "Snowflake for this recommendation, use when submitting recommendation events.",
@@ -9875,6 +9891,10 @@ const appBskyActorGetSuggestions = <String, dynamic>{
             },
             "recId": {
               "type": "integer",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
               "description":
                   "Snowflake for this recommendation, use when submitting recommendation events.",
             },

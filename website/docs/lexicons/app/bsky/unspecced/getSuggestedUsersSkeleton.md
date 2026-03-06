@@ -24,4 +24,5 @@ Get a skeleton of suggested users. Intended to be called and hydrated by app.bsk
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **dids** | array of string | - | ✅ | - |
-| **recId** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |
+| **recId** | string | - | ❌ | DEPRECATED: use recIdStr instead. |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

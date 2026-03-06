@@ -22,7 +22,7 @@ _ActorGetSuggestionsOutput _$ActorGetSuggestionsOutputFromJson(Map json) =>
               )
               .toList(),
         ),
-        recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
+        recIdStr: $checkedConvert('recIdStr', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -36,6 +36,6 @@ Map<String, dynamic> _$ActorGetSuggestionsOutputToJson(
 ) => <String, dynamic>{
   'cursor': ?instance.cursor,
   'actors': instance.actors.map(const ProfileViewConverter().toJson).toList(),
-  'recId': ?instance.recId,
+  'recIdStr': ?instance.recIdStr,
   r'$unknown': ?instance.$unknown,
 };

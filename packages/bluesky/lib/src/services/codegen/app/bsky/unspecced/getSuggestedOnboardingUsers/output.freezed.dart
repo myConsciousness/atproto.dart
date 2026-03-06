@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$UnspeccedGetSuggestedOnboardingUsersOutput {
 
 @ProfileViewConverter() List<ProfileView> get actors;/// Snowflake for this recommendation, use when submitting recommendation events.
- String? get recId; Map<String, dynamic>? get $unknown;
+ String? get recIdStr; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedOnboardingUsersOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $UnspeccedGetSuggestedOnboardingUsersOutputCopyWith<UnspeccedGetSuggestedOnboard
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedOnboardingUsersOutput&&const DeepCollectionEquality().equals(other.actors, actors)&&(identical(other.recId, recId) || other.recId == recId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedOnboardingUsersOutput&&const DeepCollectionEquality().equals(other.actors, actors)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(actors),recId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(actors),recIdStr,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestedOnboardingUsersOutput(actors: $actors, recId: $recId, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestedOnboardingUsersOutput(actors: $actors, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $UnspeccedGetSuggestedOnboardingUsersOutputCopyWith<$Res>  
   factory $UnspeccedGetSuggestedOnboardingUsersOutputCopyWith(UnspeccedGetSuggestedOnboardingUsersOutput value, $Res Function(UnspeccedGetSuggestedOnboardingUsersOutput) _then) = _$UnspeccedGetSuggestedOnboardingUsersOutputCopyWithImpl;
 @useResult
 $Res call({
-@ProfileViewConverter() List<ProfileView> actors, String? recId, Map<String, dynamic>? $unknown
+@ProfileViewConverter() List<ProfileView> actors, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,10 +66,10 @@ class _$UnspeccedGetSuggestedOnboardingUsersOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedOnboardingUsersOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? actors = null,Object? recId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? actors = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 actors: null == actors ? _self.actors : actors // ignore: cast_nullable_to_non_nullable
-as List<ProfileView>,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
+as List<ProfileView>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedOnboardingUsersOutput() when $default != null:
-return $default(_that.actors,_that.recId,_that.$unknown);case _:
+return $default(_that.actors,_that.recIdStr,_that.$unknown);case _:
   return orElse();
 
 }
@@ -177,10 +177,10 @@ return $default(_that.actors,_that.recId,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recIdStr,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedOnboardingUsersOutput():
-return $default(_that.actors,_that.recId,_that.$unknown);case _:
+return $default(_that.actors,_that.recIdStr,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +197,10 @@ return $default(_that.actors,_that.recId,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ProfileViewConverter()  List<ProfileView> actors,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedOnboardingUsersOutput() when $default != null:
-return $default(_that.actors,_that.recId,_that.$unknown);case _:
+return $default(_that.actors,_that.recIdStr,_that.$unknown);case _:
   return null;
 
 }
@@ -212,7 +212,7 @@ return $default(_that.actors,_that.recId,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedOnboardingUsersOutput implements UnspeccedGetSuggestedOnboardingUsersOutput {
-  const _UnspeccedGetSuggestedOnboardingUsersOutput({@ProfileViewConverter() required final  List<ProfileView> actors, this.recId, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
+  const _UnspeccedGetSuggestedOnboardingUsersOutput({@ProfileViewConverter() required final  List<ProfileView> actors, this.recIdStr, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedOnboardingUsersOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedOnboardingUsersOutputFromJson(json);
 
  final  List<ProfileView> _actors;
@@ -223,7 +223,7 @@ class _UnspeccedGetSuggestedOnboardingUsersOutput implements UnspeccedGetSuggest
 }
 
 /// Snowflake for this recommendation, use when submitting recommendation events.
-@override final  String? recId;
+@override final  String? recIdStr;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -247,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedOnboardingUsersOutput&&const DeepCollectionEquality().equals(other._actors, _actors)&&(identical(other.recId, recId) || other.recId == recId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedOnboardingUsersOutput&&const DeepCollectionEquality().equals(other._actors, _actors)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_actors),recId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_actors),recIdStr,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestedOnboardingUsersOutput(actors: $actors, recId: $recId, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestedOnboardingUsersOutput(actors: $actors, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -267,7 +267,7 @@ abstract mixin class _$UnspeccedGetSuggestedOnboardingUsersOutputCopyWith<$Res> 
   factory _$UnspeccedGetSuggestedOnboardingUsersOutputCopyWith(_UnspeccedGetSuggestedOnboardingUsersOutput value, $Res Function(_UnspeccedGetSuggestedOnboardingUsersOutput) _then) = __$UnspeccedGetSuggestedOnboardingUsersOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@ProfileViewConverter() List<ProfileView> actors, String? recId, Map<String, dynamic>? $unknown
+@ProfileViewConverter() List<ProfileView> actors, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -284,10 +284,10 @@ class __$UnspeccedGetSuggestedOnboardingUsersOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedOnboardingUsersOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? actors = null,Object? recId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? actors = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestedOnboardingUsersOutput(
 actors: null == actors ? _self._actors : actors // ignore: cast_nullable_to_non_nullable
-as List<ProfileView>,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
+as List<ProfileView>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
