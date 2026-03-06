@@ -24,4 +24,5 @@ Get a skeleton of suggested users for onboarding. Intended to be called and hydr
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **dids** | array of string | - | ✅ | - |
-| **recId** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |
+| **recId** | string | - | ❌ | DEPRECATED: use recIdStr instead. |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

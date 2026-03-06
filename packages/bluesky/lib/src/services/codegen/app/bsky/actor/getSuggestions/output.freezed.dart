@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ActorGetSuggestionsOutput {
 
  String? get cursor;@ProfileViewConverter() List<ProfileView> get actors;/// Snowflake for this recommendation, use when submitting recommendation events.
- int? get recId; Map<String, dynamic>? get $unknown;
+ String? get recIdStr; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorGetSuggestionsOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $ActorGetSuggestionsOutputCopyWith<ActorGetSuggestionsOutput> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorGetSuggestionsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.actors, actors)&&(identical(other.recId, recId) || other.recId == recId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorGetSuggestionsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.actors, actors)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(actors),recId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(actors),recIdStr,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ActorGetSuggestionsOutput(cursor: $cursor, actors: $actors, recId: $recId, \$unknown: ${$unknown})';
+  return 'ActorGetSuggestionsOutput(cursor: $cursor, actors: $actors, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $ActorGetSuggestionsOutputCopyWith<$Res>  {
   factory $ActorGetSuggestionsOutputCopyWith(ActorGetSuggestionsOutput value, $Res Function(ActorGetSuggestionsOutput) _then) = _$ActorGetSuggestionsOutputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor,@ProfileViewConverter() List<ProfileView> actors, int? recId, Map<String, dynamic>? $unknown
+ String? cursor,@ProfileViewConverter() List<ProfileView> actors, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,12 +66,12 @@ class _$ActorGetSuggestionsOutputCopyWithImpl<$Res>
 
 /// Create a copy of ActorGetSuggestionsOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? actors = null,Object? recId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? actors = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self.actors : actors // ignore: cast_nullable_to_non_nullable
-as List<ProfileView>,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<ProfileView>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -157,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @ProfileViewConverter()  List<ProfileView> actors,  int? recId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @ProfileViewConverter()  List<ProfileView> actors,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorGetSuggestionsOutput() when $default != null:
-return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
+return $default(_that.cursor,_that.actors,_that.recIdStr,_that.$unknown);case _:
   return orElse();
 
 }
@@ -178,10 +178,10 @@ return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @ProfileViewConverter()  List<ProfileView> actors,  int? recId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @ProfileViewConverter()  List<ProfileView> actors,  String? recIdStr,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorGetSuggestionsOutput():
-return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
+return $default(_that.cursor,_that.actors,_that.recIdStr,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +198,10 @@ return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @ProfileViewConverter()  List<ProfileView> actors,  int? recId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @ProfileViewConverter()  List<ProfileView> actors,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorGetSuggestionsOutput() when $default != null:
-return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
+return $default(_that.cursor,_that.actors,_that.recIdStr,_that.$unknown);case _:
   return null;
 
 }
@@ -213,7 +213,7 @@ return $default(_that.cursor,_that.actors,_that.recId,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ActorGetSuggestionsOutput implements ActorGetSuggestionsOutput {
-  const _ActorGetSuggestionsOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> actors, this.recId, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
+  const _ActorGetSuggestionsOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> actors, this.recIdStr, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _ActorGetSuggestionsOutput.fromJson(Map<String, dynamic> json) => _$ActorGetSuggestionsOutputFromJson(json);
 
 @override final  String? cursor;
@@ -225,7 +225,7 @@ class _ActorGetSuggestionsOutput implements ActorGetSuggestionsOutput {
 }
 
 /// Snowflake for this recommendation, use when submitting recommendation events.
-@override final  int? recId;
+@override final  String? recIdStr;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -249,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorGetSuggestionsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._actors, _actors)&&(identical(other.recId, recId) || other.recId == recId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorGetSuggestionsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._actors, _actors)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_actors),recId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_actors),recIdStr,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ActorGetSuggestionsOutput(cursor: $cursor, actors: $actors, recId: $recId, \$unknown: ${$unknown})';
+  return 'ActorGetSuggestionsOutput(cursor: $cursor, actors: $actors, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -269,7 +269,7 @@ abstract mixin class _$ActorGetSuggestionsOutputCopyWith<$Res> implements $Actor
   factory _$ActorGetSuggestionsOutputCopyWith(_ActorGetSuggestionsOutput value, $Res Function(_ActorGetSuggestionsOutput) _then) = __$ActorGetSuggestionsOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor,@ProfileViewConverter() List<ProfileView> actors, int? recId, Map<String, dynamic>? $unknown
+ String? cursor,@ProfileViewConverter() List<ProfileView> actors, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -286,12 +286,12 @@ class __$ActorGetSuggestionsOutputCopyWithImpl<$Res>
 
 /// Create a copy of ActorGetSuggestionsOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? actors = null,Object? recId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? actors = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_ActorGetSuggestionsOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self._actors : actors // ignore: cast_nullable_to_non_nullable
-as List<ProfileView>,recId: freezed == recId ? _self.recId : recId // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<ProfileView>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

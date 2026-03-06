@@ -23,7 +23,7 @@ part 'output.g.dart';
 
 @freezed
 abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
-  static const knownProps = <String>['cursor', 'actors', 'recId'];
+  static const knownProps = <String>['cursor', 'actors', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ActorGetSuggestionsOutput({
@@ -31,7 +31,7 @@ abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
     @ProfileViewConverter() required List<ProfileView> actors,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
-    int? recId,
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorGetSuggestionsOutput;
@@ -43,8 +43,8 @@ abstract class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
 extension ActorGetSuggestionsOutputExtension on ActorGetSuggestionsOutput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasRecId => recId != null;
-  bool get hasNotRecId => !hasRecId;
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class ActorGetSuggestionsOutputConverter

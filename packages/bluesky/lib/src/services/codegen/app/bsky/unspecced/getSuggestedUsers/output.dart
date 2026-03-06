@@ -24,14 +24,14 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedUsersOutput
     with _$UnspeccedGetSuggestedUsersOutput {
-  static const knownProps = <String>['actors', 'recId'];
+  static const knownProps = <String>['actors', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedUsersOutput({
     @ProfileViewConverter() required List<ProfileView> actors,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
-    String? recId,
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedUsersOutput;
@@ -43,8 +43,8 @@ abstract class UnspeccedGetSuggestedUsersOutput
 
 extension UnspeccedGetSuggestedUsersOutputExtension
     on UnspeccedGetSuggestedUsersOutput {
-  bool get hasRecId => recId != null;
-  bool get hasNotRecId => !hasRecId;
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class UnspeccedGetSuggestedUsersOutputConverter
