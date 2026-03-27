@@ -149,20 +149,29 @@ base class ServiceContext {
     }
 
     if (oAuthSession != null) {
-      final jwt = oAuthSession!.accessTokenJwt;
+      final oauthSession = oAuthSession!;
+      final jwt = oauthSession.accessTokenJwt;
+      final clientId = oauthSession.clientId;
+
+      if (clientId == null || clientId.isEmpty) {
+        throw const FormatException(
+          'OAuth token is missing client_id and cannot build DPoP headers.',
+        );
+      }
+
       final dPoPHeader = getDPoPHeader(
-        clientId: jwt.clientId!,
+        clientId: clientId,
         endpoint: endpoint.toString(),
         method: method,
         authorizationServer: jwt.iss,
-        accessToken: oAuthSession!.accessToken,
-        dPoPNonce: oAuthSession!.$dPoPNonce,
-        publicKey: oAuthSession!.$publicKey,
-        privateKey: oAuthSession!.$privateKey,
+        accessToken: oauthSession.accessToken,
+        dPoPNonce: oauthSession.$dPoPNonce,
+        publicKey: oauthSession.$publicKey,
+        privateKey: oauthSession.$privateKey,
       );
 
       return {
-        'Authorization': 'DPoP ${oAuthSession!.accessToken}',
+        'Authorization': 'DPoP ${oauthSession.accessToken}',
         'DPoP': dPoPHeader,
         ...header,
       };
