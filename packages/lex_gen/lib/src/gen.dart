@@ -4,19 +4,13 @@
 
 // Project imports:
 import 'commands/lex_command_generator.dart';
+import 'commands/rule.dart' as command_rule;
+import 'config.dart';
 import 'services/lex_service_generator.dart';
 import 'services/lex_tools_generator.dart';
 import 'services/lex_type_generator.dart';
+import 'services/rule.dart' as service_rule;
 import 'utils.dart';
-
-const services = <String>[
-  'com.atproto',
-  'app.bsky',
-  'chat.bsky',
-  'tools.ozone',
-];
-
-const packages = <String>['atproto', 'bluesky'];
 
 sealed class Gen {
   const Gen();
@@ -25,24 +19,37 @@ sealed class Gen {
 }
 
 final class ServiceGen implements Gen {
-  const ServiceGen();
+  final LexGenConfig config;
+
+  const ServiceGen({required this.config});
 
   @override
   void execute() {
     print(kLexGeneratorLogo);
 
-    final types = generateLexTypes(services, packages);
-    generateLexServices(services, packages, types);
+    final docs = config.docsProvider();
 
-    generateLexTools();
+    service_rule.setLexServiceRuleConfig(config.serviceRuleConfig);
+    service_rule.setLexiconDocs(docs);
+
+    final types = generateLexTypes(config.services, config.packages, docs);
+    generateLexServices(config.services, config.packages, types, docs);
+
+    generateLexTools(docs);
   }
 }
 
 final class CommandGen implements Gen {
-  const CommandGen();
+  final LexGenConfig config;
+
+  const CommandGen({required this.config});
 
   @override
   void execute() {
-    generateLexCommands();
+    final docs = config.docsProvider();
+
+    command_rule.setLexCommandRuleConfig(config.commandRuleConfig);
+
+    generateLexCommands(docs);
   }
 }

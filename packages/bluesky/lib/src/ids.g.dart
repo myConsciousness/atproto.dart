@@ -1277,6 +1277,10 @@ const toolsOzoneModerationDefsAgeAssuranceEvent =
 const toolsOzoneModerationDefsAgeAssuranceOverrideEvent =
     'tools.ozone.moderation.defs#ageAssuranceOverrideEvent';
 
+/// `tools.ozone.moderation.defs#ageAssurancePurgeEvent`
+const toolsOzoneModerationDefsAgeAssurancePurgeEvent =
+    'tools.ozone.moderation.defs#ageAssurancePurgeEvent';
+
 /// `tools.ozone.moderation.defs#blobView`
 const toolsOzoneModerationDefsBlobView = 'tools.ozone.moderation.defs#blobView';
 

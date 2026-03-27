@@ -22,6 +22,36 @@ import 'team/updateMember/main_role.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Add a member to the ozone team. Requires admin role.
+Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
+  required String did,
+  required TeamAddMemberRole role,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamAddMember,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did, 'role': role.toJson()},
+  to: const MemberConverter().fromJson,
+);
+
+/// Delete a member from ozone team. Requires admin role.
+Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
+  required String did,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneTeamDeleteMember,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did},
+);
+
 /// List all members with access to the ozone service.
 Future<XRPCResponse<TeamListMembersOutput>> toolsOzoneTeamListMembers({
   String? q,
@@ -70,42 +100,42 @@ Future<XRPCResponse<Member>> toolsOzoneTeamUpdateMember({
   to: const MemberConverter().fromJson,
 );
 
-/// Delete a member from ozone team. Requires admin role.
-Future<XRPCResponse<EmptyData>> toolsOzoneTeamDeleteMember({
-  required String did,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneTeamDeleteMember,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'did': did},
-);
-
-/// Add a member to the ozone team. Requires admin role.
-Future<XRPCResponse<Member>> toolsOzoneTeamAddMember({
-  required String did,
-  required TeamAddMemberRole role,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.toolsOzoneTeamAddMember,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'did': did, 'role': role.toJson()},
-  to: const MemberConverter().fromJson,
-);
-
 /// `tools.ozone.team.*`
 base class TeamService {
   @protected
   final ServiceContext ctx;
 
   TeamService(this.ctx);
+
+  /// Add a member to the ozone team. Requires admin role.
+  Future<XRPCResponse<Member>> addMember({
+    required String did,
+    required TeamAddMemberRole role,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneTeamAddMember(
+    did: did,
+    role: role,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Delete a member from ozone team. Requires admin role.
+  Future<XRPCResponse<EmptyData>> deleteMember({
+    required String did,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneTeamDeleteMember(
+    did: did,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// List all members with access to the ozone service.
   Future<XRPCResponse<TeamListMembersOutput>> listMembers({
@@ -140,36 +170,6 @@ base class TeamService {
   }) async => await toolsOzoneTeamUpdateMember(
     did: did,
     disabled: disabled,
-    role: role,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Delete a member from ozone team. Requires admin role.
-  Future<XRPCResponse<EmptyData>> deleteMember({
-    required String did,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneTeamDeleteMember(
-    did: did,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Add a member to the ozone team. Requires admin role.
-  Future<XRPCResponse<Member>> addMember({
-    required String did,
-    required TeamAddMemberRole role,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await toolsOzoneTeamAddMember(
-    did: did,
     role: role,
     $ctx: ctx,
     $service: $service,

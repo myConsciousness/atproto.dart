@@ -22,8 +22,8 @@ import 'draft/update_draft.dart';
 
 final class AppBskyDraftCommand extends Command<void> {
   AppBskyDraftCommand() {
-    addSubcommand(DeleteDraftCommand());
     addSubcommand(CreateDraftCommand());
+    addSubcommand(DeleteDraftCommand());
     addSubcommand(GetDraftsCommand());
     addSubcommand(UpdateDraftCommand());
   }

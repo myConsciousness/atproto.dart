@@ -3,7 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../config.dart';
 import '../utils.dart';
+
+LexCommandRuleConfig? _config;
+
+void setLexCommandRuleConfig(final LexCommandRuleConfig config) {
+  _config = config;
+}
 
 String getServiceId(final String lexiconId) {
   return lexiconId.split('.').sublist(0, 3).join('.');
@@ -40,7 +47,12 @@ String getAbsoluteFilePathForParent(final String lexiconId) {
 }
 
 String getHomeDir() {
-  return 'packages/bluesky_cli/lib/src/commands/codegen';
+  final config = _config;
+  if (config == null) {
+    throw StateError('Lex command rule config is not set');
+  }
+
+  return config.homeDir;
 }
 
 String getFilePath(final String lexiconId) {

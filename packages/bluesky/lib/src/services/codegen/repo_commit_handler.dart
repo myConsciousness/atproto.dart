@@ -49,193 +49,193 @@ typedef RepoCommitOnUpdate<T> =
 typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 
 final class RepoCommitHandler {
-  final RepoCommitOnCreate<LexiconSchemaRecord>? _onCreateLexiconSchema;
-  final RepoCommitOnUpdate<LexiconSchemaRecord>? _onUpdateLexiconSchema;
-  final RepoCommitOnDelete? _onDeleteLexiconSchema;
-  final RepoCommitOnCreate<GraphStarterpackRecord>? _onCreateGraphStarterpack;
-  final RepoCommitOnUpdate<GraphStarterpackRecord>? _onUpdateGraphStarterpack;
-  final RepoCommitOnDelete? _onDeleteGraphStarterpack;
+  final RepoCommitOnCreate<ActorProfileRecord>? _onCreateActorProfile;
+  final RepoCommitOnUpdate<ActorProfileRecord>? _onUpdateActorProfile;
+  final RepoCommitOnDelete? _onDeleteActorProfile;
+  final RepoCommitOnCreate<ActorStatusRecord>? _onCreateActorStatus;
+  final RepoCommitOnUpdate<ActorStatusRecord>? _onUpdateActorStatus;
+  final RepoCommitOnDelete? _onDeleteActorStatus;
+  final RepoCommitOnCreate<FeedGeneratorRecord>? _onCreateFeedGenerator;
+  final RepoCommitOnUpdate<FeedGeneratorRecord>? _onUpdateFeedGenerator;
+  final RepoCommitOnDelete? _onDeleteFeedGenerator;
+  final RepoCommitOnCreate<FeedLikeRecord>? _onCreateFeedLike;
+  final RepoCommitOnUpdate<FeedLikeRecord>? _onUpdateFeedLike;
+  final RepoCommitOnDelete? _onDeleteFeedLike;
+  final RepoCommitOnCreate<FeedPostRecord>? _onCreateFeedPost;
+  final RepoCommitOnUpdate<FeedPostRecord>? _onUpdateFeedPost;
+  final RepoCommitOnDelete? _onDeleteFeedPost;
+  final RepoCommitOnCreate<FeedPostgateRecord>? _onCreateFeedPostgate;
+  final RepoCommitOnUpdate<FeedPostgateRecord>? _onUpdateFeedPostgate;
+  final RepoCommitOnDelete? _onDeleteFeedPostgate;
+  final RepoCommitOnCreate<FeedRepostRecord>? _onCreateFeedRepost;
+  final RepoCommitOnUpdate<FeedRepostRecord>? _onUpdateFeedRepost;
+  final RepoCommitOnDelete? _onDeleteFeedRepost;
+  final RepoCommitOnCreate<FeedThreadgateRecord>? _onCreateFeedThreadgate;
+  final RepoCommitOnUpdate<FeedThreadgateRecord>? _onUpdateFeedThreadgate;
+  final RepoCommitOnDelete? _onDeleteFeedThreadgate;
+  final RepoCommitOnCreate<GraphBlockRecord>? _onCreateGraphBlock;
+  final RepoCommitOnUpdate<GraphBlockRecord>? _onUpdateGraphBlock;
+  final RepoCommitOnDelete? _onDeleteGraphBlock;
+  final RepoCommitOnCreate<GraphFollowRecord>? _onCreateGraphFollow;
+  final RepoCommitOnUpdate<GraphFollowRecord>? _onUpdateGraphFollow;
+  final RepoCommitOnDelete? _onDeleteGraphFollow;
   final RepoCommitOnCreate<GraphListRecord>? _onCreateGraphList;
   final RepoCommitOnUpdate<GraphListRecord>? _onUpdateGraphList;
   final RepoCommitOnDelete? _onDeleteGraphList;
   final RepoCommitOnCreate<GraphListblockRecord>? _onCreateGraphListblock;
   final RepoCommitOnUpdate<GraphListblockRecord>? _onUpdateGraphListblock;
   final RepoCommitOnDelete? _onDeleteGraphListblock;
-  final RepoCommitOnCreate<GraphFollowRecord>? _onCreateGraphFollow;
-  final RepoCommitOnUpdate<GraphFollowRecord>? _onUpdateGraphFollow;
-  final RepoCommitOnDelete? _onDeleteGraphFollow;
-  final RepoCommitOnCreate<GraphVerificationRecord>? _onCreateGraphVerification;
-  final RepoCommitOnUpdate<GraphVerificationRecord>? _onUpdateGraphVerification;
-  final RepoCommitOnDelete? _onDeleteGraphVerification;
-  final RepoCommitOnCreate<GraphBlockRecord>? _onCreateGraphBlock;
-  final RepoCommitOnUpdate<GraphBlockRecord>? _onUpdateGraphBlock;
-  final RepoCommitOnDelete? _onDeleteGraphBlock;
   final RepoCommitOnCreate<GraphListitemRecord>? _onCreateGraphListitem;
   final RepoCommitOnUpdate<GraphListitemRecord>? _onUpdateGraphListitem;
   final RepoCommitOnDelete? _onDeleteGraphListitem;
-  final RepoCommitOnCreate<FeedLikeRecord>? _onCreateFeedLike;
-  final RepoCommitOnUpdate<FeedLikeRecord>? _onUpdateFeedLike;
-  final RepoCommitOnDelete? _onDeleteFeedLike;
-  final RepoCommitOnCreate<FeedThreadgateRecord>? _onCreateFeedThreadgate;
-  final RepoCommitOnUpdate<FeedThreadgateRecord>? _onUpdateFeedThreadgate;
-  final RepoCommitOnDelete? _onDeleteFeedThreadgate;
-  final RepoCommitOnCreate<FeedGeneratorRecord>? _onCreateFeedGenerator;
-  final RepoCommitOnUpdate<FeedGeneratorRecord>? _onUpdateFeedGenerator;
-  final RepoCommitOnDelete? _onDeleteFeedGenerator;
-  final RepoCommitOnCreate<FeedPostRecord>? _onCreateFeedPost;
-  final RepoCommitOnUpdate<FeedPostRecord>? _onUpdateFeedPost;
-  final RepoCommitOnDelete? _onDeleteFeedPost;
-  final RepoCommitOnCreate<FeedRepostRecord>? _onCreateFeedRepost;
-  final RepoCommitOnUpdate<FeedRepostRecord>? _onUpdateFeedRepost;
-  final RepoCommitOnDelete? _onDeleteFeedRepost;
-  final RepoCommitOnCreate<FeedPostgateRecord>? _onCreateFeedPostgate;
-  final RepoCommitOnUpdate<FeedPostgateRecord>? _onUpdateFeedPostgate;
-  final RepoCommitOnDelete? _onDeleteFeedPostgate;
-  final RepoCommitOnCreate<ActorStatusRecord>? _onCreateActorStatus;
-  final RepoCommitOnUpdate<ActorStatusRecord>? _onUpdateActorStatus;
-  final RepoCommitOnDelete? _onDeleteActorStatus;
-  final RepoCommitOnCreate<ActorProfileRecord>? _onCreateActorProfile;
-  final RepoCommitOnUpdate<ActorProfileRecord>? _onUpdateActorProfile;
-  final RepoCommitOnDelete? _onDeleteActorProfile;
+  final RepoCommitOnCreate<GraphStarterpackRecord>? _onCreateGraphStarterpack;
+  final RepoCommitOnUpdate<GraphStarterpackRecord>? _onUpdateGraphStarterpack;
+  final RepoCommitOnDelete? _onDeleteGraphStarterpack;
+  final RepoCommitOnCreate<GraphVerificationRecord>? _onCreateGraphVerification;
+  final RepoCommitOnUpdate<GraphVerificationRecord>? _onUpdateGraphVerification;
+  final RepoCommitOnDelete? _onDeleteGraphVerification;
+  final RepoCommitOnCreate<LabelerServiceRecord>? _onCreateLabelerService;
+  final RepoCommitOnUpdate<LabelerServiceRecord>? _onUpdateLabelerService;
+  final RepoCommitOnDelete? _onDeleteLabelerService;
   final RepoCommitOnCreate<NotificationDeclarationRecord>?
   _onCreateNotificationDeclaration;
   final RepoCommitOnUpdate<NotificationDeclarationRecord>?
   _onUpdateNotificationDeclaration;
   final RepoCommitOnDelete? _onDeleteNotificationDeclaration;
-  final RepoCommitOnCreate<LabelerServiceRecord>? _onCreateLabelerService;
-  final RepoCommitOnUpdate<LabelerServiceRecord>? _onUpdateLabelerService;
-  final RepoCommitOnDelete? _onDeleteLabelerService;
   final RepoCommitOnCreate<ActorDeclarationRecord>? _onCreateActorDeclaration;
   final RepoCommitOnUpdate<ActorDeclarationRecord>? _onUpdateActorDeclaration;
   final RepoCommitOnDelete? _onDeleteActorDeclaration;
+  final RepoCommitOnCreate<LexiconSchemaRecord>? _onCreateLexiconSchema;
+  final RepoCommitOnUpdate<LexiconSchemaRecord>? _onUpdateLexiconSchema;
+  final RepoCommitOnDelete? _onDeleteLexiconSchema;
 
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
   final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   const RepoCommitHandler({
-    final RepoCommitOnCreate<LexiconSchemaRecord>? onCreateLexiconSchema,
-    final RepoCommitOnUpdate<LexiconSchemaRecord>? onUpdateLexiconSchema,
-    final RepoCommitOnDelete? onDeleteLexiconSchema,
-    final RepoCommitOnCreate<GraphStarterpackRecord>? onCreateGraphStarterpack,
-    final RepoCommitOnUpdate<GraphStarterpackRecord>? onUpdateGraphStarterpack,
-    final RepoCommitOnDelete? onDeleteGraphStarterpack,
+    final RepoCommitOnCreate<ActorProfileRecord>? onCreateActorProfile,
+    final RepoCommitOnUpdate<ActorProfileRecord>? onUpdateActorProfile,
+    final RepoCommitOnDelete? onDeleteActorProfile,
+    final RepoCommitOnCreate<ActorStatusRecord>? onCreateActorStatus,
+    final RepoCommitOnUpdate<ActorStatusRecord>? onUpdateActorStatus,
+    final RepoCommitOnDelete? onDeleteActorStatus,
+    final RepoCommitOnCreate<FeedGeneratorRecord>? onCreateFeedGenerator,
+    final RepoCommitOnUpdate<FeedGeneratorRecord>? onUpdateFeedGenerator,
+    final RepoCommitOnDelete? onDeleteFeedGenerator,
+    final RepoCommitOnCreate<FeedLikeRecord>? onCreateFeedLike,
+    final RepoCommitOnUpdate<FeedLikeRecord>? onUpdateFeedLike,
+    final RepoCommitOnDelete? onDeleteFeedLike,
+    final RepoCommitOnCreate<FeedPostRecord>? onCreateFeedPost,
+    final RepoCommitOnUpdate<FeedPostRecord>? onUpdateFeedPost,
+    final RepoCommitOnDelete? onDeleteFeedPost,
+    final RepoCommitOnCreate<FeedPostgateRecord>? onCreateFeedPostgate,
+    final RepoCommitOnUpdate<FeedPostgateRecord>? onUpdateFeedPostgate,
+    final RepoCommitOnDelete? onDeleteFeedPostgate,
+    final RepoCommitOnCreate<FeedRepostRecord>? onCreateFeedRepost,
+    final RepoCommitOnUpdate<FeedRepostRecord>? onUpdateFeedRepost,
+    final RepoCommitOnDelete? onDeleteFeedRepost,
+    final RepoCommitOnCreate<FeedThreadgateRecord>? onCreateFeedThreadgate,
+    final RepoCommitOnUpdate<FeedThreadgateRecord>? onUpdateFeedThreadgate,
+    final RepoCommitOnDelete? onDeleteFeedThreadgate,
+    final RepoCommitOnCreate<GraphBlockRecord>? onCreateGraphBlock,
+    final RepoCommitOnUpdate<GraphBlockRecord>? onUpdateGraphBlock,
+    final RepoCommitOnDelete? onDeleteGraphBlock,
+    final RepoCommitOnCreate<GraphFollowRecord>? onCreateGraphFollow,
+    final RepoCommitOnUpdate<GraphFollowRecord>? onUpdateGraphFollow,
+    final RepoCommitOnDelete? onDeleteGraphFollow,
     final RepoCommitOnCreate<GraphListRecord>? onCreateGraphList,
     final RepoCommitOnUpdate<GraphListRecord>? onUpdateGraphList,
     final RepoCommitOnDelete? onDeleteGraphList,
     final RepoCommitOnCreate<GraphListblockRecord>? onCreateGraphListblock,
     final RepoCommitOnUpdate<GraphListblockRecord>? onUpdateGraphListblock,
     final RepoCommitOnDelete? onDeleteGraphListblock,
-    final RepoCommitOnCreate<GraphFollowRecord>? onCreateGraphFollow,
-    final RepoCommitOnUpdate<GraphFollowRecord>? onUpdateGraphFollow,
-    final RepoCommitOnDelete? onDeleteGraphFollow,
+    final RepoCommitOnCreate<GraphListitemRecord>? onCreateGraphListitem,
+    final RepoCommitOnUpdate<GraphListitemRecord>? onUpdateGraphListitem,
+    final RepoCommitOnDelete? onDeleteGraphListitem,
+    final RepoCommitOnCreate<GraphStarterpackRecord>? onCreateGraphStarterpack,
+    final RepoCommitOnUpdate<GraphStarterpackRecord>? onUpdateGraphStarterpack,
+    final RepoCommitOnDelete? onDeleteGraphStarterpack,
     final RepoCommitOnCreate<GraphVerificationRecord>?
     onCreateGraphVerification,
     final RepoCommitOnUpdate<GraphVerificationRecord>?
     onUpdateGraphVerification,
     final RepoCommitOnDelete? onDeleteGraphVerification,
-    final RepoCommitOnCreate<GraphBlockRecord>? onCreateGraphBlock,
-    final RepoCommitOnUpdate<GraphBlockRecord>? onUpdateGraphBlock,
-    final RepoCommitOnDelete? onDeleteGraphBlock,
-    final RepoCommitOnCreate<GraphListitemRecord>? onCreateGraphListitem,
-    final RepoCommitOnUpdate<GraphListitemRecord>? onUpdateGraphListitem,
-    final RepoCommitOnDelete? onDeleteGraphListitem,
-    final RepoCommitOnCreate<FeedLikeRecord>? onCreateFeedLike,
-    final RepoCommitOnUpdate<FeedLikeRecord>? onUpdateFeedLike,
-    final RepoCommitOnDelete? onDeleteFeedLike,
-    final RepoCommitOnCreate<FeedThreadgateRecord>? onCreateFeedThreadgate,
-    final RepoCommitOnUpdate<FeedThreadgateRecord>? onUpdateFeedThreadgate,
-    final RepoCommitOnDelete? onDeleteFeedThreadgate,
-    final RepoCommitOnCreate<FeedGeneratorRecord>? onCreateFeedGenerator,
-    final RepoCommitOnUpdate<FeedGeneratorRecord>? onUpdateFeedGenerator,
-    final RepoCommitOnDelete? onDeleteFeedGenerator,
-    final RepoCommitOnCreate<FeedPostRecord>? onCreateFeedPost,
-    final RepoCommitOnUpdate<FeedPostRecord>? onUpdateFeedPost,
-    final RepoCommitOnDelete? onDeleteFeedPost,
-    final RepoCommitOnCreate<FeedRepostRecord>? onCreateFeedRepost,
-    final RepoCommitOnUpdate<FeedRepostRecord>? onUpdateFeedRepost,
-    final RepoCommitOnDelete? onDeleteFeedRepost,
-    final RepoCommitOnCreate<FeedPostgateRecord>? onCreateFeedPostgate,
-    final RepoCommitOnUpdate<FeedPostgateRecord>? onUpdateFeedPostgate,
-    final RepoCommitOnDelete? onDeleteFeedPostgate,
-    final RepoCommitOnCreate<ActorStatusRecord>? onCreateActorStatus,
-    final RepoCommitOnUpdate<ActorStatusRecord>? onUpdateActorStatus,
-    final RepoCommitOnDelete? onDeleteActorStatus,
-    final RepoCommitOnCreate<ActorProfileRecord>? onCreateActorProfile,
-    final RepoCommitOnUpdate<ActorProfileRecord>? onUpdateActorProfile,
-    final RepoCommitOnDelete? onDeleteActorProfile,
+    final RepoCommitOnCreate<LabelerServiceRecord>? onCreateLabelerService,
+    final RepoCommitOnUpdate<LabelerServiceRecord>? onUpdateLabelerService,
+    final RepoCommitOnDelete? onDeleteLabelerService,
     final RepoCommitOnCreate<NotificationDeclarationRecord>?
     onCreateNotificationDeclaration,
     final RepoCommitOnUpdate<NotificationDeclarationRecord>?
     onUpdateNotificationDeclaration,
     final RepoCommitOnDelete? onDeleteNotificationDeclaration,
-    final RepoCommitOnCreate<LabelerServiceRecord>? onCreateLabelerService,
-    final RepoCommitOnUpdate<LabelerServiceRecord>? onUpdateLabelerService,
-    final RepoCommitOnDelete? onDeleteLabelerService,
     final RepoCommitOnCreate<ActorDeclarationRecord>? onCreateActorDeclaration,
     final RepoCommitOnUpdate<ActorDeclarationRecord>? onUpdateActorDeclaration,
     final RepoCommitOnDelete? onDeleteActorDeclaration,
+    final RepoCommitOnCreate<LexiconSchemaRecord>? onCreateLexiconSchema,
+    final RepoCommitOnUpdate<LexiconSchemaRecord>? onUpdateLexiconSchema,
+    final RepoCommitOnDelete? onDeleteLexiconSchema,
 
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeleteUnknown,
-  }) : _onCreateLexiconSchema = onCreateLexiconSchema,
-       _onUpdateLexiconSchema = onUpdateLexiconSchema,
-       _onDeleteLexiconSchema = onDeleteLexiconSchema,
-       _onCreateGraphStarterpack = onCreateGraphStarterpack,
-       _onUpdateGraphStarterpack = onUpdateGraphStarterpack,
-       _onDeleteGraphStarterpack = onDeleteGraphStarterpack,
+  }) : _onCreateActorProfile = onCreateActorProfile,
+       _onUpdateActorProfile = onUpdateActorProfile,
+       _onDeleteActorProfile = onDeleteActorProfile,
+       _onCreateActorStatus = onCreateActorStatus,
+       _onUpdateActorStatus = onUpdateActorStatus,
+       _onDeleteActorStatus = onDeleteActorStatus,
+       _onCreateFeedGenerator = onCreateFeedGenerator,
+       _onUpdateFeedGenerator = onUpdateFeedGenerator,
+       _onDeleteFeedGenerator = onDeleteFeedGenerator,
+       _onCreateFeedLike = onCreateFeedLike,
+       _onUpdateFeedLike = onUpdateFeedLike,
+       _onDeleteFeedLike = onDeleteFeedLike,
+       _onCreateFeedPost = onCreateFeedPost,
+       _onUpdateFeedPost = onUpdateFeedPost,
+       _onDeleteFeedPost = onDeleteFeedPost,
+       _onCreateFeedPostgate = onCreateFeedPostgate,
+       _onUpdateFeedPostgate = onUpdateFeedPostgate,
+       _onDeleteFeedPostgate = onDeleteFeedPostgate,
+       _onCreateFeedRepost = onCreateFeedRepost,
+       _onUpdateFeedRepost = onUpdateFeedRepost,
+       _onDeleteFeedRepost = onDeleteFeedRepost,
+       _onCreateFeedThreadgate = onCreateFeedThreadgate,
+       _onUpdateFeedThreadgate = onUpdateFeedThreadgate,
+       _onDeleteFeedThreadgate = onDeleteFeedThreadgate,
+       _onCreateGraphBlock = onCreateGraphBlock,
+       _onUpdateGraphBlock = onUpdateGraphBlock,
+       _onDeleteGraphBlock = onDeleteGraphBlock,
+       _onCreateGraphFollow = onCreateGraphFollow,
+       _onUpdateGraphFollow = onUpdateGraphFollow,
+       _onDeleteGraphFollow = onDeleteGraphFollow,
        _onCreateGraphList = onCreateGraphList,
        _onUpdateGraphList = onUpdateGraphList,
        _onDeleteGraphList = onDeleteGraphList,
        _onCreateGraphListblock = onCreateGraphListblock,
        _onUpdateGraphListblock = onUpdateGraphListblock,
        _onDeleteGraphListblock = onDeleteGraphListblock,
-       _onCreateGraphFollow = onCreateGraphFollow,
-       _onUpdateGraphFollow = onUpdateGraphFollow,
-       _onDeleteGraphFollow = onDeleteGraphFollow,
-       _onCreateGraphVerification = onCreateGraphVerification,
-       _onUpdateGraphVerification = onUpdateGraphVerification,
-       _onDeleteGraphVerification = onDeleteGraphVerification,
-       _onCreateGraphBlock = onCreateGraphBlock,
-       _onUpdateGraphBlock = onUpdateGraphBlock,
-       _onDeleteGraphBlock = onDeleteGraphBlock,
        _onCreateGraphListitem = onCreateGraphListitem,
        _onUpdateGraphListitem = onUpdateGraphListitem,
        _onDeleteGraphListitem = onDeleteGraphListitem,
-       _onCreateFeedLike = onCreateFeedLike,
-       _onUpdateFeedLike = onUpdateFeedLike,
-       _onDeleteFeedLike = onDeleteFeedLike,
-       _onCreateFeedThreadgate = onCreateFeedThreadgate,
-       _onUpdateFeedThreadgate = onUpdateFeedThreadgate,
-       _onDeleteFeedThreadgate = onDeleteFeedThreadgate,
-       _onCreateFeedGenerator = onCreateFeedGenerator,
-       _onUpdateFeedGenerator = onUpdateFeedGenerator,
-       _onDeleteFeedGenerator = onDeleteFeedGenerator,
-       _onCreateFeedPost = onCreateFeedPost,
-       _onUpdateFeedPost = onUpdateFeedPost,
-       _onDeleteFeedPost = onDeleteFeedPost,
-       _onCreateFeedRepost = onCreateFeedRepost,
-       _onUpdateFeedRepost = onUpdateFeedRepost,
-       _onDeleteFeedRepost = onDeleteFeedRepost,
-       _onCreateFeedPostgate = onCreateFeedPostgate,
-       _onUpdateFeedPostgate = onUpdateFeedPostgate,
-       _onDeleteFeedPostgate = onDeleteFeedPostgate,
-       _onCreateActorStatus = onCreateActorStatus,
-       _onUpdateActorStatus = onUpdateActorStatus,
-       _onDeleteActorStatus = onDeleteActorStatus,
-       _onCreateActorProfile = onCreateActorProfile,
-       _onUpdateActorProfile = onUpdateActorProfile,
-       _onDeleteActorProfile = onDeleteActorProfile,
-       _onCreateNotificationDeclaration = onCreateNotificationDeclaration,
-       _onUpdateNotificationDeclaration = onUpdateNotificationDeclaration,
-       _onDeleteNotificationDeclaration = onDeleteNotificationDeclaration,
+       _onCreateGraphStarterpack = onCreateGraphStarterpack,
+       _onUpdateGraphStarterpack = onUpdateGraphStarterpack,
+       _onDeleteGraphStarterpack = onDeleteGraphStarterpack,
+       _onCreateGraphVerification = onCreateGraphVerification,
+       _onUpdateGraphVerification = onUpdateGraphVerification,
+       _onDeleteGraphVerification = onDeleteGraphVerification,
        _onCreateLabelerService = onCreateLabelerService,
        _onUpdateLabelerService = onUpdateLabelerService,
        _onDeleteLabelerService = onDeleteLabelerService,
+       _onCreateNotificationDeclaration = onCreateNotificationDeclaration,
+       _onUpdateNotificationDeclaration = onUpdateNotificationDeclaration,
+       _onDeleteNotificationDeclaration = onDeleteNotificationDeclaration,
        _onCreateActorDeclaration = onCreateActorDeclaration,
        _onUpdateActorDeclaration = onUpdateActorDeclaration,
        _onDeleteActorDeclaration = onDeleteActorDeclaration,
+       _onCreateLexiconSchema = onCreateLexiconSchema,
+       _onUpdateLexiconSchema = onUpdateLexiconSchema,
+       _onDeleteLexiconSchema = onDeleteLexiconSchema,
 
        _onCreateUnknown = onCreateUnknown,
        _onUpdateUnknown = onUpdateUnknown,
@@ -266,10 +266,10 @@ final class RepoCommitHandler {
     final uri = _getUri(data, op);
     final record = _getRecord(data, op);
 
-    if (uri.isLexiconSchema && LexiconSchemaRecord.validate(record)) {
-      await _onCreateLexiconSchema?.call(
-        RepoCommitCreate<LexiconSchemaRecord>(
-          record: const LexiconSchemaRecordConverter().fromJson(record),
+    if (uri.isActorProfile && ActorProfileRecord.validate(record)) {
+      await _onCreateActorProfile?.call(
+        RepoCommitCreate<ActorProfileRecord>(
+          record: const ActorProfileRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -278,10 +278,106 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphStarterpack && GraphStarterpackRecord.validate(record)) {
-      await _onCreateGraphStarterpack?.call(
-        RepoCommitCreate<GraphStarterpackRecord>(
-          record: const GraphStarterpackRecordConverter().fromJson(record),
+    if (uri.isActorStatus && ActorStatusRecord.validate(record)) {
+      await _onCreateActorStatus?.call(
+        RepoCommitCreate<ActorStatusRecord>(
+          record: const ActorStatusRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedGenerator && FeedGeneratorRecord.validate(record)) {
+      await _onCreateFeedGenerator?.call(
+        RepoCommitCreate<FeedGeneratorRecord>(
+          record: const FeedGeneratorRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedLike && FeedLikeRecord.validate(record)) {
+      await _onCreateFeedLike?.call(
+        RepoCommitCreate<FeedLikeRecord>(
+          record: const FeedLikeRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedPost && FeedPostRecord.validate(record)) {
+      await _onCreateFeedPost?.call(
+        RepoCommitCreate<FeedPostRecord>(
+          record: const FeedPostRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedPostgate && FeedPostgateRecord.validate(record)) {
+      await _onCreateFeedPostgate?.call(
+        RepoCommitCreate<FeedPostgateRecord>(
+          record: const FeedPostgateRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedRepost && FeedRepostRecord.validate(record)) {
+      await _onCreateFeedRepost?.call(
+        RepoCommitCreate<FeedRepostRecord>(
+          record: const FeedRepostRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedThreadgate && FeedThreadgateRecord.validate(record)) {
+      await _onCreateFeedThreadgate?.call(
+        RepoCommitCreate<FeedThreadgateRecord>(
+          record: const FeedThreadgateRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphBlock && GraphBlockRecord.validate(record)) {
+      await _onCreateGraphBlock?.call(
+        RepoCommitCreate<GraphBlockRecord>(
+          record: const GraphBlockRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphFollow && GraphFollowRecord.validate(record)) {
+      await _onCreateGraphFollow?.call(
+        RepoCommitCreate<GraphFollowRecord>(
+          record: const GraphFollowRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -314,10 +410,22 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphFollow && GraphFollowRecord.validate(record)) {
-      await _onCreateGraphFollow?.call(
-        RepoCommitCreate<GraphFollowRecord>(
-          record: const GraphFollowRecordConverter().fromJson(record),
+    if (uri.isGraphListitem && GraphListitemRecord.validate(record)) {
+      await _onCreateGraphListitem?.call(
+        RepoCommitCreate<GraphListitemRecord>(
+          record: const GraphListitemRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphStarterpack && GraphStarterpackRecord.validate(record)) {
+      await _onCreateGraphStarterpack?.call(
+        RepoCommitCreate<GraphStarterpackRecord>(
+          record: const GraphStarterpackRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -338,118 +446,10 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphBlock && GraphBlockRecord.validate(record)) {
-      await _onCreateGraphBlock?.call(
-        RepoCommitCreate<GraphBlockRecord>(
-          record: const GraphBlockRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isGraphListitem && GraphListitemRecord.validate(record)) {
-      await _onCreateGraphListitem?.call(
-        RepoCommitCreate<GraphListitemRecord>(
-          record: const GraphListitemRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedLike && FeedLikeRecord.validate(record)) {
-      await _onCreateFeedLike?.call(
-        RepoCommitCreate<FeedLikeRecord>(
-          record: const FeedLikeRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedThreadgate && FeedThreadgateRecord.validate(record)) {
-      await _onCreateFeedThreadgate?.call(
-        RepoCommitCreate<FeedThreadgateRecord>(
-          record: const FeedThreadgateRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedGenerator && FeedGeneratorRecord.validate(record)) {
-      await _onCreateFeedGenerator?.call(
-        RepoCommitCreate<FeedGeneratorRecord>(
-          record: const FeedGeneratorRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedPost && FeedPostRecord.validate(record)) {
-      await _onCreateFeedPost?.call(
-        RepoCommitCreate<FeedPostRecord>(
-          record: const FeedPostRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedRepost && FeedRepostRecord.validate(record)) {
-      await _onCreateFeedRepost?.call(
-        RepoCommitCreate<FeedRepostRecord>(
-          record: const FeedRepostRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedPostgate && FeedPostgateRecord.validate(record)) {
-      await _onCreateFeedPostgate?.call(
-        RepoCommitCreate<FeedPostgateRecord>(
-          record: const FeedPostgateRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isActorStatus && ActorStatusRecord.validate(record)) {
-      await _onCreateActorStatus?.call(
-        RepoCommitCreate<ActorStatusRecord>(
-          record: const ActorStatusRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-        ),
-      );
-      return;
-    }
-    if (uri.isActorProfile && ActorProfileRecord.validate(record)) {
-      await _onCreateActorProfile?.call(
-        RepoCommitCreate<ActorProfileRecord>(
-          record: const ActorProfileRecordConverter().fromJson(record),
+    if (uri.isLabelerService && LabelerServiceRecord.validate(record)) {
+      await _onCreateLabelerService?.call(
+        RepoCommitCreate<LabelerServiceRecord>(
+          record: const LabelerServiceRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -473,10 +473,10 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isLabelerService && LabelerServiceRecord.validate(record)) {
-      await _onCreateLabelerService?.call(
-        RepoCommitCreate<LabelerServiceRecord>(
-          record: const LabelerServiceRecordConverter().fromJson(record),
+    if (uri.isActorDeclaration && ActorDeclarationRecord.validate(record)) {
+      await _onCreateActorDeclaration?.call(
+        RepoCommitCreate<ActorDeclarationRecord>(
+          record: const ActorDeclarationRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -485,10 +485,10 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isActorDeclaration && ActorDeclarationRecord.validate(record)) {
-      await _onCreateActorDeclaration?.call(
-        RepoCommitCreate<ActorDeclarationRecord>(
-          record: const ActorDeclarationRecordConverter().fromJson(record),
+    if (uri.isLexiconSchema && LexiconSchemaRecord.validate(record)) {
+      await _onCreateLexiconSchema?.call(
+        RepoCommitCreate<LexiconSchemaRecord>(
+          record: const LexiconSchemaRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -513,10 +513,10 @@ final class RepoCommitHandler {
     final uri = _getUri(data, op);
     final record = _getRecord(data, op);
 
-    if (uri.isLexiconSchema && LexiconSchemaRecord.validate(record)) {
-      await _onUpdateLexiconSchema?.call(
-        RepoCommitUpdate<LexiconSchemaRecord>(
-          record: const LexiconSchemaRecordConverter().fromJson(record),
+    if (uri.isActorProfile && ActorProfileRecord.validate(record)) {
+      await _onUpdateActorProfile?.call(
+        RepoCommitUpdate<ActorProfileRecord>(
+          record: const ActorProfileRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -526,10 +526,114 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphStarterpack && GraphStarterpackRecord.validate(record)) {
-      await _onUpdateGraphStarterpack?.call(
-        RepoCommitUpdate<GraphStarterpackRecord>(
-          record: const GraphStarterpackRecordConverter().fromJson(record),
+    if (uri.isActorStatus && ActorStatusRecord.validate(record)) {
+      await _onUpdateActorStatus?.call(
+        RepoCommitUpdate<ActorStatusRecord>(
+          record: const ActorStatusRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedGenerator && FeedGeneratorRecord.validate(record)) {
+      await _onUpdateFeedGenerator?.call(
+        RepoCommitUpdate<FeedGeneratorRecord>(
+          record: const FeedGeneratorRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedLike && FeedLikeRecord.validate(record)) {
+      await _onUpdateFeedLike?.call(
+        RepoCommitUpdate<FeedLikeRecord>(
+          record: const FeedLikeRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedPost && FeedPostRecord.validate(record)) {
+      await _onUpdateFeedPost?.call(
+        RepoCommitUpdate<FeedPostRecord>(
+          record: const FeedPostRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedPostgate && FeedPostgateRecord.validate(record)) {
+      await _onUpdateFeedPostgate?.call(
+        RepoCommitUpdate<FeedPostgateRecord>(
+          record: const FeedPostgateRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedRepost && FeedRepostRecord.validate(record)) {
+      await _onUpdateFeedRepost?.call(
+        RepoCommitUpdate<FeedRepostRecord>(
+          record: const FeedRepostRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedThreadgate && FeedThreadgateRecord.validate(record)) {
+      await _onUpdateFeedThreadgate?.call(
+        RepoCommitUpdate<FeedThreadgateRecord>(
+          record: const FeedThreadgateRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphBlock && GraphBlockRecord.validate(record)) {
+      await _onUpdateGraphBlock?.call(
+        RepoCommitUpdate<GraphBlockRecord>(
+          record: const GraphBlockRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphFollow && GraphFollowRecord.validate(record)) {
+      await _onUpdateGraphFollow?.call(
+        RepoCommitUpdate<GraphFollowRecord>(
+          record: const GraphFollowRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -565,10 +669,23 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphFollow && GraphFollowRecord.validate(record)) {
-      await _onUpdateGraphFollow?.call(
-        RepoCommitUpdate<GraphFollowRecord>(
-          record: const GraphFollowRecordConverter().fromJson(record),
+    if (uri.isGraphListitem && GraphListitemRecord.validate(record)) {
+      await _onUpdateGraphListitem?.call(
+        RepoCommitUpdate<GraphListitemRecord>(
+          record: const GraphListitemRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphStarterpack && GraphStarterpackRecord.validate(record)) {
+      await _onUpdateGraphStarterpack?.call(
+        RepoCommitUpdate<GraphStarterpackRecord>(
+          record: const GraphStarterpackRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -591,127 +708,10 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphBlock && GraphBlockRecord.validate(record)) {
-      await _onUpdateGraphBlock?.call(
-        RepoCommitUpdate<GraphBlockRecord>(
-          record: const GraphBlockRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isGraphListitem && GraphListitemRecord.validate(record)) {
-      await _onUpdateGraphListitem?.call(
-        RepoCommitUpdate<GraphListitemRecord>(
-          record: const GraphListitemRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedLike && FeedLikeRecord.validate(record)) {
-      await _onUpdateFeedLike?.call(
-        RepoCommitUpdate<FeedLikeRecord>(
-          record: const FeedLikeRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedThreadgate && FeedThreadgateRecord.validate(record)) {
-      await _onUpdateFeedThreadgate?.call(
-        RepoCommitUpdate<FeedThreadgateRecord>(
-          record: const FeedThreadgateRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedGenerator && FeedGeneratorRecord.validate(record)) {
-      await _onUpdateFeedGenerator?.call(
-        RepoCommitUpdate<FeedGeneratorRecord>(
-          record: const FeedGeneratorRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedPost && FeedPostRecord.validate(record)) {
-      await _onUpdateFeedPost?.call(
-        RepoCommitUpdate<FeedPostRecord>(
-          record: const FeedPostRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedRepost && FeedRepostRecord.validate(record)) {
-      await _onUpdateFeedRepost?.call(
-        RepoCommitUpdate<FeedRepostRecord>(
-          record: const FeedRepostRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedPostgate && FeedPostgateRecord.validate(record)) {
-      await _onUpdateFeedPostgate?.call(
-        RepoCommitUpdate<FeedPostgateRecord>(
-          record: const FeedPostgateRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isActorStatus && ActorStatusRecord.validate(record)) {
-      await _onUpdateActorStatus?.call(
-        RepoCommitUpdate<ActorStatusRecord>(
-          record: const ActorStatusRecordConverter().fromJson(record),
-          uri: uri,
-          cid: op.cid,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isActorProfile && ActorProfileRecord.validate(record)) {
-      await _onUpdateActorProfile?.call(
-        RepoCommitUpdate<ActorProfileRecord>(
-          record: const ActorProfileRecordConverter().fromJson(record),
+    if (uri.isLabelerService && LabelerServiceRecord.validate(record)) {
+      await _onUpdateLabelerService?.call(
+        RepoCommitUpdate<LabelerServiceRecord>(
+          record: const LabelerServiceRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -737,10 +737,10 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isLabelerService && LabelerServiceRecord.validate(record)) {
-      await _onUpdateLabelerService?.call(
-        RepoCommitUpdate<LabelerServiceRecord>(
-          record: const LabelerServiceRecordConverter().fromJson(record),
+    if (uri.isActorDeclaration && ActorDeclarationRecord.validate(record)) {
+      await _onUpdateActorDeclaration?.call(
+        RepoCommitUpdate<ActorDeclarationRecord>(
+          record: const ActorDeclarationRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -750,10 +750,10 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isActorDeclaration && ActorDeclarationRecord.validate(record)) {
-      await _onUpdateActorDeclaration?.call(
-        RepoCommitUpdate<ActorDeclarationRecord>(
-          record: const ActorDeclarationRecordConverter().fromJson(record),
+    if (uri.isLexiconSchema && LexiconSchemaRecord.validate(record)) {
+      await _onUpdateLexiconSchema?.call(
+        RepoCommitUpdate<LexiconSchemaRecord>(
+          record: const LexiconSchemaRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -779,8 +779,8 @@ final class RepoCommitHandler {
   Future<void> _onDelete(final Commit data, final RepoOp op) async {
     final uri = _getUri(data, op);
 
-    if (uri.isLexiconSchema) {
-      await _onDeleteLexiconSchema?.call(
+    if (uri.isActorProfile) {
+      await _onDeleteActorProfile?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,
@@ -790,8 +790,96 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphStarterpack) {
-      await _onDeleteGraphStarterpack?.call(
+    if (uri.isActorStatus) {
+      await _onDeleteActorStatus?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedGenerator) {
+      await _onDeleteFeedGenerator?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedLike) {
+      await _onDeleteFeedLike?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedPost) {
+      await _onDeleteFeedPost?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedPostgate) {
+      await _onDeleteFeedPostgate?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedRepost) {
+      await _onDeleteFeedRepost?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isFeedThreadgate) {
+      await _onDeleteFeedThreadgate?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphBlock) {
+      await _onDeleteGraphBlock?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphFollow) {
+      await _onDeleteGraphFollow?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,
@@ -823,8 +911,19 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphFollow) {
-      await _onDeleteGraphFollow?.call(
+    if (uri.isGraphListitem) {
+      await _onDeleteGraphListitem?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphStarterpack) {
+      await _onDeleteGraphStarterpack?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,
@@ -845,107 +944,8 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isGraphBlock) {
-      await _onDeleteGraphBlock?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isGraphListitem) {
-      await _onDeleteGraphListitem?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedLike) {
-      await _onDeleteFeedLike?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedThreadgate) {
-      await _onDeleteFeedThreadgate?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedGenerator) {
-      await _onDeleteFeedGenerator?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedPost) {
-      await _onDeleteFeedPost?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedRepost) {
-      await _onDeleteFeedRepost?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isFeedPostgate) {
-      await _onDeleteFeedPostgate?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isActorStatus) {
-      await _onDeleteActorStatus?.call(
-        RepoCommitDelete(
-          uri: uri,
-          author: data.repo,
-          cursor: data.seq,
-          createdAt: data.time,
-        ),
-      );
-      return;
-    }
-    if (uri.isActorProfile) {
-      await _onDeleteActorProfile?.call(
+    if (uri.isLabelerService) {
+      await _onDeleteLabelerService?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,
@@ -966,8 +966,8 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isLabelerService) {
-      await _onDeleteLabelerService?.call(
+    if (uri.isActorDeclaration) {
+      await _onDeleteActorDeclaration?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,
@@ -977,8 +977,8 @@ final class RepoCommitHandler {
       );
       return;
     }
-    if (uri.isActorDeclaration) {
-      await _onDeleteActorDeclaration?.call(
+    if (uri.isLexiconSchema) {
+      await _onDeleteLexiconSchema?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,

@@ -6,7 +6,6 @@
 import 'dart:io';
 
 // Package imports:
-import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
@@ -21,22 +20,27 @@ void generateLexServices(
   final List<String> services,
   final List<String> packages,
   final List<LexType> types,
+  final List<LexiconDoc> docs,
 ) {
-  return _LexServiceGenerator(services, packages, types).execute();
+  return _LexServiceGenerator(services, packages, types, docs).execute();
 }
 
 final class _LexServiceGenerator {
   final List<String> services;
   final List<String> packages;
   final List<LexType> types;
+  final List<LexiconDoc> docs;
 
-  const _LexServiceGenerator(this.services, this.packages, this.types);
+  const _LexServiceGenerator(
+    this.services,
+    this.packages,
+    this.types,
+    this.docs,
+  );
 
   void execute() {
     final services = <LexService>[];
-    final docsByService = _groupDocsByService(
-      _filterLexicons().map(LexiconDoc.fromJson).toList(),
-    );
+    final docsByService = _groupDocsByService(_filterLexicons(docs));
 
     for (final entry in docsByService.entries) {
       final apis = <LexApi>[];
@@ -92,9 +96,9 @@ final class _LexServiceGenerator {
     _generateLexPackages(services);
   }
 
-  List<Map<String, dynamic>> _filterLexicons() {
-    return lexicons.where((lexicon) {
-      final id = lexicon['id'] as String;
+  List<LexiconDoc> _filterLexicons(final List<LexiconDoc> docs) {
+    return docs.where((lexicon) {
+      final id = lexicon.id.toString();
       final service = id.split('.').sublist(0, 2).join('.');
 
       return services.contains(service);

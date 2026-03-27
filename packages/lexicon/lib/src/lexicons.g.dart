@@ -3081,16 +3081,13 @@ const comAtprotoLabelDefs = <String, dynamic>{
       "type": "string",
       "knownValues": [
         "!hide",
-        "!no-promote",
         "!warn",
         "!no-unauthenticated",
-        "dmca-violation",
-        "doxxing",
         "porn",
         "sexual",
         "nudity",
-        "nsfl",
-        "gore",
+        "graphic-media",
+        "bot",
       ],
     },
   },
@@ -4894,20 +4891,20 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
                 "ref": "app.bsky.actor.defs#profileView",
               },
             },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
             "isFallback": {
               "type": "boolean",
               "description":
-                  "If true, response has fallen-back to generic results, and is not scoped using relativeToDid",
+                  "DEPRECATED, unused. Previously: if true, response has fallen-back to generic results, and is not scoped using relativeToDid",
               "default": false,
             },
             "recId": {
               "type": "integer",
               "description": "DEPRECATED: use recIdStr instead.",
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -16090,6 +16087,7 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
                 "tools.ozone.moderation.defs#modEventPriorityScore",
                 "tools.ozone.moderation.defs#ageAssuranceEvent",
                 "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
+                "tools.ozone.moderation.defs#ageAssurancePurgeEvent",
                 "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
                 "tools.ozone.moderation.defs#scheduleTakedownEvent",
                 "tools.ozone.moderation.defs#cancelScheduledTakedownEvent",
@@ -16179,6 +16177,7 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventPriorityScore",
             "#ageAssuranceEvent",
             "#ageAssuranceOverrideEvent",
+            "#ageAssurancePurgeEvent",
             "#revokeAccountCredentialsEvent",
             "#scheduleTakedownEvent",
             "#cancelScheduledTakedownEvent",
@@ -16239,6 +16238,7 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventPriorityScore",
             "#ageAssuranceEvent",
             "#ageAssuranceOverrideEvent",
+            "#ageAssurancePurgeEvent",
             "#revokeAccountCredentialsEvent",
             "#scheduleTakedownEvent",
             "#cancelScheduledTakedownEvent",
@@ -16709,6 +16709,19 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "comment": {
           "type": "string",
           "description": "Comment describing the reason for the override.",
+          "minLength": 1,
+        },
+      },
+    },
+    "ageAssurancePurgeEvent": {
+      "type": "object",
+      "description":
+          "Purges all age assurance events for the subject. Only works on DID subjects. Moderator-only.",
+      "required": ["comment"],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "Comment describing the reason for the purge.",
           "minLength": 1,
         },
       },

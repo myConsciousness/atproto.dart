@@ -21,6 +21,30 @@ import 'ageassurance/getState/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Initiate Age Assurance for an account.
+Future<XRPCResponse<State>> appBskyAgeassuranceBegin({
+  required String email,
+  required String language,
+  required String countryCode,
+  String? regionCode,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyAgeassuranceBegin,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'email': email,
+    'language': language,
+    'countryCode': countryCode,
+    if (regionCode != null) 'regionCode': regionCode,
+  },
+  to: const StateConverter().fromJson,
+);
+
 /// Returns Age Assurance configuration for use on the client.
 Future<XRPCResponse<Config>> appBskyAgeassuranceGetConfig({
   required ServiceContext $ctx,
@@ -55,36 +79,32 @@ Future<XRPCResponse<AgeassuranceGetStateOutput>> appBskyAgeassuranceGetState({
   to: const AgeassuranceGetStateOutputConverter().fromJson,
 );
 
-/// Initiate Age Assurance for an account.
-Future<XRPCResponse<State>> appBskyAgeassuranceBegin({
-  required String email,
-  required String language,
-  required String countryCode,
-  String? regionCode,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.appBskyAgeassuranceBegin,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'email': email,
-    'language': language,
-    'countryCode': countryCode,
-    if (regionCode != null) 'regionCode': regionCode,
-  },
-  to: const StateConverter().fromJson,
-);
-
 /// `app.bsky.ageassurance.*`
 base class AgeassuranceService {
   @protected
   final ServiceContext ctx;
 
   AgeassuranceService(this.ctx);
+
+  /// Initiate Age Assurance for an account.
+  Future<XRPCResponse<State>> begin({
+    required String email,
+    required String language,
+    required String countryCode,
+    String? regionCode,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyAgeassuranceBegin(
+    email: email,
+    language: language,
+    countryCode: countryCode,
+    regionCode: regionCode,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Returns Age Assurance configuration for use on the client.
   Future<XRPCResponse<Config>> getConfig({
@@ -106,26 +126,6 @@ base class AgeassuranceService {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyAgeassuranceGetState(
-    countryCode: countryCode,
-    regionCode: regionCode,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Initiate Age Assurance for an account.
-  Future<XRPCResponse<State>> begin({
-    required String email,
-    required String language,
-    required String countryCode,
-    String? regionCode,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyAgeassuranceBegin(
-    email: email,
-    language: language,
     countryCode: countryCode,
     regionCode: regionCode,
     $ctx: ctx,

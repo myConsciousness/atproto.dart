@@ -36,51 +36,6 @@ import 'repo/uploadBlob/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
-Future<XRPCResponse<RepoPutRecordOutput>> comAtprotoRepoPutRecord({
-  required String repo,
-  required String collection,
-  required String rkey,
-  bool? validate,
-  required Map<String, dynamic> record,
-  String? swapRecord,
-  String? swapCommit,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoRepoPutRecord,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'repo': repo,
-    'collection': collection,
-    'rkey': rkey,
-    if (validate != null) 'validate': validate,
-    'record': record,
-    if (swapRecord != null) 'swapRecord': swapRecord,
-    if (swapCommit != null) 'swapCommit': swapCommit,
-  },
-  to: const RepoPutRecordOutputConverter().fromJson,
-);
-
-/// Get information about an account and repository, including the list of collections. Does not require auth.
-Future<XRPCResponse<RepoDescribeRepoOutput>> comAtprotoRepoDescribeRepo({
-  required String repo,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoRepoDescribeRepo,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown, 'repo': repo},
-  to: const RepoDescribeRepoOutputConverter().fromJson,
-);
-
 /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
 Future<XRPCResponse<RepoApplyWritesOutput>> comAtprotoRepoApplyWrites({
   required String repo,
@@ -133,22 +88,6 @@ Future<XRPCResponse<RepoCreateRecordOutput>> comAtprotoRepoCreateRecord({
   to: const RepoCreateRecordOutputConverter().fromJson,
 );
 
-/// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
-Future<XRPCResponse<RepoUploadBlobOutput>> comAtprotoRepoUploadBlob({
-  required Uint8List bytes,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $parameters,
-}) async => await $ctx.post(
-  ns.comAtprotoRepoUploadBlob,
-  service: $service,
-  headers: {'Content-type': '*/*', ...?$headers},
-  parameters: $parameters,
-  body: bytes,
-  to: const RepoUploadBlobOutputConverter().fromJson,
-);
-
 /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
 Future<XRPCResponse<RepoDeleteRecordOutput>> comAtprotoRepoDeleteRecord({
   required String repo,
@@ -175,6 +114,60 @@ Future<XRPCResponse<RepoDeleteRecordOutput>> comAtprotoRepoDeleteRecord({
   to: const RepoDeleteRecordOutputConverter().fromJson,
 );
 
+/// Get information about an account and repository, including the list of collections. Does not require auth.
+Future<XRPCResponse<RepoDescribeRepoOutput>> comAtprotoRepoDescribeRepo({
+  required String repo,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoRepoDescribeRepo,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, 'repo': repo},
+  to: const RepoDescribeRepoOutputConverter().fromJson,
+);
+
+/// Get a single record from a repository. Does not require auth.
+Future<XRPCResponse<RepoGetRecordOutput>> comAtprotoRepoGetRecord({
+  required String repo,
+  required String collection,
+  required String rkey,
+  String? cid,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoRepoGetRecord,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'repo': repo,
+    'collection': collection,
+    'rkey': rkey,
+    if (cid != null) 'cid': cid,
+  },
+  to: const RepoGetRecordOutputConverter().fromJson,
+);
+
+/// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
+Future<XRPCResponse<EmptyData>> comAtprotoRepoImportRepo({
+  required Uint8List bytes,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $parameters,
+}) async => await $ctx.post(
+  ns.comAtprotoRepoImportRepo,
+  service: $service,
+  headers: {'Content-type': 'application/vnd.ipld.car', ...?$headers},
+  parameters: $parameters,
+  body: bytes,
+);
+
 /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
 Future<XRPCResponse<RepoListMissingBlobsOutput>>
 comAtprotoRepoListMissingBlobs({
@@ -194,21 +187,6 @@ comAtprotoRepoListMissingBlobs({
     if (cursor != null) 'cursor': cursor,
   },
   to: const RepoListMissingBlobsOutputConverter().fromJson,
-);
-
-/// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
-Future<XRPCResponse<EmptyData>> comAtprotoRepoImportRepo({
-  required Uint8List bytes,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $parameters,
-}) async => await $ctx.post(
-  ns.comAtprotoRepoImportRepo,
-  service: $service,
-  headers: {'Content-type': 'application/vnd.ipld.car', ...?$headers},
-  parameters: $parameters,
-  body: bytes,
 );
 
 /// List a range of records in a repository, matching a specific collection. Does not require auth.
@@ -237,28 +215,50 @@ Future<XRPCResponse<RepoListRecordsOutput>> comAtprotoRepoListRecords({
   to: const RepoListRecordsOutputConverter().fromJson,
 );
 
-/// Get a single record from a repository. Does not require auth.
-Future<XRPCResponse<RepoGetRecordOutput>> comAtprotoRepoGetRecord({
+/// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
+Future<XRPCResponse<RepoPutRecordOutput>> comAtprotoRepoPutRecord({
   required String repo,
   required String collection,
   required String rkey,
-  String? cid,
+  bool? validate,
+  required Map<String, dynamic> record,
+  String? swapRecord,
+  String? swapCommit,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoRepoGetRecord,
+}) async => await $ctx.post(
+  ns.comAtprotoRepoPutRecord,
   service: $service,
-  headers: $headers,
-  parameters: {
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
     ...?$unknown,
     'repo': repo,
     'collection': collection,
     'rkey': rkey,
-    if (cid != null) 'cid': cid,
+    if (validate != null) 'validate': validate,
+    'record': record,
+    if (swapRecord != null) 'swapRecord': swapRecord,
+    if (swapCommit != null) 'swapCommit': swapCommit,
   },
-  to: const RepoGetRecordOutputConverter().fromJson,
+  to: const RepoPutRecordOutputConverter().fromJson,
+);
+
+/// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
+Future<XRPCResponse<RepoUploadBlobOutput>> comAtprotoRepoUploadBlob({
+  required Uint8List bytes,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $parameters,
+}) async => await $ctx.post(
+  ns.comAtprotoRepoUploadBlob,
+  service: $service,
+  headers: {'Content-type': '*/*', ...?$headers},
+  parameters: $parameters,
+  body: bytes,
+  to: const RepoUploadBlobOutputConverter().fromJson,
 );
 
 /// `com.atproto.repo.*`
@@ -267,46 +267,6 @@ base class RepoService {
   final ServiceContext ctx;
 
   RepoService(this.ctx);
-
-  /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
-  Future<XRPCResponse<RepoPutRecordOutput>> putRecord({
-    required String repo,
-    required String collection,
-    required String rkey,
-    bool? validate,
-    required Map<String, dynamic> record,
-    String? swapRecord,
-    String? swapCommit,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoPutRecord(
-    repo: repo,
-    collection: collection,
-    rkey: rkey,
-    validate: validate,
-    record: record,
-    swapRecord: swapRecord,
-    swapCommit: swapCommit,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Get information about an account and repository, including the list of collections. Does not require auth.
-  Future<XRPCResponse<RepoDescribeRepoOutput>> describeRepo({
-    required String repo,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoDescribeRepo(
-    repo: repo,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
 
   /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoApplyWritesOutput>> applyWrites({
@@ -352,20 +312,6 @@ base class RepoService {
     $unknown: $unknown,
   );
 
-  /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
-  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
-    required Uint8List bytes,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $parameters,
-  }) async => await comAtprotoRepoUploadBlob(
-    bytes: bytes,
-    $parameters: $parameters,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-  );
-
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
   Future<XRPCResponse<RepoDeleteRecordOutput>> deleteRecord({
     required String repo,
@@ -388,52 +334,14 @@ base class RepoService {
     $unknown: $unknown,
   );
 
-  /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
-  Future<XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
-    int? limit,
-    String? cursor,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListMissingBlobs(
-    limit: limit,
-    cursor: cursor,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
-  Future<XRPCResponse<EmptyData>> importRepo({
-    required Uint8List bytes,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $parameters,
-  }) async => await comAtprotoRepoImportRepo(
-    bytes: bytes,
-    $parameters: $parameters,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-  );
-
-  /// List a range of records in a repository, matching a specific collection. Does not require auth.
-  Future<XRPCResponse<RepoListRecordsOutput>> listRecords({
+  /// Get information about an account and repository, including the list of collections. Does not require auth.
+  Future<XRPCResponse<RepoDescribeRepoOutput>> describeRepo({
     required String repo,
-    required String collection,
-    int? limit,
-    String? cursor,
-    bool? reverse,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoRepoListRecords(
+  }) async => await comAtprotoRepoDescribeRepo(
     repo: repo,
-    collection: collection,
-    limit: limit,
-    cursor: cursor,
-    reverse: reverse,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -458,5 +366,97 @@ base class RepoService {
     $service: $service,
     $headers: $headers,
     $unknown: $unknown,
+  );
+
+  /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
+  Future<XRPCResponse<EmptyData>> importRepo({
+    required Uint8List bytes,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $parameters,
+  }) async => await comAtprotoRepoImportRepo(
+    bytes: bytes,
+    $parameters: $parameters,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+  );
+
+  /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
+  Future<XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListMissingBlobs(
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// List a range of records in a repository, matching a specific collection. Does not require auth.
+  Future<XRPCResponse<RepoListRecordsOutput>> listRecords({
+    required String repo,
+    required String collection,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: collection,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
+  Future<XRPCResponse<RepoPutRecordOutput>> putRecord({
+    required String repo,
+    required String collection,
+    required String rkey,
+    bool? validate,
+    required Map<String, dynamic> record,
+    String? swapRecord,
+    String? swapCommit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: repo,
+    collection: collection,
+    rkey: rkey,
+    validate: validate,
+    record: record,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
+  Future<XRPCResponse<RepoUploadBlobOutput>> uploadBlob({
+    required Uint8List bytes,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $parameters,
+  }) async => await comAtprotoRepoUploadBlob(
+    bytes: bytes,
+    $parameters: $parameters,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
   );
 }

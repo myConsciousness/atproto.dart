@@ -17,6 +17,15 @@ import 'shared/error_handler.dart';
 import 'shared/logger.dart';
 import 'shared/progress_reporter.dart';
 
+const _lexiconServices = <String>[
+  'com.atproto',
+  'app.bsky',
+  'chat.bsky',
+  'tools.ozone',
+];
+
+const _lexiconPackages = <String>['atproto', 'bluesky'];
+
 /// Optimized code generation script using BaseScript infrastructure.
 class GenCodesScript extends BaseScript {
   final ScriptConfig config;
@@ -72,9 +81,14 @@ class GenCodesScript extends BaseScript {
     logger.info('Generating services and types...');
     progress.updateProgress(0, currentItem: 'Initializing service generation');
 
+    final lexGenConfig = _buildLexGenConfig(
+      lexiconsPath: config.lexiconsPath,
+      packagesPath: config.packagesPath,
+    );
+
     final serviceStartTime = DateTime.now();
     try {
-      const ServiceGen().execute();
+      ServiceGen(config: lexGenConfig).execute();
       final serviceDuration = DateTime.now().difference(serviceStartTime);
       progress.updateProgress(1, currentItem: 'Service generation complete');
       logger.debug(
@@ -97,7 +111,7 @@ class GenCodesScript extends BaseScript {
 
     final commandStartTime = DateTime.now();
     try {
-      const CommandGen().execute();
+      CommandGen(config: lexGenConfig).execute();
       final commandDuration = DateTime.now().difference(commandStartTime);
       progress.updateProgress(2, currentItem: 'Command generation complete');
       logger.debug(
@@ -179,8 +193,16 @@ class GenCodesScript extends BaseScript {
     try {
       // Spawn isolates for parallel execution
       await Future.wait([
-        Isolate.spawn(_serviceGenerationIsolate, servicePort.sendPort),
-        Isolate.spawn(_commandGenerationIsolate, commandPort.sendPort),
+        Isolate.spawn(_serviceGenerationIsolate, {
+          'sendPort': servicePort.sendPort,
+          'lexiconsPath': config.lexiconsPath,
+          'packagesPath': config.packagesPath,
+        }),
+        Isolate.spawn(_commandGenerationIsolate, {
+          'sendPort': commandPort.sendPort,
+          'lexiconsPath': config.lexiconsPath,
+          'packagesPath': config.packagesPath,
+        }),
       ]);
 
       // Wait for both tasks to complete
@@ -234,9 +256,18 @@ class _GenerationOptions {
 }
 
 /// Isolate entry point for service generation.
-void _serviceGenerationIsolate(SendPort sendPort) {
+void _serviceGenerationIsolate(Map<String, Object> args) {
+  final sendPort = args['sendPort']! as SendPort;
+  final lexiconsPath = args['lexiconsPath']! as String;
+  final packagesPath = args['packagesPath']! as String;
+
   try {
-    const ServiceGen().execute();
+    final config = _buildLexGenConfig(
+      lexiconsPath: lexiconsPath,
+      packagesPath: packagesPath,
+    );
+
+    ServiceGen(config: config).execute();
     sendPort.send('complete');
   } catch (error) {
     sendPort.send('error:$error');
@@ -244,13 +275,54 @@ void _serviceGenerationIsolate(SendPort sendPort) {
 }
 
 /// Isolate entry point for command generation.
-void _commandGenerationIsolate(SendPort sendPort) {
+void _commandGenerationIsolate(Map<String, Object> args) {
+  final sendPort = args['sendPort']! as SendPort;
+  final lexiconsPath = args['lexiconsPath']! as String;
+  final packagesPath = args['packagesPath']! as String;
+
   try {
-    const CommandGen().execute();
+    final config = _buildLexGenConfig(
+      lexiconsPath: lexiconsPath,
+      packagesPath: packagesPath,
+    );
+
+    CommandGen(config: config).execute();
     sendPort.send('complete');
   } catch (error) {
     sendPort.send('error:$error');
   }
+}
+
+LexGenConfig _buildLexGenConfig({
+  required String lexiconsPath,
+  required String packagesPath,
+}) {
+  return LexGenConfig(
+    services: _lexiconServices,
+    packages: _lexiconPackages,
+    docsProvider: lexiconDocsProviderFromPaths([lexiconsPath]),
+    serviceRuleConfig: LexServiceRuleConfig(
+      namespaceRules: [
+        LexiconNamespaceRule(
+          prefixes: ['com.atproto.'],
+          homeDir: '$packagesPath/atproto/lib/src/services/codegen',
+          exportCodegenPath: 'package:atproto/src/services/codegen',
+          servicePackagePath: 'package:atproto',
+          rootPackageName: 'atproto',
+        ),
+        LexiconNamespaceRule(
+          prefixes: ['app.bsky.', 'chat.bsky.', 'tools.ozone.'],
+          homeDir: '$packagesPath/bluesky/lib/src/services/codegen',
+          exportCodegenPath: 'package:bluesky/src/services/codegen',
+          servicePackagePath: 'package:bluesky',
+          rootPackageName: 'bluesky',
+        ),
+      ],
+    ),
+    commandRuleConfig: LexCommandRuleConfig(
+      homeDir: '$packagesPath/bluesky_cli/lib/src/commands/codegen',
+    ),
+  );
 }
 
 /// Main entry point for the script.

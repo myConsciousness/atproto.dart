@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import './account_event.dart';
 import './age_assurance_event.dart';
 import './age_assurance_override_event.dart';
+import './age_assurance_purge_event.dart';
 import './cancel_scheduled_takedown_event.dart';
 import './identity_event.dart';
 import './mod_event_acknowledge.dart';
@@ -106,6 +107,9 @@ sealed class UModEventViewEvent with _$UModEventViewEvent {
   const factory UModEventViewEvent.ageAssuranceOverrideEvent({
     required AgeAssuranceOverrideEvent data,
   }) = UModEventViewEventAgeAssuranceOverrideEvent;
+  const factory UModEventViewEvent.ageAssurancePurgeEvent({
+    required AgeAssurancePurgeEvent data,
+  }) = UModEventViewEventAgeAssurancePurgeEvent;
   const factory UModEventViewEvent.revokeAccountCredentialsEvent({
     required RevokeAccountCredentialsEvent data,
   }) = UModEventViewEventRevokeAccountCredentialsEvent;
@@ -215,6 +219,11 @@ extension UModEventViewEventExtension on UModEventViewEvent {
   bool get isNotAgeAssuranceOverrideEvent => !isAgeAssuranceOverrideEvent;
   AgeAssuranceOverrideEvent? get ageAssuranceOverrideEvent =>
       isAgeAssuranceOverrideEvent ? data as AgeAssuranceOverrideEvent : null;
+  bool get isAgeAssurancePurgeEvent =>
+      isA<UModEventViewEventAgeAssurancePurgeEvent>(this);
+  bool get isNotAgeAssurancePurgeEvent => !isAgeAssurancePurgeEvent;
+  AgeAssurancePurgeEvent? get ageAssurancePurgeEvent =>
+      isAgeAssurancePurgeEvent ? data as AgeAssurancePurgeEvent : null;
   bool get isRevokeAccountCredentialsEvent =>
       isA<UModEventViewEventRevokeAccountCredentialsEvent>(this);
   bool get isNotRevokeAccountCredentialsEvent =>
@@ -353,6 +362,11 @@ final class UModEventViewEventConverter
           data: const AgeAssuranceOverrideEventConverter().fromJson(json),
         );
       }
+      if (AgeAssurancePurgeEvent.validate(json)) {
+        return UModEventViewEvent.ageAssurancePurgeEvent(
+          data: const AgeAssurancePurgeEventConverter().fromJson(json),
+        );
+      }
       if (RevokeAccountCredentialsEvent.validate(json)) {
         return UModEventViewEvent.revokeAccountCredentialsEvent(
           data: const RevokeAccountCredentialsEventConverter().fromJson(json),
@@ -406,6 +420,8 @@ final class UModEventViewEventConverter
         const AgeAssuranceEventConverter().toJson(data),
     ageAssuranceOverrideEvent: (data) =>
         const AgeAssuranceOverrideEventConverter().toJson(data),
+    ageAssurancePurgeEvent: (data) =>
+        const AgeAssurancePurgeEventConverter().toJson(data),
     revokeAccountCredentialsEvent: (data) =>
         const RevokeAccountCredentialsEventConverter().toJson(data),
     scheduleTakedownEvent: (data) =>

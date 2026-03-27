@@ -24,14 +24,11 @@ part 'output.g.dart';
 @freezed
 abstract class GraphGetSuggestedFollowsByActorOutput
     with _$GraphGetSuggestedFollowsByActorOutput {
-  static const knownProps = <String>['suggestions', 'isFallback', 'recIdStr'];
+  static const knownProps = <String>['suggestions', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory GraphGetSuggestedFollowsByActorOutput({
     @ProfileViewConverter() required List<ProfileView> suggestions,
-
-    /// If true, response has fallen-back to generic results, and is not scoped using relativeToDid
-    @Default(false) bool isFallback,
 
     /// Snowflake for this recommendation, use when submitting recommendation events.
     String? recIdStr,
@@ -46,8 +43,6 @@ abstract class GraphGetSuggestedFollowsByActorOutput
 
 extension GraphGetSuggestedFollowsByActorOutputExtension
     on GraphGetSuggestedFollowsByActorOutput {
-  bool get isIsFallback => isFallback;
-  bool get isNotIsFallback => !isIsFallback;
   bool get hasRecIdStr => recIdStr != null;
   bool get hasNotRecIdStr => !hasRecIdStr;
 }

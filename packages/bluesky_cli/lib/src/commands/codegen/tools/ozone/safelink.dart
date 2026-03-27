@@ -23,11 +23,11 @@ import 'safelink/update_rule.dart';
 
 final class ToolsOzoneSafelinkCommand extends Command<void> {
   ToolsOzoneSafelinkCommand() {
-    addSubcommand(UpdateRuleCommand());
+    addSubcommand(AddRuleCommand());
     addSubcommand(QueryEventsCommand());
     addSubcommand(QueryRulesCommand());
     addSubcommand(RemoveRuleCommand());
-    addSubcommand(AddRuleCommand());
+    addSubcommand(UpdateRuleCommand());
   }
 
   @override

@@ -23,6 +23,20 @@ import 'temp/fetchLabels/output.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Add a handle to the set of reserved handles.
+Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
+  required String handle,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoTempAddReservedHandle,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'handle': handle},
+);
+
 /// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
 Future<XRPCResponse<TempCheckHandleAvailabilityOutput>>
 comAtprotoTempCheckHandleAvailability({
@@ -46,6 +60,37 @@ comAtprotoTempCheckHandleAvailability({
   to: const TempCheckHandleAvailabilityOutputConverter().fromJson,
 );
 
+/// Check accounts location in signup queue.
+Future<XRPCResponse<TempCheckSignupQueueOutput>>
+comAtprotoTempCheckSignupQueue({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoTempCheckSignupQueue,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const TempCheckSignupQueueOutputConverter().fromJson,
+);
+
+/// Allows finding the oauth permission scope from a reference
+Future<XRPCResponse<TempDereferenceScopeOutput>>
+comAtprotoTempDereferenceScope({
+  required String scope,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoTempDereferenceScope,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, 'scope': scope},
+  to: const TempDereferenceScopeOutputConverter().fromJson,
+);
+
 /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
 Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
   int? since,
@@ -64,36 +109,6 @@ Future<XRPCResponse<TempFetchLabelsOutput>> comAtprotoTempFetchLabels({
     if (limit != null) 'limit': limit,
   },
   to: const TempFetchLabelsOutputConverter().fromJson,
-);
-
-/// Add a handle to the set of reserved handles.
-Future<XRPCResponse<EmptyData>> comAtprotoTempAddReservedHandle({
-  required String handle,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoTempAddReservedHandle,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'handle': handle},
-);
-
-/// Allows finding the oauth permission scope from a reference
-Future<XRPCResponse<TempDereferenceScopeOutput>>
-comAtprotoTempDereferenceScope({
-  required String scope,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoTempDereferenceScope,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown, 'scope': scope},
-  to: const TempDereferenceScopeOutputConverter().fromJson,
 );
 
 /// Request a verification code to be sent to the supplied phone number
@@ -124,27 +139,26 @@ Future<XRPCResponse<EmptyData>> comAtprotoTempRevokeAccountCredentials({
   body: {...?$unknown, 'account': account},
 );
 
-/// Check accounts location in signup queue.
-Future<XRPCResponse<TempCheckSignupQueueOutput>>
-comAtprotoTempCheckSignupQueue({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoTempCheckSignupQueue,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const TempCheckSignupQueueOutputConverter().fromJson,
-);
-
 /// `com.atproto.temp.*`
 base class TempService {
   @protected
   final ServiceContext ctx;
 
   TempService(this.ctx);
+
+  /// Add a handle to the set of reserved handles.
+  Future<XRPCResponse<EmptyData>> addReservedHandle({
+    required String handle,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoTempAddReservedHandle(
+    handle: handle,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.
   Future<XRPCResponse<TempCheckHandleAvailabilityOutput>>
@@ -165,30 +179,12 @@ base class TempService {
     $unknown: $unknown,
   );
 
-  /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
-  Future<XRPCResponse<TempFetchLabelsOutput>> fetchLabels({
-    int? since,
-    int? limit,
+  /// Check accounts location in signup queue.
+  Future<XRPCResponse<TempCheckSignupQueueOutput>> checkSignupQueue({
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoTempFetchLabels(
-    since: since,
-    limit: limit,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Add a handle to the set of reserved handles.
-  Future<XRPCResponse<EmptyData>> addReservedHandle({
-    required String handle,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoTempAddReservedHandle(
-    handle: handle,
+  }) async => await comAtprotoTempCheckSignupQueue(
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -203,6 +199,22 @@ base class TempService {
     Map<String, String>? $unknown,
   }) async => await comAtprotoTempDereferenceScope(
     scope: scope,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
+  Future<XRPCResponse<TempFetchLabelsOutput>> fetchLabels({
+    int? since,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoTempFetchLabels(
+    since: since,
+    limit: limit,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -231,18 +243,6 @@ base class TempService {
     Map<String, String>? $unknown,
   }) async => await comAtprotoTempRevokeAccountCredentials(
     account: account,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Check accounts location in signup queue.
-  Future<XRPCResponse<TempCheckSignupQueueOutput>> checkSignupQueue({
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoTempCheckSignupQueue(
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

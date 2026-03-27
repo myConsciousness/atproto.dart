@@ -66,6 +66,8 @@ base class ActorService {
 
   ActorService(this.ctx) : _declaration = ActorDeclarationRecordAccessor(ctx);
 
+  /// A declaration of a Bluesky chat account.
+  ActorDeclarationRecordAccessor get declaration => _declaration;
   Future<XRPCResponse<EmptyData>> deleteAccount({
     String? $service,
     Map<String, String>? $headers,
@@ -84,9 +86,6 @@ base class ActorService {
     $headers: $headers,
     $unknown: $unknown,
   );
-
-  /// A declaration of a Bluesky chat account.
-  ActorDeclarationRecordAccessor get declaration => _declaration;
 }
 
 final class ActorDeclarationRecordAccessor {

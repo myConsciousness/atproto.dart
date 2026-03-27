@@ -3,12 +3,23 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
-import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../config.dart';
 import '../utils.dart';
 import 'object/lex_type.dart';
+
+LexServiceRuleConfig? _config;
+List<LexiconDoc> _lexiconDocs = const [];
+
+void setLexServiceRuleConfig(final LexServiceRuleConfig config) {
+  _config = config;
+}
+
+void setLexiconDocs(final List<LexiconDoc> docs) {
+  _lexiconDocs = List.unmodifiable(docs);
+}
 
 bool isDeprecated(final String? description) {
   if (description == null) return false;
@@ -147,39 +158,15 @@ String getLexObjectTypeId(final String lexiconId, final String defName) {
 }
 
 String getHomeDir(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
-    return 'packages/atproto/lib/src/services/codegen';
-  } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
-    return 'packages/bluesky/lib/src/services/codegen';
-  }
-
-  throw ArgumentError('Unsupported lexicon ID: $lexiconId');
+  return _getNamespaceRule(lexiconId).homeDir;
 }
 
 String _getHomeDirForExport(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
-    return 'package:atproto/src/services/codegen';
-  } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
-    return 'package:bluesky/src/services/codegen';
-  }
-
-  throw ArgumentError('Unsupported lexicon ID: $lexiconId');
+  return _getNamespaceRule(lexiconId).exportCodegenPath;
 }
 
 String _getHomeDirForService(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
-    return 'package:atproto';
-  } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
-    return 'package:bluesky';
-  }
-
-  throw ArgumentError('Unsupported lexicon ID: $lexiconId');
+  return _getNamespaceRule(lexiconId).servicePackagePath;
 }
 
 String _getFileDir(final String lexiconId) {
@@ -315,12 +302,19 @@ String getRecordTypeName(final String lexiconId) {
 }
 
 String getRootPackageName(final String lexiconId) {
-  if (lexiconId.startsWith('com.atproto.')) {
-    return 'atproto';
-  } else if (lexiconId.startsWith('app.bsky.') ||
-      lexiconId.startsWith('chat.bsky.') ||
-      lexiconId.startsWith('tools.ozone.')) {
-    return 'bluesky';
+  return _getNamespaceRule(lexiconId).rootPackageName;
+}
+
+LexiconNamespaceRule _getNamespaceRule(final String lexiconId) {
+  final config = _config;
+  if (config == null) {
+    throw StateError('Lex service rule config is not set');
+  }
+
+  for (final rule in config.namespaceRules) {
+    if (rule.matches(lexiconId)) {
+      return rule;
+    }
   }
 
   throw ArgumentError('Unsupported lexicon ID: $lexiconId');
@@ -399,7 +393,7 @@ LexUserType? getRelatedDocFromRef(final String? ref) {
   final lexiconId = parts.first;
   final defName = parts.last;
 
-  for (final doc in lexicons.map(LexiconDoc.fromJson).toList()) {
+  for (final doc in _lexiconDocs) {
     for (final def in doc.defs.entries) {
       if (doc.id.toString() == lexiconId && def.key == defName) {
         return def.value;

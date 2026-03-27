@@ -24,20 +24,19 @@ import 'video/getUploadLimits/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Upload a video to be processed then stored on the PDS.
-Future<XRPCResponse<JobStatus>> appBskyVideoUploadVideo({
-  required Uint8List bytes,
+/// Get status details for a video processing job.
+Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
+  required String jobId,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
-  Map<String, String>? $parameters,
-}) async => await $ctx.post(
-  ns.appBskyVideoUploadVideo,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyVideoGetJobStatus,
   service: $service,
-  headers: {'Content-type': 'video/mp4', ...?$headers},
-  parameters: $parameters,
-  body: bytes,
-  to: const JobStatusConverter().fromJson,
+  headers: $headers,
+  parameters: {...?$unknown, 'jobId': jobId},
+  to: const VideoGetJobStatusOutputConverter().fromJson,
 );
 
 /// Get video upload limits for the authenticated user.
@@ -54,19 +53,20 @@ Future<XRPCResponse<VideoGetUploadLimitsOutput>> appBskyVideoGetUploadLimits({
   to: const VideoGetUploadLimitsOutputConverter().fromJson,
 );
 
-/// Get status details for a video processing job.
-Future<XRPCResponse<VideoGetJobStatusOutput>> appBskyVideoGetJobStatus({
-  required String jobId,
+/// Upload a video to be processed then stored on the PDS.
+Future<XRPCResponse<JobStatus>> appBskyVideoUploadVideo({
+  required Uint8List bytes,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.appBskyVideoGetJobStatus,
+  Map<String, String>? $parameters,
+}) async => await $ctx.post(
+  ns.appBskyVideoUploadVideo,
   service: $service,
-  headers: $headers,
-  parameters: {...?$unknown, 'jobId': jobId},
-  to: const VideoGetJobStatusOutputConverter().fromJson,
+  headers: {'Content-type': 'video/mp4', ...?$headers},
+  parameters: $parameters,
+  body: bytes,
+  to: const JobStatusConverter().fromJson,
 );
 
 /// `app.bsky.video.*`
@@ -76,18 +76,18 @@ base class VideoService {
 
   VideoService(this.ctx);
 
-  /// Upload a video to be processed then stored on the PDS.
-  Future<XRPCResponse<JobStatus>> uploadVideo({
-    required Uint8List bytes,
+  /// Get status details for a video processing job.
+  Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
+    required String jobId,
     String? $service,
     Map<String, String>? $headers,
-    Map<String, String>? $parameters,
-  }) async => await appBskyVideoUploadVideo(
-    bytes: bytes,
-    $parameters: $parameters,
+    Map<String, String>? $unknown,
+  }) async => await appBskyVideoGetJobStatus(
+    jobId: jobId,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
+    $unknown: $unknown,
   );
 
   /// Get video upload limits for the authenticated user.
@@ -102,17 +102,17 @@ base class VideoService {
     $unknown: $unknown,
   );
 
-  /// Get status details for a video processing job.
-  Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
-    required String jobId,
+  /// Upload a video to be processed then stored on the PDS.
+  Future<XRPCResponse<JobStatus>> uploadVideo({
+    required Uint8List bytes,
     String? $service,
     Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await appBskyVideoGetJobStatus(
-    jobId: jobId,
+    Map<String, String>? $parameters,
+  }) async => await appBskyVideoUploadVideo(
+    bytes: bytes,
+    $parameters: $parameters,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
-    $unknown: $unknown,
   );
 }

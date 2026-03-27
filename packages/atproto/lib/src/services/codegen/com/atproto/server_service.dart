@@ -33,13 +33,13 @@ import 'server/reserveSigningKey/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Initiate a user account deletion via email.
-Future<XRPCResponse<EmptyData>> comAtprotoServerRequestAccountDelete({
+/// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
+Future<XRPCResponse<EmptyData>> comAtprotoServerActivateAccount({
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
 }) async => await $ctx.post(
-  ns.comAtprotoServerRequestAccountDelete,
+  ns.comAtprotoServerActivateAccount,
   service: $service,
   headers: {...?$headers},
 );
@@ -59,142 +59,19 @@ comAtprotoServerCheckAccountStatus({
   to: const ServerCheckAccountStatusOutputConverter().fromJson,
 );
 
-/// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
-Future<XRPCResponse<EmptyData>> comAtprotoServerActivateAccount({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-}) async => await $ctx.post(
-  ns.comAtprotoServerActivateAccount,
-  service: $service,
-  headers: {...?$headers},
-);
-
-/// Get a signed token on behalf of the requesting DID for the requested service.
-Future<XRPCResponse<ServerGetServiceAuthOutput>>
-comAtprotoServerGetServiceAuth({
-  required String aud,
-  int? exp,
-  String? lxm,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoServerGetServiceAuth,
-  service: $service,
-  headers: $headers,
-  parameters: {
-    ...?$unknown,
-    'aud': aud,
-    if (exp != null) 'exp': exp,
-    if (lxm != null) 'lxm': lxm,
-  },
-  to: const ServerGetServiceAuthOutputConverter().fromJson,
-);
-
-/// Create an invite code.
-Future<XRPCResponse<ServerCreateInviteCodeOutput>>
-comAtprotoServerCreateInviteCode({
-  required int useCount,
-  String? forAccount,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerCreateInviteCode,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'useCount': useCount,
-    if (forAccount != null) 'forAccount': forAccount,
-  },
-  to: const ServerCreateInviteCodeOutputConverter().fromJson,
-);
-
-/// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
-Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteAccount({
-  required String did,
-  required String password,
+/// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
+Future<XRPCResponse<EmptyData>> comAtprotoServerConfirmEmail({
+  required String email,
   required String token,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.comAtprotoServerDeleteAccount,
+  ns.comAtprotoServerConfirmEmail,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'did': did, 'password': password, 'token': token},
-);
-
-/// Request a token in order to update email.
-Future<XRPCResponse<ServerRequestEmailUpdateOutput>>
-comAtprotoServerRequestEmailUpdate({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-}) async => await $ctx.post(
-  ns.comAtprotoServerRequestEmailUpdate,
-  service: $service,
-  headers: {...?$headers},
-  to: const ServerRequestEmailUpdateOutputConverter().fromJson,
-);
-
-/// Revoke an App Password by name.
-Future<XRPCResponse<EmptyData>> comAtprotoServerRevokeAppPassword({
-  required String name,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerRevokeAppPassword,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'name': name},
-);
-
-/// Create invite codes.
-Future<XRPCResponse<ServerCreateInviteCodesOutput>>
-comAtprotoServerCreateInviteCodes({
-  required int codeCount,
-  required int useCount,
-  List<String>? forAccounts,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerCreateInviteCodes,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    'codeCount': codeCount,
-    'useCount': useCount,
-    if (forAccounts != null) 'forAccounts': forAccounts,
-  },
-  to: const ServerCreateInviteCodesOutputConverter().fromJson,
-);
-
-/// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
-Future<XRPCResponse<EmptyData>> comAtprotoServerDeactivateAccount({
-  DateTime? deleteAfter,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerDeactivateAccount,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
-    ...?$unknown,
-    if (deleteAfter != null) 'deleteAfter': iso8601(deleteAfter),
-  },
+  body: {...?$unknown, 'email': email, 'token': token},
 );
 
 /// Create an account. Implemented by PDS.
@@ -231,118 +108,68 @@ Future<XRPCResponse<ServerCreateAccountOutput>> comAtprotoServerCreateAccount({
   to: const ServerCreateAccountOutputConverter().fromJson,
 );
 
-/// Initiate a user account password reset via email.
-Future<XRPCResponse<EmptyData>> comAtprotoServerRequestPasswordReset({
-  required String email,
+/// Create an App Password.
+Future<XRPCResponse<AppPassword>> comAtprotoServerCreateAppPassword({
+  required String name,
+  bool? privileged,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.comAtprotoServerRequestPasswordReset,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'email': email},
-);
-
-/// Update an account's email.
-Future<XRPCResponse<EmptyData>> comAtprotoServerUpdateEmail({
-  required String email,
-  bool? emailAuthFactor,
-  String? token,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerUpdateEmail,
+  ns.comAtprotoServerCreateAppPassword,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
-    'email': email,
-    if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
-    if (token != null) 'token': token,
+    'name': name,
+    if (privileged != null) 'privileged': privileged,
   },
+  to: const AppPasswordConverter().fromJson,
 );
 
-/// Get all invite codes for the current account. Requires auth.
-Future<XRPCResponse<ServerGetAccountInviteCodesOutput>>
-comAtprotoServerGetAccountInviteCodes({
-  bool? includeUsed,
-  bool? createAvailable,
+/// Create an invite code.
+Future<XRPCResponse<ServerCreateInviteCodeOutput>>
+comAtprotoServerCreateInviteCode({
+  required int useCount,
+  String? forAccount,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoServerGetAccountInviteCodes,
+}) async => await $ctx.post(
+  ns.comAtprotoServerCreateInviteCode,
   service: $service,
-  headers: $headers,
-  parameters: {
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
     ...?$unknown,
-    if (includeUsed != null) 'includeUsed': includeUsed,
-    if (createAvailable != null) 'createAvailable': createAvailable,
+    'useCount': useCount,
+    if (forAccount != null) 'forAccount': forAccount,
   },
-  to: const ServerGetAccountInviteCodesOutputConverter().fromJson,
+  to: const ServerCreateInviteCodeOutputConverter().fromJson,
 );
 
-/// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
-Future<XRPCResponse<ServerRefreshSessionOutput>>
-comAtprotoServerRefreshSession({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-}) async => await $ctx.post(
-  ns.comAtprotoServerRefreshSession,
-  service: $service,
-  headers: {...?$headers},
-  to: const ServerRefreshSessionOutputConverter().fromJson,
-);
-
-/// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
-Future<XRPCResponse<EmptyData>> comAtprotoServerConfirmEmail({
-  required String email,
-  required String token,
+/// Create invite codes.
+Future<XRPCResponse<ServerCreateInviteCodesOutput>>
+comAtprotoServerCreateInviteCodes({
+  required int codeCount,
+  required int useCount,
+  List<String>? forAccounts,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.comAtprotoServerConfirmEmail,
+  ns.comAtprotoServerCreateInviteCodes,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'email': email, 'token': token},
-);
-
-/// Reset a user account password using a token.
-Future<XRPCResponse<EmptyData>> comAtprotoServerResetPassword({
-  required String token,
-  required String password,
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerResetPassword,
-  service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'token': token, 'password': password},
-);
-
-/// Describes the server's account creation requirements and capabilities. Implemented by PDS.
-Future<XRPCResponse<ServerDescribeServerOutput>>
-comAtprotoServerDescribeServer({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-  Map<String, String>? $unknown,
-}) async => await $ctx.get(
-  ns.comAtprotoServerDescribeServer,
-  service: $service,
-  headers: $headers,
-  parameters: {...?$unknown},
-  to: const ServerDescribeServerOutputConverter().fromJson,
+  body: {
+    ...?$unknown,
+    'codeCount': codeCount,
+    'useCount': useCount,
+    if (forAccounts != null) 'forAccounts': forAccounts,
+  },
+  to: const ServerCreateInviteCodesOutputConverter().fromJson,
 );
 
 /// Create an authentication session.
@@ -369,6 +196,39 @@ Future<XRPCResponse<ServerCreateSessionOutput>> comAtprotoServerCreateSession({
   to: const ServerCreateSessionOutputConverter().fromJson,
 );
 
+/// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
+Future<XRPCResponse<EmptyData>> comAtprotoServerDeactivateAccount({
+  DateTime? deleteAfter,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoServerDeactivateAccount,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    if (deleteAfter != null) 'deleteAfter': iso8601(deleteAfter),
+  },
+);
+
+/// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
+Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteAccount({
+  required String did,
+  required String password,
+  required String token,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoServerDeleteAccount,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'did': did, 'password': password, 'token': token},
+);
+
 /// Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
 Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteSession({
   required ServiceContext $ctx,
@@ -380,24 +240,63 @@ Future<XRPCResponse<EmptyData>> comAtprotoServerDeleteSession({
   headers: {...?$headers},
 );
 
-/// Create an App Password.
-Future<XRPCResponse<AppPassword>> comAtprotoServerCreateAppPassword({
-  required String name,
-  bool? privileged,
+/// Describes the server's account creation requirements and capabilities. Implemented by PDS.
+Future<XRPCResponse<ServerDescribeServerOutput>>
+comAtprotoServerDescribeServer({
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
-}) async => await $ctx.post(
-  ns.comAtprotoServerCreateAppPassword,
+}) async => await $ctx.get(
+  ns.comAtprotoServerDescribeServer,
   service: $service,
-  headers: {'Content-type': 'application/json', ...?$headers},
-  body: {
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ServerDescribeServerOutputConverter().fromJson,
+);
+
+/// Get all invite codes for the current account. Requires auth.
+Future<XRPCResponse<ServerGetAccountInviteCodesOutput>>
+comAtprotoServerGetAccountInviteCodes({
+  bool? includeUsed,
+  bool? createAvailable,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoServerGetAccountInviteCodes,
+  service: $service,
+  headers: $headers,
+  parameters: {
     ...?$unknown,
-    'name': name,
-    if (privileged != null) 'privileged': privileged,
+    if (includeUsed != null) 'includeUsed': includeUsed,
+    if (createAvailable != null) 'createAvailable': createAvailable,
   },
-  to: const AppPasswordConverter().fromJson,
+  to: const ServerGetAccountInviteCodesOutputConverter().fromJson,
+);
+
+/// Get a signed token on behalf of the requesting DID for the requested service.
+Future<XRPCResponse<ServerGetServiceAuthOutput>>
+comAtprotoServerGetServiceAuth({
+  required String aud,
+  int? exp,
+  String? lxm,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.comAtprotoServerGetServiceAuth,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'aud': aud,
+    if (exp != null) 'exp': exp,
+    if (lxm != null) 'lxm': lxm,
+  },
+  to: const ServerGetServiceAuthOutputConverter().fromJson,
 );
 
 /// Get information about the current auth session. Requires auth.
@@ -414,17 +313,6 @@ Future<XRPCResponse<ServerGetSessionOutput>> comAtprotoServerGetSession({
   to: const ServerGetSessionOutputConverter().fromJson,
 );
 
-/// Request an email with a code to confirm ownership of email.
-Future<XRPCResponse<EmptyData>> comAtprotoServerRequestEmailConfirmation({
-  required ServiceContext $ctx,
-  String? $service,
-  Map<String, String>? $headers,
-}) async => await $ctx.post(
-  ns.comAtprotoServerRequestEmailConfirmation,
-  service: $service,
-  headers: {...?$headers},
-);
-
 /// List all App Passwords.
 Future<XRPCResponse<ServerListAppPasswordsOutput>>
 comAtprotoServerListAppPasswords({
@@ -438,6 +326,68 @@ comAtprotoServerListAppPasswords({
   headers: $headers,
   parameters: {...?$unknown},
   to: const ServerListAppPasswordsOutputConverter().fromJson,
+);
+
+/// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+Future<XRPCResponse<ServerRefreshSessionOutput>>
+comAtprotoServerRefreshSession({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+}) async => await $ctx.post(
+  ns.comAtprotoServerRefreshSession,
+  service: $service,
+  headers: {...?$headers},
+  to: const ServerRefreshSessionOutputConverter().fromJson,
+);
+
+/// Initiate a user account deletion via email.
+Future<XRPCResponse<EmptyData>> comAtprotoServerRequestAccountDelete({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+}) async => await $ctx.post(
+  ns.comAtprotoServerRequestAccountDelete,
+  service: $service,
+  headers: {...?$headers},
+);
+
+/// Request an email with a code to confirm ownership of email.
+Future<XRPCResponse<EmptyData>> comAtprotoServerRequestEmailConfirmation({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+}) async => await $ctx.post(
+  ns.comAtprotoServerRequestEmailConfirmation,
+  service: $service,
+  headers: {...?$headers},
+);
+
+/// Request a token in order to update email.
+Future<XRPCResponse<ServerRequestEmailUpdateOutput>>
+comAtprotoServerRequestEmailUpdate({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+}) async => await $ctx.post(
+  ns.comAtprotoServerRequestEmailUpdate,
+  service: $service,
+  headers: {...?$headers},
+  to: const ServerRequestEmailUpdateOutputConverter().fromJson,
+);
+
+/// Initiate a user account password reset via email.
+Future<XRPCResponse<EmptyData>> comAtprotoServerRequestPasswordReset({
+  required String email,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoServerRequestPasswordReset,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'email': email},
 );
 
 /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
@@ -456,6 +406,56 @@ comAtprotoServerReserveSigningKey({
   to: const ServerReserveSigningKeyOutputConverter().fromJson,
 );
 
+/// Reset a user account password using a token.
+Future<XRPCResponse<EmptyData>> comAtprotoServerResetPassword({
+  required String token,
+  required String password,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoServerResetPassword,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'token': token, 'password': password},
+);
+
+/// Revoke an App Password by name.
+Future<XRPCResponse<EmptyData>> comAtprotoServerRevokeAppPassword({
+  required String name,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoServerRevokeAppPassword,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'name': name},
+);
+
+/// Update an account's email.
+Future<XRPCResponse<EmptyData>> comAtprotoServerUpdateEmail({
+  required String email,
+  bool? emailAuthFactor,
+  String? token,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.comAtprotoServerUpdateEmail,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'email': email,
+    if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
+    if (token != null) 'token': token,
+  },
+);
+
 /// `com.atproto.server.*`
 base class ServerService {
   @protected
@@ -463,11 +463,11 @@ base class ServerService {
 
   ServerService(this.ctx);
 
-  /// Initiate a user account deletion via email.
-  Future<XRPCResponse<EmptyData>> requestAccountDelete({
+  /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
+  Future<XRPCResponse<EmptyData>> activateAccount({
     String? $service,
     Map<String, String>? $headers,
-  }) async => await comAtprotoServerRequestAccountDelete(
+  }) async => await comAtprotoServerActivateAccount(
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -485,118 +485,16 @@ base class ServerService {
     $unknown: $unknown,
   );
 
-  /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
-  Future<XRPCResponse<EmptyData>> activateAccount({
-    String? $service,
-    Map<String, String>? $headers,
-  }) async => await comAtprotoServerActivateAccount(
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-  );
-
-  /// Get a signed token on behalf of the requesting DID for the requested service.
-  Future<XRPCResponse<ServerGetServiceAuthOutput>> getServiceAuth({
-    required String aud,
-    int? exp,
-    String? lxm,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerGetServiceAuth(
-    aud: aud,
-    exp: exp,
-    lxm: lxm,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Create an invite code.
-  Future<XRPCResponse<ServerCreateInviteCodeOutput>> createInviteCode({
-    required int useCount,
-    String? forAccount,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerCreateInviteCode(
-    useCount: useCount,
-    forAccount: forAccount,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
-  Future<XRPCResponse<EmptyData>> deleteAccount({
-    required String did,
-    required String password,
+  /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
+  Future<XRPCResponse<EmptyData>> confirmEmail({
+    required String email,
     required String token,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoServerDeleteAccount(
-    did: did,
-    password: password,
+  }) async => await comAtprotoServerConfirmEmail(
+    email: email,
     token: token,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Request a token in order to update email.
-  Future<XRPCResponse<ServerRequestEmailUpdateOutput>> requestEmailUpdate({
-    String? $service,
-    Map<String, String>? $headers,
-  }) async => await comAtprotoServerRequestEmailUpdate(
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-  );
-
-  /// Revoke an App Password by name.
-  Future<XRPCResponse<EmptyData>> revokeAppPassword({
-    required String name,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerRevokeAppPassword(
-    name: name,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Create invite codes.
-  Future<XRPCResponse<ServerCreateInviteCodesOutput>> createInviteCodes({
-    required int codeCount,
-    required int useCount,
-    List<String>? forAccounts,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerCreateInviteCodes(
-    codeCount: codeCount,
-    useCount: useCount,
-    forAccounts: forAccounts,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
-  Future<XRPCResponse<EmptyData>> deactivateAccount({
-    DateTime? deleteAfter,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerDeactivateAccount(
-    deleteAfter: deleteAfter,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -633,103 +531,50 @@ base class ServerService {
     $unknown: $unknown,
   );
 
-  /// Initiate a user account password reset via email.
-  Future<XRPCResponse<EmptyData>> requestPasswordReset({
-    required String email,
+  /// Create an App Password.
+  Future<XRPCResponse<AppPassword>> createAppPassword({
+    required String name,
+    bool? privileged,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoServerRequestPasswordReset(
-    email: email,
+  }) async => await comAtprotoServerCreateAppPassword(
+    name: name,
+    privileged: privileged,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Update an account's email.
-  Future<XRPCResponse<EmptyData>> updateEmail({
-    required String email,
-    bool? emailAuthFactor,
-    String? token,
+  /// Create an invite code.
+  Future<XRPCResponse<ServerCreateInviteCodeOutput>> createInviteCode({
+    required int useCount,
+    String? forAccount,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoServerUpdateEmail(
-    email: email,
-    emailAuthFactor: emailAuthFactor,
-    token: token,
+  }) async => await comAtprotoServerCreateInviteCode(
+    useCount: useCount,
+    forAccount: forAccount,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
 
-  /// Get all invite codes for the current account. Requires auth.
-  Future<XRPCResponse<ServerGetAccountInviteCodesOutput>>
-  getAccountInviteCodes({
-    bool? includeUsed,
-    bool? createAvailable,
+  /// Create invite codes.
+  Future<XRPCResponse<ServerCreateInviteCodesOutput>> createInviteCodes({
+    required int codeCount,
+    required int useCount,
+    List<String>? forAccounts,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoServerGetAccountInviteCodes(
-    includeUsed: includeUsed,
-    createAvailable: createAvailable,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
-  Future<XRPCResponse<ServerRefreshSessionOutput>> refreshSession({
-    String? $service,
-    Map<String, String>? $headers,
-  }) async => await comAtprotoServerRefreshSession(
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-  );
-
-  /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
-  Future<XRPCResponse<EmptyData>> confirmEmail({
-    required String email,
-    required String token,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerConfirmEmail(
-    email: email,
-    token: token,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Reset a user account password using a token.
-  Future<XRPCResponse<EmptyData>> resetPassword({
-    required String token,
-    required String password,
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerResetPassword(
-    token: token,
-    password: password,
-    $ctx: ctx,
-    $service: $service,
-    $headers: $headers,
-    $unknown: $unknown,
-  );
-
-  /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
-  Future<XRPCResponse<ServerDescribeServerOutput>> describeServer({
-    String? $service,
-    Map<String, String>? $headers,
-    Map<String, String>? $unknown,
-  }) async => await comAtprotoServerDescribeServer(
+  }) async => await comAtprotoServerCreateInviteCodes(
+    codeCount: codeCount,
+    useCount: useCount,
+    forAccounts: forAccounts,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -756,6 +601,38 @@ base class ServerService {
     $unknown: $unknown,
   );
 
+  /// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
+  Future<XRPCResponse<EmptyData>> deactivateAccount({
+    DateTime? deleteAfter,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerDeactivateAccount(
+    deleteAfter: deleteAfter,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    required String did,
+    required String password,
+    required String token,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerDeleteAccount(
+    did: did,
+    password: password,
+    token: token,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
   Future<XRPCResponse<EmptyData>> deleteSession({
     String? $service,
@@ -766,16 +643,47 @@ base class ServerService {
     $headers: $headers,
   );
 
-  /// Create an App Password.
-  Future<XRPCResponse<AppPassword>> createAppPassword({
-    required String name,
-    bool? privileged,
+  /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
+  Future<XRPCResponse<ServerDescribeServerOutput>> describeServer({
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoServerCreateAppPassword(
-    name: name,
-    privileged: privileged,
+  }) async => await comAtprotoServerDescribeServer(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get all invite codes for the current account. Requires auth.
+  Future<XRPCResponse<ServerGetAccountInviteCodesOutput>>
+  getAccountInviteCodes({
+    bool? includeUsed,
+    bool? createAvailable,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerGetAccountInviteCodes(
+    includeUsed: includeUsed,
+    createAvailable: createAvailable,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a signed token on behalf of the requesting DID for the requested service.
+  Future<XRPCResponse<ServerGetServiceAuthOutput>> getServiceAuth({
+    required String aud,
+    int? exp,
+    String? lxm,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerGetServiceAuth(
+    aud: aud,
+    exp: exp,
+    lxm: lxm,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -794,6 +702,38 @@ base class ServerService {
     $unknown: $unknown,
   );
 
+  /// List all App Passwords.
+  Future<XRPCResponse<ServerListAppPasswordsOutput>> listAppPasswords({
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerListAppPasswords(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+  Future<XRPCResponse<ServerRefreshSessionOutput>> refreshSession({
+    String? $service,
+    Map<String, String>? $headers,
+  }) async => await comAtprotoServerRefreshSession(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+  );
+
+  /// Initiate a user account deletion via email.
+  Future<XRPCResponse<EmptyData>> requestAccountDelete({
+    String? $service,
+    Map<String, String>? $headers,
+  }) async => await comAtprotoServerRequestAccountDelete(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+  );
+
   /// Request an email with a code to confirm ownership of email.
   Future<XRPCResponse<EmptyData>> requestEmailConfirmation({
     String? $service,
@@ -804,12 +744,24 @@ base class ServerService {
     $headers: $headers,
   );
 
-  /// List all App Passwords.
-  Future<XRPCResponse<ServerListAppPasswordsOutput>> listAppPasswords({
+  /// Request a token in order to update email.
+  Future<XRPCResponse<ServerRequestEmailUpdateOutput>> requestEmailUpdate({
+    String? $service,
+    Map<String, String>? $headers,
+  }) async => await comAtprotoServerRequestEmailUpdate(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+  );
+
+  /// Initiate a user account password reset via email.
+  Future<XRPCResponse<EmptyData>> requestPasswordReset({
+    required String email,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await comAtprotoServerListAppPasswords(
+  }) async => await comAtprotoServerRequestPasswordReset(
+    email: email,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -824,6 +776,54 @@ base class ServerService {
     Map<String, String>? $unknown,
   }) async => await comAtprotoServerReserveSigningKey(
     did: did,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Reset a user account password using a token.
+  Future<XRPCResponse<EmptyData>> resetPassword({
+    required String token,
+    required String password,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerResetPassword(
+    token: token,
+    password: password,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Revoke an App Password by name.
+  Future<XRPCResponse<EmptyData>> revokeAppPassword({
+    required String name,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerRevokeAppPassword(
+    name: name,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Update an account's email.
+  Future<XRPCResponse<EmptyData>> updateEmail({
+    required String email,
+    bool? emailAuthFactor,
+    String? token,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoServerUpdateEmail(
+    email: email,
+    emailAuthFactor: emailAuthFactor,
+    token: token,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

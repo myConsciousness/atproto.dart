@@ -21,9 +21,9 @@ import 'moderation/update_actor_access.dart';
 
 final class ChatBskyModerationCommand extends Command<void> {
   ChatBskyModerationCommand() {
-    addSubcommand(UpdateActorAccessCommand());
-    addSubcommand(GetMessageContextCommand());
     addSubcommand(GetActorMetadataCommand());
+    addSubcommand(GetMessageContextCommand());
+    addSubcommand(UpdateActorAccessCommand());
   }
 
   @override

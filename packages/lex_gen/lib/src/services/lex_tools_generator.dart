@@ -6,7 +6,6 @@
 import 'dart:io';
 
 // Package imports:
-import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
@@ -14,12 +13,14 @@ import 'object/at_uri_extension.dart';
 import 'object/repo_commit_handler.dart';
 import 'rule.dart';
 
-void generateLexTools() {
-  return _LexToolsGenerator().execute();
+void generateLexTools(final List<LexiconDoc> docs) {
+  return _LexToolsGenerator(docs).execute();
 }
 
 final class _LexToolsGenerator {
-  const _LexToolsGenerator();
+  final List<LexiconDoc> docs;
+
+  const _LexToolsGenerator(this.docs);
 
   void execute() {
     final recordLexiconIds = _getRecordLexiconIds();
@@ -37,7 +38,6 @@ final class _LexToolsGenerator {
   List<String> _getRecordLexiconIds() {
     final recordLexiconIds = <String>[];
 
-    final docs = lexicons.map(LexiconDoc.fromJson).toList();
     for (final doc in docs) {
       if (_isRecord(doc)) {
         recordLexiconIds.add(doc.id.toString());

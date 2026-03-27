@@ -25,13 +25,13 @@ import 'temp/revoke_account_credentials.dart';
 
 final class ComAtprotoTempCommand extends Command<void> {
   ComAtprotoTempCommand() {
-    addSubcommand(CheckHandleAvailabilityCommand());
-    addSubcommand(FetchLabelsCommand());
     addSubcommand(AddReservedHandleCommand());
+    addSubcommand(CheckHandleAvailabilityCommand());
+    addSubcommand(CheckSignupQueueCommand());
     addSubcommand(DereferenceScopeCommand());
+    addSubcommand(FetchLabelsCommand());
     addSubcommand(RequestPhoneVerificationCommand());
     addSubcommand(RevokeAccountCredentialsCommand());
-    addSubcommand(CheckSignupQueueCommand());
   }
 
   @override

@@ -42,30 +42,30 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
+    addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetConfigCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
+    addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(GetOnboardingSuggestedUsersSkeletonCommand());
+    addSubcommand(GetPopularFeedGeneratorsCommand());
+    addSubcommand(GetPostThreadOtherV2Command());
+    addSubcommand(GetPostThreadV2Command());
     addSubcommand(GetSuggestedFeedsCommand());
     addSubcommand(GetSuggestedFeedsSkeletonCommand());
-    addSubcommand(SearchStarterPacksSkeletonCommand());
-    addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetPostThreadOtherV2Command());
-    addSubcommand(SearchPostsSkeletonCommand());
-    addSubcommand(GetConfigCommand());
-    addSubcommand(GetSuggestedUsersSkeletonCommand());
     addSubcommand(GetSuggestedOnboardingUsersCommand());
-    addSubcommand(GetTrendsCommand());
-    addSubcommand(SearchActorsSkeletonCommand());
-    addSubcommand(GetOnboardingSuggestedUsersSkeletonCommand());
-    addSubcommand(GetPostThreadV2Command());
-    addSubcommand(GetSuggestedUsersCommand());
-    addSubcommand(GetTrendsSkeletonCommand());
-    addSubcommand(GetTrendingTopicsCommand());
-    addSubcommand(GetTaggedSuggestionsCommand());
-    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
-    addSubcommand(GetPopularFeedGeneratorsCommand());
-    addSubcommand(InitAgeAssuranceCommand());
-    addSubcommand(GetAgeAssuranceStateCommand());
-    addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
     addSubcommand(GetSuggestedStarterPacksCommand());
+    addSubcommand(GetSuggestedStarterPacksSkeletonCommand());
+    addSubcommand(GetSuggestedUsersCommand());
+    addSubcommand(GetSuggestedUsersSkeletonCommand());
     addSubcommand(GetSuggestionsSkeletonCommand());
+    addSubcommand(GetTaggedSuggestionsCommand());
+    addSubcommand(GetTrendingTopicsCommand());
+    addSubcommand(GetTrendsCommand());
+    addSubcommand(GetTrendsSkeletonCommand());
+    addSubcommand(InitAgeAssuranceCommand());
+    addSubcommand(SearchActorsSkeletonCommand());
+    addSubcommand(SearchPostsSkeletonCommand());
+    addSubcommand(SearchStarterPacksSkeletonCommand());
   }
 
   @override

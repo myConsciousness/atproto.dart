@@ -74,26 +74,20 @@ final class LabelValueConverter extends JsonConverter<LabelValue, String> {
 enum KnownLabelValue implements Serializable {
   @JsonValue('!hide')
   hide('!hide'),
-  @JsonValue('!no-promote')
-  noPromote('!no-promote'),
   @JsonValue('!warn')
   warn('!warn'),
   @JsonValue('!no-unauthenticated')
   noUnauthenticated('!no-unauthenticated'),
-  @JsonValue('dmca-violation')
-  dmcaViolation('dmca-violation'),
-  @JsonValue('doxxing')
-  doxxing('doxxing'),
   @JsonValue('porn')
   porn('porn'),
   @JsonValue('sexual')
   sexual('sexual'),
   @JsonValue('nudity')
   nudity('nudity'),
-  @JsonValue('nsfl')
-  nsfl('nsfl'),
-  @JsonValue('gore')
-  gore('gore');
+  @JsonValue('graphic-media')
+  graphicMedia('graphic-media'),
+  @JsonValue('bot')
+  bot('bot');
 
   @override
   final String value;

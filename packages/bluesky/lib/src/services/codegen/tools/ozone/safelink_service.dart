@@ -26,8 +26,8 @@ import 'safelink/queryRules/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Update an existing URL safety rule
-Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
+/// Add a new URL safety rule
+Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   required String url,
   required PatternType pattern,
   required ActionType action,
@@ -39,7 +39,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.toolsOzoneSafelinkUpdateRule,
+  ns.toolsOzoneSafelinkAddRule,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -136,8 +136,8 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
   to: const EventConverter().fromJson,
 );
 
-/// Add a new URL safety rule
-Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
+/// Update an existing URL safety rule
+Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
   required String url,
   required PatternType pattern,
   required ActionType action,
@@ -149,7 +149,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.post(
-  ns.toolsOzoneSafelinkAddRule,
+  ns.toolsOzoneSafelinkUpdateRule,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
@@ -171,8 +171,8 @@ base class SafelinkService {
 
   SafelinkService(this.ctx);
 
-  /// Update an existing URL safety rule
-  Future<XRPCResponse<Event>> updateRule({
+  /// Add a new URL safety rule
+  Future<XRPCResponse<Event>> addRule({
     required String url,
     required PatternType pattern,
     required ActionType action,
@@ -182,7 +182,7 @@ base class SafelinkService {
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneSafelinkUpdateRule(
+  }) async => await toolsOzoneSafelinkAddRule(
     url: url,
     pattern: pattern,
     action: action,
@@ -265,8 +265,8 @@ base class SafelinkService {
     $unknown: $unknown,
   );
 
-  /// Add a new URL safety rule
-  Future<XRPCResponse<Event>> addRule({
+  /// Update an existing URL safety rule
+  Future<XRPCResponse<Event>> updateRule({
     required String url,
     required PatternType pattern,
     required ActionType action,
@@ -276,7 +276,7 @@ base class SafelinkService {
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await toolsOzoneSafelinkAddRule(
+  }) async => await toolsOzoneSafelinkUpdateRule(
     url: url,
     pattern: pattern,
     action: action,

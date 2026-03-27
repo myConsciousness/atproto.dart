@@ -24,7 +24,6 @@ _$GraphGetSuggestedFollowsByActorOutputFromJson(Map json) => $checkedCreate(
             )
             .toList(),
       ),
-      isFallback: $checkedConvert('isFallback', (v) => v as bool? ?? false),
       recIdStr: $checkedConvert('recIdStr', (v) => v as String?),
       $unknown: $checkedConvert(
         r'$unknown',
@@ -41,7 +40,6 @@ Map<String, dynamic> _$GraphGetSuggestedFollowsByActorOutputToJson(
   'suggestions': instance.suggestions
       .map(const ProfileViewConverter().toJson)
       .toList(),
-  'isFallback': instance.isFallback,
   'recIdStr': ?instance.recIdStr,
   r'$unknown': ?instance.$unknown,
 };

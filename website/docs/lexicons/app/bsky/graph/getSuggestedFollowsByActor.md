@@ -22,6 +22,6 @@ Enumerates follows similar to a given account (actor). Expected use is to recomm
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **suggestions** | array of [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
-| **isFallback** | boolean | - | ❌ | If true, response has fallen-back to generic results, and is not scoped using relativeToDid |
-| **recId** | integer | - | ❌ | DEPRECATED: use recIdStr instead. |
 | **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |
+| **isFallback** | boolean | - | ❌ | DEPRECATED, unused. Previously: if true, response has fallen-back to generic results, and is not scoped using relativeToDid |
+| **recId** | integer | - | ❌ | DEPRECATED: use recIdStr instead. |

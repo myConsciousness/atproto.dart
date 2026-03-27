@@ -64,4 +64,4 @@ Strings which describe the label in the UI, localized into a specific language.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **labelValue** | string | !hide<br/>!no-promote<br/>!warn<br/>!no-unauthenticated<br/>dmca-violation<br/>doxxing<br/>porn<br/>sexual<br/>nudity<br/>nsfl<br/>gore | ❌ | - |
+| **labelValue** | string | !hide<br/>!warn<br/>!no-unauthenticated<br/>porn<br/>sexual<br/>nudity<br/>graphic-media<br/>bot | ❌ | - |

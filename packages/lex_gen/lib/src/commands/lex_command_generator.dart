@@ -6,7 +6,6 @@
 import 'dart:io';
 
 // Package imports:
-import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
@@ -16,10 +15,8 @@ import 'types/lex_parameter.dart';
 import 'types/lex_parent_command.dart';
 import 'types/lex_root_command.dart';
 
-void generateLexCommands() {
+void generateLexCommands(final List<LexiconDoc> docs) {
   _cleanWorkspace();
-
-  final docs = lexicons.map(LexiconDoc.fromJson).toList();
 
   final result = <String, List<LexCommand>>{};
   for (final doc in docs) {
