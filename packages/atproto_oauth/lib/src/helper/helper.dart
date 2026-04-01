@@ -192,7 +192,9 @@ String getDPoPHeader({
   ).replaceAll('=', '');
 
   final jwtMessage = '$headerBase64.$payloadBase64';
-  final jwtSignature = base64Encode(_sign(privateKey, jwtMessage));
+  final jwtSignature = base64UrlEncode(
+    _sign(privateKey, jwtMessage),
+  ).replaceAll('=', '');
 
   return '$headerBase64.$payloadBase64.$jwtSignature';
 }

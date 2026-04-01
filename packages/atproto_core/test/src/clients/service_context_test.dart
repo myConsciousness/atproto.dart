@@ -167,6 +167,34 @@ void main() {
   });
 
   group('.get', () {
+    test('generates JOSE-compatible DPoP proofs', () {
+      final keyPair = getKeyPair();
+      final publicKey = encodePublicKey(keyPair.publicKey as dynamic);
+      final privateKey = encodePrivateKey(keyPair.privateKey as dynamic);
+
+      final dPoPProof = getDPoPHeader(
+        clientId: 'https://sprk.so/oauth-client-metadata.json',
+        endpoint: 'https://pds.sprk.so/xrpc/com.atproto.server.describeServer',
+        method: 'GET',
+        dPoPNonce: 'nonce',
+        publicKey: publicKey,
+        privateKey: privateKey,
+      );
+
+      final segments = dPoPProof.split('.');
+
+      expect(segments, hasLength(3));
+
+      for (final segment in segments) {
+        expect(segment, isNotEmpty);
+        expect(segment, isNot(contains('+')));
+        expect(segment, isNot(contains('/')));
+        expect(segment, isNot(contains('=')));
+      }
+
+      expect(base64Url.decode(base64Url.normalize(segments[2])), hasLength(64));
+    });
+
     test(
       'uses stored client id for DPoP headers when tokens omit client_id',
       () async {
