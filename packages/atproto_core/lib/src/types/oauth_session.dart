@@ -13,6 +13,7 @@ import 'jwt.dart';
 OAuthSession restoreOAuthSession({
   required String accessToken,
   required String refreshToken,
+  String? clientId,
   String? dPoPNonce,
   required String publicKey,
   required String privateKey,
@@ -26,6 +27,7 @@ OAuthSession restoreOAuthSession({
     scope: jwt.scope ?? '',
     expiresAt: jwt.exp,
     sub: jwt.sub,
+    $clientId: clientId,
     $dPoPNonce: dPoPNonce ?? '',
     $publicKey: publicKey,
     $privateKey: privateKey,
@@ -35,6 +37,19 @@ OAuthSession restoreOAuthSession({
 extension OauthSessionExtension on OAuthSession {
   /// Returns decoded [accessToken].
   Jwt get accessTokenJwt => decodeJwt(accessToken);
+
+  /// Returns decoded [refreshToken].
+  Jwt? get refreshTokenJwt {
+    try {
+      return decodeJwt(refreshToken);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Returns the OAuth client identifier if it is present on either token.
+  String? get clientId =>
+      $clientId ?? accessTokenJwt.clientId ?? refreshTokenJwt?.clientId;
 
   /// Returns PDS endpoint like `porcini.us-east.host.bsky.network` dynamically
   /// based on this [OAuthSession].

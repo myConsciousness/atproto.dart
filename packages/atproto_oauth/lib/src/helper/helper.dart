@@ -113,7 +113,7 @@ AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
 ///   "jti": "random_unique_id",
 ///   "iat": timestamp,
 ///   "nonce": "dpop_nonce",
-///   "iss": "client_id_or_auth_server",
+///   "iss": "optional_authorization_server",
 ///   "ath": "optional_access_token_hash"
 /// }
 /// ```
@@ -177,11 +177,12 @@ String getDPoPHeader({
     'nonce': dPoPNonce,
   };
 
-  if (authorizationServer != null && accessToken != null) {
+  if (authorizationServer != null) {
     payload['iss'] = authorizationServer;
+  }
+
+  if (accessToken != null) {
     payload['ath'] = hashS256(accessToken);
-  } else {
-    payload['iss'] = clientId;
   }
 
   final headerBase64 = base64UrlEncode(
@@ -192,7 +193,9 @@ String getDPoPHeader({
   ).replaceAll('=', '');
 
   final jwtMessage = '$headerBase64.$payloadBase64';
-  final jwtSignature = base64Encode(_sign(privateKey, jwtMessage));
+  final jwtSignature = base64UrlEncode(
+    _sign(privateKey, jwtMessage),
+  ).replaceAll('=', '');
 
   return '$headerBase64.$payloadBase64.$jwtSignature';
 }

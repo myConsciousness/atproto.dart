@@ -53,6 +53,7 @@ final class OAuthSession {
   /// - [scope]: Space-delimited OAuth 2.0 scopes
   /// - [expiresAt]: Token expiration timestamp
   /// - [sub]: Subject identifier for token binding
+  /// - [$clientId]: OAuth client identifier used to mint the session
   /// - [$dPoPNonce]: Server-provided nonce for DPoP proof freshness
   /// - [$publicKey]: Base64URL encoded public key for DPoP proof verification
   /// - [$privateKey]: Base64URL encoded private key for DPoP proof generation
@@ -63,6 +64,7 @@ final class OAuthSession {
     required this.scope,
     required this.expiresAt,
     required this.sub,
+    this.$clientId,
     required this.$dPoPNonce,
     required this.$publicKey,
     required this.$privateKey,
@@ -103,6 +105,12 @@ final class OAuthSession {
   /// Unique identifier that binds the token
   /// to a specific user or entity.
   final String sub;
+
+  /// OAuth client identifier used to obtain this session.
+  ///
+  /// Some providers do not mirror `client_id` into issued tokens, so we keep
+  /// the original client identifier to continue building DPoP proofs later.
+  final String? $clientId;
 
   /// Server-provided DPoP nonce.
   ///
