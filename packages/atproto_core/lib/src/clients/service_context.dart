@@ -150,7 +150,6 @@ base class ServiceContext {
 
     if (oAuthSession != null) {
       final oauthSession = oAuthSession!;
-      final jwt = oauthSession.accessTokenJwt;
       final clientId = oauthSession.clientId;
 
       if (clientId == null || clientId.isEmpty) {
@@ -163,7 +162,6 @@ base class ServiceContext {
         clientId: clientId,
         endpoint: endpoint.toString(),
         method: method,
-        authorizationServer: jwt.iss,
         accessToken: oauthSession.accessToken,
         dPoPNonce: oauthSession.$dPoPNonce,
         publicKey: oauthSession.$publicKey,

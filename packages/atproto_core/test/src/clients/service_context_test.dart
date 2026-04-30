@@ -193,10 +193,27 @@ void main() {
       }
 
       expect(base64Url.decode(base64Url.normalize(segments[2])), hasLength(64));
+
+      final payload = _decodeJwtPayload(dPoPProof);
+      expect(payload, isNot(contains('iss')));
+
+      final boundDPoPProof = getDPoPHeader(
+        clientId: 'https://sprk.so/oauth-client-metadata.json',
+        endpoint: 'https://pds.sprk.so/xrpc/com.atproto.server.describeServer',
+        method: 'GET',
+        dPoPNonce: 'nonce',
+        authorizationServer: 'https://auth.sprk.so',
+        accessToken: 'access-token',
+        publicKey: publicKey,
+        privateKey: privateKey,
+      );
+
+      final boundPayload = _decodeJwtPayload(boundDPoPProof);
+      expect(boundPayload['iss'], 'https://auth.sprk.so');
     });
 
     test(
-      'uses stored client id for DPoP headers when tokens omit client_id',
+      'uses stored client id for DPoP headers when tokens omit client_id and iss',
       () async {
         final keyPair = getKeyPair();
         final publicKey = encodePublicKey(keyPair.publicKey as dynamic);
@@ -208,7 +225,6 @@ void main() {
             accessToken: _jwt({
               'sub': 'did:plc:testaccount',
               'scope': 'atproto transition:generic',
-              'iss': 'https://auth.sprk.so',
               'aud': 'did:web:pds.sprk.so',
               'exp': 1893456000,
               'iat': 1893452400,
@@ -249,6 +265,10 @@ void main() {
           'DPoP ${context.oAuthSession!.accessToken}',
         );
         expect(requestHeaders?['DPoP'], isNotEmpty);
+
+        final payload = _decodeJwtPayload(requestHeaders!['DPoP']!);
+        expect(payload, contains('ath'));
+        expect(payload, isNot(contains('iss')));
       },
     );
   });
@@ -260,4 +280,12 @@ String _jwt(Map<String, Object?> payload) {
       .replaceAll('=', '');
 
   return 'header.$encodedPayload.signature';
+}
+
+Map<String, Object?> _decodeJwtPayload(String jwt) {
+  final parts = jwt.split('.');
+  return jsonDecode(
+        utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
+      )
+      as Map<String, Object?>;
 }

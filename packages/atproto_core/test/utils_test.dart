@@ -1,8 +1,12 @@
+// Dart imports:
+import 'dart:convert';
+
 // Package imports:
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:atproto_core/src/utils.dart';
+import 'package:atproto_core/src/utils/jwt_decoder.dart';
 
 void main() {
   group('.isValidAppPassword', () {
@@ -54,4 +58,25 @@ void main() {
       expect(isValidAppPassword('han5-7%4r-t6j3-mit6w'), isFalse);
     });
   });
+
+  group('.decodeJwt', () {
+    test('ignores non-object cnf claims', () {
+      final jwt = _jwt({
+        'sub': 'did:plc:testaccount',
+        'cnf': 'legacy-key-binding',
+        'exp': 1893456000,
+        'iat': 1893452400,
+      });
+
+      expect(decodeJwt(jwt).cnf, isNull);
+    });
+  });
+}
+
+String _jwt(Map<String, Object?> payload) {
+  final encodedPayload = base64Url
+      .encode(utf8.encode(jsonEncode(payload)))
+      .replaceAll('=', '');
+
+  return 'header.$encodedPayload.signature';
 }
