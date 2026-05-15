@@ -8,7 +8,7 @@
       "errors": [
         { "name": "AccountSuspended" },
         { "name": "BlockedActor" },
-        { "name": "GroupInvitesDisabled" },
+        { "name": "UserForbidsGroups" },
         { "name": "ConvoLocked" },
         { "name": "InsufficientRole" },
         { "name": "InvalidConvo" },
@@ -40,6 +40,13 @@
             "convo": {
               "type": "ref",
               "ref": "chat.bsky.convo.defs#convoView"
+            },
+            "addedMembers": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "chat.bsky.actor.defs#profileViewBasic"
+              }
             }
           }
         }
