@@ -11,4 +11,9 @@
 // LexGenerator
 // **************************************************************************
 
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/member_role.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/profile_view_basic.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/union_profile_view_basic_kind.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/direct_convo_member.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/group_convo_member.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/defs/past_group_convo_member.dart';

@@ -7,6 +7,8 @@ description: chat.bsky.convo.acceptConvo
 
 ## #main
 
+Marks a conversation as accepted, so it is shown in the list of accepted convos instead on the request convos.
+
 ### Input
 
 - **Encoding**: application/json

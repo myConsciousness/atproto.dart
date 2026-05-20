@@ -23,7 +23,8 @@ final class UnmuteConvoCommand extends ProcedureCommand {
   final String name = "unmute-convo";
 
   @override
-  final String description = r"";
+  final String description =
+      r"Unmutes a conversation, allowing notifications related to it.";
 
   @override
   final String invocation = "bsky chat-bsky-convo unmute-convo [convoId]";

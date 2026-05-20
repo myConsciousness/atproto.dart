@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$StatusView {
 
  String get $type;@AtUriConverter() AtUri? get uri; String? get cid;/// The status for the account.
-@StatusViewStatusConverter() StatusViewStatus get status; Map<String, dynamic> get record;@UStatusViewEmbedConverter() UStatusViewEmbed? get embed;/// The date when this status will expire. The application might choose to no longer return the status after expiration.
+@StatusViewStatusConverter() StatusViewStatus get status; Map<String, dynamic> get record;@UStatusViewEmbedConverter() UStatusViewEmbed? get embed;@LabelConverter() List<Label>? get labels;/// The date when this status will expire. The application might choose to no longer return the status after expiration.
  DateTime? get expiresAt;/// True if the status is not expired, false if it is expired. Only present if expiration was set.
  bool? get isActive;/// True if the user's go-live access has been disabled by a moderator, false otherwise.
  bool? get isDisabled; Map<String, dynamic>? get $unknown;
@@ -32,16 +32,16 @@ $StatusViewCopyWith<StatusView> get copyWith => _$StatusViewCopyWithImpl<StatusV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.record, record)&&(identical(other.embed, embed) || other.embed == embed)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.isDisabled, isDisabled) || other.isDisabled == isDisabled)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.record, record)&&(identical(other.embed, embed) || other.embed == embed)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.isDisabled, isDisabled) || other.isDisabled == isDisabled)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,cid,status,const DeepCollectionEquality().hash(record),embed,expiresAt,isActive,isDisabled,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,cid,status,const DeepCollectionEquality().hash(record),embed,const DeepCollectionEquality().hash(labels),expiresAt,isActive,isDisabled,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'StatusView(\$type: ${$type}, uri: $uri, cid: $cid, status: $status, record: $record, embed: $embed, expiresAt: $expiresAt, isActive: $isActive, isDisabled: $isDisabled, \$unknown: ${$unknown})';
+  return 'StatusView(\$type: ${$type}, uri: $uri, cid: $cid, status: $status, record: $record, embed: $embed, labels: $labels, expiresAt: $expiresAt, isActive: $isActive, isDisabled: $isDisabled, \$unknown: ${$unknown})';
 }
 
 
@@ -52,7 +52,7 @@ abstract mixin class $StatusViewCopyWith<$Res>  {
   factory $StatusViewCopyWith(StatusView value, $Res Function(StatusView) _then) = _$StatusViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed, DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed,@LabelConverter() List<Label>? labels, DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +69,7 @@ class _$StatusViewCopyWithImpl<$Res>
 
 /// Create a copy of StatusView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = freezed,Object? cid = freezed,Object? status = null,Object? record = null,Object? embed = freezed,Object? expiresAt = freezed,Object? isActive = freezed,Object? isDisabled = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = freezed,Object? cid = freezed,Object? status = null,Object? record = null,Object? embed = freezed,Object? labels = freezed,Object? expiresAt = freezed,Object? isActive = freezed,Object? isDisabled = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
@@ -77,7 +77,8 @@ as AtUri?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_
 as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StatusViewStatus,record: null == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
-as UStatusViewEmbed?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as UStatusViewEmbed?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as List<Label>?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,isActive: freezed == isActive ? _self.isActive : isActive // ignore: cast_nullable_to_non_nullable
 as bool?,isDisabled: freezed == isDisabled ? _self.isDisabled : isDisabled // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -187,10 +188,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StatusView() when $default != null:
-return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.labels,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
   return orElse();
 
 }
@@ -208,10 +209,10 @@ return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _StatusView():
-return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.labels,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -228,10 +229,10 @@ return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _StatusView() when $default != null:
-return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.labels,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
   return null;
 
 }
@@ -243,7 +244,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _StatusView implements StatusView {
-  const _StatusView({this.$type = 'app.bsky.actor.defs#statusView', @AtUriConverter() this.uri, this.cid, @StatusViewStatusConverter() required this.status, required final  Map<String, dynamic> record, @UStatusViewEmbedConverter() this.embed, this.expiresAt, this.isActive, this.isDisabled, final  Map<String, dynamic>? $unknown}): _record = record,_$unknown = $unknown;
+  const _StatusView({this.$type = 'app.bsky.actor.defs#statusView', @AtUriConverter() this.uri, this.cid, @StatusViewStatusConverter() required this.status, required final  Map<String, dynamic> record, @UStatusViewEmbedConverter() this.embed, @LabelConverter() final  List<Label>? labels, this.expiresAt, this.isActive, this.isDisabled, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _StatusView.fromJson(Map<String, dynamic> json) => _$StatusViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -259,6 +260,15 @@ class _StatusView implements StatusView {
 }
 
 @override@UStatusViewEmbedConverter() final  UStatusViewEmbed? embed;
+ final  List<Label>? _labels;
+@override@LabelConverter() List<Label>? get labels {
+  final value = _labels;
+  if (value == null) return null;
+  if (_labels is EqualUnmodifiableListView) return _labels;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
 /// The date when this status will expire. The application might choose to no longer return the status after expiration.
 @override final  DateTime? expiresAt;
 /// True if the status is not expired, false if it is expired. Only present if expiration was set.
@@ -288,16 +298,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._record, _record)&&(identical(other.embed, embed) || other.embed == embed)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.isDisabled, isDisabled) || other.isDisabled == isDisabled)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._record, _record)&&(identical(other.embed, embed) || other.embed == embed)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.isDisabled, isDisabled) || other.isDisabled == isDisabled)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,cid,status,const DeepCollectionEquality().hash(_record),embed,expiresAt,isActive,isDisabled,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,cid,status,const DeepCollectionEquality().hash(_record),embed,const DeepCollectionEquality().hash(_labels),expiresAt,isActive,isDisabled,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'StatusView(\$type: ${$type}, uri: $uri, cid: $cid, status: $status, record: $record, embed: $embed, expiresAt: $expiresAt, isActive: $isActive, isDisabled: $isDisabled, \$unknown: ${$unknown})';
+  return 'StatusView(\$type: ${$type}, uri: $uri, cid: $cid, status: $status, record: $record, embed: $embed, labels: $labels, expiresAt: $expiresAt, isActive: $isActive, isDisabled: $isDisabled, \$unknown: ${$unknown})';
 }
 
 
@@ -308,7 +318,7 @@ abstract mixin class _$StatusViewCopyWith<$Res> implements $StatusViewCopyWith<$
   factory _$StatusViewCopyWith(_StatusView value, $Res Function(_StatusView) _then) = __$StatusViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed, DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed,@LabelConverter() List<Label>? labels, DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
 });
 
 
@@ -325,7 +335,7 @@ class __$StatusViewCopyWithImpl<$Res>
 
 /// Create a copy of StatusView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = freezed,Object? cid = freezed,Object? status = null,Object? record = null,Object? embed = freezed,Object? expiresAt = freezed,Object? isActive = freezed,Object? isDisabled = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = freezed,Object? cid = freezed,Object? status = null,Object? record = null,Object? embed = freezed,Object? labels = freezed,Object? expiresAt = freezed,Object? isActive = freezed,Object? isDisabled = freezed,Object? $unknown = freezed,}) {
   return _then(_StatusView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
@@ -333,7 +343,8 @@ as AtUri?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_
 as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StatusViewStatus,record: null == record ? _self._record : record // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
-as UStatusViewEmbed?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as UStatusViewEmbed?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
+as List<Label>?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,isActive: freezed == isActive ? _self.isActive : isActive // ignore: cast_nullable_to_non_nullable
 as bool?,isDisabled: freezed == isDisabled ? _self.isDisabled : isDisabled // ignore: cast_nullable_to_non_nullable
 as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

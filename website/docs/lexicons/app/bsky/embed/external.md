@@ -21,6 +21,7 @@ A representation of some externally linked content (eg, a URL and 'card'), embed
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
 | **thumb** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
+| **associatedRecords** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | The URI of the Atmosphere record representing this external content, if it exists. Example: a site.standard.document record. |
 
 ## #view
 

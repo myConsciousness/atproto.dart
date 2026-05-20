@@ -14,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import './deleted_message_view.dart';
 import './message_view.dart';
+import './system_message_view.dart';
 
 part 'union_log_read_message_message.freezed.dart';
 
@@ -31,6 +32,9 @@ sealed class ULogReadMessageMessage with _$ULogReadMessageMessage {
   const factory ULogReadMessageMessage.deletedMessageView({
     required DeletedMessageView data,
   }) = ULogReadMessageMessageDeletedMessageView;
+  const factory ULogReadMessageMessage.systemMessageView({
+    required SystemMessageView data,
+  }) = ULogReadMessageMessageSystemMessageView;
 
   const factory ULogReadMessageMessage.unknown({
     required Map<String, dynamic> data,
@@ -49,6 +53,11 @@ extension ULogReadMessageMessageExtension on ULogReadMessageMessage {
   bool get isNotDeletedMessageView => !isDeletedMessageView;
   DeletedMessageView? get deletedMessageView =>
       isDeletedMessageView ? data as DeletedMessageView : null;
+  bool get isSystemMessageView =>
+      isA<ULogReadMessageMessageSystemMessageView>(this);
+  bool get isNotSystemMessageView => !isSystemMessageView;
+  SystemMessageView? get systemMessageView =>
+      isSystemMessageView ? data as SystemMessageView : null;
   bool get isUnknown => isA<ULogReadMessageMessageUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -72,6 +81,11 @@ final class ULogReadMessageMessageConverter
           data: const DeletedMessageViewConverter().fromJson(json),
         );
       }
+      if (SystemMessageView.validate(json)) {
+        return ULogReadMessageMessage.systemMessageView(
+          data: const SystemMessageViewConverter().fromJson(json),
+        );
+      }
 
       return ULogReadMessageMessage.unknown(data: json);
     } catch (_) {
@@ -84,6 +98,8 @@ final class ULogReadMessageMessageConverter
     messageView: (data) => const MessageViewConverter().toJson(data),
     deletedMessageView: (data) =>
         const DeletedMessageViewConverter().toJson(data),
+    systemMessageView: (data) =>
+        const SystemMessageViewConverter().toJson(data),
 
     unknown: (data) => data,
   );

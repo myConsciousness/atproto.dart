@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ActorDeclarationRecord {
 
- String get $type;@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming get allowIncoming; Map<String, dynamic>? get $unknown;
+ String get $type;@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming get allowIncoming;/// [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.
+@ActorDeclarationAllowGroupInvitesConverter() ActorDeclarationAllowGroupInvites? get allowGroupInvites; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorDeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $ActorDeclarationRecordCopyWith<ActorDeclarationRecord> get copyWith => _$ActorD
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorDeclarationRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.allowIncoming, allowIncoming) || other.allowIncoming == allowIncoming)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorDeclarationRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.allowIncoming, allowIncoming) || other.allowIncoming == allowIncoming)&&(identical(other.allowGroupInvites, allowGroupInvites) || other.allowGroupInvites == allowGroupInvites)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,allowIncoming,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,allowIncoming,allowGroupInvites,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ActorDeclarationRecord(\$type: ${$type}, allowIncoming: $allowIncoming, \$unknown: ${$unknown})';
+  return 'ActorDeclarationRecord(\$type: ${$type}, allowIncoming: $allowIncoming, allowGroupInvites: $allowGroupInvites, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +49,11 @@ abstract mixin class $ActorDeclarationRecordCopyWith<$Res>  {
   factory $ActorDeclarationRecordCopyWith(ActorDeclarationRecord value, $Res Function(ActorDeclarationRecord) _then) = _$ActorDeclarationRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming allowIncoming, Map<String, dynamic>? $unknown
+ String $type,@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming allowIncoming,@ActorDeclarationAllowGroupInvitesConverter() ActorDeclarationAllowGroupInvites? allowGroupInvites, Map<String, dynamic>? $unknown
 });
 
 
-$ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
+$ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;$ActorDeclarationAllowGroupInvitesCopyWith<$Res>? get allowGroupInvites;
 
 }
 /// @nodoc
@@ -65,11 +66,12 @@ class _$ActorDeclarationRecordCopyWithImpl<$Res>
 
 /// Create a copy of ActorDeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? allowIncoming = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? allowIncoming = null,Object? allowGroupInvites = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
-as ActorDeclarationAllowIncoming,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ActorDeclarationAllowIncoming,allowGroupInvites: freezed == allowGroupInvites ? _self.allowGroupInvites : allowGroupInvites // ignore: cast_nullable_to_non_nullable
+as ActorDeclarationAllowGroupInvites?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -81,6 +83,18 @@ $ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming {
   
   return $ActorDeclarationAllowIncomingCopyWith<$Res>(_self.allowIncoming, (value) {
     return _then(_self.copyWith(allowIncoming: value));
+  });
+}/// Create a copy of ActorDeclarationRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActorDeclarationAllowGroupInvitesCopyWith<$Res>? get allowGroupInvites {
+    if (_self.allowGroupInvites == null) {
+    return null;
+  }
+
+  return $ActorDeclarationAllowGroupInvitesCopyWith<$Res>(_self.allowGroupInvites!, (value) {
+    return _then(_self.copyWith(allowGroupInvites: value));
   });
 }
 }
@@ -164,10 +178,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming, @ActorDeclarationAllowGroupInvitesConverter()  ActorDeclarationAllowGroupInvites? allowGroupInvites,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorDeclarationRecord() when $default != null:
-return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
+return $default(_that.$type,_that.allowIncoming,_that.allowGroupInvites,_that.$unknown);case _:
   return orElse();
 
 }
@@ -185,10 +199,10 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming, @ActorDeclarationAllowGroupInvitesConverter()  ActorDeclarationAllowGroupInvites? allowGroupInvites,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorDeclarationRecord():
-return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
+return $default(_that.$type,_that.allowIncoming,_that.allowGroupInvites,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,10 +219,10 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ActorDeclarationAllowIncomingConverter()  ActorDeclarationAllowIncoming allowIncoming, @ActorDeclarationAllowGroupInvitesConverter()  ActorDeclarationAllowGroupInvites? allowGroupInvites,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorDeclarationRecord() when $default != null:
-return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
+return $default(_that.$type,_that.allowIncoming,_that.allowGroupInvites,_that.$unknown);case _:
   return null;
 
 }
@@ -220,11 +234,13 @@ return $default(_that.$type,_that.allowIncoming,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ActorDeclarationRecord implements ActorDeclarationRecord {
-  const _ActorDeclarationRecord({this.$type = 'chat.bsky.actor.declaration', @ActorDeclarationAllowIncomingConverter() required this.allowIncoming, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorDeclarationRecord({this.$type = 'chat.bsky.actor.declaration', @ActorDeclarationAllowIncomingConverter() required this.allowIncoming, @ActorDeclarationAllowGroupInvitesConverter() this.allowGroupInvites, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorDeclarationRecord.fromJson(Map<String, dynamic> json) => _$ActorDeclarationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@ActorDeclarationAllowIncomingConverter() final  ActorDeclarationAllowIncoming allowIncoming;
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.
+@override@ActorDeclarationAllowGroupInvitesConverter() final  ActorDeclarationAllowGroupInvites? allowGroupInvites;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -248,16 +264,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorDeclarationRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.allowIncoming, allowIncoming) || other.allowIncoming == allowIncoming)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorDeclarationRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.allowIncoming, allowIncoming) || other.allowIncoming == allowIncoming)&&(identical(other.allowGroupInvites, allowGroupInvites) || other.allowGroupInvites == allowGroupInvites)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,allowIncoming,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,allowIncoming,allowGroupInvites,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ActorDeclarationRecord(\$type: ${$type}, allowIncoming: $allowIncoming, \$unknown: ${$unknown})';
+  return 'ActorDeclarationRecord(\$type: ${$type}, allowIncoming: $allowIncoming, allowGroupInvites: $allowGroupInvites, \$unknown: ${$unknown})';
 }
 
 
@@ -268,11 +284,11 @@ abstract mixin class _$ActorDeclarationRecordCopyWith<$Res> implements $ActorDec
   factory _$ActorDeclarationRecordCopyWith(_ActorDeclarationRecord value, $Res Function(_ActorDeclarationRecord) _then) = __$ActorDeclarationRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming allowIncoming, Map<String, dynamic>? $unknown
+ String $type,@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming allowIncoming,@ActorDeclarationAllowGroupInvitesConverter() ActorDeclarationAllowGroupInvites? allowGroupInvites, Map<String, dynamic>? $unknown
 });
 
 
-@override $ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
+@override $ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;@override $ActorDeclarationAllowGroupInvitesCopyWith<$Res>? get allowGroupInvites;
 
 }
 /// @nodoc
@@ -285,11 +301,12 @@ class __$ActorDeclarationRecordCopyWithImpl<$Res>
 
 /// Create a copy of ActorDeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? allowIncoming = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? allowIncoming = null,Object? allowGroupInvites = freezed,Object? $unknown = freezed,}) {
   return _then(_ActorDeclarationRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
-as ActorDeclarationAllowIncoming,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ActorDeclarationAllowIncoming,allowGroupInvites: freezed == allowGroupInvites ? _self.allowGroupInvites : allowGroupInvites // ignore: cast_nullable_to_non_nullable
+as ActorDeclarationAllowGroupInvites?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -302,6 +319,18 @@ $ActorDeclarationAllowIncomingCopyWith<$Res> get allowIncoming {
   
   return $ActorDeclarationAllowIncomingCopyWith<$Res>(_self.allowIncoming, (value) {
     return _then(_self.copyWith(allowIncoming: value));
+  });
+}/// Create a copy of ActorDeclarationRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ActorDeclarationAllowGroupInvitesCopyWith<$Res>? get allowGroupInvites {
+    if (_self.allowGroupInvites == null) {
+    return null;
+  }
+
+  return $ActorDeclarationAllowGroupInvitesCopyWith<$Res>(_self.allowGroupInvites!, (value) {
+    return _then(_self.copyWith(allowGroupInvites: value));
   });
 }
 }

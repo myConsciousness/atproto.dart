@@ -7,6 +7,8 @@ description: chat.bsky.convo.leaveConvo
 
 ## #main
 
+Leaves a conversation (direct or group). For group, this effectively removes membership. For direct, membership is never removed, only changed to remove from enumerations by the user who left.
+
 ### Input
 
 - **Encoding**: application/json

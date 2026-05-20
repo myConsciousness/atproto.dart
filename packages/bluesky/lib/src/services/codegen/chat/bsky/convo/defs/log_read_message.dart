@@ -21,6 +21,7 @@ part 'log_read_message.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// DEPRECATED: use logReadConvo instead. Event indicating a convo was read up to a certain message.
 @freezed
 abstract class LogReadMessage with _$LogReadMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];

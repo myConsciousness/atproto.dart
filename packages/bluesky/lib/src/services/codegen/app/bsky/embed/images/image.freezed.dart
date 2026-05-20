@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedImagesImage {
 
- String get $type;@BlobConverter() Blob get image;/// Alt text description of the image, for accessibility.
+ String get $type;/// The raw image file. May be up to 2 MB, formerly limited to 1 MB.
+@BlobConverter() Blob get image;/// Alt text description of the image, for accessibility.
  String get alt;@AspectRatioConverter() AspectRatio? get aspectRatio; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedImagesImage
 /// with the given fields replaced by the non-null parameter values.
@@ -239,6 +240,7 @@ class _EmbedImagesImage implements EmbedImagesImage {
   factory _EmbedImagesImage.fromJson(Map<String, dynamic> json) => _$EmbedImagesImageFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// The raw image file. May be up to 2 MB, formerly limited to 1 MB.
 @override@BlobConverter() final  Blob image;
 /// Alt text description of the image, for accessibility.
 @override final  String alt;

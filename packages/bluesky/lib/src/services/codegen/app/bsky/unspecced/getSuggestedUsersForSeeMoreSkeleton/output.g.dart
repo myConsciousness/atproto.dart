@@ -1,0 +1,38 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'output.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutput
+_$UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutputFromJson(Map json) =>
+    $checkedCreate(
+      '_UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutput',
+      json,
+      ($checkedConvert) {
+        final val = _UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutput(
+          dids: $checkedConvert(
+            'dids',
+            (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+          ),
+          recIdStr: $checkedConvert('recIdStr', (v) => v as String?),
+          $unknown: $checkedConvert(
+            r'$unknown',
+            (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+          ),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutputToJson(
+  _UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutput instance,
+) => <String, dynamic>{
+  'dids': instance.dids,
+  'recIdStr': ?instance.recIdStr,
+  r'$unknown': ?instance.$unknown,
+};

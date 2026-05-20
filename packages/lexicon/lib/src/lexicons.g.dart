@@ -6,22 +6,22 @@
 // Lexicon Docs Generator
 // **************************************************************************
 
-/// `com.atproto.lexicon.resolveLexicon`
-const comAtprotoLexiconResolveLexicon = <String, dynamic>{
+/// `com.atproto.temp.dereferenceScope`
+const comAtprotoTempDereferenceScope = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.lexicon.resolveLexicon",
+  "id": "com.atproto.temp.dereferenceScope",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Resolves an atproto lexicon (NSID) to a schema.",
+      "description":
+          "Allows finding the oauth permission scope from a reference",
       "parameters": {
         "type": "params",
-        "required": ["nsid"],
+        "required": ["scope"],
         "properties": {
-          "nsid": {
+          "scope": {
             "type": "string",
-            "format": "nsid",
-            "description": "The lexicon NSID to resolve.",
+            "description": "The scope reference (starts with 'ref:')",
           },
         },
       },
@@ -29,2217 +29,68 @@ const comAtprotoLexiconResolveLexicon = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["uri", "cid", "schema"],
+          "required": ["scope"],
           "properties": {
-            "cid": {
+            "scope": {
               "type": "string",
-              "format": "cid",
-              "description": "The CID of the lexicon schema record.",
-            },
-            "schema": {
-              "type": "ref",
-              "description": "The resolved lexicon schema record.",
-              "ref": "com.atproto.lexicon.schema#main",
-            },
-            "uri": {
-              "type": "string",
-              "format": "at-uri",
-              "description": "The AT-URI of the lexicon schema record.",
+              "description": "The full oauth permission scope",
             },
           },
         },
       },
       "errors": [
         {
-          "name": "LexiconNotFound",
-          "description": "No lexicon was resolved for the NSID.",
+          "name": "InvalidScopeReference",
+          "description": "An invalid scope reference was provided.",
         },
       ],
     },
   },
 };
 
-/// `com.atproto.lexicon.schema`
-const comAtprotoLexiconSchema = <String, dynamic>{
+/// `com.atproto.temp.addReservedHandle`
+const comAtprotoTempAddReservedHandle = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.lexicon.schema",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).",
-      "key": "nsid",
-      "record": {
-        "type": "object",
-        "required": ["lexicon"],
-        "properties": {
-          "lexicon": {
-            "type": "integer",
-            "description":
-                "Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.",
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.putRecord`
-const comAtprotoRepoPutRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.putRecord",
+  "id": "com.atproto.temp.addReservedHandle",
   "defs": {
     "main": {
       "type": "procedure",
-      "description":
-          "Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repo", "collection", "rkey", "record"],
-          "nullable": ["swapRecord"],
-          "properties": {
-            "repo": {
-              "type": "string",
-              "format": "at-identifier",
-              "description":
-                  "The handle or DID of the repo (aka, current account).",
-            },
-            "collection": {
-              "type": "string",
-              "format": "nsid",
-              "description": "The NSID of the record collection.",
-            },
-            "rkey": {
-              "type": "string",
-              "format": "record-key",
-              "description": "The Record Key.",
-              "maxLength": 512,
-            },
-            "validate": {
-              "type": "boolean",
-              "description":
-                  "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons.",
-            },
-            "record": {
-              "type": "unknown",
-              "description": "The record to write.",
-            },
-            "swapRecord": {
-              "type": "string",
-              "format": "cid",
-              "description":
-                  "Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation",
-            },
-            "swapCommit": {
-              "type": "string",
-              "format": "cid",
-              "description":
-                  "Compare and swap with the previous commit by CID.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["uri", "cid"],
-          "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
-            "commit": {
-              "type": "ref",
-              "ref": "com.atproto.repo.defs#commitMeta",
-            },
-            "validationStatus": {
-              "type": "string",
-              "knownValues": ["valid", "unknown"],
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "InvalidSwap"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.repo.describeRepo`
-const comAtprotoRepoDescribeRepo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.describeRepo",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get information about an account and repository, including the list of collections. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["repo"],
-        "properties": {
-          "repo": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "The handle or DID of the repo.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": [
-            "handle",
-            "did",
-            "didDoc",
-            "collections",
-            "handleIsCorrect",
-          ],
-          "properties": {
-            "handle": {"type": "string", "format": "handle"},
-            "did": {"type": "string", "format": "did"},
-            "didDoc": {
-              "type": "unknown",
-              "description": "The complete DID document for this account.",
-            },
-            "collections": {
-              "type": "array",
-              "description":
-                  "List of all the collections (NSIDs) for which this repo contains at least one record.",
-              "items": {"type": "string", "format": "nsid"},
-            },
-            "handleIsCorrect": {
-              "type": "boolean",
-              "description":
-                  "Indicates if handle is currently valid (resolves bi-directionally)",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.applyWrites`
-const comAtprotoRepoApplyWrites = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.applyWrites",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repo", "writes"],
-          "properties": {
-            "repo": {
-              "type": "string",
-              "format": "at-identifier",
-              "description":
-                  "The handle or DID of the repo (aka, current account).",
-            },
-            "validate": {
-              "type": "boolean",
-              "description":
-                  "Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons.",
-            },
-            "writes": {
-              "type": "array",
-              "items": {
-                "type": "union",
-                "refs": ["#create", "#update", "#delete"],
-                "closed": true,
-              },
-            },
-            "swapCommit": {
-              "type": "string",
-              "format": "cid",
-              "description":
-                  "If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": [],
-          "properties": {
-            "commit": {
-              "type": "ref",
-              "ref": "com.atproto.repo.defs#commitMeta",
-            },
-            "results": {
-              "type": "array",
-              "items": {
-                "type": "union",
-                "refs": ["#createResult", "#updateResult", "#deleteResult"],
-                "closed": true,
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "InvalidSwap",
-          "description":
-              "Indicates that the 'swapCommit' parameter did not match current commit.",
-        },
-      ],
-    },
-    "create": {
-      "type": "object",
-      "description": "Operation which creates a new record.",
-      "required": ["collection", "value"],
-      "properties": {
-        "collection": {"type": "string", "format": "nsid"},
-        "rkey": {
-          "type": "string",
-          "format": "record-key",
-          "description":
-              "NOTE: maxLength is redundant with record-key format. Keeping it temporarily to ensure backwards compatibility.",
-          "maxLength": 512,
-        },
-        "value": {"type": "unknown"},
-      },
-    },
-    "update": {
-      "type": "object",
-      "description": "Operation which updates an existing record.",
-      "required": ["collection", "rkey", "value"],
-      "properties": {
-        "collection": {"type": "string", "format": "nsid"},
-        "rkey": {"type": "string", "format": "record-key"},
-        "value": {"type": "unknown"},
-      },
-    },
-    "delete": {
-      "type": "object",
-      "description": "Operation which deletes an existing record.",
-      "required": ["collection", "rkey"],
-      "properties": {
-        "collection": {"type": "string", "format": "nsid"},
-        "rkey": {"type": "string", "format": "record-key"},
-      },
-    },
-    "createResult": {
-      "type": "object",
-      "required": ["uri", "cid"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "validationStatus": {
-          "type": "string",
-          "knownValues": ["valid", "unknown"],
-        },
-      },
-    },
-    "updateResult": {
-      "type": "object",
-      "required": ["uri", "cid"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "validationStatus": {
-          "type": "string",
-          "knownValues": ["valid", "unknown"],
-        },
-      },
-    },
-    "deleteResult": {"type": "object", "required": [], "properties": {}},
-  },
-};
-
-/// `com.atproto.repo.createRecord`
-const comAtprotoRepoCreateRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.createRecord",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Create a single new repository record. Requires auth, implemented by PDS.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repo", "collection", "record"],
-          "properties": {
-            "repo": {
-              "type": "string",
-              "format": "at-identifier",
-              "description":
-                  "The handle or DID of the repo (aka, current account).",
-            },
-            "collection": {
-              "type": "string",
-              "format": "nsid",
-              "description": "The NSID of the record collection.",
-            },
-            "rkey": {
-              "type": "string",
-              "format": "record-key",
-              "description": "The Record Key.",
-              "maxLength": 512,
-            },
-            "validate": {
-              "type": "boolean",
-              "description":
-                  "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons.",
-            },
-            "record": {
-              "type": "unknown",
-              "description": "The record itself. Must contain a \$type field.",
-            },
-            "swapCommit": {
-              "type": "string",
-              "format": "cid",
-              "description":
-                  "Compare and swap with the previous commit by CID.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["uri", "cid"],
-          "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
-            "commit": {
-              "type": "ref",
-              "ref": "com.atproto.repo.defs#commitMeta",
-            },
-            "validationStatus": {
-              "type": "string",
-              "knownValues": ["valid", "unknown"],
-            },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "InvalidSwap",
-          "description":
-              "Indicates that 'swapCommit' didn't match current repo commit.",
-        },
-      ],
-    },
-  },
-};
-
-/// `com.atproto.repo.uploadBlob`
-const comAtprotoRepoUploadBlob = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.uploadBlob",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.",
-      "input": {"encoding": "*/*"},
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["blob"],
-          "properties": {
-            "blob": {"type": "blob"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.strongRef`
-const comAtprotoRepoStrongRef = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.strongRef",
-  "description": "A URI with a content-hash fingerprint.",
-  "defs": {
-    "main": {
-      "type": "object",
-      "required": ["uri", "cid"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.deleteRecord`
-const comAtprotoRepoDeleteRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.deleteRecord",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repo", "collection", "rkey"],
-          "properties": {
-            "repo": {
-              "type": "string",
-              "format": "at-identifier",
-              "description":
-                  "The handle or DID of the repo (aka, current account).",
-            },
-            "collection": {
-              "type": "string",
-              "format": "nsid",
-              "description": "The NSID of the record collection.",
-            },
-            "rkey": {
-              "type": "string",
-              "format": "record-key",
-              "description": "The Record Key.",
-            },
-            "swapRecord": {
-              "type": "string",
-              "format": "cid",
-              "description":
-                  "Compare and swap with the previous record by CID.",
-            },
-            "swapCommit": {
-              "type": "string",
-              "format": "cid",
-              "description":
-                  "Compare and swap with the previous commit by CID.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "commit": {
-              "type": "ref",
-              "ref": "com.atproto.repo.defs#commitMeta",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "InvalidSwap"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.repo.listMissingBlobs`
-const comAtprotoRepoListMissingBlobs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.listMissingBlobs",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 500,
-            "minimum": 1,
-            "maximum": 1000,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["blobs"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "blobs": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#recordBlob"},
-            },
-          },
-        },
-      },
-    },
-    "recordBlob": {
-      "type": "object",
-      "required": ["cid", "recordUri"],
-      "properties": {
-        "cid": {"type": "string", "format": "cid"},
-        "recordUri": {"type": "string", "format": "at-uri"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.defs`
-const comAtprotoRepoDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.defs",
-  "defs": {
-    "commitMeta": {
-      "type": "object",
-      "required": ["cid", "rev"],
-      "properties": {
-        "cid": {"type": "string", "format": "cid"},
-        "rev": {"type": "string", "format": "tid"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.importRepo`
-const comAtprotoRepoImportRepo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.importRepo",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.",
-      "input": {"encoding": "application/vnd.ipld.car"},
-    },
-  },
-};
-
-/// `com.atproto.repo.listRecords`
-const comAtprotoRepoListRecords = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.listRecords",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "List a range of records in a repository, matching a specific collection. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["repo", "collection"],
-        "properties": {
-          "repo": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "The handle or DID of the repo.",
-          },
-          "collection": {
-            "type": "string",
-            "format": "nsid",
-            "description": "The NSID of the record type.",
-          },
-          "limit": {
-            "type": "integer",
-            "description": "The number of records to return.",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-          "reverse": {
-            "type": "boolean",
-            "description": "Flag to reverse the order of the returned records.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["records"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "records": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#record"},
-            },
-          },
-        },
-      },
-    },
-    "record": {
-      "type": "object",
-      "required": ["uri", "cid", "value"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "value": {"type": "unknown"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.repo.getRecord`
-const comAtprotoRepoGetRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.repo.getRecord",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a single record from a repository. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["repo", "collection", "rkey"],
-        "properties": {
-          "repo": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "The handle or DID of the repo.",
-          },
-          "collection": {
-            "type": "string",
-            "format": "nsid",
-            "description": "The NSID of the record collection.",
-          },
-          "rkey": {
-            "type": "string",
-            "format": "record-key",
-            "description": "The Record Key.",
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid",
-            "description":
-                "The CID of the version of the record. If not specified, then return the most recent version.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["uri", "value"],
-          "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
-            "value": {"type": "unknown"},
-          },
-        },
-      },
-      "errors": [
-        {"name": "RecordNotFound"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.requestAccountDelete`
-const comAtprotoServerRequestAccountDelete = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.requestAccountDelete",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Initiate a user account deletion via email.",
-    },
-  },
-};
-
-/// `com.atproto.server.checkAccountStatus`
-const comAtprotoServerCheckAccountStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.checkAccountStatus",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": [
-            "activated",
-            "validDid",
-            "repoCommit",
-            "repoRev",
-            "repoBlocks",
-            "indexedRecords",
-            "privateStateValues",
-            "expectedBlobs",
-            "importedBlobs",
-          ],
-          "properties": {
-            "activated": {"type": "boolean"},
-            "validDid": {"type": "boolean"},
-            "repoCommit": {"type": "string", "format": "cid"},
-            "repoRev": {"type": "string"},
-            "repoBlocks": {"type": "integer"},
-            "indexedRecords": {"type": "integer"},
-            "privateStateValues": {"type": "integer"},
-            "expectedBlobs": {"type": "integer"},
-            "importedBlobs": {"type": "integer"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.activateAccount`
-const comAtprotoServerActivateAccount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.activateAccount",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.",
-    },
-  },
-};
-
-/// `com.atproto.server.getServiceAuth`
-const comAtprotoServerGetServiceAuth = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.getServiceAuth",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a signed token on behalf of the requesting DID for the requested service.",
-      "parameters": {
-        "type": "params",
-        "required": ["aud"],
-        "properties": {
-          "aud": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "The DID of the service that the token will be used to authenticate with",
-          },
-          "exp": {
-            "type": "integer",
-            "description":
-                "The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.",
-          },
-          "lxm": {
-            "type": "string",
-            "format": "nsid",
-            "description":
-                "Lexicon (XRPC) method to bind the requested token to",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["token"],
-          "properties": {
-            "token": {"type": "string"},
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "BadExpiration",
-          "description":
-              "Indicates that the requested expiration date is not a valid. May be in the past or may be reliant on the requested scopes.",
-        },
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.createInviteCode`
-const comAtprotoServerCreateInviteCode = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.createInviteCode",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create an invite code.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["useCount"],
-          "properties": {
-            "useCount": {"type": "integer"},
-            "forAccount": {"type": "string", "format": "did"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["code"],
-          "properties": {
-            "code": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.deleteAccount`
-const comAtprotoServerDeleteAccount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.deleteAccount",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "password", "token"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "password": {"type": "string"},
-            "token": {"type": "string"},
-          },
-        },
-      },
-      "errors": [
-        {"name": "ExpiredToken"},
-        {"name": "InvalidToken"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.requestEmailUpdate`
-const comAtprotoServerRequestEmailUpdate = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.requestEmailUpdate",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Request a token in order to update email.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["tokenRequired"],
-          "properties": {
-            "tokenRequired": {"type": "boolean"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.revokeAppPassword`
-const comAtprotoServerRevokeAppPassword = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.revokeAppPassword",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Revoke an App Password by name.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["name"],
-          "properties": {
-            "name": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.createInviteCodes`
-const comAtprotoServerCreateInviteCodes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.createInviteCodes",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create invite codes.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["codeCount", "useCount"],
-          "properties": {
-            "codeCount": {"type": "integer", "default": 1},
-            "useCount": {"type": "integer"},
-            "forAccounts": {
-              "type": "array",
-              "items": {"type": "string", "format": "did"},
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["codes"],
-          "properties": {
-            "codes": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#accountCodes"},
-            },
-          },
-        },
-      },
-    },
-    "accountCodes": {
-      "type": "object",
-      "required": ["account", "codes"],
-      "properties": {
-        "account": {"type": "string"},
-        "codes": {
-          "type": "array",
-          "items": {"type": "string"},
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.deactivateAccount`
-const comAtprotoServerDeactivateAccount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.deactivateAccount",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "deleteAfter": {
-              "type": "string",
-              "format": "datetime",
-              "description":
-                  "A recommendation to server as to how long they should hold onto the deactivated account before deleting.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.createAccount`
-const comAtprotoServerCreateAccount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.createAccount",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create an account. Implemented by PDS.",
+      "description": "Add a handle to the set of reserved handles.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
           "required": ["handle"],
           "properties": {
-            "email": {"type": "string"},
-            "handle": {
-              "type": "string",
-              "format": "handle",
-              "description": "Requested handle for the account.",
-            },
-            "did": {
-              "type": "string",
-              "format": "did",
-              "description":
-                  "Pre-existing atproto DID, being imported to a new account.",
-            },
-            "inviteCode": {"type": "string"},
-            "verificationCode": {"type": "string"},
-            "verificationPhone": {"type": "string"},
-            "password": {
-              "type": "string",
-              "description":
-                  "Initial account password. May need to meet instance-specific password strength requirements.",
-            },
-            "recoveryKey": {
-              "type": "string",
-              "description":
-                  "DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.",
-            },
-            "plcOp": {
-              "type": "unknown",
-              "description":
-                  "A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.",
-            },
+            "handle": {"type": "string"},
           },
         },
       },
       "output": {
         "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "description":
-              "Account login session returned on successful account creation.",
-          "required": ["accessJwt", "refreshJwt", "handle", "did"],
-          "properties": {
-            "accessJwt": {"type": "string"},
-            "refreshJwt": {"type": "string"},
-            "handle": {"type": "string", "format": "handle"},
-            "did": {
-              "type": "string",
-              "format": "did",
-              "description": "The DID of the new account.",
-            },
-            "didDoc": {
-              "type": "unknown",
-              "description": "Complete DID document.",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "InvalidHandle"},
-        {"name": "InvalidPassword"},
-        {"name": "InvalidInviteCode"},
-        {"name": "HandleNotAvailable"},
-        {"name": "UnsupportedDomain"},
-        {"name": "UnresolvableDid"},
-        {"name": "IncompatibleDidDoc"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.requestPasswordReset`
-const comAtprotoServerRequestPasswordReset = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.requestPasswordReset",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Initiate a user account password reset via email.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["email"],
-          "properties": {
-            "email": {"type": "string"},
-          },
-        },
+        "schema": {"type": "object", "properties": {}},
       },
     },
   },
 };
 
-/// `com.atproto.server.updateEmail`
-const comAtprotoServerUpdateEmail = <String, dynamic>{
+/// `com.atproto.temp.checkSignupQueue`
+const comAtprotoTempCheckSignupQueue = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.server.updateEmail",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Update an account's email.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["email"],
-          "properties": {
-            "email": {"type": "string"},
-            "emailAuthFactor": {"type": "boolean"},
-            "token": {
-              "type": "string",
-              "description":
-                  "Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "ExpiredToken"},
-        {"name": "InvalidToken"},
-        {"name": "TokenRequired"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.getAccountInviteCodes`
-const comAtprotoServerGetAccountInviteCodes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.getAccountInviteCodes",
+  "id": "com.atproto.temp.checkSignupQueue",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Get all invite codes for the current account. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "includeUsed": {"type": "boolean", "default": true},
-          "createAvailable": {
-            "type": "boolean",
-            "description":
-                "Controls whether any new 'earned' but not 'created' invites should be created.",
-            "default": true,
-          },
-        },
-      },
+      "description": "Check accounts location in signup queue.",
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["codes"],
+          "required": ["activated"],
           "properties": {
-            "codes": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.server.defs#inviteCode",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "DuplicateCreate"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.refreshSession`
-const comAtprotoServerRefreshSession = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.refreshSession",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["accessJwt", "refreshJwt", "handle", "did"],
-          "properties": {
-            "accessJwt": {"type": "string"},
-            "refreshJwt": {"type": "string"},
-            "handle": {"type": "string", "format": "handle"},
-            "did": {"type": "string", "format": "did"},
-            "didDoc": {"type": "unknown"},
-            "email": {"type": "string"},
-            "emailConfirmed": {"type": "boolean"},
-            "emailAuthFactor": {"type": "boolean"},
-            "active": {"type": "boolean"},
-            "status": {
-              "type": "string",
-              "description":
-                  "Hosting status of the account. If not specified, then assume 'active'.",
-              "knownValues": ["takendown", "suspended", "deactivated"],
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "AccountTakedown"},
-        {"name": "InvalidToken"},
-        {"name": "ExpiredToken"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.defs`
-const comAtprotoServerDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.defs",
-  "defs": {
-    "inviteCode": {
-      "type": "object",
-      "required": [
-        "code",
-        "available",
-        "disabled",
-        "forAccount",
-        "createdBy",
-        "createdAt",
-        "uses",
-      ],
-      "properties": {
-        "code": {"type": "string"},
-        "available": {"type": "integer"},
-        "disabled": {"type": "boolean"},
-        "forAccount": {"type": "string"},
-        "createdBy": {"type": "string"},
-        "createdAt": {"type": "string", "format": "datetime"},
-        "uses": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#inviteCodeUse"},
-        },
-      },
-    },
-    "inviteCodeUse": {
-      "type": "object",
-      "required": ["usedBy", "usedAt"],
-      "properties": {
-        "usedBy": {"type": "string", "format": "did"},
-        "usedAt": {"type": "string", "format": "datetime"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.confirmEmail`
-const comAtprotoServerConfirmEmail = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.confirmEmail",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Confirm an email using a token from com.atproto.server.requestEmailConfirmation.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["email", "token"],
-          "properties": {
-            "email": {"type": "string"},
-            "token": {"type": "string"},
-          },
-        },
-      },
-      "errors": [
-        {"name": "AccountNotFound"},
-        {"name": "ExpiredToken"},
-        {"name": "InvalidToken"},
-        {"name": "InvalidEmail"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.resetPassword`
-const comAtprotoServerResetPassword = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.resetPassword",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Reset a user account password using a token.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["token", "password"],
-          "properties": {
-            "token": {"type": "string"},
-            "password": {"type": "string"},
-          },
-        },
-      },
-      "errors": [
-        {"name": "ExpiredToken"},
-        {"name": "InvalidToken"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.describeServer`
-const comAtprotoServerDescribeServer = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.describeServer",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Describes the server's account creation requirements and capabilities. Implemented by PDS.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "availableUserDomains"],
-          "properties": {
-            "inviteCodeRequired": {
-              "type": "boolean",
-              "description":
-                  "If true, an invite code must be supplied to create an account on this instance.",
-            },
-            "phoneVerificationRequired": {
-              "type": "boolean",
-              "description":
-                  "If true, a phone verification token must be supplied to create an account on this instance.",
-            },
-            "availableUserDomains": {
-              "type": "array",
-              "description":
-                  "List of domain suffixes that can be used in account handles.",
-              "items": {"type": "string"},
-            },
-            "links": {
-              "type": "ref",
-              "description": "URLs of service policy documents.",
-              "ref": "#links",
-            },
-            "contact": {
-              "type": "ref",
-              "description": "Contact information",
-              "ref": "#contact",
-            },
-            "did": {"type": "string", "format": "did"},
-          },
-        },
-      },
-    },
-    "links": {
-      "type": "object",
-      "properties": {
-        "privacyPolicy": {"type": "string", "format": "uri"},
-        "termsOfService": {"type": "string", "format": "uri"},
-      },
-    },
-    "contact": {
-      "type": "object",
-      "properties": {
-        "email": {"type": "string"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.createSession`
-const comAtprotoServerCreateSession = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.createSession",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create an authentication session.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["identifier", "password"],
-          "properties": {
-            "identifier": {
-              "type": "string",
-              "description":
-                  "Handle or other identifier supported by the server for the authenticating user.",
-            },
-            "password": {"type": "string"},
-            "authFactorToken": {"type": "string"},
-            "allowTakendown": {
-              "type": "boolean",
-              "description":
-                  "When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["accessJwt", "refreshJwt", "handle", "did"],
-          "properties": {
-            "accessJwt": {"type": "string"},
-            "refreshJwt": {"type": "string"},
-            "handle": {"type": "string", "format": "handle"},
-            "did": {"type": "string", "format": "did"},
-            "didDoc": {"type": "unknown"},
-            "email": {"type": "string"},
-            "emailConfirmed": {"type": "boolean"},
-            "emailAuthFactor": {"type": "boolean"},
-            "active": {"type": "boolean"},
-            "status": {
-              "type": "string",
-              "description":
-                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
-              "knownValues": ["takendown", "suspended", "deactivated"],
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "AccountTakedown"},
-        {"name": "AuthFactorTokenRequired"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.deleteSession`
-const comAtprotoServerDeleteSession = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.deleteSession",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').",
-      "errors": [
-        {"name": "InvalidToken"},
-        {"name": "ExpiredToken"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.server.createAppPassword`
-const comAtprotoServerCreateAppPassword = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.createAppPassword",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create an App Password.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["name"],
-          "properties": {
-            "name": {
-              "type": "string",
-              "description":
-                  "A short name for the App Password, to help distinguish them.",
-            },
-            "privileged": {
-              "type": "boolean",
-              "description":
-                  "If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "#appPassword"},
-      },
-      "errors": [
-        {"name": "AccountTakedown"},
-      ],
-    },
-    "appPassword": {
-      "type": "object",
-      "required": ["name", "password", "createdAt"],
-      "properties": {
-        "name": {"type": "string"},
-        "password": {"type": "string"},
-        "createdAt": {"type": "string", "format": "datetime"},
-        "privileged": {"type": "boolean"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.getSession`
-const comAtprotoServerGetSession = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.getSession",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get information about the current auth session. Requires auth.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["handle", "did"],
-          "properties": {
-            "handle": {"type": "string", "format": "handle"},
-            "did": {"type": "string", "format": "did"},
-            "didDoc": {"type": "unknown"},
-            "email": {"type": "string"},
-            "emailConfirmed": {"type": "boolean"},
-            "emailAuthFactor": {"type": "boolean"},
-            "active": {"type": "boolean"},
-            "status": {
-              "type": "string",
-              "description":
-                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
-              "knownValues": ["takendown", "suspended", "deactivated"],
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.requestEmailConfirmation`
-const comAtprotoServerRequestEmailConfirmation = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.requestEmailConfirmation",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Request an email with a code to confirm ownership of email.",
-    },
-  },
-};
-
-/// `com.atproto.server.listAppPasswords`
-const comAtprotoServerListAppPasswords = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.listAppPasswords",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "List all App Passwords.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["passwords"],
-          "properties": {
-            "passwords": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#appPassword"},
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "AccountTakedown"},
-      ],
-    },
-    "appPassword": {
-      "type": "object",
-      "required": ["name", "createdAt"],
-      "properties": {
-        "name": {"type": "string"},
-        "createdAt": {"type": "string", "format": "datetime"},
-        "privileged": {"type": "boolean"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.server.reserveSigningKey`
-const comAtprotoServerReserveSigningKey = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.server.reserveSigningKey",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "did": {
-              "type": "string",
-              "format": "did",
-              "description": "The DID to reserve a key for.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["signingKey"],
-          "properties": {
-            "signingKey": {
-              "type": "string",
-              "description":
-                  "The public key for the reserved signing key, in did:key serialization.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.updateAccountHandle`
-const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.updateAccountHandle",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Administrative action to update an account's handle.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "handle"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "handle": {"type": "string", "format": "handle"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.updateAccountSigningKey`
-const comAtprotoAdminUpdateAccountSigningKey = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.updateAccountSigningKey",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Administrative action to update an account's signing key in their Did document.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "signingKey"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "signingKey": {
-              "type": "string",
-              "format": "did",
-              "description": "Did-key formatted public key",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.deleteAccount`
-const comAtprotoAdminDeleteAccount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.deleteAccount",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Delete a user account as an administrator.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.getSubjectStatus`
-const comAtprotoAdminGetSubjectStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.getSubjectStatus",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get the service-specific admin status of a subject (account, record, or blob).",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "did": {"type": "string", "format": "did"},
-          "uri": {"type": "string", "format": "at-uri"},
-          "blob": {"type": "string", "format": "cid"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject"],
-          "properties": {
-            "subject": {
-              "type": "union",
-              "refs": [
-                "com.atproto.admin.defs#repoRef",
-                "com.atproto.repo.strongRef",
-                "com.atproto.admin.defs#repoBlobRef",
-              ],
-            },
-            "takedown": {
-              "type": "ref",
-              "ref": "com.atproto.admin.defs#statusAttr",
-            },
-            "deactivated": {
-              "type": "ref",
-              "ref": "com.atproto.admin.defs#statusAttr",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.getAccountInfos`
-const comAtprotoAdminGetAccountInfos = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.getAccountInfos",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get details about some accounts.",
-      "parameters": {
-        "type": "params",
-        "required": ["dids"],
-        "properties": {
-          "dids": {
-            "type": "array",
-            "items": {"type": "string", "format": "did"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["infos"],
-          "properties": {
-            "infos": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.admin.defs#accountView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.updateSubjectStatus`
-const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.updateSubjectStatus",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Update the service-specific admin status of a subject (account, record, or blob).",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject"],
-          "properties": {
-            "subject": {
-              "type": "union",
-              "refs": [
-                "com.atproto.admin.defs#repoRef",
-                "com.atproto.repo.strongRef",
-                "com.atproto.admin.defs#repoBlobRef",
-              ],
-            },
-            "takedown": {
-              "type": "ref",
-              "ref": "com.atproto.admin.defs#statusAttr",
-            },
-            "deactivated": {
-              "type": "ref",
-              "ref": "com.atproto.admin.defs#statusAttr",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject"],
-          "properties": {
-            "subject": {
-              "type": "union",
-              "refs": [
-                "com.atproto.admin.defs#repoRef",
-                "com.atproto.repo.strongRef",
-                "com.atproto.admin.defs#repoBlobRef",
-              ],
-            },
-            "takedown": {
-              "type": "ref",
-              "ref": "com.atproto.admin.defs#statusAttr",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.getInviteCodes`
-const comAtprotoAdminGetInviteCodes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.getInviteCodes",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get an admin view of invite codes.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "sort": {
-            "type": "string",
-            "default": "recent",
-            "knownValues": ["recent", "usage"],
-          },
-          "limit": {
-            "type": "integer",
-            "default": 100,
-            "minimum": 1,
-            "maximum": 500,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["codes"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "codes": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.server.defs#inviteCode",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.disableAccountInvites`
-const comAtprotoAdminDisableAccountInvites = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.disableAccountInvites",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Disable an account from receiving new invite codes, but does not invalidate existing codes.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["account"],
-          "properties": {
-            "account": {"type": "string", "format": "did"},
-            "note": {
-              "type": "string",
-              "description": "Optional reason for disabled invites.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.defs`
-const comAtprotoAdminDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.defs",
-  "defs": {
-    "statusAttr": {
-      "type": "object",
-      "required": ["applied"],
-      "properties": {
-        "applied": {"type": "boolean"},
-        "ref": {"type": "string"},
-      },
-    },
-    "accountView": {
-      "type": "object",
-      "required": ["did", "handle", "indexedAt"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "handle": {"type": "string", "format": "handle"},
-        "email": {"type": "string"},
-        "relatedRecords": {
-          "type": "array",
-          "items": {"type": "unknown"},
-        },
-        "indexedAt": {"type": "string", "format": "datetime"},
-        "invitedBy": {
-          "type": "ref",
-          "ref": "com.atproto.server.defs#inviteCode",
-        },
-        "invites": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"},
-        },
-        "invitesDisabled": {"type": "boolean"},
-        "emailConfirmedAt": {"type": "string", "format": "datetime"},
-        "inviteNote": {"type": "string"},
-        "deactivatedAt": {"type": "string", "format": "datetime"},
-        "threatSignatures": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#threatSignature"},
-        },
-      },
-    },
-    "repoRef": {
-      "type": "object",
-      "required": ["did"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-      },
-    },
-    "repoBlobRef": {
-      "type": "object",
-      "required": ["did", "cid"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "cid": {"type": "string", "format": "cid"},
-        "recordUri": {"type": "string", "format": "at-uri"},
-      },
-    },
-    "threatSignature": {
-      "type": "object",
-      "required": ["property", "value"],
-      "properties": {
-        "property": {"type": "string"},
-        "value": {"type": "string"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.sendEmail`
-const comAtprotoAdminSendEmail = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.sendEmail",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Send email to a user's account email address.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["recipientDid", "content", "senderDid"],
-          "properties": {
-            "recipientDid": {"type": "string", "format": "did"},
-            "content": {"type": "string"},
-            "subject": {"type": "string"},
-            "senderDid": {"type": "string", "format": "did"},
-            "comment": {
-              "type": "string",
-              "description":
-                  "Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["sent"],
-          "properties": {
-            "sent": {"type": "boolean"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.getAccountInfo`
-const comAtprotoAdminGetAccountInfo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.getAccountInfo",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get details about an account.",
-      "parameters": {
-        "type": "params",
-        "required": ["did"],
-        "properties": {
-          "did": {"type": "string", "format": "did"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.enableAccountInvites`
-const comAtprotoAdminEnableAccountInvites = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.enableAccountInvites",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Re-enable an account's ability to receive invite codes.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["account"],
-          "properties": {
-            "account": {"type": "string", "format": "did"},
-            "note": {
-              "type": "string",
-              "description": "Optional reason for enabled invites.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.updateAccountEmail`
-const comAtprotoAdminUpdateAccountEmail = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.updateAccountEmail",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Administrative action to update an account's email.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["account", "email"],
-          "properties": {
-            "account": {
-              "type": "string",
-              "format": "at-identifier",
-              "description": "The handle or DID of the repo.",
-            },
-            "email": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.disableInviteCodes`
-const comAtprotoAdminDisableInviteCodes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.disableInviteCodes",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Disable some set of codes and/or all codes associated with a set of users.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "codes": {
-              "type": "array",
-              "items": {"type": "string"},
-            },
-            "accounts": {
-              "type": "array",
-              "items": {"type": "string"},
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.updateAccountPassword`
-const comAtprotoAdminUpdateAccountPassword = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.updateAccountPassword",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Update the password for a user account as an administrator.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "password"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "password": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.admin.searchAccounts`
-const comAtprotoAdminSearchAccounts = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.admin.searchAccounts",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get list of accounts that matches your search query.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "email": {"type": "string"},
-          "cursor": {"type": "string"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["accounts"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "accounts": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "com.atproto.admin.defs#accountView",
-              },
-            },
+            "activated": {"type": "boolean"},
+            "placeInQueue": {"type": "integer"},
+            "estimatedTimeMs": {"type": "integer"},
           },
         },
       },
@@ -2338,112 +189,6 @@ const comAtprotoTempCheckHandleAvailability = <String, dynamic>{
   },
 };
 
-/// `com.atproto.temp.fetchLabels`
-const comAtprotoTempFetchLabels = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.temp.fetchLabels",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "since": {"type": "integer"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 250,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["labels"],
-          "properties": {
-            "labels": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.temp.addReservedHandle`
-const comAtprotoTempAddReservedHandle = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.temp.addReservedHandle",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Add a handle to the set of reserved handles.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["handle"],
-          "properties": {
-            "handle": {"type": "string"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-    },
-  },
-};
-
-/// `com.atproto.temp.dereferenceScope`
-const comAtprotoTempDereferenceScope = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.temp.dereferenceScope",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Allows finding the oauth permission scope from a reference",
-      "parameters": {
-        "type": "params",
-        "required": ["scope"],
-        "properties": {
-          "scope": {
-            "type": "string",
-            "description": "The scope reference (starts with 'ref:')",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["scope"],
-          "properties": {
-            "scope": {
-              "type": "string",
-              "description": "The full oauth permission scope",
-            },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "InvalidScopeReference",
-          "description": "An invalid scope reference was provided.",
-        },
-      ],
-    },
-  },
-};
-
 /// `com.atproto.temp.requestPhoneVerification`
 const comAtprotoTempRequestPhoneVerification = <String, dynamic>{
   "lexicon": 1,
@@ -2490,60 +235,24 @@ const comAtprotoTempRevokeAccountCredentials = <String, dynamic>{
   },
 };
 
-/// `com.atproto.temp.checkSignupQueue`
-const comAtprotoTempCheckSignupQueue = <String, dynamic>{
+/// `com.atproto.temp.fetchLabels`
+const comAtprotoTempFetchLabels = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.temp.checkSignupQueue",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Check accounts location in signup queue.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["activated"],
-          "properties": {
-            "activated": {"type": "boolean"},
-            "placeInQueue": {"type": "integer"},
-            "estimatedTimeMs": {"type": "integer"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.identity.requestPlcOperationSignature`
-const comAtprotoIdentityRequestPlcOperationSignature = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.identity.requestPlcOperationSignature",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Request an email with a code to in order to request a signed PLC operation. Requires Auth.",
-    },
-  },
-};
-
-/// `com.atproto.identity.resolveDid`
-const comAtprotoIdentityResolveDid = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.identity.resolveDid",
+  "id": "com.atproto.temp.fetchLabels",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Resolves DID to DID document. Does not bi-directionally verify handle.",
+          "DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.",
       "parameters": {
         "type": "params",
-        "required": ["did"],
         "properties": {
-          "did": {
-            "type": "string",
-            "format": "did",
-            "description": "DID to resolve.",
+          "since": {"type": "integer"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 250,
           },
         },
       },
@@ -2551,27 +260,67 @@ const comAtprotoIdentityResolveDid = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["didDoc"],
+          "required": ["labels"],
           "properties": {
-            "didDoc": {
-              "type": "unknown",
-              "description": "The complete DID document for the identity.",
+            "labels": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
             },
           },
         },
       },
-      "errors": [
-        {
-          "name": "DidNotFound",
-          "description":
-              "The DID resolution process confirmed that there is no current DID.",
+    },
+  },
+};
+
+/// `com.atproto.identity.updateHandle`
+const comAtprotoIdentityUpdateHandle = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.identity.updateHandle",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["handle"],
+          "properties": {
+            "handle": {
+              "type": "string",
+              "format": "handle",
+              "description": "The new handle.",
+            },
+          },
         },
-        {
-          "name": "DidDeactivated",
+      },
+    },
+  },
+};
+
+/// `com.atproto.identity.defs`
+const comAtprotoIdentityDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.identity.defs",
+  "defs": {
+    "identityInfo": {
+      "type": "object",
+      "required": ["did", "handle", "didDoc"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "handle": {
+          "type": "string",
+          "format": "handle",
           "description":
-              "The DID previously existed, but has been deactivated.",
+              "The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document.",
         },
-      ],
+        "didDoc": {
+          "type": "unknown",
+          "description": "The complete DID document for the identity.",
+        },
+      },
     },
   },
 };
@@ -2625,22 +374,46 @@ const comAtprotoIdentitySignPlcOperation = <String, dynamic>{
   },
 };
 
-/// `com.atproto.identity.refreshIdentity`
-const comAtprotoIdentityRefreshIdentity = <String, dynamic>{
+/// `com.atproto.identity.submitPlcOperation`
+const comAtprotoIdentitySubmitPlcOperation = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.identity.refreshIdentity",
+  "id": "com.atproto.identity.submitPlcOperation",
   "defs": {
     "main": {
       "type": "procedure",
       "description":
-          "Request that the server re-resolve an identity (DID and handle). The server may ignore this request, or require authentication, depending on the role, implementation, and policy of the server.",
+          "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["identifier"],
+          "required": ["operation"],
           "properties": {
-            "identifier": {"type": "string", "format": "at-identifier"},
+            "operation": {"type": "unknown"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.identity.resolveIdentity`
+const comAtprotoIdentityResolveIdentity = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.identity.resolveIdentity",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).",
+      "parameters": {
+        "type": "params",
+        "required": ["identifier"],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "Handle or DID to resolve.",
           },
         },
       },
@@ -2672,81 +445,22 @@ const comAtprotoIdentityRefreshIdentity = <String, dynamic>{
   },
 };
 
-/// `com.atproto.identity.getRecommendedDidCredentials`
-const comAtprotoIdentityGetRecommendedDidCredentials = <String, dynamic>{
+/// `com.atproto.identity.refreshIdentity`
+const comAtprotoIdentityRefreshIdentity = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.identity.getRecommendedDidCredentials",
+  "id": "com.atproto.identity.refreshIdentity",
   "defs": {
     "main": {
-      "type": "query",
+      "type": "procedure",
       "description":
-          "Describe the credentials that should be included in the DID doc of an account that is migrating to this service.",
-      "output": {
+          "Request that the server re-resolve an identity (DID and handle). The server may ignore this request, or require authentication, depending on the role, implementation, and policy of the server.",
+      "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
+          "required": ["identifier"],
           "properties": {
-            "rotationKeys": {
-              "type": "array",
-              "description":
-                  "Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.",
-              "items": {"type": "string"},
-            },
-            "alsoKnownAs": {
-              "type": "array",
-              "items": {"type": "string"},
-            },
-            "verificationMethods": {"type": "unknown"},
-            "services": {"type": "unknown"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.identity.defs`
-const comAtprotoIdentityDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.identity.defs",
-  "defs": {
-    "identityInfo": {
-      "type": "object",
-      "required": ["did", "handle", "didDoc"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "handle": {
-          "type": "string",
-          "format": "handle",
-          "description":
-              "The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document.",
-        },
-        "didDoc": {
-          "type": "unknown",
-          "description": "The complete DID document for the identity.",
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.identity.resolveIdentity`
-const comAtprotoIdentityResolveIdentity = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.identity.resolveIdentity",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).",
-      "parameters": {
-        "type": "params",
-        "required": ["identifier"],
-        "properties": {
-          "identifier": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "Handle or DID to resolve.",
+            "identifier": {"type": "string", "format": "at-identifier"},
           },
         },
       },
@@ -2819,22 +533,45 @@ const comAtprotoIdentityResolveHandle = <String, dynamic>{
   },
 };
 
-/// `com.atproto.identity.submitPlcOperation`
-const comAtprotoIdentitySubmitPlcOperation = <String, dynamic>{
+/// `com.atproto.identity.requestPlcOperationSignature`
+const comAtprotoIdentityRequestPlcOperationSignature = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.identity.submitPlcOperation",
+  "id": "com.atproto.identity.requestPlcOperationSignature",
   "defs": {
     "main": {
       "type": "procedure",
       "description":
-          "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry",
-      "input": {
+          "Request an email with a code to in order to request a signed PLC operation. Requires Auth.",
+    },
+  },
+};
+
+/// `com.atproto.identity.getRecommendedDidCredentials`
+const comAtprotoIdentityGetRecommendedDidCredentials = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.identity.getRecommendedDidCredentials",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Describe the credentials that should be included in the DID doc of an account that is migrating to this service.",
+      "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["operation"],
           "properties": {
-            "operation": {"type": "unknown"},
+            "rotationKeys": {
+              "type": "array",
+              "description":
+                  "Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.",
+              "items": {"type": "string"},
+            },
+            "alsoKnownAs": {
+              "type": "array",
+              "items": {"type": "string"},
+            },
+            "verificationMethods": {"type": "unknown"},
+            "services": {"type": "unknown"},
           },
         },
       },
@@ -2842,25 +579,143 @@ const comAtprotoIdentitySubmitPlcOperation = <String, dynamic>{
   },
 };
 
-/// `com.atproto.identity.updateHandle`
-const comAtprotoIdentityUpdateHandle = <String, dynamic>{
+/// `com.atproto.identity.resolveDid`
+const comAtprotoIdentityResolveDid = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.identity.updateHandle",
+  "id": "com.atproto.identity.resolveDid",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Resolves DID to DID document. Does not bi-directionally verify handle.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "DID to resolve.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["didDoc"],
+          "properties": {
+            "didDoc": {
+              "type": "unknown",
+              "description": "The complete DID document for the identity.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "DidNotFound",
+          "description":
+              "The DID resolution process confirmed that there is no current DID.",
+        },
+        {
+          "name": "DidDeactivated",
+          "description":
+              "The DID previously existed, but has been deactivated.",
+        },
+      ],
+    },
+  },
+};
+
+/// `com.atproto.admin.updateAccountEmail`
+const comAtprotoAdminUpdateAccountEmail = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.updateAccountEmail",
   "defs": {
     "main": {
       "type": "procedure",
-      "description":
-          "Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.",
+      "description": "Administrative action to update an account's email.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["handle"],
+          "required": ["account", "email"],
           "properties": {
-            "handle": {
+            "account": {
               "type": "string",
-              "format": "handle",
-              "description": "The new handle.",
+              "format": "at-identifier",
+              "description": "The handle or DID of the repo.",
+            },
+            "email": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.getAccountInfo`
+const comAtprotoAdminGetAccountInfo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.getAccountInfo",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about an account.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.getSubjectStatus`
+const comAtprotoAdminGetSubjectStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.getSubjectStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the service-specific admin status of a subject (account, record, or blob).",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+          "uri": {"type": "string", "format": "at-uri"},
+          "blob": {"type": "string", "format": "cid"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+                "com.atproto.admin.defs#repoBlobRef",
+              ],
+            },
+            "takedown": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr",
+            },
+            "deactivated": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr",
             },
           },
         },
@@ -2869,36 +724,186 @@ const comAtprotoIdentityUpdateHandle = <String, dynamic>{
   },
 };
 
-/// `com.atproto.label.queryLabels`
-const comAtprotoLabelQueryLabels = <String, dynamic>{
+/// `com.atproto.admin.defs`
+const comAtprotoAdminDefs = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.label.queryLabels",
+  "id": "com.atproto.admin.defs",
+  "defs": {
+    "statusAttr": {
+      "type": "object",
+      "required": ["applied"],
+      "properties": {
+        "applied": {"type": "boolean"},
+        "ref": {"type": "string"},
+      },
+    },
+    "accountView": {
+      "type": "object",
+      "required": ["did", "handle", "indexedAt"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "email": {"type": "string"},
+        "relatedRecords": {
+          "type": "array",
+          "items": {"type": "unknown"},
+        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "invitedBy": {
+          "type": "ref",
+          "ref": "com.atproto.server.defs#inviteCode",
+        },
+        "invites": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"},
+        },
+        "invitesDisabled": {"type": "boolean"},
+        "emailConfirmedAt": {"type": "string", "format": "datetime"},
+        "inviteNote": {"type": "string"},
+        "deactivatedAt": {"type": "string", "format": "datetime"},
+        "threatSignatures": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#threatSignature"},
+        },
+      },
+    },
+    "repoRef": {
+      "type": "object",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+      },
+    },
+    "repoBlobRef": {
+      "type": "object",
+      "required": ["did", "cid"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "cid": {"type": "string", "format": "cid"},
+        "recordUri": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "threatSignature": {
+      "type": "object",
+      "required": ["property", "value"],
+      "properties": {
+        "property": {"type": "string"},
+        "value": {"type": "string"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.searchAccounts`
+const comAtprotoAdminSearchAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.searchAccounts",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.",
+      "description": "Get list of accounts that matches your search query.",
       "parameters": {
         "type": "params",
-        "required": ["uriPatterns"],
         "properties": {
-          "uriPatterns": {
-            "type": "array",
-            "description":
-                "List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.",
-            "items": {"type": "string"},
-          },
-          "sources": {
-            "type": "array",
-            "description":
-                "Optional list of label sources (DIDs) to filter on.",
-            "items": {"type": "string", "format": "did"},
-          },
+          "email": {"type": "string"},
+          "cursor": {"type": "string"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
-            "maximum": 250,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.updateAccountPassword`
+const comAtprotoAdminUpdateAccountPassword = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.updateAccountPassword",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Update the password for a user account as an administrator.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "password"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "password": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.updateAccountHandle`
+const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.updateAccountHandle",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Administrative action to update an account's handle.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "handle"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "handle": {"type": "string", "format": "handle"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.getInviteCodes`
+const comAtprotoAdminGetInviteCodes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.getInviteCodes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get an admin view of invite codes.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "sort": {
+            "type": "string",
+            "default": "recent",
+            "knownValues": ["recent", "usage"],
+          },
+          "limit": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 500,
           },
           "cursor": {"type": "string"},
         },
@@ -2907,15 +912,340 @@ const comAtprotoLabelQueryLabels = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["labels"],
+          "required": ["codes"],
           "properties": {
             "cursor": {"type": "string"},
-            "labels": {
+            "codes": {
               "type": "array",
-              "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.server.defs#inviteCode",
+              },
             },
           },
         },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.updateAccountSigningKey`
+const comAtprotoAdminUpdateAccountSigningKey = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.updateAccountSigningKey",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Administrative action to update an account's signing key in their Did document.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "signingKey"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "signingKey": {
+              "type": "string",
+              "format": "did",
+              "description": "Did-key formatted public key",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.enableAccountInvites`
+const comAtprotoAdminEnableAccountInvites = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.enableAccountInvites",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Re-enable an account's ability to receive invite codes.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["account"],
+          "properties": {
+            "account": {"type": "string", "format": "did"},
+            "note": {
+              "type": "string",
+              "description": "Optional reason for enabled invites.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.disableAccountInvites`
+const comAtprotoAdminDisableAccountInvites = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.disableAccountInvites",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Disable an account from receiving new invite codes, but does not invalidate existing codes.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["account"],
+          "properties": {
+            "account": {"type": "string", "format": "did"},
+            "note": {
+              "type": "string",
+              "description": "Optional reason for disabled invites.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.disableInviteCodes`
+const comAtprotoAdminDisableInviteCodes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.disableInviteCodes",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Disable some set of codes and/or all codes associated with a set of users.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "codes": {
+              "type": "array",
+              "items": {"type": "string"},
+            },
+            "accounts": {
+              "type": "array",
+              "items": {"type": "string"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.updateSubjectStatus`
+const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.updateSubjectStatus",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Update the service-specific admin status of a subject (account, record, or blob).",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+                "com.atproto.admin.defs#repoBlobRef",
+              ],
+            },
+            "takedown": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr",
+            },
+            "deactivated": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+                "com.atproto.admin.defs#repoBlobRef",
+              ],
+            },
+            "takedown": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.sendEmail`
+const comAtprotoAdminSendEmail = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.sendEmail",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Send email to a user's account email address.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["recipientDid", "content", "senderDid"],
+          "properties": {
+            "recipientDid": {"type": "string", "format": "did"},
+            "content": {"type": "string"},
+            "subject": {"type": "string"},
+            "senderDid": {"type": "string", "format": "did"},
+            "comment": {
+              "type": "string",
+              "description":
+                  "Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["sent"],
+          "properties": {
+            "sent": {"type": "boolean"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.getAccountInfos`
+const comAtprotoAdminGetAccountInfos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.getAccountInfos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some accounts.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["infos"],
+          "properties": {
+            "infos": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.admin.deleteAccount`
+const comAtprotoAdminDeleteAccount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.deleteAccount",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Delete a user account as an administrator.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.label.subscribeLabels`
+const comAtprotoLabelSubscribeLabels = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.label.subscribeLabels",
+  "defs": {
+    "main": {
+      "type": "subscription",
+      "description":
+          "Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "cursor": {
+            "type": "integer",
+            "description": "The last known event seq number to backfill from.",
+          },
+        },
+      },
+      "message": {
+        "schema": {
+          "type": "union",
+          "refs": ["#labels", "#info"],
+        },
+      },
+      "errors": [
+        {"name": "FutureCursor"},
+      ],
+    },
+    "labels": {
+      "type": "object",
+      "required": ["seq", "labels"],
+      "properties": {
+        "seq": {"type": "integer"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+      },
+    },
+    "info": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "knownValues": ["OutdatedCursor"],
+        },
+        "message": {"type": "string"},
       },
     },
   },
@@ -3093,194 +1423,90 @@ const comAtprotoLabelDefs = <String, dynamic>{
   },
 };
 
-/// `com.atproto.label.subscribeLabels`
-const comAtprotoLabelSubscribeLabels = <String, dynamic>{
+/// `com.atproto.label.queryLabels`
+const comAtprotoLabelQueryLabels = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.label.subscribeLabels",
+  "id": "com.atproto.label.queryLabels",
   "defs": {
     "main": {
-      "type": "subscription",
+      "type": "query",
       "description":
-          "Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.",
+          "Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.",
       "parameters": {
         "type": "params",
+        "required": ["uriPatterns"],
         "properties": {
-          "cursor": {
+          "uriPatterns": {
+            "type": "array",
+            "description":
+                "List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.",
+            "items": {"type": "string"},
+          },
+          "sources": {
+            "type": "array",
+            "description":
+                "Optional list of label sources (DIDs) to filter on.",
+            "items": {"type": "string", "format": "did"},
+          },
+          "limit": {
             "type": "integer",
-            "description": "The last known event seq number to backfill from.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 250,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["labels"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "labels": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+            },
           },
         },
       },
-      "message": {
-        "schema": {
-          "type": "union",
-          "refs": ["#labels", "#info"],
-        },
-      },
-      "errors": [
-        {"name": "FutureCursor"},
-      ],
-    },
-    "labels": {
-      "type": "object",
-      "required": ["seq", "labels"],
-      "properties": {
-        "seq": {"type": "integer"},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-      },
-    },
-    "info": {
-      "type": "object",
-      "required": ["name"],
-      "properties": {
-        "name": {
-          "type": "string",
-          "knownValues": ["OutdatedCursor"],
-        },
-        "message": {"type": "string"},
-      },
     },
   },
 };
 
-/// `com.atproto.moderation.defs`
-const comAtprotoModerationDefs = <String, dynamic>{
+/// `com.atproto.server.requestEmailConfirmation`
+const comAtprotoServerRequestEmailConfirmation = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.moderation.defs",
-  "defs": {
-    "reasonType": {
-      "type": "string",
-      "knownValues": [
-        "com.atproto.moderation.defs#reasonSpam",
-        "com.atproto.moderation.defs#reasonViolation",
-        "com.atproto.moderation.defs#reasonMisleading",
-        "com.atproto.moderation.defs#reasonSexual",
-        "com.atproto.moderation.defs#reasonRude",
-        "com.atproto.moderation.defs#reasonOther",
-        "com.atproto.moderation.defs#reasonAppeal",
-        "tools.ozone.report.defs#reasonAppeal",
-        "tools.ozone.report.defs#reasonOther",
-        "tools.ozone.report.defs#reasonViolenceAnimal",
-        "tools.ozone.report.defs#reasonViolenceThreats",
-        "tools.ozone.report.defs#reasonViolenceGraphicContent",
-        "tools.ozone.report.defs#reasonViolenceGlorification",
-        "tools.ozone.report.defs#reasonViolenceExtremistContent",
-        "tools.ozone.report.defs#reasonViolenceTrafficking",
-        "tools.ozone.report.defs#reasonViolenceOther",
-        "tools.ozone.report.defs#reasonSexualAbuseContent",
-        "tools.ozone.report.defs#reasonSexualNCII",
-        "tools.ozone.report.defs#reasonSexualDeepfake",
-        "tools.ozone.report.defs#reasonSexualAnimal",
-        "tools.ozone.report.defs#reasonSexualUnlabeled",
-        "tools.ozone.report.defs#reasonSexualOther",
-        "tools.ozone.report.defs#reasonChildSafetyCSAM",
-        "tools.ozone.report.defs#reasonChildSafetyGroom",
-        "tools.ozone.report.defs#reasonChildSafetyPrivacy",
-        "tools.ozone.report.defs#reasonChildSafetyHarassment",
-        "tools.ozone.report.defs#reasonChildSafetyOther",
-        "tools.ozone.report.defs#reasonHarassmentTroll",
-        "tools.ozone.report.defs#reasonHarassmentTargeted",
-        "tools.ozone.report.defs#reasonHarassmentHateSpeech",
-        "tools.ozone.report.defs#reasonHarassmentDoxxing",
-        "tools.ozone.report.defs#reasonHarassmentOther",
-        "tools.ozone.report.defs#reasonMisleadingBot",
-        "tools.ozone.report.defs#reasonMisleadingImpersonation",
-        "tools.ozone.report.defs#reasonMisleadingSpam",
-        "tools.ozone.report.defs#reasonMisleadingScam",
-        "tools.ozone.report.defs#reasonMisleadingElections",
-        "tools.ozone.report.defs#reasonMisleadingOther",
-        "tools.ozone.report.defs#reasonRuleSiteSecurity",
-        "tools.ozone.report.defs#reasonRuleProhibitedSales",
-        "tools.ozone.report.defs#reasonRuleBanEvasion",
-        "tools.ozone.report.defs#reasonRuleOther",
-        "tools.ozone.report.defs#reasonSelfHarmContent",
-        "tools.ozone.report.defs#reasonSelfHarmED",
-        "tools.ozone.report.defs#reasonSelfHarmStunts",
-        "tools.ozone.report.defs#reasonSelfHarmSubstances",
-        "tools.ozone.report.defs#reasonSelfHarmOther",
-      ],
-    },
-    "reasonSpam": {
-      "type": "token",
-      "description":
-          "Spam: frequent unwanted promotion, replies, mentions. Prefer new lexicon definition `tools.ozone.report.defs#reasonMisleadingSpam`.",
-    },
-    "reasonViolation": {
-      "type": "token",
-      "description":
-          "Direct violation of server rules, laws, terms of service. Prefer new lexicon definition `tools.ozone.report.defs#reasonRuleOther`.",
-    },
-    "reasonMisleading": {
-      "type": "token",
-      "description":
-          "Misleading identity, affiliation, or content. Prefer new lexicon definition `tools.ozone.report.defs#reasonMisleadingOther`.",
-    },
-    "reasonSexual": {
-      "type": "token",
-      "description":
-          "Unwanted or mislabeled sexual content. Prefer new lexicon definition `tools.ozone.report.defs#reasonSexualUnlabeled`.",
-    },
-    "reasonRude": {
-      "type": "token",
-      "description":
-          "Rude, harassing, explicit, or otherwise unwelcoming behavior. Prefer new lexicon definition `tools.ozone.report.defs#reasonHarassmentOther`.",
-    },
-    "reasonOther": {
-      "type": "token",
-      "description":
-          "Reports not falling under another report category. Prefer new lexicon definition `tools.ozone.report.defs#reasonOther`.",
-    },
-    "reasonAppeal": {
-      "type": "token",
-      "description": "Appeal a previously taken moderation action",
-    },
-    "subjectType": {
-      "type": "string",
-      "description": "Tag describing a type of subject that might be reported.",
-      "knownValues": ["account", "record", "chat"],
-    },
-  },
-};
-
-/// `com.atproto.moderation.createReport`
-const comAtprotoModerationCreateReport = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.moderation.createReport",
+  "id": "com.atproto.server.requestEmailConfirmation",
   "defs": {
     "main": {
       "type": "procedure",
       "description":
-          "Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.",
+          "Request an email with a code to confirm ownership of email.",
+    },
+  },
+};
+
+/// `com.atproto.server.reserveSigningKey`
+const comAtprotoServerReserveSigningKey = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.reserveSigningKey",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["reasonType", "subject"],
           "properties": {
-            "reasonType": {
-              "type": "ref",
-              "description":
-                  "Indicates the broad category of violation the report is for.",
-              "ref": "com.atproto.moderation.defs#reasonType",
-            },
-            "reason": {
+            "did": {
               "type": "string",
-              "description":
-                  "Additional context about the content and violation.",
-              "maxLength": 20000,
-              "maxGraphemes": 2000,
+              "format": "did",
+              "description": "The DID to reserve a key for.",
             },
-            "subject": {
-              "type": "union",
-              "refs": [
-                "com.atproto.admin.defs#repoRef",
-                "com.atproto.repo.strongRef",
-              ],
-            },
-            "modTool": {"type": "ref", "ref": "#modTool"},
           },
         },
       },
@@ -3288,77 +1514,978 @@ const comAtprotoModerationCreateReport = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": [
-            "id",
-            "reasonType",
-            "subject",
-            "reportedBy",
-            "createdAt",
-          ],
+          "required": ["signingKey"],
           "properties": {
-            "id": {"type": "integer"},
-            "reasonType": {
-              "type": "ref",
-              "ref": "com.atproto.moderation.defs#reasonType",
-            },
-            "reason": {
+            "signingKey": {
               "type": "string",
-              "maxLength": 20000,
-              "maxGraphemes": 2000,
+              "description":
+                  "The public key for the reserved signing key, in did:key serialization.",
             },
-            "subject": {
-              "type": "union",
-              "refs": [
-                "com.atproto.admin.defs#repoRef",
-                "com.atproto.repo.strongRef",
-              ],
-            },
-            "reportedBy": {"type": "string", "format": "did"},
-            "createdAt": {"type": "string", "format": "datetime"},
           },
-        },
-      },
-    },
-    "modTool": {
-      "type": "object",
-      "description":
-          "Moderation tool information for tracing the source of the action",
-      "required": ["name"],
-      "properties": {
-        "name": {
-          "type": "string",
-          "description":
-              "Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome')",
-        },
-        "meta": {
-          "type": "unknown",
-          "description": "Additional arbitrary metadata about the source",
         },
       },
     },
   },
 };
 
-/// `com.atproto.sync.getCheckout`
-const comAtprotoSyncGetCheckout = <String, dynamic>{
+/// `com.atproto.server.defs`
+const comAtprotoServerDefs = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.sync.getCheckout",
+  "id": "com.atproto.server.defs",
+  "defs": {
+    "inviteCode": {
+      "type": "object",
+      "required": [
+        "code",
+        "available",
+        "disabled",
+        "forAccount",
+        "createdBy",
+        "createdAt",
+        "uses",
+      ],
+      "properties": {
+        "code": {"type": "string"},
+        "available": {"type": "integer"},
+        "disabled": {"type": "boolean"},
+        "forAccount": {"type": "string"},
+        "createdBy": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "uses": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#inviteCodeUse"},
+        },
+      },
+    },
+    "inviteCodeUse": {
+      "type": "object",
+      "required": ["usedBy", "usedAt"],
+      "properties": {
+        "usedBy": {"type": "string", "format": "did"},
+        "usedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.getServiceAuth`
+const comAtprotoServerGetServiceAuth = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.getServiceAuth",
   "defs": {
     "main": {
       "type": "query",
-      "description": "DEPRECATED - please use com.atproto.sync.getRepo instead",
+      "description":
+          "Get a signed token on behalf of the requesting DID for the requested service.",
       "parameters": {
         "type": "params",
-        "required": ["did"],
+        "required": ["aud"],
         "properties": {
-          "did": {
+          "aud": {
             "type": "string",
             "format": "did",
-            "description": "The DID of the repo.",
+            "description":
+                "The DID of the service that the token will be used to authenticate with",
+          },
+          "exp": {
+            "type": "integer",
+            "description":
+                "The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.",
+          },
+          "lxm": {
+            "type": "string",
+            "format": "nsid",
+            "description":
+                "Lexicon (XRPC) method to bind the requested token to",
           },
         },
       },
-      "output": {"encoding": "application/vnd.ipld.car"},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["token"],
+          "properties": {
+            "token": {"type": "string"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "BadExpiration",
+          "description":
+              "Indicates that the requested expiration date is not a valid. May be in the past or may be reliant on the requested scopes.",
+        },
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.getAccountInviteCodes`
+const comAtprotoServerGetAccountInviteCodes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.getAccountInviteCodes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get all invite codes for the current account. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "includeUsed": {"type": "boolean", "default": true},
+          "createAvailable": {
+            "type": "boolean",
+            "description":
+                "Controls whether any new 'earned' but not 'created' invites should be created.",
+            "default": true,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["codes"],
+          "properties": {
+            "codes": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.server.defs#inviteCode",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "DuplicateCreate"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.createSession`
+const comAtprotoServerCreateSession = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.createSession",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create an authentication session.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["identifier", "password"],
+          "properties": {
+            "identifier": {
+              "type": "string",
+              "description":
+                  "Handle or other identifier supported by the server for the authenticating user.",
+            },
+            "password": {"type": "string"},
+            "authFactorToken": {"type": "string"},
+            "allowTakendown": {
+              "type": "boolean",
+              "description":
+                  "When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
+          "properties": {
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"},
+            "email": {"type": "string"},
+            "emailConfirmed": {"type": "boolean"},
+            "emailAuthFactor": {"type": "boolean"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+              "knownValues": ["takendown", "suspended", "deactivated"],
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountTakedown"},
+        {"name": "AuthFactorTokenRequired"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.listAppPasswords`
+const comAtprotoServerListAppPasswords = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.listAppPasswords",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List all App Passwords.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["passwords"],
+          "properties": {
+            "passwords": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#appPassword"},
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountTakedown"},
+      ],
+    },
+    "appPassword": {
+      "type": "object",
+      "required": ["name", "createdAt"],
+      "properties": {
+        "name": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "privileged": {"type": "boolean"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.createInviteCodes`
+const comAtprotoServerCreateInviteCodes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.createInviteCodes",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create invite codes.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["codeCount", "useCount"],
+          "properties": {
+            "codeCount": {"type": "integer", "default": 1},
+            "useCount": {"type": "integer"},
+            "forAccounts": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["codes"],
+          "properties": {
+            "codes": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#accountCodes"},
+            },
+          },
+        },
+      },
+    },
+    "accountCodes": {
+      "type": "object",
+      "required": ["account", "codes"],
+      "properties": {
+        "account": {"type": "string"},
+        "codes": {
+          "type": "array",
+          "items": {"type": "string"},
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.deleteSession`
+const comAtprotoServerDeleteSession = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.deleteSession",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').",
+      "errors": [
+        {"name": "InvalidToken"},
+        {"name": "ExpiredToken"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.revokeAppPassword`
+const comAtprotoServerRevokeAppPassword = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.revokeAppPassword",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Revoke an App Password by name.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.createAppPassword`
+const comAtprotoServerCreateAppPassword = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.createAppPassword",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create an App Password.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description":
+                  "A short name for the App Password, to help distinguish them.",
+            },
+            "privileged": {
+              "type": "boolean",
+              "description":
+                  "If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "#appPassword"},
+      },
+      "errors": [
+        {"name": "AccountTakedown"},
+      ],
+    },
+    "appPassword": {
+      "type": "object",
+      "required": ["name", "password", "createdAt"],
+      "properties": {
+        "name": {"type": "string"},
+        "password": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "privileged": {"type": "boolean"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.activateAccount`
+const comAtprotoServerActivateAccount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.activateAccount",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.",
+    },
+  },
+};
+
+/// `com.atproto.server.describeServer`
+const comAtprotoServerDescribeServer = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.describeServer",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Describes the server's account creation requirements and capabilities. Implemented by PDS.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "availableUserDomains"],
+          "properties": {
+            "inviteCodeRequired": {
+              "type": "boolean",
+              "description":
+                  "If true, an invite code must be supplied to create an account on this instance.",
+            },
+            "phoneVerificationRequired": {
+              "type": "boolean",
+              "description":
+                  "If true, a phone verification token must be supplied to create an account on this instance.",
+            },
+            "availableUserDomains": {
+              "type": "array",
+              "description":
+                  "List of domain suffixes that can be used in account handles.",
+              "items": {"type": "string"},
+            },
+            "links": {
+              "type": "ref",
+              "description": "URLs of service policy documents.",
+              "ref": "#links",
+            },
+            "contact": {
+              "type": "ref",
+              "description": "Contact information",
+              "ref": "#contact",
+            },
+            "did": {"type": "string", "format": "did"},
+          },
+        },
+      },
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "privacyPolicy": {"type": "string", "format": "uri"},
+        "termsOfService": {"type": "string", "format": "uri"},
+      },
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": {"type": "string"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.confirmEmail`
+const comAtprotoServerConfirmEmail = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.confirmEmail",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Confirm an email using a token from com.atproto.server.requestEmailConfirmation.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["email", "token"],
+          "properties": {
+            "email": {"type": "string"},
+            "token": {"type": "string"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountNotFound"},
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"},
+        {"name": "InvalidEmail"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.getSession`
+const comAtprotoServerGetSession = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.getSession",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get information about the current auth session. Requires auth.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["handle", "did"],
+          "properties": {
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"},
+            "email": {"type": "string"},
+            "emailConfirmed": {"type": "boolean"},
+            "emailAuthFactor": {"type": "boolean"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+              "knownValues": ["takendown", "suspended", "deactivated"],
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.refreshSession`
+const comAtprotoServerRefreshSession = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.refreshSession",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
+          "properties": {
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {"type": "unknown"},
+            "email": {"type": "string"},
+            "emailConfirmed": {"type": "boolean"},
+            "emailAuthFactor": {"type": "boolean"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "Hosting status of the account. If not specified, then assume 'active'.",
+              "knownValues": ["takendown", "suspended", "deactivated"],
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountTakedown"},
+        {"name": "InvalidToken"},
+        {"name": "ExpiredToken"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.deactivateAccount`
+const comAtprotoServerDeactivateAccount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.deactivateAccount",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "deleteAfter": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "A recommendation to server as to how long they should hold onto the deactivated account before deleting.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.updateEmail`
+const comAtprotoServerUpdateEmail = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.updateEmail",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Update an account's email.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["email"],
+          "properties": {
+            "email": {"type": "string"},
+            "emailAuthFactor": {"type": "boolean"},
+            "token": {
+              "type": "string",
+              "description":
+                  "Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"},
+        {"name": "TokenRequired"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.resetPassword`
+const comAtprotoServerResetPassword = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.resetPassword",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Reset a user account password using a token.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["token", "password"],
+          "properties": {
+            "token": {"type": "string"},
+            "password": {"type": "string"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.checkAccountStatus`
+const comAtprotoServerCheckAccountStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.checkAccountStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "activated",
+            "validDid",
+            "repoCommit",
+            "repoRev",
+            "repoBlocks",
+            "indexedRecords",
+            "privateStateValues",
+            "expectedBlobs",
+            "importedBlobs",
+          ],
+          "properties": {
+            "activated": {"type": "boolean"},
+            "validDid": {"type": "boolean"},
+            "repoCommit": {"type": "string", "format": "cid"},
+            "repoRev": {"type": "string"},
+            "repoBlocks": {"type": "integer"},
+            "indexedRecords": {"type": "integer"},
+            "privateStateValues": {"type": "integer"},
+            "expectedBlobs": {"type": "integer"},
+            "importedBlobs": {"type": "integer"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.requestEmailUpdate`
+const comAtprotoServerRequestEmailUpdate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.requestEmailUpdate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Request a token in order to update email.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["tokenRequired"],
+          "properties": {
+            "tokenRequired": {"type": "boolean"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.requestPasswordReset`
+const comAtprotoServerRequestPasswordReset = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.requestPasswordReset",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Initiate a user account password reset via email.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["email"],
+          "properties": {
+            "email": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.server.requestAccountDelete`
+const comAtprotoServerRequestAccountDelete = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.requestAccountDelete",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Initiate a user account deletion via email.",
+    },
+  },
+};
+
+/// `com.atproto.server.createAccount`
+const comAtprotoServerCreateAccount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.createAccount",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create an account. Implemented by PDS.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["handle"],
+          "properties": {
+            "email": {"type": "string"},
+            "handle": {
+              "type": "string",
+              "format": "handle",
+              "description": "Requested handle for the account.",
+            },
+            "did": {
+              "type": "string",
+              "format": "did",
+              "description":
+                  "Pre-existing atproto DID, being imported to a new account.",
+            },
+            "inviteCode": {"type": "string"},
+            "verificationCode": {"type": "string"},
+            "verificationPhone": {"type": "string"},
+            "password": {
+              "type": "string",
+              "description":
+                  "Initial account password. May need to meet instance-specific password strength requirements.",
+            },
+            "recoveryKey": {
+              "type": "string",
+              "description":
+                  "DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.",
+            },
+            "plcOp": {
+              "type": "unknown",
+              "description":
+                  "A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "description":
+              "Account login session returned on successful account creation.",
+          "required": ["accessJwt", "refreshJwt", "handle", "did"],
+          "properties": {
+            "accessJwt": {"type": "string"},
+            "refreshJwt": {"type": "string"},
+            "handle": {"type": "string", "format": "handle"},
+            "did": {
+              "type": "string",
+              "format": "did",
+              "description": "The DID of the new account.",
+            },
+            "didDoc": {
+              "type": "unknown",
+              "description": "Complete DID document.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidHandle"},
+        {"name": "InvalidPassword"},
+        {"name": "InvalidInviteCode"},
+        {"name": "HandleNotAvailable"},
+        {"name": "UnsupportedDomain"},
+        {"name": "UnresolvableDid"},
+        {"name": "IncompatibleDidDoc"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.deleteAccount`
+const comAtprotoServerDeleteAccount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.deleteAccount",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "password", "token"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "password": {"type": "string"},
+            "token": {"type": "string"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "ExpiredToken"},
+        {"name": "InvalidToken"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.server.createInviteCode`
+const comAtprotoServerCreateInviteCode = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.server.createInviteCode",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create an invite code.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["useCount"],
+          "properties": {
+            "useCount": {"type": "integer"},
+            "forAccount": {"type": "string", "format": "did"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["code"],
+          "properties": {
+            "code": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.lexicon.resolveLexicon`
+const comAtprotoLexiconResolveLexicon = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.lexicon.resolveLexicon",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Resolves an atproto lexicon (NSID) to a schema.",
+      "parameters": {
+        "type": "params",
+        "required": ["nsid"],
+        "properties": {
+          "nsid": {
+            "type": "string",
+            "format": "nsid",
+            "description": "The lexicon NSID to resolve.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "cid", "schema"],
+          "properties": {
+            "cid": {
+              "type": "string",
+              "format": "cid",
+              "description": "The CID of the lexicon schema record.",
+            },
+            "schema": {
+              "type": "ref",
+              "description": "The resolved lexicon schema record.",
+              "ref": "com.atproto.lexicon.schema#main",
+            },
+            "uri": {
+              "type": "string",
+              "format": "at-uri",
+              "description": "The AT-URI of the lexicon schema record.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "LexiconNotFound",
+          "description": "No lexicon was resolved for the NSID.",
+        },
+      ],
+    },
+  },
+};
+
+/// `com.atproto.lexicon.schema`
+const comAtprotoLexiconSchema = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.lexicon.schema",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).",
+      "key": "nsid",
+      "record": {
+        "type": "object",
+        "required": ["lexicon"],
+        "properties": {
+          "lexicon": {
+            "type": "integer",
+            "description":
+                "Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.",
+          },
+        },
+      },
     },
   },
 };
@@ -3437,88 +2564,107 @@ const comAtprotoSyncGetBlob = <String, dynamic>{
   },
 };
 
-/// `com.atproto.sync.getHostStatus`
-const comAtprotoSyncGetHostStatus = <String, dynamic>{
+/// `com.atproto.sync.getRepo`
+const comAtprotoSyncGetRepo = <String, dynamic>{
   "lexicon": 1,
-  "id": "com.atproto.sync.getHostStatus",
+  "id": "com.atproto.sync.getRepo",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Returns information about a specified upstream host, as consumed by the server. Implemented by relays.",
+          "Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.",
       "parameters": {
         "type": "params",
-        "required": ["hostname"],
-        "properties": {
-          "hostname": {
-            "type": "string",
-            "description":
-                "Hostname of the host (eg, PDS or relay) being queried.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["hostname"],
-          "properties": {
-            "hostname": {"type": "string"},
-            "seq": {
-              "type": "integer",
-              "description":
-                  "Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor).",
-            },
-            "accountCount": {
-              "type": "integer",
-              "description":
-                  "Number of accounts on the server which are associated with the upstream host. Note that the upstream may actually have more accounts.",
-            },
-            "status": {
-              "type": "ref",
-              "ref": "com.atproto.sync.defs#hostStatus",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "HostNotFound"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.sync.getBlocks`
-const comAtprotoSyncGetBlocks = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.getBlocks",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.",
-      "parameters": {
-        "type": "params",
-        "required": ["did", "cids"],
+        "required": ["did"],
         "properties": {
           "did": {
             "type": "string",
             "format": "did",
             "description": "The DID of the repo.",
           },
-          "cids": {
-            "type": "array",
-            "items": {"type": "string", "format": "cid"},
+          "since": {
+            "type": "string",
+            "format": "tid",
+            "description":
+                "The revision ('rev') of the repo to create a diff from.",
           },
         },
       },
       "output": {"encoding": "application/vnd.ipld.car"},
       "errors": [
-        {"name": "BlockNotFound"},
         {"name": "RepoNotFound"},
         {"name": "RepoTakendown"},
         {"name": "RepoSuspended"},
         {"name": "RepoDeactivated"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.sync.notifyOfUpdate`
+const comAtprotoSyncNotifyOfUpdate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.notifyOfUpdate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["hostname"],
+          "properties": {
+            "hostname": {
+              "type": "string",
+              "description":
+                  "Hostname of the current service (usually a PDS) that is notifying of update.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.sync.defs`
+const comAtprotoSyncDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.defs",
+  "defs": {
+    "hostStatus": {
+      "type": "string",
+      "knownValues": ["active", "idle", "offline", "throttled", "banned"],
+    },
+  },
+};
+
+/// `com.atproto.sync.requestCrawl`
+const comAtprotoSyncRequestCrawl = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.requestCrawl",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["hostname"],
+          "properties": {
+            "hostname": {
+              "type": "string",
+              "description":
+                  "Hostname of the current service (eg, PDS) that is requesting to be crawled.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "HostBanned"},
       ],
     },
   },
@@ -3580,194 +2726,6 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
   },
 };
 
-/// `com.atproto.sync.listHosts`
-const comAtprotoSyncListHosts = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.listHosts",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 200,
-            "minimum": 1,
-            "maximum": 1000,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["hosts"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "hosts": {
-              "type": "array",
-              "description":
-                  "Sort order is not formally specified. Recommended order is by time host was first seen by the server, with oldest first.",
-              "items": {"type": "ref", "ref": "#host"},
-            },
-          },
-        },
-      },
-    },
-    "host": {
-      "type": "object",
-      "required": ["hostname"],
-      "properties": {
-        "hostname": {
-          "type": "string",
-          "description": "hostname of server; not a URL (no scheme)",
-        },
-        "seq": {
-          "type": "integer",
-          "description":
-              "Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor).",
-        },
-        "accountCount": {"type": "integer"},
-        "status": {"type": "ref", "ref": "com.atproto.sync.defs#hostStatus"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.sync.notifyOfUpdate`
-const comAtprotoSyncNotifyOfUpdate = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.notifyOfUpdate",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay. DEPRECATED: just use com.atproto.sync.requestCrawl",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["hostname"],
-          "properties": {
-            "hostname": {
-              "type": "string",
-              "description":
-                  "Hostname of the current service (usually a PDS) that is notifying of update.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.sync.listRepos`
-const comAtprotoSyncListRepos = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.listRepos",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 500,
-            "minimum": 1,
-            "maximum": 1000,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repos"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "repos": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#repo"},
-            },
-          },
-        },
-      },
-    },
-    "repo": {
-      "type": "object",
-      "required": ["did", "head", "rev"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "head": {
-          "type": "string",
-          "format": "cid",
-          "description": "Current repo commit CID",
-        },
-        "rev": {"type": "string", "format": "tid"},
-        "active": {"type": "boolean"},
-        "status": {
-          "type": "string",
-          "description":
-              "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
-          "knownValues": [
-            "takendown",
-            "suspended",
-            "deleted",
-            "deactivated",
-            "desynchronized",
-            "throttled",
-          ],
-        },
-      },
-    },
-  },
-};
-
-/// `com.atproto.sync.getRepo`
-const comAtprotoSyncGetRepo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.getRepo",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.",
-      "parameters": {
-        "type": "params",
-        "required": ["did"],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did",
-            "description": "The DID of the repo.",
-          },
-          "since": {
-            "type": "string",
-            "format": "tid",
-            "description":
-                "The revision ('rev') of the repo to create a diff from.",
-          },
-        },
-      },
-      "output": {"encoding": "application/vnd.ipld.car"},
-      "errors": [
-        {"name": "RepoNotFound"},
-        {"name": "RepoTakendown"},
-        {"name": "RepoSuspended"},
-        {"name": "RepoDeactivated"},
-      ],
-    },
-  },
-};
-
 /// `com.atproto.sync.getLatestCommit`
 const comAtprotoSyncGetLatestCommit = <String, dynamic>{
   "lexicon": 1,
@@ -3804,193 +2762,6 @@ const comAtprotoSyncGetLatestCommit = <String, dynamic>{
         {"name": "RepoTakendown"},
         {"name": "RepoSuspended"},
         {"name": "RepoDeactivated"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.sync.listReposByCollection`
-const comAtprotoSyncListReposByCollection = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.listReposByCollection",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates all the DIDs which have records with the given collection NSID.",
-      "parameters": {
-        "type": "params",
-        "required": ["collection"],
-        "properties": {
-          "collection": {"type": "string", "format": "nsid"},
-          "limit": {
-            "type": "integer",
-            "description":
-                "Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.",
-            "default": 500,
-            "minimum": 1,
-            "maximum": 2000,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repos"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "repos": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#repo"},
-            },
-          },
-        },
-      },
-    },
-    "repo": {
-      "type": "object",
-      "required": ["did"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-      },
-    },
-  },
-};
-
-/// `com.atproto.sync.defs`
-const comAtprotoSyncDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.defs",
-  "defs": {
-    "hostStatus": {
-      "type": "string",
-      "knownValues": ["active", "idle", "offline", "throttled", "banned"],
-    },
-  },
-};
-
-/// `com.atproto.sync.requestCrawl`
-const comAtprotoSyncRequestCrawl = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.requestCrawl",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["hostname"],
-          "properties": {
-            "hostname": {
-              "type": "string",
-              "description":
-                  "Hostname of the current service (eg, PDS) that is requesting to be crawled.",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "HostBanned"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.sync.getRecord`
-const comAtprotoSyncGetRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.getRecord",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["did", "collection", "rkey"],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did",
-            "description": "The DID of the repo.",
-          },
-          "collection": {"type": "string", "format": "nsid"},
-          "rkey": {
-            "type": "string",
-            "format": "record-key",
-            "description": "Record Key",
-          },
-        },
-      },
-      "output": {"encoding": "application/vnd.ipld.car"},
-      "errors": [
-        {"name": "RecordNotFound"},
-        {"name": "RepoNotFound"},
-        {"name": "RepoTakendown"},
-        {"name": "RepoSuspended"},
-        {"name": "RepoDeactivated"},
-      ],
-    },
-  },
-};
-
-/// `com.atproto.sync.getRepoStatus`
-const comAtprotoSyncGetRepoStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "com.atproto.sync.getRepoStatus",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.",
-      "parameters": {
-        "type": "params",
-        "required": ["did"],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did",
-            "description": "The DID of the repo.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "active"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "active": {"type": "boolean"},
-            "status": {
-              "type": "string",
-              "description":
-                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
-              "knownValues": [
-                "takendown",
-                "suspended",
-                "deleted",
-                "deactivated",
-                "desynchronized",
-                "throttled",
-              ],
-            },
-            "rev": {
-              "type": "string",
-              "format": "tid",
-              "description":
-                  "Optional field, the current rev of the repo, if active=true",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "RepoNotFound"},
       ],
     },
   },
@@ -4235,411 +3006,118 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
   },
 };
 
-/// `app.bsky.graph.unmuteThread`
-const appBskyGraphUnmuteThread = <String, dynamic>{
+/// `com.atproto.sync.getRepoStatus`
+const comAtprotoSyncGetRepoStatus = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.unmuteThread",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Unmutes the specified thread. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["root"],
-          "properties": {
-            "root": {"type": "string", "format": "at-uri"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getMutes`
-const appBskyGraphGetMutes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getMutes",
+  "id": "com.atproto.sync.getRepoStatus",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.",
+          "Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.",
       "parameters": {
         "type": "params",
+        "required": ["did"],
         "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "The DID of the repo.",
           },
-          "cursor": {"type": "string"},
         },
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["mutes"],
+          "required": ["did", "active"],
           "properties": {
-            "cursor": {"type": "string"},
-            "mutes": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
+            "did": {"type": "string", "format": "did"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+              "knownValues": [
+                "takendown",
+                "suspended",
+                "deleted",
+                "deactivated",
+                "desynchronized",
+                "throttled",
+              ],
             },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.searchStarterPacks`
-const appBskyGraphSearchStarterPacks = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.searchStarterPacks",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Find starter packs matching search criteria. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["q"],
-        "properties": {
-          "q": {
-            "type": "string",
-            "description":
-                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["starterPacks"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "starterPacks": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#starterPackViewBasic",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getStarterPacksWithMembership`
-const appBskyGraphGetStarterPacksWithMembership = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getStarterPacksWithMembership",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "The account (actor) to check for membership.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["starterPacksWithMembership"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "starterPacksWithMembership": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#starterPackWithMembership"},
-            },
-          },
-        },
-      },
-    },
-    "starterPackWithMembership": {
-      "type": "object",
-      "description":
-          "A starter pack and an optional list item indicating membership of a target user to that starter pack.",
-      "required": ["starterPack"],
-      "properties": {
-        "starterPack": {
-          "type": "ref",
-          "ref": "app.bsky.graph.defs#starterPackView",
-        },
-        "listItem": {"type": "ref", "ref": "app.bsky.graph.defs#listItemView"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.muteThread`
-const appBskyGraphMuteThread = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.muteThread",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["root"],
-          "properties": {
-            "root": {"type": "string", "format": "at-uri"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getBlocks`
-const appBskyGraphGetBlocks = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getBlocks",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates which accounts the requesting account is currently blocking. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["blocks"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "blocks": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.starterpack`
-const appBskyGraphStarterpack = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.starterpack",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record defining a starter pack of actors and feeds for new users.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["name", "list", "createdAt"],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Display name for starter pack; can not be empty.",
-            "minLength": 1,
-            "maxLength": 500,
-            "maxGraphemes": 50,
-          },
-          "description": {
-            "type": "string",
-            "maxLength": 3000,
-            "maxGraphemes": 300,
-          },
-          "descriptionFacets": {
-            "type": "array",
-            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
-          },
-          "list": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to the list record.",
-          },
-          "feeds": {
-            "type": "array",
-            "items": {"type": "ref", "ref": "#feedItem"},
-            "maxLength": 3,
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-        },
-      },
-    },
-    "feedItem": {
-      "type": "object",
-      "required": ["uri"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getRelationships`
-const appBskyGraphGetRelationships = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getRelationships",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates public relationships between one account, and a list of other accounts. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "Primary account requesting relationships for.",
-          },
-          "others": {
-            "type": "array",
-            "description":
-                "List of 'other' accounts to be related back to the primary.",
-            "items": {"type": "string", "format": "at-identifier"},
-            "maxLength": 30,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["relationships"],
-          "properties": {
-            "actor": {"type": "string", "format": "did"},
-            "relationships": {
-              "type": "array",
-              "items": {
-                "type": "union",
-                "refs": [
-                  "app.bsky.graph.defs#relationship",
-                  "app.bsky.graph.defs#notFoundActor",
-                ],
-              },
+            "rev": {
+              "type": "string",
+              "format": "tid",
+              "description":
+                  "Optional field, the current rev of the repo, if active=true",
             },
           },
         },
       },
       "errors": [
-        {
-          "name": "ActorNotFound",
-          "description":
-              "the primary actor at-identifier could not be resolved",
-        },
+        {"name": "RepoNotFound"},
       ],
     },
   },
 };
 
-/// `app.bsky.graph.getStarterPacks`
-const appBskyGraphGetStarterPacks = <String, dynamic>{
+/// `com.atproto.sync.getRecord`
+const comAtprotoSyncGetRecord = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.getStarterPacks",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get views for a list of starter packs.",
-      "parameters": {
-        "type": "params",
-        "required": ["uris"],
-        "properties": {
-          "uris": {
-            "type": "array",
-            "items": {"type": "string", "format": "at-uri"},
-            "maxLength": 25,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["starterPacks"],
-          "properties": {
-            "starterPacks": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#starterPackViewBasic",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getFollows`
-const appBskyGraphGetFollows = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getFollows",
+  "id": "com.atproto.sync.getRecord",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Enumerates accounts which a specified account (actor) follows.",
+          "Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.",
       "parameters": {
         "type": "params",
-        "required": ["actor"],
+        "required": ["did", "collection", "rkey"],
         "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "The DID of the repo.",
+          },
+          "collection": {"type": "string", "format": "nsid"},
+          "rkey": {
+            "type": "string",
+            "format": "record-key",
+            "description": "Record Key",
+          },
+        },
+      },
+      "output": {"encoding": "application/vnd.ipld.car"},
+      "errors": [
+        {"name": "RecordNotFound"},
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.sync.listHosts`
+const comAtprotoSyncListHosts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.listHosts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.",
+      "parameters": {
+        "type": "params",
+        "properties": {
           "limit": {
             "type": "integer",
-            "default": 50,
+            "default": 200,
             "minimum": 1,
-            "maximum": 100,
+            "maximum": 1000,
           },
           "cursor": {"type": "string"},
         },
@@ -4648,790 +3126,316 @@ const appBskyGraphGetFollows = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["subject", "follows"],
-          "properties": {
-            "subject": {
-              "type": "ref",
-              "ref": "app.bsky.actor.defs#profileView",
-            },
-            "cursor": {"type": "string"},
-            "follows": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getKnownFollowers`
-const appBskyGraphGetKnownFollowers = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getKnownFollowers",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject", "followers"],
-          "properties": {
-            "subject": {
-              "type": "ref",
-              "ref": "app.bsky.actor.defs#profileView",
-            },
-            "cursor": {"type": "string"},
-            "followers": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.unmuteActorList`
-const appBskyGraphUnmuteActorList = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.unmuteActorList",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Unmutes the specified list of accounts. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["list"],
-          "properties": {
-            "list": {"type": "string", "format": "at-uri"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.list`
-const appBskyGraphList = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.list",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["name", "purpose", "createdAt"],
-        "properties": {
-          "purpose": {
-            "type": "ref",
-            "description":
-                "Defines the purpose of the list (aka, moderation-oriented or curration-oriented)",
-            "ref": "app.bsky.graph.defs#listPurpose",
-          },
-          "name": {
-            "type": "string",
-            "description": "Display name for list; can not be empty.",
-            "minLength": 1,
-            "maxLength": 64,
-          },
-          "description": {
-            "type": "string",
-            "maxLength": 3000,
-            "maxGraphemes": 300,
-          },
-          "descriptionFacets": {
-            "type": "array",
-            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
-          },
-          "avatar": {
-            "type": "blob",
-            "accept": ["image/png", "image/jpeg"],
-            "maxSize": 1000000,
-          },
-          "labels": {
-            "type": "union",
-            "refs": ["com.atproto.label.defs#selfLabels"],
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getList`
-const appBskyGraphGetList = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getList",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Gets a 'view' (with additional context) of a specified list.",
-      "parameters": {
-        "type": "params",
-        "required": ["list"],
-        "properties": {
-          "list": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) of the list record to hydrate.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["list", "items"],
+          "required": ["hosts"],
           "properties": {
             "cursor": {"type": "string"},
-            "list": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
-            "items": {
+            "hosts": {
               "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#listItemView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.muteActorList`
-const appBskyGraphMuteActorList = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.muteActorList",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["list"],
-          "properties": {
-            "list": {"type": "string", "format": "at-uri"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getSuggestedFollowsByActor`
-const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getSuggestedFollowsByActor",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["suggestions"],
-          "properties": {
-            "suggestions": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-            "recIdStr": {
-              "type": "string",
               "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
-            "isFallback": {
-              "type": "boolean",
-              "description":
-                  "DEPRECATED, unused. Previously: if true, response has fallen-back to generic results, and is not scoped using relativeToDid",
-              "default": false,
-            },
-            "recId": {
-              "type": "integer",
-              "description": "DEPRECATED: use recIdStr instead.",
+                  "Sort order is not formally specified. Recommended order is by time host was first seen by the server, with oldest first.",
+              "items": {"type": "ref", "ref": "#host"},
             },
           },
         },
       },
     },
-  },
-};
-
-/// `app.bsky.graph.listblock`
-const appBskyGraphListblock = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.listblock",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record representing a block relationship against an entire an entire list of accounts (actors).",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["subject", "createdAt"],
-        "properties": {
-          "subject": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to the mod list record.",
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.defs`
-const appBskyGraphDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.defs",
-  "defs": {
-    "listViewBasic": {
+    "host": {
       "type": "object",
-      "required": ["uri", "cid", "name", "purpose"],
+      "required": ["hostname"],
       "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "name": {"type": "string", "minLength": 1, "maxLength": 64},
-        "purpose": {"type": "ref", "ref": "#listPurpose"},
-        "avatar": {"type": "string", "format": "uri"},
-        "listItemCount": {"type": "integer", "minimum": 0},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-        "viewer": {"type": "ref", "ref": "#listViewerState"},
-        "indexedAt": {"type": "string", "format": "datetime"},
-      },
-    },
-    "listView": {
-      "type": "object",
-      "required": ["uri", "cid", "creator", "name", "purpose", "indexedAt"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "creator": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
-        "name": {"type": "string", "minLength": 1, "maxLength": 64},
-        "purpose": {"type": "ref", "ref": "#listPurpose"},
-        "description": {
+        "hostname": {
           "type": "string",
-          "maxLength": 3000,
-          "maxGraphemes": 300,
+          "description": "hostname of server; not a URL (no scheme)",
         },
-        "descriptionFacets": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
+        "seq": {
+          "type": "integer",
+          "description":
+              "Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor).",
         },
-        "avatar": {"type": "string", "format": "uri"},
-        "listItemCount": {"type": "integer", "minimum": 0},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-        "viewer": {"type": "ref", "ref": "#listViewerState"},
-        "indexedAt": {"type": "string", "format": "datetime"},
+        "accountCount": {"type": "integer"},
+        "status": {"type": "ref", "ref": "com.atproto.sync.defs#hostStatus"},
       },
     },
-    "listItemView": {
+  },
+};
+
+/// `com.atproto.sync.listRepos`
+const comAtprotoSyncListRepos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.listRepos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 500,
+            "minimum": 1,
+            "maximum": 1000,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repos"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "repos": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#repo"},
+            },
+          },
+        },
+      },
+    },
+    "repo": {
       "type": "object",
-      "required": ["uri", "subject"],
+      "required": ["did", "head", "rev"],
       "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "subject": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+        "did": {"type": "string", "format": "did"},
+        "head": {
+          "type": "string",
+          "format": "cid",
+          "description": "Current repo commit CID",
+        },
+        "rev": {"type": "string", "format": "tid"},
+        "active": {"type": "boolean"},
+        "status": {
+          "type": "string",
+          "description":
+              "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+          "knownValues": [
+            "takendown",
+            "suspended",
+            "deleted",
+            "deactivated",
+            "desynchronized",
+            "throttled",
+          ],
+        },
       },
     },
-    "starterPackView": {
-      "type": "object",
-      "required": ["uri", "cid", "record", "creator", "indexedAt"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "record": {"type": "unknown"},
-        "creator": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileViewBasic",
+  },
+};
+
+/// `com.atproto.sync.getHostStatus`
+const comAtprotoSyncGetHostStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.getHostStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns information about a specified upstream host, as consumed by the server. Implemented by relays.",
+      "parameters": {
+        "type": "params",
+        "required": ["hostname"],
+        "properties": {
+          "hostname": {
+            "type": "string",
+            "description":
+                "Hostname of the host (eg, PDS or relay) being queried.",
+          },
         },
-        "list": {"type": "ref", "ref": "#listViewBasic"},
-        "listItemsSample": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#listItemView"},
-          "maxLength": 12,
-        },
-        "feeds": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "app.bsky.feed.defs#generatorView"},
-          "maxLength": 3,
-        },
-        "joinedWeekCount": {"type": "integer", "minimum": 0},
-        "joinedAllTimeCount": {"type": "integer", "minimum": 0},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-        "indexedAt": {"type": "string", "format": "datetime"},
       },
-    },
-    "starterPackViewBasic": {
-      "type": "object",
-      "required": ["uri", "cid", "record", "creator", "indexedAt"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "record": {"type": "unknown"},
-        "creator": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileViewBasic",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["hostname"],
+          "properties": {
+            "hostname": {"type": "string"},
+            "seq": {
+              "type": "integer",
+              "description":
+                  "Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor).",
+            },
+            "accountCount": {
+              "type": "integer",
+              "description":
+                  "Number of accounts on the server which are associated with the upstream host. Note that the upstream may actually have more accounts.",
+            },
+            "status": {
+              "type": "ref",
+              "ref": "com.atproto.sync.defs#hostStatus",
+            },
+          },
         },
-        "listItemCount": {"type": "integer", "minimum": 0},
-        "joinedWeekCount": {"type": "integer", "minimum": 0},
-        "joinedAllTimeCount": {"type": "integer", "minimum": 0},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-        "indexedAt": {"type": "string", "format": "datetime"},
       },
-    },
-    "listPurpose": {
-      "type": "string",
-      "knownValues": [
-        "app.bsky.graph.defs#modlist",
-        "app.bsky.graph.defs#curatelist",
-        "app.bsky.graph.defs#referencelist",
+      "errors": [
+        {"name": "HostNotFound"},
       ],
     },
-    "modlist": {
-      "type": "token",
+  },
+};
+
+/// `com.atproto.sync.getBlocks`
+const comAtprotoSyncGetBlocks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.getBlocks",
+  "defs": {
+    "main": {
+      "type": "query",
       "description":
-          "A list of actors to apply an aggregate moderation action (mute/block) on.",
+          "Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.",
+      "parameters": {
+        "type": "params",
+        "required": ["did", "cids"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "The DID of the repo.",
+          },
+          "cids": {
+            "type": "array",
+            "items": {"type": "string", "format": "cid"},
+          },
+        },
+      },
+      "output": {"encoding": "application/vnd.ipld.car"},
+      "errors": [
+        {"name": "BlockNotFound"},
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"},
+      ],
     },
-    "curatelist": {
-      "type": "token",
+  },
+};
+
+/// `com.atproto.sync.listReposByCollection`
+const comAtprotoSyncListReposByCollection = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.listReposByCollection",
+  "defs": {
+    "main": {
+      "type": "query",
       "description":
-          "A list of actors used for curation purposes such as list feeds or interaction gating.",
-    },
-    "referencelist": {
-      "type": "token",
-      "description":
-          "A list of actors used for only for reference purposes such as within a starter pack.",
-    },
-    "listViewerState": {
-      "type": "object",
-      "properties": {
-        "muted": {"type": "boolean"},
-        "blocked": {"type": "string", "format": "at-uri"},
+          "Enumerates all the DIDs which have records with the given collection NSID.",
+      "parameters": {
+        "type": "params",
+        "required": ["collection"],
+        "properties": {
+          "collection": {"type": "string", "format": "nsid"},
+          "limit": {
+            "type": "integer",
+            "description":
+                "Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.",
+            "default": 500,
+            "minimum": 1,
+            "maximum": 2000,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repos"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "repos": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#repo"},
+            },
+          },
+        },
       },
     },
-    "notFoundActor": {
+    "repo": {
       "type": "object",
-      "description": "indicates that a handle or DID could not be resolved",
-      "required": ["actor", "notFound"],
-      "properties": {
-        "actor": {"type": "string", "format": "at-identifier"},
-        "notFound": {"type": "boolean", "const": true},
-      },
-    },
-    "relationship": {
-      "type": "object",
-      "description":
-          "lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)",
       "required": ["did"],
       "properties": {
         "did": {"type": "string", "format": "did"},
-        "following": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "if the actor follows this DID, this is the AT-URI of the follow record",
-        },
-        "followedBy": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "if the actor is followed by this DID, contains the AT-URI of the follow record",
-        },
-        "blocking": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "if the actor blocks this DID, this is the AT-URI of the block record",
-        },
-        "blockedBy": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "if the actor is blocked by this DID, contains the AT-URI of the block record",
-        },
-        "blockingByList": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "if the actor blocks this DID via a block list, this is the AT-URI of the listblock record",
-        },
-        "blockedByList": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record",
-        },
       },
     },
   },
 };
 
-/// `app.bsky.graph.follow`
-const appBskyGraphFollow = <String, dynamic>{
+/// `com.atproto.sync.getCheckout`
+const comAtprotoSyncGetCheckout = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.follow",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["subject", "createdAt"],
-        "properties": {
-          "subject": {"type": "string", "format": "did"},
-          "createdAt": {"type": "string", "format": "datetime"},
-          "via": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getFollowers`
-const appBskyGraphGetFollowers = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getFollowers",
+  "id": "com.atproto.sync.getCheckout",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Enumerates accounts which follow a specified account (actor).",
+      "description": "DEPRECATED - please use com.atproto.sync.getRepo instead",
       "parameters": {
         "type": "params",
-        "required": ["actor"],
+        "required": ["did"],
         "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject", "followers"],
-          "properties": {
-            "subject": {
-              "type": "ref",
-              "ref": "app.bsky.actor.defs#profileView",
-            },
-            "cursor": {"type": "string"},
-            "followers": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getActorStarterPacks`
-const appBskyGraphGetActorStarterPacks = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getActorStarterPacks",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get a list of starter packs created by the actor.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["starterPacks"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "starterPacks": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.graph.defs#starterPackViewBasic",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getStarterPack`
-const appBskyGraphGetStarterPack = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getStarterPack",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Gets a view of a starter pack.",
-      "parameters": {
-        "type": "params",
-        "required": ["starterPack"],
-        "properties": {
-          "starterPack": {
+          "did": {
             "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) of the starter pack record.",
+            "format": "did",
+            "description": "The DID of the repo.",
           },
         },
       },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["starterPack"],
-          "properties": {
-            "starterPack": {
-              "type": "ref",
-              "ref": "app.bsky.graph.defs#starterPackView",
-            },
-          },
-        },
-      },
+      "output": {"encoding": "application/vnd.ipld.car"},
     },
   },
 };
 
-/// `app.bsky.graph.muteActor`
-const appBskyGraphMuteActor = <String, dynamic>{
+/// `com.atproto.repo.strongRef`
+const comAtprotoRepoStrongRef = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.muteActor",
+  "id": "com.atproto.repo.strongRef",
+  "description": "A URI with a content-hash fingerprint.",
   "defs": {
     "main": {
-      "type": "procedure",
-      "description":
-          "Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actor"],
-          "properties": {
-            "actor": {"type": "string", "format": "at-identifier"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getListsWithMembership`
-const appBskyGraphGetListsWithMembership = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getListsWithMembership",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "The account (actor) to check for membership.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-          "purposes": {
-            "type": "array",
-            "description":
-                "Optional filter by list purpose. If not specified, all supported types are returned.",
-            "items": {
-              "type": "string",
-              "knownValues": ["modlist", "curatelist"],
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["listsWithMembership"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "listsWithMembership": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#listWithMembership"},
-            },
-          },
-        },
-      },
-    },
-    "listWithMembership": {
       "type": "object",
-      "description":
-          "A list and an optional list item indicating membership of a target user to that list.",
-      "required": ["list"],
+      "required": ["uri", "cid"],
       "properties": {
-        "list": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
-        "listItem": {"type": "ref", "ref": "app.bsky.graph.defs#listItemView"},
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
       },
     },
   },
 };
 
-/// `app.bsky.graph.verification`
-const appBskyGraphVerification = <String, dynamic>{
+/// `com.atproto.repo.defs`
+const comAtprotoRepoDefs = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.verification",
+  "id": "com.atproto.repo.defs",
   "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["subject", "handle", "displayName", "createdAt"],
-        "properties": {
-          "subject": {
-            "type": "string",
-            "format": "did",
-            "description": "DID of the subject the verification applies to.",
-          },
-          "handle": {
-            "type": "string",
-            "format": "handle",
-            "description":
-                "Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
-          },
-          "displayName": {
-            "type": "string",
-            "description":
-                "Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime",
-            "description": "Date of when the verification was created.",
-          },
-        },
+    "commitMeta": {
+      "type": "object",
+      "required": ["cid", "rev"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "rev": {"type": "string", "format": "tid"},
       },
     },
   },
 };
 
-/// `app.bsky.graph.getListBlocks`
-const appBskyGraphGetListBlocks = <String, dynamic>{
+/// `com.atproto.repo.listMissingBlobs`
+const comAtprotoRepoListMissingBlobs = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.getListBlocks",
+  "id": "com.atproto.repo.listMissingBlobs",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Get mod lists that the requesting account (actor) is blocking. Requires auth.",
+          "Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.",
       "parameters": {
         "type": "params",
         "properties": {
           "limit": {
             "type": "integer",
-            "default": 50,
+            "default": 500,
             "minimum": 1,
-            "maximum": 100,
+            "maximum": 1000,
           },
           "cursor": {"type": "string"},
         },
@@ -5440,290 +3444,791 @@ const appBskyGraphGetListBlocks = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["lists"],
+          "required": ["blobs"],
           "properties": {
             "cursor": {"type": "string"},
-            "lists": {
+            "blobs": {
               "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
+              "items": {"type": "ref", "ref": "#recordBlob"},
             },
           },
         },
       },
     },
-  },
-};
-
-/// `app.bsky.graph.block`
-const appBskyGraphBlock = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.block",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["subject", "createdAt"],
-        "properties": {
-          "subject": {
-            "type": "string",
-            "format": "did",
-            "description": "DID of the account to be blocked.",
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-        },
+    "recordBlob": {
+      "type": "object",
+      "required": ["cid", "recordUri"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "recordUri": {"type": "string", "format": "at-uri"},
       },
     },
   },
 };
 
-/// `app.bsky.graph.getLists`
-const appBskyGraphGetLists = <String, dynamic>{
+/// `com.atproto.repo.createRecord`
+const comAtprotoRepoCreateRecord = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.graph.getLists",
+  "id": "com.atproto.repo.createRecord",
   "defs": {
     "main": {
-      "type": "query",
+      "type": "procedure",
       "description":
-          "Enumerates the lists created by a specified account (actor).",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "The account (actor) to enumerate lists from.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-          "purposes": {
-            "type": "array",
-            "description":
-                "Optional filter by list purpose. If not specified, all supported types are returned.",
-            "items": {
+          "Create a single new repository record. Requires auth, implemented by PDS.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repo", "collection", "record"],
+          "properties": {
+            "repo": {
               "type": "string",
-              "knownValues": ["modlist", "curatelist"],
+              "format": "at-identifier",
+              "description":
+                  "The handle or DID of the repo (aka, current account).",
             },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["lists"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "lists": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.listitem`
-const appBskyGraphListitem = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.listitem",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["subject", "list", "createdAt"],
-        "properties": {
-          "subject": {
-            "type": "string",
-            "format": "did",
-            "description": "The account which is included on the list.",
-          },
-          "list": {
-            "type": "string",
-            "format": "at-uri",
-            "description":
-                "Reference (AT-URI) to the list record (app.bsky.graph.list).",
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.getListMutes`
-const appBskyGraphGetListMutes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.getListMutes",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["lists"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "lists": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.graph.unmuteActor`
-const appBskyGraphUnmuteActor = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.graph.unmuteActor",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Unmutes the specified account. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actor"],
-          "properties": {
-            "actor": {"type": "string", "format": "at-identifier"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.draft.deleteDraft`
-const appBskyDraftDeleteDraft = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.draft.deleteDraft",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Deletes a draft by ID. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["id"],
-          "properties": {
-            "id": {"type": "string", "format": "tid"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.draft.createDraft`
-const appBskyDraftCreateDraft = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.draft.createDraft",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Inserts a draft using private storage (stash). An upper limit of drafts might be enforced. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["draft"],
-          "properties": {
-            "draft": {"type": "ref", "ref": "app.bsky.draft.defs#draft"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["id"],
-          "properties": {
-            "id": {
+            "collection": {
               "type": "string",
-              "description": "The ID of the created draft.",
+              "format": "nsid",
+              "description": "The NSID of the record collection.",
+            },
+            "rkey": {
+              "type": "string",
+              "format": "record-key",
+              "description": "The Record Key.",
+              "maxLength": 512,
+            },
+            "validate": {
+              "type": "boolean",
+              "description":
+                  "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons.",
+            },
+            "record": {
+              "type": "unknown",
+              "description": "The record itself. Must contain a \$type field.",
+            },
+            "swapCommit": {
+              "type": "string",
+              "format": "cid",
+              "description":
+                  "Compare and swap with the previous commit by CID.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "cid"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "commit": {
+              "type": "ref",
+              "ref": "com.atproto.repo.defs#commitMeta",
+            },
+            "validationStatus": {
+              "type": "string",
+              "knownValues": ["valid", "unknown"],
             },
           },
         },
       },
       "errors": [
         {
-          "name": "DraftLimitReached",
+          "name": "InvalidSwap",
           "description":
-              "Trying to insert a new draft when the limit was already reached.",
+              "Indicates that 'swapCommit' didn't match current repo commit.",
         },
       ],
     },
   },
 };
 
-/// `app.bsky.draft.getDrafts`
-const appBskyDraftGetDrafts = <String, dynamic>{
+/// `com.atproto.repo.deleteRecord`
+const comAtprotoRepoDeleteRecord = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.draft.getDrafts",
+  "id": "com.atproto.repo.deleteRecord",
   "defs": {
     "main": {
-      "type": "query",
-      "description": "Gets views of user drafts. Requires authentication.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
+      "type": "procedure",
+      "description":
+          "Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repo", "collection", "rkey"],
+          "properties": {
+            "repo": {
+              "type": "string",
+              "format": "at-identifier",
+              "description":
+                  "The handle or DID of the repo (aka, current account).",
+            },
+            "collection": {
+              "type": "string",
+              "format": "nsid",
+              "description": "The NSID of the record collection.",
+            },
+            "rkey": {
+              "type": "string",
+              "format": "record-key",
+              "description": "The Record Key.",
+            },
+            "swapRecord": {
+              "type": "string",
+              "format": "cid",
+              "description":
+                  "Compare and swap with the previous record by CID.",
+            },
+            "swapCommit": {
+              "type": "string",
+              "format": "cid",
+              "description":
+                  "Compare and swap with the previous commit by CID.",
+            },
           },
-          "cursor": {"type": "string"},
         },
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["drafts"],
           "properties": {
-            "cursor": {"type": "string"},
-            "drafts": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.draft.defs#draftView"},
+            "commit": {
+              "type": "ref",
+              "ref": "com.atproto.repo.defs#commitMeta",
             },
           },
+        },
+      },
+      "errors": [
+        {"name": "InvalidSwap"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.repo.putRecord`
+const comAtprotoRepoPutRecord = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.putRecord",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repo", "collection", "rkey", "record"],
+          "nullable": ["swapRecord"],
+          "properties": {
+            "repo": {
+              "type": "string",
+              "format": "at-identifier",
+              "description":
+                  "The handle or DID of the repo (aka, current account).",
+            },
+            "collection": {
+              "type": "string",
+              "format": "nsid",
+              "description": "The NSID of the record collection.",
+            },
+            "rkey": {
+              "type": "string",
+              "format": "record-key",
+              "description": "The Record Key.",
+              "maxLength": 512,
+            },
+            "validate": {
+              "type": "boolean",
+              "description":
+                  "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons.",
+            },
+            "record": {
+              "type": "unknown",
+              "description": "The record to write.",
+            },
+            "swapRecord": {
+              "type": "string",
+              "format": "cid",
+              "description":
+                  "Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation",
+            },
+            "swapCommit": {
+              "type": "string",
+              "format": "cid",
+              "description":
+                  "Compare and swap with the previous commit by CID.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "cid"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "commit": {
+              "type": "ref",
+              "ref": "com.atproto.repo.defs#commitMeta",
+            },
+            "validationStatus": {
+              "type": "string",
+              "knownValues": ["valid", "unknown"],
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidSwap"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.repo.uploadBlob`
+const comAtprotoRepoUploadBlob = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.uploadBlob",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.",
+      "input": {"encoding": "*/*"},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["blob"],
+          "properties": {
+            "blob": {"type": "blob"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.repo.importRepo`
+const comAtprotoRepoImportRepo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.importRepo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.",
+      "input": {"encoding": "application/vnd.ipld.car"},
+    },
+  },
+};
+
+/// `com.atproto.repo.describeRepo`
+const comAtprotoRepoDescribeRepo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.describeRepo",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get information about an account and repository, including the list of collections. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["repo"],
+        "properties": {
+          "repo": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "The handle or DID of the repo.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "handle",
+            "did",
+            "didDoc",
+            "collections",
+            "handleIsCorrect",
+          ],
+          "properties": {
+            "handle": {"type": "string", "format": "handle"},
+            "did": {"type": "string", "format": "did"},
+            "didDoc": {
+              "type": "unknown",
+              "description": "The complete DID document for this account.",
+            },
+            "collections": {
+              "type": "array",
+              "description":
+                  "List of all the collections (NSIDs) for which this repo contains at least one record.",
+              "items": {"type": "string", "format": "nsid"},
+            },
+            "handleIsCorrect": {
+              "type": "boolean",
+              "description":
+                  "Indicates if handle is currently valid (resolves bi-directionally)",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `com.atproto.repo.getRecord`
+const comAtprotoRepoGetRecord = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.getRecord",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a single record from a repository. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["repo", "collection", "rkey"],
+        "properties": {
+          "repo": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "The handle or DID of the repo.",
+          },
+          "collection": {
+            "type": "string",
+            "format": "nsid",
+            "description": "The NSID of the record collection.",
+          },
+          "rkey": {
+            "type": "string",
+            "format": "record-key",
+            "description": "The Record Key.",
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "The CID of the version of the record. If not specified, then return the most recent version.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "value"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "value": {"type": "unknown"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "RecordNotFound"},
+      ],
+    },
+  },
+};
+
+/// `com.atproto.repo.applyWrites`
+const comAtprotoRepoApplyWrites = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.applyWrites",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repo", "writes"],
+          "properties": {
+            "repo": {
+              "type": "string",
+              "format": "at-identifier",
+              "description":
+                  "The handle or DID of the repo (aka, current account).",
+            },
+            "validate": {
+              "type": "boolean",
+              "description":
+                  "Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons.",
+            },
+            "writes": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": ["#create", "#update", "#delete"],
+                "closed": true,
+              },
+            },
+            "swapCommit": {
+              "type": "string",
+              "format": "cid",
+              "description":
+                  "If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "commit": {
+              "type": "ref",
+              "ref": "com.atproto.repo.defs#commitMeta",
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": ["#createResult", "#updateResult", "#deleteResult"],
+                "closed": true,
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidSwap",
+          "description":
+              "Indicates that the 'swapCommit' parameter did not match current commit.",
+        },
+      ],
+    },
+    "create": {
+      "type": "object",
+      "description": "Operation which creates a new record.",
+      "required": ["collection", "value"],
+      "properties": {
+        "collection": {"type": "string", "format": "nsid"},
+        "rkey": {
+          "type": "string",
+          "format": "record-key",
+          "description":
+              "NOTE: maxLength is redundant with record-key format. Keeping it temporarily to ensure backwards compatibility.",
+          "maxLength": 512,
+        },
+        "value": {"type": "unknown"},
+      },
+    },
+    "update": {
+      "type": "object",
+      "description": "Operation which updates an existing record.",
+      "required": ["collection", "rkey", "value"],
+      "properties": {
+        "collection": {"type": "string", "format": "nsid"},
+        "rkey": {"type": "string", "format": "record-key"},
+        "value": {"type": "unknown"},
+      },
+    },
+    "delete": {
+      "type": "object",
+      "description": "Operation which deletes an existing record.",
+      "required": ["collection", "rkey"],
+      "properties": {
+        "collection": {"type": "string", "format": "nsid"},
+        "rkey": {"type": "string", "format": "record-key"},
+      },
+    },
+    "createResult": {
+      "type": "object",
+      "required": ["uri", "cid"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "validationStatus": {
+          "type": "string",
+          "knownValues": ["valid", "unknown"],
+        },
+      },
+    },
+    "updateResult": {
+      "type": "object",
+      "required": ["uri", "cid"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "validationStatus": {
+          "type": "string",
+          "knownValues": ["valid", "unknown"],
+        },
+      },
+    },
+    "deleteResult": {"type": "object", "required": [], "properties": {}},
+  },
+};
+
+/// `com.atproto.repo.listRecords`
+const comAtprotoRepoListRecords = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.repo.listRecords",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "List a range of records in a repository, matching a specific collection. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["repo", "collection"],
+        "properties": {
+          "repo": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "The handle or DID of the repo.",
+          },
+          "collection": {
+            "type": "string",
+            "format": "nsid",
+            "description": "The NSID of the record type.",
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The number of records to return.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+          "reverse": {
+            "type": "boolean",
+            "description": "Flag to reverse the order of the returned records.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["records"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "records": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#record"},
+            },
+          },
+        },
+      },
+    },
+    "record": {
+      "type": "object",
+      "required": ["uri", "cid", "value"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "value": {"type": "unknown"},
+      },
+    },
+  },
+};
+
+/// `com.atproto.moderation.defs`
+const comAtprotoModerationDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.moderation.defs",
+  "defs": {
+    "reasonType": {
+      "type": "string",
+      "knownValues": [
+        "com.atproto.moderation.defs#reasonSpam",
+        "com.atproto.moderation.defs#reasonViolation",
+        "com.atproto.moderation.defs#reasonMisleading",
+        "com.atproto.moderation.defs#reasonSexual",
+        "com.atproto.moderation.defs#reasonRude",
+        "com.atproto.moderation.defs#reasonOther",
+        "com.atproto.moderation.defs#reasonAppeal",
+        "tools.ozone.report.defs#reasonAppeal",
+        "tools.ozone.report.defs#reasonOther",
+        "tools.ozone.report.defs#reasonViolenceAnimal",
+        "tools.ozone.report.defs#reasonViolenceThreats",
+        "tools.ozone.report.defs#reasonViolenceGraphicContent",
+        "tools.ozone.report.defs#reasonViolenceGlorification",
+        "tools.ozone.report.defs#reasonViolenceExtremistContent",
+        "tools.ozone.report.defs#reasonViolenceTrafficking",
+        "tools.ozone.report.defs#reasonViolenceOther",
+        "tools.ozone.report.defs#reasonSexualAbuseContent",
+        "tools.ozone.report.defs#reasonSexualNCII",
+        "tools.ozone.report.defs#reasonSexualDeepfake",
+        "tools.ozone.report.defs#reasonSexualAnimal",
+        "tools.ozone.report.defs#reasonSexualUnlabeled",
+        "tools.ozone.report.defs#reasonSexualOther",
+        "tools.ozone.report.defs#reasonChildSafetyCSAM",
+        "tools.ozone.report.defs#reasonChildSafetyGroom",
+        "tools.ozone.report.defs#reasonChildSafetyPrivacy",
+        "tools.ozone.report.defs#reasonChildSafetyHarassment",
+        "tools.ozone.report.defs#reasonChildSafetyOther",
+        "tools.ozone.report.defs#reasonHarassmentTroll",
+        "tools.ozone.report.defs#reasonHarassmentTargeted",
+        "tools.ozone.report.defs#reasonHarassmentHateSpeech",
+        "tools.ozone.report.defs#reasonHarassmentDoxxing",
+        "tools.ozone.report.defs#reasonHarassmentOther",
+        "tools.ozone.report.defs#reasonMisleadingBot",
+        "tools.ozone.report.defs#reasonMisleadingImpersonation",
+        "tools.ozone.report.defs#reasonMisleadingSpam",
+        "tools.ozone.report.defs#reasonMisleadingScam",
+        "tools.ozone.report.defs#reasonMisleadingElections",
+        "tools.ozone.report.defs#reasonMisleadingOther",
+        "tools.ozone.report.defs#reasonRuleSiteSecurity",
+        "tools.ozone.report.defs#reasonRuleProhibitedSales",
+        "tools.ozone.report.defs#reasonRuleBanEvasion",
+        "tools.ozone.report.defs#reasonRuleOther",
+        "tools.ozone.report.defs#reasonSelfHarmContent",
+        "tools.ozone.report.defs#reasonSelfHarmED",
+        "tools.ozone.report.defs#reasonSelfHarmStunts",
+        "tools.ozone.report.defs#reasonSelfHarmSubstances",
+        "tools.ozone.report.defs#reasonSelfHarmOther",
+      ],
+    },
+    "reasonSpam": {
+      "type": "token",
+      "description":
+          "Spam: frequent unwanted promotion, replies, mentions. Prefer new lexicon definition `tools.ozone.report.defs#reasonMisleadingSpam`.",
+    },
+    "reasonViolation": {
+      "type": "token",
+      "description":
+          "Direct violation of server rules, laws, terms of service. Prefer new lexicon definition `tools.ozone.report.defs#reasonRuleOther`.",
+    },
+    "reasonMisleading": {
+      "type": "token",
+      "description":
+          "Misleading identity, affiliation, or content. Prefer new lexicon definition `tools.ozone.report.defs#reasonMisleadingOther`.",
+    },
+    "reasonSexual": {
+      "type": "token",
+      "description":
+          "Unwanted or mislabeled sexual content. Prefer new lexicon definition `tools.ozone.report.defs#reasonSexualUnlabeled`.",
+    },
+    "reasonRude": {
+      "type": "token",
+      "description":
+          "Rude, harassing, explicit, or otherwise unwelcoming behavior. Prefer new lexicon definition `tools.ozone.report.defs#reasonHarassmentOther`.",
+    },
+    "reasonOther": {
+      "type": "token",
+      "description":
+          "Reports not falling under another report category. Prefer new lexicon definition `tools.ozone.report.defs#reasonOther`.",
+    },
+    "reasonAppeal": {
+      "type": "token",
+      "description": "Appeal a previously taken moderation action",
+    },
+    "subjectType": {
+      "type": "string",
+      "description": "Tag describing a type of subject that might be reported.",
+      "knownValues": ["account", "record", "chat"],
+    },
+  },
+};
+
+/// `com.atproto.moderation.createReport`
+const comAtprotoModerationCreateReport = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.moderation.createReport",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reasonType", "subject"],
+          "properties": {
+            "reasonType": {
+              "type": "ref",
+              "description":
+                  "Indicates the broad category of violation the report is for.",
+              "ref": "com.atproto.moderation.defs#reasonType",
+            },
+            "reason": {
+              "type": "string",
+              "description":
+                  "Additional context about the content and violation.",
+              "maxLength": 20000,
+              "maxGraphemes": 2000,
+            },
+            "subject": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+              ],
+            },
+            "modTool": {"type": "ref", "ref": "#modTool"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "id",
+            "reasonType",
+            "subject",
+            "reportedBy",
+            "createdAt",
+          ],
+          "properties": {
+            "id": {"type": "integer"},
+            "reasonType": {
+              "type": "ref",
+              "ref": "com.atproto.moderation.defs#reasonType",
+            },
+            "reason": {
+              "type": "string",
+              "maxLength": 20000,
+              "maxGraphemes": 2000,
+            },
+            "subject": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+              ],
+            },
+            "reportedBy": {"type": "string", "format": "did"},
+            "createdAt": {"type": "string", "format": "datetime"},
+          },
+        },
+      },
+    },
+    "modTool": {
+      "type": "object",
+      "description":
+          "Moderation tool information for tracing the source of the action",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description":
+              "Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome')",
+        },
+        "meta": {
+          "type": "unknown",
+          "description": "Additional arbitrary metadata about the source",
         },
       },
     },
@@ -5929,6 +4434,49 @@ const appBskyDraftDefs = <String, dynamic>{
   },
 };
 
+/// `app.bsky.draft.createDraft`
+const appBskyDraftCreateDraft = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.createDraft",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Inserts a draft using private storage (stash). An upper limit of drafts might be enforced. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["draft"],
+          "properties": {
+            "draft": {"type": "ref", "ref": "app.bsky.draft.defs#draft"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The ID of the created draft.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "DraftLimitReached",
+          "description":
+              "Trying to insert a new draft when the limit was already reached.",
+        },
+      ],
+    },
+  },
+};
+
 /// `app.bsky.draft.updateDraft`
 const appBskyDraftUpdateDraft = <String, dynamic>{
   "lexicon": 1,
@@ -5952,22 +4500,423 @@ const appBskyDraftUpdateDraft = <String, dynamic>{
   },
 };
 
-/// `app.bsky.unspecced.getSuggestedFeeds`
-const appBskyUnspeccedGetSuggestedFeeds = <String, dynamic>{
+/// `app.bsky.draft.getDrafts`
+const appBskyDraftGetDrafts = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.unspecced.getSuggestedFeeds",
+  "id": "app.bsky.draft.getDrafts",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of suggested feeds",
+      "description": "Gets views of user drafts. Requires authentication.",
       "parameters": {
         "type": "params",
         "properties": {
           "limit": {
             "type": "integer",
-            "default": 10,
+            "default": 50,
             "minimum": 1,
-            "maximum": 25,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["drafts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "drafts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.draft.defs#draftView"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.draft.deleteDraft`
+const appBskyDraftDeleteDraft = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.draft.deleteDraft",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Deletes a draft by ID. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {"type": "string", "format": "tid"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.video.uploadVideo`
+const appBskyVideoUploadVideo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.uploadVideo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Upload a video to be processed then stored on the PDS.",
+      "input": {"encoding": "video/mp4"},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["jobStatus"],
+          "properties": {
+            "jobStatus": {
+              "type": "ref",
+              "ref": "app.bsky.video.defs#jobStatus",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.video.defs`
+const appBskyVideoDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.defs",
+  "defs": {
+    "jobStatus": {
+      "type": "object",
+      "required": ["jobId", "did", "state"],
+      "properties": {
+        "jobId": {"type": "string"},
+        "did": {"type": "string", "format": "did"},
+        "state": {
+          "type": "string",
+          "description":
+              "The state of the video processing job. All values not listed as a known value indicate that the job is in process.",
+          "knownValues": ["JOB_STATE_COMPLETED", "JOB_STATE_FAILED"],
+        },
+        "progress": {
+          "type": "integer",
+          "description": "Progress within the current processing state.",
+          "minimum": 0,
+          "maximum": 100,
+        },
+        "blob": {"type": "blob"},
+        "error": {"type": "string"},
+        "message": {"type": "string"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.video.getJobStatus`
+const appBskyVideoGetJobStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.getJobStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get status details for a video processing job.",
+      "parameters": {
+        "type": "params",
+        "required": ["jobId"],
+        "properties": {
+          "jobId": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["jobStatus"],
+          "properties": {
+            "jobStatus": {
+              "type": "ref",
+              "ref": "app.bsky.video.defs#jobStatus",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.video.getUploadLimits`
+const appBskyVideoGetUploadLimits = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.getUploadLimits",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get video upload limits for the authenticated user.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["canUpload"],
+          "properties": {
+            "canUpload": {"type": "boolean"},
+            "remainingDailyVideos": {"type": "integer"},
+            "remainingDailyBytes": {"type": "integer"},
+            "message": {"type": "string"},
+            "error": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.contact.defs`
+const appBskyContactDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.defs",
+  "defs": {
+    "matchAndContactIndex": {
+      "type": "object",
+      "description":
+          "Associates a profile with the positional index of the contact import input in the call to `app.bsky.contact.importContacts`, so clients can know which phone caused a particular match.",
+      "required": ["match", "contactIndex"],
+      "properties": {
+        "match": {
+          "type": "ref",
+          "description": "Profile of the matched user.",
+          "ref": "app.bsky.actor.defs#profileView",
+        },
+        "contactIndex": {
+          "type": "integer",
+          "description": "The index of this match in the import contact input.",
+          "minimum": 0,
+          "maximum": 999,
+        },
+      },
+    },
+    "syncStatus": {
+      "type": "object",
+      "required": ["syncedAt", "matchesCount"],
+      "properties": {
+        "syncedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Last date when contacts where imported.",
+        },
+        "matchesCount": {
+          "type": "integer",
+          "description":
+              "Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.",
+          "minimum": 0,
+        },
+      },
+    },
+    "notification": {
+      "type": "object",
+      "description":
+          "A stash object to be sent via bsync representing a notification to be created.",
+      "required": ["from", "to"],
+      "properties": {
+        "from": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of who this notification comes from.",
+        },
+        "to": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of who this notification should go to.",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.contact.sendNotification`
+const appBskyContactSendNotification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.sendNotification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "System endpoint to send notifications related to contact imports. Requires role authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["from", "to"],
+          "properties": {
+            "from": {
+              "type": "string",
+              "format": "did",
+              "description": "The DID of who this notification comes from.",
+            },
+            "to": {
+              "type": "string",
+              "format": "did",
+              "description": "The DID of who this notification should go to.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+    },
+  },
+};
+
+/// `app.bsky.contact.getSyncStatus`
+const appBskyContactGetSyncStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.getSyncStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Gets the user's current contact import status. Requires authentication.",
+      "parameters": {"type": "params", "properties": {}},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "syncStatus": {
+              "type": "ref",
+              "description":
+                  "If present, indicates the user has imported their contacts. If not present, indicates the user never used the feature or called `app.bsky.contact.removeData` and didn't import again since.",
+              "ref": "app.bsky.contact.defs#syncStatus",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidDid"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.startPhoneVerification`
+const appBskyContactStartPhoneVerification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.startPhoneVerification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["phone"],
+          "properties": {
+            "phone": {
+              "type": "string",
+              "description": "The phone number to receive the code via SMS.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "errors": [
+        {"name": "RateLimitExceeded"},
+        {"name": "InvalidDid"},
+        {"name": "InvalidPhone"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.getMatches`
+const appBskyContactGetMatches = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.getMatches",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["matches"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "matches": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidDid"},
+        {"name": "InvalidLimit"},
+        {"name": "InvalidCursor"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.importContacts`
+const appBskyContactImportContacts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.importContacts",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["token", "contacts"],
+          "properties": {
+            "token": {
+              "type": "string",
+              "description":
+                  "JWT to authenticate the call. Use the JWT received as a response to the call to `app.bsky.contact.verifyPhone`.",
+            },
+            "contacts": {
+              "type": "array",
+              "description":
+                  "List of phone numbers in global E.164 format (e.g., '+12125550123'). Phone numbers that cannot be normalized into a valid phone number will be discarded. Should not repeat the 'phone' input used in `app.bsky.contact.verifyPhone`.",
+              "items": {"type": "string"},
+              "minLength": 1,
+              "maxLength": 1000,
+            },
           },
         },
       },
@@ -5975,15 +4924,1191 @@ const appBskyUnspeccedGetSuggestedFeeds = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["feeds"],
+          "required": ["matchesAndContactIndexes"],
           "properties": {
-            "feeds": {
+            "matchesAndContactIndexes": {
+              "type": "array",
+              "description":
+                  "The users that matched during import and their indexes on the input contacts, so the client can correlate with its local list.",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.contact.defs#matchAndContactIndex",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidDid"},
+        {"name": "InvalidContacts"},
+        {"name": "TooManyContacts"},
+        {"name": "InvalidToken"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.dismissMatch`
+const appBskyContactDismissMatch = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.dismissMatch",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {
+              "type": "string",
+              "format": "did",
+              "description": "The subject's DID to dismiss the match with.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "errors": [
+        {"name": "InvalidDid"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.removeData`
+const appBskyContactRemoveData = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.removeData",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+      "errors": [
+        {"name": "InvalidDid"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.contact.verifyPhone`
+const appBskyContactVerifyPhone = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.contact.verifyPhone",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["phone", "code"],
+          "properties": {
+            "phone": {
+              "type": "string",
+              "description":
+                  "The phone number to verify. Should be the same as the one passed to `app.bsky.contact.startPhoneVerification`.",
+            },
+            "code": {
+              "type": "string",
+              "description":
+                  "The code received via SMS as a result of the call to `app.bsky.contact.startPhoneVerification`.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["token"],
+          "properties": {
+            "token": {
+              "type": "string",
+              "description":
+                  "JWT to be used in a call to `app.bsky.contact.importContacts`. It is only valid for a single call.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "RateLimitExceeded"},
+        {"name": "InvalidDid"},
+        {"name": "InvalidPhone"},
+        {"name": "InvalidCode"},
+        {"name": "InternalError"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.bookmark.defs`
+const appBskyBookmarkDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.defs",
+  "defs": {
+    "bookmark": {
+      "type": "object",
+      "description": "Object used to store bookmark data in stash.",
+      "required": ["subject"],
+      "properties": {
+        "subject": {
+          "type": "ref",
+          "description":
+              "A strong ref to the record to be bookmarked. Currently, only `app.bsky.feed.post` records are supported.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+      },
+    },
+    "bookmarkView": {
+      "type": "object",
+      "required": ["subject", "item"],
+      "properties": {
+        "subject": {
+          "type": "ref",
+          "description": "A strong ref to the bookmarked record.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "item": {
+          "type": "union",
+          "refs": [
+            "app.bsky.feed.defs#blockedPost",
+            "app.bsky.feed.defs#notFoundPost",
+            "app.bsky.feed.defs#postView",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.bookmark.deleteBookmark`
+const appBskyBookmarkDeleteBookmark = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.deleteBookmark",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "UnsupportedCollection",
+          "description":
+              "The URI to be bookmarked is for an unsupported collection.",
+        },
+      ],
+    },
+  },
+};
+
+/// `app.bsky.bookmark.getBookmarks`
+const appBskyBookmarkGetBookmarks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.getBookmarks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Gets views of records bookmarked by the authenticated user. Requires authentication.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["bookmarks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "bookmarks": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "app.bsky.feed.defs#generatorView",
+                "ref": "app.bsky.bookmark.defs#bookmarkView",
               },
             },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.bookmark.createBookmark`
+const appBskyBookmarkCreateBookmark = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.bookmark.createBookmark",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "cid"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "UnsupportedCollection",
+          "description":
+              "The URI to be bookmarked is for an unsupported collection.",
+        },
+      ],
+    },
+  },
+};
+
+/// `app.bsky.embed.defs`
+const appBskyEmbedDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.defs",
+  "defs": {
+    "aspectRatio": {
+      "type": "object",
+      "description":
+          "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+      },
+    },
+  },
+};
+
+/// `app.bsky.embed.record`
+const appBskyEmbedRecord = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.record",
+  "description":
+      "A representation of a record embedded in a Bluesky record (eg, a post). For example, a quote-post, or sharing a feed generator record.",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["record"],
+      "properties": {
+        "record": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+      },
+    },
+    "view": {
+      "type": "object",
+      "required": ["record"],
+      "properties": {
+        "record": {
+          "type": "union",
+          "refs": [
+            "#viewRecord",
+            "#viewNotFound",
+            "#viewBlocked",
+            "#viewDetached",
+            "app.bsky.feed.defs#generatorView",
+            "app.bsky.graph.defs#listView",
+            "app.bsky.labeler.defs#labelerView",
+            "app.bsky.graph.defs#starterPackViewBasic",
+          ],
+        },
+      },
+    },
+    "viewRecord": {
+      "type": "object",
+      "required": ["uri", "cid", "author", "value", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "author": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "value": {"type": "unknown", "description": "The record data itself."},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "replyCount": {"type": "integer"},
+        "repostCount": {"type": "integer"},
+        "likeCount": {"type": "integer"},
+        "quoteCount": {"type": "integer"},
+        "embeds": {
+          "type": "array",
+          "items": {
+            "type": "union",
+            "refs": [
+              "app.bsky.embed.images#view",
+              "app.bsky.embed.video#view",
+              "app.bsky.embed.external#view",
+              "app.bsky.embed.record#view",
+              "app.bsky.embed.recordWithMedia#view",
+            ],
+          },
+        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "viewNotFound": {
+      "type": "object",
+      "required": ["uri", "notFound"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "notFound": {"type": "boolean", "const": true},
+      },
+    },
+    "viewBlocked": {
+      "type": "object",
+      "required": ["uri", "blocked", "author"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "blocked": {"type": "boolean", "const": true},
+        "author": {"type": "ref", "ref": "app.bsky.feed.defs#blockedAuthor"},
+      },
+    },
+    "viewDetached": {
+      "type": "object",
+      "required": ["uri", "detached"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "detached": {"type": "boolean", "const": true},
+      },
+    },
+  },
+};
+
+/// `app.bsky.embed.images`
+const appBskyEmbedImages = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.images",
+  "description": "A set of images embedded in a Bluesky record (eg, a post).",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["images"],
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#image"},
+          "maxLength": 4,
+        },
+      },
+    },
+    "image": {
+      "type": "object",
+      "required": ["image", "alt"],
+      "properties": {
+        "image": {
+          "type": "blob",
+          "description":
+              "The raw image file. May be up to 2 MB, formerly limited to 1 MB.",
+          "accept": ["image/*"],
+          "maxSize": 2000000,
+        },
+        "alt": {
+          "type": "string",
+          "description":
+              "Alt text description of the image, for accessibility.",
+        },
+        "aspectRatio": {
+          "type": "ref",
+          "ref": "app.bsky.embed.defs#aspectRatio",
+        },
+      },
+    },
+    "view": {
+      "type": "object",
+      "required": ["images"],
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#viewImage"},
+          "maxLength": 4,
+        },
+      },
+    },
+    "viewImage": {
+      "type": "object",
+      "required": ["thumb", "fullsize", "alt"],
+      "properties": {
+        "thumb": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.",
+        },
+        "fullsize": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.",
+        },
+        "alt": {
+          "type": "string",
+          "description":
+              "Alt text description of the image, for accessibility.",
+        },
+        "aspectRatio": {
+          "type": "ref",
+          "ref": "app.bsky.embed.defs#aspectRatio",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.embed.recordWithMedia`
+const appBskyEmbedRecordWithMedia = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.recordWithMedia",
+  "description":
+      "A representation of a record embedded in a Bluesky record (eg, a post), alongside other compatible embeds. For example, a quote post and image, or a quote post and external URL card.",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["record", "media"],
+      "properties": {
+        "record": {"type": "ref", "ref": "app.bsky.embed.record"},
+        "media": {
+          "type": "union",
+          "refs": [
+            "app.bsky.embed.images",
+            "app.bsky.embed.video",
+            "app.bsky.embed.external",
+          ],
+        },
+      },
+    },
+    "view": {
+      "type": "object",
+      "required": ["record", "media"],
+      "properties": {
+        "record": {"type": "ref", "ref": "app.bsky.embed.record#view"},
+        "media": {
+          "type": "union",
+          "refs": [
+            "app.bsky.embed.images#view",
+            "app.bsky.embed.video#view",
+            "app.bsky.embed.external#view",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.embed.video`
+const appBskyEmbedVideo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.video",
+  "description": "A video embedded in a Bluesky record (eg, a post).",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["video"],
+      "properties": {
+        "video": {
+          "type": "blob",
+          "description":
+              "The mp4 video file. May be up to 100mb, formerly limited to 50mb.",
+          "accept": ["video/mp4"],
+          "maxSize": 100000000,
+        },
+        "captions": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#caption"},
+          "maxLength": 20,
+        },
+        "alt": {
+          "type": "string",
+          "description":
+              "Alt text description of the video, for accessibility.",
+          "maxLength": 10000,
+          "maxGraphemes": 1000,
+        },
+        "aspectRatio": {
+          "type": "ref",
+          "ref": "app.bsky.embed.defs#aspectRatio",
+        },
+        "presentation": {
+          "type": "string",
+          "description": "A hint to the client about how to present the video.",
+          "knownValues": ["default", "gif"],
+        },
+      },
+    },
+    "caption": {
+      "type": "object",
+      "required": ["lang", "file"],
+      "properties": {
+        "lang": {"type": "string", "format": "language"},
+        "file": {
+          "type": "blob",
+          "accept": ["text/vtt"],
+          "maxSize": 20000,
+        },
+      },
+    },
+    "view": {
+      "type": "object",
+      "required": ["cid", "playlist"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "playlist": {"type": "string", "format": "uri"},
+        "thumbnail": {"type": "string", "format": "uri"},
+        "alt": {"type": "string", "maxLength": 10000, "maxGraphemes": 1000},
+        "aspectRatio": {
+          "type": "ref",
+          "ref": "app.bsky.embed.defs#aspectRatio",
+        },
+        "presentation": {
+          "type": "string",
+          "description": "A hint to the client about how to present the video.",
+          "knownValues": ["default", "gif"],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.embed.external`
+const appBskyEmbedExternal = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.external",
+  "defs": {
+    "main": {
+      "type": "object",
+      "description":
+          "A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).",
+      "required": ["external"],
+      "properties": {
+        "external": {"type": "ref", "ref": "#external"},
+      },
+    },
+    "external": {
+      "type": "object",
+      "required": ["uri", "title", "description"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "thumb": {
+          "type": "blob",
+          "accept": ["image/*"],
+          "maxSize": 1000000,
+        },
+        "associatedRecords": {
+          "type": "array",
+          "description":
+              "The URI of the Atmosphere record representing this external content, if it exists. Example: a site.standard.document record.",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+      },
+    },
+    "view": {
+      "type": "object",
+      "required": ["external"],
+      "properties": {
+        "external": {"type": "ref", "ref": "#viewExternal"},
+      },
+    },
+    "viewExternal": {
+      "type": "object",
+      "required": ["uri", "title", "description"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "thumb": {"type": "string", "format": "uri"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.defs`
+const appBskyNotificationDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.defs",
+  "defs": {
+    "recordDeleted": {"type": "object", "properties": {}},
+    "chatPreference": {
+      "type": "object",
+      "required": ["include", "push"],
+      "properties": {
+        "include": {
+          "type": "string",
+          "knownValues": ["all", "accepted"],
+        },
+        "push": {"type": "boolean"},
+      },
+    },
+    "filterablePreference": {
+      "type": "object",
+      "required": ["include", "list", "push"],
+      "properties": {
+        "include": {
+          "type": "string",
+          "knownValues": ["all", "follows"],
+        },
+        "list": {"type": "boolean"},
+        "push": {"type": "boolean"},
+      },
+    },
+    "preference": {
+      "type": "object",
+      "required": ["list", "push"],
+      "properties": {
+        "list": {"type": "boolean"},
+        "push": {"type": "boolean"},
+      },
+    },
+    "preferences": {
+      "type": "object",
+      "required": [
+        "chat",
+        "follow",
+        "like",
+        "likeViaRepost",
+        "mention",
+        "quote",
+        "reply",
+        "repost",
+        "repostViaRepost",
+        "starterpackJoined",
+        "subscribedPost",
+        "unverified",
+        "verified",
+      ],
+      "properties": {
+        "chat": {"type": "ref", "ref": "#chatPreference"},
+        "follow": {"type": "ref", "ref": "#filterablePreference"},
+        "like": {"type": "ref", "ref": "#filterablePreference"},
+        "likeViaRepost": {"type": "ref", "ref": "#filterablePreference"},
+        "mention": {"type": "ref", "ref": "#filterablePreference"},
+        "quote": {"type": "ref", "ref": "#filterablePreference"},
+        "reply": {"type": "ref", "ref": "#filterablePreference"},
+        "repost": {"type": "ref", "ref": "#filterablePreference"},
+        "repostViaRepost": {"type": "ref", "ref": "#filterablePreference"},
+        "starterpackJoined": {"type": "ref", "ref": "#preference"},
+        "subscribedPost": {"type": "ref", "ref": "#preference"},
+        "unverified": {"type": "ref", "ref": "#preference"},
+        "verified": {"type": "ref", "ref": "#preference"},
+      },
+    },
+    "activitySubscription": {
+      "type": "object",
+      "required": ["post", "reply"],
+      "properties": {
+        "post": {"type": "boolean"},
+        "reply": {"type": "boolean"},
+      },
+    },
+    "subjectActivitySubscription": {
+      "type": "object",
+      "description":
+          "Object used to store activity subscription data in stash.",
+      "required": ["subject", "activitySubscription"],
+      "properties": {
+        "subject": {"type": "string", "format": "did"},
+        "activitySubscription": {"type": "ref", "ref": "#activitySubscription"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.registerPush`
+const appBskyNotificationRegisterPush = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.registerPush",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Register to receive push notifications, via a specified service, for the requesting account. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["serviceDid", "token", "platform", "appId"],
+          "properties": {
+            "serviceDid": {"type": "string", "format": "did"},
+            "token": {"type": "string"},
+            "platform": {
+              "type": "string",
+              "knownValues": ["ios", "android", "web"],
+            },
+            "appId": {"type": "string"},
+            "ageRestricted": {
+              "type": "boolean",
+              "description": "Set to true when the actor is age restricted",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.putPreferences`
+const appBskyNotificationPutPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.putPreferences",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Set notification-related preferences for an account. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["priority"],
+          "properties": {
+            "priority": {"type": "boolean"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.putActivitySubscription`
+const appBskyNotificationPutActivitySubscription = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.putActivitySubscription",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject", "activitySubscription"],
+          "properties": {
+            "subject": {"type": "string", "format": "did"},
+            "activitySubscription": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#activitySubscription",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {"type": "string", "format": "did"},
+            "activitySubscription": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#activitySubscription",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.declaration`
+const appBskyNotificationDeclaration = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.declaration",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "A declaration of the user's choices related to notifications that can be produced by them.",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": ["allowSubscriptions"],
+        "properties": {
+          "allowSubscriptions": {
+            "type": "string",
+            "description":
+                "A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
+            "knownValues": ["followers", "mutuals", "none"],
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.putPreferencesV2`
+const appBskyNotificationPutPreferencesV2 = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.putPreferencesV2",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Set notification-related preferences for an account. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "chat": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#chatPreference",
+            },
+            "follow": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "like": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "likeViaRepost": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "mention": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "quote": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "reply": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "repost": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "repostViaRepost": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#filterablePreference",
+            },
+            "starterpackJoined": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#preference",
+            },
+            "subscribedPost": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#preference",
+            },
+            "unverified": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#preference",
+            },
+            "verified": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#preference",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#preferences",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.updateSeen`
+const appBskyNotificationUpdateSeen = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.updateSeen",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Notify server that the requesting account has seen notifications. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["seenAt"],
+          "properties": {
+            "seenAt": {"type": "string", "format": "datetime"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.listActivitySubscriptions`
+const appBskyNotificationListActivitySubscriptions = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.listActivitySubscriptions",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subscriptions"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "subscriptions": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.unregisterPush`
+const appBskyNotificationUnregisterPush = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.unregisterPush",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["serviceDid", "token", "platform", "appId"],
+          "properties": {
+            "serviceDid": {"type": "string", "format": "did"},
+            "token": {"type": "string"},
+            "platform": {
+              "type": "string",
+              "knownValues": ["ios", "android", "web"],
+            },
+            "appId": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.getPreferences`
+const appBskyNotificationGetPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.getPreferences",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get notification-related preferences for an account. Requires auth.",
+      "parameters": {"type": "params", "properties": {}},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "app.bsky.notification.defs#preferences",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.listNotifications`
+const appBskyNotificationListNotifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.listNotifications",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerate notifications for the requesting account. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "reasons": {
+            "type": "array",
+            "description": "Notification reasons to include in response.",
+            "items": {
+              "type": "string",
+              "description":
+                  "A reason that matches the reason property of #notification.",
+            },
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "priority": {"type": "boolean"},
+          "cursor": {"type": "string"},
+          "seenAt": {"type": "string", "format": "datetime"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["notifications"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "notifications": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#notification"},
+            },
+            "priority": {"type": "boolean"},
+            "seenAt": {"type": "string", "format": "datetime"},
+          },
+        },
+      },
+    },
+    "notification": {
+      "type": "object",
+      "required": [
+        "uri",
+        "cid",
+        "author",
+        "reason",
+        "record",
+        "isRead",
+        "indexedAt",
+      ],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "author": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+        "reason": {
+          "type": "string",
+          "description":
+              "The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.",
+          "knownValues": [
+            "like",
+            "repost",
+            "follow",
+            "mention",
+            "reply",
+            "quote",
+            "starterpack-joined",
+            "verified",
+            "unverified",
+            "like-via-repost",
+            "repost-via-repost",
+            "subscribed-post",
+            "contact-match",
+          ],
+        },
+        "reasonSubject": {"type": "string", "format": "at-uri"},
+        "record": {"type": "unknown"},
+        "isRead": {"type": "boolean"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.notification.getUnreadCount`
+const appBskyNotificationGetUnreadCount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.getUnreadCount",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Count the number of unread notifications for the requesting account. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "priority": {"type": "boolean"},
+          "seenAt": {"type": "string", "format": "datetime"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["count"],
+          "properties": {
+            "count": {"type": "integer"},
           },
         },
       },
@@ -6099,322 +6224,14 @@ const appBskyUnspeccedSearchStarterPacksSkeleton = <String, dynamic>{
   },
 };
 
-/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
-const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = <String, dynamic>{
+/// `app.bsky.unspecced.getSuggestedUsersForExplore`
+const appBskyUnspeccedGetSuggestedUsersForExplore = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton",
+  "id": "app.bsky.unspecced.getSuggestedUsersForExplore",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries).",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 10,
-            "minimum": 1,
-            "maximum": 25,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["starterPacks"],
-          "properties": {
-            "starterPacks": {
-              "type": "array",
-              "items": {"type": "string", "format": "at-uri"},
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getPostThreadOtherV2`
-const appBskyUnspeccedGetPostThreadOtherV2 = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getPostThreadOtherV2",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "(NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get additional posts under a thread e.g. replies hidden by threadgate. Based on an anchor post at any depth of the tree, returns top-level replies below that anchor. It does not include ancestors nor the anchor itself. This should be called after exhausting `app.bsky.unspecced.getPostThreadV2`. Does not require auth, but additional metadata and filtering will be applied for authed requests.",
-      "parameters": {
-        "type": "params",
-        "required": ["anchor"],
-        "properties": {
-          "anchor": {
-            "type": "string",
-            "format": "at-uri",
-            "description":
-                "Reference (AT-URI) to post record. This is the anchor post.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["thread"],
-          "properties": {
-            "thread": {
-              "type": "array",
-              "description":
-                  "A flat list of other thread items. The depth of each item is indicated by the depth property inside the item.",
-              "items": {"type": "ref", "ref": "#threadItem"},
-            },
-          },
-        },
-      },
-    },
-    "threadItem": {
-      "type": "object",
-      "required": ["uri", "depth", "value"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "depth": {
-          "type": "integer",
-          "description":
-              "The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.",
-        },
-        "value": {
-          "type": "union",
-          "refs": ["app.bsky.unspecced.defs#threadItemPost"],
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.searchPostsSkeleton`
-const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.searchPostsSkeleton",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Backend Posts search, returns only skeleton",
-      "parameters": {
-        "type": "params",
-        "required": ["q"],
-        "properties": {
-          "q": {
-            "type": "string",
-            "description":
-                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
-          },
-          "sort": {
-            "type": "string",
-            "description": "Specifies the ranking order of results.",
-            "default": "latest",
-            "knownValues": ["top", "latest"],
-          },
-          "since": {
-            "type": "string",
-            "description":
-                "Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).",
-          },
-          "until": {
-            "type": "string",
-            "description":
-                "Filter results for posts before the indicated datetime (not inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYY-MM-DD).",
-          },
-          "mentions": {
-            "type": "string",
-            "format": "at-identifier",
-            "description":
-                "Filter to posts which mention the given account. Handles are resolved to DID before query-time. Only matches rich-text facet mentions.",
-          },
-          "author": {
-            "type": "string",
-            "format": "at-identifier",
-            "description":
-                "Filter to posts by the given account. Handles are resolved to DID before query-time.",
-          },
-          "lang": {
-            "type": "string",
-            "format": "language",
-            "description":
-                "Filter to posts in the given language. Expected to be based on post language field, though server may override language detection.",
-          },
-          "domain": {
-            "type": "string",
-            "description":
-                "Filter to posts with URLs (facet links or embeds) linking to the given domain (hostname). Server may apply hostname normalization.",
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description":
-                "Filter to posts with links (facet links or embeds) pointing to this URL. Server may apply URL normalization or fuzzy matching.",
-          },
-          "tag": {
-            "type": "array",
-            "description":
-                "Filter to posts with the given tag (hashtag), based on rich-text facet or tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with 'AND' matching.",
-            "items": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
-          },
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {
-            "type": "string",
-            "description":
-                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["posts"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "hitsTotal": {
-              "type": "integer",
-              "description":
-                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.",
-            },
-            "posts": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.unspecced.defs#skeletonSearchPost",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "BadQueryString"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getConfig`
-const appBskyUnspeccedGetConfig = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getConfig",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get miscellaneous runtime configuration.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": [],
-          "properties": {
-            "checkEmailConfirmed": {"type": "boolean"},
-            "liveNow": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#liveNowConfig"},
-            },
-          },
-        },
-      },
-    },
-    "liveNowConfig": {
-      "type": "object",
-      "required": ["did", "domains"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "domains": {
-          "type": "array",
-          "items": {"type": "string"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getSuggestedUsersSkeleton`
-const appBskyUnspeccedGetSuggestedUsersSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getSuggestedUsersSkeleton",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a skeleton of suggested users. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsers",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries).",
-          },
-          "category": {
-            "type": "string",
-            "description": "Category of users to get suggestions for.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 50,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["dids"],
-          "properties": {
-            "dids": {
-              "type": "array",
-              "items": {"type": "string", "format": "did"},
-            },
-            "recId": {
-              "type": "string",
-              "description": "DEPRECATED: use recIdStr instead.",
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getSuggestedOnboardingUsers`
-const appBskyUnspeccedGetSuggestedOnboardingUsers = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getSuggestedOnboardingUsers",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get a list of suggested users for onboarding",
+      "description": "Get a list of suggested users for the Explore page",
       "parameters": {
         "type": "params",
         "properties": {
@@ -6443,10 +6260,6 @@ const appBskyUnspeccedGetSuggestedOnboardingUsers = <String, dynamic>{
                 "ref": "app.bsky.actor.defs#profileView",
               },
             },
-            "recId": {
-              "type": "string",
-              "description": "DEPRECATED: use recIdStr instead.",
-            },
             "recIdStr": {
               "type": "string",
               "description":
@@ -6454,456 +6267,6 @@ const appBskyUnspeccedGetSuggestedOnboardingUsers = <String, dynamic>{
             },
           },
         },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getTrends`
-const appBskyUnspeccedGetTrends = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getTrends",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get the current trends on the network",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 10,
-            "minimum": 1,
-            "maximum": 25,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["trends"],
-          "properties": {
-            "trends": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.unspecced.defs#trendView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.searchActorsSkeleton`
-const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.searchActorsSkeleton",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Backend Actors (profile) search, returns only skeleton.",
-      "parameters": {
-        "type": "params",
-        "required": ["q"],
-        "properties": {
-          "q": {
-            "type": "string",
-            "description":
-                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.",
-          },
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
-          },
-          "typeahead": {
-            "type": "boolean",
-            "description": "If true, acts as fast/simple 'typeahead' query.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {
-            "type": "string",
-            "description":
-                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actors"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "hitsTotal": {
-              "type": "integer",
-              "description":
-                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.",
-            },
-            "actors": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.unspecced.defs#skeletonSearchActor",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "BadQueryString"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton`
-const appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a skeleton of suggested users for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedOnboardingUsers",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries).",
-          },
-          "category": {
-            "type": "string",
-            "description": "Category of users to get suggestions for.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 50,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["dids"],
-          "properties": {
-            "dids": {
-              "type": "array",
-              "items": {"type": "string", "format": "did"},
-            },
-            "recId": {
-              "type": "string",
-              "description": "DEPRECATED: use recIdStr instead.",
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getPostThreadV2`
-const appBskyUnspeccedGetPostThreadV2 = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getPostThreadV2",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "(NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get posts in a thread. It is based in an anchor post at any depth of the tree, and returns posts above it (recursively resolving the parent, without further branching to their replies) and below it (recursive replies, with branching to their replies). Does not require auth, but additional metadata and filtering will be applied for authed requests.",
-      "parameters": {
-        "type": "params",
-        "required": ["anchor"],
-        "properties": {
-          "anchor": {
-            "type": "string",
-            "format": "at-uri",
-            "description":
-                "Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.",
-          },
-          "above": {
-            "type": "boolean",
-            "description": "Whether to include parents above the anchor.",
-            "default": true,
-          },
-          "below": {
-            "type": "integer",
-            "description":
-                "How many levels of replies to include below the anchor.",
-            "default": 6,
-            "minimum": 0,
-            "maximum": 20,
-          },
-          "branchingFactor": {
-            "type": "integer",
-            "description":
-                "Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).",
-            "default": 10,
-            "minimum": 0,
-            "maximum": 100,
-          },
-          "sort": {
-            "type": "string",
-            "description": "Sorting for the thread replies.",
-            "default": "oldest",
-            "knownValues": ["newest", "oldest", "top"],
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["thread", "hasOtherReplies"],
-          "properties": {
-            "thread": {
-              "type": "array",
-              "description":
-                  "A flat list of thread items. The depth of each item is indicated by the depth property inside the item.",
-              "items": {"type": "ref", "ref": "#threadItem"},
-            },
-            "threadgate": {
-              "type": "ref",
-              "ref": "app.bsky.feed.defs#threadgateView",
-            },
-            "hasOtherReplies": {
-              "type": "boolean",
-              "description":
-                  "Whether this thread has additional replies. If true, a call can be made to the `getPostThreadOtherV2` endpoint to retrieve them.",
-            },
-          },
-        },
-      },
-    },
-    "threadItem": {
-      "type": "object",
-      "required": ["uri", "depth", "value"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "depth": {
-          "type": "integer",
-          "description":
-              "The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.",
-        },
-        "value": {
-          "type": "union",
-          "refs": [
-            "app.bsky.unspecced.defs#threadItemPost",
-            "app.bsky.unspecced.defs#threadItemNoUnauthenticated",
-            "app.bsky.unspecced.defs#threadItemNotFound",
-            "app.bsky.unspecced.defs#threadItemBlocked",
-          ],
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getSuggestedUsers`
-const appBskyUnspeccedGetSuggestedUsers = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getSuggestedUsers",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get a list of suggested users",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "category": {
-            "type": "string",
-            "description": "Category of users to get suggestions for.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 50,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actors"],
-          "properties": {
-            "actors": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-            "recId": {
-              "type": "string",
-              "description": "DEPRECATED: use recIdStr instead.",
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getTrendsSkeleton`
-const appBskyUnspeccedGetTrendsSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getTrendsSkeleton",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get the skeleton of trends on the network. Intended to be called and then hydrated through app.bsky.unspecced.getTrends",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries).",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 10,
-            "minimum": 1,
-            "maximum": 25,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["trends"],
-          "properties": {
-            "trends": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.unspecced.defs#skeletonTrend",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getTrendingTopics`
-const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getTrendingTopics",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get a list of trending topics",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "viewer": {
-            "type": "string",
-            "format": "did",
-            "description":
-                "DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 10,
-            "minimum": 1,
-            "maximum": 25,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["topics", "suggested"],
-          "properties": {
-            "topics": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.unspecced.defs#trendingTopic",
-              },
-            },
-            "suggested": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.unspecced.defs#trendingTopic",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getTaggedSuggestions`
-const appBskyUnspeccedGetTaggedSuggestions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getTaggedSuggestions",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a list of suggestions (feeds and users) tagged with categories",
-      "parameters": {"type": "params", "properties": {}},
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["suggestions"],
-          "properties": {
-            "suggestions": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#suggestion"},
-            },
-          },
-        },
-      },
-    },
-    "suggestion": {
-      "type": "object",
-      "required": ["tag", "subjectType", "subject"],
-      "properties": {
-        "tag": {"type": "string"},
-        "subjectType": {
-          "type": "string",
-          "knownValues": ["actor", "feed"],
-        },
-        "subject": {"type": "string", "format": "uri"},
       },
     },
   },
@@ -7110,6 +6473,248 @@ const appBskyUnspeccedDefs = <String, dynamic>{
   },
 };
 
+/// `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {"type": "string", "format": "at-uri"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedUsersForExploreSkeleton`
+const appBskyUnspeccedGetSuggestedUsersForExploreSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsersForExploreSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested users for the Explore page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForExplore",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["dids"],
+          "properties": {
+            "dids": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedUsers`
+const appBskyUnspeccedGetSuggestedUsers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested users",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "actors": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+            "recId": {
+              "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getPostThreadOtherV2`
+const appBskyUnspeccedGetPostThreadOtherV2 = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getPostThreadOtherV2",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "(NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get additional posts under a thread e.g. replies hidden by threadgate. Based on an anchor post at any depth of the tree, returns top-level replies below that anchor. It does not include ancestors nor the anchor itself. This should be called after exhausting `app.bsky.unspecced.getPostThreadV2`. Does not require auth, but additional metadata and filtering will be applied for authed requests.",
+      "parameters": {
+        "type": "params",
+        "required": ["anchor"],
+        "properties": {
+          "anchor": {
+            "type": "string",
+            "format": "at-uri",
+            "description":
+                "Reference (AT-URI) to post record. This is the anchor post.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["thread"],
+          "properties": {
+            "thread": {
+              "type": "array",
+              "description":
+                  "A flat list of other thread items. The depth of each item is indicated by the depth property inside the item.",
+              "items": {"type": "ref", "ref": "#threadItem"},
+            },
+          },
+        },
+      },
+    },
+    "threadItem": {
+      "type": "object",
+      "required": ["uri", "depth", "value"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "depth": {
+          "type": "integer",
+          "description":
+              "The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.",
+        },
+        "value": {
+          "type": "union",
+          "refs": ["app.bsky.unspecced.defs#threadItemPost"],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested starterpacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
 const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
   "lexicon": 1,
@@ -7147,117 +6752,6 @@ const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
               "items": {"type": "string", "format": "at-uri"},
             },
           },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getPopularFeedGenerators`
-const appBskyUnspeccedGetPopularFeedGenerators = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getPopularFeedGenerators",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "An unspecced view of globally popular feed generators.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-          "query": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feeds"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feeds": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#generatorView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.unspecced.initAgeAssurance`
-const appBskyUnspeccedInitAgeAssurance = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.initAgeAssurance",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Initiate age assurance for an account. This is a one-time action that will start the process of verifying the user's age.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["email", "language", "countryCode"],
-          "properties": {
-            "email": {
-              "type": "string",
-              "description":
-                  "The user's email address to receive assurance instructions.",
-            },
-            "language": {
-              "type": "string",
-              "description":
-                  "The user's preferred language for communication during the assurance process.",
-            },
-            "countryCode": {
-              "type": "string",
-              "description":
-                  "An ISO 3166-1 alpha-2 code of the user's location.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "app.bsky.unspecced.defs#ageAssuranceState",
-        },
-      },
-      "errors": [
-        {"name": "InvalidEmail"},
-        {"name": "DidTooLong"},
-        {"name": "InvalidInitiation"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.unspecced.getAgeAssuranceState`
-const appBskyUnspeccedGetAgeAssuranceState = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getAgeAssuranceState",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "app.bsky.unspecced.defs#ageAssuranceState",
         },
       },
     },
@@ -7303,14 +6797,167 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacks = <String, dynamic>{
   },
 };
 
-/// `app.bsky.unspecced.getSuggestedStarterPacks`
-const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
+/// `app.bsky.unspecced.getSuggestedUsersSkeleton`
+const appBskyUnspeccedGetSuggestedUsersSkeleton = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.unspecced.getSuggestedStarterPacks",
+  "id": "app.bsky.unspecced.getSuggestedUsersSkeleton",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of suggested starterpacks",
+      "description":
+          "Get a skeleton of suggested users. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsers",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["dids"],
+          "properties": {
+            "dids": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+            },
+            "recId": {
+              "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getPostThreadV2`
+const appBskyUnspeccedGetPostThreadV2 = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getPostThreadV2",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "(NOTE: this endpoint is under development and WILL change without notice. Don't use it until it is moved out of `unspecced` or your application WILL break) Get posts in a thread. It is based in an anchor post at any depth of the tree, and returns posts above it (recursively resolving the parent, without further branching to their replies) and below it (recursive replies, with branching to their replies). Does not require auth, but additional metadata and filtering will be applied for authed requests.",
+      "parameters": {
+        "type": "params",
+        "required": ["anchor"],
+        "properties": {
+          "anchor": {
+            "type": "string",
+            "format": "at-uri",
+            "description":
+                "Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.",
+          },
+          "above": {
+            "type": "boolean",
+            "description": "Whether to include parents above the anchor.",
+            "default": true,
+          },
+          "below": {
+            "type": "integer",
+            "description":
+                "How many levels of replies to include below the anchor.",
+            "default": 6,
+            "minimum": 0,
+            "maximum": 20,
+          },
+          "branchingFactor": {
+            "type": "integer",
+            "description":
+                "Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).",
+            "default": 10,
+            "minimum": 0,
+            "maximum": 100,
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sorting for the thread replies.",
+            "default": "oldest",
+            "knownValues": ["newest", "oldest", "top"],
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["thread", "hasOtherReplies"],
+          "properties": {
+            "thread": {
+              "type": "array",
+              "description":
+                  "A flat list of thread items. The depth of each item is indicated by the depth property inside the item.",
+              "items": {"type": "ref", "ref": "#threadItem"},
+            },
+            "threadgate": {
+              "type": "ref",
+              "ref": "app.bsky.feed.defs#threadgateView",
+            },
+            "hasOtherReplies": {
+              "type": "boolean",
+              "description":
+                  "Whether this thread has additional replies. If true, a call can be made to the `getPostThreadOtherV2` endpoint to retrieve them.",
+            },
+          },
+        },
+      },
+    },
+    "threadItem": {
+      "type": "object",
+      "required": ["uri", "depth", "value"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "depth": {
+          "type": "integer",
+          "description":
+              "The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths.",
+        },
+        "value": {
+          "type": "union",
+          "refs": [
+            "app.bsky.unspecced.defs#threadItemPost",
+            "app.bsky.unspecced.defs#threadItemNoUnauthenticated",
+            "app.bsky.unspecced.defs#threadItemNotFound",
+            "app.bsky.unspecced.defs#threadItemBlocked",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrends",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get the current trends on the network",
       "parameters": {
         "type": "params",
         "properties": {
@@ -7326,18 +6973,87 @@ const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["starterPacks"],
+          "required": ["trends"],
           "properties": {
-            "starterPacks": {
+            "trends": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "app.bsky.graph.defs#starterPackView",
+                "ref": "app.bsky.unspecced.defs#trendView",
               },
             },
           },
         },
       },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.searchActorsSkeleton`
+const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.searchActorsSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Backend Actors (profile) search, returns only skeleton.",
+      "parameters": {
+        "type": "params",
+        "required": ["q"],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.",
+          },
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
+          },
+          "typeahead": {
+            "type": "boolean",
+            "description": "If true, acts as fast/simple 'typeahead' query.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {
+            "type": "string",
+            "description":
+                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "hitsTotal": {
+              "type": "integer",
+              "description":
+                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.",
+            },
+            "actors": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonSearchActor",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "BadQueryString"},
+      ],
     },
   },
 };
@@ -7411,764 +7127,90 @@ const appBskyUnspeccedGetSuggestionsSkeleton = <String, dynamic>{
   },
 };
 
-/// `app.bsky.contact.sendNotification`
-const appBskyContactSendNotification = <String, dynamic>{
+/// `app.bsky.unspecced.searchPostsSkeleton`
+const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.contact.sendNotification",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "System endpoint to send notifications related to contact imports. Requires role authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["from", "to"],
-          "properties": {
-            "from": {
-              "type": "string",
-              "format": "did",
-              "description": "The DID of who this notification comes from.",
-            },
-            "to": {
-              "type": "string",
-              "format": "did",
-              "description": "The DID of who this notification should go to.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-    },
-  },
-};
-
-/// `app.bsky.contact.dismissMatch`
-const appBskyContactDismissMatch = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.dismissMatch",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject"],
-          "properties": {
-            "subject": {
-              "type": "string",
-              "format": "did",
-              "description": "The subject's DID to dismiss the match with.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-      "errors": [
-        {"name": "InvalidDid"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.contact.getMatches`
-const appBskyContactGetMatches = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.getMatches",
+  "id": "app.bsky.unspecced.searchPostsSkeleton",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.",
+      "description": "Backend Posts search, returns only skeleton",
       "parameters": {
         "type": "params",
+        "required": ["q"],
         "properties": {
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
+          },
+          "sort": {
+            "type": "string",
+            "description": "Specifies the ranking order of results.",
+            "default": "latest",
+            "knownValues": ["top", "latest"],
+          },
+          "since": {
+            "type": "string",
+            "description":
+                "Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).",
+          },
+          "until": {
+            "type": "string",
+            "description":
+                "Filter results for posts before the indicated datetime (not inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYY-MM-DD).",
+          },
+          "mentions": {
+            "type": "string",
+            "format": "at-identifier",
+            "description":
+                "Filter to posts which mention the given account. Handles are resolved to DID before query-time. Only matches rich-text facet mentions.",
+          },
+          "author": {
+            "type": "string",
+            "format": "at-identifier",
+            "description":
+                "Filter to posts by the given account. Handles are resolved to DID before query-time.",
+          },
+          "lang": {
+            "type": "string",
+            "format": "language",
+            "description":
+                "Filter to posts in the given language. Expected to be based on post language field, though server may override language detection.",
+          },
+          "domain": {
+            "type": "string",
+            "description":
+                "Filter to posts with URLs (facet links or embeds) linking to the given domain (hostname). Server may apply hostname normalization.",
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description":
+                "Filter to posts with links (facet links or embeds) pointing to this URL. Server may apply URL normalization or fuzzy matching.",
+          },
+          "tag": {
+            "type": "array",
+            "description":
+                "Filter to posts with the given tag (hashtag), based on rich-text facet or tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with 'AND' matching.",
+            "items": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+          },
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.",
+          },
           "limit": {
             "type": "integer",
-            "default": 50,
+            "default": 25,
             "minimum": 1,
             "maximum": 100,
           },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["matches"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "matches": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "InvalidDid"},
-        {"name": "InvalidLimit"},
-        {"name": "InvalidCursor"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.contact.defs`
-const appBskyContactDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.defs",
-  "defs": {
-    "matchAndContactIndex": {
-      "type": "object",
-      "description":
-          "Associates a profile with the positional index of the contact import input in the call to `app.bsky.contact.importContacts`, so clients can know which phone caused a particular match.",
-      "required": ["match", "contactIndex"],
-      "properties": {
-        "match": {
-          "type": "ref",
-          "description": "Profile of the matched user.",
-          "ref": "app.bsky.actor.defs#profileView",
-        },
-        "contactIndex": {
-          "type": "integer",
-          "description": "The index of this match in the import contact input.",
-          "minimum": 0,
-          "maximum": 999,
-        },
-      },
-    },
-    "syncStatus": {
-      "type": "object",
-      "required": ["syncedAt", "matchesCount"],
-      "properties": {
-        "syncedAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "Last date when contacts where imported.",
-        },
-        "matchesCount": {
-          "type": "integer",
-          "description":
-              "Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.",
-          "minimum": 0,
-        },
-      },
-    },
-    "notification": {
-      "type": "object",
-      "description":
-          "A stash object to be sent via bsync representing a notification to be created.",
-      "required": ["from", "to"],
-      "properties": {
-        "from": {
-          "type": "string",
-          "format": "did",
-          "description": "The DID of who this notification comes from.",
-        },
-        "to": {
-          "type": "string",
-          "format": "did",
-          "description": "The DID of who this notification should go to.",
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.contact.startPhoneVerification`
-const appBskyContactStartPhoneVerification = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.startPhoneVerification",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["phone"],
-          "properties": {
-            "phone": {
-              "type": "string",
-              "description": "The phone number to receive the code via SMS.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-      "errors": [
-        {"name": "RateLimitExceeded"},
-        {"name": "InvalidDid"},
-        {"name": "InvalidPhone"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.contact.removeData`
-const appBskyContactRemoveData = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.removeData",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-      "errors": [
-        {"name": "InvalidDid"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.contact.getSyncStatus`
-const appBskyContactGetSyncStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.getSyncStatus",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Gets the user's current contact import status. Requires authentication.",
-      "parameters": {"type": "params", "properties": {}},
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "syncStatus": {
-              "type": "ref",
-              "description":
-                  "If present, indicates the user has imported their contacts. If not present, indicates the user never used the feature or called `app.bsky.contact.removeData` and didn't import again since.",
-              "ref": "app.bsky.contact.defs#syncStatus",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "InvalidDid"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.contact.verifyPhone`
-const appBskyContactVerifyPhone = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.verifyPhone",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["phone", "code"],
-          "properties": {
-            "phone": {
-              "type": "string",
-              "description":
-                  "The phone number to verify. Should be the same as the one passed to `app.bsky.contact.startPhoneVerification`.",
-            },
-            "code": {
-              "type": "string",
-              "description":
-                  "The code received via SMS as a result of the call to `app.bsky.contact.startPhoneVerification`.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["token"],
-          "properties": {
-            "token": {
-              "type": "string",
-              "description":
-                  "JWT to be used in a call to `app.bsky.contact.importContacts`. It is only valid for a single call.",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "RateLimitExceeded"},
-        {"name": "InvalidDid"},
-        {"name": "InvalidPhone"},
-        {"name": "InvalidCode"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.contact.importContacts`
-const appBskyContactImportContacts = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.contact.importContacts",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["token", "contacts"],
-          "properties": {
-            "token": {
-              "type": "string",
-              "description":
-                  "JWT to authenticate the call. Use the JWT received as a response to the call to `app.bsky.contact.verifyPhone`.",
-            },
-            "contacts": {
-              "type": "array",
-              "description":
-                  "List of phone numbers in global E.164 format (e.g., '+12125550123'). Phone numbers that cannot be normalized into a valid phone number will be discarded. Should not repeat the 'phone' input used in `app.bsky.contact.verifyPhone`.",
-              "items": {"type": "string"},
-              "minLength": 1,
-              "maxLength": 1000,
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["matchesAndContactIndexes"],
-          "properties": {
-            "matchesAndContactIndexes": {
-              "type": "array",
-              "description":
-                  "The users that matched during import and their indexes on the input contacts, so the client can correlate with its local list.",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.contact.defs#matchAndContactIndex",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "InvalidDid"},
-        {"name": "InvalidContacts"},
-        {"name": "TooManyContacts"},
-        {"name": "InvalidToken"},
-        {"name": "InternalError"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.ageassurance.getConfig`
-const appBskyAgeassuranceGetConfig = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.ageassurance.getConfig",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Returns Age Assurance configuration for use on the client.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "app.bsky.ageassurance.defs#config"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.ageassurance.defs`
-const appBskyAgeassuranceDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.ageassurance.defs",
-  "defs": {
-    "access": {
-      "type": "string",
-      "description":
-          "The access level granted based on Age Assurance data we've processed.",
-      "knownValues": ["unknown", "none", "safe", "full"],
-    },
-    "status": {
-      "type": "string",
-      "description": "The status of the Age Assurance process.",
-      "knownValues": ["unknown", "pending", "assured", "blocked"],
-    },
-    "state": {
-      "type": "object",
-      "description": "The user's computed Age Assurance state.",
-      "required": ["status", "access"],
-      "properties": {
-        "lastInitiatedAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "The timestamp when this state was last updated.",
-        },
-        "status": {"type": "ref", "ref": "app.bsky.ageassurance.defs#status"},
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "stateMetadata": {
-      "type": "object",
-      "description":
-          "Additional metadata needed to compute Age Assurance state client-side.",
-      "required": [],
-      "properties": {
-        "accountCreatedAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "The account creation timestamp.",
-        },
-      },
-    },
-    "config": {
-      "type": "object",
-      "description": "",
-      "required": ["regions"],
-      "properties": {
-        "regions": {
-          "type": "array",
-          "description": "The per-region Age Assurance configuration.",
-          "items": {
-            "type": "ref",
-            "ref": "app.bsky.ageassurance.defs#configRegion",
-          },
-        },
-      },
-    },
-    "configRegion": {
-      "type": "object",
-      "description": "The Age Assurance configuration for a specific region.",
-      "required": ["countryCode", "minAccessAge", "rules"],
-      "properties": {
-        "countryCode": {
-          "type": "string",
-          "description":
-              "The ISO 3166-1 alpha-2 country code this configuration applies to.",
-        },
-        "regionCode": {
-          "type": "string",
-          "description":
-              "The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country.",
-        },
-        "minAccessAge": {
-          "type": "integer",
-          "description":
-              "The minimum age (as a whole integer) required to use Bluesky in this region.",
-        },
-        "rules": {
-          "type": "array",
-          "description":
-              "The ordered list of Age Assurance rules that apply to this region. Rules should be applied in order, and the first matching rule determines the access level granted. The rules array should always include a default rule as the last item.",
-          "items": {
-            "type": "union",
-            "refs": [
-              "#configRegionRuleDefault",
-              "#configRegionRuleIfDeclaredOverAge",
-              "#configRegionRuleIfDeclaredUnderAge",
-              "#configRegionRuleIfAssuredOverAge",
-              "#configRegionRuleIfAssuredUnderAge",
-              "#configRegionRuleIfAccountNewerThan",
-              "#configRegionRuleIfAccountOlderThan",
-            ],
-          },
-        },
-      },
-    },
-    "configRegionRuleDefault": {
-      "type": "object",
-      "description": "Age Assurance rule that applies by default.",
-      "required": ["access"],
-      "properties": {
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "configRegionRuleIfDeclaredOverAge": {
-      "type": "object",
-      "description":
-          "Age Assurance rule that applies if the user has declared themselves equal-to or over a certain age.",
-      "required": ["age", "access"],
-      "properties": {
-        "age": {
-          "type": "integer",
-          "description": "The age threshold as a whole integer.",
-        },
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "configRegionRuleIfDeclaredUnderAge": {
-      "type": "object",
-      "description":
-          "Age Assurance rule that applies if the user has declared themselves under a certain age.",
-      "required": ["age", "access"],
-      "properties": {
-        "age": {
-          "type": "integer",
-          "description": "The age threshold as a whole integer.",
-        },
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "configRegionRuleIfAssuredOverAge": {
-      "type": "object",
-      "description":
-          "Age Assurance rule that applies if the user has been assured to be equal-to or over a certain age.",
-      "required": ["age", "access"],
-      "properties": {
-        "age": {
-          "type": "integer",
-          "description": "The age threshold as a whole integer.",
-        },
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "configRegionRuleIfAssuredUnderAge": {
-      "type": "object",
-      "description":
-          "Age Assurance rule that applies if the user has been assured to be under a certain age.",
-      "required": ["age", "access"],
-      "properties": {
-        "age": {
-          "type": "integer",
-          "description": "The age threshold as a whole integer.",
-        },
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "configRegionRuleIfAccountNewerThan": {
-      "type": "object",
-      "description":
-          "Age Assurance rule that applies if the account is equal-to or newer than a certain date.",
-      "required": ["date", "access"],
-      "properties": {
-        "date": {
-          "type": "string",
-          "format": "datetime",
-          "description": "The date threshold as a datetime string.",
-        },
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "configRegionRuleIfAccountOlderThan": {
-      "type": "object",
-      "description":
-          "Age Assurance rule that applies if the account is older than a certain date.",
-      "required": ["date", "access"],
-      "properties": {
-        "date": {
-          "type": "string",
-          "format": "datetime",
-          "description": "The date threshold as a datetime string.",
-        },
-        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
-      },
-    },
-    "event": {
-      "type": "object",
-      "description": "Object used to store Age Assurance data in stash.",
-      "required": ["createdAt", "status", "access", "attemptId", "countryCode"],
-      "properties": {
-        "createdAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "The date and time of this write operation.",
-        },
-        "attemptId": {
-          "type": "string",
-          "description":
-              "The unique identifier for this instance of the Age Assurance flow, in UUID format.",
-        },
-        "status": {
-          "type": "string",
-          "description": "The status of the Age Assurance process.",
-          "knownValues": ["unknown", "pending", "assured", "blocked"],
-        },
-        "access": {
-          "type": "string",
-          "description":
-              "The access level granted based on Age Assurance data we've processed.",
-          "knownValues": ["unknown", "none", "safe", "full"],
-        },
-        "countryCode": {
-          "type": "string",
-          "description":
-              "The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow.",
-        },
-        "regionCode": {
-          "type": "string",
-          "description":
-              "The ISO 3166-2 region code provided when beginning the Age Assurance flow.",
-        },
-        "email": {
-          "type": "string",
-          "description": "The email used for Age Assurance.",
-        },
-        "initIp": {
-          "type": "string",
-          "description":
-              "The IP address used when initiating the Age Assurance flow.",
-        },
-        "initUa": {
-          "type": "string",
-          "description":
-              "The user agent used when initiating the Age Assurance flow.",
-        },
-        "completeIp": {
-          "type": "string",
-          "description":
-              "The IP address used when completing the Age Assurance flow.",
-        },
-        "completeUa": {
-          "type": "string",
-          "description":
-              "The user agent used when completing the Age Assurance flow.",
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.ageassurance.getState`
-const appBskyAgeassuranceGetState = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.ageassurance.getState",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Returns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.",
-      "parameters": {
-        "type": "params",
-        "required": ["countryCode"],
-        "properties": {
-          "countryCode": {"type": "string"},
-          "regionCode": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["state", "metadata"],
-          "properties": {
-            "state": {"type": "ref", "ref": "app.bsky.ageassurance.defs#state"},
-            "metadata": {
-              "type": "ref",
-              "ref": "app.bsky.ageassurance.defs#stateMetadata",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.ageassurance.begin`
-const appBskyAgeassuranceBegin = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.ageassurance.begin",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Initiate Age Assurance for an account.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["email", "language", "countryCode"],
-          "properties": {
-            "email": {
-              "type": "string",
-              "description":
-                  "The user's email address to receive Age Assurance instructions.",
-            },
-            "language": {
-              "type": "string",
-              "description":
-                  "The user's preferred language for communication during the Age Assurance process.",
-            },
-            "countryCode": {
-              "type": "string",
-              "description":
-                  "An ISO 3166-1 alpha-2 code of the user's location.",
-            },
-            "regionCode": {
-              "type": "string",
-              "description":
-                  "An optional ISO 3166-2 code of the user's region or state within the country.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "app.bsky.ageassurance.defs#state"},
-      },
-      "errors": [
-        {"name": "InvalidEmail"},
-        {"name": "DidTooLong"},
-        {"name": "InvalidInitiation"},
-        {"name": "RegionNotSupported"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.feed.getPosts`
-const appBskyFeedGetPosts = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.getPosts",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.",
-      "parameters": {
-        "type": "params",
-        "required": ["uris"],
-        "properties": {
-          "uris": {
-            "type": "array",
-            "description": "List of post AT-URIs to return hydrated views for.",
-            "items": {"type": "string", "format": "at-uri"},
-            "maxLength": 25,
+          "cursor": {
+            "type": "string",
+            "description":
+                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set.",
           },
         },
       },
@@ -8178,9 +7220,77 @@ const appBskyFeedGetPosts = <String, dynamic>{
           "type": "object",
           "required": ["posts"],
           "properties": {
+            "cursor": {"type": "string"},
+            "hitsTotal": {
+              "type": "integer",
+              "description":
+                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.",
+            },
             "posts": {
               "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"},
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonSearchPost",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "BadQueryString"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton`
+const appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested users for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedOnboardingUsers",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["dids"],
+          "properties": {
+            "dids": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+            },
+            "recId": {
+              "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -8189,15 +7299,126 @@ const appBskyFeedGetPosts = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getSuggestedFeeds`
-const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
+/// `app.bsky.unspecced.getSuggestedUsersForDiscoverSkeleton`
+const appBskyUnspeccedGetSuggestedUsersForDiscoverSkeleton = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getSuggestedFeeds",
+  "id": "app.bsky.unspecced.getSuggestedUsersForDiscoverSkeleton",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Get a list of suggested feeds (feed generators) for the requesting account.",
+          "Get a skeleton of suggested users for the Discover page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForDiscover",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["dids"],
+          "properties": {
+            "dids": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedUsersForDiscover`
+const appBskyUnspeccedGetSuggestedUsersForDiscover = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsersForDiscover",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested users for the Discover page",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "actors": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAgeAssuranceState`
+const appBskyUnspeccedGetAgeAssuranceState = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAgeAssuranceState",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "app.bsky.unspecced.defs#ageAssuranceState",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getPopularFeedGenerators`
+const appBskyUnspeccedGetPopularFeedGenerators = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getPopularFeedGenerators",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "An unspecced view of globally popular feed generators.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -8208,6 +7429,7 @@ const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "query": {"type": "string"},
         },
       },
       "output": {
@@ -8231,44 +7453,198 @@ const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getTimeline`
-const appBskyFeedGetTimeline = <String, dynamic>{
+/// `app.bsky.unspecced.getSuggestedOnboardingUsers`
+const appBskyUnspeccedGetSuggestedOnboardingUsers = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getTimeline",
+  "id": "app.bsky.unspecced.getSuggestedOnboardingUsers",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.",
+      "description": "Get a list of suggested users for onboarding",
       "parameters": {
         "type": "params",
         "properties": {
-          "algorithm": {
+          "category": {
             "type": "string",
-            "description":
-                "Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.",
+            "description": "Category of users to get suggestions for.",
           },
           "limit": {
             "type": "integer",
-            "default": 50,
+            "default": 25,
             "minimum": 1,
-            "maximum": 100,
+            "maximum": 50,
           },
-          "cursor": {"type": "string"},
         },
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["feed"],
+          "required": ["actors"],
           "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
+            "actors": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+            "recId": {
+              "type": "string",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedUsersForSeeMore`
+const appBskyUnspeccedGetSuggestedUsersForSeeMore = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsersForSeeMore",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested users for the See More page",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "actors": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.initAgeAssurance`
+const appBskyUnspeccedInitAgeAssurance = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.initAgeAssurance",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Initiate age assurance for an account. This is a one-time action that will start the process of verifying the user's age.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["email", "language", "countryCode"],
+          "properties": {
+            "email": {
+              "type": "string",
+              "description":
+                  "The user's email address to receive assurance instructions.",
+            },
+            "language": {
+              "type": "string",
+              "description":
+                  "The user's preferred language for communication during the assurance process.",
+            },
+            "countryCode": {
+              "type": "string",
+              "description":
+                  "An ISO 3166-1 alpha-2 code of the user's location.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "app.bsky.unspecced.defs#ageAssuranceState",
+        },
+      },
+      "errors": [
+        {"name": "InvalidEmail"},
+        {"name": "DidTooLong"},
+        {"name": "InvalidInitiation"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getTrendingTopics`
+const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrendingTopics",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of trending topics",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["topics", "suggested"],
+          "properties": {
+            "topics": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendingTopic",
+              },
+            },
+            "suggested": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendingTopic",
               },
             },
           },
@@ -8278,21 +7654,235 @@ const appBskyFeedGetTimeline = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getFeedGenerators`
-const appBskyFeedGetFeedGenerators = <String, dynamic>{
+/// `app.bsky.unspecced.getTaggedSuggestions`
+const appBskyUnspeccedGetTaggedSuggestions = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getFeedGenerators",
+  "id": "app.bsky.unspecced.getTaggedSuggestions",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get information about a list of feed generators.",
+      "description":
+          "Get a list of suggestions (feeds and users) tagged with categories",
+      "parameters": {"type": "params", "properties": {}},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["suggestions"],
+          "properties": {
+            "suggestions": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#suggestion"},
+            },
+          },
+        },
+      },
+    },
+    "suggestion": {
+      "type": "object",
+      "required": ["tag", "subjectType", "subject"],
+      "properties": {
+        "tag": {"type": "string"},
+        "subjectType": {
+          "type": "string",
+          "knownValues": ["actor", "feed"],
+        },
+        "subject": {"type": "string", "format": "uri"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedUsersForSeeMoreSkeleton`
+const appBskyUnspeccedGetSuggestedUsersForSeeMoreSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsersForSeeMoreSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested users for the See More page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForSeeMore",
       "parameters": {
         "type": "params",
-        "required": ["feeds"],
         "properties": {
-          "feeds": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["dids"],
+          "properties": {
+            "dids": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getSuggestedFeeds`
+const appBskyUnspeccedGetSuggestedFeeds = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedFeeds",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested feeds",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feeds"],
+          "properties": {
+            "feeds": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#generatorView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrendsSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the skeleton of trends on the network. Intended to be called and then hydrated through app.bsky.unspecced.getTrends",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonTrend",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getConfig`
+const appBskyUnspeccedGetConfig = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getConfig",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get miscellaneous runtime configuration.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "checkEmailConfirmed": {"type": "boolean"},
+            "liveNow": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#liveNowConfig"},
+            },
+          },
+        },
+      },
+    },
+    "liveNowConfig": {
+      "type": "object",
+      "required": ["did", "domains"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "domains": {
+          "type": "array",
+          "items": {"type": "string"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getStarterPacks`
+const appBskyGraphGetStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get views for a list of starter packs.",
+      "parameters": {
+        "type": "params",
+        "required": ["uris"],
+        "properties": {
+          "uris": {
             "type": "array",
             "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 25,
           },
         },
       },
@@ -8300,13 +7890,13 @@ const appBskyFeedGetFeedGenerators = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["feeds"],
+          "required": ["starterPacks"],
           "properties": {
-            "feeds": {
+            "starterPacks": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "app.bsky.feed.defs#generatorView",
+                "ref": "app.bsky.graph.defs#starterPackViewBasic",
               },
             },
           },
@@ -8316,20 +7906,156 @@ const appBskyFeedGetFeedGenerators = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.like`
-const appBskyFeedLike = <String, dynamic>{
+/// `app.bsky.graph.getSuggestedFollowsByActor`
+const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.like",
+  "id": "app.bsky.graph.getSuggestedFollowsByActor",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["suggestions"],
+          "properties": {
+            "suggestions": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+            "isFallback": {
+              "type": "boolean",
+              "description":
+                  "DEPRECATED, unused. Previously: if true, response has fallen-back to generic results, and is not scoped using relativeToDid",
+              "default": false,
+            },
+            "recId": {
+              "type": "integer",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.block`
+const appBskyGraphBlock = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.block",
   "defs": {
     "main": {
       "type": "record",
-      "description": "Record declaring a 'like' of a piece of subject content.",
+      "description":
+          "Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.",
       "key": "tid",
       "record": {
         "type": "object",
         "required": ["subject", "createdAt"],
         "properties": {
-          "subject": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+          "subject": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the account to be blocked.",
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getStarterPacksWithMembership`
+const appBskyGraphGetStarterPacksWithMembership = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getStarterPacksWithMembership",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "The account (actor) to check for membership.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacksWithMembership"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "starterPacksWithMembership": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#starterPackWithMembership"},
+            },
+          },
+        },
+      },
+    },
+    "starterPackWithMembership": {
+      "type": "object",
+      "description":
+          "A starter pack and an optional list item indicating membership of a target user to that starter pack.",
+      "required": ["starterPack"],
+      "properties": {
+        "starterPack": {
+          "type": "ref",
+          "ref": "app.bsky.graph.defs#starterPackView",
+        },
+        "listItem": {"type": "ref", "ref": "app.bsky.graph.defs#listItemView"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.follow`
+const appBskyGraphFollow = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.follow",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "createdAt"],
+        "properties": {
+          "subject": {"type": "string", "format": "did"},
           "createdAt": {"type": "string", "format": "datetime"},
           "via": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
         },
@@ -8338,23 +8064,237 @@ const appBskyFeedLike = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getFeedGenerator`
-const appBskyFeedGetFeedGenerator = <String, dynamic>{
+/// `app.bsky.graph.defs`
+const appBskyGraphDefs = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getFeedGenerator",
+  "id": "app.bsky.graph.defs",
+  "defs": {
+    "listViewBasic": {
+      "type": "object",
+      "required": ["uri", "cid", "name", "purpose"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "name": {"type": "string", "minLength": 1, "maxLength": 64},
+        "purpose": {"type": "ref", "ref": "#listPurpose"},
+        "avatar": {"type": "string", "format": "uri"},
+        "listItemCount": {"type": "integer", "minimum": 0},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "viewer": {"type": "ref", "ref": "#listViewerState"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "listView": {
+      "type": "object",
+      "required": ["uri", "cid", "creator", "name", "purpose", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "creator": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+        "name": {"type": "string", "minLength": 1, "maxLength": 64},
+        "purpose": {"type": "ref", "ref": "#listPurpose"},
+        "description": {
+          "type": "string",
+          "maxLength": 3000,
+          "maxGraphemes": 300,
+        },
+        "descriptionFacets": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
+        },
+        "avatar": {"type": "string", "format": "uri"},
+        "listItemCount": {"type": "integer", "minimum": 0},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "viewer": {"type": "ref", "ref": "#listViewerState"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "listItemView": {
+      "type": "object",
+      "required": ["uri", "subject"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "subject": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+      },
+    },
+    "starterPackView": {
+      "type": "object",
+      "required": ["uri", "cid", "record", "creator", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "record": {"type": "unknown"},
+        "creator": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "list": {"type": "ref", "ref": "#listViewBasic"},
+        "listItemsSample": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#listItemView"},
+          "maxLength": 12,
+        },
+        "feeds": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "app.bsky.feed.defs#generatorView"},
+          "maxLength": 3,
+        },
+        "joinedWeekCount": {"type": "integer", "minimum": 0},
+        "joinedAllTimeCount": {"type": "integer", "minimum": 0},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "starterPackViewBasic": {
+      "type": "object",
+      "required": ["uri", "cid", "record", "creator", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "record": {"type": "unknown"},
+        "creator": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "listItemCount": {"type": "integer", "minimum": 0},
+        "joinedWeekCount": {"type": "integer", "minimum": 0},
+        "joinedAllTimeCount": {"type": "integer", "minimum": 0},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "listPurpose": {
+      "type": "string",
+      "knownValues": [
+        "app.bsky.graph.defs#modlist",
+        "app.bsky.graph.defs#curatelist",
+        "app.bsky.graph.defs#referencelist",
+      ],
+    },
+    "modlist": {
+      "type": "token",
+      "description":
+          "A list of actors to apply an aggregate moderation action (mute/block) on.",
+    },
+    "curatelist": {
+      "type": "token",
+      "description":
+          "A list of actors used for curation purposes such as list feeds or interaction gating.",
+    },
+    "referencelist": {
+      "type": "token",
+      "description":
+          "A list of actors used for only for reference purposes such as within a starter pack.",
+    },
+    "listViewerState": {
+      "type": "object",
+      "properties": {
+        "muted": {"type": "boolean"},
+        "blocked": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "notFoundActor": {
+      "type": "object",
+      "description": "indicates that a handle or DID could not be resolved",
+      "required": ["actor", "notFound"],
+      "properties": {
+        "actor": {"type": "string", "format": "at-identifier"},
+        "notFound": {"type": "boolean", "const": true},
+      },
+    },
+    "relationship": {
+      "type": "object",
+      "description":
+          "lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "following": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "if the actor follows this DID, this is the AT-URI of the follow record",
+        },
+        "followedBy": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "if the actor is followed by this DID, contains the AT-URI of the follow record",
+        },
+        "blocking": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "if the actor blocks this DID, this is the AT-URI of the block record",
+        },
+        "blockedBy": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "if the actor is blocked by this DID, contains the AT-URI of the block record",
+        },
+        "blockingByList": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "if the actor blocks this DID via a block list, this is the AT-URI of the listblock record",
+        },
+        "blockedByList": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getListsWithMembership`
+const appBskyGraphGetListsWithMembership = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getListsWithMembership",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Get information about a feed generator. Implemented by AppView.",
+          "Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.",
       "parameters": {
         "type": "params",
-        "required": ["feed"],
+        "required": ["actor"],
         "properties": {
-          "feed": {
+          "actor": {
             "type": "string",
-            "format": "at-uri",
-            "description": "AT-URI of the feed generator record.",
+            "format": "at-identifier",
+            "description": "The account (actor) to check for membership.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+          "purposes": {
+            "type": "array",
+            "description":
+                "Optional filter by list purpose. If not specified, all supported types are returned.",
+            "items": {
+              "type": "string",
+              "knownValues": ["modlist", "curatelist"],
+            },
           },
         },
       },
@@ -8362,18 +8302,83 @@ const appBskyFeedGetFeedGenerator = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["view", "isOnline", "isValid"],
+          "required": ["listsWithMembership"],
           "properties": {
-            "view": {"type": "ref", "ref": "app.bsky.feed.defs#generatorView"},
-            "isOnline": {
-              "type": "boolean",
-              "description":
-                  "Indicates whether the feed generator service has been online recently, or else seems to be inactive.",
+            "cursor": {"type": "string"},
+            "listsWithMembership": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#listWithMembership"},
             },
-            "isValid": {
-              "type": "boolean",
-              "description":
-                  "Indicates whether the feed generator service is compatible with the record declaration.",
+          },
+        },
+      },
+    },
+    "listWithMembership": {
+      "type": "object",
+      "description":
+          "A list and an optional list item indicating membership of a target user to that list.",
+      "required": ["list"],
+      "properties": {
+        "list": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
+        "listItem": {"type": "ref", "ref": "app.bsky.graph.defs#listItemView"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.unmuteActorList`
+const appBskyGraphUnmuteActorList = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.unmuteActorList",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Unmutes the specified list of accounts. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["list"],
+          "properties": {
+            "list": {"type": "string", "format": "at-uri"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getListBlocks`
+const appBskyGraphGetListBlocks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getListBlocks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get mod lists that the requesting account (actor) is blocking. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["lists"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "lists": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
             },
           },
         },
@@ -8382,15 +8387,224 @@ const appBskyFeedGetFeedGenerator = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getActorFeeds`
-const appBskyFeedGetActorFeeds = <String, dynamic>{
+/// `app.bsky.graph.listblock`
+const appBskyGraphListblock = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getActorFeeds",
+  "id": "app.bsky.graph.listblock",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record representing a block relationship against an entire an entire list of accounts (actors).",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "createdAt"],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the mod list record.",
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getStarterPack`
+const appBskyGraphGetStarterPack = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getStarterPack",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Gets a view of a starter pack.",
+      "parameters": {
+        "type": "params",
+        "required": ["starterPack"],
+        "properties": {
+          "starterPack": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of the starter pack record.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPack"],
+          "properties": {
+            "starterPack": {
+              "type": "ref",
+              "ref": "app.bsky.graph.defs#starterPackView",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.starterpack`
+const appBskyGraphStarterpack = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.starterpack",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record defining a starter pack of actors and feeds for new users.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "list", "createdAt"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name for starter pack; can not be empty.",
+            "minLength": 1,
+            "maxLength": 500,
+            "maxGraphemes": 50,
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+          },
+          "descriptionFacets": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
+          },
+          "list": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the list record.",
+          },
+          "feeds": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "#feedItem"},
+            "maxLength": 3,
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+    "feedItem": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.muteActorList`
+const appBskyGraphMuteActorList = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.muteActorList",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["list"],
+          "properties": {
+            "list": {"type": "string", "format": "at-uri"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.muteThread`
+const appBskyGraphMuteThread = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.muteThread",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["root"],
+          "properties": {
+            "root": {"type": "string", "format": "at-uri"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.searchStarterPacks`
+const appBskyGraphSearchStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.searchStarterPacks",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Get a list of feeds (feed generator records) created by the actor (in the actor's repo).",
+          "Find starter packs matching search criteria. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["q"],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackViewBasic",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getActorStarterPacks`
+const appBskyGraphGetActorStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getActorStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of starter packs created by the actor.",
       "parameters": {
         "type": "params",
         "required": ["actor"],
@@ -8409,14 +8623,14 @@ const appBskyFeedGetActorFeeds = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["feeds"],
+          "required": ["starterPacks"],
           "properties": {
             "cursor": {"type": "string"},
-            "feeds": {
+            "starterPacks": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "app.bsky.feed.defs#generatorView",
+                "ref": "app.bsky.graph.defs#starterPackViewBasic",
               },
             },
           },
@@ -8426,29 +8640,23 @@ const appBskyFeedGetActorFeeds = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getLikes`
-const appBskyFeedGetLikes = <String, dynamic>{
+/// `app.bsky.graph.getLists`
+const appBskyGraphGetLists = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getLikes",
+  "id": "app.bsky.graph.getLists",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Get like records which reference a subject (by AT-URI and CID).",
+          "Enumerates the lists created by a specified account (actor).",
       "parameters": {
         "type": "params",
-        "required": ["uri"],
+        "required": ["actor"],
         "properties": {
-          "uri": {
+          "actor": {
             "type": "string",
-            "format": "at-uri",
-            "description": "AT-URI of the subject (eg, a post record).",
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid",
-            "description":
-                "CID of the subject record (aka, specific version of record), to filter likes.",
+            "format": "at-identifier",
+            "description": "The account (actor) to enumerate lists from.",
           },
           "limit": {
             "type": "integer",
@@ -8457,81 +8665,27 @@ const appBskyFeedGetLikes = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["uri", "likes"],
-          "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
-            "cursor": {"type": "string"},
-            "likes": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#like"},
+          "purposes": {
+            "type": "array",
+            "description":
+                "Optional filter by list purpose. If not specified, all supported types are returned.",
+            "items": {
+              "type": "string",
+              "knownValues": ["modlist", "curatelist"],
             },
           },
         },
       },
-    },
-    "like": {
-      "type": "object",
-      "required": ["indexedAt", "createdAt", "actor"],
-      "properties": {
-        "indexedAt": {"type": "string", "format": "datetime"},
-        "createdAt": {"type": "string", "format": "datetime"},
-        "actor": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.feed.getQuotes`
-const appBskyFeedGetQuotes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.getQuotes",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get a list of quotes for a given post.",
-      "parameters": {
-        "type": "params",
-        "required": ["uri"],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) of post record",
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid",
-            "description":
-                "If supplied, filters to quotes of specific version (by CID) of the post record.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["uri", "posts"],
+          "required": ["lists"],
           "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
             "cursor": {"type": "string"},
-            "posts": {
+            "lists": {
               "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"},
+              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
             },
           },
         },
@@ -8540,29 +8694,20 @@ const appBskyFeedGetQuotes = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getRepostedBy`
-const appBskyFeedGetRepostedBy = <String, dynamic>{
+/// `app.bsky.graph.getFollowers`
+const appBskyGraphGetFollowers = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getRepostedBy",
+  "id": "app.bsky.graph.getFollowers",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of reposts for a given post.",
+      "description":
+          "Enumerates accounts which follow a specified account (actor).",
       "parameters": {
         "type": "params",
-        "required": ["uri"],
+        "required": ["actor"],
         "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) of post record",
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid",
-            "description":
-                "If supplied, filters to reposts of specific version (by CID) of the post record.",
-          },
+          "actor": {"type": "string", "format": "at-identifier"},
           "limit": {
             "type": "integer",
             "default": 50,
@@ -8576,12 +8721,14 @@ const appBskyFeedGetRepostedBy = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["uri", "repostedBy"],
+          "required": ["subject", "followers"],
           "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
+            "subject": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#profileView",
+            },
             "cursor": {"type": "string"},
-            "repostedBy": {
+            "followers": {
               "type": "array",
               "items": {
                 "type": "ref",
@@ -8595,113 +8742,607 @@ const appBskyFeedGetRepostedBy = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.threadgate`
-const appBskyFeedThreadgate = <String, dynamic>{
+/// `app.bsky.graph.unmuteThread`
+const appBskyGraphUnmuteThread = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.threadgate",
+  "id": "app.bsky.graph.unmuteThread",
   "defs": {
     "main": {
-      "type": "record",
-      "description":
-          "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["post", "createdAt"],
-        "properties": {
-          "post": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to the post record.",
-          },
-          "allow": {
-            "type": "array",
-            "description":
-                "List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
-            "items": {
-              "type": "union",
-              "refs": [
-                "#mentionRule",
-                "#followerRule",
-                "#followingRule",
-                "#listRule",
-              ],
-            },
-            "maxLength": 5,
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-          "hiddenReplies": {
-            "type": "array",
-            "description": "List of hidden reply URIs.",
-            "items": {"type": "string", "format": "at-uri"},
-            "maxLength": 300,
+      "type": "procedure",
+      "description": "Unmutes the specified thread. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["root"],
+          "properties": {
+            "root": {"type": "string", "format": "at-uri"},
           },
         },
-      },
-    },
-    "mentionRule": {
-      "type": "object",
-      "description": "Allow replies from actors mentioned in your post.",
-      "properties": {},
-    },
-    "followerRule": {
-      "type": "object",
-      "description": "Allow replies from actors who follow you.",
-      "properties": {},
-    },
-    "followingRule": {
-      "type": "object",
-      "description": "Allow replies from actors you follow.",
-      "properties": {},
-    },
-    "listRule": {
-      "type": "object",
-      "description": "Allow replies from actors on a list.",
-      "required": ["list"],
-      "properties": {
-        "list": {"type": "string", "format": "at-uri"},
       },
     },
   },
 };
 
-/// `app.bsky.feed.describeFeedGenerator`
-const appBskyFeedDescribeFeedGenerator = <String, dynamic>{
+/// `app.bsky.graph.muteActor`
+const appBskyGraphMuteActor = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.describeFeedGenerator",
+  "id": "app.bsky.graph.muteActor",
   "defs": {
     "main": {
-      "type": "query",
+      "type": "procedure",
       "description":
-          "Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).",
-      "output": {
+          "Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.",
+      "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["did", "feeds"],
+          "required": ["actor"],
           "properties": {
-            "did": {"type": "string", "format": "did"},
-            "feeds": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#feed"},
-            },
-            "links": {"type": "ref", "ref": "#links"},
+            "actor": {"type": "string", "format": "at-identifier"},
           },
         },
       },
     },
-    "feed": {
-      "type": "object",
-      "required": ["uri"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
+  },
+};
+
+/// `app.bsky.graph.getMutes`
+const appBskyGraphGetMutes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getMutes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["mutes"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "mutes": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
       },
     },
-    "links": {
-      "type": "object",
-      "properties": {
-        "privacyPolicy": {"type": "string"},
-        "termsOfService": {"type": "string"},
+  },
+};
+
+/// `app.bsky.graph.listitem`
+const appBskyGraphListitem = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.listitem",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "list", "createdAt"],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did",
+            "description": "The account which is included on the list.",
+          },
+          "list": {
+            "type": "string",
+            "format": "at-uri",
+            "description":
+                "Reference (AT-URI) to the list record (app.bsky.graph.list).",
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.list`
+const appBskyGraphList = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.list",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "purpose", "createdAt"],
+        "properties": {
+          "purpose": {
+            "type": "ref",
+            "description":
+                "Defines the purpose of the list (aka, moderation-oriented or curration-oriented)",
+            "ref": "app.bsky.graph.defs#listPurpose",
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name for list; can not be empty.",
+            "minLength": 1,
+            "maxLength": 64,
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+          },
+          "descriptionFacets": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
+          },
+          "avatar": {
+            "type": "blob",
+            "accept": ["image/png", "image/jpeg"],
+            "maxSize": 1000000,
+          },
+          "labels": {
+            "type": "union",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getKnownFollowers`
+const appBskyGraphGetKnownFollowers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getKnownFollowers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject", "followers"],
+          "properties": {
+            "subject": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#profileView",
+            },
+            "cursor": {"type": "string"},
+            "followers": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.verification`
+const appBskyGraphVerification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.verification",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "handle", "displayName", "createdAt"],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the subject the verification applies to.",
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle",
+            "description":
+                "Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
+          },
+          "displayName": {
+            "type": "string",
+            "description":
+                "Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Date of when the verification was created.",
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getListMutes`
+const appBskyGraphGetListMutes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getListMutes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["lists"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "lists": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getFollows`
+const appBskyGraphGetFollows = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getFollows",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates accounts which a specified account (actor) follows.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject", "follows"],
+          "properties": {
+            "subject": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#profileView",
+            },
+            "cursor": {"type": "string"},
+            "follows": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getBlocks`
+const appBskyGraphGetBlocks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getBlocks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates which accounts the requesting account is currently blocking. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["blocks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "blocks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getRelationships`
+const appBskyGraphGetRelationships = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getRelationships",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates public relationships between one account, and a list of other accounts. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "Primary account requesting relationships for.",
+          },
+          "others": {
+            "type": "array",
+            "description":
+                "List of 'other' accounts to be related back to the primary.",
+            "items": {"type": "string", "format": "at-identifier"},
+            "maxLength": 30,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["relationships"],
+          "properties": {
+            "actor": {"type": "string", "format": "did"},
+            "relationships": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "app.bsky.graph.defs#relationship",
+                  "app.bsky.graph.defs#notFoundActor",
+                ],
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "ActorNotFound",
+          "description":
+              "the primary actor at-identifier could not be resolved",
+        },
+      ],
+    },
+  },
+};
+
+/// `app.bsky.graph.unmuteActor`
+const appBskyGraphUnmuteActor = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.unmuteActor",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Unmutes the specified account. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actor"],
+          "properties": {
+            "actor": {"type": "string", "format": "at-identifier"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.getList`
+const appBskyGraphGetList = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getList",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Gets a 'view' (with additional context) of a specified list.",
+      "parameters": {
+        "type": "params",
+        "required": ["list"],
+        "properties": {
+          "list": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of the list record to hydrate.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["list", "items"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "list": {"type": "ref", "ref": "app.bsky.graph.defs#listView"},
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#listItemView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.generator`
+const appBskyFeedGenerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.generator",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.",
+      "key": "any",
+      "record": {
+        "type": "object",
+        "required": ["did", "displayName", "createdAt"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+          "displayName": {
+            "type": "string",
+            "maxLength": 240,
+            "maxGraphemes": 24,
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+          },
+          "descriptionFacets": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
+          },
+          "avatar": {
+            "type": "blob",
+            "accept": ["image/png", "image/jpeg"],
+            "maxSize": 1000000,
+          },
+          "acceptsInteractions": {
+            "type": "boolean",
+            "description":
+                "Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions",
+          },
+          "labels": {
+            "type": "union",
+            "description": "Self-label values",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
+          "contentMode": {
+            "type": "string",
+            "knownValues": [
+              "app.bsky.feed.defs#contentModeUnspecified",
+              "app.bsky.feed.defs#contentModeVideo",
+            ],
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.sendInteractions`
+const appBskyFeedSendInteractions = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.sendInteractions",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Send information about interactions with feed items back to the feed generator that served them.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["interactions"],
+          "properties": {
+            "feed": {"type": "string", "format": "at-uri"},
+            "interactions": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#interaction"},
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
       },
     },
   },
@@ -9049,6 +9690,631 @@ const appBskyFeedDefs = <String, dynamic>{
   },
 };
 
+/// `app.bsky.feed.getFeedGenerators`
+const appBskyFeedGetFeedGenerators = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getFeedGenerators",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get information about a list of feed generators.",
+      "parameters": {
+        "type": "params",
+        "required": ["feeds"],
+        "properties": {
+          "feeds": {
+            "type": "array",
+            "items": {"type": "string", "format": "at-uri"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feeds"],
+          "properties": {
+            "feeds": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#generatorView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getTimeline`
+const appBskyFeedGetTimeline = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getTimeline",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "algorithm": {
+            "type": "string",
+            "description":
+                "Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#feedViewPost",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getFeedGenerator`
+const appBskyFeedGetFeedGenerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getFeedGenerator",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get information about a feed generator. Implemented by AppView.",
+      "parameters": {
+        "type": "params",
+        "required": ["feed"],
+        "properties": {
+          "feed": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the feed generator record.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["view", "isOnline", "isValid"],
+          "properties": {
+            "view": {"type": "ref", "ref": "app.bsky.feed.defs#generatorView"},
+            "isOnline": {
+              "type": "boolean",
+              "description":
+                  "Indicates whether the feed generator service has been online recently, or else seems to be inactive.",
+            },
+            "isValid": {
+              "type": "boolean",
+              "description":
+                  "Indicates whether the feed generator service is compatible with the record declaration.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getAuthorFeed`
+const appBskyFeedGetAuthorFeed = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getAuthorFeed",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+          "filter": {
+            "type": "string",
+            "description":
+                "Combinations of post/repost types to include in response.",
+            "default": "posts_with_replies",
+            "knownValues": [
+              "posts_with_replies",
+              "posts_no_replies",
+              "posts_with_media",
+              "posts_and_author_threads",
+              "posts_with_video",
+            ],
+          },
+          "includePins": {"type": "boolean", "default": false},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#feedViewPost",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "BlockedActor"},
+        {"name": "BlockedByActor"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.getLikes`
+const appBskyFeedGetLikes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getLikes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get like records which reference a subject (by AT-URI and CID).",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the subject (eg, a post record).",
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "CID of the subject record (aka, specific version of record), to filter likes.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "likes"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
+            "likes": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#like"},
+            },
+          },
+        },
+      },
+    },
+    "like": {
+      "type": "object",
+      "required": ["indexedAt", "createdAt", "actor"],
+      "properties": {
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "actor": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.postgate`
+const appBskyFeedPostgate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.postgate",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["post", "createdAt"],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "post": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the post record.",
+          },
+          "detachedEmbeddingUris": {
+            "type": "array",
+            "description":
+                "List of AT-URIs embedding this post that the author has detached from.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 50,
+          },
+          "embeddingRules": {
+            "type": "array",
+            "description":
+                "List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
+            "items": {
+              "type": "union",
+              "refs": ["#disableRule"],
+            },
+            "maxLength": 5,
+          },
+        },
+      },
+    },
+    "disableRule": {
+      "type": "object",
+      "description": "Disables embedding of this post.",
+      "properties": {},
+    },
+  },
+};
+
+/// `app.bsky.feed.threadgate`
+const appBskyFeedThreadgate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.threadgate",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["post", "createdAt"],
+        "properties": {
+          "post": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the post record.",
+          },
+          "allow": {
+            "type": "array",
+            "description":
+                "List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
+            "items": {
+              "type": "union",
+              "refs": [
+                "#mentionRule",
+                "#followerRule",
+                "#followingRule",
+                "#listRule",
+              ],
+            },
+            "maxLength": 5,
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+          "hiddenReplies": {
+            "type": "array",
+            "description": "List of hidden reply URIs.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 300,
+          },
+        },
+      },
+    },
+    "mentionRule": {
+      "type": "object",
+      "description": "Allow replies from actors mentioned in your post.",
+      "properties": {},
+    },
+    "followerRule": {
+      "type": "object",
+      "description": "Allow replies from actors who follow you.",
+      "properties": {},
+    },
+    "followingRule": {
+      "type": "object",
+      "description": "Allow replies from actors you follow.",
+      "properties": {},
+    },
+    "listRule": {
+      "type": "object",
+      "description": "Allow replies from actors on a list.",
+      "required": ["list"],
+      "properties": {
+        "list": {"type": "string", "format": "at-uri"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getPostThread`
+const appBskyFeedGetPostThread = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getPostThread",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to post record.",
+          },
+          "depth": {
+            "type": "integer",
+            "description":
+                "How many levels of reply depth should be included in response.",
+            "default": 6,
+            "minimum": 0,
+            "maximum": 1000,
+          },
+          "parentHeight": {
+            "type": "integer",
+            "description":
+                "How many levels of parent (and grandparent, etc) post to include.",
+            "default": 80,
+            "minimum": 0,
+            "maximum": 1000,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["thread"],
+          "properties": {
+            "thread": {
+              "type": "union",
+              "refs": [
+                "app.bsky.feed.defs#threadViewPost",
+                "app.bsky.feed.defs#notFoundPost",
+                "app.bsky.feed.defs#blockedPost",
+              ],
+            },
+            "threadgate": {
+              "type": "ref",
+              "ref": "app.bsky.feed.defs#threadgateView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "NotFound"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.getActorLikes`
+const appBskyFeedGetActorLikes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getActorLikes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#feedViewPost",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "BlockedActor"},
+        {"name": "BlockedByActor"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.like`
+const appBskyFeedLike = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.like",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "Record declaring a 'like' of a piece of subject content.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "createdAt"],
+        "properties": {
+          "subject": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "via": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getRepostedBy`
+const appBskyFeedGetRepostedBy = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getRepostedBy",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of reposts for a given post.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of post record",
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "If supplied, filters to reposts of specific version (by CID) of the post record.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "repostedBy"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
+            "repostedBy": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.repost`
+const appBskyFeedRepost = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.repost",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record representing a 'repost' of an existing Bluesky post.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "createdAt"],
+        "properties": {
+          "subject": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "via": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.describeFeedGenerator`
+const appBskyFeedDescribeFeedGenerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.describeFeedGenerator",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "feeds"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "feeds": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#feed"},
+            },
+            "links": {"type": "ref", "ref": "#links"},
+          },
+        },
+      },
+    },
+    "feed": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "privacyPolicy": {"type": "string"},
+        "termsOfService": {"type": "string"},
+      },
+    },
+  },
+};
+
 /// `app.bsky.feed.searchPosts`
 const appBskyFeedSearchPosts = <String, dynamic>{
   "lexicon": 1,
@@ -9157,58 +10423,332 @@ const appBskyFeedSearchPosts = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.generator`
-const appBskyFeedGenerator = <String, dynamic>{
+/// `app.bsky.feed.getPosts`
+const appBskyFeedGetPosts = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.generator",
+  "id": "app.bsky.feed.getPosts",
   "defs": {
     "main": {
-      "type": "record",
+      "type": "query",
       "description":
-          "Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.",
-      "key": "any",
-      "record": {
-        "type": "object",
-        "required": ["did", "displayName", "createdAt"],
+          "Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.",
+      "parameters": {
+        "type": "params",
+        "required": ["uris"],
         "properties": {
-          "did": {"type": "string", "format": "did"},
-          "displayName": {
-            "type": "string",
-            "maxLength": 240,
-            "maxGraphemes": 24,
-          },
-          "description": {
-            "type": "string",
-            "maxLength": 3000,
-            "maxGraphemes": 300,
-          },
-          "descriptionFacets": {
+          "uris": {
             "type": "array",
-            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"},
+            "description": "List of post AT-URIs to return hydrated views for.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 25,
           },
-          "avatar": {
-            "type": "blob",
-            "accept": ["image/png", "image/jpeg"],
-            "maxSize": 1000000,
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["posts"],
+          "properties": {
+            "posts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"},
+            },
           },
-          "acceptsInteractions": {
-            "type": "boolean",
-            "description":
-                "Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getFeed`
+const appBskyFeedGetFeed = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getFeed",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a hydrated feed from an actor's selected feed generator. Implemented by App View.",
+      "parameters": {
+        "type": "params",
+        "required": ["feed"],
+        "properties": {
+          "feed": {"type": "string", "format": "at-uri"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
           },
-          "labels": {
-            "type": "union",
-            "description": "Self-label values",
-            "refs": ["com.atproto.label.defs#selfLabels"],
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#feedViewPost",
+              },
+            },
           },
-          "contentMode": {
+        },
+      },
+      "errors": [
+        {"name": "UnknownFeed"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getQuotes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of quotes for a given post.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
             "type": "string",
-            "knownValues": [
-              "app.bsky.feed.defs#contentModeUnspecified",
-              "app.bsky.feed.defs#contentModeVideo",
-            ],
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of post record",
           },
-          "createdAt": {"type": "string", "format": "datetime"},
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "If supplied, filters to quotes of specific version (by CID) of the post record.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "posts"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
+            "posts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getFeedSkeleton`
+const appBskyFeedGetFeedSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getFeedSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.",
+      "parameters": {
+        "type": "params",
+        "required": ["feed"],
+        "properties": {
+          "feed": {
+            "type": "string",
+            "format": "at-uri",
+            "description":
+                "Reference to feed generator record describing the specific feed being requested.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#skeletonFeedPost",
+              },
+            },
+            "reqId": {
+              "type": "string",
+              "description":
+                  "Unique identifier per request that may be passed back alongside interactions.",
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "UnknownFeed"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.getListFeed`
+const appBskyFeedGetListFeed = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getListFeed",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["list"],
+        "properties": {
+          "list": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the list record.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#feedViewPost",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "UnknownList"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.getSuggestedFeeds`
+const appBskyFeedGetSuggestedFeeds = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getSuggestedFeeds",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a list of suggested feeds (feed generators) for the requesting account.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feeds"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feeds": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#generatorView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.getActorFeeds`
+const appBskyFeedGetActorFeeds = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getActorFeeds",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a list of feeds (feed generator records) created by the actor (in the actor's repo).",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feeds"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feeds": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#generatorView",
+              },
+            },
+          },
         },
       },
     },
@@ -9320,434 +10860,415 @@ const appBskyFeedPost = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.getAuthorFeed`
-const appBskyFeedGetAuthorFeed = <String, dynamic>{
+/// `app.bsky.richtext.facet`
+const appBskyRichtextFacet = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getAuthorFeed",
+  "id": "app.bsky.richtext.facet",
   "defs": {
     "main": {
-      "type": "query",
-      "description":
-          "Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-          "filter": {
-            "type": "string",
-            "description":
-                "Combinations of post/repost types to include in response.",
-            "default": "posts_with_replies",
-            "knownValues": [
-              "posts_with_replies",
-              "posts_no_replies",
-              "posts_with_media",
-              "posts_and_author_threads",
-              "posts_with_video",
-            ],
-          },
-          "includePins": {"type": "boolean", "default": false},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost",
-              },
-            },
+      "type": "object",
+      "description": "Annotation of a sub-string within rich text.",
+      "required": ["index", "features"],
+      "properties": {
+        "index": {"type": "ref", "ref": "#byteSlice"},
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "union",
+            "refs": ["#mention", "#link", "#tag"],
           },
         },
       },
-      "errors": [
-        {"name": "BlockedActor"},
-        {"name": "BlockedByActor"},
-      ],
     },
-  },
-};
-
-/// `app.bsky.feed.getPostThread`
-const appBskyFeedGetPostThread = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.getPostThread",
-  "defs": {
-    "main": {
-      "type": "query",
+    "mention": {
+      "type": "object",
       "description":
-          "Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.",
-      "parameters": {
-        "type": "params",
-        "required": ["uri"],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to post record.",
-          },
-          "depth": {
-            "type": "integer",
-            "description":
-                "How many levels of reply depth should be included in response.",
-            "default": 6,
-            "minimum": 0,
-            "maximum": 1000,
-          },
-          "parentHeight": {
-            "type": "integer",
-            "description":
-                "How many levels of parent (and grandparent, etc) post to include.",
-            "default": 80,
-            "minimum": 0,
-            "maximum": 1000,
-          },
-        },
+          "Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID.",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
       },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["thread"],
-          "properties": {
-            "thread": {
-              "type": "union",
-              "refs": [
-                "app.bsky.feed.defs#threadViewPost",
-                "app.bsky.feed.defs#notFoundPost",
-                "app.bsky.feed.defs#blockedPost",
-              ],
-            },
-            "threadgate": {
-              "type": "ref",
-              "ref": "app.bsky.feed.defs#threadgateView",
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "NotFound"},
-      ],
     },
-  },
-};
-
-/// `app.bsky.feed.repost`
-const appBskyFeedRepost = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.repost",
-  "defs": {
-    "main": {
-      "type": "record",
+    "link": {
+      "type": "object",
       "description":
-          "Record representing a 'repost' of an existing Bluesky post.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["subject", "createdAt"],
-        "properties": {
-          "subject": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
-          "createdAt": {"type": "string", "format": "datetime"},
-          "via": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
-        },
+          "Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL.",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+      },
+    },
+    "tag": {
+      "type": "object",
+      "description":
+          "Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not (except in the case of 'double hash tags').",
+      "required": ["tag"],
+      "properties": {
+        "tag": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+      },
+    },
+    "byteSlice": {
+      "type": "object",
+      "description":
+          "Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.",
+      "required": ["byteStart", "byteEnd"],
+      "properties": {
+        "byteStart": {"type": "integer", "minimum": 0},
+        "byteEnd": {"type": "integer", "minimum": 0},
       },
     },
   },
 };
 
-/// `app.bsky.feed.getFeed`
-const appBskyFeedGetFeed = <String, dynamic>{
+/// `app.bsky.ageassurance.begin`
+const appBskyAgeassuranceBegin = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getFeed",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a hydrated feed from an actor's selected feed generator. Implemented by App View.",
-      "parameters": {
-        "type": "params",
-        "required": ["feed"],
-        "properties": {
-          "feed": {"type": "string", "format": "at-uri"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "UnknownFeed"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.feed.getFeedSkeleton`
-const appBskyFeedGetFeedSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.getFeedSkeleton",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.",
-      "parameters": {
-        "type": "params",
-        "required": ["feed"],
-        "properties": {
-          "feed": {
-            "type": "string",
-            "format": "at-uri",
-            "description":
-                "Reference to feed generator record describing the specific feed being requested.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#skeletonFeedPost",
-              },
-            },
-            "reqId": {
-              "type": "string",
-              "description":
-                  "Unique identifier per request that may be passed back alongside interactions.",
-              "maxLength": 100,
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "UnknownFeed"},
-      ],
-    },
-  },
-};
-
-/// `app.bsky.feed.sendInteractions`
-const appBskyFeedSendInteractions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.sendInteractions",
+  "id": "app.bsky.ageassurance.begin",
   "defs": {
     "main": {
       "type": "procedure",
-      "description":
-          "Send information about interactions with feed items back to the feed generator that served them.",
+      "description": "Initiate Age Assurance for an account.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["interactions"],
+          "required": ["email", "language", "countryCode"],
           "properties": {
-            "feed": {"type": "string", "format": "at-uri"},
-            "interactions": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.feed.defs#interaction"},
+            "email": {
+              "type": "string",
+              "description":
+                  "The user's email address to receive Age Assurance instructions.",
+            },
+            "language": {
+              "type": "string",
+              "description":
+                  "The user's preferred language for communication during the Age Assurance process.",
+            },
+            "countryCode": {
+              "type": "string",
+              "description":
+                  "An ISO 3166-1 alpha-2 code of the user's location.",
+            },
+            "regionCode": {
+              "type": "string",
+              "description":
+                  "An optional ISO 3166-2 code of the user's region or state within the country.",
             },
           },
         },
       },
       "output": {
         "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-    },
-  },
-};
-
-/// `app.bsky.feed.getActorLikes`
-const appBskyFeedGetActorLikes = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.getActorLikes",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {"type": "string", "format": "at-identifier"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost",
-              },
-            },
-          },
-        },
+        "schema": {"type": "ref", "ref": "app.bsky.ageassurance.defs#state"},
       },
       "errors": [
-        {"name": "BlockedActor"},
-        {"name": "BlockedByActor"},
+        {"name": "InvalidEmail"},
+        {"name": "DidTooLong"},
+        {"name": "InvalidInitiation"},
+        {"name": "RegionNotSupported"},
       ],
     },
   },
 };
 
-/// `app.bsky.feed.getListFeed`
-const appBskyFeedGetListFeed = <String, dynamic>{
+/// `app.bsky.ageassurance.defs`
+const appBskyAgeassuranceDefs = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.feed.getListFeed",
+  "id": "app.bsky.ageassurance.defs",
   "defs": {
-    "main": {
-      "type": "query",
+    "access": {
+      "type": "string",
       "description":
-          "Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["list"],
-        "properties": {
-          "list": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to the list record.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost",
-              },
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "UnknownList"},
-      ],
+          "The access level granted based on Age Assurance data we've processed.",
+      "knownValues": ["unknown", "none", "safe", "full"],
     },
-  },
-};
-
-/// `app.bsky.feed.postgate`
-const appBskyFeedPostgate = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.postgate",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["post", "createdAt"],
-        "properties": {
-          "createdAt": {"type": "string", "format": "datetime"},
-          "post": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to the post record.",
-          },
-          "detachedEmbeddingUris": {
-            "type": "array",
-            "description":
-                "List of AT-URIs embedding this post that the author has detached from.",
-            "items": {"type": "string", "format": "at-uri"},
-            "maxLength": 50,
-          },
-          "embeddingRules": {
-            "type": "array",
-            "description":
-                "List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
-            "items": {
-              "type": "union",
-              "refs": ["#disableRule"],
-            },
-            "maxLength": 5,
-          },
-        },
-      },
+    "status": {
+      "type": "string",
+      "description": "The status of the Age Assurance process.",
+      "knownValues": ["unknown", "pending", "assured", "blocked"],
     },
-    "disableRule": {
+    "state": {
       "type": "object",
-      "description": "Disables embedding of this post.",
-      "properties": {},
+      "description": "The user's computed Age Assurance state.",
+      "required": ["status", "access"],
+      "properties": {
+        "lastInitiatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The timestamp when this state was last updated.",
+        },
+        "status": {"type": "ref", "ref": "app.bsky.ageassurance.defs#status"},
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "stateMetadata": {
+      "type": "object",
+      "description":
+          "Additional metadata needed to compute Age Assurance state client-side.",
+      "required": [],
+      "properties": {
+        "accountCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The account creation timestamp.",
+        },
+      },
+    },
+    "config": {
+      "type": "object",
+      "description": "",
+      "required": ["regions"],
+      "properties": {
+        "regions": {
+          "type": "array",
+          "description": "The per-region Age Assurance configuration.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.ageassurance.defs#configRegion",
+          },
+        },
+      },
+    },
+    "configRegion": {
+      "type": "object",
+      "description": "The Age Assurance configuration for a specific region.",
+      "required": ["countryCode", "minAccessAge", "rules"],
+      "properties": {
+        "countryCode": {
+          "type": "string",
+          "description":
+              "The ISO 3166-1 alpha-2 country code this configuration applies to.",
+        },
+        "regionCode": {
+          "type": "string",
+          "description":
+              "The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country.",
+        },
+        "minAccessAge": {
+          "type": "integer",
+          "description":
+              "The minimum age (as a whole integer) required to use Bluesky in this region.",
+        },
+        "rules": {
+          "type": "array",
+          "description":
+              "The ordered list of Age Assurance rules that apply to this region. Rules should be applied in order, and the first matching rule determines the access level granted. The rules array should always include a default rule as the last item.",
+          "items": {
+            "type": "union",
+            "refs": [
+              "#configRegionRuleDefault",
+              "#configRegionRuleIfDeclaredOverAge",
+              "#configRegionRuleIfDeclaredUnderAge",
+              "#configRegionRuleIfAssuredOverAge",
+              "#configRegionRuleIfAssuredUnderAge",
+              "#configRegionRuleIfAccountNewerThan",
+              "#configRegionRuleIfAccountOlderThan",
+            ],
+          },
+        },
+      },
+    },
+    "configRegionRuleDefault": {
+      "type": "object",
+      "description": "Age Assurance rule that applies by default.",
+      "required": ["access"],
+      "properties": {
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "configRegionRuleIfDeclaredOverAge": {
+      "type": "object",
+      "description":
+          "Age Assurance rule that applies if the user has declared themselves equal-to or over a certain age.",
+      "required": ["age", "access"],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "description": "The age threshold as a whole integer.",
+        },
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "configRegionRuleIfDeclaredUnderAge": {
+      "type": "object",
+      "description":
+          "Age Assurance rule that applies if the user has declared themselves under a certain age.",
+      "required": ["age", "access"],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "description": "The age threshold as a whole integer.",
+        },
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "configRegionRuleIfAssuredOverAge": {
+      "type": "object",
+      "description":
+          "Age Assurance rule that applies if the user has been assured to be equal-to or over a certain age.",
+      "required": ["age", "access"],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "description": "The age threshold as a whole integer.",
+        },
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "configRegionRuleIfAssuredUnderAge": {
+      "type": "object",
+      "description":
+          "Age Assurance rule that applies if the user has been assured to be under a certain age.",
+      "required": ["age", "access"],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "description": "The age threshold as a whole integer.",
+        },
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "configRegionRuleIfAccountNewerThan": {
+      "type": "object",
+      "description":
+          "Age Assurance rule that applies if the account is equal-to or newer than a certain date.",
+      "required": ["date", "access"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The date threshold as a datetime string.",
+        },
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "configRegionRuleIfAccountOlderThan": {
+      "type": "object",
+      "description":
+          "Age Assurance rule that applies if the account is older than a certain date.",
+      "required": ["date", "access"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The date threshold as a datetime string.",
+        },
+        "access": {"type": "ref", "ref": "app.bsky.ageassurance.defs#access"},
+      },
+    },
+    "event": {
+      "type": "object",
+      "description": "Object used to store Age Assurance data in stash.",
+      "required": ["createdAt", "status", "access", "attemptId", "countryCode"],
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The date and time of this write operation.",
+        },
+        "attemptId": {
+          "type": "string",
+          "description":
+              "The unique identifier for this instance of the Age Assurance flow, in UUID format.",
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the Age Assurance process.",
+          "knownValues": ["unknown", "pending", "assured", "blocked"],
+        },
+        "access": {
+          "type": "string",
+          "description":
+              "The access level granted based on Age Assurance data we've processed.",
+          "knownValues": ["unknown", "none", "safe", "full"],
+        },
+        "countryCode": {
+          "type": "string",
+          "description":
+              "The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow.",
+        },
+        "regionCode": {
+          "type": "string",
+          "description":
+              "The ISO 3166-2 region code provided when beginning the Age Assurance flow.",
+        },
+        "email": {
+          "type": "string",
+          "description": "The email used for Age Assurance.",
+        },
+        "initIp": {
+          "type": "string",
+          "description":
+              "The IP address used when initiating the Age Assurance flow.",
+        },
+        "initUa": {
+          "type": "string",
+          "description":
+              "The user agent used when initiating the Age Assurance flow.",
+        },
+        "completeIp": {
+          "type": "string",
+          "description":
+              "The IP address used when completing the Age Assurance flow.",
+        },
+        "completeUa": {
+          "type": "string",
+          "description":
+              "The user agent used when completing the Age Assurance flow.",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.ageassurance.getState`
+const appBskyAgeassuranceGetState = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.ageassurance.getState",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.",
+      "parameters": {
+        "type": "params",
+        "required": ["countryCode"],
+        "properties": {
+          "countryCode": {"type": "string"},
+          "regionCode": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["state", "metadata"],
+          "properties": {
+            "state": {"type": "ref", "ref": "app.bsky.ageassurance.defs#state"},
+            "metadata": {
+              "type": "ref",
+              "ref": "app.bsky.ageassurance.defs#stateMetadata",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.ageassurance.getConfig`
+const appBskyAgeassuranceGetConfig = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.ageassurance.getConfig",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns Age Assurance configuration for use on the client.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "app.bsky.ageassurance.defs#config"},
+      },
     },
   },
 };
@@ -9796,174 +11317,6 @@ const appBskyActorSearchActorsTypeahead = <String, dynamic>{
           },
         },
       },
-    },
-  },
-};
-
-/// `app.bsky.actor.searchActors`
-const appBskyActorSearchActors = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.searchActors",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Find actors (profiles) matching search criteria. Does not require auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "term": {
-            "type": "string",
-            "description": "DEPRECATED: use 'q' instead.",
-          },
-          "q": {
-            "type": "string",
-            "description":
-                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
-          },
-          "limit": {
-            "type": "integer",
-            "default": 25,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actors"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "actors": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.actor.getSuggestions`
-const appBskyActorGetSuggestions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.getSuggestions",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actors"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "actors": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-            "recId": {
-              "type": "integer",
-              "description": "DEPRECATED: use recIdStr instead.",
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.actor.putPreferences`
-const appBskyActorPutPreferences = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.putPreferences",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Set the private preferences attached to the account.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["preferences"],
-          "properties": {
-            "preferences": {
-              "type": "ref",
-              "ref": "app.bsky.actor.defs#preferences",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.actor.status`
-const appBskyActorStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.status",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description": "A declaration of a Bluesky account status.",
-      "key": "literal:self",
-      "record": {
-        "type": "object",
-        "required": ["status", "createdAt"],
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "The status for the account.",
-            "knownValues": ["app.bsky.actor.status#live"],
-          },
-          "embed": {
-            "type": "union",
-            "description": "An optional embed associated with the status.",
-            "refs": ["app.bsky.embed.external"],
-          },
-          "durationMinutes": {
-            "type": "integer",
-            "description":
-                "The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
-            "minimum": 1,
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-        },
-      },
-    },
-    "live": {
-      "type": "token",
-      "description":
-          "Advertises an account as currently offering live content.",
     },
   },
 };
@@ -10087,6 +11440,10 @@ const appBskyActorDefs = <String, dynamic>{
       "required": ["allowIncoming"],
       "properties": {
         "allowIncoming": {
+          "type": "string",
+          "knownValues": ["all", "none", "following"],
+        },
+        "allowGroupInvites": {
           "type": "string",
           "knownValues": ["all", "none", "following"],
         },
@@ -10604,6 +11961,10 @@ const appBskyActorDefs = <String, dynamic>{
           "description": "An optional embed associated with the status.",
           "refs": ["app.bsky.embed.external#view"],
         },
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
         "expiresAt": {
           "type": "string",
           "format": "datetime",
@@ -10619,6 +11980,271 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "boolean",
           "description":
               "True if the user's go-live access has been disabled by a moderator, false otherwise.",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.actor.putPreferences`
+const appBskyActorPutPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.putPreferences",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Set the private preferences attached to the account.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#preferences",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.actor.getProfile`
+const appBskyActorGetProfile = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.getProfile",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "at-identifier",
+            "description": "Handle or DID of account to fetch profile of.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewDetailed",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.actor.getSuggestions`
+const appBskyActorGetSuggestions = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.getSuggestions",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "actors": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+            "recId": {
+              "type": "integer",
+              "description": "DEPRECATED: use recIdStr instead.",
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.actor.searchActors`
+const appBskyActorSearchActors = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.searchActors",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Find actors (profiles) matching search criteria. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "DEPRECATED: use 'q' instead.",
+          },
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "actors": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.actor.getProfiles`
+const appBskyActorGetProfiles = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.getProfiles",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get detailed profile views of multiple actors.",
+      "parameters": {
+        "type": "params",
+        "required": ["actors"],
+        "properties": {
+          "actors": {
+            "type": "array",
+            "items": {"type": "string", "format": "at-identifier"},
+            "maxLength": 25,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["profiles"],
+          "properties": {
+            "profiles": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.actor.defs#profileViewDetailed",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.actor.status`
+const appBskyActorStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.status",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A declaration of a Bluesky account status.",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": ["status", "createdAt"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status for the account.",
+            "knownValues": ["app.bsky.actor.status#live"],
+          },
+          "embed": {
+            "type": "union",
+            "description": "An optional embed associated with the status.",
+            "refs": ["app.bsky.embed.external"],
+          },
+          "durationMinutes": {
+            "type": "integer",
+            "description":
+                "The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
+            "minimum": 1,
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+    "live": {
+      "type": "token",
+      "description":
+          "Advertises an account as currently offering live content.",
+    },
+  },
+};
+
+/// `app.bsky.actor.getPreferences`
+const appBskyActorGetPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.getPreferences",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.",
+      "parameters": {"type": "params", "properties": {}},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#preferences",
+            },
+          },
         },
       },
     },
@@ -10681,1172 +12307,6 @@ const appBskyActorProfile = <String, dynamic>{
           },
           "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
           "createdAt": {"type": "string", "format": "datetime"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.actor.getProfile`
-const appBskyActorGetProfile = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.getProfile",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.",
-      "parameters": {
-        "type": "params",
-        "required": ["actor"],
-        "properties": {
-          "actor": {
-            "type": "string",
-            "format": "at-identifier",
-            "description": "Handle or DID of account to fetch profile of.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileViewDetailed",
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.actor.getProfiles`
-const appBskyActorGetProfiles = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.getProfiles",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get detailed profile views of multiple actors.",
-      "parameters": {
-        "type": "params",
-        "required": ["actors"],
-        "properties": {
-          "actors": {
-            "type": "array",
-            "items": {"type": "string", "format": "at-identifier"},
-            "maxLength": 25,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["profiles"],
-          "properties": {
-            "profiles": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileViewDetailed",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.actor.getPreferences`
-const appBskyActorGetPreferences = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.actor.getPreferences",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.",
-      "parameters": {"type": "params", "properties": {}},
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["preferences"],
-          "properties": {
-            "preferences": {
-              "type": "ref",
-              "ref": "app.bsky.actor.defs#preferences",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.embed.images`
-const appBskyEmbedImages = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.embed.images",
-  "description": "A set of images embedded in a Bluesky record (eg, a post).",
-  "defs": {
-    "main": {
-      "type": "object",
-      "required": ["images"],
-      "properties": {
-        "images": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#image"},
-          "maxLength": 4,
-        },
-      },
-    },
-    "image": {
-      "type": "object",
-      "required": ["image", "alt"],
-      "properties": {
-        "image": {
-          "type": "blob",
-          "accept": ["image/*"],
-          "maxSize": 1000000,
-        },
-        "alt": {
-          "type": "string",
-          "description":
-              "Alt text description of the image, for accessibility.",
-        },
-        "aspectRatio": {
-          "type": "ref",
-          "ref": "app.bsky.embed.defs#aspectRatio",
-        },
-      },
-    },
-    "view": {
-      "type": "object",
-      "required": ["images"],
-      "properties": {
-        "images": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#viewImage"},
-          "maxLength": 4,
-        },
-      },
-    },
-    "viewImage": {
-      "type": "object",
-      "required": ["thumb", "fullsize", "alt"],
-      "properties": {
-        "thumb": {
-          "type": "string",
-          "format": "uri",
-          "description":
-              "Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.",
-        },
-        "fullsize": {
-          "type": "string",
-          "format": "uri",
-          "description":
-              "Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.",
-        },
-        "alt": {
-          "type": "string",
-          "description":
-              "Alt text description of the image, for accessibility.",
-        },
-        "aspectRatio": {
-          "type": "ref",
-          "ref": "app.bsky.embed.defs#aspectRatio",
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.embed.external`
-const appBskyEmbedExternal = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.embed.external",
-  "defs": {
-    "main": {
-      "type": "object",
-      "description":
-          "A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).",
-      "required": ["external"],
-      "properties": {
-        "external": {"type": "ref", "ref": "#external"},
-      },
-    },
-    "external": {
-      "type": "object",
-      "required": ["uri", "title", "description"],
-      "properties": {
-        "uri": {"type": "string", "format": "uri"},
-        "title": {"type": "string"},
-        "description": {"type": "string"},
-        "thumb": {
-          "type": "blob",
-          "accept": ["image/*"],
-          "maxSize": 1000000,
-        },
-      },
-    },
-    "view": {
-      "type": "object",
-      "required": ["external"],
-      "properties": {
-        "external": {"type": "ref", "ref": "#viewExternal"},
-      },
-    },
-    "viewExternal": {
-      "type": "object",
-      "required": ["uri", "title", "description"],
-      "properties": {
-        "uri": {"type": "string", "format": "uri"},
-        "title": {"type": "string"},
-        "description": {"type": "string"},
-        "thumb": {"type": "string", "format": "uri"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.embed.video`
-const appBskyEmbedVideo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.embed.video",
-  "description": "A video embedded in a Bluesky record (eg, a post).",
-  "defs": {
-    "main": {
-      "type": "object",
-      "required": ["video"],
-      "properties": {
-        "video": {
-          "type": "blob",
-          "description":
-              "The mp4 video file. May be up to 100mb, formerly limited to 50mb.",
-          "accept": ["video/mp4"],
-          "maxSize": 100000000,
-        },
-        "captions": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#caption"},
-          "maxLength": 20,
-        },
-        "alt": {
-          "type": "string",
-          "description":
-              "Alt text description of the video, for accessibility.",
-          "maxLength": 10000,
-          "maxGraphemes": 1000,
-        },
-        "aspectRatio": {
-          "type": "ref",
-          "ref": "app.bsky.embed.defs#aspectRatio",
-        },
-        "presentation": {
-          "type": "string",
-          "description": "A hint to the client about how to present the video.",
-          "knownValues": ["default", "gif"],
-        },
-      },
-    },
-    "caption": {
-      "type": "object",
-      "required": ["lang", "file"],
-      "properties": {
-        "lang": {"type": "string", "format": "language"},
-        "file": {
-          "type": "blob",
-          "accept": ["text/vtt"],
-          "maxSize": 20000,
-        },
-      },
-    },
-    "view": {
-      "type": "object",
-      "required": ["cid", "playlist"],
-      "properties": {
-        "cid": {"type": "string", "format": "cid"},
-        "playlist": {"type": "string", "format": "uri"},
-        "thumbnail": {"type": "string", "format": "uri"},
-        "alt": {"type": "string", "maxLength": 10000, "maxGraphemes": 1000},
-        "aspectRatio": {
-          "type": "ref",
-          "ref": "app.bsky.embed.defs#aspectRatio",
-        },
-        "presentation": {
-          "type": "string",
-          "description": "A hint to the client about how to present the video.",
-          "knownValues": ["default", "gif"],
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.embed.defs`
-const appBskyEmbedDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.embed.defs",
-  "defs": {
-    "aspectRatio": {
-      "type": "object",
-      "description":
-          "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
-      "required": ["width", "height"],
-      "properties": {
-        "width": {"type": "integer", "minimum": 1},
-        "height": {"type": "integer", "minimum": 1},
-      },
-    },
-  },
-};
-
-/// `app.bsky.embed.recordWithMedia`
-const appBskyEmbedRecordWithMedia = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.embed.recordWithMedia",
-  "description":
-      "A representation of a record embedded in a Bluesky record (eg, a post), alongside other compatible embeds. For example, a quote post and image, or a quote post and external URL card.",
-  "defs": {
-    "main": {
-      "type": "object",
-      "required": ["record", "media"],
-      "properties": {
-        "record": {"type": "ref", "ref": "app.bsky.embed.record"},
-        "media": {
-          "type": "union",
-          "refs": [
-            "app.bsky.embed.images",
-            "app.bsky.embed.video",
-            "app.bsky.embed.external",
-          ],
-        },
-      },
-    },
-    "view": {
-      "type": "object",
-      "required": ["record", "media"],
-      "properties": {
-        "record": {"type": "ref", "ref": "app.bsky.embed.record#view"},
-        "media": {
-          "type": "union",
-          "refs": [
-            "app.bsky.embed.images#view",
-            "app.bsky.embed.video#view",
-            "app.bsky.embed.external#view",
-          ],
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.embed.record`
-const appBskyEmbedRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.embed.record",
-  "description":
-      "A representation of a record embedded in a Bluesky record (eg, a post). For example, a quote-post, or sharing a feed generator record.",
-  "defs": {
-    "main": {
-      "type": "object",
-      "required": ["record"],
-      "properties": {
-        "record": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
-      },
-    },
-    "view": {
-      "type": "object",
-      "required": ["record"],
-      "properties": {
-        "record": {
-          "type": "union",
-          "refs": [
-            "#viewRecord",
-            "#viewNotFound",
-            "#viewBlocked",
-            "#viewDetached",
-            "app.bsky.feed.defs#generatorView",
-            "app.bsky.graph.defs#listView",
-            "app.bsky.labeler.defs#labelerView",
-            "app.bsky.graph.defs#starterPackViewBasic",
-          ],
-        },
-      },
-    },
-    "viewRecord": {
-      "type": "object",
-      "required": ["uri", "cid", "author", "value", "indexedAt"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "author": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileViewBasic",
-        },
-        "value": {"type": "unknown", "description": "The record data itself."},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-        "replyCount": {"type": "integer"},
-        "repostCount": {"type": "integer"},
-        "likeCount": {"type": "integer"},
-        "quoteCount": {"type": "integer"},
-        "embeds": {
-          "type": "array",
-          "items": {
-            "type": "union",
-            "refs": [
-              "app.bsky.embed.images#view",
-              "app.bsky.embed.video#view",
-              "app.bsky.embed.external#view",
-              "app.bsky.embed.record#view",
-              "app.bsky.embed.recordWithMedia#view",
-            ],
-          },
-        },
-        "indexedAt": {"type": "string", "format": "datetime"},
-      },
-    },
-    "viewNotFound": {
-      "type": "object",
-      "required": ["uri", "notFound"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "notFound": {"type": "boolean", "const": true},
-      },
-    },
-    "viewBlocked": {
-      "type": "object",
-      "required": ["uri", "blocked", "author"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "blocked": {"type": "boolean", "const": true},
-        "author": {"type": "ref", "ref": "app.bsky.feed.defs#blockedAuthor"},
-      },
-    },
-    "viewDetached": {
-      "type": "object",
-      "required": ["uri", "detached"],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "detached": {"type": "boolean", "const": true},
-      },
-    },
-  },
-};
-
-/// `app.bsky.video.uploadVideo`
-const appBskyVideoUploadVideo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.video.uploadVideo",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Upload a video to be processed then stored on the PDS.",
-      "input": {"encoding": "video/mp4"},
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["jobStatus"],
-          "properties": {
-            "jobStatus": {
-              "type": "ref",
-              "ref": "app.bsky.video.defs#jobStatus",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.video.getUploadLimits`
-const appBskyVideoGetUploadLimits = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.video.getUploadLimits",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get video upload limits for the authenticated user.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["canUpload"],
-          "properties": {
-            "canUpload": {"type": "boolean"},
-            "remainingDailyVideos": {"type": "integer"},
-            "remainingDailyBytes": {"type": "integer"},
-            "message": {"type": "string"},
-            "error": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.video.defs`
-const appBskyVideoDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.video.defs",
-  "defs": {
-    "jobStatus": {
-      "type": "object",
-      "required": ["jobId", "did", "state"],
-      "properties": {
-        "jobId": {"type": "string"},
-        "did": {"type": "string", "format": "did"},
-        "state": {
-          "type": "string",
-          "description":
-              "The state of the video processing job. All values not listed as a known value indicate that the job is in process.",
-          "knownValues": ["JOB_STATE_COMPLETED", "JOB_STATE_FAILED"],
-        },
-        "progress": {
-          "type": "integer",
-          "description": "Progress within the current processing state.",
-          "minimum": 0,
-          "maximum": 100,
-        },
-        "blob": {"type": "blob"},
-        "error": {"type": "string"},
-        "message": {"type": "string"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.video.getJobStatus`
-const appBskyVideoGetJobStatus = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.video.getJobStatus",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get status details for a video processing job.",
-      "parameters": {
-        "type": "params",
-        "required": ["jobId"],
-        "properties": {
-          "jobId": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["jobStatus"],
-          "properties": {
-            "jobStatus": {
-              "type": "ref",
-              "ref": "app.bsky.video.defs#jobStatus",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.listNotifications`
-const appBskyNotificationListNotifications = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.listNotifications",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerate notifications for the requesting account. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "reasons": {
-            "type": "array",
-            "description": "Notification reasons to include in response.",
-            "items": {
-              "type": "string",
-              "description":
-                  "A reason that matches the reason property of #notification.",
-            },
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "priority": {"type": "boolean"},
-          "cursor": {"type": "string"},
-          "seenAt": {"type": "string", "format": "datetime"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["notifications"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "notifications": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#notification"},
-            },
-            "priority": {"type": "boolean"},
-            "seenAt": {"type": "string", "format": "datetime"},
-          },
-        },
-      },
-    },
-    "notification": {
-      "type": "object",
-      "required": [
-        "uri",
-        "cid",
-        "author",
-        "reason",
-        "record",
-        "isRead",
-        "indexedAt",
-      ],
-      "properties": {
-        "uri": {"type": "string", "format": "at-uri"},
-        "cid": {"type": "string", "format": "cid"},
-        "author": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
-        "reason": {
-          "type": "string",
-          "description":
-              "The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.",
-          "knownValues": [
-            "like",
-            "repost",
-            "follow",
-            "mention",
-            "reply",
-            "quote",
-            "starterpack-joined",
-            "verified",
-            "unverified",
-            "like-via-repost",
-            "repost-via-repost",
-            "subscribed-post",
-            "contact-match",
-          ],
-        },
-        "reasonSubject": {"type": "string", "format": "at-uri"},
-        "record": {"type": "unknown"},
-        "isRead": {"type": "boolean"},
-        "indexedAt": {"type": "string", "format": "datetime"},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.registerPush`
-const appBskyNotificationRegisterPush = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.registerPush",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Register to receive push notifications, via a specified service, for the requesting account. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["serviceDid", "token", "platform", "appId"],
-          "properties": {
-            "serviceDid": {"type": "string", "format": "did"},
-            "token": {"type": "string"},
-            "platform": {
-              "type": "string",
-              "knownValues": ["ios", "android", "web"],
-            },
-            "appId": {"type": "string"},
-            "ageRestricted": {
-              "type": "boolean",
-              "description": "Set to true when the actor is age restricted",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.updateSeen`
-const appBskyNotificationUpdateSeen = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.updateSeen",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Notify server that the requesting account has seen notifications. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["seenAt"],
-          "properties": {
-            "seenAt": {"type": "string", "format": "datetime"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.putActivitySubscription`
-const appBskyNotificationPutActivitySubscription = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.putActivitySubscription",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject", "activitySubscription"],
-          "properties": {
-            "subject": {"type": "string", "format": "did"},
-            "activitySubscription": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#activitySubscription",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject"],
-          "properties": {
-            "subject": {"type": "string", "format": "did"},
-            "activitySubscription": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#activitySubscription",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.putPreferences`
-const appBskyNotificationPutPreferences = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.putPreferences",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Set notification-related preferences for an account. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["priority"],
-          "properties": {
-            "priority": {"type": "boolean"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.defs`
-const appBskyNotificationDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.defs",
-  "defs": {
-    "recordDeleted": {"type": "object", "properties": {}},
-    "chatPreference": {
-      "type": "object",
-      "required": ["include", "push"],
-      "properties": {
-        "include": {
-          "type": "string",
-          "knownValues": ["all", "accepted"],
-        },
-        "push": {"type": "boolean"},
-      },
-    },
-    "filterablePreference": {
-      "type": "object",
-      "required": ["include", "list", "push"],
-      "properties": {
-        "include": {
-          "type": "string",
-          "knownValues": ["all", "follows"],
-        },
-        "list": {"type": "boolean"},
-        "push": {"type": "boolean"},
-      },
-    },
-    "preference": {
-      "type": "object",
-      "required": ["list", "push"],
-      "properties": {
-        "list": {"type": "boolean"},
-        "push": {"type": "boolean"},
-      },
-    },
-    "preferences": {
-      "type": "object",
-      "required": [
-        "chat",
-        "follow",
-        "like",
-        "likeViaRepost",
-        "mention",
-        "quote",
-        "reply",
-        "repost",
-        "repostViaRepost",
-        "starterpackJoined",
-        "subscribedPost",
-        "unverified",
-        "verified",
-      ],
-      "properties": {
-        "chat": {"type": "ref", "ref": "#chatPreference"},
-        "follow": {"type": "ref", "ref": "#filterablePreference"},
-        "like": {"type": "ref", "ref": "#filterablePreference"},
-        "likeViaRepost": {"type": "ref", "ref": "#filterablePreference"},
-        "mention": {"type": "ref", "ref": "#filterablePreference"},
-        "quote": {"type": "ref", "ref": "#filterablePreference"},
-        "reply": {"type": "ref", "ref": "#filterablePreference"},
-        "repost": {"type": "ref", "ref": "#filterablePreference"},
-        "repostViaRepost": {"type": "ref", "ref": "#filterablePreference"},
-        "starterpackJoined": {"type": "ref", "ref": "#preference"},
-        "subscribedPost": {"type": "ref", "ref": "#preference"},
-        "unverified": {"type": "ref", "ref": "#preference"},
-        "verified": {"type": "ref", "ref": "#preference"},
-      },
-    },
-    "activitySubscription": {
-      "type": "object",
-      "required": ["post", "reply"],
-      "properties": {
-        "post": {"type": "boolean"},
-        "reply": {"type": "boolean"},
-      },
-    },
-    "subjectActivitySubscription": {
-      "type": "object",
-      "description":
-          "Object used to store activity subscription data in stash.",
-      "required": ["subject", "activitySubscription"],
-      "properties": {
-        "subject": {"type": "string", "format": "did"},
-        "activitySubscription": {"type": "ref", "ref": "#activitySubscription"},
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.unregisterPush`
-const appBskyNotificationUnregisterPush = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.unregisterPush",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["serviceDid", "token", "platform", "appId"],
-          "properties": {
-            "serviceDid": {"type": "string", "format": "did"},
-            "token": {"type": "string"},
-            "platform": {
-              "type": "string",
-              "knownValues": ["ios", "android", "web"],
-            },
-            "appId": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.putPreferencesV2`
-const appBskyNotificationPutPreferencesV2 = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.putPreferencesV2",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Set notification-related preferences for an account. Requires auth.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "chat": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#chatPreference",
-            },
-            "follow": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "like": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "likeViaRepost": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "mention": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "quote": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "reply": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "repost": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "repostViaRepost": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#filterablePreference",
-            },
-            "starterpackJoined": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#preference",
-            },
-            "subscribedPost": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#preference",
-            },
-            "unverified": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#preference",
-            },
-            "verified": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#preference",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["preferences"],
-          "properties": {
-            "preferences": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#preferences",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.declaration`
-const appBskyNotificationDeclaration = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.declaration",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "A declaration of the user's choices related to notifications that can be produced by them.",
-      "key": "literal:self",
-      "record": {
-        "type": "object",
-        "required": ["allowSubscriptions"],
-        "properties": {
-          "allowSubscriptions": {
-            "type": "string",
-            "description":
-                "A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
-            "knownValues": ["followers", "mutuals", "none"],
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.listActivitySubscriptions`
-const appBskyNotificationListActivitySubscriptions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.listActivitySubscriptions",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subscriptions"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "subscriptions": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.actor.defs#profileView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.getUnreadCount`
-const appBskyNotificationGetUnreadCount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.getUnreadCount",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Count the number of unread notifications for the requesting account. Requires auth.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "priority": {"type": "boolean"},
-          "seenAt": {"type": "string", "format": "datetime"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["count"],
-          "properties": {
-            "count": {"type": "integer"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.notification.getPreferences`
-const appBskyNotificationGetPreferences = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.notification.getPreferences",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get notification-related preferences for an account. Requires auth.",
-      "parameters": {"type": "params", "properties": {}},
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["preferences"],
-          "properties": {
-            "preferences": {
-              "type": "ref",
-              "ref": "app.bsky.notification.defs#preferences",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.labeler.service`
-const appBskyLabelerService = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.labeler.service",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description": "A declaration of the existence of labeler service.",
-      "key": "literal:self",
-      "record": {
-        "type": "object",
-        "required": ["policies", "createdAt"],
-        "properties": {
-          "policies": {
-            "type": "ref",
-            "ref": "app.bsky.labeler.defs#labelerPolicies",
-          },
-          "labels": {
-            "type": "union",
-            "refs": ["com.atproto.label.defs#selfLabels"],
-          },
-          "createdAt": {"type": "string", "format": "datetime"},
-          "reasonTypes": {
-            "type": "array",
-            "description":
-                "The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed.",
-            "items": {
-              "type": "ref",
-              "ref": "com.atproto.moderation.defs#reasonType",
-            },
-          },
-          "subjectTypes": {
-            "type": "array",
-            "description":
-                "The set of subject types (account, record, etc) this service accepts reports on.",
-            "items": {
-              "type": "ref",
-              "ref": "com.atproto.moderation.defs#subjectType",
-            },
-          },
-          "subjectCollections": {
-            "type": "array",
-            "description":
-                "Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type.",
-            "items": {"type": "string", "format": "nsid"},
-          },
         },
       },
     },
@@ -11948,6 +12408,58 @@ const appBskyLabelerDefs = <String, dynamic>{
   },
 };
 
+/// `app.bsky.labeler.service`
+const appBskyLabelerService = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.labeler.service",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A declaration of the existence of labeler service.",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": ["policies", "createdAt"],
+        "properties": {
+          "policies": {
+            "type": "ref",
+            "ref": "app.bsky.labeler.defs#labelerPolicies",
+          },
+          "labels": {
+            "type": "union",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+          "reasonTypes": {
+            "type": "array",
+            "description":
+                "The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed.",
+            "items": {
+              "type": "ref",
+              "ref": "com.atproto.moderation.defs#reasonType",
+            },
+          },
+          "subjectTypes": {
+            "type": "array",
+            "description":
+                "The set of subject types (account, record, etc) this service accepts reports on.",
+            "items": {
+              "type": "ref",
+              "ref": "com.atproto.moderation.defs#subjectType",
+            },
+          },
+          "subjectCollections": {
+            "type": "array",
+            "description":
+                "Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type.",
+            "items": {"type": "string", "format": "nsid"},
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.labeler.getServices`
 const appBskyLabelerGetServices = <String, dynamic>{
   "lexicon": 1,
@@ -11990,177 +12502,15 @@ const appBskyLabelerGetServices = <String, dynamic>{
   },
 };
 
-/// `app.bsky.richtext.facet`
-const appBskyRichtextFacet = <String, dynamic>{
+/// `chat.bsky.convo.listConvos`
+const chatBskyConvoListConvos = <String, dynamic>{
   "lexicon": 1,
-  "id": "app.bsky.richtext.facet",
-  "defs": {
-    "main": {
-      "type": "object",
-      "description": "Annotation of a sub-string within rich text.",
-      "required": ["index", "features"],
-      "properties": {
-        "index": {"type": "ref", "ref": "#byteSlice"},
-        "features": {
-          "type": "array",
-          "items": {
-            "type": "union",
-            "refs": ["#mention", "#link", "#tag"],
-          },
-        },
-      },
-    },
-    "mention": {
-      "type": "object",
-      "description":
-          "Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID.",
-      "required": ["did"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-      },
-    },
-    "link": {
-      "type": "object",
-      "description":
-          "Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL.",
-      "required": ["uri"],
-      "properties": {
-        "uri": {"type": "string", "format": "uri"},
-      },
-    },
-    "tag": {
-      "type": "object",
-      "description":
-          "Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not (except in the case of 'double hash tags').",
-      "required": ["tag"],
-      "properties": {
-        "tag": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
-      },
-    },
-    "byteSlice": {
-      "type": "object",
-      "description":
-          "Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.",
-      "required": ["byteStart", "byteEnd"],
-      "properties": {
-        "byteStart": {"type": "integer", "minimum": 0},
-        "byteEnd": {"type": "integer", "minimum": 0},
-      },
-    },
-  },
-};
-
-/// `app.bsky.bookmark.createBookmark`
-const appBskyBookmarkCreateBookmark = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.bookmark.createBookmark",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["uri", "cid"],
-          "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"},
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "UnsupportedCollection",
-          "description":
-              "The URI to be bookmarked is for an unsupported collection.",
-        },
-      ],
-    },
-  },
-};
-
-/// `app.bsky.bookmark.deleteBookmark`
-const appBskyBookmarkDeleteBookmark = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.bookmark.deleteBookmark",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["uri"],
-          "properties": {
-            "uri": {"type": "string", "format": "at-uri"},
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "UnsupportedCollection",
-          "description":
-              "The URI to be bookmarked is for an unsupported collection.",
-        },
-      ],
-    },
-  },
-};
-
-/// `app.bsky.bookmark.defs`
-const appBskyBookmarkDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.bookmark.defs",
-  "defs": {
-    "bookmark": {
-      "type": "object",
-      "description": "Object used to store bookmark data in stash.",
-      "required": ["subject"],
-      "properties": {
-        "subject": {
-          "type": "ref",
-          "description":
-              "A strong ref to the record to be bookmarked. Currently, only `app.bsky.feed.post` records are supported.",
-          "ref": "com.atproto.repo.strongRef",
-        },
-      },
-    },
-    "bookmarkView": {
-      "type": "object",
-      "required": ["subject", "item"],
-      "properties": {
-        "subject": {
-          "type": "ref",
-          "description": "A strong ref to the bookmarked record.",
-          "ref": "com.atproto.repo.strongRef",
-        },
-        "createdAt": {"type": "string", "format": "datetime"},
-        "item": {
-          "type": "union",
-          "refs": [
-            "app.bsky.feed.defs#blockedPost",
-            "app.bsky.feed.defs#notFoundPost",
-            "app.bsky.feed.defs#postView",
-          ],
-        },
-      },
-    },
-  },
-};
-
-/// `app.bsky.bookmark.getBookmarks`
-const appBskyBookmarkGetBookmarks = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.bookmark.getBookmarks",
+  "id": "chat.bsky.convo.listConvos",
   "defs": {
     "main": {
       "type": "query",
       "description":
-          "Gets views of records bookmarked by the authenticated user. Requires authentication.",
+          "Returns a page of conversations (direct or group) for the user.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -12171,139 +12521,26 @@ const appBskyBookmarkGetBookmarks = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["bookmarks"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "bookmarks": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.bookmark.defs#bookmarkView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.actor.deleteAccount`
-const chatBskyActorDeleteAccount = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.actor.deleteAccount",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
-      },
-    },
-  },
-};
-
-/// `chat.bsky.actor.exportAccountData`
-const chatBskyActorExportAccountData = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.actor.exportAccountData",
-  "defs": {
-    "main": {
-      "type": "query",
-      "output": {"encoding": "application/jsonl"},
-    },
-  },
-};
-
-/// `chat.bsky.actor.defs`
-const chatBskyActorDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.actor.defs",
-  "defs": {
-    "profileViewBasic": {
-      "type": "object",
-      "required": ["did", "handle"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "handle": {"type": "string", "format": "handle"},
-        "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
-        "avatar": {"type": "string", "format": "uri"},
-        "associated": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileAssociated",
-        },
-        "viewer": {"type": "ref", "ref": "app.bsky.actor.defs#viewerState"},
-        "labels": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
-        },
-        "chatDisabled": {
-          "type": "boolean",
-          "description":
-              "Set to true when the actor cannot actively participate in conversations",
-        },
-        "verification": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#verificationState",
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.actor.declaration`
-const chatBskyActorDeclaration = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.actor.declaration",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description": "A declaration of a Bluesky chat account.",
-      "key": "literal:self",
-      "record": {
-        "type": "object",
-        "required": ["allowIncoming"],
-        "properties": {
-          "allowIncoming": {
+          "readState": {
             "type": "string",
-            "knownValues": ["all", "none", "following"],
+            "knownValues": ["unread"],
           },
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.addReaction`
-const chatBskyConvoAddReaction = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.addReaction",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Adds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId", "messageId", "value"],
-          "properties": {
-            "convoId": {"type": "string"},
-            "messageId": {"type": "string"},
-            "value": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 64,
-              "minGraphemes": 1,
-              "maxGraphemes": 1,
-            },
+          "status": {
+            "type": "string",
+            "description":
+                "Filter convos by their status. It is discouraged to call with \"request\" and preferred to call chat.bsky.convo.listConvoRequests, which also includes group join requests made by the user.",
+            "knownValues": ["request", "accepted"],
+          },
+          "kind": {
+            "type": "string",
+            "description": "Filter by conversation kind.",
+            "knownValues": ["direct", "group"],
+          },
+          "lockStatus": {
+            "type": "string",
+            "description":
+                "Filter by conversation lock status. Values follow chat.bsky.convo.defs#convoLockStatus.",
+            "knownValues": ["unlocked", "locked", "locked-permanently"],
           },
         },
       },
@@ -12311,74 +12548,12 @@ const chatBskyConvoAddReaction = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["message"],
-          "properties": {
-            "message": {
-              "type": "ref",
-              "ref": "chat.bsky.convo.defs#messageView",
-            },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "ReactionMessageDeleted",
-          "description":
-              "Indicates that the message has been deleted and reactions can no longer be added/removed.",
-        },
-        {
-          "name": "ReactionLimitReached",
-          "description":
-              "Indicates that the message has the maximum number of reactions allowed for a single user, and the requested reaction wasn't yet present. If it was already present, the request will not fail since it is idempotent.",
-        },
-        {
-          "name": "ReactionInvalidValue",
-          "description":
-              "Indicates the value for the reaction is not acceptable. In general, this means it is not an emoji.",
-        },
-      ],
-    },
-  },
-};
-
-/// `chat.bsky.convo.getLog`
-const chatBskyConvoGetLog = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.getLog",
-  "defs": {
-    "main": {
-      "type": "query",
-      "parameters": {
-        "type": "params",
-        "required": [],
-        "properties": {
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["logs"],
+          "required": ["convos"],
           "properties": {
             "cursor": {"type": "string"},
-            "logs": {
+            "convos": {
               "type": "array",
-              "items": {
-                "type": "union",
-                "refs": [
-                  "chat.bsky.convo.defs#logBeginConvo",
-                  "chat.bsky.convo.defs#logAcceptConvo",
-                  "chat.bsky.convo.defs#logLeaveConvo",
-                  "chat.bsky.convo.defs#logMuteConvo",
-                  "chat.bsky.convo.defs#logUnmuteConvo",
-                  "chat.bsky.convo.defs#logCreateMessage",
-                  "chat.bsky.convo.defs#logDeleteMessage",
-                  "chat.bsky.convo.defs#logReadMessage",
-                  "chat.bsky.convo.defs#logAddReaction",
-                  "chat.bsky.convo.defs#logRemoveReaction",
-                ],
-              },
+              "items": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
             },
           },
         },
@@ -12387,244 +12562,15 @@ const chatBskyConvoGetLog = <String, dynamic>{
   },
 };
 
-/// `chat.bsky.convo.removeReaction`
-const chatBskyConvoRemoveReaction = <String, dynamic>{
+/// `chat.bsky.convo.unmuteConvo`
+const chatBskyConvoUnmuteConvo = <String, dynamic>{
   "lexicon": 1,
-  "id": "chat.bsky.convo.removeReaction",
+  "id": "chat.bsky.convo.unmuteConvo",
   "defs": {
     "main": {
       "type": "procedure",
       "description":
-          "Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId", "messageId", "value"],
-          "properties": {
-            "convoId": {"type": "string"},
-            "messageId": {"type": "string"},
-            "value": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 64,
-              "minGraphemes": 1,
-              "maxGraphemes": 1,
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["message"],
-          "properties": {
-            "message": {
-              "type": "ref",
-              "ref": "chat.bsky.convo.defs#messageView",
-            },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "ReactionMessageDeleted",
-          "description":
-              "Indicates that the message has been deleted and reactions can no longer be added/removed.",
-        },
-        {
-          "name": "ReactionInvalidValue",
-          "description":
-              "Indicates the value for the reaction is not acceptable. In general, this means it is not an emoji.",
-        },
-      ],
-    },
-  },
-};
-
-/// `chat.bsky.convo.getConvo`
-const chatBskyConvoGetConvo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.getConvo",
-  "defs": {
-    "main": {
-      "type": "query",
-      "parameters": {
-        "type": "params",
-        "required": ["convoId"],
-        "properties": {
-          "convoId": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convo"],
-          "properties": {
-            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.sendMessageBatch`
-const chatBskyConvoSendMessageBatch = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.sendMessageBatch",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["items"],
-          "properties": {
-            "items": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#batchItem"},
-              "maxLength": 100,
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["items"],
-          "properties": {
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "chat.bsky.convo.defs#messageView",
-              },
-            },
-          },
-        },
-      },
-    },
-    "batchItem": {
-      "type": "object",
-      "required": ["convoId", "message"],
-      "properties": {
-        "convoId": {"type": "string"},
-        "message": {"type": "ref", "ref": "chat.bsky.convo.defs#messageInput"},
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.sendMessage`
-const chatBskyConvoSendMessage = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.sendMessage",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId", "message"],
-          "properties": {
-            "convoId": {"type": "string"},
-            "message": {
-              "type": "ref",
-              "ref": "chat.bsky.convo.defs#messageInput",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "chat.bsky.convo.defs#messageView"},
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.getConvoForMembers`
-const chatBskyConvoGetConvoForMembers = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.getConvoForMembers",
-  "defs": {
-    "main": {
-      "type": "query",
-      "parameters": {
-        "type": "params",
-        "required": ["members"],
-        "properties": {
-          "members": {
-            "type": "array",
-            "items": {"type": "string", "format": "did"},
-            "minLength": 1,
-            "maxLength": 10,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convo"],
-          "properties": {
-            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.updateAllRead`
-const chatBskyConvoUpdateAllRead = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.updateAllRead",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string",
-              "knownValues": ["request", "accepted"],
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["updatedCount"],
-          "properties": {
-            "updatedCount": {
-              "type": "integer",
-              "description": "The count of updated convos.",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.muteConvo`
-const chatBskyConvoMuteConvo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.muteConvo",
-  "defs": {
-    "main": {
-      "type": "procedure",
+          "Unmutes a conversation, allowing notifications related to it.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -12645,35 +12591,9 @@ const chatBskyConvoMuteConvo = <String, dynamic>{
           },
         },
       },
-    },
-  },
-};
-
-/// `chat.bsky.convo.deleteMessageForSelf`
-const chatBskyConvoDeleteMessageForSelf = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.deleteMessageForSelf",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId", "messageId"],
-          "properties": {
-            "convoId": {"type": "string"},
-            "messageId": {"type": "string"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "chat.bsky.convo.defs#deletedMessageView",
-        },
-      },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
     },
   },
 };
@@ -12683,6 +12603,26 @@ const chatBskyConvoDefs = <String, dynamic>{
   "lexicon": 1,
   "id": "chat.bsky.convo.defs",
   "defs": {
+    "convoKind": {
+      "type": "string",
+      "knownValues": ["direct", "group"],
+    },
+    "convoLockStatus": {
+      "type": "string",
+      "knownValues": ["unlocked", "locked", "locked-permanently"],
+    },
+    "convoStatus": {
+      "type": "string",
+      "knownValues": ["request", "accepted"],
+    },
+    "convoRef": {
+      "type": "object",
+      "required": ["did", "convoId"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "convoId": {"type": "string"},
+      },
+    },
     "messageRef": {
       "type": "object",
       "required": ["did", "messageId", "convoId"],
@@ -12734,6 +12674,191 @@ const chatBskyConvoDefs = <String, dynamic>{
         "sentAt": {"type": "string", "format": "datetime"},
       },
     },
+    "systemMessageReferredUser": {
+      "type": "object",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+      },
+    },
+    "systemMessageView": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here].",
+      "required": ["id", "rev", "sentAt", "data"],
+      "properties": {
+        "id": {"type": "string"},
+        "rev": {"type": "string"},
+        "sentAt": {"type": "string", "format": "datetime"},
+        "data": {
+          "type": "union",
+          "refs": [
+            "#systemMessageDataAddMember",
+            "#systemMessageDataRemoveMember",
+            "#systemMessageDataMemberJoin",
+            "#systemMessageDataMemberLeave",
+            "#systemMessageDataLockConvo",
+            "#systemMessageDataUnlockConvo",
+            "#systemMessageDataLockConvoPermanently",
+            "#systemMessageDataEditGroup",
+            "#systemMessageDataCreateJoinLink",
+            "#systemMessageDataEditJoinLink",
+            "#systemMessageDataEnableJoinLink",
+            "#systemMessageDataDisableJoinLink",
+          ],
+        },
+      },
+    },
+    "systemMessageDataAddMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user was added to the group convo.",
+      "required": ["member", "role", "addedBy"],
+      "properties": {
+        "member": {
+          "type": "ref",
+          "description": "Current view of the member who was added.",
+          "ref": "#systemMessageReferredUser",
+        },
+        "role": {
+          "type": "ref",
+          "description":
+              "Role the user was added to the group with. The role from 'member' will reflect the current data, not historical.",
+          "ref": "chat.bsky.actor.defs#memberRole",
+        },
+        "addedBy": {"type": "ref", "ref": "#systemMessageReferredUser"},
+      },
+    },
+    "systemMessageDataRemoveMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user was removed from the group convo.",
+      "required": ["member", "removedBy"],
+      "properties": {
+        "member": {
+          "type": "ref",
+          "description": "Current view of the member who was removed.",
+          "ref": "#systemMessageReferredUser",
+        },
+        "removedBy": {"type": "ref", "ref": "#systemMessageReferredUser"},
+      },
+    },
+    "systemMessageDataMemberJoin": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user joined the group convo via join link.",
+      "required": ["member", "role"],
+      "properties": {
+        "member": {
+          "type": "ref",
+          "description": "Current view of the member who joined.",
+          "ref": "#systemMessageReferredUser",
+        },
+        "role": {
+          "type": "ref",
+          "description":
+              "Role the user was added to the group with. The role from 'member' will reflect the current data, not historical.",
+          "ref": "chat.bsky.actor.defs#memberRole",
+        },
+        "approvedBy": {
+          "type": "ref",
+          "description":
+              "If join link was configured to require approval, this will be set to who approved the request. Undefined if approval was not required.",
+          "ref": "#systemMessageReferredUser",
+        },
+      },
+    },
+    "systemMessageDataMemberLeave": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user voluntarily left the group convo.",
+      "required": ["member"],
+      "properties": {
+        "member": {
+          "type": "ref",
+          "description": "Current view of the member who left the group.",
+          "ref": "#systemMessageReferredUser",
+        },
+      },
+    },
+    "systemMessageDataLockConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group convo was locked.",
+      "required": ["lockedBy"],
+      "properties": {
+        "lockedBy": {
+          "type": "ref",
+          "description": "Current view of the member who locked the group.",
+          "ref": "#systemMessageReferredUser",
+        },
+      },
+    },
+    "systemMessageDataUnlockConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group convo was unlocked.",
+      "required": ["unlockedBy"],
+      "properties": {
+        "unlockedBy": {
+          "type": "ref",
+          "description": "Current view of the member who unlocked the group.",
+          "ref": "#systemMessageReferredUser",
+        },
+      },
+    },
+    "systemMessageDataLockConvoPermanently": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group convo was locked permanently.",
+      "required": ["lockedBy"],
+      "properties": {
+        "lockedBy": {
+          "type": "ref",
+          "description": "Current view of the member who locked the group.",
+          "ref": "#systemMessageReferredUser",
+        },
+      },
+    },
+    "systemMessageDataEditGroup": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group info was edited.",
+      "properties": {
+        "oldName": {
+          "type": "string",
+          "description": "Group name that was replaced.",
+        },
+        "newName": {
+          "type": "string",
+          "description": "Group name that replaced the old.",
+        },
+      },
+    },
+    "systemMessageDataCreateJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group join link was created.",
+      "properties": {},
+    },
+    "systemMessageDataEditJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group join link was edited.",
+      "properties": {},
+    },
+    "systemMessageDataEnableJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group join link was enabled.",
+      "properties": {},
+    },
+    "systemMessageDataDisableJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group join link was disabled.",
+      "properties": {},
+    },
     "deletedMessageView": {
       "type": "object",
       "required": ["id", "rev", "sender", "sentAt"],
@@ -12783,6 +12908,8 @@ const chatBskyConvoDefs = <String, dynamic>{
         "rev": {"type": "string"},
         "members": {
           "type": "array",
+          "description":
+              "Members of this conversation. For direct convos, it will be an immutable list of the 2 members. For group convos, it will a list of important members (the first few members, the viewer, the member who added the viewer, the member who sent the last message, the member who sent the last reaction), but will not contain the full list of members. Use chat.bsky.convo.getConvoMembers to list all members.",
           "items": {
             "type": "ref",
             "ref": "chat.bsky.actor.defs#profileViewBasic",
@@ -12790,7 +12917,7 @@ const chatBskyConvoDefs = <String, dynamic>{
         },
         "lastMessage": {
           "type": "union",
-          "refs": ["#messageView", "#deletedMessageView"],
+          "refs": ["#messageView", "#deletedMessageView", "#systemMessageView"],
         },
         "lastReaction": {
           "type": "union",
@@ -12798,14 +12925,56 @@ const chatBskyConvoDefs = <String, dynamic>{
         },
         "muted": {"type": "boolean"},
         "status": {
-          "type": "string",
-          "knownValues": ["request", "accepted"],
+          "type": "ref",
+          "description":
+              "Convo status for the viewer member (not the convo itself).",
+          "ref": "#convoStatus",
         },
         "unreadCount": {"type": "integer"},
+        "kind": {
+          "type": "union",
+          "description":
+              "Union field that has data specific to different kinds of convos.",
+          "refs": ["#directConvo", "#groupConvo"],
+        },
+      },
+    },
+    "directConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here].",
+      "properties": {},
+    },
+    "groupConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here].",
+      "required": ["name", "lockStatus", "memberCount", "createdAt"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The display name of the group conversation.",
+          "maxLength": 1280,
+          "maxGraphemes": 128,
+        },
+        "memberCount": {
+          "type": "integer",
+          "description":
+              "The total number of members in the group conversation.",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "joinLink": {"type": "ref", "ref": "chat.bsky.group.defs#joinLinkView"},
+        "lockStatus": {
+          "type": "ref",
+          "description": "The lock status of the conversation.",
+          "ref": "#convoLockStatus",
+        },
       },
     },
     "logBeginConvo": {
       "type": "object",
+      "description":
+          "Event indicating a convo containing the viewer was started. Can be direct or group. When a member is added to a group convo, they also get this event.",
       "required": ["rev", "convoId"],
       "properties": {
         "rev": {"type": "string"},
@@ -12814,6 +12983,8 @@ const chatBskyConvoDefs = <String, dynamic>{
     },
     "logAcceptConvo": {
       "type": "object",
+      "description":
+          "Event indicating the viewer accepted a convo, and it can be moved out of the request inbox. Can be direct or group.",
       "required": ["rev", "convoId"],
       "properties": {
         "rev": {"type": "string"},
@@ -12822,6 +12993,8 @@ const chatBskyConvoDefs = <String, dynamic>{
     },
     "logLeaveConvo": {
       "type": "object",
+      "description":
+          "Event indicating the viewer left a convo. Can be direct or group.",
       "required": ["rev", "convoId"],
       "properties": {
         "rev": {"type": "string"},
@@ -12830,6 +13003,8 @@ const chatBskyConvoDefs = <String, dynamic>{
     },
     "logMuteConvo": {
       "type": "object",
+      "description":
+          "Event indicating the viewer muted a convo. Can be direct or group.",
       "required": ["rev", "convoId"],
       "properties": {
         "rev": {"type": "string"},
@@ -12838,6 +13013,8 @@ const chatBskyConvoDefs = <String, dynamic>{
     },
     "logUnmuteConvo": {
       "type": "object",
+      "description":
+          "Event indicating the viewer unmuted a convo. Can be direct or group.",
       "required": ["rev", "convoId"],
       "properties": {
         "rev": {"type": "string"},
@@ -12846,6 +13023,8 @@ const chatBskyConvoDefs = <String, dynamic>{
     },
     "logCreateMessage": {
       "type": "object",
+      "description":
+          "Event indicating a user-originated message was created. Is not emitted for system messages.",
       "required": ["rev", "convoId", "message"],
       "properties": {
         "rev": {"type": "string"},
@@ -12854,10 +13033,21 @@ const chatBskyConvoDefs = <String, dynamic>{
           "type": "union",
           "refs": ["#messageView", "#deletedMessageView"],
         },
+        "relatedProfiles": {
+          "type": "array",
+          "description":
+              "Profiles referred to in the message view. This isn't required for compatibility, because it was added later, but should generally be present.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
+          },
+        },
       },
     },
     "logDeleteMessage": {
       "type": "object",
+      "description":
+          "Event indicating a user-originated message was deleted. Is not emitted for system messages.",
       "required": ["rev", "convoId", "message"],
       "properties": {
         "rev": {"type": "string"},
@@ -12870,18 +13060,21 @@ const chatBskyConvoDefs = <String, dynamic>{
     },
     "logReadMessage": {
       "type": "object",
+      "description":
+          "DEPRECATED: use logReadConvo instead. Event indicating a convo was read up to a certain message.",
       "required": ["rev", "convoId", "message"],
       "properties": {
         "rev": {"type": "string"},
         "convoId": {"type": "string"},
         "message": {
           "type": "union",
-          "refs": ["#messageView", "#deletedMessageView"],
+          "refs": ["#messageView", "#deletedMessageView", "#systemMessageView"],
         },
       },
     },
     "logAddReaction": {
       "type": "object",
+      "description": "Event indicating a reaction was added to a message.",
       "required": ["rev", "convoId", "message", "reaction"],
       "properties": {
         "rev": {"type": "string"},
@@ -12891,10 +13084,20 @@ const chatBskyConvoDefs = <String, dynamic>{
           "refs": ["#messageView", "#deletedMessageView"],
         },
         "reaction": {"type": "ref", "ref": "#reactionView"},
+        "relatedProfiles": {
+          "type": "array",
+          "description":
+              "Profiles referred in the message and reaction views. This isn't required for compatibility, because it was added later, but should generally be present.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
+          },
+        },
       },
     },
     "logRemoveReaction": {
       "type": "object",
+      "description": "Event indicating a reaction was removed from a message.",
       "required": ["rev", "convoId", "message", "reaction"],
       "properties": {
         "rev": {"type": "string"},
@@ -12904,180 +13107,332 @@ const chatBskyConvoDefs = <String, dynamic>{
           "refs": ["#messageView", "#deletedMessageView"],
         },
         "reaction": {"type": "ref", "ref": "#reactionView"},
-      },
-    },
-  },
-};
-
-/// `chat.bsky.convo.unmuteConvo`
-const chatBskyConvoUnmuteConvo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.unmuteConvo",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId"],
-          "properties": {
-            "convoId": {"type": "string"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convo"],
-          "properties": {
-            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+        "relatedProfiles": {
+          "type": "array",
+          "description":
+              "Profiles referred in the message and reaction views. This isn't required for compatibility, because it was added later, but should generally be present.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
           },
         },
       },
     },
-  },
-};
-
-/// `chat.bsky.convo.listConvos`
-const chatBskyConvoListConvos = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.listConvos",
-  "defs": {
-    "main": {
-      "type": "query",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-          "readState": {
-            "type": "string",
-            "knownValues": ["unread"],
-          },
-          "status": {
-            "type": "string",
-            "knownValues": ["request", "accepted"],
-          },
+    "logReadConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a convo was read up to a certain message.",
+      "required": ["rev", "convoId", "message"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "union",
+          "refs": ["#messageView", "#deletedMessageView", "#systemMessageView"],
         },
       },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convos"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "convos": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
-            },
+    },
+    "logAddMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a member was added to a group convo. The member who was added gets a logBeginConvo (to create the convo) but also a logAddMember (to show the system message as the first message the user sees).",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataAddMember",
+          "ref": "#systemMessageView",
+        },
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
           },
         },
       },
     },
-  },
-};
-
-/// `chat.bsky.convo.leaveConvo`
-const chatBskyConvoLeaveConvo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.leaveConvo",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId"],
-          "properties": {
-            "convoId": {"type": "string"},
-          },
+    "logRemoveMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a member was removed from a group convo. The member who was removed gets a logLeaveConvo (to leave the convo) but not a logRemoveMember (because they already left, so can't see the system message).",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataRemoveMember",
+          "ref": "#systemMessageView",
         },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId", "rev"],
-          "properties": {
-            "convoId": {"type": "string"},
-            "rev": {"type": "string"},
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
           },
         },
       },
     },
-  },
-};
-
-/// `chat.bsky.convo.acceptConvo`
-const chatBskyConvoAcceptConvo = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.acceptConvo",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId"],
-          "properties": {
-            "convoId": {"type": "string"},
-          },
+    "logMemberJoin": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a member joined a group convo via join link. The member who was added gets a logBeginConvo (to create the convo) but also a logMemberJoin (to show the system message as the first message the user sees).",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataMemberJoin",
+          "ref": "#systemMessageView",
         },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "rev": {
-              "type": "string",
-              "description":
-                  "Rev when the convo was accepted. If not present, the convo was already accepted.",
-            },
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
           },
         },
       },
     },
-  },
-};
-
-/// `chat.bsky.convo.updateRead`
-const chatBskyConvoUpdateRead = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.convo.updateRead",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convoId"],
-          "properties": {
-            "convoId": {"type": "string"},
-            "messageId": {"type": "string"},
+    "logMemberLeave": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a member voluntarily left a group convo. The member who was removed gets a logLeaveConvo (to leave the convo) but not a logMemberLeave (because they already left, so can't see the system message).",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataMemberLeave",
+          "ref": "#systemMessageView",
+        },
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
           },
         },
       },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["convo"],
-          "properties": {
-            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+    },
+    "logLockConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a group convo was locked.",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataLockConvo",
+          "ref": "#systemMessageView",
+        },
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
           },
         },
+      },
+    },
+    "logUnlockConvo": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a group convo was unlocked.",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataUnlockConvo",
+          "ref": "#systemMessageView",
+        },
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
+          },
+        },
+      },
+    },
+    "logLockConvoPermanently": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a group convo was locked permanently.",
+      "required": ["rev", "convoId", "message", "relatedProfiles"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataLockConvoPermanently",
+          "ref": "#systemMessageView",
+        },
+        "relatedProfiles": {
+          "type": "array",
+          "description": "Profiles referred in the system message.",
+          "items": {
+            "type": "ref",
+            "ref": "chat.bsky.actor.defs#profileViewBasic",
+          },
+        },
+      },
+    },
+    "logEditGroup": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating info about group convo was edited.",
+      "required": ["rev", "convoId", "message"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataEditGroup",
+          "ref": "#systemMessageView",
+        },
+      },
+    },
+    "logCreateJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join link was created for a group convo.",
+      "required": ["rev", "convoId", "message"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataCreateJoinLink",
+          "ref": "#systemMessageView",
+        },
+      },
+    },
+    "logEditJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a settings about a join link for a group convo were edited.",
+      "required": ["rev", "convoId", "message"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataEditJoinLink",
+          "ref": "#systemMessageView",
+        },
+      },
+    },
+    "logEnableJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join link was enabled for a group convo.",
+      "required": ["rev", "convoId", "message"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataEnableJoinLink",
+          "ref": "#systemMessageView",
+        },
+      },
+    },
+    "logDisableJoinLink": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join link was disabled for a group convo.",
+      "required": ["rev", "convoId", "message"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "message": {
+          "type": "ref",
+          "description":
+              "A system message with data of type #systemMessageDataDisableJoinLink",
+          "ref": "#systemMessageView",
+        },
+      },
+    },
+    "logIncomingJoinRequest": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made to a group the viewer owns. Only the owner gets this.",
+      "required": ["rev", "convoId", "member"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "member": {
+          "type": "ref",
+          "description": "Prospective member who requested to join.",
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+        },
+      },
+    },
+    "logApproveJoinRequest": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was approved by the viewer. Only the owner gets this. The approved member gets a logBeginConvo.",
+      "required": ["rev", "convoId", "member"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "member": {
+          "type": "ref",
+          "description": "Prospective member who requested to join.",
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+        },
+      },
+    },
+    "logRejectJoinRequest": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was rejected by the viewer. Only the owner gets this.",
+      "required": ["rev", "convoId", "member"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
+        "member": {
+          "type": "ref",
+          "description": "Prospective member who requested to join.",
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+        },
+      },
+    },
+    "logOutgoingJoinRequest": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made by the viewer.",
+      "required": ["rev", "convoId"],
+      "properties": {
+        "rev": {"type": "string"},
+        "convoId": {"type": "string"},
       },
     },
   },
@@ -13091,7 +13446,7 @@ const chatBskyConvoGetConvoAvailability = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Get whether the requester and the other members can chat. If an existing convo is found for these members, it is returned.",
+          "Check whether the requester and the other members can start a 1-1 chat. Only applicable to direct (non-group) conversations. If an existing convo is found for these members, it is returned. Does not create a new convo if it doesn't exist.",
       "parameters": {
         "type": "params",
         "required": ["members"],
@@ -13119,6 +13474,615 @@ const chatBskyConvoGetConvoAvailability = <String, dynamic>{
   },
 };
 
+/// `chat.bsky.convo.lockConvo`
+const chatBskyConvoLockConvo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.lockConvo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Locks a group convo so no more content (messages, reactions) can be added to it.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "ConvoLocked"},
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.listConvoRequests`
+const chatBskyConvoListConvoRequests = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.listConvoRequests",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of incoming conversation requests for the user. Direct convo requests are returned as convoView; group join requests are returned as joinRequestView.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["requests"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "requests": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "chat.bsky.convo.defs#convoView",
+                  "chat.bsky.group.defs#joinRequestView",
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `chat.bsky.convo.getLog`
+const chatBskyConvoGetLog = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.getLog",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "required": [],
+        "properties": {
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["logs"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "logs": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "chat.bsky.convo.defs#logBeginConvo",
+                  "chat.bsky.convo.defs#logAcceptConvo",
+                  "chat.bsky.convo.defs#logLeaveConvo",
+                  "chat.bsky.convo.defs#logMuteConvo",
+                  "chat.bsky.convo.defs#logUnmuteConvo",
+                  "chat.bsky.convo.defs#logCreateMessage",
+                  "chat.bsky.convo.defs#logDeleteMessage",
+                  "chat.bsky.convo.defs#logReadMessage",
+                  "chat.bsky.convo.defs#logAddReaction",
+                  "chat.bsky.convo.defs#logRemoveReaction",
+                  "chat.bsky.convo.defs#logReadConvo",
+                  "chat.bsky.convo.defs#logAddMember",
+                  "chat.bsky.convo.defs#logRemoveMember",
+                  "chat.bsky.convo.defs#logMemberJoin",
+                  "chat.bsky.convo.defs#logMemberLeave",
+                  "chat.bsky.convo.defs#logLockConvo",
+                  "chat.bsky.convo.defs#logUnlockConvo",
+                  "chat.bsky.convo.defs#logLockConvoPermanently",
+                  "chat.bsky.convo.defs#logEditGroup",
+                  "chat.bsky.convo.defs#logCreateJoinLink",
+                  "chat.bsky.convo.defs#logEditJoinLink",
+                  "chat.bsky.convo.defs#logEnableJoinLink",
+                  "chat.bsky.convo.defs#logDisableJoinLink",
+                  "chat.bsky.convo.defs#logIncomingJoinRequest",
+                  "chat.bsky.convo.defs#logApproveJoinRequest",
+                  "chat.bsky.convo.defs#logRejectJoinRequest",
+                  "chat.bsky.convo.defs#logOutgoingJoinRequest",
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `chat.bsky.convo.sendMessage`
+const chatBskyConvoSendMessage = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.sendMessage",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Sends a message to a conversation.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "message"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "message": {
+              "type": "ref",
+              "ref": "chat.bsky.convo.defs#messageInput",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "chat.bsky.convo.defs#messageView"},
+      },
+      "errors": [
+        {"name": "ConvoLocked"},
+        {"name": "InvalidConvo"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.leaveConvo`
+const chatBskyConvoLeaveConvo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.leaveConvo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Leaves a conversation (direct or group). For group, this effectively removes membership. For direct, membership is never removed, only changed to remove from enumerations by the user who left.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "rev"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "rev": {"type": "string"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {
+          "name": "OwnerCannotLeave",
+          "description":
+              "The owner of a group conversation cannot leave before locking the group.",
+        },
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.unlockConvo`
+const chatBskyConvoUnlockConvo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.unlockConvo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Unlocks a group convo so it is able to receive new content.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.addReaction`
+const chatBskyConvoAddReaction = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.addReaction",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Adds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "messageId", "value"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "messageId": {"type": "string"},
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "minGraphemes": 1,
+              "maxGraphemes": 1,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["message"],
+          "properties": {
+            "message": {
+              "type": "ref",
+              "ref": "chat.bsky.convo.defs#messageView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {
+          "name": "ReactionNotAllowed",
+          "description":
+              "Indicates that reactions are not allowed on this message, e.g. because it is a system message.",
+        },
+        {
+          "name": "ReactionMessageDeleted",
+          "description":
+              "Indicates that the message has been deleted and reactions can no longer be added/removed.",
+        },
+        {
+          "name": "ReactionLimitReached",
+          "description":
+              "Indicates that the message has the maximum number of reactions allowed for a single user, and the requested reaction wasn't yet present. If it was already present, the request will not fail since it is idempotent.",
+        },
+        {
+          "name": "ReactionInvalidValue",
+          "description":
+              "Indicates the value for the reaction is not acceptable. In general, this means it is not an emoji.",
+        },
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.acceptConvo`
+const chatBskyConvoAcceptConvo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.acceptConvo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Marks a conversation as accepted, so it is shown in the list of accepted convos instead on the request convos.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rev": {
+              "type": "string",
+              "description":
+                  "Rev when the convo was accepted. If not present, the convo was already accepted.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.muteConvo`
+const chatBskyConvoMuteConvo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.muteConvo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Mutes a conversation, preventing notifications related to it.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.deleteMessageForSelf`
+const chatBskyConvoDeleteMessageForSelf = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.deleteMessageForSelf",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Marks a message as deleted for the viewer, so they won't see that message in future enumerations.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "messageId"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "messageId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "chat.bsky.convo.defs#deletedMessageView",
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {
+          "name": "MessageDeleteNotAllowed",
+          "description":
+              "Indicates that this message cannot be deleted, e.g. because it is a system message.",
+        },
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.removeReaction`
+const chatBskyConvoRemoveReaction = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.removeReaction",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "messageId", "value"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "messageId": {"type": "string"},
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "minGraphemes": 1,
+              "maxGraphemes": 1,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["message"],
+          "properties": {
+            "message": {
+              "type": "ref",
+              "ref": "chat.bsky.convo.defs#messageView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {
+          "name": "ReactionNotAllowed",
+          "description":
+              "Indicates that reactions are not allowed on this message, e.g. because it is a system message.",
+        },
+        {
+          "name": "ReactionMessageDeleted",
+          "description":
+              "Indicates that the message has been deleted and reactions can no longer be added/removed.",
+        },
+        {
+          "name": "ReactionInvalidValue",
+          "description":
+              "Indicates the value for the reaction is not acceptable. In general, this means it is not an emoji.",
+        },
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.updateRead`
+const chatBskyConvoUpdateRead = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.updateRead",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Updates the read state of a conversation from, optionally specifying the last read message.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "messageId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.updateAllRead`
+const chatBskyConvoUpdateAllRead = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.updateAllRead",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Sets conversations from a user as read to the latest message, with filters.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "knownValues": ["request", "accepted"],
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["updatedCount"],
+          "properties": {
+            "updatedCount": {
+              "type": "integer",
+              "description": "The count of updated convos.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `chat.bsky.convo.getConvo`
+const chatBskyConvoGetConvo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.getConvo",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Gets an existing conversation by its ID.",
+      "parameters": {
+        "type": "params",
+        "required": ["convoId"],
+        "properties": {
+          "convoId": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
+    },
+  },
+};
+
 /// `chat.bsky.convo.getMessages`
 const chatBskyConvoGetMessages = <String, dynamic>{
   "lexicon": 1,
@@ -13126,6 +14090,7 @@ const chatBskyConvoGetMessages = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
+      "description": "Returns a page of messages from a conversation.",
       "parameters": {
         "type": "params",
         "required": ["convoId"],
@@ -13154,77 +14119,1501 @@ const chatBskyConvoGetMessages = <String, dynamic>{
                 "refs": [
                   "chat.bsky.convo.defs#messageView",
                   "chat.bsky.convo.defs#deletedMessageView",
+                  "chat.bsky.convo.defs#systemMessageView",
                 ],
+              },
+            },
+            "relatedProfiles": {
+              "type": "array",
+              "description":
+                  "Set of all members who authored or reacted to the returned messages. Members referred to by system messages are also included.",
+              "items": {
+                "type": "ref",
+                "ref": "chat.bsky.actor.defs#profileViewBasic",
               },
             },
           },
         },
       },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
     },
   },
 };
 
-/// `chat.bsky.moderation.updateActorAccess`
-const chatBskyModerationUpdateActorAccess = <String, dynamic>{
+/// `chat.bsky.convo.getConvoForMembers`
+const chatBskyConvoGetConvoForMembers = <String, dynamic>{
   "lexicon": 1,
-  "id": "chat.bsky.moderation.updateActorAccess",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actor", "allowAccess"],
-          "properties": {
-            "actor": {"type": "string", "format": "did"},
-            "allowAccess": {"type": "boolean"},
-            "ref": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `chat.bsky.moderation.getMessageContext`
-const chatBskyModerationGetMessageContext = <String, dynamic>{
-  "lexicon": 1,
-  "id": "chat.bsky.moderation.getMessageContext",
+  "id": "chat.bsky.convo.getConvoForMembers",
   "defs": {
     "main": {
       "type": "query",
+      "description":
+          "Get or create a 1-1 conversation for the given members. Always returns the same direct (non-group) conversation. To create a group conversation, use createGroup.",
       "parameters": {
         "type": "params",
-        "required": ["messageId"],
+        "required": ["members"],
         "properties": {
-          "convoId": {
-            "type": "string",
-            "description":
-                "Conversation that the message is from. NOTE: this field will eventually be required.",
+          "members": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+            "minLength": 1,
+            "maxLength": 10,
           },
-          "messageId": {"type": "string"},
-          "before": {"type": "integer", "default": 5},
-          "after": {"type": "integer", "default": 5},
         },
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["messages"],
+          "required": ["convo"],
           "properties": {
-            "messages": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountSuspended"},
+        {"name": "BlockedActor"},
+        {"name": "MessagesDisabled"},
+        {"name": "NotFollowedBySender"},
+        {"name": "RecipientNotFound"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.getConvoMembers`
+const chatBskyConvoGetConvoMembers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.getConvoMembers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Returns a paginated list of members from a conversation.",
+      "parameters": {
+        "type": "params",
+        "required": ["convoId"],
+        "properties": {
+          "convoId": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["members"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "members": {
               "type": "array",
               "items": {
-                "type": "union",
-                "refs": [
-                  "chat.bsky.convo.defs#messageView",
-                  "chat.bsky.convo.defs#deletedMessageView",
-                ],
+                "type": "ref",
+                "ref": "chat.bsky.actor.defs#profileViewBasic",
               },
             },
           },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.convo.sendMessageBatch`
+const chatBskyConvoSendMessageBatch = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.convo.sendMessageBatch",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Sends a batch of messages to a conversation.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#batchItem"},
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "chat.bsky.convo.defs#messageView",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "ConvoLocked"},
+        {"name": "InvalidConvo"},
+      ],
+    },
+    "batchItem": {
+      "type": "object",
+      "required": ["convoId", "message"],
+      "properties": {
+        "convoId": {"type": "string"},
+        "message": {"type": "ref", "ref": "chat.bsky.convo.defs#messageInput"},
+      },
+    },
+  },
+};
+
+/// `chat.bsky.group.approveJoinRequest`
+const chatBskyGroupApproveJoinRequest = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.approveJoinRequest",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Approves a request to join a group (via join link) the user owns. Action taken by the group owner.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "member"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "member": {"type": "string", "format": "did"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+        {"name": "MemberLimitReached"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.defs`
+const chatBskyGroupDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.defs",
+  "description":
+      "[NOTE: This is under active development and should be considered unstable while this note is here].",
+  "defs": {
+    "linkEnabledStatus": {
+      "type": "string",
+      "knownValues": ["enabled", "disabled"],
+    },
+    "joinRule": {
+      "type": "string",
+      "knownValues": ["anyone", "followedByOwner"],
+    },
+    "joinLinkView": {
+      "type": "object",
+      "required": [
+        "code",
+        "enabledStatus",
+        "requireApproval",
+        "joinRule",
+        "createdAt",
+      ],
+      "properties": {
+        "code": {"type": "string"},
+        "enabledStatus": {"type": "ref", "ref": "#linkEnabledStatus"},
+        "requireApproval": {"type": "boolean"},
+        "joinRule": {"type": "ref", "ref": "#joinRule"},
+        "createdAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "joinLinkPreviewView": {
+      "type": "object",
+      "required": ["name", "owner", "memberCount", "requireApproval"],
+      "properties": {
+        "name": {"type": "string"},
+        "owner": {
+          "type": "ref",
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+        },
+        "memberCount": {"type": "integer"},
+        "requireApproval": {"type": "boolean"},
+        "convo": {
+          "type": "ref",
+          "description":
+              "Present only if the request is authenticated and the user is a member of the group.",
+          "ref": "chat.bsky.convo.defs#convoView",
+        },
+      },
+    },
+    "joinRequestView": {
+      "type": "object",
+      "required": ["convoId", "requestedBy", "requestedAt"],
+      "properties": {
+        "convoId": {"type": "string"},
+        "requestedBy": {
+          "type": "ref",
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+        },
+        "requestedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `chat.bsky.group.editGroup`
+const chatBskyGroupEditGroup = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.editGroup",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Edits group settings.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "name"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1280,
+              "maxGraphemes": 128,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "ConvoLocked"},
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.removeMembers`
+const chatBskyGroupRemoveMembers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.removeMembers",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Removes members from a group. This deletes convo memberships, doesn't just set a status.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "members"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "members": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+              "minLength": 1,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.requestJoin`
+const chatBskyGroupRequestJoin = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.requestJoin",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Sends a request to join a group (via join link) to the group owner. Action taken by the prospective group member.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["code"],
+          "properties": {
+            "code": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "knownValues": ["joined", "pending"],
+            },
+            "convo": {
+              "type": "ref",
+              "description":
+                  "The group convo joined. This is only present in the case of status=joined",
+              "ref": "chat.bsky.convo.defs#convoView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "ConvoLocked"},
+        {"name": "FollowRequired"},
+        {"name": "InvalidCode"},
+        {"name": "LinkDisabled"},
+        {"name": "MemberLimitReached"},
+        {"name": "UserKicked"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.getJoinLinkPreview`
+const chatBskyGroupGetJoinLinkPreview = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.getJoinLinkPreview",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about a group from an join link.",
+      "parameters": {
+        "type": "params",
+        "required": ["code"],
+        "properties": {
+          "code": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["joinLinkPreview"],
+          "properties": {
+            "joinLinkPreview": {
+              "type": "ref",
+              "ref": "chat.bsky.group.defs#joinLinkPreviewView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidCode"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.editJoinLink`
+const chatBskyGroupEditJoinLink = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.editJoinLink",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Edits the existing join link settings for the group convo.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "requireApproval": {"type": "boolean"},
+            "joinRule": {"type": "ref", "ref": "chat.bsky.group.defs#joinRule"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["joinLink"],
+          "properties": {
+            "joinLink": {
+              "type": "ref",
+              "ref": "chat.bsky.group.defs#joinLinkView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+        {"name": "NoJoinLink"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.addMembers`
+const chatBskyGroupAddMembers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.addMembers",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Adds members to a group. The members are added in 'request' status, so they have to accept it. This creates convo memberships.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "members"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "members": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+              "minLength": 1,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+            "addedMembers": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "chat.bsky.actor.defs#profileViewBasic",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountSuspended"},
+        {"name": "BlockedActor"},
+        {"name": "UserForbidsGroups"},
+        {"name": "ConvoLocked"},
+        {"name": "InsufficientRole"},
+        {"name": "InvalidConvo"},
+        {"name": "MemberLimitReached"},
+        {"name": "NotFollowedBySender"},
+        {"name": "RecipientNotFound"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.listJoinRequests`
+const chatBskyGroupListJoinRequests = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.listJoinRequests",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Lists a page of request to join a group (via join link) the user owns. Shows the data from the owner's point of view.",
+      "parameters": {
+        "type": "params",
+        "required": ["convoId"],
+        "properties": {
+          "convoId": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["requests"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "requests": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "chat.bsky.group.defs#joinRequestView",
+              },
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.disableJoinLink`
+const chatBskyGroupDisableJoinLink = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.disableJoinLink",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Disables the active join link for the group convo.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["joinLink"],
+          "properties": {
+            "joinLink": {
+              "type": "ref",
+              "ref": "chat.bsky.group.defs#joinLinkView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+        {"name": "NoJoinLink"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.createJoinLink`
+const chatBskyGroupCreateJoinLink = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.createJoinLink",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Creates a join link for the group convo.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "joinRule"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "requireApproval": {"type": "boolean", "default": false},
+            "joinRule": {"type": "ref", "ref": "chat.bsky.group.defs#joinRule"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["joinLink"],
+          "properties": {
+            "joinLink": {
+              "type": "ref",
+              "ref": "chat.bsky.group.defs#joinLinkView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "EnabledJoinLinkAlreadyExists"},
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.rejectJoinRequest`
+const chatBskyGroupRejectJoinRequest = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.rejectJoinRequest",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Rejects a request to join a group (via join link) the user owns. Action taken by the group owner.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId", "member"],
+          "properties": {
+            "convoId": {"type": "string"},
+            "member": {"type": "string", "format": "did"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "required": [], "properties": {}},
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.enableJoinLink`
+const chatBskyGroupEnableJoinLink = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.enableJoinLink",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Re-enables a previously disabled join link for the group convo.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convoId"],
+          "properties": {
+            "convoId": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["joinLink"],
+          "properties": {
+            "joinLink": {
+              "type": "ref",
+              "ref": "chat.bsky.group.defs#joinLinkView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "InvalidConvo"},
+        {"name": "InsufficientRole"},
+        {"name": "NoJoinLink"},
+        {"name": "LinkAlreadyEnabled"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.group.createGroup`
+const chatBskyGroupCreateGroup = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.createGroup",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Creates a group convo, specifying the members to be added to it. Unlike getConvoForMembers, this isn't idempotent. It will create new groups even if the membership is identical to pre-existing groups. Will create 'pending' membership for all members, except the owner who is 'accepted'.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["members", "name"],
+          "properties": {
+            "members": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"},
+              "maxLength": 49,
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1280,
+              "maxGraphemes": 128,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convo"],
+          "properties": {
+            "convo": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+          },
+        },
+      },
+      "errors": [
+        {"name": "AccountSuspended"},
+        {"name": "BlockedActor"},
+        {"name": "UserForbidsGroups"},
+        {"name": "NotFollowedBySender"},
+        {"name": "RecipientNotFound"},
+      ],
+    },
+  },
+};
+
+/// `chat.bsky.actor.defs`
+const chatBskyActorDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.actor.defs",
+  "defs": {
+    "memberRole": {
+      "type": "string",
+      "knownValues": ["owner", "standard"],
+    },
+    "profileViewBasic": {
+      "type": "object",
+      "required": ["did", "handle"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "handle": {"type": "string", "format": "handle"},
+        "displayName": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+        "avatar": {"type": "string", "format": "uri"},
+        "associated": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileAssociated",
+        },
+        "viewer": {"type": "ref", "ref": "app.bsky.actor.defs#viewerState"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "chatDisabled": {
+          "type": "boolean",
+          "description":
+              "Set to true when the actor cannot actively participate in conversations",
+        },
+        "verification": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#verificationState",
+        },
+        "kind": {
+          "type": "union",
+          "description":
+              "Union field that has data specific to different kinds of convos.",
+          "refs": [
+            "#directConvoMember",
+            "#groupConvoMember",
+            "#pastGroupConvoMember",
+          ],
+        },
+      },
+    },
+    "directConvoMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here].",
+      "properties": {},
+    },
+    "groupConvoMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. A current group convo member.",
+      "required": ["role"],
+      "properties": {
+        "addedBy": {
+          "type": "ref",
+          "description":
+              "Who added this member. Only present if the member was added (instead of joining via link).",
+          "ref": "#profileViewBasic",
+        },
+        "role": {
+          "type": "ref",
+          "description":
+              "The member's role within this conversation. Only present in group conversation member lists.",
+          "ref": "#memberRole",
+        },
+      },
+    },
+    "pastGroupConvoMember": {
+      "type": "object",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. A past group convo member.",
+      "required": [],
+      "properties": {},
+    },
+  },
+};
+
+/// `chat.bsky.actor.declaration`
+const chatBskyActorDeclaration = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.actor.declaration",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A declaration of a Bluesky chat account.",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": ["allowIncoming"],
+        "properties": {
+          "allowIncoming": {
+            "type": "string",
+            "knownValues": ["all", "none", "following"],
+          },
+          "allowGroupInvites": {
+            "type": "string",
+            "description":
+                "[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.",
+            "knownValues": ["all", "none", "following"],
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `chat.bsky.actor.exportAccountData`
+const chatBskyActorExportAccountData = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.actor.exportAccountData",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {"encoding": "application/jsonl"},
+    },
+  },
+};
+
+/// `chat.bsky.actor.deleteAccount`
+const chatBskyActorDeleteAccount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.actor.deleteAccount",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+    },
+  },
+};
+
+/// `chat.bsky.moderation.subscribeModEvents`
+const chatBskyModerationSubscribeModEvents = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.moderation.subscribeModEvents",
+  "defs": {
+    "main": {
+      "type": "subscription",
+      "description":
+          "Subscribe to stream of chat events targeted to moderation. Private endpoint.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "description":
+                "The last known event seq number to backfill from. Use '2222222222222' to backfill from the beginning. Don't specify a cursor to listen only for new events.",
+          },
+        },
+      },
+      "message": {
+        "schema": {
+          "type": "union",
+          "refs": [
+            "#eventConvoFirstMessage",
+            "#eventGroupChatCreated",
+            "#eventGroupChatMemberAdded",
+            "#eventGroupChatMemberJoined",
+            "#eventGroupChatJoinRequest",
+            "#eventGroupChatJoinRequestApproved",
+            "#eventGroupChatJoinRequestRejected",
+            "#eventChatAccepted",
+            "#eventGroupChatMemberLeft",
+            "#eventGroupChatUpdated",
+          ],
+        },
+      },
+      "errors": [
+        {"name": "FutureCursor"},
+        {
+          "name": "ConsumerTooSlow",
+          "description":
+              "If the consumer of the stream can not keep up with events, and a backlog gets too large, the server will drop the connection.",
+        },
+      ],
+    },
+    "eventConvoFirstMessage": {
+      "type": "object",
+      "description": "Fired when the first message was sent on a convo.",
+      "required": ["createdAt", "rev", "convoId", "user", "recipients"],
+      "properties": {
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "messageId": {"type": "string"},
+        "recipients": {
+          "type": "array",
+          "description":
+              "The list of DIDs message recipients. Does not include the sender, which is in the `user` field",
+          "items": {"type": "string", "format": "did"},
+        },
+        "rev": {"type": "string"},
+        "user": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the message author.",
+        },
+      },
+    },
+    "eventGroupChatCreated": {
+      "type": "object",
+      "description": "Fire when a group chat is created.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "initialMemberDids",
+        "ownerDid",
+        "rev",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "The DID of the actor performing the action. For this event, same as ownerDid.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {
+          "type": "string",
+          "description": "The name set at creation time.",
+        },
+        "initialMemberDids": {
+          "type": "array",
+          "description": "DIDs of everyone added at creation time.",
+          "items": {"type": "string", "format": "did"},
+        },
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+      },
+    },
+    "eventGroupChatMemberAdded": {
+      "type": "object",
+      "description":
+          "Fired when a member is added to a group chat. Note that members are added in the 'request' state.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "ownerDid",
+        "requestMembersCount",
+        "rev",
+        "subjectDid",
+        "subjectFollowsOwner",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "The DID of the actor performing the action. For this event, same as ownerDid.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string"},
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "requestMembersCount": {
+          "type": "integer",
+          "description":
+              "The number of members who have not yet accepted the convo.",
+        },
+        "rev": {"type": "string"},
+        "subjectDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the member who was added.",
+        },
+        "subjectFollowsOwner": {
+          "type": "boolean",
+          "description": "Whether the added member follows the group owner.",
+        },
+      },
+    },
+    "eventGroupChatMemberJoined": {
+      "type": "object",
+      "description":
+          "Fired when a member joins a group chat via an join link that does not require approval.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "joinLinkCode",
+        "ownerDid",
+        "rev",
+        "subjectFollowsOwner",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the person joining.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string"},
+        "joinLinkCode": {
+          "type": "string",
+          "description": "The code of the join link used to join.",
+        },
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+        "subjectFollowsOwner": {
+          "type": "boolean",
+          "description": "Whether the joining member follows the group owner.",
+        },
+      },
+    },
+    "eventGroupChatJoinRequest": {
+      "type": "object",
+      "description":
+          "Fired when a user requests to join a group chat via an join link that requires approval.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "joinLinkCode",
+        "ownerDid",
+        "rev",
+        "subjectFollowsOwner",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the person requesting to join.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string"},
+        "joinLinkCode": {
+          "type": "string",
+          "description": "The code of the join link used to request joining.",
+        },
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+        "subjectFollowsOwner": {
+          "type": "boolean",
+          "description":
+              "Whether the requesting member follows the group owner.",
+        },
+      },
+    },
+    "eventGroupChatJoinRequestApproved": {
+      "type": "object",
+      "description":
+          "Fired when a join request is approved by the group owner.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "ownerDid",
+        "rev",
+        "subjectDid",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the owner approving the request.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string"},
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+        "subjectDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the member whose request was approved.",
+        },
+      },
+    },
+    "eventGroupChatJoinRequestRejected": {
+      "type": "object",
+      "description":
+          "Fired when a join request is rejected by the group owner.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "ownerDid",
+        "rev",
+        "subjectDid",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the owner rejecting the request.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string"},
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+        "subjectDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the member whose request was rejected.",
+        },
+      },
+    },
+    "eventChatAccepted": {
+      "type": "object",
+      "description":
+          "Fired when a user accepts a chat convo, either explicitly or by sending a message.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "method",
+        "rev",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the person accepting the convo.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the convo was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description":
+              "Current member count at the time of the event. Only present for group convos.",
+        },
+        "groupName": {
+          "type": "string",
+          "description":
+              "The name of the group chat. Only present for group convos.",
+        },
+        "method": {
+          "type": "string",
+          "description": "How the convo was accepted.",
+          "knownValues": ["explicit", "message"],
+        },
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "The DID of the group chat owner. Only present for group convos.",
+        },
+        "rev": {"type": "string"},
+      },
+    },
+    "eventGroupChatMemberLeft": {
+      "type": "object",
+      "description":
+          "Fired when a member leaves or is removed from a group chat.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "leaveMethod",
+        "ownerDid",
+        "rev",
+        "subjectDid",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "The DID of the actor. For voluntary: the person leaving. For kicked: the owner.",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string"},
+        "leaveMethod": {
+          "type": "string",
+          "description": "How the member left.",
+          "knownValues": ["voluntary", "kicked"],
+        },
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+        "subjectDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the member who left or was removed.",
+        },
+      },
+    },
+    "eventGroupChatUpdated": {
+      "type": "object",
+      "description": "Fired when a group chat's metadata or status changes.",
+      "required": [
+        "actorDid",
+        "convoCreatedAt",
+        "convoId",
+        "createdAt",
+        "groupMemberCount",
+        "groupName",
+        "ownerDid",
+        "rev",
+        "updateType",
+      ],
+      "properties": {
+        "actorDid": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "The DID of the actor performing the action (the owner).",
+        },
+        "convoCreatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group was originally created.",
+        },
+        "convoId": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "groupMemberCount": {
+          "type": "integer",
+          "description": "Current member count at the time of the event.",
+        },
+        "groupName": {"type": "string", "description": "Current group name."},
+        "joinLinkCode": {
+          "type": "string",
+          "description":
+              "The code of the join link. Only present when updateType is join-link-related.",
+        },
+        "joinLinkFollowersOnly": {
+          "type": "boolean",
+          "description":
+              "Whether the join link is restricted to followers of the owner. Only present when updateType is join-link-related.",
+        },
+        "joinLinkRequiresApproval": {
+          "type": "boolean",
+          "description":
+              "Whether the join link requires owner approval to join. Only present when updateType is join-link-related.",
+        },
+        "lockReason": {
+          "type": "string",
+          "description":
+              "Why the group was locked. Only present when updateType is 'locked'.",
+          "knownValues": [
+            "owner_action",
+            "owner_left",
+            "owner_deactivated",
+            "owner_deleted",
+            "owner_taken_down",
+            "label_applied",
+          ],
+        },
+        "newName": {
+          "type": "string",
+          "description":
+              "The new group name. Only present when updateType is 'name_changed'.",
+        },
+        "oldName": {
+          "type": "string",
+          "description":
+              "The previous group name. Only present when updateType is 'name_changed'.",
+        },
+        "ownerDid": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the group chat owner.",
+        },
+        "rev": {"type": "string"},
+        "updateType": {
+          "type": "string",
+          "description": "What changed.",
+          "knownValues": [
+            "name_changed",
+            "locked",
+            "locked_permanently",
+            "unlocked",
+            "join_link_created",
+            "join_link_disabled",
+            "join_link_settings_changed",
+          ],
         },
       },
     },
@@ -13272,6 +15661,835 @@ const chatBskyModerationGetActorMetadata = <String, dynamic>{
         "convos": {"type": "integer"},
         "convosStarted": {"type": "integer"},
       },
+    },
+  },
+};
+
+/// `chat.bsky.moderation.getMessageContext`
+const chatBskyModerationGetMessageContext = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.moderation.getMessageContext",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "required": ["messageId"],
+        "properties": {
+          "convoId": {
+            "type": "string",
+            "description":
+                "Conversation that the message is from. NOTE: this field will eventually be required.",
+          },
+          "messageId": {"type": "string"},
+          "before": {
+            "type": "integer",
+            "description":
+                "Number of user messages before the target to include. System messages between the earliest returned user message and the target are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages before the target, up to `maxInterleavedSystemMessages` system messages immediately preceding the target are returned instead.",
+            "default": 5,
+          },
+          "after": {
+            "type": "integer",
+            "description":
+                "Number of user messages after the target to include. System messages between the target and the latest returned user message are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages after the target, up to `maxInterleavedSystemMessages` system messages immediately following the target are returned instead.",
+            "default": 5,
+          },
+          "maxInterleavedSystemMessages": {
+            "type": "integer",
+            "description":
+                "Maximum number of system messages to include per gap between consecutive returned messages (and per side when there are no user messages on that side). Within a gap, the system messages closest to the earlier message are kept.",
+            "default": 10,
+            "minimum": 0,
+            "maximum": 1000,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["messages"],
+          "properties": {
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "chat.bsky.convo.defs#messageView",
+                  "chat.bsky.convo.defs#systemMessageView",
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `chat.bsky.moderation.updateActorAccess`
+const chatBskyModerationUpdateActorAccess = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.moderation.updateActorAccess",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actor", "allowAccess"],
+          "properties": {
+            "actor": {"type": "string", "format": "did"},
+            "allowAccess": {"type": "boolean"},
+            "ref": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.signature.findCorrelation`
+const toolsOzoneSignatureFindCorrelation = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.findCorrelation",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Find all correlated threat signatures between 2 or more accounts.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["details"],
+          "properties": {
+            "details": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.signature.defs#sigDetail",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.signature.defs`
+const toolsOzoneSignatureDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.defs",
+  "defs": {
+    "sigDetail": {
+      "type": "object",
+      "required": ["property", "value"],
+      "properties": {
+        "property": {"type": "string"},
+        "value": {"type": "string"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.signature.searchAccounts`
+const toolsOzoneSignatureSearchAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.searchAccounts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Search for accounts that match one or more threat signature values.",
+      "parameters": {
+        "type": "params",
+        "required": ["values"],
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {"type": "string"},
+          },
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.signature.findRelatedAccounts`
+const toolsOzoneSignatureFindRelatedAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.findRelatedAccounts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get accounts that share some matching threat signatures with the root account.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#relatedAccount"},
+            },
+          },
+        },
+      },
+    },
+    "relatedAccount": {
+      "type": "object",
+      "required": ["account"],
+      "properties": {
+        "account": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"},
+        "similarities": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "tools.ozone.signature.defs#sigDetail",
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.server.getConfig`
+const toolsOzoneServerGetConfig = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.server.getConfig",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about ozone's server configuration.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "appview": {"type": "ref", "ref": "#serviceConfig"},
+            "pds": {"type": "ref", "ref": "#serviceConfig"},
+            "blobDivert": {"type": "ref", "ref": "#serviceConfig"},
+            "chat": {"type": "ref", "ref": "#serviceConfig"},
+            "viewer": {"type": "ref", "ref": "#viewerConfig"},
+            "verifierDid": {
+              "type": "string",
+              "format": "did",
+              "description": "The did of the verifier used for verification.",
+            },
+          },
+        },
+      },
+    },
+    "serviceConfig": {
+      "type": "object",
+      "properties": {
+        "url": {"type": "string", "format": "uri"},
+      },
+    },
+    "viewerConfig": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.team.defs#roleAdmin",
+            "tools.ozone.team.defs#roleModerator",
+            "tools.ozone.team.defs#roleTriage",
+            "tools.ozone.team.defs#roleVerifier",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.verification.revokeVerifications`
+const toolsOzoneVerificationRevokeVerifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.verification.revokeVerifications",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Revoke previously granted verifications in batches of up to 100.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uris"],
+          "properties": {
+            "uris": {
+              "type": "array",
+              "description": "Array of verification record uris to revoke",
+              "items": {
+                "type": "string",
+                "format": "at-uri",
+                "description":
+                    "The AT-URI of the verification record to revoke.",
+              },
+              "maxLength": 100,
+            },
+            "revokeReason": {
+              "type": "string",
+              "description":
+                  "Reason for revoking the verification. This is optional and can be omitted if not needed.",
+              "maxLength": 1000,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["revokedVerifications", "failedRevocations"],
+          "properties": {
+            "revokedVerifications": {
+              "type": "array",
+              "description": "List of verification uris successfully revoked",
+              "items": {"type": "string", "format": "at-uri"},
+            },
+            "failedRevocations": {
+              "type": "array",
+              "description":
+                  "List of verification uris that couldn't be revoked, including failure reasons",
+              "items": {"type": "ref", "ref": "#revokeError"},
+            },
+          },
+        },
+      },
+    },
+    "revokeError": {
+      "type": "object",
+      "description": "Error object for failed revocations",
+      "required": ["uri", "error"],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The AT-URI of the verification record that failed to revoke.",
+        },
+        "error": {
+          "type": "string",
+          "description":
+              "Description of the error that occurred during revocation.",
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.verification.defs`
+const toolsOzoneVerificationDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.verification.defs",
+  "defs": {
+    "verificationView": {
+      "type": "object",
+      "description": "Verification data for the associated subject.",
+      "required": [
+        "issuer",
+        "uri",
+        "subject",
+        "handle",
+        "displayName",
+        "createdAt",
+      ],
+      "properties": {
+        "issuer": {
+          "type": "string",
+          "format": "did",
+          "description": "The user who issued this verification.",
+        },
+        "uri": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "The AT-URI of the verification record.",
+        },
+        "subject": {
+          "type": "string",
+          "format": "did",
+          "description": "The subject of the verification.",
+        },
+        "handle": {
+          "type": "string",
+          "format": "handle",
+          "description":
+              "Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
+        },
+        "displayName": {
+          "type": "string",
+          "description":
+              "Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp when the verification was created.",
+        },
+        "revokeReason": {
+          "type": "string",
+          "description":
+              "Describes the reason for revocation, also indicating that the verification is no longer valid.",
+        },
+        "revokedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp when the verification was revoked.",
+        },
+        "revokedBy": {
+          "type": "string",
+          "format": "did",
+          "description": "The user who revoked this verification.",
+        },
+        "subjectProfile": {"type": "union", "refs": []},
+        "issuerProfile": {"type": "union", "refs": []},
+        "subjectRepo": {
+          "type": "union",
+          "refs": [
+            "tools.ozone.moderation.defs#repoViewDetail",
+            "tools.ozone.moderation.defs#repoViewNotFound",
+          ],
+        },
+        "issuerRepo": {
+          "type": "union",
+          "refs": [
+            "tools.ozone.moderation.defs#repoViewDetail",
+            "tools.ozone.moderation.defs#repoViewNotFound",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.verification.grantVerifications`
+const toolsOzoneVerificationGrantVerifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.verification.grantVerifications",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["verifications"],
+          "properties": {
+            "verifications": {
+              "type": "array",
+              "description": "Array of verification requests to process",
+              "items": {"type": "ref", "ref": "#verificationInput"},
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["verifications", "failedVerifications"],
+          "properties": {
+            "verifications": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.verification.defs#verificationView",
+              },
+            },
+            "failedVerifications": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#grantError"},
+            },
+          },
+        },
+      },
+    },
+    "verificationInput": {
+      "type": "object",
+      "required": ["subject", "handle", "displayName"],
+      "properties": {
+        "subject": {
+          "type": "string",
+          "format": "did",
+          "description": "The did of the subject being verified",
+        },
+        "handle": {
+          "type": "string",
+          "format": "handle",
+          "description":
+              "Handle of the subject the verification applies to at the moment of verifying.",
+        },
+        "displayName": {
+          "type": "string",
+          "description":
+              "Display name of the subject the verification applies to at the moment of verifying.",
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Timestamp for verification record. Defaults to current time when not specified.",
+        },
+      },
+    },
+    "grantError": {
+      "type": "object",
+      "description": "Error object for failed verifications.",
+      "required": ["error", "subject"],
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Error message describing the reason for failure.",
+        },
+        "subject": {
+          "type": "string",
+          "format": "did",
+          "description": "The did of the subject being verified",
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.verification.listVerifications`
+const toolsOzoneVerificationListVerifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.verification.listVerifications",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List verifications",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "cursor": {"type": "string", "description": "Pagination cursor"},
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of results to return",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Filter to verifications created after this timestamp",
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Filter to verifications created before this timestamp",
+          },
+          "issuers": {
+            "type": "array",
+            "description": "Filter to verifications from specific issuers",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100,
+          },
+          "subjects": {
+            "type": "array",
+            "description": "Filter to specific verified DIDs",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100,
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Sort direction for creation date",
+            "default": "desc",
+            "enum": ["asc", "desc"],
+          },
+          "isRevoked": {
+            "type": "boolean",
+            "description":
+                "Filter to verifications that are revoked or not. By default, includes both.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["verifications"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "verifications": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.verification.defs#verificationView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.safelink.defs`
+const toolsOzoneSafelinkDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.safelink.defs",
+  "defs": {
+    "event": {
+      "type": "object",
+      "description": "An event for URL safety decisions",
+      "required": [
+        "id",
+        "eventType",
+        "url",
+        "pattern",
+        "action",
+        "reason",
+        "createdBy",
+        "createdAt",
+      ],
+      "properties": {
+        "id": {"type": "integer", "description": "Auto-incrementing row ID"},
+        "eventType": {"type": "ref", "ref": "#eventType"},
+        "url": {
+          "type": "string",
+          "description": "The URL that this rule applies to",
+        },
+        "pattern": {"type": "ref", "ref": "#patternType"},
+        "action": {"type": "ref", "ref": "#actionType"},
+        "reason": {"type": "ref", "ref": "#reasonType"},
+        "createdBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the user who created this rule",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "comment": {
+          "type": "string",
+          "description": "Optional comment about the decision",
+        },
+      },
+    },
+    "eventType": {
+      "type": "string",
+      "knownValues": ["addRule", "updateRule", "removeRule"],
+    },
+    "patternType": {
+      "type": "string",
+      "knownValues": ["domain", "url"],
+    },
+    "actionType": {
+      "type": "string",
+      "knownValues": ["block", "warn", "whitelist"],
+    },
+    "reasonType": {
+      "type": "string",
+      "knownValues": ["csam", "spam", "phishing", "none"],
+    },
+    "urlRule": {
+      "type": "object",
+      "description": "Input for creating a URL safety rule",
+      "required": [
+        "url",
+        "pattern",
+        "action",
+        "reason",
+        "createdBy",
+        "createdAt",
+        "updatedAt",
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL or domain to apply the rule to",
+        },
+        "pattern": {"type": "ref", "ref": "#patternType"},
+        "action": {"type": "ref", "ref": "#actionType"},
+        "reason": {"type": "ref", "ref": "#reasonType"},
+        "comment": {
+          "type": "string",
+          "description": "Optional comment about the decision",
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the user added the rule.",
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp when the rule was created",
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp when the rule was last updated",
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.safelink.addRule`
+const toolsOzoneSafelinkAddRule = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.safelink.addRule",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Add a new URL safety rule",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["url", "pattern", "action", "reason"],
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The URL or domain to apply the rule to",
+            },
+            "pattern": {
+              "type": "ref",
+              "ref": "tools.ozone.safelink.defs#patternType",
+            },
+            "action": {
+              "type": "ref",
+              "ref": "tools.ozone.safelink.defs#actionType",
+            },
+            "reason": {
+              "type": "ref",
+              "ref": "tools.ozone.safelink.defs#reasonType",
+            },
+            "comment": {
+              "type": "string",
+              "description": "Optional comment about the decision",
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description": "Author DID. Only respected when using admin auth",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.safelink.defs#event"},
+      },
+      "errors": [
+        {"name": "InvalidUrl", "description": "The provided URL is invalid"},
+        {
+          "name": "RuleAlreadyExists",
+          "description": "A rule for this URL/domain already exists",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.safelink.removeRule`
+const toolsOzoneSafelinkRemoveRule = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.safelink.removeRule",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Remove an existing URL safety rule",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["url", "pattern"],
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The URL or domain to remove the rule for",
+            },
+            "pattern": {
+              "type": "ref",
+              "ref": "tools.ozone.safelink.defs#patternType",
+            },
+            "comment": {
+              "type": "string",
+              "description":
+                  "Optional comment about why the rule is being removed",
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description":
+                  "Optional DID of the user. Only respected when using admin auth.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.safelink.defs#event"},
+      },
+      "errors": [
+        {
+          "name": "RuleNotFound",
+          "description": "No active rule found for this URL/domain",
+        },
+      ],
     },
   },
 };
@@ -13400,106 +16618,6 @@ const toolsOzoneSafelinkQueryEvents = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.safelink.defs`
-const toolsOzoneSafelinkDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.safelink.defs",
-  "defs": {
-    "event": {
-      "type": "object",
-      "description": "An event for URL safety decisions",
-      "required": [
-        "id",
-        "eventType",
-        "url",
-        "pattern",
-        "action",
-        "reason",
-        "createdBy",
-        "createdAt",
-      ],
-      "properties": {
-        "id": {"type": "integer", "description": "Auto-incrementing row ID"},
-        "eventType": {"type": "ref", "ref": "#eventType"},
-        "url": {
-          "type": "string",
-          "description": "The URL that this rule applies to",
-        },
-        "pattern": {"type": "ref", "ref": "#patternType"},
-        "action": {"type": "ref", "ref": "#actionType"},
-        "reason": {"type": "ref", "ref": "#reasonType"},
-        "createdBy": {
-          "type": "string",
-          "format": "did",
-          "description": "DID of the user who created this rule",
-        },
-        "createdAt": {"type": "string", "format": "datetime"},
-        "comment": {
-          "type": "string",
-          "description": "Optional comment about the decision",
-        },
-      },
-    },
-    "eventType": {
-      "type": "string",
-      "knownValues": ["addRule", "updateRule", "removeRule"],
-    },
-    "patternType": {
-      "type": "string",
-      "knownValues": ["domain", "url"],
-    },
-    "actionType": {
-      "type": "string",
-      "knownValues": ["block", "warn", "whitelist"],
-    },
-    "reasonType": {
-      "type": "string",
-      "knownValues": ["csam", "spam", "phishing", "none"],
-    },
-    "urlRule": {
-      "type": "object",
-      "description": "Input for creating a URL safety rule",
-      "required": [
-        "url",
-        "pattern",
-        "action",
-        "reason",
-        "createdBy",
-        "createdAt",
-        "updatedAt",
-      ],
-      "properties": {
-        "url": {
-          "type": "string",
-          "description": "The URL or domain to apply the rule to",
-        },
-        "pattern": {"type": "ref", "ref": "#patternType"},
-        "action": {"type": "ref", "ref": "#actionType"},
-        "reason": {"type": "ref", "ref": "#reasonType"},
-        "comment": {
-          "type": "string",
-          "description": "Optional comment about the decision",
-        },
-        "createdBy": {
-          "type": "string",
-          "format": "did",
-          "description": "DID of the user added the rule.",
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "Timestamp when the rule was created",
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "Timestamp when the rule was last updated",
-        },
-      },
-    },
-  },
-};
-
 /// `tools.ozone.safelink.queryRules`
 const toolsOzoneSafelinkQueryRules = <String, dynamic>{
   "lexicon": 1,
@@ -13581,109 +16699,1164 @@ const toolsOzoneSafelinkQueryRules = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.safelink.removeRule`
-const toolsOzoneSafelinkRemoveRule = <String, dynamic>{
+/// `tools.ozone.team.listMembers`
+const toolsOzoneTeamListMembers = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.safelink.removeRule",
+  "id": "tools.ozone.team.listMembers",
   "defs": {
     "main": {
-      "type": "procedure",
-      "description": "Remove an existing URL safety rule",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["url", "pattern"],
-          "properties": {
-            "url": {
-              "type": "string",
-              "description": "The URL or domain to remove the rule for",
-            },
-            "pattern": {
-              "type": "ref",
-              "ref": "tools.ozone.safelink.defs#patternType",
-            },
-            "comment": {
-              "type": "string",
-              "description":
-                  "Optional comment about why the rule is being removed",
-            },
-            "createdBy": {
-              "type": "string",
-              "format": "did",
-              "description":
-                  "Optional DID of the user. Only respected when using admin auth.",
-            },
+      "type": "query",
+      "description": "List all members with access to the ozone service.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "q": {"type": "string"},
+          "disabled": {"type": "boolean"},
+          "roles": {
+            "type": "array",
+            "items": {"type": "string"},
           },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
         },
       },
       "output": {
         "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "tools.ozone.safelink.defs#event"},
+        "schema": {
+          "type": "object",
+          "required": ["members"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "members": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "tools.ozone.team.defs#member"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.team.defs`
+const toolsOzoneTeamDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.defs",
+  "defs": {
+    "member": {
+      "type": "object",
+      "required": ["did", "role"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "disabled": {"type": "boolean"},
+        "profile": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewDetailed",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "lastUpdatedBy": {"type": "string"},
+        "role": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.team.defs#roleAdmin",
+            "tools.ozone.team.defs#roleModerator",
+            "tools.ozone.team.defs#roleTriage",
+            "tools.ozone.team.defs#roleVerifier",
+          ],
+        },
+      },
+    },
+    "roleAdmin": {
+      "type": "token",
+      "description":
+          "Admin role. Highest level of access, can perform all actions.",
+    },
+    "roleModerator": {
+      "type": "token",
+      "description": "Moderator role. Can perform most actions.",
+    },
+    "roleTriage": {
+      "type": "token",
+      "description":
+          "Triage role. Mostly intended for monitoring and escalating issues.",
+    },
+    "roleVerifier": {
+      "type": "token",
+      "description": "Verifier role. Only allowed to issue verifications.",
+    },
+  },
+};
+
+/// `tools.ozone.team.deleteMember`
+const toolsOzoneTeamDeleteMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.deleteMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Delete a member from ozone team. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+          },
+        },
       },
       "errors": [
         {
-          "name": "RuleNotFound",
-          "description": "No active rule found for this URL/domain",
+          "name": "MemberNotFound",
+          "description": "The member being deleted does not exist",
+        },
+        {
+          "name": "CannotDeleteSelf",
+          "description": "You can not delete yourself from the team",
         },
       ],
     },
   },
 };
 
-/// `tools.ozone.safelink.addRule`
-const toolsOzoneSafelinkAddRule = <String, dynamic>{
+/// `tools.ozone.team.updateMember`
+const toolsOzoneTeamUpdateMember = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.safelink.addRule",
+  "id": "tools.ozone.team.updateMember",
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Add a new URL safety rule",
+      "description":
+          "Update a member in the ozone service. Requires admin role.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["url", "pattern", "action", "reason"],
+          "required": ["did"],
           "properties": {
-            "url": {
+            "did": {"type": "string", "format": "did"},
+            "disabled": {"type": "boolean"},
+            "role": {
               "type": "string",
-              "description": "The URL or domain to apply the rule to",
-            },
-            "pattern": {
-              "type": "ref",
-              "ref": "tools.ozone.safelink.defs#patternType",
-            },
-            "action": {
-              "type": "ref",
-              "ref": "tools.ozone.safelink.defs#actionType",
-            },
-            "reason": {
-              "type": "ref",
-              "ref": "tools.ozone.safelink.defs#reasonType",
-            },
-            "comment": {
-              "type": "string",
-              "description": "Optional comment about the decision",
-            },
-            "createdBy": {
-              "type": "string",
-              "format": "did",
-              "description": "Author DID. Only respected when using admin auth",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleVerifier",
+                "tools.ozone.team.defs#roleTriage",
+              ],
             },
           },
         },
       },
       "output": {
         "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "tools.ozone.safelink.defs#event"},
+        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"},
       },
       "errors": [
-        {"name": "InvalidUrl", "description": "The provided URL is invalid"},
         {
-          "name": "RuleAlreadyExists",
-          "description": "A rule for this URL/domain already exists",
+          "name": "MemberNotFound",
+          "description": "The member being updated does not exist in the team",
         },
       ],
+    },
+  },
+};
+
+/// `tools.ozone.team.addMember`
+const toolsOzoneTeamAddMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.addMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Add a member to the ozone team. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "role"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "role": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleVerifier",
+                "tools.ozone.team.defs#roleTriage",
+              ],
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"},
+      },
+      "errors": [
+        {
+          "name": "MemberAlreadyExists",
+          "description": "Member already exists in the team.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.queue.unassignModerator`
+const toolsOzoneQueueUnassignModerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.unassignModerator",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Remove a user's assignment from a queue.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queueId", "did"],
+          "properties": {
+            "queueId": {
+              "type": "integer",
+              "description": "The ID of the queue to unassign the user from.",
+            },
+            "did": {
+              "type": "string",
+              "format": "did",
+              "description": "DID to be unassigned.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidAssignment",
+          "description":
+              "No active assignment exists for the given queue and user.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.queue.getAssignments`
+const toolsOzoneQueueGetAssignments = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.getAssignments",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get moderator assignments, optionally filtered by active status, queue, or moderator.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "onlyActive": {
+            "type": "boolean",
+            "description": "When true, only returns active assignments.",
+            "default": true,
+          },
+          "queueIds": {
+            "type": "array",
+            "description":
+                "If specified, returns assignments for these queues only.",
+            "items": {"type": "integer"},
+          },
+          "dids": {
+            "type": "array",
+            "description":
+                "If specified, returns assignments for these moderators only.",
+            "items": {"type": "string", "format": "did"},
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["assignments"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "assignments": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.queue.defs#assignmentView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.queue.defs`
+const toolsOzoneQueueDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.defs",
+  "defs": {
+    "queueView": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "subjectTypes",
+        "reportTypes",
+        "createdBy",
+        "createdAt",
+        "updatedAt",
+        "enabled",
+        "stats",
+      ],
+      "properties": {
+        "id": {"type": "integer", "description": "Queue ID"},
+        "name": {"type": "string", "description": "Display name of the queue"},
+        "subjectTypes": {
+          "type": "array",
+          "description": "Subject types this queue accepts.",
+          "items": {
+            "type": "string",
+            "knownValues": ["account", "record", "message"],
+          },
+          "minLength": 1,
+        },
+        "collection": {
+          "type": "string",
+          "format": "nsid",
+          "description":
+              "Collection name for record subjects (e.g., 'app.bsky.feed.post')",
+        },
+        "reportTypes": {
+          "type": "array",
+          "description":
+              "Report reason types this queue accepts (fully qualified NSIDs)",
+          "items": {"type": "string"},
+          "minLength": 1,
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the queue",
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of moderator who created this queue",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether this queue is currently active",
+        },
+        "deletedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the queue was deleted, if applicable",
+        },
+        "stats": {
+          "type": "ref",
+          "description": "Statistics about this queue",
+          "ref": "#queueStats",
+        },
+      },
+    },
+    "queueStats": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "pendingCount": {
+          "type": "integer",
+          "description": "Number of reports in 'open' status",
+        },
+        "actionedCount": {
+          "type": "integer",
+          "description": "Number of reports in 'closed' status",
+        },
+        "escalatedCount": {
+          "type": "integer",
+          "description": "Number of reports in 'escalated' status",
+        },
+        "inboundCount": {
+          "type": "integer",
+          "description": "Reports received in this queue in the last 24 hours.",
+        },
+        "actionRate": {
+          "type": "integer",
+          "description":
+              "Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. Absent when inboundCount is 0.",
+        },
+        "avgHandlingTimeSec": {
+          "type": "integer",
+          "description":
+              "Average time in seconds from report creation to close, for reports closed in this period.",
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When these statistics were last computed",
+        },
+      },
+    },
+    "assignmentView": {
+      "type": "object",
+      "required": ["id", "did", "queue", "startAt"],
+      "properties": {
+        "id": {"type": "integer"},
+        "did": {"type": "string", "format": "did"},
+        "moderator": {
+          "type": "ref",
+          "description": "The moderator assigned to this queue",
+          "ref": "tools.ozone.team.defs#member",
+        },
+        "queue": {"type": "ref", "ref": "#queueView"},
+        "startAt": {"type": "string", "format": "datetime"},
+        "endAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.queue.deleteQueue`
+const toolsOzoneQueueDeleteQueue = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.deleteQueue",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Delete a moderation queue. Optionally migrate reports to another queue.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queueId"],
+          "properties": {
+            "queueId": {
+              "type": "integer",
+              "description": "ID of the queue to delete",
+            },
+            "migrateToQueueId": {
+              "type": "integer",
+              "description":
+                  "Optional: migrate all reports to this queue. If not specified, reports will be set to unassigned (-1).",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["deleted"],
+          "properties": {
+            "deleted": {"type": "boolean"},
+            "reportsMigrated": {
+              "type": "integer",
+              "description":
+                  "Number of reports that were migrated (if migration occurred)",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.queue.assignModerator`
+const toolsOzoneQueueAssignModerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.assignModerator",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Assign a user to a queue.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queueId", "did"],
+          "properties": {
+            "queueId": {
+              "type": "integer",
+              "description": "The ID of the queue to assign the user to.",
+            },
+            "did": {"type": "string", "description": "DID to be assigned."},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.queue.defs#assignmentView",
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidAssignment",
+          "description":
+              "The specified queue does not exist or is not enabled.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.queue.listQueues`
+const toolsOzoneQueueListQueues = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.listQueues",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List all configured moderation queues with statistics.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description":
+                "Filter by enabled status. If not specified, returns all queues.",
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "Filter queues that handle this subject type ('account' or 'record').",
+          },
+          "collection": {
+            "type": "string",
+            "description":
+                "Filter queues by collection name (e.g. 'app.bsky.feed.post').",
+          },
+          "reportTypes": {
+            "type": "array",
+            "description":
+                "Filter queues that handle any of these report reason types.",
+            "items": {"type": "string"},
+            "maxLength": 10,
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queues"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "queues": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.queue.defs#queueView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.queue.createQueue`
+const toolsOzoneQueueCreateQueue = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.createQueue",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Create a new moderation queue. Will fail if the queue configuration conflicts with an existing queue.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name", "subjectTypes", "reportTypes"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Display name for the queue (must be unique)",
+            },
+            "subjectTypes": {
+              "type": "array",
+              "description": "Subject types this queue accepts",
+              "items": {
+                "type": "string",
+                "knownValues": ["account", "record", "message"],
+              },
+              "minLength": 1,
+            },
+            "collection": {
+              "type": "string",
+              "format": "nsid",
+              "description":
+                  "Collection name for record subjects. Required if subjectTypes includes 'record'.",
+            },
+            "reportTypes": {
+              "type": "array",
+              "description": "Report reason types (fully qualified NSIDs)",
+              "items": {"type": "string"},
+              "minLength": 1,
+              "maxLength": 25,
+            },
+            "description": {
+              "type": "string",
+              "description": "Optional description of the queue",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queue"],
+          "properties": {
+            "queue": {"type": "ref", "ref": "tools.ozone.queue.defs#queueView"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "ConflictingQueue",
+          "description":
+              "The queue configuration conflicts with an existing queue",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.queue.updateQueue`
+const toolsOzoneQueueUpdateQueue = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.updateQueue",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queueId"],
+          "properties": {
+            "queueId": {
+              "type": "integer",
+              "description": "ID of the queue to update",
+            },
+            "name": {
+              "type": "string",
+              "description": "New display name for the queue",
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable or disable the queue",
+            },
+            "description": {
+              "type": "string",
+              "description": "Optional description of the queue",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["queue"],
+          "properties": {
+            "queue": {"type": "ref", "ref": "tools.ozone.queue.defs#queueView"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.queue.routeReports`
+const toolsOzoneQueueRouteReports = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.queue.routeReports",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Route reports within an ID range to matching queues based.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["startReportId", "endReportId"],
+          "properties": {
+            "startReportId": {
+              "type": "integer",
+              "description": "Start of report ID range (inclusive).",
+            },
+            "endReportId": {
+              "type": "integer",
+              "description":
+                  "End of report ID range (inclusive). Difference between start and end must be less than 5,000.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["assigned", "unmatched"],
+          "properties": {
+            "assigned": {
+              "type": "integer",
+              "description": "The number of reports assigned to a queue.",
+            },
+            "unmatched": {
+              "type": "integer",
+              "description": "The number of reports with no matching queue.",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "OutOfRange",
+          "description":
+              "The request is invalid, such as missing required fields or invalid field values.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.hosting.getAccountHistory`
+const toolsOzoneHostingGetAccountHistory = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.hosting.getAccountHistory",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get account history, e.g. log of updated email addresses or other identity information.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "knownValues": [
+                "accountCreated",
+                "emailUpdated",
+                "emailConfirmed",
+                "passwordUpdated",
+                "handleUpdated",
+              ],
+            },
+          },
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["events"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "events": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#event"},
+            },
+          },
+        },
+      },
+    },
+    "event": {
+      "type": "object",
+      "required": ["details", "createdBy", "createdAt"],
+      "properties": {
+        "details": {
+          "type": "union",
+          "refs": [
+            "#accountCreated",
+            "#emailUpdated",
+            "#emailConfirmed",
+            "#passwordUpdated",
+            "#handleUpdated",
+          ],
+        },
+        "createdBy": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "accountCreated": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "email": {"type": "string"},
+        "handle": {"type": "string", "format": "handle"},
+      },
+    },
+    "emailUpdated": {
+      "type": "object",
+      "required": ["email"],
+      "properties": {
+        "email": {"type": "string"},
+      },
+    },
+    "emailConfirmed": {
+      "type": "object",
+      "required": ["email"],
+      "properties": {
+        "email": {"type": "string"},
+      },
+    },
+    "passwordUpdated": {"type": "object", "required": [], "properties": {}},
+    "handleUpdated": {
+      "type": "object",
+      "required": ["handle"],
+      "properties": {
+        "handle": {"type": "string", "format": "handle"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.unassignModerator`
+const toolsOzoneReportUnassignModerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.unassignModerator",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Remove report assignment.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reportId"],
+          "properties": {
+            "reportId": {
+              "type": "integer",
+              "description": "The ID of the report to unassign.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.report.defs#assignmentView",
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidAssignment",
+          "description": "The report ID is invalid.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.report.refreshStats`
+const toolsOzoneReportRefreshStats = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.refreshStats",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Recompute report statistics for a date range. Useful for backfilling after failures or data corrections.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["startDate", "endDate"],
+          "properties": {
+            "startDate": {
+              "type": "string",
+              "description":
+                  "Start date for recomputation, inclusive (YYYY-MM-DD).",
+            },
+            "endDate": {
+              "type": "string",
+              "description":
+                  "End date for recomputation, inclusive (YYYY-MM-DD).",
+            },
+            "queueIds": {
+              "type": "array",
+              "description":
+                  "Optional list of queue IDs to recompute. Omit to recompute all groups.",
+              "items": {"type": "integer"},
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.getAssignments`
+const toolsOzoneReportGetAssignments = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.getAssignments",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get assignments for reports.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "onlyActive": {
+            "type": "boolean",
+            "description": "When true, only returns active assignments.",
+            "default": true,
+          },
+          "reportIds": {
+            "type": "array",
+            "description":
+                "If specified, returns assignments for these reports only.",
+            "items": {"type": "integer"},
+            "maxLength": 50,
+          },
+          "dids": {
+            "type": "array",
+            "description":
+                "If specified, returns assignments for these moderators only.",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 50,
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["assignments"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "assignments": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.report.defs#assignmentView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.queryReports`
+const toolsOzoneReportQueryReports = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.queryReports",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "View moderation reports. Reports are individual instances of content being reported, as opposed to subject statuses which aggregate reports at the subject level.",
+      "parameters": {
+        "type": "params",
+        "required": ["status"],
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "description": "Filter by queue ID. Use -1 for unassigned reports.",
+          },
+          "reportTypes": {
+            "type": "array",
+            "description":
+                "Filter by report types (fully qualified string in the format of com.atproto.moderation.defs#reason<name>).",
+            "items": {"type": "string"},
+          },
+          "status": {
+            "type": "string",
+            "description": "Filter by report status.",
+            "knownValues": [
+              "open",
+              "closed",
+              "escalated",
+              "queued",
+              "assigned",
+            ],
+          },
+          "subject": {
+            "type": "string",
+            "format": "uri",
+            "description": "Filter by subject DID or AT-URI.",
+          },
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Filter to reports where the subject is this DID or any record owned by this DID. Unlike `subject` (which scopes to a specific account or record), this returns all reports tied to the DID across both account-level and record-level subjects.",
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "If specified, reports of the given type (account or record) will be returned.",
+            "knownValues": ["account", "record"],
+          },
+          "collections": {
+            "type": "array",
+            "description":
+                "If specified, reports where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "items": {"type": "string", "format": "nsid"},
+            "maxLength": 20,
+          },
+          "reportedAfter": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Retrieve reports created after a given timestamp",
+          },
+          "reportedBefore": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Retrieve reports created before a given timestamp",
+          },
+          "isMuted": {
+            "type": "boolean",
+            "description":
+                "Filter by muted status. true returns only muted reports, false returns only unmuted reports. Defaults to false.",
+            "default": false,
+          },
+          "assignedTo": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Filter by the DID of the moderator permanently assigned to the report.",
+          },
+          "sortField": {
+            "type": "string",
+            "default": "createdAt",
+            "enum": ["createdAt", "updatedAt"],
+          },
+          "sortDirection": {
+            "type": "string",
+            "default": "desc",
+            "enum": ["asc", "desc"],
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reports"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "reports": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.report.defs#reportView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.getLiveStats`
+const toolsOzoneReportGetLiveStats = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.getLiveStats",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get live report statistics from the past 24 hours. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "description":
+                "Filter stats by queue. Use -1 for unqueued reports.",
+          },
+          "moderatorDid": {
+            "type": "string",
+            "format": "did",
+            "description": "Filter stats by moderator DID.",
+          },
+          "reportTypes": {
+            "type": "array",
+            "description": "Filter stats by report types.",
+            "items": {"type": "string"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["stats"],
+          "properties": {
+            "stats": {
+              "type": "ref",
+              "description": "Statistics for the requested filter.",
+              "ref": "tools.ozone.report.defs#liveStats",
+            },
+          },
+        },
+      },
     },
   },
 };
@@ -13884,6 +18057,1077 @@ const toolsOzoneReportDefs = <String, dynamic>{
       "type": "token",
       "description": "Other dangerous content",
     },
+    "reportAssignment": {
+      "type": "object",
+      "description":
+          "Information about the moderator currently assigned to a report.",
+      "required": ["did", "assignedAt"],
+      "properties": {
+        "did": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the assigned moderator",
+        },
+        "moderator": {
+          "type": "ref",
+          "description": "Full member record of the assigned moderator",
+          "ref": "tools.ozone.team.defs#member",
+        },
+        "assignedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the report was assigned",
+        },
+      },
+    },
+    "reportView": {
+      "type": "object",
+      "required": [
+        "id",
+        "eventId",
+        "status",
+        "subject",
+        "reportType",
+        "reportedBy",
+        "reporter",
+        "createdAt",
+      ],
+      "properties": {
+        "id": {"type": "integer", "description": "Report ID"},
+        "eventId": {
+          "type": "integer",
+          "description": "ID of the moderation event that created this report",
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status of the report",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+        "subject": {
+          "type": "ref",
+          "description": "The subject that was reported with full details",
+          "ref": "tools.ozone.moderation.defs#subjectView",
+        },
+        "reportType": {
+          "type": "ref",
+          "description": "Type of report",
+          "ref": "com.atproto.moderation.defs#reasonType",
+        },
+        "reportedBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the user who made the report",
+        },
+        "reporter": {
+          "type": "ref",
+          "description": "Full subject view of the reporter account",
+          "ref": "tools.ozone.moderation.defs#subjectView",
+        },
+        "comment": {
+          "type": "string",
+          "description": "Comment provided by the reporter",
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the report was created",
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the report was last updated",
+        },
+        "queuedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the report was assigned to its current queue",
+        },
+        "actionEventIds": {
+          "type": "array",
+          "description":
+              "Array of moderation event IDs representing actions taken on this report (sorted DESC, most recent first)",
+          "items": {"type": "integer"},
+        },
+        "actions": {
+          "type": "array",
+          "description": "Optional: expanded action events",
+          "items": {
+            "type": "ref",
+            "ref": "tools.ozone.moderation.defs#modEventView",
+          },
+        },
+        "actionNote": {
+          "type": "string",
+          "description": "Note sent to reporter when report was actioned",
+        },
+        "subjectStatus": {
+          "type": "ref",
+          "description": "Current status of the reported subject",
+          "ref": "tools.ozone.moderation.defs#subjectStatusView",
+        },
+        "relatedReportCount": {
+          "type": "integer",
+          "description": "Number of other pending reports on the same subject",
+        },
+        "assignment": {
+          "type": "ref",
+          "description":
+              "Information about moderator currently assigned to this report (if any)",
+          "ref": "#reportAssignment",
+        },
+        "queue": {
+          "type": "ref",
+          "description": "The queue this report is assigned to (if any)",
+          "ref": "tools.ozone.queue.defs#queueView",
+        },
+        "isMuted": {
+          "type": "boolean",
+          "description":
+              "Whether this report is muted. A report is muted if the reporter was muted or the subject was muted at the time the report was created.",
+        },
+      },
+    },
+    "queueActivity": {
+      "type": "object",
+      "description": "Activity recording a report being routed to a queue.",
+      "properties": {
+        "previousStatus": {
+          "type": "string",
+          "description":
+              "The report's status before this activity. Populated automatically from the report row; not required in input.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+      },
+    },
+    "assignmentActivity": {
+      "type": "object",
+      "description":
+          "Activity recording a moderator being assigned to a report.",
+      "properties": {
+        "previousStatus": {
+          "type": "string",
+          "description":
+              "The report's status before this activity. Populated automatically from the report row; not required in input.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+      },
+    },
+    "escalationActivity": {
+      "type": "object",
+      "description": "Activity recording a report being escalated.",
+      "properties": {
+        "previousStatus": {
+          "type": "string",
+          "description":
+              "The report's status before this activity. Populated automatically from the report row; not required in input.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+      },
+    },
+    "closeActivity": {
+      "type": "object",
+      "description": "Activity recording a report being closed.",
+      "properties": {
+        "previousStatus": {
+          "type": "string",
+          "description":
+              "The report's status before this activity. Populated automatically from the report row; not required in input.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+      },
+    },
+    "reopenActivity": {
+      "type": "object",
+      "description":
+          "Activity recording a closed report being reopened. Only valid when the report is in 'closed' status.",
+      "properties": {
+        "previousStatus": {
+          "type": "string",
+          "description":
+              "The report's status before this activity. Populated automatically from the report row; not required in input.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+      },
+    },
+    "noteActivity": {
+      "type": "object",
+      "description":
+          "Activity recording a note on a report. Use internalNote for moderator-only notes or publicNote for reporter-visible notes (or both).",
+      "properties": {},
+    },
+    "reportActivityView": {
+      "type": "object",
+      "description": "A single activity entry on a report.",
+      "required": [
+        "id",
+        "reportId",
+        "activity",
+        "isAutomated",
+        "createdBy",
+        "createdAt",
+      ],
+      "properties": {
+        "id": {"type": "integer", "description": "Activity ID"},
+        "reportId": {
+          "type": "integer",
+          "description": "ID of the report this activity belongs to",
+        },
+        "activity": {
+          "type": "union",
+          "description": "The typed activity object describing what occurred.",
+          "refs": [
+            "#queueActivity",
+            "#assignmentActivity",
+            "#escalationActivity",
+            "#closeActivity",
+            "#reopenActivity",
+            "#noteActivity",
+          ],
+        },
+        "internalNote": {
+          "type": "string",
+          "description":
+              "Optional moderator-only note. Not visible to reporters.",
+        },
+        "publicNote": {
+          "type": "string",
+          "description":
+              "Optional public note, potentially visible to the reporter.",
+        },
+        "meta": {
+          "type": "unknown",
+          "description":
+              "Extensible JSON payload for loose activity-specific metadata (e.g. assignmentId).",
+        },
+        "isAutomated": {
+          "type": "boolean",
+          "description":
+              "True if this activity was created by an automated process (e.g. queue router) rather than a direct human action.",
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "DID of the actor who created this activity, or the service DID for automated activities.",
+        },
+        "moderator": {
+          "type": "ref",
+          "description":
+              "Full member record of the moderator who created this activity",
+          "ref": "tools.ozone.team.defs#member",
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When this activity was created",
+        },
+      },
+    },
+    "liveStats": {
+      "type": "object",
+      "description":
+          "Live statistics for reports for the current calendar day, filterable by queue, moderator, or report type.",
+      "properties": {
+        "pendingCount": {
+          "type": "integer",
+          "description": "Number of reports currently not closed.",
+        },
+        "actionedCount": {
+          "type": "integer",
+          "description": "Number of reports closed today.",
+        },
+        "escalatedCount": {
+          "type": "integer",
+          "description": "Number of reports escalated today.",
+        },
+        "inboundCount": {
+          "type": "integer",
+          "description": "Reports received today.",
+        },
+        "actionRate": {
+          "type": "integer",
+          "description":
+              "Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer.",
+        },
+        "avgHandlingTimeSec": {
+          "type": "integer",
+          "description":
+              "Average time in seconds from report creation (or moderator assignment) to close.",
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When these statistics were last computed.",
+        },
+      },
+    },
+    "historicalStats": {
+      "type": "object",
+      "description":
+          "A single daily snapshot of report statistics for a calendar date.",
+      "required": ["date"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "The calendar date this snapshot covers (YYYY-MM-DD).",
+        },
+        "computedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When this snapshot was last computed.",
+        },
+        "pendingCount": {
+          "type": "integer",
+          "description": "Number of reports not closed at time of computation.",
+        },
+        "actionedCount": {
+          "type": "integer",
+          "description": "Number of reports closed during this day.",
+        },
+        "escalatedCount": {
+          "type": "integer",
+          "description": "Number of reports escalated during this day.",
+        },
+        "inboundCount": {
+          "type": "integer",
+          "description": "Reports received during this day.",
+        },
+        "actionRate": {
+          "type": "integer",
+          "description":
+              "Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer.",
+        },
+        "avgHandlingTimeSec": {
+          "type": "integer",
+          "description":
+              "Average time in seconds from report creation (or moderator assignment) to close.",
+        },
+      },
+    },
+    "assignmentView": {
+      "type": "object",
+      "required": ["id", "did", "reportId", "startAt"],
+      "properties": {
+        "id": {"type": "integer"},
+        "did": {"type": "string", "format": "did"},
+        "moderator": {
+          "type": "ref",
+          "description": "The moderator assigned to this report",
+          "ref": "tools.ozone.team.defs#member",
+        },
+        "queue": {"type": "ref", "ref": "tools.ozone.queue.defs#queueView"},
+        "reportId": {"type": "integer"},
+        "startAt": {"type": "string", "format": "datetime"},
+        "endAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.listActivities`
+const toolsOzoneReportListActivities = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.listActivities",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "List all activities for a report, sorted most-recent-first.",
+      "parameters": {
+        "type": "params",
+        "required": ["reportId"],
+        "properties": {
+          "reportId": {
+            "type": "integer",
+            "description": "ID of the report whose activities to list",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["activities"],
+          "properties": {
+            "activities": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.report.defs#reportActivityView",
+              },
+            },
+            "cursor": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.assignModerator`
+const toolsOzoneReportAssignModerator = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.assignModerator",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Assign a report to a user. Defaults to the caller. Admins may assign to any moderator.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reportId"],
+          "properties": {
+            "reportId": {
+              "type": "integer",
+              "description": "The ID of the report to assign.",
+            },
+            "queueId": {
+              "type": "integer",
+              "description":
+                  "Optional queue ID to associate the assignment with. If not provided and the report has been assigned on a queue before, it will stay on that queue.",
+            },
+            "did": {
+              "type": "string",
+              "format": "did",
+              "description":
+                  "DID to be assigned. Defaults to the caller's DID. Admins may assign to any moderator.",
+            },
+            "isPermanent": {
+              "type": "boolean",
+              "description":
+                  "When true, the assignment has no expiry (endAt is null). Throws AlreadyAssigned if another user already has a permanent assignment on this report.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.report.defs#assignmentView",
+        },
+      },
+      "errors": [
+        {
+          "name": "AlreadyAssigned",
+          "description": "The report is already assigned to another user.",
+        },
+        {
+          "name": "InvalidAssignment",
+          "description": "The report ID or queue ID is invalid.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.report.getLatestReport`
+const toolsOzoneReportGetLatestReport = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.getLatestReport",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get the most recent report.",
+      "parameters": {"type": "params", "properties": {}},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["report"],
+          "properties": {
+            "report": {
+              "type": "ref",
+              "ref": "tools.ozone.report.defs#reportView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "NotFound", "description": "No report found."},
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.report.getReport`
+const toolsOzoneReportGetReport = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.getReport",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about a single moderation report by ID.",
+      "parameters": {
+        "type": "params",
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The ID of the report to retrieve.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.report.defs#reportView"},
+      },
+      "errors": [
+        {"name": "NotFound", "description": "No report found."},
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.report.getHistoricalStats`
+const toolsOzoneReportGetHistoricalStats = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.getHistoricalStats",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get historical daily report statistics. Returns a paginated list of daily stat snapshots, newest first. Filter by queue, moderator, or report type.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "description":
+                "Filter stats by queue. Use -1 for unqueued reports.",
+          },
+          "moderatorDid": {
+            "type": "string",
+            "format": "did",
+            "description": "Filter stats by moderator DID.",
+          },
+          "reportTypes": {
+            "type": "array",
+            "description": "Filter stats by report types.",
+            "items": {"type": "string"},
+          },
+          "startDate": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Earliest date to include (inclusive).",
+          },
+          "endDate": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Latest date to include (inclusive).",
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of entries to return.",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string", "description": "Pagination cursor."},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["stats"],
+          "properties": {
+            "stats": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.report.defs#historicalStats",
+              },
+            },
+            "cursor": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.report.createActivity`
+const toolsOzoneReportCreateActivity = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.createActivity",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Register an activity on a report. For state-change activity types, validates the transition and updates report.status atomically.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reportId", "activity"],
+          "properties": {
+            "reportId": {
+              "type": "integer",
+              "description": "ID of the report to record activity on",
+            },
+            "activity": {
+              "type": "union",
+              "description": "The type of activity to record.",
+              "refs": [
+                "tools.ozone.report.defs#queueActivity",
+                "tools.ozone.report.defs#assignmentActivity",
+                "tools.ozone.report.defs#escalationActivity",
+                "tools.ozone.report.defs#closeActivity",
+                "tools.ozone.report.defs#reopenActivity",
+                "tools.ozone.report.defs#noteActivity",
+              ],
+            },
+            "internalNote": {
+              "type": "string",
+              "description":
+                  "Optional moderator-only note. Not visible to reporters.",
+            },
+            "publicNote": {
+              "type": "string",
+              "description":
+                  "Optional public-facing note, potentially visible to the reporter.",
+            },
+            "isAutomated": {
+              "type": "boolean",
+              "description":
+                  "Set true when this activity is triggered by an automated process. Defaults to false.",
+              "default": false,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["activity"],
+          "properties": {
+            "activity": {
+              "type": "ref",
+              "ref": "tools.ozone.report.defs#reportActivityView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "ReportNotFound",
+          "description": "No report exists with the given reportId",
+        },
+        {
+          "name": "InvalidStateTransition",
+          "description":
+              "The requested state transition is not permitted from the report's current status",
+        },
+        {
+          "name": "AlreadyInTargetState",
+          "description":
+              "The report is already in the status implied by this activity type",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.report.reassignQueue`
+const toolsOzoneReportReassignQueue = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.reassignQueue",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Manually reassign a report to a different queue (or unassign it). Records a queueActivity entry on the report.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reportId", "queueId"],
+          "properties": {
+            "reportId": {
+              "type": "integer",
+              "description": "ID of the report to reassign",
+            },
+            "queueId": {
+              "type": "integer",
+              "description":
+                  "Target queue ID. Use -1 to unassign from any queue.",
+            },
+            "comment": {
+              "type": "string",
+              "description":
+                  "Optional moderator-only note recorded on the resulting queueActivity as internalNote.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["report"],
+          "properties": {
+            "report": {
+              "type": "ref",
+              "ref": "tools.ozone.report.defs#reportView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "ReportNotFound",
+          "description": "No report exists with the given reportId",
+        },
+        {
+          "name": "ReportClosed",
+          "description": "The report is closed and cannot be reassigned",
+        },
+        {
+          "name": "AlreadyInTargetQueue",
+          "description": "The report is already assigned to the target queue",
+        },
+        {
+          "name": "QueueNotFound",
+          "description": "No active queue exists with the given queueId",
+        },
+        {
+          "name": "QueueDisabled",
+          "description":
+              "The target queue is disabled and cannot receive new assignments",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.communication.defs`
+const toolsOzoneCommunicationDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.communication.defs",
+  "defs": {
+    "templateView": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "contentMarkdown",
+        "disabled",
+        "lastUpdatedBy",
+        "createdAt",
+        "updatedAt",
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string", "description": "Name of the template."},
+        "subject": {
+          "type": "string",
+          "description":
+              "Content of the template, can contain markdown and variable placeholders.",
+        },
+        "contentMarkdown": {
+          "type": "string",
+          "description": "Subject of the message, used in emails.",
+        },
+        "disabled": {"type": "boolean"},
+        "lang": {
+          "type": "string",
+          "format": "language",
+          "description": "Message language.",
+        },
+        "lastUpdatedBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the user who last updated the template.",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.communication.updateTemplate`
+const toolsOzoneCommunicationUpdateTemplate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.communication.updateTemplate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "ID of the template to be updated.",
+            },
+            "name": {"type": "string", "description": "Name of the template."},
+            "lang": {
+              "type": "string",
+              "format": "language",
+              "description": "Message language.",
+            },
+            "contentMarkdown": {
+              "type": "string",
+              "description":
+                  "Content of the template, markdown supported, can contain variable placeholders.",
+            },
+            "subject": {
+              "type": "string",
+              "description": "Subject of the message, used in emails.",
+            },
+            "updatedBy": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the user who is updating the template.",
+            },
+            "disabled": {"type": "boolean"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.communication.defs#templateView",
+        },
+      },
+      "errors": [
+        {"name": "DuplicateTemplateName"},
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.communication.createTemplate`
+const toolsOzoneCommunicationCreateTemplate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.communication.createTemplate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Administrative action to create a new, re-usable communication (email for now) template.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject", "contentMarkdown", "name"],
+          "properties": {
+            "name": {"type": "string", "description": "Name of the template."},
+            "contentMarkdown": {
+              "type": "string",
+              "description":
+                  "Content of the template, markdown supported, can contain variable placeholders.",
+            },
+            "subject": {
+              "type": "string",
+              "description": "Subject of the message, used in emails.",
+            },
+            "lang": {
+              "type": "string",
+              "format": "language",
+              "description": "Message language.",
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the user who is creating the template.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.communication.defs#templateView",
+        },
+      },
+      "errors": [
+        {"name": "DuplicateTemplateName"},
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.communication.listTemplates`
+const toolsOzoneCommunicationListTemplates = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.communication.listTemplates",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get list of all communication templates.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["communicationTemplates"],
+          "properties": {
+            "communicationTemplates": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.communication.defs#templateView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.communication.deleteTemplate`
+const toolsOzoneCommunicationDeleteTemplate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.communication.deleteTemplate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Delete a communication template.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {"type": "string"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.set.defs`
+const toolsOzoneSetDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.defs",
+  "defs": {
+    "set": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 3, "maxLength": 128},
+        "description": {
+          "type": "string",
+          "maxLength": 10240,
+          "maxGraphemes": 1024,
+        },
+      },
+    },
+    "setView": {
+      "type": "object",
+      "required": ["name", "setSize", "createdAt", "updatedAt"],
+      "properties": {
+        "name": {"type": "string", "minLength": 3, "maxLength": 128},
+        "description": {
+          "type": "string",
+          "maxLength": 10240,
+          "maxGraphemes": 1024,
+        },
+        "setSize": {"type": "integer"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.set.addValues`
+const toolsOzoneSetAddValues = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.addValues",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name", "values"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the set to add values to",
+            },
+            "values": {
+              "type": "array",
+              "description": "Array of string values to add to the set",
+              "items": {"type": "string"},
+              "minLength": 1,
+              "maxLength": 1000,
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.set.getValues`
+const toolsOzoneSetGetValues = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.getValues",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a specific set and its values",
+      "parameters": {
+        "type": "params",
+        "required": ["name"],
+        "properties": {
+          "name": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["set", "values"],
+          "properties": {
+            "set": {"type": "ref", "ref": "tools.ozone.set.defs#setView"},
+            "values": {
+              "type": "array",
+              "items": {"type": "string"},
+            },
+            "cursor": {"type": "string"},
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "SetNotFound",
+          "description": "set with the given name does not exist",
+        },
+      ],
+    },
   },
 };
 
@@ -13923,6 +19167,26 @@ const toolsOzoneSetDeleteSet = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.set.upsertSet`
+const toolsOzoneSetUpsertSet = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.upsertSet",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create or update set metadata",
+      "input": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.set.defs#set"},
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.set.defs#setView"},
+      },
+    },
+  },
+};
+
 /// `tools.ozone.set.deleteValues`
 const toolsOzoneSetDeleteValues = <String, dynamic>{
   "lexicon": 1,
@@ -13948,53 +19212,6 @@ const toolsOzoneSetDeleteValues = <String, dynamic>{
               "items": {"type": "string"},
               "minLength": 1,
             },
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "SetNotFound",
-          "description": "set with the given name does not exist",
-        },
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.set.getValues`
-const toolsOzoneSetGetValues = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.set.getValues",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get a specific set and its values",
-      "parameters": {
-        "type": "params",
-        "required": ["name"],
-        "properties": {
-          "name": {"type": "string"},
-          "limit": {
-            "type": "integer",
-            "default": 100,
-            "minimum": 1,
-            "maximum": 1000,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["set", "values"],
-          "properties": {
-            "set": {"type": "ref", "ref": "tools.ozone.set.defs#setView"},
-            "values": {
-              "type": "array",
-              "items": {"type": "string"},
-            },
-            "cursor": {"type": "string"},
           },
         },
       },
@@ -14058,171 +19275,47 @@ const toolsOzoneSetQuerySets = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.set.defs`
-const toolsOzoneSetDefs = <String, dynamic>{
+/// `tools.ozone.setting.defs`
+const toolsOzoneSettingDefs = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.set.defs",
+  "id": "tools.ozone.setting.defs",
   "defs": {
-    "set": {
+    "option": {
       "type": "object",
-      "required": ["name"],
+      "required": [
+        "key",
+        "value",
+        "did",
+        "scope",
+        "createdBy",
+        "lastUpdatedBy",
+      ],
       "properties": {
-        "name": {"type": "string", "minLength": 3, "maxLength": 128},
+        "key": {"type": "string", "format": "nsid"},
+        "did": {"type": "string", "format": "did"},
+        "value": {"type": "unknown"},
         "description": {
           "type": "string",
           "maxLength": 10240,
           "maxGraphemes": 1024,
         },
-      },
-    },
-    "setView": {
-      "type": "object",
-      "required": ["name", "setSize", "createdAt", "updatedAt"],
-      "properties": {
-        "name": {"type": "string", "minLength": 3, "maxLength": 128},
-        "description": {
-          "type": "string",
-          "maxLength": 10240,
-          "maxGraphemes": 1024,
-        },
-        "setSize": {"type": "integer"},
         "createdAt": {"type": "string", "format": "datetime"},
         "updatedAt": {"type": "string", "format": "datetime"},
-      },
-    },
-  },
-};
-
-/// `tools.ozone.set.upsertSet`
-const toolsOzoneSetUpsertSet = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.set.upsertSet",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create or update set metadata",
-      "input": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "tools.ozone.set.defs#set"},
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "tools.ozone.set.defs#setView"},
-      },
-    },
-  },
-};
-
-/// `tools.ozone.set.addValues`
-const toolsOzoneSetAddValues = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.set.addValues",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["name", "values"],
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of the set to add values to",
-            },
-            "values": {
-              "type": "array",
-              "description": "Array of string values to add to the set",
-              "items": {"type": "string"},
-              "minLength": 1,
-              "maxLength": 1000,
-            },
-          },
+        "managerRole": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.team.defs#roleModerator",
+            "tools.ozone.team.defs#roleTriage",
+            "tools.ozone.team.defs#roleAdmin",
+            "tools.ozone.team.defs#roleVerifier",
+          ],
         },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.setting.upsertOption`
-const toolsOzoneSettingUpsertOption = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.setting.upsertOption",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Create or update setting option",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["key", "scope", "value"],
-          "properties": {
-            "key": {"type": "string", "format": "nsid"},
-            "scope": {
-              "type": "string",
-              "knownValues": ["instance", "personal"],
-            },
-            "value": {"type": "unknown"},
-            "description": {"type": "string", "maxLength": 2000},
-            "managerRole": {
-              "type": "string",
-              "knownValues": [
-                "tools.ozone.team.defs#roleModerator",
-                "tools.ozone.team.defs#roleTriage",
-                "tools.ozone.team.defs#roleVerifier",
-                "tools.ozone.team.defs#roleAdmin",
-              ],
-            },
-          },
+        "scope": {
+          "type": "string",
+          "knownValues": ["instance", "personal"],
         },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["option"],
-          "properties": {
-            "option": {"type": "ref", "ref": "tools.ozone.setting.defs#option"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.setting.removeOptions`
-const toolsOzoneSettingRemoveOptions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.setting.removeOptions",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Delete settings by key",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["keys", "scope"],
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": {"type": "string", "format": "nsid"},
-              "minLength": 1,
-              "maxLength": 200,
-            },
-            "scope": {
-              "type": "string",
-              "knownValues": ["instance", "personal"],
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "object", "properties": {}},
+        "createdBy": {"type": "string", "format": "did"},
+        "lastUpdatedBy": {"type": "string", "format": "did"},
       },
     },
   },
@@ -14282,440 +19375,118 @@ const toolsOzoneSettingListOptions = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.setting.defs`
-const toolsOzoneSettingDefs = <String, dynamic>{
+/// `tools.ozone.setting.removeOptions`
+const toolsOzoneSettingRemoveOptions = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.setting.defs",
+  "id": "tools.ozone.setting.removeOptions",
   "defs": {
-    "option": {
-      "type": "object",
-      "required": [
-        "key",
-        "value",
-        "did",
-        "scope",
-        "createdBy",
-        "lastUpdatedBy",
-      ],
-      "properties": {
-        "key": {"type": "string", "format": "nsid"},
-        "did": {"type": "string", "format": "did"},
-        "value": {"type": "unknown"},
-        "description": {
-          "type": "string",
-          "maxLength": 10240,
-          "maxGraphemes": 1024,
+    "main": {
+      "type": "procedure",
+      "description": "Delete settings by key",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["keys", "scope"],
+          "properties": {
+            "keys": {
+              "type": "array",
+              "items": {"type": "string", "format": "nsid"},
+              "minLength": 1,
+              "maxLength": 200,
+            },
+            "scope": {
+              "type": "string",
+              "knownValues": ["instance", "personal"],
+            },
+          },
         },
-        "createdAt": {"type": "string", "format": "datetime"},
-        "updatedAt": {"type": "string", "format": "datetime"},
-        "managerRole": {
-          "type": "string",
-          "knownValues": [
-            "tools.ozone.team.defs#roleModerator",
-            "tools.ozone.team.defs#roleTriage",
-            "tools.ozone.team.defs#roleAdmin",
-            "tools.ozone.team.defs#roleVerifier",
-          ],
-        },
-        "scope": {
-          "type": "string",
-          "knownValues": ["instance", "personal"],
-        },
-        "createdBy": {"type": "string", "format": "did"},
-        "lastUpdatedBy": {"type": "string", "format": "did"},
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}},
       },
     },
   },
 };
 
-/// `tools.ozone.team.listMembers`
-const toolsOzoneTeamListMembers = <String, dynamic>{
+/// `tools.ozone.setting.upsertOption`
+const toolsOzoneSettingUpsertOption = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.team.listMembers",
+  "id": "tools.ozone.setting.upsertOption",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create or update setting option",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["key", "scope", "value"],
+          "properties": {
+            "key": {"type": "string", "format": "nsid"},
+            "scope": {
+              "type": "string",
+              "knownValues": ["instance", "personal"],
+            },
+            "value": {"type": "unknown"},
+            "description": {"type": "string", "maxLength": 2000},
+            "managerRole": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleTriage",
+                "tools.ozone.team.defs#roleVerifier",
+                "tools.ozone.team.defs#roleAdmin",
+              ],
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["option"],
+          "properties": {
+            "option": {"type": "ref", "ref": "tools.ozone.setting.defs#option"},
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.moderation.getReporterStats`
+const toolsOzoneModerationGetReporterStats = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getReporterStats",
   "defs": {
     "main": {
       "type": "query",
-      "description": "List all members with access to the ozone service.",
+      "description": "Get reporter stats for a list of users.",
       "parameters": {
         "type": "params",
+        "required": ["dids"],
         "properties": {
-          "q": {"type": "string"},
-          "disabled": {"type": "boolean"},
-          "roles": {
+          "dids": {
             "type": "array",
-            "items": {"type": "string"},
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["members"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "members": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "tools.ozone.team.defs#member"},
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.team.updateMember`
-const toolsOzoneTeamUpdateMember = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.team.updateMember",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Update a member in the ozone service. Requires admin role.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "disabled": {"type": "boolean"},
-            "role": {
-              "type": "string",
-              "knownValues": [
-                "tools.ozone.team.defs#roleAdmin",
-                "tools.ozone.team.defs#roleModerator",
-                "tools.ozone.team.defs#roleVerifier",
-                "tools.ozone.team.defs#roleTriage",
-              ],
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"},
-      },
-      "errors": [
-        {
-          "name": "MemberNotFound",
-          "description": "The member being updated does not exist in the team",
-        },
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.team.defs`
-const toolsOzoneTeamDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.team.defs",
-  "defs": {
-    "member": {
-      "type": "object",
-      "required": ["did", "role"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "disabled": {"type": "boolean"},
-        "profile": {
-          "type": "ref",
-          "ref": "app.bsky.actor.defs#profileViewDetailed",
-        },
-        "createdAt": {"type": "string", "format": "datetime"},
-        "updatedAt": {"type": "string", "format": "datetime"},
-        "lastUpdatedBy": {"type": "string"},
-        "role": {
-          "type": "string",
-          "knownValues": [
-            "tools.ozone.team.defs#roleAdmin",
-            "tools.ozone.team.defs#roleModerator",
-            "tools.ozone.team.defs#roleTriage",
-            "tools.ozone.team.defs#roleVerifier",
-          ],
-        },
-      },
-    },
-    "roleAdmin": {
-      "type": "token",
-      "description":
-          "Admin role. Highest level of access, can perform all actions.",
-    },
-    "roleModerator": {
-      "type": "token",
-      "description": "Moderator role. Can perform most actions.",
-    },
-    "roleTriage": {
-      "type": "token",
-      "description":
-          "Triage role. Mostly intended for monitoring and escalating issues.",
-    },
-    "roleVerifier": {
-      "type": "token",
-      "description": "Verifier role. Only allowed to issue verifications.",
-    },
-  },
-};
-
-/// `tools.ozone.team.deleteMember`
-const toolsOzoneTeamDeleteMember = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.team.deleteMember",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Delete a member from ozone team. Requires admin role.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-          },
-        },
-      },
-      "errors": [
-        {
-          "name": "MemberNotFound",
-          "description": "The member being deleted does not exist",
-        },
-        {
-          "name": "CannotDeleteSelf",
-          "description": "You can not delete yourself from the team",
-        },
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.team.addMember`
-const toolsOzoneTeamAddMember = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.team.addMember",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Add a member to the ozone team. Requires admin role.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["did", "role"],
-          "properties": {
-            "did": {"type": "string", "format": "did"},
-            "role": {
-              "type": "string",
-              "knownValues": [
-                "tools.ozone.team.defs#roleAdmin",
-                "tools.ozone.team.defs#roleModerator",
-                "tools.ozone.team.defs#roleVerifier",
-                "tools.ozone.team.defs#roleTriage",
-              ],
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"},
-      },
-      "errors": [
-        {
-          "name": "MemberAlreadyExists",
-          "description": "Member already exists in the team.",
-        },
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.server.getConfig`
-const toolsOzoneServerGetConfig = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.server.getConfig",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get details about ozone's server configuration.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "appview": {"type": "ref", "ref": "#serviceConfig"},
-            "pds": {"type": "ref", "ref": "#serviceConfig"},
-            "blobDivert": {"type": "ref", "ref": "#serviceConfig"},
-            "chat": {"type": "ref", "ref": "#serviceConfig"},
-            "viewer": {"type": "ref", "ref": "#viewerConfig"},
-            "verifierDid": {
-              "type": "string",
-              "format": "did",
-              "description": "The did of the verifier used for verification.",
-            },
-          },
-        },
-      },
-    },
-    "serviceConfig": {
-      "type": "object",
-      "properties": {
-        "url": {"type": "string", "format": "uri"},
-      },
-    },
-    "viewerConfig": {
-      "type": "object",
-      "properties": {
-        "role": {
-          "type": "string",
-          "knownValues": [
-            "tools.ozone.team.defs#roleAdmin",
-            "tools.ozone.team.defs#roleModerator",
-            "tools.ozone.team.defs#roleTriage",
-            "tools.ozone.team.defs#roleVerifier",
-          ],
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.communication.createTemplate`
-const toolsOzoneCommunicationCreateTemplate = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.communication.createTemplate",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Administrative action to create a new, re-usable communication (email for now) template.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subject", "contentMarkdown", "name"],
-          "properties": {
-            "name": {"type": "string", "description": "Name of the template."},
-            "contentMarkdown": {
-              "type": "string",
-              "description":
-                  "Content of the template, markdown supported, can contain variable placeholders.",
-            },
-            "subject": {
-              "type": "string",
-              "description": "Subject of the message, used in emails.",
-            },
-            "lang": {
-              "type": "string",
-              "format": "language",
-              "description": "Message language.",
-            },
-            "createdBy": {
-              "type": "string",
-              "format": "did",
-              "description": "DID of the user who is creating the template.",
-            },
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100,
           },
         },
       },
       "output": {
         "encoding": "application/json",
         "schema": {
-          "type": "ref",
-          "ref": "tools.ozone.communication.defs#templateView",
-        },
-      },
-      "errors": [
-        {"name": "DuplicateTemplateName"},
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.communication.updateTemplate`
-const toolsOzoneCommunicationUpdateTemplate = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.communication.updateTemplate",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
           "type": "object",
-          "required": ["id"],
+          "required": ["stats"],
           "properties": {
-            "id": {
-              "type": "string",
-              "description": "ID of the template to be updated.",
-            },
-            "name": {"type": "string", "description": "Name of the template."},
-            "lang": {
-              "type": "string",
-              "format": "language",
-              "description": "Message language.",
-            },
-            "contentMarkdown": {
-              "type": "string",
-              "description":
-                  "Content of the template, markdown supported, can contain variable placeholders.",
-            },
-            "subject": {
-              "type": "string",
-              "description": "Subject of the message, used in emails.",
-            },
-            "updatedBy": {
-              "type": "string",
-              "format": "did",
-              "description": "DID of the user who is updating the template.",
-            },
-            "disabled": {"type": "boolean"},
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "tools.ozone.communication.defs#templateView",
-        },
-      },
-      "errors": [
-        {"name": "DuplicateTemplateName"},
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.communication.listTemplates`
-const toolsOzoneCommunicationListTemplates = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.communication.listTemplates",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get list of all communication templates.",
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["communicationTemplates"],
-          "properties": {
-            "communicationTemplates": {
+            "stats": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "tools.ozone.communication.defs#templateView",
+                "ref": "tools.ozone.moderation.defs#reporterStats",
               },
             },
           },
@@ -14725,207 +19496,123 @@ const toolsOzoneCommunicationListTemplates = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.communication.defs`
-const toolsOzoneCommunicationDefs = <String, dynamic>{
+/// `tools.ozone.moderation.cancelScheduledActions`
+const toolsOzoneModerationCancelScheduledActions = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.communication.defs",
-  "defs": {
-    "templateView": {
-      "type": "object",
-      "required": [
-        "id",
-        "name",
-        "contentMarkdown",
-        "disabled",
-        "lastUpdatedBy",
-        "createdAt",
-        "updatedAt",
-      ],
-      "properties": {
-        "id": {"type": "string"},
-        "name": {"type": "string", "description": "Name of the template."},
-        "subject": {
-          "type": "string",
-          "description":
-              "Content of the template, can contain markdown and variable placeholders.",
-        },
-        "contentMarkdown": {
-          "type": "string",
-          "description": "Subject of the message, used in emails.",
-        },
-        "disabled": {"type": "boolean"},
-        "lang": {
-          "type": "string",
-          "format": "language",
-          "description": "Message language.",
-        },
-        "lastUpdatedBy": {
-          "type": "string",
-          "format": "did",
-          "description": "DID of the user who last updated the template.",
-        },
-        "createdAt": {"type": "string", "format": "datetime"},
-        "updatedAt": {"type": "string", "format": "datetime"},
-      },
-    },
-  },
-};
-
-/// `tools.ozone.communication.deleteTemplate`
-const toolsOzoneCommunicationDeleteTemplate = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.communication.deleteTemplate",
+  "id": "tools.ozone.moderation.cancelScheduledActions",
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Delete a communication template.",
+      "description":
+          "Cancel all pending scheduled moderation actions for specified subjects",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["id"],
+          "required": ["subjects"],
           "properties": {
-            "id": {"type": "string"},
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.hosting.getAccountHistory`
-const toolsOzoneHostingGetAccountHistory = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.hosting.getAccountHistory",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get account history, e.g. log of updated email addresses or other identity information.",
-      "parameters": {
-        "type": "params",
-        "required": ["did"],
-        "properties": {
-          "did": {"type": "string", "format": "did"},
-          "events": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "knownValues": [
-                "accountCreated",
-                "emailUpdated",
-                "emailConfirmed",
-                "passwordUpdated",
-                "handleUpdated",
-              ],
+            "subjects": {
+              "type": "array",
+              "description":
+                  "Array of DID subjects to cancel scheduled actions for",
+              "items": {"type": "string", "format": "did"},
+              "maxLength": 100,
             },
-          },
-          "cursor": {"type": "string"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
+            "comment": {
+              "type": "string",
+              "description":
+                  "Optional comment describing the reason for cancellation",
+            },
           },
         },
       },
       "output": {
         "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["events"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "events": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#event"},
-            },
-          },
+        "schema": {"type": "ref", "ref": "#cancellationResults"},
+      },
+    },
+    "cancellationResults": {
+      "type": "object",
+      "required": ["succeeded", "failed"],
+      "properties": {
+        "succeeded": {
+          "type": "array",
+          "description":
+              "DIDs for which all pending scheduled actions were successfully cancelled",
+          "items": {"type": "string", "format": "did"},
+        },
+        "failed": {
+          "type": "array",
+          "description":
+              "DIDs for which cancellation failed with error details",
+          "items": {"type": "ref", "ref": "#failedCancellation"},
         },
       },
     },
-    "event": {
+    "failedCancellation": {
       "type": "object",
-      "required": ["details", "createdBy", "createdAt"],
+      "required": ["did", "error"],
       "properties": {
-        "details": {
-          "type": "union",
-          "refs": [
-            "#accountCreated",
-            "#emailUpdated",
-            "#emailConfirmed",
-            "#passwordUpdated",
-            "#handleUpdated",
-          ],
-        },
-        "createdBy": {"type": "string"},
-        "createdAt": {"type": "string", "format": "datetime"},
-      },
-    },
-    "accountCreated": {
-      "type": "object",
-      "required": [],
-      "properties": {
-        "email": {"type": "string"},
-        "handle": {"type": "string", "format": "handle"},
-      },
-    },
-    "emailUpdated": {
-      "type": "object",
-      "required": ["email"],
-      "properties": {
-        "email": {"type": "string"},
-      },
-    },
-    "emailConfirmed": {
-      "type": "object",
-      "required": ["email"],
-      "properties": {
-        "email": {"type": "string"},
-      },
-    },
-    "passwordUpdated": {"type": "object", "required": [], "properties": {}},
-    "handleUpdated": {
-      "type": "object",
-      "required": ["handle"],
-      "properties": {
-        "handle": {"type": "string", "format": "handle"},
+        "did": {"type": "string", "format": "did"},
+        "error": {"type": "string"},
+        "errorCode": {"type": "string"},
       },
     },
   },
 };
 
-/// `tools.ozone.verification.revokeVerifications`
-const toolsOzoneVerificationRevokeVerifications = <String, dynamic>{
+/// `tools.ozone.moderation.listScheduledActions`
+const toolsOzoneModerationListScheduledActions = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.verification.revokeVerifications",
+  "id": "tools.ozone.moderation.listScheduledActions",
   "defs": {
     "main": {
       "type": "procedure",
       "description":
-          "Revoke previously granted verifications in batches of up to 100.",
+          "List scheduled moderation actions with optional filtering",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["uris"],
+          "required": ["statuses"],
           "properties": {
-            "uris": {
+            "startsAfter": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "Filter actions scheduled to execute after this time",
+            },
+            "endsBefore": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "Filter actions scheduled to execute before this time",
+            },
+            "subjects": {
               "type": "array",
-              "description": "Array of verification record uris to revoke",
+              "description": "Filter actions for specific DID subjects",
+              "items": {"type": "string", "format": "did"},
+              "maxLength": 100,
+            },
+            "statuses": {
+              "type": "array",
+              "description": "Filter actions by status",
               "items": {
                 "type": "string",
-                "format": "at-uri",
-                "description":
-                    "The AT-URI of the verification record to revoke.",
+                "knownValues": ["pending", "executed", "cancelled", "failed"],
               },
-              "maxLength": 100,
+              "minLength": 1,
             },
-            "revokeReason": {
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of results to return",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 100,
+            },
+            "cursor": {
               "type": "string",
-              "description":
-                  "Reason for revoking the verification. This is optional and can be omitted if not needed.",
-              "maxLength": 1000,
+              "description": "Cursor for pagination",
             },
           },
         },
@@ -14934,291 +19621,20 @@ const toolsOzoneVerificationRevokeVerifications = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["revokedVerifications", "failedRevocations"],
+          "required": ["actions"],
           "properties": {
-            "revokedVerifications": {
-              "type": "array",
-              "description": "List of verification uris successfully revoked",
-              "items": {"type": "string", "format": "at-uri"},
-            },
-            "failedRevocations": {
-              "type": "array",
-              "description":
-                  "List of verification uris that couldn't be revoked, including failure reasons",
-              "items": {"type": "ref", "ref": "#revokeError"},
-            },
-          },
-        },
-      },
-    },
-    "revokeError": {
-      "type": "object",
-      "description": "Error object for failed revocations",
-      "required": ["uri", "error"],
-      "properties": {
-        "uri": {
-          "type": "string",
-          "format": "at-uri",
-          "description":
-              "The AT-URI of the verification record that failed to revoke.",
-        },
-        "error": {
-          "type": "string",
-          "description":
-              "Description of the error that occurred during revocation.",
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.verification.grantVerifications`
-const toolsOzoneVerificationGrantVerifications = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.verification.grantVerifications",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["verifications"],
-          "properties": {
-            "verifications": {
-              "type": "array",
-              "description": "Array of verification requests to process",
-              "items": {"type": "ref", "ref": "#verificationInput"},
-              "maxLength": 100,
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["verifications", "failedVerifications"],
-          "properties": {
-            "verifications": {
+            "actions": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "tools.ozone.verification.defs#verificationView",
+                "ref": "tools.ozone.moderation.defs#scheduledActionView",
               },
             },
-            "failedVerifications": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#grantError"},
+            "cursor": {
+              "type": "string",
+              "description": "Cursor for next page of results",
             },
           },
-        },
-      },
-    },
-    "verificationInput": {
-      "type": "object",
-      "required": ["subject", "handle", "displayName"],
-      "properties": {
-        "subject": {
-          "type": "string",
-          "format": "did",
-          "description": "The did of the subject being verified",
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle",
-          "description":
-              "Handle of the subject the verification applies to at the moment of verifying.",
-        },
-        "displayName": {
-          "type": "string",
-          "description":
-              "Display name of the subject the verification applies to at the moment of verifying.",
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime",
-          "description":
-              "Timestamp for verification record. Defaults to current time when not specified.",
-        },
-      },
-    },
-    "grantError": {
-      "type": "object",
-      "description": "Error object for failed verifications.",
-      "required": ["error", "subject"],
-      "properties": {
-        "error": {
-          "type": "string",
-          "description": "Error message describing the reason for failure.",
-        },
-        "subject": {
-          "type": "string",
-          "format": "did",
-          "description": "The did of the subject being verified",
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.verification.listVerifications`
-const toolsOzoneVerificationListVerifications = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.verification.listVerifications",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "List verifications",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "cursor": {"type": "string", "description": "Pagination cursor"},
-          "limit": {
-            "type": "integer",
-            "description": "Maximum number of results to return",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "createdAfter": {
-            "type": "string",
-            "format": "datetime",
-            "description":
-                "Filter to verifications created after this timestamp",
-          },
-          "createdBefore": {
-            "type": "string",
-            "format": "datetime",
-            "description":
-                "Filter to verifications created before this timestamp",
-          },
-          "issuers": {
-            "type": "array",
-            "description": "Filter to verifications from specific issuers",
-            "items": {"type": "string", "format": "did"},
-            "maxLength": 100,
-          },
-          "subjects": {
-            "type": "array",
-            "description": "Filter to specific verified DIDs",
-            "items": {"type": "string", "format": "did"},
-            "maxLength": 100,
-          },
-          "sortDirection": {
-            "type": "string",
-            "description": "Sort direction for creation date",
-            "default": "desc",
-            "enum": ["asc", "desc"],
-          },
-          "isRevoked": {
-            "type": "boolean",
-            "description":
-                "Filter to verifications that are revoked or not. By default, includes both.",
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["verifications"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "verifications": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "tools.ozone.verification.defs#verificationView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.verification.defs`
-const toolsOzoneVerificationDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.verification.defs",
-  "defs": {
-    "verificationView": {
-      "type": "object",
-      "description": "Verification data for the associated subject.",
-      "required": [
-        "issuer",
-        "uri",
-        "subject",
-        "handle",
-        "displayName",
-        "createdAt",
-      ],
-      "properties": {
-        "issuer": {
-          "type": "string",
-          "format": "did",
-          "description": "The user who issued this verification.",
-        },
-        "uri": {
-          "type": "string",
-          "format": "at-uri",
-          "description": "The AT-URI of the verification record.",
-        },
-        "subject": {
-          "type": "string",
-          "format": "did",
-          "description": "The subject of the verification.",
-        },
-        "handle": {
-          "type": "string",
-          "format": "handle",
-          "description":
-              "Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
-        },
-        "displayName": {
-          "type": "string",
-          "description":
-              "Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "Timestamp when the verification was created.",
-        },
-        "revokeReason": {
-          "type": "string",
-          "description":
-              "Describes the reason for revocation, also indicating that the verification is no longer valid.",
-        },
-        "revokedAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "Timestamp when the verification was revoked.",
-        },
-        "revokedBy": {
-          "type": "string",
-          "format": "did",
-          "description": "The user who revoked this verification.",
-        },
-        "subjectProfile": {"type": "union", "refs": []},
-        "issuerProfile": {"type": "union", "refs": []},
-        "subjectRepo": {
-          "type": "union",
-          "refs": [
-            "tools.ozone.moderation.defs#repoViewDetail",
-            "tools.ozone.moderation.defs#repoViewNotFound",
-          ],
-        },
-        "issuerRepo": {
-          "type": "union",
-          "refs": [
-            "tools.ozone.moderation.defs#repoViewDetail",
-            "tools.ozone.moderation.defs#repoViewNotFound",
-          ],
         },
       },
     },
@@ -15464,324 +19880,6 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.moderation.searchRepos`
-const toolsOzoneModerationSearchRepos = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.searchRepos",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Find repositories based on a search term.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "term": {
-            "type": "string",
-            "description": "DEPRECATED: use 'q' instead",
-          },
-          "q": {"type": "string"},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repos"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "repos": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "tools.ozone.moderation.defs#repoView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.getReporterStats`
-const toolsOzoneModerationGetReporterStats = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.getReporterStats",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get reporter stats for a list of users.",
-      "parameters": {
-        "type": "params",
-        "required": ["dids"],
-        "properties": {
-          "dids": {
-            "type": "array",
-            "items": {"type": "string", "format": "did"},
-            "maxLength": 100,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["stats"],
-          "properties": {
-            "stats": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "tools.ozone.moderation.defs#reporterStats",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.scheduleAction`
-const toolsOzoneModerationScheduleAction = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.scheduleAction",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Schedule a moderation action to be executed at a future time",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["action", "subjects", "createdBy", "scheduling"],
-          "properties": {
-            "action": {
-              "type": "union",
-              "refs": ["#takedown"],
-            },
-            "subjects": {
-              "type": "array",
-              "description": "Array of DID subjects to schedule the action for",
-              "items": {"type": "string", "format": "did"},
-              "maxLength": 100,
-            },
-            "createdBy": {"type": "string", "format": "did"},
-            "scheduling": {"type": "ref", "ref": "#schedulingConfig"},
-            "modTool": {
-              "type": "ref",
-              "description":
-                  "This will be propagated to the moderation event when it is applied",
-              "ref": "tools.ozone.moderation.defs#modTool",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "#scheduledActionResults"},
-      },
-    },
-    "takedown": {
-      "type": "object",
-      "description": "Schedule a takedown action",
-      "properties": {
-        "comment": {"type": "string"},
-        "durationInHours": {
-          "type": "integer",
-          "description":
-              "Indicates how long the takedown should be in effect before automatically expiring.",
-        },
-        "acknowledgeAccountSubjects": {
-          "type": "boolean",
-          "description":
-              "If true, all other reports on content authored by this account will be resolved (acknowledged).",
-        },
-        "policies": {
-          "type": "array",
-          "description":
-              "Names/Keywords of the policies that drove the decision.",
-          "items": {"type": "string"},
-          "maxLength": 5,
-        },
-        "severityLevel": {
-          "type": "string",
-          "description":
-              "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).",
-        },
-        "strikeCount": {
-          "type": "integer",
-          "description":
-              "Number of strikes to assign to the user when takedown is applied.",
-        },
-        "strikeExpiresAt": {
-          "type": "string",
-          "format": "datetime",
-          "description":
-              "When the strike should expire. If not provided, the strike never expires.",
-        },
-        "emailContent": {
-          "type": "string",
-          "description": "Email content to be sent to the user upon takedown.",
-        },
-        "emailSubject": {
-          "type": "string",
-          "description":
-              "Subject of the email to be sent to the user upon takedown.",
-        },
-      },
-    },
-    "schedulingConfig": {
-      "type": "object",
-      "description": "Configuration for when the action should be executed",
-      "properties": {
-        "executeAt": {
-          "type": "string",
-          "format": "datetime",
-          "description": "Exact time to execute the action",
-        },
-        "executeAfter": {
-          "type": "string",
-          "format": "datetime",
-          "description":
-              "Earliest time to execute the action (for randomized scheduling)",
-        },
-        "executeUntil": {
-          "type": "string",
-          "format": "datetime",
-          "description":
-              "Latest time to execute the action (for randomized scheduling)",
-        },
-      },
-    },
-    "scheduledActionResults": {
-      "type": "object",
-      "required": ["succeeded", "failed"],
-      "properties": {
-        "succeeded": {
-          "type": "array",
-          "items": {"type": "string", "format": "did"},
-        },
-        "failed": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#failedScheduling"},
-        },
-      },
-    },
-    "failedScheduling": {
-      "type": "object",
-      "required": ["subject", "error"],
-      "properties": {
-        "subject": {"type": "string", "format": "did"},
-        "error": {"type": "string"},
-        "errorCode": {"type": "string"},
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.getAccountTimeline`
-const toolsOzoneModerationGetAccountTimeline = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.getAccountTimeline",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Get timeline of all available events of an account. This includes moderation events, account history and did history.",
-      "parameters": {
-        "type": "params",
-        "required": ["did"],
-        "properties": {
-          "did": {"type": "string", "format": "did"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["timeline"],
-          "properties": {
-            "timeline": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#timelineItem"},
-            },
-          },
-        },
-      },
-      "errors": [
-        {"name": "RepoNotFound"},
-      ],
-    },
-    "timelineItem": {
-      "type": "object",
-      "required": ["day", "summary"],
-      "properties": {
-        "day": {"type": "string"},
-        "summary": {
-          "type": "array",
-          "items": {"type": "ref", "ref": "#timelineItemSummary"},
-        },
-      },
-    },
-    "timelineItemSummary": {
-      "type": "object",
-      "required": ["eventSubjectType", "eventType", "count"],
-      "properties": {
-        "eventSubjectType": {
-          "type": "string",
-          "knownValues": ["account", "record", "chat"],
-        },
-        "eventType": {
-          "type": "string",
-          "knownValues": [
-            "tools.ozone.moderation.defs#modEventTakedown",
-            "tools.ozone.moderation.defs#modEventReverseTakedown",
-            "tools.ozone.moderation.defs#modEventComment",
-            "tools.ozone.moderation.defs#modEventReport",
-            "tools.ozone.moderation.defs#modEventLabel",
-            "tools.ozone.moderation.defs#modEventAcknowledge",
-            "tools.ozone.moderation.defs#modEventEscalate",
-            "tools.ozone.moderation.defs#modEventMute",
-            "tools.ozone.moderation.defs#modEventUnmute",
-            "tools.ozone.moderation.defs#modEventMuteReporter",
-            "tools.ozone.moderation.defs#modEventUnmuteReporter",
-            "tools.ozone.moderation.defs#modEventEmail",
-            "tools.ozone.moderation.defs#modEventResolveAppeal",
-            "tools.ozone.moderation.defs#modEventDivert",
-            "tools.ozone.moderation.defs#modEventTag",
-            "tools.ozone.moderation.defs#accountEvent",
-            "tools.ozone.moderation.defs#identityEvent",
-            "tools.ozone.moderation.defs#recordEvent",
-            "tools.ozone.moderation.defs#modEventPriorityScore",
-            "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
-            "tools.ozone.moderation.defs#ageAssuranceEvent",
-            "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
-            "tools.ozone.moderation.defs#timelineEventPlcCreate",
-            "tools.ozone.moderation.defs#timelineEventPlcOperation",
-            "tools.ozone.moderation.defs#timelineEventPlcTombstone",
-            "tools.ozone.hosting.getAccountHistory#accountCreated",
-            "tools.ozone.hosting.getAccountHistory#emailConfirmed",
-            "tools.ozone.hosting.getAccountHistory#passwordUpdated",
-            "tools.ozone.hosting.getAccountHistory#handleUpdated",
-            "tools.ozone.moderation.defs#scheduleTakedownEvent",
-            "tools.ozone.moderation.defs#cancelScheduledTakedownEvent",
-          ],
-        },
-        "count": {"type": "integer"},
-      },
-    },
-  },
-};
-
 /// `tools.ozone.moderation.getRepo`
 const toolsOzoneModerationGetRepo = <String, dynamic>{
   "lexicon": 1,
@@ -15806,331 +19904,6 @@ const toolsOzoneModerationGetRepo = <String, dynamic>{
       },
       "errors": [
         {"name": "RepoNotFound"},
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.moderation.listScheduledActions`
-const toolsOzoneModerationListScheduledActions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.listScheduledActions",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "List scheduled moderation actions with optional filtering",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["statuses"],
-          "properties": {
-            "startsAfter": {
-              "type": "string",
-              "format": "datetime",
-              "description":
-                  "Filter actions scheduled to execute after this time",
-            },
-            "endsBefore": {
-              "type": "string",
-              "format": "datetime",
-              "description":
-                  "Filter actions scheduled to execute before this time",
-            },
-            "subjects": {
-              "type": "array",
-              "description": "Filter actions for specific DID subjects",
-              "items": {"type": "string", "format": "did"},
-              "maxLength": 100,
-            },
-            "statuses": {
-              "type": "array",
-              "description": "Filter actions by status",
-              "items": {
-                "type": "string",
-                "knownValues": ["pending", "executed", "cancelled", "failed"],
-              },
-              "minLength": 1,
-            },
-            "limit": {
-              "type": "integer",
-              "description": "Maximum number of results to return",
-              "default": 50,
-              "minimum": 1,
-              "maximum": 100,
-            },
-            "cursor": {
-              "type": "string",
-              "description": "Cursor for pagination",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["actions"],
-          "properties": {
-            "actions": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "tools.ozone.moderation.defs#scheduledActionView",
-              },
-            },
-            "cursor": {
-              "type": "string",
-              "description": "Cursor for next page of results",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.queryEvents`
-const toolsOzoneModerationQueryEvents = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.queryEvents",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "List moderation events related to a subject.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "types": {
-            "type": "array",
-            "description":
-                "The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.",
-            "items": {"type": "string"},
-          },
-          "createdBy": {"type": "string", "format": "did"},
-          "sortDirection": {
-            "type": "string",
-            "description":
-                "Sort direction for the events. Defaults to descending order of created at timestamp.",
-            "default": "desc",
-            "enum": ["asc", "desc"],
-          },
-          "createdAfter": {
-            "type": "string",
-            "format": "datetime",
-            "description": "Retrieve events created after a given timestamp",
-          },
-          "createdBefore": {
-            "type": "string",
-            "format": "datetime",
-            "description": "Retrieve events created before a given timestamp",
-          },
-          "subject": {"type": "string", "format": "uri"},
-          "collections": {
-            "type": "array",
-            "description":
-                "If specified, only events where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
-            "items": {"type": "string", "format": "nsid"},
-            "maxLength": 20,
-          },
-          "subjectType": {
-            "type": "string",
-            "description":
-                "If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
-            "knownValues": ["account", "record"],
-          },
-          "includeAllUserRecords": {
-            "type": "boolean",
-            "description":
-                "If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
-            "default": false,
-          },
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100,
-          },
-          "hasComment": {
-            "type": "boolean",
-            "description": "If true, only events with comments are returned",
-          },
-          "comment": {
-            "type": "string",
-            "description":
-                "If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.",
-          },
-          "addedLabels": {
-            "type": "array",
-            "description":
-                "If specified, only events where all of these labels were added are returned",
-            "items": {"type": "string"},
-          },
-          "removedLabels": {
-            "type": "array",
-            "description":
-                "If specified, only events where all of these labels were removed are returned",
-            "items": {"type": "string"},
-          },
-          "addedTags": {
-            "type": "array",
-            "description":
-                "If specified, only events where all of these tags were added are returned",
-            "items": {"type": "string"},
-          },
-          "removedTags": {
-            "type": "array",
-            "description":
-                "If specified, only events where all of these tags were removed are returned",
-            "items": {"type": "string"},
-          },
-          "reportTypes": {
-            "type": "array",
-            "items": {"type": "string"},
-          },
-          "policies": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description":
-                  "If specified, only events where the action policies match any of the given policies are returned",
-            },
-          },
-          "modTool": {
-            "type": "array",
-            "description":
-                "If specified, only events where the modTool name matches any of the given values are returned",
-            "items": {"type": "string"},
-          },
-          "batchId": {
-            "type": "string",
-            "description":
-                "If specified, only events where the batchId matches the given value are returned",
-          },
-          "ageAssuranceState": {
-            "type": "string",
-            "description":
-                "If specified, only events where the age assurance state matches the given value are returned",
-            "knownValues": [
-              "pending",
-              "assured",
-              "unknown",
-              "reset",
-              "blocked",
-            ],
-          },
-          "withStrike": {
-            "type": "boolean",
-            "description":
-                "If specified, only events where strikeCount value is set are returned.",
-          },
-          "cursor": {"type": "string"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["events"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "events": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "tools.ozone.moderation.defs#modEventView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.emitEvent`
-const toolsOzoneModerationEmitEvent = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.emitEvent",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description": "Take a moderation action on an actor.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["event", "subject", "createdBy"],
-          "properties": {
-            "event": {
-              "type": "union",
-              "refs": [
-                "tools.ozone.moderation.defs#modEventTakedown",
-                "tools.ozone.moderation.defs#modEventAcknowledge",
-                "tools.ozone.moderation.defs#modEventEscalate",
-                "tools.ozone.moderation.defs#modEventComment",
-                "tools.ozone.moderation.defs#modEventLabel",
-                "tools.ozone.moderation.defs#modEventReport",
-                "tools.ozone.moderation.defs#modEventMute",
-                "tools.ozone.moderation.defs#modEventUnmute",
-                "tools.ozone.moderation.defs#modEventMuteReporter",
-                "tools.ozone.moderation.defs#modEventUnmuteReporter",
-                "tools.ozone.moderation.defs#modEventReverseTakedown",
-                "tools.ozone.moderation.defs#modEventResolveAppeal",
-                "tools.ozone.moderation.defs#modEventEmail",
-                "tools.ozone.moderation.defs#modEventDivert",
-                "tools.ozone.moderation.defs#modEventTag",
-                "tools.ozone.moderation.defs#accountEvent",
-                "tools.ozone.moderation.defs#identityEvent",
-                "tools.ozone.moderation.defs#recordEvent",
-                "tools.ozone.moderation.defs#modEventPriorityScore",
-                "tools.ozone.moderation.defs#ageAssuranceEvent",
-                "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
-                "tools.ozone.moderation.defs#ageAssurancePurgeEvent",
-                "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
-                "tools.ozone.moderation.defs#scheduleTakedownEvent",
-                "tools.ozone.moderation.defs#cancelScheduledTakedownEvent",
-              ],
-            },
-            "subject": {
-              "type": "union",
-              "refs": [
-                "com.atproto.admin.defs#repoRef",
-                "com.atproto.repo.strongRef",
-              ],
-            },
-            "subjectBlobCids": {
-              "type": "array",
-              "items": {"type": "string", "format": "cid"},
-            },
-            "createdBy": {"type": "string", "format": "did"},
-            "modTool": {
-              "type": "ref",
-              "ref": "tools.ozone.moderation.defs#modTool",
-            },
-            "externalId": {
-              "type": "string",
-              "description":
-                  "An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "tools.ozone.moderation.defs#modEventView",
-        },
-      },
-      "errors": [
-        {"name": "SubjectHasAction"},
-        {
-          "name": "DuplicateExternalId",
-          "description":
-              "An event with the same external ID already exists for the subject.",
-        },
       ],
     },
   },
@@ -16876,6 +20649,11 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "type": "string",
           "description": "Additional comment about added/removed tags.",
         },
+        "durationInHours": {
+          "type": "integer",
+          "description":
+              "Indicates how long the tags being added should remain before automatically being removed. Only applies to tags being added.",
+        },
       },
     },
     "accountEvent": {
@@ -17342,127 +21120,6 @@ const toolsOzoneModerationDefs = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.moderation.getEvent`
-const toolsOzoneModerationGetEvent = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.getEvent",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get details about a moderation event.",
-      "parameters": {
-        "type": "params",
-        "required": ["id"],
-        "properties": {
-          "id": {"type": "integer"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "tools.ozone.moderation.defs#modEventViewDetail",
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.getRecord`
-const toolsOzoneModerationGetRecord = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.getRecord",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get details about a record.",
-      "parameters": {
-        "type": "params",
-        "required": ["uri"],
-        "properties": {
-          "uri": {"type": "string", "format": "at-uri"},
-          "cid": {"type": "string", "format": "cid"},
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "ref",
-          "ref": "tools.ozone.moderation.defs#recordViewDetail",
-        },
-      },
-      "errors": [
-        {"name": "RecordNotFound"},
-      ],
-    },
-  },
-};
-
-/// `tools.ozone.moderation.cancelScheduledActions`
-const toolsOzoneModerationCancelScheduledActions = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.cancelScheduledActions",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Cancel all pending scheduled moderation actions for specified subjects",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["subjects"],
-          "properties": {
-            "subjects": {
-              "type": "array",
-              "description":
-                  "Array of DID subjects to cancel scheduled actions for",
-              "items": {"type": "string", "format": "did"},
-              "maxLength": 100,
-            },
-            "comment": {
-              "type": "string",
-              "description":
-                  "Optional comment describing the reason for cancellation",
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {"type": "ref", "ref": "#cancellationResults"},
-      },
-    },
-    "cancellationResults": {
-      "type": "object",
-      "required": ["succeeded", "failed"],
-      "properties": {
-        "succeeded": {
-          "type": "array",
-          "description":
-              "DIDs for which all pending scheduled actions were successfully cancelled",
-          "items": {"type": "string", "format": "did"},
-        },
-        "failed": {
-          "type": "array",
-          "description":
-              "DIDs for which cancellation failed with error details",
-          "items": {"type": "ref", "ref": "#failedCancellation"},
-        },
-      },
-    },
-    "failedCancellation": {
-      "type": "object",
-      "required": ["did", "error"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "error": {"type": "string"},
-        "errorCode": {"type": "string"},
-      },
-    },
-  },
-};
-
 /// `tools.ozone.moderation.getSubjects`
 const toolsOzoneModerationGetSubjects = <String, dynamic>{
   "lexicon": 1,
@@ -17494,48 +21151,6 @@ const toolsOzoneModerationGetSubjects = <String, dynamic>{
               "items": {
                 "type": "ref",
                 "ref": "tools.ozone.moderation.defs#subjectView",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.moderation.getRepos`
-const toolsOzoneModerationGetRepos = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.moderation.getRepos",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description": "Get details about some repositories.",
-      "parameters": {
-        "type": "params",
-        "required": ["dids"],
-        "properties": {
-          "dids": {
-            "type": "array",
-            "items": {"type": "string", "format": "did"},
-            "maxLength": 100,
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["repos"],
-          "properties": {
-            "repos": {
-              "type": "array",
-              "items": {
-                "type": "union",
-                "refs": [
-                  "tools.ozone.moderation.defs#repoViewDetail",
-                  "tools.ozone.moderation.defs#repoViewNotFound",
-                ],
               },
             },
           },
@@ -17587,107 +21202,320 @@ const toolsOzoneModerationGetRecords = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.signature.findRelatedAccounts`
-const toolsOzoneSignatureFindRelatedAccounts = <String, dynamic>{
+/// `tools.ozone.moderation.scheduleAction`
+const toolsOzoneModerationScheduleAction = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.signature.findRelatedAccounts",
+  "id": "tools.ozone.moderation.scheduleAction",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Schedule a moderation action to be executed at a future time",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["action", "subjects", "createdBy", "scheduling"],
+          "properties": {
+            "action": {
+              "type": "union",
+              "refs": ["#takedown"],
+            },
+            "subjects": {
+              "type": "array",
+              "description": "Array of DID subjects to schedule the action for",
+              "items": {"type": "string", "format": "did"},
+              "maxLength": 100,
+            },
+            "createdBy": {"type": "string", "format": "did"},
+            "scheduling": {"type": "ref", "ref": "#schedulingConfig"},
+            "modTool": {
+              "type": "ref",
+              "description":
+                  "This will be propagated to the moderation event when it is applied",
+              "ref": "tools.ozone.moderation.defs#modTool",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "#scheduledActionResults"},
+      },
+    },
+    "takedown": {
+      "type": "object",
+      "description": "Schedule a takedown action",
+      "properties": {
+        "comment": {"type": "string"},
+        "durationInHours": {
+          "type": "integer",
+          "description":
+              "Indicates how long the takedown should be in effect before automatically expiring.",
+        },
+        "acknowledgeAccountSubjects": {
+          "type": "boolean",
+          "description":
+              "If true, all other reports on content authored by this account will be resolved (acknowledged).",
+        },
+        "policies": {
+          "type": "array",
+          "description":
+              "Names/Keywords of the policies that drove the decision.",
+          "items": {"type": "string"},
+          "maxLength": 5,
+        },
+        "severityLevel": {
+          "type": "string",
+          "description":
+              "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).",
+        },
+        "strikeCount": {
+          "type": "integer",
+          "description":
+              "Number of strikes to assign to the user when takedown is applied.",
+        },
+        "strikeExpiresAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the strike should expire. If not provided, the strike never expires.",
+        },
+        "emailContent": {
+          "type": "string",
+          "description": "Email content to be sent to the user upon takedown.",
+        },
+        "emailSubject": {
+          "type": "string",
+          "description":
+              "Subject of the email to be sent to the user upon takedown.",
+        },
+      },
+    },
+    "schedulingConfig": {
+      "type": "object",
+      "description": "Configuration for when the action should be executed",
+      "properties": {
+        "executeAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Exact time to execute the action",
+        },
+        "executeAfter": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Earliest time to execute the action (for randomized scheduling)",
+        },
+        "executeUntil": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Latest time to execute the action (for randomized scheduling)",
+        },
+      },
+    },
+    "scheduledActionResults": {
+      "type": "object",
+      "required": ["succeeded", "failed"],
+      "properties": {
+        "succeeded": {
+          "type": "array",
+          "items": {"type": "string", "format": "did"},
+        },
+        "failed": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#failedScheduling"},
+        },
+      },
+    },
+    "failedScheduling": {
+      "type": "object",
+      "required": ["subject", "error"],
+      "properties": {
+        "subject": {"type": "string", "format": "did"},
+        "error": {"type": "string"},
+        "errorCode": {"type": "string"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.moderation.getEvent`
+const toolsOzoneModerationGetEvent = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getEvent",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Get accounts that share some matching threat signatures with the root account.",
+      "description": "Get details about a moderation event.",
       "parameters": {
         "type": "params",
-        "required": ["did"],
+        "required": ["id"],
         "properties": {
-          "did": {"type": "string", "format": "did"},
-          "cursor": {"type": "string"},
+          "id": {"type": "integer"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.moderation.defs#modEventViewDetail",
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.moderation.queryEvents`
+const toolsOzoneModerationQueryEvents = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.queryEvents",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List moderation events related to a subject.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "types": {
+            "type": "array",
+            "description":
+                "The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.",
+            "items": {"type": "string"},
+          },
+          "createdBy": {"type": "string", "format": "did"},
+          "sortDirection": {
+            "type": "string",
+            "description":
+                "Sort direction for the events. Defaults to descending order of created at timestamp.",
+            "default": "desc",
+            "enum": ["asc", "desc"],
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Retrieve events created after a given timestamp",
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Retrieve events created before a given timestamp",
+          },
+          "subject": {"type": "string", "format": "uri"},
+          "collections": {
+            "type": "array",
+            "description":
+                "If specified, only events where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "items": {"type": "string", "format": "nsid"},
+            "maxLength": 20,
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "knownValues": ["account", "record"],
+          },
+          "includeAllUserRecords": {
+            "type": "boolean",
+            "description":
+                "If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
+            "default": false,
+          },
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100,
           },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["accounts"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "accounts": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#relatedAccount"},
+          "hasComment": {
+            "type": "boolean",
+            "description": "If true, only events with comments are returned",
+          },
+          "comment": {
+            "type": "string",
+            "description":
+                "If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.",
+          },
+          "addedLabels": {
+            "type": "array",
+            "description":
+                "If specified, only events where all of these labels were added are returned",
+            "items": {"type": "string"},
+          },
+          "removedLabels": {
+            "type": "array",
+            "description":
+                "If specified, only events where all of these labels were removed are returned",
+            "items": {"type": "string"},
+          },
+          "addedTags": {
+            "type": "array",
+            "description":
+                "If specified, only events where all of these tags were added are returned",
+            "items": {"type": "string"},
+          },
+          "removedTags": {
+            "type": "array",
+            "description":
+                "If specified, only events where all of these tags were removed are returned",
+            "items": {"type": "string"},
+          },
+          "reportTypes": {
+            "type": "array",
+            "items": {"type": "string"},
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description":
+                  "If specified, only events where the action policies match any of the given policies are returned",
             },
           },
-        },
-      },
-    },
-    "relatedAccount": {
-      "type": "object",
-      "required": ["account"],
-      "properties": {
-        "account": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"},
-        "similarities": {
-          "type": "array",
-          "items": {
-            "type": "ref",
-            "ref": "tools.ozone.signature.defs#sigDetail",
-          },
-        },
-      },
-    },
-  },
-};
-
-/// `tools.ozone.signature.defs`
-const toolsOzoneSignatureDefs = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.signature.defs",
-  "defs": {
-    "sigDetail": {
-      "type": "object",
-      "required": ["property", "value"],
-      "properties": {
-        "property": {"type": "string"},
-        "value": {"type": "string"},
-      },
-    },
-  },
-};
-
-/// `tools.ozone.signature.findCorrelation`
-const toolsOzoneSignatureFindCorrelation = <String, dynamic>{
-  "lexicon": 1,
-  "id": "tools.ozone.signature.findCorrelation",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "Find all correlated threat signatures between 2 or more accounts.",
-      "parameters": {
-        "type": "params",
-        "required": ["dids"],
-        "properties": {
-          "dids": {
+          "modTool": {
             "type": "array",
-            "items": {"type": "string", "format": "did"},
+            "description":
+                "If specified, only events where the modTool name matches any of the given values are returned",
+            "items": {"type": "string"},
           },
+          "batchId": {
+            "type": "string",
+            "description":
+                "If specified, only events where the batchId matches the given value are returned",
+          },
+          "ageAssuranceState": {
+            "type": "string",
+            "description":
+                "If specified, only events where the age assurance state matches the given value are returned",
+            "knownValues": [
+              "pending",
+              "assured",
+              "unknown",
+              "reset",
+              "blocked",
+            ],
+          },
+          "withStrike": {
+            "type": "boolean",
+            "description":
+                "If specified, only events where strikeCount value is set are returned.",
+          },
+          "cursor": {"type": "string"},
         },
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["details"],
+          "required": ["events"],
           "properties": {
-            "details": {
+            "cursor": {"type": "string"},
+            "events": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "tools.ozone.signature.defs#sigDetail",
+                "ref": "tools.ozone.moderation.defs#modEventView",
               },
             },
           },
@@ -17697,29 +21525,311 @@ const toolsOzoneSignatureFindCorrelation = <String, dynamic>{
   },
 };
 
-/// `tools.ozone.signature.searchAccounts`
-const toolsOzoneSignatureSearchAccounts = <String, dynamic>{
+/// `tools.ozone.moderation.getRecord`
+const toolsOzoneModerationGetRecord = <String, dynamic>{
   "lexicon": 1,
-  "id": "tools.ozone.signature.searchAccounts",
+  "id": "tools.ozone.moderation.getRecord",
   "defs": {
     "main": {
       "type": "query",
-      "description":
-          "Search for accounts that match one or more threat signature values.",
+      "description": "Get details about a record.",
       "parameters": {
         "type": "params",
-        "required": ["values"],
+        "required": ["uri"],
         "properties": {
-          "values": {
-            "type": "array",
-            "items": {"type": "string"},
+          "uri": {"type": "string", "format": "at-uri"},
+          "cid": {"type": "string", "format": "cid"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.moderation.defs#recordViewDetail",
+        },
+      },
+      "errors": [
+        {"name": "RecordNotFound"},
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.moderation.emitEvent`
+const toolsOzoneModerationEmitEvent = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.emitEvent",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Take a moderation action on an actor.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["event", "subject", "createdBy"],
+          "properties": {
+            "event": {
+              "type": "union",
+              "refs": [
+                "tools.ozone.moderation.defs#modEventTakedown",
+                "tools.ozone.moderation.defs#modEventAcknowledge",
+                "tools.ozone.moderation.defs#modEventEscalate",
+                "tools.ozone.moderation.defs#modEventComment",
+                "tools.ozone.moderation.defs#modEventLabel",
+                "tools.ozone.moderation.defs#modEventReport",
+                "tools.ozone.moderation.defs#modEventMute",
+                "tools.ozone.moderation.defs#modEventUnmute",
+                "tools.ozone.moderation.defs#modEventMuteReporter",
+                "tools.ozone.moderation.defs#modEventUnmuteReporter",
+                "tools.ozone.moderation.defs#modEventReverseTakedown",
+                "tools.ozone.moderation.defs#modEventResolveAppeal",
+                "tools.ozone.moderation.defs#modEventEmail",
+                "tools.ozone.moderation.defs#modEventDivert",
+                "tools.ozone.moderation.defs#modEventTag",
+                "tools.ozone.moderation.defs#accountEvent",
+                "tools.ozone.moderation.defs#identityEvent",
+                "tools.ozone.moderation.defs#recordEvent",
+                "tools.ozone.moderation.defs#modEventPriorityScore",
+                "tools.ozone.moderation.defs#ageAssuranceEvent",
+                "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
+                "tools.ozone.moderation.defs#ageAssurancePurgeEvent",
+                "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
+                "tools.ozone.moderation.defs#scheduleTakedownEvent",
+                "tools.ozone.moderation.defs#cancelScheduledTakedownEvent",
+              ],
+            },
+            "subject": {
+              "type": "union",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+              ],
+            },
+            "subjectBlobCids": {
+              "type": "array",
+              "items": {"type": "string", "format": "cid"},
+            },
+            "createdBy": {"type": "string", "format": "did"},
+            "modTool": {
+              "type": "ref",
+              "ref": "tools.ozone.moderation.defs#modTool",
+            },
+            "externalId": {
+              "type": "string",
+              "description":
+                  "An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.",
+            },
+            "reportAction": {
+              "type": "ref",
+              "description":
+                  "Optional report-level targeting. If provided, this event will be linked to specific reports and reporters may be notified.",
+              "ref": "#reportAction",
+            },
           },
-          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.moderation.defs#modEventView",
+        },
+      },
+      "errors": [
+        {"name": "SubjectHasAction"},
+        {
+          "name": "DuplicateExternalId",
+          "description":
+              "An event with the same external ID already exists for the subject.",
+        },
+      ],
+    },
+    "reportAction": {
+      "type": "object",
+      "description": "Target specific reports when emitting a moderation event",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "description": "Target specific report IDs",
+          "items": {"type": "integer"},
+        },
+        "types": {
+          "type": "array",
+          "description":
+              "Target reports matching these report types on the subject (fully qualified NSIDs)",
+          "items": {"type": "string"},
+        },
+        "all": {
+          "type": "boolean",
+          "description": "Target ALL reports on the subject",
+        },
+        "note": {
+          "type": "string",
+          "description":
+              "Note to send to reporter(s) when actioning their report",
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.moderation.searchRepos`
+const toolsOzoneModerationSearchRepos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.searchRepos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Find repositories based on a search term.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "DEPRECATED: use 'q' instead",
+          },
+          "q": {"type": "string"},
           "limit": {
             "type": "integer",
             "default": 50,
             "minimum": 1,
             "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repos"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "repos": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.moderation.defs#repoView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.moderation.getAccountTimeline`
+const toolsOzoneModerationGetAccountTimeline = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getAccountTimeline",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get timeline of all available events of an account. This includes moderation events, account history and did history.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["timeline"],
+          "properties": {
+            "timeline": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#timelineItem"},
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "RepoNotFound"},
+      ],
+    },
+    "timelineItem": {
+      "type": "object",
+      "required": ["day", "summary"],
+      "properties": {
+        "day": {"type": "string"},
+        "summary": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#timelineItemSummary"},
+        },
+      },
+    },
+    "timelineItemSummary": {
+      "type": "object",
+      "required": ["eventSubjectType", "eventType", "count"],
+      "properties": {
+        "eventSubjectType": {
+          "type": "string",
+          "knownValues": ["account", "record", "chat"],
+        },
+        "eventType": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.moderation.defs#modEventTakedown",
+            "tools.ozone.moderation.defs#modEventReverseTakedown",
+            "tools.ozone.moderation.defs#modEventComment",
+            "tools.ozone.moderation.defs#modEventReport",
+            "tools.ozone.moderation.defs#modEventLabel",
+            "tools.ozone.moderation.defs#modEventAcknowledge",
+            "tools.ozone.moderation.defs#modEventEscalate",
+            "tools.ozone.moderation.defs#modEventMute",
+            "tools.ozone.moderation.defs#modEventUnmute",
+            "tools.ozone.moderation.defs#modEventMuteReporter",
+            "tools.ozone.moderation.defs#modEventUnmuteReporter",
+            "tools.ozone.moderation.defs#modEventEmail",
+            "tools.ozone.moderation.defs#modEventResolveAppeal",
+            "tools.ozone.moderation.defs#modEventDivert",
+            "tools.ozone.moderation.defs#modEventTag",
+            "tools.ozone.moderation.defs#accountEvent",
+            "tools.ozone.moderation.defs#identityEvent",
+            "tools.ozone.moderation.defs#recordEvent",
+            "tools.ozone.moderation.defs#modEventPriorityScore",
+            "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
+            "tools.ozone.moderation.defs#ageAssuranceEvent",
+            "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
+            "tools.ozone.moderation.defs#timelineEventPlcCreate",
+            "tools.ozone.moderation.defs#timelineEventPlcOperation",
+            "tools.ozone.moderation.defs#timelineEventPlcTombstone",
+            "tools.ozone.hosting.getAccountHistory#accountCreated",
+            "tools.ozone.hosting.getAccountHistory#emailConfirmed",
+            "tools.ozone.hosting.getAccountHistory#passwordUpdated",
+            "tools.ozone.hosting.getAccountHistory#handleUpdated",
+            "tools.ozone.moderation.defs#scheduleTakedownEvent",
+            "tools.ozone.moderation.defs#cancelScheduledTakedownEvent",
+          ],
+        },
+        "count": {"type": "integer"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.moderation.getRepos`
+const toolsOzoneModerationGetRepos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getRepos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some repositories.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100,
           },
         },
       },
@@ -17727,14 +21837,16 @@ const toolsOzoneSignatureSearchAccounts = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["accounts"],
+          "required": ["repos"],
           "properties": {
-            "cursor": {"type": "string"},
-            "accounts": {
+            "repos": {
               "type": "array",
               "items": {
-                "type": "ref",
-                "ref": "com.atproto.admin.defs#accountView",
+                "type": "union",
+                "refs": [
+                  "tools.ozone.moderation.defs#repoViewDetail",
+                  "tools.ozone.moderation.defs#repoViewNotFound",
+                ],
               },
             },
           },
@@ -17746,317 +21858,363 @@ const toolsOzoneSignatureSearchAccounts = <String, dynamic>{
 
 /// The collection of official lexicons.
 const lexicons = <Map<String, dynamic>>[
-  comAtprotoLexiconResolveLexicon,
-  comAtprotoLexiconSchema,
-  comAtprotoRepoPutRecord,
-  comAtprotoRepoDescribeRepo,
-  comAtprotoRepoApplyWrites,
-  comAtprotoRepoCreateRecord,
-  comAtprotoRepoUploadBlob,
-  comAtprotoRepoStrongRef,
-  comAtprotoRepoDeleteRecord,
-  comAtprotoRepoListMissingBlobs,
-  comAtprotoRepoDefs,
-  comAtprotoRepoImportRepo,
-  comAtprotoRepoListRecords,
-  comAtprotoRepoGetRecord,
-  comAtprotoServerRequestAccountDelete,
-  comAtprotoServerCheckAccountStatus,
-  comAtprotoServerActivateAccount,
-  comAtprotoServerGetServiceAuth,
-  comAtprotoServerCreateInviteCode,
-  comAtprotoServerDeleteAccount,
-  comAtprotoServerRequestEmailUpdate,
-  comAtprotoServerRevokeAppPassword,
-  comAtprotoServerCreateInviteCodes,
-  comAtprotoServerDeactivateAccount,
-  comAtprotoServerCreateAccount,
-  comAtprotoServerRequestPasswordReset,
-  comAtprotoServerUpdateEmail,
-  comAtprotoServerGetAccountInviteCodes,
-  comAtprotoServerRefreshSession,
-  comAtprotoServerDefs,
-  comAtprotoServerConfirmEmail,
-  comAtprotoServerResetPassword,
-  comAtprotoServerDescribeServer,
-  comAtprotoServerCreateSession,
-  comAtprotoServerDeleteSession,
-  comAtprotoServerCreateAppPassword,
-  comAtprotoServerGetSession,
-  comAtprotoServerRequestEmailConfirmation,
-  comAtprotoServerListAppPasswords,
-  comAtprotoServerReserveSigningKey,
-  comAtprotoAdminUpdateAccountHandle,
-  comAtprotoAdminUpdateAccountSigningKey,
-  comAtprotoAdminDeleteAccount,
-  comAtprotoAdminGetSubjectStatus,
-  comAtprotoAdminGetAccountInfos,
-  comAtprotoAdminUpdateSubjectStatus,
-  comAtprotoAdminGetInviteCodes,
-  comAtprotoAdminDisableAccountInvites,
-  comAtprotoAdminDefs,
-  comAtprotoAdminSendEmail,
-  comAtprotoAdminGetAccountInfo,
-  comAtprotoAdminEnableAccountInvites,
-  comAtprotoAdminUpdateAccountEmail,
-  comAtprotoAdminDisableInviteCodes,
-  comAtprotoAdminUpdateAccountPassword,
-  comAtprotoAdminSearchAccounts,
-  comAtprotoTempCheckHandleAvailability,
-  comAtprotoTempFetchLabels,
-  comAtprotoTempAddReservedHandle,
   comAtprotoTempDereferenceScope,
+  comAtprotoTempAddReservedHandle,
+  comAtprotoTempCheckSignupQueue,
+  comAtprotoTempCheckHandleAvailability,
   comAtprotoTempRequestPhoneVerification,
   comAtprotoTempRevokeAccountCredentials,
-  comAtprotoTempCheckSignupQueue,
-  comAtprotoIdentityRequestPlcOperationSignature,
-  comAtprotoIdentityResolveDid,
-  comAtprotoIdentitySignPlcOperation,
-  comAtprotoIdentityRefreshIdentity,
-  comAtprotoIdentityGetRecommendedDidCredentials,
-  comAtprotoIdentityDefs,
-  comAtprotoIdentityResolveIdentity,
-  comAtprotoIdentityResolveHandle,
-  comAtprotoIdentitySubmitPlcOperation,
+  comAtprotoTempFetchLabels,
   comAtprotoIdentityUpdateHandle,
-  comAtprotoLabelQueryLabels,
-  comAtprotoLabelDefs,
+  comAtprotoIdentityDefs,
+  comAtprotoIdentitySignPlcOperation,
+  comAtprotoIdentitySubmitPlcOperation,
+  comAtprotoIdentityResolveIdentity,
+  comAtprotoIdentityRefreshIdentity,
+  comAtprotoIdentityResolveHandle,
+  comAtprotoIdentityRequestPlcOperationSignature,
+  comAtprotoIdentityGetRecommendedDidCredentials,
+  comAtprotoIdentityResolveDid,
+  comAtprotoAdminUpdateAccountEmail,
+  comAtprotoAdminGetAccountInfo,
+  comAtprotoAdminGetSubjectStatus,
+  comAtprotoAdminDefs,
+  comAtprotoAdminSearchAccounts,
+  comAtprotoAdminUpdateAccountPassword,
+  comAtprotoAdminUpdateAccountHandle,
+  comAtprotoAdminGetInviteCodes,
+  comAtprotoAdminUpdateAccountSigningKey,
+  comAtprotoAdminEnableAccountInvites,
+  comAtprotoAdminDisableAccountInvites,
+  comAtprotoAdminDisableInviteCodes,
+  comAtprotoAdminUpdateSubjectStatus,
+  comAtprotoAdminSendEmail,
+  comAtprotoAdminGetAccountInfos,
+  comAtprotoAdminDeleteAccount,
   comAtprotoLabelSubscribeLabels,
-  comAtprotoModerationDefs,
-  comAtprotoModerationCreateReport,
-  comAtprotoSyncGetCheckout,
+  comAtprotoLabelDefs,
+  comAtprotoLabelQueryLabels,
+  comAtprotoServerRequestEmailConfirmation,
+  comAtprotoServerReserveSigningKey,
+  comAtprotoServerDefs,
+  comAtprotoServerGetServiceAuth,
+  comAtprotoServerGetAccountInviteCodes,
+  comAtprotoServerCreateSession,
+  comAtprotoServerListAppPasswords,
+  comAtprotoServerCreateInviteCodes,
+  comAtprotoServerDeleteSession,
+  comAtprotoServerRevokeAppPassword,
+  comAtprotoServerCreateAppPassword,
+  comAtprotoServerActivateAccount,
+  comAtprotoServerDescribeServer,
+  comAtprotoServerConfirmEmail,
+  comAtprotoServerGetSession,
+  comAtprotoServerRefreshSession,
+  comAtprotoServerDeactivateAccount,
+  comAtprotoServerUpdateEmail,
+  comAtprotoServerResetPassword,
+  comAtprotoServerCheckAccountStatus,
+  comAtprotoServerRequestEmailUpdate,
+  comAtprotoServerRequestPasswordReset,
+  comAtprotoServerRequestAccountDelete,
+  comAtprotoServerCreateAccount,
+  comAtprotoServerDeleteAccount,
+  comAtprotoServerCreateInviteCode,
+  comAtprotoLexiconResolveLexicon,
+  comAtprotoLexiconSchema,
   comAtprotoSyncGetHead,
   comAtprotoSyncGetBlob,
-  comAtprotoSyncGetHostStatus,
-  comAtprotoSyncGetBlocks,
-  comAtprotoSyncListBlobs,
-  comAtprotoSyncListHosts,
-  comAtprotoSyncNotifyOfUpdate,
-  comAtprotoSyncListRepos,
   comAtprotoSyncGetRepo,
-  comAtprotoSyncGetLatestCommit,
-  comAtprotoSyncListReposByCollection,
+  comAtprotoSyncNotifyOfUpdate,
   comAtprotoSyncDefs,
   comAtprotoSyncRequestCrawl,
-  comAtprotoSyncGetRecord,
-  comAtprotoSyncGetRepoStatus,
+  comAtprotoSyncListBlobs,
+  comAtprotoSyncGetLatestCommit,
   comAtprotoSyncSubscribeRepos,
-  appBskyGraphUnmuteThread,
-  appBskyGraphGetMutes,
-  appBskyGraphSearchStarterPacks,
-  appBskyGraphGetStarterPacksWithMembership,
-  appBskyGraphMuteThread,
-  appBskyGraphGetBlocks,
-  appBskyGraphStarterpack,
-  appBskyGraphGetRelationships,
-  appBskyGraphGetStarterPacks,
-  appBskyGraphGetFollows,
-  appBskyGraphGetKnownFollowers,
-  appBskyGraphUnmuteActorList,
-  appBskyGraphList,
-  appBskyGraphGetList,
-  appBskyGraphMuteActorList,
-  appBskyGraphGetSuggestedFollowsByActor,
-  appBskyGraphListblock,
-  appBskyGraphDefs,
-  appBskyGraphFollow,
-  appBskyGraphGetFollowers,
-  appBskyGraphGetActorStarterPacks,
-  appBskyGraphGetStarterPack,
-  appBskyGraphMuteActor,
-  appBskyGraphGetListsWithMembership,
-  appBskyGraphVerification,
-  appBskyGraphGetListBlocks,
-  appBskyGraphBlock,
-  appBskyGraphGetLists,
-  appBskyGraphListitem,
-  appBskyGraphGetListMutes,
-  appBskyGraphUnmuteActor,
-  appBskyDraftDeleteDraft,
-  appBskyDraftCreateDraft,
-  appBskyDraftGetDrafts,
+  comAtprotoSyncGetRepoStatus,
+  comAtprotoSyncGetRecord,
+  comAtprotoSyncListHosts,
+  comAtprotoSyncListRepos,
+  comAtprotoSyncGetHostStatus,
+  comAtprotoSyncGetBlocks,
+  comAtprotoSyncListReposByCollection,
+  comAtprotoSyncGetCheckout,
+  comAtprotoRepoStrongRef,
+  comAtprotoRepoDefs,
+  comAtprotoRepoListMissingBlobs,
+  comAtprotoRepoCreateRecord,
+  comAtprotoRepoDeleteRecord,
+  comAtprotoRepoPutRecord,
+  comAtprotoRepoUploadBlob,
+  comAtprotoRepoImportRepo,
+  comAtprotoRepoDescribeRepo,
+  comAtprotoRepoGetRecord,
+  comAtprotoRepoApplyWrites,
+  comAtprotoRepoListRecords,
+  comAtprotoModerationDefs,
+  comAtprotoModerationCreateReport,
   appBskyDraftDefs,
+  appBskyDraftCreateDraft,
   appBskyDraftUpdateDraft,
-  appBskyUnspeccedGetSuggestedFeeds,
-  appBskyUnspeccedGetSuggestedFeedsSkeleton,
-  appBskyUnspeccedSearchStarterPacksSkeleton,
-  appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
-  appBskyUnspeccedGetPostThreadOtherV2,
-  appBskyUnspeccedSearchPostsSkeleton,
-  appBskyUnspeccedGetConfig,
-  appBskyUnspeccedGetSuggestedUsersSkeleton,
-  appBskyUnspeccedGetSuggestedOnboardingUsers,
-  appBskyUnspeccedGetTrends,
-  appBskyUnspeccedSearchActorsSkeleton,
-  appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton,
-  appBskyUnspeccedGetPostThreadV2,
-  appBskyUnspeccedGetSuggestedUsers,
-  appBskyUnspeccedGetTrendsSkeleton,
-  appBskyUnspeccedGetTrendingTopics,
-  appBskyUnspeccedGetTaggedSuggestions,
-  appBskyUnspeccedDefs,
-  appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
-  appBskyUnspeccedGetPopularFeedGenerators,
-  appBskyUnspeccedInitAgeAssurance,
-  appBskyUnspeccedGetAgeAssuranceState,
-  appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
-  appBskyUnspeccedGetSuggestedStarterPacks,
-  appBskyUnspeccedGetSuggestionsSkeleton,
-  appBskyContactSendNotification,
-  appBskyContactDismissMatch,
-  appBskyContactGetMatches,
-  appBskyContactDefs,
-  appBskyContactStartPhoneVerification,
-  appBskyContactRemoveData,
-  appBskyContactGetSyncStatus,
-  appBskyContactVerifyPhone,
-  appBskyContactImportContacts,
-  appBskyAgeassuranceGetConfig,
-  appBskyAgeassuranceDefs,
-  appBskyAgeassuranceGetState,
-  appBskyAgeassuranceBegin,
-  appBskyFeedGetPosts,
-  appBskyFeedGetSuggestedFeeds,
-  appBskyFeedGetTimeline,
-  appBskyFeedGetFeedGenerators,
-  appBskyFeedLike,
-  appBskyFeedGetFeedGenerator,
-  appBskyFeedGetActorFeeds,
-  appBskyFeedGetLikes,
-  appBskyFeedGetQuotes,
-  appBskyFeedGetRepostedBy,
-  appBskyFeedThreadgate,
-  appBskyFeedDescribeFeedGenerator,
-  appBskyFeedDefs,
-  appBskyFeedSearchPosts,
-  appBskyFeedGenerator,
-  appBskyFeedPost,
-  appBskyFeedGetAuthorFeed,
-  appBskyFeedGetPostThread,
-  appBskyFeedRepost,
-  appBskyFeedGetFeed,
-  appBskyFeedGetFeedSkeleton,
-  appBskyFeedSendInteractions,
-  appBskyFeedGetActorLikes,
-  appBskyFeedGetListFeed,
-  appBskyFeedPostgate,
-  appBskyActorSearchActorsTypeahead,
-  appBskyActorSearchActors,
-  appBskyActorGetSuggestions,
-  appBskyActorPutPreferences,
-  appBskyActorStatus,
-  appBskyActorDefs,
-  appBskyActorProfile,
-  appBskyActorGetProfile,
-  appBskyActorGetProfiles,
-  appBskyActorGetPreferences,
-  appBskyEmbedImages,
-  appBskyEmbedExternal,
-  appBskyEmbedVideo,
-  appBskyEmbedDefs,
-  appBskyEmbedRecordWithMedia,
-  appBskyEmbedRecord,
+  appBskyDraftGetDrafts,
+  appBskyDraftDeleteDraft,
   appBskyVideoUploadVideo,
-  appBskyVideoGetUploadLimits,
   appBskyVideoDefs,
   appBskyVideoGetJobStatus,
-  appBskyNotificationListNotifications,
-  appBskyNotificationRegisterPush,
-  appBskyNotificationUpdateSeen,
-  appBskyNotificationPutActivitySubscription,
-  appBskyNotificationPutPreferences,
-  appBskyNotificationDefs,
-  appBskyNotificationUnregisterPush,
-  appBskyNotificationPutPreferencesV2,
-  appBskyNotificationDeclaration,
-  appBskyNotificationListActivitySubscriptions,
-  appBskyNotificationGetUnreadCount,
-  appBskyNotificationGetPreferences,
-  appBskyLabelerService,
-  appBskyLabelerDefs,
-  appBskyLabelerGetServices,
-  appBskyRichtextFacet,
-  appBskyBookmarkCreateBookmark,
-  appBskyBookmarkDeleteBookmark,
+  appBskyVideoGetUploadLimits,
+  appBskyContactDefs,
+  appBskyContactSendNotification,
+  appBskyContactGetSyncStatus,
+  appBskyContactStartPhoneVerification,
+  appBskyContactGetMatches,
+  appBskyContactImportContacts,
+  appBskyContactDismissMatch,
+  appBskyContactRemoveData,
+  appBskyContactVerifyPhone,
   appBskyBookmarkDefs,
+  appBskyBookmarkDeleteBookmark,
   appBskyBookmarkGetBookmarks,
-  chatBskyActorDeleteAccount,
-  chatBskyActorExportAccountData,
-  chatBskyActorDefs,
-  chatBskyActorDeclaration,
-  chatBskyConvoAddReaction,
+  appBskyBookmarkCreateBookmark,
+  appBskyEmbedDefs,
+  appBskyEmbedRecord,
+  appBskyEmbedImages,
+  appBskyEmbedRecordWithMedia,
+  appBskyEmbedVideo,
+  appBskyEmbedExternal,
+  appBskyNotificationDefs,
+  appBskyNotificationRegisterPush,
+  appBskyNotificationPutPreferences,
+  appBskyNotificationPutActivitySubscription,
+  appBskyNotificationDeclaration,
+  appBskyNotificationPutPreferencesV2,
+  appBskyNotificationUpdateSeen,
+  appBskyNotificationListActivitySubscriptions,
+  appBskyNotificationUnregisterPush,
+  appBskyNotificationGetPreferences,
+  appBskyNotificationListNotifications,
+  appBskyNotificationGetUnreadCount,
+  appBskyUnspeccedGetSuggestedFeedsSkeleton,
+  appBskyUnspeccedSearchStarterPacksSkeleton,
+  appBskyUnspeccedGetSuggestedUsersForExplore,
+  appBskyUnspeccedDefs,
+  appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
+  appBskyUnspeccedGetSuggestedUsersForExploreSkeleton,
+  appBskyUnspeccedGetSuggestedUsers,
+  appBskyUnspeccedGetPostThreadOtherV2,
+  appBskyUnspeccedGetSuggestedStarterPacks,
+  appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
+  appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
+  appBskyUnspeccedGetSuggestedUsersSkeleton,
+  appBskyUnspeccedGetPostThreadV2,
+  appBskyUnspeccedGetTrends,
+  appBskyUnspeccedSearchActorsSkeleton,
+  appBskyUnspeccedGetSuggestionsSkeleton,
+  appBskyUnspeccedSearchPostsSkeleton,
+  appBskyUnspeccedGetOnboardingSuggestedUsersSkeleton,
+  appBskyUnspeccedGetSuggestedUsersForDiscoverSkeleton,
+  appBskyUnspeccedGetSuggestedUsersForDiscover,
+  appBskyUnspeccedGetAgeAssuranceState,
+  appBskyUnspeccedGetPopularFeedGenerators,
+  appBskyUnspeccedGetSuggestedOnboardingUsers,
+  appBskyUnspeccedGetSuggestedUsersForSeeMore,
+  appBskyUnspeccedInitAgeAssurance,
+  appBskyUnspeccedGetTrendingTopics,
+  appBskyUnspeccedGetTaggedSuggestions,
+  appBskyUnspeccedGetSuggestedUsersForSeeMoreSkeleton,
+  appBskyUnspeccedGetSuggestedFeeds,
+  appBskyUnspeccedGetTrendsSkeleton,
+  appBskyUnspeccedGetConfig,
+  appBskyGraphGetStarterPacks,
+  appBskyGraphGetSuggestedFollowsByActor,
+  appBskyGraphBlock,
+  appBskyGraphGetStarterPacksWithMembership,
+  appBskyGraphFollow,
+  appBskyGraphDefs,
+  appBskyGraphGetListsWithMembership,
+  appBskyGraphUnmuteActorList,
+  appBskyGraphGetListBlocks,
+  appBskyGraphListblock,
+  appBskyGraphGetStarterPack,
+  appBskyGraphStarterpack,
+  appBskyGraphMuteActorList,
+  appBskyGraphMuteThread,
+  appBskyGraphSearchStarterPacks,
+  appBskyGraphGetActorStarterPacks,
+  appBskyGraphGetLists,
+  appBskyGraphGetFollowers,
+  appBskyGraphUnmuteThread,
+  appBskyGraphMuteActor,
+  appBskyGraphGetMutes,
+  appBskyGraphListitem,
+  appBskyGraphList,
+  appBskyGraphGetKnownFollowers,
+  appBskyGraphVerification,
+  appBskyGraphGetListMutes,
+  appBskyGraphGetFollows,
+  appBskyGraphGetBlocks,
+  appBskyGraphGetRelationships,
+  appBskyGraphUnmuteActor,
+  appBskyGraphGetList,
+  appBskyFeedGenerator,
+  appBskyFeedSendInteractions,
+  appBskyFeedDefs,
+  appBskyFeedGetFeedGenerators,
+  appBskyFeedGetTimeline,
+  appBskyFeedGetFeedGenerator,
+  appBskyFeedGetAuthorFeed,
+  appBskyFeedGetLikes,
+  appBskyFeedPostgate,
+  appBskyFeedThreadgate,
+  appBskyFeedGetPostThread,
+  appBskyFeedGetActorLikes,
+  appBskyFeedLike,
+  appBskyFeedGetRepostedBy,
+  appBskyFeedRepost,
+  appBskyFeedDescribeFeedGenerator,
+  appBskyFeedSearchPosts,
+  appBskyFeedGetPosts,
+  appBskyFeedGetFeed,
+  appBskyFeedGetQuotes,
+  appBskyFeedGetFeedSkeleton,
+  appBskyFeedGetListFeed,
+  appBskyFeedGetSuggestedFeeds,
+  appBskyFeedGetActorFeeds,
+  appBskyFeedPost,
+  appBskyRichtextFacet,
+  appBskyAgeassuranceBegin,
+  appBskyAgeassuranceDefs,
+  appBskyAgeassuranceGetState,
+  appBskyAgeassuranceGetConfig,
+  appBskyActorSearchActorsTypeahead,
+  appBskyActorDefs,
+  appBskyActorPutPreferences,
+  appBskyActorGetProfile,
+  appBskyActorGetSuggestions,
+  appBskyActorSearchActors,
+  appBskyActorGetProfiles,
+  appBskyActorStatus,
+  appBskyActorGetPreferences,
+  appBskyActorProfile,
+  appBskyLabelerDefs,
+  appBskyLabelerService,
+  appBskyLabelerGetServices,
+  chatBskyConvoListConvos,
+  chatBskyConvoUnmuteConvo,
+  chatBskyConvoDefs,
+  chatBskyConvoGetConvoAvailability,
+  chatBskyConvoLockConvo,
+  chatBskyConvoListConvoRequests,
   chatBskyConvoGetLog,
-  chatBskyConvoRemoveReaction,
-  chatBskyConvoGetConvo,
-  chatBskyConvoSendMessageBatch,
   chatBskyConvoSendMessage,
-  chatBskyConvoGetConvoForMembers,
-  chatBskyConvoUpdateAllRead,
+  chatBskyConvoLeaveConvo,
+  chatBskyConvoUnlockConvo,
+  chatBskyConvoAddReaction,
+  chatBskyConvoAcceptConvo,
   chatBskyConvoMuteConvo,
   chatBskyConvoDeleteMessageForSelf,
-  chatBskyConvoDefs,
-  chatBskyConvoUnmuteConvo,
-  chatBskyConvoListConvos,
-  chatBskyConvoLeaveConvo,
-  chatBskyConvoAcceptConvo,
+  chatBskyConvoRemoveReaction,
   chatBskyConvoUpdateRead,
-  chatBskyConvoGetConvoAvailability,
+  chatBskyConvoUpdateAllRead,
+  chatBskyConvoGetConvo,
   chatBskyConvoGetMessages,
-  chatBskyModerationUpdateActorAccess,
-  chatBskyModerationGetMessageContext,
+  chatBskyConvoGetConvoForMembers,
+  chatBskyConvoGetConvoMembers,
+  chatBskyConvoSendMessageBatch,
+  chatBskyGroupApproveJoinRequest,
+  chatBskyGroupDefs,
+  chatBskyGroupEditGroup,
+  chatBskyGroupRemoveMembers,
+  chatBskyGroupRequestJoin,
+  chatBskyGroupGetJoinLinkPreview,
+  chatBskyGroupEditJoinLink,
+  chatBskyGroupAddMembers,
+  chatBskyGroupListJoinRequests,
+  chatBskyGroupDisableJoinLink,
+  chatBskyGroupCreateJoinLink,
+  chatBskyGroupRejectJoinRequest,
+  chatBskyGroupEnableJoinLink,
+  chatBskyGroupCreateGroup,
+  chatBskyActorDefs,
+  chatBskyActorDeclaration,
+  chatBskyActorExportAccountData,
+  chatBskyActorDeleteAccount,
+  chatBskyModerationSubscribeModEvents,
   chatBskyModerationGetActorMetadata,
-  toolsOzoneSafelinkUpdateRule,
-  toolsOzoneSafelinkQueryEvents,
-  toolsOzoneSafelinkDefs,
-  toolsOzoneSafelinkQueryRules,
-  toolsOzoneSafelinkRemoveRule,
-  toolsOzoneSafelinkAddRule,
-  toolsOzoneReportDefs,
-  toolsOzoneSetDeleteSet,
-  toolsOzoneSetDeleteValues,
-  toolsOzoneSetGetValues,
-  toolsOzoneSetQuerySets,
-  toolsOzoneSetDefs,
-  toolsOzoneSetUpsertSet,
-  toolsOzoneSetAddValues,
-  toolsOzoneSettingUpsertOption,
-  toolsOzoneSettingRemoveOptions,
-  toolsOzoneSettingListOptions,
-  toolsOzoneSettingDefs,
-  toolsOzoneTeamListMembers,
-  toolsOzoneTeamUpdateMember,
-  toolsOzoneTeamDefs,
-  toolsOzoneTeamDeleteMember,
-  toolsOzoneTeamAddMember,
+  chatBskyModerationGetMessageContext,
+  chatBskyModerationUpdateActorAccess,
+  toolsOzoneSignatureFindCorrelation,
+  toolsOzoneSignatureDefs,
+  toolsOzoneSignatureSearchAccounts,
+  toolsOzoneSignatureFindRelatedAccounts,
   toolsOzoneServerGetConfig,
-  toolsOzoneCommunicationCreateTemplate,
-  toolsOzoneCommunicationUpdateTemplate,
-  toolsOzoneCommunicationListTemplates,
-  toolsOzoneCommunicationDefs,
-  toolsOzoneCommunicationDeleteTemplate,
-  toolsOzoneHostingGetAccountHistory,
   toolsOzoneVerificationRevokeVerifications,
+  toolsOzoneVerificationDefs,
   toolsOzoneVerificationGrantVerifications,
   toolsOzoneVerificationListVerifications,
-  toolsOzoneVerificationDefs,
-  toolsOzoneModerationQueryStatuses,
-  toolsOzoneModerationSearchRepos,
+  toolsOzoneSafelinkDefs,
+  toolsOzoneSafelinkAddRule,
+  toolsOzoneSafelinkRemoveRule,
+  toolsOzoneSafelinkUpdateRule,
+  toolsOzoneSafelinkQueryEvents,
+  toolsOzoneSafelinkQueryRules,
+  toolsOzoneTeamListMembers,
+  toolsOzoneTeamDefs,
+  toolsOzoneTeamDeleteMember,
+  toolsOzoneTeamUpdateMember,
+  toolsOzoneTeamAddMember,
+  toolsOzoneQueueUnassignModerator,
+  toolsOzoneQueueGetAssignments,
+  toolsOzoneQueueDefs,
+  toolsOzoneQueueDeleteQueue,
+  toolsOzoneQueueAssignModerator,
+  toolsOzoneQueueListQueues,
+  toolsOzoneQueueCreateQueue,
+  toolsOzoneQueueUpdateQueue,
+  toolsOzoneQueueRouteReports,
+  toolsOzoneHostingGetAccountHistory,
+  toolsOzoneReportUnassignModerator,
+  toolsOzoneReportRefreshStats,
+  toolsOzoneReportGetAssignments,
+  toolsOzoneReportQueryReports,
+  toolsOzoneReportGetLiveStats,
+  toolsOzoneReportDefs,
+  toolsOzoneReportListActivities,
+  toolsOzoneReportAssignModerator,
+  toolsOzoneReportGetLatestReport,
+  toolsOzoneReportGetReport,
+  toolsOzoneReportGetHistoricalStats,
+  toolsOzoneReportCreateActivity,
+  toolsOzoneReportReassignQueue,
+  toolsOzoneCommunicationDefs,
+  toolsOzoneCommunicationUpdateTemplate,
+  toolsOzoneCommunicationCreateTemplate,
+  toolsOzoneCommunicationListTemplates,
+  toolsOzoneCommunicationDeleteTemplate,
+  toolsOzoneSetDefs,
+  toolsOzoneSetAddValues,
+  toolsOzoneSetGetValues,
+  toolsOzoneSetDeleteSet,
+  toolsOzoneSetUpsertSet,
+  toolsOzoneSetDeleteValues,
+  toolsOzoneSetQuerySets,
+  toolsOzoneSettingDefs,
+  toolsOzoneSettingListOptions,
+  toolsOzoneSettingRemoveOptions,
+  toolsOzoneSettingUpsertOption,
   toolsOzoneModerationGetReporterStats,
-  toolsOzoneModerationScheduleAction,
-  toolsOzoneModerationGetAccountTimeline,
-  toolsOzoneModerationGetRepo,
-  toolsOzoneModerationListScheduledActions,
-  toolsOzoneModerationQueryEvents,
-  toolsOzoneModerationEmitEvent,
-  toolsOzoneModerationDefs,
-  toolsOzoneModerationGetEvent,
-  toolsOzoneModerationGetRecord,
   toolsOzoneModerationCancelScheduledActions,
+  toolsOzoneModerationListScheduledActions,
+  toolsOzoneModerationQueryStatuses,
+  toolsOzoneModerationGetRepo,
+  toolsOzoneModerationDefs,
   toolsOzoneModerationGetSubjects,
-  toolsOzoneModerationGetRepos,
   toolsOzoneModerationGetRecords,
-  toolsOzoneSignatureFindRelatedAccounts,
-  toolsOzoneSignatureDefs,
-  toolsOzoneSignatureFindCorrelation,
-  toolsOzoneSignatureSearchAccounts,
+  toolsOzoneModerationScheduleAction,
+  toolsOzoneModerationGetEvent,
+  toolsOzoneModerationQueryEvents,
+  toolsOzoneModerationGetRecord,
+  toolsOzoneModerationEmitEvent,
+  toolsOzoneModerationSearchRepos,
+  toolsOzoneModerationGetAccountTimeline,
+  toolsOzoneModerationGetRepos,
 ];

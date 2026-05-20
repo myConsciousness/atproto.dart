@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
 import './reaction_view.dart';
 import './union_log_add_reaction_message.dart';
 
@@ -22,9 +23,16 @@ part 'log_add_reaction.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating a reaction was added to a message.
 @freezed
 abstract class LogAddReaction with _$LogAddReaction {
-  static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
+  static const knownProps = <String>[
+    'rev',
+    'convoId',
+    'message',
+    'reaction',
+    'relatedProfiles',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory LogAddReaction({
@@ -33,6 +41,7 @@ abstract class LogAddReaction with _$LogAddReaction {
     required String convoId,
     @ULogAddReactionMessageConverter() required ULogAddReactionMessage message,
     @ReactionViewConverter() required ReactionView reaction,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles,
 
     Map<String, dynamic>? $unknown,
   }) = _LogAddReaction;

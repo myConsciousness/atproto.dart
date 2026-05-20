@@ -7,6 +7,8 @@ description: chat.bsky.convo.getConvoForMembers
 
 ## #main
 
+Get or create a 1-1 conversation for the given members. Always returns the same direct (non-group) conversation. To create a group conversation, use createGroup.
+
 ### Parameters
 
 | Property | Type | Known Values | Required | Description |

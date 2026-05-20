@@ -28,6 +28,12 @@ import 'unspecced/getSuggestedOnboardingUsers/output.dart';
 import 'unspecced/getSuggestedStarterPacks/output.dart';
 import 'unspecced/getSuggestedStarterPacksSkeleton/output.dart';
 import 'unspecced/getSuggestedUsers/output.dart';
+import 'unspecced/getSuggestedUsersForDiscover/output.dart';
+import 'unspecced/getSuggestedUsersForDiscoverSkeleton/output.dart';
+import 'unspecced/getSuggestedUsersForExplore/output.dart';
+import 'unspecced/getSuggestedUsersForExploreSkeleton/output.dart';
+import 'unspecced/getSuggestedUsersForSeeMore/output.dart';
+import 'unspecced/getSuggestedUsersForSeeMoreSkeleton/output.dart';
 import 'unspecced/getSuggestedUsersSkeleton/output.dart';
 import 'unspecced/getSuggestionsSkeleton/output.dart';
 import 'unspecced/getTaggedSuggestions/output.dart';
@@ -314,6 +320,134 @@ appBskyUnspeccedGetSuggestedUsers({
     if (limit != null) 'limit': limit,
   },
   to: const UnspeccedGetSuggestedUsersOutputConverter().fromJson,
+);
+
+/// Get a list of suggested users for the Discover page
+Future<XRPCResponse<UnspeccedGetSuggestedUsersForDiscoverOutput>>
+appBskyUnspeccedGetSuggestedUsersForDiscover({
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetSuggestedUsersForDiscover,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, if (limit != null) 'limit': limit},
+  to: const UnspeccedGetSuggestedUsersForDiscoverOutputConverter().fromJson,
+);
+
+/// Get a skeleton of suggested users for the Discover page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForDiscover
+Future<XRPCResponse<UnspeccedGetSuggestedUsersForDiscoverSkeletonOutput>>
+appBskyUnspeccedGetSuggestedUsersForDiscoverSkeleton({
+  String? viewer,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetSuggestedUsersForDiscoverSkeleton,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetSuggestedUsersForDiscoverSkeletonOutputConverter()
+      .fromJson,
+);
+
+/// Get a list of suggested users for the Explore page
+Future<XRPCResponse<UnspeccedGetSuggestedUsersForExploreOutput>>
+appBskyUnspeccedGetSuggestedUsersForExplore({
+  String? category,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetSuggestedUsersForExplore,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (category != null) 'category': category,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetSuggestedUsersForExploreOutputConverter().fromJson,
+);
+
+/// Get a skeleton of suggested users for the Explore page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForExplore
+Future<XRPCResponse<UnspeccedGetSuggestedUsersForExploreSkeletonOutput>>
+appBskyUnspeccedGetSuggestedUsersForExploreSkeleton({
+  String? viewer,
+  String? category,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetSuggestedUsersForExploreSkeleton,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (category != null) 'category': category,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetSuggestedUsersForExploreSkeletonOutputConverter()
+      .fromJson,
+);
+
+/// Get a list of suggested users for the See More page
+Future<XRPCResponse<UnspeccedGetSuggestedUsersForSeeMoreOutput>>
+appBskyUnspeccedGetSuggestedUsersForSeeMore({
+  String? category,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetSuggestedUsersForSeeMore,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (category != null) 'category': category,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetSuggestedUsersForSeeMoreOutputConverter().fromJson,
+);
+
+/// Get a skeleton of suggested users for the See More page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForSeeMore
+Future<XRPCResponse<UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutput>>
+appBskyUnspeccedGetSuggestedUsersForSeeMoreSkeleton({
+  String? viewer,
+  String? category,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetSuggestedUsersForSeeMoreSkeleton,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (category != null) 'category': category,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutputConverter()
+      .fromJson,
 );
 
 /// Get a skeleton of suggested users. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsers
@@ -781,6 +915,110 @@ base class UnspeccedService {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyUnspeccedGetSuggestedUsers(
+    category: category,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a list of suggested users for the Discover page
+  Future<XRPCResponse<UnspeccedGetSuggestedUsersForDiscoverOutput>>
+  getSuggestedUsersForDiscover({
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetSuggestedUsersForDiscover(
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a skeleton of suggested users for the Discover page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForDiscover
+  Future<XRPCResponse<UnspeccedGetSuggestedUsersForDiscoverSkeletonOutput>>
+  getSuggestedUsersForDiscoverSkeleton({
+    String? viewer,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetSuggestedUsersForDiscoverSkeleton(
+    viewer: viewer,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a list of suggested users for the Explore page
+  Future<XRPCResponse<UnspeccedGetSuggestedUsersForExploreOutput>>
+  getSuggestedUsersForExplore({
+    String? category,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetSuggestedUsersForExplore(
+    category: category,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a skeleton of suggested users for the Explore page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForExplore
+  Future<XRPCResponse<UnspeccedGetSuggestedUsersForExploreSkeletonOutput>>
+  getSuggestedUsersForExploreSkeleton({
+    String? viewer,
+    String? category,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetSuggestedUsersForExploreSkeleton(
+    viewer: viewer,
+    category: category,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a list of suggested users for the See More page
+  Future<XRPCResponse<UnspeccedGetSuggestedUsersForSeeMoreOutput>>
+  getSuggestedUsersForSeeMore({
+    String? category,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetSuggestedUsersForSeeMore(
+    category: category,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a skeleton of suggested users for the See More page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForSeeMore
+  Future<XRPCResponse<UnspeccedGetSuggestedUsersForSeeMoreSkeletonOutput>>
+  getSuggestedUsersForSeeMoreSkeleton({
+    String? viewer,
+    String? category,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetSuggestedUsersForSeeMoreSkeleton(
+    viewer: viewer,
     category: category,
     limit: limit,
     $ctx: ctx,

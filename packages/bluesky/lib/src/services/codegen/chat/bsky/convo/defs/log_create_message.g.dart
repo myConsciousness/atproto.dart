@@ -23,6 +23,16 @@ _LogCreateMessage _$LogCreateMessageFromJson(Map json) =>
             v as Map<String, dynamic>,
           ),
         ),
+        relatedProfiles: $checkedConvert(
+          'relatedProfiles',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const ProfileViewBasicConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -38,5 +48,8 @@ Map<String, dynamic> _$LogCreateMessageToJson(
   'rev': instance.rev,
   'convoId': instance.convoId,
   'message': const ULogCreateMessageMessageConverter().toJson(instance.message),
+  'relatedProfiles': ?instance.relatedProfiles
+      ?.map(const ProfileViewBasicConverter().toJson)
+      .toList(),
   r'$unknown': ?instance.$unknown,
 };

@@ -23,7 +23,8 @@ final class AcceptConvoCommand extends ProcedureCommand {
   final String name = "accept-convo";
 
   @override
-  final String description = r"";
+  final String description =
+      r"Marks a conversation as accepted, so it is shown in the list of accepted convos instead on the request convos.";
 
   @override
   final String invocation = "bsky chat-bsky-convo accept-convo [convoId]";

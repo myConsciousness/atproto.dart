@@ -8,6 +8,7 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -31,6 +32,7 @@ abstract class StatusView with _$StatusView {
     'status',
     'record',
     'embed',
+    'labels',
     'expiresAt',
     'isActive',
     'isDisabled',
@@ -46,6 +48,7 @@ abstract class StatusView with _$StatusView {
     @StatusViewStatusConverter() required StatusViewStatus status,
     required Map<String, dynamic> record,
     @UStatusViewEmbedConverter() UStatusViewEmbed? embed,
+    @LabelConverter() List<Label>? labels,
 
     /// The date when this status will expire. The application might choose to no longer return the status after expiration.
     DateTime? expiresAt,

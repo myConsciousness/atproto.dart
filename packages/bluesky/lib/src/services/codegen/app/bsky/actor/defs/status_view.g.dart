@@ -39,6 +39,15 @@ _StatusView _$StatusViewFromJson(Map json) =>
                 const UStatusViewEmbedConverter().fromJson,
               ),
         ),
+        labels: $checkedConvert(
+          'labels',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) =>
+                    const LabelConverter().fromJson(e as Map<String, dynamic>),
+              )
+              .toList(),
+        ),
         expiresAt: $checkedConvert(
           'expiresAt',
           (v) => v == null ? null : DateTime.parse(v as String),
@@ -67,6 +76,7 @@ Map<String, dynamic> _$StatusViewToJson(_StatusView instance) =>
         instance.embed,
         const UStatusViewEmbedConverter().toJson,
       ),
+      'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
       'expiresAt': ?instance.expiresAt?.toIso8601String(),
       'isActive': ?instance.isActive,
       'isDisabled': ?instance.isDisabled,

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LogCreateMessage {
 
- String get $type; String get rev; String get convoId;@ULogCreateMessageMessageConverter() ULogCreateMessageMessage get message; Map<String, dynamic>? get $unknown;
+ String get $type; String get rev; String get convoId;@ULogCreateMessageMessageConverter() ULogCreateMessageMessage get message;@ProfileViewBasicConverter() List<ProfileViewBasic>? get relatedProfiles; Map<String, dynamic>? get $unknown;
 /// Create a copy of LogCreateMessage
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $LogCreateMessageCopyWith<LogCreateMessage> get copyWith => _$LogCreateMessageCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogCreateMessage&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogCreateMessage&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.relatedProfiles, relatedProfiles)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,const DeepCollectionEquality().hash(relatedProfiles),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'LogCreateMessage(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, \$unknown: ${$unknown})';
+  return 'LogCreateMessage(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, relatedProfiles: $relatedProfiles, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $LogCreateMessageCopyWith<$Res>  {
   factory $LogCreateMessageCopyWith(LogCreateMessage value, $Res Function(LogCreateMessage) _then) = _$LogCreateMessageCopyWithImpl;
 @useResult
 $Res call({
- String $type, String rev, String convoId,@ULogCreateMessageMessageConverter() ULogCreateMessageMessage message, Map<String, dynamic>? $unknown
+ String $type, String rev, String convoId,@ULogCreateMessageMessageConverter() ULogCreateMessageMessage message,@ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,13 +65,14 @@ class _$LogCreateMessageCopyWithImpl<$Res>
 
 /// Create a copy of LogCreateMessage
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? relatedProfiles = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String,convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as ULogCreateMessageMessage,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ULogCreateMessageMessage,relatedProfiles: freezed == relatedProfiles ? _self.relatedProfiles : relatedProfiles // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -166,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogCreateMessageMessageConverter()  ULogCreateMessageMessage message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogCreateMessageMessageConverter()  ULogCreateMessageMessage message, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LogCreateMessage() when $default != null:
-return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown);case _:
+return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.relatedProfiles,_that.$unknown);case _:
   return orElse();
 
 }
@@ -187,10 +188,10 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogCreateMessageMessageConverter()  ULogCreateMessageMessage message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogCreateMessageMessageConverter()  ULogCreateMessageMessage message, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LogCreateMessage():
-return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown);case _:
+return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.relatedProfiles,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +208,10 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String rev,  String convoId, @ULogCreateMessageMessageConverter()  ULogCreateMessageMessage message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String rev,  String convoId, @ULogCreateMessageMessageConverter()  ULogCreateMessageMessage message, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LogCreateMessage() when $default != null:
-return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown);case _:
+return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.relatedProfiles,_that.$unknown);case _:
   return null;
 
 }
@@ -222,13 +223,22 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.$unknown
 
 @JsonSerializable(includeIfNull: false)
 class _LogCreateMessage implements LogCreateMessage {
-  const _LogCreateMessage({this.$type = 'chat.bsky.convo.defs#logCreateMessage', required this.rev, required this.convoId, @ULogCreateMessageMessageConverter() required this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogCreateMessage({this.$type = 'chat.bsky.convo.defs#logCreateMessage', required this.rev, required this.convoId, @ULogCreateMessageMessageConverter() required this.message, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? relatedProfiles, final  Map<String, dynamic>? $unknown}): _relatedProfiles = relatedProfiles,_$unknown = $unknown;
   factory _LogCreateMessage.fromJson(Map<String, dynamic> json) => _$LogCreateMessageFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String rev;
 @override final  String convoId;
 @override@ULogCreateMessageMessageConverter() final  ULogCreateMessageMessage message;
+ final  List<ProfileViewBasic>? _relatedProfiles;
+@override@ProfileViewBasicConverter() List<ProfileViewBasic>? get relatedProfiles {
+  final value = _relatedProfiles;
+  if (value == null) return null;
+  if (_relatedProfiles is EqualUnmodifiableListView) return _relatedProfiles;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -252,16 +262,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogCreateMessage&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogCreateMessage&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._relatedProfiles, _relatedProfiles)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,const DeepCollectionEquality().hash(_relatedProfiles),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'LogCreateMessage(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, \$unknown: ${$unknown})';
+  return 'LogCreateMessage(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, relatedProfiles: $relatedProfiles, \$unknown: ${$unknown})';
 }
 
 
@@ -272,7 +282,7 @@ abstract mixin class _$LogCreateMessageCopyWith<$Res> implements $LogCreateMessa
   factory _$LogCreateMessageCopyWith(_LogCreateMessage value, $Res Function(_LogCreateMessage) _then) = __$LogCreateMessageCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String rev, String convoId,@ULogCreateMessageMessageConverter() ULogCreateMessageMessage message, Map<String, dynamic>? $unknown
+ String $type, String rev, String convoId,@ULogCreateMessageMessageConverter() ULogCreateMessageMessage message,@ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -289,13 +299,14 @@ class __$LogCreateMessageCopyWithImpl<$Res>
 
 /// Create a copy of LogCreateMessage
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? relatedProfiles = freezed,Object? $unknown = freezed,}) {
   return _then(_LogCreateMessage(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String,convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as ULogCreateMessageMessage,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ULogCreateMessageMessage,relatedProfiles: freezed == relatedProfiles ? _self._relatedProfiles : relatedProfiles // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

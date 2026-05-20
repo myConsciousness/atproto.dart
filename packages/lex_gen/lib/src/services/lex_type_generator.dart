@@ -19,7 +19,6 @@ import 'fmt/lex_xrpc_query_generator.dart';
 import 'fmt/lex_xrpc_subscription_generator.dart';
 import 'object/lex_package.dart';
 import 'object/lex_type.dart';
-import 'rule.dart' as rule;
 
 List<LexType> generateLexTypes(
   final List<String> services,
@@ -49,9 +48,6 @@ final class _LexTypeGenerator {
       // Generate LexObjects for each definition in the lexicon
       for (final def in doc.defs.entries) {
         if (def.value is lex.ULexUserTypeObject) {
-          final data = def.value.data as lex.LexObject;
-          if (rule.isDeprecated(data.description)) continue;
-
           _aggregateTypes(
             types,
             generateLexObject(
@@ -63,7 +59,6 @@ final class _LexTypeGenerator {
           );
         } else if (def.value is lex.ULexUserTypeArray) {
           final data = def.value.data as lex.LexArray;
-          if (rule.isDeprecated(data.description)) continue;
 
           final refVariant = data.items.whenOrNull(refVariant: (data) => data);
           if (refVariant == null) continue;
@@ -76,9 +71,6 @@ final class _LexTypeGenerator {
             generateLexUnion(doc.id, def.key, '', refUnion, mainVariants),
           );
         } else if (def.value is lex.ULexUserTypeRecord) {
-          final data = def.value.data as lex.LexRecord;
-          if (rule.isDeprecated(data.description)) continue;
-
           _aggregateTypes(
             types,
             generateLexRecord(

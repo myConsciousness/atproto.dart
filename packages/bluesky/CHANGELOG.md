@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.4.2
+
+- core: generated code. ([#2333](https://github.com/myConsciousness/atproto.dart/pull/2333))
+
 ## v1.4.1
 
 - fix: optional jwt scope and auth identity. ([#2224](https://github.com/myConsciousness/atproto.dart/pull/2224))

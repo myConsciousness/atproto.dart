@@ -84,6 +84,7 @@ description: app.bsky.actor.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **allowIncoming** | string | all<br/>none<br/>following | ✅ | - |
+| **allowGroupInvites** | string | all<br/>none<br/>following | ❌ | - |
 
 ## #profileAssociatedGerm
 
@@ -332,6 +333,7 @@ Default post interaction settings for the account. These values should be applie
 | **status** | string | [app.bsky.actor.status#live](../../../../lexicons/app/bsky/actor/status.md#live) | ✅ | The status for the account. |
 | **record** | unknown | - | ✅ | - |
 | **embed** | union of <br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The date when this status will expire. The application might choose to no longer return the status after expiration. |
 | **isActive** | boolean | - | ❌ | True if the status is not expired, false if it is expired. Only present if expiration was set. |
 | **isDisabled** | boolean | - | ❌ | True if the user's go-live access has been disabled by a moderator, false otherwise. |

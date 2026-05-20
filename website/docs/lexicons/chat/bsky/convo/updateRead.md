@@ -7,6 +7,8 @@ description: chat.bsky.convo.updateRead
 
 ## #main
 
+Updates the read state of a conversation from, optionally specifying the last read message.
+
 ### Input
 
 - **Encoding**: application/json

@@ -7,6 +7,8 @@ description: chat.bsky.convo.sendMessage
 
 ## #main
 
+Sends a message to a conversation.
+
 ### Input
 
 - **Encoding**: application/json

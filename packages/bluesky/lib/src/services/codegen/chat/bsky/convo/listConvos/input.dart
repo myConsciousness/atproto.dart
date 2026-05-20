@@ -12,6 +12,8 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './main_kind.dart';
+import './main_lock_status.dart';
 import './main_read_state.dart';
 import './main_status.dart';
 
@@ -24,14 +26,29 @@ part 'input.g.dart';
 
 @freezed
 abstract class ConvoListConvosInput with _$ConvoListConvosInput {
-  static const knownProps = <String>['limit', 'cursor', 'readState', 'status'];
+  static const knownProps = <String>[
+    'limit',
+    'cursor',
+    'readState',
+    'status',
+    'kind',
+    'lockStatus',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ConvoListConvosInput({
     @Default(50) int limit,
     String? cursor,
     @ConvoListConvosReadStateConverter() ConvoListConvosReadState? readState,
+
+    /// Filter convos by their status. It is discouraged to call with "request" and preferred to call chat.bsky.convo.listConvoRequests, which also includes group join requests made by the user.
     @ConvoListConvosStatusConverter() ConvoListConvosStatus? status,
+
+    /// Filter by conversation kind.
+    @ConvoListConvosKindConverter() ConvoListConvosKind? kind,
+
+    /// Filter by conversation lock status. Values follow chat.bsky.convo.defs#convoLockStatus.
+    @ConvoListConvosLockStatusConverter() ConvoListConvosLockStatus? lockStatus,
 
     Map<String, dynamic>? $unknown,
   }) = _ConvoListConvosInput;
@@ -47,6 +64,10 @@ extension ConvoListConvosInputExtension on ConvoListConvosInput {
   bool get hasNotReadState => !hasReadState;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasKind => kind != null;
+  bool get hasNotKind => !hasKind;
+  bool get hasLockStatus => lockStatus != null;
+  bool get hasNotLockStatus => !hasLockStatus;
 }
 
 final class ConvoListConvosInputConverter

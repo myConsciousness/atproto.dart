@@ -15,7 +15,7 @@ description: app.bsky.embed.images
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **image** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | - |
+| **image** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | The raw image file. May be up to 2 MB, formerly limited to 1 MB. |
 | **alt** | string | - | ✅ | Alt text description of the image, for accessibility. |
 | **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
 

@@ -17,6 +17,7 @@ export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_view_de
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_chat.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_chat_allow_incoming.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_chat_allow_group_invites.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_germ.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_germ_show_button_to.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_activity_subscription.dart';

@@ -29,7 +29,7 @@ final class LexParameter {
     buffer.write(',');
 
     if (description != null) {
-      buffer.write('help: r"$description"');
+      buffer.write('help: r"${_escapeQuotes(description!)}"');
       buffer.write(',');
     }
 
@@ -64,5 +64,9 @@ final class LexParameter {
     }
 
     return buffer.toString();
+  }
+
+  String _escapeQuotes(String str) {
+    return str.replaceAll('"', '\\"');
   }
 }

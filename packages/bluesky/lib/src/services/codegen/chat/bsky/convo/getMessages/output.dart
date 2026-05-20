@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
 import './union_main_messages.dart';
 
 part 'output.freezed.dart';
@@ -23,13 +24,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class ConvoGetMessagesOutput with _$ConvoGetMessagesOutput {
-  static const knownProps = <String>['cursor', 'messages'];
+  static const knownProps = <String>['cursor', 'messages', 'relatedProfiles'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ConvoGetMessagesOutput({
     String? cursor,
     @UConvoGetMessagesMessagesConverter()
     required List<UConvoGetMessagesMessages> messages,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles,
 
     Map<String, dynamic>? $unknown,
   }) = _ConvoGetMessagesOutput;

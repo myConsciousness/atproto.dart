@@ -55,12 +55,13 @@ extension ULogReadMessageMessagePatterns on ULogReadMessageMessage {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ULogReadMessageMessageMessageView value)?  messageView,TResult Function( ULogReadMessageMessageDeletedMessageView value)?  deletedMessageView,TResult Function( ULogReadMessageMessageUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ULogReadMessageMessageMessageView value)?  messageView,TResult Function( ULogReadMessageMessageDeletedMessageView value)?  deletedMessageView,TResult Function( ULogReadMessageMessageSystemMessageView value)?  systemMessageView,TResult Function( ULogReadMessageMessageUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case ULogReadMessageMessageMessageView() when messageView != null:
 return messageView(_that);case ULogReadMessageMessageDeletedMessageView() when deletedMessageView != null:
-return deletedMessageView(_that);case ULogReadMessageMessageUnknown() when unknown != null:
+return deletedMessageView(_that);case ULogReadMessageMessageSystemMessageView() when systemMessageView != null:
+return systemMessageView(_that);case ULogReadMessageMessageUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -79,12 +80,13 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ULogReadMessageMessageMessageView value)  messageView,required TResult Function( ULogReadMessageMessageDeletedMessageView value)  deletedMessageView,required TResult Function( ULogReadMessageMessageUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ULogReadMessageMessageMessageView value)  messageView,required TResult Function( ULogReadMessageMessageDeletedMessageView value)  deletedMessageView,required TResult Function( ULogReadMessageMessageSystemMessageView value)  systemMessageView,required TResult Function( ULogReadMessageMessageUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case ULogReadMessageMessageMessageView():
 return messageView(_that);case ULogReadMessageMessageDeletedMessageView():
-return deletedMessageView(_that);case ULogReadMessageMessageUnknown():
+return deletedMessageView(_that);case ULogReadMessageMessageSystemMessageView():
+return systemMessageView(_that);case ULogReadMessageMessageUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -99,12 +101,13 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ULogReadMessageMessageMessageView value)?  messageView,TResult? Function( ULogReadMessageMessageDeletedMessageView value)?  deletedMessageView,TResult? Function( ULogReadMessageMessageUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ULogReadMessageMessageMessageView value)?  messageView,TResult? Function( ULogReadMessageMessageDeletedMessageView value)?  deletedMessageView,TResult? Function( ULogReadMessageMessageSystemMessageView value)?  systemMessageView,TResult? Function( ULogReadMessageMessageUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case ULogReadMessageMessageMessageView() when messageView != null:
 return messageView(_that);case ULogReadMessageMessageDeletedMessageView() when deletedMessageView != null:
-return deletedMessageView(_that);case ULogReadMessageMessageUnknown() when unknown != null:
+return deletedMessageView(_that);case ULogReadMessageMessageSystemMessageView() when systemMessageView != null:
+return systemMessageView(_that);case ULogReadMessageMessageUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,11 +125,12 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( MessageView data)?  messageView,TResult Function( DeletedMessageView data)?  deletedMessageView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( MessageView data)?  messageView,TResult Function( DeletedMessageView data)?  deletedMessageView,TResult Function( SystemMessageView data)?  systemMessageView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case ULogReadMessageMessageMessageView() when messageView != null:
 return messageView(_that.data);case ULogReadMessageMessageDeletedMessageView() when deletedMessageView != null:
-return deletedMessageView(_that.data);case ULogReadMessageMessageUnknown() when unknown != null:
+return deletedMessageView(_that.data);case ULogReadMessageMessageSystemMessageView() when systemMessageView != null:
+return systemMessageView(_that.data);case ULogReadMessageMessageUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -145,11 +149,12 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( MessageView data)  messageView,required TResult Function( DeletedMessageView data)  deletedMessageView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( MessageView data)  messageView,required TResult Function( DeletedMessageView data)  deletedMessageView,required TResult Function( SystemMessageView data)  systemMessageView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case ULogReadMessageMessageMessageView():
 return messageView(_that.data);case ULogReadMessageMessageDeletedMessageView():
-return deletedMessageView(_that.data);case ULogReadMessageMessageUnknown():
+return deletedMessageView(_that.data);case ULogReadMessageMessageSystemMessageView():
+return systemMessageView(_that.data);case ULogReadMessageMessageUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -164,11 +169,12 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( MessageView data)?  messageView,TResult? Function( DeletedMessageView data)?  deletedMessageView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( MessageView data)?  messageView,TResult? Function( DeletedMessageView data)?  deletedMessageView,TResult? Function( SystemMessageView data)?  systemMessageView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case ULogReadMessageMessageMessageView() when messageView != null:
 return messageView(_that.data);case ULogReadMessageMessageDeletedMessageView() when deletedMessageView != null:
-return deletedMessageView(_that.data);case ULogReadMessageMessageUnknown() when unknown != null:
+return deletedMessageView(_that.data);case ULogReadMessageMessageSystemMessageView() when systemMessageView != null:
+return systemMessageView(_that.data);case ULogReadMessageMessageUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -322,6 +328,81 @@ as DeletedMessageView,
 $DeletedMessageViewCopyWith<$Res> get data {
   
   return $DeletedMessageViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class ULogReadMessageMessageSystemMessageView extends ULogReadMessageMessage {
+  const ULogReadMessageMessageSystemMessageView({required this.data}): super._();
+  
+
+@override final  SystemMessageView data;
+
+/// Create a copy of ULogReadMessageMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ULogReadMessageMessageSystemMessageViewCopyWith<ULogReadMessageMessageSystemMessageView> get copyWith => _$ULogReadMessageMessageSystemMessageViewCopyWithImpl<ULogReadMessageMessageSystemMessageView>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ULogReadMessageMessageSystemMessageView&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'ULogReadMessageMessage.systemMessageView(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ULogReadMessageMessageSystemMessageViewCopyWith<$Res> implements $ULogReadMessageMessageCopyWith<$Res> {
+  factory $ULogReadMessageMessageSystemMessageViewCopyWith(ULogReadMessageMessageSystemMessageView value, $Res Function(ULogReadMessageMessageSystemMessageView) _then) = _$ULogReadMessageMessageSystemMessageViewCopyWithImpl;
+@useResult
+$Res call({
+ SystemMessageView data
+});
+
+
+$SystemMessageViewCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$ULogReadMessageMessageSystemMessageViewCopyWithImpl<$Res>
+    implements $ULogReadMessageMessageSystemMessageViewCopyWith<$Res> {
+  _$ULogReadMessageMessageSystemMessageViewCopyWithImpl(this._self, this._then);
+
+  final ULogReadMessageMessageSystemMessageView _self;
+  final $Res Function(ULogReadMessageMessageSystemMessageView) _then;
+
+/// Create a copy of ULogReadMessageMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(ULogReadMessageMessageSystemMessageView(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as SystemMessageView,
+  ));
+}
+
+/// Create a copy of ULogReadMessageMessage
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SystemMessageViewCopyWith<$Res> get data {
+  
+  return $SystemMessageViewCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

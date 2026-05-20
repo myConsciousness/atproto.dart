@@ -7,6 +7,8 @@ description: chat.bsky.convo.getMessages
 
 ## #main
 
+Returns a page of messages from a conversation.
+
 ### Parameters
 
 | Property | Type | Known Values | Required | Description |
@@ -22,4 +24,5 @@ description: chat.bsky.convo.getMessages
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **messages** | array of union<br/>[chat.bsky.convo.defs#messageView](../../../../lexicons/chat/bsky/convo/defs.md#messageview)<br/>[chat.bsky.convo.defs#deletedMessageView](../../../../lexicons/chat/bsky/convo/defs.md#deletedmessageview) | - | ✅ | - |
+| **messages** | array of union<br/>[chat.bsky.convo.defs#messageView](../../../../lexicons/chat/bsky/convo/defs.md#messageview)<br/>[chat.bsky.convo.defs#deletedMessageView](../../../../lexicons/chat/bsky/convo/defs.md#deletedmessageview)<br/>[chat.bsky.convo.defs#systemMessageView](../../../../lexicons/chat/bsky/convo/defs.md#systemmessageview) | - | ✅ | - |
+| **relatedProfiles** | array of [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Set of all members who authored or reacted to the returned messages. Members referred to by system messages are also included. |

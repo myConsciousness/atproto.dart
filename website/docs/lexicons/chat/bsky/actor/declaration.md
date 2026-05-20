@@ -16,6 +16,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **allowIncoming** | string | all<br/>none<br/>following | ✅ | - |
+| **allowGroupInvites** | string | all<br/>none<br/>following | ❌ | [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner. |
 
 ### Output
 

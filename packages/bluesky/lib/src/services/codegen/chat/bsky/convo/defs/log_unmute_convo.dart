@@ -18,6 +18,7 @@ part 'log_unmute_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating the viewer unmuted a convo. Can be direct or group.
 @freezed
 abstract class LogUnmuteConvo with _$LogUnmuteConvo {
   static const knownProps = <String>['rev', 'convoId'];

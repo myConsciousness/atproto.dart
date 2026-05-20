@@ -24,6 +24,10 @@ _ModEventTag _$ModEventTagFromJson(Map json) =>
           (v) => (v as List<dynamic>).map((e) => e as String).toList(),
         ),
         comment: $checkedConvert('comment', (v) => v as String?),
+        durationInHours: $checkedConvert(
+          'durationInHours',
+          (v) => (v as num?)?.toInt(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -38,5 +42,6 @@ Map<String, dynamic> _$ModEventTagToJson(_ModEventTag instance) =>
       'add': instance.add,
       'remove': instance.remove,
       'comment': ?instance.comment,
+      'durationInHours': ?instance.durationInHours,
       r'$unknown': ?instance.$unknown,
     };
