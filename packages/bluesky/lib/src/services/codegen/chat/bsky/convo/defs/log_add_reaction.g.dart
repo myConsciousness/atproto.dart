@@ -28,6 +28,16 @@ _LogAddReaction _$LogAddReactionFromJson(Map json) =>
           (v) =>
               const ReactionViewConverter().fromJson(v as Map<String, dynamic>),
         ),
+        relatedProfiles: $checkedConvert(
+          'relatedProfiles',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const ProfileViewBasicConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -44,5 +54,8 @@ Map<String, dynamic> _$LogAddReactionToJson(
   'convoId': instance.convoId,
   'message': const ULogAddReactionMessageConverter().toJson(instance.message),
   'reaction': const ReactionViewConverter().toJson(instance.reaction),
+  'relatedProfiles': ?instance.relatedProfiles
+      ?.map(const ProfileViewBasicConverter().toJson)
+      .toList(),
   r'$unknown': ?instance.$unknown,
 };

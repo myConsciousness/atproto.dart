@@ -287,7 +287,7 @@ final class _List$typeName extends QueryCommand {
   @override
   String get methodId => "com.atproto.repo.listRecord";
 
- @override
+  @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': await did,
     'collection': methodId,

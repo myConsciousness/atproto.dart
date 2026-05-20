@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './profile_associated_chat_allow_group_invites.dart';
 import './profile_associated_chat_allow_incoming.dart';
 
 part 'profile_associated_chat.freezed.dart';
@@ -23,13 +24,15 @@ part 'profile_associated_chat.g.dart';
 
 @freezed
 abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
-  static const knownProps = <String>['allowIncoming'];
+  static const knownProps = <String>['allowIncoming', 'allowGroupInvites'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociatedChat({
     @Default('app.bsky.actor.defs#profileAssociatedChat') String $type,
     @ProfileAssociatedChatAllowIncomingConverter()
     required ProfileAssociatedChatAllowIncoming allowIncoming,
+    @ProfileAssociatedChatAllowGroupInvitesConverter()
+    ProfileAssociatedChatAllowGroupInvites? allowGroupInvites,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileAssociatedChat;
@@ -41,6 +44,11 @@ abstract class ProfileAssociatedChat with _$ProfileAssociatedChat {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'app.bsky.actor.defs#profileAssociatedChat';
   }
+}
+
+extension ProfileAssociatedChatExtension on ProfileAssociatedChat {
+  bool get hasAllowGroupInvites => allowGroupInvites != null;
+  bool get hasNotAllowGroupInvites => !hasAllowGroupInvites;
 }
 
 final class ProfileAssociatedChatConverter

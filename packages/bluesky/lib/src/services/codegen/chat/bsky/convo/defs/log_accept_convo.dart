@@ -18,6 +18,7 @@ part 'log_accept_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating the viewer accepted a convo, and it can be moved out of the request inbox. Can be direct or group.
 @freezed
 abstract class LogAcceptConvo with _$LogAcceptConvo {
   static const knownProps = <String>['rev', 'convoId'];

@@ -84,6 +84,7 @@ description: app.bsky.actor.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **allowIncoming** | string | all<br/>none<br/>following | ✅ | - |
+| **allowGroupInvites** | string | all<br/>none<br/>following | ❌ | - |
 
 ## #profileAssociatedGerm
 

@@ -13,7 +13,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
-import './convo_view_status.dart';
+import './convo_status.dart';
+import './union_convo_view_kind.dart';
 import './union_convo_view_last_message.dart';
 import './union_convo_view_last_reaction.dart';
 
@@ -35,6 +36,7 @@ abstract class ConvoView with _$ConvoView {
     'muted',
     'status',
     'unreadCount',
+    'kind',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -46,8 +48,11 @@ abstract class ConvoView with _$ConvoView {
     @UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,
     @UConvoViewLastReactionConverter() UConvoViewLastReaction? lastReaction,
     required bool muted,
-    @ConvoViewStatusConverter() ConvoViewStatus? status,
+
+    /// Convo status for the viewer member (not the convo itself).
+    @ConvoStatusConverter() ConvoStatus? status,
     required int unreadCount,
+    @UConvoViewKindConverter() UConvoViewKind? kind,
 
     Map<String, dynamic>? $unknown,
   }) = _ConvoView;
@@ -70,6 +75,8 @@ extension ConvoViewExtension on ConvoView {
   bool get isNotMuted => !isMuted;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
+  bool get hasKind => kind != null;
+  bool get hasNotKind => !hasKind;
 }
 
 final class ConvoViewConverter

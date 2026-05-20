@@ -28,7 +28,7 @@ final class SendMessageCommand extends ProcedureCommand {
   final String name = "send-message";
 
   @override
-  final String description = r"";
+  final String description = r"Sends a message to a conversation.";
 
   @override
   final String invocation =

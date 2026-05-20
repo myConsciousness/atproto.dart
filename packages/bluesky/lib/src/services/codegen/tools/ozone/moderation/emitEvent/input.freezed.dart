@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$ModerationEmitEventInput {
 
 @UModerationEmitEventEventConverter() UModerationEmitEventEvent get event;@UModerationEmitEventSubjectConverter() UModerationEmitEventSubject get subject; List<String>? get subjectBlobCids; String get createdBy;@ModToolConverter() ModTool? get modTool;/// An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.
- String? get externalId; Map<String, dynamic>? get $unknown;
+ String? get externalId;/// Optional report-level targeting. If provided, this event will be linked to specific reports and reporters may be notified.
+@ReportActionConverter() ReportAction? get reportAction; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationEmitEventInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +30,16 @@ $ModerationEmitEventInputCopyWith<ModerationEmitEventInput> get copyWith => _$Mo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationEmitEventInput&&(identical(other.event, event) || other.event == event)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.subjectBlobCids, subjectBlobCids)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.modTool, modTool) || other.modTool == modTool)&&(identical(other.externalId, externalId) || other.externalId == externalId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationEmitEventInput&&(identical(other.event, event) || other.event == event)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.subjectBlobCids, subjectBlobCids)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.modTool, modTool) || other.modTool == modTool)&&(identical(other.externalId, externalId) || other.externalId == externalId)&&(identical(other.reportAction, reportAction) || other.reportAction == reportAction)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,event,subject,const DeepCollectionEquality().hash(subjectBlobCids),createdBy,modTool,externalId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,event,subject,const DeepCollectionEquality().hash(subjectBlobCids),createdBy,modTool,externalId,reportAction,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModerationEmitEventInput(event: $event, subject: $subject, subjectBlobCids: $subjectBlobCids, createdBy: $createdBy, modTool: $modTool, externalId: $externalId, \$unknown: ${$unknown})';
+  return 'ModerationEmitEventInput(event: $event, subject: $subject, subjectBlobCids: $subjectBlobCids, createdBy: $createdBy, modTool: $modTool, externalId: $externalId, reportAction: $reportAction, \$unknown: ${$unknown})';
 }
 
 
@@ -49,11 +50,11 @@ abstract mixin class $ModerationEmitEventInputCopyWith<$Res>  {
   factory $ModerationEmitEventInputCopyWith(ModerationEmitEventInput value, $Res Function(ModerationEmitEventInput) _then) = _$ModerationEmitEventInputCopyWithImpl;
 @useResult
 $Res call({
-@UModerationEmitEventEventConverter() UModerationEmitEventEvent event,@UModerationEmitEventSubjectConverter() UModerationEmitEventSubject subject, List<String>? subjectBlobCids, String createdBy,@ModToolConverter() ModTool? modTool, String? externalId, Map<String, dynamic>? $unknown
+@UModerationEmitEventEventConverter() UModerationEmitEventEvent event,@UModerationEmitEventSubjectConverter() UModerationEmitEventSubject subject, List<String>? subjectBlobCids, String createdBy,@ModToolConverter() ModTool? modTool, String? externalId,@ReportActionConverter() ReportAction? reportAction, Map<String, dynamic>? $unknown
 });
 
 
-$UModerationEmitEventEventCopyWith<$Res> get event;$UModerationEmitEventSubjectCopyWith<$Res> get subject;$ModToolCopyWith<$Res>? get modTool;
+$UModerationEmitEventEventCopyWith<$Res> get event;$UModerationEmitEventSubjectCopyWith<$Res> get subject;$ModToolCopyWith<$Res>? get modTool;$ReportActionCopyWith<$Res>? get reportAction;
 
 }
 /// @nodoc
@@ -66,7 +67,7 @@ class _$ModerationEmitEventInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationEmitEventInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? event = null,Object? subject = null,Object? subjectBlobCids = freezed,Object? createdBy = null,Object? modTool = freezed,Object? externalId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? event = null,Object? subject = null,Object? subjectBlobCids = freezed,Object? createdBy = null,Object? modTool = freezed,Object? externalId = freezed,Object? reportAction = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
 as UModerationEmitEventEvent,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
@@ -74,7 +75,8 @@ as UModerationEmitEventSubject,subjectBlobCids: freezed == subjectBlobCids ? _se
 as List<String>?,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,modTool: freezed == modTool ? _self.modTool : modTool // ignore: cast_nullable_to_non_nullable
 as ModTool?,externalId: freezed == externalId ? _self.externalId : externalId // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,reportAction: freezed == reportAction ? _self.reportAction : reportAction // ignore: cast_nullable_to_non_nullable
+as ReportAction?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -107,6 +109,18 @@ $ModToolCopyWith<$Res>? get modTool {
 
   return $ModToolCopyWith<$Res>(_self.modTool!, (value) {
     return _then(_self.copyWith(modTool: value));
+  });
+}/// Create a copy of ModerationEmitEventInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ReportActionCopyWith<$Res>? get reportAction {
+    if (_self.reportAction == null) {
+    return null;
+  }
+
+  return $ReportActionCopyWith<$Res>(_self.reportAction!, (value) {
+    return _then(_self.copyWith(reportAction: value));
   });
 }
 }
@@ -190,10 +204,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@UModerationEmitEventEventConverter()  UModerationEmitEventEvent event, @UModerationEmitEventSubjectConverter()  UModerationEmitEventSubject subject,  List<String>? subjectBlobCids,  String createdBy, @ModToolConverter()  ModTool? modTool,  String? externalId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@UModerationEmitEventEventConverter()  UModerationEmitEventEvent event, @UModerationEmitEventSubjectConverter()  UModerationEmitEventSubject subject,  List<String>? subjectBlobCids,  String createdBy, @ModToolConverter()  ModTool? modTool,  String? externalId, @ReportActionConverter()  ReportAction? reportAction,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationEmitEventInput() when $default != null:
-return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,_that.modTool,_that.externalId,_that.$unknown);case _:
+return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,_that.modTool,_that.externalId,_that.reportAction,_that.$unknown);case _:
   return orElse();
 
 }
@@ -211,10 +225,10 @@ return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@UModerationEmitEventEventConverter()  UModerationEmitEventEvent event, @UModerationEmitEventSubjectConverter()  UModerationEmitEventSubject subject,  List<String>? subjectBlobCids,  String createdBy, @ModToolConverter()  ModTool? modTool,  String? externalId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@UModerationEmitEventEventConverter()  UModerationEmitEventEvent event, @UModerationEmitEventSubjectConverter()  UModerationEmitEventSubject subject,  List<String>? subjectBlobCids,  String createdBy, @ModToolConverter()  ModTool? modTool,  String? externalId, @ReportActionConverter()  ReportAction? reportAction,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationEmitEventInput():
-return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,_that.modTool,_that.externalId,_that.$unknown);case _:
+return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,_that.modTool,_that.externalId,_that.reportAction,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -231,10 +245,10 @@ return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@UModerationEmitEventEventConverter()  UModerationEmitEventEvent event, @UModerationEmitEventSubjectConverter()  UModerationEmitEventSubject subject,  List<String>? subjectBlobCids,  String createdBy, @ModToolConverter()  ModTool? modTool,  String? externalId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@UModerationEmitEventEventConverter()  UModerationEmitEventEvent event, @UModerationEmitEventSubjectConverter()  UModerationEmitEventSubject subject,  List<String>? subjectBlobCids,  String createdBy, @ModToolConverter()  ModTool? modTool,  String? externalId, @ReportActionConverter()  ReportAction? reportAction,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationEmitEventInput() when $default != null:
-return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,_that.modTool,_that.externalId,_that.$unknown);case _:
+return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,_that.modTool,_that.externalId,_that.reportAction,_that.$unknown);case _:
   return null;
 
 }
@@ -246,7 +260,7 @@ return $default(_that.event,_that.subject,_that.subjectBlobCids,_that.createdBy,
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationEmitEventInput implements ModerationEmitEventInput {
-  const _ModerationEmitEventInput({@UModerationEmitEventEventConverter() required this.event, @UModerationEmitEventSubjectConverter() required this.subject, final  List<String>? subjectBlobCids, required this.createdBy, @ModToolConverter() this.modTool, this.externalId, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_$unknown = $unknown;
+  const _ModerationEmitEventInput({@UModerationEmitEventEventConverter() required this.event, @UModerationEmitEventSubjectConverter() required this.subject, final  List<String>? subjectBlobCids, required this.createdBy, @ModToolConverter() this.modTool, this.externalId, @ReportActionConverter() this.reportAction, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_$unknown = $unknown;
   factory _ModerationEmitEventInput.fromJson(Map<String, dynamic> json) => _$ModerationEmitEventInputFromJson(json);
 
 @override@UModerationEmitEventEventConverter() final  UModerationEmitEventEvent event;
@@ -264,6 +278,8 @@ class _ModerationEmitEventInput implements ModerationEmitEventInput {
 @override@ModToolConverter() final  ModTool? modTool;
 /// An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.
 @override final  String? externalId;
+/// Optional report-level targeting. If provided, this event will be linked to specific reports and reporters may be notified.
+@override@ReportActionConverter() final  ReportAction? reportAction;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -287,16 +303,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationEmitEventInput&&(identical(other.event, event) || other.event == event)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._subjectBlobCids, _subjectBlobCids)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.modTool, modTool) || other.modTool == modTool)&&(identical(other.externalId, externalId) || other.externalId == externalId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationEmitEventInput&&(identical(other.event, event) || other.event == event)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._subjectBlobCids, _subjectBlobCids)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.modTool, modTool) || other.modTool == modTool)&&(identical(other.externalId, externalId) || other.externalId == externalId)&&(identical(other.reportAction, reportAction) || other.reportAction == reportAction)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,event,subject,const DeepCollectionEquality().hash(_subjectBlobCids),createdBy,modTool,externalId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,event,subject,const DeepCollectionEquality().hash(_subjectBlobCids),createdBy,modTool,externalId,reportAction,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModerationEmitEventInput(event: $event, subject: $subject, subjectBlobCids: $subjectBlobCids, createdBy: $createdBy, modTool: $modTool, externalId: $externalId, \$unknown: ${$unknown})';
+  return 'ModerationEmitEventInput(event: $event, subject: $subject, subjectBlobCids: $subjectBlobCids, createdBy: $createdBy, modTool: $modTool, externalId: $externalId, reportAction: $reportAction, \$unknown: ${$unknown})';
 }
 
 
@@ -307,11 +323,11 @@ abstract mixin class _$ModerationEmitEventInputCopyWith<$Res> implements $Modera
   factory _$ModerationEmitEventInputCopyWith(_ModerationEmitEventInput value, $Res Function(_ModerationEmitEventInput) _then) = __$ModerationEmitEventInputCopyWithImpl;
 @override @useResult
 $Res call({
-@UModerationEmitEventEventConverter() UModerationEmitEventEvent event,@UModerationEmitEventSubjectConverter() UModerationEmitEventSubject subject, List<String>? subjectBlobCids, String createdBy,@ModToolConverter() ModTool? modTool, String? externalId, Map<String, dynamic>? $unknown
+@UModerationEmitEventEventConverter() UModerationEmitEventEvent event,@UModerationEmitEventSubjectConverter() UModerationEmitEventSubject subject, List<String>? subjectBlobCids, String createdBy,@ModToolConverter() ModTool? modTool, String? externalId,@ReportActionConverter() ReportAction? reportAction, Map<String, dynamic>? $unknown
 });
 
 
-@override $UModerationEmitEventEventCopyWith<$Res> get event;@override $UModerationEmitEventSubjectCopyWith<$Res> get subject;@override $ModToolCopyWith<$Res>? get modTool;
+@override $UModerationEmitEventEventCopyWith<$Res> get event;@override $UModerationEmitEventSubjectCopyWith<$Res> get subject;@override $ModToolCopyWith<$Res>? get modTool;@override $ReportActionCopyWith<$Res>? get reportAction;
 
 }
 /// @nodoc
@@ -324,7 +340,7 @@ class __$ModerationEmitEventInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationEmitEventInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? event = null,Object? subject = null,Object? subjectBlobCids = freezed,Object? createdBy = null,Object? modTool = freezed,Object? externalId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? event = null,Object? subject = null,Object? subjectBlobCids = freezed,Object? createdBy = null,Object? modTool = freezed,Object? externalId = freezed,Object? reportAction = freezed,Object? $unknown = freezed,}) {
   return _then(_ModerationEmitEventInput(
 event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
 as UModerationEmitEventEvent,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
@@ -332,7 +348,8 @@ as UModerationEmitEventSubject,subjectBlobCids: freezed == subjectBlobCids ? _se
 as List<String>?,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,modTool: freezed == modTool ? _self.modTool : modTool // ignore: cast_nullable_to_non_nullable
 as ModTool?,externalId: freezed == externalId ? _self.externalId : externalId // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,reportAction: freezed == reportAction ? _self.reportAction : reportAction // ignore: cast_nullable_to_non_nullable
+as ReportAction?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -366,6 +383,18 @@ $ModToolCopyWith<$Res>? get modTool {
 
   return $ModToolCopyWith<$Res>(_self.modTool!, (value) {
     return _then(_self.copyWith(modTool: value));
+  });
+}/// Create a copy of ModerationEmitEventInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ReportActionCopyWith<$Res>? get reportAction {
+    if (_self.reportAction == null) {
+    return null;
+  }
+
+  return $ReportActionCopyWith<$Res>(_self.reportAction!, (value) {
+    return _then(_self.copyWith(reportAction: value));
   });
 }
 }

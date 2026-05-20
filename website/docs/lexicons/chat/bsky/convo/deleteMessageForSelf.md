@@ -7,6 +7,8 @@ description: chat.bsky.convo.deleteMessageForSelf
 
 ## #main
 
+Marks a message as deleted for the viewer, so they won't see that message in future enumerations.
+
 ### Input
 
 - **Encoding**: application/json

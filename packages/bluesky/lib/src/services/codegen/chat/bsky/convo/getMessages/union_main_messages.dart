@@ -14,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../chat/bsky/convo/defs/deleted_message_view.dart';
 import '../../../../chat/bsky/convo/defs/message_view.dart';
+import '../../../../chat/bsky/convo/defs/system_message_view.dart';
 
 part 'union_main_messages.freezed.dart';
 
@@ -31,6 +32,9 @@ sealed class UConvoGetMessagesMessages with _$UConvoGetMessagesMessages {
   const factory UConvoGetMessagesMessages.deletedMessageView({
     required DeletedMessageView data,
   }) = UConvoGetMessagesMessagesDeletedMessageView;
+  const factory UConvoGetMessagesMessages.systemMessageView({
+    required SystemMessageView data,
+  }) = UConvoGetMessagesMessagesSystemMessageView;
 
   const factory UConvoGetMessagesMessages.unknown({
     required Map<String, dynamic> data,
@@ -49,6 +53,11 @@ extension UConvoGetMessagesMessagesExtension on UConvoGetMessagesMessages {
   bool get isNotDeletedMessageView => !isDeletedMessageView;
   DeletedMessageView? get deletedMessageView =>
       isDeletedMessageView ? data as DeletedMessageView : null;
+  bool get isSystemMessageView =>
+      isA<UConvoGetMessagesMessagesSystemMessageView>(this);
+  bool get isNotSystemMessageView => !isSystemMessageView;
+  SystemMessageView? get systemMessageView =>
+      isSystemMessageView ? data as SystemMessageView : null;
   bool get isUnknown => isA<UConvoGetMessagesMessagesUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -72,6 +81,11 @@ final class UConvoGetMessagesMessagesConverter
           data: const DeletedMessageViewConverter().fromJson(json),
         );
       }
+      if (SystemMessageView.validate(json)) {
+        return UConvoGetMessagesMessages.systemMessageView(
+          data: const SystemMessageViewConverter().fromJson(json),
+        );
+      }
 
       return UConvoGetMessagesMessages.unknown(data: json);
     } catch (_) {
@@ -84,6 +98,8 @@ final class UConvoGetMessagesMessagesConverter
     messageView: (data) => const MessageViewConverter().toJson(data),
     deletedMessageView: (data) =>
         const DeletedMessageViewConverter().toJson(data),
+    systemMessageView: (data) =>
+        const SystemMessageViewConverter().toJson(data),
 
     unknown: (data) => data,
   );

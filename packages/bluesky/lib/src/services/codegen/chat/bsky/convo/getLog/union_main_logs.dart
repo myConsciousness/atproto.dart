@@ -13,14 +13,31 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../chat/bsky/convo/defs/log_accept_convo.dart';
+import '../../../../chat/bsky/convo/defs/log_add_member.dart';
 import '../../../../chat/bsky/convo/defs/log_add_reaction.dart';
+import '../../../../chat/bsky/convo/defs/log_approve_join_request.dart';
 import '../../../../chat/bsky/convo/defs/log_begin_convo.dart';
+import '../../../../chat/bsky/convo/defs/log_create_join_link.dart';
 import '../../../../chat/bsky/convo/defs/log_create_message.dart';
 import '../../../../chat/bsky/convo/defs/log_delete_message.dart';
+import '../../../../chat/bsky/convo/defs/log_disable_join_link.dart';
+import '../../../../chat/bsky/convo/defs/log_edit_group.dart';
+import '../../../../chat/bsky/convo/defs/log_edit_join_link.dart';
+import '../../../../chat/bsky/convo/defs/log_enable_join_link.dart';
+import '../../../../chat/bsky/convo/defs/log_incoming_join_request.dart';
 import '../../../../chat/bsky/convo/defs/log_leave_convo.dart';
+import '../../../../chat/bsky/convo/defs/log_lock_convo.dart';
+import '../../../../chat/bsky/convo/defs/log_lock_convo_permanently.dart';
+import '../../../../chat/bsky/convo/defs/log_member_join.dart';
+import '../../../../chat/bsky/convo/defs/log_member_leave.dart';
 import '../../../../chat/bsky/convo/defs/log_mute_convo.dart';
+import '../../../../chat/bsky/convo/defs/log_outgoing_join_request.dart';
+import '../../../../chat/bsky/convo/defs/log_read_convo.dart';
 import '../../../../chat/bsky/convo/defs/log_read_message.dart';
+import '../../../../chat/bsky/convo/defs/log_reject_join_request.dart';
+import '../../../../chat/bsky/convo/defs/log_remove_member.dart';
 import '../../../../chat/bsky/convo/defs/log_remove_reaction.dart';
+import '../../../../chat/bsky/convo/defs/log_unlock_convo.dart';
 import '../../../../chat/bsky/convo/defs/log_unmute_convo.dart';
 
 part 'union_main_logs.freezed.dart';
@@ -60,6 +77,52 @@ sealed class UConvoGetLogLogs with _$UConvoGetLogLogs {
   const factory UConvoGetLogLogs.logRemoveReaction({
     required LogRemoveReaction data,
   }) = UConvoGetLogLogsLogRemoveReaction;
+  const factory UConvoGetLogLogs.logReadConvo({required LogReadConvo data}) =
+      UConvoGetLogLogsLogReadConvo;
+  const factory UConvoGetLogLogs.logAddMember({required LogAddMember data}) =
+      UConvoGetLogLogsLogAddMember;
+  const factory UConvoGetLogLogs.logRemoveMember({
+    required LogRemoveMember data,
+  }) = UConvoGetLogLogsLogRemoveMember;
+  const factory UConvoGetLogLogs.logMemberJoin({required LogMemberJoin data}) =
+      UConvoGetLogLogsLogMemberJoin;
+  const factory UConvoGetLogLogs.logMemberLeave({
+    required LogMemberLeave data,
+  }) = UConvoGetLogLogsLogMemberLeave;
+  const factory UConvoGetLogLogs.logLockConvo({required LogLockConvo data}) =
+      UConvoGetLogLogsLogLockConvo;
+  const factory UConvoGetLogLogs.logUnlockConvo({
+    required LogUnlockConvo data,
+  }) = UConvoGetLogLogsLogUnlockConvo;
+  const factory UConvoGetLogLogs.logLockConvoPermanently({
+    required LogLockConvoPermanently data,
+  }) = UConvoGetLogLogsLogLockConvoPermanently;
+  const factory UConvoGetLogLogs.logEditGroup({required LogEditGroup data}) =
+      UConvoGetLogLogsLogEditGroup;
+  const factory UConvoGetLogLogs.logCreateJoinLink({
+    required LogCreateJoinLink data,
+  }) = UConvoGetLogLogsLogCreateJoinLink;
+  const factory UConvoGetLogLogs.logEditJoinLink({
+    required LogEditJoinLink data,
+  }) = UConvoGetLogLogsLogEditJoinLink;
+  const factory UConvoGetLogLogs.logEnableJoinLink({
+    required LogEnableJoinLink data,
+  }) = UConvoGetLogLogsLogEnableJoinLink;
+  const factory UConvoGetLogLogs.logDisableJoinLink({
+    required LogDisableJoinLink data,
+  }) = UConvoGetLogLogsLogDisableJoinLink;
+  const factory UConvoGetLogLogs.logIncomingJoinRequest({
+    required LogIncomingJoinRequest data,
+  }) = UConvoGetLogLogsLogIncomingJoinRequest;
+  const factory UConvoGetLogLogs.logApproveJoinRequest({
+    required LogApproveJoinRequest data,
+  }) = UConvoGetLogLogsLogApproveJoinRequest;
+  const factory UConvoGetLogLogs.logRejectJoinRequest({
+    required LogRejectJoinRequest data,
+  }) = UConvoGetLogLogsLogRejectJoinRequest;
+  const factory UConvoGetLogLogs.logOutgoingJoinRequest({
+    required LogOutgoingJoinRequest data,
+  }) = UConvoGetLogLogsLogOutgoingJoinRequest;
 
   const factory UConvoGetLogLogs.unknown({required Map<String, dynamic> data}) =
       UConvoGetLogLogsUnknown;
@@ -109,6 +172,80 @@ extension UConvoGetLogLogsExtension on UConvoGetLogLogs {
   bool get isNotLogRemoveReaction => !isLogRemoveReaction;
   LogRemoveReaction? get logRemoveReaction =>
       isLogRemoveReaction ? data as LogRemoveReaction : null;
+  bool get isLogReadConvo => isA<UConvoGetLogLogsLogReadConvo>(this);
+  bool get isNotLogReadConvo => !isLogReadConvo;
+  LogReadConvo? get logReadConvo =>
+      isLogReadConvo ? data as LogReadConvo : null;
+  bool get isLogAddMember => isA<UConvoGetLogLogsLogAddMember>(this);
+  bool get isNotLogAddMember => !isLogAddMember;
+  LogAddMember? get logAddMember =>
+      isLogAddMember ? data as LogAddMember : null;
+  bool get isLogRemoveMember => isA<UConvoGetLogLogsLogRemoveMember>(this);
+  bool get isNotLogRemoveMember => !isLogRemoveMember;
+  LogRemoveMember? get logRemoveMember =>
+      isLogRemoveMember ? data as LogRemoveMember : null;
+  bool get isLogMemberJoin => isA<UConvoGetLogLogsLogMemberJoin>(this);
+  bool get isNotLogMemberJoin => !isLogMemberJoin;
+  LogMemberJoin? get logMemberJoin =>
+      isLogMemberJoin ? data as LogMemberJoin : null;
+  bool get isLogMemberLeave => isA<UConvoGetLogLogsLogMemberLeave>(this);
+  bool get isNotLogMemberLeave => !isLogMemberLeave;
+  LogMemberLeave? get logMemberLeave =>
+      isLogMemberLeave ? data as LogMemberLeave : null;
+  bool get isLogLockConvo => isA<UConvoGetLogLogsLogLockConvo>(this);
+  bool get isNotLogLockConvo => !isLogLockConvo;
+  LogLockConvo? get logLockConvo =>
+      isLogLockConvo ? data as LogLockConvo : null;
+  bool get isLogUnlockConvo => isA<UConvoGetLogLogsLogUnlockConvo>(this);
+  bool get isNotLogUnlockConvo => !isLogUnlockConvo;
+  LogUnlockConvo? get logUnlockConvo =>
+      isLogUnlockConvo ? data as LogUnlockConvo : null;
+  bool get isLogLockConvoPermanently =>
+      isA<UConvoGetLogLogsLogLockConvoPermanently>(this);
+  bool get isNotLogLockConvoPermanently => !isLogLockConvoPermanently;
+  LogLockConvoPermanently? get logLockConvoPermanently =>
+      isLogLockConvoPermanently ? data as LogLockConvoPermanently : null;
+  bool get isLogEditGroup => isA<UConvoGetLogLogsLogEditGroup>(this);
+  bool get isNotLogEditGroup => !isLogEditGroup;
+  LogEditGroup? get logEditGroup =>
+      isLogEditGroup ? data as LogEditGroup : null;
+  bool get isLogCreateJoinLink => isA<UConvoGetLogLogsLogCreateJoinLink>(this);
+  bool get isNotLogCreateJoinLink => !isLogCreateJoinLink;
+  LogCreateJoinLink? get logCreateJoinLink =>
+      isLogCreateJoinLink ? data as LogCreateJoinLink : null;
+  bool get isLogEditJoinLink => isA<UConvoGetLogLogsLogEditJoinLink>(this);
+  bool get isNotLogEditJoinLink => !isLogEditJoinLink;
+  LogEditJoinLink? get logEditJoinLink =>
+      isLogEditJoinLink ? data as LogEditJoinLink : null;
+  bool get isLogEnableJoinLink => isA<UConvoGetLogLogsLogEnableJoinLink>(this);
+  bool get isNotLogEnableJoinLink => !isLogEnableJoinLink;
+  LogEnableJoinLink? get logEnableJoinLink =>
+      isLogEnableJoinLink ? data as LogEnableJoinLink : null;
+  bool get isLogDisableJoinLink =>
+      isA<UConvoGetLogLogsLogDisableJoinLink>(this);
+  bool get isNotLogDisableJoinLink => !isLogDisableJoinLink;
+  LogDisableJoinLink? get logDisableJoinLink =>
+      isLogDisableJoinLink ? data as LogDisableJoinLink : null;
+  bool get isLogIncomingJoinRequest =>
+      isA<UConvoGetLogLogsLogIncomingJoinRequest>(this);
+  bool get isNotLogIncomingJoinRequest => !isLogIncomingJoinRequest;
+  LogIncomingJoinRequest? get logIncomingJoinRequest =>
+      isLogIncomingJoinRequest ? data as LogIncomingJoinRequest : null;
+  bool get isLogApproveJoinRequest =>
+      isA<UConvoGetLogLogsLogApproveJoinRequest>(this);
+  bool get isNotLogApproveJoinRequest => !isLogApproveJoinRequest;
+  LogApproveJoinRequest? get logApproveJoinRequest =>
+      isLogApproveJoinRequest ? data as LogApproveJoinRequest : null;
+  bool get isLogRejectJoinRequest =>
+      isA<UConvoGetLogLogsLogRejectJoinRequest>(this);
+  bool get isNotLogRejectJoinRequest => !isLogRejectJoinRequest;
+  LogRejectJoinRequest? get logRejectJoinRequest =>
+      isLogRejectJoinRequest ? data as LogRejectJoinRequest : null;
+  bool get isLogOutgoingJoinRequest =>
+      isA<UConvoGetLogLogsLogOutgoingJoinRequest>(this);
+  bool get isNotLogOutgoingJoinRequest => !isLogOutgoingJoinRequest;
+  LogOutgoingJoinRequest? get logOutgoingJoinRequest =>
+      isLogOutgoingJoinRequest ? data as LogOutgoingJoinRequest : null;
   bool get isUnknown => isA<UConvoGetLogLogsUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -172,6 +309,91 @@ final class UConvoGetLogLogsConverter
           data: const LogRemoveReactionConverter().fromJson(json),
         );
       }
+      if (LogReadConvo.validate(json)) {
+        return UConvoGetLogLogs.logReadConvo(
+          data: const LogReadConvoConverter().fromJson(json),
+        );
+      }
+      if (LogAddMember.validate(json)) {
+        return UConvoGetLogLogs.logAddMember(
+          data: const LogAddMemberConverter().fromJson(json),
+        );
+      }
+      if (LogRemoveMember.validate(json)) {
+        return UConvoGetLogLogs.logRemoveMember(
+          data: const LogRemoveMemberConverter().fromJson(json),
+        );
+      }
+      if (LogMemberJoin.validate(json)) {
+        return UConvoGetLogLogs.logMemberJoin(
+          data: const LogMemberJoinConverter().fromJson(json),
+        );
+      }
+      if (LogMemberLeave.validate(json)) {
+        return UConvoGetLogLogs.logMemberLeave(
+          data: const LogMemberLeaveConverter().fromJson(json),
+        );
+      }
+      if (LogLockConvo.validate(json)) {
+        return UConvoGetLogLogs.logLockConvo(
+          data: const LogLockConvoConverter().fromJson(json),
+        );
+      }
+      if (LogUnlockConvo.validate(json)) {
+        return UConvoGetLogLogs.logUnlockConvo(
+          data: const LogUnlockConvoConverter().fromJson(json),
+        );
+      }
+      if (LogLockConvoPermanently.validate(json)) {
+        return UConvoGetLogLogs.logLockConvoPermanently(
+          data: const LogLockConvoPermanentlyConverter().fromJson(json),
+        );
+      }
+      if (LogEditGroup.validate(json)) {
+        return UConvoGetLogLogs.logEditGroup(
+          data: const LogEditGroupConverter().fromJson(json),
+        );
+      }
+      if (LogCreateJoinLink.validate(json)) {
+        return UConvoGetLogLogs.logCreateJoinLink(
+          data: const LogCreateJoinLinkConverter().fromJson(json),
+        );
+      }
+      if (LogEditJoinLink.validate(json)) {
+        return UConvoGetLogLogs.logEditJoinLink(
+          data: const LogEditJoinLinkConverter().fromJson(json),
+        );
+      }
+      if (LogEnableJoinLink.validate(json)) {
+        return UConvoGetLogLogs.logEnableJoinLink(
+          data: const LogEnableJoinLinkConverter().fromJson(json),
+        );
+      }
+      if (LogDisableJoinLink.validate(json)) {
+        return UConvoGetLogLogs.logDisableJoinLink(
+          data: const LogDisableJoinLinkConverter().fromJson(json),
+        );
+      }
+      if (LogIncomingJoinRequest.validate(json)) {
+        return UConvoGetLogLogs.logIncomingJoinRequest(
+          data: const LogIncomingJoinRequestConverter().fromJson(json),
+        );
+      }
+      if (LogApproveJoinRequest.validate(json)) {
+        return UConvoGetLogLogs.logApproveJoinRequest(
+          data: const LogApproveJoinRequestConverter().fromJson(json),
+        );
+      }
+      if (LogRejectJoinRequest.validate(json)) {
+        return UConvoGetLogLogs.logRejectJoinRequest(
+          data: const LogRejectJoinRequestConverter().fromJson(json),
+        );
+      }
+      if (LogOutgoingJoinRequest.validate(json)) {
+        return UConvoGetLogLogs.logOutgoingJoinRequest(
+          data: const LogOutgoingJoinRequestConverter().fromJson(json),
+        );
+      }
 
       return UConvoGetLogLogs.unknown(data: json);
     } catch (_) {
@@ -192,6 +414,31 @@ final class UConvoGetLogLogsConverter
     logAddReaction: (data) => const LogAddReactionConverter().toJson(data),
     logRemoveReaction: (data) =>
         const LogRemoveReactionConverter().toJson(data),
+    logReadConvo: (data) => const LogReadConvoConverter().toJson(data),
+    logAddMember: (data) => const LogAddMemberConverter().toJson(data),
+    logRemoveMember: (data) => const LogRemoveMemberConverter().toJson(data),
+    logMemberJoin: (data) => const LogMemberJoinConverter().toJson(data),
+    logMemberLeave: (data) => const LogMemberLeaveConverter().toJson(data),
+    logLockConvo: (data) => const LogLockConvoConverter().toJson(data),
+    logUnlockConvo: (data) => const LogUnlockConvoConverter().toJson(data),
+    logLockConvoPermanently: (data) =>
+        const LogLockConvoPermanentlyConverter().toJson(data),
+    logEditGroup: (data) => const LogEditGroupConverter().toJson(data),
+    logCreateJoinLink: (data) =>
+        const LogCreateJoinLinkConverter().toJson(data),
+    logEditJoinLink: (data) => const LogEditJoinLinkConverter().toJson(data),
+    logEnableJoinLink: (data) =>
+        const LogEnableJoinLinkConverter().toJson(data),
+    logDisableJoinLink: (data) =>
+        const LogDisableJoinLinkConverter().toJson(data),
+    logIncomingJoinRequest: (data) =>
+        const LogIncomingJoinRequestConverter().toJson(data),
+    logApproveJoinRequest: (data) =>
+        const LogApproveJoinRequestConverter().toJson(data),
+    logRejectJoinRequest: (data) =>
+        const LogRejectJoinRequestConverter().toJson(data),
+    logOutgoingJoinRequest: (data) =>
+        const LogOutgoingJoinRequestConverter().toJson(data),
 
     unknown: (data) => data,
   );

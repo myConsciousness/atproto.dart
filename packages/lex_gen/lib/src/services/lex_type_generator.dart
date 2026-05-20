@@ -50,7 +50,6 @@ final class _LexTypeGenerator {
       for (final def in doc.defs.entries) {
         if (def.value is lex.ULexUserTypeObject) {
           final data = def.value.data as lex.LexObject;
-          if (rule.isDeprecated(data.description)) continue;
 
           _aggregateTypes(
             types,
@@ -63,7 +62,6 @@ final class _LexTypeGenerator {
           );
         } else if (def.value is lex.ULexUserTypeArray) {
           final data = def.value.data as lex.LexArray;
-          if (rule.isDeprecated(data.description)) continue;
 
           final refVariant = data.items.whenOrNull(refVariant: (data) => data);
           if (refVariant == null) continue;
@@ -77,7 +75,6 @@ final class _LexTypeGenerator {
           );
         } else if (def.value is lex.ULexUserTypeRecord) {
           final data = def.value.data as lex.LexRecord;
-          if (rule.isDeprecated(data.description)) continue;
 
           _aggregateTypes(
             types,

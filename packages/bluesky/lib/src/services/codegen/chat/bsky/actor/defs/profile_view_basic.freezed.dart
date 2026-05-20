@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileViewBasic {
 
- String get $type; String get did; String get handle; String? get displayName; String? get avatar;@ProfileAssociatedConverter() ProfileAssociated? get associated;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;/// Set to true when the actor cannot actively participate in conversations
- bool? get chatDisabled;@VerificationStateConverter() VerificationState? get verification; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; String get handle; String? get displayName; String? get avatar;@ProfileAssociatedConverter() ProfileAssociated? get associated;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels; DateTime? get createdAt;/// Set to true when the actor cannot actively participate in conversations
+ bool? get chatDisabled;@VerificationStateConverter() VerificationState? get verification;@UProfileViewBasicKindConverter() UProfileViewBasicKind? get kind; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileViewBasic
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $ProfileViewBasicCopyWith<ProfileViewBasic> get copyWith => _$ProfileViewBasicCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileViewBasic&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.verification, verification) || other.verification == verification)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileViewBasic&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.verification, verification) || other.verification == verification)&&(identical(other.kind, kind) || other.kind == kind)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,avatar,associated,viewer,const DeepCollectionEquality().hash(labels),chatDisabled,verification,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,avatar,associated,viewer,const DeepCollectionEquality().hash(labels),createdAt,chatDisabled,verification,kind,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled, verification: $verification, \$unknown: ${$unknown})';
+  return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, createdAt: $createdAt, chatDisabled: $chatDisabled, verification: $verification, kind: $kind, \$unknown: ${$unknown})';
 }
 
 
@@ -49,11 +49,11 @@ abstract mixin class $ProfileViewBasicCopyWith<$Res>  {
   factory $ProfileViewBasicCopyWith(ProfileViewBasic value, $Res Function(ProfileViewBasic) _then) = _$ProfileViewBasicCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, DateTime? createdAt, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification,@UProfileViewBasicKindConverter() UProfileViewBasicKind? kind, Map<String, dynamic>? $unknown
 });
 
 
-$ProfileAssociatedCopyWith<$Res>? get associated;$ViewerStateCopyWith<$Res>? get viewer;$VerificationStateCopyWith<$Res>? get verification;
+$ProfileAssociatedCopyWith<$Res>? get associated;$ViewerStateCopyWith<$Res>? get viewer;$VerificationStateCopyWith<$Res>? get verification;$UProfileViewBasicKindCopyWith<$Res>? get kind;
 
 }
 /// @nodoc
@@ -66,7 +66,7 @@ class _$ProfileViewBasicCopyWithImpl<$Res>
 
 /// Create a copy of ProfileViewBasic
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? avatar = freezed,Object? associated = freezed,Object? viewer = freezed,Object? labels = freezed,Object? chatDisabled = freezed,Object? verification = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? avatar = freezed,Object? associated = freezed,Object? viewer = freezed,Object? labels = freezed,Object? createdAt = freezed,Object? chatDisabled = freezed,Object? verification = freezed,Object? kind = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -76,9 +76,11 @@ as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nul
 as String?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
 as ProfileAssociated?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as ViewerState?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
-as List<Label>?,chatDisabled: freezed == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
+as List<Label>?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,chatDisabled: freezed == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
 as bool?,verification: freezed == verification ? _self.verification : verification // ignore: cast_nullable_to_non_nullable
-as VerificationState?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as VerificationState?,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as UProfileViewBasicKind?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -117,6 +119,18 @@ $VerificationStateCopyWith<$Res>? get verification {
 
   return $VerificationStateCopyWith<$Res>(_self.verification!, (value) {
     return _then(_self.copyWith(verification: value));
+  });
+}/// Create a copy of ProfileViewBasic
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UProfileViewBasicKindCopyWith<$Res>? get kind {
+    if (_self.kind == null) {
+    return null;
+  }
+
+  return $UProfileViewBasicKindCopyWith<$Res>(_self.kind!, (value) {
+    return _then(_self.copyWith(kind: value));
   });
 }
 }
@@ -200,10 +214,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  DateTime? createdAt,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification, @UProfileViewBasicKindConverter()  UProfileViewBasicKind? kind,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileViewBasic() when $default != null:
-return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.chatDisabled,_that.verification,_that.$unknown);case _:
+return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.createdAt,_that.chatDisabled,_that.verification,_that.kind,_that.$unknown);case _:
   return orElse();
 
 }
@@ -221,10 +235,10 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avata
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  DateTime? createdAt,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification, @UProfileViewBasicKindConverter()  UProfileViewBasicKind? kind,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewBasic():
-return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.chatDisabled,_that.verification,_that.$unknown);case _:
+return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.createdAt,_that.chatDisabled,_that.verification,_that.kind,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -241,10 +255,10 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avata
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? avatar, @ProfileAssociatedConverter()  ProfileAssociated? associated, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels,  DateTime? createdAt,  bool? chatDisabled, @VerificationStateConverter()  VerificationState? verification, @UProfileViewBasicKindConverter()  UProfileViewBasicKind? kind,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewBasic() when $default != null:
-return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.chatDisabled,_that.verification,_that.$unknown);case _:
+return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avatar,_that.associated,_that.viewer,_that.labels,_that.createdAt,_that.chatDisabled,_that.verification,_that.kind,_that.$unknown);case _:
   return null;
 
 }
@@ -256,7 +270,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.avata
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileViewBasic implements ProfileViewBasic {
-  const _ProfileViewBasic({this.$type = 'chat.bsky.actor.defs#profileViewBasic', required this.did, required this.handle, this.displayName, this.avatar, @ProfileAssociatedConverter() this.associated, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, this.chatDisabled, @VerificationStateConverter() this.verification, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _ProfileViewBasic({this.$type = 'chat.bsky.actor.defs#profileViewBasic', required this.did, required this.handle, this.displayName, this.avatar, @ProfileAssociatedConverter() this.associated, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, this.createdAt, this.chatDisabled, @VerificationStateConverter() this.verification, @UProfileViewBasicKindConverter() this.kind, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) => _$ProfileViewBasicFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -275,9 +289,11 @@ class _ProfileViewBasic implements ProfileViewBasic {
   return EqualUnmodifiableListView(value);
 }
 
+@override final  DateTime? createdAt;
 /// Set to true when the actor cannot actively participate in conversations
 @override final  bool? chatDisabled;
 @override@VerificationStateConverter() final  VerificationState? verification;
+@override@UProfileViewBasicKindConverter() final  UProfileViewBasicKind? kind;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -301,16 +317,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileViewBasic&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.verification, verification) || other.verification == verification)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileViewBasic&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.did, did) || other.did == did)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.associated, associated) || other.associated == associated)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.verification, verification) || other.verification == verification)&&(identical(other.kind, kind) || other.kind == kind)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,avatar,associated,viewer,const DeepCollectionEquality().hash(_labels),chatDisabled,verification,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,did,handle,displayName,avatar,associated,viewer,const DeepCollectionEquality().hash(_labels),createdAt,chatDisabled,verification,kind,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled, verification: $verification, \$unknown: ${$unknown})';
+  return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, createdAt: $createdAt, chatDisabled: $chatDisabled, verification: $verification, kind: $kind, \$unknown: ${$unknown})';
 }
 
 
@@ -321,11 +337,11 @@ abstract mixin class _$ProfileViewBasicCopyWith<$Res> implements $ProfileViewBas
   factory _$ProfileViewBasicCopyWith(_ProfileViewBasic value, $Res Function(_ProfileViewBasic) _then) = __$ProfileViewBasicCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? avatar,@ProfileAssociatedConverter() ProfileAssociated? associated,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels, DateTime? createdAt, bool? chatDisabled,@VerificationStateConverter() VerificationState? verification,@UProfileViewBasicKindConverter() UProfileViewBasicKind? kind, Map<String, dynamic>? $unknown
 });
 
 
-@override $ProfileAssociatedCopyWith<$Res>? get associated;@override $ViewerStateCopyWith<$Res>? get viewer;@override $VerificationStateCopyWith<$Res>? get verification;
+@override $ProfileAssociatedCopyWith<$Res>? get associated;@override $ViewerStateCopyWith<$Res>? get viewer;@override $VerificationStateCopyWith<$Res>? get verification;@override $UProfileViewBasicKindCopyWith<$Res>? get kind;
 
 }
 /// @nodoc
@@ -338,7 +354,7 @@ class __$ProfileViewBasicCopyWithImpl<$Res>
 
 /// Create a copy of ProfileViewBasic
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? avatar = freezed,Object? associated = freezed,Object? viewer = freezed,Object? labels = freezed,Object? chatDisabled = freezed,Object? verification = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? avatar = freezed,Object? associated = freezed,Object? viewer = freezed,Object? labels = freezed,Object? createdAt = freezed,Object? chatDisabled = freezed,Object? verification = freezed,Object? kind = freezed,Object? $unknown = freezed,}) {
   return _then(_ProfileViewBasic(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -348,9 +364,11 @@ as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nul
 as String?,associated: freezed == associated ? _self.associated : associated // ignore: cast_nullable_to_non_nullable
 as ProfileAssociated?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
 as ViewerState?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
-as List<Label>?,chatDisabled: freezed == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
+as List<Label>?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,chatDisabled: freezed == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
 as bool?,verification: freezed == verification ? _self.verification : verification // ignore: cast_nullable_to_non_nullable
-as VerificationState?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as VerificationState?,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as UProfileViewBasicKind?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -390,6 +408,18 @@ $VerificationStateCopyWith<$Res>? get verification {
 
   return $VerificationStateCopyWith<$Res>(_self.verification!, (value) {
     return _then(_self.copyWith(verification: value));
+  });
+}/// Create a copy of ProfileViewBasic
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UProfileViewBasicKindCopyWith<$Res>? get kind {
+    if (_self.kind == null) {
+    return null;
+  }
+
+  return $UProfileViewBasicKindCopyWith<$Res>(_self.kind!, (value) {
+    return _then(_self.copyWith(kind: value));
   });
 }
 }

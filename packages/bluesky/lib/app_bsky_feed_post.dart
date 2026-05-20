@@ -15,3 +15,5 @@ export 'package:bluesky/src/services/codegen/app/bsky/feed/post/main.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/post/union_main_embed.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/post/union_main_labels.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/post/reply_ref.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/post/entity.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/post/text_slice.dart';

@@ -1061,6 +1061,21 @@ const chatBskyActorDeclaration = 'chat.bsky.actor.declaration';
 /// `chat.bsky.actor.defs`
 const chatBskyActorDefs = 'chat.bsky.actor.defs';
 
+/// `chat.bsky.actor.defs#directConvoMember`
+const chatBskyActorDefsDirectConvoMember =
+    'chat.bsky.actor.defs#directConvoMember';
+
+/// `chat.bsky.actor.defs#groupConvoMember`
+const chatBskyActorDefsGroupConvoMember =
+    'chat.bsky.actor.defs#groupConvoMember';
+
+/// `chat.bsky.actor.defs#memberRole`
+const chatBskyActorDefsMemberRole = 'chat.bsky.actor.defs#memberRole';
+
+/// `chat.bsky.actor.defs#pastGroupConvoMember`
+const chatBskyActorDefsPastGroupConvoMember =
+    'chat.bsky.actor.defs#pastGroupConvoMember';
+
 /// `chat.bsky.actor.defs#profileViewBasic`
 const chatBskyActorDefsProfileViewBasic =
     'chat.bsky.actor.defs#profileViewBasic';
@@ -1080,6 +1095,18 @@ const chatBskyConvoAddReaction = 'chat.bsky.convo.addReaction';
 /// `chat.bsky.convo.defs`
 const chatBskyConvoDefs = 'chat.bsky.convo.defs';
 
+/// `chat.bsky.convo.defs#convoKind`
+const chatBskyConvoDefsConvoKind = 'chat.bsky.convo.defs#convoKind';
+
+/// `chat.bsky.convo.defs#convoLockStatus`
+const chatBskyConvoDefsConvoLockStatus = 'chat.bsky.convo.defs#convoLockStatus';
+
+/// `chat.bsky.convo.defs#convoRef`
+const chatBskyConvoDefsConvoRef = 'chat.bsky.convo.defs#convoRef';
+
+/// `chat.bsky.convo.defs#convoStatus`
+const chatBskyConvoDefsConvoStatus = 'chat.bsky.convo.defs#convoStatus';
+
 /// `chat.bsky.convo.defs#convoView`
 const chatBskyConvoDefsConvoView = 'chat.bsky.convo.defs#convoView';
 
@@ -1087,14 +1114,31 @@ const chatBskyConvoDefsConvoView = 'chat.bsky.convo.defs#convoView';
 const chatBskyConvoDefsDeletedMessageView =
     'chat.bsky.convo.defs#deletedMessageView';
 
+/// `chat.bsky.convo.defs#directConvo`
+const chatBskyConvoDefsDirectConvo = 'chat.bsky.convo.defs#directConvo';
+
+/// `chat.bsky.convo.defs#groupConvo`
+const chatBskyConvoDefsGroupConvo = 'chat.bsky.convo.defs#groupConvo';
+
 /// `chat.bsky.convo.defs#logAcceptConvo`
 const chatBskyConvoDefsLogAcceptConvo = 'chat.bsky.convo.defs#logAcceptConvo';
+
+/// `chat.bsky.convo.defs#logAddMember`
+const chatBskyConvoDefsLogAddMember = 'chat.bsky.convo.defs#logAddMember';
 
 /// `chat.bsky.convo.defs#logAddReaction`
 const chatBskyConvoDefsLogAddReaction = 'chat.bsky.convo.defs#logAddReaction';
 
+/// `chat.bsky.convo.defs#logApproveJoinRequest`
+const chatBskyConvoDefsLogApproveJoinRequest =
+    'chat.bsky.convo.defs#logApproveJoinRequest';
+
 /// `chat.bsky.convo.defs#logBeginConvo`
 const chatBskyConvoDefsLogBeginConvo = 'chat.bsky.convo.defs#logBeginConvo';
+
+/// `chat.bsky.convo.defs#logCreateJoinLink`
+const chatBskyConvoDefsLogCreateJoinLink =
+    'chat.bsky.convo.defs#logCreateJoinLink';
 
 /// `chat.bsky.convo.defs#logCreateMessage`
 const chatBskyConvoDefsLogCreateMessage =
@@ -1104,18 +1148,66 @@ const chatBskyConvoDefsLogCreateMessage =
 const chatBskyConvoDefsLogDeleteMessage =
     'chat.bsky.convo.defs#logDeleteMessage';
 
+/// `chat.bsky.convo.defs#logDisableJoinLink`
+const chatBskyConvoDefsLogDisableJoinLink =
+    'chat.bsky.convo.defs#logDisableJoinLink';
+
+/// `chat.bsky.convo.defs#logEditGroup`
+const chatBskyConvoDefsLogEditGroup = 'chat.bsky.convo.defs#logEditGroup';
+
+/// `chat.bsky.convo.defs#logEditJoinLink`
+const chatBskyConvoDefsLogEditJoinLink = 'chat.bsky.convo.defs#logEditJoinLink';
+
+/// `chat.bsky.convo.defs#logEnableJoinLink`
+const chatBskyConvoDefsLogEnableJoinLink =
+    'chat.bsky.convo.defs#logEnableJoinLink';
+
+/// `chat.bsky.convo.defs#logIncomingJoinRequest`
+const chatBskyConvoDefsLogIncomingJoinRequest =
+    'chat.bsky.convo.defs#logIncomingJoinRequest';
+
 /// `chat.bsky.convo.defs#logLeaveConvo`
 const chatBskyConvoDefsLogLeaveConvo = 'chat.bsky.convo.defs#logLeaveConvo';
+
+/// `chat.bsky.convo.defs#logLockConvo`
+const chatBskyConvoDefsLogLockConvo = 'chat.bsky.convo.defs#logLockConvo';
+
+/// `chat.bsky.convo.defs#logLockConvoPermanently`
+const chatBskyConvoDefsLogLockConvoPermanently =
+    'chat.bsky.convo.defs#logLockConvoPermanently';
+
+/// `chat.bsky.convo.defs#logMemberJoin`
+const chatBskyConvoDefsLogMemberJoin = 'chat.bsky.convo.defs#logMemberJoin';
+
+/// `chat.bsky.convo.defs#logMemberLeave`
+const chatBskyConvoDefsLogMemberLeave = 'chat.bsky.convo.defs#logMemberLeave';
 
 /// `chat.bsky.convo.defs#logMuteConvo`
 const chatBskyConvoDefsLogMuteConvo = 'chat.bsky.convo.defs#logMuteConvo';
 
+/// `chat.bsky.convo.defs#logOutgoingJoinRequest`
+const chatBskyConvoDefsLogOutgoingJoinRequest =
+    'chat.bsky.convo.defs#logOutgoingJoinRequest';
+
+/// `chat.bsky.convo.defs#logReadConvo`
+const chatBskyConvoDefsLogReadConvo = 'chat.bsky.convo.defs#logReadConvo';
+
 /// `chat.bsky.convo.defs#logReadMessage`
 const chatBskyConvoDefsLogReadMessage = 'chat.bsky.convo.defs#logReadMessage';
+
+/// `chat.bsky.convo.defs#logRejectJoinRequest`
+const chatBskyConvoDefsLogRejectJoinRequest =
+    'chat.bsky.convo.defs#logRejectJoinRequest';
+
+/// `chat.bsky.convo.defs#logRemoveMember`
+const chatBskyConvoDefsLogRemoveMember = 'chat.bsky.convo.defs#logRemoveMember';
 
 /// `chat.bsky.convo.defs#logRemoveReaction`
 const chatBskyConvoDefsLogRemoveReaction =
     'chat.bsky.convo.defs#logRemoveReaction';
+
+/// `chat.bsky.convo.defs#logUnlockConvo`
+const chatBskyConvoDefsLogUnlockConvo = 'chat.bsky.convo.defs#logUnlockConvo';
 
 /// `chat.bsky.convo.defs#logUnmuteConvo`
 const chatBskyConvoDefsLogUnmuteConvo = 'chat.bsky.convo.defs#logUnmuteConvo';
@@ -1144,6 +1236,62 @@ const chatBskyConvoDefsReactionView = 'chat.bsky.convo.defs#reactionView';
 const chatBskyConvoDefsReactionViewSender =
     'chat.bsky.convo.defs#reactionViewSender';
 
+/// `chat.bsky.convo.defs#systemMessageDataAddMember`
+const chatBskyConvoDefsSystemMessageDataAddMember =
+    'chat.bsky.convo.defs#systemMessageDataAddMember';
+
+/// `chat.bsky.convo.defs#systemMessageDataCreateJoinLink`
+const chatBskyConvoDefsSystemMessageDataCreateJoinLink =
+    'chat.bsky.convo.defs#systemMessageDataCreateJoinLink';
+
+/// `chat.bsky.convo.defs#systemMessageDataDisableJoinLink`
+const chatBskyConvoDefsSystemMessageDataDisableJoinLink =
+    'chat.bsky.convo.defs#systemMessageDataDisableJoinLink';
+
+/// `chat.bsky.convo.defs#systemMessageDataEditGroup`
+const chatBskyConvoDefsSystemMessageDataEditGroup =
+    'chat.bsky.convo.defs#systemMessageDataEditGroup';
+
+/// `chat.bsky.convo.defs#systemMessageDataEditJoinLink`
+const chatBskyConvoDefsSystemMessageDataEditJoinLink =
+    'chat.bsky.convo.defs#systemMessageDataEditJoinLink';
+
+/// `chat.bsky.convo.defs#systemMessageDataEnableJoinLink`
+const chatBskyConvoDefsSystemMessageDataEnableJoinLink =
+    'chat.bsky.convo.defs#systemMessageDataEnableJoinLink';
+
+/// `chat.bsky.convo.defs#systemMessageDataLockConvo`
+const chatBskyConvoDefsSystemMessageDataLockConvo =
+    'chat.bsky.convo.defs#systemMessageDataLockConvo';
+
+/// `chat.bsky.convo.defs#systemMessageDataLockConvoPermanently`
+const chatBskyConvoDefsSystemMessageDataLockConvoPermanently =
+    'chat.bsky.convo.defs#systemMessageDataLockConvoPermanently';
+
+/// `chat.bsky.convo.defs#systemMessageDataMemberJoin`
+const chatBskyConvoDefsSystemMessageDataMemberJoin =
+    'chat.bsky.convo.defs#systemMessageDataMemberJoin';
+
+/// `chat.bsky.convo.defs#systemMessageDataMemberLeave`
+const chatBskyConvoDefsSystemMessageDataMemberLeave =
+    'chat.bsky.convo.defs#systemMessageDataMemberLeave';
+
+/// `chat.bsky.convo.defs#systemMessageDataRemoveMember`
+const chatBskyConvoDefsSystemMessageDataRemoveMember =
+    'chat.bsky.convo.defs#systemMessageDataRemoveMember';
+
+/// `chat.bsky.convo.defs#systemMessageDataUnlockConvo`
+const chatBskyConvoDefsSystemMessageDataUnlockConvo =
+    'chat.bsky.convo.defs#systemMessageDataUnlockConvo';
+
+/// `chat.bsky.convo.defs#systemMessageReferredUser`
+const chatBskyConvoDefsSystemMessageReferredUser =
+    'chat.bsky.convo.defs#systemMessageReferredUser';
+
+/// `chat.bsky.convo.defs#systemMessageView`
+const chatBskyConvoDefsSystemMessageView =
+    'chat.bsky.convo.defs#systemMessageView';
+
 /// `chat.bsky.convo.deleteMessageForSelf`
 const chatBskyConvoDeleteMessageForSelf =
     'chat.bsky.convo.deleteMessageForSelf';
@@ -1158,6 +1306,9 @@ const chatBskyConvoGetConvoAvailability =
 /// `chat.bsky.convo.getConvoForMembers`
 const chatBskyConvoGetConvoForMembers = 'chat.bsky.convo.getConvoForMembers';
 
+/// `chat.bsky.convo.getConvoMembers`
+const chatBskyConvoGetConvoMembers = 'chat.bsky.convo.getConvoMembers';
+
 /// `chat.bsky.convo.getLog`
 const chatBskyConvoGetLog = 'chat.bsky.convo.getLog';
 
@@ -1167,8 +1318,14 @@ const chatBskyConvoGetMessages = 'chat.bsky.convo.getMessages';
 /// `chat.bsky.convo.leaveConvo`
 const chatBskyConvoLeaveConvo = 'chat.bsky.convo.leaveConvo';
 
+/// `chat.bsky.convo.listConvoRequests`
+const chatBskyConvoListConvoRequests = 'chat.bsky.convo.listConvoRequests';
+
 /// `chat.bsky.convo.listConvos`
 const chatBskyConvoListConvos = 'chat.bsky.convo.listConvos';
+
+/// `chat.bsky.convo.lockConvo`
+const chatBskyConvoLockConvo = 'chat.bsky.convo.lockConvo';
 
 /// `chat.bsky.convo.muteConvo`
 const chatBskyConvoMuteConvo = 'chat.bsky.convo.muteConvo';
@@ -1186,6 +1343,9 @@ const chatBskyConvoSendMessageBatch = 'chat.bsky.convo.sendMessageBatch';
 const chatBskyConvoSendMessageBatchBatchItem =
     'chat.bsky.convo.sendMessageBatch#batchItem';
 
+/// `chat.bsky.convo.unlockConvo`
+const chatBskyConvoUnlockConvo = 'chat.bsky.convo.unlockConvo';
+
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = 'chat.bsky.convo.unmuteConvo';
 
@@ -1194,6 +1354,65 @@ const chatBskyConvoUpdateAllRead = 'chat.bsky.convo.updateAllRead';
 
 /// `chat.bsky.convo.updateRead`
 const chatBskyConvoUpdateRead = 'chat.bsky.convo.updateRead';
+
+/// `chat.bsky.group.addMembers`
+const chatBskyGroupAddMembers = 'chat.bsky.group.addMembers';
+
+/// `chat.bsky.group.approveJoinRequest`
+const chatBskyGroupApproveJoinRequest = 'chat.bsky.group.approveJoinRequest';
+
+/// `chat.bsky.group.createGroup`
+const chatBskyGroupCreateGroup = 'chat.bsky.group.createGroup';
+
+/// `chat.bsky.group.createJoinLink`
+const chatBskyGroupCreateJoinLink = 'chat.bsky.group.createJoinLink';
+
+/// `chat.bsky.group.defs`
+const chatBskyGroupDefs = 'chat.bsky.group.defs';
+
+/// `chat.bsky.group.defs#joinLinkPreviewView`
+const chatBskyGroupDefsJoinLinkPreviewView =
+    'chat.bsky.group.defs#joinLinkPreviewView';
+
+/// `chat.bsky.group.defs#joinLinkView`
+const chatBskyGroupDefsJoinLinkView = 'chat.bsky.group.defs#joinLinkView';
+
+/// `chat.bsky.group.defs#joinRequestView`
+const chatBskyGroupDefsJoinRequestView = 'chat.bsky.group.defs#joinRequestView';
+
+/// `chat.bsky.group.defs#joinRule`
+const chatBskyGroupDefsJoinRule = 'chat.bsky.group.defs#joinRule';
+
+/// `chat.bsky.group.defs#linkEnabledStatus`
+const chatBskyGroupDefsLinkEnabledStatus =
+    'chat.bsky.group.defs#linkEnabledStatus';
+
+/// `chat.bsky.group.disableJoinLink`
+const chatBskyGroupDisableJoinLink = 'chat.bsky.group.disableJoinLink';
+
+/// `chat.bsky.group.editGroup`
+const chatBskyGroupEditGroup = 'chat.bsky.group.editGroup';
+
+/// `chat.bsky.group.editJoinLink`
+const chatBskyGroupEditJoinLink = 'chat.bsky.group.editJoinLink';
+
+/// `chat.bsky.group.enableJoinLink`
+const chatBskyGroupEnableJoinLink = 'chat.bsky.group.enableJoinLink';
+
+/// `chat.bsky.group.getJoinLinkPreview`
+const chatBskyGroupGetJoinLinkPreview = 'chat.bsky.group.getJoinLinkPreview';
+
+/// `chat.bsky.group.listJoinRequests`
+const chatBskyGroupListJoinRequests = 'chat.bsky.group.listJoinRequests';
+
+/// `chat.bsky.group.rejectJoinRequest`
+const chatBskyGroupRejectJoinRequest = 'chat.bsky.group.rejectJoinRequest';
+
+/// `chat.bsky.group.removeMembers`
+const chatBskyGroupRemoveMembers = 'chat.bsky.group.removeMembers';
+
+/// `chat.bsky.group.requestJoin`
+const chatBskyGroupRequestJoin = 'chat.bsky.group.requestJoin';
 
 /// `chat.bsky.moderation.getActorMetadata`
 const chatBskyModerationGetActorMetadata =
@@ -1206,6 +1425,50 @@ const chatBskyModerationGetActorMetadataMetadata =
 /// `chat.bsky.moderation.getMessageContext`
 const chatBskyModerationGetMessageContext =
     'chat.bsky.moderation.getMessageContext';
+
+/// `chat.bsky.moderation.subscribeModEvents`
+const chatBskyModerationSubscribeModEvents =
+    'chat.bsky.moderation.subscribeModEvents';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventChatAccepted`
+const chatBskyModerationSubscribeModEventsEventChatAccepted =
+    'chat.bsky.moderation.subscribeModEvents#eventChatAccepted';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventConvoFirstMessage`
+const chatBskyModerationSubscribeModEventsEventConvoFirstMessage =
+    'chat.bsky.moderation.subscribeModEvents#eventConvoFirstMessage';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatCreated`
+const chatBskyModerationSubscribeModEventsEventGroupChatCreated =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatCreated';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequest`
+const chatBskyModerationSubscribeModEventsEventGroupChatJoinRequest =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequest';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequestApproved`
+const chatBskyModerationSubscribeModEventsEventGroupChatJoinRequestApproved =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequestApproved';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequestRejected`
+const chatBskyModerationSubscribeModEventsEventGroupChatJoinRequestRejected =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequestRejected';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberAdded`
+const chatBskyModerationSubscribeModEventsEventGroupChatMemberAdded =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberAdded';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberJoined`
+const chatBskyModerationSubscribeModEventsEventGroupChatMemberJoined =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberJoined';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberLeft`
+const chatBskyModerationSubscribeModEventsEventGroupChatMemberLeft =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberLeft';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated`
+const chatBskyModerationSubscribeModEventsEventGroupChatUpdated =
+    'chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated';
 
 /// `chat.bsky.moderation.updateActorAccess`
 const chatBskyModerationUpdateActorAccess =
@@ -1501,6 +1764,10 @@ const toolsOzoneModerationDefsVideoDetails =
 /// `tools.ozone.moderation.emitEvent`
 const toolsOzoneModerationEmitEvent = 'tools.ozone.moderation.emitEvent';
 
+/// `tools.ozone.moderation.emitEvent#reportAction`
+const toolsOzoneModerationEmitEventReportAction =
+    'tools.ozone.moderation.emitEvent#reportAction';
+
 /// `tools.ozone.moderation.getAccountTimeline`
 const toolsOzoneModerationGetAccountTimeline =
     'tools.ozone.moderation.getAccountTimeline';
@@ -1569,8 +1836,81 @@ const toolsOzoneModerationScheduleActionTakedown =
 /// `tools.ozone.moderation.searchRepos`
 const toolsOzoneModerationSearchRepos = 'tools.ozone.moderation.searchRepos';
 
+/// `tools.ozone.queue.assignModerator`
+const toolsOzoneQueueAssignModerator = 'tools.ozone.queue.assignModerator';
+
+/// `tools.ozone.queue.createQueue`
+const toolsOzoneQueueCreateQueue = 'tools.ozone.queue.createQueue';
+
+/// `tools.ozone.queue.defs`
+const toolsOzoneQueueDefs = 'tools.ozone.queue.defs';
+
+/// `tools.ozone.queue.defs#assignmentView`
+const toolsOzoneQueueDefsAssignmentView =
+    'tools.ozone.queue.defs#assignmentView';
+
+/// `tools.ozone.queue.defs#queueStats`
+const toolsOzoneQueueDefsQueueStats = 'tools.ozone.queue.defs#queueStats';
+
+/// `tools.ozone.queue.defs#queueView`
+const toolsOzoneQueueDefsQueueView = 'tools.ozone.queue.defs#queueView';
+
+/// `tools.ozone.queue.deleteQueue`
+const toolsOzoneQueueDeleteQueue = 'tools.ozone.queue.deleteQueue';
+
+/// `tools.ozone.queue.getAssignments`
+const toolsOzoneQueueGetAssignments = 'tools.ozone.queue.getAssignments';
+
+/// `tools.ozone.queue.listQueues`
+const toolsOzoneQueueListQueues = 'tools.ozone.queue.listQueues';
+
+/// `tools.ozone.queue.routeReports`
+const toolsOzoneQueueRouteReports = 'tools.ozone.queue.routeReports';
+
+/// `tools.ozone.queue.unassignModerator`
+const toolsOzoneQueueUnassignModerator = 'tools.ozone.queue.unassignModerator';
+
+/// `tools.ozone.queue.updateQueue`
+const toolsOzoneQueueUpdateQueue = 'tools.ozone.queue.updateQueue';
+
+/// `tools.ozone.report.assignModerator`
+const toolsOzoneReportAssignModerator = 'tools.ozone.report.assignModerator';
+
+/// `tools.ozone.report.createActivity`
+const toolsOzoneReportCreateActivity = 'tools.ozone.report.createActivity';
+
 /// `tools.ozone.report.defs`
 const toolsOzoneReportDefs = 'tools.ozone.report.defs';
+
+/// `tools.ozone.report.defs#assignmentActivity`
+const toolsOzoneReportDefsAssignmentActivity =
+    'tools.ozone.report.defs#assignmentActivity';
+
+/// `tools.ozone.report.defs#assignmentView`
+const toolsOzoneReportDefsAssignmentView =
+    'tools.ozone.report.defs#assignmentView';
+
+/// `tools.ozone.report.defs#closeActivity`
+const toolsOzoneReportDefsCloseActivity =
+    'tools.ozone.report.defs#closeActivity';
+
+/// `tools.ozone.report.defs#escalationActivity`
+const toolsOzoneReportDefsEscalationActivity =
+    'tools.ozone.report.defs#escalationActivity';
+
+/// `tools.ozone.report.defs#historicalStats`
+const toolsOzoneReportDefsHistoricalStats =
+    'tools.ozone.report.defs#historicalStats';
+
+/// `tools.ozone.report.defs#liveStats`
+const toolsOzoneReportDefsLiveStats = 'tools.ozone.report.defs#liveStats';
+
+/// `tools.ozone.report.defs#noteActivity`
+const toolsOzoneReportDefsNoteActivity = 'tools.ozone.report.defs#noteActivity';
+
+/// `tools.ozone.report.defs#queueActivity`
+const toolsOzoneReportDefsQueueActivity =
+    'tools.ozone.report.defs#queueActivity';
 
 /// `tools.ozone.report.defs#reasonAppeal`
 const toolsOzoneReportDefsReasonAppeal = 'tools.ozone.report.defs#reasonAppeal';
@@ -1732,6 +2072,53 @@ const toolsOzoneReportDefsReasonViolenceThreats =
 /// `tools.ozone.report.defs#reasonViolenceTrafficking`
 const toolsOzoneReportDefsReasonViolenceTrafficking =
     'tools.ozone.report.defs#reasonViolenceTrafficking';
+
+/// `tools.ozone.report.defs#reopenActivity`
+const toolsOzoneReportDefsReopenActivity =
+    'tools.ozone.report.defs#reopenActivity';
+
+/// `tools.ozone.report.defs#reportActivityView`
+const toolsOzoneReportDefsReportActivityView =
+    'tools.ozone.report.defs#reportActivityView';
+
+/// `tools.ozone.report.defs#reportAssignment`
+const toolsOzoneReportDefsReportAssignment =
+    'tools.ozone.report.defs#reportAssignment';
+
+/// `tools.ozone.report.defs#reportView`
+const toolsOzoneReportDefsReportView = 'tools.ozone.report.defs#reportView';
+
+/// `tools.ozone.report.getAssignments`
+const toolsOzoneReportGetAssignments = 'tools.ozone.report.getAssignments';
+
+/// `tools.ozone.report.getHistoricalStats`
+const toolsOzoneReportGetHistoricalStats =
+    'tools.ozone.report.getHistoricalStats';
+
+/// `tools.ozone.report.getLatestReport`
+const toolsOzoneReportGetLatestReport = 'tools.ozone.report.getLatestReport';
+
+/// `tools.ozone.report.getLiveStats`
+const toolsOzoneReportGetLiveStats = 'tools.ozone.report.getLiveStats';
+
+/// `tools.ozone.report.getReport`
+const toolsOzoneReportGetReport = 'tools.ozone.report.getReport';
+
+/// `tools.ozone.report.listActivities`
+const toolsOzoneReportListActivities = 'tools.ozone.report.listActivities';
+
+/// `tools.ozone.report.queryReports`
+const toolsOzoneReportQueryReports = 'tools.ozone.report.queryReports';
+
+/// `tools.ozone.report.reassignQueue`
+const toolsOzoneReportReassignQueue = 'tools.ozone.report.reassignQueue';
+
+/// `tools.ozone.report.refreshStats`
+const toolsOzoneReportRefreshStats = 'tools.ozone.report.refreshStats';
+
+/// `tools.ozone.report.unassignModerator`
+const toolsOzoneReportUnassignModerator =
+    'tools.ozone.report.unassignModerator';
 
 /// `tools.ozone.safelink.addRule`
 const toolsOzoneSafelinkAddRule = 'tools.ozone.safelink.addRule';

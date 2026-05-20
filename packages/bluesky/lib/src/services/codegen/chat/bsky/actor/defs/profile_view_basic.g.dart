@@ -8,57 +8,67 @@ part of 'profile_view_basic.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ProfileViewBasic _$ProfileViewBasicFromJson(Map json) =>
-    $checkedCreate('_ProfileViewBasic', json, ($checkedConvert) {
-      final val = _ProfileViewBasic(
-        $type: $checkedConvert(
-          r'$type',
-          (v) => v as String? ?? 'chat.bsky.actor.defs#profileViewBasic',
-        ),
-        did: $checkedConvert('did', (v) => v as String),
-        handle: $checkedConvert('handle', (v) => v as String),
-        displayName: $checkedConvert('displayName', (v) => v as String?),
-        avatar: $checkedConvert('avatar', (v) => v as String?),
-        associated: $checkedConvert(
-          'associated',
-          (v) =>
-              _$JsonConverterFromJson<Map<String, dynamic>, ProfileAssociated>(
-                v,
-                const ProfileAssociatedConverter().fromJson,
-              ),
-        ),
-        viewer: $checkedConvert(
-          'viewer',
-          (v) => _$JsonConverterFromJson<Map<String, dynamic>, ViewerState>(
+_ProfileViewBasic _$ProfileViewBasicFromJson(
+  Map json,
+) => $checkedCreate('_ProfileViewBasic', json, ($checkedConvert) {
+  final val = _ProfileViewBasic(
+    $type: $checkedConvert(
+      r'$type',
+      (v) => v as String? ?? 'chat.bsky.actor.defs#profileViewBasic',
+    ),
+    did: $checkedConvert('did', (v) => v as String),
+    handle: $checkedConvert('handle', (v) => v as String),
+    displayName: $checkedConvert('displayName', (v) => v as String?),
+    avatar: $checkedConvert('avatar', (v) => v as String?),
+    associated: $checkedConvert(
+      'associated',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, ProfileAssociated>(
+        v,
+        const ProfileAssociatedConverter().fromJson,
+      ),
+    ),
+    viewer: $checkedConvert(
+      'viewer',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, ViewerState>(
+        v,
+        const ViewerStateConverter().fromJson,
+      ),
+    ),
+    labels: $checkedConvert(
+      'labels',
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => const LabelConverter().fromJson(e as Map<String, dynamic>),
+          )
+          .toList(),
+    ),
+    createdAt: $checkedConvert(
+      'createdAt',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
+    chatDisabled: $checkedConvert('chatDisabled', (v) => v as bool?),
+    verification: $checkedConvert(
+      'verification',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, VerificationState>(
+        v,
+        const VerificationStateConverter().fromJson,
+      ),
+    ),
+    kind: $checkedConvert(
+      'kind',
+      (v) =>
+          _$JsonConverterFromJson<Map<String, dynamic>, UProfileViewBasicKind>(
             v,
-            const ViewerStateConverter().fromJson,
+            const UProfileViewBasicKindConverter().fromJson,
           ),
-        ),
-        labels: $checkedConvert(
-          'labels',
-          (v) => (v as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    const LabelConverter().fromJson(e as Map<String, dynamic>),
-              )
-              .toList(),
-        ),
-        chatDisabled: $checkedConvert('chatDisabled', (v) => v as bool?),
-        verification: $checkedConvert(
-          'verification',
-          (v) =>
-              _$JsonConverterFromJson<Map<String, dynamic>, VerificationState>(
-                v,
-                const VerificationStateConverter().fromJson,
-              ),
-        ),
-        $unknown: $checkedConvert(
-          r'$unknown',
-          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-        ),
-      );
-      return val;
-    });
+    ),
+    $unknown: $checkedConvert(
+      r'$unknown',
+      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$ProfileViewBasicToJson(
   _ProfileViewBasic instance,
@@ -77,12 +87,17 @@ Map<String, dynamic> _$ProfileViewBasicToJson(
     const ViewerStateConverter().toJson,
   ),
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
+  'createdAt': ?instance.createdAt?.toIso8601String(),
   'chatDisabled': ?instance.chatDisabled,
   'verification':
       ?_$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
         instance.verification,
         const VerificationStateConverter().toJson,
       ),
+  'kind': ?_$JsonConverterToJson<Map<String, dynamic>, UProfileViewBasicKind>(
+    instance.kind,
+    const UProfileViewBasicKindConverter().toJson,
+  ),
   r'$unknown': ?instance.$unknown,
 };
 

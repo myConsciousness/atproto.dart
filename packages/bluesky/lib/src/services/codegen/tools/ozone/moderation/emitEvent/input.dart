@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../tools/ozone/moderation/defs/mod_tool.dart';
+import './report_action.dart';
 import './union_main_event.dart';
 import './union_main_subject.dart';
 
@@ -32,6 +33,7 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
     'createdBy',
     'modTool',
     'externalId',
+    'reportAction',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -47,6 +49,9 @@ abstract class ModerationEmitEventInput with _$ModerationEmitEventInput {
     /// An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject.
     String? externalId,
 
+    /// Optional report-level targeting. If provided, this event will be linked to specific reports and reporters may be notified.
+    @ReportActionConverter() ReportAction? reportAction,
+
     Map<String, dynamic>? $unknown,
   }) = _ModerationEmitEventInput;
 
@@ -59,6 +64,8 @@ extension ModerationEmitEventInputExtension on ModerationEmitEventInput {
   bool get hasNotModTool => !hasModTool;
   bool get hasExternalId => externalId != null;
   bool get hasNotExternalId => !hasExternalId;
+  bool get hasReportAction => reportAction != null;
+  bool get hasNotReportAction => !hasReportAction;
 }
 
 final class ModerationEmitEventInputConverter

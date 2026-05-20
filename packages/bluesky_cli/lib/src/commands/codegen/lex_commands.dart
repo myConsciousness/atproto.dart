@@ -21,6 +21,7 @@ import 'app/bsky/unspecced.dart';
 import 'app/bsky/video.dart';
 import 'chat/bsky/actor.dart';
 import 'chat/bsky/convo.dart';
+import 'chat/bsky/group.dart';
 import 'chat/bsky/moderation.dart';
 import 'com/atproto/admin.dart';
 import 'com/atproto/identity.dart';
@@ -34,6 +35,8 @@ import 'com/atproto/temp.dart';
 import 'tools/ozone/communication.dart';
 import 'tools/ozone/hosting.dart';
 import 'tools/ozone/moderation.dart';
+import 'tools/ozone/queue.dart';
+import 'tools/ozone/report.dart';
 import 'tools/ozone/safelink.dart';
 import 'tools/ozone/server.dart';
 import 'tools/ozone/set.dart';
@@ -60,6 +63,7 @@ final lexCommands = [
   AppBskyVideoCommand(),
   ChatBskyActorCommand(),
   ChatBskyConvoCommand(),
+  ChatBskyGroupCommand(),
   ChatBskyModerationCommand(),
   ComAtprotoAdminCommand(),
   ComAtprotoIdentityCommand(),
@@ -73,6 +77,8 @@ final lexCommands = [
   ToolsOzoneCommunicationCommand(),
   ToolsOzoneHostingCommand(),
   ToolsOzoneModerationCommand(),
+  ToolsOzoneQueueCommand(),
+  ToolsOzoneReportCommand(),
   ToolsOzoneSafelinkCommand(),
   ToolsOzoneServerCommand(),
   ToolsOzoneSetCommand(),

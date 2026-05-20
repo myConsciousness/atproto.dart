@@ -27,6 +27,20 @@ _ConvoListConvosInput _$ConvoListConvosInputFromJson(Map json) =>
             const ConvoListConvosStatusConverter().fromJson,
           ),
         ),
+        kind: $checkedConvert(
+          'kind',
+          (v) => _$JsonConverterFromJson<String, ConvoListConvosKind>(
+            v,
+            const ConvoListConvosKindConverter().fromJson,
+          ),
+        ),
+        lockStatus: $checkedConvert(
+          'lockStatus',
+          (v) => _$JsonConverterFromJson<String, ConvoListConvosLockStatus>(
+            v,
+            const ConvoListConvosLockStatusConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -47,6 +61,14 @@ Map<String, dynamic> _$ConvoListConvosInputToJson(
   'status': ?_$JsonConverterToJson<String, ConvoListConvosStatus>(
     instance.status,
     const ConvoListConvosStatusConverter().toJson,
+  ),
+  'kind': ?_$JsonConverterToJson<String, ConvoListConvosKind>(
+    instance.kind,
+    const ConvoListConvosKindConverter().toJson,
+  ),
+  'lockStatus': ?_$JsonConverterToJson<String, ConvoListConvosLockStatus>(
+    instance.lockStatus,
+    const ConvoListConvosLockStatusConverter().toJson,
   ),
   r'$unknown': ?instance.$unknown,
 };

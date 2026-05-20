@@ -14,3 +14,4 @@
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/emitEvent/input.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/emitEvent/union_main_event.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/emitEvent/union_main_subject.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/emitEvent/report_action.dart';

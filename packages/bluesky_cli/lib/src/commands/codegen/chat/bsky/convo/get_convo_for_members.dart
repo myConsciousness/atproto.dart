@@ -23,7 +23,8 @@ final class GetConvoForMembersCommand extends QueryCommand {
   final String name = "get-convo-for-members";
 
   @override
-  final String description = r"";
+  final String description =
+      r"Get or create a 1-1 conversation for the given members. Always returns the same direct (non-group) conversation. To create a group conversation, use createGroup.";
 
   @override
   final String invocation =

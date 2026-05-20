@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './main_allow_group_invites.dart';
 import './main_allow_incoming.dart';
 
 part 'main.freezed.dart';
@@ -24,13 +25,17 @@ part 'main.g.dart';
 /// A declaration of a Bluesky chat account.
 @freezed
 abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
-  static const knownProps = <String>['allowIncoming'];
+  static const knownProps = <String>['allowIncoming', 'allowGroupInvites'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ActorDeclarationRecord({
     @Default('chat.bsky.actor.declaration') String $type,
     @ActorDeclarationAllowIncomingConverter()
     required ActorDeclarationAllowIncoming allowIncoming,
+
+    /// [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.
+    @ActorDeclarationAllowGroupInvitesConverter()
+    ActorDeclarationAllowGroupInvites? allowGroupInvites,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorDeclarationRecord;
@@ -42,6 +47,11 @@ abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'chat.bsky.actor.declaration';
   }
+}
+
+extension ActorDeclarationRecordExtension on ActorDeclarationRecord {
+  bool get hasAllowGroupInvites => allowGroupInvites != null;
+  bool get hasNotAllowGroupInvites => !hasAllowGroupInvites;
 }
 
 final class ActorDeclarationRecordConverter

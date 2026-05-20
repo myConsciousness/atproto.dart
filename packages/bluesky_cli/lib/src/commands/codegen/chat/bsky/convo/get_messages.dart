@@ -26,7 +26,7 @@ final class GetMessagesCommand extends QueryCommand {
   final String name = "get-messages";
 
   @override
-  final String description = r"";
+  final String description = r"Returns a page of messages from a conversation.";
 
   @override
   final String invocation =

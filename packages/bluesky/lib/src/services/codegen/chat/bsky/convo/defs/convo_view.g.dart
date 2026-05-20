@@ -47,12 +47,19 @@ _ConvoView _$ConvoViewFromJson(Map json) => $checkedCreate('_ConvoView', json, (
     muted: $checkedConvert('muted', (v) => v as bool),
     status: $checkedConvert(
       'status',
-      (v) => _$JsonConverterFromJson<String, ConvoViewStatus>(
+      (v) => _$JsonConverterFromJson<String, ConvoStatus>(
         v,
-        const ConvoViewStatusConverter().fromJson,
+        const ConvoStatusConverter().fromJson,
       ),
     ),
     unreadCount: $checkedConvert('unreadCount', (v) => (v as num).toInt()),
+    kind: $checkedConvert(
+      'kind',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, UConvoViewKind>(
+        v,
+        const UConvoViewKindConverter().fromJson,
+      ),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -80,11 +87,15 @@ Map<String, dynamic> _$ConvoViewToJson(_ConvoView instance) =>
             const UConvoViewLastReactionConverter().toJson,
           ),
       'muted': instance.muted,
-      'status': ?_$JsonConverterToJson<String, ConvoViewStatus>(
+      'status': ?_$JsonConverterToJson<String, ConvoStatus>(
         instance.status,
-        const ConvoViewStatusConverter().toJson,
+        const ConvoStatusConverter().toJson,
       ),
       'unreadCount': instance.unreadCount,
+      'kind': ?_$JsonConverterToJson<Map<String, dynamic>, UConvoViewKind>(
+        instance.kind,
+        const UConvoViewKindConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
 

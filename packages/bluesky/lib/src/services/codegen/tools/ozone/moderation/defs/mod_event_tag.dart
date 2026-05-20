@@ -21,7 +21,12 @@ part 'mod_event_tag.g.dart';
 /// Add/Remove a tag on a subject
 @freezed
 abstract class ModEventTag with _$ModEventTag {
-  static const knownProps = <String>['add', 'remove', 'comment'];
+  static const knownProps = <String>[
+    'add',
+    'remove',
+    'comment',
+    'durationInHours',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ModEventTag({
@@ -31,6 +36,9 @@ abstract class ModEventTag with _$ModEventTag {
 
     /// Additional comment about added/removed tags.
     String? comment,
+
+    /// Indicates how long the tags being added should remain before automatically being removed. Only applies to tags being added.
+    int? durationInHours,
 
     Map<String, dynamic>? $unknown,
   }) = _ModEventTag;
@@ -47,6 +55,8 @@ abstract class ModEventTag with _$ModEventTag {
 extension ModEventTagExtension on ModEventTag {
   bool get hasComment => comment != null;
   bool get hasNotComment => !hasComment;
+  bool get hasDurationInHours => durationInHours != null;
+  bool get hasNotDurationInHours => !hasDurationInHours;
 }
 
 final class ModEventTagConverter

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LogAddReaction {
 
- String get $type; String get rev; String get convoId;@ULogAddReactionMessageConverter() ULogAddReactionMessage get message;@ReactionViewConverter() ReactionView get reaction; Map<String, dynamic>? get $unknown;
+ String get $type; String get rev; String get convoId;@ULogAddReactionMessageConverter() ULogAddReactionMessage get message;@ReactionViewConverter() ReactionView get reaction;@ProfileViewBasicConverter() List<ProfileViewBasic>? get relatedProfiles; Map<String, dynamic>? get $unknown;
 /// Create a copy of LogAddReaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $LogAddReactionCopyWith<LogAddReaction> get copyWith => _$LogAddReactionCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogAddReaction&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&(identical(other.reaction, reaction) || other.reaction == reaction)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogAddReaction&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&(identical(other.reaction, reaction) || other.reaction == reaction)&&const DeepCollectionEquality().equals(other.relatedProfiles, relatedProfiles)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,reaction,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,reaction,const DeepCollectionEquality().hash(relatedProfiles),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'LogAddReaction(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, reaction: $reaction, \$unknown: ${$unknown})';
+  return 'LogAddReaction(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, reaction: $reaction, relatedProfiles: $relatedProfiles, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $LogAddReactionCopyWith<$Res>  {
   factory $LogAddReactionCopyWith(LogAddReaction value, $Res Function(LogAddReaction) _then) = _$LogAddReactionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String rev, String convoId,@ULogAddReactionMessageConverter() ULogAddReactionMessage message,@ReactionViewConverter() ReactionView reaction, Map<String, dynamic>? $unknown
+ String $type, String rev, String convoId,@ULogAddReactionMessageConverter() ULogAddReactionMessage message,@ReactionViewConverter() ReactionView reaction,@ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,14 +65,15 @@ class _$LogAddReactionCopyWithImpl<$Res>
 
 /// Create a copy of LogAddReaction
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? reaction = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? reaction = null,Object? relatedProfiles = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String,convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as ULogAddReactionMessage,reaction: null == reaction ? _self.reaction : reaction // ignore: cast_nullable_to_non_nullable
-as ReactionView,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ReactionView,relatedProfiles: freezed == relatedProfiles ? _self.relatedProfiles : relatedProfiles // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -176,10 +177,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogAddReactionMessageConverter()  ULogAddReactionMessage message, @ReactionViewConverter()  ReactionView reaction,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogAddReactionMessageConverter()  ULogAddReactionMessage message, @ReactionViewConverter()  ReactionView reaction, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LogAddReaction() when $default != null:
-return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction,_that.$unknown);case _:
+return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction,_that.relatedProfiles,_that.$unknown);case _:
   return orElse();
 
 }
@@ -197,10 +198,10 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogAddReactionMessageConverter()  ULogAddReactionMessage message, @ReactionViewConverter()  ReactionView reaction,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String rev,  String convoId, @ULogAddReactionMessageConverter()  ULogAddReactionMessage message, @ReactionViewConverter()  ReactionView reaction, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LogAddReaction():
-return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction,_that.$unknown);case _:
+return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction,_that.relatedProfiles,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -217,10 +218,10 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String rev,  String convoId, @ULogAddReactionMessageConverter()  ULogAddReactionMessage message, @ReactionViewConverter()  ReactionView reaction,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String rev,  String convoId, @ULogAddReactionMessageConverter()  ULogAddReactionMessage message, @ReactionViewConverter()  ReactionView reaction, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LogAddReaction() when $default != null:
-return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction,_that.$unknown);case _:
+return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction,_that.relatedProfiles,_that.$unknown);case _:
   return null;
 
 }
@@ -232,7 +233,7 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.message,_that.reaction
 
 @JsonSerializable(includeIfNull: false)
 class _LogAddReaction implements LogAddReaction {
-  const _LogAddReaction({this.$type = 'chat.bsky.convo.defs#logAddReaction', required this.rev, required this.convoId, @ULogAddReactionMessageConverter() required this.message, @ReactionViewConverter() required this.reaction, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogAddReaction({this.$type = 'chat.bsky.convo.defs#logAddReaction', required this.rev, required this.convoId, @ULogAddReactionMessageConverter() required this.message, @ReactionViewConverter() required this.reaction, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? relatedProfiles, final  Map<String, dynamic>? $unknown}): _relatedProfiles = relatedProfiles,_$unknown = $unknown;
   factory _LogAddReaction.fromJson(Map<String, dynamic> json) => _$LogAddReactionFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -240,6 +241,15 @@ class _LogAddReaction implements LogAddReaction {
 @override final  String convoId;
 @override@ULogAddReactionMessageConverter() final  ULogAddReactionMessage message;
 @override@ReactionViewConverter() final  ReactionView reaction;
+ final  List<ProfileViewBasic>? _relatedProfiles;
+@override@ProfileViewBasicConverter() List<ProfileViewBasic>? get relatedProfiles {
+  final value = _relatedProfiles;
+  if (value == null) return null;
+  if (_relatedProfiles is EqualUnmodifiableListView) return _relatedProfiles;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -263,16 +273,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogAddReaction&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&(identical(other.reaction, reaction) || other.reaction == reaction)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogAddReaction&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.rev, rev) || other.rev == rev)&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.message, message) || other.message == message)&&(identical(other.reaction, reaction) || other.reaction == reaction)&&const DeepCollectionEquality().equals(other._relatedProfiles, _relatedProfiles)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,reaction,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,rev,convoId,message,reaction,const DeepCollectionEquality().hash(_relatedProfiles),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'LogAddReaction(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, reaction: $reaction, \$unknown: ${$unknown})';
+  return 'LogAddReaction(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, reaction: $reaction, relatedProfiles: $relatedProfiles, \$unknown: ${$unknown})';
 }
 
 
@@ -283,7 +293,7 @@ abstract mixin class _$LogAddReactionCopyWith<$Res> implements $LogAddReactionCo
   factory _$LogAddReactionCopyWith(_LogAddReaction value, $Res Function(_LogAddReaction) _then) = __$LogAddReactionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String rev, String convoId,@ULogAddReactionMessageConverter() ULogAddReactionMessage message,@ReactionViewConverter() ReactionView reaction, Map<String, dynamic>? $unknown
+ String $type, String rev, String convoId,@ULogAddReactionMessageConverter() ULogAddReactionMessage message,@ReactionViewConverter() ReactionView reaction,@ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -300,14 +310,15 @@ class __$LogAddReactionCopyWithImpl<$Res>
 
 /// Create a copy of LogAddReaction
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? reaction = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? message = null,Object? reaction = null,Object? relatedProfiles = freezed,Object? $unknown = freezed,}) {
   return _then(_LogAddReaction(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String,convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as ULogAddReactionMessage,reaction: null == reaction ? _self.reaction : reaction // ignore: cast_nullable_to_non_nullable
-as ReactionView,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ReactionView,relatedProfiles: freezed == relatedProfiles ? _self._relatedProfiles : relatedProfiles // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

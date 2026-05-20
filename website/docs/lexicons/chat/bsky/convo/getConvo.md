@@ -7,6 +7,8 @@ description: chat.bsky.convo.getConvo
 
 ## #main
 
+Gets an existing conversation by its ID.
+
 ### Parameters
 
 | Property | Type | Known Values | Required | Description |

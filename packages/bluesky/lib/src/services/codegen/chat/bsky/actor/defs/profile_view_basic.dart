@@ -14,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_actor_defs.dart';
+import './union_profile_view_basic_kind.dart';
 
 part 'profile_view_basic.freezed.dart';
 part 'profile_view_basic.g.dart';
@@ -32,8 +33,10 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     'associated',
     'viewer',
     'labels',
+    'createdAt',
     'chatDisabled',
     'verification',
+    'kind',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -46,10 +49,12 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
+    DateTime? createdAt,
 
     /// Set to true when the actor cannot actively participate in conversations
     bool? chatDisabled,
     @VerificationStateConverter() VerificationState? verification,
+    @UProfileViewBasicKindConverter() UProfileViewBasicKind? kind,
 
     Map<String, dynamic>? $unknown,
   }) = _ProfileViewBasic;
@@ -72,10 +77,14 @@ extension ProfileViewBasicExtension on ProfileViewBasic {
   bool get hasNotAssociated => !hasAssociated;
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
   bool get isChatDisabled => chatDisabled ?? false;
   bool get isNotChatDisabled => !isChatDisabled;
   bool get hasVerification => verification != null;
   bool get hasNotVerification => !hasVerification;
+  bool get hasKind => kind != null;
+  bool get hasNotKind => !hasKind;
 }
 
 final class ProfileViewBasicConverter

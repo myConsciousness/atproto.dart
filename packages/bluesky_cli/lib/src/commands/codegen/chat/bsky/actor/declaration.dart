@@ -43,6 +43,11 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
   _CreateDeclarationCommand() {
     argParser
       ..addOption("allowIncoming", mandatory: true)
+      ..addOption(
+        "allowGroupInvites",
+        help:
+            r"[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.",
+      )
       ..addOption("rkey");
   }
 
@@ -55,7 +60,7 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-actor declaration create [allowIncoming] [rkey]";
+      "bsky chat-bsky-actor declaration create [allowIncoming] [allowGroupInvites] [rkey]";
 
   @override
   String get rkey => "self";
@@ -66,6 +71,8 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
   @override
   Map<String, dynamic> get record => {
     "allowIncoming": argResults!["allowIncoming"],
+    if (argResults!["allowGroupInvites"] != null)
+      "allowGroupInvites": argResults!["allowGroupInvites"],
   };
 }
 
@@ -73,6 +80,11 @@ final class _PutDeclarationCommand extends PutRecordCommand {
   _PutDeclarationCommand() {
     argParser
       ..addOption("allowIncoming", mandatory: true)
+      ..addOption(
+        "allowGroupInvites",
+        help:
+            r"[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.",
+      )
       ..addOption("rkey");
   }
 
@@ -85,7 +97,7 @@ final class _PutDeclarationCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-actor declaration put [allowIncoming] [rkey]";
+      "bsky chat-bsky-actor declaration put [allowIncoming] [allowGroupInvites] [rkey]";
 
   @override
   String get rkey => "self";
@@ -96,6 +108,8 @@ final class _PutDeclarationCommand extends PutRecordCommand {
   @override
   Map<String, dynamic> get record => {
     "allowIncoming": argResults!["allowIncoming"],
+    if (argResults!["allowGroupInvites"] != null)
+      "allowGroupInvites": argResults!["allowGroupInvites"],
   };
 }
 
