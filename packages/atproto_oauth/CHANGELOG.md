@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.0
+
+- fix: include client_id, jwt b64url encoding. ([#2224](https://github.com/myConsciousness/atproto.dart/pull/2277))
+
 ## v0.2.0
 
 - fix: optional jwt scope and auth identity. ([#2224](https://github.com/myConsciousness/atproto.dart/pull/2224))
