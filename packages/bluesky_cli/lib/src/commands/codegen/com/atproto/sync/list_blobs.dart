@@ -17,10 +17,10 @@ import '../../../../query_command.dart';
 final class ListBlobsCommand extends QueryCommand {
   ListBlobsCommand() {
     argParser
-      ..addOption("did", help: r'The DID of the repo.', mandatory: true)
+      ..addOption("did", help: r"The DID of the repo.", mandatory: true)
       ..addOption(
         "since",
-        help: r'Optional revision of the repo to list blobs since.',
+        help: r"Optional revision of the repo to list blobs since.",
       )
       ..addOption("limit", defaultsTo: "500")
       ..addOption("cursor");

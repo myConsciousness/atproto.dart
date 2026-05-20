@@ -19,7 +19,7 @@ final class NotifyOfUpdateCommand extends ProcedureCommand {
     argParser..addOption(
       "hostname",
       help:
-          r'Hostname of the current service (usually a PDS) that is notifying of update.',
+          r"Hostname of the current service (usually a PDS) that is notifying of update.",
       mandatory: true,
     );
   }

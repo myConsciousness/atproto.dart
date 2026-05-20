@@ -20,7 +20,7 @@ final class GetFeedSkeletonCommand extends QueryCommand {
       ..addOption(
         "feed",
         help:
-            r'Reference to feed generator record describing the specific feed being requested.',
+            r"Reference to feed generator record describing the specific feed being requested.",
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")

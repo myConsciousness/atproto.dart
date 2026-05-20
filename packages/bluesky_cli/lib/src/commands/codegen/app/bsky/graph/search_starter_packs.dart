@@ -20,7 +20,7 @@ final class SearchStarterPacksCommand extends QueryCommand {
       ..addOption(
         "q",
         help:
-            r'Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.',
+            r"Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "25")

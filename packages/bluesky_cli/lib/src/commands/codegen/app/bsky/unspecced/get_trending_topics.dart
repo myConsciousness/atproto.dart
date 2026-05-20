@@ -20,7 +20,7 @@ final class GetTrendingTopicsCommand extends QueryCommand {
       ..addOption(
         "viewer",
         help:
-            r'DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.',
+            r"DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
       )
       ..addOption("limit", defaultsTo: "10");
   }

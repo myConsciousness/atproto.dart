@@ -18,7 +18,7 @@ final class GetReportCommand extends QueryCommand {
   GetReportCommand() {
     argParser..addOption(
       "id",
-      help: r'The ID of the report to retrieve.',
+      help: r"The ID of the report to retrieve.",
       mandatory: true,
     );
   }

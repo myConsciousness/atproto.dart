@@ -45,14 +45,14 @@ final class _CreateStarterpackCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "name",
-        help: r'Display name for starter pack; can not be empty.',
+        help: r"Display name for starter pack; can not be empty.",
         mandatory: true,
       )
       ..addOption("description")
       ..addMultiOption("descriptionFacets")
       ..addOption(
         "list",
-        help: r'Reference (AT-URI) to the list record.',
+        help: r"Reference (AT-URI) to the list record.",
         mandatory: true,
       )
       ..addMultiOption("feeds")
@@ -95,14 +95,14 @@ final class _PutStarterpackCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "name",
-        help: r'Display name for starter pack; can not be empty.',
+        help: r"Display name for starter pack; can not be empty.",
         mandatory: true,
       )
       ..addOption("description")
       ..addMultiOption("descriptionFacets")
       ..addOption(
         "list",
-        help: r'Reference (AT-URI) to the list record.',
+        help: r"Reference (AT-URI) to the list record.",
         mandatory: true,
       )
       ..addMultiOption("feeds")

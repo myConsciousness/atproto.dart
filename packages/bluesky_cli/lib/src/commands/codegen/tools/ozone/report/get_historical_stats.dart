@@ -19,18 +19,18 @@ final class GetHistoricalStatsCommand extends QueryCommand {
     argParser
       ..addOption(
         "queueId",
-        help: r'Filter stats by queue. Use -1 for unqueued reports.',
+        help: r"Filter stats by queue. Use -1 for unqueued reports.",
       )
-      ..addOption("moderatorDid", help: r'Filter stats by moderator DID.')
-      ..addMultiOption("reportTypes", help: r'Filter stats by report types.')
-      ..addOption("startDate", help: r'Earliest date to include (inclusive).')
-      ..addOption("endDate", help: r'Latest date to include (inclusive).')
+      ..addOption("moderatorDid", help: r"Filter stats by moderator DID.")
+      ..addMultiOption("reportTypes", help: r"Filter stats by report types.")
+      ..addOption("startDate", help: r"Earliest date to include (inclusive).")
+      ..addOption("endDate", help: r"Latest date to include (inclusive).")
       ..addOption(
         "limit",
-        help: r'Maximum number of entries to return.',
+        help: r"Maximum number of entries to return.",
         defaultsTo: "30",
       )
-      ..addOption("cursor", help: r'Pagination cursor.');
+      ..addOption("cursor", help: r"Pagination cursor.");
   }
 
   @override

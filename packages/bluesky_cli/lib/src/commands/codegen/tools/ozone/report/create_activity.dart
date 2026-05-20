@@ -22,27 +22,27 @@ final class CreateActivityCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "reportId",
-        help: r'ID of the report to record activity on',
+        help: r"ID of the report to record activity on",
         mandatory: true,
       )
       ..addOption(
         "activity",
-        help: r'The type of activity to record.',
+        help: r"The type of activity to record.",
         mandatory: true,
       )
       ..addOption(
         "internalNote",
-        help: r'Optional moderator-only note. Not visible to reporters.',
+        help: r"Optional moderator-only note. Not visible to reporters.",
       )
       ..addOption(
         "publicNote",
         help:
-            r'Optional public-facing note, potentially visible to the reporter.',
+            r"Optional public-facing note, potentially visible to the reporter.",
       )
       ..addFlag(
         "isAutomated",
         help:
-            r'Set true when this activity is triggered by an automated process. Defaults to false.',
+            r"Set true when this activity is triggered by an automated process. Defaults to false.",
         defaultsTo: false,
       );
   }

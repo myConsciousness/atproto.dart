@@ -45,12 +45,12 @@ final class _CreateListitemCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r'The account which is included on the list.',
+        help: r"The account which is included on the list.",
         mandatory: true,
       )
       ..addOption(
         "list",
-        help: r'Reference (AT-URI) to the list record (app.bsky.graph.list).',
+        help: r"Reference (AT-URI) to the list record (app.bsky.graph.list).",
         mandatory: true,
       )
       ..addOption("createdAt", mandatory: true)
@@ -87,12 +87,12 @@ final class _PutListitemCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r'The account which is included on the list.',
+        help: r"The account which is included on the list.",
         mandatory: true,
       )
       ..addOption(
         "list",
-        help: r'Reference (AT-URI) to the list record (app.bsky.graph.list).',
+        help: r"Reference (AT-URI) to the list record (app.bsky.graph.list).",
         mandatory: true,
       )
       ..addOption("createdAt", mandatory: true)

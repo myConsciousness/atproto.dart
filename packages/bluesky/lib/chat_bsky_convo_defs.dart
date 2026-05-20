@@ -55,6 +55,8 @@ export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/log_create_mes
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_log_create_message_message.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/log_delete_message.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_log_delete_message_message.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/log_read_message.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_log_read_message_message.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/log_add_reaction.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_log_add_reaction_message.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/log_remove_reaction.dart';

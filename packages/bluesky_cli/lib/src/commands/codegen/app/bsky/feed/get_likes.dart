@@ -19,13 +19,13 @@ final class GetLikesCommand extends QueryCommand {
     argParser
       ..addOption(
         "uri",
-        help: r'AT-URI of the subject (eg, a post record).',
+        help: r"AT-URI of the subject (eg, a post record).",
         mandatory: true,
       )
       ..addOption(
         "cid",
         help:
-            r'CID of the subject record (aka, specific version of record), to filter likes.',
+            r"CID of the subject record (aka, specific version of record), to filter likes.",
       )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor");

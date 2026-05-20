@@ -19,7 +19,7 @@ final class RequestCrawlCommand extends ProcedureCommand {
     argParser..addOption(
       "hostname",
       help:
-          r'Hostname of the current service (eg, PDS) that is requesting to be crawled.',
+          r"Hostname of the current service (eg, PDS) that is requesting to be crawled.",
       mandatory: true,
     );
   }

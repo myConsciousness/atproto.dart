@@ -46,7 +46,7 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
       ..addOption(
         "allowGroupInvites",
         help:
-            r'[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.',
+            r"[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.",
       )
       ..addOption("rkey");
   }
@@ -83,7 +83,7 @@ final class _PutDeclarationCommand extends PutRecordCommand {
       ..addOption(
         "allowGroupInvites",
         help:
-            r'[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.',
+            r"[NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.",
       )
       ..addOption("rkey");
   }

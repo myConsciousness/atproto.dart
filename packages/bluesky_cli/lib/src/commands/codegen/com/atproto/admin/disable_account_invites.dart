@@ -18,7 +18,7 @@ final class DisableAccountInvitesCommand extends ProcedureCommand {
   DisableAccountInvitesCommand() {
     argParser
       ..addOption("account", mandatory: true)
-      ..addOption("note", help: r'Optional reason for disabled invites.');
+      ..addOption("note", help: r"Optional reason for disabled invites.");
   }
 
   @override

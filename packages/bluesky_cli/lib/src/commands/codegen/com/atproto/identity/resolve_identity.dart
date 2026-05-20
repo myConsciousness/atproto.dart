@@ -18,7 +18,7 @@ final class ResolveIdentityCommand extends QueryCommand {
   ResolveIdentityCommand() {
     argParser..addOption(
       "identifier",
-      help: r'Handle or DID to resolve.',
+      help: r"Handle or DID to resolve.",
       mandatory: true,
     );
   }

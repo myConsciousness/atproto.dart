@@ -45,7 +45,7 @@ final class _CreateBlockCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r'DID of the account to be blocked.',
+        help: r"DID of the account to be blocked.",
         mandatory: true,
       )
       ..addOption("createdAt", mandatory: true)
@@ -80,7 +80,7 @@ final class _PutBlockCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r'DID of the account to be blocked.',
+        help: r"DID of the account to be blocked.",
         mandatory: true,
       )
       ..addOption("createdAt", mandatory: true)

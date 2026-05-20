@@ -17,7 +17,7 @@ import '../../../../query_command.dart';
 final class ResolveHandleCommand extends QueryCommand {
   ResolveHandleCommand() {
     argParser
-      ..addOption("handle", help: r'The handle to resolve.', mandatory: true);
+      ..addOption("handle", help: r"The handle to resolve.", mandatory: true);
   }
 
   @override

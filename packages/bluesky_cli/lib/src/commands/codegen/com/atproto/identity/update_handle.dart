@@ -16,7 +16,7 @@ import '../../../../procedure_command.dart';
 
 final class UpdateHandleCommand extends ProcedureCommand {
   UpdateHandleCommand() {
-    argParser..addOption("handle", help: r'The new handle.', mandatory: true);
+    argParser..addOption("handle", help: r"The new handle.", mandatory: true);
   }
 
   @override

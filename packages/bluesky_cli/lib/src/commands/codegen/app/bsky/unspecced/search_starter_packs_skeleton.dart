@@ -20,19 +20,19 @@ final class SearchStarterPacksSkeletonCommand extends QueryCommand {
       ..addOption(
         "q",
         help:
-            r'Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.',
+            r"Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
         mandatory: true,
       )
       ..addOption(
         "viewer",
         help:
-            r'DID of the account making the request (not included for public/unauthenticated queries).',
+            r"DID of the account making the request (not included for public/unauthenticated queries).",
       )
       ..addOption("limit", defaultsTo: "25")
       ..addOption(
         "cursor",
         help:
-            r'Optional pagination mechanism; may not necessarily allow scrolling through entire result set.',
+            r"Optional pagination mechanism; may not necessarily allow scrolling through entire result set.",
       );
   }
 

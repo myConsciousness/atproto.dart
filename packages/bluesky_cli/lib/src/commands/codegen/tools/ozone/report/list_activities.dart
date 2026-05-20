@@ -19,7 +19,7 @@ final class ListActivitiesCommand extends QueryCommand {
     argParser
       ..addOption(
         "reportId",
-        help: r'ID of the report whose activities to list',
+        help: r"ID of the report whose activities to list",
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")

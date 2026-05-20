@@ -20,11 +20,11 @@ final class GetSuggestedUsersForExploreSkeletonCommand extends QueryCommand {
       ..addOption(
         "viewer",
         help:
-            r'DID of the account making the request (not included for public/unauthenticated queries).',
+            r"DID of the account making the request (not included for public/unauthenticated queries).",
       )
       ..addOption(
         "category",
-        help: r'Category of users to get suggestions for.',
+        help: r"Category of users to get suggestions for.",
       )
       ..addOption("limit", defaultsTo: "25");
   }

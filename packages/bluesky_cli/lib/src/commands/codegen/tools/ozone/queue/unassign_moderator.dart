@@ -19,10 +19,10 @@ final class UnassignModeratorCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "queueId",
-        help: r'The ID of the queue to unassign the user from.',
+        help: r"The ID of the queue to unassign the user from.",
         mandatory: true,
       )
-      ..addOption("did", help: r'DID to be unassigned.', mandatory: true);
+      ..addOption("did", help: r"DID to be unassigned.", mandatory: true);
   }
 
   @override

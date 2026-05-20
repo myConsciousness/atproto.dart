@@ -19,18 +19,18 @@ final class RefreshStatsCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "startDate",
-        help: r'Start date for recomputation, inclusive (YYYY-MM-DD).',
+        help: r"Start date for recomputation, inclusive (YYYY-MM-DD).",
         mandatory: true,
       )
       ..addOption(
         "endDate",
-        help: r'End date for recomputation, inclusive (YYYY-MM-DD).',
+        help: r"End date for recomputation, inclusive (YYYY-MM-DD).",
         mandatory: true,
       )
       ..addMultiOption(
         "queueIds",
         help:
-            r'Optional list of queue IDs to recompute. Omit to recompute all groups.',
+            r"Optional list of queue IDs to recompute. Omit to recompute all groups.",
       );
   }
 

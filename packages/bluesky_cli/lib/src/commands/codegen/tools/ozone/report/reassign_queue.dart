@@ -19,18 +19,18 @@ final class ReassignQueueCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "reportId",
-        help: r'ID of the report to reassign',
+        help: r"ID of the report to reassign",
         mandatory: true,
       )
       ..addOption(
         "queueId",
-        help: r'Target queue ID. Use -1 to unassign from any queue.',
+        help: r"Target queue ID. Use -1 to unassign from any queue.",
         mandatory: true,
       )
       ..addOption(
         "comment",
         help:
-            r'Optional moderator-only note recorded on the resulting queueActivity as internalNote.',
+            r"Optional moderator-only note recorded on the resulting queueActivity as internalNote.",
       );
   }
 

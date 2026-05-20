@@ -20,14 +20,14 @@ final class GetSuggestionsSkeletonCommand extends QueryCommand {
       ..addOption(
         "viewer",
         help:
-            r'DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.',
+            r"DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.",
       )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addOption(
         "relativeToDid",
         help:
-            r'DID of the account to get suggestions relative to. If not provided, suggestions will be based on the viewer.',
+            r"DID of the account to get suggestions relative to. If not provided, suggestions will be based on the viewer.",
       );
   }
 

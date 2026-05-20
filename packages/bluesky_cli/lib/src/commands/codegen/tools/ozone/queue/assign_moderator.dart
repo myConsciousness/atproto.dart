@@ -19,10 +19,10 @@ final class AssignModeratorCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "queueId",
-        help: r'The ID of the queue to assign the user to.',
+        help: r"The ID of the queue to assign the user to.",
         mandatory: true,
       )
-      ..addOption("did", help: r'DID to be assigned.', mandatory: true);
+      ..addOption("did", help: r"DID to be assigned.", mandatory: true);
   }
 
   @override

@@ -17,34 +17,34 @@ import '../../../../query_command.dart';
 final class ListVerificationsCommand extends QueryCommand {
   ListVerificationsCommand() {
     argParser
-      ..addOption("cursor", help: r'Pagination cursor')
+      ..addOption("cursor", help: r"Pagination cursor")
       ..addOption(
         "limit",
-        help: r'Maximum number of results to return',
+        help: r"Maximum number of results to return",
         defaultsTo: "50",
       )
       ..addOption(
         "createdAfter",
-        help: r'Filter to verifications created after this timestamp',
+        help: r"Filter to verifications created after this timestamp",
       )
       ..addOption(
         "createdBefore",
-        help: r'Filter to verifications created before this timestamp',
+        help: r"Filter to verifications created before this timestamp",
       )
       ..addMultiOption(
         "issuers",
-        help: r'Filter to verifications from specific issuers',
+        help: r"Filter to verifications from specific issuers",
       )
-      ..addMultiOption("subjects", help: r'Filter to specific verified DIDs')
+      ..addMultiOption("subjects", help: r"Filter to specific verified DIDs")
       ..addOption(
         "sortDirection",
-        help: r'Sort direction for creation date',
+        help: r"Sort direction for creation date",
         defaultsTo: "desc",
       )
       ..addFlag(
         "isRevoked",
         help:
-            r'Filter to verifications that are revoked or not. By default, includes both.',
+            r"Filter to verifications that are revoked or not. By default, includes both.",
       );
   }
 

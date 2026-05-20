@@ -19,20 +19,20 @@ final class UpdateTemplateCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "id",
-        help: r'ID of the template to be updated.',
+        help: r"ID of the template to be updated.",
         mandatory: true,
       )
-      ..addOption("name", help: r'Name of the template.')
-      ..addOption("lang", help: r'Message language.')
+      ..addOption("name", help: r"Name of the template.")
+      ..addOption("lang", help: r"Message language.")
       ..addOption(
         "contentMarkdown",
         help:
-            r'Content of the template, markdown supported, can contain variable placeholders.',
+            r"Content of the template, markdown supported, can contain variable placeholders.",
       )
-      ..addOption("subject", help: r'Subject of the message, used in emails.')
+      ..addOption("subject", help: r"Subject of the message, used in emails.")
       ..addOption(
         "updatedBy",
-        help: r'DID of the user who is updating the template.',
+        help: r"DID of the user who is updating the template.",
       )
       ..addFlag("disabled");
   }

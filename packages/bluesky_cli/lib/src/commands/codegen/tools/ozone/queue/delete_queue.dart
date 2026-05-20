@@ -19,13 +19,13 @@ final class DeleteQueueCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "queueId",
-        help: r'ID of the queue to delete',
+        help: r"ID of the queue to delete",
         mandatory: true,
       )
       ..addOption(
         "migrateToQueueId",
         help:
-            r'Optional: migrate all reports to this queue. If not specified, reports will be set to unassigned (-1).',
+            r"Optional: migrate all reports to this queue. If not specified, reports will be set to unassigned (-1).",
       );
   }
 

@@ -20,7 +20,7 @@ final class CreateSessionCommand extends ProcedureCommand {
       ..addOption(
         "identifier",
         help:
-            r'Handle or other identifier supported by the server for the authenticating user.',
+            r"Handle or other identifier supported by the server for the authenticating user.",
         mandatory: true,
       )
       ..addOption("password", mandatory: true)
@@ -28,7 +28,7 @@ final class CreateSessionCommand extends ProcedureCommand {
       ..addFlag(
         "allowTakendown",
         help:
-            r'When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned',
+            r"When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned",
       );
   }
 

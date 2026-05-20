@@ -19,13 +19,13 @@ final class GetRepostedByCommand extends QueryCommand {
     argParser
       ..addOption(
         "uri",
-        help: r'Reference (AT-URI) of post record',
+        help: r"Reference (AT-URI) of post record",
         mandatory: true,
       )
       ..addOption(
         "cid",
         help:
-            r'If supplied, filters to reposts of specific version (by CID) of the post record.',
+            r"If supplied, filters to reposts of specific version (by CID) of the post record.",
       )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor");

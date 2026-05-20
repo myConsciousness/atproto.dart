@@ -45,7 +45,7 @@ final class _CreateListblockCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r'Reference (AT-URI) to the mod list record.',
+        help: r"Reference (AT-URI) to the mod list record.",
         mandatory: true,
       )
       ..addOption("createdAt", mandatory: true)
@@ -81,7 +81,7 @@ final class _PutListblockCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r'Reference (AT-URI) to the mod list record.',
+        help: r"Reference (AT-URI) to the mod list record.",
         mandatory: true,
       )
       ..addOption("createdAt", mandatory: true)

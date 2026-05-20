@@ -22,7 +22,7 @@ final class GetAuthorFeedCommand extends QueryCommand {
       ..addOption("cursor")
       ..addOption(
         "filter",
-        help: r'Combinations of post/repost types to include in response.',
+        help: r"Combinations of post/repost types to include in response.",
         defaultsTo: "posts_with_replies",
       )
       ..addFlag("includePins", defaultsTo: false);

@@ -20,28 +20,28 @@ final class GetPostThreadV2Command extends QueryCommand {
       ..addOption(
         "anchor",
         help:
-            r'Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.',
+            r"Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.",
         mandatory: true,
       )
       ..addFlag(
         "above",
-        help: r'Whether to include parents above the anchor.',
+        help: r"Whether to include parents above the anchor.",
         defaultsTo: true,
       )
       ..addOption(
         "below",
-        help: r'How many levels of replies to include below the anchor.',
+        help: r"How many levels of replies to include below the anchor.",
         defaultsTo: "6",
       )
       ..addOption(
         "branchingFactor",
         help:
-            r'Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).',
+            r"Maximum of replies to include at each level of the thread, except for the direct replies to the anchor, which are (NOTE: currently, during unspecced phase) all returned (NOTE: later they might be paginated).",
         defaultsTo: "10",
       )
       ..addOption(
         "sort",
-        help: r'Sorting for the thread replies.',
+        help: r"Sorting for the thread replies.",
         defaultsTo: "oldest",
       );
   }

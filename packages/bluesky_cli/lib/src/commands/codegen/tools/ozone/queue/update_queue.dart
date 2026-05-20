@@ -19,12 +19,12 @@ final class UpdateQueueCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "queueId",
-        help: r'ID of the queue to update',
+        help: r"ID of the queue to update",
         mandatory: true,
       )
-      ..addOption("name", help: r'New display name for the queue')
-      ..addFlag("enabled", help: r'Enable or disable the queue')
-      ..addOption("description", help: r'Optional description of the queue');
+      ..addOption("name", help: r"New display name for the queue")
+      ..addFlag("enabled", help: r"Enable or disable the queue")
+      ..addOption("description", help: r"Optional description of the queue");
   }
 
   @override

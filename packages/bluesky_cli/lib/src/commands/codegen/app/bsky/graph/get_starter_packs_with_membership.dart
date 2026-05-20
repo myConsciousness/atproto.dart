@@ -19,7 +19,7 @@ final class GetStarterPacksWithMembershipCommand extends QueryCommand {
     argParser
       ..addOption(
         "actor",
-        help: r'The account (actor) to check for membership.',
+        help: r"The account (actor) to check for membership.",
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")

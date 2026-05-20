@@ -20,12 +20,12 @@ final class CreateAccountCommand extends ProcedureCommand {
       ..addOption("email")
       ..addOption(
         "handle",
-        help: r'Requested handle for the account.',
+        help: r"Requested handle for the account.",
         mandatory: true,
       )
       ..addOption(
         "did",
-        help: r'Pre-existing atproto DID, being imported to a new account.',
+        help: r"Pre-existing atproto DID, being imported to a new account.",
       )
       ..addOption("inviteCode")
       ..addOption("verificationCode")
@@ -33,17 +33,17 @@ final class CreateAccountCommand extends ProcedureCommand {
       ..addOption(
         "password",
         help:
-            r'Initial account password. May need to meet instance-specific password strength requirements.',
+            r"Initial account password. May need to meet instance-specific password strength requirements.",
       )
       ..addOption(
         "recoveryKey",
         help:
-            r'DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.',
+            r"DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.",
       )
       ..addOption(
         "plcOp",
         help:
-            r'A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.',
+            r"A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.",
       );
   }
 

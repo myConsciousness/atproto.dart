@@ -18,7 +18,7 @@ final class DescribeRepoCommand extends QueryCommand {
   DescribeRepoCommand() {
     argParser..addOption(
       "repo",
-      help: r'The handle or DID of the repo.',
+      help: r"The handle or DID of the repo.",
       mandatory: true,
     );
   }

@@ -21,7 +21,7 @@ final class ListReposByCollectionCommand extends QueryCommand {
       ..addOption(
         "limit",
         help:
-            r'Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.',
+            r"Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.",
         defaultsTo: "500",
       )
       ..addOption("cursor");

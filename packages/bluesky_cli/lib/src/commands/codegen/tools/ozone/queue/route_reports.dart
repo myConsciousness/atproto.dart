@@ -19,13 +19,13 @@ final class RouteReportsCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "startReportId",
-        help: r'Start of report ID range (inclusive).',
+        help: r"Start of report ID range (inclusive).",
         mandatory: true,
       )
       ..addOption(
         "endReportId",
         help:
-            r'End of report ID range (inclusive). Difference between start and end must be less than 5,000.',
+            r"End of report ID range (inclusive). Difference between start and end must be less than 5,000.",
         mandatory: true,
       );
   }

@@ -45,17 +45,17 @@ final class _CreateStatusCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "status",
-        help: r'The status for the account.',
+        help: r"The status for the account.",
         mandatory: true,
       )
       ..addOption(
         "embed",
-        help: r'An optional embed associated with the status.',
+        help: r"An optional embed associated with the status.",
       )
       ..addOption(
         "durationMinutes",
         help:
-            r'The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.',
+            r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
       ..addOption("createdAt", mandatory: true)
       ..addOption("rkey");
@@ -92,17 +92,17 @@ final class _PutStatusCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "status",
-        help: r'The status for the account.',
+        help: r"The status for the account.",
         mandatory: true,
       )
       ..addOption(
         "embed",
-        help: r'An optional embed associated with the status.',
+        help: r"An optional embed associated with the status.",
       )
       ..addOption(
         "durationMinutes",
         help:
-            r'The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.',
+            r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
       ..addOption("createdAt", mandatory: true)
       ..addOption("rkey");

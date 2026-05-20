@@ -19,16 +19,16 @@ final class GetAssignmentsCommand extends QueryCommand {
     argParser
       ..addFlag(
         "onlyActive",
-        help: r'When true, only returns active assignments.',
+        help: r"When true, only returns active assignments.",
         defaultsTo: true,
       )
       ..addMultiOption(
         "queueIds",
-        help: r'If specified, returns assignments for these queues only.',
+        help: r"If specified, returns assignments for these queues only.",
       )
       ..addMultiOption(
         "dids",
-        help: r'If specified, returns assignments for these moderators only.',
+        help: r"If specified, returns assignments for these moderators only.",
       )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor");

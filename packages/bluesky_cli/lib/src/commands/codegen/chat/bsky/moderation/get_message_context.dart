@@ -20,25 +20,25 @@ final class GetMessageContextCommand extends QueryCommand {
       ..addOption(
         "convoId",
         help:
-            r'Conversation that the message is from. NOTE: this field will eventually be required.',
+            r"Conversation that the message is from. NOTE: this field will eventually be required.",
       )
       ..addOption("messageId", mandatory: true)
       ..addOption(
         "before",
         help:
-            r'Number of user messages before the target to include. System messages between the earliest returned user message and the target are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages before the target, up to `maxInterleavedSystemMessages` system messages immediately preceding the target are returned instead.',
+            r"Number of user messages before the target to include. System messages between the earliest returned user message and the target are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages before the target, up to `maxInterleavedSystemMessages` system messages immediately preceding the target are returned instead.",
         defaultsTo: "5",
       )
       ..addOption(
         "after",
         help:
-            r'Number of user messages after the target to include. System messages between the target and the latest returned user message are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages after the target, up to `maxInterleavedSystemMessages` system messages immediately following the target are returned instead.',
+            r"Number of user messages after the target to include. System messages between the target and the latest returned user message are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages after the target, up to `maxInterleavedSystemMessages` system messages immediately following the target are returned instead.",
         defaultsTo: "5",
       )
       ..addOption(
         "maxInterleavedSystemMessages",
         help:
-            r'Maximum number of system messages to include per gap between consecutive returned messages (and per side when there are no user messages on that side). Within a gap, the system messages closest to the earlier message are kept.',
+            r"Maximum number of system messages to include per gap between consecutive returned messages (and per side when there are no user messages on that side). Within a gap, the system messages closest to the earlier message are kept.",
         defaultsTo: "10",
       );
   }

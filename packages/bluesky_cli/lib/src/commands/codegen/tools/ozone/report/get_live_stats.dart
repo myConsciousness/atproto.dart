@@ -19,10 +19,10 @@ final class GetLiveStatsCommand extends QueryCommand {
     argParser
       ..addOption(
         "queueId",
-        help: r'Filter stats by queue. Use -1 for unqueued reports.',
+        help: r"Filter stats by queue. Use -1 for unqueued reports.",
       )
-      ..addOption("moderatorDid", help: r'Filter stats by moderator DID.')
-      ..addMultiOption("reportTypes", help: r'Filter stats by report types.');
+      ..addOption("moderatorDid", help: r"Filter stats by moderator DID.")
+      ..addMultiOption("reportTypes", help: r"Filter stats by report types.");
   }
 
   @override

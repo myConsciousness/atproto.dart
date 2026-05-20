@@ -47,12 +47,12 @@ final class _CreateListCommand extends CreateRecordCommand {
       ..addOption(
         "purpose",
         help:
-            r'Defines the purpose of the list (aka, moderation-oriented or curration-oriented)',
+            r"Defines the purpose of the list (aka, moderation-oriented or curration-oriented)",
         mandatory: true,
       )
       ..addOption(
         "name",
-        help: r'Display name for list; can not be empty.',
+        help: r"Display name for list; can not be empty.",
         mandatory: true,
       )
       ..addOption("description")
@@ -100,12 +100,12 @@ final class _PutListCommand extends PutRecordCommand {
       ..addOption(
         "purpose",
         help:
-            r'Defines the purpose of the list (aka, moderation-oriented or curration-oriented)',
+            r"Defines the purpose of the list (aka, moderation-oriented or curration-oriented)",
         mandatory: true,
       )
       ..addOption(
         "name",
-        help: r'Display name for list; can not be empty.',
+        help: r"Display name for list; can not be empty.",
         mandatory: true,
       )
       ..addOption("description")

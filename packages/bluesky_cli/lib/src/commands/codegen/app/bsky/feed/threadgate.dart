@@ -45,16 +45,16 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "post",
-        help: r'Reference (AT-URI) to the post record.',
+        help: r"Reference (AT-URI) to the post record.",
         mandatory: true,
       )
       ..addMultiOption(
         "allow",
         help:
-            r'List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.',
+            r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
       )
       ..addOption("createdAt", mandatory: true)
-      ..addMultiOption("hiddenReplies", help: r'List of hidden reply URIs.')
+      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
       ..addOption("rkey");
   }
 
@@ -90,16 +90,16 @@ final class _PutThreadgateCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "post",
-        help: r'Reference (AT-URI) to the post record.',
+        help: r"Reference (AT-URI) to the post record.",
         mandatory: true,
       )
       ..addMultiOption(
         "allow",
         help:
-            r'List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.',
+            r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
       )
       ..addOption("createdAt", mandatory: true)
-      ..addMultiOption("hiddenReplies", help: r'List of hidden reply URIs.')
+      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
       ..addOption("rkey");
   }
 

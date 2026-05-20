@@ -19,11 +19,11 @@ final class CancelScheduledActionsCommand extends ProcedureCommand {
     argParser
       ..addMultiOption(
         "subjects",
-        help: r'Array of DID subjects to cancel scheduled actions for',
+        help: r"Array of DID subjects to cancel scheduled actions for",
       )
       ..addOption(
         "comment",
-        help: r'Optional comment describing the reason for cancellation',
+        help: r"Optional comment describing the reason for cancellation",
       );
   }
 

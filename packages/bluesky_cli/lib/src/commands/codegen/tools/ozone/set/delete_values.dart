@@ -19,12 +19,12 @@ final class DeleteValuesCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "name",
-        help: r'Name of the set to delete values from',
+        help: r"Name of the set to delete values from",
         mandatory: true,
       )
       ..addMultiOption(
         "values",
-        help: r'Array of string values to delete from the set',
+        help: r"Array of string values to delete from the set",
       );
   }
 

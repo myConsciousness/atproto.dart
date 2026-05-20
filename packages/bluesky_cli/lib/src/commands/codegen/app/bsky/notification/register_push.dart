@@ -23,7 +23,7 @@ final class RegisterPushCommand extends ProcedureCommand {
       ..addOption("appId", mandatory: true)
       ..addFlag(
         "ageRestricted",
-        help: r'Set to true when the actor is age restricted',
+        help: r"Set to true when the actor is age restricted",
       );
   }
 

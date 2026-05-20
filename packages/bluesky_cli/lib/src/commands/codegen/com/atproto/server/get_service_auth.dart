@@ -20,17 +20,17 @@ final class GetServiceAuthCommand extends QueryCommand {
       ..addOption(
         "aud",
         help:
-            r'The DID of the service that the token will be used to authenticate with',
+            r"The DID of the service that the token will be used to authenticate with",
         mandatory: true,
       )
       ..addOption(
         "exp",
         help:
-            r'The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.',
+            r"The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.",
       )
       ..addOption(
         "lxm",
-        help: r'Lexicon (XRPC) method to bind the requested token to',
+        help: r"Lexicon (XRPC) method to bind the requested token to",
       );
   }
 

@@ -18,7 +18,7 @@ final class UnassignModeratorCommand extends ProcedureCommand {
   UnassignModeratorCommand() {
     argParser..addOption(
       "reportId",
-      help: r'The ID of the report to unassign.',
+      help: r"The ID of the report to unassign.",
       mandatory: true,
     );
   }
