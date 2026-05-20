@@ -1,6 +1,6 @@
 # Release Note
 
-## v1.3.0
+## v1.2.1
 
 - chore: bump atproto_oauth.
 
