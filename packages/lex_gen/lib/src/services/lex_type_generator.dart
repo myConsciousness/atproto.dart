@@ -19,7 +19,6 @@ import 'fmt/lex_xrpc_query_generator.dart';
 import 'fmt/lex_xrpc_subscription_generator.dart';
 import 'object/lex_package.dart';
 import 'object/lex_type.dart';
-import 'rule.dart' as rule;
 
 List<LexType> generateLexTypes(
   final List<String> services,
@@ -49,8 +48,6 @@ final class _LexTypeGenerator {
       // Generate LexObjects for each definition in the lexicon
       for (final def in doc.defs.entries) {
         if (def.value is lex.ULexUserTypeObject) {
-          final data = def.value.data as lex.LexObject;
-
           _aggregateTypes(
             types,
             generateLexObject(
@@ -74,8 +71,6 @@ final class _LexTypeGenerator {
             generateLexUnion(doc.id, def.key, '', refUnion, mainVariants),
           );
         } else if (def.value is lex.ULexUserTypeRecord) {
-          final data = def.value.data as lex.LexRecord;
-
           _aggregateTypes(
             types,
             generateLexRecord(
