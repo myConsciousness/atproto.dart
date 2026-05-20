@@ -18,7 +18,7 @@ topics:
   - api
 
 dependencies:
-  atproto_core: ^1.2.0
+  atproto_core: ^1.2.1
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
 

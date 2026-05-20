@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.1
+
+- chore: bump atproto_oauth.
+
 ## v1.2.0
 
 - fix: optional jwt scope and auth identity. ([#2224](https://github.com/myConsciousness/atproto.dart/pull/2224))
