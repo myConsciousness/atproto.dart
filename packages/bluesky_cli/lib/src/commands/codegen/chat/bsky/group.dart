@@ -21,6 +21,7 @@ import 'group/edit_join_link.dart';
 import 'group/enable_join_link.dart';
 import 'group/get_join_link_preview.dart';
 import 'group/list_join_requests.dart';
+import 'group/list_mutual_groups.dart';
 import 'group/reject_join_request.dart';
 import 'group/remove_members.dart';
 import 'group/request_join.dart';
@@ -41,6 +42,7 @@ final class ChatBskyGroupCommand extends Command<void> {
     addSubcommand(EnableJoinLinkCommand());
     addSubcommand(GetJoinLinkPreviewCommand());
     addSubcommand(ListJoinRequestsCommand());
+    addSubcommand(ListMutualGroupsCommand());
     addSubcommand(RejectJoinRequestCommand());
     addSubcommand(RemoveMembersCommand());
     addSubcommand(RequestJoinCommand());

@@ -182,7 +182,7 @@ Fired when a group chat's metadata or status changes.
 | **joinLinkCode** | string | - | ❌ | The code of the join link. Only present when updateType is join-link-related. |
 | **joinLinkFollowersOnly** | boolean | - | ❌ | Whether the join link is restricted to followers of the owner. Only present when updateType is join-link-related. |
 | **joinLinkRequiresApproval** | boolean | - | ❌ | Whether the join link requires owner approval to join. Only present when updateType is join-link-related. |
-| **lockReason** | string | owner_action<br/>owner_left<br/>owner_deactivated<br/>owner_deleted<br/>owner_taken_down<br/>label_applied | ❌ | Why the group was locked. Only present when updateType is 'locked'. |
+| **lockReason** | string | owner_action<br/>owner_left<br/>owner_deactivated<br/>owner_deleted<br/>owner_suspended<br/>owner_taken_down<br/>label_applied | ❌ | Why the group was locked. Only present when updateType is 'locked'. |
 | **newName** | string | - | ❌ | The new group name. Only present when updateType is 'name_changed'. |
 | **oldName** | string | - | ❌ | The previous group name. Only present when updateType is 'name_changed'. |
 | **ownerDid** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the group chat owner. |

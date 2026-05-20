@@ -760,6 +760,9 @@ const chatBskyGroupGetJoinLinkPreview = NSID(
 /// `chat.bsky.group.listJoinRequests`
 const chatBskyGroupListJoinRequests = NSID(ids.chatBskyGroupListJoinRequests);
 
+/// `chat.bsky.group.listMutualGroups`
+const chatBskyGroupListMutualGroups = NSID(ids.chatBskyGroupListMutualGroups);
+
 /// `chat.bsky.group.rejectJoinRequest`
 const chatBskyGroupRejectJoinRequest = NSID(ids.chatBskyGroupRejectJoinRequest);
 

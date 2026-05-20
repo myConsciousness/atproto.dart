@@ -7,8 +7,6 @@ import 'dart:convert';
 import 'package:at_primitives/nsid.dart';
 import 'package:atproto_oauth/atproto_oauth.dart';
 import 'package:atproto_oauth/src/helper/helper.dart' show getKeyPair;
-import 'package:atproto_oauth/src/helper/private_key.dart'
-    show encodePrivateKey;
 import 'package:atproto_oauth/src/helper/public_key.dart' show encodePublicKey;
 import 'package:http/http.dart' as http;
 import 'package:test/test.dart';
@@ -16,6 +14,9 @@ import 'package:test/test.dart';
 // Project imports:
 import 'package:atproto_core/src/clients/service_context.dart';
 import 'package:atproto_core/src/types/session.dart';
+
+import 'package:atproto_oauth/src/helper/private_key.dart'
+    show encodePrivateKey;
 
 void main() {
   group('.headers', () {

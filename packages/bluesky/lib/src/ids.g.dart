@@ -1405,6 +1405,9 @@ const chatBskyGroupGetJoinLinkPreview = 'chat.bsky.group.getJoinLinkPreview';
 /// `chat.bsky.group.listJoinRequests`
 const chatBskyGroupListJoinRequests = 'chat.bsky.group.listJoinRequests';
 
+/// `chat.bsky.group.listMutualGroups`
+const chatBskyGroupListMutualGroups = 'chat.bsky.group.listMutualGroups';
+
 /// `chat.bsky.group.rejectJoinRequest`
 const chatBskyGroupRejectJoinRequest = 'chat.bsky.group.rejectJoinRequest';
 

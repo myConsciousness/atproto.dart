@@ -7,10 +7,6 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-
-// Dart imports:
-import 'dart:convert';
-
 // Project imports:
 import '../../../../query_command.dart';
 
@@ -18,26 +14,35 @@ import '../../../../query_command.dart';
 // LexGenerator
 // **************************************************************************
 
-
 final class ListConvosCommand extends QueryCommand {
   ListConvosCommand() {
-    argParser..addOption("limit",defaultsTo: "50",)
-..addOption("cursor",)
-..addOption("readState",)
-..addOption("status",help: r"Filter convos by their status. It is discouraged to call with \"request\" and preferred to call chat.bsky.convo.listConvoRequests, which also includes group join requests made by the user.",)
-..addOption("kind",help: r"Filter by conversation kind.",)
-..addOption("lockStatus",help: r"Filter by conversation lock status. Values follow chat.bsky.convo.defs#convoLockStatus.",)
-;
+    argParser
+      ..addOption("limit", defaultsTo: "50")
+      ..addOption("cursor")
+      ..addOption("readState")
+      ..addOption(
+        "status",
+        help:
+            r"Filter convos by their status. It is discouraged to call with 'request' and preferred to call chat.bsky.convo.listConvoRequests, which also includes group join requests made by the user.",
+      )
+      ..addOption("kind", help: r"Filter by conversation kind.")
+      ..addOption(
+        "lockStatus",
+        help:
+            r"Filter by conversation lock status. Values follow chat.bsky.convo.defs#convoLockStatus.",
+      );
   }
 
   @override
   final String name = "list-convos";
 
   @override
-  final String description = r"Returns a page of conversations (direct or group) for the user.";
+  final String description =
+      r"Returns a page of conversations (direct or group) for the user.";
 
   @override
-  final String invocation = "bsky chat-bsky-convo list-convos [limit] [cursor] [readState] [status] [kind] [lockStatus]";
+  final String invocation =
+      "bsky chat-bsky-convo list-convos [limit] [cursor] [readState] [status] [kind] [lockStatus]";
 
   @override
   String get methodId => "chat.bsky.convo.listConvos";
@@ -45,11 +50,11 @@ final class ListConvosCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "limit": argResults!["limit"],
-if (argResults!["cursor"] != null)"cursor": argResults!["cursor"],
-if (argResults!["readState"] != null)"readState": argResults!["readState"],
-if (argResults!["status"] != null)"status": argResults!["status"],
-if (argResults!["kind"] != null)"kind": argResults!["kind"],
-if (argResults!["lockStatus"] != null)"lockStatus": argResults!["lockStatus"],
-
+    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!["readState"] != null) "readState": argResults!["readState"],
+    if (argResults!["status"] != null) "status": argResults!["status"],
+    if (argResults!["kind"] != null) "kind": argResults!["kind"],
+    if (argResults!["lockStatus"] != null)
+      "lockStatus": argResults!["lockStatus"],
   };
 }

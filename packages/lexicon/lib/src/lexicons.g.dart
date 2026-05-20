@@ -14389,6 +14389,47 @@ const chatBskyGroupDefs = <String, dynamic>{
   },
 };
 
+/// `chat.bsky.group.listMutualGroups`
+const chatBskyGroupListMutualGroups = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.group.listMutualGroups",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "[NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of group conversations that both the requester and the specified actor are members of.",
+      "parameters": {
+        "type": "params",
+        "required": ["subject"],
+        "properties": {
+          "subject": {"type": "string", "format": "did"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["convos"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "convos": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "chat.bsky.convo.defs#convoView"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `chat.bsky.group.editGroup`
 const chatBskyGroupEditGroup = <String, dynamic>{
   "lexicon": 1,
@@ -15582,6 +15623,7 @@ const chatBskyModerationSubscribeModEvents = <String, dynamic>{
             "owner_left",
             "owner_deactivated",
             "owner_deleted",
+            "owner_suspended",
             "owner_taken_down",
             "label_applied",
           ],
@@ -22122,6 +22164,7 @@ const lexicons = <Map<String, dynamic>>[
   chatBskyConvoSendMessageBatch,
   chatBskyGroupApproveJoinRequest,
   chatBskyGroupDefs,
+  chatBskyGroupListMutualGroups,
   chatBskyGroupEditGroup,
   chatBskyGroupRemoveMembers,
   chatBskyGroupRequestJoin,
