@@ -371,6 +371,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[chat.bsky.group.enableJoinLink](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/enableJoinLink.html)** | [Reference](lexicons/chat/bsky/group/enableJoinLink.md) | ❌ |
 | **[chat.bsky.group.getJoinLinkPreview](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/getJoinLinkPreview.html)** | [Reference](lexicons/chat/bsky/group/getJoinLinkPreview.md) | ❌ |
 | **[chat.bsky.group.listJoinRequests](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/listJoinRequests.html)** | [Reference](lexicons/chat/bsky/group/listJoinRequests.md) | ✅ |
+| **[chat.bsky.group.listMutualGroups](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/listMutualGroups.html)** | [Reference](lexicons/chat/bsky/group/listMutualGroups.md) | ✅ |
 | **[chat.bsky.group.rejectJoinRequest](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/rejectJoinRequest.html)** | [Reference](lexicons/chat/bsky/group/rejectJoinRequest.md) | ❌ |
 | **[chat.bsky.group.removeMembers](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/removeMembers.html)** | [Reference](lexicons/chat/bsky/group/removeMembers.md) | ❌ |
 | **[chat.bsky.group.requestJoin](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/requestJoin.html)** | [Reference](lexicons/chat/bsky/group/requestJoin.md) | ❌ |

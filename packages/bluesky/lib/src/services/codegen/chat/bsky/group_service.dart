@@ -24,6 +24,7 @@ import 'group/editJoinLink/output.dart';
 import 'group/enableJoinLink/output.dart';
 import 'group/getJoinLinkPreview/output.dart';
 import 'group/listJoinRequests/output.dart';
+import 'group/listMutualGroups/output.dart';
 import 'group/removeMembers/output.dart';
 import 'group/requestJoin/output.dart';
 
@@ -207,6 +208,29 @@ chatBskyGroupListJoinRequests({
     if (cursor != null) 'cursor': cursor,
   },
   to: const GroupListJoinRequestsOutputConverter().fromJson,
+);
+
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of group conversations that both the requester and the specified actor are members of.
+Future<XRPCResponse<GroupListMutualGroupsOutput>>
+chatBskyGroupListMutualGroups({
+  required String subject,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.chatBskyGroupListMutualGroups,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'subject': subject,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GroupListMutualGroupsOutputConverter().fromJson,
 );
 
 /// [NOTE: This is under active development and should be considered unstable while this note is here]. Rejects a request to join a group (via join link) the user owns. Action taken by the group owner.
@@ -414,6 +438,24 @@ base class GroupService {
     Map<String, String>? $unknown,
   }) async => await chatBskyGroupListJoinRequests(
     convoId: convoId,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of group conversations that both the requester and the specified actor are members of.
+  Future<XRPCResponse<GroupListMutualGroupsOutput>> listMutualGroups({
+    required String subject,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await chatBskyGroupListMutualGroups(
+    subject: subject,
     limit: limit,
     cursor: cursor,
     $ctx: ctx,

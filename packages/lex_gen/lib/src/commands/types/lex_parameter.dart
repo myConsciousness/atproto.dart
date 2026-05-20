@@ -67,6 +67,6 @@ final class LexParameter {
   }
 
   String _escapeQuotes(String str) {
-    return str.replaceAll('"', '\\"');
+    return str.replaceAll('"', "'");
   }
 }
