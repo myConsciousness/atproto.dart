@@ -22,12 +22,12 @@ final class CreateReportCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "reasonType",
-        help: r"Indicates the broad category of violation the report is for.",
+        help: r'Indicates the broad category of violation the report is for.',
         mandatory: true,
       )
       ..addOption(
         "reason",
-        help: r"Additional context about the content and violation.",
+        help: r'Additional context about the content and violation.',
       )
       ..addOption("subject", mandatory: true)
       ..addOption("modTool");

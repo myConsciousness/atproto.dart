@@ -19,7 +19,7 @@ final class GetSuggestedUsersCommand extends QueryCommand {
     argParser
       ..addOption(
         "category",
-        help: r"Category of users to get suggestions for.",
+        help: r'Category of users to get suggestions for.',
       )
       ..addOption("limit", defaultsTo: "25");
   }

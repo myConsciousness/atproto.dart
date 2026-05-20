@@ -17,7 +17,7 @@ import '../../../../query_command.dart';
 final class GetBlocksCommand extends QueryCommand {
   GetBlocksCommand() {
     argParser
-      ..addOption("did", help: r"The DID of the repo.", mandatory: true)
+      ..addOption("did", help: r'The DID of the repo.', mandatory: true)
       ..addMultiOption("cids");
   }
 

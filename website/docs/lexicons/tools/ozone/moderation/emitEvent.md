@@ -21,6 +21,7 @@ Take a moderation action on an actor.
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **modTool** | [tools.ozone.moderation.defs#modTool](../../../../lexicons/tools/ozone/moderation/defs.md#modtool) | - | ❌ | - |
 | **externalId** | string | - | ❌ | An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject. |
+| **reportAction** | [#reportAction](#reportaction) | - | ❌ | - |
 
 ### Output
 
@@ -29,3 +30,14 @@ Take a moderation action on an actor.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **ref** | [tools.ozone.moderation.defs#modEventView](../../../../lexicons/tools/ozone/moderation/defs.md#modeventview) | - | ✅ | - |
+
+## #reportAction
+
+Target specific reports when emitting a moderation event
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **ids** | array of integer | - | ❌ | Target specific report IDs |
+| **types** | array of string | - | ❌ | Target reports matching these report types on the subject (fully qualified NSIDs) |
+| **all** | boolean | - | ❌ | Target ALL reports on the subject |
+| **note** | string | - | ❌ | Note to send to reporter(s) when actioning their report |

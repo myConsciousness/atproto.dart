@@ -23,14 +23,14 @@ final class ScheduleActionCommand extends ProcedureCommand {
       ..addOption("action", mandatory: true)
       ..addMultiOption(
         "subjects",
-        help: r"Array of DID subjects to schedule the action for",
+        help: r'Array of DID subjects to schedule the action for',
       )
       ..addOption("createdBy", mandatory: true)
       ..addOption("scheduling", mandatory: true)
       ..addOption(
         "modTool",
         help:
-            r"This will be propagated to the moderation event when it is applied",
+            r'This will be propagated to the moderation event when it is applied',
       );
   }
 

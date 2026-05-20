@@ -19,7 +19,7 @@ final class UpdateAccountEmailCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "account",
-        help: r"The handle or DID of the repo.",
+        help: r'The handle or DID of the repo.',
         mandatory: true,
       )
       ..addOption("email", mandatory: true);

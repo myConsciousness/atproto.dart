@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
 import './union_log_create_message_message.dart';
 
 part 'log_create_message.freezed.dart';
@@ -21,9 +22,15 @@ part 'log_create_message.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating a user-originated message was created. Is not emitted for system messages.
 @freezed
 abstract class LogCreateMessage with _$LogCreateMessage {
-  static const knownProps = <String>['rev', 'convoId', 'message'];
+  static const knownProps = <String>[
+    'rev',
+    'convoId',
+    'message',
+    'relatedProfiles',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory LogCreateMessage({
@@ -32,6 +39,7 @@ abstract class LogCreateMessage with _$LogCreateMessage {
     required String convoId,
     @ULogCreateMessageMessageConverter()
     required ULogCreateMessageMessage message,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles,
 
     Map<String, dynamic>? $unknown,
   }) = _LogCreateMessage;

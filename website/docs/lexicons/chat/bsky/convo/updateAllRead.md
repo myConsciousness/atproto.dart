@@ -7,6 +7,8 @@ description: chat.bsky.convo.updateAllRead
 
 ## #main
 
+Sets conversations from a user as read to the latest message, with filters.
+
 ### Input
 
 - **Encoding**: application/json

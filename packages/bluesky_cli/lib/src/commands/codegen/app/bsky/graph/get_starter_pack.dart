@@ -18,7 +18,7 @@ final class GetStarterPackCommand extends QueryCommand {
   GetStarterPackCommand() {
     argParser..addOption(
       "starterPack",
-      help: r"Reference (AT-URI) of the starter pack record.",
+      help: r'Reference (AT-URI) of the starter pack record.',
       mandatory: true,
     );
   }

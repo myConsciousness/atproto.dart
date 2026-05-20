@@ -19,7 +19,7 @@ final class GetListCommand extends QueryCommand {
     argParser
       ..addOption(
         "list",
-        help: r"Reference (AT-URI) of the list record to hydrate.",
+        help: r'Reference (AT-URI) of the list record to hydrate.',
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")

@@ -676,6 +676,9 @@ const chatBskyConvoGetConvoForMembers = NSID(
   ids.chatBskyConvoGetConvoForMembers,
 );
 
+/// `chat.bsky.convo.getConvoMembers`
+const chatBskyConvoGetConvoMembers = NSID(ids.chatBskyConvoGetConvoMembers);
+
 /// `chat.bsky.convo.getLog`
 const chatBskyConvoGetLog = NSID(ids.chatBskyConvoGetLog);
 
@@ -685,8 +688,14 @@ const chatBskyConvoGetMessages = NSID(ids.chatBskyConvoGetMessages);
 /// `chat.bsky.convo.leaveConvo`
 const chatBskyConvoLeaveConvo = NSID(ids.chatBskyConvoLeaveConvo);
 
+/// `chat.bsky.convo.listConvoRequests`
+const chatBskyConvoListConvoRequests = NSID(ids.chatBskyConvoListConvoRequests);
+
 /// `chat.bsky.convo.listConvos`
 const chatBskyConvoListConvos = NSID(ids.chatBskyConvoListConvos);
+
+/// `chat.bsky.convo.lockConvo`
+const chatBskyConvoLockConvo = NSID(ids.chatBskyConvoLockConvo);
 
 /// `chat.bsky.convo.muteConvo`
 const chatBskyConvoMuteConvo = NSID(ids.chatBskyConvoMuteConvo);
@@ -705,6 +714,9 @@ const chatBskyConvoSendMessageBatchBatchItem = NSID(
   ids.chatBskyConvoSendMessageBatchBatchItem,
 );
 
+/// `chat.bsky.convo.unlockConvo`
+const chatBskyConvoUnlockConvo = NSID(ids.chatBskyConvoUnlockConvo);
+
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = NSID(ids.chatBskyConvoUnmuteConvo);
 
@@ -713,6 +725,49 @@ const chatBskyConvoUpdateAllRead = NSID(ids.chatBskyConvoUpdateAllRead);
 
 /// `chat.bsky.convo.updateRead`
 const chatBskyConvoUpdateRead = NSID(ids.chatBskyConvoUpdateRead);
+
+/// `chat.bsky.group.addMembers`
+const chatBskyGroupAddMembers = NSID(ids.chatBskyGroupAddMembers);
+
+/// `chat.bsky.group.approveJoinRequest`
+const chatBskyGroupApproveJoinRequest = NSID(
+  ids.chatBskyGroupApproveJoinRequest,
+);
+
+/// `chat.bsky.group.createGroup`
+const chatBskyGroupCreateGroup = NSID(ids.chatBskyGroupCreateGroup);
+
+/// `chat.bsky.group.createJoinLink`
+const chatBskyGroupCreateJoinLink = NSID(ids.chatBskyGroupCreateJoinLink);
+
+/// `chat.bsky.group.disableJoinLink`
+const chatBskyGroupDisableJoinLink = NSID(ids.chatBskyGroupDisableJoinLink);
+
+/// `chat.bsky.group.editGroup`
+const chatBskyGroupEditGroup = NSID(ids.chatBskyGroupEditGroup);
+
+/// `chat.bsky.group.editJoinLink`
+const chatBskyGroupEditJoinLink = NSID(ids.chatBskyGroupEditJoinLink);
+
+/// `chat.bsky.group.enableJoinLink`
+const chatBskyGroupEnableJoinLink = NSID(ids.chatBskyGroupEnableJoinLink);
+
+/// `chat.bsky.group.getJoinLinkPreview`
+const chatBskyGroupGetJoinLinkPreview = NSID(
+  ids.chatBskyGroupGetJoinLinkPreview,
+);
+
+/// `chat.bsky.group.listJoinRequests`
+const chatBskyGroupListJoinRequests = NSID(ids.chatBskyGroupListJoinRequests);
+
+/// `chat.bsky.group.rejectJoinRequest`
+const chatBskyGroupRejectJoinRequest = NSID(ids.chatBskyGroupRejectJoinRequest);
+
+/// `chat.bsky.group.removeMembers`
+const chatBskyGroupRemoveMembers = NSID(ids.chatBskyGroupRemoveMembers);
+
+/// `chat.bsky.group.requestJoin`
+const chatBskyGroupRequestJoin = NSID(ids.chatBskyGroupRequestJoin);
 
 /// `chat.bsky.moderation.getActorMetadata`
 const chatBskyModerationGetActorMetadata = NSID(
@@ -727,6 +782,63 @@ const chatBskyModerationGetActorMetadataMetadata = NSID(
 /// `chat.bsky.moderation.getMessageContext`
 const chatBskyModerationGetMessageContext = NSID(
   ids.chatBskyModerationGetMessageContext,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents`
+const chatBskyModerationSubscribeModEvents = NSID(
+  ids.chatBskyModerationSubscribeModEvents,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventChatAccepted`
+const chatBskyModerationSubscribeModEventsEventChatAccepted = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventChatAccepted,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventConvoFirstMessage`
+const chatBskyModerationSubscribeModEventsEventConvoFirstMessage = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventConvoFirstMessage,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatCreated`
+const chatBskyModerationSubscribeModEventsEventGroupChatCreated = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventGroupChatCreated,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequest`
+const chatBskyModerationSubscribeModEventsEventGroupChatJoinRequest = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventGroupChatJoinRequest,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequestApproved`
+const chatBskyModerationSubscribeModEventsEventGroupChatJoinRequestApproved =
+    NSID(
+      ids.chatBskyModerationSubscribeModEventsEventGroupChatJoinRequestApproved,
+    );
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequestRejected`
+const chatBskyModerationSubscribeModEventsEventGroupChatJoinRequestRejected =
+    NSID(
+      ids.chatBskyModerationSubscribeModEventsEventGroupChatJoinRequestRejected,
+    );
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberAdded`
+const chatBskyModerationSubscribeModEventsEventGroupChatMemberAdded = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventGroupChatMemberAdded,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberJoined`
+const chatBskyModerationSubscribeModEventsEventGroupChatMemberJoined = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventGroupChatMemberJoined,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberLeft`
+const chatBskyModerationSubscribeModEventsEventGroupChatMemberLeft = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventGroupChatMemberLeft,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated`
+const chatBskyModerationSubscribeModEventsEventGroupChatUpdated = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventGroupChatUpdated,
 );
 
 /// `chat.bsky.moderation.updateActorAccess`
@@ -806,6 +918,11 @@ const toolsOzoneModerationCancelScheduledActionsFailedCancellation = NSID(
 
 /// `tools.ozone.moderation.emitEvent`
 const toolsOzoneModerationEmitEvent = NSID(ids.toolsOzoneModerationEmitEvent);
+
+/// `tools.ozone.moderation.emitEvent#reportAction`
+const toolsOzoneModerationEmitEventReportAction = NSID(
+  ids.toolsOzoneModerationEmitEventReportAction,
+);
 
 /// `tools.ozone.moderation.getAccountTimeline`
 const toolsOzoneModerationGetAccountTimeline = NSID(
@@ -890,6 +1007,76 @@ const toolsOzoneModerationScheduleActionTakedown = NSID(
 /// `tools.ozone.moderation.searchRepos`
 const toolsOzoneModerationSearchRepos = NSID(
   ids.toolsOzoneModerationSearchRepos,
+);
+
+/// `tools.ozone.queue.assignModerator`
+const toolsOzoneQueueAssignModerator = NSID(ids.toolsOzoneQueueAssignModerator);
+
+/// `tools.ozone.queue.createQueue`
+const toolsOzoneQueueCreateQueue = NSID(ids.toolsOzoneQueueCreateQueue);
+
+/// `tools.ozone.queue.deleteQueue`
+const toolsOzoneQueueDeleteQueue = NSID(ids.toolsOzoneQueueDeleteQueue);
+
+/// `tools.ozone.queue.getAssignments`
+const toolsOzoneQueueGetAssignments = NSID(ids.toolsOzoneQueueGetAssignments);
+
+/// `tools.ozone.queue.listQueues`
+const toolsOzoneQueueListQueues = NSID(ids.toolsOzoneQueueListQueues);
+
+/// `tools.ozone.queue.routeReports`
+const toolsOzoneQueueRouteReports = NSID(ids.toolsOzoneQueueRouteReports);
+
+/// `tools.ozone.queue.unassignModerator`
+const toolsOzoneQueueUnassignModerator = NSID(
+  ids.toolsOzoneQueueUnassignModerator,
+);
+
+/// `tools.ozone.queue.updateQueue`
+const toolsOzoneQueueUpdateQueue = NSID(ids.toolsOzoneQueueUpdateQueue);
+
+/// `tools.ozone.report.assignModerator`
+const toolsOzoneReportAssignModerator = NSID(
+  ids.toolsOzoneReportAssignModerator,
+);
+
+/// `tools.ozone.report.createActivity`
+const toolsOzoneReportCreateActivity = NSID(ids.toolsOzoneReportCreateActivity);
+
+/// `tools.ozone.report.getAssignments`
+const toolsOzoneReportGetAssignments = NSID(ids.toolsOzoneReportGetAssignments);
+
+/// `tools.ozone.report.getHistoricalStats`
+const toolsOzoneReportGetHistoricalStats = NSID(
+  ids.toolsOzoneReportGetHistoricalStats,
+);
+
+/// `tools.ozone.report.getLatestReport`
+const toolsOzoneReportGetLatestReport = NSID(
+  ids.toolsOzoneReportGetLatestReport,
+);
+
+/// `tools.ozone.report.getLiveStats`
+const toolsOzoneReportGetLiveStats = NSID(ids.toolsOzoneReportGetLiveStats);
+
+/// `tools.ozone.report.getReport`
+const toolsOzoneReportGetReport = NSID(ids.toolsOzoneReportGetReport);
+
+/// `tools.ozone.report.listActivities`
+const toolsOzoneReportListActivities = NSID(ids.toolsOzoneReportListActivities);
+
+/// `tools.ozone.report.queryReports`
+const toolsOzoneReportQueryReports = NSID(ids.toolsOzoneReportQueryReports);
+
+/// `tools.ozone.report.reassignQueue`
+const toolsOzoneReportReassignQueue = NSID(ids.toolsOzoneReportReassignQueue);
+
+/// `tools.ozone.report.refreshStats`
+const toolsOzoneReportRefreshStats = NSID(ids.toolsOzoneReportRefreshStats);
+
+/// `tools.ozone.report.unassignModerator`
+const toolsOzoneReportUnassignModerator = NSID(
+  ids.toolsOzoneReportUnassignModerator,
 );
 
 /// `tools.ozone.safelink.addRule`

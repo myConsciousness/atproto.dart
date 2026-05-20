@@ -7,6 +7,8 @@ description: chat.bsky.convo.unmuteConvo
 
 ## #main
 
+Unmutes a conversation, allowing notifications related to it.
+
 ### Input
 
 - **Encoding**: application/json

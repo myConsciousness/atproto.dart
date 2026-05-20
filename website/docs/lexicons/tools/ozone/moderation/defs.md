@@ -329,6 +329,7 @@ Add/Remove a tag on a subject
 | **add** | array of string | - | ✅ | Tags to be added to the subject. If already exists, won't be duplicated. |
 | **remove** | array of string | - | ✅ | Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated. |
 | **comment** | string | - | ❌ | Additional comment about added/removed tags. |
+| **durationInHours** | integer | - | ❌ | Indicates how long the tags being added should remain before automatically being removed. Only applies to tags being added. |
 
 ## #accountEvent
 

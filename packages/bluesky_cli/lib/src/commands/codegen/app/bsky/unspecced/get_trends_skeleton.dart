@@ -20,7 +20,7 @@ final class GetTrendsSkeletonCommand extends QueryCommand {
       ..addOption(
         "viewer",
         help:
-            r"DID of the account making the request (not included for public/unauthenticated queries).",
+            r'DID of the account making the request (not included for public/unauthenticated queries).',
       )
       ..addOption("limit", defaultsTo: "10");
   }

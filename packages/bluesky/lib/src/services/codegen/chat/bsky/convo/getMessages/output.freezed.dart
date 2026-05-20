@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConvoGetMessagesOutput {
 
- String? get cursor;@UConvoGetMessagesMessagesConverter() List<UConvoGetMessagesMessages> get messages; Map<String, dynamic>? get $unknown;
+ String? get cursor;@UConvoGetMessagesMessagesConverter() List<UConvoGetMessagesMessages> get messages;@ProfileViewBasicConverter() List<ProfileViewBasic>? get relatedProfiles; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConvoGetMessagesOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ConvoGetMessagesOutputCopyWith<ConvoGetMessagesOutput> get copyWith => _$ConvoG
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConvoGetMessagesOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConvoGetMessagesOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.relatedProfiles, relatedProfiles)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(relatedProfiles),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ConvoGetMessagesOutput(cursor: $cursor, messages: $messages, \$unknown: ${$unknown})';
+  return 'ConvoGetMessagesOutput(cursor: $cursor, messages: $messages, relatedProfiles: $relatedProfiles, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ConvoGetMessagesOutputCopyWith<$Res>  {
   factory $ConvoGetMessagesOutputCopyWith(ConvoGetMessagesOutput value, $Res Function(ConvoGetMessagesOutput) _then) = _$ConvoGetMessagesOutputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor,@UConvoGetMessagesMessagesConverter() List<UConvoGetMessagesMessages> messages, Map<String, dynamic>? $unknown
+ String? cursor,@UConvoGetMessagesMessagesConverter() List<UConvoGetMessagesMessages> messages,@ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,12 @@ class _$ConvoGetMessagesOutputCopyWithImpl<$Res>
 
 /// Create a copy of ConvoGetMessagesOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? messages = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? messages = null,Object? relatedProfiles = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,messages: null == messages ? _self.messages : messages // ignore: cast_nullable_to_non_nullable
-as List<UConvoGetMessagesMessages>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<UConvoGetMessagesMessages>,relatedProfiles: freezed == relatedProfiles ? _self.relatedProfiles : relatedProfiles // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @UConvoGetMessagesMessagesConverter()  List<UConvoGetMessagesMessages> messages,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @UConvoGetMessagesMessagesConverter()  List<UConvoGetMessagesMessages> messages, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConvoGetMessagesOutput() when $default != null:
-return $default(_that.cursor,_that.messages,_that.$unknown);case _:
+return $default(_that.cursor,_that.messages,_that.relatedProfiles,_that.$unknown);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.cursor,_that.messages,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @UConvoGetMessagesMessagesConverter()  List<UConvoGetMessagesMessages> messages,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @UConvoGetMessagesMessagesConverter()  List<UConvoGetMessagesMessages> messages, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConvoGetMessagesOutput():
-return $default(_that.cursor,_that.messages,_that.$unknown);case _:
+return $default(_that.cursor,_that.messages,_that.relatedProfiles,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.cursor,_that.messages,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @UConvoGetMessagesMessagesConverter()  List<UConvoGetMessagesMessages> messages,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @UConvoGetMessagesMessagesConverter()  List<UConvoGetMessagesMessages> messages, @ProfileViewBasicConverter()  List<ProfileViewBasic>? relatedProfiles,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConvoGetMessagesOutput() when $default != null:
-return $default(_that.cursor,_that.messages,_that.$unknown);case _:
+return $default(_that.cursor,_that.messages,_that.relatedProfiles,_that.$unknown);case _:
   return null;
 
 }
@@ -211,7 +212,7 @@ return $default(_that.cursor,_that.messages,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ConvoGetMessagesOutput implements ConvoGetMessagesOutput {
-  const _ConvoGetMessagesOutput({this.cursor, @UConvoGetMessagesMessagesConverter() required final  List<UConvoGetMessagesMessages> messages, final  Map<String, dynamic>? $unknown}): _messages = messages,_$unknown = $unknown;
+  const _ConvoGetMessagesOutput({this.cursor, @UConvoGetMessagesMessagesConverter() required final  List<UConvoGetMessagesMessages> messages, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? relatedProfiles, final  Map<String, dynamic>? $unknown}): _messages = messages,_relatedProfiles = relatedProfiles,_$unknown = $unknown;
   factory _ConvoGetMessagesOutput.fromJson(Map<String, dynamic> json) => _$ConvoGetMessagesOutputFromJson(json);
 
 @override final  String? cursor;
@@ -220,6 +221,15 @@ class _ConvoGetMessagesOutput implements ConvoGetMessagesOutput {
   if (_messages is EqualUnmodifiableListView) return _messages;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_messages);
+}
+
+ final  List<ProfileViewBasic>? _relatedProfiles;
+@override@ProfileViewBasicConverter() List<ProfileViewBasic>? get relatedProfiles {
+  final value = _relatedProfiles;
+  if (value == null) return null;
+  if (_relatedProfiles is EqualUnmodifiableListView) return _relatedProfiles;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
  final  Map<String, dynamic>? _$unknown;
@@ -245,16 +255,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConvoGetMessagesOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._messages, _messages)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConvoGetMessagesOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._messages, _messages)&&const DeepCollectionEquality().equals(other._relatedProfiles, _relatedProfiles)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_messages),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_messages),const DeepCollectionEquality().hash(_relatedProfiles),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ConvoGetMessagesOutput(cursor: $cursor, messages: $messages, \$unknown: ${$unknown})';
+  return 'ConvoGetMessagesOutput(cursor: $cursor, messages: $messages, relatedProfiles: $relatedProfiles, \$unknown: ${$unknown})';
 }
 
 
@@ -265,7 +275,7 @@ abstract mixin class _$ConvoGetMessagesOutputCopyWith<$Res> implements $ConvoGet
   factory _$ConvoGetMessagesOutputCopyWith(_ConvoGetMessagesOutput value, $Res Function(_ConvoGetMessagesOutput) _then) = __$ConvoGetMessagesOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor,@UConvoGetMessagesMessagesConverter() List<UConvoGetMessagesMessages> messages, Map<String, dynamic>? $unknown
+ String? cursor,@UConvoGetMessagesMessagesConverter() List<UConvoGetMessagesMessages> messages,@ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,11 +292,12 @@ class __$ConvoGetMessagesOutputCopyWithImpl<$Res>
 
 /// Create a copy of ConvoGetMessagesOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? messages = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? messages = null,Object? relatedProfiles = freezed,Object? $unknown = freezed,}) {
   return _then(_ConvoGetMessagesOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,messages: null == messages ? _self._messages : messages // ignore: cast_nullable_to_non_nullable
-as List<UConvoGetMessagesMessages>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<UConvoGetMessagesMessages>,relatedProfiles: freezed == relatedProfiles ? _self._relatedProfiles : relatedProfiles // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

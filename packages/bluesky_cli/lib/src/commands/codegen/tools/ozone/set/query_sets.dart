@@ -23,7 +23,7 @@ final class QuerySetsCommand extends QueryCommand {
       ..addOption("sortBy", defaultsTo: "name")
       ..addOption(
         "sortDirection",
-        help: r"Defaults to ascending order of name field.",
+        help: r'Defaults to ascending order of name field.',
         defaultsTo: "asc",
       );
   }

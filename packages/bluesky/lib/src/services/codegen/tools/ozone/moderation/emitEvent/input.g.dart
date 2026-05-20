@@ -36,6 +36,13 @@ _ModerationEmitEventInput _$ModerationEmitEventInputFromJson(Map json) =>
           ),
         ),
         externalId: $checkedConvert('externalId', (v) => v as String?),
+        reportAction: $checkedConvert(
+          'reportAction',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, ReportAction>(
+            v,
+            const ReportActionConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -58,6 +65,10 @@ Map<String, dynamic> _$ModerationEmitEventInputToJson(
     const ModToolConverter().toJson,
   ),
   'externalId': ?instance.externalId,
+  'reportAction': ?_$JsonConverterToJson<Map<String, dynamic>, ReportAction>(
+    instance.reportAction,
+    const ReportActionConverter().toJson,
+  ),
   r'$unknown': ?instance.$unknown,
 };
 

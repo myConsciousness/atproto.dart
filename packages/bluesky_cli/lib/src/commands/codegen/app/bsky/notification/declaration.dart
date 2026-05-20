@@ -7,8 +7,10 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // Package imports:
 import 'package:args/command_runner.dart';
@@ -23,6 +25,7 @@ import '../../../../query_command.dart';
 // LexGenerator
 // **************************************************************************
 
+
 final class DeclarationCommand extends Command<void> {
   DeclarationCommand() {
     addSubcommand(_CreateDeclarationCommand());
@@ -36,35 +39,28 @@ final class DeclarationCommand extends Command<void> {
   String get name => "declaration";
 
   @override
-  String get description =>
-      "A declaration of the user's choices related to notifications that can be produced by them.";
+  String get description => "A declaration of the user's choices related to notifications that can be produced by them.";
 }
 
 final class _CreateDeclarationCommand extends CreateRecordCommand {
   _CreateDeclarationCommand() {
-    argParser
-      ..addOption(
-        "allowSubscriptions",
-        help:
-            r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
-        mandatory: true,
-      )
-      ..addOption("rkey");
+    argParser..addOption("allowSubscriptions",help: r'A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.',mandatory: true,)
+..addOption("rkey")
+;
   }
 
   @override
   final String name = "create";
 
   @override
-  final String description =
-      r"Creates a new record for app.bsky.notification.declaration.";
+  final String description = r"Creates a new record for app.bsky.notification.declaration.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-notification declaration create [allowSubscriptions] [rkey]";
+  final String invocation = "bsky app-bsky-notification declaration create [allowSubscriptions] [rkey]";
 
   @override
-  String get rkey => "self";
+String get rkey => "self";
+
 
   @override
   String get collection => "app.bsky.notification.declaration";
@@ -72,34 +68,29 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
   @override
   Map<String, dynamic> get record => {
     "allowSubscriptions": argResults!["allowSubscriptions"],
+
   };
 }
 
 final class _PutDeclarationCommand extends PutRecordCommand {
   _PutDeclarationCommand() {
-    argParser
-      ..addOption(
-        "allowSubscriptions",
-        help:
-            r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
-        mandatory: true,
-      )
-      ..addOption("rkey");
+    argParser..addOption("allowSubscriptions",help: r'A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.',mandatory: true,)
+..addOption("rkey")
+;
   }
 
   @override
   final String name = "put";
 
   @override
-  final String description =
-      r"Updates a record for app.bsky.notification.declaration.";
+  final String description = r"Updates a record for app.bsky.notification.declaration.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-notification declaration put [allowSubscriptions] [rkey]";
+  final String invocation = "bsky app-bsky-notification declaration put [allowSubscriptions] [rkey]";
 
   @override
-  String get rkey => "self";
+String get rkey => "self";
+
 
   @override
   String get collection => "app.bsky.notification.declaration";
@@ -107,27 +98,27 @@ final class _PutDeclarationCommand extends PutRecordCommand {
   @override
   Map<String, dynamic> get record => {
     "allowSubscriptions": argResults!["allowSubscriptions"],
+
   };
 }
 
 final class _DeleteDeclarationCommand extends DeleteRecordCommand {
   _DeleteDeclarationCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser..addOption("rkey",mandatory: true,);
   }
 
   @override
   final String name = "delete";
 
   @override
-  final String description =
-      r"Deletes a record for app.bsky.notification.declaration.";
+  final String description = r"Deletes a record for app.bsky.notification.declaration.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-notification declaration delete [rkey]";
+  final String invocation = "bsky app-bsky-notification declaration delete [rkey]";
 
   @override
-  String get rkey => "self";
+String get rkey => "self";
+
 
   @override
   String get collection => "app.bsky.notification.declaration";
@@ -136,7 +127,7 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
 final class _GetDeclarationCommand extends QueryCommand {
   _GetDeclarationCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption("rkey",mandatory: true,)
       ..addOption("cid");
   }
 
@@ -144,23 +135,20 @@ final class _GetDeclarationCommand extends QueryCommand {
   final String name = "get";
 
   @override
-  final String description =
-      r"Gets a record for app.bsky.notification.declaration.";
+  final String description = r"Gets a record for app.bsky.notification.declaration.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-notification declaration get [rkey] [cid]";
+  final String invocation = "bsky app-bsky-notification declaration get [rkey] [cid]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
-  @override
+ @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': await did,
     'collection': methodId,
     'rkey': argResults!['rkey'],
-    if (argResults!['cid'] != null) 'cid': argResults!['cid'],
-  };
+    if (argResults!['cid'] != null) 'cid': argResults!['cid'],};
 }
 
 final class _ListDeclarationCommand extends QueryCommand {
@@ -175,12 +163,10 @@ final class _ListDeclarationCommand extends QueryCommand {
   final String name = "list";
 
   @override
-  final String description =
-      r"Lists records for app.bsky.notification.declaration.";
+  final String description = r"Lists records for app.bsky.notification.declaration.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-notification declaration list [limit] [cursor] [reverse]";
+  final String invocation = "bsky app-bsky-notification declaration list [limit] [cursor] [reverse]";
 
   @override
   String get methodId => "com.atproto.repo.listRecord";

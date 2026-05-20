@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class ResolveDidCommand extends QueryCommand {
   ResolveDidCommand() {
-    argParser..addOption("did", help: r"DID to resolve.", mandatory: true);
+    argParser..addOption("did", help: r'DID to resolve.', mandatory: true);
   }
 
   @override

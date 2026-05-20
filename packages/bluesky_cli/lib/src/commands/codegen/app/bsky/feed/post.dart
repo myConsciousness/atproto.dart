@@ -46,36 +46,36 @@ final class _CreatePostCommand extends CreateRecordCommand {
       ..addOption(
         "text",
         help:
-            r"The primary post content. May be an empty string, if there are embeds.",
+            r'The primary post content. May be an empty string, if there are embeds.',
         mandatory: true,
       )
       ..addMultiOption(
         "entities",
-        help: r"DEPRECATED: replaced by app.bsky.richtext.facet.",
+        help: r'DEPRECATED: replaced by app.bsky.richtext.facet.',
       )
       ..addMultiOption(
         "facets",
-        help: r"Annotations of text (mentions, URLs, hashtags, etc)",
+        help: r'Annotations of text (mentions, URLs, hashtags, etc)',
       )
       ..addOption("reply")
       ..addOption("embed")
       ..addMultiOption(
         "langs",
-        help: r"Indicates human language of post primary text content.",
+        help: r'Indicates human language of post primary text content.',
       )
       ..addOption(
         "labels",
-        help: r"Self-label values for this post. Effectively content warnings.",
+        help: r'Self-label values for this post. Effectively content warnings.',
       )
       ..addMultiOption(
         "tags",
         help:
-            r"Additional hashtags, in addition to any included in post text and facets.",
+            r'Additional hashtags, in addition to any included in post text and facets.',
       )
       ..addOption(
         "createdAt",
         help:
-            r"Client-declared timestamp when this post was originally created.",
+            r'Client-declared timestamp when this post was originally created.',
         mandatory: true,
       )
       ..addOption("rkey");
@@ -118,36 +118,36 @@ final class _PutPostCommand extends PutRecordCommand {
       ..addOption(
         "text",
         help:
-            r"The primary post content. May be an empty string, if there are embeds.",
+            r'The primary post content. May be an empty string, if there are embeds.',
         mandatory: true,
       )
       ..addMultiOption(
         "entities",
-        help: r"DEPRECATED: replaced by app.bsky.richtext.facet.",
+        help: r'DEPRECATED: replaced by app.bsky.richtext.facet.',
       )
       ..addMultiOption(
         "facets",
-        help: r"Annotations of text (mentions, URLs, hashtags, etc)",
+        help: r'Annotations of text (mentions, URLs, hashtags, etc)',
       )
       ..addOption("reply")
       ..addOption("embed")
       ..addMultiOption(
         "langs",
-        help: r"Indicates human language of post primary text content.",
+        help: r'Indicates human language of post primary text content.',
       )
       ..addOption(
         "labels",
-        help: r"Self-label values for this post. Effectively content warnings.",
+        help: r'Self-label values for this post. Effectively content warnings.',
       )
       ..addMultiOption(
         "tags",
         help:
-            r"Additional hashtags, in addition to any included in post text and facets.",
+            r'Additional hashtags, in addition to any included in post text and facets.',
       )
       ..addOption(
         "createdAt",
         help:
-            r"Client-declared timestamp when this post was originally created.",
+            r'Client-declared timestamp when this post was originally created.',
         mandatory: true,
       )
       ..addOption("rkey");

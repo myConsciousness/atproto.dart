@@ -16,7 +16,7 @@ import '../../../../query_command.dart';
 
 final class GetLatestCommitCommand extends QueryCommand {
   GetLatestCommitCommand() {
-    argParser..addOption("did", help: r"The DID of the repo.", mandatory: true);
+    argParser..addOption("did", help: r'The DID of the repo.', mandatory: true);
   }
 
   @override

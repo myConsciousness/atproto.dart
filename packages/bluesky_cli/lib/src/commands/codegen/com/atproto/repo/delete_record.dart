@@ -19,22 +19,22 @@ final class DeleteRecordCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "repo",
-        help: r"The handle or DID of the repo (aka, current account).",
+        help: r'The handle or DID of the repo (aka, current account).',
         mandatory: true,
       )
       ..addOption(
         "collection",
-        help: r"The NSID of the record collection.",
+        help: r'The NSID of the record collection.',
         mandatory: true,
       )
-      ..addOption("rkey", help: r"The Record Key.", mandatory: true)
+      ..addOption("rkey", help: r'The Record Key.', mandatory: true)
       ..addOption(
         "swapRecord",
-        help: r"Compare and swap with the previous record by CID.",
+        help: r'Compare and swap with the previous record by CID.',
       )
       ..addOption(
         "swapCommit",
-        help: r"Compare and swap with the previous commit by CID.",
+        help: r'Compare and swap with the previous commit by CID.',
       );
   }
 

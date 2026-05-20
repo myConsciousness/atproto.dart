@@ -7,6 +7,8 @@ description: chat.bsky.convo.sendMessageBatch
 
 ## #main
 
+Sends a batch of messages to a conversation.
+
 ### Input
 
 - **Encoding**: application/json

@@ -18,7 +18,7 @@ final class GetPostThreadOtherV2Command extends QueryCommand {
   GetPostThreadOtherV2Command() {
     argParser..addOption(
       "anchor",
-      help: r"Reference (AT-URI) to post record. This is the anchor post.",
+      help: r'Reference (AT-URI) to post record. This is the anchor post.',
       mandatory: true,
     );
   }

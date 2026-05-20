@@ -12,3 +12,22 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/reason_type.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/report_assignment.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/report_view.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/report_view_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/queue_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/queue_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/assignment_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/assignment_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/escalation_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/escalation_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/close_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/close_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/reopen_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/reopen_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/note_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/report_activity_view.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/union_report_activity_view_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/live_stats.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/historical_stats.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/assignment_view.dart';

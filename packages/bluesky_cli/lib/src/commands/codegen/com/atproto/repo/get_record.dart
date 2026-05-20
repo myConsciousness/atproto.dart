@@ -19,19 +19,19 @@ final class GetRecordCommand extends QueryCommand {
     argParser
       ..addOption(
         "repo",
-        help: r"The handle or DID of the repo.",
+        help: r'The handle or DID of the repo.',
         mandatory: true,
       )
       ..addOption(
         "collection",
-        help: r"The NSID of the record collection.",
+        help: r'The NSID of the record collection.',
         mandatory: true,
       )
-      ..addOption("rkey", help: r"The Record Key.", mandatory: true)
+      ..addOption("rkey", help: r'The Record Key.', mandatory: true)
       ..addOption(
         "cid",
         help:
-            r"The CID of the version of the record. If not specified, then return the most recent version.",
+            r'The CID of the version of the record. If not specified, then return the most recent version.',
       );
   }
 

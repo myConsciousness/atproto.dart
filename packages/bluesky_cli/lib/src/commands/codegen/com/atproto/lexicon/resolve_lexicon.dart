@@ -18,7 +18,7 @@ final class ResolveLexiconCommand extends QueryCommand {
   ResolveLexiconCommand() {
     argParser..addOption(
       "nsid",
-      help: r"The lexicon NSID to resolve.",
+      help: r'The lexicon NSID to resolve.',
       mandatory: true,
     );
   }

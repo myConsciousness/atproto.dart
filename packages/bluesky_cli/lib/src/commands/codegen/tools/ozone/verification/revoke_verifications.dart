@@ -19,12 +19,12 @@ final class RevokeVerificationsCommand extends ProcedureCommand {
     argParser
       ..addMultiOption(
         "uris",
-        help: r"Array of verification record uris to revoke",
+        help: r'Array of verification record uris to revoke',
       )
       ..addOption(
         "revokeReason",
         help:
-            r"Reason for revoking the verification. This is optional and can be omitted if not needed.",
+            r'Reason for revoking the verification. This is optional and can be omitted if not needed.',
       );
   }
 

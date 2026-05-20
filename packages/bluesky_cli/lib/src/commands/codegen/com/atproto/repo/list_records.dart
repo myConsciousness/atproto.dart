@@ -19,23 +19,23 @@ final class ListRecordsCommand extends QueryCommand {
     argParser
       ..addOption(
         "repo",
-        help: r"The handle or DID of the repo.",
+        help: r'The handle or DID of the repo.',
         mandatory: true,
       )
       ..addOption(
         "collection",
-        help: r"The NSID of the record type.",
+        help: r'The NSID of the record type.',
         mandatory: true,
       )
       ..addOption(
         "limit",
-        help: r"The number of records to return.",
+        help: r'The number of records to return.',
         defaultsTo: "50",
       )
       ..addOption("cursor")
       ..addFlag(
         "reverse",
-        help: r"Flag to reverse the order of the returned records.",
+        help: r'Flag to reverse the order of the returned records.',
       );
   }
 

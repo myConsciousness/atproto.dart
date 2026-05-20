@@ -23,7 +23,7 @@ final class GetConvoCommand extends QueryCommand {
   final String name = "get-convo";
 
   @override
-  final String description = r"";
+  final String description = r"Gets an existing conversation by its ID.";
 
   @override
   final String invocation = "bsky chat-bsky-convo get-convo [convoId]";

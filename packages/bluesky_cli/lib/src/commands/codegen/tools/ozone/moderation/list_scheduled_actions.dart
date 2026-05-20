@@ -19,23 +19,23 @@ final class ListScheduledActionsCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "startsAfter",
-        help: r"Filter actions scheduled to execute after this time",
+        help: r'Filter actions scheduled to execute after this time',
       )
       ..addOption(
         "endsBefore",
-        help: r"Filter actions scheduled to execute before this time",
+        help: r'Filter actions scheduled to execute before this time',
       )
       ..addMultiOption(
         "subjects",
-        help: r"Filter actions for specific DID subjects",
+        help: r'Filter actions for specific DID subjects',
       )
-      ..addMultiOption("statuses", help: r"Filter actions by status")
+      ..addMultiOption("statuses", help: r'Filter actions by status')
       ..addOption(
         "limit",
-        help: r"Maximum number of results to return",
+        help: r'Maximum number of results to return',
         defaultsTo: "50",
       )
-      ..addOption("cursor", help: r"Cursor for pagination");
+      ..addOption("cursor", help: r'Cursor for pagination');
   }
 
   @override

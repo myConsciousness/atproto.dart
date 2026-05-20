@@ -20,7 +20,7 @@ final class UpdateAccountSigningKeyCommand extends ProcedureCommand {
       ..addOption("did", mandatory: true)
       ..addOption(
         "signingKey",
-        help: r"Did-key formatted public key",
+        help: r'Did-key formatted public key',
         mandatory: true,
       );
   }

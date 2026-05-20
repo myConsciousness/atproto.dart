@@ -19,18 +19,18 @@ final class GetPostThreadCommand extends QueryCommand {
     argParser
       ..addOption(
         "uri",
-        help: r"Reference (AT-URI) to post record.",
+        help: r'Reference (AT-URI) to post record.',
         mandatory: true,
       )
       ..addOption(
         "depth",
-        help: r"How many levels of reply depth should be included in response.",
+        help: r'How many levels of reply depth should be included in response.',
         defaultsTo: "6",
       )
       ..addOption(
         "parentHeight",
         help:
-            r"How many levels of parent (and grandparent, etc) post to include.",
+            r'How many levels of parent (and grandparent, etc) post to include.',
         defaultsTo: "80",
       );
   }

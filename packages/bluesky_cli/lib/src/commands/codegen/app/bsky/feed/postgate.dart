@@ -46,18 +46,18 @@ final class _CreatePostgateCommand extends CreateRecordCommand {
       ..addOption("createdAt", mandatory: true)
       ..addOption(
         "post",
-        help: r"Reference (AT-URI) to the post record.",
+        help: r'Reference (AT-URI) to the post record.',
         mandatory: true,
       )
       ..addMultiOption(
         "detachedEmbeddingUris",
         help:
-            r"List of AT-URIs embedding this post that the author has detached from.",
+            r'List of AT-URIs embedding this post that the author has detached from.',
       )
       ..addMultiOption(
         "embeddingRules",
         help:
-            r"List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
+            r'List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.',
       )
       ..addOption("rkey");
   }
@@ -96,18 +96,18 @@ final class _PutPostgateCommand extends PutRecordCommand {
       ..addOption("createdAt", mandatory: true)
       ..addOption(
         "post",
-        help: r"Reference (AT-URI) to the post record.",
+        help: r'Reference (AT-URI) to the post record.',
         mandatory: true,
       )
       ..addMultiOption(
         "detachedEmbeddingUris",
         help:
-            r"List of AT-URIs embedding this post that the author has detached from.",
+            r'List of AT-URIs embedding this post that the author has detached from.',
       )
       ..addMultiOption(
         "embeddingRules",
         help:
-            r"List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
+            r'List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.',
       )
       ..addOption("rkey");
   }

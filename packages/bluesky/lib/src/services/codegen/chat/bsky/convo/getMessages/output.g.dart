@@ -22,6 +22,16 @@ _ConvoGetMessagesOutput _$ConvoGetMessagesOutputFromJson(Map json) =>
               )
               .toList(),
         ),
+        relatedProfiles: $checkedConvert(
+          'relatedProfiles',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const ProfileViewBasicConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -36,6 +46,9 @@ Map<String, dynamic> _$ConvoGetMessagesOutputToJson(
   'cursor': ?instance.cursor,
   'messages': instance.messages
       .map(const UConvoGetMessagesMessagesConverter().toJson)
+      .toList(),
+  'relatedProfiles': ?instance.relatedProfiles
+      ?.map(const ProfileViewBasicConverter().toJson)
       .toList(),
   r'$unknown': ?instance.$unknown,
 };

@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$ModEventTag {
 
  String get $type; List<String> get add; List<String> get remove;/// Additional comment about added/removed tags.
- String? get comment; Map<String, dynamic>? get $unknown;
+ String? get comment;/// Indicates how long the tags being added should remain before automatically being removed. Only applies to tags being added.
+ int? get durationInHours; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventTag
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +30,16 @@ $ModEventTagCopyWith<ModEventTag> get copyWith => _$ModEventTagCopyWithImpl<ModE
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventTag&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other.add, add)&&const DeepCollectionEquality().equals(other.remove, remove)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventTag&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other.add, add)&&const DeepCollectionEquality().equals(other.remove, remove)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(add),const DeepCollectionEquality().hash(remove),comment,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(add),const DeepCollectionEquality().hash(remove),comment,durationInHours,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModEventTag(\$type: ${$type}, add: $add, remove: $remove, comment: $comment, \$unknown: ${$unknown})';
+  return 'ModEventTag(\$type: ${$type}, add: $add, remove: $remove, comment: $comment, durationInHours: $durationInHours, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +50,7 @@ abstract mixin class $ModEventTagCopyWith<$Res>  {
   factory $ModEventTagCopyWith(ModEventTag value, $Res Function(ModEventTag) _then) = _$ModEventTagCopyWithImpl;
 @useResult
 $Res call({
- String $type, List<String> add, List<String> remove, String? comment, Map<String, dynamic>? $unknown
+ String $type, List<String> add, List<String> remove, String? comment, int? durationInHours, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,13 +67,14 @@ class _$ModEventTagCopyWithImpl<$Res>
 
 /// Create a copy of ModEventTag
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? add = null,Object? remove = null,Object? comment = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? add = null,Object? remove = null,Object? comment = freezed,Object? durationInHours = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,add: null == add ? _self.add : add // ignore: cast_nullable_to_non_nullable
 as List<String>,remove: null == remove ? _self.remove : remove // ignore: cast_nullable_to_non_nullable
 as List<String>,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -158,10 +160,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<String> add,  List<String> remove,  String? comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<String> add,  List<String> remove,  String? comment,  int? durationInHours,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventTag() when $default != null:
-return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.durationInHours,_that.$unknown);case _:
   return orElse();
 
 }
@@ -179,10 +181,10 @@ return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown)
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<String> add,  List<String> remove,  String? comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<String> add,  List<String> remove,  String? comment,  int? durationInHours,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventTag():
-return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.durationInHours,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +201,10 @@ return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown)
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<String> add,  List<String> remove,  String? comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<String> add,  List<String> remove,  String? comment,  int? durationInHours,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventTag() when $default != null:
-return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.durationInHours,_that.$unknown);case _:
   return null;
 
 }
@@ -214,7 +216,7 @@ return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.$unknown)
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventTag implements ModEventTag {
-  const _ModEventTag({this.$type = 'tools.ozone.moderation.defs#modEventTag', required final  List<String> add, required final  List<String> remove, this.comment, final  Map<String, dynamic>? $unknown}): _add = add,_remove = remove,_$unknown = $unknown;
+  const _ModEventTag({this.$type = 'tools.ozone.moderation.defs#modEventTag', required final  List<String> add, required final  List<String> remove, this.comment, this.durationInHours, final  Map<String, dynamic>? $unknown}): _add = add,_remove = remove,_$unknown = $unknown;
   factory _ModEventTag.fromJson(Map<String, dynamic> json) => _$ModEventTagFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -234,6 +236,8 @@ class _ModEventTag implements ModEventTag {
 
 /// Additional comment about added/removed tags.
 @override final  String? comment;
+/// Indicates how long the tags being added should remain before automatically being removed. Only applies to tags being added.
+@override final  int? durationInHours;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -257,16 +261,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventTag&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other._add, _add)&&const DeepCollectionEquality().equals(other._remove, _remove)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventTag&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other._add, _add)&&const DeepCollectionEquality().equals(other._remove, _remove)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.durationInHours, durationInHours) || other.durationInHours == durationInHours)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(_add),const DeepCollectionEquality().hash(_remove),comment,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(_add),const DeepCollectionEquality().hash(_remove),comment,durationInHours,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModEventTag(\$type: ${$type}, add: $add, remove: $remove, comment: $comment, \$unknown: ${$unknown})';
+  return 'ModEventTag(\$type: ${$type}, add: $add, remove: $remove, comment: $comment, durationInHours: $durationInHours, \$unknown: ${$unknown})';
 }
 
 
@@ -277,7 +281,7 @@ abstract mixin class _$ModEventTagCopyWith<$Res> implements $ModEventTagCopyWith
   factory _$ModEventTagCopyWith(_ModEventTag value, $Res Function(_ModEventTag) _then) = __$ModEventTagCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, List<String> add, List<String> remove, String? comment, Map<String, dynamic>? $unknown
+ String $type, List<String> add, List<String> remove, String? comment, int? durationInHours, Map<String, dynamic>? $unknown
 });
 
 
@@ -294,13 +298,14 @@ class __$ModEventTagCopyWithImpl<$Res>
 
 /// Create a copy of ModEventTag
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? add = null,Object? remove = null,Object? comment = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? add = null,Object? remove = null,Object? comment = freezed,Object? durationInHours = freezed,Object? $unknown = freezed,}) {
   return _then(_ModEventTag(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,add: null == add ? _self._add : add // ignore: cast_nullable_to_non_nullable
 as List<String>,remove: null == remove ? _self._remove : remove // ignore: cast_nullable_to_non_nullable
 as List<String>,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

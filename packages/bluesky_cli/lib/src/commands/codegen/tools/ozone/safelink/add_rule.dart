@@ -22,16 +22,16 @@ final class AddRuleCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "url",
-        help: r"The URL or domain to apply the rule to",
+        help: r'The URL or domain to apply the rule to',
         mandatory: true,
       )
       ..addOption("pattern", mandatory: true)
       ..addOption("action", mandatory: true)
       ..addOption("reason", mandatory: true)
-      ..addOption("comment", help: r"Optional comment about the decision")
+      ..addOption("comment", help: r'Optional comment about the decision')
       ..addOption(
         "createdBy",
-        help: r"Author DID. Only respected when using admin auth",
+        help: r'Author DID. Only respected when using admin auth',
       );
   }
 

@@ -17,10 +17,10 @@ import '../../../../query_command.dart';
 final class GetBlobCommand extends QueryCommand {
   GetBlobCommand() {
     argParser
-      ..addOption("did", help: r"The DID of the account.", mandatory: true)
+      ..addOption("did", help: r'The DID of the account.', mandatory: true)
       ..addOption(
         "cid",
-        help: r"The CID of the blob to fetch",
+        help: r'The CID of the blob to fetch',
         mandatory: true,
       );
   }

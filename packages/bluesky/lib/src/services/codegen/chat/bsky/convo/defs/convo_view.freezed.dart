@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConvoView {
 
- String get $type; String get id; String get rev;@ProfileViewBasicConverter() List<ProfileViewBasic> get members;@UConvoViewLastMessageConverter() UConvoViewLastMessage? get lastMessage;@UConvoViewLastReactionConverter() UConvoViewLastReaction? get lastReaction; bool get muted;@ConvoViewStatusConverter() ConvoViewStatus? get status; int get unreadCount; Map<String, dynamic>? get $unknown;
+ String get $type; String get id; String get rev;@ProfileViewBasicConverter() List<ProfileViewBasic> get members;@UConvoViewLastMessageConverter() UConvoViewLastMessage? get lastMessage;@UConvoViewLastReactionConverter() UConvoViewLastReaction? get lastReaction; bool get muted;/// Convo status for the viewer member (not the convo itself).
+@ConvoStatusConverter() ConvoStatus? get status; int get unreadCount;@UConvoViewKindConverter() UConvoViewKind? get kind; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConvoView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $ConvoViewCopyWith<ConvoView> get copyWith => _$ConvoViewCopyWithImpl<ConvoView>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConvoView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.rev, rev) || other.rev == rev)&&const DeepCollectionEquality().equals(other.members, members)&&(identical(other.lastMessage, lastMessage) || other.lastMessage == lastMessage)&&(identical(other.lastReaction, lastReaction) || other.lastReaction == lastReaction)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.status, status) || other.status == status)&&(identical(other.unreadCount, unreadCount) || other.unreadCount == unreadCount)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConvoView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.rev, rev) || other.rev == rev)&&const DeepCollectionEquality().equals(other.members, members)&&(identical(other.lastMessage, lastMessage) || other.lastMessage == lastMessage)&&(identical(other.lastReaction, lastReaction) || other.lastReaction == lastReaction)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.status, status) || other.status == status)&&(identical(other.unreadCount, unreadCount) || other.unreadCount == unreadCount)&&(identical(other.kind, kind) || other.kind == kind)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,rev,const DeepCollectionEquality().hash(members),lastMessage,lastReaction,muted,status,unreadCount,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,rev,const DeepCollectionEquality().hash(members),lastMessage,lastReaction,muted,status,unreadCount,kind,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ConvoView(\$type: ${$type}, id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, lastReaction: $lastReaction, muted: $muted, status: $status, unreadCount: $unreadCount, \$unknown: ${$unknown})';
+  return 'ConvoView(\$type: ${$type}, id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, lastReaction: $lastReaction, muted: $muted, status: $status, unreadCount: $unreadCount, kind: $kind, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +49,11 @@ abstract mixin class $ConvoViewCopyWith<$Res>  {
   factory $ConvoViewCopyWith(ConvoView value, $Res Function(ConvoView) _then) = _$ConvoViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id, String rev,@ProfileViewBasicConverter() List<ProfileViewBasic> members,@UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,@UConvoViewLastReactionConverter() UConvoViewLastReaction? lastReaction, bool muted,@ConvoViewStatusConverter() ConvoViewStatus? status, int unreadCount, Map<String, dynamic>? $unknown
+ String $type, String id, String rev,@ProfileViewBasicConverter() List<ProfileViewBasic> members,@UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,@UConvoViewLastReactionConverter() UConvoViewLastReaction? lastReaction, bool muted,@ConvoStatusConverter() ConvoStatus? status, int unreadCount,@UConvoViewKindConverter() UConvoViewKind? kind, Map<String, dynamic>? $unknown
 });
 
 
-$UConvoViewLastMessageCopyWith<$Res>? get lastMessage;$UConvoViewLastReactionCopyWith<$Res>? get lastReaction;$ConvoViewStatusCopyWith<$Res>? get status;
+$UConvoViewLastMessageCopyWith<$Res>? get lastMessage;$UConvoViewLastReactionCopyWith<$Res>? get lastReaction;$ConvoStatusCopyWith<$Res>? get status;$UConvoViewKindCopyWith<$Res>? get kind;
 
 }
 /// @nodoc
@@ -65,7 +66,7 @@ class _$ConvoViewCopyWithImpl<$Res>
 
 /// Create a copy of ConvoView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? rev = null,Object? members = null,Object? lastMessage = freezed,Object? lastReaction = freezed,Object? muted = null,Object? status = freezed,Object? unreadCount = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? rev = null,Object? members = null,Object? lastMessage = freezed,Object? lastReaction = freezed,Object? muted = null,Object? status = freezed,Object? unreadCount = null,Object? kind = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -75,8 +76,9 @@ as List<ProfileViewBasic>,lastMessage: freezed == lastMessage ? _self.lastMessag
 as UConvoViewLastMessage?,lastReaction: freezed == lastReaction ? _self.lastReaction : lastReaction // ignore: cast_nullable_to_non_nullable
 as UConvoViewLastReaction?,muted: null == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as ConvoViewStatus?,unreadCount: null == unreadCount ? _self.unreadCount : unreadCount // ignore: cast_nullable_to_non_nullable
-as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ConvoStatus?,unreadCount: null == unreadCount ? _self.unreadCount : unreadCount // ignore: cast_nullable_to_non_nullable
+as int,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as UConvoViewKind?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -108,13 +110,25 @@ $UConvoViewLastReactionCopyWith<$Res>? get lastReaction {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ConvoViewStatusCopyWith<$Res>? get status {
+$ConvoStatusCopyWith<$Res>? get status {
     if (_self.status == null) {
     return null;
   }
 
-  return $ConvoViewStatusCopyWith<$Res>(_self.status!, (value) {
+  return $ConvoStatusCopyWith<$Res>(_self.status!, (value) {
     return _then(_self.copyWith(status: value));
+  });
+}/// Create a copy of ConvoView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UConvoViewKindCopyWith<$Res>? get kind {
+    if (_self.kind == null) {
+    return null;
+  }
+
+  return $UConvoViewKindCopyWith<$Res>(_self.kind!, (value) {
+    return _then(_self.copyWith(kind: value));
   });
 }
 }
@@ -198,10 +212,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @ProfileViewBasicConverter()  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter()  UConvoViewLastMessage? lastMessage, @UConvoViewLastReactionConverter()  UConvoViewLastReaction? lastReaction,  bool muted, @ConvoViewStatusConverter()  ConvoViewStatus? status,  int unreadCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @ProfileViewBasicConverter()  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter()  UConvoViewLastMessage? lastMessage, @UConvoViewLastReactionConverter()  UConvoViewLastReaction? lastReaction,  bool muted, @ConvoStatusConverter()  ConvoStatus? status,  int unreadCount, @UConvoViewKindConverter()  UConvoViewKind? kind,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConvoView() when $default != null:
-return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_that.lastReaction,_that.muted,_that.status,_that.unreadCount,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_that.lastReaction,_that.muted,_that.status,_that.unreadCount,_that.kind,_that.$unknown);case _:
   return orElse();
 
 }
@@ -219,10 +233,10 @@ return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @ProfileViewBasicConverter()  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter()  UConvoViewLastMessage? lastMessage, @UConvoViewLastReactionConverter()  UConvoViewLastReaction? lastReaction,  bool muted, @ConvoViewStatusConverter()  ConvoViewStatus? status,  int unreadCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @ProfileViewBasicConverter()  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter()  UConvoViewLastMessage? lastMessage, @UConvoViewLastReactionConverter()  UConvoViewLastReaction? lastReaction,  bool muted, @ConvoStatusConverter()  ConvoStatus? status,  int unreadCount, @UConvoViewKindConverter()  UConvoViewKind? kind,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConvoView():
-return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_that.lastReaction,_that.muted,_that.status,_that.unreadCount,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_that.lastReaction,_that.muted,_that.status,_that.unreadCount,_that.kind,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -239,10 +253,10 @@ return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String rev, @ProfileViewBasicConverter()  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter()  UConvoViewLastMessage? lastMessage, @UConvoViewLastReactionConverter()  UConvoViewLastReaction? lastReaction,  bool muted, @ConvoViewStatusConverter()  ConvoViewStatus? status,  int unreadCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String rev, @ProfileViewBasicConverter()  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter()  UConvoViewLastMessage? lastMessage, @UConvoViewLastReactionConverter()  UConvoViewLastReaction? lastReaction,  bool muted, @ConvoStatusConverter()  ConvoStatus? status,  int unreadCount, @UConvoViewKindConverter()  UConvoViewKind? kind,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConvoView() when $default != null:
-return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_that.lastReaction,_that.muted,_that.status,_that.unreadCount,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_that.lastReaction,_that.muted,_that.status,_that.unreadCount,_that.kind,_that.$unknown);case _:
   return null;
 
 }
@@ -254,7 +268,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.members,_that.lastMessage,_
 
 @JsonSerializable(includeIfNull: false)
 class _ConvoView implements ConvoView {
-  const _ConvoView({this.$type = 'chat.bsky.convo.defs#convoView', required this.id, required this.rev, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter() this.lastMessage, @UConvoViewLastReactionConverter() this.lastReaction, required this.muted, @ConvoViewStatusConverter() this.status, required this.unreadCount, final  Map<String, dynamic>? $unknown}): _members = members,_$unknown = $unknown;
+  const _ConvoView({this.$type = 'chat.bsky.convo.defs#convoView', required this.id, required this.rev, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> members, @UConvoViewLastMessageConverter() this.lastMessage, @UConvoViewLastReactionConverter() this.lastReaction, required this.muted, @ConvoStatusConverter() this.status, required this.unreadCount, @UConvoViewKindConverter() this.kind, final  Map<String, dynamic>? $unknown}): _members = members,_$unknown = $unknown;
   factory _ConvoView.fromJson(Map<String, dynamic> json) => _$ConvoViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -270,8 +284,10 @@ class _ConvoView implements ConvoView {
 @override@UConvoViewLastMessageConverter() final  UConvoViewLastMessage? lastMessage;
 @override@UConvoViewLastReactionConverter() final  UConvoViewLastReaction? lastReaction;
 @override final  bool muted;
-@override@ConvoViewStatusConverter() final  ConvoViewStatus? status;
+/// Convo status for the viewer member (not the convo itself).
+@override@ConvoStatusConverter() final  ConvoStatus? status;
 @override final  int unreadCount;
+@override@UConvoViewKindConverter() final  UConvoViewKind? kind;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -295,16 +311,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConvoView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.rev, rev) || other.rev == rev)&&const DeepCollectionEquality().equals(other._members, _members)&&(identical(other.lastMessage, lastMessage) || other.lastMessage == lastMessage)&&(identical(other.lastReaction, lastReaction) || other.lastReaction == lastReaction)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.status, status) || other.status == status)&&(identical(other.unreadCount, unreadCount) || other.unreadCount == unreadCount)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConvoView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.rev, rev) || other.rev == rev)&&const DeepCollectionEquality().equals(other._members, _members)&&(identical(other.lastMessage, lastMessage) || other.lastMessage == lastMessage)&&(identical(other.lastReaction, lastReaction) || other.lastReaction == lastReaction)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.status, status) || other.status == status)&&(identical(other.unreadCount, unreadCount) || other.unreadCount == unreadCount)&&(identical(other.kind, kind) || other.kind == kind)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,rev,const DeepCollectionEquality().hash(_members),lastMessage,lastReaction,muted,status,unreadCount,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,rev,const DeepCollectionEquality().hash(_members),lastMessage,lastReaction,muted,status,unreadCount,kind,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ConvoView(\$type: ${$type}, id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, lastReaction: $lastReaction, muted: $muted, status: $status, unreadCount: $unreadCount, \$unknown: ${$unknown})';
+  return 'ConvoView(\$type: ${$type}, id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, lastReaction: $lastReaction, muted: $muted, status: $status, unreadCount: $unreadCount, kind: $kind, \$unknown: ${$unknown})';
 }
 
 
@@ -315,11 +331,11 @@ abstract mixin class _$ConvoViewCopyWith<$Res> implements $ConvoViewCopyWith<$Re
   factory _$ConvoViewCopyWith(_ConvoView value, $Res Function(_ConvoView) _then) = __$ConvoViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id, String rev,@ProfileViewBasicConverter() List<ProfileViewBasic> members,@UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,@UConvoViewLastReactionConverter() UConvoViewLastReaction? lastReaction, bool muted,@ConvoViewStatusConverter() ConvoViewStatus? status, int unreadCount, Map<String, dynamic>? $unknown
+ String $type, String id, String rev,@ProfileViewBasicConverter() List<ProfileViewBasic> members,@UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,@UConvoViewLastReactionConverter() UConvoViewLastReaction? lastReaction, bool muted,@ConvoStatusConverter() ConvoStatus? status, int unreadCount,@UConvoViewKindConverter() UConvoViewKind? kind, Map<String, dynamic>? $unknown
 });
 
 
-@override $UConvoViewLastMessageCopyWith<$Res>? get lastMessage;@override $UConvoViewLastReactionCopyWith<$Res>? get lastReaction;@override $ConvoViewStatusCopyWith<$Res>? get status;
+@override $UConvoViewLastMessageCopyWith<$Res>? get lastMessage;@override $UConvoViewLastReactionCopyWith<$Res>? get lastReaction;@override $ConvoStatusCopyWith<$Res>? get status;@override $UConvoViewKindCopyWith<$Res>? get kind;
 
 }
 /// @nodoc
@@ -332,7 +348,7 @@ class __$ConvoViewCopyWithImpl<$Res>
 
 /// Create a copy of ConvoView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? rev = null,Object? members = null,Object? lastMessage = freezed,Object? lastReaction = freezed,Object? muted = null,Object? status = freezed,Object? unreadCount = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? rev = null,Object? members = null,Object? lastMessage = freezed,Object? lastReaction = freezed,Object? muted = null,Object? status = freezed,Object? unreadCount = null,Object? kind = freezed,Object? $unknown = freezed,}) {
   return _then(_ConvoView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -342,8 +358,9 @@ as List<ProfileViewBasic>,lastMessage: freezed == lastMessage ? _self.lastMessag
 as UConvoViewLastMessage?,lastReaction: freezed == lastReaction ? _self.lastReaction : lastReaction // ignore: cast_nullable_to_non_nullable
 as UConvoViewLastReaction?,muted: null == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as ConvoViewStatus?,unreadCount: null == unreadCount ? _self.unreadCount : unreadCount // ignore: cast_nullable_to_non_nullable
-as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ConvoStatus?,unreadCount: null == unreadCount ? _self.unreadCount : unreadCount // ignore: cast_nullable_to_non_nullable
+as int,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as UConvoViewKind?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -376,13 +393,25 @@ $UConvoViewLastReactionCopyWith<$Res>? get lastReaction {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ConvoViewStatusCopyWith<$Res>? get status {
+$ConvoStatusCopyWith<$Res>? get status {
     if (_self.status == null) {
     return null;
   }
 
-  return $ConvoViewStatusCopyWith<$Res>(_self.status!, (value) {
+  return $ConvoStatusCopyWith<$Res>(_self.status!, (value) {
     return _then(_self.copyWith(status: value));
+  });
+}/// Create a copy of ConvoView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UConvoViewKindCopyWith<$Res>? get kind {
+    if (_self.kind == null) {
+    return null;
+  }
+
+  return $UConvoViewKindCopyWith<$Res>(_self.kind!, (value) {
+    return _then(_self.copyWith(kind: value));
   });
 }
 }

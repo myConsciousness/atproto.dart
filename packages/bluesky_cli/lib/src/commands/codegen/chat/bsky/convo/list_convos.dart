@@ -20,18 +20,29 @@ final class ListConvosCommand extends QueryCommand {
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addOption("readState")
-      ..addOption("status");
+      ..addOption(
+        "status",
+        help:
+            r'Filter convos by their status. It is discouraged to call with "request" and preferred to call chat.bsky.convo.listConvoRequests, which also includes group join requests made by the user.',
+      )
+      ..addOption("kind", help: r'Filter by conversation kind.')
+      ..addOption(
+        "lockStatus",
+        help:
+            r'Filter by conversation lock status. Values follow chat.bsky.convo.defs#convoLockStatus.',
+      );
   }
 
   @override
   final String name = "list-convos";
 
   @override
-  final String description = r"";
+  final String description =
+      r"Returns a page of conversations (direct or group) for the user.";
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo list-convos [limit] [cursor] [readState] [status]";
+      "bsky chat-bsky-convo list-convos [limit] [cursor] [readState] [status] [kind] [lockStatus]";
 
   @override
   String get methodId => "chat.bsky.convo.listConvos";
@@ -42,5 +53,8 @@ final class ListConvosCommand extends QueryCommand {
     if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
     if (argResults!["readState"] != null) "readState": argResults!["readState"],
     if (argResults!["status"] != null) "status": argResults!["status"],
+    if (argResults!["kind"] != null) "kind": argResults!["kind"],
+    if (argResults!["lockStatus"] != null)
+      "lockStatus": argResults!["lockStatus"],
   };
 }

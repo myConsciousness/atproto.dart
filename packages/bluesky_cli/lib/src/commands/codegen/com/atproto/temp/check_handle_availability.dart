@@ -20,18 +20,18 @@ final class CheckHandleAvailabilityCommand extends QueryCommand {
       ..addOption(
         "handle",
         help:
-            r"Tentative handle. Will be checked for availability or used to build handle suggestions.",
+            r'Tentative handle. Will be checked for availability or used to build handle suggestions.',
         mandatory: true,
       )
       ..addOption(
         "email",
         help:
-            r"User-provided email. Might be used to build handle suggestions.",
+            r'User-provided email. Might be used to build handle suggestions.',
       )
       ..addOption(
         "birthDate",
         help:
-            r"User-provided birth date. Might be used to build handle suggestions.",
+            r'User-provided birth date. Might be used to build handle suggestions.',
       );
   }
 

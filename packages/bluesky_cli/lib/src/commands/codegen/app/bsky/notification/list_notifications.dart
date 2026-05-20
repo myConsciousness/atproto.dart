@@ -19,7 +19,7 @@ final class ListNotificationsCommand extends QueryCommand {
     argParser
       ..addMultiOption(
         "reasons",
-        help: r"Notification reasons to include in response.",
+        help: r'Notification reasons to include in response.',
       )
       ..addOption("limit", defaultsTo: "50")
       ..addFlag("priority")

@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
 import './reaction_view.dart';
 import './union_log_remove_reaction_message.dart';
 
@@ -22,9 +23,16 @@ part 'log_remove_reaction.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating a reaction was removed from a message.
 @freezed
 abstract class LogRemoveReaction with _$LogRemoveReaction {
-  static const knownProps = <String>['rev', 'convoId', 'message', 'reaction'];
+  static const knownProps = <String>[
+    'rev',
+    'convoId',
+    'message',
+    'reaction',
+    'relatedProfiles',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory LogRemoveReaction({
@@ -34,6 +42,7 @@ abstract class LogRemoveReaction with _$LogRemoveReaction {
     @ULogRemoveReactionMessageConverter()
     required ULogRemoveReactionMessage message,
     @ReactionViewConverter() required ReactionView reaction,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? relatedProfiles,
 
     Map<String, dynamic>? $unknown,
   }) = _LogRemoveReaction;

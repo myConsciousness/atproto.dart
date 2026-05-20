@@ -19,7 +19,7 @@ final class GetListsWithMembershipCommand extends QueryCommand {
     argParser
       ..addOption(
         "actor",
-        help: r"The account (actor) to check for membership.",
+        help: r'The account (actor) to check for membership.',
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")
@@ -27,7 +27,7 @@ final class GetListsWithMembershipCommand extends QueryCommand {
       ..addMultiOption(
         "purposes",
         help:
-            r"Optional filter by list purpose. If not specified, all supported types are returned.",
+            r'Optional filter by list purpose. If not specified, all supported types are returned.',
       );
   }
 

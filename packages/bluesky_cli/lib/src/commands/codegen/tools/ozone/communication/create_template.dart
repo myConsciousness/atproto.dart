@@ -17,22 +17,22 @@ import '../../../../procedure_command.dart';
 final class CreateTemplateCommand extends ProcedureCommand {
   CreateTemplateCommand() {
     argParser
-      ..addOption("name", help: r"Name of the template.", mandatory: true)
+      ..addOption("name", help: r'Name of the template.', mandatory: true)
       ..addOption(
         "contentMarkdown",
         help:
-            r"Content of the template, markdown supported, can contain variable placeholders.",
+            r'Content of the template, markdown supported, can contain variable placeholders.',
         mandatory: true,
       )
       ..addOption(
         "subject",
-        help: r"Subject of the message, used in emails.",
+        help: r'Subject of the message, used in emails.',
         mandatory: true,
       )
-      ..addOption("lang", help: r"Message language.")
+      ..addOption("lang", help: r'Message language.')
       ..addOption(
         "createdBy",
-        help: r"DID of the user who is creating the template.",
+        help: r'DID of the user who is creating the template.',
       );
   }
 

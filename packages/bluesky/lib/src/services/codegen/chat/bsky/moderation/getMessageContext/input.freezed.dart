@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 mixin _$ModerationGetMessageContextInput {
 
 /// Conversation that the message is from. NOTE: this field will eventually be required.
- String? get convoId; String get messageId; int get before; int get after; Map<String, dynamic>? get $unknown;
+ String? get convoId; String get messageId;/// Number of user messages before the target to include. System messages between the earliest returned user message and the target are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages before the target, up to `maxInterleavedSystemMessages` system messages immediately preceding the target are returned instead.
+ int get before;/// Number of user messages after the target to include. System messages between the target and the latest returned user message are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages after the target, up to `maxInterleavedSystemMessages` system messages immediately following the target are returned instead.
+ int get after;/// Maximum number of system messages to include per gap between consecutive returned messages (and per side when there are no user messages on that side). Within a gap, the system messages closest to the earlier message are kept.
+ int get maxInterleavedSystemMessages; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationGetMessageContextInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +32,16 @@ $ModerationGetMessageContextInputCopyWith<ModerationGetMessageContextInput> get 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationGetMessageContextInput&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.before, before) || other.before == before)&&(identical(other.after, after) || other.after == after)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationGetMessageContextInput&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.before, before) || other.before == before)&&(identical(other.after, after) || other.after == after)&&(identical(other.maxInterleavedSystemMessages, maxInterleavedSystemMessages) || other.maxInterleavedSystemMessages == maxInterleavedSystemMessages)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,convoId,messageId,before,after,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,convoId,messageId,before,after,maxInterleavedSystemMessages,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModerationGetMessageContextInput(convoId: $convoId, messageId: $messageId, before: $before, after: $after, \$unknown: ${$unknown})';
+  return 'ModerationGetMessageContextInput(convoId: $convoId, messageId: $messageId, before: $before, after: $after, maxInterleavedSystemMessages: $maxInterleavedSystemMessages, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +52,7 @@ abstract mixin class $ModerationGetMessageContextInputCopyWith<$Res>  {
   factory $ModerationGetMessageContextInputCopyWith(ModerationGetMessageContextInput value, $Res Function(ModerationGetMessageContextInput) _then) = _$ModerationGetMessageContextInputCopyWithImpl;
 @useResult
 $Res call({
- String? convoId, String messageId, int before, int after, Map<String, dynamic>? $unknown
+ String? convoId, String messageId, int before, int after, int maxInterleavedSystemMessages, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,12 +69,13 @@ class _$ModerationGetMessageContextInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationGetMessageContextInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = null,Object? after = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = null,Object? after = null,Object? maxInterleavedSystemMessages = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 convoId: freezed == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String?,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,before: null == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
 as int,after: null == after ? _self.after : after // ignore: cast_nullable_to_non_nullable
+as int,maxInterleavedSystemMessages: null == maxInterleavedSystemMessages ? _self.maxInterleavedSystemMessages : maxInterleavedSystemMessages // ignore: cast_nullable_to_non_nullable
 as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -158,10 +162,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int before,  int after,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int before,  int after,  int maxInterleavedSystemMessages,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationGetMessageContextInput() when $default != null:
-return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$unknown);case _:
+return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.maxInterleavedSystemMessages,_that.$unknown);case _:
   return orElse();
 
 }
@@ -179,10 +183,10 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int before,  int after,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? convoId,  String messageId,  int before,  int after,  int maxInterleavedSystemMessages,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationGetMessageContextInput():
-return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$unknown);case _:
+return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.maxInterleavedSystemMessages,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +203,10 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? convoId,  String messageId,  int before,  int after,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? convoId,  String messageId,  int before,  int after,  int maxInterleavedSystemMessages,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationGetMessageContextInput() when $default != null:
-return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$unknown);case _:
+return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.maxInterleavedSystemMessages,_that.$unknown);case _:
   return null;
 
 }
@@ -214,14 +218,18 @@ return $default(_that.convoId,_that.messageId,_that.before,_that.after,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationGetMessageContextInput implements ModerationGetMessageContextInput {
-  const _ModerationGetMessageContextInput({this.convoId, required this.messageId, this.before = 5, this.after = 5, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationGetMessageContextInput({this.convoId, required this.messageId, this.before = 5, this.after = 5, this.maxInterleavedSystemMessages = 10, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetMessageContextInput.fromJson(Map<String, dynamic> json) => _$ModerationGetMessageContextInputFromJson(json);
 
 /// Conversation that the message is from. NOTE: this field will eventually be required.
 @override final  String? convoId;
 @override final  String messageId;
+/// Number of user messages before the target to include. System messages between the earliest returned user message and the target are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages before the target, up to `maxInterleavedSystemMessages` system messages immediately preceding the target are returned instead.
 @override@JsonKey() final  int before;
+/// Number of user messages after the target to include. System messages between the target and the latest returned user message are also included, capped per gap by `maxInterleavedSystemMessages`. If there are no user messages after the target, up to `maxInterleavedSystemMessages` system messages immediately following the target are returned instead.
 @override@JsonKey() final  int after;
+/// Maximum number of system messages to include per gap between consecutive returned messages (and per side when there are no user messages on that side). Within a gap, the system messages closest to the earlier message are kept.
+@override@JsonKey() final  int maxInterleavedSystemMessages;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -245,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationGetMessageContextInput&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.before, before) || other.before == before)&&(identical(other.after, after) || other.after == after)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationGetMessageContextInput&&(identical(other.convoId, convoId) || other.convoId == convoId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.before, before) || other.before == before)&&(identical(other.after, after) || other.after == after)&&(identical(other.maxInterleavedSystemMessages, maxInterleavedSystemMessages) || other.maxInterleavedSystemMessages == maxInterleavedSystemMessages)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,convoId,messageId,before,after,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,convoId,messageId,before,after,maxInterleavedSystemMessages,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModerationGetMessageContextInput(convoId: $convoId, messageId: $messageId, before: $before, after: $after, \$unknown: ${$unknown})';
+  return 'ModerationGetMessageContextInput(convoId: $convoId, messageId: $messageId, before: $before, after: $after, maxInterleavedSystemMessages: $maxInterleavedSystemMessages, \$unknown: ${$unknown})';
 }
 
 
@@ -265,7 +273,7 @@ abstract mixin class _$ModerationGetMessageContextInputCopyWith<$Res> implements
   factory _$ModerationGetMessageContextInputCopyWith(_ModerationGetMessageContextInput value, $Res Function(_ModerationGetMessageContextInput) _then) = __$ModerationGetMessageContextInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? convoId, String messageId, int before, int after, Map<String, dynamic>? $unknown
+ String? convoId, String messageId, int before, int after, int maxInterleavedSystemMessages, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,12 +290,13 @@ class __$ModerationGetMessageContextInputCopyWithImpl<$Res>
 
 /// Create a copy of ModerationGetMessageContextInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = null,Object? after = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? convoId = freezed,Object? messageId = null,Object? before = null,Object? after = null,Object? maxInterleavedSystemMessages = null,Object? $unknown = freezed,}) {
   return _then(_ModerationGetMessageContextInput(
 convoId: freezed == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String?,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,before: null == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
 as int,after: null == after ? _self.after : after // ignore: cast_nullable_to_non_nullable
+as int,maxInterleavedSystemMessages: null == maxInterleavedSystemMessages ? _self.maxInterleavedSystemMessages : maxInterleavedSystemMessages // ignore: cast_nullable_to_non_nullable
 as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

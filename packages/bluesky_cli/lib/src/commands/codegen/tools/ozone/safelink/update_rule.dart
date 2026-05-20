@@ -22,17 +22,17 @@ final class UpdateRuleCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "url",
-        help: r"The URL or domain to update the rule for",
+        help: r'The URL or domain to update the rule for',
         mandatory: true,
       )
       ..addOption("pattern", mandatory: true)
       ..addOption("action", mandatory: true)
       ..addOption("reason", mandatory: true)
-      ..addOption("comment", help: r"Optional comment about the update")
+      ..addOption("comment", help: r'Optional comment about the update')
       ..addOption(
         "createdBy",
         help:
-            r"Optional DID to credit as the creator. Only respected for admin_token authentication.",
+            r'Optional DID to credit as the creator. Only respected for admin_token authentication.',
       );
   }
 

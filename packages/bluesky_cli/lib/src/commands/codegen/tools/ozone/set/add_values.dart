@@ -19,12 +19,12 @@ final class AddValuesCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "name",
-        help: r"Name of the set to add values to",
+        help: r'Name of the set to add values to',
         mandatory: true,
       )
       ..addMultiOption(
         "values",
-        help: r"Array of string values to add to the set",
+        help: r'Array of string values to add to the set',
       );
   }
 

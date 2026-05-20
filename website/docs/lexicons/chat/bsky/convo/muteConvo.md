@@ -7,6 +7,8 @@ description: chat.bsky.convo.muteConvo
 
 ## #main
 
+Mutes a conversation, preventing notifications related to it.
+
 ### Input
 
 - **Encoding**: application/json

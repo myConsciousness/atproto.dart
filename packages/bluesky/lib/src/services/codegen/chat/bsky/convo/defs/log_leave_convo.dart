@@ -18,6 +18,7 @@ part 'log_leave_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating the viewer left a convo. Can be direct or group.
 @freezed
 abstract class LogLeaveConvo with _$LogLeaveConvo {
   static const knownProps = <String>['rev', 'convoId'];

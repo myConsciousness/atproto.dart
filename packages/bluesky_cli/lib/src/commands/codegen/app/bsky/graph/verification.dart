@@ -45,24 +45,24 @@ final class _CreateVerificationCommand extends CreateRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r"DID of the subject the verification applies to.",
+        help: r'DID of the subject the verification applies to.',
         mandatory: true,
       )
       ..addOption(
         "handle",
         help:
-            r"Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
+            r'Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.',
         mandatory: true,
       )
       ..addOption(
         "displayName",
         help:
-            r"Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
+            r'Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.',
         mandatory: true,
       )
       ..addOption(
         "createdAt",
-        help: r"Date of when the verification was created.",
+        help: r'Date of when the verification was created.',
         mandatory: true,
       )
       ..addOption("rkey");
@@ -99,24 +99,24 @@ final class _PutVerificationCommand extends PutRecordCommand {
     argParser
       ..addOption(
         "subject",
-        help: r"DID of the subject the verification applies to.",
+        help: r'DID of the subject the verification applies to.',
         mandatory: true,
       )
       ..addOption(
         "handle",
         help:
-            r"Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
+            r'Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.',
         mandatory: true,
       )
       ..addOption(
         "displayName",
         help:
-            r"Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
+            r'Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.',
         mandatory: true,
       )
       ..addOption(
         "createdAt",
-        help: r"Date of when the verification was created.",
+        help: r'Date of when the verification was created.',
         mandatory: true,
       )
       ..addOption("rkey");

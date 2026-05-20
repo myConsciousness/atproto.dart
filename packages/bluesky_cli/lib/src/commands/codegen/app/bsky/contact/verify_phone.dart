@@ -20,13 +20,13 @@ final class VerifyPhoneCommand extends ProcedureCommand {
       ..addOption(
         "phone",
         help:
-            r"The phone number to verify. Should be the same as the one passed to `app.bsky.contact.startPhoneVerification`.",
+            r'The phone number to verify. Should be the same as the one passed to `app.bsky.contact.startPhoneVerification`.',
         mandatory: true,
       )
       ..addOption(
         "code",
         help:
-            r"The code received via SMS as a result of the call to `app.bsky.contact.startPhoneVerification`.",
+            r'The code received via SMS as a result of the call to `app.bsky.contact.startPhoneVerification`.',
         mandatory: true,
       );
   }

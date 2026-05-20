@@ -18,7 +18,7 @@ final class StartPhoneVerificationCommand extends ProcedureCommand {
   StartPhoneVerificationCommand() {
     argParser..addOption(
       "phone",
-      help: r"The phone number to receive the code via SMS.",
+      help: r'The phone number to receive the code via SMS.',
       mandatory: true,
     );
   }

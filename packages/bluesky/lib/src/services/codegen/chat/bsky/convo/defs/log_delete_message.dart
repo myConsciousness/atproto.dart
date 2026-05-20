@@ -21,6 +21,7 @@ part 'log_delete_message.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Event indicating a user-originated message was deleted. Is not emitted for system messages.
 @freezed
 abstract class LogDeleteMessage with _$LogDeleteMessage {
   static const knownProps = <String>['rev', 'convoId', 'message'];

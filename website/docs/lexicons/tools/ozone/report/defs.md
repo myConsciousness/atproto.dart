@@ -170,3 +170,139 @@ description: tools.ozone.report.defs
 ## #reasonSelfHarmOther
 
 **TOKEN**: Other dangerous content
+
+## #reportAssignment
+
+Information about the moderator currently assigned to a report.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the assigned moderator |
+| **moderator** | [tools.ozone.team.defs#member](../../../../lexicons/tools/ozone/team/defs.md#member) | - | ❌ | - |
+| **assignedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | When the report was assigned |
+
+## #reportView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **id** | integer | - | ✅ | Report ID |
+| **eventId** | integer | - | ✅ | ID of the moderation event that created this report |
+| **status** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ✅ | Current status of the report |
+| **subject** | [tools.ozone.moderation.defs#subjectView](../../../../lexicons/tools/ozone/moderation/defs.md#subjectview) | - | ✅ | - |
+| **reportType** | [com.atproto.moderation.defs#reasonType](../../../../lexicons/com/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
+| **reportedBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the user who made the report |
+| **reporter** | [tools.ozone.moderation.defs#subjectView](../../../../lexicons/tools/ozone/moderation/defs.md#subjectview) | - | ✅ | - |
+| **comment** | string | - | ❌ | Comment provided by the reporter |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | When the report was created |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the report was last updated |
+| **queuedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the report was assigned to its current queue |
+| **actionEventIds** | array of integer | - | ❌ | Array of moderation event IDs representing actions taken on this report (sorted DESC, most recent first) |
+| **actions** | array of [tools.ozone.moderation.defs#modEventView](../../../../lexicons/tools/ozone/moderation/defs.md#modeventview) | - | ❌ | Optional: expanded action events |
+| **actionNote** | string | - | ❌ | Note sent to reporter when report was actioned |
+| **subjectStatus** | [tools.ozone.moderation.defs#subjectStatusView](../../../../lexicons/tools/ozone/moderation/defs.md#subjectstatusview) | - | ❌ | - |
+| **relatedReportCount** | integer | - | ❌ | Number of other pending reports on the same subject |
+| **assignment** | [#reportAssignment](#reportassignment) | - | ❌ | - |
+| **queue** | [tools.ozone.queue.defs#queueView](../../../../lexicons/tools/ozone/queue/defs.md#queueview) | - | ❌ | - |
+| **isMuted** | boolean | - | ❌ | Whether this report is muted. A report is muted if the reporter was muted or the subject was muted at the time the report was created. |
+
+## #queueActivity
+
+Activity recording a report being routed to a queue.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status before this activity. Populated automatically from the report row; not required in input. |
+
+## #assignmentActivity
+
+Activity recording a moderator being assigned to a report.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status before this activity. Populated automatically from the report row; not required in input. |
+
+## #escalationActivity
+
+Activity recording a report being escalated.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status before this activity. Populated automatically from the report row; not required in input. |
+
+## #closeActivity
+
+Activity recording a report being closed.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status before this activity. Populated automatically from the report row; not required in input. |
+
+## #reopenActivity
+
+Activity recording a closed report being reopened. Only valid when the report is in 'closed' status.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status before this activity. Populated automatically from the report row; not required in input. |
+
+## #noteActivity
+
+Activity recording a note on a report. Use internalNote for moderator-only notes or publicNote for reporter-visible notes (or both).
+
+## #reportActivityView
+
+A single activity entry on a report.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **id** | integer | - | ✅ | Activity ID |
+| **reportId** | integer | - | ✅ | ID of the report this activity belongs to |
+| **activity** | union of <br/>[#queueActivity](#queueactivity)<br/>[#assignmentActivity](#assignmentactivity)<br/>[#escalationActivity](#escalationactivity)<br/>[#closeActivity](#closeactivity)<br/>[#reopenActivity](#reopenactivity)<br/>[#noteActivity](#noteactivity) | - | ✅ | - |
+| **internalNote** | string | - | ❌ | Optional moderator-only note. Not visible to reporters. |
+| **publicNote** | string | - | ❌ | Optional public note, potentially visible to the reporter. |
+| **meta** | unknown | - | ❌ | Extensible JSON payload for loose activity-specific metadata (e.g. assignmentId). |
+| **isAutomated** | boolean | - | ✅ | True if this activity was created by an automated process (e.g. queue router) rather than a direct human action. |
+| **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the actor who created this activity, or the service DID for automated activities. |
+| **moderator** | [tools.ozone.team.defs#member](../../../../lexicons/tools/ozone/team/defs.md#member) | - | ❌ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | When this activity was created |
+
+## #liveStats
+
+Live statistics for reports for the current calendar day, filterable by queue, moderator, or report type.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **pendingCount** | integer | - | ❌ | Number of reports currently not closed. |
+| **actionedCount** | integer | - | ❌ | Number of reports closed today. |
+| **escalatedCount** | integer | - | ❌ | Number of reports escalated today. |
+| **inboundCount** | integer | - | ❌ | Reports received today. |
+| **actionRate** | integer | - | ❌ | Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. |
+| **avgHandlingTimeSec** | integer | - | ❌ | Average time in seconds from report creation (or moderator assignment) to close. |
+| **lastUpdated** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When these statistics were last computed. |
+
+## #historicalStats
+
+A single daily snapshot of report statistics for a calendar date.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **date** | string | - | ✅ | The calendar date this snapshot covers (YYYY-MM-DD). |
+| **computedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When this snapshot was last computed. |
+| **pendingCount** | integer | - | ❌ | Number of reports not closed at time of computation. |
+| **actionedCount** | integer | - | ❌ | Number of reports closed during this day. |
+| **escalatedCount** | integer | - | ❌ | Number of reports escalated during this day. |
+| **inboundCount** | integer | - | ❌ | Reports received during this day. |
+| **actionRate** | integer | - | ❌ | Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. |
+| **avgHandlingTimeSec** | integer | - | ❌ | Average time in seconds from report creation (or moderator assignment) to close. |
+
+## #assignmentView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **id** | integer | - | ✅ | - |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **moderator** | [tools.ozone.team.defs#member](../../../../lexicons/tools/ozone/team/defs.md#member) | - | ❌ | - |
+| **queue** | [tools.ozone.queue.defs#queueView](../../../../lexicons/tools/ozone/queue/defs.md#queueview) | - | ❌ | - |
+| **reportId** | integer | - | ✅ | - |
+| **startAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **endAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |

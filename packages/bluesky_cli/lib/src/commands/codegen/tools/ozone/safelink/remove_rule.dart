@@ -22,18 +22,18 @@ final class RemoveRuleCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "url",
-        help: r"The URL or domain to remove the rule for",
+        help: r'The URL or domain to remove the rule for',
         mandatory: true,
       )
       ..addOption("pattern", mandatory: true)
       ..addOption(
         "comment",
-        help: r"Optional comment about why the rule is being removed",
+        help: r'Optional comment about why the rule is being removed',
       )
       ..addOption(
         "createdBy",
         help:
-            r"Optional DID of the user. Only respected when using admin auth.",
+            r'Optional DID of the user. Only respected when using admin auth.',
       );
   }
 

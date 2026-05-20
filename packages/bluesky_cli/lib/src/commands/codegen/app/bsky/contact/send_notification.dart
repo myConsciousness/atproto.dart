@@ -19,12 +19,12 @@ final class SendNotificationCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "from",
-        help: r"The DID of who this notification comes from.",
+        help: r'The DID of who this notification comes from.',
         mandatory: true,
       )
       ..addOption(
         "to",
-        help: r"The DID of who this notification should go to.",
+        help: r'The DID of who this notification should go to.',
         mandatory: true,
       );
   }

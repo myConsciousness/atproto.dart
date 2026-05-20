@@ -19,7 +19,7 @@ final class GetListFeedCommand extends QueryCommand {
     argParser
       ..addOption(
         "list",
-        help: r"Reference (AT-URI) to the list record.",
+        help: r'Reference (AT-URI) to the list record.',
         mandatory: true,
       )
       ..addOption("limit", defaultsTo: "50")

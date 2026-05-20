@@ -13,3 +13,4 @@
 
 export 'package:bluesky/src/services/codegen/chat/bsky/actor/declaration/main.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/actor/declaration/main_allow_incoming.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/actor/declaration/main_allow_group_invites.dart';

@@ -7,6 +7,10 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import '../../../../query_command.dart';
 
@@ -14,30 +18,22 @@ import '../../../../query_command.dart';
 // LexGenerator
 // **************************************************************************
 
+
 final class GetRelationshipsCommand extends QueryCommand {
   GetRelationshipsCommand() {
-    argParser
-      ..addOption(
-        "actor",
-        help: r"Primary account requesting relationships for.",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "others",
-        help: r"List of 'other' accounts to be related back to the primary.",
-      );
+    argParser..addOption("actor",help: r'Primary account requesting relationships for.',mandatory: true,)
+..addMultiOption("others",help: r'List of 'other' accounts to be related back to the primary.',)
+;
   }
 
   @override
   final String name = "get-relationships";
 
   @override
-  final String description =
-      r"Enumerates public relationships between one account, and a list of other accounts. Does not require auth.";
+  final String description = r"Enumerates public relationships between one account, and a list of other accounts. Does not require auth.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-graph get-relationships [actor] [others]";
+  final String invocation = "bsky app-bsky-graph get-relationships [actor] [others]";
 
   @override
   String get methodId => "app.bsky.graph.getRelationships";
@@ -45,6 +41,7 @@ final class GetRelationshipsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "actor": argResults!["actor"],
-    if (argResults!["others"] != null) "others": argResults!["others"],
+if (argResults!["others"] != null)"others": argResults!["others"],
+
   };
 }

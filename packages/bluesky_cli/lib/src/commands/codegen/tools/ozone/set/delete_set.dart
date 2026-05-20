@@ -17,7 +17,7 @@ import '../../../../procedure_command.dart';
 final class DeleteSetCommand extends ProcedureCommand {
   DeleteSetCommand() {
     argParser
-      ..addOption("name", help: r"Name of the set to delete", mandatory: true);
+      ..addOption("name", help: r'Name of the set to delete', mandatory: true);
   }
 
   @override

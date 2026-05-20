@@ -7,6 +7,9 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart' show protected;
@@ -40,6 +43,7 @@ chatBskyModerationGetMessageContext({
   required String messageId,
   int? before,
   int? after,
+  int? maxInterleavedSystemMessages,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -54,8 +58,20 @@ chatBskyModerationGetMessageContext({
     'messageId': messageId,
     if (before != null) 'before': before,
     if (after != null) 'after': after,
+    if (maxInterleavedSystemMessages != null)
+      'maxInterleavedSystemMessages': maxInterleavedSystemMessages,
   },
   to: const ModerationGetMessageContextOutputConverter().fromJson,
+);
+
+/// Subscribe to stream of chat events targeted to moderation. Private endpoint.
+Future<XRPCResponse<Subscription<Uint8List>>>
+chatBskyModerationSubscribeModEvents({
+  String? cursor,
+  required ServiceContext $ctx,
+}) async => await $ctx.stream(
+  ns.chatBskyModerationSubscribeModEvents,
+  parameters: {if (cursor != null) 'cursor': cursor},
 );
 Future<XRPCResponse<EmptyData>> chatBskyModerationUpdateActorAccess({
   required String actor,
@@ -101,6 +117,7 @@ base class ModerationService {
     required String messageId,
     int? before,
     int? after,
+    int? maxInterleavedSystemMessages,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -109,11 +126,18 @@ base class ModerationService {
     messageId: messageId,
     before: before,
     after: after,
+    maxInterleavedSystemMessages: maxInterleavedSystemMessages,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
     $unknown: $unknown,
   );
+
+  /// Subscribe to stream of chat events targeted to moderation. Private endpoint.
+  Future<XRPCResponse<Subscription<Uint8List>>> subscribeModEvents({
+    String? cursor,
+  }) async =>
+      await chatBskyModerationSubscribeModEvents(cursor: cursor, $ctx: ctx);
   Future<XRPCResponse<EmptyData>> updateActorAccess({
     required String actor,
     required bool allowAccess,

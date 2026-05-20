@@ -52,9 +52,9 @@ final class _CreateGeneratorCommand extends CreateRecordCommand {
       ..addFlag(
         "acceptsInteractions",
         help:
-            r"Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions",
+            r'Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions',
       )
-      ..addOption("labels", help: r"Self-label values")
+      ..addOption("labels", help: r'Self-label values')
       ..addOption("contentMode")
       ..addOption("createdAt", mandatory: true)
       ..addOption("rkey");
@@ -107,9 +107,9 @@ final class _PutGeneratorCommand extends PutRecordCommand {
       ..addFlag(
         "acceptsInteractions",
         help:
-            r"Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions",
+            r'Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions',
       )
-      ..addOption("labels", help: r"Self-label values")
+      ..addOption("labels", help: r'Self-label values')
       ..addOption("contentMode")
       ..addOption("createdAt", mandatory: true)
       ..addOption("rkey");

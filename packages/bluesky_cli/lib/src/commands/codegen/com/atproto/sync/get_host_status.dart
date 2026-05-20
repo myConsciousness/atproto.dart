@@ -18,7 +18,7 @@ final class GetHostStatusCommand extends QueryCommand {
   GetHostStatusCommand() {
     argParser..addOption(
       "hostname",
-      help: r"Hostname of the host (eg, PDS or relay) being queried.",
+      help: r'Hostname of the host (eg, PDS or relay) being queried.',
       mandatory: true,
     );
   }

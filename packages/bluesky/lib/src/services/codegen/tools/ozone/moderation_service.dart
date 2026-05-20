@@ -20,6 +20,7 @@ import 'moderation/defs/mod_event_view_detail.dart';
 import 'moderation/defs/mod_tool.dart';
 import 'moderation/defs/record_view_detail.dart';
 import 'moderation/defs/repo_view_detail.dart';
+import 'moderation/emitEvent/report_action.dart';
 import 'moderation/emitEvent/union_main_event.dart';
 import 'moderation/emitEvent/union_main_subject.dart';
 import 'moderation/getAccountTimeline/output.dart';
@@ -74,6 +75,7 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
   required String createdBy,
   ModTool? modTool,
   String? externalId,
+  ReportAction? reportAction,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -90,6 +92,7 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
     'createdBy': createdBy,
     if (modTool != null) 'modTool': modTool.toJson(),
     if (externalId != null) 'externalId': externalId,
+    if (reportAction != null) 'reportAction': reportAction.toJson(),
   },
   to: const ModEventViewConverter().fromJson,
 );
@@ -498,6 +501,7 @@ base class ModerationService {
     required String createdBy,
     ModTool? modTool,
     String? externalId,
+    ReportAction? reportAction,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -508,6 +512,7 @@ base class ModerationService {
     createdBy: createdBy,
     modTool: modTool,
     externalId: externalId,
+    reportAction: reportAction,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

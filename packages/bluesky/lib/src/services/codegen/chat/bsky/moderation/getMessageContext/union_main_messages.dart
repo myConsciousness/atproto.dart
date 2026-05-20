@@ -12,8 +12,8 @@ import 'package:atproto_core/internals.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../chat/bsky/convo/defs/deleted_message_view.dart';
 import '../../../../chat/bsky/convo/defs/message_view.dart';
+import '../../../../chat/bsky/convo/defs/system_message_view.dart';
 
 part 'union_main_messages.freezed.dart';
 
@@ -29,9 +29,9 @@ sealed class UModerationGetMessageContextMessages
   const factory UModerationGetMessageContextMessages.messageView({
     required MessageView data,
   }) = UModerationGetMessageContextMessagesMessageView;
-  const factory UModerationGetMessageContextMessages.deletedMessageView({
-    required DeletedMessageView data,
-  }) = UModerationGetMessageContextMessagesDeletedMessageView;
+  const factory UModerationGetMessageContextMessages.systemMessageView({
+    required SystemMessageView data,
+  }) = UModerationGetMessageContextMessagesSystemMessageView;
 
   const factory UModerationGetMessageContextMessages.unknown({
     required Map<String, dynamic> data,
@@ -47,11 +47,11 @@ extension UModerationGetMessageContextMessagesExtension
       isA<UModerationGetMessageContextMessagesMessageView>(this);
   bool get isNotMessageView => !isMessageView;
   MessageView? get messageView => isMessageView ? data as MessageView : null;
-  bool get isDeletedMessageView =>
-      isA<UModerationGetMessageContextMessagesDeletedMessageView>(this);
-  bool get isNotDeletedMessageView => !isDeletedMessageView;
-  DeletedMessageView? get deletedMessageView =>
-      isDeletedMessageView ? data as DeletedMessageView : null;
+  bool get isSystemMessageView =>
+      isA<UModerationGetMessageContextMessagesSystemMessageView>(this);
+  bool get isNotSystemMessageView => !isSystemMessageView;
+  SystemMessageView? get systemMessageView =>
+      isSystemMessageView ? data as SystemMessageView : null;
   bool get isUnknown => isA<UModerationGetMessageContextMessagesUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -74,9 +74,9 @@ final class UModerationGetMessageContextMessagesConverter
           data: const MessageViewConverter().fromJson(json),
         );
       }
-      if (DeletedMessageView.validate(json)) {
-        return UModerationGetMessageContextMessages.deletedMessageView(
-          data: const DeletedMessageViewConverter().fromJson(json),
+      if (SystemMessageView.validate(json)) {
+        return UModerationGetMessageContextMessages.systemMessageView(
+          data: const SystemMessageViewConverter().fromJson(json),
         );
       }
 
@@ -90,8 +90,8 @@ final class UModerationGetMessageContextMessagesConverter
   Map<String, dynamic> toJson(UModerationGetMessageContextMessages object) =>
       object.when(
         messageView: (data) => const MessageViewConverter().toJson(data),
-        deletedMessageView: (data) =>
-            const DeletedMessageViewConverter().toJson(data),
+        systemMessageView: (data) =>
+            const SystemMessageViewConverter().toJson(data),
 
         unknown: (data) => data,
       );
