@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedExternalExternal {
 
- String get $type; String get uri; String get title; String get description;@BlobConverter() Blob? get thumb;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRecords; Map<String, dynamic>? get $unknown;
+ String get $type; String get uri; String get title; String get description;@BlobConverter() Blob? get thumb;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalExternal
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EmbedExternalExternalCopyWith<EmbedExternalExternal> get copyWith => _$EmbedExt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&const DeepCollectionEquality().equals(other.associatedRecords, associatedRecords)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,const DeepCollectionEquality().hash(associatedRecords),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, associatedRecords: $associatedRecords, \$unknown: ${$unknown})';
+  return 'EmbedExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, associatedRefs: $associatedRefs, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $EmbedExternalExternalCopyWith<$Res>  {
   factory $EmbedExternalExternalCopyWith(EmbedExternalExternal value, $Res Function(EmbedExternalExternal) _then) = _$EmbedExternalExternalCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String title, String description,@BlobConverter() Blob? thumb,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRecords, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description,@BlobConverter() Blob? thumb,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,14 +65,14 @@ class _$EmbedExternalExternalCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalExternal
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? associatedRecords = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? associatedRefs = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,thumb: freezed == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
-as Blob?,associatedRecords: freezed == associatedRecords ? _self.associatedRecords : associatedRecords // ignore: cast_nullable_to_non_nullable
+as Blob?,associatedRefs: freezed == associatedRefs ? _self.associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
 as List<RepoStrongRef>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -171,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRecords,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalExternal() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.associatedRecords,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.associatedRefs,_that.$unknown);case _:
   return orElse();
 
 }
@@ -192,10 +192,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRecords,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalExternal():
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.associatedRecords,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.associatedRefs,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -212,10 +212,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRecords,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description, @BlobConverter()  Blob? thumb, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalExternal() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.associatedRecords,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.associatedRefs,_that.$unknown);case _:
   return null;
 
 }
@@ -227,7 +227,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalExternal implements EmbedExternalExternal {
-  const _EmbedExternalExternal({this.$type = 'app.bsky.embed.external#external', required this.uri, required this.title, required this.description, @BlobConverter() this.thumb, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRecords, final  Map<String, dynamic>? $unknown}): _associatedRecords = associatedRecords,_$unknown = $unknown;
+  const _EmbedExternalExternal({this.$type = 'app.bsky.embed.external#external', required this.uri, required this.title, required this.description, @BlobConverter() this.thumb, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, final  Map<String, dynamic>? $unknown}): _associatedRefs = associatedRefs,_$unknown = $unknown;
   factory _EmbedExternalExternal.fromJson(Map<String, dynamic> json) => _$EmbedExternalExternalFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -235,11 +235,11 @@ class _EmbedExternalExternal implements EmbedExternalExternal {
 @override final  String title;
 @override final  String description;
 @override@BlobConverter() final  Blob? thumb;
- final  List<RepoStrongRef>? _associatedRecords;
-@override@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRecords {
-  final value = _associatedRecords;
+ final  List<RepoStrongRef>? _associatedRefs;
+@override@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs {
+  final value = _associatedRefs;
   if (value == null) return null;
-  if (_associatedRecords is EqualUnmodifiableListView) return _associatedRecords;
+  if (_associatedRefs is EqualUnmodifiableListView) return _associatedRefs;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(value);
 }
@@ -267,16 +267,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&const DeepCollectionEquality().equals(other._associatedRecords, _associatedRecords)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,const DeepCollectionEquality().hash(_associatedRecords),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, associatedRecords: $associatedRecords, \$unknown: ${$unknown})';
+  return 'EmbedExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, associatedRefs: $associatedRefs, \$unknown: ${$unknown})';
 }
 
 
@@ -287,7 +287,7 @@ abstract mixin class _$EmbedExternalExternalCopyWith<$Res> implements $EmbedExte
   factory _$EmbedExternalExternalCopyWith(_EmbedExternalExternal value, $Res Function(_EmbedExternalExternal) _then) = __$EmbedExternalExternalCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String title, String description,@BlobConverter() Blob? thumb,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRecords, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description,@BlobConverter() Blob? thumb,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, Map<String, dynamic>? $unknown
 });
 
 
@@ -304,14 +304,14 @@ class __$EmbedExternalExternalCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalExternal
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? associatedRecords = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? associatedRefs = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedExternalExternal(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,thumb: freezed == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
-as Blob?,associatedRecords: freezed == associatedRecords ? _self._associatedRecords : associatedRecords // ignore: cast_nullable_to_non_nullable
+as Blob?,associatedRefs: freezed == associatedRefs ? _self._associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
 as List<RepoStrongRef>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

@@ -11,24 +11,20 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
-import 'actor/declaration.dart';
-import 'actor/export_account_data.dart';
-import 'actor/get_status.dart';
+import 'embed/get_embed_external_view.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-final class ChatBskyActorCommand extends Command<void> {
-  ChatBskyActorCommand() {
-    addSubcommand(DeclarationCommand());
-    addSubcommand(ExportAccountDataCommand());
-    addSubcommand(GetStatusCommand());
+final class AppBskyEmbedCommand extends Command<void> {
+  AppBskyEmbedCommand() {
+    addSubcommand(GetEmbedExternalViewCommand());
   }
 
   @override
-  String get name => "chat-bsky-actor";
+  String get name => "app-bsky-embed";
 
   @override
-  String get description => "Provides commands for chat.bsky.actor.*";
+  String get description => "Provides commands for app.bsky.embed.*";
 }
