@@ -21,10 +21,7 @@ const validCashtag =
     r'([A-Za-z][A-Za-z0-9]*)'
     r'(?![A-Za-z0-9])';
 
-final validCashtagRegex = RegExp(
-  validCashtag,
-  multiLine: true,
-);
+final validCashtagRegex = RegExp(validCashtag, multiLine: true);
 
 extension ValidCashtagRegexExtension on RegExpMatch {
   /// The text matched immediately before the `$` mark, mirroring
