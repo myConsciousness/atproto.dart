@@ -55,6 +55,18 @@ final class Entity implements Facetable {
         });
 
         break;
+      case EntityType.cashtag:
+        //* The Bluesky `app.bsky.richtext.facet` lexicon does not currently
+        //* define a dedicated cashtag feature, so cashtags are treated as
+        //* regular `tag` facets. The underlying `tag` value is the symbol
+        //* without the leading `$`, mirroring how hashtags drop the leading
+        //* `#` character.
+        facet['features'].add({
+          '\$type': 'app.bsky.richtext.facet#tag',
+          'tag': value,
+        });
+
+        break;
       case EntityType.markdownLink:
         //* Raw markdown links don't generate facets.
         //* The markdown is converted to `EntityType.link` when
@@ -73,6 +85,9 @@ final class Entity implements Facetable {
 
   /// Returns true if this entity is tag, otherwise false.
   bool get isTag => type == EntityType.tag;
+
+  /// Returns true if this entity is cashtag, otherwise false.
+  bool get isCashtag => type == EntityType.cashtag;
 }
 
-enum EntityType { handle, link, markdownLink, tag }
+enum EntityType { handle, link, markdownLink, tag, cashtag }
