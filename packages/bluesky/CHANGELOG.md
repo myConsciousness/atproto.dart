@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.4.4
+
+- core: generated code. ([#2340](https://github.com/myConsciousness/atproto.dart/pull/2340))
+
 ## v1.4.3
 
 - core: generated code. ([#2337](https://github.com/myConsciousness/atproto.dart/pull/2337))

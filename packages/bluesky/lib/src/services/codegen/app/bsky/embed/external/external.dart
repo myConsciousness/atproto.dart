@@ -27,7 +27,7 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
     'title',
     'description',
     'thumb',
-    'associatedRecords',
+    'associatedRefs',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -37,7 +37,7 @@ abstract class EmbedExternalExternal with _$EmbedExternalExternal {
     required String title,
     required String description,
     @BlobConverter() Blob? thumb,
-    @RepoStrongRefConverter() List<RepoStrongRef>? associatedRecords,
+    @RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalExternal;

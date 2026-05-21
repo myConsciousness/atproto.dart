@@ -13,6 +13,7 @@ import 'app/bsky/ageassurance.dart';
 import 'app/bsky/bookmark.dart';
 import 'app/bsky/contact.dart';
 import 'app/bsky/draft.dart';
+import 'app/bsky/embed.dart';
 import 'app/bsky/feed.dart';
 import 'app/bsky/graph.dart';
 import 'app/bsky/labeler.dart';
@@ -55,6 +56,7 @@ final lexCommands = [
   AppBskyBookmarkCommand(),
   AppBskyContactCommand(),
   AppBskyDraftCommand(),
+  AppBskyEmbedCommand(),
   AppBskyFeedCommand(),
   AppBskyGraphCommand(),
   AppBskyLabelerCommand(),

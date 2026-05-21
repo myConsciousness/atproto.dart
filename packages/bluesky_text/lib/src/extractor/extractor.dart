@@ -347,7 +347,7 @@ final class _CashtagsExtractor implements Extractor {
       entities.add(
         Entity(
           type: EntityType.cashtag,
-          value: cashtag.substring(1),
+          value: cashtag,
           indices: ByteIndices(
             start: text.value.toUtf8Index(start),
             end: text.value.toUtf8Index(start + cashtag.length),

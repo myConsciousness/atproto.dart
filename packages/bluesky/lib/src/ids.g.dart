@@ -332,6 +332,9 @@ const appBskyEmbedDefsAspectRatio = 'app.bsky.embed.defs#aspectRatio';
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = 'app.bsky.embed.external';
 
+/// `app.bsky.embed.external#colorRGB`
+const appBskyEmbedExternalColorRGB = 'app.bsky.embed.external#colorRGB';
+
 /// `app.bsky.embed.external#external`
 const appBskyEmbedExternalExternal = 'app.bsky.embed.external#external';
 
@@ -340,6 +343,17 @@ const appBskyEmbedExternalView = 'app.bsky.embed.external#view';
 
 /// `app.bsky.embed.external#viewExternal`
 const appBskyEmbedExternalViewExternal = 'app.bsky.embed.external#viewExternal';
+
+/// `app.bsky.embed.external#viewExternalSource`
+const appBskyEmbedExternalViewExternalSource =
+    'app.bsky.embed.external#viewExternalSource';
+
+/// `app.bsky.embed.external#viewExternalSourceTheme`
+const appBskyEmbedExternalViewExternalSourceTheme =
+    'app.bsky.embed.external#viewExternalSourceTheme';
+
+/// `app.bsky.embed.getEmbedExternalView`
+const appBskyEmbedGetEmbedExternalView = 'app.bsky.embed.getEmbedExternalView';
 
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = 'app.bsky.embed.images';
@@ -1085,6 +1099,9 @@ const chatBskyActorDeleteAccount = 'chat.bsky.actor.deleteAccount';
 
 /// `chat.bsky.actor.exportAccountData`
 const chatBskyActorExportAccountData = 'chat.bsky.actor.exportAccountData';
+
+/// `chat.bsky.actor.getStatus`
+const chatBskyActorGetStatus = 'chat.bsky.actor.getStatus';
 
 /// `chat.bsky.convo.acceptConvo`
 const chatBskyConvoAcceptConvo = 'chat.bsky.convo.acceptConvo';

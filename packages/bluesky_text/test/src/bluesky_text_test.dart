@@ -2325,7 +2325,7 @@ becomes
       expect(cashtags.first.isTag, isFalse);
       expect(cashtags.first.isHandle, isFalse);
       expect(cashtags.first.isLink, isFalse);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 0);
       expect(cashtags.first.indices.end, 5);
 
@@ -2335,7 +2335,7 @@ becomes
         facets.first['features'][0][r'$type'],
         'app.bsky.richtext.facet#tag',
       );
-      expect(facets.first['features'][0]['tag'], 'AAPL');
+      expect(facets.first['features'][0]['tag'], r'$AAPL');
     });
 
     test('case2 multiple cashtags', () {
@@ -2343,10 +2343,10 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 2);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 0);
       expect(cashtags.first.indices.end, 5);
-      expect(cashtags[1].value, 'TSLA');
+      expect(cashtags[1].value, r'$TSLA');
       expect(cashtags[1].indices.start, 6);
       expect(cashtags[1].indices.end, 11);
     });
@@ -2356,7 +2356,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 9);
       expect(cashtags.first.indices.end, 14);
     });
@@ -2366,7 +2366,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 4);
       expect(cashtags.first.indices.end, 9);
     });
@@ -2376,7 +2376,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 1);
       expect(cashtags.first.indices.end, 6);
     });
@@ -2386,7 +2386,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'aapl');
+      expect(cashtags.first.value, r'$aapl');
       expect(cashtags.first.indices.start, 0);
       expect(cashtags.first.indices.end, 5);
     });
@@ -2396,7 +2396,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'BRK1');
+      expect(cashtags.first.value, r'$BRK1');
     });
 
     test('case8 must start with letter', () {
@@ -2446,7 +2446,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 0);
       expect(cashtags.first.indices.end, 5);
     });
@@ -2456,7 +2456,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
     });
 
     test('case16 newline separator', () {
@@ -2464,8 +2464,8 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 2);
-      expect(cashtags.first.value, 'AAPL');
-      expect(cashtags[1].value, 'TSLA');
+      expect(cashtags.first.value, r'$AAPL');
+      expect(cashtags[1].value, r'$TSLA');
     });
 
     test('case17 cashtag after full-width space', () {
@@ -2473,7 +2473,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
     });
 
     test('case18 length limit of 65 chars after \$', () {
@@ -2481,7 +2481,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value.length, 65);
+      expect(cashtags.first.value.length, 66);
     });
 
     test('case19 length limit exceeded', () {
@@ -2511,7 +2511,7 @@ becomes
       expect(tags.length, 1);
       expect(tags.first.value, 'tech');
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
     });
 
     test('case24 cashtag does not collide with handle extraction', () {
@@ -2522,7 +2522,7 @@ becomes
       expect(handles.length, 1);
       expect(handles.first.value, 'alice.dev');
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
     });
 
     test('case25 cashtag with surrounding emoji', () {
@@ -2530,7 +2530,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
     });
 
     test('case26 facet generation for multiple cashtags', () async {
@@ -2542,8 +2542,8 @@ becomes
         facets.first['features'][0][r'$type'],
         'app.bsky.richtext.facet#tag',
       );
-      expect(facets.first['features'][0]['tag'], 'AAPL');
-      expect(facets[1]['features'][0]['tag'], 'TSLA');
+      expect(facets.first['features'][0]['tag'], r'$AAPL');
+      expect(facets[1]['features'][0]['tag'], r'$TSLA');
     });
 
     test('case27 byte indices for utf-8 multibyte text', () {
@@ -2551,7 +2551,7 @@ becomes
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.value, r'$AAPL');
       // 日本語 is 9 bytes in UTF-8, plus 1 byte for the space.
       expect(cashtags.first.indices.start, 10);
       expect(cashtags.first.indices.end, 15);
@@ -2568,7 +2568,7 @@ becomes
 
       expect(entities.any((e) => e.isHandle && e.value == 'alice.dev'), isTrue);
       expect(entities.any((e) => e.isTag && e.value == 'tech'), isTrue);
-      expect(entities.any((e) => e.isCashtag && e.value == 'AAPL'), isTrue);
+      expect(entities.any((e) => e.isCashtag && e.value == r'$AAPL'), isTrue);
       expect(
         entities.any((e) => e.isLink && e.value == 'https://x.com'),
         isTrue,
@@ -2581,7 +2581,7 @@ becomes
 
       expect(entities.length, 3);
       expect(entities[0].isCashtag, isTrue);
-      expect(entities[0].value, 'AAPL');
+      expect(entities[0].value, r'$AAPL');
       expect(entities[1].isHandle, isTrue);
       expect(entities[1].value, 'alice.dev');
       expect(entities[2].isTag, isTrue);
