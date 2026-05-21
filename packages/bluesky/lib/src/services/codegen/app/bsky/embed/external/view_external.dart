@@ -8,8 +8,13 @@
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto/com_atproto_repo_strongref.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import './view_external_source.dart';
 
 part 'view_external.freezed.dart';
 part 'view_external.g.dart';
@@ -20,7 +25,18 @@ part 'view_external.g.dart';
 
 @freezed
 abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
-  static const knownProps = <String>['uri', 'title', 'description', 'thumb'];
+  static const knownProps = <String>[
+    'uri',
+    'title',
+    'description',
+    'thumb',
+    'createdAt',
+    'updatedAt',
+    'readingTime',
+    'labels',
+    'source',
+    'associatedRefs',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewExternal({
@@ -29,6 +45,19 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
     required String title,
     required String description,
     String? thumb,
+
+    /// When the external content was created, if available. Example: a publication date, for an article.
+    DateTime? createdAt,
+
+    /// When the external content was updated, if available.
+    DateTime? updatedAt,
+
+    /// Estimated reading time in minutes, if applicable and available.
+    int? readingTime,
+    @LabelConverter() List<Label>? labels,
+    @EmbedExternalViewExternalSourceConverter()
+    EmbedExternalViewExternalSource? source,
+    @RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewExternal;
@@ -45,6 +74,14 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
 extension EmbedExternalViewExternalExtension on EmbedExternalViewExternal {
   bool get hasThumb => thumb != null;
   bool get hasNotThumb => !hasThumb;
+  bool get hasCreatedAt => createdAt != null;
+  bool get hasNotCreatedAt => !hasCreatedAt;
+  bool get hasUpdatedAt => updatedAt != null;
+  bool get hasNotUpdatedAt => !hasUpdatedAt;
+  bool get hasReadingTime => readingTime != null;
+  bool get hasNotReadingTime => !hasReadingTime;
+  bool get hasSource => source != null;
+  bool get hasNotSource => !hasSource;
 }
 
 final class EmbedExternalViewExternalConverter

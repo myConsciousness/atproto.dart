@@ -103,6 +103,9 @@ const appBskyDraftUpdateDraft = NSID(ids.appBskyDraftUpdateDraft);
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 
+/// `app.bsky.embed.external#colorRGB`
+const appBskyEmbedExternalColorRGB = NSID(ids.appBskyEmbedExternalColorRGB);
+
 /// `app.bsky.embed.external#external`
 const appBskyEmbedExternalExternal = NSID(ids.appBskyEmbedExternalExternal);
 
@@ -112,6 +115,21 @@ const appBskyEmbedExternalView = NSID(ids.appBskyEmbedExternalView);
 /// `app.bsky.embed.external#viewExternal`
 const appBskyEmbedExternalViewExternal = NSID(
   ids.appBskyEmbedExternalViewExternal,
+);
+
+/// `app.bsky.embed.external#viewExternalSource`
+const appBskyEmbedExternalViewExternalSource = NSID(
+  ids.appBskyEmbedExternalViewExternalSource,
+);
+
+/// `app.bsky.embed.external#viewExternalSourceTheme`
+const appBskyEmbedExternalViewExternalSourceTheme = NSID(
+  ids.appBskyEmbedExternalViewExternalSourceTheme,
+);
+
+/// `app.bsky.embed.getEmbedExternalView`
+const appBskyEmbedGetEmbedExternalView = NSID(
+  ids.appBskyEmbedGetEmbedExternalView,
 );
 
 /// `app.bsky.embed.images`
@@ -651,6 +669,9 @@ const chatBskyActorDeleteAccount = NSID(ids.chatBskyActorDeleteAccount);
 
 /// `chat.bsky.actor.exportAccountData`
 const chatBskyActorExportAccountData = NSID(ids.chatBskyActorExportAccountData);
+
+/// `chat.bsky.actor.getStatus`
+const chatBskyActorGetStatus = NSID(ids.chatBskyActorGetStatus);
 
 /// `chat.bsky.convo.acceptConvo`
 const chatBskyConvoAcceptConvo = NSID(ids.chatBskyConvoAcceptConvo);

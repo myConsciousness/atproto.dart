@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedExternalViewExternal {
 
- String get $type; String get uri; String get title; String get description; String? get thumb; Map<String, dynamic>? get $unknown;
+ String get $type; String get uri; String get title; String get description; String? get thumb;/// When the external content was created, if available. Example: a publication date, for an article.
+ DateTime? get createdAt;/// When the external content was updated, if available.
+ DateTime? get updatedAt;/// Estimated reading time in minutes, if applicable and available.
+ int? get readingTime;@LabelConverter() List<Label>? get labels;@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? get source;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalViewExternal
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +31,16 @@ $EmbedExternalViewExternalCopyWith<EmbedExternalViewExternal> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.readingTime, readingTime) || other.readingTime == readingTime)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.source, source) || other.source == source)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,createdAt,updatedAt,readingTime,const DeepCollectionEquality().hash(labels),source,const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, createdAt: $createdAt, updatedAt: $updatedAt, readingTime: $readingTime, labels: $labels, source: $source, associatedRefs: $associatedRefs, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +51,11 @@ abstract mixin class $EmbedExternalViewExternalCopyWith<$Res>  {
   factory $EmbedExternalViewExternalCopyWith(EmbedExternalViewExternal value, $Res Function(EmbedExternalViewExternal) _then) = _$EmbedExternalViewExternalCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String title, String description, String? thumb, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description, String? thumb, DateTime? createdAt, DateTime? updatedAt, int? readingTime,@LabelConverter() List<Label>? labels,@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? source,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, Map<String, dynamic>? $unknown
 });
 
 
-
+$EmbedExternalViewExternalSourceCopyWith<$Res>? get source;
 
 }
 /// @nodoc
@@ -65,18 +68,36 @@ class _$EmbedExternalViewExternalCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewExternal
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? readingTime = freezed,Object? labels = freezed,Object? source = freezed,Object? associatedRefs = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,thumb: freezed == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,readingTime: freezed == readingTime ? _self.readingTime : readingTime // ignore: cast_nullable_to_non_nullable
+as int?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as List<Label>?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewExternalSource?,associatedRefs: freezed == associatedRefs ? _self.associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
+as List<RepoStrongRef>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of EmbedExternalViewExternal
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedExternalViewExternalSourceCopyWith<$Res>? get source {
+    if (_self.source == null) {
+    return null;
+  }
 
+  return $EmbedExternalViewExternalSourceCopyWith<$Res>(_self.source!, (value) {
+    return _then(_self.copyWith(source: value));
+  });
+}
 }
 
 
@@ -158,10 +179,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb,  DateTime? createdAt,  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewExternal() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.createdAt,_that.updatedAt,_that.readingTime,_that.labels,_that.source,_that.associatedRefs,_that.$unknown);case _:
   return orElse();
 
 }
@@ -179,10 +200,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb,  DateTime? createdAt,  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewExternal():
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.createdAt,_that.updatedAt,_that.readingTime,_that.labels,_that.source,_that.associatedRefs,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +220,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description,  String? thumb,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description,  String? thumb,  DateTime? createdAt,  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewExternal() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.createdAt,_that.updatedAt,_that.readingTime,_that.labels,_that.source,_that.associatedRefs,_that.$unknown);case _:
   return null;
 
 }
@@ -214,7 +235,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
-  const _EmbedExternalViewExternal({this.$type = 'app.bsky.embed.external#viewExternal', required this.uri, required this.title, required this.description, this.thumb, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedExternalViewExternal({this.$type = 'app.bsky.embed.external#viewExternal', required this.uri, required this.title, required this.description, this.thumb, this.createdAt, this.updatedAt, this.readingTime, @LabelConverter() final  List<Label>? labels, @EmbedExternalViewExternalSourceConverter() this.source, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_$unknown = $unknown;
   factory _EmbedExternalViewExternal.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewExternalFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -222,6 +243,31 @@ class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
 @override final  String title;
 @override final  String description;
 @override final  String? thumb;
+/// When the external content was created, if available. Example: a publication date, for an article.
+@override final  DateTime? createdAt;
+/// When the external content was updated, if available.
+@override final  DateTime? updatedAt;
+/// Estimated reading time in minutes, if applicable and available.
+@override final  int? readingTime;
+ final  List<Label>? _labels;
+@override@LabelConverter() List<Label>? get labels {
+  final value = _labels;
+  if (value == null) return null;
+  if (_labels is EqualUnmodifiableListView) return _labels;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+@override@EmbedExternalViewExternalSourceConverter() final  EmbedExternalViewExternalSource? source;
+ final  List<RepoStrongRef>? _associatedRefs;
+@override@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs {
+  final value = _associatedRefs;
+  if (value == null) return null;
+  if (_associatedRefs is EqualUnmodifiableListView) return _associatedRefs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -245,16 +291,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewExternal&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.thumb, thumb) || other.thumb == thumb)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.readingTime, readingTime) || other.readingTime == readingTime)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.source, source) || other.source == source)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,title,description,thumb,createdAt,updatedAt,readingTime,const DeepCollectionEquality().hash(_labels),source,const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, createdAt: $createdAt, updatedAt: $updatedAt, readingTime: $readingTime, labels: $labels, source: $source, associatedRefs: $associatedRefs, \$unknown: ${$unknown})';
 }
 
 
@@ -265,11 +311,11 @@ abstract mixin class _$EmbedExternalViewExternalCopyWith<$Res> implements $Embed
   factory _$EmbedExternalViewExternalCopyWith(_EmbedExternalViewExternal value, $Res Function(_EmbedExternalViewExternal) _then) = __$EmbedExternalViewExternalCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String title, String description, String? thumb, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description, String? thumb, DateTime? createdAt, DateTime? updatedAt, int? readingTime,@LabelConverter() List<Label>? labels,@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? source,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $EmbedExternalViewExternalSourceCopyWith<$Res>? get source;
 
 }
 /// @nodoc
@@ -282,19 +328,37 @@ class __$EmbedExternalViewExternalCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewExternal
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? readingTime = freezed,Object? labels = freezed,Object? source = freezed,Object? associatedRefs = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedExternalViewExternal(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,thumb: freezed == thumb ? _self.thumb : thumb // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,readingTime: freezed == readingTime ? _self.readingTime : readingTime // ignore: cast_nullable_to_non_nullable
+as int?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
+as List<Label>?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewExternalSource?,associatedRefs: freezed == associatedRefs ? _self._associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
+as List<RepoStrongRef>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of EmbedExternalViewExternal
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedExternalViewExternalSourceCopyWith<$Res>? get source {
+    if (_self.source == null) {
+    return null;
+  }
 
+  return $EmbedExternalViewExternalSourceCopyWith<$Res>(_self.source!, (value) {
+    return _then(_self.copyWith(source: value));
+  });
+}
 }
 
 // dart format on

@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.1
+
+- fix: do not use `.substring` when creating the cashtag entities.
+
 ## v1.2.0
 
 - **FEATURE**: Added support for cashtag detection (e.g. `$AAPL`, `$tsla`).

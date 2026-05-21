@@ -15,3 +15,6 @@ export 'package:bluesky/src/services/codegen/app/bsky/embed/external/main.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/external/external.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_external.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_external_source.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_external_source_theme.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/color_r_g_b.dart';

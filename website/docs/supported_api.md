@@ -187,6 +187,12 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.bookmark.deleteBookmark](https://pub.dev/documentation/bluesky/latest/app_bsky_services/BookmarkService/deleteBookmark.html)** | [Reference](lexicons/app/bsky/bookmark/deleteBookmark.md) | ❌ |
 | **[app.bsky.bookmark.getBookmarks](https://pub.dev/documentation/bluesky/latest/app_bsky_services/BookmarkService/getBookmarks.html)** | [Reference](lexicons/app/bsky/bookmark/getBookmarks.md) | ✅ |
 
+### app.bsky.embed
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[app.bsky.embed.getEmbedExternalView](https://pub.dev/documentation/bluesky/latest/app_bsky_services/EmbedService/getEmbedExternalView.html)** | [Reference](lexicons/app/bsky/embed/getEmbedExternalView.md) | ❌ |
+
 ### app.bsky.notification
 
 | Method | Docs | Paging (cursor) |
@@ -383,6 +389,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[chat.bsky.actor.declaration](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ActorService/declaration.html)** | [Reference](lexicons/chat/bsky/actor/declaration.md) | ❌ |
 | **[chat.bsky.actor.deleteAccount](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ActorService/deleteAccount.html)** | [Reference](lexicons/chat/bsky/actor/deleteAccount.md) | ❌ |
 | **[chat.bsky.actor.exportAccountData](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ActorService/exportAccountData.html)** | [Reference](lexicons/chat/bsky/actor/exportAccountData.md) | ❌ |
+| **[chat.bsky.actor.getStatus](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ActorService/getStatus.html)** | [Reference](lexicons/chat/bsky/actor/getStatus.md) | ❌ |
 
 ### chat.bsky.moderation
 

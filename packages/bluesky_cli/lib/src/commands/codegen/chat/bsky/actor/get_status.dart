@@ -7,28 +7,29 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-// Package imports:
-import 'package:args/command_runner.dart';
-
 // Project imports:
-import 'actor/declaration.dart';
-import 'actor/export_account_data.dart';
-import 'actor/get_status.dart';
+import '../../../../query_command.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
 
-final class ChatBskyActorCommand extends Command<void> {
-  ChatBskyActorCommand() {
-    addSubcommand(DeclarationCommand());
-    addSubcommand(ExportAccountDataCommand());
-    addSubcommand(GetStatusCommand());
-  }
+final class GetStatusCommand extends QueryCommand {
+  GetStatusCommand() {}
 
   @override
-  String get name => "chat-bsky-actor";
+  final String name = "get-status";
 
   @override
-  String get description => "Provides commands for chat.bsky.actor.*";
+  final String description =
+      r"Get the authenticated viewer's chat status: whether their account is chat-disabled and whether their group-membership additions are restricted to accounts they follow.";
+
+  @override
+  final String invocation = "bsky chat-bsky-actor get-status";
+
+  @override
+  String get methodId => "chat.bsky.actor.getStatus";
+
+  @override
+  Map<String, dynamic>? get parameters => {};
 }

@@ -5320,6 +5320,66 @@ const appBskyEmbedRecord = <String, dynamic>{
   },
 };
 
+/// `app.bsky.embed.getEmbedExternalView`
+const appBskyEmbedGetEmbedExternalView = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.getEmbedExternalView",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Resolve one or more AT-URIs into the data needed to render an enhanced external embed. Returns `associatedRefs` (strongRefs to embed into a post's external.associatedRefs), the raw `associatedRecords`, and a hydrated `view`. The response is empty (`{}`) when no records were resolvable, or when validation determined the resolved records don't actually back the requested URL; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.",
+      "parameters": {
+        "type": "params",
+        "required": ["url", "uris"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description":
+                "The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`. May be used for validation in the future.",
+          },
+          "uris": {
+            "type": "array",
+            "description":
+                "AT-URIs of any Atmosphere records that can be resolved and used to construct #externalView views. Example: a site.standard.document and optionally its associated site.standard.publication.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 4,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "view": {
+              "type": "ref",
+              "description":
+                  "Hydrated view of the embed. Present only when the resolved records back the requested URL and supply enough information to populate the required `viewExternal` fields. Omitted alongside the rest of the response when no records resolved or validation failed.",
+              "ref": "app.bsky.embed.external#view",
+            },
+            "associatedRefs": {
+              "type": "array",
+              "description":
+                  "StrongRefs (URI+CID) of the Atmosphere records that backed this view, suitable for embedding into a post's external.associatedRefs.",
+              "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+            },
+            "associatedRecords": {
+              "type": "array",
+              "items": {
+                "type": "unknown",
+                "description":
+                    "The raw record data of the Atmosphere records that backed this view. This is returned for convenience, to avoid the need for the client to separately fetch the record data for the associatedRefs. Example: the site.standard.document and site.standard.publication records that backed this view.",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = <String, dynamic>{
   "lexicon": 1,
@@ -5540,10 +5600,10 @@ const appBskyEmbedExternal = <String, dynamic>{
           "accept": ["image/*"],
           "maxSize": 1000000,
         },
-        "associatedRecords": {
+        "associatedRefs": {
           "type": "array",
           "description":
-              "The URI of the Atmosphere record representing this external content, if it exists. Example: a site.standard.document record.",
+              "StrongRefs (uri+cid) of the Atmosphere records that backed this view.",
           "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
         },
       },
@@ -5563,6 +5623,78 @@ const appBskyEmbedExternal = <String, dynamic>{
         "title": {"type": "string"},
         "description": {"type": "string"},
         "thumb": {"type": "string", "format": "uri"},
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the external content was created, if available. Example: a publication date, for an article.",
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the external content was updated, if available.",
+        },
+        "readingTime": {
+          "type": "integer",
+          "description":
+              "Estimated reading time in minutes, if applicable and available.",
+        },
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "source": {"type": "ref", "ref": "#viewExternalSource"},
+        "associatedRefs": {
+          "type": "array",
+          "description":
+              "StrongRefs (uri+cid) of the Atmosphere records that backed this view.",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+      },
+    },
+    "viewExternalSource": {
+      "type": "object",
+      "description":
+          "The source of an external embed, such as a standard.site publication.",
+      "required": ["uri", "title"],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "URI of the source, if available. Example: the https:// URL of a site.standard.publication record.",
+        },
+        "icon": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "Fully-qualified URL where an icon representing the source can be fetched. For example, CDN location provided by the App View.",
+        },
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "theme": {"type": "ref", "ref": "#viewExternalSourceTheme"},
+      },
+    },
+    "viewExternalSourceTheme": {
+      "type": "object",
+      "description":
+          "The theme colors of an external source, such as a site.standard.publication. These colors may be used when rendering an embed from that source.",
+      "properties": {
+        "backgroundRGB": {"type": "ref", "ref": "#colorRGB"},
+        "foregroundRGB": {"type": "ref", "ref": "#colorRGB"},
+        "accentRGB": {"type": "ref", "ref": "#colorRGB"},
+        "accentForegroundRGB": {"type": "ref", "ref": "#colorRGB"},
+      },
+    },
+    "colorRGB": {
+      "type": "object",
+      "description":
+          "RGB color definition, inspired by site.standard.theme.color#rgb",
+      "required": ["r", "g", "b"],
+      "properties": {
+        "r": {"type": "integer", "minimum": 0, "maximum": 255},
+        "g": {"type": "integer", "minimum": 0, "maximum": 255},
+        "b": {"type": "integer", "minimum": 0, "maximum": 255},
       },
     },
   },
@@ -14689,13 +14821,13 @@ const chatBskyGroupAddMembers = <String, dynamic>{
       "errors": [
         {"name": "AccountSuspended"},
         {"name": "BlockedActor"},
-        {"name": "UserForbidsGroups"},
         {"name": "ConvoLocked"},
         {"name": "InsufficientRole"},
         {"name": "InvalidConvo"},
         {"name": "MemberLimitReached"},
         {"name": "NotFollowedBySender"},
         {"name": "RecipientNotFound"},
+        {"name": "UserForbidsGroups"},
       ],
     },
   },
@@ -14949,9 +15081,10 @@ const chatBskyGroupCreateGroup = <String, dynamic>{
       "errors": [
         {"name": "AccountSuspended"},
         {"name": "BlockedActor"},
-        {"name": "UserForbidsGroups"},
+        {"name": "NewAccountCannotCreateGroup"},
         {"name": "NotFollowedBySender"},
         {"name": "RecipientNotFound"},
+        {"name": "UserForbidsGroups"},
       ],
     },
   },
@@ -15037,6 +15170,38 @@ const chatBskyActorDefs = <String, dynamic>{
           "[NOTE: This is under active development and should be considered unstable while this note is here]. A past group convo member.",
       "required": [],
       "properties": {},
+    },
+  },
+};
+
+/// `chat.bsky.actor.getStatus`
+const chatBskyActorGetStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "chat.bsky.actor.getStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the authenticated viewer's chat status: whether their account is chat-disabled and whether their group-membership additions are restricted to accounts they follow.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["chatDisabled", "canCreateGroups"],
+          "properties": {
+            "chatDisabled": {
+              "type": "boolean",
+              "description":
+                  "True when the viewer's account is disabled and cannot actively participate in chat.",
+            },
+            "canCreateGroups": {
+              "type": "boolean",
+              "description":
+                  "Whether the viewer's account is allowed to create group chats. New accounts are restricted from creating groups.",
+            },
+          },
+        },
+      },
     },
   },
 };
@@ -22019,6 +22184,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyBookmarkCreateBookmark,
   appBskyEmbedDefs,
   appBskyEmbedRecord,
+  appBskyEmbedGetEmbedExternalView,
   appBskyEmbedImages,
   appBskyEmbedRecordWithMedia,
   appBskyEmbedVideo,
@@ -22178,6 +22344,7 @@ const lexicons = <Map<String, dynamic>>[
   chatBskyGroupEnableJoinLink,
   chatBskyGroupCreateGroup,
   chatBskyActorDefs,
+  chatBskyActorGetStatus,
   chatBskyActorDeclaration,
   chatBskyActorExportAccountData,
   chatBskyActorDeleteAccount,

@@ -24,6 +24,7 @@ import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import 'actor/declaration/main_allow_group_invites.dart';
 import 'actor/declaration/main_allow_incoming.dart';
+import 'actor/getStatus/output.dart';
 
 import 'package:atproto/com_atproto_services.dart'
     show
@@ -58,6 +59,20 @@ Future<XRPCResponse<Uint8List>> chatBskyActorExportAccountData({
   parameters: {...?$unknown},
 );
 
+/// Get the authenticated viewer's chat status: whether their account is chat-disabled and whether their group-membership additions are restricted to accounts they follow.
+Future<XRPCResponse<ActorGetStatusOutput>> chatBskyActorGetStatus({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.chatBskyActorGetStatus,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ActorGetStatusOutputConverter().fromJson,
+);
+
 /// `chat.bsky.actor.*`
 base class ActorService {
   @protected
@@ -82,6 +97,18 @@ base class ActorService {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await chatBskyActorExportAccountData(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get the authenticated viewer's chat status: whether their account is chat-disabled and whether their group-membership additions are restricted to accounts they follow.
+  Future<XRPCResponse<ActorGetStatusOutput>> getStatus({
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await chatBskyActorGetStatus(
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
