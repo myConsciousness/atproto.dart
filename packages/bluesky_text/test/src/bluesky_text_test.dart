@@ -2314,6 +2314,281 @@ becomes
     });
   });
 
+  group('.cashtags', () {
+    test('case1', () async {
+      final text = BlueskyText(r'$AAPL');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.type, EntityType.cashtag);
+      expect(cashtags.first.isCashtag, isTrue);
+      expect(cashtags.first.isTag, isFalse);
+      expect(cashtags.first.isHandle, isFalse);
+      expect(cashtags.first.isLink, isFalse);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.indices.start, 0);
+      expect(cashtags.first.indices.end, 5);
+
+      final facets = await cashtags.toFacets();
+
+      expect(
+        facets.first['features'][0][r'$type'],
+        'app.bsky.richtext.facet#tag',
+      );
+      expect(facets.first['features'][0]['tag'], 'AAPL');
+    });
+
+    test('case2 multiple cashtags', () {
+      final text = BlueskyText(r'$AAPL $TSLA');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 2);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.indices.start, 0);
+      expect(cashtags.first.indices.end, 5);
+      expect(cashtags[1].value, 'TSLA');
+      expect(cashtags[1].indices.start, 6);
+      expect(cashtags[1].indices.end, 11);
+    });
+
+    test('case3 cashtag inside sentence', () {
+      final text = BlueskyText(r'I bought $AAPL today');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.indices.start, 9);
+      expect(cashtags.first.indices.end, 14);
+    });
+
+    test('case4 punctuation after cashtag', () {
+      final text = BlueskyText(r'Buy $AAPL!');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.indices.start, 4);
+      expect(cashtags.first.indices.end, 9);
+    });
+
+    test('case5 cashtag in parentheses', () {
+      final text = BlueskyText(r'($AAPL)');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.indices.start, 1);
+      expect(cashtags.first.indices.end, 6);
+    });
+
+    test('case6 lowercase cashtag', () {
+      final text = BlueskyText(r'$aapl');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'aapl');
+      expect(cashtags.first.indices.start, 0);
+      expect(cashtags.first.indices.end, 5);
+    });
+
+    test('case7 cashtag with trailing digit', () {
+      final text = BlueskyText(r'$BRK1');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'BRK1');
+    });
+
+    test('case8 must start with letter', () {
+      final text = BlueskyText(r'$1AAPL');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case9 dollar amount is not a cashtag', () {
+      final text = BlueskyText(r'It costs $1000 today');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case10 single dollar sign is not a cashtag', () {
+      final text = BlueskyText(r'price: $5');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case11 no cashtag without boundary', () {
+      final text = BlueskyText(r'$AAPL$TSLA');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case12 double dollar sign is not a cashtag', () {
+      final text = BlueskyText(r'$$AAPL');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case13 cashtag in URL is ignored', () {
+      final text = BlueskyText(r'$AAPL://example.com');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case14 only the symbol part is captured', () {
+      final text = BlueskyText(r'$AAPL_test');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags.first.indices.start, 0);
+      expect(cashtags.first.indices.end, 5);
+    });
+
+    test('case15 dash after symbol terminates cashtag', () {
+      final text = BlueskyText(r'$AAPL-test');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+    });
+
+    test('case16 newline separator', () {
+      final text = BlueskyText('\$AAPL\n\$TSLA');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 2);
+      expect(cashtags.first.value, 'AAPL');
+      expect(cashtags[1].value, 'TSLA');
+    });
+
+    test('case17 cashtag after full-width space', () {
+      final text = BlueskyText('テスト　\$AAPL');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+    });
+
+    test('case18 length limit of 65 chars after \$', () {
+      final text = BlueskyText('\$${'A' * 65}');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value.length, 65);
+    });
+
+    test('case19 length limit exceeded', () {
+      final text = BlueskyText('\$${'A' * 66}');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case20 empty input', () {
+      expect(BlueskyText('').cashtags.length, 0);
+    });
+
+    test('case21 whitespace only input', () {
+      expect(BlueskyText('   ').cashtags.length, 0);
+    });
+
+    test('case22 no dollar sign in text', () {
+      expect(BlueskyText('hello world').cashtags.length, 0);
+    });
+
+    test('case23 cashtag does not collide with hashtag extraction', () {
+      final text = BlueskyText(r'#tech $AAPL');
+      final tags = text.tags;
+      final cashtags = text.cashtags;
+
+      expect(tags.length, 1);
+      expect(tags.first.value, 'tech');
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+    });
+
+    test('case24 cashtag does not collide with handle extraction', () {
+      final text = BlueskyText(r'@alice.dev $AAPL');
+      final handles = text.handles;
+      final cashtags = text.cashtags;
+
+      expect(handles.length, 1);
+      expect(handles.first.value, 'alice.dev');
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+    });
+
+    test('case25 cashtag with surrounding emoji', () {
+      final text = BlueskyText(r'😳 $AAPL 🚀');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+    });
+
+    test('case26 facet generation for multiple cashtags', () async {
+      final text = BlueskyText(r'$AAPL and $TSLA');
+      final facets = await text.cashtags.toFacets();
+
+      expect(facets.length, 2);
+      expect(
+        facets.first['features'][0][r'$type'],
+        'app.bsky.richtext.facet#tag',
+      );
+      expect(facets.first['features'][0]['tag'], 'AAPL');
+      expect(facets[1]['features'][0]['tag'], 'TSLA');
+    });
+
+    test('case27 byte indices for utf-8 multibyte text', () {
+      final text = BlueskyText('日本語 \$AAPL です');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, 'AAPL');
+      // 日本語 is 9 bytes in UTF-8, plus 1 byte for the space.
+      expect(cashtags.first.indices.start, 10);
+      expect(cashtags.first.indices.end, 15);
+    });
+
+    test('case28 returns normally for very long input', () {
+      expect(() => BlueskyText('a' * 300).cashtags, returnsNormally);
+      expect(() => BlueskyText('😳' * 300).cashtags, returnsNormally);
+    });
+
+    test('case29 entities include cashtags', () {
+      final text = BlueskyText(r'@alice.dev #tech $AAPL https://x.com');
+      final entities = text.entities;
+
+      expect(entities.any((e) => e.isHandle && e.value == 'alice.dev'), isTrue);
+      expect(entities.any((e) => e.isTag && e.value == 'tech'), isTrue);
+      expect(entities.any((e) => e.isCashtag && e.value == 'AAPL'), isTrue);
+      expect(
+        entities.any((e) => e.isLink && e.value == 'https://x.com'),
+        isTrue,
+      );
+    });
+
+    test('case30 entity ordering is preserved', () {
+      final text = BlueskyText(r'$AAPL @alice.dev #tech');
+      final entities = text.entities;
+
+      expect(entities.length, 3);
+      expect(entities[0].isCashtag, isTrue);
+      expect(entities[0].value, 'AAPL');
+      expect(entities[1].isHandle, isTrue);
+      expect(entities[1].value, 'alice.dev');
+      expect(entities[2].isTag, isTrue);
+      expect(entities[2].value, 'tech');
+    });
+  });
+
   group('.entities', () {
     test('case1', () {
       final text = BlueskyText('@shinyakato.dev');

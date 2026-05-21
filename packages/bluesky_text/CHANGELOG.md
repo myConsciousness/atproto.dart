@@ -1,5 +1,24 @@
 # Release Note
 
+## v1.2.0
+
+- **FEATURE**: Added support for cashtag detection (e.g. `$AAPL`, `$tsla`).
+  - New `BlueskyText.cashtags` getter returns all cashtag entities along with
+    their byte indices.
+  - New `EntityType.cashtag` and `Entity.isCashtag` for type-safe handling.
+  - Cashtags are also surfaced from `BlueskyText.entities` alongside handles,
+    links, and hashtags.
+  - Cashtags are converted to `app.bsky.richtext.facet#tag` features when
+    calling `toFacets()`, mirroring how Bluesky represents tag-like facets.
+  - Symbols must start with an ASCII letter and may contain ASCII letters or
+    digits afterwards. Bare dollar amounts like `$1000` are not detected as
+    cashtags.
+- **REGEX**: Added `cashSigns`, `cashtagBoundary`, `endCashtag`, and
+  `validCashtag` patterns under `package:bluesky_text/regex.dart`.
+- **TEST**: Added 30+ test cases covering cashtag extraction, boundary
+  detection, length limits, byte index accuracy, and interoperability with
+  hashtags, handles, and links.
+
 ## v1.1.1
 
 - **FIX**: Downgraded characters dependency from ^1.4.1 to ^1.4.0 for compatibility

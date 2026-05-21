@@ -110,9 +110,16 @@ sealed class BlueskyText {
   /// Returns the collection of tags.
   Entities get tags;
 
+  /// Returns the collection of cashtags.
+  ///
+  /// All entities beginning with `$` followed by a ticker-like symbol
+  /// (for example `$AAPL`) in [value] are extracted and returned along
+  /// with their start and end indices.
+  Entities get cashtags;
+
   /// Returns the collection of entities.
   ///
-  /// It includes the response from [handles], [links], [tags].
+  /// It includes the response from [handles], [links], [tags], [cashtags].
   Entities get entities;
 
   // List<LengthExceededEntity> get lengthExceededEntities;
@@ -194,6 +201,9 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   Entities get tags => Entities(tagsExtractor.execute(this));
+
+  @override
+  Entities get cashtags => Entities(cashtagsExtractor.execute(this));
 
   @override
   Entities get entities => Entities(

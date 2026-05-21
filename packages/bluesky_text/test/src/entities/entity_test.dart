@@ -114,6 +114,23 @@ void main() {
 
       expect(facet, {});
     });
+
+    test('case8 cashtag becomes a tag facet', () async {
+      final entity = Entity(
+        type: EntityType.cashtag,
+        value: 'AAPL',
+        indices: ByteIndices(start: 0, end: 5),
+      );
+
+      final facet = await entity.toFacet();
+
+      expect(facet, {
+        'index': {'byteStart': 0, 'byteEnd': 5},
+        'features': [
+          {'\$type': 'app.bsky.richtext.facet#tag', 'tag': 'AAPL'},
+        ],
+      });
+    });
   });
 
   group('entity type', () {
@@ -122,6 +139,7 @@ void main() {
       expect(EntityType.link.name, 'link');
       expect(EntityType.markdownLink.name, 'markdownLink');
       expect(EntityType.tag.name, 'tag');
+      expect(EntityType.cashtag.name, 'cashtag');
     });
   });
 }
