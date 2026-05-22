@@ -14,24 +14,25 @@ import '../../../../query_command.dart';
 // LexGenerator
 // **************************************************************************
 
-final class GetJoinLinkPreviewCommand extends QueryCommand {
-  GetJoinLinkPreviewCommand() {
-    argParser..addOption("code", mandatory: true);
+final class GetJoinLinkPreviewsCommand extends QueryCommand {
+  GetJoinLinkPreviewsCommand() {
+    argParser..addMultiOption("codes");
   }
 
   @override
-  final String name = "get-join-link-preview";
+  final String name = "get-join-link-previews";
 
   @override
   final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about a group from an join link.";
+      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results.";
 
   @override
-  final String invocation = "bsky chat-bsky-group get-join-link-preview [code]";
+  final String invocation =
+      "bsky chat-bsky-group get-join-link-previews [codes]";
 
   @override
-  String get methodId => "chat.bsky.group.getJoinLinkPreview";
+  String get methodId => "chat.bsky.group.getJoinLinkPreviews";
 
   @override
-  Map<String, dynamic>? get parameters => {"code": argResults!["code"]};
+  Map<String, dynamic>? get parameters => {"codes": argResults!["codes"]};
 }

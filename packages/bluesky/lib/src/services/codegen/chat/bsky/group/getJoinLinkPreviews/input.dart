@@ -19,33 +19,33 @@ part 'input.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class GroupGetJoinLinkPreviewInput
-    with _$GroupGetJoinLinkPreviewInput {
-  static const knownProps = <String>['code'];
+abstract class GroupGetJoinLinkPreviewsInput
+    with _$GroupGetJoinLinkPreviewsInput {
+  static const knownProps = <String>['codes'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory GroupGetJoinLinkPreviewInput({
-    required String code,
+  const factory GroupGetJoinLinkPreviewsInput({
+    required List<String> codes,
 
     Map<String, dynamic>? $unknown,
-  }) = _GroupGetJoinLinkPreviewInput;
+  }) = _GroupGetJoinLinkPreviewsInput;
 
-  factory GroupGetJoinLinkPreviewInput.fromJson(Map<String, Object?> json) =>
-      _$GroupGetJoinLinkPreviewInputFromJson(json);
+  factory GroupGetJoinLinkPreviewsInput.fromJson(Map<String, Object?> json) =>
+      _$GroupGetJoinLinkPreviewsInputFromJson(json);
 }
 
-final class GroupGetJoinLinkPreviewInputConverter
-    extends JsonConverter<GroupGetJoinLinkPreviewInput, Map<String, dynamic>> {
-  const GroupGetJoinLinkPreviewInputConverter();
+final class GroupGetJoinLinkPreviewsInputConverter
+    extends JsonConverter<GroupGetJoinLinkPreviewsInput, Map<String, dynamic>> {
+  const GroupGetJoinLinkPreviewsInputConverter();
 
   @override
-  GroupGetJoinLinkPreviewInput fromJson(Map<String, dynamic> json) {
-    return GroupGetJoinLinkPreviewInput.fromJson(
-      translate(json, GroupGetJoinLinkPreviewInput.knownProps),
+  GroupGetJoinLinkPreviewsInput fromJson(Map<String, dynamic> json) {
+    return GroupGetJoinLinkPreviewsInput.fromJson(
+      translate(json, GroupGetJoinLinkPreviewsInput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(GroupGetJoinLinkPreviewInput object) =>
+  Map<String, dynamic> toJson(GroupGetJoinLinkPreviewsInput object) =>
       untranslate(object.toJson());
 }

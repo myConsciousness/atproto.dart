@@ -7,7 +7,7 @@ description: chat.bsky.convo.listConvoRequests
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of incoming conversation requests for the user. Direct convo requests are returned as convoView; group join requests are returned as joinRequestView.
+[NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of incoming conversation requests for the user. Direct convo requests are returned as convoView; group join requests made by the user are returned as joinRequestConvoView.
 
 ### Parameters
 
@@ -23,4 +23,4 @@ description: chat.bsky.convo.listConvoRequests
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
-| **requests** | array of union<br/>[chat.bsky.convo.defs#convoView](../../../../lexicons/chat/bsky/convo/defs.md#convoview)<br/>[chat.bsky.group.defs#joinRequestView](../../../../lexicons/chat/bsky/group/defs.md#joinrequestview) | - | ✅ | - |
+| **requests** | array of union<br/>[chat.bsky.convo.defs#convoView](../../../../lexicons/chat/bsky/convo/defs.md#convoview)<br/>[chat.bsky.group.defs#joinRequestConvoView](../../../../lexicons/chat/bsky/group/defs.md#joinrequestconvoview) | - | ✅ | - |

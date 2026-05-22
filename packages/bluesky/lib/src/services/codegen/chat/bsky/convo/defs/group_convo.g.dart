@@ -21,6 +21,10 @@ _GroupConvo _$GroupConvoFromJson(Map json) =>
           'createdAt',
           (v) => DateTime.parse(v as String),
         ),
+        joinRequestCount: $checkedConvert(
+          'joinRequestCount',
+          (v) => (v as num?)?.toInt(),
+        ),
         joinLink: $checkedConvert(
           'joinLink',
           (v) => _$JsonConverterFromJson<Map<String, dynamic>, JoinLinkView>(
@@ -47,6 +51,7 @@ Map<String, dynamic> _$GroupConvoToJson(
   'name': instance.name,
   'memberCount': instance.memberCount,
   'createdAt': instance.createdAt.toIso8601String(),
+  'joinRequestCount': ?instance.joinRequestCount,
   'joinLink': ?_$JsonConverterToJson<Map<String, dynamic>, JoinLinkView>(
     instance.joinLink,
     const JoinLinkViewConverter().toJson,

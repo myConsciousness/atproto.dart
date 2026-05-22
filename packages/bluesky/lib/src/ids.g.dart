@@ -1394,6 +1394,14 @@ const chatBskyGroupDefsJoinLinkPreviewView =
 /// `chat.bsky.group.defs#joinLinkView`
 const chatBskyGroupDefsJoinLinkView = 'chat.bsky.group.defs#joinLinkView';
 
+/// `chat.bsky.group.defs#joinLinkViewerState`
+const chatBskyGroupDefsJoinLinkViewerState =
+    'chat.bsky.group.defs#joinLinkViewerState';
+
+/// `chat.bsky.group.defs#joinRequestConvoView`
+const chatBskyGroupDefsJoinRequestConvoView =
+    'chat.bsky.group.defs#joinRequestConvoView';
+
 /// `chat.bsky.group.defs#joinRequestView`
 const chatBskyGroupDefsJoinRequestView = 'chat.bsky.group.defs#joinRequestView';
 
@@ -1416,8 +1424,8 @@ const chatBskyGroupEditJoinLink = 'chat.bsky.group.editJoinLink';
 /// `chat.bsky.group.enableJoinLink`
 const chatBskyGroupEnableJoinLink = 'chat.bsky.group.enableJoinLink';
 
-/// `chat.bsky.group.getJoinLinkPreview`
-const chatBskyGroupGetJoinLinkPreview = 'chat.bsky.group.getJoinLinkPreview';
+/// `chat.bsky.group.getJoinLinkPreviews`
+const chatBskyGroupGetJoinLinkPreviews = 'chat.bsky.group.getJoinLinkPreviews';
 
 /// `chat.bsky.group.listJoinRequests`
 const chatBskyGroupListJoinRequests = 'chat.bsky.group.listJoinRequests';

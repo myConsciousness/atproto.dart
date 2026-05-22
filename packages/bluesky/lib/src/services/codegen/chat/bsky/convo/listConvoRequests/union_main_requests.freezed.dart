@@ -55,12 +55,12 @@ extension UConvoListConvoRequestsRequestsPatterns on UConvoListConvoRequestsRequ
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UConvoListConvoRequestsRequestsConvoView value)?  convoView,TResult Function( UConvoListConvoRequestsRequestsJoinRequestView value)?  joinRequestView,TResult Function( UConvoListConvoRequestsRequestsUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UConvoListConvoRequestsRequestsConvoView value)?  convoView,TResult Function( UConvoListConvoRequestsRequestsJoinRequestConvoView value)?  joinRequestConvoView,TResult Function( UConvoListConvoRequestsRequestsUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UConvoListConvoRequestsRequestsConvoView() when convoView != null:
-return convoView(_that);case UConvoListConvoRequestsRequestsJoinRequestView() when joinRequestView != null:
-return joinRequestView(_that);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
+return convoView(_that);case UConvoListConvoRequestsRequestsJoinRequestConvoView() when joinRequestConvoView != null:
+return joinRequestConvoView(_that);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -79,12 +79,12 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UConvoListConvoRequestsRequestsConvoView value)  convoView,required TResult Function( UConvoListConvoRequestsRequestsJoinRequestView value)  joinRequestView,required TResult Function( UConvoListConvoRequestsRequestsUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UConvoListConvoRequestsRequestsConvoView value)  convoView,required TResult Function( UConvoListConvoRequestsRequestsJoinRequestConvoView value)  joinRequestConvoView,required TResult Function( UConvoListConvoRequestsRequestsUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UConvoListConvoRequestsRequestsConvoView():
-return convoView(_that);case UConvoListConvoRequestsRequestsJoinRequestView():
-return joinRequestView(_that);case UConvoListConvoRequestsRequestsUnknown():
+return convoView(_that);case UConvoListConvoRequestsRequestsJoinRequestConvoView():
+return joinRequestConvoView(_that);case UConvoListConvoRequestsRequestsUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -99,12 +99,12 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UConvoListConvoRequestsRequestsConvoView value)?  convoView,TResult? Function( UConvoListConvoRequestsRequestsJoinRequestView value)?  joinRequestView,TResult? Function( UConvoListConvoRequestsRequestsUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UConvoListConvoRequestsRequestsConvoView value)?  convoView,TResult? Function( UConvoListConvoRequestsRequestsJoinRequestConvoView value)?  joinRequestConvoView,TResult? Function( UConvoListConvoRequestsRequestsUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UConvoListConvoRequestsRequestsConvoView() when convoView != null:
-return convoView(_that);case UConvoListConvoRequestsRequestsJoinRequestView() when joinRequestView != null:
-return joinRequestView(_that);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
+return convoView(_that);case UConvoListConvoRequestsRequestsJoinRequestConvoView() when joinRequestConvoView != null:
+return joinRequestConvoView(_that);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -122,11 +122,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ConvoView data)?  convoView,TResult Function( JoinRequestView data)?  joinRequestView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ConvoView data)?  convoView,TResult Function( JoinRequestConvoView data)?  joinRequestConvoView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UConvoListConvoRequestsRequestsConvoView() when convoView != null:
-return convoView(_that.data);case UConvoListConvoRequestsRequestsJoinRequestView() when joinRequestView != null:
-return joinRequestView(_that.data);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
+return convoView(_that.data);case UConvoListConvoRequestsRequestsJoinRequestConvoView() when joinRequestConvoView != null:
+return joinRequestConvoView(_that.data);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -145,11 +145,11 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ConvoView data)  convoView,required TResult Function( JoinRequestView data)  joinRequestView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ConvoView data)  convoView,required TResult Function( JoinRequestConvoView data)  joinRequestConvoView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UConvoListConvoRequestsRequestsConvoView():
-return convoView(_that.data);case UConvoListConvoRequestsRequestsJoinRequestView():
-return joinRequestView(_that.data);case UConvoListConvoRequestsRequestsUnknown():
+return convoView(_that.data);case UConvoListConvoRequestsRequestsJoinRequestConvoView():
+return joinRequestConvoView(_that.data);case UConvoListConvoRequestsRequestsUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -164,11 +164,11 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ConvoView data)?  convoView,TResult? Function( JoinRequestView data)?  joinRequestView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ConvoView data)?  convoView,TResult? Function( JoinRequestConvoView data)?  joinRequestConvoView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UConvoListConvoRequestsRequestsConvoView() when convoView != null:
-return convoView(_that.data);case UConvoListConvoRequestsRequestsJoinRequestView() when joinRequestView != null:
-return joinRequestView(_that.data);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
+return convoView(_that.data);case UConvoListConvoRequestsRequestsJoinRequestConvoView() when joinRequestConvoView != null:
+return joinRequestConvoView(_that.data);case UConvoListConvoRequestsRequestsUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -255,23 +255,23 @@ $ConvoViewCopyWith<$Res> get data {
 /// @nodoc
 
 
-class UConvoListConvoRequestsRequestsJoinRequestView extends UConvoListConvoRequestsRequests {
-  const UConvoListConvoRequestsRequestsJoinRequestView({required this.data}): super._();
+class UConvoListConvoRequestsRequestsJoinRequestConvoView extends UConvoListConvoRequestsRequests {
+  const UConvoListConvoRequestsRequestsJoinRequestConvoView({required this.data}): super._();
   
 
-@override final  JoinRequestView data;
+@override final  JoinRequestConvoView data;
 
 /// Create a copy of UConvoListConvoRequestsRequests
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UConvoListConvoRequestsRequestsJoinRequestViewCopyWith<UConvoListConvoRequestsRequestsJoinRequestView> get copyWith => _$UConvoListConvoRequestsRequestsJoinRequestViewCopyWithImpl<UConvoListConvoRequestsRequestsJoinRequestView>(this, _$identity);
+$UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWith<UConvoListConvoRequestsRequestsJoinRequestConvoView> get copyWith => _$UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWithImpl<UConvoListConvoRequestsRequestsJoinRequestConvoView>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UConvoListConvoRequestsRequestsJoinRequestView&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UConvoListConvoRequestsRequestsJoinRequestConvoView&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -280,38 +280,38 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'UConvoListConvoRequestsRequests.joinRequestView(data: $data)';
+  return 'UConvoListConvoRequestsRequests.joinRequestConvoView(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UConvoListConvoRequestsRequestsJoinRequestViewCopyWith<$Res> implements $UConvoListConvoRequestsRequestsCopyWith<$Res> {
-  factory $UConvoListConvoRequestsRequestsJoinRequestViewCopyWith(UConvoListConvoRequestsRequestsJoinRequestView value, $Res Function(UConvoListConvoRequestsRequestsJoinRequestView) _then) = _$UConvoListConvoRequestsRequestsJoinRequestViewCopyWithImpl;
+abstract mixin class $UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWith<$Res> implements $UConvoListConvoRequestsRequestsCopyWith<$Res> {
+  factory $UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWith(UConvoListConvoRequestsRequestsJoinRequestConvoView value, $Res Function(UConvoListConvoRequestsRequestsJoinRequestConvoView) _then) = _$UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWithImpl;
 @useResult
 $Res call({
- JoinRequestView data
+ JoinRequestConvoView data
 });
 
 
-$JoinRequestViewCopyWith<$Res> get data;
+$JoinRequestConvoViewCopyWith<$Res> get data;
 
 }
 /// @nodoc
-class _$UConvoListConvoRequestsRequestsJoinRequestViewCopyWithImpl<$Res>
-    implements $UConvoListConvoRequestsRequestsJoinRequestViewCopyWith<$Res> {
-  _$UConvoListConvoRequestsRequestsJoinRequestViewCopyWithImpl(this._self, this._then);
+class _$UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWithImpl<$Res>
+    implements $UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWith<$Res> {
+  _$UConvoListConvoRequestsRequestsJoinRequestConvoViewCopyWithImpl(this._self, this._then);
 
-  final UConvoListConvoRequestsRequestsJoinRequestView _self;
-  final $Res Function(UConvoListConvoRequestsRequestsJoinRequestView) _then;
+  final UConvoListConvoRequestsRequestsJoinRequestConvoView _self;
+  final $Res Function(UConvoListConvoRequestsRequestsJoinRequestConvoView) _then;
 
 /// Create a copy of UConvoListConvoRequestsRequests
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(UConvoListConvoRequestsRequestsJoinRequestView(
+  return _then(UConvoListConvoRequestsRequestsJoinRequestConvoView(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as JoinRequestView,
+as JoinRequestConvoView,
   ));
 }
 
@@ -319,9 +319,9 @@ as JoinRequestView,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$JoinRequestViewCopyWith<$Res> get data {
+$JoinRequestConvoViewCopyWith<$Res> get data {
   
-  return $JoinRequestViewCopyWith<$Res>(_self.data, (value) {
+  return $JoinRequestConvoViewCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

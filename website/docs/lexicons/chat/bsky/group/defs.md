@@ -31,11 +31,22 @@ description: chat.bsky.group.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **code** | string | - | ✅ | - |
 | **name** | string | - | ✅ | - |
 | **owner** | [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **memberCount** | integer | - | ✅ | - |
+| **memberLimit** | integer | - | ✅ | - |
 | **requireApproval** | boolean | - | ✅ | - |
+| **joinRule** | [#joinRule](#joinrule) | - | ✅ | - |
+| **enabledStatus** | [#linkEnabledStatus](#linkenabledstatus) | - | ✅ | - |
 | **convo** | [chat.bsky.convo.defs#convoView](../../../../lexicons/chat/bsky/convo/defs.md#convoview) | - | ❌ | - |
+| **viewer** | [#joinLinkViewerState](#joinlinkviewerstate) | - | ❌ | - |
+
+## #joinLinkViewerState
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **requestedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #joinRequestView
 
@@ -43,4 +54,17 @@ description: chat.bsky.group.defs
 | --- | --- | --- | :---: | --- |
 | **convoId** | string | - | ✅ | - |
 | **requestedBy** | [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
+| **requestedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #joinRequestConvoView
+
+A join request from the perspective of the requester, including enough group context to render the request in a list (e.g. group name, owner, member count).
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **convoId** | string | - | ✅ | - |
+| **name** | string | - | ✅ | - |
+| **owner** | [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
+| **memberCount** | integer | - | ✅ | - |
+| **memberLimit** | integer | - | ✅ | - |
 | **requestedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |

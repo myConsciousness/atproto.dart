@@ -11,5 +11,5 @@
 // LexGenerator
 // **************************************************************************
 
-export 'package:bluesky/src/services/codegen/chat/bsky/group/getJoinLinkPreview/input.dart';
-export 'package:bluesky/src/services/codegen/chat/bsky/group/getJoinLinkPreview/output.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/group/getJoinLinkPreviews/input.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/group/getJoinLinkPreviews/output.dart';

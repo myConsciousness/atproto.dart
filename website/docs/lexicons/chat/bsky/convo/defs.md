@@ -225,6 +225,7 @@ description: chat.bsky.convo.defs
 | **name** | string | - | ✅ | The display name of the group conversation. |
 | **memberCount** | integer | - | ✅ | The total number of members in the group conversation. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **joinRequestCount** | integer | - | ❌ | The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21. |
 | **joinLink** | [chat.bsky.group.defs#joinLinkView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkview) | - | ❌ | - |
 | **lockStatus** | [#convoLockStatus](#convolockstatus) | - | ✅ | - |
 
