@@ -22,7 +22,7 @@ import 'group/disableJoinLink/output.dart';
 import 'group/editGroup/output.dart';
 import 'group/editJoinLink/output.dart';
 import 'group/enableJoinLink/output.dart';
-import 'group/getJoinLinkPreview/output.dart';
+import 'group/getJoinLinkPreviews/output.dart';
 import 'group/listJoinRequests/output.dart';
 import 'group/listMutualGroups/output.dart';
 import 'group/removeMembers/output.dart';
@@ -171,20 +171,20 @@ Future<XRPCResponse<GroupEnableJoinLinkOutput>> chatBskyGroupEnableJoinLink({
   to: const GroupEnableJoinLinkOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about a group from an join link.
-Future<XRPCResponse<GroupGetJoinLinkPreviewOutput>>
-chatBskyGroupGetJoinLinkPreview({
-  required String code,
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results.
+Future<XRPCResponse<GroupGetJoinLinkPreviewsOutput>>
+chatBskyGroupGetJoinLinkPreviews({
+  required List<String> codes,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
   Map<String, String>? $unknown,
 }) async => await $ctx.get(
-  ns.chatBskyGroupGetJoinLinkPreview,
+  ns.chatBskyGroupGetJoinLinkPreviews,
   service: $service,
   headers: $headers,
-  parameters: {...?$unknown, 'code': code},
-  to: const GroupGetJoinLinkPreviewOutputConverter().fromJson,
+  parameters: {...?$unknown, 'codes': codes},
+  to: const GroupGetJoinLinkPreviewsOutputConverter().fromJson,
 );
 
 /// [NOTE: This is under active development and should be considered unstable while this note is here]. Lists a page of request to join a group (via join link) the user owns. Shows the data from the owner's point of view.
@@ -414,14 +414,14 @@ base class GroupService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about a group from an join link.
-  Future<XRPCResponse<GroupGetJoinLinkPreviewOutput>> getJoinLinkPreview({
-    required String code,
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results.
+  Future<XRPCResponse<GroupGetJoinLinkPreviewsOutput>> getJoinLinkPreviews({
+    required List<String> codes,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async => await chatBskyGroupGetJoinLinkPreview(
-    code: code,
+  }) async => await chatBskyGroupGetJoinLinkPreviews(
+    codes: codes,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

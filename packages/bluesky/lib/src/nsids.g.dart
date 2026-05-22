@@ -773,9 +773,9 @@ const chatBskyGroupEditJoinLink = NSID(ids.chatBskyGroupEditJoinLink);
 /// `chat.bsky.group.enableJoinLink`
 const chatBskyGroupEnableJoinLink = NSID(ids.chatBskyGroupEnableJoinLink);
 
-/// `chat.bsky.group.getJoinLinkPreview`
-const chatBskyGroupGetJoinLinkPreview = NSID(
-  ids.chatBskyGroupGetJoinLinkPreview,
+/// `chat.bsky.group.getJoinLinkPreviews`
+const chatBskyGroupGetJoinLinkPreviews = NSID(
+  ids.chatBskyGroupGetJoinLinkPreviews,
 );
 
 /// `chat.bsky.group.listJoinRequests`

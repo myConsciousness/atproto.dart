@@ -22,34 +22,35 @@ part 'output.g.dart';
 // **************************************************************************
 
 @freezed
-abstract class GroupGetJoinLinkPreviewOutput
-    with _$GroupGetJoinLinkPreviewOutput {
-  static const knownProps = <String>['joinLinkPreview'];
+abstract class GroupGetJoinLinkPreviewsOutput
+    with _$GroupGetJoinLinkPreviewsOutput {
+  static const knownProps = <String>['joinLinkPreviews'];
 
   @JsonSerializable(includeIfNull: false)
-  const factory GroupGetJoinLinkPreviewOutput({
+  const factory GroupGetJoinLinkPreviewsOutput({
     @JoinLinkPreviewViewConverter()
-    required JoinLinkPreviewView joinLinkPreview,
+    required List<JoinLinkPreviewView> joinLinkPreviews,
 
     Map<String, dynamic>? $unknown,
-  }) = _GroupGetJoinLinkPreviewOutput;
+  }) = _GroupGetJoinLinkPreviewsOutput;
 
-  factory GroupGetJoinLinkPreviewOutput.fromJson(Map<String, Object?> json) =>
-      _$GroupGetJoinLinkPreviewOutputFromJson(json);
+  factory GroupGetJoinLinkPreviewsOutput.fromJson(Map<String, Object?> json) =>
+      _$GroupGetJoinLinkPreviewsOutputFromJson(json);
 }
 
-final class GroupGetJoinLinkPreviewOutputConverter
-    extends JsonConverter<GroupGetJoinLinkPreviewOutput, Map<String, dynamic>> {
-  const GroupGetJoinLinkPreviewOutputConverter();
+final class GroupGetJoinLinkPreviewsOutputConverter
+    extends
+        JsonConverter<GroupGetJoinLinkPreviewsOutput, Map<String, dynamic>> {
+  const GroupGetJoinLinkPreviewsOutputConverter();
 
   @override
-  GroupGetJoinLinkPreviewOutput fromJson(Map<String, dynamic> json) {
-    return GroupGetJoinLinkPreviewOutput.fromJson(
-      translate(json, GroupGetJoinLinkPreviewOutput.knownProps),
+  GroupGetJoinLinkPreviewsOutput fromJson(Map<String, dynamic> json) {
+    return GroupGetJoinLinkPreviewsOutput.fromJson(
+      translate(json, GroupGetJoinLinkPreviewsOutput.knownProps),
     );
   }
 
   @override
-  Map<String, dynamic> toJson(GroupGetJoinLinkPreviewOutput object) =>
+  Map<String, dynamic> toJson(GroupGetJoinLinkPreviewsOutput object) =>
       untranslate(object.toJson());
 }
