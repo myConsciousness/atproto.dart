@@ -55,6 +55,16 @@ _EmbedExternalViewExternal _$EmbedExternalViewExternalFromJson(
           )
           .toList(),
     ),
+    associatedProfiles: $checkedConvert(
+      'associatedProfiles',
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => const ProfileViewBasicConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -85,6 +95,9 @@ Map<String, dynamic> _$EmbedExternalViewExternalToJson(
       ),
   'associatedRefs': ?instance.associatedRefs
       ?.map(const RepoStrongRefConverter().toJson)
+      .toList(),
+  'associatedProfiles': ?instance.associatedProfiles
+      ?.map(const ProfileViewBasicConverter().toJson)
       .toList(),
   r'$unknown': ?instance.$unknown,
 };

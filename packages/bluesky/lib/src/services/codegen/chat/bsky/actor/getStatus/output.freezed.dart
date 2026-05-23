@@ -17,7 +17,8 @@ mixin _$ActorGetStatusOutput {
 
 /// True when the viewer's account is disabled and cannot actively participate in chat.
  bool get chatDisabled;/// Whether the viewer's account is allowed to create group chats. New accounts are restricted from creating groups.
- bool get canCreateGroups; Map<String, dynamic>? get $unknown;
+ bool get canCreateGroups;/// The maximum number of members allowed in a group conversation.
+ int get groupMemberLimit; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorGetStatusOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +31,16 @@ $ActorGetStatusOutputCopyWith<ActorGetStatusOutput> get copyWith => _$ActorGetSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorGetStatusOutput&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.canCreateGroups, canCreateGroups) || other.canCreateGroups == canCreateGroups)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorGetStatusOutput&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.canCreateGroups, canCreateGroups) || other.canCreateGroups == canCreateGroups)&&(identical(other.groupMemberLimit, groupMemberLimit) || other.groupMemberLimit == groupMemberLimit)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,chatDisabled,canCreateGroups,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,chatDisabled,canCreateGroups,groupMemberLimit,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ActorGetStatusOutput(chatDisabled: $chatDisabled, canCreateGroups: $canCreateGroups, \$unknown: ${$unknown})';
+  return 'ActorGetStatusOutput(chatDisabled: $chatDisabled, canCreateGroups: $canCreateGroups, groupMemberLimit: $groupMemberLimit, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +51,7 @@ abstract mixin class $ActorGetStatusOutputCopyWith<$Res>  {
   factory $ActorGetStatusOutputCopyWith(ActorGetStatusOutput value, $Res Function(ActorGetStatusOutput) _then) = _$ActorGetStatusOutputCopyWithImpl;
 @useResult
 $Res call({
- bool chatDisabled, bool canCreateGroups, Map<String, dynamic>? $unknown
+ bool chatDisabled, bool canCreateGroups, int groupMemberLimit, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,11 +68,12 @@ class _$ActorGetStatusOutputCopyWithImpl<$Res>
 
 /// Create a copy of ActorGetStatusOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? chatDisabled = null,Object? canCreateGroups = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? chatDisabled = null,Object? canCreateGroups = null,Object? groupMemberLimit = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 chatDisabled: null == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
 as bool,canCreateGroups: null == canCreateGroups ? _self.canCreateGroups : canCreateGroups // ignore: cast_nullable_to_non_nullable
-as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as bool,groupMemberLimit: null == groupMemberLimit ? _self.groupMemberLimit : groupMemberLimit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -157,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool chatDisabled,  bool canCreateGroups,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool chatDisabled,  bool canCreateGroups,  int groupMemberLimit,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorGetStatusOutput() when $default != null:
-return $default(_that.chatDisabled,_that.canCreateGroups,_that.$unknown);case _:
+return $default(_that.chatDisabled,_that.canCreateGroups,_that.groupMemberLimit,_that.$unknown);case _:
   return orElse();
 
 }
@@ -178,10 +180,10 @@ return $default(_that.chatDisabled,_that.canCreateGroups,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool chatDisabled,  bool canCreateGroups,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool chatDisabled,  bool canCreateGroups,  int groupMemberLimit,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorGetStatusOutput():
-return $default(_that.chatDisabled,_that.canCreateGroups,_that.$unknown);case _:
+return $default(_that.chatDisabled,_that.canCreateGroups,_that.groupMemberLimit,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +200,10 @@ return $default(_that.chatDisabled,_that.canCreateGroups,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool chatDisabled,  bool canCreateGroups,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool chatDisabled,  bool canCreateGroups,  int groupMemberLimit,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorGetStatusOutput() when $default != null:
-return $default(_that.chatDisabled,_that.canCreateGroups,_that.$unknown);case _:
+return $default(_that.chatDisabled,_that.canCreateGroups,_that.groupMemberLimit,_that.$unknown);case _:
   return null;
 
 }
@@ -213,13 +215,15 @@ return $default(_that.chatDisabled,_that.canCreateGroups,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ActorGetStatusOutput implements ActorGetStatusOutput {
-  const _ActorGetStatusOutput({required this.chatDisabled, required this.canCreateGroups, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorGetStatusOutput({required this.chatDisabled, required this.canCreateGroups, required this.groupMemberLimit, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorGetStatusOutput.fromJson(Map<String, dynamic> json) => _$ActorGetStatusOutputFromJson(json);
 
 /// True when the viewer's account is disabled and cannot actively participate in chat.
 @override final  bool chatDisabled;
 /// Whether the viewer's account is allowed to create group chats. New accounts are restricted from creating groups.
 @override final  bool canCreateGroups;
+/// The maximum number of members allowed in a group conversation.
+@override final  int groupMemberLimit;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorGetStatusOutput&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.canCreateGroups, canCreateGroups) || other.canCreateGroups == canCreateGroups)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorGetStatusOutput&&(identical(other.chatDisabled, chatDisabled) || other.chatDisabled == chatDisabled)&&(identical(other.canCreateGroups, canCreateGroups) || other.canCreateGroups == canCreateGroups)&&(identical(other.groupMemberLimit, groupMemberLimit) || other.groupMemberLimit == groupMemberLimit)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,chatDisabled,canCreateGroups,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,chatDisabled,canCreateGroups,groupMemberLimit,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ActorGetStatusOutput(chatDisabled: $chatDisabled, canCreateGroups: $canCreateGroups, \$unknown: ${$unknown})';
+  return 'ActorGetStatusOutput(chatDisabled: $chatDisabled, canCreateGroups: $canCreateGroups, groupMemberLimit: $groupMemberLimit, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +267,7 @@ abstract mixin class _$ActorGetStatusOutputCopyWith<$Res> implements $ActorGetSt
   factory _$ActorGetStatusOutputCopyWith(_ActorGetStatusOutput value, $Res Function(_ActorGetStatusOutput) _then) = __$ActorGetStatusOutputCopyWithImpl;
 @override @useResult
 $Res call({
- bool chatDisabled, bool canCreateGroups, Map<String, dynamic>? $unknown
+ bool chatDisabled, bool canCreateGroups, int groupMemberLimit, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,11 +284,12 @@ class __$ActorGetStatusOutputCopyWithImpl<$Res>
 
 /// Create a copy of ActorGetStatusOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? chatDisabled = null,Object? canCreateGroups = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? chatDisabled = null,Object? canCreateGroups = null,Object? groupMemberLimit = null,Object? $unknown = freezed,}) {
   return _then(_ActorGetStatusOutput(
 chatDisabled: null == chatDisabled ? _self.chatDisabled : chatDisabled // ignore: cast_nullable_to_non_nullable
 as bool,canCreateGroups: null == canCreateGroups ? _self.canCreateGroups : canCreateGroups // ignore: cast_nullable_to_non_nullable
-as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as bool,groupMemberLimit: null == groupMemberLimit ? _self.groupMemberLimit : groupMemberLimit // ignore: cast_nullable_to_non_nullable
+as int,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

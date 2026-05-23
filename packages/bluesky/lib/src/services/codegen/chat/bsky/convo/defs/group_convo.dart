@@ -31,6 +31,7 @@ abstract class GroupConvo with _$GroupConvo {
     'createdAt',
     'joinRequestCount',
     'joinLink',
+    'memberLimit',
     'lockStatus',
   ];
 
@@ -48,6 +49,9 @@ abstract class GroupConvo with _$GroupConvo {
     /// The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21.
     int? joinRequestCount,
     @JoinLinkViewConverter() JoinLinkView? joinLink,
+
+    /// The maximum number of members allowed in the group conversation.
+    required int memberLimit,
 
     /// The lock status of the conversation.
     @ConvoLockStatusConverter() required ConvoLockStatus lockStatus,

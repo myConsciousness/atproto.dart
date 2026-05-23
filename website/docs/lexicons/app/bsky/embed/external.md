@@ -43,6 +43,7 @@ A representation of some externally linked content (eg, a URL and 'card'), embed
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **source** | [#viewExternalSource](#viewexternalsource) | - | ❌ | - |
 | **associatedRefs** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | StrongRefs (uri+cid) of the Atmosphere records that backed this view. |
+| **associatedProfiles** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Profiles of the owners of the Atmosphere records that backed this view. |
 
 ## #viewExternalSource
 
