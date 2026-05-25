@@ -13,6 +13,10 @@ _ActorGetStatusOutput _$ActorGetStatusOutputFromJson(Map json) =>
       final val = _ActorGetStatusOutput(
         chatDisabled: $checkedConvert('chatDisabled', (v) => v as bool),
         canCreateGroups: $checkedConvert('canCreateGroups', (v) => v as bool),
+        groupMemberLimit: $checkedConvert(
+          'groupMemberLimit',
+          (v) => (v as num).toInt(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -26,5 +30,6 @@ Map<String, dynamic> _$ActorGetStatusOutputToJson(
 ) => <String, dynamic>{
   'chatDisabled': instance.chatDisabled,
   'canCreateGroups': instance.canCreateGroups,
+  'groupMemberLimit': instance.groupMemberLimit,
   r'$unknown': ?instance.$unknown,
 };

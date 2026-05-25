@@ -17,3 +17,4 @@ Get the authenticated viewer's chat status: whether their account is chat-disabl
 | --- | --- | --- | :---: | --- |
 | **chatDisabled** | boolean | - | ✅ | True when the viewer's account is disabled and cannot actively participate in chat. |
 | **canCreateGroups** | boolean | - | ✅ | Whether the viewer's account is allowed to create group chats. New accounts are restricted from creating groups. |
+| **groupMemberLimit** | integer | - | ✅ | The maximum number of members allowed in a group conversation. |

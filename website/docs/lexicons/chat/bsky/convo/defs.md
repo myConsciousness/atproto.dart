@@ -227,6 +227,7 @@ description: chat.bsky.convo.defs
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **joinRequestCount** | integer | - | ❌ | The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21. |
 | **joinLink** | [chat.bsky.group.defs#joinLinkView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkview) | - | ❌ | - |
+| **memberLimit** | integer | - | ✅ | The maximum number of members allowed in the group conversation. |
 | **lockStatus** | [#convoLockStatus](#convolockstatus) | - | ✅ | - |
 
 ## #logBeginConvo

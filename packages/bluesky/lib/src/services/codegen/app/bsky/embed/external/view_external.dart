@@ -14,6 +14,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './view_external_source.dart';
 
 part 'view_external.freezed.dart';
@@ -36,6 +37,7 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
     'labels',
     'source',
     'associatedRefs',
+    'associatedProfiles',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -58,6 +60,7 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
     @EmbedExternalViewExternalSourceConverter()
     EmbedExternalViewExternalSource? source,
     @RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewExternal;
