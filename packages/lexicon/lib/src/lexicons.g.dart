@@ -8944,6 +8944,15 @@ const appBskyEmbedExternal = <String, dynamic>{
               "StrongRefs (uri+cid) of the Atmosphere records that backed this view.",
           "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
         },
+        "associatedProfiles": {
+          "type": "array",
+          "description":
+              "Profiles of the owners of the Atmosphere records that backed this view.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+        },
       },
     },
     "viewExternalSource": {
@@ -12659,7 +12668,7 @@ const chatBskyActorGetStatus = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["chatDisabled", "canCreateGroups"],
+          "required": ["chatDisabled", "canCreateGroups", "groupMemberLimit"],
           "properties": {
             "chatDisabled": {
               "type": "boolean",
@@ -12670,6 +12679,11 @@ const chatBskyActorGetStatus = <String, dynamic>{
               "type": "boolean",
               "description":
                   "Whether the viewer's account is allowed to create group chats. New accounts are restricted from creating groups.",
+            },
+            "groupMemberLimit": {
+              "type": "integer",
+              "description":
+                  "The maximum number of members allowed in a group conversation.",
             },
           },
         },
@@ -13235,7 +13249,13 @@ const chatBskyConvoDefs = <String, dynamic>{
       "type": "object",
       "description":
           "[NOTE: This is under active development and should be considered unstable while this note is here].",
-      "required": ["name", "lockStatus", "memberCount", "createdAt"],
+      "required": [
+        "name",
+        "lockStatus",
+        "memberCount",
+        "memberLimit",
+        "createdAt",
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -13255,6 +13275,11 @@ const chatBskyConvoDefs = <String, dynamic>{
               "The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21.",
         },
         "joinLink": {"type": "ref", "ref": "chat.bsky.group.defs#joinLinkView"},
+        "memberLimit": {
+          "type": "integer",
+          "description":
+              "The maximum number of members allowed in the group conversation.",
+        },
         "lockStatus": {
           "type": "ref",
           "description": "The lock status of the conversation.",

@@ -32,6 +32,7 @@ _GroupConvo _$GroupConvoFromJson(Map json) =>
             const JoinLinkViewConverter().fromJson,
           ),
         ),
+        memberLimit: $checkedConvert('memberLimit', (v) => (v as num).toInt()),
         lockStatus: $checkedConvert(
           'lockStatus',
           (v) => const ConvoLockStatusConverter().fromJson(v as String),
@@ -56,6 +57,7 @@ Map<String, dynamic> _$GroupConvoToJson(
     instance.joinLink,
     const JoinLinkViewConverter().toJson,
   ),
+  'memberLimit': instance.memberLimit,
   'lockStatus': const ConvoLockStatusConverter().toJson(instance.lockStatus),
   r'$unknown': ?instance.$unknown,
 };

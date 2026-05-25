@@ -20,7 +20,11 @@ part 'output.g.dart';
 
 @freezed
 abstract class ActorGetStatusOutput with _$ActorGetStatusOutput {
-  static const knownProps = <String>['chatDisabled', 'canCreateGroups'];
+  static const knownProps = <String>[
+    'chatDisabled',
+    'canCreateGroups',
+    'groupMemberLimit',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ActorGetStatusOutput({
@@ -29,6 +33,9 @@ abstract class ActorGetStatusOutput with _$ActorGetStatusOutput {
 
     /// Whether the viewer's account is allowed to create group chats. New accounts are restricted from creating groups.
     required bool canCreateGroups,
+
+    /// The maximum number of members allowed in a group conversation.
+    required int groupMemberLimit,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorGetStatusOutput;
