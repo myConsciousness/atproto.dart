@@ -4120,9 +4120,9 @@ const comAtprotoServerGetServiceAuth = <String, dynamic>{
         "properties": {
           "aud": {
             "type": "string",
-            "format": "did",
             "description":
-                "The DID of the service that the token will be used to authenticate with",
+                "The DID or `did#serviceId` reference of the service that the token will be used to authenticate with.",
+            "maxLength": 2048,
           },
           "exp": {
             "type": "integer",

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ServerGetServiceAuthInput {
 
-/// The DID of the service that the token will be used to authenticate with
+/// The DID or `did#serviceId` reference of the service that the token will be used to authenticate with.
  String get aud;/// The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.
  int? get exp;/// Lexicon (XRPC) method to bind the requested token to
  String? get lxm; Map<String, dynamic>? get $unknown;
@@ -218,7 +218,7 @@ class _ServerGetServiceAuthInput implements ServerGetServiceAuthInput {
   const _ServerGetServiceAuthInput({required this.aud, this.exp, this.lxm, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerGetServiceAuthInput.fromJson(Map<String, dynamic> json) => _$ServerGetServiceAuthInputFromJson(json);
 
-/// The DID of the service that the token will be used to authenticate with
+/// The DID or `did#serviceId` reference of the service that the token will be used to authenticate with.
 @override final  String aud;
 /// The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.
 @override final  int? exp;

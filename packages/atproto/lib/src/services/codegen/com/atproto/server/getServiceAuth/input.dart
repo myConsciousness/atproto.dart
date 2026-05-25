@@ -24,7 +24,7 @@ abstract class ServerGetServiceAuthInput with _$ServerGetServiceAuthInput {
 
   @JsonSerializable(includeIfNull: false)
   const factory ServerGetServiceAuthInput({
-    /// The DID of the service that the token will be used to authenticate with
+    /// The DID or `did#serviceId` reference of the service that the token will be used to authenticate with.
     required String aud,
 
     /// The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.
