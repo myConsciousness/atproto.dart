@@ -13943,6 +13943,7 @@ const chatBskyConvoGetConvoForMembers = <String, dynamic>{
       "errors": [
         {"name": "AccountSuspended"},
         {"name": "BlockedActor"},
+        {"name": "BlockedSubject"},
         {"name": "MessagesDisabled"},
         {"name": "NotFollowedBySender"},
         {"name": "RecipientNotFound"},
@@ -15507,6 +15508,7 @@ const chatBskyGroupCreateGroup = <String, dynamic>{
       "errors": [
         {"name": "AccountSuspended"},
         {"name": "BlockedActor"},
+        {"name": "BlockedSubject"},
         {"name": "NewAccountCannotCreateGroup"},
         {"name": "NotFollowedBySender"},
         {"name": "RecipientNotFound"},
@@ -15939,6 +15941,7 @@ const chatBskyGroupAddMembers = <String, dynamic>{
       "errors": [
         {"name": "AccountSuspended"},
         {"name": "BlockedActor"},
+        {"name": "BlockedSubject"},
         {"name": "ConvoLocked"},
         {"name": "InsufficientRole"},
         {"name": "InvalidConvo"},
