@@ -18,7 +18,7 @@ mixin _$ModerationQueryEventsInput {
  List<String>? get types; String? get createdBy;/// Sort direction for the events. Defaults to descending order of created at timestamp.
  String get sortDirection;/// Retrieve events created after a given timestamp
  DateTime? get createdAfter;/// Retrieve events created before a given timestamp
- DateTime? get createdBefore; String? get subject; List<String>? get collections;/// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+ DateTime? get createdBefore; String? get subject; List<String>? get collections;/// If specified, only events where the subject is of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
 @ModerationQueryEventsSubjectTypeConverter() ModerationQueryEventsSubjectType? get subjectType;/// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
  bool get includeAllUserRecords; int get limit;/// If true, only events with comments are returned
  bool? get hasComment;/// If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.
@@ -296,7 +296,7 @@ class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
   return EqualUnmodifiableListView(value);
 }
 
-/// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+/// If specified, only events where the subject is of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
 @override@ModerationQueryEventsSubjectTypeConverter() final  ModerationQueryEventsSubjectType? subjectType;
 /// If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.
 @override@JsonKey() final  bool includeAllUserRecords;

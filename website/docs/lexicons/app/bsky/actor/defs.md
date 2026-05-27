@@ -141,6 +141,8 @@ An individual verification for an associated subject.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **issuer** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The user who issued this verification. |
+| **displayName** | string | - | ❌ | The display name of the issuer. |
+| **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ❌ | The handle of the issuer. |
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | The AT-URI of the verification record. |
 | **isValid** | boolean | - | ✅ | True if the verification passes validation, otherwise false. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp when the verification was created. |

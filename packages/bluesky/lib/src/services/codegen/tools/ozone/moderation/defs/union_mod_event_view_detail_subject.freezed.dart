@@ -55,14 +55,15 @@ extension UModEventViewDetailSubjectPatterns on UModEventViewDetailSubject {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModEventViewDetailSubjectRepoView value)?  repoView,TResult Function( UModEventViewDetailSubjectRepoViewNotFound value)?  repoViewNotFound,TResult Function( UModEventViewDetailSubjectRecordView value)?  recordView,TResult Function( UModEventViewDetailSubjectRecordViewNotFound value)?  recordViewNotFound,TResult Function( UModEventViewDetailSubjectUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModEventViewDetailSubjectRepoView value)?  repoView,TResult Function( UModEventViewDetailSubjectRepoViewNotFound value)?  repoViewNotFound,TResult Function( UModEventViewDetailSubjectRecordView value)?  recordView,TResult Function( UModEventViewDetailSubjectRecordViewNotFound value)?  recordViewNotFound,TResult Function( UModEventViewDetailSubjectConvoView value)?  convoView,TResult Function( UModEventViewDetailSubjectUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UModEventViewDetailSubjectRepoView() when repoView != null:
 return repoView(_that);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
 return repoViewNotFound(_that);case UModEventViewDetailSubjectRecordView() when recordView != null:
 return recordView(_that);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
-return recordViewNotFound(_that);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return recordViewNotFound(_that);case UModEventViewDetailSubjectConvoView() when convoView != null:
+return convoView(_that);case UModEventViewDetailSubjectUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -81,14 +82,15 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModEventViewDetailSubjectRepoView value)  repoView,required TResult Function( UModEventViewDetailSubjectRepoViewNotFound value)  repoViewNotFound,required TResult Function( UModEventViewDetailSubjectRecordView value)  recordView,required TResult Function( UModEventViewDetailSubjectRecordViewNotFound value)  recordViewNotFound,required TResult Function( UModEventViewDetailSubjectUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModEventViewDetailSubjectRepoView value)  repoView,required TResult Function( UModEventViewDetailSubjectRepoViewNotFound value)  repoViewNotFound,required TResult Function( UModEventViewDetailSubjectRecordView value)  recordView,required TResult Function( UModEventViewDetailSubjectRecordViewNotFound value)  recordViewNotFound,required TResult Function( UModEventViewDetailSubjectConvoView value)  convoView,required TResult Function( UModEventViewDetailSubjectUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UModEventViewDetailSubjectRepoView():
 return repoView(_that);case UModEventViewDetailSubjectRepoViewNotFound():
 return repoViewNotFound(_that);case UModEventViewDetailSubjectRecordView():
 return recordView(_that);case UModEventViewDetailSubjectRecordViewNotFound():
-return recordViewNotFound(_that);case UModEventViewDetailSubjectUnknown():
+return recordViewNotFound(_that);case UModEventViewDetailSubjectConvoView():
+return convoView(_that);case UModEventViewDetailSubjectUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -103,14 +105,15 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModEventViewDetailSubjectRepoView value)?  repoView,TResult? Function( UModEventViewDetailSubjectRepoViewNotFound value)?  repoViewNotFound,TResult? Function( UModEventViewDetailSubjectRecordView value)?  recordView,TResult? Function( UModEventViewDetailSubjectRecordViewNotFound value)?  recordViewNotFound,TResult? Function( UModEventViewDetailSubjectUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModEventViewDetailSubjectRepoView value)?  repoView,TResult? Function( UModEventViewDetailSubjectRepoViewNotFound value)?  repoViewNotFound,TResult? Function( UModEventViewDetailSubjectRecordView value)?  recordView,TResult? Function( UModEventViewDetailSubjectRecordViewNotFound value)?  recordViewNotFound,TResult? Function( UModEventViewDetailSubjectConvoView value)?  convoView,TResult? Function( UModEventViewDetailSubjectUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UModEventViewDetailSubjectRepoView() when repoView != null:
 return repoView(_that);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
 return repoViewNotFound(_that);case UModEventViewDetailSubjectRecordView() when recordView != null:
 return recordView(_that);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
-return recordViewNotFound(_that);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return recordViewNotFound(_that);case UModEventViewDetailSubjectConvoView() when convoView != null:
+return convoView(_that);case UModEventViewDetailSubjectUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -128,13 +131,14 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoView data)?  repoView,TResult Function( RepoViewNotFound data)?  repoViewNotFound,TResult Function( RecordView data)?  recordView,TResult Function( RecordViewNotFound data)?  recordViewNotFound,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoView data)?  repoView,TResult Function( RepoViewNotFound data)?  repoViewNotFound,TResult Function( RecordView data)?  recordView,TResult Function( RecordViewNotFound data)?  recordViewNotFound,TResult Function( ConvoView data)?  convoView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UModEventViewDetailSubjectRepoView() when repoView != null:
 return repoView(_that.data);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
 return repoViewNotFound(_that.data);case UModEventViewDetailSubjectRecordView() when recordView != null:
 return recordView(_that.data);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
-return recordViewNotFound(_that.data);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return recordViewNotFound(_that.data);case UModEventViewDetailSubjectConvoView() when convoView != null:
+return convoView(_that.data);case UModEventViewDetailSubjectUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -153,13 +157,14 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoView data)  repoView,required TResult Function( RepoViewNotFound data)  repoViewNotFound,required TResult Function( RecordView data)  recordView,required TResult Function( RecordViewNotFound data)  recordViewNotFound,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoView data)  repoView,required TResult Function( RepoViewNotFound data)  repoViewNotFound,required TResult Function( RecordView data)  recordView,required TResult Function( RecordViewNotFound data)  recordViewNotFound,required TResult Function( ConvoView data)  convoView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UModEventViewDetailSubjectRepoView():
 return repoView(_that.data);case UModEventViewDetailSubjectRepoViewNotFound():
 return repoViewNotFound(_that.data);case UModEventViewDetailSubjectRecordView():
 return recordView(_that.data);case UModEventViewDetailSubjectRecordViewNotFound():
-return recordViewNotFound(_that.data);case UModEventViewDetailSubjectUnknown():
+return recordViewNotFound(_that.data);case UModEventViewDetailSubjectConvoView():
+return convoView(_that.data);case UModEventViewDetailSubjectUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -174,13 +179,14 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoView data)?  repoView,TResult? Function( RepoViewNotFound data)?  repoViewNotFound,TResult? Function( RecordView data)?  recordView,TResult? Function( RecordViewNotFound data)?  recordViewNotFound,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoView data)?  repoView,TResult? Function( RepoViewNotFound data)?  repoViewNotFound,TResult? Function( RecordView data)?  recordView,TResult? Function( RecordViewNotFound data)?  recordViewNotFound,TResult? Function( ConvoView data)?  convoView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UModEventViewDetailSubjectRepoView() when repoView != null:
 return repoView(_that.data);case UModEventViewDetailSubjectRepoViewNotFound() when repoViewNotFound != null:
 return repoViewNotFound(_that.data);case UModEventViewDetailSubjectRecordView() when recordView != null:
 return recordView(_that.data);case UModEventViewDetailSubjectRecordViewNotFound() when recordViewNotFound != null:
-return recordViewNotFound(_that.data);case UModEventViewDetailSubjectUnknown() when unknown != null:
+return recordViewNotFound(_that.data);case UModEventViewDetailSubjectConvoView() when convoView != null:
+return convoView(_that.data);case UModEventViewDetailSubjectUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -484,6 +490,81 @@ as RecordViewNotFound,
 $RecordViewNotFoundCopyWith<$Res> get data {
   
   return $RecordViewNotFoundCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UModEventViewDetailSubjectConvoView extends UModEventViewDetailSubject {
+  const UModEventViewDetailSubjectConvoView({required this.data}): super._();
+  
+
+@override final  ConvoView data;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModEventViewDetailSubjectConvoViewCopyWith<UModEventViewDetailSubjectConvoView> get copyWith => _$UModEventViewDetailSubjectConvoViewCopyWithImpl<UModEventViewDetailSubjectConvoView>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModEventViewDetailSubjectConvoView&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'UModEventViewDetailSubject.convoView(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModEventViewDetailSubjectConvoViewCopyWith<$Res> implements $UModEventViewDetailSubjectCopyWith<$Res> {
+  factory $UModEventViewDetailSubjectConvoViewCopyWith(UModEventViewDetailSubjectConvoView value, $Res Function(UModEventViewDetailSubjectConvoView) _then) = _$UModEventViewDetailSubjectConvoViewCopyWithImpl;
+@useResult
+$Res call({
+ ConvoView data
+});
+
+
+$ConvoViewCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModEventViewDetailSubjectConvoViewCopyWithImpl<$Res>
+    implements $UModEventViewDetailSubjectConvoViewCopyWith<$Res> {
+  _$UModEventViewDetailSubjectConvoViewCopyWithImpl(this._self, this._then);
+
+  final UModEventViewDetailSubjectConvoView _self;
+  final $Res Function(UModEventViewDetailSubjectConvoView) _then;
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModEventViewDetailSubjectConvoView(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ConvoView,
+  ));
+}
+
+/// Create a copy of UModEventViewDetailSubject
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ConvoViewCopyWith<$Res> get data {
+  
+  return $ConvoViewCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

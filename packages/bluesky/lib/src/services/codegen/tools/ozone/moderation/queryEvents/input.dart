@@ -66,7 +66,7 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     String? subject,
     List<String>? collections,
 
-    /// If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+    /// If specified, only events where the subject is of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
     @ModerationQueryEventsSubjectTypeConverter()
     ModerationQueryEventsSubjectType? subjectType,
 

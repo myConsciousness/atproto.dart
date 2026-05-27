@@ -55,13 +55,14 @@ extension USubjectStatusViewSubjectPatterns on USubjectStatusViewSubject {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( USubjectStatusViewSubjectRepoRef value)?  repoRef,TResult Function( USubjectStatusViewSubjectRepoStrongRef value)?  repoStrongRef,TResult Function( USubjectStatusViewSubjectMessageRef value)?  messageRef,TResult Function( USubjectStatusViewSubjectUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( USubjectStatusViewSubjectRepoRef value)?  repoRef,TResult Function( USubjectStatusViewSubjectRepoStrongRef value)?  repoStrongRef,TResult Function( USubjectStatusViewSubjectMessageRef value)?  messageRef,TResult Function( USubjectStatusViewSubjectConvoRef value)?  convoRef,TResult Function( USubjectStatusViewSubjectUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case USubjectStatusViewSubjectRepoRef() when repoRef != null:
 return repoRef(_that);case USubjectStatusViewSubjectRepoStrongRef() when repoStrongRef != null:
 return repoStrongRef(_that);case USubjectStatusViewSubjectMessageRef() when messageRef != null:
-return messageRef(_that);case USubjectStatusViewSubjectUnknown() when unknown != null:
+return messageRef(_that);case USubjectStatusViewSubjectConvoRef() when convoRef != null:
+return convoRef(_that);case USubjectStatusViewSubjectUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -80,13 +81,14 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( USubjectStatusViewSubjectRepoRef value)  repoRef,required TResult Function( USubjectStatusViewSubjectRepoStrongRef value)  repoStrongRef,required TResult Function( USubjectStatusViewSubjectMessageRef value)  messageRef,required TResult Function( USubjectStatusViewSubjectUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( USubjectStatusViewSubjectRepoRef value)  repoRef,required TResult Function( USubjectStatusViewSubjectRepoStrongRef value)  repoStrongRef,required TResult Function( USubjectStatusViewSubjectMessageRef value)  messageRef,required TResult Function( USubjectStatusViewSubjectConvoRef value)  convoRef,required TResult Function( USubjectStatusViewSubjectUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case USubjectStatusViewSubjectRepoRef():
 return repoRef(_that);case USubjectStatusViewSubjectRepoStrongRef():
 return repoStrongRef(_that);case USubjectStatusViewSubjectMessageRef():
-return messageRef(_that);case USubjectStatusViewSubjectUnknown():
+return messageRef(_that);case USubjectStatusViewSubjectConvoRef():
+return convoRef(_that);case USubjectStatusViewSubjectUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -101,13 +103,14 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( USubjectStatusViewSubjectRepoRef value)?  repoRef,TResult? Function( USubjectStatusViewSubjectRepoStrongRef value)?  repoStrongRef,TResult? Function( USubjectStatusViewSubjectMessageRef value)?  messageRef,TResult? Function( USubjectStatusViewSubjectUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( USubjectStatusViewSubjectRepoRef value)?  repoRef,TResult? Function( USubjectStatusViewSubjectRepoStrongRef value)?  repoStrongRef,TResult? Function( USubjectStatusViewSubjectMessageRef value)?  messageRef,TResult? Function( USubjectStatusViewSubjectConvoRef value)?  convoRef,TResult? Function( USubjectStatusViewSubjectUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case USubjectStatusViewSubjectRepoRef() when repoRef != null:
 return repoRef(_that);case USubjectStatusViewSubjectRepoStrongRef() when repoStrongRef != null:
 return repoStrongRef(_that);case USubjectStatusViewSubjectMessageRef() when messageRef != null:
-return messageRef(_that);case USubjectStatusViewSubjectUnknown() when unknown != null:
+return messageRef(_that);case USubjectStatusViewSubjectConvoRef() when convoRef != null:
+return convoRef(_that);case USubjectStatusViewSubjectUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -125,12 +128,13 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoRef data)?  repoRef,TResult Function( RepoStrongRef data)?  repoStrongRef,TResult Function( MessageRef data)?  messageRef,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( RepoRef data)?  repoRef,TResult Function( RepoStrongRef data)?  repoStrongRef,TResult Function( MessageRef data)?  messageRef,TResult Function( ConvoRef data)?  convoRef,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case USubjectStatusViewSubjectRepoRef() when repoRef != null:
 return repoRef(_that.data);case USubjectStatusViewSubjectRepoStrongRef() when repoStrongRef != null:
 return repoStrongRef(_that.data);case USubjectStatusViewSubjectMessageRef() when messageRef != null:
-return messageRef(_that.data);case USubjectStatusViewSubjectUnknown() when unknown != null:
+return messageRef(_that.data);case USubjectStatusViewSubjectConvoRef() when convoRef != null:
+return convoRef(_that.data);case USubjectStatusViewSubjectUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -149,12 +153,13 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoRef data)  repoRef,required TResult Function( RepoStrongRef data)  repoStrongRef,required TResult Function( MessageRef data)  messageRef,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( RepoRef data)  repoRef,required TResult Function( RepoStrongRef data)  repoStrongRef,required TResult Function( MessageRef data)  messageRef,required TResult Function( ConvoRef data)  convoRef,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case USubjectStatusViewSubjectRepoRef():
 return repoRef(_that.data);case USubjectStatusViewSubjectRepoStrongRef():
 return repoStrongRef(_that.data);case USubjectStatusViewSubjectMessageRef():
-return messageRef(_that.data);case USubjectStatusViewSubjectUnknown():
+return messageRef(_that.data);case USubjectStatusViewSubjectConvoRef():
+return convoRef(_that.data);case USubjectStatusViewSubjectUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -169,12 +174,13 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoRef data)?  repoRef,TResult? Function( RepoStrongRef data)?  repoStrongRef,TResult? Function( MessageRef data)?  messageRef,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( RepoRef data)?  repoRef,TResult? Function( RepoStrongRef data)?  repoStrongRef,TResult? Function( MessageRef data)?  messageRef,TResult? Function( ConvoRef data)?  convoRef,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case USubjectStatusViewSubjectRepoRef() when repoRef != null:
 return repoRef(_that.data);case USubjectStatusViewSubjectRepoStrongRef() when repoStrongRef != null:
 return repoStrongRef(_that.data);case USubjectStatusViewSubjectMessageRef() when messageRef != null:
-return messageRef(_that.data);case USubjectStatusViewSubjectUnknown() when unknown != null:
+return messageRef(_that.data);case USubjectStatusViewSubjectConvoRef() when convoRef != null:
+return convoRef(_that.data);case USubjectStatusViewSubjectUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -403,6 +409,81 @@ as MessageRef,
 $MessageRefCopyWith<$Res> get data {
   
   return $MessageRefCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class USubjectStatusViewSubjectConvoRef extends USubjectStatusViewSubject {
+  const USubjectStatusViewSubjectConvoRef({required this.data}): super._();
+  
+
+@override final  ConvoRef data;
+
+/// Create a copy of USubjectStatusViewSubject
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$USubjectStatusViewSubjectConvoRefCopyWith<USubjectStatusViewSubjectConvoRef> get copyWith => _$USubjectStatusViewSubjectConvoRefCopyWithImpl<USubjectStatusViewSubjectConvoRef>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is USubjectStatusViewSubjectConvoRef&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'USubjectStatusViewSubject.convoRef(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $USubjectStatusViewSubjectConvoRefCopyWith<$Res> implements $USubjectStatusViewSubjectCopyWith<$Res> {
+  factory $USubjectStatusViewSubjectConvoRefCopyWith(USubjectStatusViewSubjectConvoRef value, $Res Function(USubjectStatusViewSubjectConvoRef) _then) = _$USubjectStatusViewSubjectConvoRefCopyWithImpl;
+@useResult
+$Res call({
+ ConvoRef data
+});
+
+
+$ConvoRefCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$USubjectStatusViewSubjectConvoRefCopyWithImpl<$Res>
+    implements $USubjectStatusViewSubjectConvoRefCopyWith<$Res> {
+  _$USubjectStatusViewSubjectConvoRefCopyWithImpl(this._self, this._then);
+
+  final USubjectStatusViewSubjectConvoRef _self;
+  final $Res Function(USubjectStatusViewSubjectConvoRef) _then;
+
+/// Create a copy of USubjectStatusViewSubject
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(USubjectStatusViewSubjectConvoRef(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as ConvoRef,
+  ));
+}
+
+/// Create a copy of USubjectStatusViewSubject
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ConvoRefCopyWith<$Res> get data {
+  
+  return $ConvoRefCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

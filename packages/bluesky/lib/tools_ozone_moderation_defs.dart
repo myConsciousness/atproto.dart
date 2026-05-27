@@ -64,6 +64,7 @@ export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/repo_vi
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/record_view.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/record_view_detail.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/record_view_not_found.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/convo_view.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/moderation.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/moderation_detail.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation/defs/blob_view.dart';

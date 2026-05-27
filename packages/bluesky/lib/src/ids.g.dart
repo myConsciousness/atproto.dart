@@ -1603,6 +1603,10 @@ const toolsOzoneModerationDefsBlobView = 'tools.ozone.moderation.defs#blobView';
 const toolsOzoneModerationDefsCancelScheduledTakedownEvent =
     'tools.ozone.moderation.defs#cancelScheduledTakedownEvent';
 
+/// `tools.ozone.moderation.defs#convoView`
+const toolsOzoneModerationDefsConvoView =
+    'tools.ozone.moderation.defs#convoView';
+
 /// `tools.ozone.moderation.defs#identityEvent`
 const toolsOzoneModerationDefsIdentityEvent =
     'tools.ozone.moderation.defs#identityEvent';
