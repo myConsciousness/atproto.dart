@@ -11,7 +11,7 @@ description: tools.ozone.moderation.defs
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
 | **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent)<br/>[#ageAssurancePurgeEvent](#ageassurancepurgeevent)<br/>[#revokeAccountCredentialsEvent](#revokeaccountcredentialsevent)<br/>[#scheduleTakedownEvent](#scheduletakedownevent)<br/>[#cancelScheduledTakedownEvent](#cancelscheduledtakedownevent) | - | ✅ | - |
-| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
+| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref)<br/>[chat.bsky.convo.defs#convoRef](../../../../lexicons/chat/bsky/convo/defs.md#convoref) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -25,7 +25,7 @@ description: tools.ozone.moderation.defs
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
 | **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent)<br/>[#modEventPriorityScore](#modeventpriorityscore)<br/>[#ageAssuranceEvent](#ageassuranceevent)<br/>[#ageAssuranceOverrideEvent](#ageassuranceoverrideevent)<br/>[#ageAssurancePurgeEvent](#ageassurancepurgeevent)<br/>[#revokeAccountCredentialsEvent](#revokeaccountcredentialsevent)<br/>[#scheduleTakedownEvent](#scheduletakedownevent)<br/>[#cancelScheduledTakedownEvent](#cancelscheduledtakedownevent) | - | ✅ | - |
-| **subject** | union of <br/>[#repoView](#repoview)<br/>[#repoViewNotFound](#repoviewnotfound)<br/>[#recordView](#recordview)<br/>[#recordViewNotFound](#recordviewnotfound) | - | ✅ | - |
+| **subject** | union of <br/>[#repoView](#repoview)<br/>[#repoViewNotFound](#repoviewnotfound)<br/>[#recordView](#recordview)<br/>[#recordViewNotFound](#recordviewnotfound)<br/>[#convoView](#convoview) | - | ✅ | - |
 | **subjectBlobs** | array of [#blobView](#blobview) | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -36,7 +36,7 @@ description: tools.ozone.moderation.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
+| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref)<br/>[chat.bsky.convo.defs#convoRef](../../../../lexicons/chat/bsky/convo/defs.md#convoref) | - | ✅ | - |
 | **hosting** | union of <br/>[#accountHosting](#accounthosting)<br/>[#recordHosting](#recordhosting) | - | ❌ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
@@ -455,6 +455,13 @@ Logs cancellation of a scheduled takedown action for an account.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+
+## #convoView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
 
 ## #moderation
 

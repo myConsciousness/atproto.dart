@@ -36,7 +36,7 @@ mixin _$ModerationQueryStatusesInput {
  String? get lastReviewedBy; String get sortField; String get sortDirection;/// Get subjects that were taken down
  bool? get takendown;/// Get subjects in unresolved appealed status
  bool? get appealed; int get limit;/// Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters
- List<String>? get tags; List<String>? get excludeTags; String? get cursor; List<String>? get collections;/// If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+ List<String>? get tags; List<String>? get excludeTags; String? get cursor; List<String>? get collections;/// If specified, subjects of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
 @ModerationQueryStatusesSubjectTypeConverter() ModerationQueryStatusesSubjectType? get subjectType;/// If specified, only subjects that belong to an account that has at least this many suspensions will be returned.
  int? get minAccountSuspendCount;/// If specified, only subjects that belong to an account that has at least this many reported records will be returned.
  int? get minReportedRecordsCount;/// If specified, only subjects that belong to an account that has at least this many taken down records will be returned.
@@ -403,7 +403,7 @@ class _ModerationQueryStatusesInput implements ModerationQueryStatusesInput {
   return EqualUnmodifiableListView(value);
 }
 
-/// If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+/// If specified, subjects of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
 @override@ModerationQueryStatusesSubjectTypeConverter() final  ModerationQueryStatusesSubjectType? subjectType;
 /// If specified, only subjects that belong to an account that has at least this many suspensions will be returned.
 @override final  int? minAccountSuspendCount;

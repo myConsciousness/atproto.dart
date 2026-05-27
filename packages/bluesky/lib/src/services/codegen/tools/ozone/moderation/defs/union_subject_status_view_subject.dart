@@ -34,6 +34,8 @@ sealed class USubjectStatusViewSubject with _$USubjectStatusViewSubject {
   const factory USubjectStatusViewSubject.messageRef({
     required MessageRef data,
   }) = USubjectStatusViewSubjectMessageRef;
+  const factory USubjectStatusViewSubject.convoRef({required ConvoRef data}) =
+      USubjectStatusViewSubjectConvoRef;
 
   const factory USubjectStatusViewSubject.unknown({
     required Map<String, dynamic> data,
@@ -54,6 +56,9 @@ extension USubjectStatusViewSubjectExtension on USubjectStatusViewSubject {
   bool get isMessageRef => isA<USubjectStatusViewSubjectMessageRef>(this);
   bool get isNotMessageRef => !isMessageRef;
   MessageRef? get messageRef => isMessageRef ? data as MessageRef : null;
+  bool get isConvoRef => isA<USubjectStatusViewSubjectConvoRef>(this);
+  bool get isNotConvoRef => !isConvoRef;
+  ConvoRef? get convoRef => isConvoRef ? data as ConvoRef : null;
   bool get isUnknown => isA<USubjectStatusViewSubjectUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -82,6 +87,11 @@ final class USubjectStatusViewSubjectConverter
           data: const MessageRefConverter().fromJson(json),
         );
       }
+      if (ConvoRef.validate(json)) {
+        return USubjectStatusViewSubject.convoRef(
+          data: const ConvoRefConverter().fromJson(json),
+        );
+      }
 
       return USubjectStatusViewSubject.unknown(data: json);
     } catch (_) {
@@ -94,6 +104,7 @@ final class USubjectStatusViewSubjectConverter
     repoRef: (data) => const RepoRefConverter().toJson(data),
     repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
     messageRef: (data) => const MessageRefConverter().toJson(data),
+    convoRef: (data) => const ConvoRefConverter().toJson(data),
 
     unknown: (data) => data,
   );

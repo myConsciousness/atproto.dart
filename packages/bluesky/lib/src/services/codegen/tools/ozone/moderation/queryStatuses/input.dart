@@ -139,7 +139,7 @@ abstract class ModerationQueryStatusesInput
     String? cursor,
     List<String>? collections,
 
-    /// If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
+    /// If specified, subjects of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.
     @ModerationQueryStatusesSubjectTypeConverter()
     ModerationQueryStatusesSubjectType? subjectType,
 

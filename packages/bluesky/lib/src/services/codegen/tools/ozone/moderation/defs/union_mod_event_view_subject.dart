@@ -33,6 +33,8 @@ sealed class UModEventViewSubject with _$UModEventViewSubject {
   }) = UModEventViewSubjectRepoStrongRef;
   const factory UModEventViewSubject.messageRef({required MessageRef data}) =
       UModEventViewSubjectMessageRef;
+  const factory UModEventViewSubject.convoRef({required ConvoRef data}) =
+      UModEventViewSubjectConvoRef;
 
   const factory UModEventViewSubject.unknown({
     required Map<String, dynamic> data,
@@ -53,6 +55,9 @@ extension UModEventViewSubjectExtension on UModEventViewSubject {
   bool get isMessageRef => isA<UModEventViewSubjectMessageRef>(this);
   bool get isNotMessageRef => !isMessageRef;
   MessageRef? get messageRef => isMessageRef ? data as MessageRef : null;
+  bool get isConvoRef => isA<UModEventViewSubjectConvoRef>(this);
+  bool get isNotConvoRef => !isConvoRef;
+  ConvoRef? get convoRef => isConvoRef ? data as ConvoRef : null;
   bool get isUnknown => isA<UModEventViewSubjectUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -81,6 +86,11 @@ final class UModEventViewSubjectConverter
           data: const MessageRefConverter().fromJson(json),
         );
       }
+      if (ConvoRef.validate(json)) {
+        return UModEventViewSubject.convoRef(
+          data: const ConvoRefConverter().fromJson(json),
+        );
+      }
 
       return UModEventViewSubject.unknown(data: json);
     } catch (_) {
@@ -93,6 +103,7 @@ final class UModEventViewSubjectConverter
     repoRef: (data) => const RepoRefConverter().toJson(data),
     repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
     messageRef: (data) => const MessageRefConverter().toJson(data),
+    convoRef: (data) => const ConvoRefConverter().toJson(data),
 
     unknown: (data) => data,
   );

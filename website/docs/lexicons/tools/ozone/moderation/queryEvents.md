@@ -20,7 +20,7 @@ List moderation events related to a subject.
 | **createdBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Retrieve events created before a given timestamp |
 | **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **collections** | array of [nsid](https://atproto.com/specs/nsid) | - | ❌ | - |
-| **subjectType** | string | account<br/>record | ❌ | If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored. |
+| **subjectType** | string | account<br/>record<br/>conversation | ❌ | If specified, only events where the subject is of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored. |
 | **includeAllUserRecords** | boolean | - | ❌ | If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned. |
 | **limit** | integer | - | ❌ | - |
 | **hasComment** | boolean | - | ❌ | If true, only events with comments are returned |
