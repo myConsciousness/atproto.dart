@@ -31,20 +31,33 @@ final class VideoServiceImpl extends VideoService {
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
-  }) async =>
-      await super.uploadVideo(
-        bytes: bytes,
-        $parameters: {
-          'did': ctx.session?.did ?? ctx.oAuthSession?.sub ?? '',
-          'name': '${nanoid(12)}.mp4',
-          ...?$parameters,
-        },
-        $service: $service ?? _videoService,
-        $headers: {
-          'Content-Length': bytes.lengthInBytes.toString(),
-          ...?$headers
-        },
-      );
+  }) async {
+    // video.bsky.app rejects the standard OAuth/DPoP bearer with a generic
+    // `400 invalid token`. It requires a scoped service-auth JWT issued by
+    // the user's PDS via `com.atproto.server.getServiceAuth`. Acquire one
+    // automatically when the caller didn't supply an Authorization header.
+    final hasAuth =
+        $headers?.keys.any((k) => k.toLowerCase() == 'authorization') ?? false;
+    String? bearer;
+    if (!hasAuth) {
+      final auth = await getUploadVideoAuth();
+      bearer = auth.data.token;
+    }
+    return await super.uploadVideo(
+      bytes: bytes,
+      $parameters: {
+        'did': ctx.session?.did ?? ctx.oAuthSession?.sub ?? '',
+        'name': '${nanoid(12)}.mp4',
+        ...?$parameters,
+      },
+      $service: $service ?? _videoService,
+      $headers: {
+        'Content-Length': bytes.lengthInBytes.toString(),
+        if (bearer != null) 'Authorization': 'Bearer $bearer',
+        ...?$headers,
+      },
+    );
+  }
 
   @override
   Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
@@ -52,25 +65,23 @@ final class VideoServiceImpl extends VideoService {
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await super.getJobStatus(
-        jobId: jobId,
-        $service: $service ?? _videoService,
-        $headers: $headers,
-        $unknown: $unknown,
-      );
+  }) async => await super.getJobStatus(
+    jobId: jobId,
+    $service: $service ?? _videoService,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   @override
   Future<XRPCResponse<VideoGetUploadLimitsOutput>> getUploadLimits({
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await super.getUploadLimits(
-        $service: $service ?? _videoService,
-        $headers: $headers,
-        $unknown: $unknown,
-      );
+  }) async => await super.getUploadLimits(
+    $service: $service ?? _videoService,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Uploads a video using a service authentication token.
   ///
@@ -101,13 +112,12 @@ final class VideoServiceImpl extends VideoService {
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
-  }) async =>
-      await uploadVideo(
-        bytes: bytes,
-        $parameters: $parameters,
-        $service: $service,
-        $headers: {'Authorization': 'Bearer $authToken', ...?$headers},
-      );
+  }) async => await uploadVideo(
+    bytes: bytes,
+    $parameters: $parameters,
+    $service: $service,
+    $headers: {'Authorization': 'Bearer $authToken', ...?$headers},
+  );
 
   /// Gets upload limits using a service authentication token.
   ///
@@ -136,12 +146,11 @@ final class VideoServiceImpl extends VideoService {
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
-  }) async =>
-      await getUploadLimits(
-        $service: $service,
-        $headers: {'Authorization': 'Bearer $authToken', ...?$headers},
-        $unknown: $unknown,
-      );
+  }) async => await getUploadLimits(
+    $service: $service,
+    $headers: {'Authorization': 'Bearer $authToken', ...?$headers},
+    $unknown: $unknown,
+  );
 
   /// Obtains a service authentication token for checking upload limits.
   ///
@@ -162,11 +171,11 @@ final class VideoServiceImpl extends VideoService {
   /// );
   /// ```
   Future<XRPCResponse<ServerGetServiceAuthOutput>>
-      getUploadLimitsAuth() async => await comAtprotoServerGetServiceAuth(
-            aud: 'did:web:$_videoService',
-            lxm: bsky_id.appBskyVideoGetUploadLimits,
-            $ctx: ctx,
-          );
+  getUploadLimitsAuth() async => await comAtprotoServerGetServiceAuth(
+    aud: 'did:web:$_videoService',
+    lxm: bsky_id.appBskyVideoGetUploadLimits,
+    $ctx: ctx,
+  );
 
   /// Obtains a service authentication token for uploading videos.
   ///
@@ -192,7 +201,8 @@ final class VideoServiceImpl extends VideoService {
       await comAtprotoServerGetServiceAuth(
         aud: 'did:web:${ctx.service}',
         lxm: atproto_id.comAtprotoRepoUploadBlob,
-        exp: DateTime.now().add(Duration(minutes: 30)).millisecondsSinceEpoch ~/
+        exp:
+            DateTime.now().add(Duration(minutes: 30)).millisecondsSinceEpoch ~/
             1000,
         $ctx: ctx,
       );
