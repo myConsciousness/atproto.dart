@@ -55,7 +55,7 @@ extension UModerationSubscribeModEventsMessagePatterns on UModerationSubscribeMo
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModerationSubscribeModEventsMessageEventConvoFirstMessage value)?  eventConvoFirstMessage,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatCreated value)?  eventGroupChatCreated,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberAdded value)?  eventGroupChatMemberAdded,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberJoined value)?  eventGroupChatMemberJoined,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequest value)?  eventGroupChatJoinRequest,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved value)?  eventGroupChatJoinRequestApproved,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected value)?  eventGroupChatJoinRequestRejected,TResult Function( UModerationSubscribeModEventsMessageEventChatAccepted value)?  eventChatAccepted,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberLeft value)?  eventGroupChatMemberLeft,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatUpdated value)?  eventGroupChatUpdated,TResult Function( UModerationSubscribeModEventsMessageUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UModerationSubscribeModEventsMessageEventConvoFirstMessage value)?  eventConvoFirstMessage,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatCreated value)?  eventGroupChatCreated,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberAdded value)?  eventGroupChatMemberAdded,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberJoined value)?  eventGroupChatMemberJoined,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequest value)?  eventGroupChatJoinRequest,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved value)?  eventGroupChatJoinRequestApproved,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected value)?  eventGroupChatJoinRequestRejected,TResult Function( UModerationSubscribeModEventsMessageEventChatAccepted value)?  eventChatAccepted,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberLeft value)?  eventGroupChatMemberLeft,TResult Function( UModerationSubscribeModEventsMessageEventGroupChatUpdated value)?  eventGroupChatUpdated,TResult Function( UModerationSubscribeModEventsMessageEventRateLimitExceeded value)?  eventRateLimitExceeded,TResult Function( UModerationSubscribeModEventsMessageUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UModerationSubscribeModEventsMessageEventConvoFirstMessage() when eventConvoFirstMessage != null:
@@ -68,7 +68,8 @@ return eventGroupChatJoinRequestApproved(_that);case UModerationSubscribeModEven
 return eventGroupChatJoinRequestRejected(_that);case UModerationSubscribeModEventsMessageEventChatAccepted() when eventChatAccepted != null:
 return eventChatAccepted(_that);case UModerationSubscribeModEventsMessageEventGroupChatMemberLeft() when eventGroupChatMemberLeft != null:
 return eventGroupChatMemberLeft(_that);case UModerationSubscribeModEventsMessageEventGroupChatUpdated() when eventGroupChatUpdated != null:
-return eventGroupChatUpdated(_that);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
+return eventGroupChatUpdated(_that);case UModerationSubscribeModEventsMessageEventRateLimitExceeded() when eventRateLimitExceeded != null:
+return eventRateLimitExceeded(_that);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -87,7 +88,7 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModerationSubscribeModEventsMessageEventConvoFirstMessage value)  eventConvoFirstMessage,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatCreated value)  eventGroupChatCreated,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberAdded value)  eventGroupChatMemberAdded,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberJoined value)  eventGroupChatMemberJoined,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequest value)  eventGroupChatJoinRequest,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved value)  eventGroupChatJoinRequestApproved,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected value)  eventGroupChatJoinRequestRejected,required TResult Function( UModerationSubscribeModEventsMessageEventChatAccepted value)  eventChatAccepted,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberLeft value)  eventGroupChatMemberLeft,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatUpdated value)  eventGroupChatUpdated,required TResult Function( UModerationSubscribeModEventsMessageUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UModerationSubscribeModEventsMessageEventConvoFirstMessage value)  eventConvoFirstMessage,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatCreated value)  eventGroupChatCreated,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberAdded value)  eventGroupChatMemberAdded,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberJoined value)  eventGroupChatMemberJoined,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequest value)  eventGroupChatJoinRequest,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved value)  eventGroupChatJoinRequestApproved,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected value)  eventGroupChatJoinRequestRejected,required TResult Function( UModerationSubscribeModEventsMessageEventChatAccepted value)  eventChatAccepted,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatMemberLeft value)  eventGroupChatMemberLeft,required TResult Function( UModerationSubscribeModEventsMessageEventGroupChatUpdated value)  eventGroupChatUpdated,required TResult Function( UModerationSubscribeModEventsMessageEventRateLimitExceeded value)  eventRateLimitExceeded,required TResult Function( UModerationSubscribeModEventsMessageUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UModerationSubscribeModEventsMessageEventConvoFirstMessage():
@@ -100,7 +101,8 @@ return eventGroupChatJoinRequestApproved(_that);case UModerationSubscribeModEven
 return eventGroupChatJoinRequestRejected(_that);case UModerationSubscribeModEventsMessageEventChatAccepted():
 return eventChatAccepted(_that);case UModerationSubscribeModEventsMessageEventGroupChatMemberLeft():
 return eventGroupChatMemberLeft(_that);case UModerationSubscribeModEventsMessageEventGroupChatUpdated():
-return eventGroupChatUpdated(_that);case UModerationSubscribeModEventsMessageUnknown():
+return eventGroupChatUpdated(_that);case UModerationSubscribeModEventsMessageEventRateLimitExceeded():
+return eventRateLimitExceeded(_that);case UModerationSubscribeModEventsMessageUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -115,7 +117,7 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModerationSubscribeModEventsMessageEventConvoFirstMessage value)?  eventConvoFirstMessage,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatCreated value)?  eventGroupChatCreated,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatMemberAdded value)?  eventGroupChatMemberAdded,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatMemberJoined value)?  eventGroupChatMemberJoined,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequest value)?  eventGroupChatJoinRequest,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved value)?  eventGroupChatJoinRequestApproved,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected value)?  eventGroupChatJoinRequestRejected,TResult? Function( UModerationSubscribeModEventsMessageEventChatAccepted value)?  eventChatAccepted,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatMemberLeft value)?  eventGroupChatMemberLeft,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatUpdated value)?  eventGroupChatUpdated,TResult? Function( UModerationSubscribeModEventsMessageUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UModerationSubscribeModEventsMessageEventConvoFirstMessage value)?  eventConvoFirstMessage,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatCreated value)?  eventGroupChatCreated,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatMemberAdded value)?  eventGroupChatMemberAdded,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatMemberJoined value)?  eventGroupChatMemberJoined,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequest value)?  eventGroupChatJoinRequest,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved value)?  eventGroupChatJoinRequestApproved,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected value)?  eventGroupChatJoinRequestRejected,TResult? Function( UModerationSubscribeModEventsMessageEventChatAccepted value)?  eventChatAccepted,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatMemberLeft value)?  eventGroupChatMemberLeft,TResult? Function( UModerationSubscribeModEventsMessageEventGroupChatUpdated value)?  eventGroupChatUpdated,TResult? Function( UModerationSubscribeModEventsMessageEventRateLimitExceeded value)?  eventRateLimitExceeded,TResult? Function( UModerationSubscribeModEventsMessageUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UModerationSubscribeModEventsMessageEventConvoFirstMessage() when eventConvoFirstMessage != null:
@@ -128,7 +130,8 @@ return eventGroupChatJoinRequestApproved(_that);case UModerationSubscribeModEven
 return eventGroupChatJoinRequestRejected(_that);case UModerationSubscribeModEventsMessageEventChatAccepted() when eventChatAccepted != null:
 return eventChatAccepted(_that);case UModerationSubscribeModEventsMessageEventGroupChatMemberLeft() when eventGroupChatMemberLeft != null:
 return eventGroupChatMemberLeft(_that);case UModerationSubscribeModEventsMessageEventGroupChatUpdated() when eventGroupChatUpdated != null:
-return eventGroupChatUpdated(_that);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
+return eventGroupChatUpdated(_that);case UModerationSubscribeModEventsMessageEventRateLimitExceeded() when eventRateLimitExceeded != null:
+return eventRateLimitExceeded(_that);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -146,7 +149,7 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EventConvoFirstMessage data)?  eventConvoFirstMessage,TResult Function( EventGroupChatCreated data)?  eventGroupChatCreated,TResult Function( EventGroupChatMemberAdded data)?  eventGroupChatMemberAdded,TResult Function( EventGroupChatMemberJoined data)?  eventGroupChatMemberJoined,TResult Function( EventGroupChatJoinRequest data)?  eventGroupChatJoinRequest,TResult Function( EventGroupChatJoinRequestApproved data)?  eventGroupChatJoinRequestApproved,TResult Function( EventGroupChatJoinRequestRejected data)?  eventGroupChatJoinRequestRejected,TResult Function( EventChatAccepted data)?  eventChatAccepted,TResult Function( EventGroupChatMemberLeft data)?  eventGroupChatMemberLeft,TResult Function( EventGroupChatUpdated data)?  eventGroupChatUpdated,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EventConvoFirstMessage data)?  eventConvoFirstMessage,TResult Function( EventGroupChatCreated data)?  eventGroupChatCreated,TResult Function( EventGroupChatMemberAdded data)?  eventGroupChatMemberAdded,TResult Function( EventGroupChatMemberJoined data)?  eventGroupChatMemberJoined,TResult Function( EventGroupChatJoinRequest data)?  eventGroupChatJoinRequest,TResult Function( EventGroupChatJoinRequestApproved data)?  eventGroupChatJoinRequestApproved,TResult Function( EventGroupChatJoinRequestRejected data)?  eventGroupChatJoinRequestRejected,TResult Function( EventChatAccepted data)?  eventChatAccepted,TResult Function( EventGroupChatMemberLeft data)?  eventGroupChatMemberLeft,TResult Function( EventGroupChatUpdated data)?  eventGroupChatUpdated,TResult Function( EventRateLimitExceeded data)?  eventRateLimitExceeded,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UModerationSubscribeModEventsMessageEventConvoFirstMessage() when eventConvoFirstMessage != null:
 return eventConvoFirstMessage(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatCreated() when eventGroupChatCreated != null:
@@ -158,7 +161,8 @@ return eventGroupChatJoinRequestApproved(_that.data);case UModerationSubscribeMo
 return eventGroupChatJoinRequestRejected(_that.data);case UModerationSubscribeModEventsMessageEventChatAccepted() when eventChatAccepted != null:
 return eventChatAccepted(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatMemberLeft() when eventGroupChatMemberLeft != null:
 return eventGroupChatMemberLeft(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatUpdated() when eventGroupChatUpdated != null:
-return eventGroupChatUpdated(_that.data);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
+return eventGroupChatUpdated(_that.data);case UModerationSubscribeModEventsMessageEventRateLimitExceeded() when eventRateLimitExceeded != null:
+return eventRateLimitExceeded(_that.data);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -177,7 +181,7 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EventConvoFirstMessage data)  eventConvoFirstMessage,required TResult Function( EventGroupChatCreated data)  eventGroupChatCreated,required TResult Function( EventGroupChatMemberAdded data)  eventGroupChatMemberAdded,required TResult Function( EventGroupChatMemberJoined data)  eventGroupChatMemberJoined,required TResult Function( EventGroupChatJoinRequest data)  eventGroupChatJoinRequest,required TResult Function( EventGroupChatJoinRequestApproved data)  eventGroupChatJoinRequestApproved,required TResult Function( EventGroupChatJoinRequestRejected data)  eventGroupChatJoinRequestRejected,required TResult Function( EventChatAccepted data)  eventChatAccepted,required TResult Function( EventGroupChatMemberLeft data)  eventGroupChatMemberLeft,required TResult Function( EventGroupChatUpdated data)  eventGroupChatUpdated,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EventConvoFirstMessage data)  eventConvoFirstMessage,required TResult Function( EventGroupChatCreated data)  eventGroupChatCreated,required TResult Function( EventGroupChatMemberAdded data)  eventGroupChatMemberAdded,required TResult Function( EventGroupChatMemberJoined data)  eventGroupChatMemberJoined,required TResult Function( EventGroupChatJoinRequest data)  eventGroupChatJoinRequest,required TResult Function( EventGroupChatJoinRequestApproved data)  eventGroupChatJoinRequestApproved,required TResult Function( EventGroupChatJoinRequestRejected data)  eventGroupChatJoinRequestRejected,required TResult Function( EventChatAccepted data)  eventChatAccepted,required TResult Function( EventGroupChatMemberLeft data)  eventGroupChatMemberLeft,required TResult Function( EventGroupChatUpdated data)  eventGroupChatUpdated,required TResult Function( EventRateLimitExceeded data)  eventRateLimitExceeded,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UModerationSubscribeModEventsMessageEventConvoFirstMessage():
 return eventConvoFirstMessage(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatCreated():
@@ -189,7 +193,8 @@ return eventGroupChatJoinRequestApproved(_that.data);case UModerationSubscribeMo
 return eventGroupChatJoinRequestRejected(_that.data);case UModerationSubscribeModEventsMessageEventChatAccepted():
 return eventChatAccepted(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatMemberLeft():
 return eventGroupChatMemberLeft(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatUpdated():
-return eventGroupChatUpdated(_that.data);case UModerationSubscribeModEventsMessageUnknown():
+return eventGroupChatUpdated(_that.data);case UModerationSubscribeModEventsMessageEventRateLimitExceeded():
+return eventRateLimitExceeded(_that.data);case UModerationSubscribeModEventsMessageUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -204,7 +209,7 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EventConvoFirstMessage data)?  eventConvoFirstMessage,TResult? Function( EventGroupChatCreated data)?  eventGroupChatCreated,TResult? Function( EventGroupChatMemberAdded data)?  eventGroupChatMemberAdded,TResult? Function( EventGroupChatMemberJoined data)?  eventGroupChatMemberJoined,TResult? Function( EventGroupChatJoinRequest data)?  eventGroupChatJoinRequest,TResult? Function( EventGroupChatJoinRequestApproved data)?  eventGroupChatJoinRequestApproved,TResult? Function( EventGroupChatJoinRequestRejected data)?  eventGroupChatJoinRequestRejected,TResult? Function( EventChatAccepted data)?  eventChatAccepted,TResult? Function( EventGroupChatMemberLeft data)?  eventGroupChatMemberLeft,TResult? Function( EventGroupChatUpdated data)?  eventGroupChatUpdated,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EventConvoFirstMessage data)?  eventConvoFirstMessage,TResult? Function( EventGroupChatCreated data)?  eventGroupChatCreated,TResult? Function( EventGroupChatMemberAdded data)?  eventGroupChatMemberAdded,TResult? Function( EventGroupChatMemberJoined data)?  eventGroupChatMemberJoined,TResult? Function( EventGroupChatJoinRequest data)?  eventGroupChatJoinRequest,TResult? Function( EventGroupChatJoinRequestApproved data)?  eventGroupChatJoinRequestApproved,TResult? Function( EventGroupChatJoinRequestRejected data)?  eventGroupChatJoinRequestRejected,TResult? Function( EventChatAccepted data)?  eventChatAccepted,TResult? Function( EventGroupChatMemberLeft data)?  eventGroupChatMemberLeft,TResult? Function( EventGroupChatUpdated data)?  eventGroupChatUpdated,TResult? Function( EventRateLimitExceeded data)?  eventRateLimitExceeded,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UModerationSubscribeModEventsMessageEventConvoFirstMessage() when eventConvoFirstMessage != null:
 return eventConvoFirstMessage(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatCreated() when eventGroupChatCreated != null:
@@ -216,7 +221,8 @@ return eventGroupChatJoinRequestApproved(_that.data);case UModerationSubscribeMo
 return eventGroupChatJoinRequestRejected(_that.data);case UModerationSubscribeModEventsMessageEventChatAccepted() when eventChatAccepted != null:
 return eventChatAccepted(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatMemberLeft() when eventGroupChatMemberLeft != null:
 return eventGroupChatMemberLeft(_that.data);case UModerationSubscribeModEventsMessageEventGroupChatUpdated() when eventGroupChatUpdated != null:
-return eventGroupChatUpdated(_that.data);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
+return eventGroupChatUpdated(_that.data);case UModerationSubscribeModEventsMessageEventRateLimitExceeded() when eventRateLimitExceeded != null:
+return eventRateLimitExceeded(_that.data);case UModerationSubscribeModEventsMessageUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -970,6 +976,81 @@ as EventGroupChatUpdated,
 $EventGroupChatUpdatedCopyWith<$Res> get data {
   
   return $EventGroupChatUpdatedCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UModerationSubscribeModEventsMessageEventRateLimitExceeded extends UModerationSubscribeModEventsMessage {
+  const UModerationSubscribeModEventsMessageEventRateLimitExceeded({required this.data}): super._();
+  
+
+@override final  EventRateLimitExceeded data;
+
+/// Create a copy of UModerationSubscribeModEventsMessage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWith<UModerationSubscribeModEventsMessageEventRateLimitExceeded> get copyWith => _$UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWithImpl<UModerationSubscribeModEventsMessageEventRateLimitExceeded>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UModerationSubscribeModEventsMessageEventRateLimitExceeded&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'UModerationSubscribeModEventsMessage.eventRateLimitExceeded(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWith<$Res> implements $UModerationSubscribeModEventsMessageCopyWith<$Res> {
+  factory $UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWith(UModerationSubscribeModEventsMessageEventRateLimitExceeded value, $Res Function(UModerationSubscribeModEventsMessageEventRateLimitExceeded) _then) = _$UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWithImpl;
+@useResult
+$Res call({
+ EventRateLimitExceeded data
+});
+
+
+$EventRateLimitExceededCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWithImpl<$Res>
+    implements $UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWith<$Res> {
+  _$UModerationSubscribeModEventsMessageEventRateLimitExceededCopyWithImpl(this._self, this._then);
+
+  final UModerationSubscribeModEventsMessageEventRateLimitExceeded _self;
+  final $Res Function(UModerationSubscribeModEventsMessageEventRateLimitExceeded) _then;
+
+/// Create a copy of UModerationSubscribeModEventsMessage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UModerationSubscribeModEventsMessageEventRateLimitExceeded(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as EventRateLimitExceeded,
+  ));
+}
+
+/// Create a copy of UModerationSubscribeModEventsMessage
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EventRateLimitExceededCopyWith<$Res> get data {
+  
+  return $EventRateLimitExceededCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

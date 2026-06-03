@@ -12,6 +12,9 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'moderation/get_actor_metadata.dart';
+import 'moderation/get_convo.dart';
+import 'moderation/get_convo_members.dart';
+import 'moderation/get_convos.dart';
 import 'moderation/get_message_context.dart';
 import 'moderation/update_actor_access.dart';
 
@@ -22,6 +25,9 @@ import 'moderation/update_actor_access.dart';
 final class ChatBskyModerationCommand extends Command<void> {
   ChatBskyModerationCommand() {
     addSubcommand(GetActorMetadataCommand());
+    addSubcommand(GetConvoCommand());
+    addSubcommand(GetConvoMembersCommand());
+    addSubcommand(GetConvosCommand());
     addSubcommand(GetMessageContextCommand());
     addSubcommand(UpdateActorAccessCommand());
   }

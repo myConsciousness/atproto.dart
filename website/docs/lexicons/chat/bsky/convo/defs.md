@@ -44,7 +44,7 @@ description: chat.bsky.convo.defs
 | --- | --- | --- | :---: | --- |
 | **text** | string | - | ✅ | - |
 | **facets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | Annotations of text (mentions, URLs, hashtags, etc) |
-| **embed** | union of <br/>[app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#main) | - | ❌ | - |
+| **embed** | union of <br/>[app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#main)<br/>[chat.bsky.embed.joinLink](../../../../lexicons/chat/bsky/embed/joinLink.md#main) | - | ❌ | - |
 
 ## #messageView
 
@@ -54,7 +54,7 @@ description: chat.bsky.convo.defs
 | **rev** | string | - | ✅ | - |
 | **text** | string | - | ✅ | - |
 | **facets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | Annotations of text (mentions, URLs, hashtags, etc) |
-| **embed** | union of <br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view) | - | ❌ | - |
+| **embed** | union of <br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br/>[chat.bsky.embed.joinLink#view](../../../../lexicons/chat/bsky/embed/joinLink.md#view) | - | ❌ | - |
 | **reactions** | array of [#reactionView](#reactionview) | - | ❌ | Reactions to this message, in ascending order of creation time. |
 | **sender** | [#messageViewSender](#messageviewsender) | - | ✅ | - |
 | **sentAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -222,13 +222,14 @@ description: chat.bsky.convo.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **name** | string | - | ✅ | The display name of the group conversation. |
-| **memberCount** | integer | - | ✅ | The total number of members in the group conversation. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
-| **joinRequestCount** | integer | - | ❌ | The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21. |
 | **joinLink** | [chat.bsky.group.defs#joinLinkView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkview) | - | ❌ | - |
-| **memberLimit** | integer | - | ✅ | The maximum number of members allowed in the group conversation. |
+| **joinRequestCount** | integer | - | ❌ | The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21. |
 | **lockStatus** | [#convoLockStatus](#convolockstatus) | - | ✅ | - |
+| **memberCount** | integer | - | ✅ | The total number of members in the group conversation. |
+| **memberLimit** | integer | - | ✅ | The maximum number of members allowed in the group conversation. |
+| **name** | string | - | ✅ | The display name of the group conversation. |
+| **unreadJoinRequestCount** | integer | - | ❌ | The number of unread join requests for the group conversation. Only present for the owner. |
 
 ## #logBeginConvo
 
@@ -499,7 +500,35 @@ Event indicating a reaction was removed from a message.
 
 ## #logOutgoingJoinRequest
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made by the viewer.
+[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made by the requester. Only requester actor gets this.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+
+## #logWithdrawIncomingJoinRequest
+
+[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a prospective member withdrew their join request. Only the owner gets this.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+| **member** | [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
+
+## #logWithdrawOutgoingJoinRequest
+
+[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating the viewer withdrew their own join request. Only requester actor gets this.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+
+## #logReadJoinRequests
+
+[NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating the group owner marked join requests as read. Only the owner gets this.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -25,6 +25,8 @@ import 'group/list_mutual_groups.dart';
 import 'group/reject_join_request.dart';
 import 'group/remove_members.dart';
 import 'group/request_join.dart';
+import 'group/update_join_requests_read.dart';
+import 'group/withdraw_join_request.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -46,6 +48,8 @@ final class ChatBskyGroupCommand extends Command<void> {
     addSubcommand(RejectJoinRequestCommand());
     addSubcommand(RemoveMembersCommand());
     addSubcommand(RequestJoinCommand());
+    addSubcommand(UpdateJoinRequestsReadCommand());
+    addSubcommand(WithdrawJoinRequestCommand());
   }
 
   @override

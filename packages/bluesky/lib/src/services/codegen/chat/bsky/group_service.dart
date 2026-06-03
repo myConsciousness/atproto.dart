@@ -171,7 +171,7 @@ Future<XRPCResponse<GroupEnableJoinLinkOutput>> chatBskyGroupEnableJoinLink({
   to: const GroupEnableJoinLinkOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results.
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results. Use the 'code' property on the views to correlate with the input codes, not array positions.
 Future<XRPCResponse<GroupGetJoinLinkPreviewsOutput>>
 chatBskyGroupGetJoinLinkPreviews({
   required List<String> codes,
@@ -277,6 +277,34 @@ Future<XRPCResponse<GroupRequestJoinOutput>> chatBskyGroupRequestJoin({
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {...?$unknown, 'code': code},
   to: const GroupRequestJoinOutputConverter().fromJson,
+);
+
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Marks all join requests as read for the group owner.
+Future<XRPCResponse<EmptyData>> chatBskyGroupUpdateJoinRequestsRead({
+  required String convoId,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.chatBskyGroupUpdateJoinRequestsRead,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId},
+);
+
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Withdraws a pending request to join a group. Action taken by the prospective member who originally requested to join.
+Future<XRPCResponse<EmptyData>> chatBskyGroupWithdrawJoinRequest({
+  required String convoId,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.chatBskyGroupWithdrawJoinRequest,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, 'convoId': convoId},
 );
 
 /// `chat.bsky.group.*`
@@ -414,7 +442,7 @@ base class GroupService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results.
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results. Use the 'code' property on the views to correlate with the input codes, not array positions.
   Future<XRPCResponse<GroupGetJoinLinkPreviewsOutput>> getJoinLinkPreviews({
     required List<String> codes,
     String? $service,
@@ -504,6 +532,34 @@ base class GroupService {
     Map<String, String>? $unknown,
   }) async => await chatBskyGroupRequestJoin(
     code: code,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Marks all join requests as read for the group owner.
+  Future<XRPCResponse<EmptyData>> updateJoinRequestsRead({
+    required String convoId,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await chatBskyGroupUpdateJoinRequestsRead(
+    convoId: convoId,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Withdraws a pending request to join a group. Action taken by the prospective member who originally requested to join.
+  Future<XRPCResponse<EmptyData>> withdrawJoinRequest({
+    required String convoId,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await chatBskyGroupWithdrawJoinRequest(
+    convoId: convoId,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

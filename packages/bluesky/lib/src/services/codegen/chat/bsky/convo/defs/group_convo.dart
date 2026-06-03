@@ -26,35 +26,39 @@ part 'group_convo.g.dart';
 @freezed
 abstract class GroupConvo with _$GroupConvo {
   static const knownProps = <String>[
-    'name',
-    'memberCount',
     'createdAt',
-    'joinRequestCount',
     'joinLink',
-    'memberLimit',
+    'joinRequestCount',
     'lockStatus',
+    'memberCount',
+    'memberLimit',
+    'name',
+    'unreadJoinRequestCount',
   ];
 
   @JsonSerializable(includeIfNull: false)
   const factory GroupConvo({
     @Default('chat.bsky.convo.defs#groupConvo') String $type,
-
-    /// The display name of the group conversation.
-    required String name,
-
-    /// The total number of members in the group conversation.
-    required int memberCount,
     required DateTime createdAt,
+    @JoinLinkViewConverter() JoinLinkView? joinLink,
 
     /// The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21.
     int? joinRequestCount,
-    @JoinLinkViewConverter() JoinLinkView? joinLink,
+
+    /// The lock status of the conversation.
+    @ConvoLockStatusConverter() required ConvoLockStatus lockStatus,
+
+    /// The total number of members in the group conversation.
+    required int memberCount,
 
     /// The maximum number of members allowed in the group conversation.
     required int memberLimit,
 
-    /// The lock status of the conversation.
-    @ConvoLockStatusConverter() required ConvoLockStatus lockStatus,
+    /// The display name of the group conversation.
+    required String name,
+
+    /// The number of unread join requests for the group conversation. Only present for the owner.
+    int? unreadJoinRequestCount,
 
     Map<String, dynamic>? $unknown,
   }) = _GroupConvo;
@@ -69,10 +73,12 @@ abstract class GroupConvo with _$GroupConvo {
 }
 
 extension GroupConvoExtension on GroupConvo {
-  bool get hasJoinRequestCount => joinRequestCount != null;
-  bool get hasNotJoinRequestCount => !hasJoinRequestCount;
   bool get hasJoinLink => joinLink != null;
   bool get hasNotJoinLink => !hasJoinLink;
+  bool get hasJoinRequestCount => joinRequestCount != null;
+  bool get hasNotJoinRequestCount => !hasJoinRequestCount;
+  bool get hasUnreadJoinRequestCount => unreadJoinRequestCount != null;
+  bool get hasNotUnreadJoinRequestCount => !hasUnreadJoinRequestCount;
 }
 
 final class GroupConvoConverter

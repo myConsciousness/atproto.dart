@@ -55,11 +55,12 @@ extension UMessageInputEmbedPatterns on UMessageInputEmbed {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UMessageInputEmbedEmbedRecord value)?  embedRecord,TResult Function( UMessageInputEmbedUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UMessageInputEmbedEmbedRecord value)?  embedRecord,TResult Function( UMessageInputEmbedEmbedJoinLink value)?  embedJoinLink,TResult Function( UMessageInputEmbedUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UMessageInputEmbedEmbedRecord() when embedRecord != null:
-return embedRecord(_that);case UMessageInputEmbedUnknown() when unknown != null:
+return embedRecord(_that);case UMessageInputEmbedEmbedJoinLink() when embedJoinLink != null:
+return embedJoinLink(_that);case UMessageInputEmbedUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +79,12 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UMessageInputEmbedEmbedRecord value)  embedRecord,required TResult Function( UMessageInputEmbedUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UMessageInputEmbedEmbedRecord value)  embedRecord,required TResult Function( UMessageInputEmbedEmbedJoinLink value)  embedJoinLink,required TResult Function( UMessageInputEmbedUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UMessageInputEmbedEmbedRecord():
-return embedRecord(_that);case UMessageInputEmbedUnknown():
+return embedRecord(_that);case UMessageInputEmbedEmbedJoinLink():
+return embedJoinLink(_that);case UMessageInputEmbedUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -97,11 +99,12 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UMessageInputEmbedEmbedRecord value)?  embedRecord,TResult? Function( UMessageInputEmbedUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UMessageInputEmbedEmbedRecord value)?  embedRecord,TResult? Function( UMessageInputEmbedEmbedJoinLink value)?  embedJoinLink,TResult? Function( UMessageInputEmbedUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UMessageInputEmbedEmbedRecord() when embedRecord != null:
-return embedRecord(_that);case UMessageInputEmbedUnknown() when unknown != null:
+return embedRecord(_that);case UMessageInputEmbedEmbedJoinLink() when embedJoinLink != null:
+return embedJoinLink(_that);case UMessageInputEmbedUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -119,10 +122,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmbedRecord data)?  embedRecord,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmbedRecord data)?  embedRecord,TResult Function( EmbedJoinLink data)?  embedJoinLink,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UMessageInputEmbedEmbedRecord() when embedRecord != null:
-return embedRecord(_that.data);case UMessageInputEmbedUnknown() when unknown != null:
+return embedRecord(_that.data);case UMessageInputEmbedEmbedJoinLink() when embedJoinLink != null:
+return embedJoinLink(_that.data);case UMessageInputEmbedUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -141,10 +145,11 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmbedRecord data)  embedRecord,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmbedRecord data)  embedRecord,required TResult Function( EmbedJoinLink data)  embedJoinLink,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UMessageInputEmbedEmbedRecord():
-return embedRecord(_that.data);case UMessageInputEmbedUnknown():
+return embedRecord(_that.data);case UMessageInputEmbedEmbedJoinLink():
+return embedJoinLink(_that.data);case UMessageInputEmbedUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -159,10 +164,11 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmbedRecord data)?  embedRecord,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmbedRecord data)?  embedRecord,TResult? Function( EmbedJoinLink data)?  embedJoinLink,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UMessageInputEmbedEmbedRecord() when embedRecord != null:
-return embedRecord(_that.data);case UMessageInputEmbedUnknown() when unknown != null:
+return embedRecord(_that.data);case UMessageInputEmbedEmbedJoinLink() when embedJoinLink != null:
+return embedJoinLink(_that.data);case UMessageInputEmbedUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -241,6 +247,81 @@ as EmbedRecord,
 $EmbedRecordCopyWith<$Res> get data {
   
   return $EmbedRecordCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UMessageInputEmbedEmbedJoinLink extends UMessageInputEmbed {
+  const UMessageInputEmbedEmbedJoinLink({required this.data}): super._();
+  
+
+@override final  EmbedJoinLink data;
+
+/// Create a copy of UMessageInputEmbed
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UMessageInputEmbedEmbedJoinLinkCopyWith<UMessageInputEmbedEmbedJoinLink> get copyWith => _$UMessageInputEmbedEmbedJoinLinkCopyWithImpl<UMessageInputEmbedEmbedJoinLink>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UMessageInputEmbedEmbedJoinLink&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'UMessageInputEmbed.embedJoinLink(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UMessageInputEmbedEmbedJoinLinkCopyWith<$Res> implements $UMessageInputEmbedCopyWith<$Res> {
+  factory $UMessageInputEmbedEmbedJoinLinkCopyWith(UMessageInputEmbedEmbedJoinLink value, $Res Function(UMessageInputEmbedEmbedJoinLink) _then) = _$UMessageInputEmbedEmbedJoinLinkCopyWithImpl;
+@useResult
+$Res call({
+ EmbedJoinLink data
+});
+
+
+$EmbedJoinLinkCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UMessageInputEmbedEmbedJoinLinkCopyWithImpl<$Res>
+    implements $UMessageInputEmbedEmbedJoinLinkCopyWith<$Res> {
+  _$UMessageInputEmbedEmbedJoinLinkCopyWithImpl(this._self, this._then);
+
+  final UMessageInputEmbedEmbedJoinLink _self;
+  final $Res Function(UMessageInputEmbedEmbedJoinLink) _then;
+
+/// Create a copy of UMessageInputEmbed
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UMessageInputEmbedEmbedJoinLink(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as EmbedJoinLink,
+  ));
+}
+
+/// Create a copy of UMessageInputEmbed
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedJoinLinkCopyWith<$Res> get data {
+  
+  return $EmbedJoinLinkCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

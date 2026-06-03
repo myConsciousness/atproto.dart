@@ -747,6 +747,12 @@ const chatBskyConvoUpdateAllRead = NSID(ids.chatBskyConvoUpdateAllRead);
 /// `chat.bsky.convo.updateRead`
 const chatBskyConvoUpdateRead = NSID(ids.chatBskyConvoUpdateRead);
 
+/// `chat.bsky.embed.joinLink`
+const chatBskyEmbedJoinLink = NSID(ids.chatBskyEmbedJoinLink);
+
+/// `chat.bsky.embed.joinLink#view`
+const chatBskyEmbedJoinLinkView = NSID(ids.chatBskyEmbedJoinLinkView);
+
 /// `chat.bsky.group.addMembers`
 const chatBskyGroupAddMembers = NSID(ids.chatBskyGroupAddMembers);
 
@@ -793,6 +799,16 @@ const chatBskyGroupRemoveMembers = NSID(ids.chatBskyGroupRemoveMembers);
 /// `chat.bsky.group.requestJoin`
 const chatBskyGroupRequestJoin = NSID(ids.chatBskyGroupRequestJoin);
 
+/// `chat.bsky.group.updateJoinRequestsRead`
+const chatBskyGroupUpdateJoinRequestsRead = NSID(
+  ids.chatBskyGroupUpdateJoinRequestsRead,
+);
+
+/// `chat.bsky.group.withdrawJoinRequest`
+const chatBskyGroupWithdrawJoinRequest = NSID(
+  ids.chatBskyGroupWithdrawJoinRequest,
+);
+
 /// `chat.bsky.moderation.getActorMetadata`
 const chatBskyModerationGetActorMetadata = NSID(
   ids.chatBskyModerationGetActorMetadata,
@@ -802,6 +818,17 @@ const chatBskyModerationGetActorMetadata = NSID(
 const chatBskyModerationGetActorMetadataMetadata = NSID(
   ids.chatBskyModerationGetActorMetadataMetadata,
 );
+
+/// `chat.bsky.moderation.getConvo`
+const chatBskyModerationGetConvo = NSID(ids.chatBskyModerationGetConvo);
+
+/// `chat.bsky.moderation.getConvoMembers`
+const chatBskyModerationGetConvoMembers = NSID(
+  ids.chatBskyModerationGetConvoMembers,
+);
+
+/// `chat.bsky.moderation.getConvos`
+const chatBskyModerationGetConvos = NSID(ids.chatBskyModerationGetConvos);
 
 /// `chat.bsky.moderation.getMessageContext`
 const chatBskyModerationGetMessageContext = NSID(
@@ -863,6 +890,11 @@ const chatBskyModerationSubscribeModEventsEventGroupChatMemberLeft = NSID(
 /// `chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated`
 const chatBskyModerationSubscribeModEventsEventGroupChatUpdated = NSID(
   ids.chatBskyModerationSubscribeModEventsEventGroupChatUpdated,
+);
+
+/// `chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded`
+const chatBskyModerationSubscribeModEventsEventRateLimitExceeded = NSID(
+  ids.chatBskyModerationSubscribeModEventsEventRateLimitExceeded,
 );
 
 /// `chat.bsky.moderation.updateActorAccess`

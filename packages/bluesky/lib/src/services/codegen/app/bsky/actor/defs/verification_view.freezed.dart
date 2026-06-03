@@ -17,8 +17,8 @@ mixin _$VerificationView {
 
  String get $type;/// The user who issued this verification.
  String get issuer;/// The display name of the issuer.
- String? get displayName;/// The handle of the issuer.
- String? get handle;/// The AT-URI of the verification record.
+ String? get issuerDisplayName;/// The handle of the issuer.
+ String? get issuerHandle;/// The AT-URI of the verification record.
 @AtUriConverter() AtUri get uri;/// True if the verification passes validation, otherwise false.
  bool get isValid;/// Timestamp when the verification was created.
  DateTime get createdAt; Map<String, dynamic>? get $unknown;
@@ -34,16 +34,16 @@ $VerificationViewCopyWith<VerificationView> get copyWith => _$VerificationViewCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerificationView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.isValid, isValid) || other.isValid == isValid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerificationView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.issuerDisplayName, issuerDisplayName) || other.issuerDisplayName == issuerDisplayName)&&(identical(other.issuerHandle, issuerHandle) || other.issuerHandle == issuerHandle)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.isValid, isValid) || other.isValid == isValid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,issuer,displayName,handle,uri,isValid,createdAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,issuer,issuerDisplayName,issuerHandle,uri,isValid,createdAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'VerificationView(\$type: ${$type}, issuer: $issuer, displayName: $displayName, handle: $handle, uri: $uri, isValid: $isValid, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'VerificationView(\$type: ${$type}, issuer: $issuer, issuerDisplayName: $issuerDisplayName, issuerHandle: $issuerHandle, uri: $uri, isValid: $isValid, createdAt: $createdAt, \$unknown: ${$unknown})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $VerificationViewCopyWith<$Res>  {
   factory $VerificationViewCopyWith(VerificationView value, $Res Function(VerificationView) _then) = _$VerificationViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String issuer, String? displayName, String? handle,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String issuer, String? issuerDisplayName, String? issuerHandle,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -71,12 +71,12 @@ class _$VerificationViewCopyWithImpl<$Res>
 
 /// Create a copy of VerificationView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? issuer = null,Object? displayName = freezed,Object? handle = freezed,Object? uri = null,Object? isValid = null,Object? createdAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? issuer = null,Object? issuerDisplayName = freezed,Object? issuerHandle = freezed,Object? uri = null,Object? isValid = null,Object? createdAt = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,issuer: null == issuer ? _self.issuer : issuer // ignore: cast_nullable_to_non_nullable
-as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String?,handle: freezed == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
+as String,issuerDisplayName: freezed == issuerDisplayName ? _self.issuerDisplayName : issuerDisplayName // ignore: cast_nullable_to_non_nullable
+as String?,issuerHandle: freezed == issuerHandle ? _self.issuerHandle : issuerHandle // ignore: cast_nullable_to_non_nullable
 as String?,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,isValid: null == isValid ? _self.isValid : isValid // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -166,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? displayName,  String? handle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
-return $default(_that.$type,_that.issuer,_that.displayName,_that.handle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHandle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -187,10 +187,10 @@ return $default(_that.$type,_that.issuer,_that.displayName,_that.handle,_that.ur
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? displayName,  String? handle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView():
-return $default(_that.$type,_that.issuer,_that.displayName,_that.handle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHandle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +207,10 @@ return $default(_that.$type,_that.issuer,_that.displayName,_that.handle,_that.ur
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer,  String? displayName,  String? handle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
-return $default(_that.$type,_that.issuer,_that.displayName,_that.handle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHandle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
   return null;
 
 }
@@ -222,16 +222,16 @@ return $default(_that.$type,_that.issuer,_that.displayName,_that.handle,_that.ur
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationView implements VerificationView {
-  const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, this.displayName, this.handle, @AtUriConverter() required this.uri, required this.isValid, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, this.issuerDisplayName, this.issuerHandle, @AtUriConverter() required this.uri, required this.isValid, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationView.fromJson(Map<String, dynamic> json) => _$VerificationViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The user who issued this verification.
 @override final  String issuer;
 /// The display name of the issuer.
-@override final  String? displayName;
+@override final  String? issuerDisplayName;
 /// The handle of the issuer.
-@override final  String? handle;
+@override final  String? issuerHandle;
 /// The AT-URI of the verification record.
 @override@AtUriConverter() final  AtUri uri;
 /// True if the verification passes validation, otherwise false.
@@ -261,16 +261,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VerificationView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.handle, handle) || other.handle == handle)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.isValid, isValid) || other.isValid == isValid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VerificationView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.issuerDisplayName, issuerDisplayName) || other.issuerDisplayName == issuerDisplayName)&&(identical(other.issuerHandle, issuerHandle) || other.issuerHandle == issuerHandle)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.isValid, isValid) || other.isValid == isValid)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,issuer,displayName,handle,uri,isValid,createdAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,issuer,issuerDisplayName,issuerHandle,uri,isValid,createdAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'VerificationView(\$type: ${$type}, issuer: $issuer, displayName: $displayName, handle: $handle, uri: $uri, isValid: $isValid, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'VerificationView(\$type: ${$type}, issuer: $issuer, issuerDisplayName: $issuerDisplayName, issuerHandle: $issuerHandle, uri: $uri, isValid: $isValid, createdAt: $createdAt, \$unknown: ${$unknown})';
 }
 
 
@@ -281,7 +281,7 @@ abstract mixin class _$VerificationViewCopyWith<$Res> implements $VerificationVi
   factory _$VerificationViewCopyWith(_VerificationView value, $Res Function(_VerificationView) _then) = __$VerificationViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String issuer, String? displayName, String? handle,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String issuer, String? issuerDisplayName, String? issuerHandle,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -298,12 +298,12 @@ class __$VerificationViewCopyWithImpl<$Res>
 
 /// Create a copy of VerificationView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? issuer = null,Object? displayName = freezed,Object? handle = freezed,Object? uri = null,Object? isValid = null,Object? createdAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? issuer = null,Object? issuerDisplayName = freezed,Object? issuerHandle = freezed,Object? uri = null,Object? isValid = null,Object? createdAt = null,Object? $unknown = freezed,}) {
   return _then(_VerificationView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,issuer: null == issuer ? _self.issuer : issuer // ignore: cast_nullable_to_non_nullable
-as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String?,handle: freezed == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
+as String,issuerDisplayName: freezed == issuerDisplayName ? _self.issuerDisplayName : issuerDisplayName // ignore: cast_nullable_to_non_nullable
+as String?,issuerHandle: freezed == issuerHandle ? _self.issuerHandle : issuerHandle // ignore: cast_nullable_to_non_nullable
 as String?,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,isValid: null == isValid ? _self.isValid : isValid // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
