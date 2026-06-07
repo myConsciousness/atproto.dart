@@ -342,6 +342,9 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[chat.bsky.moderation.getActorMetadata](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/getActorMetadata.html)** | [Reference](lexicons/chat/bsky/moderation/getActorMetadata.md) | ❌ |
+| **[chat.bsky.moderation.getConvo](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/getConvo.html)** | [Reference](lexicons/chat/bsky/moderation/getConvo.md) | ❌ |
+| **[chat.bsky.moderation.getConvoMembers](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/getConvoMembers.html)** | [Reference](lexicons/chat/bsky/moderation/getConvoMembers.md) | ✅ |
+| **[chat.bsky.moderation.getConvos](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/getConvos.html)** | [Reference](lexicons/chat/bsky/moderation/getConvos.md) | ❌ |
 | **[chat.bsky.moderation.getMessageContext](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/getMessageContext.html)** | [Reference](lexicons/chat/bsky/moderation/getMessageContext.md) | ❌ |
 | **[chat.bsky.moderation.subscribeModEvents](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/subscribeModEvents.html)** | [Reference](lexicons/chat/bsky/moderation/subscribeModEvents.md) | ✅ |
 | **[chat.bsky.moderation.updateActorAccess](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/ModerationService/updateActorAccess.html)** | [Reference](lexicons/chat/bsky/moderation/updateActorAccess.md) | ❌ |
@@ -399,6 +402,8 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[chat.bsky.group.rejectJoinRequest](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/rejectJoinRequest.html)** | [Reference](lexicons/chat/bsky/group/rejectJoinRequest.md) | ❌ |
 | **[chat.bsky.group.removeMembers](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/removeMembers.html)** | [Reference](lexicons/chat/bsky/group/removeMembers.md) | ❌ |
 | **[chat.bsky.group.requestJoin](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/requestJoin.html)** | [Reference](lexicons/chat/bsky/group/requestJoin.md) | ❌ |
+| **[chat.bsky.group.updateJoinRequestsRead](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/updateJoinRequestsRead.html)** | [Reference](lexicons/chat/bsky/group/updateJoinRequestsRead.md) | ❌ |
+| **[chat.bsky.group.withdrawJoinRequest](https://pub.dev/documentation/bluesky/latest/chat_bsky_services/GroupService/withdrawJoinRequest.html)** | [Reference](lexicons/chat/bsky/group/withdrawJoinRequest.md) | ❌ |
 
 ### tools.ozone.moderation
 

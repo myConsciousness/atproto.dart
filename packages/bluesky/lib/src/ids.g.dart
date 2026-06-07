@@ -1209,6 +1209,10 @@ const chatBskyConvoDefsLogOutgoingJoinRequest =
 /// `chat.bsky.convo.defs#logReadConvo`
 const chatBskyConvoDefsLogReadConvo = 'chat.bsky.convo.defs#logReadConvo';
 
+/// `chat.bsky.convo.defs#logReadJoinRequests`
+const chatBskyConvoDefsLogReadJoinRequests =
+    'chat.bsky.convo.defs#logReadJoinRequests';
+
 /// `chat.bsky.convo.defs#logReadMessage`
 const chatBskyConvoDefsLogReadMessage = 'chat.bsky.convo.defs#logReadMessage';
 
@@ -1228,6 +1232,14 @@ const chatBskyConvoDefsLogUnlockConvo = 'chat.bsky.convo.defs#logUnlockConvo';
 
 /// `chat.bsky.convo.defs#logUnmuteConvo`
 const chatBskyConvoDefsLogUnmuteConvo = 'chat.bsky.convo.defs#logUnmuteConvo';
+
+/// `chat.bsky.convo.defs#logWithdrawIncomingJoinRequest`
+const chatBskyConvoDefsLogWithdrawIncomingJoinRequest =
+    'chat.bsky.convo.defs#logWithdrawIncomingJoinRequest';
+
+/// `chat.bsky.convo.defs#logWithdrawOutgoingJoinRequest`
+const chatBskyConvoDefsLogWithdrawOutgoingJoinRequest =
+    'chat.bsky.convo.defs#logWithdrawOutgoingJoinRequest';
 
 /// `chat.bsky.convo.defs#messageAndReactionView`
 const chatBskyConvoDefsMessageAndReactionView =
@@ -1372,6 +1384,12 @@ const chatBskyConvoUpdateAllRead = 'chat.bsky.convo.updateAllRead';
 /// `chat.bsky.convo.updateRead`
 const chatBskyConvoUpdateRead = 'chat.bsky.convo.updateRead';
 
+/// `chat.bsky.embed.joinLink`
+const chatBskyEmbedJoinLink = 'chat.bsky.embed.joinLink';
+
+/// `chat.bsky.embed.joinLink#view`
+const chatBskyEmbedJoinLinkView = 'chat.bsky.embed.joinLink#view';
+
 /// `chat.bsky.group.addMembers`
 const chatBskyGroupAddMembers = 'chat.bsky.group.addMembers';
 
@@ -1442,6 +1460,26 @@ const chatBskyGroupRemoveMembers = 'chat.bsky.group.removeMembers';
 /// `chat.bsky.group.requestJoin`
 const chatBskyGroupRequestJoin = 'chat.bsky.group.requestJoin';
 
+/// `chat.bsky.group.updateJoinRequestsRead`
+const chatBskyGroupUpdateJoinRequestsRead =
+    'chat.bsky.group.updateJoinRequestsRead';
+
+/// `chat.bsky.group.withdrawJoinRequest`
+const chatBskyGroupWithdrawJoinRequest = 'chat.bsky.group.withdrawJoinRequest';
+
+/// `chat.bsky.moderation.defs`
+const chatBskyModerationDefs = 'chat.bsky.moderation.defs';
+
+/// `chat.bsky.moderation.defs#convoView`
+const chatBskyModerationDefsConvoView = 'chat.bsky.moderation.defs#convoView';
+
+/// `chat.bsky.moderation.defs#directConvo`
+const chatBskyModerationDefsDirectConvo =
+    'chat.bsky.moderation.defs#directConvo';
+
+/// `chat.bsky.moderation.defs#groupConvo`
+const chatBskyModerationDefsGroupConvo = 'chat.bsky.moderation.defs#groupConvo';
+
 /// `chat.bsky.moderation.getActorMetadata`
 const chatBskyModerationGetActorMetadata =
     'chat.bsky.moderation.getActorMetadata';
@@ -1449,6 +1487,16 @@ const chatBskyModerationGetActorMetadata =
 /// `chat.bsky.moderation.getActorMetadata#metadata`
 const chatBskyModerationGetActorMetadataMetadata =
     'chat.bsky.moderation.getActorMetadata#metadata';
+
+/// `chat.bsky.moderation.getConvo`
+const chatBskyModerationGetConvo = 'chat.bsky.moderation.getConvo';
+
+/// `chat.bsky.moderation.getConvoMembers`
+const chatBskyModerationGetConvoMembers =
+    'chat.bsky.moderation.getConvoMembers';
+
+/// `chat.bsky.moderation.getConvos`
+const chatBskyModerationGetConvos = 'chat.bsky.moderation.getConvos';
 
 /// `chat.bsky.moderation.getMessageContext`
 const chatBskyModerationGetMessageContext =
@@ -1497,6 +1545,10 @@ const chatBskyModerationSubscribeModEventsEventGroupChatMemberLeft =
 /// `chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated`
 const chatBskyModerationSubscribeModEventsEventGroupChatUpdated =
     'chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated';
+
+/// `chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded`
+const chatBskyModerationSubscribeModEventsEventRateLimitExceeded =
+    'chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded';
 
 /// `chat.bsky.moderation.updateActorAccess`
 const chatBskyModerationUpdateActorAccess =

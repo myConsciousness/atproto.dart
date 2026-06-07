@@ -27,3 +27,4 @@ export 'package:bluesky/src/services/codegen/chat/bsky/moderation/subscribeModEv
 export 'package:bluesky/src/services/codegen/chat/bsky/moderation/subscribeModEvents/event_group_chat_updated.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/moderation/subscribeModEvents/event_group_chat_updated_lock_reason.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/moderation/subscribeModEvents/event_group_chat_updated_update_type.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/moderation/subscribeModEvents/event_rate_limit_exceeded.dart';

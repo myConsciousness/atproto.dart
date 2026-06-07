@@ -7,7 +7,7 @@ description: chat.bsky.group.getJoinLinkPreviews
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results.
+[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results. Use the 'code' property on the views to correlate with the input codes, not array positions.
 
 ### Parameters
 

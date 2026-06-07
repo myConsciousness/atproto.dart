@@ -55,11 +55,12 @@ extension UMessageViewEmbedPatterns on UMessageViewEmbed {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UMessageViewEmbedEmbedRecordView value)?  embedRecordView,TResult Function( UMessageViewEmbedUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UMessageViewEmbedEmbedRecordView value)?  embedRecordView,TResult Function( UMessageViewEmbedEmbedJoinLinkView value)?  embedJoinLinkView,TResult Function( UMessageViewEmbedUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UMessageViewEmbedEmbedRecordView() when embedRecordView != null:
-return embedRecordView(_that);case UMessageViewEmbedUnknown() when unknown != null:
+return embedRecordView(_that);case UMessageViewEmbedEmbedJoinLinkView() when embedJoinLinkView != null:
+return embedJoinLinkView(_that);case UMessageViewEmbedUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -78,11 +79,12 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UMessageViewEmbedEmbedRecordView value)  embedRecordView,required TResult Function( UMessageViewEmbedUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UMessageViewEmbedEmbedRecordView value)  embedRecordView,required TResult Function( UMessageViewEmbedEmbedJoinLinkView value)  embedJoinLinkView,required TResult Function( UMessageViewEmbedUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UMessageViewEmbedEmbedRecordView():
-return embedRecordView(_that);case UMessageViewEmbedUnknown():
+return embedRecordView(_that);case UMessageViewEmbedEmbedJoinLinkView():
+return embedJoinLinkView(_that);case UMessageViewEmbedUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -97,11 +99,12 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UMessageViewEmbedEmbedRecordView value)?  embedRecordView,TResult? Function( UMessageViewEmbedUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UMessageViewEmbedEmbedRecordView value)?  embedRecordView,TResult? Function( UMessageViewEmbedEmbedJoinLinkView value)?  embedJoinLinkView,TResult? Function( UMessageViewEmbedUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UMessageViewEmbedEmbedRecordView() when embedRecordView != null:
-return embedRecordView(_that);case UMessageViewEmbedUnknown() when unknown != null:
+return embedRecordView(_that);case UMessageViewEmbedEmbedJoinLinkView() when embedJoinLinkView != null:
+return embedJoinLinkView(_that);case UMessageViewEmbedUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -119,10 +122,11 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmbedRecordView data)?  embedRecordView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmbedRecordView data)?  embedRecordView,TResult Function( EmbedJoinLinkView data)?  embedJoinLinkView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UMessageViewEmbedEmbedRecordView() when embedRecordView != null:
-return embedRecordView(_that.data);case UMessageViewEmbedUnknown() when unknown != null:
+return embedRecordView(_that.data);case UMessageViewEmbedEmbedJoinLinkView() when embedJoinLinkView != null:
+return embedJoinLinkView(_that.data);case UMessageViewEmbedUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -141,10 +145,11 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmbedRecordView data)  embedRecordView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmbedRecordView data)  embedRecordView,required TResult Function( EmbedJoinLinkView data)  embedJoinLinkView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UMessageViewEmbedEmbedRecordView():
-return embedRecordView(_that.data);case UMessageViewEmbedUnknown():
+return embedRecordView(_that.data);case UMessageViewEmbedEmbedJoinLinkView():
+return embedJoinLinkView(_that.data);case UMessageViewEmbedUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -159,10 +164,11 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmbedRecordView data)?  embedRecordView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmbedRecordView data)?  embedRecordView,TResult? Function( EmbedJoinLinkView data)?  embedJoinLinkView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UMessageViewEmbedEmbedRecordView() when embedRecordView != null:
-return embedRecordView(_that.data);case UMessageViewEmbedUnknown() when unknown != null:
+return embedRecordView(_that.data);case UMessageViewEmbedEmbedJoinLinkView() when embedJoinLinkView != null:
+return embedJoinLinkView(_that.data);case UMessageViewEmbedUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -241,6 +247,81 @@ as EmbedRecordView,
 $EmbedRecordViewCopyWith<$Res> get data {
   
   return $EmbedRecordViewCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UMessageViewEmbedEmbedJoinLinkView extends UMessageViewEmbed {
+  const UMessageViewEmbedEmbedJoinLinkView({required this.data}): super._();
+  
+
+@override final  EmbedJoinLinkView data;
+
+/// Create a copy of UMessageViewEmbed
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UMessageViewEmbedEmbedJoinLinkViewCopyWith<UMessageViewEmbedEmbedJoinLinkView> get copyWith => _$UMessageViewEmbedEmbedJoinLinkViewCopyWithImpl<UMessageViewEmbedEmbedJoinLinkView>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UMessageViewEmbedEmbedJoinLinkView&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'UMessageViewEmbed.embedJoinLinkView(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UMessageViewEmbedEmbedJoinLinkViewCopyWith<$Res> implements $UMessageViewEmbedCopyWith<$Res> {
+  factory $UMessageViewEmbedEmbedJoinLinkViewCopyWith(UMessageViewEmbedEmbedJoinLinkView value, $Res Function(UMessageViewEmbedEmbedJoinLinkView) _then) = _$UMessageViewEmbedEmbedJoinLinkViewCopyWithImpl;
+@useResult
+$Res call({
+ EmbedJoinLinkView data
+});
+
+
+$EmbedJoinLinkViewCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UMessageViewEmbedEmbedJoinLinkViewCopyWithImpl<$Res>
+    implements $UMessageViewEmbedEmbedJoinLinkViewCopyWith<$Res> {
+  _$UMessageViewEmbedEmbedJoinLinkViewCopyWithImpl(this._self, this._then);
+
+  final UMessageViewEmbedEmbedJoinLinkView _self;
+  final $Res Function(UMessageViewEmbedEmbedJoinLinkView) _then;
+
+/// Create a copy of UMessageViewEmbed
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UMessageViewEmbedEmbedJoinLinkView(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as EmbedJoinLinkView,
+  ));
+}
+
+/// Create a copy of UMessageViewEmbed
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedJoinLinkViewCopyWith<$Res> get data {
+  
+  return $EmbedJoinLinkViewCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

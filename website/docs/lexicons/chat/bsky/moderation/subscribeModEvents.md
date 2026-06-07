@@ -19,7 +19,7 @@ Subscribe to stream of chat events targeted to moderation. Private endpoint.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **refs** | union of <br/>[#eventConvoFirstMessage](#eventconvofirstmessage)<br/>[#eventGroupChatCreated](#eventgroupchatcreated)<br/>[#eventGroupChatMemberAdded](#eventgroupchatmemberadded)<br/>[#eventGroupChatMemberJoined](#eventgroupchatmemberjoined)<br/>[#eventGroupChatJoinRequest](#eventgroupchatjoinrequest)<br/>[#eventGroupChatJoinRequestApproved](#eventgroupchatjoinrequestapproved)<br/>[#eventGroupChatJoinRequestRejected](#eventgroupchatjoinrequestrejected)<br/>[#eventChatAccepted](#eventchataccepted)<br/>[#eventGroupChatMemberLeft](#eventgroupchatmemberleft)<br/>[#eventGroupChatUpdated](#eventgroupchatupdated) | - | ✅ | - |
+| **refs** | union of <br/>[#eventConvoFirstMessage](#eventconvofirstmessage)<br/>[#eventGroupChatCreated](#eventgroupchatcreated)<br/>[#eventGroupChatMemberAdded](#eventgroupchatmemberadded)<br/>[#eventGroupChatMemberJoined](#eventgroupchatmemberjoined)<br/>[#eventGroupChatJoinRequest](#eventgroupchatjoinrequest)<br/>[#eventGroupChatJoinRequestApproved](#eventgroupchatjoinrequestapproved)<br/>[#eventGroupChatJoinRequestRejected](#eventgroupchatjoinrequestrejected)<br/>[#eventChatAccepted](#eventchataccepted)<br/>[#eventGroupChatMemberLeft](#eventgroupchatmemberleft)<br/>[#eventGroupChatUpdated](#eventgroupchatupdated)<br/>[#eventRateLimitExceeded](#eventratelimitexceeded) | - | ✅ | - |
 
 ## #eventConvoFirstMessage
 
@@ -188,3 +188,14 @@ Fired when a group chat's metadata or status changes.
 | **ownerDid** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the group chat owner. |
 | **rev** | string | - | ✅ | - |
 | **updateType** | string | name_changed<br/>locked<br/>locked_permanently<br/>unlocked<br/>join_link_created<br/>join_link_disabled<br/>join_link_settings_changed | ✅ | What changed. |
+
+## #eventRateLimitExceeded
+
+Fired when a user exceeds a rate limit.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **actorDid** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the user who hit the rate limit. |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **endpoint** | string | - | ✅ | The NSID of the endpoint that was rate limited. |
+| **rev** | string | - | ✅ | - |

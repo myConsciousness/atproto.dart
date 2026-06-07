@@ -15,12 +15,13 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GroupConvo {
 
- String get $type;/// The display name of the group conversation.
- String get name;/// The total number of members in the group conversation.
- int get memberCount; DateTime get createdAt;/// The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21.
- int? get joinRequestCount;@JoinLinkViewConverter() JoinLinkView? get joinLink;/// The maximum number of members allowed in the group conversation.
- int get memberLimit;/// The lock status of the conversation.
-@ConvoLockStatusConverter() ConvoLockStatus get lockStatus; Map<String, dynamic>? get $unknown;
+ String get $type; DateTime get createdAt;@JoinLinkViewConverter() JoinLinkView? get joinLink;/// The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21.
+ int? get joinRequestCount;/// The lock status of the conversation.
+@ConvoLockStatusConverter() ConvoLockStatus get lockStatus;/// The total number of members in the group conversation.
+ int get memberCount;/// The maximum number of members allowed in the group conversation.
+ int get memberLimit;/// The display name of the group conversation.
+ String get name;/// The number of unread join requests for the group conversation. Only present for the owner.
+ int? get unreadJoinRequestCount; Map<String, dynamic>? get $unknown;
 /// Create a copy of GroupConvo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -33,16 +34,16 @@ $GroupConvoCopyWith<GroupConvo> get copyWith => _$GroupConvoCopyWithImpl<GroupCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GroupConvo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.name, name) || other.name == name)&&(identical(other.memberCount, memberCount) || other.memberCount == memberCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.joinRequestCount, joinRequestCount) || other.joinRequestCount == joinRequestCount)&&(identical(other.joinLink, joinLink) || other.joinLink == joinLink)&&(identical(other.memberLimit, memberLimit) || other.memberLimit == memberLimit)&&(identical(other.lockStatus, lockStatus) || other.lockStatus == lockStatus)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GroupConvo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.joinLink, joinLink) || other.joinLink == joinLink)&&(identical(other.joinRequestCount, joinRequestCount) || other.joinRequestCount == joinRequestCount)&&(identical(other.lockStatus, lockStatus) || other.lockStatus == lockStatus)&&(identical(other.memberCount, memberCount) || other.memberCount == memberCount)&&(identical(other.memberLimit, memberLimit) || other.memberLimit == memberLimit)&&(identical(other.name, name) || other.name == name)&&(identical(other.unreadJoinRequestCount, unreadJoinRequestCount) || other.unreadJoinRequestCount == unreadJoinRequestCount)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,name,memberCount,createdAt,joinRequestCount,joinLink,memberLimit,lockStatus,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,createdAt,joinLink,joinRequestCount,lockStatus,memberCount,memberLimit,name,unreadJoinRequestCount,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'GroupConvo(\$type: ${$type}, name: $name, memberCount: $memberCount, createdAt: $createdAt, joinRequestCount: $joinRequestCount, joinLink: $joinLink, memberLimit: $memberLimit, lockStatus: $lockStatus, \$unknown: ${$unknown})';
+  return 'GroupConvo(\$type: ${$type}, createdAt: $createdAt, joinLink: $joinLink, joinRequestCount: $joinRequestCount, lockStatus: $lockStatus, memberCount: $memberCount, memberLimit: $memberLimit, name: $name, unreadJoinRequestCount: $unreadJoinRequestCount, \$unknown: ${$unknown})';
 }
 
 
@@ -53,7 +54,7 @@ abstract mixin class $GroupConvoCopyWith<$Res>  {
   factory $GroupConvoCopyWith(GroupConvo value, $Res Function(GroupConvo) _then) = _$GroupConvoCopyWithImpl;
 @useResult
 $Res call({
- String $type, String name, int memberCount, DateTime createdAt, int? joinRequestCount,@JoinLinkViewConverter() JoinLinkView? joinLink, int memberLimit,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt,@JoinLinkViewConverter() JoinLinkView? joinLink, int? joinRequestCount,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, int memberCount, int memberLimit, String name, int? unreadJoinRequestCount, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,17 +71,18 @@ class _$GroupConvoCopyWithImpl<$Res>
 
 /// Create a copy of GroupConvo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? name = null,Object? memberCount = null,Object? createdAt = null,Object? joinRequestCount = freezed,Object? joinLink = freezed,Object? memberLimit = null,Object? lockStatus = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? createdAt = null,Object? joinLink = freezed,Object? joinRequestCount = freezed,Object? lockStatus = null,Object? memberCount = null,Object? memberLimit = null,Object? name = null,Object? unreadJoinRequestCount = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,memberCount: null == memberCount ? _self.memberCount : memberCount // ignore: cast_nullable_to_non_nullable
-as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,joinRequestCount: freezed == joinRequestCount ? _self.joinRequestCount : joinRequestCount // ignore: cast_nullable_to_non_nullable
-as int?,joinLink: freezed == joinLink ? _self.joinLink : joinLink // ignore: cast_nullable_to_non_nullable
-as JoinLinkView?,memberLimit: null == memberLimit ? _self.memberLimit : memberLimit // ignore: cast_nullable_to_non_nullable
-as int,lockStatus: null == lockStatus ? _self.lockStatus : lockStatus // ignore: cast_nullable_to_non_nullable
-as ConvoLockStatus,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,joinLink: freezed == joinLink ? _self.joinLink : joinLink // ignore: cast_nullable_to_non_nullable
+as JoinLinkView?,joinRequestCount: freezed == joinRequestCount ? _self.joinRequestCount : joinRequestCount // ignore: cast_nullable_to_non_nullable
+as int?,lockStatus: null == lockStatus ? _self.lockStatus : lockStatus // ignore: cast_nullable_to_non_nullable
+as ConvoLockStatus,memberCount: null == memberCount ? _self.memberCount : memberCount // ignore: cast_nullable_to_non_nullable
+as int,memberLimit: null == memberLimit ? _self.memberLimit : memberLimit // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,unreadJoinRequestCount: freezed == unreadJoinRequestCount ? _self.unreadJoinRequestCount : unreadJoinRequestCount // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -187,10 +189,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  int memberCount,  DateTime createdAt,  int? joinRequestCount, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int memberLimit, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int? joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  int? unreadJoinRequestCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GroupConvo() when $default != null:
-return $default(_that.$type,_that.name,_that.memberCount,_that.createdAt,_that.joinRequestCount,_that.joinLink,_that.memberLimit,_that.lockStatus,_that.$unknown);case _:
+return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCount,_that.lockStatus,_that.memberCount,_that.memberLimit,_that.name,_that.unreadJoinRequestCount,_that.$unknown);case _:
   return orElse();
 
 }
@@ -208,10 +210,10 @@ return $default(_that.$type,_that.name,_that.memberCount,_that.createdAt,_that.j
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  int memberCount,  DateTime createdAt,  int? joinRequestCount, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int memberLimit, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int? joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  int? unreadJoinRequestCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GroupConvo():
-return $default(_that.$type,_that.name,_that.memberCount,_that.createdAt,_that.joinRequestCount,_that.joinLink,_that.memberLimit,_that.lockStatus,_that.$unknown);case _:
+return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCount,_that.lockStatus,_that.memberCount,_that.memberLimit,_that.name,_that.unreadJoinRequestCount,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -228,10 +230,10 @@ return $default(_that.$type,_that.name,_that.memberCount,_that.createdAt,_that.j
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  int memberCount,  DateTime createdAt,  int? joinRequestCount, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int memberLimit, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int? joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  int? unreadJoinRequestCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GroupConvo() when $default != null:
-return $default(_that.$type,_that.name,_that.memberCount,_that.createdAt,_that.joinRequestCount,_that.joinLink,_that.memberLimit,_that.lockStatus,_that.$unknown);case _:
+return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCount,_that.lockStatus,_that.memberCount,_that.memberLimit,_that.name,_that.unreadJoinRequestCount,_that.$unknown);case _:
   return null;
 
 }
@@ -243,22 +245,24 @@ return $default(_that.$type,_that.name,_that.memberCount,_that.createdAt,_that.j
 
 @JsonSerializable(includeIfNull: false)
 class _GroupConvo implements GroupConvo {
-  const _GroupConvo({this.$type = 'chat.bsky.convo.defs#groupConvo', required this.name, required this.memberCount, required this.createdAt, this.joinRequestCount, @JoinLinkViewConverter() this.joinLink, required this.memberLimit, @ConvoLockStatusConverter() required this.lockStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GroupConvo({this.$type = 'chat.bsky.convo.defs#groupConvo', required this.createdAt, @JoinLinkViewConverter() this.joinLink, this.joinRequestCount, @ConvoLockStatusConverter() required this.lockStatus, required this.memberCount, required this.memberLimit, required this.name, this.unreadJoinRequestCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GroupConvo.fromJson(Map<String, dynamic> json) => _$GroupConvoFromJson(json);
 
 @override@JsonKey() final  String $type;
-/// The display name of the group conversation.
-@override final  String name;
-/// The total number of members in the group conversation.
-@override final  int memberCount;
 @override final  DateTime createdAt;
+@override@JoinLinkViewConverter() final  JoinLinkView? joinLink;
 /// The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21.
 @override final  int? joinRequestCount;
-@override@JoinLinkViewConverter() final  JoinLinkView? joinLink;
-/// The maximum number of members allowed in the group conversation.
-@override final  int memberLimit;
 /// The lock status of the conversation.
 @override@ConvoLockStatusConverter() final  ConvoLockStatus lockStatus;
+/// The total number of members in the group conversation.
+@override final  int memberCount;
+/// The maximum number of members allowed in the group conversation.
+@override final  int memberLimit;
+/// The display name of the group conversation.
+@override final  String name;
+/// The number of unread join requests for the group conversation. Only present for the owner.
+@override final  int? unreadJoinRequestCount;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -282,16 +286,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GroupConvo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.name, name) || other.name == name)&&(identical(other.memberCount, memberCount) || other.memberCount == memberCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.joinRequestCount, joinRequestCount) || other.joinRequestCount == joinRequestCount)&&(identical(other.joinLink, joinLink) || other.joinLink == joinLink)&&(identical(other.memberLimit, memberLimit) || other.memberLimit == memberLimit)&&(identical(other.lockStatus, lockStatus) || other.lockStatus == lockStatus)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GroupConvo&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.joinLink, joinLink) || other.joinLink == joinLink)&&(identical(other.joinRequestCount, joinRequestCount) || other.joinRequestCount == joinRequestCount)&&(identical(other.lockStatus, lockStatus) || other.lockStatus == lockStatus)&&(identical(other.memberCount, memberCount) || other.memberCount == memberCount)&&(identical(other.memberLimit, memberLimit) || other.memberLimit == memberLimit)&&(identical(other.name, name) || other.name == name)&&(identical(other.unreadJoinRequestCount, unreadJoinRequestCount) || other.unreadJoinRequestCount == unreadJoinRequestCount)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,name,memberCount,createdAt,joinRequestCount,joinLink,memberLimit,lockStatus,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,createdAt,joinLink,joinRequestCount,lockStatus,memberCount,memberLimit,name,unreadJoinRequestCount,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'GroupConvo(\$type: ${$type}, name: $name, memberCount: $memberCount, createdAt: $createdAt, joinRequestCount: $joinRequestCount, joinLink: $joinLink, memberLimit: $memberLimit, lockStatus: $lockStatus, \$unknown: ${$unknown})';
+  return 'GroupConvo(\$type: ${$type}, createdAt: $createdAt, joinLink: $joinLink, joinRequestCount: $joinRequestCount, lockStatus: $lockStatus, memberCount: $memberCount, memberLimit: $memberLimit, name: $name, unreadJoinRequestCount: $unreadJoinRequestCount, \$unknown: ${$unknown})';
 }
 
 
@@ -302,7 +306,7 @@ abstract mixin class _$GroupConvoCopyWith<$Res> implements $GroupConvoCopyWith<$
   factory _$GroupConvoCopyWith(_GroupConvo value, $Res Function(_GroupConvo) _then) = __$GroupConvoCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String name, int memberCount, DateTime createdAt, int? joinRequestCount,@JoinLinkViewConverter() JoinLinkView? joinLink, int memberLimit,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, Map<String, dynamic>? $unknown
+ String $type, DateTime createdAt,@JoinLinkViewConverter() JoinLinkView? joinLink, int? joinRequestCount,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, int memberCount, int memberLimit, String name, int? unreadJoinRequestCount, Map<String, dynamic>? $unknown
 });
 
 
@@ -319,17 +323,18 @@ class __$GroupConvoCopyWithImpl<$Res>
 
 /// Create a copy of GroupConvo
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? name = null,Object? memberCount = null,Object? createdAt = null,Object? joinRequestCount = freezed,Object? joinLink = freezed,Object? memberLimit = null,Object? lockStatus = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? createdAt = null,Object? joinLink = freezed,Object? joinRequestCount = freezed,Object? lockStatus = null,Object? memberCount = null,Object? memberLimit = null,Object? name = null,Object? unreadJoinRequestCount = freezed,Object? $unknown = freezed,}) {
   return _then(_GroupConvo(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,memberCount: null == memberCount ? _self.memberCount : memberCount // ignore: cast_nullable_to_non_nullable
-as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,joinRequestCount: freezed == joinRequestCount ? _self.joinRequestCount : joinRequestCount // ignore: cast_nullable_to_non_nullable
-as int?,joinLink: freezed == joinLink ? _self.joinLink : joinLink // ignore: cast_nullable_to_non_nullable
-as JoinLinkView?,memberLimit: null == memberLimit ? _self.memberLimit : memberLimit // ignore: cast_nullable_to_non_nullable
-as int,lockStatus: null == lockStatus ? _self.lockStatus : lockStatus // ignore: cast_nullable_to_non_nullable
-as ConvoLockStatus,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,joinLink: freezed == joinLink ? _self.joinLink : joinLink // ignore: cast_nullable_to_non_nullable
+as JoinLinkView?,joinRequestCount: freezed == joinRequestCount ? _self.joinRequestCount : joinRequestCount // ignore: cast_nullable_to_non_nullable
+as int?,lockStatus: null == lockStatus ? _self.lockStatus : lockStatus // ignore: cast_nullable_to_non_nullable
+as ConvoLockStatus,memberCount: null == memberCount ? _self.memberCount : memberCount // ignore: cast_nullable_to_non_nullable
+as int,memberLimit: null == memberLimit ? _self.memberLimit : memberLimit // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,unreadJoinRequestCount: freezed == unreadJoinRequestCount ? _self.unreadJoinRequestCount : unreadJoinRequestCount // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

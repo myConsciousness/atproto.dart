@@ -18,7 +18,7 @@ part 'log_outgoing_join_request.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made by the viewer.
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made by the requester. Only requester actor gets this.
 @freezed
 abstract class LogOutgoingJoinRequest with _$LogOutgoingJoinRequest {
   static const knownProps = <String>['rev', 'convoId'];

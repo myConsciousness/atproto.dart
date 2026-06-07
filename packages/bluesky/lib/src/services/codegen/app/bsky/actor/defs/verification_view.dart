@@ -24,8 +24,8 @@ part 'verification_view.g.dart';
 abstract class VerificationView with _$VerificationView {
   static const knownProps = <String>[
     'issuer',
-    'displayName',
-    'handle',
+    'issuerDisplayName',
+    'issuerHandle',
     'uri',
     'isValid',
     'createdAt',
@@ -39,10 +39,10 @@ abstract class VerificationView with _$VerificationView {
     required String issuer,
 
     /// The display name of the issuer.
-    String? displayName,
+    String? issuerDisplayName,
 
     /// The handle of the issuer.
-    String? handle,
+    String? issuerHandle,
 
     /// The AT-URI of the verification record.
     @AtUriConverter() required AtUri uri,
@@ -66,10 +66,10 @@ abstract class VerificationView with _$VerificationView {
 }
 
 extension VerificationViewExtension on VerificationView {
-  bool get hasDisplayName => displayName != null;
-  bool get hasNotDisplayName => !hasDisplayName;
-  bool get hasHandle => handle != null;
-  bool get hasNotHandle => !hasHandle;
+  bool get hasIssuerDisplayName => issuerDisplayName != null;
+  bool get hasNotIssuerDisplayName => !hasIssuerDisplayName;
+  bool get hasIssuerHandle => issuerHandle != null;
+  bool get hasNotIssuerHandle => !hasIssuerHandle;
   bool get isIsValid => isValid;
   bool get isNotIsValid => !isIsValid;
 }

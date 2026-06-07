@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_embed_record.dart';
+import '../../../../chat/bsky/embed/joinLink/view.dart';
 
 part 'union_message_view_embed.freezed.dart';
 
@@ -27,6 +28,9 @@ sealed class UMessageViewEmbed with _$UMessageViewEmbed {
   const factory UMessageViewEmbed.embedRecordView({
     required EmbedRecordView data,
   }) = UMessageViewEmbedEmbedRecordView;
+  const factory UMessageViewEmbed.embedJoinLinkView({
+    required EmbedJoinLinkView data,
+  }) = UMessageViewEmbedEmbedJoinLinkView;
 
   const factory UMessageViewEmbed.unknown({
     required Map<String, dynamic> data,
@@ -41,6 +45,10 @@ extension UMessageViewEmbedExtension on UMessageViewEmbed {
   bool get isNotEmbedRecordView => !isEmbedRecordView;
   EmbedRecordView? get embedRecordView =>
       isEmbedRecordView ? data as EmbedRecordView : null;
+  bool get isEmbedJoinLinkView => isA<UMessageViewEmbedEmbedJoinLinkView>(this);
+  bool get isNotEmbedJoinLinkView => !isEmbedJoinLinkView;
+  EmbedJoinLinkView? get embedJoinLinkView =>
+      isEmbedJoinLinkView ? data as EmbedJoinLinkView : null;
   bool get isUnknown => isA<UMessageViewEmbedUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -59,6 +67,11 @@ final class UMessageViewEmbedConverter
           data: const EmbedRecordViewConverter().fromJson(json),
         );
       }
+      if (EmbedJoinLinkView.validate(json)) {
+        return UMessageViewEmbed.embedJoinLinkView(
+          data: const EmbedJoinLinkViewConverter().fromJson(json),
+        );
+      }
 
       return UMessageViewEmbed.unknown(data: json);
     } catch (_) {
@@ -69,6 +82,8 @@ final class UMessageViewEmbedConverter
   @override
   Map<String, dynamic> toJson(UMessageViewEmbed object) => object.when(
     embedRecordView: (data) => const EmbedRecordViewConverter().toJson(data),
+    embedJoinLinkView: (data) =>
+        const EmbedJoinLinkViewConverter().toJson(data),
 
     unknown: (data) => data,
   );

@@ -22,6 +22,7 @@ import './event_group_chat_member_added.dart';
 import './event_group_chat_member_joined.dart';
 import './event_group_chat_member_left.dart';
 import './event_group_chat_updated.dart';
+import './event_rate_limit_exceeded.dart';
 
 part 'union_main_message.freezed.dart';
 
@@ -64,6 +65,9 @@ sealed class UModerationSubscribeModEventsMessage
   const factory UModerationSubscribeModEventsMessage.eventGroupChatUpdated({
     required EventGroupChatUpdated data,
   }) = UModerationSubscribeModEventsMessageEventGroupChatUpdated;
+  const factory UModerationSubscribeModEventsMessage.eventRateLimitExceeded({
+    required EventRateLimitExceeded data,
+  }) = UModerationSubscribeModEventsMessageEventRateLimitExceeded;
 
   const factory UModerationSubscribeModEventsMessage.unknown({
     required Map<String, dynamic> data,
@@ -135,6 +139,11 @@ extension UModerationSubscribeModEventsMessageExtension
   bool get isNotEventGroupChatUpdated => !isEventGroupChatUpdated;
   EventGroupChatUpdated? get eventGroupChatUpdated =>
       isEventGroupChatUpdated ? data as EventGroupChatUpdated : null;
+  bool get isEventRateLimitExceeded =>
+      isA<UModerationSubscribeModEventsMessageEventRateLimitExceeded>(this);
+  bool get isNotEventRateLimitExceeded => !isEventRateLimitExceeded;
+  EventRateLimitExceeded? get eventRateLimitExceeded =>
+      isEventRateLimitExceeded ? data as EventRateLimitExceeded : null;
   bool get isUnknown => isA<UModerationSubscribeModEventsMessageUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -206,6 +215,11 @@ final class UModerationSubscribeModEventsMessageConverter
           data: const EventGroupChatUpdatedConverter().fromJson(json),
         );
       }
+      if (EventRateLimitExceeded.validate(json)) {
+        return UModerationSubscribeModEventsMessage.eventRateLimitExceeded(
+          data: const EventRateLimitExceededConverter().fromJson(json),
+        );
+      }
 
       return UModerationSubscribeModEventsMessage.unknown(data: json);
     } catch (_) {
@@ -236,6 +250,8 @@ final class UModerationSubscribeModEventsMessageConverter
             const EventGroupChatMemberLeftConverter().toJson(data),
         eventGroupChatUpdated: (data) =>
             const EventGroupChatUpdatedConverter().toJson(data),
+        eventRateLimitExceeded: (data) =>
+            const EventRateLimitExceededConverter().toJson(data),
 
         unknown: (data) => data,
       );
