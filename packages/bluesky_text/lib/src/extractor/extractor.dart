@@ -10,7 +10,6 @@ import '../entities/entities.dart';
 import '../entities/entity.dart';
 import '../entities/markdown/markdown_link_entity.dart';
 import '../entities/replacement.dart';
-import '../regex/end_cashtag.dart';
 import '../regex/end_hashtag.dart';
 import '../regex/valid_ascii_domain.dart';
 import '../regex/valid_cashtag.dart';
@@ -331,18 +330,13 @@ final class _CashtagsExtractor implements Extractor {
     final entities = <Entity>[];
 
     for (final match in validCashtagRegex.allMatches(text.value)) {
-      final after = match.input.substring(match.start + match.group(0)!.length);
-      if (endCashtagRegex.hasMatch(after)) continue;
+      //* The leading boundary (start of string, whitespace or `(`) is captured
+      //* by the pattern, so the `$` mark begins right after it.
+      final start = match.start + match.cashLeading.length;
 
-      //* Unlike hashtags (`##tag`), Bluesky's richtext lexicon does not
-      //* define a notion of "double cash tags", so reject candidates that
-      //* are immediately preceded by another `$` character.
-      if (match.cashBoundary == r'$') continue;
-
-      final cashtag = '${match.cashMark}${match.symbol}';
-      if (cashtag.length > tagMaxLength) continue;
-
-      final start = text.value.indexOf(cashtag, match.start);
+      //* Mirror Bluesky's official cashtag facet: keep the leading `$` and
+      //* normalize the ticker to upper case (e.g. `$aapl` -> `$AAPL`).
+      final cashtag = '\$${match.symbol.toUpperCase()}';
 
       entities.add(
         Entity(

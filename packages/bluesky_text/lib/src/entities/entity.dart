@@ -57,10 +57,11 @@ final class Entity implements Facetable {
         break;
       case EntityType.cashtag:
         //* The Bluesky `app.bsky.richtext.facet` lexicon does not currently
-        //* define a dedicated cashtag feature, so cashtags are treated as
-        //* regular `tag` facets. The underlying `tag` value is the symbol
-        //* without the leading `$`, mirroring how hashtags drop the leading
-        //* `#` character.
+        //* define a dedicated cashtag feature, so cashtags are emitted as
+        //* regular `tag` facets. Following the official `@atproto/api`
+        //* implementation, the `tag` value keeps the leading `$` and the
+        //* ticker is upper-cased (e.g. `$AAPL`), unlike hashtags which drop
+        //* the leading `#` character.
         facet['features'].add({
           '\$type': 'app.bsky.richtext.facet#tag',
           'tag': value,
