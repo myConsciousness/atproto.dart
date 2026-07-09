@@ -55,12 +55,13 @@ extension UFeedPostEmbedPatterns on UFeedPostEmbed {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UFeedPostEmbedEmbedImages value)?  embedImages,TResult Function( UFeedPostEmbedEmbedVideo value)?  embedVideo,TResult Function( UFeedPostEmbedEmbedExternal value)?  embedExternal,TResult Function( UFeedPostEmbedEmbedRecord value)?  embedRecord,TResult Function( UFeedPostEmbedEmbedRecordWithMedia value)?  embedRecordWithMedia,TResult Function( UFeedPostEmbedUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UFeedPostEmbedEmbedImages value)?  embedImages,TResult Function( UFeedPostEmbedEmbedVideo value)?  embedVideo,TResult Function( UFeedPostEmbedEmbedGallery value)?  embedGallery,TResult Function( UFeedPostEmbedEmbedExternal value)?  embedExternal,TResult Function( UFeedPostEmbedEmbedRecord value)?  embedRecord,TResult Function( UFeedPostEmbedEmbedRecordWithMedia value)?  embedRecordWithMedia,TResult Function( UFeedPostEmbedUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case UFeedPostEmbedEmbedImages() when embedImages != null:
 return embedImages(_that);case UFeedPostEmbedEmbedVideo() when embedVideo != null:
-return embedVideo(_that);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
+return embedVideo(_that);case UFeedPostEmbedEmbedGallery() when embedGallery != null:
+return embedGallery(_that);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
 return embedExternal(_that);case UFeedPostEmbedEmbedRecord() when embedRecord != null:
 return embedRecord(_that);case UFeedPostEmbedEmbedRecordWithMedia() when embedRecordWithMedia != null:
 return embedRecordWithMedia(_that);case UFeedPostEmbedUnknown() when unknown != null:
@@ -82,12 +83,13 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UFeedPostEmbedEmbedImages value)  embedImages,required TResult Function( UFeedPostEmbedEmbedVideo value)  embedVideo,required TResult Function( UFeedPostEmbedEmbedExternal value)  embedExternal,required TResult Function( UFeedPostEmbedEmbedRecord value)  embedRecord,required TResult Function( UFeedPostEmbedEmbedRecordWithMedia value)  embedRecordWithMedia,required TResult Function( UFeedPostEmbedUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UFeedPostEmbedEmbedImages value)  embedImages,required TResult Function( UFeedPostEmbedEmbedVideo value)  embedVideo,required TResult Function( UFeedPostEmbedEmbedGallery value)  embedGallery,required TResult Function( UFeedPostEmbedEmbedExternal value)  embedExternal,required TResult Function( UFeedPostEmbedEmbedRecord value)  embedRecord,required TResult Function( UFeedPostEmbedEmbedRecordWithMedia value)  embedRecordWithMedia,required TResult Function( UFeedPostEmbedUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
 case UFeedPostEmbedEmbedImages():
 return embedImages(_that);case UFeedPostEmbedEmbedVideo():
-return embedVideo(_that);case UFeedPostEmbedEmbedExternal():
+return embedVideo(_that);case UFeedPostEmbedEmbedGallery():
+return embedGallery(_that);case UFeedPostEmbedEmbedExternal():
 return embedExternal(_that);case UFeedPostEmbedEmbedRecord():
 return embedRecord(_that);case UFeedPostEmbedEmbedRecordWithMedia():
 return embedRecordWithMedia(_that);case UFeedPostEmbedUnknown():
@@ -105,12 +107,13 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UFeedPostEmbedEmbedImages value)?  embedImages,TResult? Function( UFeedPostEmbedEmbedVideo value)?  embedVideo,TResult? Function( UFeedPostEmbedEmbedExternal value)?  embedExternal,TResult? Function( UFeedPostEmbedEmbedRecord value)?  embedRecord,TResult? Function( UFeedPostEmbedEmbedRecordWithMedia value)?  embedRecordWithMedia,TResult? Function( UFeedPostEmbedUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UFeedPostEmbedEmbedImages value)?  embedImages,TResult? Function( UFeedPostEmbedEmbedVideo value)?  embedVideo,TResult? Function( UFeedPostEmbedEmbedGallery value)?  embedGallery,TResult? Function( UFeedPostEmbedEmbedExternal value)?  embedExternal,TResult? Function( UFeedPostEmbedEmbedRecord value)?  embedRecord,TResult? Function( UFeedPostEmbedEmbedRecordWithMedia value)?  embedRecordWithMedia,TResult? Function( UFeedPostEmbedUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
 case UFeedPostEmbedEmbedImages() when embedImages != null:
 return embedImages(_that);case UFeedPostEmbedEmbedVideo() when embedVideo != null:
-return embedVideo(_that);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
+return embedVideo(_that);case UFeedPostEmbedEmbedGallery() when embedGallery != null:
+return embedGallery(_that);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
 return embedExternal(_that);case UFeedPostEmbedEmbedRecord() when embedRecord != null:
 return embedRecord(_that);case UFeedPostEmbedEmbedRecordWithMedia() when embedRecordWithMedia != null:
 return embedRecordWithMedia(_that);case UFeedPostEmbedUnknown() when unknown != null:
@@ -131,11 +134,12 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmbedImages data)?  embedImages,TResult Function( EmbedVideo data)?  embedVideo,TResult Function( EmbedExternal data)?  embedExternal,TResult Function( EmbedRecord data)?  embedRecord,TResult Function( EmbedRecordWithMedia data)?  embedRecordWithMedia,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmbedImages data)?  embedImages,TResult Function( EmbedVideo data)?  embedVideo,TResult Function( EmbedGallery data)?  embedGallery,TResult Function( EmbedExternal data)?  embedExternal,TResult Function( EmbedRecord data)?  embedRecord,TResult Function( EmbedRecordWithMedia data)?  embedRecordWithMedia,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case UFeedPostEmbedEmbedImages() when embedImages != null:
 return embedImages(_that.data);case UFeedPostEmbedEmbedVideo() when embedVideo != null:
-return embedVideo(_that.data);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
+return embedVideo(_that.data);case UFeedPostEmbedEmbedGallery() when embedGallery != null:
+return embedGallery(_that.data);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
 return embedExternal(_that.data);case UFeedPostEmbedEmbedRecord() when embedRecord != null:
 return embedRecord(_that.data);case UFeedPostEmbedEmbedRecordWithMedia() when embedRecordWithMedia != null:
 return embedRecordWithMedia(_that.data);case UFeedPostEmbedUnknown() when unknown != null:
@@ -157,11 +161,12 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmbedImages data)  embedImages,required TResult Function( EmbedVideo data)  embedVideo,required TResult Function( EmbedExternal data)  embedExternal,required TResult Function( EmbedRecord data)  embedRecord,required TResult Function( EmbedRecordWithMedia data)  embedRecordWithMedia,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmbedImages data)  embedImages,required TResult Function( EmbedVideo data)  embedVideo,required TResult Function( EmbedGallery data)  embedGallery,required TResult Function( EmbedExternal data)  embedExternal,required TResult Function( EmbedRecord data)  embedRecord,required TResult Function( EmbedRecordWithMedia data)  embedRecordWithMedia,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
 case UFeedPostEmbedEmbedImages():
 return embedImages(_that.data);case UFeedPostEmbedEmbedVideo():
-return embedVideo(_that.data);case UFeedPostEmbedEmbedExternal():
+return embedVideo(_that.data);case UFeedPostEmbedEmbedGallery():
+return embedGallery(_that.data);case UFeedPostEmbedEmbedExternal():
 return embedExternal(_that.data);case UFeedPostEmbedEmbedRecord():
 return embedRecord(_that.data);case UFeedPostEmbedEmbedRecordWithMedia():
 return embedRecordWithMedia(_that.data);case UFeedPostEmbedUnknown():
@@ -179,11 +184,12 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmbedImages data)?  embedImages,TResult? Function( EmbedVideo data)?  embedVideo,TResult? Function( EmbedExternal data)?  embedExternal,TResult? Function( EmbedRecord data)?  embedRecord,TResult? Function( EmbedRecordWithMedia data)?  embedRecordWithMedia,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmbedImages data)?  embedImages,TResult? Function( EmbedVideo data)?  embedVideo,TResult? Function( EmbedGallery data)?  embedGallery,TResult? Function( EmbedExternal data)?  embedExternal,TResult? Function( EmbedRecord data)?  embedRecord,TResult? Function( EmbedRecordWithMedia data)?  embedRecordWithMedia,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
 case UFeedPostEmbedEmbedImages() when embedImages != null:
 return embedImages(_that.data);case UFeedPostEmbedEmbedVideo() when embedVideo != null:
-return embedVideo(_that.data);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
+return embedVideo(_that.data);case UFeedPostEmbedEmbedGallery() when embedGallery != null:
+return embedGallery(_that.data);case UFeedPostEmbedEmbedExternal() when embedExternal != null:
 return embedExternal(_that.data);case UFeedPostEmbedEmbedRecord() when embedRecord != null:
 return embedRecord(_that.data);case UFeedPostEmbedEmbedRecordWithMedia() when embedRecordWithMedia != null:
 return embedRecordWithMedia(_that.data);case UFeedPostEmbedUnknown() when unknown != null:
@@ -340,6 +346,81 @@ as EmbedVideo,
 $EmbedVideoCopyWith<$Res> get data {
   
   return $EmbedVideoCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class UFeedPostEmbedEmbedGallery extends UFeedPostEmbed {
+  const UFeedPostEmbedEmbedGallery({required this.data}): super._();
+  
+
+@override final  EmbedGallery data;
+
+/// Create a copy of UFeedPostEmbed
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UFeedPostEmbedEmbedGalleryCopyWith<UFeedPostEmbedEmbedGallery> get copyWith => _$UFeedPostEmbedEmbedGalleryCopyWithImpl<UFeedPostEmbedEmbedGallery>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UFeedPostEmbedEmbedGallery&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'UFeedPostEmbed.embedGallery(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UFeedPostEmbedEmbedGalleryCopyWith<$Res> implements $UFeedPostEmbedCopyWith<$Res> {
+  factory $UFeedPostEmbedEmbedGalleryCopyWith(UFeedPostEmbedEmbedGallery value, $Res Function(UFeedPostEmbedEmbedGallery) _then) = _$UFeedPostEmbedEmbedGalleryCopyWithImpl;
+@useResult
+$Res call({
+ EmbedGallery data
+});
+
+
+$EmbedGalleryCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$UFeedPostEmbedEmbedGalleryCopyWithImpl<$Res>
+    implements $UFeedPostEmbedEmbedGalleryCopyWith<$Res> {
+  _$UFeedPostEmbedEmbedGalleryCopyWithImpl(this._self, this._then);
+
+  final UFeedPostEmbedEmbedGallery _self;
+  final $Res Function(UFeedPostEmbedEmbedGallery) _then;
+
+/// Create a copy of UFeedPostEmbed
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(UFeedPostEmbedEmbedGallery(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as EmbedGallery,
+  ));
+}
+
+/// Create a copy of UFeedPostEmbed
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedGalleryCopyWith<$Res> get data {
+  
+  return $EmbedGalleryCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

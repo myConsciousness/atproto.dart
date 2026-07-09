@@ -7,7 +7,7 @@ description: chat.bsky.group.getJoinLinkPreviews
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results. Use the 'code' property on the views to correlate with the input codes, not array positions.
+[NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. The output array matches the input codes one-to-one by position (and each view also carries its 'code'). Disabled codes return a disabledJoinLinkPreviewView, and codes that do not map to a previewable link return an invalidJoinLinkPreviewView.
 
 ### Parameters
 
@@ -21,4 +21,4 @@ description: chat.bsky.group.getJoinLinkPreviews
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **joinLinkPreviews** | array of [chat.bsky.group.defs#joinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkpreviewview) | - | ✅ | - |
+| **joinLinkPreviews** | array of union<br/>[chat.bsky.group.defs#joinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkpreviewview)<br/>[chat.bsky.group.defs#disabledJoinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#disabledjoinlinkpreviewview)<br/>[chat.bsky.group.defs#invalidJoinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#invalidjoinlinkpreviewview) | - | ✅ | - |

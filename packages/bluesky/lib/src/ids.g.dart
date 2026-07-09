@@ -292,6 +292,14 @@ const appBskyDraftDefsDraftEmbedCaption =
 const appBskyDraftDefsDraftEmbedExternal =
     'app.bsky.draft.defs#draftEmbedExternal';
 
+/// `app.bsky.draft.defs#draftEmbedGallery`
+const appBskyDraftDefsDraftEmbedGallery =
+    'app.bsky.draft.defs#draftEmbedGallery';
+
+/// `app.bsky.draft.defs#draftEmbedGalleryItems`
+const appBskyDraftDefsDraftEmbedGalleryItems =
+    'app.bsky.draft.defs#draftEmbedGalleryItems';
+
 /// `app.bsky.draft.defs#draftEmbedImage`
 const appBskyDraftDefsDraftEmbedImage = 'app.bsky.draft.defs#draftEmbedImage';
 
@@ -351,6 +359,18 @@ const appBskyEmbedExternalViewExternalSource =
 /// `app.bsky.embed.external#viewExternalSourceTheme`
 const appBskyEmbedExternalViewExternalSourceTheme =
     'app.bsky.embed.external#viewExternalSourceTheme';
+
+/// `app.bsky.embed.gallery`
+const appBskyEmbedGallery = 'app.bsky.embed.gallery';
+
+/// `app.bsky.embed.gallery#image`
+const appBskyEmbedGalleryImage = 'app.bsky.embed.gallery#image';
+
+/// `app.bsky.embed.gallery#view`
+const appBskyEmbedGalleryView = 'app.bsky.embed.gallery#view';
+
+/// `app.bsky.embed.gallery#viewImage`
+const appBskyEmbedGalleryViewImage = 'app.bsky.embed.gallery#viewImage';
 
 /// `app.bsky.embed.getEmbedExternalView`
 const appBskyEmbedGetEmbedExternalView = 'app.bsky.embed.getEmbedExternalView';
@@ -1265,6 +1285,9 @@ const chatBskyConvoDefsReactionView = 'chat.bsky.convo.defs#reactionView';
 const chatBskyConvoDefsReactionViewSender =
     'chat.bsky.convo.defs#reactionViewSender';
 
+/// `chat.bsky.convo.defs#replyRef`
+const chatBskyConvoDefsReplyRef = 'chat.bsky.convo.defs#replyRef';
+
 /// `chat.bsky.convo.defs#systemMessageDataAddMember`
 const chatBskyConvoDefsSystemMessageDataAddMember =
     'chat.bsky.convo.defs#systemMessageDataAddMember';
@@ -1344,6 +1367,9 @@ const chatBskyConvoGetLog = 'chat.bsky.convo.getLog';
 /// `chat.bsky.convo.getMessages`
 const chatBskyConvoGetMessages = 'chat.bsky.convo.getMessages';
 
+/// `chat.bsky.convo.getUnreadCounts`
+const chatBskyConvoGetUnreadCounts = 'chat.bsky.convo.getUnreadCounts';
+
 /// `chat.bsky.convo.leaveConvo`
 const chatBskyConvoLeaveConvo = 'chat.bsky.convo.leaveConvo';
 
@@ -1404,6 +1430,14 @@ const chatBskyGroupCreateJoinLink = 'chat.bsky.group.createJoinLink';
 
 /// `chat.bsky.group.defs`
 const chatBskyGroupDefs = 'chat.bsky.group.defs';
+
+/// `chat.bsky.group.defs#disabledJoinLinkPreviewView`
+const chatBskyGroupDefsDisabledJoinLinkPreviewView =
+    'chat.bsky.group.defs#disabledJoinLinkPreviewView';
+
+/// `chat.bsky.group.defs#invalidJoinLinkPreviewView`
+const chatBskyGroupDefsInvalidJoinLinkPreviewView =
+    'chat.bsky.group.defs#invalidJoinLinkPreviewView';
 
 /// `chat.bsky.group.defs#joinLinkPreviewView`
 const chatBskyGroupDefsJoinLinkPreviewView =
@@ -2190,6 +2224,9 @@ const toolsOzoneReportGetReport = 'tools.ozone.report.getReport';
 
 /// `tools.ozone.report.listActivities`
 const toolsOzoneReportListActivities = 'tools.ozone.report.listActivities';
+
+/// `tools.ozone.report.queryActivities`
+const toolsOzoneReportQueryActivities = 'tools.ozone.report.queryActivities';
 
 /// `tools.ozone.report.queryReports`
 const toolsOzoneReportQueryReports = 'tools.ozone.report.queryReports';

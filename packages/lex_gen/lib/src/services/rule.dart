@@ -384,18 +384,30 @@ String getNamespaceIdForApi(final String lexiconId) {
   return toFirstLowerCase(lexiconId.split('.').map(toFirstUpperCase).join());
 }
 
-LexUserType? getRelatedDocFromRef(final String? ref) {
+LexUserType? getRelatedDocFromRef(
+  final String? ref, {
+  final String? lexiconId,
+}) {
   if (ref == null) return null;
-  if (ref.startsWith('#')) return null;
-  if (!ref.contains('#')) return null;
 
-  final parts = ref.split('#');
-  final lexiconId = parts.first;
-  final defName = parts.last;
+  final String targetLexiconId;
+  final String defName;
+  if (ref.startsWith('#')) {
+    // Local ref within the same lexicon doc (e.g. `#draftEmbedGalleryItems`).
+    if (lexiconId == null) return null;
+    targetLexiconId = lexiconId;
+    defName = ref.substring(1);
+  } else if (ref.contains('#')) {
+    final parts = ref.split('#');
+    targetLexiconId = parts.first;
+    defName = parts.last;
+  } else {
+    return null;
+  }
 
   for (final doc in _lexiconDocs) {
     for (final def in doc.defs.entries) {
-      if (doc.id.toString() == lexiconId && def.key == defName) {
+      if (doc.id.toString() == targetLexiconId && def.key == defName) {
         return def.value;
       }
     }

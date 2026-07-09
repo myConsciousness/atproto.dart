@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:bluesky/app_bsky_richtext_facet.dart';
+import './reply_ref.dart';
 import './union_message_input_embed.dart';
 
 part 'message_input.freezed.dart';
@@ -24,7 +25,7 @@ part 'message_input.g.dart';
 
 @freezed
 abstract class MessageInput with _$MessageInput {
-  static const knownProps = <String>['text', 'facets', 'embed'];
+  static const knownProps = <String>['text', 'facets', 'embed', 'replyTo'];
 
   @JsonSerializable(includeIfNull: false)
   const factory MessageInput({
@@ -32,6 +33,9 @@ abstract class MessageInput with _$MessageInput {
     required String text,
     @RichtextFacetConverter() List<RichtextFacet>? facets,
     @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
+
+    /// If set, the message this message is replying to. The referenced message must be in the same convo.
+    @ReplyRefConverter() ReplyRef? replyTo,
 
     Map<String, dynamic>? $unknown,
   }) = _MessageInput;
@@ -48,6 +52,8 @@ abstract class MessageInput with _$MessageInput {
 extension MessageInputExtension on MessageInput {
   bool get hasEmbed => embed != null;
   bool get hasNotEmbed => !hasEmbed;
+  bool get hasReplyTo => replyTo != null;
+  bool get hasNotReplyTo => !hasReplyTo;
 }
 
 final class MessageInputConverter

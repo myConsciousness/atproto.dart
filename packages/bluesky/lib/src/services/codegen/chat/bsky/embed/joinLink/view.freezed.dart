@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedJoinLinkView {
 
- String get $type;@JoinLinkPreviewViewConverter() JoinLinkPreviewView get joinLinkPreview; Map<String, dynamic>? get $unknown;
+ String get $type;@UEmbedJoinLinkViewJoinLinkPreviewConverter() UEmbedJoinLinkViewJoinLinkPreview get joinLinkPreview; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedJoinLinkView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $EmbedJoinLinkViewCopyWith<$Res>  {
   factory $EmbedJoinLinkViewCopyWith(EmbedJoinLinkView value, $Res Function(EmbedJoinLinkView) _then) = _$EmbedJoinLinkViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@JoinLinkPreviewViewConverter() JoinLinkPreviewView joinLinkPreview, Map<String, dynamic>? $unknown
+ String $type,@UEmbedJoinLinkViewJoinLinkPreviewConverter() UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview, Map<String, dynamic>? $unknown
 });
 
 
-$JoinLinkPreviewViewCopyWith<$Res> get joinLinkPreview;
+$UEmbedJoinLinkViewJoinLinkPreviewCopyWith<$Res> get joinLinkPreview;
 
 }
 /// @nodoc
@@ -69,7 +69,7 @@ class _$EmbedJoinLinkViewCopyWithImpl<$Res>
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,joinLinkPreview: null == joinLinkPreview ? _self.joinLinkPreview : joinLinkPreview // ignore: cast_nullable_to_non_nullable
-as JoinLinkPreviewView,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as UEmbedJoinLinkViewJoinLinkPreview,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -77,9 +77,9 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$JoinLinkPreviewViewCopyWith<$Res> get joinLinkPreview {
+$UEmbedJoinLinkViewJoinLinkPreviewCopyWith<$Res> get joinLinkPreview {
   
-  return $JoinLinkPreviewViewCopyWith<$Res>(_self.joinLinkPreview, (value) {
+  return $UEmbedJoinLinkViewJoinLinkPreviewCopyWith<$Res>(_self.joinLinkPreview, (value) {
     return _then(_self.copyWith(joinLinkPreview: value));
   });
 }
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JoinLinkPreviewViewConverter()  JoinLinkPreviewView joinLinkPreview,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @UEmbedJoinLinkViewJoinLinkPreviewConverter()  UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedJoinLinkView() when $default != null:
 return $default(_that.$type,_that.joinLinkPreview,_that.$unknown);case _:
@@ -185,7 +185,7 @@ return $default(_that.$type,_that.joinLinkPreview,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JoinLinkPreviewViewConverter()  JoinLinkPreviewView joinLinkPreview,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @UEmbedJoinLinkViewJoinLinkPreviewConverter()  UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedJoinLinkView():
 return $default(_that.$type,_that.joinLinkPreview,_that.$unknown);case _:
@@ -205,7 +205,7 @@ return $default(_that.$type,_that.joinLinkPreview,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JoinLinkPreviewViewConverter()  JoinLinkPreviewView joinLinkPreview,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @UEmbedJoinLinkViewJoinLinkPreviewConverter()  UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedJoinLinkView() when $default != null:
 return $default(_that.$type,_that.joinLinkPreview,_that.$unknown);case _:
@@ -220,11 +220,11 @@ return $default(_that.$type,_that.joinLinkPreview,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedJoinLinkView implements EmbedJoinLinkView {
-  const _EmbedJoinLinkView({this.$type = 'chat.bsky.embed.joinLink#view', @JoinLinkPreviewViewConverter() required this.joinLinkPreview, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedJoinLinkView({this.$type = 'chat.bsky.embed.joinLink#view', @UEmbedJoinLinkViewJoinLinkPreviewConverter() required this.joinLinkPreview, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedJoinLinkView.fromJson(Map<String, dynamic> json) => _$EmbedJoinLinkViewFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override@JoinLinkPreviewViewConverter() final  JoinLinkPreviewView joinLinkPreview;
+@override@UEmbedJoinLinkViewJoinLinkPreviewConverter() final  UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -268,11 +268,11 @@ abstract mixin class _$EmbedJoinLinkViewCopyWith<$Res> implements $EmbedJoinLink
   factory _$EmbedJoinLinkViewCopyWith(_EmbedJoinLinkView value, $Res Function(_EmbedJoinLinkView) _then) = __$EmbedJoinLinkViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@JoinLinkPreviewViewConverter() JoinLinkPreviewView joinLinkPreview, Map<String, dynamic>? $unknown
+ String $type,@UEmbedJoinLinkViewJoinLinkPreviewConverter() UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview, Map<String, dynamic>? $unknown
 });
 
 
-@override $JoinLinkPreviewViewCopyWith<$Res> get joinLinkPreview;
+@override $UEmbedJoinLinkViewJoinLinkPreviewCopyWith<$Res> get joinLinkPreview;
 
 }
 /// @nodoc
@@ -289,7 +289,7 @@ class __$EmbedJoinLinkViewCopyWithImpl<$Res>
   return _then(_EmbedJoinLinkView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,joinLinkPreview: null == joinLinkPreview ? _self.joinLinkPreview : joinLinkPreview // ignore: cast_nullable_to_non_nullable
-as JoinLinkPreviewView,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as UEmbedJoinLinkViewJoinLinkPreview,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -298,9 +298,9 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$JoinLinkPreviewViewCopyWith<$Res> get joinLinkPreview {
+$UEmbedJoinLinkViewJoinLinkPreviewCopyWith<$Res> get joinLinkPreview {
   
-  return $JoinLinkPreviewViewCopyWith<$Res>(_self.joinLinkPreview, (value) {
+  return $UEmbedJoinLinkViewJoinLinkPreviewCopyWith<$Res>(_self.joinLinkPreview, (value) {
     return _then(_self.copyWith(joinLinkPreview: value));
   });
 }

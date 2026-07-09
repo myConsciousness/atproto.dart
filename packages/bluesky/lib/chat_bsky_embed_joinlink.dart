@@ -13,3 +13,4 @@
 
 export 'package:bluesky/src/services/codegen/chat/bsky/embed/joinLink/main.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/embed/joinLink/view.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/embed/joinLink/union_view_join_link_preview.dart';

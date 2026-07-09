@@ -3,6 +3,9 @@
 ## v0.4.7
 
 - Bump dependencies.
+- feat: added `chat.bsky.convo.getUnreadCounts` command.
+- feat: added `tools.ozone.report.queryActivities` command.
+- core: regenerated commands from updated lexicons.
 
 ## v0.4.6
 

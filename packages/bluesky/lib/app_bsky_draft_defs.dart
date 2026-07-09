@@ -20,6 +20,8 @@ export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/union_draft_pos
 export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_view.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_embed_local_ref.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_embed_caption.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_embed_gallery.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/union_draft_embed_gallery_items.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_embed_image.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_embed_video.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/draft/defs/draft_embed_external.dart';

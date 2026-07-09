@@ -1,5 +1,14 @@
 # Release Note
 
+## v1.5.0
+
+- feat: added `app.bsky.embed.gallery` embed (`#image`, `#view`, `#viewImage`).
+- feat: added `chat.bsky.convo.getUnreadCounts` endpoint.
+- feat: added `chat.bsky.convo.defs#replyRef` for message reply references.
+- feat: added `chat.bsky.group.defs#disabledJoinLinkPreviewView` and `#invalidJoinLinkPreviewView`.
+- feat: added `tools.ozone.report.queryActivities` endpoint.
+- fix: generate `app.bsky.draft.defs#draftEmbedGallery` correctly. Its `items` is now `List<UDraftEmbedGalleryItems>`; previously it referenced a non-existent file and failed to compile.
+
 ## v1.4.7
 
 - core: generated code. ([#2355](https://github.com/myConsciousness/atproto.dart/pull/2355))

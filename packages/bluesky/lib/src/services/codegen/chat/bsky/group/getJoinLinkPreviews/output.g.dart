@@ -16,9 +16,8 @@ _GroupGetJoinLinkPreviewsOutput _$GroupGetJoinLinkPreviewsOutputFromJson(
       'joinLinkPreviews',
       (v) => (v as List<dynamic>)
           .map(
-            (e) => const JoinLinkPreviewViewConverter().fromJson(
-              e as Map<String, dynamic>,
-            ),
+            (e) => const UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter()
+                .fromJson(e as Map<String, dynamic>),
           )
           .toList(),
     ),
@@ -34,7 +33,7 @@ Map<String, dynamic> _$GroupGetJoinLinkPreviewsOutputToJson(
   _GroupGetJoinLinkPreviewsOutput instance,
 ) => <String, dynamic>{
   'joinLinkPreviews': instance.joinLinkPreviews
-      .map(const JoinLinkPreviewViewConverter().toJson)
+      .map(const UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter().toJson)
       .toList(),
   r'$unknown': ?instance.$unknown,
 };

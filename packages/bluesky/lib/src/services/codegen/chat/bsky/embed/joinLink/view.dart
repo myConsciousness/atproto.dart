@@ -12,7 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../chat/bsky/group/defs/join_link_preview_view.dart';
+import './union_view_join_link_preview.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';
@@ -28,8 +28,8 @@ abstract class EmbedJoinLinkView with _$EmbedJoinLinkView {
   @JsonSerializable(includeIfNull: false)
   const factory EmbedJoinLinkView({
     @Default('chat.bsky.embed.joinLink#view') String $type,
-    @JoinLinkPreviewViewConverter()
-    required JoinLinkPreviewView joinLinkPreview,
+    @UEmbedJoinLinkViewJoinLinkPreviewConverter()
+    required UEmbedJoinLinkViewJoinLinkPreview joinLinkPreview,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedJoinLinkView;

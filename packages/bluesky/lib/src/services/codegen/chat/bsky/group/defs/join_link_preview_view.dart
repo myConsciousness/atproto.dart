@@ -16,7 +16,6 @@ import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
 import '../../../../chat/bsky/convo/defs/convo_view.dart';
 import './join_link_viewer_state.dart';
 import './join_rule.dart';
-import './link_enabled_status.dart';
 
 part 'join_link_preview_view.freezed.dart';
 part 'join_link_preview_view.g.dart';
@@ -25,9 +24,11 @@ part 'join_link_preview_view.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Preview that can be shown in feeds, including to unauthenticated viewers.
 @freezed
 abstract class JoinLinkPreviewView with _$JoinLinkPreviewView {
   static const knownProps = <String>[
+    'convoId',
     'code',
     'name',
     'owner',
@@ -35,7 +36,6 @@ abstract class JoinLinkPreviewView with _$JoinLinkPreviewView {
     'memberLimit',
     'requireApproval',
     'joinRule',
-    'enabledStatus',
     'convo',
     'viewer',
   ];
@@ -43,6 +43,7 @@ abstract class JoinLinkPreviewView with _$JoinLinkPreviewView {
   @JsonSerializable(includeIfNull: false)
   const factory JoinLinkPreviewView({
     @Default('chat.bsky.group.defs#joinLinkPreviewView') String $type,
+    required String convoId,
     required String code,
     required String name,
     @ProfileViewBasicConverter() required ProfileViewBasic owner,
@@ -50,7 +51,6 @@ abstract class JoinLinkPreviewView with _$JoinLinkPreviewView {
     required int memberLimit,
     required bool requireApproval,
     @JoinRuleConverter() required JoinRule joinRule,
-    @LinkEnabledStatusConverter() required LinkEnabledStatus enabledStatus,
 
     /// Present only if the request is authenticated and the user is a member of the group.
     @ConvoViewConverter() ConvoView? convo,

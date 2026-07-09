@@ -23,6 +23,7 @@ import 'report/getHistoricalStats/output.dart';
 import 'report/getLatestReport/output.dart';
 import 'report/getLiveStats/output.dart';
 import 'report/listActivities/output.dart';
+import 'report/queryActivities/output.dart';
 import 'report/queryReports/main_status.dart';
 import 'report/queryReports/main_subject_type.dart';
 import 'report/queryReports/output.dart';
@@ -214,6 +215,35 @@ toolsOzoneReportListActivities({
     if (cursor != null) 'cursor': cursor,
   },
   to: const ReportListActivitiesOutputConverter().fromJson,
+);
+
+/// Query report activities across all reports, ordered by createdAt. Used by downstream pollers; for per-report activity history use listActivities.
+Future<XRPCResponse<ReportQueryActivitiesOutput>>
+toolsOzoneReportQueryActivities({
+  List<String>? activityTypes,
+  DateTime? createdAfter,
+  DateTime? createdBefore,
+  String? sortDirection,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneReportQueryActivities,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (activityTypes != null) 'activityTypes': activityTypes,
+    if (createdAfter != null) 'createdAfter': iso8601(createdAfter),
+    if (createdBefore != null) 'createdBefore': iso8601(createdBefore),
+    if (sortDirection != null) 'sortDirection': sortDirection,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ReportQueryActivitiesOutputConverter().fromJson,
 );
 
 /// View moderation reports. Reports are individual instances of content being reported, as opposed to subject statuses which aggregate reports at the subject level.
@@ -471,6 +501,30 @@ base class ReportService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneReportListActivities(
     reportId: reportId,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Query report activities across all reports, ordered by createdAt. Used by downstream pollers; for per-report activity history use listActivities.
+  Future<XRPCResponse<ReportQueryActivitiesOutput>> queryActivities({
+    List<String>? activityTypes,
+    DateTime? createdAfter,
+    DateTime? createdBefore,
+    String? sortDirection,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneReportQueryActivities(
+    activityTypes: activityTypes,
+    createdAfter: createdAfter,
+    createdBefore: createdBefore,
+    sortDirection: sortDirection,
     limit: limit,
     cursor: cursor,
     $ctx: ctx,

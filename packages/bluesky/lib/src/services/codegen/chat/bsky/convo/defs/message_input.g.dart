@@ -36,6 +36,13 @@ _MessageInput _$MessageInputFromJson(Map json) => $checkedCreate(
               const UMessageInputEmbedConverter().fromJson,
             ),
       ),
+      replyTo: $checkedConvert(
+        'replyTo',
+        (v) => _$JsonConverterFromJson<Map<String, dynamic>, ReplyRef>(
+          v,
+          const ReplyRefConverter().fromJson,
+        ),
+      ),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -55,6 +62,10 @@ Map<String, dynamic> _$MessageInputToJson(_MessageInput instance) =>
       'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UMessageInputEmbed>(
         instance.embed,
         const UMessageInputEmbedConverter().toJson,
+      ),
+      'replyTo': ?_$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
+        instance.replyTo,
+        const ReplyRefConverter().toJson,
       ),
       r'$unknown': ?instance.$unknown,
     };

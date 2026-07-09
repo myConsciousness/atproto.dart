@@ -12,7 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../chat/bsky/group/defs/join_link_preview_view.dart';
+import './union_main_join_link_previews.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -28,8 +28,8 @@ abstract class GroupGetJoinLinkPreviewsOutput
 
   @JsonSerializable(includeIfNull: false)
   const factory GroupGetJoinLinkPreviewsOutput({
-    @JoinLinkPreviewViewConverter()
-    required List<JoinLinkPreviewView> joinLinkPreviews,
+    @UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter()
+    required List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews,
 
     Map<String, dynamic>? $unknown,
   }) = _GroupGetJoinLinkPreviewsOutput;
