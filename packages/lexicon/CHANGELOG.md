@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.1.0
+
+- feat: added `app.bsky.embed.gallery`, `chat.bsky.convo.getUnreadCounts`, and `tools.ozone.report.queryActivities` to the bundled lexicons.
+- feat: added `app.bsky.draft.defs#draftEmbedGallery` / `#draftEmbedGalleryItems`, `chat.bsky.convo.defs#replyRef`, and `chat.bsky.group.defs#disabledJoinLinkPreviewView` / `#invalidJoinLinkPreviewView`.
+- core: regenerated bundled lexicons.
+
 ## v1.0.3
 
 - **MIGRATION**: Updated to use the consolidated `at_primitives` package instead of separate primitive packages.

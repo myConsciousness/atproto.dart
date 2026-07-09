@@ -264,6 +264,7 @@ A single activity entry on a report.
 | **isAutomated** | boolean | - | ✅ | True if this activity was created by an automated process (e.g. queue router) rather than a direct human action. |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the actor who created this activity, or the service DID for automated activities. |
 | **moderator** | [tools.ozone.team.defs#member](../../../../lexicons/tools/ozone/team/defs.md#member) | - | ❌ | - |
+| **report** | [#reportView](#reportview) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | When this activity was created |
 
 ## #liveStats

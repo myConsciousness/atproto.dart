@@ -20,6 +20,7 @@ import 'convo/get_convo_for_members.dart';
 import 'convo/get_convo_members.dart';
 import 'convo/get_log.dart';
 import 'convo/get_messages.dart';
+import 'convo/get_unread_counts.dart';
 import 'convo/leave_convo.dart';
 import 'convo/list_convo_requests.dart';
 import 'convo/list_convos.dart';
@@ -48,6 +49,7 @@ final class ChatBskyConvoCommand extends Command<void> {
     addSubcommand(GetConvoMembersCommand());
     addSubcommand(GetLogCommand());
     addSubcommand(GetMessagesCommand());
+    addSubcommand(GetUnreadCountsCommand());
     addSubcommand(LeaveConvoCommand());
     addSubcommand(ListConvoRequestsCommand());
     addSubcommand(ListConvosCommand());

@@ -18,8 +18,10 @@ export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/convo_ref.dart
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/message_ref.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/message_input.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_message_input_embed.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/reply_ref.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/message_view.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_message_view_embed.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_message_view_reply_to.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/system_message_referred_user.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/system_message_view.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/union_system_message_view_data.dart';

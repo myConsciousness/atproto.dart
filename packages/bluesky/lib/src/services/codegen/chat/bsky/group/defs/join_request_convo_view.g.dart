@@ -25,9 +25,11 @@ _JoinRequestConvoView _$JoinRequestConvoViewFromJson(Map json) =>
         ),
         memberCount: $checkedConvert('memberCount', (v) => (v as num).toInt()),
         memberLimit: $checkedConvert('memberLimit', (v) => (v as num).toInt()),
-        requestedAt: $checkedConvert(
-          'requestedAt',
-          (v) => DateTime.parse(v as String),
+        viewer: $checkedConvert(
+          'viewer',
+          (v) => const JoinLinkViewerStateConverter().fromJson(
+            v as Map<String, dynamic>,
+          ),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -46,6 +48,6 @@ Map<String, dynamic> _$JoinRequestConvoViewToJson(
   'owner': const ProfileViewBasicConverter().toJson(instance.owner),
   'memberCount': instance.memberCount,
   'memberLimit': instance.memberLimit,
-  'requestedAt': instance.requestedAt.toIso8601String(),
+  'viewer': const JoinLinkViewerStateConverter().toJson(instance.viewer),
   r'$unknown': ?instance.$unknown,
 };

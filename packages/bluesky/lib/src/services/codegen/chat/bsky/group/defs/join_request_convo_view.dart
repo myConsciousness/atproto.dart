@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
+import './join_link_viewer_state.dart';
 
 part 'join_request_convo_view.freezed.dart';
 part 'join_request_convo_view.g.dart';
@@ -30,7 +31,7 @@ abstract class JoinRequestConvoView with _$JoinRequestConvoView {
     'owner',
     'memberCount',
     'memberLimit',
-    'requestedAt',
+    'viewer',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -41,7 +42,7 @@ abstract class JoinRequestConvoView with _$JoinRequestConvoView {
     @ProfileViewBasicConverter() required ProfileViewBasic owner,
     required int memberCount,
     required int memberLimit,
-    required DateTime requestedAt,
+    @JoinLinkViewerStateConverter() required JoinLinkViewerState viewer,
 
     Map<String, dynamic>? $unknown,
   }) = _JoinRequestConvoView;

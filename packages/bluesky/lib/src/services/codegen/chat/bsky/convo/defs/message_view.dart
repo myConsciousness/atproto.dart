@@ -16,6 +16,7 @@ import 'package:bluesky/app_bsky_richtext_facet.dart';
 import './message_view_sender.dart';
 import './reaction_view.dart';
 import './union_message_view_embed.dart';
+import './union_message_view_reply_to.dart';
 
 part 'message_view.freezed.dart';
 part 'message_view.g.dart';
@@ -33,6 +34,7 @@ abstract class MessageView with _$MessageView {
     'facets',
     'embed',
     'reactions',
+    'replyTo',
     'sender',
     'sentAt',
   ];
@@ -46,6 +48,7 @@ abstract class MessageView with _$MessageView {
     @RichtextFacetConverter() List<RichtextFacet>? facets,
     @UMessageViewEmbedConverter() UMessageViewEmbed? embed,
     @ReactionViewConverter() List<ReactionView>? reactions,
+    @UMessageViewReplyToConverter() UMessageViewReplyTo? replyTo,
     @MessageViewSenderConverter() required MessageViewSender sender,
     required DateTime sentAt,
 
@@ -64,6 +67,8 @@ abstract class MessageView with _$MessageView {
 extension MessageViewExtension on MessageView {
   bool get hasEmbed => embed != null;
   bool get hasNotEmbed => !hasEmbed;
+  bool get hasReplyTo => replyTo != null;
+  bool get hasNotReplyTo => !hasReplyTo;
 }
 
 final class MessageViewConverter

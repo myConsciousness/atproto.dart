@@ -34,6 +34,13 @@ _DraftPost _$DraftPostFromJson(Map json) => $checkedCreate('_DraftPost', json, (
           )
           .toList(),
     ),
+    embedGallery: $checkedConvert(
+      'embedGallery',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, DraftEmbedGallery>(
+        v,
+        const DraftEmbedGalleryConverter().fromJson,
+      ),
+    ),
     embedVideos: $checkedConvert(
       'embedVideos',
       (v) => (v as List<dynamic>?)
@@ -83,6 +90,11 @@ Map<String, dynamic> _$DraftPostToJson(_DraftPost instance) =>
       'embedImages': ?instance.embedImages
           ?.map(const DraftEmbedImageConverter().toJson)
           .toList(),
+      'embedGallery':
+          ?_$JsonConverterToJson<Map<String, dynamic>, DraftEmbedGallery>(
+            instance.embedGallery,
+            const DraftEmbedGalleryConverter().toJson,
+          ),
       'embedVideos': ?instance.embedVideos
           ?.map(const DraftEmbedVideoConverter().toJson)
           .toList(),

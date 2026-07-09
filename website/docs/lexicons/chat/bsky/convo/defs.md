@@ -45,6 +45,15 @@ description: chat.bsky.convo.defs
 | **text** | string | - | ✅ | - |
 | **facets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | Annotations of text (mentions, URLs, hashtags, etc) |
 | **embed** | union of <br/>[app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#main)<br/>[chat.bsky.embed.joinLink](../../../../lexicons/chat/bsky/embed/joinLink.md#main) | - | ❌ | - |
+| **replyTo** | [#replyRef](#replyref) | - | ❌ | - |
+
+## #replyRef
+
+A reference to another message within the same convo, used to indicate that a message is a reply to it.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **messageId** | string | - | ✅ | - |
 
 ## #messageView
 
@@ -56,6 +65,7 @@ description: chat.bsky.convo.defs
 | **facets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | Annotations of text (mentions, URLs, hashtags, etc) |
 | **embed** | union of <br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br/>[chat.bsky.embed.joinLink#view](../../../../lexicons/chat/bsky/embed/joinLink.md#view) | - | ❌ | - |
 | **reactions** | array of [#reactionView](#reactionview) | - | ❌ | Reactions to this message, in ascending order of creation time. |
+| **replyTo** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ❌ | - |
 | **sender** | [#messageViewSender](#messageviewsender) | - | ✅ | - |
 | **sentAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
@@ -226,6 +236,7 @@ description: chat.bsky.convo.defs
 | **joinLink** | [chat.bsky.group.defs#joinLinkView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkview) | - | ❌ | - |
 | **joinRequestCount** | integer | - | ❌ | The total number of pending join requests for the group conversation. Only present for the owner. Capped at 21. |
 | **lockStatus** | [#convoLockStatus](#convolockstatus) | - | ✅ | - |
+| **lockStatusModerationOverride** | boolean | - | ✅ | Whether the lock status is being forced by a moderation override (account inactivation or convo takedown) rather than the owner's own setting. |
 | **memberCount** | integer | - | ✅ | The total number of members in the group conversation. |
 | **memberLimit** | integer | - | ✅ | The maximum number of members allowed in the group conversation. |
 | **name** | string | - | ✅ | The display name of the group conversation. |

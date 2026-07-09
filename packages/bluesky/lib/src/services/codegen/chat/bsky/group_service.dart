@@ -65,7 +65,7 @@ chatBskyGroupApproveJoinRequest({
   to: const GroupApproveJoinRequestOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Creates a group convo, specifying the members to be added to it. Unlike getConvoForMembers, this isn't idempotent. It will create new groups even if the membership is identical to pre-existing groups. Will create 'pending' membership for all members, except the owner who is 'accepted'.
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Creates a group convo, specifying the members to be added to it. Unlike getConvoForMembers, this isn't idempotent. It will create new groups even if the membership is identical to pre-existing groups. Will create 'request' membership for all members, except the owner who is 'accepted'.
 Future<XRPCResponse<GroupCreateGroupOutput>> chatBskyGroupCreateGroup({
   required List<String> members,
   required String name,
@@ -171,7 +171,7 @@ Future<XRPCResponse<GroupEnableJoinLinkOutput>> chatBskyGroupEnableJoinLink({
   to: const GroupEnableJoinLinkOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results. Use the 'code' property on the views to correlate with the input codes, not array positions.
+/// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. The output array matches the input codes one-to-one by position (and each view also carries its 'code'). Disabled codes return a disabledJoinLinkPreviewView, and codes that do not map to a previewable link return an invalidJoinLinkPreviewView.
 Future<XRPCResponse<GroupGetJoinLinkPreviewsOutput>>
 chatBskyGroupGetJoinLinkPreviews({
   required List<String> codes,
@@ -346,7 +346,7 @@ base class GroupService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Creates a group convo, specifying the members to be added to it. Unlike getConvoForMembers, this isn't idempotent. It will create new groups even if the membership is identical to pre-existing groups. Will create 'pending' membership for all members, except the owner who is 'accepted'.
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Creates a group convo, specifying the members to be added to it. Unlike getConvoForMembers, this isn't idempotent. It will create new groups even if the membership is identical to pre-existing groups. Will create 'request' membership for all members, except the owner who is 'accepted'.
   Future<XRPCResponse<GroupCreateGroupOutput>> createGroup({
     required List<String> members,
     required String name,
@@ -442,7 +442,7 @@ base class GroupService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. Invalid or disabled codes are silently omitted from results. Use the 'code' property on the views to correlate with the input codes, not array positions.
+  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Get public information about groups from join links. The output array matches the input codes one-to-one by position (and each view also carries its 'code'). Disabled codes return a disabledJoinLinkPreviewView, and codes that do not map to a previewable link return an invalidJoinLinkPreviewView.
   Future<XRPCResponse<GroupGetJoinLinkPreviewsOutput>> getJoinLinkPreviews({
     required List<String> codes,
     String? $service,

@@ -34,6 +34,10 @@ _GroupConvo _$GroupConvoFromJson(Map json) =>
           'lockStatus',
           (v) => const ConvoLockStatusConverter().fromJson(v as String),
         ),
+        lockStatusModerationOverride: $checkedConvert(
+          'lockStatusModerationOverride',
+          (v) => v as bool,
+        ),
         memberCount: $checkedConvert('memberCount', (v) => (v as num).toInt()),
         memberLimit: $checkedConvert('memberLimit', (v) => (v as num).toInt()),
         name: $checkedConvert('name', (v) => v as String),
@@ -60,6 +64,7 @@ Map<String, dynamic> _$GroupConvoToJson(
   ),
   'joinRequestCount': ?instance.joinRequestCount,
   'lockStatus': const ConvoLockStatusConverter().toJson(instance.lockStatus),
+  'lockStatusModerationOverride': instance.lockStatusModerationOverride,
   'memberCount': instance.memberCount,
   'memberLimit': instance.memberLimit,
   'name': instance.name,

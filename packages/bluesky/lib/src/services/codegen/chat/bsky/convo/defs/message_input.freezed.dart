@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MessageInput {
 
- String get $type; String get text;@RichtextFacetConverter() List<RichtextFacet>? get facets;@UMessageInputEmbedConverter() UMessageInputEmbed? get embed; Map<String, dynamic>? get $unknown;
+ String get $type; String get text;@RichtextFacetConverter() List<RichtextFacet>? get facets;@UMessageInputEmbedConverter() UMessageInputEmbed? get embed;/// If set, the message this message is replying to. The referenced message must be in the same convo.
+@ReplyRefConverter() ReplyRef? get replyTo; Map<String, dynamic>? get $unknown;
 /// Create a copy of MessageInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $MessageInputCopyWith<MessageInput> get copyWith => _$MessageInputCopyWithImpl<M
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageInput&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&const DeepCollectionEquality().equals(other.facets, facets)&&(identical(other.embed, embed) || other.embed == embed)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageInput&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&const DeepCollectionEquality().equals(other.facets, facets)&&(identical(other.embed, embed) || other.embed == embed)&&(identical(other.replyTo, replyTo) || other.replyTo == replyTo)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,text,const DeepCollectionEquality().hash(facets),embed,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,text,const DeepCollectionEquality().hash(facets),embed,replyTo,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'MessageInput(\$type: ${$type}, text: $text, facets: $facets, embed: $embed, \$unknown: ${$unknown})';
+  return 'MessageInput(\$type: ${$type}, text: $text, facets: $facets, embed: $embed, replyTo: $replyTo, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +49,11 @@ abstract mixin class $MessageInputCopyWith<$Res>  {
   factory $MessageInputCopyWith(MessageInput value, $Res Function(MessageInput) _then) = _$MessageInputCopyWithImpl;
 @useResult
 $Res call({
- String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@UMessageInputEmbedConverter() UMessageInputEmbed? embed, Map<String, dynamic>? $unknown
+ String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@UMessageInputEmbedConverter() UMessageInputEmbed? embed,@ReplyRefConverter() ReplyRef? replyTo, Map<String, dynamic>? $unknown
 });
 
 
-$UMessageInputEmbedCopyWith<$Res>? get embed;
+$UMessageInputEmbedCopyWith<$Res>? get embed;$ReplyRefCopyWith<$Res>? get replyTo;
 
 }
 /// @nodoc
@@ -65,13 +66,14 @@ class _$MessageInputCopyWithImpl<$Res>
 
 /// Create a copy of MessageInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? text = null,Object? facets = freezed,Object? embed = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? text = null,Object? facets = freezed,Object? embed = freezed,Object? replyTo = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,facets: freezed == facets ? _self.facets : facets // ignore: cast_nullable_to_non_nullable
 as List<RichtextFacet>?,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
-as UMessageInputEmbed?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as UMessageInputEmbed?,replyTo: freezed == replyTo ? _self.replyTo : replyTo // ignore: cast_nullable_to_non_nullable
+as ReplyRef?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -86,6 +88,18 @@ $UMessageInputEmbedCopyWith<$Res>? get embed {
 
   return $UMessageInputEmbedCopyWith<$Res>(_self.embed!, (value) {
     return _then(_self.copyWith(embed: value));
+  });
+}/// Create a copy of MessageInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ReplyRefCopyWith<$Res>? get replyTo {
+    if (_self.replyTo == null) {
+    return null;
+  }
+
+  return $ReplyRefCopyWith<$Res>(_self.replyTo!, (value) {
+    return _then(_self.copyWith(replyTo: value));
   });
 }
 }
@@ -169,10 +183,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter()  UMessageInputEmbed? embed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter()  UMessageInputEmbed? embed, @ReplyRefConverter()  ReplyRef? replyTo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MessageInput() when $default != null:
-return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);case _:
+return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.replyTo,_that.$unknown);case _:
   return orElse();
 
 }
@@ -190,10 +204,10 @@ return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter()  UMessageInputEmbed? embed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter()  UMessageInputEmbed? embed, @ReplyRefConverter()  ReplyRef? replyTo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _MessageInput():
-return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);case _:
+return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.replyTo,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +224,10 @@ return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter()  UMessageInputEmbed? embed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter()  UMessageInputEmbed? embed, @ReplyRefConverter()  ReplyRef? replyTo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _MessageInput() when $default != null:
-return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);case _:
+return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.replyTo,_that.$unknown);case _:
   return null;
 
 }
@@ -225,7 +239,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.$unknown);
 
 @JsonSerializable(includeIfNull: false)
 class _MessageInput implements MessageInput {
-  const _MessageInput({this.$type = 'chat.bsky.convo.defs#messageInput', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageInputEmbedConverter() this.embed, final  Map<String, dynamic>? $unknown}): _facets = facets,_$unknown = $unknown;
+  const _MessageInput({this.$type = 'chat.bsky.convo.defs#messageInput', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageInputEmbedConverter() this.embed, @ReplyRefConverter() this.replyTo, final  Map<String, dynamic>? $unknown}): _facets = facets,_$unknown = $unknown;
   factory _MessageInput.fromJson(Map<String, dynamic> json) => _$MessageInputFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -240,6 +254,8 @@ class _MessageInput implements MessageInput {
 }
 
 @override@UMessageInputEmbedConverter() final  UMessageInputEmbed? embed;
+/// If set, the message this message is replying to. The referenced message must be in the same convo.
+@override@ReplyRefConverter() final  ReplyRef? replyTo;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -263,16 +279,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageInput&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&const DeepCollectionEquality().equals(other._facets, _facets)&&(identical(other.embed, embed) || other.embed == embed)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageInput&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&const DeepCollectionEquality().equals(other._facets, _facets)&&(identical(other.embed, embed) || other.embed == embed)&&(identical(other.replyTo, replyTo) || other.replyTo == replyTo)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,text,const DeepCollectionEquality().hash(_facets),embed,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,text,const DeepCollectionEquality().hash(_facets),embed,replyTo,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'MessageInput(\$type: ${$type}, text: $text, facets: $facets, embed: $embed, \$unknown: ${$unknown})';
+  return 'MessageInput(\$type: ${$type}, text: $text, facets: $facets, embed: $embed, replyTo: $replyTo, \$unknown: ${$unknown})';
 }
 
 
@@ -283,11 +299,11 @@ abstract mixin class _$MessageInputCopyWith<$Res> implements $MessageInputCopyWi
   factory _$MessageInputCopyWith(_MessageInput value, $Res Function(_MessageInput) _then) = __$MessageInputCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@UMessageInputEmbedConverter() UMessageInputEmbed? embed, Map<String, dynamic>? $unknown
+ String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@UMessageInputEmbedConverter() UMessageInputEmbed? embed,@ReplyRefConverter() ReplyRef? replyTo, Map<String, dynamic>? $unknown
 });
 
 
-@override $UMessageInputEmbedCopyWith<$Res>? get embed;
+@override $UMessageInputEmbedCopyWith<$Res>? get embed;@override $ReplyRefCopyWith<$Res>? get replyTo;
 
 }
 /// @nodoc
@@ -300,13 +316,14 @@ class __$MessageInputCopyWithImpl<$Res>
 
 /// Create a copy of MessageInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? text = null,Object? facets = freezed,Object? embed = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? text = null,Object? facets = freezed,Object? embed = freezed,Object? replyTo = freezed,Object? $unknown = freezed,}) {
   return _then(_MessageInput(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,facets: freezed == facets ? _self._facets : facets // ignore: cast_nullable_to_non_nullable
 as List<RichtextFacet>?,embed: freezed == embed ? _self.embed : embed // ignore: cast_nullable_to_non_nullable
-as UMessageInputEmbed?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as UMessageInputEmbed?,replyTo: freezed == replyTo ? _self.replyTo : replyTo // ignore: cast_nullable_to_non_nullable
+as ReplyRef?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -322,6 +339,18 @@ $UMessageInputEmbedCopyWith<$Res>? get embed {
 
   return $UMessageInputEmbedCopyWith<$Res>(_self.embed!, (value) {
     return _then(_self.copyWith(embed: value));
+  });
+}/// Create a copy of MessageInput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ReplyRefCopyWith<$Res>? get replyTo {
+    if (_self.replyTo == null) {
+    return null;
+  }
+
+  return $ReplyRefCopyWith<$Res>(_self.replyTo!, (value) {
+    return _then(_self.copyWith(replyTo: value));
   });
 }
 }

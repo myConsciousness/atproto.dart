@@ -36,6 +36,7 @@ One of the posts that compose a draft.
 | **text** | string | - | ✅ | The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts. |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **embedImages** | array of [#draftEmbedImage](#draftembedimage) | - | ❌ | - |
+| **embedGallery** | [#draftEmbedGallery](#draftembedgallery) | - | ❌ | - |
 | **embedVideos** | array of [#draftEmbedVideo](#draftembedvideo) | - | ❌ | - |
 | **embedExternals** | array of [#draftEmbedExternal](#draftembedexternal) | - | ❌ | - |
 | **embedRecords** | array of [#draftEmbedRecord](#draftembedrecord) | - | ❌ | - |
@@ -63,6 +64,18 @@ View to present drafts data to users.
 | --- | --- | --- | :---: | --- |
 | **lang** | string ([language](https://atproto.com/specs/lexicon#language)) | - | ✅ | - |
 | **content** | string | - | ✅ | - |
+
+## #draftEmbedGallery
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | [#draftEmbedGalleryItems](#draftembedgalleryitems) | - | ✅ | - |
+
+## #draftEmbedGalleryItems
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **draftEmbedGalleryItems** | array of union<br/>[#draftEmbedImage](#draftembedimage) | - | ❌ | The schema-level maxLength of 20 is a future-proof ceiling. Clients should currently enforce a soft limit of 10 items in authoring UIs. |
 
 ## #draftEmbedImage
 

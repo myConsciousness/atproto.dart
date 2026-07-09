@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GroupGetJoinLinkPreviewsOutput {
 
-@JoinLinkPreviewViewConverter() List<JoinLinkPreviewView> get joinLinkPreviews; Map<String, dynamic>? get $unknown;
+@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter() List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> get joinLinkPreviews; Map<String, dynamic>? get $unknown;
 /// Create a copy of GroupGetJoinLinkPreviewsOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GroupGetJoinLinkPreviewsOutputCopyWith<$Res>  {
   factory $GroupGetJoinLinkPreviewsOutputCopyWith(GroupGetJoinLinkPreviewsOutput value, $Res Function(GroupGetJoinLinkPreviewsOutput) _then) = _$GroupGetJoinLinkPreviewsOutputCopyWithImpl;
 @useResult
 $Res call({
-@JoinLinkPreviewViewConverter() List<JoinLinkPreviewView> joinLinkPreviews, Map<String, dynamic>? $unknown
+@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter() List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$GroupGetJoinLinkPreviewsOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? joinLinkPreviews = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 joinLinkPreviews: null == joinLinkPreviews ? _self.joinLinkPreviews : joinLinkPreviews // ignore: cast_nullable_to_non_nullable
-as List<JoinLinkPreviewView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<UGroupGetJoinLinkPreviewsJoinLinkPreviews>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JoinLinkPreviewViewConverter()  List<JoinLinkPreviewView> joinLinkPreviews,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter()  List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GroupGetJoinLinkPreviewsOutput() when $default != null:
 return $default(_that.joinLinkPreviews,_that.$unknown);case _:
@@ -175,7 +175,7 @@ return $default(_that.joinLinkPreviews,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JoinLinkPreviewViewConverter()  List<JoinLinkPreviewView> joinLinkPreviews,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter()  List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GroupGetJoinLinkPreviewsOutput():
 return $default(_that.joinLinkPreviews,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.joinLinkPreviews,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JoinLinkPreviewViewConverter()  List<JoinLinkPreviewView> joinLinkPreviews,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter()  List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GroupGetJoinLinkPreviewsOutput() when $default != null:
 return $default(_that.joinLinkPreviews,_that.$unknown);case _:
@@ -210,11 +210,11 @@ return $default(_that.joinLinkPreviews,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GroupGetJoinLinkPreviewsOutput implements GroupGetJoinLinkPreviewsOutput {
-  const _GroupGetJoinLinkPreviewsOutput({@JoinLinkPreviewViewConverter() required final  List<JoinLinkPreviewView> joinLinkPreviews, final  Map<String, dynamic>? $unknown}): _joinLinkPreviews = joinLinkPreviews,_$unknown = $unknown;
+  const _GroupGetJoinLinkPreviewsOutput({@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter() required final  List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews, final  Map<String, dynamic>? $unknown}): _joinLinkPreviews = joinLinkPreviews,_$unknown = $unknown;
   factory _GroupGetJoinLinkPreviewsOutput.fromJson(Map<String, dynamic> json) => _$GroupGetJoinLinkPreviewsOutputFromJson(json);
 
- final  List<JoinLinkPreviewView> _joinLinkPreviews;
-@override@JoinLinkPreviewViewConverter() List<JoinLinkPreviewView> get joinLinkPreviews {
+ final  List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> _joinLinkPreviews;
+@override@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter() List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> get joinLinkPreviews {
   if (_joinLinkPreviews is EqualUnmodifiableListView) return _joinLinkPreviews;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_joinLinkPreviews);
@@ -263,7 +263,7 @@ abstract mixin class _$GroupGetJoinLinkPreviewsOutputCopyWith<$Res> implements $
   factory _$GroupGetJoinLinkPreviewsOutputCopyWith(_GroupGetJoinLinkPreviewsOutput value, $Res Function(_GroupGetJoinLinkPreviewsOutput) _then) = __$GroupGetJoinLinkPreviewsOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@JoinLinkPreviewViewConverter() List<JoinLinkPreviewView> joinLinkPreviews, Map<String, dynamic>? $unknown
+@UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter() List<UGroupGetJoinLinkPreviewsJoinLinkPreviews> joinLinkPreviews, Map<String, dynamic>? $unknown
 });
 
 
@@ -283,7 +283,7 @@ class __$GroupGetJoinLinkPreviewsOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? joinLinkPreviews = null,Object? $unknown = freezed,}) {
   return _then(_GroupGetJoinLinkPreviewsOutput(
 joinLinkPreviews: null == joinLinkPreviews ? _self._joinLinkPreviews : joinLinkPreviews // ignore: cast_nullable_to_non_nullable
-as List<JoinLinkPreviewView>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<UGroupGetJoinLinkPreviewsJoinLinkPreviews>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

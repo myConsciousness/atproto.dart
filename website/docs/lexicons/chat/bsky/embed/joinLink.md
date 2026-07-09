@@ -15,4 +15,4 @@ description: chat.bsky.embed.joinLink
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **joinLinkPreview** | [chat.bsky.group.defs#joinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkpreviewview) | - | ✅ | - |
+| **joinLinkPreview** | union of <br/>[chat.bsky.group.defs#joinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#joinlinkpreviewview)<br/>[chat.bsky.group.defs#disabledJoinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#disabledjoinlinkpreviewview)<br/>[chat.bsky.group.defs#invalidJoinLinkPreviewView](../../../../lexicons/chat/bsky/group/defs.md#invalidjoinlinkpreviewview) | - | ✅ | - |

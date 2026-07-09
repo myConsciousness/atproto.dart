@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../app/bsky/embed/external/view.dart';
+import '../../../../app/bsky/embed/gallery/view.dart';
 import '../../../../app/bsky/embed/images/view.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import '../../../../app/bsky/embed/recordWithMedia/view.dart';
@@ -34,6 +35,9 @@ sealed class UEmbedRecordViewRecordEmbeds with _$UEmbedRecordViewRecordEmbeds {
   const factory UEmbedRecordViewRecordEmbeds.embedVideoView({
     required EmbedVideoView data,
   }) = UEmbedRecordViewRecordEmbedsEmbedVideoView;
+  const factory UEmbedRecordViewRecordEmbeds.embedGalleryView({
+    required EmbedGalleryView data,
+  }) = UEmbedRecordViewRecordEmbedsEmbedGalleryView;
   const factory UEmbedRecordViewRecordEmbeds.embedExternalView({
     required EmbedExternalView data,
   }) = UEmbedRecordViewRecordEmbedsEmbedExternalView;
@@ -64,6 +68,11 @@ extension UEmbedRecordViewRecordEmbedsExtension
   bool get isNotEmbedVideoView => !isEmbedVideoView;
   EmbedVideoView? get embedVideoView =>
       isEmbedVideoView ? data as EmbedVideoView : null;
+  bool get isEmbedGalleryView =>
+      isA<UEmbedRecordViewRecordEmbedsEmbedGalleryView>(this);
+  bool get isNotEmbedGalleryView => !isEmbedGalleryView;
+  EmbedGalleryView? get embedGalleryView =>
+      isEmbedGalleryView ? data as EmbedGalleryView : null;
   bool get isEmbedExternalView =>
       isA<UEmbedRecordViewRecordEmbedsEmbedExternalView>(this);
   bool get isNotEmbedExternalView => !isEmbedExternalView;
@@ -103,6 +112,11 @@ final class UEmbedRecordViewRecordEmbedsConverter
           data: const EmbedVideoViewConverter().fromJson(json),
         );
       }
+      if (EmbedGalleryView.validate(json)) {
+        return UEmbedRecordViewRecordEmbeds.embedGalleryView(
+          data: const EmbedGalleryViewConverter().fromJson(json),
+        );
+      }
       if (EmbedExternalView.validate(json)) {
         return UEmbedRecordViewRecordEmbeds.embedExternalView(
           data: const EmbedExternalViewConverter().fromJson(json),
@@ -131,6 +145,8 @@ final class UEmbedRecordViewRecordEmbedsConverter
         embedImagesView: (data) =>
             const EmbedImagesViewConverter().toJson(data),
         embedVideoView: (data) => const EmbedVideoViewConverter().toJson(data),
+        embedGalleryView: (data) =>
+            const EmbedGalleryViewConverter().toJson(data),
         embedExternalView: (data) =>
             const EmbedExternalViewConverter().toJson(data),
         embedRecordView: (data) =>

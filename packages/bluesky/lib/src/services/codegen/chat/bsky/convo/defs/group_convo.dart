@@ -30,6 +30,7 @@ abstract class GroupConvo with _$GroupConvo {
     'joinLink',
     'joinRequestCount',
     'lockStatus',
+    'lockStatusModerationOverride',
     'memberCount',
     'memberLimit',
     'name',
@@ -47,6 +48,9 @@ abstract class GroupConvo with _$GroupConvo {
 
     /// The lock status of the conversation.
     @ConvoLockStatusConverter() required ConvoLockStatus lockStatus,
+
+    /// Whether the lock status is being forced by a moderation override (account inactivation or convo takedown) rather than the owner's own setting.
+    required bool lockStatusModerationOverride,
 
     /// The total number of members in the group conversation.
     required int memberCount,
@@ -77,6 +81,8 @@ extension GroupConvoExtension on GroupConvo {
   bool get hasNotJoinLink => !hasJoinLink;
   bool get hasJoinRequestCount => joinRequestCount != null;
   bool get hasNotJoinRequestCount => !hasJoinRequestCount;
+  bool get isLockStatusModerationOverride => lockStatusModerationOverride;
+  bool get isNotLockStatusModerationOverride => !isLockStatusModerationOverride;
   bool get hasUnreadJoinRequestCount => unreadJoinRequestCount != null;
   bool get hasNotUnreadJoinRequestCount => !hasUnreadJoinRequestCount;
 }

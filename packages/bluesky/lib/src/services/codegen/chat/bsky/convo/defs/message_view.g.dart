@@ -47,6 +47,14 @@ _MessageView _$MessageViewFromJson(Map json) => $checkedCreate(
             )
             .toList(),
       ),
+      replyTo: $checkedConvert(
+        'replyTo',
+        (v) =>
+            _$JsonConverterFromJson<Map<String, dynamic>, UMessageViewReplyTo>(
+              v,
+              const UMessageViewReplyToConverter().fromJson,
+            ),
+      ),
       sender: $checkedConvert(
         'sender',
         (v) => const MessageViewSenderConverter().fromJson(
@@ -63,26 +71,31 @@ _MessageView _$MessageViewFromJson(Map json) => $checkedCreate(
   },
 );
 
-Map<String, dynamic> _$MessageViewToJson(_MessageView instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'id': instance.id,
-      'rev': instance.rev,
-      'text': instance.text,
-      'facets': ?instance.facets
-          ?.map(const RichtextFacetConverter().toJson)
-          .toList(),
-      'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UMessageViewEmbed>(
-        instance.embed,
-        const UMessageViewEmbedConverter().toJson,
-      ),
-      'reactions': ?instance.reactions
-          ?.map(const ReactionViewConverter().toJson)
-          .toList(),
-      'sender': const MessageViewSenderConverter().toJson(instance.sender),
-      'sentAt': instance.sentAt.toIso8601String(),
-      r'$unknown': ?instance.$unknown,
-    };
+Map<String, dynamic> _$MessageViewToJson(
+  _MessageView instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'id': instance.id,
+  'rev': instance.rev,
+  'text': instance.text,
+  'facets': ?instance.facets
+      ?.map(const RichtextFacetConverter().toJson)
+      .toList(),
+  'embed': ?_$JsonConverterToJson<Map<String, dynamic>, UMessageViewEmbed>(
+    instance.embed,
+    const UMessageViewEmbedConverter().toJson,
+  ),
+  'reactions': ?instance.reactions
+      ?.map(const ReactionViewConverter().toJson)
+      .toList(),
+  'replyTo': ?_$JsonConverterToJson<Map<String, dynamic>, UMessageViewReplyTo>(
+    instance.replyTo,
+    const UMessageViewReplyToConverter().toJson,
+  ),
+  'sender': const MessageViewSenderConverter().toJson(instance.sender),
+  'sentAt': instance.sentAt.toIso8601String(),
+  r'$unknown': ?instance.$unknown,
+};
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

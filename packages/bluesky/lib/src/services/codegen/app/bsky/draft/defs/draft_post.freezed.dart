@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$DraftPost {
 
  String get $type;/// The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts.
- String get text;@UDraftPostLabelsConverter() UDraftPostLabels? get labels;@DraftEmbedImageConverter() List<DraftEmbedImage>? get embedImages;@DraftEmbedVideoConverter() List<DraftEmbedVideo>? get embedVideos;@DraftEmbedExternalConverter() List<DraftEmbedExternal>? get embedExternals;@DraftEmbedRecordConverter() List<DraftEmbedRecord>? get embedRecords; Map<String, dynamic>? get $unknown;
+ String get text;@UDraftPostLabelsConverter() UDraftPostLabels? get labels;@DraftEmbedImageConverter() List<DraftEmbedImage>? get embedImages;@DraftEmbedGalleryConverter() DraftEmbedGallery? get embedGallery;@DraftEmbedVideoConverter() List<DraftEmbedVideo>? get embedVideos;@DraftEmbedExternalConverter() List<DraftEmbedExternal>? get embedExternals;@DraftEmbedRecordConverter() List<DraftEmbedRecord>? get embedRecords; Map<String, dynamic>? get $unknown;
 /// Create a copy of DraftPost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $DraftPostCopyWith<DraftPost> get copyWith => _$DraftPostCopyWithImpl<DraftPost>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DraftPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other.embedImages, embedImages)&&const DeepCollectionEquality().equals(other.embedVideos, embedVideos)&&const DeepCollectionEquality().equals(other.embedExternals, embedExternals)&&const DeepCollectionEquality().equals(other.embedRecords, embedRecords)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DraftPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other.embedImages, embedImages)&&(identical(other.embedGallery, embedGallery) || other.embedGallery == embedGallery)&&const DeepCollectionEquality().equals(other.embedVideos, embedVideos)&&const DeepCollectionEquality().equals(other.embedExternals, embedExternals)&&const DeepCollectionEquality().equals(other.embedRecords, embedRecords)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,text,labels,const DeepCollectionEquality().hash(embedImages),const DeepCollectionEquality().hash(embedVideos),const DeepCollectionEquality().hash(embedExternals),const DeepCollectionEquality().hash(embedRecords),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,text,labels,const DeepCollectionEquality().hash(embedImages),embedGallery,const DeepCollectionEquality().hash(embedVideos),const DeepCollectionEquality().hash(embedExternals),const DeepCollectionEquality().hash(embedRecords),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'DraftPost(\$type: ${$type}, text: $text, labels: $labels, embedImages: $embedImages, embedVideos: $embedVideos, embedExternals: $embedExternals, embedRecords: $embedRecords, \$unknown: ${$unknown})';
+  return 'DraftPost(\$type: ${$type}, text: $text, labels: $labels, embedImages: $embedImages, embedGallery: $embedGallery, embedVideos: $embedVideos, embedExternals: $embedExternals, embedRecords: $embedRecords, \$unknown: ${$unknown})';
 }
 
 
@@ -49,11 +49,11 @@ abstract mixin class $DraftPostCopyWith<$Res>  {
   factory $DraftPostCopyWith(DraftPost value, $Res Function(DraftPost) _then) = _$DraftPostCopyWithImpl;
 @useResult
 $Res call({
- String $type, String text,@UDraftPostLabelsConverter() UDraftPostLabels? labels,@DraftEmbedImageConverter() List<DraftEmbedImage>? embedImages,@DraftEmbedVideoConverter() List<DraftEmbedVideo>? embedVideos,@DraftEmbedExternalConverter() List<DraftEmbedExternal>? embedExternals,@DraftEmbedRecordConverter() List<DraftEmbedRecord>? embedRecords, Map<String, dynamic>? $unknown
+ String $type, String text,@UDraftPostLabelsConverter() UDraftPostLabels? labels,@DraftEmbedImageConverter() List<DraftEmbedImage>? embedImages,@DraftEmbedGalleryConverter() DraftEmbedGallery? embedGallery,@DraftEmbedVideoConverter() List<DraftEmbedVideo>? embedVideos,@DraftEmbedExternalConverter() List<DraftEmbedExternal>? embedExternals,@DraftEmbedRecordConverter() List<DraftEmbedRecord>? embedRecords, Map<String, dynamic>? $unknown
 });
 
 
-$UDraftPostLabelsCopyWith<$Res>? get labels;
+$UDraftPostLabelsCopyWith<$Res>? get labels;$DraftEmbedGalleryCopyWith<$Res>? get embedGallery;
 
 }
 /// @nodoc
@@ -66,13 +66,14 @@ class _$DraftPostCopyWithImpl<$Res>
 
 /// Create a copy of DraftPost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? text = null,Object? labels = freezed,Object? embedImages = freezed,Object? embedVideos = freezed,Object? embedExternals = freezed,Object? embedRecords = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? text = null,Object? labels = freezed,Object? embedImages = freezed,Object? embedGallery = freezed,Object? embedVideos = freezed,Object? embedExternals = freezed,Object? embedRecords = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as UDraftPostLabels?,embedImages: freezed == embedImages ? _self.embedImages : embedImages // ignore: cast_nullable_to_non_nullable
-as List<DraftEmbedImage>?,embedVideos: freezed == embedVideos ? _self.embedVideos : embedVideos // ignore: cast_nullable_to_non_nullable
+as List<DraftEmbedImage>?,embedGallery: freezed == embedGallery ? _self.embedGallery : embedGallery // ignore: cast_nullable_to_non_nullable
+as DraftEmbedGallery?,embedVideos: freezed == embedVideos ? _self.embedVideos : embedVideos // ignore: cast_nullable_to_non_nullable
 as List<DraftEmbedVideo>?,embedExternals: freezed == embedExternals ? _self.embedExternals : embedExternals // ignore: cast_nullable_to_non_nullable
 as List<DraftEmbedExternal>?,embedRecords: freezed == embedRecords ? _self.embedRecords : embedRecords // ignore: cast_nullable_to_non_nullable
 as List<DraftEmbedRecord>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -90,6 +91,18 @@ $UDraftPostLabelsCopyWith<$Res>? get labels {
 
   return $UDraftPostLabelsCopyWith<$Res>(_self.labels!, (value) {
     return _then(_self.copyWith(labels: value));
+  });
+}/// Create a copy of DraftPost
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DraftEmbedGalleryCopyWith<$Res>? get embedGallery {
+    if (_self.embedGallery == null) {
+    return null;
+  }
+
+  return $DraftEmbedGalleryCopyWith<$Res>(_self.embedGallery!, (value) {
+    return _then(_self.copyWith(embedGallery: value));
   });
 }
 }
@@ -173,10 +186,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String text, @UDraftPostLabelsConverter()  UDraftPostLabels? labels, @DraftEmbedImageConverter()  List<DraftEmbedImage>? embedImages, @DraftEmbedVideoConverter()  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter()  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter()  List<DraftEmbedRecord>? embedRecords,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String text, @UDraftPostLabelsConverter()  UDraftPostLabels? labels, @DraftEmbedImageConverter()  List<DraftEmbedImage>? embedImages, @DraftEmbedGalleryConverter()  DraftEmbedGallery? embedGallery, @DraftEmbedVideoConverter()  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter()  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter()  List<DraftEmbedRecord>? embedRecords,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DraftPost() when $default != null:
-return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embedVideos,_that.embedExternals,_that.embedRecords,_that.$unknown);case _:
+return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embedGallery,_that.embedVideos,_that.embedExternals,_that.embedRecords,_that.$unknown);case _:
   return orElse();
 
 }
@@ -194,10 +207,10 @@ return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String text, @UDraftPostLabelsConverter()  UDraftPostLabels? labels, @DraftEmbedImageConverter()  List<DraftEmbedImage>? embedImages, @DraftEmbedVideoConverter()  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter()  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter()  List<DraftEmbedRecord>? embedRecords,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String text, @UDraftPostLabelsConverter()  UDraftPostLabels? labels, @DraftEmbedImageConverter()  List<DraftEmbedImage>? embedImages, @DraftEmbedGalleryConverter()  DraftEmbedGallery? embedGallery, @DraftEmbedVideoConverter()  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter()  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter()  List<DraftEmbedRecord>? embedRecords,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _DraftPost():
-return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embedVideos,_that.embedExternals,_that.embedRecords,_that.$unknown);case _:
+return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embedGallery,_that.embedVideos,_that.embedExternals,_that.embedRecords,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +227,10 @@ return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String text, @UDraftPostLabelsConverter()  UDraftPostLabels? labels, @DraftEmbedImageConverter()  List<DraftEmbedImage>? embedImages, @DraftEmbedVideoConverter()  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter()  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter()  List<DraftEmbedRecord>? embedRecords,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String text, @UDraftPostLabelsConverter()  UDraftPostLabels? labels, @DraftEmbedImageConverter()  List<DraftEmbedImage>? embedImages, @DraftEmbedGalleryConverter()  DraftEmbedGallery? embedGallery, @DraftEmbedVideoConverter()  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter()  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter()  List<DraftEmbedRecord>? embedRecords,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _DraftPost() when $default != null:
-return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embedVideos,_that.embedExternals,_that.embedRecords,_that.$unknown);case _:
+return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embedGallery,_that.embedVideos,_that.embedExternals,_that.embedRecords,_that.$unknown);case _:
   return null;
 
 }
@@ -229,7 +242,7 @@ return $default(_that.$type,_that.text,_that.labels,_that.embedImages,_that.embe
 
 @JsonSerializable(includeIfNull: false)
 class _DraftPost implements DraftPost {
-  const _DraftPost({this.$type = 'app.bsky.draft.defs#draftPost', required this.text, @UDraftPostLabelsConverter() this.labels, @DraftEmbedImageConverter() final  List<DraftEmbedImage>? embedImages, @DraftEmbedVideoConverter() final  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter() final  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter() final  List<DraftEmbedRecord>? embedRecords, final  Map<String, dynamic>? $unknown}): _embedImages = embedImages,_embedVideos = embedVideos,_embedExternals = embedExternals,_embedRecords = embedRecords,_$unknown = $unknown;
+  const _DraftPost({this.$type = 'app.bsky.draft.defs#draftPost', required this.text, @UDraftPostLabelsConverter() this.labels, @DraftEmbedImageConverter() final  List<DraftEmbedImage>? embedImages, @DraftEmbedGalleryConverter() this.embedGallery, @DraftEmbedVideoConverter() final  List<DraftEmbedVideo>? embedVideos, @DraftEmbedExternalConverter() final  List<DraftEmbedExternal>? embedExternals, @DraftEmbedRecordConverter() final  List<DraftEmbedRecord>? embedRecords, final  Map<String, dynamic>? $unknown}): _embedImages = embedImages,_embedVideos = embedVideos,_embedExternals = embedExternals,_embedRecords = embedRecords,_$unknown = $unknown;
   factory _DraftPost.fromJson(Map<String, dynamic> json) => _$DraftPostFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -245,6 +258,7 @@ class _DraftPost implements DraftPost {
   return EqualUnmodifiableListView(value);
 }
 
+@override@DraftEmbedGalleryConverter() final  DraftEmbedGallery? embedGallery;
  final  List<DraftEmbedVideo>? _embedVideos;
 @override@DraftEmbedVideoConverter() List<DraftEmbedVideo>? get embedVideos {
   final value = _embedVideos;
@@ -295,16 +309,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DraftPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other._embedImages, _embedImages)&&const DeepCollectionEquality().equals(other._embedVideos, _embedVideos)&&const DeepCollectionEquality().equals(other._embedExternals, _embedExternals)&&const DeepCollectionEquality().equals(other._embedRecords, _embedRecords)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DraftPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.text, text) || other.text == text)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other._embedImages, _embedImages)&&(identical(other.embedGallery, embedGallery) || other.embedGallery == embedGallery)&&const DeepCollectionEquality().equals(other._embedVideos, _embedVideos)&&const DeepCollectionEquality().equals(other._embedExternals, _embedExternals)&&const DeepCollectionEquality().equals(other._embedRecords, _embedRecords)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,text,labels,const DeepCollectionEquality().hash(_embedImages),const DeepCollectionEquality().hash(_embedVideos),const DeepCollectionEquality().hash(_embedExternals),const DeepCollectionEquality().hash(_embedRecords),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,text,labels,const DeepCollectionEquality().hash(_embedImages),embedGallery,const DeepCollectionEquality().hash(_embedVideos),const DeepCollectionEquality().hash(_embedExternals),const DeepCollectionEquality().hash(_embedRecords),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'DraftPost(\$type: ${$type}, text: $text, labels: $labels, embedImages: $embedImages, embedVideos: $embedVideos, embedExternals: $embedExternals, embedRecords: $embedRecords, \$unknown: ${$unknown})';
+  return 'DraftPost(\$type: ${$type}, text: $text, labels: $labels, embedImages: $embedImages, embedGallery: $embedGallery, embedVideos: $embedVideos, embedExternals: $embedExternals, embedRecords: $embedRecords, \$unknown: ${$unknown})';
 }
 
 
@@ -315,11 +329,11 @@ abstract mixin class _$DraftPostCopyWith<$Res> implements $DraftPostCopyWith<$Re
   factory _$DraftPostCopyWith(_DraftPost value, $Res Function(_DraftPost) _then) = __$DraftPostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String text,@UDraftPostLabelsConverter() UDraftPostLabels? labels,@DraftEmbedImageConverter() List<DraftEmbedImage>? embedImages,@DraftEmbedVideoConverter() List<DraftEmbedVideo>? embedVideos,@DraftEmbedExternalConverter() List<DraftEmbedExternal>? embedExternals,@DraftEmbedRecordConverter() List<DraftEmbedRecord>? embedRecords, Map<String, dynamic>? $unknown
+ String $type, String text,@UDraftPostLabelsConverter() UDraftPostLabels? labels,@DraftEmbedImageConverter() List<DraftEmbedImage>? embedImages,@DraftEmbedGalleryConverter() DraftEmbedGallery? embedGallery,@DraftEmbedVideoConverter() List<DraftEmbedVideo>? embedVideos,@DraftEmbedExternalConverter() List<DraftEmbedExternal>? embedExternals,@DraftEmbedRecordConverter() List<DraftEmbedRecord>? embedRecords, Map<String, dynamic>? $unknown
 });
 
 
-@override $UDraftPostLabelsCopyWith<$Res>? get labels;
+@override $UDraftPostLabelsCopyWith<$Res>? get labels;@override $DraftEmbedGalleryCopyWith<$Res>? get embedGallery;
 
 }
 /// @nodoc
@@ -332,13 +346,14 @@ class __$DraftPostCopyWithImpl<$Res>
 
 /// Create a copy of DraftPost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? text = null,Object? labels = freezed,Object? embedImages = freezed,Object? embedVideos = freezed,Object? embedExternals = freezed,Object? embedRecords = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? text = null,Object? labels = freezed,Object? embedImages = freezed,Object? embedGallery = freezed,Object? embedVideos = freezed,Object? embedExternals = freezed,Object? embedRecords = freezed,Object? $unknown = freezed,}) {
   return _then(_DraftPost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as UDraftPostLabels?,embedImages: freezed == embedImages ? _self._embedImages : embedImages // ignore: cast_nullable_to_non_nullable
-as List<DraftEmbedImage>?,embedVideos: freezed == embedVideos ? _self._embedVideos : embedVideos // ignore: cast_nullable_to_non_nullable
+as List<DraftEmbedImage>?,embedGallery: freezed == embedGallery ? _self.embedGallery : embedGallery // ignore: cast_nullable_to_non_nullable
+as DraftEmbedGallery?,embedVideos: freezed == embedVideos ? _self._embedVideos : embedVideos // ignore: cast_nullable_to_non_nullable
 as List<DraftEmbedVideo>?,embedExternals: freezed == embedExternals ? _self._embedExternals : embedExternals // ignore: cast_nullable_to_non_nullable
 as List<DraftEmbedExternal>?,embedRecords: freezed == embedRecords ? _self._embedRecords : embedRecords // ignore: cast_nullable_to_non_nullable
 as List<DraftEmbedRecord>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -357,6 +372,18 @@ $UDraftPostLabelsCopyWith<$Res>? get labels {
 
   return $UDraftPostLabelsCopyWith<$Res>(_self.labels!, (value) {
     return _then(_self.copyWith(labels: value));
+  });
+}/// Create a copy of DraftPost
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DraftEmbedGalleryCopyWith<$Res>? get embedGallery {
+    if (_self.embedGallery == null) {
+    return null;
+  }
+
+  return $DraftEmbedGalleryCopyWith<$Res>(_self.embedGallery!, (value) {
+    return _then(_self.copyWith(embedGallery: value));
   });
 }
 }

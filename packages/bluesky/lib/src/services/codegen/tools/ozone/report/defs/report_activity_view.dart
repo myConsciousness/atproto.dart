@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../tools/ozone/team/defs/member.dart';
+import './report_view.dart';
 import './union_report_activity_view_activity.dart';
 
 part 'report_activity_view.freezed.dart';
@@ -35,6 +36,7 @@ abstract class ReportActivityView with _$ReportActivityView {
     'isAutomated',
     'createdBy',
     'moderator',
+    'report',
     'createdAt',
   ];
 
@@ -66,6 +68,9 @@ abstract class ReportActivityView with _$ReportActivityView {
     /// Full member record of the moderator who created this activity
     @MemberConverter() Member? moderator,
 
+    /// Full view of the report this activity belongs to.
+    @ReportViewConverter() ReportView? report,
+
     /// When this activity was created
     required DateTime createdAt,
 
@@ -92,6 +97,8 @@ extension ReportActivityViewExtension on ReportActivityView {
   bool get isNotIsAutomated => !isIsAutomated;
   bool get hasModerator => moderator != null;
   bool get hasNotModerator => !hasModerator;
+  bool get hasReport => report != null;
+  bool get hasNotReport => !hasReport;
 }
 
 final class ReportActivityViewConverter

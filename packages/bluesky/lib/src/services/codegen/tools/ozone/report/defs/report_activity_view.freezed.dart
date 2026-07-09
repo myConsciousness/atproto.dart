@@ -22,7 +22,8 @@ mixin _$ReportActivityView {
  String? get publicNote; Map<String, dynamic>? get meta;/// True if this activity was created by an automated process (e.g. queue router) rather than a direct human action.
  bool get isAutomated;/// DID of the actor who created this activity, or the service DID for automated activities.
  String get createdBy;/// Full member record of the moderator who created this activity
-@MemberConverter() Member? get moderator;/// When this activity was created
+@MemberConverter() Member? get moderator;/// Full view of the report this activity belongs to.
+@ReportViewConverter() ReportView? get report;/// When this activity was created
  DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportActivityView
 /// with the given fields replaced by the non-null parameter values.
@@ -36,16 +37,16 @@ $ReportActivityViewCopyWith<ReportActivityView> get copyWith => _$ReportActivity
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportActivityView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&const DeepCollectionEquality().equals(other.meta, meta)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.moderator, moderator) || other.moderator == moderator)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportActivityView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&const DeepCollectionEquality().equals(other.meta, meta)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.moderator, moderator) || other.moderator == moderator)&&(identical(other.report, report) || other.report == report)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,reportId,activity,internalNote,publicNote,const DeepCollectionEquality().hash(meta),isAutomated,createdBy,moderator,createdAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,reportId,activity,internalNote,publicNote,const DeepCollectionEquality().hash(meta),isAutomated,createdBy,moderator,report,createdAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ReportActivityView(\$type: ${$type}, id: $id, reportId: $reportId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, meta: $meta, isAutomated: $isAutomated, createdBy: $createdBy, moderator: $moderator, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'ReportActivityView(\$type: ${$type}, id: $id, reportId: $reportId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, meta: $meta, isAutomated: $isAutomated, createdBy: $createdBy, moderator: $moderator, report: $report, createdAt: $createdAt, \$unknown: ${$unknown})';
 }
 
 
@@ -56,11 +57,11 @@ abstract mixin class $ReportActivityViewCopyWith<$Res>  {
   factory $ReportActivityViewCopyWith(ReportActivityView value, $Res Function(ReportActivityView) _then) = _$ReportActivityViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator,@ReportViewConverter() ReportView? report, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
-$UReportActivityViewActivityCopyWith<$Res> get activity;$MemberCopyWith<$Res>? get moderator;
+$UReportActivityViewActivityCopyWith<$Res> get activity;$MemberCopyWith<$Res>? get moderator;$ReportViewCopyWith<$Res>? get report;
 
 }
 /// @nodoc
@@ -73,7 +74,7 @@ class _$ReportActivityViewCopyWithImpl<$Res>
 
 /// Create a copy of ReportActivityView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? reportId = null,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? meta = freezed,Object? isAutomated = null,Object? createdBy = null,Object? moderator = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? reportId = null,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? meta = freezed,Object? isAutomated = null,Object? createdBy = null,Object? moderator = freezed,Object? report = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -85,7 +86,8 @@ as String?,meta: freezed == meta ? _self.meta : meta // ignore: cast_nullable_to
 as Map<String, dynamic>?,isAutomated: null == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
 as bool,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,moderator: freezed == moderator ? _self.moderator : moderator // ignore: cast_nullable_to_non_nullable
-as Member?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as Member?,report: freezed == report ? _self.report : report // ignore: cast_nullable_to_non_nullable
+as ReportView?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -110,6 +112,18 @@ $MemberCopyWith<$Res>? get moderator {
 
   return $MemberCopyWith<$Res>(_self.moderator!, (value) {
     return _then(_self.copyWith(moderator: value));
+  });
+}/// Create a copy of ReportActivityView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ReportViewCopyWith<$Res>? get report {
+    if (_self.report == null) {
+    return null;
+  }
+
+  return $ReportViewCopyWith<$Res>(_self.report!, (value) {
+    return _then(_self.copyWith(report: value));
   });
 }
 }
@@ -193,10 +207,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportActivityView() when $default != null:
-return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.report,_that.createdAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -214,10 +228,10 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportActivityView():
-return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.report,_that.createdAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -234,10 +248,10 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportActivityView() when $default != null:
-return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.report,_that.createdAt,_that.$unknown);case _:
   return null;
 
 }
@@ -249,7 +263,7 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 
 @JsonSerializable(includeIfNull: false)
 class _ReportActivityView implements ReportActivityView {
-  const _ReportActivityView({this.$type = 'tools.ozone.report.defs#reportActivityView', required this.id, required this.reportId, @UReportActivityViewActivityConverter() required this.activity, this.internalNote, this.publicNote, final  Map<String, dynamic>? meta, required this.isAutomated, required this.createdBy, @MemberConverter() this.moderator, required this.createdAt, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
+  const _ReportActivityView({this.$type = 'tools.ozone.report.defs#reportActivityView', required this.id, required this.reportId, @UReportActivityViewActivityConverter() required this.activity, this.internalNote, this.publicNote, final  Map<String, dynamic>? meta, required this.isAutomated, required this.createdBy, @MemberConverter() this.moderator, @ReportViewConverter() this.report, required this.createdAt, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
   factory _ReportActivityView.fromJson(Map<String, dynamic> json) => _$ReportActivityViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -277,6 +291,8 @@ class _ReportActivityView implements ReportActivityView {
 @override final  String createdBy;
 /// Full member record of the moderator who created this activity
 @override@MemberConverter() final  Member? moderator;
+/// Full view of the report this activity belongs to.
+@override@ReportViewConverter() final  ReportView? report;
 /// When this activity was created
 @override final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
@@ -302,16 +318,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportActivityView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&const DeepCollectionEquality().equals(other._meta, _meta)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.moderator, moderator) || other.moderator == moderator)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportActivityView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&const DeepCollectionEquality().equals(other._meta, _meta)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.moderator, moderator) || other.moderator == moderator)&&(identical(other.report, report) || other.report == report)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,reportId,activity,internalNote,publicNote,const DeepCollectionEquality().hash(_meta),isAutomated,createdBy,moderator,createdAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,reportId,activity,internalNote,publicNote,const DeepCollectionEquality().hash(_meta),isAutomated,createdBy,moderator,report,createdAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ReportActivityView(\$type: ${$type}, id: $id, reportId: $reportId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, meta: $meta, isAutomated: $isAutomated, createdBy: $createdBy, moderator: $moderator, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'ReportActivityView(\$type: ${$type}, id: $id, reportId: $reportId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, meta: $meta, isAutomated: $isAutomated, createdBy: $createdBy, moderator: $moderator, report: $report, createdAt: $createdAt, \$unknown: ${$unknown})';
 }
 
 
@@ -322,11 +338,11 @@ abstract mixin class _$ReportActivityViewCopyWith<$Res> implements $ReportActivi
   factory _$ReportActivityViewCopyWith(_ReportActivityView value, $Res Function(_ReportActivityView) _then) = __$ReportActivityViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator,@ReportViewConverter() ReportView? report, DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
-@override $UReportActivityViewActivityCopyWith<$Res> get activity;@override $MemberCopyWith<$Res>? get moderator;
+@override $UReportActivityViewActivityCopyWith<$Res> get activity;@override $MemberCopyWith<$Res>? get moderator;@override $ReportViewCopyWith<$Res>? get report;
 
 }
 /// @nodoc
@@ -339,7 +355,7 @@ class __$ReportActivityViewCopyWithImpl<$Res>
 
 /// Create a copy of ReportActivityView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? reportId = null,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? meta = freezed,Object? isAutomated = null,Object? createdBy = null,Object? moderator = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? reportId = null,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? meta = freezed,Object? isAutomated = null,Object? createdBy = null,Object? moderator = freezed,Object? report = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
   return _then(_ReportActivityView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -351,7 +367,8 @@ as String?,meta: freezed == meta ? _self._meta : meta // ignore: cast_nullable_t
 as Map<String, dynamic>?,isAutomated: null == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
 as bool,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,moderator: freezed == moderator ? _self.moderator : moderator // ignore: cast_nullable_to_non_nullable
-as Member?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as Member?,report: freezed == report ? _self.report : report // ignore: cast_nullable_to_non_nullable
+as ReportView?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -377,6 +394,18 @@ $MemberCopyWith<$Res>? get moderator {
 
   return $MemberCopyWith<$Res>(_self.moderator!, (value) {
     return _then(_self.copyWith(moderator: value));
+  });
+}/// Create a copy of ReportActivityView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ReportViewCopyWith<$Res>? get report {
+    if (_self.report == null) {
+    return null;
+  }
+
+  return $ReportViewCopyWith<$Res>(_self.report!, (value) {
+    return _then(_self.copyWith(report: value));
   });
 }
 }

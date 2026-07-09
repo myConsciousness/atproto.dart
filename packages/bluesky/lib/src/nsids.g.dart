@@ -127,6 +127,18 @@ const appBskyEmbedExternalViewExternalSourceTheme = NSID(
   ids.appBskyEmbedExternalViewExternalSourceTheme,
 );
 
+/// `app.bsky.embed.gallery`
+const appBskyEmbedGallery = NSID(ids.appBskyEmbedGallery);
+
+/// `app.bsky.embed.gallery#image`
+const appBskyEmbedGalleryImage = NSID(ids.appBskyEmbedGalleryImage);
+
+/// `app.bsky.embed.gallery#view`
+const appBskyEmbedGalleryView = NSID(ids.appBskyEmbedGalleryView);
+
+/// `app.bsky.embed.gallery#viewImage`
+const appBskyEmbedGalleryViewImage = NSID(ids.appBskyEmbedGalleryViewImage);
+
 /// `app.bsky.embed.getEmbedExternalView`
 const appBskyEmbedGetEmbedExternalView = NSID(
   ids.appBskyEmbedGetEmbedExternalView,
@@ -706,6 +718,9 @@ const chatBskyConvoGetLog = NSID(ids.chatBskyConvoGetLog);
 /// `chat.bsky.convo.getMessages`
 const chatBskyConvoGetMessages = NSID(ids.chatBskyConvoGetMessages);
 
+/// `chat.bsky.convo.getUnreadCounts`
+const chatBskyConvoGetUnreadCounts = NSID(ids.chatBskyConvoGetUnreadCounts);
+
 /// `chat.bsky.convo.leaveConvo`
 const chatBskyConvoLeaveConvo = NSID(ids.chatBskyConvoLeaveConvo);
 
@@ -1120,6 +1135,11 @@ const toolsOzoneReportGetReport = NSID(ids.toolsOzoneReportGetReport);
 
 /// `tools.ozone.report.listActivities`
 const toolsOzoneReportListActivities = NSID(ids.toolsOzoneReportListActivities);
+
+/// `tools.ozone.report.queryActivities`
+const toolsOzoneReportQueryActivities = NSID(
+  ids.toolsOzoneReportQueryActivities,
+);
 
 /// `tools.ozone.report.queryReports`
 const toolsOzoneReportQueryReports = NSID(ids.toolsOzoneReportQueryReports);

@@ -17,7 +17,7 @@ _EmbedJoinLinkView _$EmbedJoinLinkViewFromJson(Map json) =>
         ),
         joinLinkPreview: $checkedConvert(
           'joinLinkPreview',
-          (v) => const JoinLinkPreviewViewConverter().fromJson(
+          (v) => const UEmbedJoinLinkViewJoinLinkPreviewConverter().fromJson(
             v as Map<String, dynamic>,
           ),
         ),
@@ -32,8 +32,7 @@ _EmbedJoinLinkView _$EmbedJoinLinkViewFromJson(Map json) =>
 Map<String, dynamic> _$EmbedJoinLinkViewToJson(_EmbedJoinLinkView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'joinLinkPreview': const JoinLinkPreviewViewConverter().toJson(
-        instance.joinLinkPreview,
-      ),
+      'joinLinkPreview': const UEmbedJoinLinkViewJoinLinkPreviewConverter()
+          .toJson(instance.joinLinkPreview),
       r'$unknown': ?instance.$unknown,
     };

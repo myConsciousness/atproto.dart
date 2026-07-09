@@ -21,6 +21,7 @@ part 'join_request_view.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// A join request from the perspective of the group owner.
 @freezed
 abstract class JoinRequestView with _$JoinRequestView {
   static const knownProps = <String>['convoId', 'requestedBy', 'requestedAt'];

@@ -16,6 +16,7 @@ _JoinLinkPreviewView _$JoinLinkPreviewViewFromJson(
       r'$type',
       (v) => v as String? ?? 'chat.bsky.group.defs#joinLinkPreviewView',
     ),
+    convoId: $checkedConvert('convoId', (v) => v as String),
     code: $checkedConvert('code', (v) => v as String),
     name: $checkedConvert('name', (v) => v as String),
     owner: $checkedConvert(
@@ -29,10 +30,6 @@ _JoinLinkPreviewView _$JoinLinkPreviewViewFromJson(
     joinRule: $checkedConvert(
       'joinRule',
       (v) => const JoinRuleConverter().fromJson(v as String),
-    ),
-    enabledStatus: $checkedConvert(
-      'enabledStatus',
-      (v) => const LinkEnabledStatusConverter().fromJson(v as String),
     ),
     convo: $checkedConvert(
       'convo',
@@ -60,6 +57,7 @@ Map<String, dynamic> _$JoinLinkPreviewViewToJson(
   _JoinLinkPreviewView instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
+  'convoId': instance.convoId,
   'code': instance.code,
   'name': instance.name,
   'owner': const ProfileViewBasicConverter().toJson(instance.owner),
@@ -67,9 +65,6 @@ Map<String, dynamic> _$JoinLinkPreviewViewToJson(
   'memberLimit': instance.memberLimit,
   'requireApproval': instance.requireApproval,
   'joinRule': const JoinRuleConverter().toJson(instance.joinRule),
-  'enabledStatus': const LinkEnabledStatusConverter().toJson(
-    instance.enabledStatus,
-  ),
   'convo': ?_$JsonConverterToJson<Map<String, dynamic>, ConvoView>(
     instance.convo,
     const ConvoViewConverter().toJson,

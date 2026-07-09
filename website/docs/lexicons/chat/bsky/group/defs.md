@@ -19,6 +19,8 @@ description: chat.bsky.group.defs
 
 ## #joinLinkView
 
+Join link view to be used within a group view, so the convo is surrounding, not specified inside this view.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **code** | string | - | ✅ | - |
@@ -29,8 +31,11 @@ description: chat.bsky.group.defs
 
 ## #joinLinkPreviewView
 
+Preview that can be shown in feeds, including to unauthenticated viewers.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **convoId** | string | - | ✅ | - |
 | **code** | string | - | ✅ | - |
 | **name** | string | - | ✅ | - |
 | **owner** | [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
@@ -38,9 +43,24 @@ description: chat.bsky.group.defs
 | **memberLimit** | integer | - | ✅ | - |
 | **requireApproval** | boolean | - | ✅ | - |
 | **joinRule** | [#joinRule](#joinrule) | - | ✅ | - |
-| **enabledStatus** | [#linkEnabledStatus](#linkenabledstatus) | - | ✅ | - |
 | **convo** | [chat.bsky.convo.defs#convoView](../../../../lexicons/chat/bsky/convo/defs.md#convoview) | - | ❌ | - |
 | **viewer** | [#joinLinkViewerState](#joinlinkviewerstate) | - | ❌ | - |
+
+## #disabledJoinLinkPreviewView
+
+Preview for a disabled join link. Carries only the code so clients can correlate with the input and render a disabled state.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **code** | string | - | ✅ | - |
+
+## #invalidJoinLinkPreviewView
+
+Preview for a join link code that does not map to an existing link. Carries only the code so clients can correlate with the input and render an invalid state.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **code** | string | - | ✅ | - |
 
 ## #joinLinkViewerState
 
@@ -49,6 +69,8 @@ description: chat.bsky.group.defs
 | **requestedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #joinRequestView
+
+A join request from the perspective of the group owner.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -67,4 +89,4 @@ A join request from the perspective of the requester, including enough group con
 | **owner** | [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **memberCount** | integer | - | ✅ | - |
 | **memberLimit** | integer | - | ✅ | - |
-| **requestedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **viewer** | [#joinLinkViewerState](#joinlinkviewerstate) | - | ✅ | - |
