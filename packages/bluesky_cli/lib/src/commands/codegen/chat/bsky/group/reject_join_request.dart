@@ -26,7 +26,7 @@ final class RejectJoinRequestCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Rejects a request to join a group (via join link) the user owns. Action taken by the group owner.";
+      r"Rejects a request to join a group (via join link) the user owns. Action taken by the group owner.";
 
   @override
   final String invocation =

@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConvoGetUnreadCountsOutput {
 
-/// Number of unread, unlocked accepted convos. Counts convos with unread messages and unread join requests. Capped at 31, where 31 means more than 30.
- int get unreadAcceptedConvos;/// Number of unread, unlocked request convos. Includes convos with unread messages, but not with unread join request, since only the owner of a group has join requests to read, and the group would necessarily be accepted. Capped at 11, where 11 means more than 10.
+/// Number of unread, unlocked accepted convos. Counts convos with unread messages and unread join requests. Capped at 100, where 100 means more than 99.
+ int get unreadAcceptedConvos;/// Number of unread, unlocked request convos. Includes convos with unread messages, but not with unread join request, since only the owner of a group has join requests to read, and the group would necessarily be accepted. Capped at 100, where 100 means more than 99.
  int get unreadRequestConvos; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConvoGetUnreadCountsOutput
 /// with the given fields replaced by the non-null parameter values.
@@ -216,9 +216,9 @@ class _ConvoGetUnreadCountsOutput implements ConvoGetUnreadCountsOutput {
   const _ConvoGetUnreadCountsOutput({required this.unreadAcceptedConvos, required this.unreadRequestConvos, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConvoGetUnreadCountsOutput.fromJson(Map<String, dynamic> json) => _$ConvoGetUnreadCountsOutputFromJson(json);
 
-/// Number of unread, unlocked accepted convos. Counts convos with unread messages and unread join requests. Capped at 31, where 31 means more than 30.
+/// Number of unread, unlocked accepted convos. Counts convos with unread messages and unread join requests. Capped at 100, where 100 means more than 99.
 @override final  int unreadAcceptedConvos;
-/// Number of unread, unlocked request convos. Includes convos with unread messages, but not with unread join request, since only the owner of a group has join requests to read, and the group would necessarily be accepted. Capped at 11, where 11 means more than 10.
+/// Number of unread, unlocked request convos. Includes convos with unread messages, but not with unread join request, since only the owner of a group has join requests to read, and the group would necessarily be accepted. Capped at 100, where 100 means more than 99.
 @override final  int unreadRequestConvos;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {

@@ -7,7 +7,7 @@ description: chat.bsky.group.addMembers
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Adds members to a group. The members are added in 'request' status, so they have to accept it. This creates convo memberships.
+Adds members to a group. The members are added in 'request' status, so they have to accept it. This creates convo memberships.
 
 ### Input
 

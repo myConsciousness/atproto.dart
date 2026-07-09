@@ -41,7 +41,7 @@ chatBskyModerationGetActorMetadata({
   to: const ModerationGetActorMetadataOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Gets an existing conversation by its ID, for moderation purposes. Does not require the requester to be a member of the conversation.
+/// Gets an existing conversation by its ID, for moderation purposes. Does not require the requester to be a member of the conversation.
 Future<XRPCResponse<ModerationGetConvoOutput>> chatBskyModerationGetConvo({
   required String convoId,
   required ServiceContext $ctx,
@@ -56,7 +56,7 @@ Future<XRPCResponse<ModerationGetConvoOutput>> chatBskyModerationGetConvo({
   to: const ModerationGetConvoOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Returns a paginated list of members from a conversation, for moderation purposes. Does not require the requester to be a member of the conversation.
+/// Returns a paginated list of members from a conversation, for moderation purposes. Does not require the requester to be a member of the conversation.
 Future<XRPCResponse<ModerationGetConvoMembersOutput>>
 chatBskyModerationGetConvoMembers({
   required String convoId,
@@ -79,7 +79,7 @@ chatBskyModerationGetConvoMembers({
   to: const ModerationGetConvoMembersOutputConverter().fromJson,
 );
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Gets existing conversations by their IDs, for moderation purposes. Does not require the requester to be a member of the conversations. Unknown IDs are silently omitted from the response.
+/// Gets existing conversations by their IDs, for moderation purposes. Does not require the requester to be a member of the conversations. Unknown IDs are silently omitted from the response.
 Future<XRPCResponse<ModerationGetConvosOutput>> chatBskyModerationGetConvos({
   required List<String> convoIds,
   required ServiceContext $ctx,
@@ -169,7 +169,7 @@ base class ModerationService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Gets an existing conversation by its ID, for moderation purposes. Does not require the requester to be a member of the conversation.
+  /// Gets an existing conversation by its ID, for moderation purposes. Does not require the requester to be a member of the conversation.
   Future<XRPCResponse<ModerationGetConvoOutput>> getConvo({
     required String convoId,
     String? $service,
@@ -183,7 +183,7 @@ base class ModerationService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Returns a paginated list of members from a conversation, for moderation purposes. Does not require the requester to be a member of the conversation.
+  /// Returns a paginated list of members from a conversation, for moderation purposes. Does not require the requester to be a member of the conversation.
   Future<XRPCResponse<ModerationGetConvoMembersOutput>> getConvoMembers({
     required String convoId,
     int? limit,
@@ -201,7 +201,7 @@ base class ModerationService {
     $unknown: $unknown,
   );
 
-  /// [NOTE: This is under active development and should be considered unstable while this note is here]. Gets existing conversations by their IDs, for moderation purposes. Does not require the requester to be a member of the conversations. Unknown IDs are silently omitted from the response.
+  /// Gets existing conversations by their IDs, for moderation purposes. Does not require the requester to be a member of the conversations. Unknown IDs are silently omitted from the response.
   Future<XRPCResponse<ModerationGetConvosOutput>> getConvos({
     required List<String> convoIds,
     String? $service,

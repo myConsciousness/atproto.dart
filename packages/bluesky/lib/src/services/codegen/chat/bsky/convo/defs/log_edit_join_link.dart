@@ -21,7 +21,7 @@ part 'log_edit_join_link.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a settings about a join link for a group convo were edited.
+/// Event indicating a settings about a join link for a group convo were edited.
 @freezed
 abstract class LogEditJoinLink with _$LogEditJoinLink {
   static const knownProps = <String>['rev', 'convoId', 'message'];

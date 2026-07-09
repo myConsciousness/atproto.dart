@@ -7,7 +7,7 @@ description: chat.bsky.group.disableJoinLink
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Disables the active join link for the group convo.
+Disables the active join link for the group convo.
 
 ### Input
 

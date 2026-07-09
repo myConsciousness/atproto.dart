@@ -22,7 +22,6 @@ part 'group_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here].
 @freezed
 abstract class GroupConvo with _$GroupConvo {
   static const knownProps = <String>[

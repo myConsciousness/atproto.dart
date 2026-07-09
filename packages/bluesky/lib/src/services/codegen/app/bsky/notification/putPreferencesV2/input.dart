@@ -12,7 +12,6 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../app/bsky/notification/defs/chat_preference.dart';
 import '../../../../app/bsky/notification/defs/filterable_preference.dart';
 import '../../../../app/bsky/notification/defs/preference.dart';
 
@@ -27,7 +26,6 @@ part 'input.g.dart';
 abstract class NotificationPutPreferencesV2Input
     with _$NotificationPutPreferencesV2Input {
   static const knownProps = <String>[
-    'chat',
     'follow',
     'like',
     'likeViaRepost',
@@ -44,7 +42,6 @@ abstract class NotificationPutPreferencesV2Input
 
   @JsonSerializable(includeIfNull: false)
   const factory NotificationPutPreferencesV2Input({
-    @ChatPreferenceConverter() ChatPreference? chat,
     @FilterablePreferenceConverter() FilterablePreference? follow,
     @FilterablePreferenceConverter() FilterablePreference? like,
     @FilterablePreferenceConverter() FilterablePreference? likeViaRepost,
@@ -68,8 +65,6 @@ abstract class NotificationPutPreferencesV2Input
 
 extension NotificationPutPreferencesV2InputExtension
     on NotificationPutPreferencesV2Input {
-  bool get hasChat => chat != null;
-  bool get hasNotChat => !hasChat;
   bool get hasFollow => follow != null;
   bool get hasNotFollow => !hasFollow;
   bool get hasLike => like != null;

@@ -7,7 +7,7 @@ description: chat.bsky.group.editJoinLink
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Edits the existing join link settings for the group convo.
+Edits the existing join link settings for the group convo.
 
 ### Input
 

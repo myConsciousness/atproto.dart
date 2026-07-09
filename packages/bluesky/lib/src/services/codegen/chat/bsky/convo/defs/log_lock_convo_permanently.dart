@@ -22,7 +22,7 @@ part 'log_lock_convo_permanently.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a group convo was locked permanently.
+/// Event indicating a group convo was locked permanently.
 @freezed
 abstract class LogLockConvoPermanently with _$LogLockConvoPermanently {
   static const knownProps = <String>[

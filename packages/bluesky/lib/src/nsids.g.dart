@@ -284,6 +284,9 @@ const appBskyFeedRepost = NSID(ids.appBskyFeedRepost);
 /// `app.bsky.feed.searchPosts`
 const appBskyFeedSearchPosts = NSID(ids.appBskyFeedSearchPosts);
 
+/// `app.bsky.feed.searchPostsV2`
+const appBskyFeedSearchPostsV2 = NSID(ids.appBskyFeedSearchPostsV2);
+
 /// `app.bsky.feed.sendInteractions`
 const appBskyFeedSendInteractions = NSID(ids.appBskyFeedSendInteractions);
 
@@ -915,6 +918,16 @@ const chatBskyModerationSubscribeModEventsEventRateLimitExceeded = NSID(
 /// `chat.bsky.moderation.updateActorAccess`
 const chatBskyModerationUpdateActorAccess = NSID(
   ids.chatBskyModerationUpdateActorAccess,
+);
+
+/// `chat.bsky.notification.getPreferences`
+const chatBskyNotificationGetPreferences = NSID(
+  ids.chatBskyNotificationGetPreferences,
+);
+
+/// `chat.bsky.notification.putPreferences`
+const chatBskyNotificationPutPreferences = NSID(
+  ids.chatBskyNotificationPutPreferences,
 );
 
 /// `tools.ozone.communication.createTemplate`

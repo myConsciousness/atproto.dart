@@ -30,7 +30,7 @@ final class EditJoinLinkCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Edits the existing join link settings for the group convo.";
+      r"Edits the existing join link settings for the group convo.";
 
   @override
   final String invocation =

@@ -22,7 +22,7 @@ part 'system_message_data_member_join.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user joined the group convo via join link.
+/// System message indicating a user joined the group convo via join link.
 @freezed
 abstract class SystemMessageDataMemberJoin with _$SystemMessageDataMemberJoin {
   static const knownProps = <String>['member', 'role', 'approvedBy'];

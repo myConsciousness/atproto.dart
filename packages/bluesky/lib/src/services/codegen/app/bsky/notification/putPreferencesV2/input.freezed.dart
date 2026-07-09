@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationPutPreferencesV2Input {
 
-@ChatPreferenceConverter() ChatPreference? get chat;@FilterablePreferenceConverter() FilterablePreference? get follow;@FilterablePreferenceConverter() FilterablePreference? get like;@FilterablePreferenceConverter() FilterablePreference? get likeViaRepost;@FilterablePreferenceConverter() FilterablePreference? get mention;@FilterablePreferenceConverter() FilterablePreference? get quote;@FilterablePreferenceConverter() FilterablePreference? get reply;@FilterablePreferenceConverter() FilterablePreference? get repost;@FilterablePreferenceConverter() FilterablePreference? get repostViaRepost;@PreferenceConverter() Preference? get starterpackJoined;@PreferenceConverter() Preference? get subscribedPost;@PreferenceConverter() Preference? get unverified;@PreferenceConverter() Preference? get verified; Map<String, dynamic>? get $unknown;
+@FilterablePreferenceConverter() FilterablePreference? get follow;@FilterablePreferenceConverter() FilterablePreference? get like;@FilterablePreferenceConverter() FilterablePreference? get likeViaRepost;@FilterablePreferenceConverter() FilterablePreference? get mention;@FilterablePreferenceConverter() FilterablePreference? get quote;@FilterablePreferenceConverter() FilterablePreference? get reply;@FilterablePreferenceConverter() FilterablePreference? get repost;@FilterablePreferenceConverter() FilterablePreference? get repostViaRepost;@PreferenceConverter() Preference? get starterpackJoined;@PreferenceConverter() Preference? get subscribedPost;@PreferenceConverter() Preference? get unverified;@PreferenceConverter() Preference? get verified; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationPutPreferencesV2Input
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $NotificationPutPreferencesV2InputCopyWith<NotificationPutPreferencesV2Input> ge
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationPutPreferencesV2Input&&(identical(other.chat, chat) || other.chat == chat)&&(identical(other.follow, follow) || other.follow == follow)&&(identical(other.like, like) || other.like == like)&&(identical(other.likeViaRepost, likeViaRepost) || other.likeViaRepost == likeViaRepost)&&(identical(other.mention, mention) || other.mention == mention)&&(identical(other.quote, quote) || other.quote == quote)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.repost, repost) || other.repost == repost)&&(identical(other.repostViaRepost, repostViaRepost) || other.repostViaRepost == repostViaRepost)&&(identical(other.starterpackJoined, starterpackJoined) || other.starterpackJoined == starterpackJoined)&&(identical(other.subscribedPost, subscribedPost) || other.subscribedPost == subscribedPost)&&(identical(other.unverified, unverified) || other.unverified == unverified)&&(identical(other.verified, verified) || other.verified == verified)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationPutPreferencesV2Input&&(identical(other.follow, follow) || other.follow == follow)&&(identical(other.like, like) || other.like == like)&&(identical(other.likeViaRepost, likeViaRepost) || other.likeViaRepost == likeViaRepost)&&(identical(other.mention, mention) || other.mention == mention)&&(identical(other.quote, quote) || other.quote == quote)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.repost, repost) || other.repost == repost)&&(identical(other.repostViaRepost, repostViaRepost) || other.repostViaRepost == repostViaRepost)&&(identical(other.starterpackJoined, starterpackJoined) || other.starterpackJoined == starterpackJoined)&&(identical(other.subscribedPost, subscribedPost) || other.subscribedPost == subscribedPost)&&(identical(other.unverified, unverified) || other.unverified == unverified)&&(identical(other.verified, verified) || other.verified == verified)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,chat,follow,like,likeViaRepost,mention,quote,reply,repost,repostViaRepost,starterpackJoined,subscribedPost,unverified,verified,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,follow,like,likeViaRepost,mention,quote,reply,repost,repostViaRepost,starterpackJoined,subscribedPost,unverified,verified,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'NotificationPutPreferencesV2Input(chat: $chat, follow: $follow, like: $like, likeViaRepost: $likeViaRepost, mention: $mention, quote: $quote, reply: $reply, repost: $repost, repostViaRepost: $repostViaRepost, starterpackJoined: $starterpackJoined, subscribedPost: $subscribedPost, unverified: $unverified, verified: $verified, \$unknown: ${$unknown})';
+  return 'NotificationPutPreferencesV2Input(follow: $follow, like: $like, likeViaRepost: $likeViaRepost, mention: $mention, quote: $quote, reply: $reply, repost: $repost, repostViaRepost: $repostViaRepost, starterpackJoined: $starterpackJoined, subscribedPost: $subscribedPost, unverified: $unverified, verified: $verified, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $NotificationPutPreferencesV2InputCopyWith<$Res>  {
   factory $NotificationPutPreferencesV2InputCopyWith(NotificationPutPreferencesV2Input value, $Res Function(NotificationPutPreferencesV2Input) _then) = _$NotificationPutPreferencesV2InputCopyWithImpl;
 @useResult
 $Res call({
-@ChatPreferenceConverter() ChatPreference? chat,@FilterablePreferenceConverter() FilterablePreference? follow,@FilterablePreferenceConverter() FilterablePreference? like,@FilterablePreferenceConverter() FilterablePreference? likeViaRepost,@FilterablePreferenceConverter() FilterablePreference? mention,@FilterablePreferenceConverter() FilterablePreference? quote,@FilterablePreferenceConverter() FilterablePreference? reply,@FilterablePreferenceConverter() FilterablePreference? repost,@FilterablePreferenceConverter() FilterablePreference? repostViaRepost,@PreferenceConverter() Preference? starterpackJoined,@PreferenceConverter() Preference? subscribedPost,@PreferenceConverter() Preference? unverified,@PreferenceConverter() Preference? verified, Map<String, dynamic>? $unknown
+@FilterablePreferenceConverter() FilterablePreference? follow,@FilterablePreferenceConverter() FilterablePreference? like,@FilterablePreferenceConverter() FilterablePreference? likeViaRepost,@FilterablePreferenceConverter() FilterablePreference? mention,@FilterablePreferenceConverter() FilterablePreference? quote,@FilterablePreferenceConverter() FilterablePreference? reply,@FilterablePreferenceConverter() FilterablePreference? repost,@FilterablePreferenceConverter() FilterablePreference? repostViaRepost,@PreferenceConverter() Preference? starterpackJoined,@PreferenceConverter() Preference? subscribedPost,@PreferenceConverter() Preference? unverified,@PreferenceConverter() Preference? verified, Map<String, dynamic>? $unknown
 });
 
 
-$ChatPreferenceCopyWith<$Res>? get chat;$FilterablePreferenceCopyWith<$Res>? get follow;$FilterablePreferenceCopyWith<$Res>? get like;$FilterablePreferenceCopyWith<$Res>? get likeViaRepost;$FilterablePreferenceCopyWith<$Res>? get mention;$FilterablePreferenceCopyWith<$Res>? get quote;$FilterablePreferenceCopyWith<$Res>? get reply;$FilterablePreferenceCopyWith<$Res>? get repost;$FilterablePreferenceCopyWith<$Res>? get repostViaRepost;$PreferenceCopyWith<$Res>? get starterpackJoined;$PreferenceCopyWith<$Res>? get subscribedPost;$PreferenceCopyWith<$Res>? get unverified;$PreferenceCopyWith<$Res>? get verified;
+$FilterablePreferenceCopyWith<$Res>? get follow;$FilterablePreferenceCopyWith<$Res>? get like;$FilterablePreferenceCopyWith<$Res>? get likeViaRepost;$FilterablePreferenceCopyWith<$Res>? get mention;$FilterablePreferenceCopyWith<$Res>? get quote;$FilterablePreferenceCopyWith<$Res>? get reply;$FilterablePreferenceCopyWith<$Res>? get repost;$FilterablePreferenceCopyWith<$Res>? get repostViaRepost;$PreferenceCopyWith<$Res>? get starterpackJoined;$PreferenceCopyWith<$Res>? get subscribedPost;$PreferenceCopyWith<$Res>? get unverified;$PreferenceCopyWith<$Res>? get verified;
 
 }
 /// @nodoc
@@ -65,10 +65,9 @@ class _$NotificationPutPreferencesV2InputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationPutPreferencesV2Input
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? chat = freezed,Object? follow = freezed,Object? like = freezed,Object? likeViaRepost = freezed,Object? mention = freezed,Object? quote = freezed,Object? reply = freezed,Object? repost = freezed,Object? repostViaRepost = freezed,Object? starterpackJoined = freezed,Object? subscribedPost = freezed,Object? unverified = freezed,Object? verified = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? follow = freezed,Object? like = freezed,Object? likeViaRepost = freezed,Object? mention = freezed,Object? quote = freezed,Object? reply = freezed,Object? repost = freezed,Object? repostViaRepost = freezed,Object? starterpackJoined = freezed,Object? subscribedPost = freezed,Object? unverified = freezed,Object? verified = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-chat: freezed == chat ? _self.chat : chat // ignore: cast_nullable_to_non_nullable
-as ChatPreference?,follow: freezed == follow ? _self.follow : follow // ignore: cast_nullable_to_non_nullable
+follow: freezed == follow ? _self.follow : follow // ignore: cast_nullable_to_non_nullable
 as FilterablePreference?,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
 as FilterablePreference?,likeViaRepost: freezed == likeViaRepost ? _self.likeViaRepost : likeViaRepost // ignore: cast_nullable_to_non_nullable
 as FilterablePreference?,mention: freezed == mention ? _self.mention : mention // ignore: cast_nullable_to_non_nullable
@@ -85,18 +84,6 @@ as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of NotificationPutPreferencesV2Input
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ChatPreferenceCopyWith<$Res>? get chat {
-    if (_self.chat == null) {
-    return null;
-  }
-
-  return $ChatPreferenceCopyWith<$Res>(_self.chat!, (value) {
-    return _then(_self.copyWith(chat: value));
-  });
-}/// Create a copy of NotificationPutPreferencesV2Input
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -322,10 +309,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@ChatPreferenceConverter()  ChatPreference? chat, @FilterablePreferenceConverter()  FilterablePreference? follow, @FilterablePreferenceConverter()  FilterablePreference? like, @FilterablePreferenceConverter()  FilterablePreference? likeViaRepost, @FilterablePreferenceConverter()  FilterablePreference? mention, @FilterablePreferenceConverter()  FilterablePreference? quote, @FilterablePreferenceConverter()  FilterablePreference? reply, @FilterablePreferenceConverter()  FilterablePreference? repost, @FilterablePreferenceConverter()  FilterablePreference? repostViaRepost, @PreferenceConverter()  Preference? starterpackJoined, @PreferenceConverter()  Preference? subscribedPost, @PreferenceConverter()  Preference? unverified, @PreferenceConverter()  Preference? verified,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@FilterablePreferenceConverter()  FilterablePreference? follow, @FilterablePreferenceConverter()  FilterablePreference? like, @FilterablePreferenceConverter()  FilterablePreference? likeViaRepost, @FilterablePreferenceConverter()  FilterablePreference? mention, @FilterablePreferenceConverter()  FilterablePreference? quote, @FilterablePreferenceConverter()  FilterablePreference? reply, @FilterablePreferenceConverter()  FilterablePreference? repost, @FilterablePreferenceConverter()  FilterablePreference? repostViaRepost, @PreferenceConverter()  Preference? starterpackJoined, @PreferenceConverter()  Preference? subscribedPost, @PreferenceConverter()  Preference? unverified, @PreferenceConverter()  Preference? verified,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationPutPreferencesV2Input() when $default != null:
-return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.mention,_that.quote,_that.reply,_that.repost,_that.repostViaRepost,_that.starterpackJoined,_that.subscribedPost,_that.unverified,_that.verified,_that.$unknown);case _:
+return $default(_that.follow,_that.like,_that.likeViaRepost,_that.mention,_that.quote,_that.reply,_that.repost,_that.repostViaRepost,_that.starterpackJoined,_that.subscribedPost,_that.unverified,_that.verified,_that.$unknown);case _:
   return orElse();
 
 }
@@ -343,10 +330,10 @@ return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.men
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@ChatPreferenceConverter()  ChatPreference? chat, @FilterablePreferenceConverter()  FilterablePreference? follow, @FilterablePreferenceConverter()  FilterablePreference? like, @FilterablePreferenceConverter()  FilterablePreference? likeViaRepost, @FilterablePreferenceConverter()  FilterablePreference? mention, @FilterablePreferenceConverter()  FilterablePreference? quote, @FilterablePreferenceConverter()  FilterablePreference? reply, @FilterablePreferenceConverter()  FilterablePreference? repost, @FilterablePreferenceConverter()  FilterablePreference? repostViaRepost, @PreferenceConverter()  Preference? starterpackJoined, @PreferenceConverter()  Preference? subscribedPost, @PreferenceConverter()  Preference? unverified, @PreferenceConverter()  Preference? verified,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@FilterablePreferenceConverter()  FilterablePreference? follow, @FilterablePreferenceConverter()  FilterablePreference? like, @FilterablePreferenceConverter()  FilterablePreference? likeViaRepost, @FilterablePreferenceConverter()  FilterablePreference? mention, @FilterablePreferenceConverter()  FilterablePreference? quote, @FilterablePreferenceConverter()  FilterablePreference? reply, @FilterablePreferenceConverter()  FilterablePreference? repost, @FilterablePreferenceConverter()  FilterablePreference? repostViaRepost, @PreferenceConverter()  Preference? starterpackJoined, @PreferenceConverter()  Preference? subscribedPost, @PreferenceConverter()  Preference? unverified, @PreferenceConverter()  Preference? verified,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationPutPreferencesV2Input():
-return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.mention,_that.quote,_that.reply,_that.repost,_that.repostViaRepost,_that.starterpackJoined,_that.subscribedPost,_that.unverified,_that.verified,_that.$unknown);case _:
+return $default(_that.follow,_that.like,_that.likeViaRepost,_that.mention,_that.quote,_that.reply,_that.repost,_that.repostViaRepost,_that.starterpackJoined,_that.subscribedPost,_that.unverified,_that.verified,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -363,10 +350,10 @@ return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.men
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@ChatPreferenceConverter()  ChatPreference? chat, @FilterablePreferenceConverter()  FilterablePreference? follow, @FilterablePreferenceConverter()  FilterablePreference? like, @FilterablePreferenceConverter()  FilterablePreference? likeViaRepost, @FilterablePreferenceConverter()  FilterablePreference? mention, @FilterablePreferenceConverter()  FilterablePreference? quote, @FilterablePreferenceConverter()  FilterablePreference? reply, @FilterablePreferenceConverter()  FilterablePreference? repost, @FilterablePreferenceConverter()  FilterablePreference? repostViaRepost, @PreferenceConverter()  Preference? starterpackJoined, @PreferenceConverter()  Preference? subscribedPost, @PreferenceConverter()  Preference? unverified, @PreferenceConverter()  Preference? verified,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@FilterablePreferenceConverter()  FilterablePreference? follow, @FilterablePreferenceConverter()  FilterablePreference? like, @FilterablePreferenceConverter()  FilterablePreference? likeViaRepost, @FilterablePreferenceConverter()  FilterablePreference? mention, @FilterablePreferenceConverter()  FilterablePreference? quote, @FilterablePreferenceConverter()  FilterablePreference? reply, @FilterablePreferenceConverter()  FilterablePreference? repost, @FilterablePreferenceConverter()  FilterablePreference? repostViaRepost, @PreferenceConverter()  Preference? starterpackJoined, @PreferenceConverter()  Preference? subscribedPost, @PreferenceConverter()  Preference? unverified, @PreferenceConverter()  Preference? verified,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationPutPreferencesV2Input() when $default != null:
-return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.mention,_that.quote,_that.reply,_that.repost,_that.repostViaRepost,_that.starterpackJoined,_that.subscribedPost,_that.unverified,_that.verified,_that.$unknown);case _:
+return $default(_that.follow,_that.like,_that.likeViaRepost,_that.mention,_that.quote,_that.reply,_that.repost,_that.repostViaRepost,_that.starterpackJoined,_that.subscribedPost,_that.unverified,_that.verified,_that.$unknown);case _:
   return null;
 
 }
@@ -378,10 +365,9 @@ return $default(_that.chat,_that.follow,_that.like,_that.likeViaRepost,_that.men
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationPutPreferencesV2Input implements NotificationPutPreferencesV2Input {
-  const _NotificationPutPreferencesV2Input({@ChatPreferenceConverter() this.chat, @FilterablePreferenceConverter() this.follow, @FilterablePreferenceConverter() this.like, @FilterablePreferenceConverter() this.likeViaRepost, @FilterablePreferenceConverter() this.mention, @FilterablePreferenceConverter() this.quote, @FilterablePreferenceConverter() this.reply, @FilterablePreferenceConverter() this.repost, @FilterablePreferenceConverter() this.repostViaRepost, @PreferenceConverter() this.starterpackJoined, @PreferenceConverter() this.subscribedPost, @PreferenceConverter() this.unverified, @PreferenceConverter() this.verified, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationPutPreferencesV2Input({@FilterablePreferenceConverter() this.follow, @FilterablePreferenceConverter() this.like, @FilterablePreferenceConverter() this.likeViaRepost, @FilterablePreferenceConverter() this.mention, @FilterablePreferenceConverter() this.quote, @FilterablePreferenceConverter() this.reply, @FilterablePreferenceConverter() this.repost, @FilterablePreferenceConverter() this.repostViaRepost, @PreferenceConverter() this.starterpackJoined, @PreferenceConverter() this.subscribedPost, @PreferenceConverter() this.unverified, @PreferenceConverter() this.verified, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationPutPreferencesV2Input.fromJson(Map<String, dynamic> json) => _$NotificationPutPreferencesV2InputFromJson(json);
 
-@override@ChatPreferenceConverter() final  ChatPreference? chat;
 @override@FilterablePreferenceConverter() final  FilterablePreference? follow;
 @override@FilterablePreferenceConverter() final  FilterablePreference? like;
 @override@FilterablePreferenceConverter() final  FilterablePreference? likeViaRepost;
@@ -417,16 +403,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationPutPreferencesV2Input&&(identical(other.chat, chat) || other.chat == chat)&&(identical(other.follow, follow) || other.follow == follow)&&(identical(other.like, like) || other.like == like)&&(identical(other.likeViaRepost, likeViaRepost) || other.likeViaRepost == likeViaRepost)&&(identical(other.mention, mention) || other.mention == mention)&&(identical(other.quote, quote) || other.quote == quote)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.repost, repost) || other.repost == repost)&&(identical(other.repostViaRepost, repostViaRepost) || other.repostViaRepost == repostViaRepost)&&(identical(other.starterpackJoined, starterpackJoined) || other.starterpackJoined == starterpackJoined)&&(identical(other.subscribedPost, subscribedPost) || other.subscribedPost == subscribedPost)&&(identical(other.unverified, unverified) || other.unverified == unverified)&&(identical(other.verified, verified) || other.verified == verified)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationPutPreferencesV2Input&&(identical(other.follow, follow) || other.follow == follow)&&(identical(other.like, like) || other.like == like)&&(identical(other.likeViaRepost, likeViaRepost) || other.likeViaRepost == likeViaRepost)&&(identical(other.mention, mention) || other.mention == mention)&&(identical(other.quote, quote) || other.quote == quote)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.repost, repost) || other.repost == repost)&&(identical(other.repostViaRepost, repostViaRepost) || other.repostViaRepost == repostViaRepost)&&(identical(other.starterpackJoined, starterpackJoined) || other.starterpackJoined == starterpackJoined)&&(identical(other.subscribedPost, subscribedPost) || other.subscribedPost == subscribedPost)&&(identical(other.unverified, unverified) || other.unverified == unverified)&&(identical(other.verified, verified) || other.verified == verified)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,chat,follow,like,likeViaRepost,mention,quote,reply,repost,repostViaRepost,starterpackJoined,subscribedPost,unverified,verified,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,follow,like,likeViaRepost,mention,quote,reply,repost,repostViaRepost,starterpackJoined,subscribedPost,unverified,verified,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'NotificationPutPreferencesV2Input(chat: $chat, follow: $follow, like: $like, likeViaRepost: $likeViaRepost, mention: $mention, quote: $quote, reply: $reply, repost: $repost, repostViaRepost: $repostViaRepost, starterpackJoined: $starterpackJoined, subscribedPost: $subscribedPost, unverified: $unverified, verified: $verified, \$unknown: ${$unknown})';
+  return 'NotificationPutPreferencesV2Input(follow: $follow, like: $like, likeViaRepost: $likeViaRepost, mention: $mention, quote: $quote, reply: $reply, repost: $repost, repostViaRepost: $repostViaRepost, starterpackJoined: $starterpackJoined, subscribedPost: $subscribedPost, unverified: $unverified, verified: $verified, \$unknown: ${$unknown})';
 }
 
 
@@ -437,11 +423,11 @@ abstract mixin class _$NotificationPutPreferencesV2InputCopyWith<$Res> implement
   factory _$NotificationPutPreferencesV2InputCopyWith(_NotificationPutPreferencesV2Input value, $Res Function(_NotificationPutPreferencesV2Input) _then) = __$NotificationPutPreferencesV2InputCopyWithImpl;
 @override @useResult
 $Res call({
-@ChatPreferenceConverter() ChatPreference? chat,@FilterablePreferenceConverter() FilterablePreference? follow,@FilterablePreferenceConverter() FilterablePreference? like,@FilterablePreferenceConverter() FilterablePreference? likeViaRepost,@FilterablePreferenceConverter() FilterablePreference? mention,@FilterablePreferenceConverter() FilterablePreference? quote,@FilterablePreferenceConverter() FilterablePreference? reply,@FilterablePreferenceConverter() FilterablePreference? repost,@FilterablePreferenceConverter() FilterablePreference? repostViaRepost,@PreferenceConverter() Preference? starterpackJoined,@PreferenceConverter() Preference? subscribedPost,@PreferenceConverter() Preference? unverified,@PreferenceConverter() Preference? verified, Map<String, dynamic>? $unknown
+@FilterablePreferenceConverter() FilterablePreference? follow,@FilterablePreferenceConverter() FilterablePreference? like,@FilterablePreferenceConverter() FilterablePreference? likeViaRepost,@FilterablePreferenceConverter() FilterablePreference? mention,@FilterablePreferenceConverter() FilterablePreference? quote,@FilterablePreferenceConverter() FilterablePreference? reply,@FilterablePreferenceConverter() FilterablePreference? repost,@FilterablePreferenceConverter() FilterablePreference? repostViaRepost,@PreferenceConverter() Preference? starterpackJoined,@PreferenceConverter() Preference? subscribedPost,@PreferenceConverter() Preference? unverified,@PreferenceConverter() Preference? verified, Map<String, dynamic>? $unknown
 });
 
 
-@override $ChatPreferenceCopyWith<$Res>? get chat;@override $FilterablePreferenceCopyWith<$Res>? get follow;@override $FilterablePreferenceCopyWith<$Res>? get like;@override $FilterablePreferenceCopyWith<$Res>? get likeViaRepost;@override $FilterablePreferenceCopyWith<$Res>? get mention;@override $FilterablePreferenceCopyWith<$Res>? get quote;@override $FilterablePreferenceCopyWith<$Res>? get reply;@override $FilterablePreferenceCopyWith<$Res>? get repost;@override $FilterablePreferenceCopyWith<$Res>? get repostViaRepost;@override $PreferenceCopyWith<$Res>? get starterpackJoined;@override $PreferenceCopyWith<$Res>? get subscribedPost;@override $PreferenceCopyWith<$Res>? get unverified;@override $PreferenceCopyWith<$Res>? get verified;
+@override $FilterablePreferenceCopyWith<$Res>? get follow;@override $FilterablePreferenceCopyWith<$Res>? get like;@override $FilterablePreferenceCopyWith<$Res>? get likeViaRepost;@override $FilterablePreferenceCopyWith<$Res>? get mention;@override $FilterablePreferenceCopyWith<$Res>? get quote;@override $FilterablePreferenceCopyWith<$Res>? get reply;@override $FilterablePreferenceCopyWith<$Res>? get repost;@override $FilterablePreferenceCopyWith<$Res>? get repostViaRepost;@override $PreferenceCopyWith<$Res>? get starterpackJoined;@override $PreferenceCopyWith<$Res>? get subscribedPost;@override $PreferenceCopyWith<$Res>? get unverified;@override $PreferenceCopyWith<$Res>? get verified;
 
 }
 /// @nodoc
@@ -454,10 +440,9 @@ class __$NotificationPutPreferencesV2InputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationPutPreferencesV2Input
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? chat = freezed,Object? follow = freezed,Object? like = freezed,Object? likeViaRepost = freezed,Object? mention = freezed,Object? quote = freezed,Object? reply = freezed,Object? repost = freezed,Object? repostViaRepost = freezed,Object? starterpackJoined = freezed,Object? subscribedPost = freezed,Object? unverified = freezed,Object? verified = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? follow = freezed,Object? like = freezed,Object? likeViaRepost = freezed,Object? mention = freezed,Object? quote = freezed,Object? reply = freezed,Object? repost = freezed,Object? repostViaRepost = freezed,Object? starterpackJoined = freezed,Object? subscribedPost = freezed,Object? unverified = freezed,Object? verified = freezed,Object? $unknown = freezed,}) {
   return _then(_NotificationPutPreferencesV2Input(
-chat: freezed == chat ? _self.chat : chat // ignore: cast_nullable_to_non_nullable
-as ChatPreference?,follow: freezed == follow ? _self.follow : follow // ignore: cast_nullable_to_non_nullable
+follow: freezed == follow ? _self.follow : follow // ignore: cast_nullable_to_non_nullable
 as FilterablePreference?,like: freezed == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
 as FilterablePreference?,likeViaRepost: freezed == likeViaRepost ? _self.likeViaRepost : likeViaRepost // ignore: cast_nullable_to_non_nullable
 as FilterablePreference?,mention: freezed == mention ? _self.mention : mention // ignore: cast_nullable_to_non_nullable
@@ -475,18 +460,6 @@ as Map<String, dynamic>?,
 }
 
 /// Create a copy of NotificationPutPreferencesV2Input
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ChatPreferenceCopyWith<$Res>? get chat {
-    if (_self.chat == null) {
-    return null;
-  }
-
-  return $ChatPreferenceCopyWith<$Res>(_self.chat!, (value) {
-    return _then(_self.copyWith(chat: value));
-  });
-}/// Create a copy of NotificationPutPreferencesV2Input
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

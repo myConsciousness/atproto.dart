@@ -27,7 +27,7 @@ final class GetConvoMembersCommand extends QueryCommand {
 
   @override
   final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Returns a paginated list of members from a conversation, for moderation purposes. Does not require the requester to be a member of the conversation.";
+      r"Returns a paginated list of members from a conversation, for moderation purposes. Does not require the requester to be a member of the conversation.";
 
   @override
   final String invocation =

@@ -21,6 +21,7 @@ part 'chat_preference.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Deprecated: use chat.bsky.notification preferences instead. This will only return a default value.
 @freezed
 abstract class ChatPreference with _$ChatPreference {
   static const knownProps = <String>['include', 'push'];

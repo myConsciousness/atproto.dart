@@ -613,6 +613,9 @@ const appBskyFeedRepost = 'app.bsky.feed.repost';
 /// `app.bsky.feed.searchPosts`
 const appBskyFeedSearchPosts = 'app.bsky.feed.searchPosts';
 
+/// `app.bsky.feed.searchPostsV2`
+const appBskyFeedSearchPostsV2 = 'app.bsky.feed.searchPostsV2';
+
 /// `app.bsky.feed.sendInteractions`
 const appBskyFeedSendInteractions = 'app.bsky.feed.sendInteractions';
 
@@ -1265,6 +1268,10 @@ const chatBskyConvoDefsLogWithdrawOutgoingJoinRequest =
 const chatBskyConvoDefsMessageAndReactionView =
     'chat.bsky.convo.defs#messageAndReactionView';
 
+/// `chat.bsky.convo.defs#messageBeforeUserJoinedGroupView`
+const chatBskyConvoDefsMessageBeforeUserJoinedGroupView =
+    'chat.bsky.convo.defs#messageBeforeUserJoinedGroupView';
+
 /// `chat.bsky.convo.defs#messageInput`
 const chatBskyConvoDefsMessageInput = 'chat.bsky.convo.defs#messageInput';
 
@@ -1587,6 +1594,25 @@ const chatBskyModerationSubscribeModEventsEventRateLimitExceeded =
 /// `chat.bsky.moderation.updateActorAccess`
 const chatBskyModerationUpdateActorAccess =
     'chat.bsky.moderation.updateActorAccess';
+
+/// `chat.bsky.notification.defs`
+const chatBskyNotificationDefs = 'chat.bsky.notification.defs';
+
+/// `chat.bsky.notification.defs#chatPreference`
+const chatBskyNotificationDefsChatPreference =
+    'chat.bsky.notification.defs#chatPreference';
+
+/// `chat.bsky.notification.defs#preferences`
+const chatBskyNotificationDefsPreferences =
+    'chat.bsky.notification.defs#preferences';
+
+/// `chat.bsky.notification.getPreferences`
+const chatBskyNotificationGetPreferences =
+    'chat.bsky.notification.getPreferences';
+
+/// `chat.bsky.notification.putPreferences`
+const chatBskyNotificationPutPreferences =
+    'chat.bsky.notification.putPreferences';
 
 /// `tools.ozone.communication.createTemplate`
 const toolsOzoneCommunicationCreateTemplate =

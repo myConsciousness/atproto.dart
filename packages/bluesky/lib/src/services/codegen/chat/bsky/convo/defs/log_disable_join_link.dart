@@ -21,7 +21,7 @@ part 'log_disable_join_link.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join link was disabled for a group convo.
+/// Event indicating a join link was disabled for a group convo.
 @freezed
 abstract class LogDisableJoinLink with _$LogDisableJoinLink {
   static const knownProps = <String>['rev', 'convoId', 'message'];

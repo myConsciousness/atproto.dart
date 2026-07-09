@@ -14,13 +14,6 @@ _NotificationPutPreferencesV2Input _$NotificationPutPreferencesV2InputFromJson(
   $checkedConvert,
 ) {
   final val = _NotificationPutPreferencesV2Input(
-    chat: $checkedConvert(
-      'chat',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, ChatPreference>(
-        v,
-        const ChatPreferenceConverter().fromJson,
-      ),
-    ),
     follow: $checkedConvert(
       'follow',
       (v) =>
@@ -124,10 +117,6 @@ _NotificationPutPreferencesV2Input _$NotificationPutPreferencesV2InputFromJson(
 Map<String, dynamic> _$NotificationPutPreferencesV2InputToJson(
   _NotificationPutPreferencesV2Input instance,
 ) => <String, dynamic>{
-  'chat': ?_$JsonConverterToJson<Map<String, dynamic>, ChatPreference>(
-    instance.chat,
-    const ChatPreferenceConverter().toJson,
-  ),
   'follow': ?_$JsonConverterToJson<Map<String, dynamic>, FilterablePreference>(
     instance.follow,
     const FilterablePreferenceConverter().toJson,

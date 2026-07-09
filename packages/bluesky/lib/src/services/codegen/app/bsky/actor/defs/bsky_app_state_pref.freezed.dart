@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BskyAppStatePref {
 
- String get $type;@BskyAppProgressGuideConverter() BskyAppProgressGuide? get activeProgressGuide; List<String>? get queuedNudges;@NuxConverter() List<Nux>? get nuxs; Map<String, dynamic>? get $unknown;
+ String get $type;@BskyAppProgressGuideConverter() BskyAppProgressGuide? get activeProgressGuide;/// Indicates if the user is participating in the beta features program.
+ bool? get isBetaUser; List<String>? get queuedNudges;@NuxConverter() List<Nux>? get nuxs; Map<String, dynamic>? get $unknown;
 /// Create a copy of BskyAppStatePref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $BskyAppStatePrefCopyWith<BskyAppStatePref> get copyWith => _$BskyAppStatePrefCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BskyAppStatePref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.activeProgressGuide, activeProgressGuide) || other.activeProgressGuide == activeProgressGuide)&&const DeepCollectionEquality().equals(other.queuedNudges, queuedNudges)&&const DeepCollectionEquality().equals(other.nuxs, nuxs)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BskyAppStatePref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.activeProgressGuide, activeProgressGuide) || other.activeProgressGuide == activeProgressGuide)&&(identical(other.isBetaUser, isBetaUser) || other.isBetaUser == isBetaUser)&&const DeepCollectionEquality().equals(other.queuedNudges, queuedNudges)&&const DeepCollectionEquality().equals(other.nuxs, nuxs)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,activeProgressGuide,const DeepCollectionEquality().hash(queuedNudges),const DeepCollectionEquality().hash(nuxs),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,activeProgressGuide,isBetaUser,const DeepCollectionEquality().hash(queuedNudges),const DeepCollectionEquality().hash(nuxs),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'BskyAppStatePref(\$type: ${$type}, activeProgressGuide: $activeProgressGuide, queuedNudges: $queuedNudges, nuxs: $nuxs, \$unknown: ${$unknown})';
+  return 'BskyAppStatePref(\$type: ${$type}, activeProgressGuide: $activeProgressGuide, isBetaUser: $isBetaUser, queuedNudges: $queuedNudges, nuxs: $nuxs, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $BskyAppStatePrefCopyWith<$Res>  {
   factory $BskyAppStatePrefCopyWith(BskyAppStatePref value, $Res Function(BskyAppStatePref) _then) = _$BskyAppStatePrefCopyWithImpl;
 @useResult
 $Res call({
- String $type,@BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide, List<String>? queuedNudges,@NuxConverter() List<Nux>? nuxs, Map<String, dynamic>? $unknown
+ String $type,@BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide, bool? isBetaUser, List<String>? queuedNudges,@NuxConverter() List<Nux>? nuxs, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +66,12 @@ class _$BskyAppStatePrefCopyWithImpl<$Res>
 
 /// Create a copy of BskyAppStatePref
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? activeProgressGuide = freezed,Object? queuedNudges = freezed,Object? nuxs = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? activeProgressGuide = freezed,Object? isBetaUser = freezed,Object? queuedNudges = freezed,Object? nuxs = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,activeProgressGuide: freezed == activeProgressGuide ? _self.activeProgressGuide : activeProgressGuide // ignore: cast_nullable_to_non_nullable
-as BskyAppProgressGuide?,queuedNudges: freezed == queuedNudges ? _self.queuedNudges : queuedNudges // ignore: cast_nullable_to_non_nullable
+as BskyAppProgressGuide?,isBetaUser: freezed == isBetaUser ? _self.isBetaUser : isBetaUser // ignore: cast_nullable_to_non_nullable
+as bool?,queuedNudges: freezed == queuedNudges ? _self.queuedNudges : queuedNudges // ignore: cast_nullable_to_non_nullable
 as List<String>?,nuxs: freezed == nuxs ? _self.nuxs : nuxs // ignore: cast_nullable_to_non_nullable
 as List<Nux>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -169,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @BskyAppProgressGuideConverter()  BskyAppProgressGuide? activeProgressGuide,  List<String>? queuedNudges, @NuxConverter()  List<Nux>? nuxs,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @BskyAppProgressGuideConverter()  BskyAppProgressGuide? activeProgressGuide,  bool? isBetaUser,  List<String>? queuedNudges, @NuxConverter()  List<Nux>? nuxs,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BskyAppStatePref() when $default != null:
-return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.nuxs,_that.$unknown);case _:
+return $default(_that.$type,_that.activeProgressGuide,_that.isBetaUser,_that.queuedNudges,_that.nuxs,_that.$unknown);case _:
   return orElse();
 
 }
@@ -190,10 +192,10 @@ return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.n
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @BskyAppProgressGuideConverter()  BskyAppProgressGuide? activeProgressGuide,  List<String>? queuedNudges, @NuxConverter()  List<Nux>? nuxs,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @BskyAppProgressGuideConverter()  BskyAppProgressGuide? activeProgressGuide,  bool? isBetaUser,  List<String>? queuedNudges, @NuxConverter()  List<Nux>? nuxs,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _BskyAppStatePref():
-return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.nuxs,_that.$unknown);case _:
+return $default(_that.$type,_that.activeProgressGuide,_that.isBetaUser,_that.queuedNudges,_that.nuxs,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +212,10 @@ return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.n
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @BskyAppProgressGuideConverter()  BskyAppProgressGuide? activeProgressGuide,  List<String>? queuedNudges, @NuxConverter()  List<Nux>? nuxs,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @BskyAppProgressGuideConverter()  BskyAppProgressGuide? activeProgressGuide,  bool? isBetaUser,  List<String>? queuedNudges, @NuxConverter()  List<Nux>? nuxs,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _BskyAppStatePref() when $default != null:
-return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.nuxs,_that.$unknown);case _:
+return $default(_that.$type,_that.activeProgressGuide,_that.isBetaUser,_that.queuedNudges,_that.nuxs,_that.$unknown);case _:
   return null;
 
 }
@@ -225,11 +227,13 @@ return $default(_that.$type,_that.activeProgressGuide,_that.queuedNudges,_that.n
 
 @JsonSerializable(includeIfNull: false)
 class _BskyAppStatePref implements BskyAppStatePref {
-  const _BskyAppStatePref({this.$type = 'app.bsky.actor.defs#bskyAppStatePref', @BskyAppProgressGuideConverter() this.activeProgressGuide, final  List<String>? queuedNudges, @NuxConverter() final  List<Nux>? nuxs, final  Map<String, dynamic>? $unknown}): _queuedNudges = queuedNudges,_nuxs = nuxs,_$unknown = $unknown;
+  const _BskyAppStatePref({this.$type = 'app.bsky.actor.defs#bskyAppStatePref', @BskyAppProgressGuideConverter() this.activeProgressGuide, this.isBetaUser, final  List<String>? queuedNudges, @NuxConverter() final  List<Nux>? nuxs, final  Map<String, dynamic>? $unknown}): _queuedNudges = queuedNudges,_nuxs = nuxs,_$unknown = $unknown;
   factory _BskyAppStatePref.fromJson(Map<String, dynamic> json) => _$BskyAppStatePrefFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@BskyAppProgressGuideConverter() final  BskyAppProgressGuide? activeProgressGuide;
+/// Indicates if the user is participating in the beta features program.
+@override final  bool? isBetaUser;
  final  List<String>? _queuedNudges;
 @override List<String>? get queuedNudges {
   final value = _queuedNudges;
@@ -271,16 +275,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BskyAppStatePref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.activeProgressGuide, activeProgressGuide) || other.activeProgressGuide == activeProgressGuide)&&const DeepCollectionEquality().equals(other._queuedNudges, _queuedNudges)&&const DeepCollectionEquality().equals(other._nuxs, _nuxs)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BskyAppStatePref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.activeProgressGuide, activeProgressGuide) || other.activeProgressGuide == activeProgressGuide)&&(identical(other.isBetaUser, isBetaUser) || other.isBetaUser == isBetaUser)&&const DeepCollectionEquality().equals(other._queuedNudges, _queuedNudges)&&const DeepCollectionEquality().equals(other._nuxs, _nuxs)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,activeProgressGuide,const DeepCollectionEquality().hash(_queuedNudges),const DeepCollectionEquality().hash(_nuxs),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,activeProgressGuide,isBetaUser,const DeepCollectionEquality().hash(_queuedNudges),const DeepCollectionEquality().hash(_nuxs),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'BskyAppStatePref(\$type: ${$type}, activeProgressGuide: $activeProgressGuide, queuedNudges: $queuedNudges, nuxs: $nuxs, \$unknown: ${$unknown})';
+  return 'BskyAppStatePref(\$type: ${$type}, activeProgressGuide: $activeProgressGuide, isBetaUser: $isBetaUser, queuedNudges: $queuedNudges, nuxs: $nuxs, \$unknown: ${$unknown})';
 }
 
 
@@ -291,7 +295,7 @@ abstract mixin class _$BskyAppStatePrefCopyWith<$Res> implements $BskyAppStatePr
   factory _$BskyAppStatePrefCopyWith(_BskyAppStatePref value, $Res Function(_BskyAppStatePref) _then) = __$BskyAppStatePrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide, List<String>? queuedNudges,@NuxConverter() List<Nux>? nuxs, Map<String, dynamic>? $unknown
+ String $type,@BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide, bool? isBetaUser, List<String>? queuedNudges,@NuxConverter() List<Nux>? nuxs, Map<String, dynamic>? $unknown
 });
 
 
@@ -308,11 +312,12 @@ class __$BskyAppStatePrefCopyWithImpl<$Res>
 
 /// Create a copy of BskyAppStatePref
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? activeProgressGuide = freezed,Object? queuedNudges = freezed,Object? nuxs = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? activeProgressGuide = freezed,Object? isBetaUser = freezed,Object? queuedNudges = freezed,Object? nuxs = freezed,Object? $unknown = freezed,}) {
   return _then(_BskyAppStatePref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,activeProgressGuide: freezed == activeProgressGuide ? _self.activeProgressGuide : activeProgressGuide // ignore: cast_nullable_to_non_nullable
-as BskyAppProgressGuide?,queuedNudges: freezed == queuedNudges ? _self._queuedNudges : queuedNudges // ignore: cast_nullable_to_non_nullable
+as BskyAppProgressGuide?,isBetaUser: freezed == isBetaUser ? _self.isBetaUser : isBetaUser // ignore: cast_nullable_to_non_nullable
+as bool?,queuedNudges: freezed == queuedNudges ? _self._queuedNudges : queuedNudges // ignore: cast_nullable_to_non_nullable
 as List<String>?,nuxs: freezed == nuxs ? _self._nuxs : nuxs // ignore: cast_nullable_to_non_nullable
 as List<Nux>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

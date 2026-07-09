@@ -21,7 +21,7 @@ part 'log_read_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a convo was read up to a certain message.
+/// Event indicating a convo was read up to a certain message.
 @freezed
 abstract class LogReadConvo with _$LogReadConvo {
   static const knownProps = <String>['rev', 'convoId', 'message'];

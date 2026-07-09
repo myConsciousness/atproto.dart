@@ -7,7 +7,7 @@ description: chat.bsky.group.requestJoin
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Sends a request to join a group (via join link) to the group owner. Action taken by the prospective group member.
+Sends a request to join a group (via join link) to the group owner. Action taken by the prospective group member.
 
 ### Input
 

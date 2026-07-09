@@ -7,7 +7,7 @@ description: chat.bsky.group.listMutualGroups
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Returns a page of group conversations that both the requester and the specified actor are members of.
+Returns a page of group conversations that both the requester and the specified actor are members of.
 
 ### Parameters
 

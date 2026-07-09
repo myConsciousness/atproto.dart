@@ -22,7 +22,7 @@ part 'log_unlock_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a group convo was unlocked.
+/// Event indicating a group convo was unlocked.
 @freezed
 abstract class LogUnlockConvo with _$LogUnlockConvo {
   static const knownProps = <String>[

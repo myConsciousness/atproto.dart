@@ -29,8 +29,7 @@ final class CreateJoinLinkCommand extends ProcedureCommand {
   final String name = "create-join-link";
 
   @override
-  final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Creates a join link for the group convo.";
+  final String description = r"Creates a join link for the group convo.";
 
   @override
   final String invocation =

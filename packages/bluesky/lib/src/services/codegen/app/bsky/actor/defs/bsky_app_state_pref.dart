@@ -27,6 +27,7 @@ part 'bsky_app_state_pref.g.dart';
 abstract class BskyAppStatePref with _$BskyAppStatePref {
   static const knownProps = <String>[
     'activeProgressGuide',
+    'isBetaUser',
     'queuedNudges',
     'nuxs',
   ];
@@ -35,6 +36,9 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
   const factory BskyAppStatePref({
     @Default('app.bsky.actor.defs#bskyAppStatePref') String $type,
     @BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide,
+
+    /// Indicates if the user is participating in the beta features program.
+    bool? isBetaUser,
     List<String>? queuedNudges,
     @NuxConverter() List<Nux>? nuxs,
 
@@ -53,6 +57,8 @@ abstract class BskyAppStatePref with _$BskyAppStatePref {
 extension BskyAppStatePrefExtension on BskyAppStatePref {
   bool get hasActiveProgressGuide => activeProgressGuide != null;
   bool get hasNotActiveProgressGuide => !hasActiveProgressGuide;
+  bool get isIsBetaUser => isBetaUser ?? false;
+  bool get isNotIsBetaUser => !isIsBetaUser;
 }
 
 final class BskyAppStatePrefConverter

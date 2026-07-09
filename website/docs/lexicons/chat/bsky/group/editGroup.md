@@ -7,7 +7,7 @@ description: chat.bsky.group.editGroup
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Edits group settings.
+Edits group settings.
 
 ### Input
 

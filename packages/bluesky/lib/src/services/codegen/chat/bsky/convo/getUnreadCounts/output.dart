@@ -27,10 +27,10 @@ abstract class ConvoGetUnreadCountsOutput with _$ConvoGetUnreadCountsOutput {
 
   @JsonSerializable(includeIfNull: false)
   const factory ConvoGetUnreadCountsOutput({
-    /// Number of unread, unlocked accepted convos. Counts convos with unread messages and unread join requests. Capped at 31, where 31 means more than 30.
+    /// Number of unread, unlocked accepted convos. Counts convos with unread messages and unread join requests. Capped at 100, where 100 means more than 99.
     required int unreadAcceptedConvos,
 
-    /// Number of unread, unlocked request convos. Includes convos with unread messages, but not with unread join request, since only the owner of a group has join requests to read, and the group would necessarily be accepted. Capped at 11, where 11 means more than 10.
+    /// Number of unread, unlocked request convos. Includes convos with unread messages, but not with unread join request, since only the owner of a group has join requests to read, and the group would necessarily be accepted. Capped at 100, where 100 means more than 99.
     required int unreadRequestConvos,
 
     Map<String, dynamic>? $unknown,

@@ -21,7 +21,7 @@ part 'system_message_data_lock_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group convo was locked.
+/// System message indicating the group convo was locked.
 @freezed
 abstract class SystemMessageDataLockConvo with _$SystemMessageDataLockConvo {
   static const knownProps = <String>['lockedBy'];

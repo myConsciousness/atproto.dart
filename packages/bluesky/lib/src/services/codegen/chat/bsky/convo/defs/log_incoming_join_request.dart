@@ -21,7 +21,7 @@ part 'log_incoming_join_request.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was made to a group the viewer owns. Only the owner gets this.
+/// Event indicating a join request was made to a group the viewer owns. Only the owner gets this.
 @freezed
 abstract class LogIncomingJoinRequest with _$LogIncomingJoinRequest {
   static const knownProps = <String>['rev', 'convoId', 'member'];

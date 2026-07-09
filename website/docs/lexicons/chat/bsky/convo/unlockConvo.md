@@ -7,7 +7,7 @@ description: chat.bsky.convo.unlockConvo
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Unlocks a group convo so it is able to receive new content.
+Unlocks a group convo so it is able to receive new content.
 
 ### Input
 

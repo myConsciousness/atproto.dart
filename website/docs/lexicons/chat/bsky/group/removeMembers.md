@@ -7,7 +7,7 @@ description: chat.bsky.group.removeMembers
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Removes members from a group. This deletes convo memberships, doesn't just set a status.
+Removes members from a group. This deletes convo memberships, doesn't just set a status.
 
 ### Input
 
