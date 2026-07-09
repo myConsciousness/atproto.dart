@@ -33,7 +33,7 @@ abstract class ActorDeclarationRecord with _$ActorDeclarationRecord {
     @ActorDeclarationAllowIncomingConverter()
     required ActorDeclarationAllowIncoming allowIncoming,
 
-    /// [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.
+    /// Declaration about group chat invitation preferences for the record owner.
     @ActorDeclarationAllowGroupInvitesConverter()
     ActorDeclarationAllowGroupInvites? allowGroupInvites,
 

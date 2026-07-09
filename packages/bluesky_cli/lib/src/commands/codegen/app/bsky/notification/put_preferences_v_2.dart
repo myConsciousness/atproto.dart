@@ -20,7 +20,11 @@ import '../../../../procedure_command.dart';
 final class PutPreferencesV2Command extends ProcedureCommand {
   PutPreferencesV2Command() {
     argParser
-      ..addOption("chat")
+      ..addOption(
+        "chat",
+        help:
+            r"Deprecated: use chat.bsky.notification preferences instead. Setting this won't stick and the default values will be returned.",
+      )
       ..addOption("follow")
       ..addOption("like")
       ..addOption("likeViaRepost")

@@ -7,7 +7,7 @@ description: chat.bsky.group.createJoinLink
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Creates a join link for the group convo.
+Creates a join link for the group convo.
 
 ### Input
 

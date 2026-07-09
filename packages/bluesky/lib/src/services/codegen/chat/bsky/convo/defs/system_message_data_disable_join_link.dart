@@ -18,7 +18,7 @@ part 'system_message_data_disable_join_link.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group join link was disabled.
+/// System message indicating the group join link was disabled.
 @freezed
 abstract class SystemMessageDataDisableJoinLink
     with _$SystemMessageDataDisableJoinLink {

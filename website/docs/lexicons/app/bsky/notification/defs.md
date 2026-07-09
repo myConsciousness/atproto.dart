@@ -9,6 +9,8 @@ description: app.bsky.notification.defs
 
 ## #chatPreference
 
+Deprecated: use chat.bsky.notification preferences instead. This will only return a default value.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **include** | string | all<br/>accepted | ✅ | - |

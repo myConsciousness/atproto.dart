@@ -21,7 +21,7 @@ part 'log_enable_join_link.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join link was enabled for a group convo.
+/// Event indicating a join link was enabled for a group convo.
 @freezed
 abstract class LogEnableJoinLink with _$LogEnableJoinLink {
   static const knownProps = <String>['rev', 'convoId', 'message'];

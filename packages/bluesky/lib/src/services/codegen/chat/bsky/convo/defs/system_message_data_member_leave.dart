@@ -21,7 +21,7 @@ part 'system_message_data_member_leave.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user voluntarily left the group convo.
+/// System message indicating a user voluntarily left the group convo.
 @freezed
 abstract class SystemMessageDataMemberLeave
     with _$SystemMessageDataMemberLeave {

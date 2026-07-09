@@ -21,7 +21,6 @@ part 'system_message_view.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here].
 @freezed
 abstract class SystemMessageView with _$SystemMessageView {
   static const knownProps = <String>['id', 'rev', 'sentAt', 'data'];

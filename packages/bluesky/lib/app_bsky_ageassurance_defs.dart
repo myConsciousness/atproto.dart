@@ -18,6 +18,7 @@ export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/state_me
 export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/config.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/config_region.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/union_config_region_rules.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/config_region_additional_verification_methods.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/config_region_rule_default.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/config_region_rule_if_declared_over_age.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/ageassurance/defs/config_region_rule_if_declared_under_age.dart';

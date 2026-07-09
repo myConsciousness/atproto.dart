@@ -15,3 +15,4 @@ export 'package:bluesky/src/services/codegen/chat/bsky/actor_service.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo_service.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/group_service.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/moderation_service.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/notification_service.dart';

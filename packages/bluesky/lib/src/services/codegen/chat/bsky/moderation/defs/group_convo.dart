@@ -22,7 +22,7 @@ part 'group_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Data specific to a group conversation, for moderation purposes. Unlike chat.bsky.convo.defs#groupConvo, it does not include viewer-specific data (such as unreadJoinRequestCount), since the requester is a moderator and not a member of the conversation.
+/// Data specific to a group conversation, for moderation purposes. Unlike chat.bsky.convo.defs#groupConvo, it does not include viewer-specific data (such as unreadJoinRequestCount), since the requester is a moderator and not a member of the conversation.
 @freezed
 abstract class GroupConvo with _$GroupConvo {
   static const knownProps = <String>[

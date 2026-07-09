@@ -18,7 +18,7 @@ part 'system_message_data_create_join_link.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group join link was created.
+/// System message indicating the group join link was created.
 @freezed
 abstract class SystemMessageDataCreateJoinLink
     with _$SystemMessageDataCreateJoinLink {

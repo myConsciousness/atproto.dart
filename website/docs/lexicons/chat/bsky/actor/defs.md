@@ -29,11 +29,9 @@ description: chat.bsky.actor.defs
 
 ## #directConvoMember
 
-[NOTE: This is under active development and should be considered unstable while this note is here].
-
 ## #groupConvoMember
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. A current group convo member.
+A current group convo member.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -42,4 +40,4 @@ description: chat.bsky.actor.defs
 
 ## #pastGroupConvoMember
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. A past group convo member.
+A past group convo member.

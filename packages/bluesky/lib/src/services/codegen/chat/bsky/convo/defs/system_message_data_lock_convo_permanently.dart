@@ -21,7 +21,7 @@ part 'system_message_data_lock_convo_permanently.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group convo was locked permanently.
+/// System message indicating the group convo was locked permanently.
 @freezed
 abstract class SystemMessageDataLockConvoPermanently
     with _$SystemMessageDataLockConvoPermanently {

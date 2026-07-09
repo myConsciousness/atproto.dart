@@ -24,7 +24,7 @@ final class UpdateJoinRequestsReadCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Marks all join requests as read for the group owner.";
+      r"Marks all join requests as read for the group owner.";
 
   @override
   final String invocation =

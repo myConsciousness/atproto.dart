@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './config_region_additional_verification_methods.dart';
 import './union_config_region_rules.dart';
 
 part 'config_region.freezed.dart';
@@ -28,6 +29,7 @@ abstract class ConfigRegion with _$ConfigRegion {
     'countryCode',
     'regionCode',
     'minAccessAge',
+    'additionalVerificationMethods',
     'rules',
   ];
 
@@ -43,6 +45,9 @@ abstract class ConfigRegion with _$ConfigRegion {
 
     /// The minimum age (as a whole integer) required to use Bluesky in this region.
     required int minAccessAge,
+    @ConfigRegionAdditionalVerificationMethodsConverter()
+    List<ConfigRegionAdditionalVerificationMethods>?
+    additionalVerificationMethods,
     @UConfigRegionRulesConverter() required List<UConfigRegionRules> rules,
 
     Map<String, dynamic>? $unknown,

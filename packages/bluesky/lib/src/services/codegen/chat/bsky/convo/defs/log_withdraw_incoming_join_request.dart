@@ -21,7 +21,7 @@ part 'log_withdraw_incoming_join_request.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a prospective member withdrew their join request. Only the owner gets this.
+/// Event indicating a prospective member withdrew their join request. Only the owner gets this.
 @freezed
 abstract class LogWithdrawIncomingJoinRequest
     with _$LogWithdrawIncomingJoinRequest {

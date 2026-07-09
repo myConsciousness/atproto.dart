@@ -24,6 +24,7 @@ import 'chat/bsky/actor.dart';
 import 'chat/bsky/convo.dart';
 import 'chat/bsky/group.dart';
 import 'chat/bsky/moderation.dart';
+import 'chat/bsky/notification.dart';
 import 'com/atproto/admin.dart';
 import 'com/atproto/identity.dart';
 import 'com/atproto/label.dart';
@@ -67,6 +68,7 @@ final lexCommands = [
   ChatBskyConvoCommand(),
   ChatBskyGroupCommand(),
   ChatBskyModerationCommand(),
+  ChatBskyNotificationCommand(),
   ComAtprotoAdminCommand(),
   ComAtprotoIdentityCommand(),
   ComAtprotoLabelCommand(),

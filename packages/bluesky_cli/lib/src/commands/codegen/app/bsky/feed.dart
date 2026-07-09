@@ -33,6 +33,7 @@ import 'feed/post.dart';
 import 'feed/postgate.dart';
 import 'feed/repost.dart';
 import 'feed/search_posts.dart';
+import 'feed/search_posts_v_2.dart';
 import 'feed/send_interactions.dart';
 import 'feed/threadgate.dart';
 
@@ -64,6 +65,7 @@ final class AppBskyFeedCommand extends Command<void> {
     addSubcommand(PostgateCommand());
     addSubcommand(RepostCommand());
     addSubcommand(SearchPostsCommand());
+    addSubcommand(SearchPostsV2Command());
     addSubcommand(SendInteractionsCommand());
     addSubcommand(ThreadgateCommand());
   }

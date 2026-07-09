@@ -21,7 +21,7 @@ part 'system_message_data_unlock_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group convo was unlocked.
+/// System message indicating the group convo was unlocked.
 @freezed
 abstract class SystemMessageDataUnlockConvo
     with _$SystemMessageDataUnlockConvo {

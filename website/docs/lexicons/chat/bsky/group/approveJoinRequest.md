@@ -7,7 +7,7 @@ description: chat.bsky.group.approveJoinRequest
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Approves a request to join a group (via join link) the user owns. Action taken by the group owner.
+Approves a request to join a group (via join link) the user owns. Action taken by the group owner.
 
 ### Input
 

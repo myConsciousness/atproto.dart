@@ -18,7 +18,7 @@ part 'past_group_convo_member.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. A past group convo member.
+/// A past group convo member.
 @freezed
 abstract class PastGroupConvoMember with _$PastGroupConvoMember {
   static const knownProps = <String>[];

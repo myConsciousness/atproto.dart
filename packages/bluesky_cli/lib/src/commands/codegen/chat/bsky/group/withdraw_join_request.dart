@@ -24,7 +24,7 @@ final class WithdrawJoinRequestCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"[NOTE: This is under active development and should be considered unstable while this note is here]. Withdraws a pending request to join a group. Action taken by the prospective member who originally requested to join.";
+      r"Withdraws a pending request to join a group. Action taken by the prospective member who originally requested to join.";
 
   @override
   final String invocation =

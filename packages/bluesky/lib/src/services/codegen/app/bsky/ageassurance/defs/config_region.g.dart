@@ -20,6 +20,15 @@ _ConfigRegion _$ConfigRegionFromJson(Map json) => $checkedCreate(
       countryCode: $checkedConvert('countryCode', (v) => v as String),
       regionCode: $checkedConvert('regionCode', (v) => v as String?),
       minAccessAge: $checkedConvert('minAccessAge', (v) => (v as num).toInt()),
+      additionalVerificationMethods: $checkedConvert(
+        'additionalVerificationMethods',
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) => const ConfigRegionAdditionalVerificationMethodsConverter()
+                  .fromJson(e as String),
+            )
+            .toList(),
+      ),
       rules: $checkedConvert(
         'rules',
         (v) => (v as List<dynamic>)
@@ -39,14 +48,18 @@ _ConfigRegion _$ConfigRegionFromJson(Map json) => $checkedCreate(
   },
 );
 
-Map<String, dynamic> _$ConfigRegionToJson(_ConfigRegion instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'countryCode': instance.countryCode,
-      'regionCode': ?instance.regionCode,
-      'minAccessAge': instance.minAccessAge,
-      'rules': instance.rules
-          .map(const UConfigRegionRulesConverter().toJson)
-          .toList(),
-      r'$unknown': ?instance.$unknown,
-    };
+Map<String, dynamic> _$ConfigRegionToJson(
+  _ConfigRegion instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'countryCode': instance.countryCode,
+  'regionCode': ?instance.regionCode,
+  'minAccessAge': instance.minAccessAge,
+  'additionalVerificationMethods': ?instance.additionalVerificationMethods
+      ?.map(const ConfigRegionAdditionalVerificationMethodsConverter().toJson)
+      .toList(),
+  'rules': instance.rules
+      .map(const UConfigRegionRulesConverter().toJson)
+      .toList(),
+  r'$unknown': ?instance.$unknown,
+};

@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './deleted_message_view.dart';
+import './message_before_user_joined_group_view.dart';
 import './message_view.dart';
 
 part 'union_message_view_reply_to.freezed.dart';
@@ -30,6 +31,9 @@ sealed class UMessageViewReplyTo with _$UMessageViewReplyTo {
   const factory UMessageViewReplyTo.deletedMessageView({
     required DeletedMessageView data,
   }) = UMessageViewReplyToDeletedMessageView;
+  const factory UMessageViewReplyTo.messageBeforeUserJoinedGroupView({
+    required MessageBeforeUserJoinedGroupView data,
+  }) = UMessageViewReplyToMessageBeforeUserJoinedGroupView;
 
   const factory UMessageViewReplyTo.unknown({
     required Map<String, dynamic> data,
@@ -48,6 +52,14 @@ extension UMessageViewReplyToExtension on UMessageViewReplyTo {
   bool get isNotDeletedMessageView => !isDeletedMessageView;
   DeletedMessageView? get deletedMessageView =>
       isDeletedMessageView ? data as DeletedMessageView : null;
+  bool get isMessageBeforeUserJoinedGroupView =>
+      isA<UMessageViewReplyToMessageBeforeUserJoinedGroupView>(this);
+  bool get isNotMessageBeforeUserJoinedGroupView =>
+      !isMessageBeforeUserJoinedGroupView;
+  MessageBeforeUserJoinedGroupView? get messageBeforeUserJoinedGroupView =>
+      isMessageBeforeUserJoinedGroupView
+      ? data as MessageBeforeUserJoinedGroupView
+      : null;
   bool get isUnknown => isA<UMessageViewReplyToUnknown>(this);
   bool get isNotUnknown => !isUnknown;
   Map<String, dynamic>? get unknown =>
@@ -71,6 +83,13 @@ final class UMessageViewReplyToConverter
           data: const DeletedMessageViewConverter().fromJson(json),
         );
       }
+      if (MessageBeforeUserJoinedGroupView.validate(json)) {
+        return UMessageViewReplyTo.messageBeforeUserJoinedGroupView(
+          data: const MessageBeforeUserJoinedGroupViewConverter().fromJson(
+            json,
+          ),
+        );
+      }
 
       return UMessageViewReplyTo.unknown(data: json);
     } catch (_) {
@@ -83,6 +102,8 @@ final class UMessageViewReplyToConverter
     messageView: (data) => const MessageViewConverter().toJson(data),
     deletedMessageView: (data) =>
         const DeletedMessageViewConverter().toJson(data),
+    messageBeforeUserJoinedGroupView: (data) =>
+        const MessageBeforeUserJoinedGroupViewConverter().toJson(data),
 
     unknown: (data) => data,
   );

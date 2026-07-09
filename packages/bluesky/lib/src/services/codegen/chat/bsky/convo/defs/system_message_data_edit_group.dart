@@ -18,7 +18,7 @@ part 'system_message_data_edit_group.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating the group info was edited.
+/// System message indicating the group info was edited.
 @freezed
 abstract class SystemMessageDataEditGroup with _$SystemMessageDataEditGroup {
   static const knownProps = <String>['oldName', 'newName'];

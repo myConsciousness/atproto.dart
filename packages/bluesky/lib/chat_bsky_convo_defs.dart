@@ -38,6 +38,7 @@ export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/system_message
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/system_message_data_enable_join_link.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/system_message_data_disable_join_link.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/deleted_message_view.dart';
+export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/message_before_user_joined_group_view.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/message_view_sender.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/reaction_view.dart';
 export 'package:bluesky/src/services/codegen/chat/bsky/convo/defs/reaction_view_sender.dart';

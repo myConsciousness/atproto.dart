@@ -22,7 +22,7 @@ part 'group_convo_member.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. A current group convo member.
+/// A current group convo member.
 @freezed
 abstract class GroupConvoMember with _$GroupConvoMember {
   static const knownProps = <String>['addedBy', 'role'];

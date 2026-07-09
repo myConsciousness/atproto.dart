@@ -278,6 +278,7 @@ A grab bag of state that's specific to the bsky.app program. Third-party apps sh
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **activeProgressGuide** | [#bskyAppProgressGuide](#bskyappprogressguide) | - | ❌ | - |
+| **isBetaUser** | boolean | - | ❌ | Indicates if the user is participating in the beta features program. |
 | **queuedNudges** | array of string | - | ❌ | An array of tokens which identify nudges (modals, popups, tours, highlight dots) that should be shown to the user. |
 | **nuxs** | array of [app.bsky.actor.defs#nux](../../../../lexicons/app/bsky/actor/defs.md#nux) | - | ❌ | Storage for NUXs the user has encountered. |
 

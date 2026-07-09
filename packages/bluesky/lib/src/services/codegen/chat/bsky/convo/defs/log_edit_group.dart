@@ -21,7 +21,7 @@ part 'log_edit_group.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating info about group convo was edited.
+/// Event indicating info about group convo was edited.
 @freezed
 abstract class LogEditGroup with _$LogEditGroup {
   static const knownProps = <String>['rev', 'convoId', 'message'];

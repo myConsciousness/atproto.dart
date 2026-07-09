@@ -18,7 +18,6 @@ part 'direct_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here].
 @freezed
 abstract class DirectConvo with _$DirectConvo {
   static const knownProps = <String>[];

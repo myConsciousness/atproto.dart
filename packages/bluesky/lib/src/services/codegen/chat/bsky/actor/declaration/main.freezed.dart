@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ActorDeclarationRecord {
 
- String get $type;@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming get allowIncoming;/// [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.
+ String get $type;@ActorDeclarationAllowIncomingConverter() ActorDeclarationAllowIncoming get allowIncoming;/// Declaration about group chat invitation preferences for the record owner.
 @ActorDeclarationAllowGroupInvitesConverter() ActorDeclarationAllowGroupInvites? get allowGroupInvites; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorDeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
@@ -239,7 +239,7 @@ class _ActorDeclarationRecord implements ActorDeclarationRecord {
 
 @override@JsonKey() final  String $type;
 @override@ActorDeclarationAllowIncomingConverter() final  ActorDeclarationAllowIncoming allowIncoming;
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Declaration about group chat invitation preferences for the record owner.
+/// Declaration about group chat invitation preferences for the record owner.
 @override@ActorDeclarationAllowGroupInvitesConverter() final  ActorDeclarationAllowGroupInvites? allowGroupInvites;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {

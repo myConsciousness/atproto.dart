@@ -22,7 +22,7 @@ part 'log_lock_convo.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a group convo was locked.
+/// Event indicating a group convo was locked.
 @freezed
 abstract class LogLockConvo with _$LogLockConvo {
   static const knownProps = <String>[

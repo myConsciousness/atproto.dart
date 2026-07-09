@@ -21,7 +21,7 @@ part 'log_approve_join_request.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating a join request was approved by the viewer. Only the owner gets this. The approved member gets a logBeginConvo.
+/// Event indicating a join request was approved by the viewer. Only the owner gets this. The approved member gets a logBeginConvo.
 @freezed
 abstract class LogApproveJoinRequest with _$LogApproveJoinRequest {
   static const knownProps = <String>['rev', 'convoId', 'member'];

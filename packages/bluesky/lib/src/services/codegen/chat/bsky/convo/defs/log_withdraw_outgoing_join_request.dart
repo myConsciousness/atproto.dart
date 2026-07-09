@@ -18,7 +18,7 @@ part 'log_withdraw_outgoing_join_request.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. Event indicating the viewer withdrew their own join request. Only requester actor gets this.
+/// Event indicating the viewer withdrew their own join request. Only requester actor gets this.
 @freezed
 abstract class LogWithdrawOutgoingJoinRequest
     with _$LogWithdrawOutgoingJoinRequest {

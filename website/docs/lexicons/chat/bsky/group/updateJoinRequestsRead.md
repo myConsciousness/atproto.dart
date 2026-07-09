@@ -7,7 +7,7 @@ description: chat.bsky.group.updateJoinRequestsRead
 
 ## #main
 
-[NOTE: This is under active development and should be considered unstable while this note is here]. Marks all join requests as read for the group owner.
+Marks all join requests as read for the group owner.
 
 ### Input
 

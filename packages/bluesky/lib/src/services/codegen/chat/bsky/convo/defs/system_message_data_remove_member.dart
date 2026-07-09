@@ -21,7 +21,7 @@ part 'system_message_data_remove_member.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// [NOTE: This is under active development and should be considered unstable while this note is here]. System message indicating a user was removed from the group convo.
+/// System message indicating a user was removed from the group convo.
 @freezed
 abstract class SystemMessageDataRemoveMember
     with _$SystemMessageDataRemoveMember {
