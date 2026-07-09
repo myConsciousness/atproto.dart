@@ -4,6 +4,7 @@
 
 - feat: added `app.bsky.embed.gallery`, `chat.bsky.convo.getUnreadCounts`, and `tools.ozone.report.queryActivities` to the bundled lexicons.
 - feat: added `app.bsky.draft.defs#draftEmbedGallery` / `#draftEmbedGalleryItems`, `chat.bsky.convo.defs#replyRef`, and `chat.bsky.group.defs#disabledJoinLinkPreviewView` / `#invalidJoinLinkPreviewView`.
+- feat: added `com.germnetwork.declaration` to the bundled lexicons.
 - core: regenerated bundled lexicons.
 
 ## v1.0.3

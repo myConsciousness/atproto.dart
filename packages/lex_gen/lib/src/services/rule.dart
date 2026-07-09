@@ -34,12 +34,12 @@ String getLexObjectName(
 ) {
   if (defName == 'main') {
     final parts = lexiconId.split('.');
-    return parts.sublist(2, 4).map(toFirstUpperCase).join();
+    return _nameSegments(parts).map(toFirstUpperCase).join();
   }
 
   if (defName == 'record') {
     final parts = lexiconId.split('.');
-    return parts.sublist(2, 4).map(toFirstUpperCase).join() +
+    return _nameSegments(parts).map(toFirstUpperCase).join() +
         toFirstUpperCase(defName);
   }
 
@@ -50,11 +50,22 @@ String getLexObjectName(
   if (mainVariants.contains(lexiconId)) {
     final parts = lexiconId.split('.');
 
-    return parts.sublist(2, 4).map(toFirstUpperCase).join() +
+    return _nameSegments(parts).map(toFirstUpperCase).join() +
         toFirstUpperCase(defName);
   }
 
   return toFirstUpperCase(defName);
+}
+
+/// Returns the name segments of a lexicon id after its 2-part authority,
+/// capped at two segments.
+///
+/// Most lexicon ids have at least four segments (e.g. `app.bsky.actor.profile`
+/// -> `[actor, profile]`), but shorter ids such as `com.germnetwork.declaration`
+/// -> `[declaration]` are also supported.
+List<String> _nameSegments(final List<String> parts) {
+  final end = parts.length < 4 ? parts.length : 4;
+  return parts.sublist(2, end);
 }
 
 /// Ex: URichtextFacetFeatures

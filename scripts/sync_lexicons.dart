@@ -5,6 +5,8 @@
 import 'dart:io';
 import 'dart:async';
 import 'dart:collection';
+import 'dart:convert';
+import 'dart:typed_data';
 
 // Package imports:
 import 'package:github/github.dart';
@@ -110,11 +112,37 @@ class SyncLexiconsScript extends BaseScript {
           'lexicons/$root',
         );
 
-        for (final lexiconDirectory in lexiconDirectories) {
-          if (lexiconDirectory.type != 'dir') continue;
+        for (final lexiconEntry in lexiconDirectories) {
+          // Lexicon files that live directly under the root (e.g.
+          // `com/germnetwork/declaration.json`). Some namespaces such as
+          // `com.germnetwork` only ship root-level files with no subdirectory.
+          if (lexiconEntry.type == 'file' &&
+              (lexiconEntry.name?.endsWith('.json') ?? false)) {
+            if (lexiconEntry.downloadUrl == null || lexiconEntry.name == null) {
+              logger.warning(
+                'Skipping file with missing metadata: '
+                '${lexiconEntry.name ?? 'unknown'} in $root',
+              );
+              continue;
+            }
+
+            tasks.add(
+              DownloadTask(
+                url: lexiconEntry.downloadUrl!,
+                localPath:
+                    '${_config.lexiconsPath}/$root/${lexiconEntry.name}',
+                fileName: lexiconEntry.name!,
+                directoryName: '',
+                root: root,
+              ),
+            );
+            continue;
+          }
+
+          if (lexiconEntry.type != 'dir') continue;
 
           final lexiconFiles = await _getRepositoryContents(
-            lexiconDirectory.path!,
+            lexiconEntry.path!,
           );
 
           for (final lexiconFile in lexiconFiles) {
@@ -126,25 +154,25 @@ class SyncLexiconsScript extends BaseScript {
             // Validate required fields
             if (lexiconFile.downloadUrl == null ||
                 lexiconFile.name == null ||
-                lexiconDirectory.name == null) {
+                lexiconEntry.name == null) {
               logger.warning(
                 'Skipping file with missing metadata: '
                 '${lexiconFile.name ?? 'unknown'} in '
-                '${lexiconDirectory.name ?? 'unknown'}',
+                '${lexiconEntry.name ?? 'unknown'}',
               );
               continue;
             }
 
             final localPath =
                 '${_config.lexiconsPath}/$root/'
-                '${lexiconDirectory.name}/${lexiconFile.name}';
+                '${lexiconEntry.name}/${lexiconFile.name}';
 
             tasks.add(
               DownloadTask(
                 url: lexiconFile.downloadUrl!,
                 localPath: localPath,
                 fileName: lexiconFile.name!,
-                directoryName: lexiconDirectory.name!,
+                directoryName: lexiconEntry.name!,
                 root: root,
               ),
             );
@@ -284,20 +312,13 @@ class SyncLexiconsScript extends BaseScript {
         );
       }
 
-      // Ensure directory exists
-      await _fileManager.ensureDirectoryExists(
-        File(task.localPath).parent.path,
-      );
-
-      // Write file with streaming and progress tracking
-      final file = File(task.localPath);
-      sink = file.openWrite();
-
+      // Buffer the response so the lexicon can be inspected before writing.
       final contentLength = streamedResponse.contentLength;
+      final bytesBuilder = BytesBuilder(copy: false);
       var downloadedBytes = 0;
 
       await for (final chunk in streamedResponse.stream) {
-        sink.add(chunk);
+        bytesBuilder.add(chunk);
         downloadedBytes += chunk.length;
 
         // Update network progress
@@ -307,6 +328,28 @@ class SyncLexiconsScript extends BaseScript {
           totalBytes: contentLength,
         );
       }
+
+      final bytes = bytesBuilder.takeBytes();
+
+      // Skip lexicons whose type the code generator can't process (e.g.
+      // `permission-set`). The official codegen excludes these too by globbing
+      // `*/*` for the large namespaces; filtering by type here keeps root-level
+      // files such as `app.bsky.auth*` out of the generated output.
+      if (_isUnsupportedLexicon(bytes)) {
+        progress.completeNetworkOperation(task.url, success: true);
+        logger.debug('Skipped unsupported lexicon: ${task.fileName}');
+        return;
+      }
+
+      // Ensure directory exists
+      await _fileManager.ensureDirectoryExists(
+        File(task.localPath).parent.path,
+      );
+
+      // Write file with streaming and progress tracking
+      final file = File(task.localPath);
+      sink = file.openWrite();
+      sink.add(bytes);
 
       await sink.flush();
 
@@ -345,6 +388,33 @@ class SyncLexiconsScript extends BaseScript {
         logger.debug('Error closing file sink for ${task.fileName}: $e');
       }
     }
+  }
+
+  /// Lexicon definition types that the code generator does not support and
+  /// that must therefore be excluded from the synced lexicons.
+  static const Set<String> _unsupportedLexiconTypes = {'permission-set'};
+
+  /// Returns whether [bytes] is a lexicon document declaring an unsupported
+  /// definition type (e.g. `permission-set`).
+  bool _isUnsupportedLexicon(List<int> bytes) {
+    try {
+      final dynamic json = jsonDecode(utf8.decode(bytes));
+      if (json is! Map<String, dynamic>) return false;
+
+      final dynamic defs = json['defs'];
+      if (defs is! Map<String, dynamic>) return false;
+
+      for (final def in defs.values) {
+        if (def is Map<String, dynamic> &&
+            _unsupportedLexiconTypes.contains(def['type'])) {
+          return true;
+        }
+      }
+    } catch (_) {
+      // Not valid JSON; let the normal parsing pipeline report the error.
+    }
+
+    return false;
   }
 
   /// Gets repository contents with error handling.

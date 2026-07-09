@@ -11,7 +11,7 @@ import 'utils.dart';
 
 /// Configuration for package lexicon mappings.
 const packages = {
-  'atproto': ['com.atproto'],
+  'atproto': ['com.atproto', 'com.germnetwork'],
   'bluesky': ['app.bsky', 'chat.bsky', 'tools.ozone'],
 };
 
@@ -168,6 +168,10 @@ class GenLexiconIdsScript extends BaseScript {
       for (final lexiconPath in lexiconPaths) {
         if (lexiconPath is Directory) {
           futures.add(_processLexiconDirectory(lexiconPath));
+        } else if (lexiconPath is File && lexiconPath.path.endsWith('.json')) {
+          // Lexicon files that live directly under the root, e.g.
+          // `com/germnetwork/declaration.json`.
+          futures.add(_processLexiconFile(lexiconPath));
         }
       }
 

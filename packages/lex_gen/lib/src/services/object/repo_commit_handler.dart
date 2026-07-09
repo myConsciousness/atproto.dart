@@ -244,11 +244,16 @@ final class RepoCommitDelete {
 ''';
   }
 
+  /// Namespace prefixes whose records are generated into the `atproto`
+  /// package. The handler itself lives in the `bluesky` package, so these
+  /// records must be imported cross-package rather than relatively.
+  static const _atprotoPrefixes = ['com.atproto.', 'com.germnetwork.'];
+
   String _getImports() {
     final imports = StringBuffer();
 
     for (final lexiconId in lexiconIds) {
-      if (lexiconId.startsWith('com.atproto.')) {
+      if (_atprotoPrefixes.any(lexiconId.startsWith)) {
         final libName = lexiconId.split('.').join('_');
         imports.writeln("import 'package:atproto/$libName.dart';");
       } else {

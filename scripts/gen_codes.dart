@@ -19,6 +19,7 @@ import 'shared/progress_reporter.dart';
 
 const _lexiconServices = <String>[
   'com.atproto',
+  'com.germnetwork',
   'app.bsky',
   'chat.bsky',
   'tools.ozone',
@@ -304,7 +305,7 @@ LexGenConfig _buildLexGenConfig({
     serviceRuleConfig: LexServiceRuleConfig(
       namespaceRules: [
         LexiconNamespaceRule(
-          prefixes: ['com.atproto.'],
+          prefixes: ['com.atproto.', 'com.germnetwork.'],
           homeDir: '$packagesPath/atproto/lib/src/services/codegen',
           exportCodegenPath: 'package:atproto/src/services/codegen',
           servicePackagePath: 'package:atproto',
