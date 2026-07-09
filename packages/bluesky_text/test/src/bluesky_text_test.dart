@@ -2663,17 +2663,19 @@ becomes
       expect(BlueskyText(r'text$AAPL').cashtags.length, 0);
     });
 
-    test('case39 facet keeps the leading dollar and upper-cases the ticker',
-        () async {
-      final facets = await BlueskyText(r'$tsla').cashtags.toFacets();
+    test(
+      'case39 facet keeps the leading dollar and upper-cases the ticker',
+      () async {
+        final facets = await BlueskyText(r'$tsla').cashtags.toFacets();
 
-      expect(facets.length, 1);
-      expect(
-        facets.first['features'][0][r'$type'],
-        'app.bsky.richtext.facet#tag',
-      );
-      expect(facets.first['features'][0]['tag'], r'$TSLA');
-    });
+        expect(facets.length, 1);
+        expect(
+          facets.first['features'][0][r'$type'],
+          'app.bsky.richtext.facet#tag',
+        );
+        expect(facets.first['features'][0]['tag'], r'$TSLA');
+      },
+    );
   });
 
   group('.entities', () {
