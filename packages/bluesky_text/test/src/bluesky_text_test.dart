@@ -2381,12 +2381,13 @@ becomes
       expect(cashtags.first.indices.end, 6);
     });
 
-    test('case6 lowercase cashtag', () {
+    test('case6 lowercase cashtag is normalized to upper case', () {
       final text = BlueskyText(r'$aapl');
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value, r'$aapl');
+      //* Mirrors Bluesky's official cashtag facet which upper-cases the ticker.
+      expect(cashtags.first.value, r'$AAPL');
       expect(cashtags.first.indices.start, 0);
       expect(cashtags.first.indices.end, 5);
     });
@@ -2434,15 +2435,11 @@ becomes
       expect(cashtags.length, 0);
     });
 
-    test('case13 cashtag in URL is ignored', () {
+    test('case13 colon is a valid trailing boundary', () {
+      //* A colon terminates the ticker and is an allowed trailing boundary
+      //* under Bluesky's official regex, so `$AAPL` is detected here even
+      //* though it is immediately followed by `://`.
       final text = BlueskyText(r'$AAPL://example.com');
-      final cashtags = text.cashtags;
-
-      expect(cashtags.length, 0);
-    });
-
-    test('case14 only the symbol part is captured', () {
-      final text = BlueskyText(r'$AAPL_test');
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
@@ -2451,12 +2448,20 @@ becomes
       expect(cashtags.first.indices.end, 5);
     });
 
-    test('case15 dash after symbol terminates cashtag', () {
+    test('case14 underscore is not a valid trailing boundary', () {
+      //* `_` neither continues the ticker (not `[A-Za-z0-9]`) nor is an allowed
+      //* trailing boundary, so the whole candidate is rejected.
+      final text = BlueskyText(r'$AAPL_test');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 0);
+    });
+
+    test('case15 dash is not a valid trailing boundary', () {
       final text = BlueskyText(r'$AAPL-test');
       final cashtags = text.cashtags;
 
-      expect(cashtags.length, 1);
-      expect(cashtags.first.value, r'$AAPL');
+      expect(cashtags.length, 0);
     });
 
     test('case16 newline separator', () {
@@ -2476,16 +2481,20 @@ becomes
       expect(cashtags.first.value, r'$AAPL');
     });
 
-    test('case18 length limit of 65 chars after \$', () {
-      final text = BlueskyText('\$${'A' * 65}');
+    test('case18 five-character ticker is the maximum', () {
+      final text = BlueskyText(r'$GOOGL');
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 1);
-      expect(cashtags.first.value.length, 66);
+      expect(cashtags.first.value, r'$GOOGL');
+      expect(cashtags.first.indices.start, 0);
+      expect(cashtags.first.indices.end, 6);
     });
 
-    test('case19 length limit exceeded', () {
-      final text = BlueskyText('\$${'A' * 66}');
+    test('case19 ticker longer than five characters is rejected', () {
+      //* Bluesky caps the ticker at five characters (`[A-Za-z][A-Za-z0-9]{0,4}`),
+      //* so a six-character run has no valid trailing boundary and is dropped.
+      final text = BlueskyText(r'$GOOGLE');
       final cashtags = text.cashtags;
 
       expect(cashtags.length, 0);
@@ -2587,6 +2596,86 @@ becomes
       expect(entities[2].isTag, isTrue);
       expect(entities[2].value, 'tech');
     });
+
+    test('case31 single-character ticker', () {
+      //* Real single-letter tickers exist (e.g. Ford `$F`, AT&T `$T`).
+      final text = BlueskyText(r'$F');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, r'$F');
+      expect(cashtags.first.indices.start, 0);
+      expect(cashtags.first.indices.end, 2);
+    });
+
+    test('case32 cashtag preceded by a Japanese character is not detected', () {
+      //* Bluesky requires a leading boundary (start, whitespace or `(`) before
+      //* the `$`. Japanese is written without spaces, so a cashtag glued to a
+      //* preceding Japanese character is intentionally NOT a cashtag, matching
+      //* the official Bluesky behavior.
+      expect(BlueskyText('日本株\$AAPL').cashtags.length, 0);
+      expect(BlueskyText('私は\$AAPLを買った').cashtags.length, 0);
+    });
+
+    test('case33 cashtag followed by a Japanese character is not detected', () {
+      //* Likewise, a trailing Japanese character is not a valid trailing
+      //* boundary, so the candidate is rejected.
+      expect(BlueskyText('\$AAPLです').cashtags.length, 0);
+    });
+
+    test('case34 full-width parenthesis is not a leading boundary', () {
+      //* Only the ASCII `(` counts as a leading boundary, not the full-width
+      //* `（` (U+FF08).
+      expect(BlueskyText('（\$AAPL）').cashtags.length, 0);
+    });
+
+    test('case35 full-width punctuation is not a trailing boundary', () {
+      //* Only ASCII punctuation terminates a cashtag; the ideographic full stop
+      //* `。` (U+3002) does not.
+      expect(BlueskyText('\$AAPL。').cashtags.length, 0);
+    });
+
+    test('case36 ASCII punctuation is a valid trailing boundary', () {
+      for (final punct in ['.', ',', ';', ':', '!', '?', ')', "'", '’']) {
+        final text = BlueskyText('\$AAPL$punct');
+        final cashtags = text.cashtags;
+
+        expect(cashtags.length, 1, reason: 'trailing "$punct"');
+        expect(cashtags.first.value, r'$AAPL');
+        expect(cashtags.first.indices.start, 0);
+        expect(cashtags.first.indices.end, 5);
+      }
+    });
+
+    test('case37 no-break space is a valid leading boundary', () {
+      //* ` ` (no-break space) is whitespace, so it delimits a cashtag.
+      final text = BlueskyText(' \$AAPL');
+      final cashtags = text.cashtags;
+
+      expect(cashtags.length, 1);
+      expect(cashtags.first.value, r'$AAPL');
+      // U+00A0 is 2 bytes in UTF-8.
+      expect(cashtags.first.indices.start, 2);
+      expect(cashtags.first.indices.end, 7);
+    });
+
+    test('case38 ASCII character before the dollar sign is not a boundary', () {
+      expect(BlueskyText(r'text$AAPL').cashtags.length, 0);
+    });
+
+    test(
+      'case39 facet keeps the leading dollar and upper-cases the ticker',
+      () async {
+        final facets = await BlueskyText(r'$tsla').cashtags.toFacets();
+
+        expect(facets.length, 1);
+        expect(
+          facets.first['features'][0][r'$type'],
+          'app.bsky.richtext.facet#tag',
+        );
+        expect(facets.first['features'][0]['tag'], r'$TSLA');
+      },
+    );
   });
 
   group('.entities', () {

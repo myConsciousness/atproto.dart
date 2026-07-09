@@ -13,6 +13,7 @@ import 'dart:async';
 // Package imports:
 import 'package:atproto/com_atproto_lexicon_schema.dart';
 import 'package:atproto/com_atproto_sync_subscriberepos.dart';
+import 'package:atproto/com_germnetwork_declaration.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
@@ -108,6 +109,9 @@ final class RepoCommitHandler {
   final RepoCommitOnCreate<LexiconSchemaRecord>? _onCreateLexiconSchema;
   final RepoCommitOnUpdate<LexiconSchemaRecord>? _onUpdateLexiconSchema;
   final RepoCommitOnDelete? _onDeleteLexiconSchema;
+  final RepoCommitOnCreate<DeclarationRecord>? _onCreateDeclaration;
+  final RepoCommitOnUpdate<DeclarationRecord>? _onUpdateDeclaration;
+  final RepoCommitOnDelete? _onDeleteDeclaration;
 
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
   final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
@@ -175,6 +179,9 @@ final class RepoCommitHandler {
     final RepoCommitOnCreate<LexiconSchemaRecord>? onCreateLexiconSchema,
     final RepoCommitOnUpdate<LexiconSchemaRecord>? onUpdateLexiconSchema,
     final RepoCommitOnDelete? onDeleteLexiconSchema,
+    final RepoCommitOnCreate<DeclarationRecord>? onCreateDeclaration,
+    final RepoCommitOnUpdate<DeclarationRecord>? onUpdateDeclaration,
+    final RepoCommitOnDelete? onDeleteDeclaration,
 
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
@@ -236,6 +243,9 @@ final class RepoCommitHandler {
        _onCreateLexiconSchema = onCreateLexiconSchema,
        _onUpdateLexiconSchema = onUpdateLexiconSchema,
        _onDeleteLexiconSchema = onDeleteLexiconSchema,
+       _onCreateDeclaration = onCreateDeclaration,
+       _onUpdateDeclaration = onUpdateDeclaration,
+       _onDeleteDeclaration = onDeleteDeclaration,
 
        _onCreateUnknown = onCreateUnknown,
        _onUpdateUnknown = onUpdateUnknown,
@@ -489,6 +499,18 @@ final class RepoCommitHandler {
       await _onCreateLexiconSchema?.call(
         RepoCommitCreate<LexiconSchemaRecord>(
           record: const LexiconSchemaRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isDeclaration && DeclarationRecord.validate(record)) {
+      await _onCreateDeclaration?.call(
+        RepoCommitCreate<DeclarationRecord>(
+          record: const DeclarationRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -763,6 +785,19 @@ final class RepoCommitHandler {
       );
       return;
     }
+    if (uri.isDeclaration && DeclarationRecord.validate(record)) {
+      await _onUpdateDeclaration?.call(
+        RepoCommitUpdate<DeclarationRecord>(
+          record: const DeclarationRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
 
     await _onUpdateUnknown?.call(
       RepoCommitUpdate<Map<String, dynamic>>(
@@ -979,6 +1014,17 @@ final class RepoCommitHandler {
     }
     if (uri.isLexiconSchema) {
       await _onDeleteLexiconSchema?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isDeclaration) {
+      await _onDeleteDeclaration?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,

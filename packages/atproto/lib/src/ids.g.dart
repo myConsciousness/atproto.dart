@@ -512,3 +512,10 @@ const comAtprotoTempRequestPhoneVerification =
 /// `com.atproto.temp.revokeAccountCredentials`
 const comAtprotoTempRevokeAccountCredentials =
     'com.atproto.temp.revokeAccountCredentials';
+
+/// `com.germnetwork.declaration`
+const comGermnetworkDeclaration = 'com.germnetwork.declaration';
+
+/// `com.germnetwork.declaration#messageMe`
+const comGermnetworkDeclarationMessageMe =
+    'com.germnetwork.declaration#messageMe';

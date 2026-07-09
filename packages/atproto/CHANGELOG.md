@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.5.0
+
+- feat: added `com.germnetwork.declaration` record.
+
 ## v1.4.3
 
 - core: generated code. ([#2350](https://github.com/myConsciousness/atproto.dart/pull/2350))

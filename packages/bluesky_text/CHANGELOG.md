@@ -1,5 +1,30 @@
 # Release Note
 
+## v1.3.0
+
+- **BREAKING**: Aligned cashtag detection with Bluesky's official `CASHTAG_REGEX`
+  in `@atproto/api`. Detection is now stricter and consistent with the reference
+  implementation:
+  - The ticker symbol is limited to 1–5 ASCII characters
+    (`[A-Za-z][A-Za-z0-9]{0,4}`); longer candidates like `$GOOGLE` are rejected.
+  - A cashtag must be preceded by a leading boundary — the start of the string,
+    a whitespace character (including `U+3000` / `U+00A0`), or an ASCII `(` — and
+    followed by a trailing boundary — whitespace, the end of the string, or one
+    of the ASCII punctuation characters `. , ; : ! ? ) " '` or `’` (`U+2019`).
+    As a result, cashtags glued to Japanese (or other non-delimiting) text such
+    as `日本株$AAPL` or `$AAPLです` are intentionally not detected, matching the
+    official Bluesky behavior. Full-width delimiters like `（$AAPL）` and `$AAPL。`
+    are likewise not treated as boundaries.
+  - The ticker is normalized to upper case and the emitted `tag` facet keeps the
+    leading `$` (e.g. `$aapl` → `$AAPL`), mirroring the official cashtag facet.
+- **REGEX**: Removed the `cashtagBoundary` and `endCashtag` patterns; the
+  `validCashtag` pattern now embeds the official leading/trailing boundaries
+  directly. `cashSigns` and `validCashtag` remain exported from
+  `package:bluesky_text/regex.dart`.
+- **TEST**: Updated and expanded the cashtag test suite to pin the
+  official-compliant boundaries, ticker length limit, upper-case normalization,
+  and Japanese-adjacency behavior.
+
 ## v1.2.1
 
 - fix: do not use `.substring` when creating the cashtag entities.

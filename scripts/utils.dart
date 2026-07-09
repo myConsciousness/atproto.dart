@@ -37,6 +37,7 @@ class OptimizedUtils {
       'packages/bluesky/lib/src/moderation/definitions';
   static const List<String> lexiconsRoot = [
     'com/atproto',
+    'com/germnetwork',
     'app/bsky',
     'chat/bsky',
     'tools/ozone',

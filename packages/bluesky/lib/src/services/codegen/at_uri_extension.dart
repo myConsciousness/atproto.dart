@@ -138,4 +138,11 @@ extension AtUriExtension on AtUri {
 
   /// Returns true if this uri is not `com.atproto.lexicon.schema`, otherwise false.
   bool get isNotLexiconSchema => !isLexiconSchema;
+
+  /// Returns true if this uri is `com.germnetwork.declaration`, otherwise false.
+  bool get isDeclaration =>
+      collection.toString() == 'com.germnetwork.declaration';
+
+  /// Returns true if this uri is not `com.germnetwork.declaration`, otherwise false.
+  bool get isNotDeclaration => !isDeclaration;
 }

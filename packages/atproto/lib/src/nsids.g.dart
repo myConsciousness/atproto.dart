@@ -485,3 +485,11 @@ const comAtprotoTempRequestPhoneVerification = NSID(
 const comAtprotoTempRevokeAccountCredentials = NSID(
   ids.comAtprotoTempRevokeAccountCredentials,
 );
+
+/// `com.germnetwork.declaration`
+const comGermnetworkDeclaration = NSID(ids.comGermnetworkDeclaration);
+
+/// `com.germnetwork.declaration#messageMe`
+const comGermnetworkDeclarationMessageMe = NSID(
+  ids.comGermnetworkDeclarationMessageMe,
+);

@@ -34,6 +34,7 @@ import 'com/atproto/repo.dart';
 import 'com/atproto/server.dart';
 import 'com/atproto/sync.dart';
 import 'com/atproto/temp.dart';
+import 'com/germnetwork/declaration.dart';
 import 'tools/ozone/communication.dart';
 import 'tools/ozone/hosting.dart';
 import 'tools/ozone/moderation.dart';
@@ -78,6 +79,7 @@ final lexCommands = [
   ComAtprotoServerCommand(),
   ComAtprotoSyncCommand(),
   ComAtprotoTempCommand(),
+  ComGermnetworkDeclarationCommand(),
   ToolsOzoneCommunicationCommand(),
   ToolsOzoneHostingCommand(),
   ToolsOzoneModerationCommand(),

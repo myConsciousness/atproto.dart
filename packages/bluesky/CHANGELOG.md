@@ -2,12 +2,19 @@
 
 ## v1.5.0
 
+- feat: added `app.bsky.feed.searchPostsV2` endpoint.
+- feat: added `chat.bsky.notification.getPreferences` and `chat.bsky.notification.putPreferences` endpoints.
+- feat: added `chat.bsky.notification.defs#preferences` and `#chatPreference`.
+- feat: added `isBetaUser` to `app.bsky.actor.defs#bskyAppStatePref`.
+- feat: added `additionalVerificationMethods` to `app.bsky.ageassurance.defs`.
+- chore: deprecated chat preferences in `app.bsky.notification.defs` and `app.bsky.notification.putPreferencesV2` in favor of `chat.bsky.notification` preferences.
 - feat: added `app.bsky.embed.gallery` embed (`#image`, `#view`, `#viewImage`).
 - feat: added `chat.bsky.convo.getUnreadCounts` endpoint.
 - feat: added `chat.bsky.convo.defs#replyRef` for message reply references.
 - feat: added `chat.bsky.group.defs#disabledJoinLinkPreviewView` and `#invalidJoinLinkPreviewView`.
 - feat: added `tools.ozone.report.queryActivities` endpoint.
 - fix: generate `app.bsky.draft.defs#draftEmbedGallery` correctly. Its `items` is now `List<UDraftEmbedGalleryItems>`; previously it referenced a non-existent file and failed to compile.
+- feat: handle the `com.germnetwork.declaration` record in `RepoCommitHandler` and re-export it from `atproto`.
 
 ## v1.4.7
 

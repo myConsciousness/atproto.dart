@@ -118,7 +118,7 @@ void main() {
     test('case8 cashtag becomes a tag facet', () async {
       final entity = Entity(
         type: EntityType.cashtag,
-        value: 'AAPL',
+        value: r'$AAPL',
         indices: ByteIndices(start: 0, end: 5),
       );
 
@@ -127,7 +127,7 @@ void main() {
       expect(facet, {
         'index': {'byteStart': 0, 'byteEnd': 5},
         'features': [
-          {'\$type': 'app.bsky.richtext.facet#tag', 'tag': 'AAPL'},
+          {'\$type': 'app.bsky.richtext.facet#tag', 'tag': r'$AAPL'},
         ],
       });
     });
