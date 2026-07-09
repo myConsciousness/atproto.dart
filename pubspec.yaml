@@ -27,7 +27,7 @@ dependencies:
 
 dev_dependencies:
   lints: ^6.0.0
-  melos: ^7.1.0
+  melos: ^8.2.0
   import_sorter:
     git:
       url: https://github.com/myConsciousness/import_sorter.git
