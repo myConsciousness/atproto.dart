@@ -38,15 +38,15 @@ final class DeleteQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue delete-queue [queueId] [migrateToQueueId]";
+      "bsky tools-ozone-queue delete-queue --queueId=<value> [--migrateToQueueId=<value>]";
 
   @override
   String get methodId => "tools.ozone.queue.deleteQueue";
 
   @override
   Map<String, dynamic>? get body => {
-    "queueId": argResults!["queueId"],
-    if (argResults!["migrateToQueueId"] != null)
-      "migrateToQueueId": argResults!["migrateToQueueId"],
+    "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("migrateToQueueId"))
+      "migrateToQueueId": int.parse(argResults!["migrateToQueueId"]),
   };
 }

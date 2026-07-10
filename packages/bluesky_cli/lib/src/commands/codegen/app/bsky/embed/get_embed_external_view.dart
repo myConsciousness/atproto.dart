@@ -39,7 +39,7 @@ final class GetEmbedExternalViewCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-embed get-embed-external-view [url] [uris]";
+      "bsky app-bsky-embed get-embed-external-view --url=<value> [--uris=<value>...]";
 
   @override
   String get methodId => "app.bsky.embed.getEmbedExternalView";

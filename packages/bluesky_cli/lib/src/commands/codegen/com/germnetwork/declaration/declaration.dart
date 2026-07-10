@@ -63,8 +63,7 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
       ..addMultiOption(
         "continuityProofs",
         help: r"Array of opaque values to allow for key rolling",
-      )
-      ..addOption("rkey");
+      );
   }
 
   @override
@@ -76,23 +75,24 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky com-germnetwork-declaration declaration create [version] [currentKey] [messageMe] [keyPackage] [continuityProofs] [rkey]";
+      "bsky com-germnetwork-declaration declaration create --version=<value> --currentKey=<value> [--messageMe=<value>] [--keyPackage=<value>] [--continuityProofs=<value>...]";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "com.germnetwork.declaration";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "com.germnetwork.declaration",
     "version": argResults!["version"],
     "currentKey": argResults!["currentKey"],
-    if (argResults!["messageMe"] != null)
+    if (argResults!.wasParsed("messageMe"))
       "messageMe": jsonDecode(argResults!["messageMe"]),
-    if (argResults!["keyPackage"] != null)
+    if (argResults!.wasParsed("keyPackage"))
       "keyPackage": argResults!["keyPackage"],
-    if (argResults!["continuityProofs"] != null)
+    if (argResults!.wasParsed("continuityProofs"))
       "continuityProofs": argResults!["continuityProofs"],
   };
 }
@@ -120,8 +120,7 @@ final class _PutDeclarationCommand extends PutRecordCommand {
       ..addMultiOption(
         "continuityProofs",
         help: r"Array of opaque values to allow for key rolling",
-      )
-      ..addOption("rkey");
+      );
   }
 
   @override
@@ -133,31 +132,30 @@ final class _PutDeclarationCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky com-germnetwork-declaration declaration put [version] [currentKey] [messageMe] [keyPackage] [continuityProofs] [rkey]";
+      "bsky com-germnetwork-declaration declaration put --version=<value> --currentKey=<value> [--messageMe=<value>] [--keyPackage=<value>] [--continuityProofs=<value>...]";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "com.germnetwork.declaration";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "com.germnetwork.declaration",
     "version": argResults!["version"],
     "currentKey": argResults!["currentKey"],
-    if (argResults!["messageMe"] != null)
+    if (argResults!.wasParsed("messageMe"))
       "messageMe": jsonDecode(argResults!["messageMe"]),
-    if (argResults!["keyPackage"] != null)
+    if (argResults!.wasParsed("keyPackage"))
       "keyPackage": argResults!["keyPackage"],
-    if (argResults!["continuityProofs"] != null)
+    if (argResults!.wasParsed("continuityProofs"))
       "continuityProofs": argResults!["continuityProofs"],
   };
 }
 
 final class _DeleteDeclarationCommand extends DeleteRecordCommand {
-  _DeleteDeclarationCommand() {
-    argParser..addOption("rkey", mandatory: true);
-  }
+  _DeleteDeclarationCommand() {}
 
   @override
   final String name = "delete";
@@ -168,7 +166,7 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
 
   @override
   final String invocation =
-      "bsky com-germnetwork-declaration declaration delete [rkey]";
+      "bsky com-germnetwork-declaration declaration delete";
 
   @override
   String get rkey => "self";
@@ -180,7 +178,10 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
 final class _GetDeclarationCommand extends QueryCommand {
   _GetDeclarationCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -192,16 +193,16 @@ final class _GetDeclarationCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-germnetwork-declaration declaration get [rkey] [cid]";
+      "bsky com-germnetwork-declaration declaration get [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "com.germnetwork.declaration",
+    'rkey': 'self',
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
 }
@@ -209,6 +210,10 @@ final class _GetDeclarationCommand extends QueryCommand {
 final class _ListDeclarationCommand extends QueryCommand {
   _ListDeclarationCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -222,16 +227,16 @@ final class _ListDeclarationCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-germnetwork-declaration declaration list [limit] [cursor] [reverse]";
+      "bsky com-germnetwork-declaration declaration list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "com.germnetwork.declaration",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

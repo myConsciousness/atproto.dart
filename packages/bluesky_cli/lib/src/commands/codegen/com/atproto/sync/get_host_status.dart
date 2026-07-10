@@ -31,7 +31,8 @@ final class GetHostStatusCommand extends QueryCommand {
       r"Returns information about a specified upstream host, as consumed by the server. Implemented by relays.";
 
   @override
-  final String invocation = "bsky com-atproto-sync get-host-status [hostname]";
+  final String invocation =
+      "bsky com-atproto-sync get-host-status --hostname=<value>";
 
   @override
   String get methodId => "com.atproto.sync.getHostStatus";

@@ -27,7 +27,7 @@ final class GetSubjectsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation get-subjects [subjects]";
+      "bsky tools-ozone-moderation get-subjects [--subjects=<value>...]";
 
   @override
   String get methodId => "tools.ozone.moderation.getSubjects";

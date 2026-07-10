@@ -28,7 +28,7 @@ final class RequestPhoneVerificationCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-temp request-phone-verification [phoneNumber]";
+      "bsky com-atproto-temp request-phone-verification --phoneNumber=<value>";
 
   @override
   String get methodId => "com.atproto.temp.requestPhoneVerification";

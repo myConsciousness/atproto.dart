@@ -26,7 +26,7 @@ final class GetConvoCommand extends QueryCommand {
   final String description = r"Gets an existing conversation by its ID.";
 
   @override
-  final String invocation = "bsky chat-bsky-convo get-convo [convoId]";
+  final String invocation = "bsky chat-bsky-convo get-convo --convoId=<value>";
 
   @override
   String get methodId => "chat.bsky.convo.getConvo";

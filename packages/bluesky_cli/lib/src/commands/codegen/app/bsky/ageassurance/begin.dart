@@ -49,7 +49,7 @@ final class BeginCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-ageassurance begin [email] [language] [countryCode] [regionCode]";
+      "bsky app-bsky-ageassurance begin --email=<value> --language=<value> --countryCode=<value> [--regionCode=<value>]";
 
   @override
   String get methodId => "app.bsky.ageassurance.begin";
@@ -59,7 +59,7 @@ final class BeginCommand extends ProcedureCommand {
     "email": argResults!["email"],
     "language": argResults!["language"],
     "countryCode": argResults!["countryCode"],
-    if (argResults!["regionCode"] != null)
+    if (argResults!.wasParsed("regionCode"))
       "regionCode": argResults!["regionCode"],
   };
 }

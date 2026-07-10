@@ -27,7 +27,8 @@ final class GetConvosCommand extends QueryCommand {
       r"Gets existing conversations by their IDs, for moderation purposes. Does not require the requester to be a member of the conversations. Unknown IDs are silently omitted from the response.";
 
   @override
-  final String invocation = "bsky chat-bsky-moderation get-convos [convoIds]";
+  final String invocation =
+      "bsky chat-bsky-moderation get-convos [--convoIds=<value>...]";
 
   @override
   String get methodId => "chat.bsky.moderation.getConvos";

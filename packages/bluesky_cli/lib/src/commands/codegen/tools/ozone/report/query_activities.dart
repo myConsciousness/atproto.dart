@@ -47,21 +47,21 @@ final class QueryActivitiesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report query-activities [activityTypes] [createdAfter] [createdBefore] [sortDirection] [limit] [cursor]";
+      "bsky tools-ozone-report query-activities [--activityTypes=<value>...] [--createdAfter=<value>] [--createdBefore=<value>] [--sortDirection=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.queryActivities";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["activityTypes"] != null)
+    if (argResults!.wasParsed("activityTypes"))
       "activityTypes": argResults!["activityTypes"],
-    if (argResults!["createdAfter"] != null)
+    if (argResults!.wasParsed("createdAfter"))
       "createdAfter": argResults!["createdAfter"],
-    if (argResults!["createdBefore"] != null)
+    if (argResults!.wasParsed("createdBefore"))
       "createdBefore": argResults!["createdBefore"],
     "sortDirection": argResults!["sortDirection"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

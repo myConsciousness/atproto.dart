@@ -14,10 +14,25 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // Project imports:
 import '../authentication.dart';
 import '../logger.dart';
+import '../xrpc_client_provider.dart';
 
 abstract class BskyCommand extends Command<void> {
   /// Returns the new instance of [BskyCommand].
   BskyCommand();
+
+  /// Returns the client used for GET requests, or null to use
+  /// the default.
+  xrpc.GetClient? get getClient {
+    final Object? runner = this.runner;
+    return runner is XrpcClientProvider ? runner.getClient : null;
+  }
+
+  /// Returns the client used for POST requests, or null to use
+  /// the default.
+  xrpc.PostClient? get postClient {
+    final Object? runner = this.runner;
+    return runner is XrpcClientProvider ? runner.postClient : null;
+  }
 
   /// The logger
   late final logger = BskyLogger(
@@ -37,7 +52,7 @@ abstract class BskyCommand extends Command<void> {
   /// Returns the authenticated access token.
   Future<String?> get accessJwt async {
     if (_session.isNotEmpty) {
-      _session['accessJwt'];
+      return _session['accessJwt'];
     }
 
     if (_auth.identifier == null || _auth.password == null) {
@@ -61,10 +76,20 @@ abstract class BskyCommand extends Command<void> {
   }
 
   Future<Map<String, dynamic>> _createSession() async {
+    if (_auth.identifier == null || _auth.password == null) {
+      throw UsageException(
+        'This command requires authentication. Pass --identifier and '
+        '--password, or set the BLUESKY_IDENTIFIER and BLUESKY_PASSWORD '
+        'environment variables.',
+        usage,
+      );
+    }
+
     final response = await xrpc.procedure<String>(
       xrpc.NSID.create('server.atproto.com', 'createSession'),
       service: service,
       body: {'identifier': _auth.identifier, 'password': _auth.password},
+      postClient: postClient,
     );
 
     _session = jsonDecode(response.data);
@@ -77,5 +102,6 @@ abstract class BskyCommand extends Command<void> {
         xrpc.NSID.create('repo.atproto.com', 'uploadBlob'),
         body: file.readAsBytesSync(),
         headers: {'Authorization': 'Bearer ${await accessJwt}'},
+        postClient: postClient,
       );
 }

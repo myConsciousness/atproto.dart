@@ -30,14 +30,15 @@ final class FetchLabelsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-temp fetch-labels [since] [limit]";
+      "bsky com-atproto-temp fetch-labels [--since=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "com.atproto.temp.fetchLabels";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["since"] != null) "since": argResults!["since"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("since"))
+      "since": int.parse(argResults!["since"]),
+    "limit": int.parse(argResults!["limit"]),
   };
 }

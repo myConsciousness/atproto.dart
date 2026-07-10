@@ -32,7 +32,7 @@ final class SendMessageCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo send-message [convoId] [message]";
+      "bsky chat-bsky-convo send-message --convoId=<value> --message=<value>";
 
   @override
   String get methodId => "chat.bsky.convo.sendMessage";

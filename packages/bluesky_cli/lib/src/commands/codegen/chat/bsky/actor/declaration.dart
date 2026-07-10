@@ -47,8 +47,7 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
         "allowGroupInvites",
         help:
             r"Declaration about group chat invitation preferences for the record owner.",
-      )
-      ..addOption("rkey");
+      );
   }
 
   @override
@@ -60,18 +59,19 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-actor declaration create [allowIncoming] [allowGroupInvites] [rkey]";
+      "bsky chat-bsky-actor declaration create --allowIncoming=<value> [--allowGroupInvites=<value>]";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "chat.bsky.actor.declaration";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "chat.bsky.actor.declaration",
     "allowIncoming": argResults!["allowIncoming"],
-    if (argResults!["allowGroupInvites"] != null)
+    if (argResults!.wasParsed("allowGroupInvites"))
       "allowGroupInvites": argResults!["allowGroupInvites"],
   };
 }
@@ -84,8 +84,7 @@ final class _PutDeclarationCommand extends PutRecordCommand {
         "allowGroupInvites",
         help:
             r"Declaration about group chat invitation preferences for the record owner.",
-      )
-      ..addOption("rkey");
+      );
   }
 
   @override
@@ -97,26 +96,25 @@ final class _PutDeclarationCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-actor declaration put [allowIncoming] [allowGroupInvites] [rkey]";
+      "bsky chat-bsky-actor declaration put --allowIncoming=<value> [--allowGroupInvites=<value>]";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "chat.bsky.actor.declaration";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "chat.bsky.actor.declaration",
     "allowIncoming": argResults!["allowIncoming"],
-    if (argResults!["allowGroupInvites"] != null)
+    if (argResults!.wasParsed("allowGroupInvites"))
       "allowGroupInvites": argResults!["allowGroupInvites"],
   };
 }
 
 final class _DeleteDeclarationCommand extends DeleteRecordCommand {
-  _DeleteDeclarationCommand() {
-    argParser..addOption("rkey", mandatory: true);
-  }
+  _DeleteDeclarationCommand() {}
 
   @override
   final String name = "delete";
@@ -126,7 +124,7 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
       r"Deletes a record for chat.bsky.actor.declaration.";
 
   @override
-  final String invocation = "bsky chat-bsky-actor declaration delete [rkey]";
+  final String invocation = "bsky chat-bsky-actor declaration delete";
 
   @override
   String get rkey => "self";
@@ -138,7 +136,10 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
 final class _GetDeclarationCommand extends QueryCommand {
   _GetDeclarationCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -149,16 +150,17 @@ final class _GetDeclarationCommand extends QueryCommand {
   final String description = r"Gets a record for chat.bsky.actor.declaration.";
 
   @override
-  final String invocation = "bsky chat-bsky-actor declaration get [rkey] [cid]";
+  final String invocation =
+      "bsky chat-bsky-actor declaration get [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "chat.bsky.actor.declaration",
+    'rkey': 'self',
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
 }
@@ -166,6 +168,10 @@ final class _GetDeclarationCommand extends QueryCommand {
 final class _ListDeclarationCommand extends QueryCommand {
   _ListDeclarationCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -179,16 +185,16 @@ final class _ListDeclarationCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-actor declaration list [limit] [cursor] [reverse]";
+      "bsky chat-bsky-actor declaration list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "chat.bsky.actor.declaration",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

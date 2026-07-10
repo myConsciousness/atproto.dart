@@ -28,7 +28,7 @@ final class GetConvoForMembersCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo get-convo-for-members [members]";
+      "bsky chat-bsky-convo get-convo-for-members [--members=<value>...]";
 
   @override
   String get methodId => "chat.bsky.convo.getConvoForMembers";

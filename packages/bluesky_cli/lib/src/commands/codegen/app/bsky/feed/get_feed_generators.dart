@@ -27,7 +27,8 @@ final class GetFeedGeneratorsCommand extends QueryCommand {
       r"Get information about a list of feed generators.";
 
   @override
-  final String invocation = "bsky app-bsky-feed get-feed-generators [feeds]";
+  final String invocation =
+      "bsky app-bsky-feed get-feed-generators [--feeds=<value>...]";
 
   @override
   String get methodId => "app.bsky.feed.getFeedGenerators";

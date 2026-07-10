@@ -30,7 +30,7 @@ final class UpdateDraftCommand extends ProcedureCommand {
       r"Updates a draft using private storage (stash). If the draft ID points to a non-existing ID, the update will be silently ignored. This is done because updates don't enforce draft limit, so it accepts all writes, but will ignore invalid ones. Requires authentication.";
 
   @override
-  final String invocation = "bsky app-bsky-draft update-draft [draft]";
+  final String invocation = "bsky app-bsky-draft update-draft --draft=<value>";
 
   @override
   String get methodId => "app.bsky.draft.updateDraft";

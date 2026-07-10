@@ -34,7 +34,7 @@ final class UpdateEmailCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server update-email [email] [emailAuthFactor] [token]";
+      "bsky com-atproto-server update-email --email=<value> [--emailAuthFactor] [--token=<value>]";
 
   @override
   String get methodId => "com.atproto.server.updateEmail";
@@ -42,8 +42,8 @@ final class UpdateEmailCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "email": argResults!["email"],
-    if (argResults!["emailAuthFactor"] != null)
+    if (argResults!.wasParsed("emailAuthFactor"))
       "emailAuthFactor": argResults!["emailAuthFactor"],
-    if (argResults!["token"] != null) "token": argResults!["token"],
+    if (argResults!.wasParsed("token")) "token": argResults!["token"],
   };
 }

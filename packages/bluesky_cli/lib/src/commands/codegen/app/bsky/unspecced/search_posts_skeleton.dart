@@ -89,7 +89,7 @@ final class SearchPostsSkeletonCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced search-posts-skeleton [q] [sort] [since] [until] [mentions] [author] [lang] [domain] [url] [tag] [viewer] [limit] [cursor]";
+      "bsky app-bsky-unspecced search-posts-skeleton --q=<value> [--sort=<value>] [--since=<value>] [--until=<value>] [--mentions=<value>] [--author=<value>] [--lang=<value>] [--domain=<value>] [--url=<value>] [--tag=<value>...] [--viewer=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.searchPostsSkeleton";
@@ -98,16 +98,16 @@ final class SearchPostsSkeletonCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     "q": argResults!["q"],
     "sort": argResults!["sort"],
-    if (argResults!["since"] != null) "since": argResults!["since"],
-    if (argResults!["until"] != null) "until": argResults!["until"],
-    if (argResults!["mentions"] != null) "mentions": argResults!["mentions"],
-    if (argResults!["author"] != null) "author": argResults!["author"],
-    if (argResults!["lang"] != null) "lang": argResults!["lang"],
-    if (argResults!["domain"] != null) "domain": argResults!["domain"],
-    if (argResults!["url"] != null) "url": argResults!["url"],
-    if (argResults!["tag"] != null) "tag": argResults!["tag"],
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("since")) "since": argResults!["since"],
+    if (argResults!.wasParsed("until")) "until": argResults!["until"],
+    if (argResults!.wasParsed("mentions")) "mentions": argResults!["mentions"],
+    if (argResults!.wasParsed("author")) "author": argResults!["author"],
+    if (argResults!.wasParsed("lang")) "lang": argResults!["lang"],
+    if (argResults!.wasParsed("domain")) "domain": argResults!["domain"],
+    if (argResults!.wasParsed("url")) "url": argResults!["url"],
+    if (argResults!.wasParsed("tag")) "tag": argResults!["tag"],
+    if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

@@ -42,21 +42,23 @@ final class GetHistoricalStatsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report get-historical-stats [queueId] [moderatorDid] [reportTypes] [startDate] [endDate] [limit] [cursor]";
+      "bsky tools-ozone-report get-historical-stats [--queueId=<value>] [--moderatorDid=<value>] [--reportTypes=<value>...] [--startDate=<value>] [--endDate=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.getHistoricalStats";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["queueId"] != null) "queueId": argResults!["queueId"],
-    if (argResults!["moderatorDid"] != null)
+    if (argResults!.wasParsed("queueId"))
+      "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("moderatorDid"))
       "moderatorDid": argResults!["moderatorDid"],
-    if (argResults!["reportTypes"] != null)
+    if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
-    if (argResults!["startDate"] != null) "startDate": argResults!["startDate"],
-    if (argResults!["endDate"] != null) "endDate": argResults!["endDate"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("startDate"))
+      "startDate": argResults!["startDate"],
+    if (argResults!.wasParsed("endDate")) "endDate": argResults!["endDate"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

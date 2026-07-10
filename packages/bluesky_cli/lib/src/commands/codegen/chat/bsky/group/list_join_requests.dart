@@ -31,7 +31,7 @@ final class ListJoinRequestsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group list-join-requests [convoId] [limit] [cursor]";
+      "bsky chat-bsky-group list-join-requests --convoId=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "chat.bsky.group.listJoinRequests";
@@ -39,7 +39,7 @@ final class ListJoinRequestsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "convoId": argResults!["convoId"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

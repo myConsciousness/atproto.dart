@@ -36,7 +36,8 @@ final class AddValuesCommand extends ProcedureCommand {
       r"Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.";
 
   @override
-  final String invocation = "bsky tools-ozone-set add-values [name] [values]";
+  final String invocation =
+      "bsky tools-ozone-set add-values --name=<value> [--values=<value>...]";
 
   @override
   String get methodId => "tools.ozone.set.addValues";

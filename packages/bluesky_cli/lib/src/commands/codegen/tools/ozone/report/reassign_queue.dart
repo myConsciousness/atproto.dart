@@ -43,15 +43,15 @@ final class ReassignQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report reassign-queue [reportId] [queueId] [comment]";
+      "bsky tools-ozone-report reassign-queue --reportId=<value> --queueId=<value> [--comment=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.reassignQueue";
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId": argResults!["reportId"],
-    "queueId": argResults!["queueId"],
-    if (argResults!["comment"] != null) "comment": argResults!["comment"],
+    "reportId": int.parse(argResults!["reportId"]),
+    "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("comment")) "comment": argResults!["comment"],
   };
 }

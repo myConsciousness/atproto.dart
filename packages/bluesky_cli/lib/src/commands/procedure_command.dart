@@ -24,16 +24,20 @@ abstract class ProcedureCommand extends BskyCommand {
   FutureOr<Map<String, dynamic>>? get body;
 
   @override
-  Future<void> run() async => await Bsky(
-    logger,
-    action: () async => await xrpc.procedure<String>(
-      xrpc.NSID(methodId),
-      service: service,
-      headers: {'Authorization': 'Bearer ${await accessJwt}'},
-      body: await body,
-    ),
-    pretty: globalResults!['pretty'],
-    showStatus: globalResults!['status'],
-    showRequest: globalResults!['request'],
-  ).run();
+  Future<void> run() async {
+    final jwt = await accessJwt;
+    return await Bsky(
+      logger,
+      action: () async => await xrpc.procedure<String>(
+        xrpc.NSID(methodId),
+        service: service,
+        headers: jwt != null ? {'Authorization': 'Bearer $jwt'} : null,
+        body: await body,
+        postClient: postClient,
+      ),
+      pretty: globalResults!['pretty'],
+      showStatus: globalResults!['status'],
+      showRequest: globalResults!['request'],
+    ).run();
+  }
 }

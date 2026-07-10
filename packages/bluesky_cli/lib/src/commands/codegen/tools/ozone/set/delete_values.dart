@@ -37,7 +37,7 @@ final class DeleteValuesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-set delete-values [name] [values]";
+      "bsky tools-ozone-set delete-values --name=<value> [--values=<value>...]";
 
   @override
   String get methodId => "tools.ozone.set.deleteValues";

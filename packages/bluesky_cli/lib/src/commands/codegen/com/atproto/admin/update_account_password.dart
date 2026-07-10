@@ -30,7 +30,7 @@ final class UpdateAccountPasswordCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin update-account-password [did] [password]";
+      "bsky com-atproto-admin update-account-password --did=<value> --password=<value>";
 
   @override
   String get methodId => "com.atproto.admin.updateAccountPassword";

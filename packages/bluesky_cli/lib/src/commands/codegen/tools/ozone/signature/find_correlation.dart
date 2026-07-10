@@ -28,7 +28,7 @@ final class FindCorrelationCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-signature find-correlation [dids]";
+      "bsky tools-ozone-signature find-correlation [--dids=<value>...]";
 
   @override
   String get methodId => "tools.ozone.signature.findCorrelation";

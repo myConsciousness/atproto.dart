@@ -7,6 +7,9 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import '../../../../procedure_command.dart';
 
@@ -27,7 +30,7 @@ final class ApplyWritesCommand extends ProcedureCommand {
         help:
             r"Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons.",
       )
-      ..addMultiOption("writes")
+      ..addMultiOption("writes", splitCommas: false)
       ..addOption(
         "swapCommit",
         help:
@@ -44,7 +47,7 @@ final class ApplyWritesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-repo apply-writes [repo] [validate] [writes] [swapCommit]";
+      "bsky com-atproto-repo apply-writes --repo=<value> [--validate] [--writes=<value>...] [--swapCommit=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.applyWrites";
@@ -52,9 +55,11 @@ final class ApplyWritesCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "repo": argResults!["repo"],
-    if (argResults!["validate"] != null) "validate": argResults!["validate"],
-    "writes": argResults!["writes"],
-    if (argResults!["swapCommit"] != null)
+    if (argResults!.wasParsed("validate")) "validate": argResults!["validate"],
+    "writes": (argResults!["writes"] as List<String>)
+        .map((e) => jsonDecode(e))
+        .toList(),
+    if (argResults!.wasParsed("swapCommit"))
       "swapCommit": argResults!["swapCommit"],
   };
 }

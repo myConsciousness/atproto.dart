@@ -26,7 +26,8 @@ final class GetRecordsCommand extends QueryCommand {
   final String description = r"Get details about some records.";
 
   @override
-  final String invocation = "bsky tools-ozone-moderation get-records [uris]";
+  final String invocation =
+      "bsky tools-ozone-moderation get-records [--uris=<value>...]";
 
   @override
   String get methodId => "tools.ozone.moderation.getRecords";

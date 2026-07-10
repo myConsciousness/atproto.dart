@@ -39,7 +39,7 @@ final class QueryLabelsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-label query-labels [uriPatterns] [sources] [limit] [cursor]";
+      "bsky com-atproto-label query-labels [--uriPatterns=<value>...] [--sources=<value>...] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "com.atproto.label.queryLabels";
@@ -47,8 +47,8 @@ final class QueryLabelsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "uriPatterns": argResults!["uriPatterns"],
-    if (argResults!["sources"] != null) "sources": argResults!["sources"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("sources")) "sources": argResults!["sources"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

@@ -27,7 +27,7 @@ final class MuteConvoCommand extends ProcedureCommand {
       r"Mutes a conversation, preventing notifications related to it.";
 
   @override
-  final String invocation = "bsky chat-bsky-convo mute-convo [convoId]";
+  final String invocation = "bsky chat-bsky-convo mute-convo --convoId=<value>";
 
   @override
   String get methodId => "chat.bsky.convo.muteConvo";

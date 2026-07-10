@@ -15,7 +15,7 @@ import '../../../../procedure_command.dart';
 // **************************************************************************
 
 final class RemoveDataCommand extends ProcedureCommand {
-  RemoveDataCommand() {}
+  RemoveDataCommand();
 
   @override
   final String name = "remove-data";
@@ -31,5 +31,5 @@ final class RemoveDataCommand extends ProcedureCommand {
   String get methodId => "app.bsky.contact.removeData";
 
   @override
-  Map<String, dynamic>? get body => {};
+  Map<String, dynamic>? get body => null;
 }

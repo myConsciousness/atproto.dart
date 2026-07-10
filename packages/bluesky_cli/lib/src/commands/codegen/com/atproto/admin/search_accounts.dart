@@ -31,15 +31,15 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin search-accounts [email] [cursor] [limit]";
+      "bsky com-atproto-admin search-accounts [--email=<value>] [--cursor=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "com.atproto.admin.searchAccounts";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["email"] != null) "email": argResults!["email"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("email")) "email": argResults!["email"],
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

@@ -28,7 +28,7 @@ final class UpdateJoinRequestsReadCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group update-join-requests-read [convoId]";
+      "bsky chat-bsky-group update-join-requests-read --convoId=<value>";
 
   @override
   String get methodId => "chat.bsky.group.updateJoinRequestsRead";

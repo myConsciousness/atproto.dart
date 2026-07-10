@@ -27,7 +27,8 @@ final class UpdateHandleCommand extends ProcedureCommand {
       r"Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.";
 
   @override
-  final String invocation = "bsky com-atproto-identity update-handle [handle]";
+  final String invocation =
+      "bsky com-atproto-identity update-handle --handle=<value>";
 
   @override
   String get methodId => "com.atproto.identity.updateHandle";

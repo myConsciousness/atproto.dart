@@ -29,14 +29,15 @@ final class ListHostsCommand extends QueryCommand {
       r"Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.";
 
   @override
-  final String invocation = "bsky com-atproto-sync list-hosts [limit] [cursor]";
+  final String invocation =
+      "bsky com-atproto-sync list-hosts [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "com.atproto.sync.listHosts";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

@@ -32,7 +32,7 @@ final class StartPhoneVerificationCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-contact start-phone-verification [phone]";
+      "bsky app-bsky-contact start-phone-verification --phone=<value>";
 
   @override
   String get methodId => "app.bsky.contact.startPhoneVerification";

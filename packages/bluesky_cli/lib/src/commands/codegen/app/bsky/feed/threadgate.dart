@@ -9,6 +9,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // Package imports:
 import 'package:args/command_runner.dart';
@@ -52,10 +53,11 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
         "allow",
         help:
             r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
+        splitCommas: false,
       )
       ..addOption("createdAt", mandatory: true)
       ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
-      ..addOption("rkey");
+      ..addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -67,20 +69,24 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed threadgate create [post] [allow] [createdAt] [hiddenReplies] [rkey]";
+      "bsky app-bsky-feed threadgate create --post=<value> [--allow=<value>...] --createdAt=<value> [--hiddenReplies=<value>...] [--rkey=<value>]";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String? get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.feed.threadgate";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.feed.threadgate",
     "post": argResults!["post"],
-    if (argResults!["allow"] != null) "allow": argResults!["allow"],
+    if (argResults!.wasParsed("allow"))
+      "allow": (argResults!["allow"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
     "createdAt": argResults!["createdAt"],
-    if (argResults!["hiddenReplies"] != null)
+    if (argResults!.wasParsed("hiddenReplies"))
       "hiddenReplies": argResults!["hiddenReplies"],
   };
 }
@@ -97,10 +103,11 @@ final class _PutThreadgateCommand extends PutRecordCommand {
         "allow",
         help:
             r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
+        splitCommas: false,
       )
       ..addOption("createdAt", mandatory: true)
       ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
-      ..addOption("rkey");
+      ..addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -111,27 +118,31 @@ final class _PutThreadgateCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed threadgate put [post] [allow] [createdAt] [hiddenReplies] [rkey]";
+      "bsky app-bsky-feed threadgate put --post=<value> [--allow=<value>...] --createdAt=<value> [--hiddenReplies=<value>...] --rkey=<value>";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String? get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.feed.threadgate";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.feed.threadgate",
     "post": argResults!["post"],
-    if (argResults!["allow"] != null) "allow": argResults!["allow"],
+    if (argResults!.wasParsed("allow"))
+      "allow": (argResults!["allow"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
     "createdAt": argResults!["createdAt"],
-    if (argResults!["hiddenReplies"] != null)
+    if (argResults!.wasParsed("hiddenReplies"))
       "hiddenReplies": argResults!["hiddenReplies"],
   };
 }
 
 final class _DeleteThreadgateCommand extends DeleteRecordCommand {
   _DeleteThreadgateCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser..addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -141,10 +152,11 @@ final class _DeleteThreadgateCommand extends DeleteRecordCommand {
   final String description = r"Deletes a record for app.bsky.feed.threadgate.";
 
   @override
-  final String invocation = "bsky app-bsky-feed threadgate delete [rkey]";
+  final String invocation =
+      "bsky app-bsky-feed threadgate delete --rkey=<value>";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.feed.threadgate";
@@ -153,7 +165,11 @@ final class _DeleteThreadgateCommand extends DeleteRecordCommand {
 final class _GetThreadgateCommand extends QueryCommand {
   _GetThreadgateCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption("rkey", help: r"The record key.", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -164,15 +180,16 @@ final class _GetThreadgateCommand extends QueryCommand {
   final String description = r"Gets a record for app.bsky.feed.threadgate.";
 
   @override
-  final String invocation = "bsky app-bsky-feed threadgate get [rkey] [cid]";
+  final String invocation =
+      "bsky app-bsky-feed threadgate get --rkey=<value> [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.feed.threadgate",
     'rkey': argResults!['rkey'],
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
@@ -181,6 +198,10 @@ final class _GetThreadgateCommand extends QueryCommand {
 final class _ListThreadgateCommand extends QueryCommand {
   _ListThreadgateCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -194,16 +215,16 @@ final class _ListThreadgateCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed threadgate list [limit] [cursor] [reverse]";
+      "bsky app-bsky-feed threadgate list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.feed.threadgate",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

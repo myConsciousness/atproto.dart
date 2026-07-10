@@ -33,15 +33,15 @@ final class PutPreferencesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-notification put-preferences [chat] [chatRequest]";
+      "bsky chat-bsky-notification put-preferences [--chat=<value>] [--chatRequest=<value>]";
 
   @override
   String get methodId => "chat.bsky.notification.putPreferences";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["chat"] != null) "chat": jsonDecode(argResults!["chat"]),
-    if (argResults!["chatRequest"] != null)
+    if (argResults!.wasParsed("chat")) "chat": jsonDecode(argResults!["chat"]),
+    if (argResults!.wasParsed("chatRequest"))
       "chatRequest": jsonDecode(argResults!["chatRequest"]),
   };
 }

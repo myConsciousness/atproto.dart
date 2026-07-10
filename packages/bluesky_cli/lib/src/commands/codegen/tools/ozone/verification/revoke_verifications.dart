@@ -37,7 +37,7 @@ final class RevokeVerificationsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-verification revoke-verifications [uris] [revokeReason]";
+      "bsky tools-ozone-verification revoke-verifications [--uris=<value>...] [--revokeReason=<value>]";
 
   @override
   String get methodId => "tools.ozone.verification.revokeVerifications";
@@ -45,7 +45,7 @@ final class RevokeVerificationsCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "uris": argResults!["uris"],
-    if (argResults!["revokeReason"] != null)
+    if (argResults!.wasParsed("revokeReason"))
       "revokeReason": argResults!["revokeReason"],
   };
 }

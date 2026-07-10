@@ -26,7 +26,8 @@ final class GetAccountInfosCommand extends QueryCommand {
   final String description = r"Get details about some accounts.";
 
   @override
-  final String invocation = "bsky com-atproto-admin get-account-infos [dids]";
+  final String invocation =
+      "bsky com-atproto-admin get-account-infos [--dids=<value>...]";
 
   @override
   String get methodId => "com.atproto.admin.getAccountInfos";

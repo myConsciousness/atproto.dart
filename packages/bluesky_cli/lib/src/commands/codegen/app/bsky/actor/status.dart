@@ -57,8 +57,7 @@ final class _CreateStatusCommand extends CreateRecordCommand {
         help:
             r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey");
+      ..addOption("createdAt", mandatory: true);
   }
 
   @override
@@ -69,20 +68,22 @@ final class _CreateStatusCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor status create [status] [embed] [durationMinutes] [createdAt] [rkey]";
+      "bsky app-bsky-actor status create --status=<value> [--embed=<value>] [--durationMinutes=<value>] --createdAt=<value>";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "app.bsky.actor.status";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.actor.status",
     "status": argResults!["status"],
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["durationMinutes"] != null)
-      "durationMinutes": argResults!["durationMinutes"],
+    if (argResults!.wasParsed("embed"))
+      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("durationMinutes"))
+      "durationMinutes": int.parse(argResults!["durationMinutes"]),
     "createdAt": argResults!["createdAt"],
   };
 }
@@ -104,8 +105,7 @@ final class _PutStatusCommand extends PutRecordCommand {
         help:
             r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey");
+      ..addOption("createdAt", mandatory: true);
   }
 
   @override
@@ -116,28 +116,28 @@ final class _PutStatusCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor status put [status] [embed] [durationMinutes] [createdAt] [rkey]";
+      "bsky app-bsky-actor status put --status=<value> [--embed=<value>] [--durationMinutes=<value>] --createdAt=<value>";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "app.bsky.actor.status";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.actor.status",
     "status": argResults!["status"],
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["durationMinutes"] != null)
-      "durationMinutes": argResults!["durationMinutes"],
+    if (argResults!.wasParsed("embed"))
+      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("durationMinutes"))
+      "durationMinutes": int.parse(argResults!["durationMinutes"]),
     "createdAt": argResults!["createdAt"],
   };
 }
 
 final class _DeleteStatusCommand extends DeleteRecordCommand {
-  _DeleteStatusCommand() {
-    argParser..addOption("rkey", mandatory: true);
-  }
+  _DeleteStatusCommand() {}
 
   @override
   final String name = "delete";
@@ -146,7 +146,7 @@ final class _DeleteStatusCommand extends DeleteRecordCommand {
   final String description = r"Deletes a record for app.bsky.actor.status.";
 
   @override
-  final String invocation = "bsky app-bsky-actor status delete [rkey]";
+  final String invocation = "bsky app-bsky-actor status delete";
 
   @override
   String get rkey => "self";
@@ -158,7 +158,10 @@ final class _DeleteStatusCommand extends DeleteRecordCommand {
 final class _GetStatusCommand extends QueryCommand {
   _GetStatusCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -169,16 +172,17 @@ final class _GetStatusCommand extends QueryCommand {
   final String description = r"Gets a record for app.bsky.actor.status.";
 
   @override
-  final String invocation = "bsky app-bsky-actor status get [rkey] [cid]";
+  final String invocation =
+      "bsky app-bsky-actor status get [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.actor.status",
+    'rkey': 'self',
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
 }
@@ -186,6 +190,10 @@ final class _GetStatusCommand extends QueryCommand {
 final class _ListStatusCommand extends QueryCommand {
   _ListStatusCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -199,16 +207,16 @@ final class _ListStatusCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor status list [limit] [cursor] [reverse]";
+      "bsky app-bsky-actor status list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.actor.status",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

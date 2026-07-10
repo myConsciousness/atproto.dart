@@ -31,11 +31,11 @@ final class GetReportCommand extends QueryCommand {
       r"Get details about a single moderation report by ID.";
 
   @override
-  final String invocation = "bsky tools-ozone-report get-report [id]";
+  final String invocation = "bsky tools-ozone-report get-report --id=<value>";
 
   @override
   String get methodId => "tools.ozone.report.getReport";
 
   @override
-  Map<String, dynamic>? get parameters => {"id": argResults!["id"]};
+  Map<String, dynamic>? get parameters => {"id": int.parse(argResults!["id"])};
 }

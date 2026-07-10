@@ -117,46 +117,48 @@ final class QueryEventsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation query-events [types] [createdBy] [sortDirection] [createdAfter] [createdBefore] [subject] [collections] [subjectType] [includeAllUserRecords] [limit] [hasComment] [comment] [addedLabels] [removedLabels] [addedTags] [removedTags] [reportTypes] [policies] [modTool] [batchId] [ageAssuranceState] [withStrike] [cursor]";
+      "bsky tools-ozone-moderation query-events [--types=<value>...] [--createdBy=<value>] [--sortDirection=<value>] [--createdAfter=<value>] [--createdBefore=<value>] [--subject=<value>] [--collections=<value>...] [--subjectType=<value>] [--includeAllUserRecords] [--limit=<value>] [--hasComment] [--comment=<value>] [--addedLabels=<value>...] [--removedLabels=<value>...] [--addedTags=<value>...] [--removedTags=<value>...] [--reportTypes=<value>...] [--policies=<value>...] [--modTool=<value>...] [--batchId=<value>] [--ageAssuranceState=<value>] [--withStrike] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.moderation.queryEvents";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["types"] != null) "types": argResults!["types"],
-    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
+    if (argResults!.wasParsed("types")) "types": argResults!["types"],
+    if (argResults!.wasParsed("createdBy"))
+      "createdBy": argResults!["createdBy"],
     "sortDirection": argResults!["sortDirection"],
-    if (argResults!["createdAfter"] != null)
+    if (argResults!.wasParsed("createdAfter"))
       "createdAfter": argResults!["createdAfter"],
-    if (argResults!["createdBefore"] != null)
+    if (argResults!.wasParsed("createdBefore"))
       "createdBefore": argResults!["createdBefore"],
-    if (argResults!["subject"] != null) "subject": argResults!["subject"],
-    if (argResults!["collections"] != null)
+    if (argResults!.wasParsed("subject")) "subject": argResults!["subject"],
+    if (argResults!.wasParsed("collections"))
       "collections": argResults!["collections"],
-    if (argResults!["subjectType"] != null)
+    if (argResults!.wasParsed("subjectType"))
       "subjectType": argResults!["subjectType"],
     "includeAllUserRecords": argResults!["includeAllUserRecords"],
-    "limit": argResults!["limit"],
-    if (argResults!["hasComment"] != null)
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("hasComment"))
       "hasComment": argResults!["hasComment"],
-    if (argResults!["comment"] != null) "comment": argResults!["comment"],
-    if (argResults!["addedLabels"] != null)
+    if (argResults!.wasParsed("comment")) "comment": argResults!["comment"],
+    if (argResults!.wasParsed("addedLabels"))
       "addedLabels": argResults!["addedLabels"],
-    if (argResults!["removedLabels"] != null)
+    if (argResults!.wasParsed("removedLabels"))
       "removedLabels": argResults!["removedLabels"],
-    if (argResults!["addedTags"] != null) "addedTags": argResults!["addedTags"],
-    if (argResults!["removedTags"] != null)
+    if (argResults!.wasParsed("addedTags"))
+      "addedTags": argResults!["addedTags"],
+    if (argResults!.wasParsed("removedTags"))
       "removedTags": argResults!["removedTags"],
-    if (argResults!["reportTypes"] != null)
+    if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
-    if (argResults!["policies"] != null) "policies": argResults!["policies"],
-    if (argResults!["modTool"] != null) "modTool": argResults!["modTool"],
-    if (argResults!["batchId"] != null) "batchId": argResults!["batchId"],
-    if (argResults!["ageAssuranceState"] != null)
+    if (argResults!.wasParsed("policies")) "policies": argResults!["policies"],
+    if (argResults!.wasParsed("modTool")) "modTool": argResults!["modTool"],
+    if (argResults!.wasParsed("batchId")) "batchId": argResults!["batchId"],
+    if (argResults!.wasParsed("ageAssuranceState"))
       "ageAssuranceState": argResults!["ageAssuranceState"],
-    if (argResults!["withStrike"] != null)
+    if (argResults!.wasParsed("withStrike"))
       "withStrike": argResults!["withStrike"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

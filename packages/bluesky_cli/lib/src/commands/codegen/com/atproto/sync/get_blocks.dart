@@ -29,7 +29,8 @@ final class GetBlocksCommand extends QueryCommand {
       r"Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.";
 
   @override
-  final String invocation = "bsky com-atproto-sync get-blocks [did] [cids]";
+  final String invocation =
+      "bsky com-atproto-sync get-blocks --did=<value> [--cids=<value>...]";
 
   @override
   String get methodId => "com.atproto.sync.getBlocks";

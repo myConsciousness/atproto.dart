@@ -42,14 +42,12 @@ final class DeclarationCommand extends Command<void> {
 
 final class _CreateDeclarationCommand extends CreateRecordCommand {
   _CreateDeclarationCommand() {
-    argParser
-      ..addOption(
-        "allowSubscriptions",
-        help:
-            r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
-        mandatory: true,
-      )
-      ..addOption("rkey");
+    argParser..addOption(
+      "allowSubscriptions",
+      help:
+          r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -61,30 +59,29 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification declaration create [allowSubscriptions] [rkey]";
+      "bsky app-bsky-notification declaration create --allowSubscriptions=<value>";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "app.bsky.notification.declaration";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.notification.declaration",
     "allowSubscriptions": argResults!["allowSubscriptions"],
   };
 }
 
 final class _PutDeclarationCommand extends PutRecordCommand {
   _PutDeclarationCommand() {
-    argParser
-      ..addOption(
-        "allowSubscriptions",
-        help:
-            r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
-        mandatory: true,
-      )
-      ..addOption("rkey");
+    argParser..addOption(
+      "allowSubscriptions",
+      help:
+          r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
+      mandatory: true,
+    );
   }
 
   @override
@@ -96,24 +93,23 @@ final class _PutDeclarationCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification declaration put [allowSubscriptions] [rkey]";
+      "bsky app-bsky-notification declaration put --allowSubscriptions=<value>";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "app.bsky.notification.declaration";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.notification.declaration",
     "allowSubscriptions": argResults!["allowSubscriptions"],
   };
 }
 
 final class _DeleteDeclarationCommand extends DeleteRecordCommand {
-  _DeleteDeclarationCommand() {
-    argParser..addOption("rkey", mandatory: true);
-  }
+  _DeleteDeclarationCommand() {}
 
   @override
   final String name = "delete";
@@ -123,8 +119,7 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
       r"Deletes a record for app.bsky.notification.declaration.";
 
   @override
-  final String invocation =
-      "bsky app-bsky-notification declaration delete [rkey]";
+  final String invocation = "bsky app-bsky-notification declaration delete";
 
   @override
   String get rkey => "self";
@@ -136,7 +131,10 @@ final class _DeleteDeclarationCommand extends DeleteRecordCommand {
 final class _GetDeclarationCommand extends QueryCommand {
   _GetDeclarationCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -149,16 +147,16 @@ final class _GetDeclarationCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification declaration get [rkey] [cid]";
+      "bsky app-bsky-notification declaration get [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.notification.declaration",
+    'rkey': 'self',
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
 }
@@ -166,6 +164,10 @@ final class _GetDeclarationCommand extends QueryCommand {
 final class _ListDeclarationCommand extends QueryCommand {
   _ListDeclarationCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -180,16 +182,16 @@ final class _ListDeclarationCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification declaration list [limit] [cursor] [reverse]";
+      "bsky app-bsky-notification declaration list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.notification.declaration",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -39,7 +39,7 @@ final class GetRepostedByCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-reposted-by [uri] [cid] [limit] [cursor]";
+      "bsky app-bsky-feed get-reposted-by --uri=<value> [--cid=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getRepostedBy";
@@ -47,8 +47,8 @@ final class GetRepostedByCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "uri": argResults!["uri"],
-    if (argResults!["cid"] != null) "cid": argResults!["cid"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("cid")) "cid": argResults!["cid"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

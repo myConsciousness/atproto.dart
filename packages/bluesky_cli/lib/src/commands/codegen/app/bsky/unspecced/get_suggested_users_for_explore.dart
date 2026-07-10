@@ -33,14 +33,14 @@ final class GetSuggestedUsersForExploreCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-suggested-users-for-explore [category] [limit]";
+      "bsky app-bsky-unspecced get-suggested-users-for-explore [--category=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getSuggestedUsersForExplore";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["category"] != null) "category": argResults!["category"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("category")) "category": argResults!["category"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

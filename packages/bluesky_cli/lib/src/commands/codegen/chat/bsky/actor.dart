@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'actor/declaration.dart';
+import 'actor/delete_account.dart';
 import 'actor/export_account_data.dart';
 import 'actor/get_status.dart';
 
@@ -22,6 +23,7 @@ import 'actor/get_status.dart';
 final class ChatBskyActorCommand extends Command<void> {
   ChatBskyActorCommand() {
     addSubcommand(DeclarationCommand());
+    addSubcommand(DeleteAccountCommand());
     addSubcommand(ExportAccountDataCommand());
     addSubcommand(GetStatusCommand());
   }

@@ -31,7 +31,7 @@ final class UpdateMemberCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-team update-member [did] [disabled] [role]";
+      "bsky tools-ozone-team update-member --did=<value> [--disabled] [--role=<value>]";
 
   @override
   String get methodId => "tools.ozone.team.updateMember";
@@ -39,7 +39,7 @@ final class UpdateMemberCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "did": argResults!["did"],
-    if (argResults!["disabled"] != null) "disabled": argResults!["disabled"],
-    if (argResults!["role"] != null) "role": argResults!["role"],
+    if (argResults!.wasParsed("disabled")) "disabled": argResults!["disabled"],
+    if (argResults!.wasParsed("role")) "role": argResults!["role"],
   };
 }

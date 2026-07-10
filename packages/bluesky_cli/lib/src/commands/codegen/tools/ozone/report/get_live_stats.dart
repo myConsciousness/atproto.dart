@@ -34,17 +34,18 @@ final class GetLiveStatsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report get-live-stats [queueId] [moderatorDid] [reportTypes]";
+      "bsky tools-ozone-report get-live-stats [--queueId=<value>] [--moderatorDid=<value>] [--reportTypes=<value>...]";
 
   @override
   String get methodId => "tools.ozone.report.getLiveStats";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["queueId"] != null) "queueId": argResults!["queueId"],
-    if (argResults!["moderatorDid"] != null)
+    if (argResults!.wasParsed("queueId"))
+      "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("moderatorDid"))
       "moderatorDid": argResults!["moderatorDid"],
-    if (argResults!["reportTypes"] != null)
+    if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
   };
 }

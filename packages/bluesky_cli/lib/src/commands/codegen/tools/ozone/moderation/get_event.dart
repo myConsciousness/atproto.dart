@@ -26,11 +26,12 @@ final class GetEventCommand extends QueryCommand {
   final String description = r"Get details about a moderation event.";
 
   @override
-  final String invocation = "bsky tools-ozone-moderation get-event [id]";
+  final String invocation =
+      "bsky tools-ozone-moderation get-event --id=<value>";
 
   @override
   String get methodId => "tools.ozone.moderation.getEvent";
 
   @override
-  Map<String, dynamic>? get parameters => {"id": argResults!["id"]};
+  Map<String, dynamic>? get parameters => {"id": int.parse(argResults!["id"])};
 }

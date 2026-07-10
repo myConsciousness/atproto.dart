@@ -33,7 +33,7 @@ import 'feed/post.dart';
 import 'feed/postgate.dart';
 import 'feed/repost.dart';
 import 'feed/search_posts.dart';
-import 'feed/search_posts_v_2.dart';
+import 'feed/search_posts_v2.dart';
 import 'feed/send_interactions.dart';
 import 'feed/threadgate.dart';
 

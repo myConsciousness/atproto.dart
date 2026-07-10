@@ -26,7 +26,7 @@ final class UnmuteThreadCommand extends ProcedureCommand {
   final String description = r"Unmutes the specified thread. Requires auth.";
 
   @override
-  final String invocation = "bsky app-bsky-graph unmute-thread [root]";
+  final String invocation = "bsky app-bsky-graph unmute-thread --root=<value>";
 
   @override
   String get methodId => "app.bsky.graph.unmuteThread";

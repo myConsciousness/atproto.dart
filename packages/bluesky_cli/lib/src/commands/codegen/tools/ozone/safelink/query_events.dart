@@ -36,17 +36,17 @@ final class QueryEventsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-safelink query-events [cursor] [limit] [urls] [patternType] [sortDirection]";
+      "bsky tools-ozone-safelink query-events [--cursor=<value>] [--limit=<value>] [--urls=<value>...] [--patternType=<value>] [--sortDirection=<value>]";
 
   @override
   String get methodId => "tools.ozone.safelink.queryEvents";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
-    if (argResults!["urls"] != null) "urls": argResults!["urls"],
-    if (argResults!["patternType"] != null)
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("urls")) "urls": argResults!["urls"],
+    if (argResults!.wasParsed("patternType"))
       "patternType": argResults!["patternType"],
     "sortDirection": argResults!["sortDirection"],
   };

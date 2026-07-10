@@ -30,14 +30,14 @@ final class ListMissingBlobsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-repo list-missing-blobs [limit] [cursor]";
+      "bsky com-atproto-repo list-missing-blobs [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.listMissingBlobs";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

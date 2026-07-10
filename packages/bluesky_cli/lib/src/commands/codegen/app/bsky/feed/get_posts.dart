@@ -30,7 +30,7 @@ final class GetPostsCommand extends QueryCommand {
       r"Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.";
 
   @override
-  final String invocation = "bsky app-bsky-feed get-posts [uris]";
+  final String invocation = "bsky app-bsky-feed get-posts [--uris=<value>...]";
 
   @override
   String get methodId => "app.bsky.feed.getPosts";

@@ -40,7 +40,7 @@ final class GetListsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-lists [actor] [limit] [cursor] [purposes]";
+      "bsky app-bsky-graph get-lists --actor=<value> [--limit=<value>] [--cursor=<value>] [--purposes=<value>...]";
 
   @override
   String get methodId => "app.bsky.graph.getLists";
@@ -48,8 +48,8 @@ final class GetListsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "actor": argResults!["actor"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["purposes"] != null) "purposes": argResults!["purposes"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("purposes")) "purposes": argResults!["purposes"],
   };
 }

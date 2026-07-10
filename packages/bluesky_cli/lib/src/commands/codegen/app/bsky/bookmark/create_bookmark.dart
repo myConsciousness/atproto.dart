@@ -30,7 +30,7 @@ final class CreateBookmarkCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-bookmark create-bookmark [uri] [cid]";
+      "bsky app-bsky-bookmark create-bookmark --uri=<value> --cid=<value>";
 
   @override
   String get methodId => "app.bsky.bookmark.createBookmark";

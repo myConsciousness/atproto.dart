@@ -7,6 +7,9 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import '../../../../procedure_command.dart';
 
@@ -37,20 +40,21 @@ final class SignPlcOperationCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-identity sign-plc-operation [token] [rotationKeys] [alsoKnownAs] [verificationMethods] [services]";
+      "bsky com-atproto-identity sign-plc-operation [--token=<value>] [--rotationKeys=<value>...] [--alsoKnownAs=<value>...] [--verificationMethods=<value>] [--services=<value>]";
 
   @override
   String get methodId => "com.atproto.identity.signPlcOperation";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["token"] != null) "token": argResults!["token"],
-    if (argResults!["rotationKeys"] != null)
+    if (argResults!.wasParsed("token")) "token": argResults!["token"],
+    if (argResults!.wasParsed("rotationKeys"))
       "rotationKeys": argResults!["rotationKeys"],
-    if (argResults!["alsoKnownAs"] != null)
+    if (argResults!.wasParsed("alsoKnownAs"))
       "alsoKnownAs": argResults!["alsoKnownAs"],
-    if (argResults!["verificationMethods"] != null)
-      "verificationMethods": argResults!["verificationMethods"],
-    if (argResults!["services"] != null) "services": argResults!["services"],
+    if (argResults!.wasParsed("verificationMethods"))
+      "verificationMethods": jsonDecode(argResults!["verificationMethods"]),
+    if (argResults!.wasParsed("services"))
+      "services": jsonDecode(argResults!["services"]),
   };
 }

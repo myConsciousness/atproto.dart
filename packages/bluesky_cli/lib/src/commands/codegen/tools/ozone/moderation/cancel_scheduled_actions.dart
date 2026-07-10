@@ -36,7 +36,7 @@ final class CancelScheduledActionsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation cancel-scheduled-actions [subjects] [comment]";
+      "bsky tools-ozone-moderation cancel-scheduled-actions [--subjects=<value>...] [--comment=<value>]";
 
   @override
   String get methodId => "tools.ozone.moderation.cancelScheduledActions";
@@ -44,6 +44,6 @@ final class CancelScheduledActionsCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "subjects": argResults!["subjects"],
-    if (argResults!["comment"] != null) "comment": argResults!["comment"],
+    if (argResults!.wasParsed("comment")) "comment": argResults!["comment"],
   };
 }

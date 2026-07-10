@@ -31,15 +31,15 @@ final class GetPopularFeedGeneratorsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-popular-feed-generators [limit] [cursor] [query]";
+      "bsky app-bsky-unspecced get-popular-feed-generators [--limit=<value>] [--cursor=<value>] [--query=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getPopularFeedGenerators";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["query"] != null) "query": argResults!["query"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("query")) "query": argResults!["query"],
   };
 }

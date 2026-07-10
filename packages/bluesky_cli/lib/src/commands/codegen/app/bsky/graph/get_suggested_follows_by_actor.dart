@@ -28,7 +28,7 @@ final class GetSuggestedFollowsByActorCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-suggested-follows-by-actor [actor]";
+      "bsky app-bsky-graph get-suggested-follows-by-actor --actor=<value>";
 
   @override
   String get methodId => "app.bsky.graph.getSuggestedFollowsByActor";

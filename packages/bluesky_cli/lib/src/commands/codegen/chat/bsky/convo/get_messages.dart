@@ -30,7 +30,7 @@ final class GetMessagesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo get-messages [convoId] [limit] [cursor]";
+      "bsky chat-bsky-convo get-messages --convoId=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "chat.bsky.convo.getMessages";
@@ -38,7 +38,7 @@ final class GetMessagesCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "convoId": argResults!["convoId"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

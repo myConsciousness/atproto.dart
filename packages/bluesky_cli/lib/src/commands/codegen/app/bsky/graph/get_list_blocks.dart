@@ -30,14 +30,14 @@ final class GetListBlocksCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-list-blocks [limit] [cursor]";
+      "bsky app-bsky-graph get-list-blocks [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.graph.getListBlocks";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

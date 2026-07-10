@@ -44,7 +44,7 @@ final class InitAgeAssuranceCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced init-age-assurance [email] [language] [countryCode]";
+      "bsky app-bsky-unspecced init-age-assurance --email=<value> --language=<value> --countryCode=<value>";
 
   @override
   String get methodId => "app.bsky.unspecced.initAgeAssurance";

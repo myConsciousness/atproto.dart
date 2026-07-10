@@ -30,7 +30,8 @@ final class PutPreferencesCommand extends ProcedureCommand {
       r"Set the private preferences attached to the account.";
 
   @override
-  final String invocation = "bsky app-bsky-actor put-preferences [preferences]";
+  final String invocation =
+      "bsky app-bsky-actor put-preferences --preferences=<value>";
 
   @override
   String get methodId => "app.bsky.actor.putPreferences";

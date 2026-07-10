@@ -13,6 +13,7 @@ import 'package:args/command_runner.dart';
 // Project imports:
 import 'video/get_job_status.dart';
 import 'video/get_upload_limits.dart';
+import 'video/upload_video.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -22,6 +23,7 @@ final class AppBskyVideoCommand extends Command<void> {
   AppBskyVideoCommand() {
     addSubcommand(GetJobStatusCommand());
     addSubcommand(GetUploadLimitsCommand());
+    addSubcommand(UploadVideoCommand());
   }
 
   @override

@@ -31,7 +31,7 @@ final class GetProfileCommand extends QueryCommand {
       r"Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.";
 
   @override
-  final String invocation = "bsky app-bsky-actor get-profile [actor]";
+  final String invocation = "bsky app-bsky-actor get-profile --actor=<value>";
 
   @override
   String get methodId => "app.bsky.actor.getProfile";

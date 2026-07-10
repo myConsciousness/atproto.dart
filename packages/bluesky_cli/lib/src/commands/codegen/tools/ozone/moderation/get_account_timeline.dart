@@ -28,7 +28,7 @@ final class GetAccountTimelineCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation get-account-timeline [did]";
+      "bsky tools-ozone-moderation get-account-timeline --did=<value>";
 
   @override
   String get methodId => "tools.ozone.moderation.getAccountTimeline";

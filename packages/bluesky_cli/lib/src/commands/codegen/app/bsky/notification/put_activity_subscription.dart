@@ -33,7 +33,7 @@ final class PutActivitySubscriptionCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification put-activity-subscription [subject] [activitySubscription]";
+      "bsky app-bsky-notification put-activity-subscription --subject=<value> --activitySubscription=<value>";
 
   @override
   String get methodId => "app.bsky.notification.putActivitySubscription";

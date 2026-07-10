@@ -39,7 +39,7 @@ final class ImportContactsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-contact import-contacts [token] [contacts]";
+      "bsky app-bsky-contact import-contacts --token=<value> [--contacts=<value>...]";
 
   @override
   String get methodId => "app.bsky.contact.importContacts";

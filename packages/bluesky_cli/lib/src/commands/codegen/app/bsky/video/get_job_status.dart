@@ -26,7 +26,8 @@ final class GetJobStatusCommand extends QueryCommand {
   final String description = r"Get status details for a video processing job.";
 
   @override
-  final String invocation = "bsky app-bsky-video get-job-status [jobId]";
+  final String invocation =
+      "bsky app-bsky-video get-job-status --jobId=<value>";
 
   @override
   String get methodId => "app.bsky.video.getJobStatus";

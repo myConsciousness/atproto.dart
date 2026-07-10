@@ -27,13 +27,14 @@ final class ReserveSigningKeyCommand extends ProcedureCommand {
       r"Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.";
 
   @override
-  final String invocation = "bsky com-atproto-server reserve-signing-key [did]";
+  final String invocation =
+      "bsky com-atproto-server reserve-signing-key [--did=<value>]";
 
   @override
   String get methodId => "com.atproto.server.reserveSigningKey";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["did"] != null) "did": argResults!["did"],
+    if (argResults!.wasParsed("did")) "did": argResults!["did"],
   };
 }

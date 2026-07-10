@@ -42,7 +42,7 @@ final class CreateReportCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-moderation create-report [reasonType] [reason] [subject] [modTool]";
+      "bsky com-atproto-moderation create-report --reasonType=<value> [--reason=<value>] --subject=<value> [--modTool=<value>]";
 
   @override
   String get methodId => "com.atproto.moderation.createReport";
@@ -50,9 +50,9 @@ final class CreateReportCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "reasonType": jsonDecode(argResults!["reasonType"]),
-    if (argResults!["reason"] != null) "reason": argResults!["reason"],
+    if (argResults!.wasParsed("reason")) "reason": argResults!["reason"],
     "subject": jsonDecode(argResults!["subject"]),
-    if (argResults!["modTool"] != null)
+    if (argResults!.wasParsed("modTool"))
       "modTool": jsonDecode(argResults!["modTool"]),
   };
 }

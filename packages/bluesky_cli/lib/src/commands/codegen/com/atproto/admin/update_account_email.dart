@@ -34,7 +34,7 @@ final class UpdateAccountEmailCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin update-account-email [account] [email]";
+      "bsky com-atproto-admin update-account-email --account=<value> --email=<value>";
 
   @override
   String get methodId => "com.atproto.admin.updateAccountEmail";

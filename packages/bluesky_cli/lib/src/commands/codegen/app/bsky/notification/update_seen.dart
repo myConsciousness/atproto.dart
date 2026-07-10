@@ -27,7 +27,8 @@ final class UpdateSeenCommand extends ProcedureCommand {
       r"Notify server that the requesting account has seen notifications. Requires auth.";
 
   @override
-  final String invocation = "bsky app-bsky-notification update-seen [seenAt]";
+  final String invocation =
+      "bsky app-bsky-notification update-seen --seenAt=<value>";
 
   @override
   String get methodId => "app.bsky.notification.updateSeen";

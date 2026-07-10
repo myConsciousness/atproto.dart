@@ -43,7 +43,7 @@ final class RefreshStatsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report refresh-stats [startDate] [endDate] [queueIds]";
+      "bsky tools-ozone-report refresh-stats --startDate=<value> --endDate=<value> [--queueIds=<value>...]";
 
   @override
   String get methodId => "tools.ozone.report.refreshStats";
@@ -52,6 +52,9 @@ final class RefreshStatsCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "startDate": argResults!["startDate"],
     "endDate": argResults!["endDate"],
-    if (argResults!["queueIds"] != null) "queueIds": argResults!["queueIds"],
+    if (argResults!.wasParsed("queueIds"))
+      "queueIds": (argResults!["queueIds"] as List<String>)
+          .map((e) => int.parse(e))
+          .toList(),
   };
 }

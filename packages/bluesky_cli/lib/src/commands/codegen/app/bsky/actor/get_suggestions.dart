@@ -30,14 +30,14 @@ final class GetSuggestionsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor get-suggestions [limit] [cursor]";
+      "bsky app-bsky-actor get-suggestions [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.actor.getSuggestions";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

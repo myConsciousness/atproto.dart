@@ -31,7 +31,8 @@ final class DereferenceScopeCommand extends QueryCommand {
       r"Allows finding the oauth permission scope from a reference";
 
   @override
-  final String invocation = "bsky com-atproto-temp dereference-scope [scope]";
+  final String invocation =
+      "bsky com-atproto-temp dereference-scope --scope=<value>";
 
   @override
   String get methodId => "com.atproto.temp.dereferenceScope";

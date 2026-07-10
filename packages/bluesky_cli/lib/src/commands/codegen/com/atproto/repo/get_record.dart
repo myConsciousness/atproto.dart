@@ -44,7 +44,7 @@ final class GetRecordCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-repo get-record [repo] [collection] [rkey] [cid]";
+      "bsky com-atproto-repo get-record --repo=<value> --collection=<value> --rkey=<value> [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
@@ -54,6 +54,6 @@ final class GetRecordCommand extends QueryCommand {
     "repo": argResults!["repo"],
     "collection": argResults!["collection"],
     "rkey": argResults!["rkey"],
-    if (argResults!["cid"] != null) "cid": argResults!["cid"],
+    if (argResults!.wasParsed("cid")) "cid": argResults!["cid"],
   };
 }

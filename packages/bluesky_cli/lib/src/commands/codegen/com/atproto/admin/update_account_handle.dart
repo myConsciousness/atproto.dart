@@ -30,7 +30,7 @@ final class UpdateAccountHandleCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin update-account-handle [did] [handle]";
+      "bsky com-atproto-admin update-account-handle --did=<value> --handle=<value>";
 
   @override
   String get methodId => "com.atproto.admin.updateAccountHandle";

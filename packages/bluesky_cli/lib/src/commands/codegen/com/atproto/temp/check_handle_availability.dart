@@ -44,7 +44,7 @@ final class CheckHandleAvailabilityCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-temp check-handle-availability [handle] [email] [birthDate]";
+      "bsky com-atproto-temp check-handle-availability --handle=<value> [--email=<value>] [--birthDate=<value>]";
 
   @override
   String get methodId => "com.atproto.temp.checkHandleAvailability";
@@ -52,7 +52,8 @@ final class CheckHandleAvailabilityCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "handle": argResults!["handle"],
-    if (argResults!["email"] != null) "email": argResults!["email"],
-    if (argResults!["birthDate"] != null) "birthDate": argResults!["birthDate"],
+    if (argResults!.wasParsed("email")) "email": argResults!["email"],
+    if (argResults!.wasParsed("birthDate"))
+      "birthDate": argResults!["birthDate"],
   };
 }

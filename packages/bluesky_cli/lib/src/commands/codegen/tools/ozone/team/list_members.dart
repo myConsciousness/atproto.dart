@@ -33,17 +33,17 @@ final class ListMembersCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-team list-members [q] [disabled] [roles] [limit] [cursor]";
+      "bsky tools-ozone-team list-members [--q=<value>] [--disabled] [--roles=<value>...] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.team.listMembers";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["q"] != null) "q": argResults!["q"],
-    if (argResults!["disabled"] != null) "disabled": argResults!["disabled"],
-    if (argResults!["roles"] != null) "roles": argResults!["roles"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("q")) "q": argResults!["q"],
+    if (argResults!.wasParsed("disabled")) "disabled": argResults!["disabled"],
+    if (argResults!.wasParsed("roles")) "roles": argResults!["roles"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

@@ -30,7 +30,7 @@ final class RemoveMembersCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group remove-members [convoId] [members]";
+      "bsky chat-bsky-group remove-members --convoId=<value> [--members=<value>...]";
 
   @override
   String get methodId => "chat.bsky.group.removeMembers";

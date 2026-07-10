@@ -31,15 +31,15 @@ final class SearchActorsTypeaheadCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor search-actors-typeahead [term] [q] [limit]";
+      "bsky app-bsky-actor search-actors-typeahead [--term=<value>] [--q=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "app.bsky.actor.searchActorsTypeahead";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["term"] != null) "term": argResults!["term"],
-    if (argResults!["q"] != null) "q": argResults!["q"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("term")) "term": argResults!["term"],
+    if (argResults!.wasParsed("q")) "q": argResults!["q"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

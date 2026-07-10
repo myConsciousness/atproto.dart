@@ -77,33 +77,34 @@ final class QueryReportsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report query-reports [queueId] [reportTypes] [status] [subject] [did] [subjectType] [collections] [reportedAfter] [reportedBefore] [isMuted] [assignedTo] [sortField] [sortDirection] [limit] [cursor]";
+      "bsky tools-ozone-report query-reports [--queueId=<value>] [--reportTypes=<value>...] --status=<value> [--subject=<value>] [--did=<value>] [--subjectType=<value>] [--collections=<value>...] [--reportedAfter=<value>] [--reportedBefore=<value>] [--isMuted] [--assignedTo=<value>] [--sortField=<value>] [--sortDirection=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.queryReports";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["queueId"] != null) "queueId": argResults!["queueId"],
-    if (argResults!["reportTypes"] != null)
+    if (argResults!.wasParsed("queueId"))
+      "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
     "status": argResults!["status"],
-    if (argResults!["subject"] != null) "subject": argResults!["subject"],
-    if (argResults!["did"] != null) "did": argResults!["did"],
-    if (argResults!["subjectType"] != null)
+    if (argResults!.wasParsed("subject")) "subject": argResults!["subject"],
+    if (argResults!.wasParsed("did")) "did": argResults!["did"],
+    if (argResults!.wasParsed("subjectType"))
       "subjectType": argResults!["subjectType"],
-    if (argResults!["collections"] != null)
+    if (argResults!.wasParsed("collections"))
       "collections": argResults!["collections"],
-    if (argResults!["reportedAfter"] != null)
+    if (argResults!.wasParsed("reportedAfter"))
       "reportedAfter": argResults!["reportedAfter"],
-    if (argResults!["reportedBefore"] != null)
+    if (argResults!.wasParsed("reportedBefore"))
       "reportedBefore": argResults!["reportedBefore"],
     "isMuted": argResults!["isMuted"],
-    if (argResults!["assignedTo"] != null)
+    if (argResults!.wasParsed("assignedTo"))
       "assignedTo": argResults!["assignedTo"],
     "sortField": argResults!["sortField"],
     "sortDirection": argResults!["sortDirection"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

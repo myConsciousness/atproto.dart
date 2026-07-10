@@ -26,7 +26,8 @@ final class DeleteAccountCommand extends ProcedureCommand {
   final String description = r"Delete a user account as an administrator.";
 
   @override
-  final String invocation = "bsky com-atproto-admin delete-account [did]";
+  final String invocation =
+      "bsky com-atproto-admin delete-account --did=<value>";
 
   @override
   String get methodId => "com.atproto.admin.deleteAccount";

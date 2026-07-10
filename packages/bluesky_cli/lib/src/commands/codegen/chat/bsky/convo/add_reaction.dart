@@ -31,7 +31,7 @@ final class AddReactionCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo add-reaction [convoId] [messageId] [value]";
+      "bsky chat-bsky-convo add-reaction --convoId=<value> --messageId=<value> --value=<value>";
 
   @override
   String get methodId => "chat.bsky.convo.addReaction";

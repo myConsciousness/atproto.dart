@@ -16,6 +16,7 @@ import 'set/delete_set.dart';
 import 'set/delete_values.dart';
 import 'set/get_values.dart';
 import 'set/query_sets.dart';
+import 'set/upsert_set.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -28,6 +29,7 @@ final class ToolsOzoneSetCommand extends Command<void> {
     addSubcommand(DeleteValuesCommand());
     addSubcommand(GetValuesCommand());
     addSubcommand(QuerySetsCommand());
+    addSubcommand(UpsertSetCommand());
   }
 
   @override

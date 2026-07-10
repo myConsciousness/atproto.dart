@@ -56,22 +56,23 @@ final class ListVerificationsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-verification list-verifications [cursor] [limit] [createdAfter] [createdBefore] [issuers] [subjects] [sortDirection] [isRevoked]";
+      "bsky tools-ozone-verification list-verifications [--cursor=<value>] [--limit=<value>] [--createdAfter=<value>] [--createdBefore=<value>] [--issuers=<value>...] [--subjects=<value>...] [--sortDirection=<value>] [--isRevoked]";
 
   @override
   String get methodId => "tools.ozone.verification.listVerifications";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
-    if (argResults!["createdAfter"] != null)
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("createdAfter"))
       "createdAfter": argResults!["createdAfter"],
-    if (argResults!["createdBefore"] != null)
+    if (argResults!.wasParsed("createdBefore"))
       "createdBefore": argResults!["createdBefore"],
-    if (argResults!["issuers"] != null) "issuers": argResults!["issuers"],
-    if (argResults!["subjects"] != null) "subjects": argResults!["subjects"],
+    if (argResults!.wasParsed("issuers")) "issuers": argResults!["issuers"],
+    if (argResults!.wasParsed("subjects")) "subjects": argResults!["subjects"],
     "sortDirection": argResults!["sortDirection"],
-    if (argResults!["isRevoked"] != null) "isRevoked": argResults!["isRevoked"],
+    if (argResults!.wasParsed("isRevoked"))
+      "isRevoked": argResults!["isRevoked"],
   };
 }

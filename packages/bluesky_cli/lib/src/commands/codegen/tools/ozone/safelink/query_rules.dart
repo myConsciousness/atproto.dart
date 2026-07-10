@@ -39,21 +39,22 @@ final class QueryRulesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-safelink query-rules [cursor] [limit] [urls] [patternType] [actions] [reason] [createdBy] [sortDirection]";
+      "bsky tools-ozone-safelink query-rules [--cursor=<value>] [--limit=<value>] [--urls=<value>...] [--patternType=<value>] [--actions=<value>...] [--reason=<value>] [--createdBy=<value>] [--sortDirection=<value>]";
 
   @override
   String get methodId => "tools.ozone.safelink.queryRules";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
-    if (argResults!["urls"] != null) "urls": argResults!["urls"],
-    if (argResults!["patternType"] != null)
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("urls")) "urls": argResults!["urls"],
+    if (argResults!.wasParsed("patternType"))
       "patternType": argResults!["patternType"],
-    if (argResults!["actions"] != null) "actions": argResults!["actions"],
-    if (argResults!["reason"] != null) "reason": argResults!["reason"],
-    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
+    if (argResults!.wasParsed("actions")) "actions": argResults!["actions"],
+    if (argResults!.wasParsed("reason")) "reason": argResults!["reason"],
+    if (argResults!.wasParsed("createdBy"))
+      "createdBy": argResults!["createdBy"],
     "sortDirection": argResults!["sortDirection"],
   };
 }
