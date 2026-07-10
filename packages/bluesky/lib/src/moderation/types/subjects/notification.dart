@@ -31,6 +31,7 @@ ModerationDecision decideNotification(
   final decision = ModerationDecision.init(
     did: author.did,
     me: author.did == opts.userDid,
+    behaviors: opts.behaviors,
   );
 
   for (final label in labels ?? const <Label>[]) {

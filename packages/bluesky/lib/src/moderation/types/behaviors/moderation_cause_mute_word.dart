@@ -6,6 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../mute_words.dart';
 import 'moderation_cause_source.dart';
 
 part 'moderation_cause_mute_word.freezed.dart';
@@ -16,5 +17,8 @@ abstract class ModerationCauseMuteWord with _$ModerationCauseMuteWord {
     required ModerationCauseSource source,
     @Default(6) int priority,
     @Default(false) bool downgraded,
+
+    /// The muted word matches that caused this moderation.
+    @Default([]) List<MuteWordMatch> matches,
   }) = _ModerationCauseMuteWord;
 }

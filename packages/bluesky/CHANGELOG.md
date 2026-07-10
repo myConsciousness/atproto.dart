@@ -1,8 +1,22 @@
 # Release Note
 
-## v1.5.1
+## v1.6.0
+
+Aligned the client-side moderation engine with the official `@atproto/api` implementation:
 
 - fix: `moderateUserList` now delegates to `decideUserList` instead of recursing into itself (previously caused a `StackOverflowError`).
+- fix: `decideUserList` no longer crashes on `ListView` subjects and now merges the creator's account/profile decisions, matching the official implementation.
+- fix: label causes from subscribed labelers are now attributed to the labeler (`ModerationCauseSource.labeler`) instead of always to the user.
+- fix: `getInterpretedLabelValueDefinitions` now defaults `adultOnly` to `false` (previously `true`), so labeler-defined labels are no longer adult-gated unless declared.
+- fix: `getLabelerHeaders` now appends `;redact` only to app labelers (Bluesky's official labeler), matching the official `atproto-accept-labelers` header behavior. Subscribed labelers are sent without parameters.
+- feat: added the deprecated `gore` alias for `graphic-media` to the known label definitions (`KnownLabelValue.gore`), matching the official label defs.
+- feat: muted words now support `expiresAt` (expired words are ignored) and `actorTarget: exclude-following` (pass the post author via the new `actor` parameter).
+- feat: added `matchMuteWords` and `MuteWordMatch`, mirroring the official API. `ModerationCauseMuteWord` now carries the `matches` that triggered it.
+- fix: muted words with internal slashes now follow the official exclusion rule (`and/or` no longer matches `andor`), and all tag facet features are considered (previously only the first per facet).
+- feat: mute-word matching in `moderatePost` now scans `app.bsky.embed.gallery` alt texts and applies `exclude-following` via the post/quote author.
+- feat: added `moderateStatus` / `decideStatus` for live status (`app.bsky.actor.defs#statusView`) moderation.
+- feat: added `ModerationBehaviors` — a configuration object on `ModerationOpts.behaviors` that lets users customize block/mute/mute-word/hide behaviors and global label definitions without forking the engine. Defaults replicate the official logic.
+- chore: deprecated the string-keyed `kBlockBehavior` / `kMuteBehavior` / `kMuteWordBehavior` / `kHideBehavior` constants in favor of the typed `kDefault*Behaviors` maps.
 - chore: bump `atproto` and `atproto_core`.
 
 ## v1.5.0

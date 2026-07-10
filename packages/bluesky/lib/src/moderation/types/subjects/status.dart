@@ -3,32 +3,32 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
-
-// Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
+import 'account.dart';
 import 'moderation_subject_profile.dart';
+import 'profile.dart';
 
-ModerationDecision decideProfile(
+ModerationDecision decideStatus(
   final ModerationSubjectProfile subject,
   final ModerationOpts opts,
 ) {
-  final (did, labels) = switch (subject) {
+  final (did, status) = switch (subject) {
     UModerationSubjectProfileProfileViewBasic(data: final data) => (
       data.did,
-      data.labels,
+      data.status,
     ),
     UModerationSubjectProfileProfileView(data: final data) => (
       data.did,
-      data.labels,
+      data.status,
     ),
     UModerationSubjectProfileProfileViewDetailed(data: final data) => (
       data.did,
-      data.labels,
+      data.status,
     ),
     _ => throw UnimplementedError(),
   };
@@ -39,19 +39,13 @@ ModerationDecision decideProfile(
     behaviors: opts.behaviors,
   );
 
-  for (final label in _filterProfileLabels(labels)) {
-    decision.addLabel(target: LabelTarget.profile, label: label, opts: opts);
+  for (final label in status?.labels ?? const <Label>[]) {
+    decision.addLabel(target: LabelTarget.content, label: label, opts: opts);
   }
 
-  return decision;
-}
-
-List<Label> _filterProfileLabels(final List<Label>? labels) {
-  if (labels == null || labels.isEmpty) {
-    return const [];
-  }
-
-  return labels
-      .where((e) => e.uri.toString().endsWith('/app.bsky.actor.profile/self'))
-      .toList();
+  return ModerationDecision.merge([
+    decision,
+    decideAccount(subject, opts),
+    decideProfile(subject, opts),
+  ]);
 }

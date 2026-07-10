@@ -14,7 +14,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationCauseMuteWord {
 
- ModerationCauseSource get source; int get priority; bool get downgraded;
+ ModerationCauseSource get source; int get priority; bool get downgraded;/// The muted word matches that caused this moderation.
+ List<MuteWordMatch> get matches;
 /// Create a copy of ModerationCauseMuteWord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +26,16 @@ $ModerationCauseMuteWordCopyWith<ModerationCauseMuteWord> get copyWith => _$Mode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseMuteWord&&(identical(other.source, source) || other.source == source)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationCauseMuteWord&&(identical(other.source, source) || other.source == source)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded)&&const DeepCollectionEquality().equals(other.matches, matches));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,source,priority,downgraded);
+int get hashCode => Object.hash(runtimeType,source,priority,downgraded,const DeepCollectionEquality().hash(matches));
 
 @override
 String toString() {
-  return 'ModerationCauseMuteWord(source: $source, priority: $priority, downgraded: $downgraded)';
+  return 'ModerationCauseMuteWord(source: $source, priority: $priority, downgraded: $downgraded, matches: $matches)';
 }
 
 
@@ -45,7 +46,7 @@ abstract mixin class $ModerationCauseMuteWordCopyWith<$Res>  {
   factory $ModerationCauseMuteWordCopyWith(ModerationCauseMuteWord value, $Res Function(ModerationCauseMuteWord) _then) = _$ModerationCauseMuteWordCopyWithImpl;
 @useResult
 $Res call({
- ModerationCauseSource source, int priority, bool downgraded
+ ModerationCauseSource source, int priority, bool downgraded, List<MuteWordMatch> matches
 });
 
 
@@ -62,12 +63,13 @@ class _$ModerationCauseMuteWordCopyWithImpl<$Res>
 
 /// Create a copy of ModerationCauseMuteWord
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,Object? matches = null,}) {
   return _then(_self.copyWith(
 source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as ModerationCauseSource,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as int,downgraded: null == downgraded ? _self.downgraded : downgraded // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,matches: null == matches ? _self.matches : matches // ignore: cast_nullable_to_non_nullable
+as List<MuteWordMatch>,
   ));
 }
 /// Create a copy of ModerationCauseMuteWord
@@ -161,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ModerationCauseSource source,  int priority,  bool downgraded)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ModerationCauseSource source,  int priority,  bool downgraded,  List<MuteWordMatch> matches)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationCauseMuteWord() when $default != null:
-return $default(_that.source,_that.priority,_that.downgraded);case _:
+return $default(_that.source,_that.priority,_that.downgraded,_that.matches);case _:
   return orElse();
 
 }
@@ -182,10 +184,10 @@ return $default(_that.source,_that.priority,_that.downgraded);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ModerationCauseSource source,  int priority,  bool downgraded)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ModerationCauseSource source,  int priority,  bool downgraded,  List<MuteWordMatch> matches)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationCauseMuteWord():
-return $default(_that.source,_that.priority,_that.downgraded);case _:
+return $default(_that.source,_that.priority,_that.downgraded,_that.matches);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +204,10 @@ return $default(_that.source,_that.priority,_that.downgraded);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ModerationCauseSource source,  int priority,  bool downgraded)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ModerationCauseSource source,  int priority,  bool downgraded,  List<MuteWordMatch> matches)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationCauseMuteWord() when $default != null:
-return $default(_that.source,_that.priority,_that.downgraded);case _:
+return $default(_that.source,_that.priority,_that.downgraded,_that.matches);case _:
   return null;
 
 }
@@ -217,12 +219,21 @@ return $default(_that.source,_that.priority,_that.downgraded);case _:
 
 
 class _ModerationCauseMuteWord implements ModerationCauseMuteWord {
-  const _ModerationCauseMuteWord({required this.source, this.priority = 6, this.downgraded = false});
+  const _ModerationCauseMuteWord({required this.source, this.priority = 6, this.downgraded = false, final  List<MuteWordMatch> matches = const []}): _matches = matches;
   
 
 @override final  ModerationCauseSource source;
 @override@JsonKey() final  int priority;
 @override@JsonKey() final  bool downgraded;
+/// The muted word matches that caused this moderation.
+ final  List<MuteWordMatch> _matches;
+/// The muted word matches that caused this moderation.
+@override@JsonKey() List<MuteWordMatch> get matches {
+  if (_matches is EqualUnmodifiableListView) return _matches;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_matches);
+}
+
 
 /// Create a copy of ModerationCauseMuteWord
 /// with the given fields replaced by the non-null parameter values.
@@ -234,16 +245,16 @@ _$ModerationCauseMuteWordCopyWith<_ModerationCauseMuteWord> get copyWith => __$M
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseMuteWord&&(identical(other.source, source) || other.source == source)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationCauseMuteWord&&(identical(other.source, source) || other.source == source)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.downgraded, downgraded) || other.downgraded == downgraded)&&const DeepCollectionEquality().equals(other._matches, _matches));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,source,priority,downgraded);
+int get hashCode => Object.hash(runtimeType,source,priority,downgraded,const DeepCollectionEquality().hash(_matches));
 
 @override
 String toString() {
-  return 'ModerationCauseMuteWord(source: $source, priority: $priority, downgraded: $downgraded)';
+  return 'ModerationCauseMuteWord(source: $source, priority: $priority, downgraded: $downgraded, matches: $matches)';
 }
 
 
@@ -254,7 +265,7 @@ abstract mixin class _$ModerationCauseMuteWordCopyWith<$Res> implements $Moderat
   factory _$ModerationCauseMuteWordCopyWith(_ModerationCauseMuteWord value, $Res Function(_ModerationCauseMuteWord) _then) = __$ModerationCauseMuteWordCopyWithImpl;
 @override @useResult
 $Res call({
- ModerationCauseSource source, int priority, bool downgraded
+ ModerationCauseSource source, int priority, bool downgraded, List<MuteWordMatch> matches
 });
 
 
@@ -271,12 +282,13 @@ class __$ModerationCauseMuteWordCopyWithImpl<$Res>
 
 /// Create a copy of ModerationCauseMuteWord
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,Object? matches = null,}) {
   return _then(_ModerationCauseMuteWord(
 source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as ModerationCauseSource,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as int,downgraded: null == downgraded ? _self.downgraded : downgraded // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,matches: null == matches ? _self._matches : matches // ignore: cast_nullable_to_non_nullable
+as List<MuteWordMatch>,
   ));
 }
 

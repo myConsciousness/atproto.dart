@@ -7,7 +7,10 @@ import 'package:atproto/com_atproto_label_defs.dart';
 
 // Project imports:
 import '../../../services/codegen/app/bsky/actor/defs/muted_word.dart';
+import '../../../services/codegen/app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../services/codegen/app/bsky/actor/defs/viewer_state.dart';
+import '../../../services/codegen/app/bsky/embed/gallery/union_main_items.dart';
+import '../../../services/codegen/app/bsky/embed/gallery/union_view_items.dart';
 import '../../../services/codegen/app/bsky/embed/record/union_view_record.dart';
 import '../../../services/codegen/app/bsky/embed/record/view_blocked.dart';
 import '../../../services/codegen/app/bsky/embed/record/view_record.dart';
@@ -43,6 +46,7 @@ ModerationDecision decidePost(
   final decision = ModerationDecision.init(
     did: author.did,
     me: author.did == opts.userDid,
+    behaviors: opts.behaviors,
   );
 
   for (final label in labels ?? const <Label>[]) {
@@ -53,13 +57,15 @@ ModerationDecision decidePost(
     decision.addHidden();
   }
 
-  if (!decision.me &&
-      _hasMutedWords(
+  if (!decision.me) {
+    decision.addMutedWord(
+      _matchAllMuteWords(
+        author,
         FeedPostRecord.fromJson(record),
         embed,
         opts.prefs.mutedWords,
-      )) {
-    decision.addMutedWord();
+      ),
+    );
   }
 
   ModerationDecision? embedDecision;
@@ -108,6 +114,7 @@ ModerationDecision decideQuotedPost(
   final decision = ModerationDecision.init(
     did: subject.author.did,
     me: subject.author.did == opts.userDid,
+    behaviors: opts.behaviors,
   );
 
   for (final label in subject.labels ?? const <Label>[]) {
@@ -132,6 +139,7 @@ ModerationDecision decideBlockedQuotedPost(
   final decision = ModerationDecision.init(
     did: subject.author.did,
     me: subject.author.did == opts.userDid,
+    behaviors: opts.behaviors,
   );
 
   if (subject.author.hasViewer) {
@@ -191,110 +199,164 @@ bool _hasHiddenPost(
   return false;
 }
 
-bool _hasMutedWords(
+List<MuteWordMatch> _matchAllMuteWords(
+  final ProfileViewBasic author,
   final FeedPostRecord record,
   final UPostViewEmbed? embed,
   final List<MutedWord> mutedWords,
 ) {
-  if (mutedWords.isEmpty) return false;
+  if (mutedWords.isEmpty) return const [];
 
-  if (hasMutedWord(
+  // post text
+  final matches = matchMuteWords(
     mutedWords: mutedWords,
     text: record.text,
     facets: record.facets,
     outlineTags: record.tags,
     languages: record.langs,
-  )) {
-    return true;
-  }
+    actor: author,
+  );
+  if (matches.isNotEmpty) return matches;
 
-  if (embed == null) return false; // No quote.
-
-  // quote post
-  if (embed.isEmbedImagesView) {
-    for (final image in embed.embedImagesView!.images) {
-      if (hasMutedWord(
-        mutedWords: mutedWords,
-        text: image.alt,
-        languages: record.langs,
-      )) {
-        return true;
-      }
-    }
-  }
-
-  if (embed.isEmbedRecordView) {
-    final embeddedPost = embed.embedRecordView!.record.whenOrNull(
-      embedRecordViewRecord: (data) => data.value,
-    );
-    final embeddedPostRecord = embeddedPost != null
-        ? FeedPostRecord.fromJson(embeddedPost)
-        : null;
-
-    // quoted post text
-    if (embeddedPostRecord != null &&
-        hasMutedWord(
-          mutedWords: mutedWords,
-          text: embeddedPostRecord.text,
-          facets: embeddedPostRecord.facets,
-          outlineTags: embeddedPostRecord.tags,
-          languages: embeddedPostRecord.langs,
-        )) {
-      return true;
-    }
-
-    final embeddedPostEmbed = embeddedPostRecord?.embed;
-
-    // quoted post's images
-    if (embeddedPostEmbed != null && embeddedPostEmbed.isEmbedImages) {
-      for (final image in embeddedPostEmbed.embedImages!.images) {
-        if (hasMutedWord(
+  final recordEmbed = record.embed;
+  if (recordEmbed != null) {
+    // post images
+    if (recordEmbed.isEmbedImages) {
+      for (final image in recordEmbed.embedImages!.images) {
+        final matches = matchMuteWords(
           mutedWords: mutedWords,
           text: image.alt,
-          languages: embeddedPostRecord?.langs,
-        )) {
-          return true;
+          languages: record.langs,
+          actor: author,
+        );
+        if (matches.isNotEmpty) return matches;
+      }
+    }
+
+    // post gallery items
+    if (recordEmbed.isEmbedGallery) {
+      for (final item in recordEmbed.embedGallery!.items) {
+        if (item.isEmbedGalleryImage) {
+          final matches = matchMuteWords(
+            mutedWords: mutedWords,
+            text: item.embedGalleryImage!.alt,
+            languages: record.langs,
+            actor: author,
+          );
+          if (matches.isNotEmpty) return matches;
         }
       }
     }
+  }
 
-    // quoted post's link card
-    if (embeddedPostEmbed != null && embeddedPostEmbed.isEmbedExternal) {
-      final external = embeddedPostEmbed.embedExternal!.external;
-      if (hasMutedWord(
+  if (embed == null) return const [];
+
+  // quote post
+  if (embed.isEmbedRecordView) {
+    final embeddedPostView = embed.embedRecordView!.record.whenOrNull(
+      embedRecordViewRecord: (data) => data,
+    );
+
+    if (embeddedPostView != null &&
+        FeedPostRecord.validate(embeddedPostView.value)) {
+      final embedAuthor = embeddedPostView.author;
+      final embeddedPost = FeedPostRecord.fromJson(embeddedPostView.value);
+
+      // quoted post text
+      final matches = matchMuteWords(
         mutedWords: mutedWords,
-        text: '${external.title} ${external.description}',
-        languages: const [],
-      )) {
-        return true;
+        text: embeddedPost.text,
+        facets: embeddedPost.facets,
+        outlineTags: embeddedPost.tags,
+        languages: embeddedPost.langs,
+        actor: embedAuthor,
+      );
+      if (matches.isNotEmpty) return matches;
+
+      final embeddedPostEmbed = embeddedPost.embed;
+
+      // quoted post's images
+      if (embeddedPostEmbed != null && embeddedPostEmbed.isEmbedImages) {
+        for (final image in embeddedPostEmbed.embedImages!.images) {
+          final matches = matchMuteWords(
+            mutedWords: mutedWords,
+            text: image.alt,
+            languages: embeddedPost.langs,
+            actor: embedAuthor,
+          );
+          if (matches.isNotEmpty) return matches;
+        }
       }
-    }
 
-    if (embeddedPostEmbed != null && embeddedPostEmbed.isEmbedRecordWithMedia) {
-      final embeddedPostEmbedMedia =
-          embeddedPostEmbed.embedRecordWithMedia!.media;
+      // quoted post's gallery
+      if (embeddedPostEmbed != null && embeddedPostEmbed.isEmbedGallery) {
+        for (final item in embeddedPostEmbed.embedGallery!.items) {
+          if (item.isEmbedGalleryImage) {
+            final matches = matchMuteWords(
+              mutedWords: mutedWords,
+              text: item.embedGalleryImage!.alt,
+              languages: embeddedPost.langs,
+              actor: embedAuthor,
+            );
+            if (matches.isNotEmpty) return matches;
+          }
+        }
+      }
 
-      // quoted post's link card when it did a quote + media
-      if (embeddedPostEmbedMedia.isEmbedExternal) {
-        final external = embeddedPostEmbedMedia.embedExternal!.external;
-        if (hasMutedWord(
+      // quoted post's link card
+      if (embeddedPostEmbed != null && embeddedPostEmbed.isEmbedExternal) {
+        final external = embeddedPostEmbed.embedExternal!.external;
+        final matches = matchMuteWords(
           mutedWords: mutedWords,
           text: '${external.title} ${external.description}',
           languages: const [],
-        )) {
-          return true;
-        }
+          actor: embedAuthor,
+        );
+        if (matches.isNotEmpty) return matches;
       }
 
-      // quoted post's images when it did a quote + media
-      if (embeddedPostEmbedMedia.isEmbedImages) {
-        for (final image in embeddedPostEmbedMedia.embedImages!.images) {
-          if (hasMutedWord(
+      if (embeddedPostEmbed != null &&
+          embeddedPostEmbed.isEmbedRecordWithMedia) {
+        final embeddedPostEmbedMedia =
+            embeddedPostEmbed.embedRecordWithMedia!.media;
+
+        // quoted post's link card when it did a quote + media
+        if (embeddedPostEmbedMedia.isEmbedExternal) {
+          final external = embeddedPostEmbedMedia.embedExternal!.external;
+          final matches = matchMuteWords(
             mutedWords: mutedWords,
-            text: image.alt,
-            languages: embeddedPostRecord?.langs,
-          )) {
-            return true;
+            text: '${external.title} ${external.description}',
+            languages: const [],
+            actor: embedAuthor,
+          );
+          if (matches.isNotEmpty) return matches;
+        }
+
+        // quoted post's images when it did a quote + media
+        if (embeddedPostEmbedMedia.isEmbedImages) {
+          for (final image in embeddedPostEmbedMedia.embedImages!.images) {
+            final matches = matchMuteWords(
+              mutedWords: mutedWords,
+              text: image.alt,
+              languages: const [],
+              actor: embedAuthor,
+            );
+            if (matches.isNotEmpty) return matches;
+          }
+        }
+
+        // quoted post's gallery when it did a quote + media
+        if (embeddedPostEmbedMedia.isEmbedGallery) {
+          for (final item in embeddedPostEmbedMedia.embedGallery!.items) {
+            if (item.isEmbedGalleryImage) {
+              final matches = matchMuteWords(
+                mutedWords: mutedWords,
+                text: item.embedGalleryImage!.alt,
+                languages: const [],
+                actor: embedAuthor,
+              );
+              if (matches.isNotEmpty) return matches;
+            }
           }
         }
       }
@@ -303,49 +365,79 @@ bool _hasMutedWords(
   // link card
   else if (embed.isEmbedExternalView) {
     final external = embed.embedExternalView!.external;
-    if (hasMutedWord(
+    final matches = matchMuteWords(
       mutedWords: mutedWords,
       text: '${external.title} ${external.description}',
       languages: const [],
-    )) {
-      return true;
-    }
+      actor: author,
+    );
+    if (matches.isNotEmpty) return matches;
   }
   // quote post with media
   else if (embed.isEmbedRecordWithMediaView) {
-    // quoted post text
     final embeddedPostRecordRecord =
         embed.embedRecordWithMediaView!.record.record;
+
     if (embeddedPostRecordRecord.isEmbedRecordViewRecord) {
-      final post = FeedPostRecord.fromJson(
-        embeddedPostRecordRecord.embedRecordViewRecord!.value,
-      );
+      final embeddedPostView = embeddedPostRecordRecord.embedRecordViewRecord!;
+      final embedAuthor = embeddedPostView.author;
 
-      if (hasMutedWord(
-        mutedWords: mutedWords,
-        text: post.text,
-        facets: post.facets,
-        outlineTags: post.tags,
-        languages: post.langs,
-      )) {
-        return true;
-      }
-    }
-
-    // quoted post images
-    final embeddedPostMedia = embed.embedRecordWithMediaView!.media;
-    if (embeddedPostMedia.isEmbedImagesView) {
-      for (final image in embeddedPostMedia.embedImagesView!.images) {
-        if (hasMutedWord(
+      // quoted post text
+      if (FeedPostRecord.validate(embeddedPostView.value)) {
+        final post = FeedPostRecord.fromJson(embeddedPostView.value);
+        final matches = matchMuteWords(
           mutedWords: mutedWords,
-          text: image.alt,
-          languages: record.langs,
-        )) {
-          return true;
+          text: post.text,
+          facets: post.facets,
+          outlineTags: post.tags,
+          languages: post.langs,
+          actor: embedAuthor,
+        );
+        if (matches.isNotEmpty) return matches;
+      }
+
+      // quoted post images
+      final embeddedPostMedia = embed.embedRecordWithMediaView!.media;
+      if (embeddedPostMedia.isEmbedImagesView) {
+        for (final image in embeddedPostMedia.embedImagesView!.images) {
+          final matches = matchMuteWords(
+            mutedWords: mutedWords,
+            text: image.alt,
+            languages: record.langs,
+            actor: embedAuthor,
+          );
+          if (matches.isNotEmpty) return matches;
         }
+      }
+
+      // quoted post gallery
+      if (embeddedPostMedia.isEmbedGalleryView) {
+        for (final item in embeddedPostMedia.embedGalleryView!.items) {
+          if (item.isEmbedGalleryViewImage) {
+            final matches = matchMuteWords(
+              mutedWords: mutedWords,
+              text: item.embedGalleryViewImage!.alt,
+              languages: record.langs,
+              actor: embedAuthor,
+            );
+            if (matches.isNotEmpty) return matches;
+          }
+        }
+      }
+
+      // quoted post link card
+      if (embeddedPostMedia.isEmbedExternalView) {
+        final external = embeddedPostMedia.embedExternalView!.external;
+        final matches = matchMuteWords(
+          mutedWords: mutedWords,
+          text: '${external.title} ${external.description}',
+          languages: const [],
+          actor: embedAuthor,
+        );
+        if (matches.isNotEmpty) return matches;
       }
     }
   }
 
-  return false;
+  return const [];
 }

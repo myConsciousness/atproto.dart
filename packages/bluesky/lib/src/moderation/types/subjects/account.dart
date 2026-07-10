@@ -35,7 +35,11 @@ ModerationDecision decideAccount(
     _ => throw UnimplementedError(),
   };
 
-  final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
+  final decision = ModerationDecision.init(
+    did: did,
+    me: did == opts.userDid,
+    behaviors: opts.behaviors,
+  );
 
   if (viewer != null) {
     if (viewer.isMuted) {

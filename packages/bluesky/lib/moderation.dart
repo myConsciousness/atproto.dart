@@ -8,7 +8,8 @@ export 'package:bluesky/src/moderation.dart'
         moderateProfile,
         moderateNotification,
         moderateFeedGenerator,
-        moderateUserList;
+        moderateUserList,
+        moderateStatus;
 
 export 'package:bluesky/src/moderation/decision.dart' show ModerationDecision;
 export 'package:bluesky/src/moderation/utils.dart'
@@ -22,8 +23,10 @@ export 'package:bluesky/src/moderation/utils.dart'
 export 'package:bluesky/src/moderation/types/interpreted_label_value_definition.dart';
 export 'package:bluesky/src/moderation/types/moderation_ui.dart';
 export 'package:bluesky/src/moderation/types/moderation_behavior.dart';
+export 'package:bluesky/src/moderation/types/moderation_behaviors.dart';
 export 'package:bluesky/src/moderation/types/labels.dart';
-export 'package:bluesky/src/moderation/types/mute_words.dart' show hasMutedWord;
+export 'package:bluesky/src/moderation/types/mute_words.dart'
+    show hasMutedWord, matchMuteWords, MuteWordMatch;
 
 export 'package:bluesky/src/moderation/types/behaviors/moderation_cause_block_other.dart';
 export 'package:bluesky/src/moderation/types/behaviors/moderation_cause_blocked_by.dart';

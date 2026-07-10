@@ -14,7 +14,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationOpts {
 
- String? get userDid; ModerationPrefs get prefs; Map<String, List<InterpretedLabelValueDefinition>> get labelDefs;
+ String? get userDid; ModerationPrefs get prefs; Map<String, List<InterpretedLabelValueDefinition>> get labelDefs;/// The behaviors used to interpret moderation causes. Defaults to the
+/// official Bluesky moderation behaviors.
+ ModerationBehaviors get behaviors;
 /// Create a copy of ModerationOpts
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +27,16 @@ $ModerationOptsCopyWith<ModerationOpts> get copyWith => _$ModerationOptsCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationOpts&&(identical(other.userDid, userDid) || other.userDid == userDid)&&(identical(other.prefs, prefs) || other.prefs == prefs)&&const DeepCollectionEquality().equals(other.labelDefs, labelDefs));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModerationOpts&&(identical(other.userDid, userDid) || other.userDid == userDid)&&(identical(other.prefs, prefs) || other.prefs == prefs)&&const DeepCollectionEquality().equals(other.labelDefs, labelDefs)&&(identical(other.behaviors, behaviors) || other.behaviors == behaviors));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,userDid,prefs,const DeepCollectionEquality().hash(labelDefs));
+int get hashCode => Object.hash(runtimeType,userDid,prefs,const DeepCollectionEquality().hash(labelDefs),behaviors);
 
 @override
 String toString() {
-  return 'ModerationOpts(userDid: $userDid, prefs: $prefs, labelDefs: $labelDefs)';
+  return 'ModerationOpts(userDid: $userDid, prefs: $prefs, labelDefs: $labelDefs, behaviors: $behaviors)';
 }
 
 
@@ -45,7 +47,7 @@ abstract mixin class $ModerationOptsCopyWith<$Res>  {
   factory $ModerationOptsCopyWith(ModerationOpts value, $Res Function(ModerationOpts) _then) = _$ModerationOptsCopyWithImpl;
 @useResult
 $Res call({
- String? userDid, ModerationPrefs prefs, Map<String, List<InterpretedLabelValueDefinition>> labelDefs
+ String? userDid, ModerationPrefs prefs, Map<String, List<InterpretedLabelValueDefinition>> labelDefs, ModerationBehaviors behaviors
 });
 
 
@@ -62,12 +64,13 @@ class _$ModerationOptsCopyWithImpl<$Res>
 
 /// Create a copy of ModerationOpts
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userDid = freezed,Object? prefs = null,Object? labelDefs = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? userDid = freezed,Object? prefs = null,Object? labelDefs = null,Object? behaviors = null,}) {
   return _then(_self.copyWith(
 userDid: freezed == userDid ? _self.userDid : userDid // ignore: cast_nullable_to_non_nullable
 as String?,prefs: null == prefs ? _self.prefs : prefs // ignore: cast_nullable_to_non_nullable
 as ModerationPrefs,labelDefs: null == labelDefs ? _self.labelDefs : labelDefs // ignore: cast_nullable_to_non_nullable
-as Map<String, List<InterpretedLabelValueDefinition>>,
+as Map<String, List<InterpretedLabelValueDefinition>>,behaviors: null == behaviors ? _self.behaviors : behaviors // ignore: cast_nullable_to_non_nullable
+as ModerationBehaviors,
   ));
 }
 /// Create a copy of ModerationOpts
@@ -161,10 +164,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? userDid,  ModerationPrefs prefs,  Map<String, List<InterpretedLabelValueDefinition>> labelDefs)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? userDid,  ModerationPrefs prefs,  Map<String, List<InterpretedLabelValueDefinition>> labelDefs,  ModerationBehaviors behaviors)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationOpts() when $default != null:
-return $default(_that.userDid,_that.prefs,_that.labelDefs);case _:
+return $default(_that.userDid,_that.prefs,_that.labelDefs,_that.behaviors);case _:
   return orElse();
 
 }
@@ -182,10 +185,10 @@ return $default(_that.userDid,_that.prefs,_that.labelDefs);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? userDid,  ModerationPrefs prefs,  Map<String, List<InterpretedLabelValueDefinition>> labelDefs)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? userDid,  ModerationPrefs prefs,  Map<String, List<InterpretedLabelValueDefinition>> labelDefs,  ModerationBehaviors behaviors)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationOpts():
-return $default(_that.userDid,_that.prefs,_that.labelDefs);case _:
+return $default(_that.userDid,_that.prefs,_that.labelDefs,_that.behaviors);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +205,10 @@ return $default(_that.userDid,_that.prefs,_that.labelDefs);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? userDid,  ModerationPrefs prefs,  Map<String, List<InterpretedLabelValueDefinition>> labelDefs)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? userDid,  ModerationPrefs prefs,  Map<String, List<InterpretedLabelValueDefinition>> labelDefs,  ModerationBehaviors behaviors)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationOpts() when $default != null:
-return $default(_that.userDid,_that.prefs,_that.labelDefs);case _:
+return $default(_that.userDid,_that.prefs,_that.labelDefs,_that.behaviors);case _:
   return null;
 
 }
@@ -217,7 +220,7 @@ return $default(_that.userDid,_that.prefs,_that.labelDefs);case _:
 
 
 class _ModerationOpts implements ModerationOpts {
-  const _ModerationOpts({this.userDid, required this.prefs, final  Map<String, List<InterpretedLabelValueDefinition>> labelDefs = const {}}): _labelDefs = labelDefs;
+  const _ModerationOpts({this.userDid, required this.prefs, final  Map<String, List<InterpretedLabelValueDefinition>> labelDefs = const {}, this.behaviors = const ModerationBehaviors()}): _labelDefs = labelDefs;
   
 
 @override final  String? userDid;
@@ -229,6 +232,9 @@ class _ModerationOpts implements ModerationOpts {
   return EqualUnmodifiableMapView(_labelDefs);
 }
 
+/// The behaviors used to interpret moderation causes. Defaults to the
+/// official Bluesky moderation behaviors.
+@override@JsonKey() final  ModerationBehaviors behaviors;
 
 /// Create a copy of ModerationOpts
 /// with the given fields replaced by the non-null parameter values.
@@ -240,16 +246,16 @@ _$ModerationOptsCopyWith<_ModerationOpts> get copyWith => __$ModerationOptsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationOpts&&(identical(other.userDid, userDid) || other.userDid == userDid)&&(identical(other.prefs, prefs) || other.prefs == prefs)&&const DeepCollectionEquality().equals(other._labelDefs, _labelDefs));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModerationOpts&&(identical(other.userDid, userDid) || other.userDid == userDid)&&(identical(other.prefs, prefs) || other.prefs == prefs)&&const DeepCollectionEquality().equals(other._labelDefs, _labelDefs)&&(identical(other.behaviors, behaviors) || other.behaviors == behaviors));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,userDid,prefs,const DeepCollectionEquality().hash(_labelDefs));
+int get hashCode => Object.hash(runtimeType,userDid,prefs,const DeepCollectionEquality().hash(_labelDefs),behaviors);
 
 @override
 String toString() {
-  return 'ModerationOpts(userDid: $userDid, prefs: $prefs, labelDefs: $labelDefs)';
+  return 'ModerationOpts(userDid: $userDid, prefs: $prefs, labelDefs: $labelDefs, behaviors: $behaviors)';
 }
 
 
@@ -260,7 +266,7 @@ abstract mixin class _$ModerationOptsCopyWith<$Res> implements $ModerationOptsCo
   factory _$ModerationOptsCopyWith(_ModerationOpts value, $Res Function(_ModerationOpts) _then) = __$ModerationOptsCopyWithImpl;
 @override @useResult
 $Res call({
- String? userDid, ModerationPrefs prefs, Map<String, List<InterpretedLabelValueDefinition>> labelDefs
+ String? userDid, ModerationPrefs prefs, Map<String, List<InterpretedLabelValueDefinition>> labelDefs, ModerationBehaviors behaviors
 });
 
 
@@ -277,12 +283,13 @@ class __$ModerationOptsCopyWithImpl<$Res>
 
 /// Create a copy of ModerationOpts
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userDid = freezed,Object? prefs = null,Object? labelDefs = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? userDid = freezed,Object? prefs = null,Object? labelDefs = null,Object? behaviors = null,}) {
   return _then(_ModerationOpts(
 userDid: freezed == userDid ? _self.userDid : userDid // ignore: cast_nullable_to_non_nullable
 as String?,prefs: null == prefs ? _self.prefs : prefs // ignore: cast_nullable_to_non_nullable
 as ModerationPrefs,labelDefs: null == labelDefs ? _self._labelDefs : labelDefs // ignore: cast_nullable_to_non_nullable
-as Map<String, List<InterpretedLabelValueDefinition>>,
+as Map<String, List<InterpretedLabelValueDefinition>>,behaviors: null == behaviors ? _self.behaviors : behaviors // ignore: cast_nullable_to_non_nullable
+as ModerationBehaviors,
   ));
 }
 

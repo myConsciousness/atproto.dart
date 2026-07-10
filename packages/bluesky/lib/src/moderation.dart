@@ -15,6 +15,7 @@ import 'moderation/types/subjects/moderation_subject_user_list.dart';
 import 'moderation/types/subjects/notification.dart';
 import 'moderation/types/subjects/post.dart';
 import 'moderation/types/subjects/profile.dart';
+import 'moderation/types/subjects/status.dart';
 import 'moderation/types/subjects/user_list.dart';
 
 ModerationDecision moderateProfile(
@@ -44,3 +45,8 @@ ModerationDecision moderateUserList(
   final ModerationSubjectUserList subject,
   final ModerationOpts opts,
 ) => decideUserList(subject, opts);
+
+ModerationDecision moderateStatus(
+  final ModerationSubjectProfile subject,
+  final ModerationOpts opts,
+) => decideStatus(subject, opts);

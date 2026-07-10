@@ -14,7 +14,10 @@ enum KnownLabelValue {
   porn('porn'),
   sexual('sexual'),
   nudity('nudity'),
-  graphicMedia('graphic-media');
+  graphicMedia('graphic-media'),
+
+  /// Deprecated alias for [graphicMedia].
+  gore('gore');
 
   final String value;
 
@@ -47,6 +50,19 @@ const kLabels = <KnownLabelValue, InterpretedLabelValueDefinition>{
   KnownLabelValue.sexual: kSexualInterpretedLabelValueDefinition,
   KnownLabelValue.nudity: kNudityInterpretedLabelValueDefinition,
   KnownLabelValue.graphicMedia: kGraphicMediaInterpretedLabelValueDefinition,
+  KnownLabelValue.gore: kGoreInterpretedLabelValueDefinition,
+};
+
+/// The known label definitions keyed by label identifier.
+const kLabelDefinitions = <String, InterpretedLabelValueDefinition>{
+  '!hide': kHideInterpretedLabelValueDefinition,
+  '!warn': kWarnInterpretedLabelValueDefinition,
+  '!no-unauthenticated': kNoUnauthenticatedInterpretedLabelValueDefinition,
+  'porn': kPornInterpretedLabelValueDefinition,
+  'sexual': kSexualInterpretedLabelValueDefinition,
+  'nudity': kNudityInterpretedLabelValueDefinition,
+  'graphic-media': kGraphicMediaInterpretedLabelValueDefinition,
+  'gore': kGoreInterpretedLabelValueDefinition,
 };
 
 const kHideInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
@@ -184,6 +200,29 @@ const kNudityInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
   identifier: 'nudity',
   configurable: true,
   defaultSetting: LabelPreference.ignore,
+  severity: 'none',
+  blurs: 'media',
+  behaviors: {
+    LabelTarget.account: {
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+    },
+    LabelTarget.profile: {
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+    },
+    LabelTarget.content: {
+      ModerationBehaviorContext.contentMedia: ModerationBehavior.blur,
+    },
+  },
+);
+
+/// Deprecated alias for [kGraphicMediaInterpretedLabelValueDefinition].
+const kGoreInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
+  identifier: 'gore',
+  configurable: true,
+  defaultSetting: LabelPreference.warn,
+  flags: [LabelValueDefinitionFlag.adult],
   severity: 'none',
   blurs: 'media',
   behaviors: {

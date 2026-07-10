@@ -120,7 +120,7 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
                   LabelPreference.warn,
               severity: e.severity.toJson(),
               blurs: e.blurs.toJson(),
-              adultOnly: e.adultOnly ?? true,
+              adultOnly: e.adultOnly ?? false,
               definedBy: labelerView.creator.did,
             ),
           )
@@ -250,21 +250,23 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
   }
 }
 
-Map<String, String> getLabelerHeaders(final ModerationPrefs? prefs) {
-  if (prefs == null || prefs.labelers.isEmpty) {
-    return _getLabelerHeaders(const [_kBskyLabelerDid]);
-  }
+Map<String, String> getLabelerHeaders(
+  final ModerationPrefs? prefs, {
+  final List<String> appLabelers = const [_kBskyLabelerDid],
+}) {
+  final subscribedLabelers =
+      prefs?.labelers
+          .map((e) => e.did)
+          .where((e) => e.startsWith('did:'))
+          .where((e) => !appLabelers.contains(e)) ??
+      const <String>[];
 
-  return _getLabelerHeaders([
-    _kBskyLabelerDid,
-    ...prefs.labelers.map((e) => e.did).where((e) => e.startsWith('did:')),
-  ]);
+  // Only app labelers are sent with the `;redact` parameter, following the
+  // official client behavior.
+  return {
+    'atproto-accept-labelers': <String>{
+      ...appLabelers.map((did) => '$did;redact'),
+      ...subscribedLabelers,
+    }.join(', '),
+  };
 }
-
-Map<String, String> _getLabelerHeaders(final List<String> dids) => {
-  'atproto-accept-labelers': dids
-      .toSet()
-      .take(10)
-      .map((str) => '$str;redact')
-      .join(', '),
-};

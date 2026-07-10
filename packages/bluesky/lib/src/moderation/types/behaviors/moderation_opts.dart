@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../interpreted_label_value_definition.dart';
+import '../moderation_behaviors.dart';
 import 'moderation_prefs.dart';
 
 part 'moderation_opts.freezed.dart';
@@ -17,5 +18,9 @@ abstract class ModerationOpts with _$ModerationOpts {
     String? userDid,
     required ModerationPrefs prefs,
     @Default({}) Map<String, List<InterpretedLabelValueDefinition>> labelDefs,
+
+    /// The behaviors used to interpret moderation causes. Defaults to the
+    /// official Bluesky moderation behaviors.
+    @Default(ModerationBehaviors()) ModerationBehaviors behaviors,
   }) = _ModerationOpts;
 }

@@ -48,7 +48,7 @@ void main() {
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(
         actual['atproto-accept-labelers'],
-        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact',
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa',
       );
     });
 
@@ -68,8 +68,7 @@ void main() {
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(
         actual['atproto-accept-labelers'],
-        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact, '
-        'did:bbbb;redact',
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa, did:bbbb',
       );
     });
 
@@ -89,7 +88,7 @@ void main() {
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(
         actual['atproto-accept-labelers'],
-        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact',
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa',
       );
     });
   });
