@@ -1,5 +1,12 @@
 # Release Note
 
+## v1.2.2
+
+- fix: redact `accessJwt`/`refreshJwt` in `Session.toString()` so credentials are not leaked through logs or crash reporters.
+- fix: forward the `headers` argument in `BaseHttpService.post` (previously dropped).
+- fix: retry jitter is now inclusive `[min, max]` and no longer throws a `RangeError` when `maxInSeconds` is `0`.
+- chore: bump `atproto_oauth` and `multiformats`.
+
 ## v1.2.1
 
 - chore: bump atproto_oauth.

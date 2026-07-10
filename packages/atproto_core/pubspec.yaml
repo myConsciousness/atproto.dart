@@ -1,7 +1,7 @@
 name: atproto_core
 resolution: workspace
 description: Core library for clients and tools. This package is mainly used by https://atprotodart.com packages.
-version: 1.2.1
+version: 1.2.2
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core
@@ -24,8 +24,8 @@ dependencies:
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   cbor: ^6.3.7
-  multiformats: ^1.0.2
-  atproto_oauth: ^0.3.0
+  multiformats: ^1.0.3
+  atproto_oauth: ^0.3.1
   nanoid: ^1.0.0
   meta: ^1.17.0
 

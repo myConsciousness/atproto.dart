@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 // Package imports:
 import 'package:test/test.dart';
 
@@ -90,6 +92,23 @@ void main() {
       ]);
 
       expect(cid1 == cid2, isFalse);
+    });
+
+    test('different lengths are not equal and do not throw', () {
+      final cid1 = CID.fromList(bytesCidDagPb);
+      // The unchecked constructor allows a malformed (over-length) CID; `==`
+      // must return false rather than throwing a RangeError when lengths differ.
+      final cid2 = CID(Uint8List.fromList([...bytesCidDagPb, 0]));
+
+      expect(cid1 == cid2, isFalse);
+      expect(cid2 == cid1, isFalse);
+    });
+
+    test('comparison with a non-CID returns false', () {
+      final cid = CID.fromList(bytesCidDagPb);
+
+      // ignore: unrelated_type_equality_checks
+      expect(cid == 'not-a-cid', isFalse);
     });
   });
 

@@ -20,6 +20,8 @@ part 'session.g.dart';
 /// handle, email, and the access and refresh JSON Web Tokens (JWT).
 @freezed
 abstract class Session with _$Session {
+  const Session._();
+
   @JsonSerializable(includeIfNull: false)
   const factory Session({
     /// Decentralized Identifier for the user.
@@ -49,6 +51,15 @@ abstract class Session with _$Session {
 
   factory Session.fromJson(Map<String, Object?> json) =>
       _$SessionFromJson(json);
+
+  /// Redacts [accessJwt] and [refreshJwt] so credentials are not leaked
+  /// through logs, `print`, or crash reporters that stringify a [Session].
+  @override
+  String toString() =>
+      'Session(did: $did, handle: $handle, email: $email, '
+      'emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, '
+      'accessJwt: [REDACTED], refreshJwt: [REDACTED], didDoc: $didDoc, '
+      'active: $active, status: $status)';
 }
 
 extension SessionExtension on Session {
