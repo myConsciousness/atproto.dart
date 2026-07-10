@@ -82,9 +82,7 @@ String getFilePathForParent(final String lexiconId) {
 }
 
 String getFileName(final String lexiconId) {
-  return _splitWords(
-    lexiconId.split('.').last,
-  ).map(toFirstLowerCase).join('_');
+  return _splitWords(lexiconId.split('.').last).map(toFirstLowerCase).join('_');
 }
 
 String getRelativePathForParent(final String lexiconId) {
