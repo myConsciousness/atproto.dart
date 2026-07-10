@@ -42,10 +42,6 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,did,handle,email,emailConfirmed,emailAuthFactor,accessJwt,refreshJwt,const DeepCollectionEquality().hash(didDoc),active,status);
 
-@override
-String toString() {
-  return 'Session(did: $did, handle: $handle, email: $email, emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc, active: $active, status: $status)';
-}
 
 
 }
@@ -224,8 +220,8 @@ return $default(_that.did,_that.handle,_that.email,_that.emailConfirmed,_that.em
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _Session implements Session {
-  const _Session({required this.did, required this.handle, this.email, this.emailConfirmed = false, this.emailAuthFactor = false, required this.accessJwt, required this.refreshJwt, final  Map<String, dynamic>? didDoc, this.active = true, this.status}): _didDoc = didDoc;
+class _Session extends Session {
+  const _Session({required this.did, required this.handle, this.email, this.emailConfirmed = false, this.emailAuthFactor = false, required this.accessJwt, required this.refreshJwt, final  Map<String, dynamic>? didDoc, this.active = true, this.status}): _didDoc = didDoc,super._();
   factory _Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);
 
 /// Decentralized Identifier for the user.
@@ -275,10 +271,6 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,did,handle,email,emailConfirmed,emailAuthFactor,accessJwt,refreshJwt,const DeepCollectionEquality().hash(_didDoc),active,status);
 
-@override
-String toString() {
-  return 'Session(did: $did, handle: $handle, email: $email, emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc, active: $active, status: $status)';
-}
 
 
 }

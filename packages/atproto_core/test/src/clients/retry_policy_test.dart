@@ -2,6 +2,7 @@
 import 'package:test/test.dart';
 
 // Project imports:
+import 'package:atproto_core/src/clients/jitter.dart';
 import 'package:atproto_core/src/clients/retry_config.dart';
 import 'package:atproto_core/src/clients/retry_policy.dart';
 
@@ -64,6 +65,15 @@ void main() {
       expect(endAt.difference(startAt).inSeconds == 0, isTrue);
     });
 
+    test('does not throw when jitter maxInSeconds is 0', () async {
+      final policy = RetryPolicy(
+        RetryConfig(maxAttempts: 10, jitter: Jitter(maxInSeconds: 0)),
+      );
+
+      // Previously Random.nextInt(0) threw a RangeError on the first wait.
+      await expectLater(policy.wait(0), completes);
+    });
+
     test('when retryCount is less than 0', () async {
       final policy = RetryPolicy(RetryConfig(maxAttempts: 10));
 
@@ -92,7 +102,8 @@ void main() {
 
       final int elapsedSeconds = endAt.difference(startAt).inSeconds;
 
-      expect(4 <= elapsedSeconds && elapsedSeconds <= 7, isTrue);
+      // backoff 2^(3-1)=4 + jitter [0, 4] (inclusive of the declared max).
+      expect(4 <= elapsedSeconds && elapsedSeconds <= 8, isTrue);
     });
 
     test('with complex case with exponential back off and jitter', () async {
@@ -109,7 +120,7 @@ void main() {
 
         expect(
           expectedResults[i - 1] <= elapsedSeconds &&
-              elapsedSeconds <= expectedResults[i - 1] + 3,
+              elapsedSeconds <= expectedResults[i - 1] + 4,
           isTrue,
         );
       }

@@ -202,13 +202,16 @@ final class CID {
   String toString() => _format();
 
   @override
-  bool operator ==(covariant CID other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
+    if (other is! CID) return false;
 
     final thisBytes = bytes;
     final otherBytes = other.bytes;
+
+    if (thisBytes.length != otherBytes.length) return false;
 
     for (int i = 0; i < thisBytes.length; i++) {
       if (thisBytes[i] != otherBytes[i]) {

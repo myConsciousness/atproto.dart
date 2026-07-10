@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.5.1
+
+- fix: `moderateUserList` now delegates to `decideUserList` instead of recursing into itself (previously caused a `StackOverflowError`).
+- chore: bump `atproto` and `atproto_core`.
+
 ## v1.5.0
 
 - feat: added `app.bsky.feed.searchPostsV2` endpoint.

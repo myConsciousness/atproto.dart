@@ -17,7 +17,7 @@ import 'private_key.dart';
 import 'public_key.dart';
 
 String random(final int len) {
-  final random = Random();
+  final random = Random.secure();
   final letters = List.generate(
     26,
     (i) => String.fromCharCode('a'.codeUnitAt(0) + i),
@@ -50,7 +50,7 @@ String hashS256(final String value) {
 AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
   final random = Random.secure();
   final seed = Uint8List.fromList(
-    List.generate(32, (n) => random.nextInt(255)),
+    List.generate(32, (n) => random.nextInt(256)),
   );
   final secureRandom = SecureRandom("Fortuna")..seed(KeyParameter(seed));
 

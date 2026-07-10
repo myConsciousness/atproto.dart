@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.5.1
+
+- chore: bump `atproto_core` to `^1.2.2`.
+
 ## v1.5.0
 
 - feat: added `com.germnetwork.declaration` record.

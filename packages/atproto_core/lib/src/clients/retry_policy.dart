@@ -64,7 +64,11 @@ final class RetryPolicy {
   int _computeExponentialBackOff(final int retryCount) =>
       math.pow(2, retryCount).toInt();
 
-  int get _jitter =>
-      _random.nextInt(_retryConfig!.jitter.maxInSeconds) +
-      _retryConfig.jitter.minInSeconds;
+  int get _jitter {
+    final jitter = _retryConfig!.jitter;
+    // Inclusive [min, max]; also safe when max == min (including 0), which
+    // `nextInt(0)` would otherwise reject with a RangeError.
+    return jitter.minInSeconds +
+        _random.nextInt(jitter.maxInSeconds - jitter.minInSeconds + 1);
+  }
 }
