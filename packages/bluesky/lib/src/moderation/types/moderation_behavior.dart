@@ -15,6 +15,7 @@ enum ModerationBehavior {
   bool get isInform => this == ModerationBehavior.inform;
 }
 
+@Deprecated('Use kDefaultBlockBehaviors in moderation_behaviors.dart instead')
 const kBlockBehavior = {
   'profileList': ModerationBehavior.blur,
   'profileView': ModerationBehavior.alert,
@@ -24,6 +25,7 @@ const kBlockBehavior = {
   'contentView': ModerationBehavior.blur,
 };
 
+@Deprecated('Use kDefaultMuteBehaviors in moderation_behaviors.dart instead')
 const kMuteBehavior = {
   'profileList': ModerationBehavior.inform,
   'profileView': ModerationBehavior.alert,
@@ -31,11 +33,15 @@ const kMuteBehavior = {
   'contentView': ModerationBehavior.inform,
 };
 
+@Deprecated(
+  'Use kDefaultMuteWordBehaviors in moderation_behaviors.dart instead',
+)
 const kMuteWordBehavior = {
   'contentList': ModerationBehavior.blur,
   'contentView': ModerationBehavior.blur,
 };
 
+@Deprecated('Use kDefaultHideBehaviors in moderation_behaviors.dart instead')
 const kHideBehavior = {
   'contentList': ModerationBehavior.blur,
   'contentView': ModerationBehavior.blur,

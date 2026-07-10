@@ -3,13 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
-
-// Package imports:
 import 'package:characters/characters.dart';
 
 // Project imports:
 import '../../services/codegen/app/bsky/actor/defs/muted_word.dart';
+import '../../services/codegen/app/bsky/actor/defs/muted_word_actor_target.dart';
 import '../../services/codegen/app/bsky/actor/defs/muted_word_target.dart';
+import '../../services/codegen/app/bsky/actor/defs/profile_view_basic.dart';
 import '../../services/codegen/app/bsky/richtext/facet/main.dart';
 import '../../services/codegen/app/bsky/richtext/facet/union_main_features.dart';
 
@@ -32,90 +32,161 @@ final _leadingTrailingPunctuationRegex = RegExp(
 final _whitespacePunctuationRegex = RegExp(r'(?:\s|\p{P})+?', unicode: true);
 final _wordBoundaryRegex = RegExp(r'[\s\n\t\r\f\v]+?');
 final _punctuationRegex = RegExp(r'\p{P}+', unicode: true);
+final _slashRegex = RegExp(r'[/]+');
 final _spaceRegex = RegExp(r'\s', unicode: true);
 
-bool hasMutedWord({
+/// A match found by [matchMuteWords].
+final class MuteWordMatch {
+  const MuteWordMatch({required this.word, required this.predicate});
+
+  /// The muted word that matched.
+  final MutedWord word;
+
+  /// The string that matched the muted word.
+  final String predicate;
+}
+
+/// Checks if the given text matches any of the muted words, returning the
+/// list of matches. An empty list means no matches were found.
+List<MuteWordMatch> matchMuteWords({
   required List<MutedWord> mutedWords,
   required String text,
   List<RichtextFacet>? facets,
   List<String>? outlineTags,
   List<String>? languages,
+  ProfileViewBasic? actor,
 }) {
-  final hasExceptionLanguage = _hasExceptionLanguage(languages);
-  final tags = <String>{
+  final exception = _kLanguageExceptions.contains(languages?.firstOrNull ?? '');
+  final tags = <String>[
     if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
     if (facets != null)
-      ...facets
-          .map(
-            (e) =>
-                e.features.whereType<URichtextFacetFeaturesRichtextFacetTag>(),
-          )
-          .where((e) => e.isNotEmpty)
-          .map((e) => e.first.data.tag.toLowerCase()),
-  }.toList();
+      ...facets.expand(
+        (e) => e.features
+            .whereType<URichtextFacetFeaturesRichtextFacetTag>()
+            .map((tag) => tag.data.tag.toLowerCase()),
+      ),
+  ];
 
+  final matches = <MuteWordMatch>[];
+
+  outer:
   for (final mute in mutedWords) {
     final mutedWord = mute.value.toLowerCase();
     final postText = text.toLowerCase();
 
-    if (tags.contains(mutedWord)) return true;
+    // expired, ignore
+    if (mute.expiresAt != null && mute.expiresAt!.isBefore(DateTime.now())) {
+      continue;
+    }
+
+    if (mute.actorTarget?.knownValue ==
+            KnownMutedWordActorTarget.excludeFollowing &&
+        (actor?.viewer?.following != null)) {
+      continue;
+    }
+
+    // `content` applies to tags as well
+    if (tags.contains(mutedWord)) {
+      matches.add(MuteWordMatch(word: mute, predicate: mute.value));
+      continue;
+    }
+    // rest of the checks are for `content` only
     if (!mute.targets.contains(
       const MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
     )) {
       continue;
     }
 
-    if ((mutedWord.characters.length == 1 || hasExceptionLanguage) &&
+    // single character or other exception, has to use contains
+    if ((mutedWord.characters.length == 1 || exception) &&
         postText.contains(mutedWord)) {
-      return true;
+      matches.add(MuteWordMatch(word: mute, predicate: mute.value));
+      continue;
     }
+    // too long
     if (mutedWord.length > postText.length) continue;
-    if (mutedWord == postText) return true;
+    // exact match
+    if (mutedWord == postText) {
+      matches.add(MuteWordMatch(word: mute, predicate: mute.value));
+      continue;
+    }
+    // any muted phrase with space or punctuation
     if (_whitespacePunctuationRegex.hasMatch(mutedWord) &&
         postText.contains(mutedWord)) {
-      return true;
+      matches.add(MuteWordMatch(word: mute, predicate: mute.value));
+      continue;
     }
 
+    // check individual character groups
     for (final word in postText.split(_wordBoundaryRegex)) {
-      if (word == mutedWord) return true;
+      if (word == mutedWord) {
+        matches.add(MuteWordMatch(word: mute, predicate: word));
+        continue outer;
+      }
 
+      // compare word without leading/trailing punctuation, but allow internal
+      // punctuation (such as `s@ssy`)
       final wordTrimmedPunctuation = word.replaceAll(
         _leadingTrailingPunctuationRegex,
         '',
       );
 
-      if (mutedWord == wordTrimmedPunctuation) return true;
+      if (mutedWord == wordTrimmedPunctuation) {
+        matches.add(MuteWordMatch(word: mute, predicate: word));
+        continue outer;
+      }
       if (mutedWord.length > wordTrimmedPunctuation.length) continue;
 
       if (_punctuationRegex.hasMatch(wordTrimmedPunctuation)) {
+        // Exit case for any punctuation within the predicate that we _do_
+        // allow e.g. `and/or` should not match `Andor`.
+        if (_slashRegex.hasMatch(wordTrimmedPunctuation)) {
+          continue outer;
+        }
+
         final spacedWord = wordTrimmedPunctuation.replaceAll(
           _punctuationRegex,
           ' ',
         );
-        if (spacedWord == mutedWord) return true;
+        if (spacedWord == mutedWord) {
+          matches.add(MuteWordMatch(word: mute, predicate: word));
+          continue outer;
+        }
 
         final contiguousWord = spacedWord.replaceAll(_spaceRegex, '');
-        if (contiguousWord == mutedWord) return true;
+        if (contiguousWord == mutedWord) {
+          matches.add(MuteWordMatch(word: mute, predicate: word));
+          continue outer;
+        }
 
         final wordParts = wordTrimmedPunctuation.split(_punctuationRegex);
         for (final wordPart in wordParts) {
-          if (wordPart == mutedWord) return true;
+          if (wordPart == mutedWord) {
+            matches.add(MuteWordMatch(word: mute, predicate: word));
+            continue outer;
+          }
         }
       }
     }
   }
 
-  return false;
+  return matches;
 }
 
-bool _hasExceptionLanguage(final List<String>? languages) {
-  if (languages == null) return false;
-
-  for (final language in languages) {
-    if (_kLanguageExceptions.contains(language)) {
-      return true;
-    }
-  }
-
-  return false;
-}
+/// Checks if the given text matches any of the muted words, returning a
+/// boolean if any matches are found.
+bool hasMutedWord({
+  required List<MutedWord> mutedWords,
+  required String text,
+  List<RichtextFacet>? facets,
+  List<String>? outlineTags,
+  List<String>? languages,
+  ProfileViewBasic? actor,
+}) => matchMuteWords(
+  mutedWords: mutedWords,
+  text: text,
+  facets: facets,
+  outlineTags: outlineTags,
+  languages: languages,
+  actor: actor,
+).isNotEmpty;

@@ -626,7 +626,9 @@ void main() {
       );
     });
 
-    test('match: acc', () async {
+    // Words with internal slashes are ignored to prevent false positives,
+    // e.g. `and/or` should not match `Andor`.
+    test('no match: acc', () async {
       final text = BlueskyText("I'm e/acc pilled");
       final facets = await text.entities.toFacets();
 
@@ -644,7 +646,53 @@ void main() {
           facets: facets.map(RichtextFacet.fromJson).toList(),
           outlineTags: [],
         ),
+        isFalse,
+      );
+    });
+  });
+
+  group('and/or', () {
+    test('match: and/or', () async {
+      final text = BlueskyText('Tomatoes are fruits and/or vegetables');
+      final facets = await text.entities.toFacets();
+
+      expect(
+        hasMutedWord(
+          mutedWords: [
+            MutedWord(
+              value: 'and/or',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
+          ],
+          text: text.value,
+          facets: facets.map(RichtextFacet.fromJson).toList(),
+          outlineTags: [],
+        ),
         isTrue,
+      );
+    });
+
+    test('no match: andor', () async {
+      final text = BlueskyText('Tomatoes are fruits and/or vegetables');
+      final facets = await text.entities.toFacets();
+
+      expect(
+        hasMutedWord(
+          mutedWords: [
+            MutedWord(
+              value: 'andor',
+              targets: [
+                MutedWordTarget.knownValue(data: KnownMutedWordTarget.content),
+              ],
+            ),
+          ],
+          text: text.value,
+          facets: facets.map(RichtextFacet.fromJson).toList(),
+          outlineTags: [],
+        ),
+        isFalse,
       );
     });
   });

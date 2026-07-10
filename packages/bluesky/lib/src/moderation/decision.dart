@@ -20,20 +20,30 @@ import 'types/behaviors/moderation_cause_source_labeler.dart';
 import 'types/behaviors/moderation_cause_source_list.dart';
 import 'types/behaviors/moderation_cause_source_user.dart';
 import 'types/behaviors/moderation_opts.dart';
-import 'types/const/labels.dart';
 import 'types/interpreted_label_value_definition.dart';
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
+import 'types/moderation_behaviors.dart';
 import 'types/moderation_ui.dart';
+import 'types/mute_words.dart';
 import 'types/syntax.dart';
 
 enum ModerationBehaviorSeverity { high, medium, low }
 
 final class ModerationDecision {
-  ModerationDecision._({required this.causes, this.did = '', this.me = false});
+  ModerationDecision._({
+    required this.causes,
+    this.did = '',
+    this.me = false,
+    this.behaviors = const ModerationBehaviors(),
+  });
 
-  factory ModerationDecision.init({String did = '', bool me = false}) =>
-      ModerationDecision._(did: did, me: me, causes: []);
+  factory ModerationDecision.init({
+    String did = '',
+    bool me = false,
+    ModerationBehaviors behaviors = const ModerationBehaviors(),
+  }) =>
+      ModerationDecision._(did: did, me: me, behaviors: behaviors, causes: []);
 
   factory ModerationDecision.merge(final List<ModerationDecision> decisions) {
     if (decisions.isEmpty) return ModerationDecision.init();
@@ -41,6 +51,7 @@ final class ModerationDecision {
     return ModerationDecision._(
       did: decisions.first.did,
       me: decisions.first.me,
+      behaviors: decisions.first.behaviors,
       causes: decisions.expand((e) => e.causes).toList(),
     );
   }
@@ -48,6 +59,9 @@ final class ModerationDecision {
   final String did;
   final bool me;
   final List<ModerationCause> causes;
+
+  /// The behaviors used to interpret the causes in [getUI].
+  final ModerationBehaviors behaviors;
 
   ModerationDecision downgrade() {
     final causes = <ModerationCause>[];
@@ -72,7 +86,12 @@ final class ModerationDecision {
       );
     }
 
-    return ModerationDecision._(did: did, me: me, causes: causes);
+    return ModerationDecision._(
+      did: did,
+      me: me,
+      behaviors: behaviors,
+      causes: causes,
+    );
   }
 
   void addHidden() => causes.add(
@@ -83,13 +102,20 @@ final class ModerationDecision {
     ),
   );
 
-  void addMutedWord() => causes.add(
-    const ModerationCause.muteWord(
-      data: ModerationCauseMuteWord(
-        source: ModerationCauseSource.user(data: ModerationCauseSourceUser()),
+  void addMutedWord([final List<MuteWordMatch>? matches]) {
+    if (matches != null && matches.isEmpty) return;
+
+    causes.add(
+      ModerationCause.muteWord(
+        data: ModerationCauseMuteWord(
+          source: const ModerationCauseSource.user(
+            data: ModerationCauseSourceUser(),
+          ),
+          matches: matches ?? const [],
+        ),
       ),
-    ),
-  );
+    );
+  }
 
   void addBlocking() => causes.add(
     const ModerationCause.blocking(
@@ -136,9 +162,9 @@ final class ModerationDecision {
           opts.labelDefs[label.src]
               ?.where((e) => e.identifier == label.val)
               .firstOrNull ??
-          kLabels[KnownLabelValue.valueOf(label.val)];
+          opts.behaviors.labels[label.val];
     } else {
-      labelDef = kLabels[KnownLabelValue.valueOf(label.val)];
+      labelDef = opts.behaviors.labels[label.val];
     }
 
     if (labelDef == null) {
@@ -209,12 +235,12 @@ final class ModerationDecision {
     causes.add(
       ModerationCause.label(
         data: ModerationCauseLabel(
-          source: isSelf || labeler != null
+          source: isSelf || labeler == null
               ? const ModerationCauseSource.user(
                   data: ModerationCauseSourceUser(),
                 )
               : ModerationCauseSource.labeler(
-                  data: ModerationCauseSourceLabeler(did: labeler!.did),
+                  data: ModerationCauseSourceLabeler(did: labeler.did),
                 ),
           label: label,
           labelDef: labelDef,
@@ -264,13 +290,12 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kBlockBehavior[context.name] == ModerationBehavior.blur) {
+          if (behaviors.block[context] == ModerationBehavior.blur) {
             noOverride = true;
             blurs.add(cause);
-          } else if (kBlockBehavior[context.name] == ModerationBehavior.alert) {
+          } else if (behaviors.block[context] == ModerationBehavior.alert) {
             alerts.add(cause);
-          } else if (kBlockBehavior[context.name] ==
-              ModerationBehavior.inform) {
+          } else if (behaviors.block[context] == ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -282,11 +307,11 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kMuteBehavior[context.name] == ModerationBehavior.blur) {
+          if (behaviors.mute[context] == ModerationBehavior.blur) {
             blurs.add(cause);
-          } else if (kMuteBehavior[context.name] == ModerationBehavior.alert) {
+          } else if (behaviors.mute[context] == ModerationBehavior.alert) {
             alerts.add(cause);
-          } else if (kMuteBehavior[context.name] == ModerationBehavior.inform) {
+          } else if (behaviors.mute[context] == ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -298,13 +323,11 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kMuteWordBehavior[context.name] == ModerationBehavior.blur) {
+          if (behaviors.muteWord[context] == ModerationBehavior.blur) {
             blurs.add(cause);
-          } else if (kMuteWordBehavior[context.name] ==
-              ModerationBehavior.alert) {
+          } else if (behaviors.muteWord[context] == ModerationBehavior.alert) {
             alerts.add(cause);
-          } else if (kMuteWordBehavior[context.name] ==
-              ModerationBehavior.inform) {
+          } else if (behaviors.muteWord[context] == ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -314,11 +337,11 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kHideBehavior[context.name] == ModerationBehavior.blur) {
+          if (behaviors.hide[context] == ModerationBehavior.blur) {
             blurs.add(cause);
-          } else if (kHideBehavior[context.name] == ModerationBehavior.alert) {
+          } else if (behaviors.hide[context] == ModerationBehavior.alert) {
             alerts.add(cause);
-          } else if (kHideBehavior[context.name] == ModerationBehavior.inform) {
+          } else if (behaviors.hide[context] == ModerationBehavior.inform) {
             informs.add(cause);
           }
         }

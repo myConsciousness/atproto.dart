@@ -27,6 +27,7 @@ ModerationDecision decideFeedGenerator(
   final decision = ModerationDecision.init(
     did: creator.did,
     me: creator.did == opts.userDid,
+    behaviors: opts.behaviors,
   );
 
   for (final label in labels ?? const <Label>[]) {
