@@ -49,6 +49,7 @@ abstract class BlobCommand extends BskyCommand {
           if (jwt != null) 'Authorization': 'Bearer $jwt',
         },
         body: file.readAsBytesSync(),
+        postClient: postClient,
       ),
       pretty: globalResults!['pretty'],
       showStatus: globalResults!['status'],

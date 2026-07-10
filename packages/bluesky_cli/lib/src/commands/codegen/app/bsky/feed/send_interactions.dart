@@ -21,7 +21,7 @@ final class SendInteractionsCommand extends ProcedureCommand {
   SendInteractionsCommand() {
     argParser
       ..addOption("feed")
-      ..addMultiOption("interactions");
+      ..addMultiOption("interactions", splitCommas: false);
   }
 
   @override

@@ -60,6 +60,12 @@ final class LexParameter {
       buffer.write(',');
     }
 
+    if (isArray && hasJsonItems) {
+      // JSON values contain commas, so they must not be split.
+      buffer.write('splitCommas: false');
+      buffer.write(',');
+    }
+
     return buffer.toString();
   }
 

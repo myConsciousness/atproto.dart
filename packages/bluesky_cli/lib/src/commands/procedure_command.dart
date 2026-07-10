@@ -33,6 +33,7 @@ abstract class ProcedureCommand extends BskyCommand {
         service: service,
         headers: jwt != null ? {'Authorization': 'Bearer $jwt'} : null,
         body: await body,
+        postClient: postClient,
       ),
       pretty: globalResults!['pretty'],
       showStatus: globalResults!['status'],

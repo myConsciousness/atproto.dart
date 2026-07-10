@@ -19,6 +19,9 @@
 - **fix**: Session is no longer created twice per authenticated command.
 - **style**: Method names with digits are kebab-cased without splitting (e.g. `search-posts-v2` instead of `search-posts-v-2`).
 - **style**: Usage lines now show real option syntax (e.g. `--actor=<value>`) instead of `[actor]`.
+- **fix**: JSON array options (e.g. `--facets`) are no longer split on commas, which corrupted JSON values.
+- **fix**: Command instances are no longer shared across `BskyCommandRunner` instances (`lexCommands` is now a getter), which leaked per-runner state such as credentials and sessions.
+- **feat**: `BskyCommandRunner` accepts `getClient`/`postClient` for injecting mock HTTP clients at test time, and the whole command surface is now covered by offline request-construction tests.
 
 ## v0.4.7
 

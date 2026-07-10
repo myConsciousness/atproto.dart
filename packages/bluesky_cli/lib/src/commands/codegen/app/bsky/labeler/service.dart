@@ -51,11 +51,13 @@ final class _CreateServiceCommand extends CreateRecordCommand {
         "reasonTypes",
         help:
             r"The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed.",
+        splitCommas: false,
       )
       ..addMultiOption(
         "subjectTypes",
         help:
             r"The set of subject types (account, record, etc) this service accepts reports on.",
+        splitCommas: false,
       )
       ..addMultiOption(
         "subjectCollections",
@@ -111,11 +113,13 @@ final class _PutServiceCommand extends PutRecordCommand {
         "reasonTypes",
         help:
             r"The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed.",
+        splitCommas: false,
       )
       ..addMultiOption(
         "subjectTypes",
         help:
             r"The set of subject types (account, record, etc) this service accepts reports on.",
+        splitCommas: false,
       )
       ..addMultiOption(
         "subjectCollections",

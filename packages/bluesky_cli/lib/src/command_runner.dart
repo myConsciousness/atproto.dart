@@ -11,12 +11,14 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:cli_launcher/cli_launcher.dart';
 import 'package:cli_util/cli_logging.dart';
+import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
 import './version.g.dart';
 import 'commands/cardyb_command.dart';
 import 'commands/codegen/lex_commands.dart';
 import 'logger.dart';
+import 'xrpc_client_provider.dart';
 
 /// A class that can run Bsky commands.
 ///
@@ -27,8 +29,18 @@ import 'logger.dart';
 ///
 /// await bsky.run(['app-bsky-feed get-timeline']);
 /// ```
-class BskyCommandRunner extends CommandRunner<void> {
-  BskyCommandRunner()
+///
+/// Mock HTTP clients can be injected at test time:
+///
+/// ```dart
+/// final bsky = BskyCommandRunner(
+///   getClient: mockGet,
+///   postClient: mockPost,
+/// );
+/// ```
+class BskyCommandRunner extends CommandRunner<void>
+    implements XrpcClientProvider {
+  BskyCommandRunner({this.getClient, this.postClient})
     : super(
         'bsky',
         "A powerful and extensible CLI tool for "
@@ -71,6 +83,14 @@ class BskyCommandRunner extends CommandRunner<void> {
       addCommand(command);
     }
   }
+
+  /// The client used for GET requests, or null to use the default.
+  @override
+  final xrpc.GetClient? getClient;
+
+  /// The client used for POST requests, or null to use the default.
+  @override
+  final xrpc.PostClient? postClient;
 
   @override
   Future<void> runCommand(ArgResults topLevelResults) async =>

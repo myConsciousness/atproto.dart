@@ -47,7 +47,7 @@ final class _CreateGeneratorCommand extends CreateRecordCommand {
       ..addOption("did", mandatory: true)
       ..addOption("displayName", mandatory: true)
       ..addOption("description")
-      ..addMultiOption("descriptionFacets")
+      ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption("avatar")
       ..addFlag(
         "acceptsInteractions",
@@ -105,7 +105,7 @@ final class _PutGeneratorCommand extends PutRecordCommand {
       ..addOption("did", mandatory: true)
       ..addOption("displayName", mandatory: true)
       ..addOption("description")
-      ..addMultiOption("descriptionFacets")
+      ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption("avatar")
       ..addFlag(
         "acceptsInteractions",

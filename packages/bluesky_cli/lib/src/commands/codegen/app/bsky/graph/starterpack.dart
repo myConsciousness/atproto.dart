@@ -50,13 +50,13 @@ final class _CreateStarterpackCommand extends CreateRecordCommand {
         mandatory: true,
       )
       ..addOption("description")
-      ..addMultiOption("descriptionFacets")
+      ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption(
         "list",
         help: r"Reference (AT-URI) to the list record.",
         mandatory: true,
       )
-      ..addMultiOption("feeds")
+      ..addMultiOption("feeds", splitCommas: false)
       ..addOption("createdAt", mandatory: true)
       ..addOption("rkey", help: r"Specific record key to use.");
   }
@@ -106,13 +106,13 @@ final class _PutStarterpackCommand extends PutRecordCommand {
         mandatory: true,
       )
       ..addOption("description")
-      ..addMultiOption("descriptionFacets")
+      ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption(
         "list",
         help: r"Reference (AT-URI) to the list record.",
         mandatory: true,
       )
-      ..addMultiOption("feeds")
+      ..addMultiOption("feeds", splitCommas: false)
       ..addOption("createdAt", mandatory: true)
       ..addOption("rkey", help: r"The record key.", mandatory: true);
   }

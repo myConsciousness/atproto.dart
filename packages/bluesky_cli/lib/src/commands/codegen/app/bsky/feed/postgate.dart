@@ -59,6 +59,7 @@ final class _CreatePostgateCommand extends CreateRecordCommand {
         "embeddingRules",
         help:
             r"List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
+        splitCommas: false,
       )
       ..addOption("rkey", help: r"Specific record key to use.");
   }
@@ -112,6 +113,7 @@ final class _PutPostgateCommand extends PutRecordCommand {
         "embeddingRules",
         help:
             r"List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
+        splitCommas: false,
       )
       ..addOption("rkey", help: r"The record key.", mandatory: true);
   }

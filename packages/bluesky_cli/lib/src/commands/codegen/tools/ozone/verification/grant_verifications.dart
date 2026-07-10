@@ -22,6 +22,7 @@ final class GrantVerificationsCommand extends ProcedureCommand {
     argParser..addMultiOption(
       "verifications",
       help: r"Array of verification requests to process",
+      splitCommas: false,
     );
   }
 

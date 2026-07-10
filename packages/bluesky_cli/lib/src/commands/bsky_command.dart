@@ -14,10 +14,25 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 // Project imports:
 import '../authentication.dart';
 import '../logger.dart';
+import '../xrpc_client_provider.dart';
 
 abstract class BskyCommand extends Command<void> {
   /// Returns the new instance of [BskyCommand].
   BskyCommand();
+
+  /// Returns the client used for GET requests, or null to use
+  /// the default.
+  xrpc.GetClient? get getClient {
+    final Object? runner = this.runner;
+    return runner is XrpcClientProvider ? runner.getClient : null;
+  }
+
+  /// Returns the client used for POST requests, or null to use
+  /// the default.
+  xrpc.PostClient? get postClient {
+    final Object? runner = this.runner;
+    return runner is XrpcClientProvider ? runner.postClient : null;
+  }
 
   /// The logger
   late final logger = BskyLogger(
@@ -74,6 +89,7 @@ abstract class BskyCommand extends Command<void> {
       xrpc.NSID.create('server.atproto.com', 'createSession'),
       service: service,
       body: {'identifier': _auth.identifier, 'password': _auth.password},
+      postClient: postClient,
     );
 
     _session = jsonDecode(response.data);
@@ -86,5 +102,6 @@ abstract class BskyCommand extends Command<void> {
         xrpc.NSID.create('repo.atproto.com', 'uploadBlob'),
         body: file.readAsBytesSync(),
         headers: {'Authorization': 'Bearer ${await accessJwt}'},
+        postClient: postClient,
       );
 }

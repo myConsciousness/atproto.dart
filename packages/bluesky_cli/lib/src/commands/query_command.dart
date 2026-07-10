@@ -35,6 +35,7 @@ abstract class QueryCommand extends BskyCommand {
             ? {'Authorization': 'Bearer ${await accessJwt}'}
             : null,
         parameters: await parameters,
+        getClient: getClient,
       ),
       pretty: globalResults!['pretty'],
       showStatus: globalResults!['status'],

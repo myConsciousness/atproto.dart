@@ -56,7 +56,7 @@ final class _CreateListCommand extends CreateRecordCommand {
         mandatory: true,
       )
       ..addOption("description")
-      ..addMultiOption("descriptionFacets")
+      ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption("avatar")
       ..addOption("labels")
       ..addOption("createdAt", mandatory: true)
@@ -112,7 +112,7 @@ final class _PutListCommand extends PutRecordCommand {
         mandatory: true,
       )
       ..addOption("description")
-      ..addMultiOption("descriptionFacets")
+      ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption("avatar")
       ..addOption("labels")
       ..addOption("createdAt", mandatory: true)

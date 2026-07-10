@@ -53,6 +53,7 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
         "allow",
         help:
             r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
+        splitCommas: false,
       )
       ..addOption("createdAt", mandatory: true)
       ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
@@ -102,6 +103,7 @@ final class _PutThreadgateCommand extends PutRecordCommand {
         "allow",
         help:
             r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
+        splitCommas: false,
       )
       ..addOption("createdAt", mandatory: true)
       ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")

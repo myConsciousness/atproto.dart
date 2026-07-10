@@ -32,6 +32,7 @@ final class CardybCommand extends BskyCommand {
         '/v1/extract',
         service: 'cardyb.bsky.app',
         parameters: {'url': argResults!['url']},
+        getClient: getClient,
       );
 
       return xrpc.XRPCResponse<String>(

@@ -19,7 +19,7 @@ import '../../../../procedure_command.dart';
 
 final class SendMessageBatchCommand extends ProcedureCommand {
   SendMessageBatchCommand() {
-    argParser..addMultiOption("items");
+    argParser..addMultiOption("items", splitCommas: false);
   }
 
   @override

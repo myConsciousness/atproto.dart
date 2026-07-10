@@ -30,7 +30,7 @@ final class ApplyWritesCommand extends ProcedureCommand {
         help:
             r"Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons.",
       )
-      ..addMultiOption("writes")
+      ..addMultiOption("writes", splitCommas: false)
       ..addOption(
         "swapCommit",
         help:

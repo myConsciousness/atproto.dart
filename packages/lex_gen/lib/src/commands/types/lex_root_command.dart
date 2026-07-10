@@ -14,11 +14,18 @@ final class LexRootCommand {
 
     return '''$kHeaderHint
 
+import 'package:args/command_runner.dart';
+
 $importPaths
 
 $kHeader
 
-final lexCommands = [
+/// Returns fresh instances of all generated commands.
+///
+/// This must be a getter, not a top-level final, because command
+/// instances hold per-runner state and cannot be shared across
+/// multiple [CommandRunner] instances.
+List<Command<void>> get lexCommands => [
     $commandNames
 ];
 ''';

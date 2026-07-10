@@ -12,6 +12,8 @@
   - Records include `$type`, `create` no longer sends a `"null"` rkey, and `put`/`delete` require `--rkey` (literal record keys such as `self` are applied automatically).
   - Kebab-case names keep digits attached to the preceding word (`search-posts-v2`).
   - Usage lines show real option syntax (e.g. `--actor=<value>`).
+  - Multi-options whose items are JSON values are generated with `splitCommas: false` so JSON is not corrupted.
+  - `lexCommands` is generated as a getter returning fresh command instances instead of a shared top-level list.
 
 ## v0.2.0
 

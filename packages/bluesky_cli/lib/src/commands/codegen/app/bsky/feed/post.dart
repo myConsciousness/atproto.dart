@@ -52,10 +52,12 @@ final class _CreatePostCommand extends CreateRecordCommand {
       ..addMultiOption(
         "entities",
         help: r"DEPRECATED: replaced by app.bsky.richtext.facet.",
+        splitCommas: false,
       )
       ..addMultiOption(
         "facets",
         help: r"Annotations of text (mentions, URLs, hashtags, etc)",
+        splitCommas: false,
       )
       ..addOption("reply")
       ..addOption("embed")
@@ -133,10 +135,12 @@ final class _PutPostCommand extends PutRecordCommand {
       ..addMultiOption(
         "entities",
         help: r"DEPRECATED: replaced by app.bsky.richtext.facet.",
+        splitCommas: false,
       )
       ..addMultiOption(
         "facets",
         help: r"Annotations of text (mentions, URLs, hashtags, etc)",
+        splitCommas: false,
       )
       ..addOption("reply")
       ..addOption("embed")
