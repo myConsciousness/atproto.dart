@@ -13,6 +13,10 @@ import 'package:lexicon/lexicon.dart';
 ///
 /// Supports file paths (must be `.json`) and directory paths.
 /// When a directory is provided, `.json` files are discovered recursively.
+///
+/// The returned docs are sorted by lexicon id (NSID) so that generation
+/// results are deterministic regardless of platform, file system
+/// enumeration order, or where the repository is checked out.
 List<LexiconDoc> loadLexiconDocsFromPaths(
   final List<String> paths, {
   bool recursive = true,
@@ -78,6 +82,10 @@ List<LexiconDoc> loadLexiconDocsFromPaths(
 
     docs.add(doc);
   }
+
+  // Sort by lexicon id instead of file path: ids are content-derived, so
+  // the order never depends on path separators or directory layout.
+  docs.sort((a, b) => a.id.toString().compareTo(b.id.toString()));
 
   return docs;
 }

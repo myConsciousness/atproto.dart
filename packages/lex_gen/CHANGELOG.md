@@ -15,6 +15,10 @@
   - Multi-options whose items are JSON values are generated with `splitCommas: false` so JSON is not corrupted.
   - `lexCommands` is generated as a getter returning fresh command instances instead of a shared top-level list.
 
+## v0.2.1
+
+- fix: sort loaded lexicon docs by NSID instead of file path so that generation results are deterministic across platforms and checkout locations.
+
 ## v0.2.0
 
 - fix: generate `List<...>` for object properties that reference a top-level `array` definition through a local ref (e.g. `#draftEmbedGalleryItems`). Such refs were previously treated as plain object refs and produced code pointing to a non-existent file.
