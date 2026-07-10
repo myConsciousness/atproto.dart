@@ -2,548 +2,233 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:io';
-import 'dart:async';
-import 'dart:collection';
 import 'dart:convert';
-import 'dart:typed_data';
+import 'dart:io';
 
 // Package imports:
-import 'package:github/github.dart';
 import 'package:http/http.dart' as http;
 
 // Project imports:
-import 'shared/shared.dart';
 import 'utils.dart';
 
-/// Optimized script for syncing lexicon files from the official repository.
-class SyncLexiconsScript extends BaseScript {
-  final ScriptConfig _config;
-  late final FileManager _fileManager;
-  late final http.Client _httpClient;
-  late final GitHub _github;
+const _repository = 'bluesky-social/atproto';
+const _ref = 'main';
 
-  SyncLexiconsScript({
-    required super.logger,
-    required super.progress,
-    required super.errorHandler,
-    required ScriptConfig config,
-    super.resourceManager,
-  }) : _config = config {
-    // Initialize resource manager and memory optimizations
-    MemoryOptimizations.initialize(resourceManager, logger);
+const _userAgent = 'atproto-dart-sync-lexicons/2.0';
+const _timeout = Duration(seconds: 30);
+const _maxRetries = 3;
+const _maxConcurrentDownloads = 10;
 
-    // Create managed resources
-    _fileManager = resourceManager.registerResource(
-      FileManager(logger, errorHandler, resourceManager),
-    );
-    _httpClient = http.Client();
-    _github = GitHub(
-      auth: Authentication.withToken(Platform.environment['GITHUB_TOKEN']),
-    );
+/// Lexicon definition types that the code generator does not support and
+/// that must therefore be excluded from the synced lexicons.
+const _unsupportedLexiconTypes = {'permission-set'};
 
-    // Register HTTP client for cleanup
-    resourceManager.registerResource(_HttpClientWrapper(_httpClient, logger));
-  }
+/// Top-level namespaces that must not be vendored (e.g. Bluesky-internal
+/// lexicons). Everything else under `lexicons/` is synced; which namespaces
+/// get code generated is decided by the lex_gen config and the package
+/// mappings in the generator scripts.
+const _excludedNamespaces = {'internal'};
 
-  @override
-  String get scriptName => 'sync_lexicons';
+Future<void> main() async {
+  final stopwatch = Stopwatch()..start();
+  final client = http.Client();
 
-  @override
-  String get description =>
-      'Syncs lexicon files from the official repository with '
-      'parallel downloading and retry logic';
-
-  @override
-  Future<void> execute(List<String> args) async {
-    try {
-      logger.info('Starting lexicon synchronization...');
-
-      // Get all lexicon files to download
-      final downloadTasks = await _collectDownloadTasks();
-
-      if (downloadTasks.isEmpty) {
-        logger.warning('No lexicon files found to download');
-        logger.info(
-          'This might indicate a network issue or repository structure change',
-        );
-        return;
-      }
-
-      logger.info('Found ${downloadTasks.length} lexicon files to download');
-      logger.debug(
-        'Download tasks collected from ${OptimizedUtils.lexiconsRoot.length} lexicon roots',
+  try {
+    // A single recursive Git Trees API call replaces per-directory
+    // Contents API calls.
+    final paths = await _getLexiconPaths(client);
+    if (paths.isEmpty) {
+      throw StateError(
+        'No lexicon files found in $_repository. This might indicate a '
+        'network issue or repository structure change.',
       );
-      progress.startOperation('Downloading lexicons', downloadTasks.length);
-
-      // Download files in parallel with retry logic
-      await _downloadLexiconsParallel(downloadTasks);
-
-      final stats = {
-        'Total files': downloadTasks.length,
-        'Lexicon roots': OptimizedUtils.lexiconsRoot.length,
-        'Max concurrent connections':
-            _config.networkConfig.maxConcurrentConnections,
-        'Max retries per file': _config.networkConfig.maxRetries,
-      };
-
-      progress.completeOperation(stats: stats);
-      logger.info('Lexicon synchronization completed successfully');
-    } finally {
-      await _cleanup();
     }
-  }
 
-  /// Collects all download tasks by traversing the repository structure.
-  Future<List<DownloadTask>> _collectDownloadTasks() async {
-    final tasks = <DownloadTask>[];
+    logInfo('Found ${paths.length} lexicon files to download');
 
-    for (final root in OptimizedUtils.lexiconsRoot) {
-      logger.debug('Collecting tasks for lexicon root: $root');
+    // Wipe only the namespace subdirectories so that removed namespaces are
+    // cleaned up while root-level files such as DISCLAIMER.md survive.
+    for (final entity in Directory(lexiconsPath).listSync()) {
+      if (entity is Directory) {
+        entity.deleteSync(recursive: true);
+      }
+    }
 
-      try {
-        // Clean up existing directory
-        await _fileManager.deleteDirectory('${_config.lexiconsPath}/$root');
-        await _fileManager.ensureDirectoryExists(
-          '${_config.lexiconsPath}/$root',
-        );
+    final failures = <String>[];
+    var skipped = 0;
 
-        final lexiconDirectories = await _getRepositoryContents(
-          'lexicons/$root',
-        );
+    for (var i = 0; i < paths.length; i += _maxConcurrentDownloads) {
+      final batch = paths.skip(i).take(_maxConcurrentDownloads);
 
-        for (final lexiconEntry in lexiconDirectories) {
-          // Lexicon files that live directly under the root (e.g.
-          // `com/germnetwork/declaration.json`). Some namespaces such as
-          // `com.germnetwork` only ship root-level files with no subdirectory.
-          if (lexiconEntry.type == 'file' &&
-              (lexiconEntry.name?.endsWith('.json') ?? false)) {
-            if (lexiconEntry.downloadUrl == null || lexiconEntry.name == null) {
-              logger.warning(
-                'Skipping file with missing metadata: '
-                '${lexiconEntry.name ?? 'unknown'} in $root',
-              );
-              continue;
-            }
-
-            tasks.add(
-              DownloadTask(
-                url: lexiconEntry.downloadUrl!,
-                localPath:
-                    '${_config.lexiconsPath}/$root/${lexiconEntry.name}',
-                fileName: lexiconEntry.name!,
-                directoryName: '',
-                root: root,
-              ),
-            );
-            continue;
+      await Future.wait(
+        batch.map((path) async {
+          try {
+            final downloaded = await _downloadLexicon(client, path);
+            if (!downloaded) skipped++;
+          } catch (e) {
+            logWarning('Failed to download $path: $e');
+            failures.add(path);
           }
-
-          if (lexiconEntry.type != 'dir') continue;
-
-          final lexiconFiles = await _getRepositoryContents(
-            lexiconEntry.path!,
-          );
-
-          for (final lexiconFile in lexiconFiles) {
-            if (lexiconFile.type != 'file' ||
-                !lexiconFile.name!.endsWith('.json')) {
-              continue;
-            }
-
-            // Validate required fields
-            if (lexiconFile.downloadUrl == null ||
-                lexiconFile.name == null ||
-                lexiconEntry.name == null) {
-              logger.warning(
-                'Skipping file with missing metadata: '
-                '${lexiconFile.name ?? 'unknown'} in '
-                '${lexiconEntry.name ?? 'unknown'}',
-              );
-              continue;
-            }
-
-            final localPath =
-                '${_config.lexiconsPath}/$root/'
-                '${lexiconEntry.name}/${lexiconFile.name}';
-
-            tasks.add(
-              DownloadTask(
-                url: lexiconFile.downloadUrl!,
-                localPath: localPath,
-                fileName: lexiconFile.name!,
-                directoryName: lexiconEntry.name!,
-                root: root,
-              ),
-            );
-          }
-        }
-      } catch (e) {
-        errorHandler.handleNetworkError(
-          'lexicons/$root',
-          e is Exception ? e : Exception(e.toString()),
-        );
-        // Continue with other roots
-      }
+        }),
+      );
     }
 
-    return tasks;
-  }
+    // Fail loudly so CI never turns a partial sync into a pull request
+    // that deletes lexicons.
+    if (failures.isNotEmpty) {
+      throw StateError(
+        '${failures.length} of ${paths.length} downloads failed: '
+        '${failures.take(10).join(', ')}'
+        '${failures.length > 10 ? ', ...' : ''}',
+      );
+    }
 
-  /// Downloads lexicon files in parallel with retry logic and progress
-  /// reporting.
-  Future<void> _downloadLexiconsParallel(List<DownloadTask> tasks) async {
-    final semaphore = Semaphore(_config.networkConfig.maxConcurrentConnections);
-    final completedTasks = <String>{};
-    final failedTasks = <String>{};
-    var processedCount = 0;
-
-    final futures = tasks.map((task) async {
-      await semaphore.acquire();
-      try {
-        await _downloadWithRetry(task);
-        completedTasks.add(task.fileName);
-        logger.debug('Successfully downloaded: ${task.fileName}');
-      } catch (e) {
-        failedTasks.add(task.fileName);
-        logger.debug('Failed to download: ${task.fileName}');
-      } finally {
-        processedCount++;
-        progress.updateProgress(
-          processedCount,
-          currentItem: '${task.root}/${task.directoryName}/${task.fileName}',
-        );
-        semaphore.release();
-      }
-    });
-
-    await Future.wait(futures);
-
-    logger.info(
-      'Download completed: ${completedTasks.length} successful, '
-      '${failedTasks.length} failed out of ${tasks.length} total files',
+    logInfo(
+      'Synced ${paths.length - skipped} lexicons '
+      '($skipped unsupported skipped) in ${stopwatch.elapsedMilliseconds}ms',
     );
+  } finally {
+    client.close();
+  }
+}
 
-    if (failedTasks.isNotEmpty) {
-      logger.warning(
-        'Failed downloads: ${failedTasks.take(10).join(', ')}'
-        '${failedTasks.length > 10 ? ' and ${failedTasks.length - 10} more' : ''}',
+/// Lists every lexicon file path in the official repository using a single
+/// recursive Git Trees API call.
+Future<List<String>> _getLexiconPaths(http.Client client) async {
+  final token = Platform.environment['GITHUB_TOKEN'];
+  final uri = Uri.parse(
+    'https://api.github.com/repos/$_repository/git/trees/$_ref?recursive=1',
+  );
+
+  final response = await _withRetry(() async {
+    final response = await client
+        .get(
+          uri,
+          headers: {
+            'Accept': 'application/vnd.github+json',
+            'User-Agent': _userAgent,
+            if (token != null && token.isNotEmpty)
+              'Authorization': 'Bearer $token',
+          },
+        )
+        .timeout(_timeout);
+
+    if (response.statusCode != 200) {
+      throw HttpException(
+        'HTTP ${response.statusCode}: ${response.reasonPhrase}',
+        uri: uri,
       );
     }
+
+    return response;
+  }, label: 'Git tree listing');
+
+  final json = jsonDecode(response.body) as Map<String, dynamic>;
+  if (json['truncated'] == true) {
+    throw StateError(
+      'Git tree response for $_repository was truncated; the repository has '
+      'grown too large for a recursive tree listing.',
+    );
   }
 
-  /// Downloads a single file with exponential backoff retry logic.
-  Future<void> _downloadWithRetry(DownloadTask task) async {
-    var attempt = 0;
-    var delay = _config.networkConfig.initialDelay;
-    Exception? lastException;
+  final excludedPrefixes = _excludedNamespaces
+      .map((namespace) => 'lexicons/$namespace/')
+      .toList();
 
-    while (attempt <= _config.networkConfig.maxRetries) {
-      try {
-        await _downloadFile(task);
-        return; // Success
-      } catch (e) {
-        lastException = e is Exception ? e : Exception(e.toString());
-        attempt++;
+  return [
+    for (final entry in json['tree'] as List)
+      if (entry['type'] == 'blob' &&
+          (entry['path'] as String).startsWith('lexicons/') &&
+          (entry['path'] as String).endsWith('.json') &&
+          !excludedPrefixes.any(
+            (prefix) => (entry['path'] as String).startsWith(prefix),
+          ))
+        entry['path'] as String,
+  ];
+}
 
-        if (attempt > _config.networkConfig.maxRetries) {
-          errorHandler.handleNetworkError(
-            task.url,
-            lastException,
-            attemptNumber: attempt,
-          );
+/// Downloads a single lexicon file. Returns false if the lexicon was
+/// skipped because it declares an unsupported definition type.
+Future<bool> _downloadLexicon(http.Client client, String path) async {
+  final uri = Uri.parse(
+    'https://raw.githubusercontent.com/$_repository/$_ref/$path',
+  );
 
-          // Log specific failure context for debugging
-          logger.debug(
-            'Final download failure for ${task.fileName} after '
-            '${_config.networkConfig.maxRetries} retries: '
-            '${lastException.toString()}',
-          );
+  final response = await _withRetry(() async {
+    final response = await client
+        .get(uri, headers: {'User-Agent': _userAgent})
+        .timeout(_timeout);
 
-          // Don't rethrow to allow other downloads to continue
-          return;
-        }
-
-        logger.debug(
-          'Download failed for ${task.fileName}, retrying in '
-          '${delay.inSeconds}s (attempt $attempt/'
-          '${_config.networkConfig.maxRetries}): ${e.toString()}',
-        );
-
-        await Future.delayed(delay);
-        delay = Duration(
-          milliseconds:
-              (delay.inMilliseconds * _config.networkConfig.backoffMultiplier)
-                  .round(),
-        );
-      }
-    }
-  }
-
-  /// Downloads a single file and saves it to the local path.
-  Future<void> _downloadFile(DownloadTask task) async {
-    final request = http.Request('GET', Uri.parse(task.url));
-    request.headers['User-Agent'] = 'atproto-dart-sync-lexicons/1.0';
-    request.headers['Accept'] = 'application/json';
-
-    http.StreamedResponse? streamedResponse;
-    IOSink? sink;
-
-    try {
-      // Start tracking network operation
-      progress.startNetworkOperation(task.url, 'Downloading ${task.fileName}');
-
-      streamedResponse = await _httpClient
-          .send(request)
-          .timeout(
-            _config.networkConfig.timeout,
-            onTimeout: () => throw TimeoutException(
-              'Download timeout for ${task.fileName}',
-              _config.networkConfig.timeout,
-            ),
-          );
-
-      if (streamedResponse.statusCode != 200) {
-        progress.completeNetworkOperation(task.url, success: false);
-        throw HttpException(
-          'HTTP ${streamedResponse.statusCode}: ${streamedResponse.reasonPhrase} '
-          'for ${task.fileName}',
-          uri: Uri.parse(task.url),
-        );
-      }
-
-      // Buffer the response so the lexicon can be inspected before writing.
-      final contentLength = streamedResponse.contentLength;
-      final bytesBuilder = BytesBuilder(copy: false);
-      var downloadedBytes = 0;
-
-      await for (final chunk in streamedResponse.stream) {
-        bytesBuilder.add(chunk);
-        downloadedBytes += chunk.length;
-
-        // Update network progress
-        progress.updateNetworkProgress(
-          task.url,
-          downloadedBytes,
-          totalBytes: contentLength,
-        );
-      }
-
-      final bytes = bytesBuilder.takeBytes();
-
-      // Skip lexicons whose type the code generator can't process (e.g.
-      // `permission-set`). The official codegen excludes these too by globbing
-      // `*/*` for the large namespaces; filtering by type here keeps root-level
-      // files such as `app.bsky.auth*` out of the generated output.
-      if (_isUnsupportedLexicon(bytes)) {
-        progress.completeNetworkOperation(task.url, success: true);
-        logger.debug('Skipped unsupported lexicon: ${task.fileName}');
-        return;
-      }
-
-      // Ensure directory exists
-      await _fileManager.ensureDirectoryExists(
-        File(task.localPath).parent.path,
+    if (response.statusCode != 200) {
+      throw HttpException(
+        'HTTP ${response.statusCode}: ${response.reasonPhrase}',
+        uri: uri,
       );
-
-      // Write file with streaming and progress tracking
-      final file = File(task.localPath);
-      sink = file.openWrite();
-      sink.add(bytes);
-
-      await sink.flush();
-
-      // Verify file was written successfully
-      if (!await file.exists() || await file.length() == 0) {
-        progress.completeNetworkOperation(task.url, success: false);
-        throw Exception(
-          'Downloaded file is empty or was not created: ${task.fileName}',
-        );
-      }
-
-      // Complete network operation successfully
-      progress.completeNetworkOperation(task.url, success: true);
-      logger.debug(
-        'Downloaded: ${task.fileName} (${await file.length()} bytes)',
-      );
-    } catch (e) {
-      // Clean up partial file on error
-      try {
-        final file = File(task.localPath);
-        if (await file.exists()) {
-          await file.delete();
-          logger.debug('Cleaned up partial file: ${task.fileName}');
-        }
-      } catch (cleanupError) {
-        logger.debug(
-          'Failed to clean up partial file ${task.fileName}: $cleanupError',
-        );
-      }
-      rethrow;
-    } finally {
-      // Ensure resources are properly closed
-      try {
-        await sink?.close();
-      } catch (e) {
-        logger.debug('Error closing file sink for ${task.fileName}: $e');
-      }
-    }
-  }
-
-  /// Lexicon definition types that the code generator does not support and
-  /// that must therefore be excluded from the synced lexicons.
-  static const Set<String> _unsupportedLexiconTypes = {'permission-set'};
-
-  /// Returns whether [bytes] is a lexicon document declaring an unsupported
-  /// definition type (e.g. `permission-set`).
-  bool _isUnsupportedLexicon(List<int> bytes) {
-    try {
-      final dynamic json = jsonDecode(utf8.decode(bytes));
-      if (json is! Map<String, dynamic>) return false;
-
-      final dynamic defs = json['defs'];
-      if (defs is! Map<String, dynamic>) return false;
-
-      for (final def in defs.values) {
-        if (def is Map<String, dynamic> &&
-            _unsupportedLexiconTypes.contains(def['type'])) {
-          return true;
-        }
-      }
-    } catch (_) {
-      // Not valid JSON; let the normal parsing pipeline report the error.
     }
 
+    return response;
+  }, label: path);
+
+  // Skip lexicons whose type the code generator can't process (e.g.
+  // `permission-set`). The official codegen excludes these too by globbing
+  // `*/*` for the large namespaces; filtering by type here keeps root-level
+  // files such as `app.bsky.auth*` out of the generated output.
+  if (_isUnsupportedLexicon(response.bodyBytes)) {
+    logInfo('Skipped unsupported lexicon: $path');
     return false;
   }
 
-  /// Gets repository contents with error handling.
-  Future<List<GitHubFile>> _getRepositoryContents(String path) async {
+  // The repository path starts with `lexicons/`, which matches the local
+  // directory layout.
+  final file = File(path);
+  file.parent.createSync(recursive: true);
+  file.writeAsBytesSync(response.bodyBytes);
+
+  return true;
+}
+
+/// Returns whether [bytes] is a lexicon document declaring an unsupported
+/// definition type (e.g. `permission-set`).
+bool _isUnsupportedLexicon(List<int> bytes) {
+  try {
+    final dynamic json = jsonDecode(utf8.decode(bytes));
+    if (json is! Map<String, dynamic>) return false;
+
+    final dynamic defs = json['defs'];
+    if (defs is! Map<String, dynamic>) return false;
+
+    for (final def in defs.values) {
+      if (def is Map<String, dynamic> &&
+          _unsupportedLexiconTypes.contains(def['type'])) {
+        return true;
+      }
+    }
+  } catch (_) {
+    // Not valid JSON; let the normal parsing pipeline report the error.
+  }
+
+  return false;
+}
+
+/// Runs [action] with exponential backoff retries.
+Future<T> _withRetry<T>(
+  Future<T> Function() action, {
+  required String label,
+}) async {
+  var delay = const Duration(seconds: 1);
+
+  for (var attempt = 1; ; attempt++) {
     try {
-      logger.debug('Fetching repository contents for: $path');
-      final contents = await _github.repositories.getContents(
-        OptimizedUtils.officialRepositorySlug,
-        path,
-      );
-      final files = contents.tree ?? [];
-      logger.debug('Found ${files.length} items in $path');
-      return files;
+      return await action();
     } catch (e) {
-      errorHandler.handleNetworkError(
-        'GitHub API: $path',
-        e is Exception ? e : Exception(e.toString()),
+      if (attempt >= _maxRetries) rethrow;
+
+      logWarning(
+        '$label failed (attempt $attempt/$_maxRetries), retrying in '
+        '${delay.inSeconds}s: $e',
       );
-      logger.warning('Failed to fetch contents for $path, skipping...');
-      return [];
+      await Future.delayed(delay);
+      delay *= 2;
     }
-  }
-
-  /// Cleans up resources (now handled by ResourceManager).
-  Future<void> _cleanup() async {
-    // Resource cleanup is now handled automatically by the ResourceManager
-    // in the BaseScript.dispose() method
-    logger.debug('Resource cleanup delegated to ResourceManager');
-  }
-}
-
-/// Represents a file download task.
-class DownloadTask {
-  final String url;
-  final String localPath;
-  final String fileName;
-  final String directoryName;
-  final String root;
-
-  const DownloadTask({
-    required this.url,
-    required this.localPath,
-    required this.fileName,
-    required this.directoryName,
-    required this.root,
-  });
-
-  @override
-  String toString() => 'DownloadTask($root/$directoryName/$fileName)';
-}
-
-/// Simple semaphore implementation for controlling concurrent operations.
-class Semaphore {
-  final int maxCount;
-  int _currentCount;
-  final Queue<Completer<void>> _waitQueue = Queue<Completer<void>>();
-
-  Semaphore(this.maxCount) : _currentCount = maxCount {
-    if (maxCount <= 0) {
-      throw ArgumentError('maxCount must be positive, got: $maxCount');
-    }
-  }
-
-  Future<void> acquire() async {
-    if (_currentCount > 0) {
-      _currentCount--;
-      return;
-    }
-
-    final completer = Completer<void>();
-    _waitQueue.add(completer);
-    return completer.future;
-  }
-
-  void release() {
-    if (_waitQueue.isNotEmpty) {
-      final completer = _waitQueue.removeFirst();
-      completer.complete();
-    } else {
-      _currentCount = (_currentCount + 1).clamp(0, maxCount);
-    }
-  }
-
-  /// Get current available permits
-  int get availablePermits => _currentCount;
-
-  /// Get number of threads waiting for permits
-  int get queueLength => _waitQueue.length;
-}
-
-Future<void> main(List<String> args) async {
-  // Load configuration
-  final config = await ConfigLoader.load();
-
-  // Create infrastructure
-  final infrastructure = ScriptInfrastructure.createInfrastructure(
-    logLevel: LogLevel.info,
-    useColors: true,
-    useProgressBar: true,
-  );
-
-  // Create and run script
-  final script = SyncLexiconsScript(
-    logger: infrastructure.logger,
-    progress: infrastructure.progress,
-    errorHandler: infrastructure.errorHandler,
-    config: config,
-  );
-
-  await script.run(args);
-}
-
-/// Wrapper for HTTP client to make it disposable.
-class _HttpClientWrapper implements Disposable {
-  final http.Client _client;
-  final Logger _logger;
-  bool _isDisposed = false;
-
-  _HttpClientWrapper(this._client, this._logger);
-
-  @override
-  bool get isDisposed => _isDisposed;
-
-  @override
-  Future<void> dispose() async {
-    if (_isDisposed) return;
-
-    _isDisposed = true;
-    _client.close();
-    _logger.debug('HTTP client disposed');
   }
 }
