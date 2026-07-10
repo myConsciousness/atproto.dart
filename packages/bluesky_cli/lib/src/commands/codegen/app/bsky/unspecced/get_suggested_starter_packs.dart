@@ -27,11 +27,13 @@ final class GetSuggestedStarterPacksCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-suggested-starter-packs [limit]";
+      "bsky app-bsky-unspecced get-suggested-starter-packs [--limit=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getSuggestedStarterPacks";
 
   @override
-  Map<String, dynamic>? get parameters => {"limit": argResults!["limit"]};
+  Map<String, dynamic>? get parameters => {
+    "limit": int.parse(argResults!["limit"]),
+  };
 }

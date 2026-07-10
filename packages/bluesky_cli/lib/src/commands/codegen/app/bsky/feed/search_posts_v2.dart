@@ -142,7 +142,7 @@ final class SearchPostsV2Command extends QueryCommand {
   }
 
   @override
-  final String name = "search-posts-v-2";
+  final String name = "search-posts-v2";
 
   @override
   final String description =
@@ -150,54 +150,56 @@ final class SearchPostsV2Command extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed search-posts-v-2 [cursor] [limit] [query] [sort] [authors] [mentions] [domains] [urls] [embeddedAtUris] [hashtags] [excludeAuthors] [excludeMentions] [excludeDomains] [excludeUrls] [excludeEmbeddedAtUris] [excludeHashtags] [since] [until] [allTime] [languages] [excludeLanguages] [hasMedia] [hasVideo] [replyParentUri] [threadRootUri] [excludeReplies] [repliesOnly] [following] [queryLanguage]";
+      "bsky app-bsky-feed search-posts-v2 [--cursor=<value>] [--limit=<value>] [--query=<value>] [--sort=<value>] [--authors=<value>...] [--mentions=<value>...] [--domains=<value>...] [--urls=<value>...] [--embeddedAtUris=<value>...] [--hashtags=<value>...] [--excludeAuthors=<value>...] [--excludeMentions=<value>...] [--excludeDomains=<value>...] [--excludeUrls=<value>...] [--excludeEmbeddedAtUris=<value>...] [--excludeHashtags=<value>...] [--since=<value>] [--until=<value>] [--allTime] [--languages=<value>...] [--excludeLanguages=<value>...] [--hasMedia] [--hasVideo] [--replyParentUri=<value>] [--threadRootUri=<value>] [--excludeReplies] [--repliesOnly] [--following] [--queryLanguage=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.searchPostsV2";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
-    if (argResults!["query"] != null) "query": argResults!["query"],
-    if (argResults!["sort"] != null) "sort": argResults!["sort"],
-    if (argResults!["authors"] != null) "authors": argResults!["authors"],
-    if (argResults!["mentions"] != null) "mentions": argResults!["mentions"],
-    if (argResults!["domains"] != null) "domains": argResults!["domains"],
-    if (argResults!["urls"] != null) "urls": argResults!["urls"],
-    if (argResults!["embeddedAtUris"] != null)
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("query")) "query": argResults!["query"],
+    if (argResults!.wasParsed("sort")) "sort": argResults!["sort"],
+    if (argResults!.wasParsed("authors")) "authors": argResults!["authors"],
+    if (argResults!.wasParsed("mentions")) "mentions": argResults!["mentions"],
+    if (argResults!.wasParsed("domains")) "domains": argResults!["domains"],
+    if (argResults!.wasParsed("urls")) "urls": argResults!["urls"],
+    if (argResults!.wasParsed("embeddedAtUris"))
       "embeddedAtUris": argResults!["embeddedAtUris"],
-    if (argResults!["hashtags"] != null) "hashtags": argResults!["hashtags"],
-    if (argResults!["excludeAuthors"] != null)
+    if (argResults!.wasParsed("hashtags")) "hashtags": argResults!["hashtags"],
+    if (argResults!.wasParsed("excludeAuthors"))
       "excludeAuthors": argResults!["excludeAuthors"],
-    if (argResults!["excludeMentions"] != null)
+    if (argResults!.wasParsed("excludeMentions"))
       "excludeMentions": argResults!["excludeMentions"],
-    if (argResults!["excludeDomains"] != null)
+    if (argResults!.wasParsed("excludeDomains"))
       "excludeDomains": argResults!["excludeDomains"],
-    if (argResults!["excludeUrls"] != null)
+    if (argResults!.wasParsed("excludeUrls"))
       "excludeUrls": argResults!["excludeUrls"],
-    if (argResults!["excludeEmbeddedAtUris"] != null)
+    if (argResults!.wasParsed("excludeEmbeddedAtUris"))
       "excludeEmbeddedAtUris": argResults!["excludeEmbeddedAtUris"],
-    if (argResults!["excludeHashtags"] != null)
+    if (argResults!.wasParsed("excludeHashtags"))
       "excludeHashtags": argResults!["excludeHashtags"],
-    if (argResults!["since"] != null) "since": argResults!["since"],
-    if (argResults!["until"] != null) "until": argResults!["until"],
-    if (argResults!["allTime"] != null) "allTime": argResults!["allTime"],
-    if (argResults!["languages"] != null) "languages": argResults!["languages"],
-    if (argResults!["excludeLanguages"] != null)
+    if (argResults!.wasParsed("since")) "since": argResults!["since"],
+    if (argResults!.wasParsed("until")) "until": argResults!["until"],
+    if (argResults!.wasParsed("allTime")) "allTime": argResults!["allTime"],
+    if (argResults!.wasParsed("languages"))
+      "languages": argResults!["languages"],
+    if (argResults!.wasParsed("excludeLanguages"))
       "excludeLanguages": argResults!["excludeLanguages"],
-    if (argResults!["hasMedia"] != null) "hasMedia": argResults!["hasMedia"],
-    if (argResults!["hasVideo"] != null) "hasVideo": argResults!["hasVideo"],
-    if (argResults!["replyParentUri"] != null)
+    if (argResults!.wasParsed("hasMedia")) "hasMedia": argResults!["hasMedia"],
+    if (argResults!.wasParsed("hasVideo")) "hasVideo": argResults!["hasVideo"],
+    if (argResults!.wasParsed("replyParentUri"))
       "replyParentUri": argResults!["replyParentUri"],
-    if (argResults!["threadRootUri"] != null)
+    if (argResults!.wasParsed("threadRootUri"))
       "threadRootUri": argResults!["threadRootUri"],
-    if (argResults!["excludeReplies"] != null)
+    if (argResults!.wasParsed("excludeReplies"))
       "excludeReplies": argResults!["excludeReplies"],
-    if (argResults!["repliesOnly"] != null)
+    if (argResults!.wasParsed("repliesOnly"))
       "repliesOnly": argResults!["repliesOnly"],
-    if (argResults!["following"] != null) "following": argResults!["following"],
-    if (argResults!["queryLanguage"] != null)
+    if (argResults!.wasParsed("following"))
+      "following": argResults!["following"],
+    if (argResults!.wasParsed("queryLanguage"))
       "queryLanguage": argResults!["queryLanguage"],
   };
 }

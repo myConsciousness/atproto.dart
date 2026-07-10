@@ -51,17 +51,19 @@ final class GetMessageContextCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-moderation get-message-context [convoId] [messageId] [before] [after] [maxInterleavedSystemMessages]";
+      "bsky chat-bsky-moderation get-message-context [--convoId=<value>] --messageId=<value> [--before=<value>] [--after=<value>] [--maxInterleavedSystemMessages=<value>]";
 
   @override
   String get methodId => "chat.bsky.moderation.getMessageContext";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["convoId"] != null) "convoId": argResults!["convoId"],
+    if (argResults!.wasParsed("convoId")) "convoId": argResults!["convoId"],
     "messageId": argResults!["messageId"],
-    "before": argResults!["before"],
-    "after": argResults!["after"],
-    "maxInterleavedSystemMessages": argResults!["maxInterleavedSystemMessages"],
+    "before": int.parse(argResults!["before"]),
+    "after": int.parse(argResults!["after"]),
+    "maxInterleavedSystemMessages": int.parse(
+      argResults!["maxInterleavedSystemMessages"],
+    ),
   };
 }

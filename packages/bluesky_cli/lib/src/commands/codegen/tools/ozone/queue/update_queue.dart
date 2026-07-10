@@ -36,17 +36,17 @@ final class UpdateQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue update-queue [queueId] [name] [enabled] [description]";
+      "bsky tools-ozone-queue update-queue --queueId=<value> [--name=<value>] [--enabled] [--description=<value>]";
 
   @override
   String get methodId => "tools.ozone.queue.updateQueue";
 
   @override
   Map<String, dynamic>? get body => {
-    "queueId": argResults!["queueId"],
-    if (argResults!["name"] != null) "name": argResults!["name"],
-    if (argResults!["enabled"] != null) "enabled": argResults!["enabled"],
-    if (argResults!["description"] != null)
+    "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("name")) "name": argResults!["name"],
+    if (argResults!.wasParsed("enabled")) "enabled": argResults!["enabled"],
+    if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
   };
 }

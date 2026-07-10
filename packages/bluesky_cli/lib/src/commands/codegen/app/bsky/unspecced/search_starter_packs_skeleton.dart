@@ -45,7 +45,7 @@ final class SearchStarterPacksSkeletonCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced search-starter-packs-skeleton [q] [viewer] [limit] [cursor]";
+      "bsky app-bsky-unspecced search-starter-packs-skeleton --q=<value> [--viewer=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.searchStarterPacksSkeleton";
@@ -53,8 +53,8 @@ final class SearchStarterPacksSkeletonCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "q": argResults!["q"],
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

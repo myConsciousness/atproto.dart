@@ -30,7 +30,7 @@ final class ApproveJoinRequestCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group approve-join-request [convoId] [member]";
+      "bsky chat-bsky-group approve-join-request --convoId=<value> --member=<value>";
 
   @override
   String get methodId => "chat.bsky.group.approveJoinRequest";

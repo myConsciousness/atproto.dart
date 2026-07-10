@@ -38,15 +38,15 @@ final class GetSuggestedUsersSkeletonCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-suggested-users-skeleton [viewer] [category] [limit]";
+      "bsky app-bsky-unspecced get-suggested-users-skeleton [--viewer=<value>] [--category=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getSuggestedUsersSkeleton";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    if (argResults!["category"] != null) "category": argResults!["category"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
+    if (argResults!.wasParsed("category")) "category": argResults!["category"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

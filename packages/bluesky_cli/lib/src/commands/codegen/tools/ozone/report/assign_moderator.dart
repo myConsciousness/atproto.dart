@@ -48,17 +48,18 @@ final class AssignModeratorCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report assign-moderator [reportId] [queueId] [did] [isPermanent]";
+      "bsky tools-ozone-report assign-moderator --reportId=<value> [--queueId=<value>] [--did=<value>] [--isPermanent]";
 
   @override
   String get methodId => "tools.ozone.report.assignModerator";
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId": argResults!["reportId"],
-    if (argResults!["queueId"] != null) "queueId": argResults!["queueId"],
-    if (argResults!["did"] != null) "did": argResults!["did"],
-    if (argResults!["isPermanent"] != null)
+    "reportId": int.parse(argResults!["reportId"]),
+    if (argResults!.wasParsed("queueId"))
+      "queueId": int.parse(argResults!["queueId"]),
+    if (argResults!.wasParsed("did")) "did": argResults!["did"],
+    if (argResults!.wasParsed("isPermanent"))
       "isPermanent": argResults!["isPermanent"],
   };
 }

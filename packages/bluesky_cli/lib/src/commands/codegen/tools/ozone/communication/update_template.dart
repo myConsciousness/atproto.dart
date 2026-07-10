@@ -46,7 +46,7 @@ final class UpdateTemplateCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-communication update-template [id] [name] [lang] [contentMarkdown] [subject] [updatedBy] [disabled]";
+      "bsky tools-ozone-communication update-template --id=<value> [--name=<value>] [--lang=<value>] [--contentMarkdown=<value>] [--subject=<value>] [--updatedBy=<value>] [--disabled]";
 
   @override
   String get methodId => "tools.ozone.communication.updateTemplate";
@@ -54,12 +54,13 @@ final class UpdateTemplateCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "id": argResults!["id"],
-    if (argResults!["name"] != null) "name": argResults!["name"],
-    if (argResults!["lang"] != null) "lang": argResults!["lang"],
-    if (argResults!["contentMarkdown"] != null)
+    if (argResults!.wasParsed("name")) "name": argResults!["name"],
+    if (argResults!.wasParsed("lang")) "lang": argResults!["lang"],
+    if (argResults!.wasParsed("contentMarkdown"))
       "contentMarkdown": argResults!["contentMarkdown"],
-    if (argResults!["subject"] != null) "subject": argResults!["subject"],
-    if (argResults!["updatedBy"] != null) "updatedBy": argResults!["updatedBy"],
-    if (argResults!["disabled"] != null) "disabled": argResults!["disabled"],
+    if (argResults!.wasParsed("subject")) "subject": argResults!["subject"],
+    if (argResults!.wasParsed("updatedBy"))
+      "updatedBy": argResults!["updatedBy"],
+    if (argResults!.wasParsed("disabled")) "disabled": argResults!["disabled"],
   };
 }

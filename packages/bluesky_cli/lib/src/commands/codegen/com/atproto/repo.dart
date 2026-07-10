@@ -16,9 +16,11 @@ import 'repo/create_record.dart';
 import 'repo/delete_record.dart';
 import 'repo/describe_repo.dart';
 import 'repo/get_record.dart';
+import 'repo/import_repo.dart';
 import 'repo/list_missing_blobs.dart';
 import 'repo/list_records.dart';
 import 'repo/put_record.dart';
+import 'repo/upload_blob.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -31,9 +33,11 @@ final class ComAtprotoRepoCommand extends Command<void> {
     addSubcommand(DeleteRecordCommand());
     addSubcommand(DescribeRepoCommand());
     addSubcommand(GetRecordCommand());
+    addSubcommand(ImportRepoCommand());
     addSubcommand(ListMissingBlobsCommand());
     addSubcommand(ListRecordsCommand());
     addSubcommand(PutRecordCommand());
+    addSubcommand(UploadBlobCommand());
   }
 
   @override

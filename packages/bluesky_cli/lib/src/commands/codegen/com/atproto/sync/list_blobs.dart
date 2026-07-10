@@ -35,7 +35,7 @@ final class ListBlobsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-sync list-blobs [did] [since] [limit] [cursor]";
+      "bsky com-atproto-sync list-blobs --did=<value> [--since=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "com.atproto.sync.listBlobs";
@@ -43,8 +43,8 @@ final class ListBlobsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "did": argResults!["did"],
-    if (argResults!["since"] != null) "since": argResults!["since"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("since")) "since": argResults!["since"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

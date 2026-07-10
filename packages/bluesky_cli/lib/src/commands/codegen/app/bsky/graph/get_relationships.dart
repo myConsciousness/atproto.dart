@@ -37,7 +37,7 @@ final class GetRelationshipsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-relationships [actor] [others]";
+      "bsky app-bsky-graph get-relationships --actor=<value> [--others=<value>...]";
 
   @override
   String get methodId => "app.bsky.graph.getRelationships";
@@ -45,6 +45,6 @@ final class GetRelationshipsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "actor": argResults!["actor"],
-    if (argResults!["others"] != null) "others": argResults!["others"],
+    if (argResults!.wasParsed("others")) "others": argResults!["others"],
   };
 }

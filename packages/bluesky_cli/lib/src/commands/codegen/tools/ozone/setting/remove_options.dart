@@ -29,7 +29,7 @@ final class RemoveOptionsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-setting remove-options [keys] [scope]";
+      "bsky tools-ozone-setting remove-options [--keys=<value>...] --scope=<value>";
 
   @override
   String get methodId => "tools.ozone.setting.removeOptions";

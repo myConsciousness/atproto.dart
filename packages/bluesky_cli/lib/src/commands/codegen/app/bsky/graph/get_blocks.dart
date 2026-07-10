@@ -29,14 +29,15 @@ final class GetBlocksCommand extends QueryCommand {
       r"Enumerates which accounts the requesting account is currently blocking. Requires auth.";
 
   @override
-  final String invocation = "bsky app-bsky-graph get-blocks [limit] [cursor]";
+  final String invocation =
+      "bsky app-bsky-graph get-blocks [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.graph.getBlocks";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

@@ -32,7 +32,7 @@ final class UnregisterPushCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification unregister-push [serviceDid] [token] [platform] [appId]";
+      "bsky app-bsky-notification unregister-push --serviceDid=<value> --token=<value> --platform=<value> --appId=<value>";
 
   @override
   String get methodId => "app.bsky.notification.unregisterPush";

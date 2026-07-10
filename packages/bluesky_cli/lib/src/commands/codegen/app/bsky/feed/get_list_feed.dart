@@ -35,7 +35,7 @@ final class GetListFeedCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-list-feed [list] [limit] [cursor]";
+      "bsky app-bsky-feed get-list-feed --list=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getListFeed";
@@ -43,7 +43,7 @@ final class GetListFeedCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "list": argResults!["list"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

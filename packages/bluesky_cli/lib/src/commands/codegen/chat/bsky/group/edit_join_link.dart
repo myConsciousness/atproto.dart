@@ -34,7 +34,7 @@ final class EditJoinLinkCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group edit-join-link [convoId] [requireApproval] [joinRule]";
+      "bsky chat-bsky-group edit-join-link --convoId=<value> [--requireApproval] [--joinRule=<value>]";
 
   @override
   String get methodId => "chat.bsky.group.editJoinLink";
@@ -42,9 +42,9 @@ final class EditJoinLinkCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "convoId": argResults!["convoId"],
-    if (argResults!["requireApproval"] != null)
+    if (argResults!.wasParsed("requireApproval"))
       "requireApproval": argResults!["requireApproval"],
-    if (argResults!["joinRule"] != null)
+    if (argResults!.wasParsed("joinRule"))
       "joinRule": jsonDecode(argResults!["joinRule"]),
   };
 }

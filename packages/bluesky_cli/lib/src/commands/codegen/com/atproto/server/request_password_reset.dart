@@ -28,7 +28,7 @@ final class RequestPasswordResetCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server request-password-reset [email]";
+      "bsky com-atproto-server request-password-reset --email=<value>";
 
   @override
   String get methodId => "com.atproto.server.requestPasswordReset";

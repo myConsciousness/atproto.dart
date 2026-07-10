@@ -27,7 +27,7 @@ final class GetReporterStatsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation get-reporter-stats [dids]";
+      "bsky tools-ozone-moderation get-reporter-stats [--dids=<value>...]";
 
   @override
   String get methodId => "tools.ozone.moderation.getReporterStats";

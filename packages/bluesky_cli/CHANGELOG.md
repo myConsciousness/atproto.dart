@@ -1,5 +1,25 @@
 # Release Note
 
+## v0.5.0
+
+- **feat**: All commands, arguments and invocations are now fully aligned with the official lexicon definitions.
+  - Added commands for procedures without input body: `refresh-session`, `delete-session`, `activate-account`, `request-account-delete`, `request-email-confirmation`, `request-email-update`, `request-plc-operation-signature`, `chat-bsky-actor delete-account`.
+  - Added commands for procedures with binary input: `com-atproto-repo upload-blob`, `com-atproto-repo import-repo`, `app-bsky-video upload-video` (use `--file=<path>`).
+  - Added `tools-ozone-set upsert-set` command (pass the request body with `--json`).
+  - Record `get`/`list` subcommands now accept `--repo` (handle or DID) and work without authentication. Defaults to the authenticated user.
+- **fix**: Record `get`/`list` sent the wrong `collection` parameter (`com.atproto.repo.getRecord`/`listRecord`) instead of the record's collection NSID.
+- **fix**: Record `list` used the invalid method `com.atproto.repo.listRecord` instead of `com.atproto.repo.listRecords`.
+- **fix**: Record `create` sent the literal string `"null"` as `rkey` when `--rkey` was omitted. `put` and `delete` now require `--rkey` as the API does.
+- **fix**: Created and updated records now include the `$type` field.
+- **fix**: Integer parameters (e.g. `useCount`, `limit`) are now sent as JSON numbers instead of strings in procedure bodies.
+- **fix**: Array parameters containing objects (e.g. `facets`, `interactions`) are now JSON-decoded instead of being sent as raw strings.
+- **fix**: Omitted optional parameters are no longer sent as empty arrays or `false` flags.
+- **fix**: Unauthenticated procedure calls no longer send an `Authorization: Bearer null` header.
+- **fix**: Commands that require authentication now fail with a clear message when credentials are missing.
+- **fix**: Session is no longer created twice per authenticated command.
+- **style**: Method names with digits are kebab-cased without splitting (e.g. `search-posts-v2` instead of `search-posts-v-2`).
+- **style**: Usage lines now show real option syntax (e.g. `--actor=<value>`) instead of `[actor]`.
+
 ## v0.4.7
 
 - Bump dependencies.

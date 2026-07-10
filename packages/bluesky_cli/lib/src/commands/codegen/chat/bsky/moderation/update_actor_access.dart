@@ -30,7 +30,7 @@ final class UpdateActorAccessCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-moderation update-actor-access [actor] [allowAccess] [ref]";
+      "bsky chat-bsky-moderation update-actor-access --actor=<value> [--allowAccess] [--ref=<value>]";
 
   @override
   String get methodId => "chat.bsky.moderation.updateActorAccess";
@@ -39,6 +39,6 @@ final class UpdateActorAccessCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "actor": argResults!["actor"],
     "allowAccess": argResults!["allowAccess"],
-    if (argResults!["ref"] != null) "ref": argResults!["ref"],
+    if (argResults!.wasParsed("ref")) "ref": argResults!["ref"],
   };
 }

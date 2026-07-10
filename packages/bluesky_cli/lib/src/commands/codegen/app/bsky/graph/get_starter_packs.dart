@@ -26,7 +26,8 @@ final class GetStarterPacksCommand extends QueryCommand {
   final String description = r"Get views for a list of starter packs.";
 
   @override
-  final String invocation = "bsky app-bsky-graph get-starter-packs [uris]";
+  final String invocation =
+      "bsky app-bsky-graph get-starter-packs [--uris=<value>...]";
 
   @override
   String get methodId => "app.bsky.graph.getStarterPacks";

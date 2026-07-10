@@ -34,7 +34,7 @@ final class UpdateSubjectStatusCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin update-subject-status [subject] [takedown] [deactivated]";
+      "bsky com-atproto-admin update-subject-status --subject=<value> [--takedown=<value>] [--deactivated=<value>]";
 
   @override
   String get methodId => "com.atproto.admin.updateSubjectStatus";
@@ -42,9 +42,9 @@ final class UpdateSubjectStatusCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "subject": jsonDecode(argResults!["subject"]),
-    if (argResults!["takedown"] != null)
+    if (argResults!.wasParsed("takedown"))
       "takedown": jsonDecode(argResults!["takedown"]),
-    if (argResults!["deactivated"] != null)
+    if (argResults!.wasParsed("deactivated"))
       "deactivated": jsonDecode(argResults!["deactivated"]),
   };
 }

@@ -32,7 +32,7 @@ final class GetUnreadCountsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo get-unread-counts [includeGroupChats]";
+      "bsky chat-bsky-convo get-unread-counts [--includeGroupChats]";
 
   @override
   String get methodId => "chat.bsky.convo.getUnreadCounts";

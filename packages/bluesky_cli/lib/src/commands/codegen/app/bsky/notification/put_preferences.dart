@@ -28,7 +28,7 @@ final class PutPreferencesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification put-preferences [priority]";
+      "bsky app-bsky-notification put-preferences [--priority]";
 
   @override
   String get methodId => "app.bsky.notification.putPreferences";

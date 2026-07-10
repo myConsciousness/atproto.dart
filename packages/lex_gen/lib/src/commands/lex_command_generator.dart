@@ -24,56 +24,74 @@ void generateLexCommands(final List<LexiconDoc> docs) {
       if (def.value is ULexUserTypeXrpcQuery) {
         final query = def.value.data as LexXrpcQuery;
 
-        final requiredProps = query.parameters?.requiredProperties ?? const [];
-        final props = query.parameters?.properties ?? const {};
-
-        final parameters = <LexParameter>[];
-        for (final prop in props.entries) {
-          final propJson = prop.value.toJson();
-          parameters.add(
-            LexParameter(
-              prop.key,
-              propJson['description'],
-              requiredProps.contains(prop.key),
-              propJson['default']?.toString(),
-              isArray: propJson['type'] == 'array',
-              isBoolean: propJson['type'] == 'boolean',
-              isRefVariant:
-                  propJson['type'] == 'ref' || propJson['type'] == 'union',
-            ),
-          );
-        }
-
         _appendCommand(
           result,
           doc.id,
-          LexCommand(doc.id, query.description, parameters, isQuery: true),
+          LexCommand(
+            doc.id,
+            query.description,
+            _getParameters(
+              query.parameters?.requiredProperties,
+              query.parameters?.properties,
+            ),
+            isQuery: true,
+          ),
         );
       } else if (def.value is ULexUserTypeXrpcProcedure) {
         final procedure = def.value.data as LexXrpcProcedure;
         final input = procedure.input;
 
-        final object = input?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) continue;
-
-        final requiredProps = object.requiredProperties ?? [];
-        final props = object.properties ?? const {};
-
-        final parameters = <LexParameter>[];
-        for (final prop in props.entries) {
-          final propJson = prop.value.toJson();
-          parameters.add(
-            LexParameter(
-              prop.key,
-              propJson['description'],
-              requiredProps.contains(prop.key),
-              propJson['default']?.toString(),
-              isArray: propJson['type'] == 'array',
-              isBoolean: propJson['type'] == 'boolean',
-              isRefVariant:
-                  propJson['type'] == 'ref' || propJson['type'] == 'union',
+        if (input == null) {
+          // Procedures without input body, e.g. com.atproto.server
+          // .refreshSession.
+          _appendCommand(
+            result,
+            doc.id,
+            LexCommand(
+              doc.id,
+              procedure.description,
+              const [],
+              isProcedure: true,
             ),
           );
+
+          continue;
+        }
+
+        if (input.encoding != 'application/json') {
+          // Procedures with binary input, e.g. com.atproto.repo.uploadBlob.
+          _appendCommand(
+            result,
+            doc.id,
+            LexCommand(
+              doc.id,
+              procedure.description,
+              const [],
+              encoding: input.encoding,
+              isBlobProcedure: true,
+            ),
+          );
+
+          continue;
+        }
+
+        final object = input.schema?.whenOrNull(object: (data) => data);
+        if (object == null) {
+          // JSON procedures whose input schema is a ref or union,
+          // e.g. tools.ozone.set.upsertSet.
+          _appendCommand(
+            result,
+            doc.id,
+            LexCommand(
+              doc.id,
+              procedure.description,
+              const [],
+              isProcedure: true,
+              isRawJsonBody: true,
+            ),
+          );
+
+          continue;
         }
 
         _appendCommand(
@@ -82,7 +100,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
           LexCommand(
             doc.id,
             procedure.description,
-            parameters,
+            _getParameters(object.requiredProperties, object.properties),
             isProcedure: true,
           ),
         );
@@ -91,33 +109,13 @@ void generateLexCommands(final List<LexiconDoc> docs) {
         final record = def.value.data as LexRecord;
         final object = record.record;
 
-        final requiredProps = object.requiredProperties ?? [];
-        final props = object.properties ?? const {};
-
-        final parameters = <LexParameter>[];
-        for (final prop in props.entries) {
-          final propJson = prop.value.toJson();
-          parameters.add(
-            LexParameter(
-              prop.key,
-              propJson['description'],
-              requiredProps.contains(prop.key),
-              propJson['default']?.toString(),
-              isArray: propJson['type'] == 'array',
-              isBoolean: propJson['type'] == 'boolean',
-              isRefVariant:
-                  propJson['type'] == 'ref' || propJson['type'] == 'union',
-            ),
-          );
-        }
-
         _appendCommand(
           result,
           doc.id,
           LexCommand(
             doc.id,
             record.description,
-            parameters,
+            _getParameters(object.requiredProperties, object.properties),
             rkey: record.key,
             isRecord: true,
           ),
@@ -146,6 +144,31 @@ void generateLexCommands(final List<LexiconDoc> docs) {
   File('${getHomeDir()}/lex_commands.dart')
     ..createSync(recursive: true)
     ..writeAsStringSync(rootCommand.format());
+}
+
+List<LexParameter> _getParameters(
+  final List<String>? requiredProperties,
+  final Map<String, dynamic>? properties,
+) {
+  final requiredProps = requiredProperties ?? const [];
+  final props = properties ?? const {};
+
+  final parameters = <LexParameter>[];
+  for (final prop in props.entries) {
+    final propJson = prop.value.toJson();
+    parameters.add(
+      LexParameter(
+        prop.key,
+        propJson['description'],
+        requiredProps.contains(prop.key),
+        propJson['default']?.toString(),
+        type: propJson['type'] ?? 'string',
+        itemsType: propJson['items']?['type'],
+      ),
+    );
+  }
+
+  return parameters;
 }
 
 void _cleanWorkspace() {

@@ -36,7 +36,7 @@ final class GetFeedSkeletonCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-feed-skeleton [feed] [limit] [cursor]";
+      "bsky app-bsky-feed get-feed-skeleton --feed=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getFeedSkeleton";
@@ -44,7 +44,7 @@ final class GetFeedSkeletonCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "feed": argResults!["feed"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

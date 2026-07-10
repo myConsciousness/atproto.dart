@@ -78,7 +78,7 @@ final class _CreatePostCommand extends CreateRecordCommand {
             r"Client-declared timestamp when this post was originally created.",
         mandatory: true,
       )
-      ..addOption("rkey");
+      ..addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -89,25 +89,34 @@ final class _CreatePostCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed post create [text] [entities] [facets] [reply] [embed] [langs] [labels] [tags] [createdAt] [rkey]";
+      "bsky app-bsky-feed post create --text=<value> [--entities=<value>...] [--facets=<value>...] [--reply=<value>] [--embed=<value>] [--langs=<value>...] [--labels=<value>] [--tags=<value>...] --createdAt=<value> [--rkey=<value>]";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String? get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.feed.post";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.feed.post",
     "text": argResults!["text"],
-    if (argResults!["entities"] != null) "entities": argResults!["entities"],
-    if (argResults!["facets"] != null) "facets": argResults!["facets"],
-    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["langs"] != null) "langs": argResults!["langs"],
-    if (argResults!["labels"] != null)
+    if (argResults!.wasParsed("entities"))
+      "entities": (argResults!["entities"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
+    if (argResults!.wasParsed("facets"))
+      "facets": (argResults!["facets"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
+    if (argResults!.wasParsed("reply"))
+      "reply": jsonDecode(argResults!["reply"]),
+    if (argResults!.wasParsed("embed"))
+      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("langs")) "langs": argResults!["langs"],
+    if (argResults!.wasParsed("labels"))
       "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["tags"] != null) "tags": argResults!["tags"],
+    if (argResults!.wasParsed("tags")) "tags": argResults!["tags"],
     "createdAt": argResults!["createdAt"],
   };
 }
@@ -150,7 +159,7 @@ final class _PutPostCommand extends PutRecordCommand {
             r"Client-declared timestamp when this post was originally created.",
         mandatory: true,
       )
-      ..addOption("rkey");
+      ..addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -161,32 +170,41 @@ final class _PutPostCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed post put [text] [entities] [facets] [reply] [embed] [langs] [labels] [tags] [createdAt] [rkey]";
+      "bsky app-bsky-feed post put --text=<value> [--entities=<value>...] [--facets=<value>...] [--reply=<value>] [--embed=<value>] [--langs=<value>...] [--labels=<value>] [--tags=<value>...] --createdAt=<value> --rkey=<value>";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String? get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.feed.post";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.feed.post",
     "text": argResults!["text"],
-    if (argResults!["entities"] != null) "entities": argResults!["entities"],
-    if (argResults!["facets"] != null) "facets": argResults!["facets"],
-    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!["embed"] != null) "embed": jsonDecode(argResults!["embed"]),
-    if (argResults!["langs"] != null) "langs": argResults!["langs"],
-    if (argResults!["labels"] != null)
+    if (argResults!.wasParsed("entities"))
+      "entities": (argResults!["entities"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
+    if (argResults!.wasParsed("facets"))
+      "facets": (argResults!["facets"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
+    if (argResults!.wasParsed("reply"))
+      "reply": jsonDecode(argResults!["reply"]),
+    if (argResults!.wasParsed("embed"))
+      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("langs")) "langs": argResults!["langs"],
+    if (argResults!.wasParsed("labels"))
       "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["tags"] != null) "tags": argResults!["tags"],
+    if (argResults!.wasParsed("tags")) "tags": argResults!["tags"],
     "createdAt": argResults!["createdAt"],
   };
 }
 
 final class _DeletePostCommand extends DeleteRecordCommand {
   _DeletePostCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser..addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -196,10 +214,10 @@ final class _DeletePostCommand extends DeleteRecordCommand {
   final String description = r"Deletes a record for app.bsky.feed.post.";
 
   @override
-  final String invocation = "bsky app-bsky-feed post delete [rkey]";
+  final String invocation = "bsky app-bsky-feed post delete --rkey=<value>";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.feed.post";
@@ -208,7 +226,11 @@ final class _DeletePostCommand extends DeleteRecordCommand {
 final class _GetPostCommand extends QueryCommand {
   _GetPostCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption("rkey", help: r"The record key.", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -219,15 +241,16 @@ final class _GetPostCommand extends QueryCommand {
   final String description = r"Gets a record for app.bsky.feed.post.";
 
   @override
-  final String invocation = "bsky app-bsky-feed post get [rkey] [cid]";
+  final String invocation =
+      "bsky app-bsky-feed post get --rkey=<value> [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.feed.post",
     'rkey': argResults!['rkey'],
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
@@ -236,6 +259,10 @@ final class _GetPostCommand extends QueryCommand {
 final class _ListPostCommand extends QueryCommand {
   _ListPostCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -249,16 +276,16 @@ final class _ListPostCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed post list [limit] [cursor] [reverse]";
+      "bsky app-bsky-feed post list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.feed.post",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -26,7 +26,8 @@ final class GetProfilesCommand extends QueryCommand {
   final String description = r"Get detailed profile views of multiple actors.";
 
   @override
-  final String invocation = "bsky app-bsky-actor get-profiles [actors]";
+  final String invocation =
+      "bsky app-bsky-actor get-profiles [--actors=<value>...]";
 
   @override
   String get methodId => "app.bsky.actor.getProfiles";

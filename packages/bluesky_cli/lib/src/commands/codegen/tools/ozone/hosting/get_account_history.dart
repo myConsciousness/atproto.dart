@@ -32,7 +32,7 @@ final class GetAccountHistoryCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-hosting get-account-history [did] [events] [cursor] [limit]";
+      "bsky tools-ozone-hosting get-account-history --did=<value> [--events=<value>...] [--cursor=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "tools.ozone.hosting.getAccountHistory";
@@ -40,8 +40,8 @@ final class GetAccountHistoryCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "did": argResults!["did"],
-    if (argResults!["events"] != null) "events": argResults!["events"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("events")) "events": argResults!["events"],
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

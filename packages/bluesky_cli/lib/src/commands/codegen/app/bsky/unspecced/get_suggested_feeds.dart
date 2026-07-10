@@ -27,11 +27,13 @@ final class GetSuggestedFeedsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-suggested-feeds [limit]";
+      "bsky app-bsky-unspecced get-suggested-feeds [--limit=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getSuggestedFeeds";
 
   @override
-  Map<String, dynamic>? get parameters => {"limit": argResults!["limit"]};
+  Map<String, dynamic>? get parameters => {
+    "limit": int.parse(argResults!["limit"]),
+  };
 }

@@ -18,7 +18,7 @@ import 'notification/list_activity_subscriptions.dart';
 import 'notification/list_notifications.dart';
 import 'notification/put_activity_subscription.dart';
 import 'notification/put_preferences.dart';
-import 'notification/put_preferences_v_2.dart';
+import 'notification/put_preferences_v2.dart';
 import 'notification/register_push.dart';
 import 'notification/unregister_push.dart';
 import 'notification/update_seen.dart';

@@ -28,7 +28,7 @@ final class GetJoinLinkPreviewsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group get-join-link-previews [codes]";
+      "bsky chat-bsky-group get-join-link-previews [--codes=<value>...]";
 
   @override
   String get methodId => "chat.bsky.group.getJoinLinkPreviews";

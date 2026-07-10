@@ -30,7 +30,7 @@ final class DeleteMessageForSelfCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-convo delete-message-for-self [convoId] [messageId]";
+      "bsky chat-bsky-convo delete-message-for-self --convoId=<value> --messageId=<value>";
 
   @override
   String get methodId => "chat.bsky.convo.deleteMessageForSelf";

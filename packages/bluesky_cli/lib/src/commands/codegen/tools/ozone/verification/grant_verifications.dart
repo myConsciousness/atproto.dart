@@ -7,6 +7,9 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import '../../../../procedure_command.dart';
 
@@ -31,13 +34,15 @@ final class GrantVerificationsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-verification grant-verifications [verifications]";
+      "bsky tools-ozone-verification grant-verifications [--verifications=<value>...]";
 
   @override
   String get methodId => "tools.ozone.verification.grantVerifications";
 
   @override
   Map<String, dynamic>? get body => {
-    "verifications": argResults!["verifications"],
+    "verifications": (argResults!["verifications"] as List<String>)
+        .map((e) => jsonDecode(e))
+        .toList(),
   };
 }

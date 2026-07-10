@@ -36,17 +36,17 @@ final class ListOptionsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-setting list-options [limit] [cursor] [scope] [prefix] [keys]";
+      "bsky tools-ozone-setting list-options [--limit=<value>] [--cursor=<value>] [--scope=<value>] [--prefix=<value>] [--keys=<value>...]";
 
   @override
   String get methodId => "tools.ozone.setting.listOptions";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
     "scope": argResults!["scope"],
-    if (argResults!["prefix"] != null) "prefix": argResults!["prefix"],
-    if (argResults!["keys"] != null) "keys": argResults!["keys"],
+    if (argResults!.wasParsed("prefix")) "prefix": argResults!["prefix"],
+    if (argResults!.wasParsed("keys")) "keys": argResults!["keys"],
   };
 }

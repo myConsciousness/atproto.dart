@@ -34,7 +34,7 @@ final class UpdateAccountSigningKeyCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin update-account-signing-key [did] [signingKey]";
+      "bsky com-atproto-admin update-account-signing-key --did=<value> --signingKey=<value>";
 
   @override
   String get methodId => "com.atproto.admin.updateAccountSigningKey";

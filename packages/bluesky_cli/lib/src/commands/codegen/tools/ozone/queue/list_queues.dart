@@ -48,21 +48,21 @@ final class ListQueuesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue list-queues [enabled] [subjectType] [collection] [reportTypes] [limit] [cursor]";
+      "bsky tools-ozone-queue list-queues [--enabled] [--subjectType=<value>] [--collection=<value>] [--reportTypes=<value>...] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.queue.listQueues";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["enabled"] != null) "enabled": argResults!["enabled"],
-    if (argResults!["subjectType"] != null)
+    if (argResults!.wasParsed("enabled")) "enabled": argResults!["enabled"],
+    if (argResults!.wasParsed("subjectType"))
       "subjectType": argResults!["subjectType"],
-    if (argResults!["collection"] != null)
+    if (argResults!.wasParsed("collection"))
       "collection": argResults!["collection"],
-    if (argResults!["reportTypes"] != null)
+    if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

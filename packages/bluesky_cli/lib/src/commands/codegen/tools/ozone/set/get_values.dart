@@ -30,7 +30,7 @@ final class GetValuesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-set get-values [name] [limit] [cursor]";
+      "bsky tools-ozone-set get-values --name=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.set.getValues";
@@ -38,7 +38,7 @@ final class GetValuesCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "name": argResults!["name"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

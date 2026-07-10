@@ -35,15 +35,15 @@ final class ListActivitiesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report list-activities [reportId] [limit] [cursor]";
+      "bsky tools-ozone-report list-activities --reportId=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.listActivities";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "reportId": argResults!["reportId"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "reportId": int.parse(argResults!["reportId"]),
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

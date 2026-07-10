@@ -30,7 +30,8 @@ final class ResolveLexiconCommand extends QueryCommand {
   final String description = r"Resolves an atproto lexicon (NSID) to a schema.";
 
   @override
-  final String invocation = "bsky com-atproto-lexicon resolve-lexicon [nsid]";
+  final String invocation =
+      "bsky com-atproto-lexicon resolve-lexicon --nsid=<value>";
 
   @override
   String get methodId => "com.atproto.lexicon.resolveLexicon";

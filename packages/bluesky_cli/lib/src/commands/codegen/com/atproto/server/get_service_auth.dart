@@ -43,7 +43,7 @@ final class GetServiceAuthCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server get-service-auth [aud] [exp] [lxm]";
+      "bsky com-atproto-server get-service-auth --aud=<value> [--exp=<value>] [--lxm=<value>]";
 
   @override
   String get methodId => "com.atproto.server.getServiceAuth";
@@ -51,7 +51,7 @@ final class GetServiceAuthCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "aud": argResults!["aud"],
-    if (argResults!["exp"] != null) "exp": argResults!["exp"],
-    if (argResults!["lxm"] != null) "lxm": argResults!["lxm"],
+    if (argResults!.wasParsed("exp")) "exp": int.parse(argResults!["exp"]),
+    if (argResults!.wasParsed("lxm")) "lxm": argResults!["lxm"],
   };
 }

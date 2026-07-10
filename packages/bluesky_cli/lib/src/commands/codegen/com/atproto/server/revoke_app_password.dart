@@ -27,7 +27,7 @@ final class RevokeAppPasswordCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server revoke-app-password [name]";
+      "bsky com-atproto-server revoke-app-password --name=<value>";
 
   @override
   String get methodId => "com.atproto.server.revokeAppPassword";

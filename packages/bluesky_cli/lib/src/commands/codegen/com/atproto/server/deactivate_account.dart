@@ -32,14 +32,14 @@ final class DeactivateAccountCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server deactivate-account [deleteAfter]";
+      "bsky com-atproto-server deactivate-account [--deleteAfter=<value>]";
 
   @override
   String get methodId => "com.atproto.server.deactivateAccount";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["deleteAfter"] != null)
+    if (argResults!.wasParsed("deleteAfter"))
       "deleteAfter": argResults!["deleteAfter"],
   };
 }

@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'server/activate_account.dart';
 import 'server/check_account_status.dart';
 import 'server/confirm_email.dart';
 import 'server/create_account.dart';
@@ -20,11 +21,16 @@ import 'server/create_invite_codes.dart';
 import 'server/create_session.dart';
 import 'server/deactivate_account.dart';
 import 'server/delete_account.dart';
+import 'server/delete_session.dart';
 import 'server/describe_server.dart';
 import 'server/get_account_invite_codes.dart';
 import 'server/get_service_auth.dart';
 import 'server/get_session.dart';
 import 'server/list_app_passwords.dart';
+import 'server/refresh_session.dart';
+import 'server/request_account_delete.dart';
+import 'server/request_email_confirmation.dart';
+import 'server/request_email_update.dart';
 import 'server/request_password_reset.dart';
 import 'server/reserve_signing_key.dart';
 import 'server/reset_password.dart';
@@ -37,6 +43,7 @@ import 'server/update_email.dart';
 
 final class ComAtprotoServerCommand extends Command<void> {
   ComAtprotoServerCommand() {
+    addSubcommand(ActivateAccountCommand());
     addSubcommand(CheckAccountStatusCommand());
     addSubcommand(ConfirmEmailCommand());
     addSubcommand(CreateAccountCommand());
@@ -46,11 +53,16 @@ final class ComAtprotoServerCommand extends Command<void> {
     addSubcommand(CreateSessionCommand());
     addSubcommand(DeactivateAccountCommand());
     addSubcommand(DeleteAccountCommand());
+    addSubcommand(DeleteSessionCommand());
     addSubcommand(DescribeServerCommand());
     addSubcommand(GetAccountInviteCodesCommand());
     addSubcommand(GetServiceAuthCommand());
     addSubcommand(GetSessionCommand());
     addSubcommand(ListAppPasswordsCommand());
+    addSubcommand(RefreshSessionCommand());
+    addSubcommand(RequestAccountDeleteCommand());
+    addSubcommand(RequestEmailConfirmationCommand());
+    addSubcommand(RequestEmailUpdateCommand());
     addSubcommand(RequestPasswordResetCommand());
     addSubcommand(ReserveSigningKeyCommand());
     addSubcommand(ResetPasswordCommand());

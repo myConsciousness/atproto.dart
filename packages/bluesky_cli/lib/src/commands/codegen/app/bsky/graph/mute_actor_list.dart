@@ -27,7 +27,8 @@ final class MuteActorListCommand extends ProcedureCommand {
       r"Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.";
 
   @override
-  final String invocation = "bsky app-bsky-graph mute-actor-list [list]";
+  final String invocation =
+      "bsky app-bsky-graph mute-actor-list --list=<value>";
 
   @override
   String get methodId => "app.bsky.graph.muteActorList";

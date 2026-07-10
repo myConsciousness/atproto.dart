@@ -32,7 +32,7 @@ final class ResolveIdentityCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-identity resolve-identity [identifier]";
+      "bsky com-atproto-identity resolve-identity --identifier=<value>";
 
   @override
   String get methodId => "com.atproto.identity.resolveIdentity";

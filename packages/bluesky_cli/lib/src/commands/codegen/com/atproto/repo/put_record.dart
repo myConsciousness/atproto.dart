@@ -7,6 +7,9 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import '../../../../procedure_command.dart';
 
@@ -54,7 +57,7 @@ final class PutRecordCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-repo put-record [repo] [collection] [rkey] [validate] [record] [swapRecord] [swapCommit]";
+      "bsky com-atproto-repo put-record --repo=<value> --collection=<value> --rkey=<value> [--validate] --record=<value> [--swapRecord=<value>] [--swapCommit=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.putRecord";
@@ -64,11 +67,11 @@ final class PutRecordCommand extends ProcedureCommand {
     "repo": argResults!["repo"],
     "collection": argResults!["collection"],
     "rkey": argResults!["rkey"],
-    if (argResults!["validate"] != null) "validate": argResults!["validate"],
-    "record": argResults!["record"],
-    if (argResults!["swapRecord"] != null)
+    if (argResults!.wasParsed("validate")) "validate": argResults!["validate"],
+    "record": jsonDecode(argResults!["record"]),
+    if (argResults!.wasParsed("swapRecord"))
       "swapRecord": argResults!["swapRecord"],
-    if (argResults!["swapCommit"] != null)
+    if (argResults!.wasParsed("swapCommit"))
       "swapCommit": argResults!["swapCommit"],
   };
 }

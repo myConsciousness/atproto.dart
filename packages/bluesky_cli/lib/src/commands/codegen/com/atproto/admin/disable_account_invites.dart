@@ -30,7 +30,7 @@ final class DisableAccountInvitesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin disable-account-invites [account] [note]";
+      "bsky com-atproto-admin disable-account-invites --account=<value> [--note=<value>]";
 
   @override
   String get methodId => "com.atproto.admin.disableAccountInvites";
@@ -38,6 +38,6 @@ final class DisableAccountInvitesCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "account": argResults!["account"],
-    if (argResults!["note"] != null) "note": argResults!["note"],
+    if (argResults!.wasParsed("note")) "note": argResults!["note"],
   };
 }

@@ -28,7 +28,7 @@ final class WithdrawJoinRequestCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group withdraw-join-request [convoId]";
+      "bsky chat-bsky-group withdraw-join-request --convoId=<value>";
 
   @override
   String get methodId => "chat.bsky.group.withdrawJoinRequest";

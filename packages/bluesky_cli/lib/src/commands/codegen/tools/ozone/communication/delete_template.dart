@@ -27,7 +27,7 @@ final class DeleteTemplateCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-communication delete-template [id]";
+      "bsky tools-ozone-communication delete-template --id=<value>";
 
   @override
   String get methodId => "tools.ozone.communication.deleteTemplate";

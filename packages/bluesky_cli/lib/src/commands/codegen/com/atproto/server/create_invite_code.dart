@@ -29,15 +29,15 @@ final class CreateInviteCodeCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server create-invite-code [useCount] [forAccount]";
+      "bsky com-atproto-server create-invite-code --useCount=<value> [--forAccount=<value>]";
 
   @override
   String get methodId => "com.atproto.server.createInviteCode";
 
   @override
   Map<String, dynamic>? get body => {
-    "useCount": argResults!["useCount"],
-    if (argResults!["forAccount"] != null)
+    "useCount": int.parse(argResults!["useCount"]),
+    if (argResults!.wasParsed("forAccount"))
       "forAccount": argResults!["forAccount"],
   };
 }

@@ -30,7 +30,7 @@ final class CreateDraftCommand extends ProcedureCommand {
       r"Inserts a draft using private storage (stash). An upper limit of drafts might be enforced. Requires authentication.";
 
   @override
-  final String invocation = "bsky app-bsky-draft create-draft [draft]";
+  final String invocation = "bsky app-bsky-draft create-draft --draft=<value>";
 
   @override
   String get methodId => "app.bsky.draft.createDraft";

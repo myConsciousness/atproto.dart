@@ -9,6 +9,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // Package imports:
 import 'package:args/command_runner.dart';
@@ -57,7 +58,7 @@ final class _CreateStarterpackCommand extends CreateRecordCommand {
       )
       ..addMultiOption("feeds")
       ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey");
+      ..addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -69,23 +70,29 @@ final class _CreateStarterpackCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph starterpack create [name] [description] [descriptionFacets] [list] [feeds] [createdAt] [rkey]";
+      "bsky app-bsky-graph starterpack create --name=<value> [--description=<value>] [--descriptionFacets=<value>...] --list=<value> [--feeds=<value>...] --createdAt=<value> [--rkey=<value>]";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String? get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.graph.starterpack";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.graph.starterpack",
     "name": argResults!["name"],
-    if (argResults!["description"] != null)
+    if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
-    if (argResults!["descriptionFacets"] != null)
-      "descriptionFacets": argResults!["descriptionFacets"],
+    if (argResults!.wasParsed("descriptionFacets"))
+      "descriptionFacets": (argResults!["descriptionFacets"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
     "list": argResults!["list"],
-    if (argResults!["feeds"] != null) "feeds": argResults!["feeds"],
+    if (argResults!.wasParsed("feeds"))
+      "feeds": (argResults!["feeds"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
     "createdAt": argResults!["createdAt"],
   };
 }
@@ -107,7 +114,7 @@ final class _PutStarterpackCommand extends PutRecordCommand {
       )
       ..addMultiOption("feeds")
       ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey");
+      ..addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -119,30 +126,36 @@ final class _PutStarterpackCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph starterpack put [name] [description] [descriptionFacets] [list] [feeds] [createdAt] [rkey]";
+      "bsky app-bsky-graph starterpack put --name=<value> [--description=<value>] [--descriptionFacets=<value>...] --list=<value> [--feeds=<value>...] --createdAt=<value> --rkey=<value>";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String? get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.graph.starterpack";
 
   @override
   Map<String, dynamic> get record => {
+    r"$type": "app.bsky.graph.starterpack",
     "name": argResults!["name"],
-    if (argResults!["description"] != null)
+    if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
-    if (argResults!["descriptionFacets"] != null)
-      "descriptionFacets": argResults!["descriptionFacets"],
+    if (argResults!.wasParsed("descriptionFacets"))
+      "descriptionFacets": (argResults!["descriptionFacets"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
     "list": argResults!["list"],
-    if (argResults!["feeds"] != null) "feeds": argResults!["feeds"],
+    if (argResults!.wasParsed("feeds"))
+      "feeds": (argResults!["feeds"] as List<String>)
+          .map((e) => jsonDecode(e))
+          .toList(),
     "createdAt": argResults!["createdAt"],
   };
 }
 
 final class _DeleteStarterpackCommand extends DeleteRecordCommand {
   _DeleteStarterpackCommand() {
-    argParser..addOption("rkey", mandatory: true);
+    argParser..addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -153,10 +166,11 @@ final class _DeleteStarterpackCommand extends DeleteRecordCommand {
       r"Deletes a record for app.bsky.graph.starterpack.";
 
   @override
-  final String invocation = "bsky app-bsky-graph starterpack delete [rkey]";
+  final String invocation =
+      "bsky app-bsky-graph starterpack delete --rkey=<value>";
 
   @override
-  String get rkey => "${argResults!['rkey']}";
+  String get rkey => argResults!['rkey'];
 
   @override
   String get collection => "app.bsky.graph.starterpack";
@@ -165,7 +179,11 @@ final class _DeleteStarterpackCommand extends DeleteRecordCommand {
 final class _GetStarterpackCommand extends QueryCommand {
   _GetStarterpackCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption("rkey", help: r"The record key.", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -176,15 +194,16 @@ final class _GetStarterpackCommand extends QueryCommand {
   final String description = r"Gets a record for app.bsky.graph.starterpack.";
 
   @override
-  final String invocation = "bsky app-bsky-graph starterpack get [rkey] [cid]";
+  final String invocation =
+      "bsky app-bsky-graph starterpack get --rkey=<value> [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.graph.starterpack",
     'rkey': argResults!['rkey'],
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
@@ -193,6 +212,10 @@ final class _GetStarterpackCommand extends QueryCommand {
 final class _ListStarterpackCommand extends QueryCommand {
   _ListStarterpackCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -206,16 +229,16 @@ final class _ListStarterpackCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph starterpack list [limit] [cursor] [reverse]";
+      "bsky app-bsky-graph starterpack list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.graph.starterpack",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

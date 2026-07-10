@@ -33,7 +33,7 @@ final class CreateJoinLinkCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group create-join-link [convoId] [requireApproval] [joinRule]";
+      "bsky chat-bsky-group create-join-link --convoId=<value> [--requireApproval] --joinRule=<value>";
 
   @override
   String get methodId => "chat.bsky.group.createJoinLink";

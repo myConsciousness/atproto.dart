@@ -37,7 +37,7 @@ final class GetAuthorFeedCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-author-feed [actor] [limit] [cursor] [filter] [includePins]";
+      "bsky app-bsky-feed get-author-feed --actor=<value> [--limit=<value>] [--cursor=<value>] [--filter=<value>] [--includePins]";
 
   @override
   String get methodId => "app.bsky.feed.getAuthorFeed";
@@ -45,8 +45,8 @@ final class GetAuthorFeedCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "actor": argResults!["actor"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
     "filter": argResults!["filter"],
     "includePins": argResults!["includePins"],
   };

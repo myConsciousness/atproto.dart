@@ -33,14 +33,14 @@ final class UnassignModeratorCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue unassign-moderator [queueId] [did]";
+      "bsky tools-ozone-queue unassign-moderator --queueId=<value> --did=<value>";
 
   @override
   String get methodId => "tools.ozone.queue.unassignModerator";
 
   @override
   Map<String, dynamic>? get body => {
-    "queueId": argResults!["queueId"],
+    "queueId": int.parse(argResults!["queueId"]),
     "did": argResults!["did"],
   };
 }

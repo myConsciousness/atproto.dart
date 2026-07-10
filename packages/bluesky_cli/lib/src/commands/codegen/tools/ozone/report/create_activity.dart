@@ -56,18 +56,18 @@ final class CreateActivityCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report create-activity [reportId] [activity] [internalNote] [publicNote] [isAutomated]";
+      "bsky tools-ozone-report create-activity --reportId=<value> --activity=<value> [--internalNote=<value>] [--publicNote=<value>] [--isAutomated]";
 
   @override
   String get methodId => "tools.ozone.report.createActivity";
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId": argResults!["reportId"],
+    "reportId": int.parse(argResults!["reportId"]),
     "activity": jsonDecode(argResults!["activity"]),
-    if (argResults!["internalNote"] != null)
+    if (argResults!.wasParsed("internalNote"))
       "internalNote": argResults!["internalNote"],
-    if (argResults!["publicNote"] != null)
+    if (argResults!.wasParsed("publicNote"))
       "publicNote": argResults!["publicNote"],
     "isAutomated": argResults!["isAutomated"],
   };

@@ -31,7 +31,7 @@ final class ListMutualGroupsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group list-mutual-groups [subject] [limit] [cursor]";
+      "bsky chat-bsky-group list-mutual-groups --subject=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "chat.bsky.group.listMutualGroups";
@@ -39,7 +39,7 @@ final class ListMutualGroupsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "subject": argResults!["subject"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

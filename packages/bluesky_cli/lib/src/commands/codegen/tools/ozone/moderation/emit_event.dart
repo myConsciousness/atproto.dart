@@ -45,7 +45,7 @@ final class EmitEventCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation emit-event [event] [subject] [subjectBlobCids] [createdBy] [modTool] [externalId] [reportAction]";
+      "bsky tools-ozone-moderation emit-event --event=<value> --subject=<value> [--subjectBlobCids=<value>...] --createdBy=<value> [--modTool=<value>] [--externalId=<value>] [--reportAction=<value>]";
 
   @override
   String get methodId => "tools.ozone.moderation.emitEvent";
@@ -54,14 +54,14 @@ final class EmitEventCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "event": jsonDecode(argResults!["event"]),
     "subject": jsonDecode(argResults!["subject"]),
-    if (argResults!["subjectBlobCids"] != null)
+    if (argResults!.wasParsed("subjectBlobCids"))
       "subjectBlobCids": argResults!["subjectBlobCids"],
     "createdBy": argResults!["createdBy"],
-    if (argResults!["modTool"] != null)
+    if (argResults!.wasParsed("modTool"))
       "modTool": jsonDecode(argResults!["modTool"]),
-    if (argResults!["externalId"] != null)
+    if (argResults!.wasParsed("externalId"))
       "externalId": argResults!["externalId"],
-    if (argResults!["reportAction"] != null)
+    if (argResults!.wasParsed("reportAction"))
       "reportAction": jsonDecode(argResults!["reportAction"]),
   };
 }

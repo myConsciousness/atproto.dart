@@ -44,7 +44,7 @@ final class GetPostThreadCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-post-thread [uri] [depth] [parentHeight]";
+      "bsky app-bsky-feed get-post-thread --uri=<value> [--depth=<value>] [--parentHeight=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getPostThread";
@@ -52,7 +52,7 @@ final class GetPostThreadCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "uri": argResults!["uri"],
-    "depth": argResults!["depth"],
-    "parentHeight": argResults!["parentHeight"],
+    "depth": int.parse(argResults!["depth"]),
+    "parentHeight": int.parse(argResults!["parentHeight"]),
   };
 }

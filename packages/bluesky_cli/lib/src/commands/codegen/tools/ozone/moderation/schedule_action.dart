@@ -43,7 +43,7 @@ final class ScheduleActionCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-moderation schedule-action [action] [subjects] [createdBy] [scheduling] [modTool]";
+      "bsky tools-ozone-moderation schedule-action --action=<value> [--subjects=<value>...] --createdBy=<value> --scheduling=<value> [--modTool=<value>]";
 
   @override
   String get methodId => "tools.ozone.moderation.scheduleAction";
@@ -54,7 +54,7 @@ final class ScheduleActionCommand extends ProcedureCommand {
     "subjects": argResults!["subjects"],
     "createdBy": argResults!["createdBy"],
     "scheduling": jsonDecode(argResults!["scheduling"]),
-    if (argResults!["modTool"] != null)
+    if (argResults!.wasParsed("modTool"))
       "modTool": jsonDecode(argResults!["modTool"]),
   };
 }

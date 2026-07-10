@@ -47,7 +47,7 @@ final class CreateQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue create-queue [name] [subjectTypes] [collection] [reportTypes] [description]";
+      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--description=<value>]";
 
   @override
   String get methodId => "tools.ozone.queue.createQueue";
@@ -56,10 +56,10 @@ final class CreateQueueCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "name": argResults!["name"],
     "subjectTypes": argResults!["subjectTypes"],
-    if (argResults!["collection"] != null)
+    if (argResults!.wasParsed("collection"))
       "collection": argResults!["collection"],
     "reportTypes": argResults!["reportTypes"],
-    if (argResults!["description"] != null)
+    if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
   };
 }

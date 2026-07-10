@@ -63,8 +63,7 @@ final class _CreateProfileCommand extends CreateRecordCommand {
       )
       ..addOption("joinedViaStarterPack")
       ..addOption("pinnedPost")
-      ..addOption("createdAt")
-      ..addOption("rkey");
+      ..addOption("createdAt");
   }
 
   @override
@@ -76,31 +75,33 @@ final class _CreateProfileCommand extends CreateRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile create [displayName] [description] [pronouns] [website] [avatar] [banner] [labels] [joinedViaStarterPack] [pinnedPost] [createdAt] [rkey]";
+      "bsky app-bsky-actor profile create [--displayName=<value>] [--description=<value>] [--pronouns=<value>] [--website=<value>] [--avatar=<value>] [--banner=<value>] [--labels=<value>] [--joinedViaStarterPack=<value>] [--pinnedPost=<value>] [--createdAt=<value>]";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "app.bsky.actor.profile";
 
   @override
   Map<String, dynamic> get record => {
-    if (argResults!["displayName"] != null)
+    r"$type": "app.bsky.actor.profile",
+    if (argResults!.wasParsed("displayName"))
       "displayName": argResults!["displayName"],
-    if (argResults!["description"] != null)
+    if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
-    if (argResults!["pronouns"] != null) "pronouns": argResults!["pronouns"],
-    if (argResults!["website"] != null) "website": argResults!["website"],
-    if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
-    if (argResults!["banner"] != null) "banner": argResults!["banner"],
-    if (argResults!["labels"] != null)
+    if (argResults!.wasParsed("pronouns")) "pronouns": argResults!["pronouns"],
+    if (argResults!.wasParsed("website")) "website": argResults!["website"],
+    if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
+    if (argResults!.wasParsed("banner")) "banner": argResults!["banner"],
+    if (argResults!.wasParsed("labels"))
       "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["joinedViaStarterPack"] != null)
+    if (argResults!.wasParsed("joinedViaStarterPack"))
       "joinedViaStarterPack": jsonDecode(argResults!["joinedViaStarterPack"]),
-    if (argResults!["pinnedPost"] != null)
+    if (argResults!.wasParsed("pinnedPost"))
       "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
-    if (argResults!["createdAt"] != null) "createdAt": argResults!["createdAt"],
+    if (argResults!.wasParsed("createdAt"))
+      "createdAt": argResults!["createdAt"],
   };
 }
 
@@ -127,8 +128,7 @@ final class _PutProfileCommand extends PutRecordCommand {
       )
       ..addOption("joinedViaStarterPack")
       ..addOption("pinnedPost")
-      ..addOption("createdAt")
-      ..addOption("rkey");
+      ..addOption("createdAt");
   }
 
   @override
@@ -139,38 +139,38 @@ final class _PutProfileCommand extends PutRecordCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile put [displayName] [description] [pronouns] [website] [avatar] [banner] [labels] [joinedViaStarterPack] [pinnedPost] [createdAt] [rkey]";
+      "bsky app-bsky-actor profile put [--displayName=<value>] [--description=<value>] [--pronouns=<value>] [--website=<value>] [--avatar=<value>] [--banner=<value>] [--labels=<value>] [--joinedViaStarterPack=<value>] [--pinnedPost=<value>] [--createdAt=<value>]";
 
   @override
-  String get rkey => "self";
+  String? get rkey => "self";
 
   @override
   String get collection => "app.bsky.actor.profile";
 
   @override
   Map<String, dynamic> get record => {
-    if (argResults!["displayName"] != null)
+    r"$type": "app.bsky.actor.profile",
+    if (argResults!.wasParsed("displayName"))
       "displayName": argResults!["displayName"],
-    if (argResults!["description"] != null)
+    if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
-    if (argResults!["pronouns"] != null) "pronouns": argResults!["pronouns"],
-    if (argResults!["website"] != null) "website": argResults!["website"],
-    if (argResults!["avatar"] != null) "avatar": argResults!["avatar"],
-    if (argResults!["banner"] != null) "banner": argResults!["banner"],
-    if (argResults!["labels"] != null)
+    if (argResults!.wasParsed("pronouns")) "pronouns": argResults!["pronouns"],
+    if (argResults!.wasParsed("website")) "website": argResults!["website"],
+    if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
+    if (argResults!.wasParsed("banner")) "banner": argResults!["banner"],
+    if (argResults!.wasParsed("labels"))
       "labels": jsonDecode(argResults!["labels"]),
-    if (argResults!["joinedViaStarterPack"] != null)
+    if (argResults!.wasParsed("joinedViaStarterPack"))
       "joinedViaStarterPack": jsonDecode(argResults!["joinedViaStarterPack"]),
-    if (argResults!["pinnedPost"] != null)
+    if (argResults!.wasParsed("pinnedPost"))
       "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
-    if (argResults!["createdAt"] != null) "createdAt": argResults!["createdAt"],
+    if (argResults!.wasParsed("createdAt"))
+      "createdAt": argResults!["createdAt"],
   };
 }
 
 final class _DeleteProfileCommand extends DeleteRecordCommand {
-  _DeleteProfileCommand() {
-    argParser..addOption("rkey", mandatory: true);
-  }
+  _DeleteProfileCommand() {}
 
   @override
   final String name = "delete";
@@ -179,7 +179,7 @@ final class _DeleteProfileCommand extends DeleteRecordCommand {
   final String description = r"Deletes a record for app.bsky.actor.profile.";
 
   @override
-  final String invocation = "bsky app-bsky-actor profile delete [rkey]";
+  final String invocation = "bsky app-bsky-actor profile delete";
 
   @override
   String get rkey => "self";
@@ -191,7 +191,10 @@ final class _DeleteProfileCommand extends DeleteRecordCommand {
 final class _GetProfileCommand extends QueryCommand {
   _GetProfileCommand() {
     argParser
-      ..addOption("rkey", mandatory: true)
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("cid");
   }
 
@@ -202,16 +205,17 @@ final class _GetProfileCommand extends QueryCommand {
   final String description = r"Gets a record for app.bsky.actor.profile.";
 
   @override
-  final String invocation = "bsky app-bsky-actor profile get [rkey] [cid]";
+  final String invocation =
+      "bsky app-bsky-actor profile get [--repo=<value>] [--cid=<value>]";
 
   @override
   String get methodId => "com.atproto.repo.getRecord";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'rkey': argResults!['rkey'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.actor.profile",
+    'rkey': 'self',
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],
   };
 }
@@ -219,6 +223,10 @@ final class _GetProfileCommand extends QueryCommand {
 final class _ListProfileCommand extends QueryCommand {
   _ListProfileCommand() {
     argParser
+      ..addOption(
+        "repo",
+        help: r"The repo (handle or DID). Defaults to the authenticated user.",
+      )
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
       ..addFlag("reverse", defaultsTo: false);
@@ -232,16 +240,16 @@ final class _ListProfileCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile list [limit] [cursor] [reverse]";
+      "bsky app-bsky-actor profile list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecord";
+  String get methodId => "com.atproto.repo.listRecords";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
-    'repo': await did,
-    'collection': methodId,
-    'limit': argResults!['limit'],
+    'repo': argResults!['repo'] ?? await did,
+    'collection': "app.bsky.actor.profile",
+    'limit': int.parse(argResults!['limit']),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

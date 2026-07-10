@@ -36,16 +36,16 @@ final class QuerySetsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-set query-sets [limit] [cursor] [namePrefix] [sortBy] [sortDirection]";
+      "bsky tools-ozone-set query-sets [--limit=<value>] [--cursor=<value>] [--namePrefix=<value>] [--sortBy=<value>] [--sortDirection=<value>]";
 
   @override
   String get methodId => "tools.ozone.set.querySets";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["namePrefix"] != null)
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("namePrefix"))
       "namePrefix": argResults!["namePrefix"],
     "sortBy": argResults!["sortBy"],
     "sortDirection": argResults!["sortDirection"],

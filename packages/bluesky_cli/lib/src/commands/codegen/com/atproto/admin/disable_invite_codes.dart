@@ -30,14 +30,14 @@ final class DisableInviteCodesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin disable-invite-codes [codes] [accounts]";
+      "bsky com-atproto-admin disable-invite-codes [--codes=<value>...] [--accounts=<value>...]";
 
   @override
   String get methodId => "com.atproto.admin.disableInviteCodes";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["codes"] != null) "codes": argResults!["codes"],
-    if (argResults!["accounts"] != null) "accounts": argResults!["accounts"],
+    if (argResults!.wasParsed("codes")) "codes": argResults!["codes"],
+    if (argResults!.wasParsed("accounts")) "accounts": argResults!["accounts"],
   };
 }

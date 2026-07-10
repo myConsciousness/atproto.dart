@@ -30,7 +30,7 @@ final class GetInviteCodesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-admin get-invite-codes [sort] [limit] [cursor]";
+      "bsky com-atproto-admin get-invite-codes [--sort=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "com.atproto.admin.getInviteCodes";
@@ -38,7 +38,7 @@ final class GetInviteCodesCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "sort": argResults!["sort"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

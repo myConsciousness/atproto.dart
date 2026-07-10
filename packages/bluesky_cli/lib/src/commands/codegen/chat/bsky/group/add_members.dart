@@ -30,7 +30,7 @@ final class AddMembersCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky chat-bsky-group add-members [convoId] [members]";
+      "bsky chat-bsky-group add-members --convoId=<value> [--members=<value>...]";
 
   @override
   String get methodId => "chat.bsky.group.addMembers";

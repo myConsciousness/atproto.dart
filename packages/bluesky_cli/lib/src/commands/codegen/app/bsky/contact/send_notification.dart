@@ -38,7 +38,7 @@ final class SendNotificationCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-contact send-notification [from] [to]";
+      "bsky app-bsky-contact send-notification --from=<value> --to=<value>";
 
   @override
   String get methodId => "app.bsky.contact.sendNotification";

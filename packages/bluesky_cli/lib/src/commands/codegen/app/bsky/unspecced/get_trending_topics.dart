@@ -33,14 +33,14 @@ final class GetTrendingTopicsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-trending-topics [viewer] [limit]";
+      "bsky app-bsky-unspecced get-trending-topics [--viewer=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getTrendingTopics";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["viewer"] != null) "viewer": argResults!["viewer"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

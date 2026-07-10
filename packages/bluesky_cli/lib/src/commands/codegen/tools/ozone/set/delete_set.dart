@@ -28,7 +28,7 @@ final class DeleteSetCommand extends ProcedureCommand {
       r"Delete an entire set. Attempting to delete a set that does not exist will result in an error.";
 
   @override
-  final String invocation = "bsky tools-ozone-set delete-set [name]";
+  final String invocation = "bsky tools-ozone-set delete-set --name=<value>";
 
   @override
   String get methodId => "tools.ozone.set.deleteSet";

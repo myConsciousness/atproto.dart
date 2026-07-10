@@ -24,7 +24,7 @@ final class GetPostThreadOtherV2Command extends QueryCommand {
   }
 
   @override
-  final String name = "get-post-thread-other-v-2";
+  final String name = "get-post-thread-other-v2";
 
   @override
   final String description =
@@ -32,7 +32,7 @@ final class GetPostThreadOtherV2Command extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-post-thread-other-v-2 [anchor]";
+      "bsky app-bsky-unspecced get-post-thread-other-v2 --anchor=<value>";
 
   @override
   String get methodId => "app.bsky.unspecced.getPostThreadOtherV2";

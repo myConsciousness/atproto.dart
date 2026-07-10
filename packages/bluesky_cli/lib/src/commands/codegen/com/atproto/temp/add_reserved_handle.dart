@@ -27,7 +27,7 @@ final class AddReservedHandleCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-temp add-reserved-handle [handle]";
+      "bsky com-atproto-temp add-reserved-handle --handle=<value>";
 
   @override
   String get methodId => "com.atproto.temp.addReservedHandle";

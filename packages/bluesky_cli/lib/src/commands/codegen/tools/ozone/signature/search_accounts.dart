@@ -31,7 +31,7 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-signature search-accounts [values] [cursor] [limit]";
+      "bsky tools-ozone-signature search-accounts [--values=<value>...] [--cursor=<value>] [--limit=<value>]";
 
   @override
   String get methodId => "tools.ozone.signature.searchAccounts";
@@ -39,7 +39,7 @@ final class SearchAccountsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "values": argResults!["values"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    "limit": argResults!["limit"],
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
   };
 }

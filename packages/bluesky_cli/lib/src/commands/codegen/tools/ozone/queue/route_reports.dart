@@ -39,14 +39,14 @@ final class RouteReportsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue route-reports [startReportId] [endReportId]";
+      "bsky tools-ozone-queue route-reports --startReportId=<value> --endReportId=<value>";
 
   @override
   String get methodId => "tools.ozone.queue.routeReports";
 
   @override
   Map<String, dynamic>? get body => {
-    "startReportId": argResults!["startReportId"],
-    "endReportId": argResults!["endReportId"],
+    "startReportId": int.parse(argResults!["startReportId"]),
+    "endReportId": int.parse(argResults!["endReportId"]),
   };
 }

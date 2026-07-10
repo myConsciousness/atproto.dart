@@ -30,14 +30,14 @@ final class GetSuggestedFeedsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-suggested-feeds [limit] [cursor]";
+      "bsky app-bsky-feed get-suggested-feeds [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getSuggestedFeeds";
 
   @override
   Map<String, dynamic>? get parameters => {
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

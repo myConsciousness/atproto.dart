@@ -37,7 +37,7 @@ abstract class BskyCommand extends Command<void> {
   /// Returns the authenticated access token.
   Future<String?> get accessJwt async {
     if (_session.isNotEmpty) {
-      _session['accessJwt'];
+      return _session['accessJwt'];
     }
 
     if (_auth.identifier == null || _auth.password == null) {
@@ -61,6 +61,15 @@ abstract class BskyCommand extends Command<void> {
   }
 
   Future<Map<String, dynamic>> _createSession() async {
+    if (_auth.identifier == null || _auth.password == null) {
+      throw UsageException(
+        'This command requires authentication. Pass --identifier and '
+        '--password, or set the BLUESKY_IDENTIFIER and BLUESKY_PASSWORD '
+        'environment variables.',
+        usage,
+      );
+    }
+
     final response = await xrpc.procedure<String>(
       xrpc.NSID.create('server.atproto.com', 'createSession'),
       service: service,

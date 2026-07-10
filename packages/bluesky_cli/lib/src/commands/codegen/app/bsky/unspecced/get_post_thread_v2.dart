@@ -47,7 +47,7 @@ final class GetPostThreadV2Command extends QueryCommand {
   }
 
   @override
-  final String name = "get-post-thread-v-2";
+  final String name = "get-post-thread-v2";
 
   @override
   final String description =
@@ -55,7 +55,7 @@ final class GetPostThreadV2Command extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-post-thread-v-2 [anchor] [above] [below] [branchingFactor] [sort]";
+      "bsky app-bsky-unspecced get-post-thread-v2 --anchor=<value> [--above] [--below=<value>] [--branchingFactor=<value>] [--sort=<value>]";
 
   @override
   String get methodId => "app.bsky.unspecced.getPostThreadV2";
@@ -64,8 +64,8 @@ final class GetPostThreadV2Command extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     "anchor": argResults!["anchor"],
     "above": argResults!["above"],
-    "below": argResults!["below"],
-    "branchingFactor": argResults!["branchingFactor"],
+    "below": int.parse(argResults!["below"]),
+    "branchingFactor": int.parse(argResults!["branchingFactor"]),
     "sort": argResults!["sort"],
   };
 }

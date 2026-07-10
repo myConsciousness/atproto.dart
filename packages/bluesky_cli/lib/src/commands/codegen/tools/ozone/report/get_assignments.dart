@@ -42,7 +42,7 @@ final class GetAssignmentsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report get-assignments [onlyActive] [reportIds] [dids] [limit] [cursor]";
+      "bsky tools-ozone-report get-assignments [--onlyActive] [--reportIds=<value>...] [--dids=<value>...] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.getAssignments";
@@ -50,9 +50,12 @@ final class GetAssignmentsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "onlyActive": argResults!["onlyActive"],
-    if (argResults!["reportIds"] != null) "reportIds": argResults!["reportIds"],
-    if (argResults!["dids"] != null) "dids": argResults!["dids"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("reportIds"))
+      "reportIds": (argResults!["reportIds"] as List<String>)
+          .map((e) => int.parse(e))
+          .toList(),
+    if (argResults!.wasParsed("dids")) "dids": argResults!["dids"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

@@ -40,7 +40,7 @@ final class PutPreferencesV2Command extends ProcedureCommand {
   }
 
   @override
-  final String name = "put-preferences-v-2";
+  final String name = "put-preferences-v2";
 
   @override
   final String description =
@@ -48,34 +48,36 @@ final class PutPreferencesV2Command extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification put-preferences-v-2 [chat] [follow] [like] [likeViaRepost] [mention] [quote] [reply] [repost] [repostViaRepost] [starterpackJoined] [subscribedPost] [unverified] [verified]";
+      "bsky app-bsky-notification put-preferences-v2 [--chat=<value>] [--follow=<value>] [--like=<value>] [--likeViaRepost=<value>] [--mention=<value>] [--quote=<value>] [--reply=<value>] [--repost=<value>] [--repostViaRepost=<value>] [--starterpackJoined=<value>] [--subscribedPost=<value>] [--unverified=<value>] [--verified=<value>]";
 
   @override
   String get methodId => "app.bsky.notification.putPreferencesV2";
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!["chat"] != null) "chat": jsonDecode(argResults!["chat"]),
-    if (argResults!["follow"] != null)
+    if (argResults!.wasParsed("chat")) "chat": jsonDecode(argResults!["chat"]),
+    if (argResults!.wasParsed("follow"))
       "follow": jsonDecode(argResults!["follow"]),
-    if (argResults!["like"] != null) "like": jsonDecode(argResults!["like"]),
-    if (argResults!["likeViaRepost"] != null)
+    if (argResults!.wasParsed("like")) "like": jsonDecode(argResults!["like"]),
+    if (argResults!.wasParsed("likeViaRepost"))
       "likeViaRepost": jsonDecode(argResults!["likeViaRepost"]),
-    if (argResults!["mention"] != null)
+    if (argResults!.wasParsed("mention"))
       "mention": jsonDecode(argResults!["mention"]),
-    if (argResults!["quote"] != null) "quote": jsonDecode(argResults!["quote"]),
-    if (argResults!["reply"] != null) "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!["repost"] != null)
+    if (argResults!.wasParsed("quote"))
+      "quote": jsonDecode(argResults!["quote"]),
+    if (argResults!.wasParsed("reply"))
+      "reply": jsonDecode(argResults!["reply"]),
+    if (argResults!.wasParsed("repost"))
       "repost": jsonDecode(argResults!["repost"]),
-    if (argResults!["repostViaRepost"] != null)
+    if (argResults!.wasParsed("repostViaRepost"))
       "repostViaRepost": jsonDecode(argResults!["repostViaRepost"]),
-    if (argResults!["starterpackJoined"] != null)
+    if (argResults!.wasParsed("starterpackJoined"))
       "starterpackJoined": jsonDecode(argResults!["starterpackJoined"]),
-    if (argResults!["subscribedPost"] != null)
+    if (argResults!.wasParsed("subscribedPost"))
       "subscribedPost": jsonDecode(argResults!["subscribedPost"]),
-    if (argResults!["unverified"] != null)
+    if (argResults!.wasParsed("unverified"))
       "unverified": jsonDecode(argResults!["unverified"]),
-    if (argResults!["verified"] != null)
+    if (argResults!.wasParsed("verified"))
       "verified": jsonDecode(argResults!["verified"]),
   };
 }

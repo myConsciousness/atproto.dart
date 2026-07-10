@@ -30,7 +30,7 @@ final class GetStateCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-ageassurance get-state [countryCode] [regionCode]";
+      "bsky app-bsky-ageassurance get-state --countryCode=<value> [--regionCode=<value>]";
 
   @override
   String get methodId => "app.bsky.ageassurance.getState";
@@ -38,7 +38,7 @@ final class GetStateCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "countryCode": argResults!["countryCode"],
-    if (argResults!["regionCode"] != null)
+    if (argResults!.wasParsed("regionCode"))
       "regionCode": argResults!["regionCode"],
   };
 }

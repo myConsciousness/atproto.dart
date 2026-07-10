@@ -44,7 +44,7 @@ final class UpdateRuleCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-safelink update-rule [url] [pattern] [action] [reason] [comment] [createdBy]";
+      "bsky tools-ozone-safelink update-rule --url=<value> --pattern=<value> --action=<value> --reason=<value> [--comment=<value>] [--createdBy=<value>]";
 
   @override
   String get methodId => "tools.ozone.safelink.updateRule";
@@ -55,7 +55,8 @@ final class UpdateRuleCommand extends ProcedureCommand {
     "pattern": jsonDecode(argResults!["pattern"]),
     "action": jsonDecode(argResults!["action"]),
     "reason": jsonDecode(argResults!["reason"]),
-    if (argResults!["comment"] != null) "comment": argResults!["comment"],
-    if (argResults!["createdBy"] != null) "createdBy": argResults!["createdBy"],
+    if (argResults!.wasParsed("comment")) "comment": argResults!["comment"],
+    if (argResults!.wasParsed("createdBy"))
+      "createdBy": argResults!["createdBy"],
   };
 }

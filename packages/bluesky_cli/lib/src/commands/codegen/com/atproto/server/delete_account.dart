@@ -31,7 +31,7 @@ final class DeleteAccountCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-server delete-account [did] [password] [token]";
+      "bsky com-atproto-server delete-account --did=<value> --password=<value> --token=<value>";
 
   @override
   String get methodId => "com.atproto.server.deleteAccount";

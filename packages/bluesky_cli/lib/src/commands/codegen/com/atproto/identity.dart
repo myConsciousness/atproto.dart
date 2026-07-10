@@ -13,6 +13,7 @@ import 'package:args/command_runner.dart';
 // Project imports:
 import 'identity/get_recommended_did_credentials.dart';
 import 'identity/refresh_identity.dart';
+import 'identity/request_plc_operation_signature.dart';
 import 'identity/resolve_did.dart';
 import 'identity/resolve_handle.dart';
 import 'identity/resolve_identity.dart';
@@ -28,6 +29,7 @@ final class ComAtprotoIdentityCommand extends Command<void> {
   ComAtprotoIdentityCommand() {
     addSubcommand(GetRecommendedDidCredentialsCommand());
     addSubcommand(RefreshIdentityCommand());
+    addSubcommand(RequestPlcOperationSignatureCommand());
     addSubcommand(ResolveDidCommand());
     addSubcommand(ResolveHandleCommand());
     addSubcommand(ResolveIdentityCommand());

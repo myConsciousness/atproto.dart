@@ -28,7 +28,7 @@ final class RefreshIdentityCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-identity refresh-identity [identifier]";
+      "bsky com-atproto-identity refresh-identity --identifier=<value>";
 
   @override
   String get methodId => "com.atproto.identity.refreshIdentity";

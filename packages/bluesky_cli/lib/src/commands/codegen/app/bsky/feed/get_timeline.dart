@@ -35,15 +35,16 @@ final class GetTimelineCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-timeline [algorithm] [limit] [cursor]";
+      "bsky app-bsky-feed get-timeline [--algorithm=<value>] [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getTimeline";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["algorithm"] != null) "algorithm": argResults!["algorithm"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("algorithm"))
+      "algorithm": argResults!["algorithm"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

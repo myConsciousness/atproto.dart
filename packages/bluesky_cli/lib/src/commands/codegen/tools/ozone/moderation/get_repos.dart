@@ -26,7 +26,8 @@ final class GetReposCommand extends QueryCommand {
   final String description = r"Get details about some repositories.";
 
   @override
-  final String invocation = "bsky tools-ozone-moderation get-repos [dids]";
+  final String invocation =
+      "bsky tools-ozone-moderation get-repos [--dids=<value>...]";
 
   @override
   String get methodId => "tools.ozone.moderation.getRepos";

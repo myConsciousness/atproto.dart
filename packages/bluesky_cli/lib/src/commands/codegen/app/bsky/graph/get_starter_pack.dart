@@ -31,7 +31,7 @@ final class GetStarterPackCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-starter-pack [starterPack]";
+      "bsky app-bsky-graph get-starter-pack --starterPack=<value>";
 
   @override
   String get methodId => "app.bsky.graph.getStarterPack";

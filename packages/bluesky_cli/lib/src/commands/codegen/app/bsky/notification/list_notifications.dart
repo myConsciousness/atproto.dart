@@ -36,17 +36,17 @@ final class ListNotificationsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification list-notifications [reasons] [limit] [priority] [cursor] [seenAt]";
+      "bsky app-bsky-notification list-notifications [--reasons=<value>...] [--limit=<value>] [--priority] [--cursor=<value>] [--seenAt=<value>]";
 
   @override
   String get methodId => "app.bsky.notification.listNotifications";
 
   @override
   Map<String, dynamic>? get parameters => {
-    if (argResults!["reasons"] != null) "reasons": argResults!["reasons"],
-    "limit": argResults!["limit"],
-    if (argResults!["priority"] != null) "priority": argResults!["priority"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
-    if (argResults!["seenAt"] != null) "seenAt": argResults!["seenAt"],
+    if (argResults!.wasParsed("reasons")) "reasons": argResults!["reasons"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("priority")) "priority": argResults!["priority"],
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("seenAt")) "seenAt": argResults!["seenAt"],
   };
 }

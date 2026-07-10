@@ -30,7 +30,7 @@ final class GetServicesCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-labeler get-services [dids] [detailed]";
+      "bsky app-bsky-labeler get-services [--dids=<value>...] [--detailed]";
 
   @override
   String get methodId => "app.bsky.labeler.getServices";

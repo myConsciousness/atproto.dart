@@ -36,7 +36,7 @@ final class ListReposByCollectionCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky com-atproto-sync list-repos-by-collection [collection] [limit] [cursor]";
+      "bsky com-atproto-sync list-repos-by-collection --collection=<value> [--limit=<value>] [--cursor=<value>]";
 
   @override
   String get methodId => "com.atproto.sync.listReposByCollection";
@@ -44,7 +44,7 @@ final class ListReposByCollectionCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "collection": argResults!["collection"],
-    "limit": argResults!["limit"],
-    if (argResults!["cursor"] != null) "cursor": argResults!["cursor"],
+    "limit": int.parse(argResults!["limit"]),
+    if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }
