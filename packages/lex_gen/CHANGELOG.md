@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- fix: sort loaded lexicon docs by NSID instead of file path so that generation results are deterministic across platforms and checkout locations.
+
 ## v0.2.0
 
 - fix: generate `List<...>` for object properties that reference a top-level `array` definition through a local ref (e.g. `#draftEmbedGalleryItems`). Such refs were previously treated as plain object refs and produced code pointing to a non-existent file.
