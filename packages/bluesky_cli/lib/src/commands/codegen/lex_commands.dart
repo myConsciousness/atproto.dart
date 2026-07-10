@@ -38,10 +38,6 @@ import 'com/atproto/server.dart';
 import 'com/atproto/sync.dart';
 import 'com/atproto/temp.dart';
 import 'com/germnetwork/declaration.dart';
-import 'site/standard/document.dart';
-import 'site/standard/graph.dart';
-import 'site/standard/publication.dart';
-import 'site/standard/theme.dart';
 import 'tools/ozone/communication.dart';
 import 'tools/ozone/hosting.dart';
 import 'tools/ozone/moderation.dart';
@@ -92,10 +88,6 @@ List<Command<void>> get lexCommands => [
   ComAtprotoSyncCommand(),
   ComAtprotoTempCommand(),
   ComGermnetworkDeclarationCommand(),
-  SiteStandardDocumentCommand(),
-  SiteStandardGraphCommand(),
-  SiteStandardPublicationCommand(),
-  SiteStandardThemeCommand(),
   ToolsOzoneCommunicationCommand(),
   ToolsOzoneHostingCommand(),
   ToolsOzoneModerationCommand(),
