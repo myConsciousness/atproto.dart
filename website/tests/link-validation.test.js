@@ -7,34 +7,25 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 describe('Link Validation Tests', () => {
     const websiteDir = path.join(__dirname, '..');
     const docsDir = path.join(websiteDir, 'docs');
     const srcDir = path.join(websiteDir, 'src');
 
-    let markdownFiles = [];
-    let componentFiles = [];
-    let allInternalPaths = new Set();
+    // Collected at module evaluation time so that `test.each` below sees the
+    // populated arrays (beforeAll runs after test collection, so it is too late).
+    const markdownFiles = fs.existsSync(docsDir)
+        ? getFilesRecursively(docsDir, '.md')
+        : [];
+    const componentFiles = fs.existsSync(srcDir)
+        ? getFilesRecursively(srcDir, '.tsx').concat(
+              getFilesRecursively(srcDir, '.js')
+          )
+        : [];
+    const allInternalPaths = new Set();
 
-    beforeAll(() => {
-        // Collect all files for testing
-        if (fs.existsSync(docsDir)) {
-            markdownFiles = getFilesRecursively(docsDir, '.md');
-        }
-        if (fs.existsSync(srcDir)) {
-            componentFiles = getFilesRecursively(srcDir, '.tsx').concat(
-                getFilesRecursively(srcDir, '.js')
-            );
-        }
-
-        // Build set of valid internal paths
-        collectInternalPaths();
-    });
+    collectInternalPaths();
 
     function getFilesRecursively(dir, extension) {
         const files = [];
@@ -200,11 +191,20 @@ describe('Link Validation Tests', () => {
                         }
                     }
                 } else if (!url.startsWith('#') && !url.startsWith('http')) {
-                    // Relative URL
+                    // Relative URL (strip query string and anchor before resolving).
+                    // Docusaurus also resolves extension-less doc links, so try
+                    // .md/.mdx variants before flagging the link as broken.
+                    const cleanUrl = url.split('?')[0].split('#')[0];
                     const fileDir = path.dirname(filePath);
-                    const resolvedPath = path.resolve(fileDir, url);
+                    const resolvedPath = path.resolve(fileDir, cleanUrl);
 
-                    if (!fs.existsSync(resolvedPath)) {
+                    const candidates = [
+                        resolvedPath,
+                        `${resolvedPath}.md`,
+                        `${resolvedPath}.mdx`,
+                    ];
+
+                    if (!candidates.some(candidate => fs.existsSync(candidate))) {
                         brokenLinks.push(`${link.raw} -> ${url} (resolved: ${resolvedPath})`);
                     }
                 }
@@ -345,9 +345,11 @@ describe('Link Validation Tests', () => {
                 const relativePath = path.relative(websiteDir, filePath);
 
                 packageNames.forEach(packageName => {
-                    // Look for inconsistent package references
+                    // Look for inconsistent package references.
+                    // Note: `<package>.dart` is NOT checked because it legitimately
+                    // appears in Dart import paths (package:bluesky/bluesky.dart)
+                    // and in the project name "atproto.dart".
                     const variations = [
-                        new RegExp(`\\b${packageName}\\.dart\\b`, 'g'),
                         new RegExp(`\\b${packageName}_dart\\b`, 'g'),
                         new RegExp(`\\b${packageName}-dart\\b`, 'g'),
                     ];

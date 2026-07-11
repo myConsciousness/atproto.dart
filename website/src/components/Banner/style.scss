@@ -1,3 +1,6 @@
+@use "../../scss/abstracts/mixins";
+@use "../../scss/abstracts/variables";
+
 @use "sass:math";
 
 .banner {
@@ -15,7 +18,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--ifm-color-emphasis-100) url('https://atprotodart.com/img/banner.png') no-repeat center top;
+    background: var(--ifm-color-emphasis-100) url('/img/banner.png') no-repeat center top;
     z-index: -1;
     filter: blur(20px);
     /* Adjust blur strength */
@@ -23,7 +26,7 @@
     /* Adjust transparency */
   }
 
-  @include min-width(lg) {
+  @include mixins.min-width(lg) {
     flex-direction: row;
     align-items: center;
     padding: 4rem 6rem;
@@ -33,7 +36,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    max-width: math.div($max-width, 2);
+    max-width: math.div(variables.$max-width, 2);
     padding: 1rem;
   }
 
@@ -42,7 +45,7 @@
     font-size: 28px;
     font-weight: 600;
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       margin-top: -64px;
     }
 

@@ -288,7 +288,7 @@ If you want to know about Grapheme Clusters, check [this page](https://unicode.o
 There are several endpoints that use Facet in the Bluesky API, but we will use the endpoint that creates a post as an example.
 
 :::info
-The **[bluesky](https://pub.dev/packages/bluesky)** package is a powerful wrapper library that supports the AT Protocol and Bluesky APIs. You can see more details [here](./bluesky.md).
+The **[bluesky](https://pub.dev/packages/bluesky)** package is a powerful wrapper library that supports the AT Protocol and Bluesky APIs. See the [bluesky package documentation](./bluesky.md) for more details.
 :::
 
 You can integrate **[bluesky_text](https://pub.dev/packages/bluesky_text)** and **[bluesky](https://pub.dev/packages/bluesky)** as follows.

@@ -1,3 +1,6 @@
+@use "../../scss/abstracts/mixins";
+@use "../../scss/abstracts/variables";
+
 .highlight {
   display: flex;
   flex-direction: column;
@@ -6,10 +9,10 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 30px;
-    max-width: $max-width;
+    max-width: variables.$max-width;
     padding: 2rem;
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       grid-template-columns: repeat(3, 1fr);
       padding: 8rem;
     }

@@ -76,7 +76,7 @@ function Feature({ Svg, title, description }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section className={styles.features} aria-label="Key features">
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

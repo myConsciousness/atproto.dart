@@ -1,8 +1,11 @@
+@use "../../scss/abstracts/mixins";
+@use "../../scss/abstracts/variables";
+
 .feature {
   &__card {
     display: flex;
     flex-direction: column;
-    max-width: $max-width;
+    max-width: variables.$max-width;
     margin: 1rem;
     margin-top: 0;
     margin-bottom: 2rem;
@@ -10,7 +13,7 @@
     border-radius: 24px;
     background-color: var(--ifm-color-emphasis-100);
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       flex-direction: row;
       align-items: center;
       margin: 6rem;
@@ -33,7 +36,7 @@
     width: 2rem;
     height: 2rem;
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       width: 4rem;
       height: 4rem;
     }

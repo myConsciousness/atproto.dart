@@ -1,3 +1,5 @@
+@use "../../scss/abstracts/mixins";
+
 .snippet {
   position: relative;
 
@@ -26,9 +28,9 @@
     margin-left: 4px;
     border-radius: 50%;
 
-    @include themed(background-color, #00000013, #F25F58);
+    @include mixins.themed(background-color, #00000013, #F25F58);
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       margin-left: 6px;
     }
   }
@@ -39,9 +41,9 @@
     margin-left: 4px;
     border-radius: 50%;
 
-    @include themed(background-color, #00000013, #fcbe3c);
+    @include mixins.themed(background-color, #00000013, #fcbe3c);
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       margin-left: 6px;
     }
   }
@@ -52,9 +54,9 @@
     margin-left: 4px;
     border-radius: 50%;
 
-    @include themed(background-color, #00000013, #59cb43);
+    @include mixins.themed(background-color, #00000013, #59cb43);
 
-    @include min-width(lg) {
+    @include mixins.min-width(lg) {
       margin-left: 6px;
     }
   }
