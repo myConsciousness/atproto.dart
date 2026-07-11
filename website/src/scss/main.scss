@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
-@import "abstracts/variables";
-@import "abstracts/mixins";
+@use "abstracts/variables";
+@use "abstracts/mixins";
 
-@import "base/reset";
-@import "base/typography";
+@use "base/reset";
+@use "base/typography";
 
-@import "../components/Banner/style";
-@import "../components/CodeSnippet/style";
-@import "../components/Feature/style";
-@import "../components/Highlight/style";
+@use "../components/Banner/style";
+@use "../components/CodeSnippet/style" as style2;
+@use "../components/Feature/style" as style3;
+@use "../components/Highlight/style" as style4;
 
 :root {
     /*

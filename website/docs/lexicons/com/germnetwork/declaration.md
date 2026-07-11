@@ -11,7 +11,7 @@ description: com.germnetwork.declaration
 
 A declaration of a Germ Network account
 
-Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
+Use [com.atproto.repo.createRecord](../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -25,7 +25,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| ref | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
+| ref | [com.atproto.repo.strongRef](../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 
 ## #messageMe
 

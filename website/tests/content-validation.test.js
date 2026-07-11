@@ -64,7 +64,7 @@ describe('Content Validation Tests', () => {
             const bannerContent = screen.getByRole('banner').textContent;
 
             // Should use "AT Protocol" consistently
-            expect(bannerContent).not.toMatch(/ATProto|atproto(?!\.)(?!\s*=)|AT Proto/);
+            expect(bannerContent).not.toMatch(/ATProto\b|atproto(?![.\w])(?!\s*=)|AT Proto\b/);
 
             // Should use "SDK" for complete package reference
             expect(bannerContent).toMatch(/SDK/);

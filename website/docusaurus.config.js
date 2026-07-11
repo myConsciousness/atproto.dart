@@ -1,8 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const { themes: prismThemes } = require("prism-react-renderer");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -10,29 +9,7 @@ const config = {
   tagline: "Build decentralized social apps with type-safe AT Protocol APIs",
   favicon: "img/favicon.ico",
 
-  // Custom fields for additional metadata
-  customFields: {
-    metadata: [
-      {
-        name: 'description',
-        content: 'Production-ready AT Protocol SDK for Flutter & Dart developers. Build decentralized social apps with type-safe APIs, comprehensive Bluesky integration, and battle-tested reliability.',
-      },
-      {
-        name: 'keywords',
-        content: 'AT Protocol, Bluesky, Flutter, Dart, SDK, decentralized, social media, API, type-safe, production-ready',
-      },
-      {
-        property: 'og:description',
-        content: 'Production-ready AT Protocol SDK for Flutter & Dart developers. Build decentralized social apps with type-safe APIs, comprehensive Bluesky integration, and battle-tested reliability.',
-      },
-      {
-        name: 'twitter:description',
-        content: 'Production-ready AT Protocol SDK for Flutter & Dart developers. Build decentralized social apps with type-safe APIs, comprehensive Bluesky integration, and battle-tested reliability.',
-      },
-    ],
-  },
-
-  staticDirectories: ["public", "static"],
+  staticDirectories: ["static"],
 
   plugins: [
     "docusaurus-plugin-sass",
@@ -60,8 +37,7 @@ const config = {
   organizationName: "myConsciousness", // Usually your GitHub org/user name.
   projectName: "atproto.dart", // Usually your repo name.
 
-  onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: "throw",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -81,11 +57,7 @@ const config = {
           editUrl:
             "https://github.com/myConsciousness/atproto.dart/blob/main/website",
         },
-        blog: {
-          showReadingTime: true,
-          editUrl:
-            "https://github.com/myConsciousness/atproto.dart/blob/main/website",
-        },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/scss/main.scss"),
         },
@@ -96,8 +68,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: "img/social_card.png",
+      metadata: [
+        {
+          name: "keywords",
+          content:
+            "AT Protocol, Bluesky, Flutter, Dart, SDK, decentralized, social media, API, type-safe, production-ready",
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
       navbar: {
         title: "atproto.dart",
         logo: {
@@ -174,11 +153,11 @@ const config = {
               },
               {
                 label: "Bluesky",
-                href: "https://blueskyweb.xyz",
+                href: "https://bsky.social",
               },
               {
                 label: "Developer Community",
-                href: "https://discord.gg/zWed6y3V",
+                href: "https://github.com/myConsciousness/atproto.dart/discussions",
               },
             ],
           },
@@ -186,9 +165,10 @@ const config = {
         copyright: `© ${new Date().getFullYear()} Shinya Kato. Open source AT Protocol SDK for Flutter & Dart.`,
       },
       prism: {
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         defaultLanguage: "dart",
         additionalLanguages: ["dart", "yaml"],
-        darkTheme: require("prism-react-renderer/themes/dracula"),
       },
       colorMode: {
         defaultMode: "dark",
@@ -204,6 +184,9 @@ const config = {
     }),
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
   themes: ["@docusaurus/theme-mermaid"],
 };
