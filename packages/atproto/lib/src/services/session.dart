@@ -17,6 +17,7 @@ Future<core.XRPCResponse<core.Session>> createSession({
   required String identifier,
   required String password,
   String? authFactorToken,
+  core.Protocol? protocol,
   String? service,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
@@ -26,6 +27,7 @@ Future<core.XRPCResponse<core.Session>> createSession({
     password: password,
     authFactorToken: authFactorToken,
     $ctx: core.ServiceContext(
+      protocol: protocol,
       service: service,
       retryConfig: retryConfig,
       postClient: client,
@@ -36,6 +38,7 @@ Future<core.XRPCResponse<core.Session>> createSession({
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
 Future<core.XRPCResponse<core.Session>> refreshSession({
   required String refreshJwt,
+  core.Protocol? protocol,
   String? service,
   core.RetryConfig? retryConfig,
   final core.PostClient? client,
@@ -43,6 +46,7 @@ Future<core.XRPCResponse<core.Session>> refreshSession({
   await comAtprotoServerRefreshSession(
     $headers: {'Authorization': 'Bearer $refreshJwt'},
     $ctx: core.ServiceContext(
+      protocol: protocol,
       service: service,
       retryConfig: retryConfig,
       postClient: client,
@@ -60,6 +64,7 @@ Future<core.XRPCResponse<core.EmptyData>> deleteSession({
 }) async => await comAtprotoServerDeleteSession(
   $headers: {'Authorization': 'Bearer $refreshJwt'},
   $ctx: core.ServiceContext(
+    protocol: protocol,
     service: service,
     retryConfig: retryConfig,
     postClient: client,
