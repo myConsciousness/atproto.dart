@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:at_primitives/src/at_uri/at_uri.dart';
+import 'package:at_primitives/src/at_uri/invalid_at_uri_error.dart';
 
 void main() {
   test('parses valid at uris', () {
@@ -268,6 +269,122 @@ void main() {
 
     expect(unparsedUri.collection.toString(), 'com.example.foo');
     expect(unparsedUri.rkey, '123');
+  });
+
+  group('collection / rkey on path-less URIs (P-2)', () {
+    test('collection throws InvalidAtUriError when absent', () {
+      final parsedUri = AtUri.parse('at://foo.com');
+      expect(() => parsedUri.collection, throwsA(isA<InvalidAtUriError>()));
+
+      final unparsedUri = AtUri('at://foo.com');
+      expect(() => unparsedUri.collection, throwsA(isA<InvalidAtUriError>()));
+    });
+
+    test('rkey throws InvalidAtUriError when absent', () {
+      final parsedUri = AtUri.parse('at://foo.com/com.example.foo');
+      expect(() => parsedUri.rkey, throwsA(isA<InvalidAtUriError>()));
+
+      final unparsedUri = AtUri('at://foo.com/com.example.foo');
+      expect(() => unparsedUri.rkey, throwsA(isA<InvalidAtUriError>()));
+    });
+
+    test('collectionOrNull / rkeyOrNull return null instead of throwing', () {
+      final noPath = AtUri.parse('at://foo.com');
+      expect(noPath.collectionOrNull, isNull);
+      expect(noPath.rkeyOrNull, isNull);
+
+      final onlyCollection = AtUri.parse('at://foo.com/com.example.foo');
+      expect(onlyCollection.collectionOrNull.toString(), 'com.example.foo');
+      expect(onlyCollection.rkeyOrNull, isNull);
+
+      final full = AtUri.parse('at://foo.com/com.example.foo/123');
+      expect(full.collectionOrNull.toString(), 'com.example.foo');
+      expect(full.rkeyOrNull, '123');
+
+      final unparsed = AtUri('at://foo.com');
+      expect(unparsed.collectionOrNull, isNull);
+      expect(unparsed.rkeyOrNull, isNull);
+    });
+  });
+
+  group('query string retention (P-3)', () {
+    test('search is preserved for parsed URIs', () {
+      final uri = AtUri.parse('at://foo.com/com.example.foo?foo=bar&baz=quux');
+      expect(uri.search, 'foo=bar&baz=quux');
+      expect(uri.searchParams, {'foo': 'bar', 'baz': 'quux'});
+    });
+
+    test('search is preserved for unparsed URIs', () {
+      final uri = AtUri('at://foo.com?foo=bar');
+      expect(uri.search, 'foo=bar');
+      expect(uri.searchParams, {'foo': 'bar'});
+    });
+
+    test('empty search yields empty params', () {
+      final uri = AtUri.parse('at://foo.com/com.example.foo');
+      expect(uri.search, '');
+      expect(uri.searchParams, isEmpty);
+    });
+
+    test('toString round-trips the query string (no silent loss)', () {
+      const raw = 'at://foo.com/com.example.foo?foo=bar&baz=quux';
+      expect(AtUri.parse(raw).toString(), raw);
+    });
+
+    test('toString round-trips query + hash', () {
+      const raw = 'at://foo.com?foo=bar#hash';
+      expect(AtUri.parse(raw).toString(), raw);
+    });
+  });
+
+  group('AtUri.parseStrict (P-1)', () {
+    test('accepts spec-valid AT URIs', () {
+      expect(
+        AtUri.parseStrict(
+          'at://did:plc:asdf123/com.atproto.feed.post/record',
+        ).toString(),
+        'at://did:plc:asdf123/com.atproto.feed.post/record',
+      );
+    });
+
+    test('rejects too many path segments', () {
+      expect(
+        () => AtUri.parseStrict(
+          'at://did:plc:asdf123/com.atproto.feed.post/rkey/extra',
+        ),
+        throwsA(isA<InvalidAtUriError>()),
+      );
+    });
+
+    test('rejects invalid NSID collection segment', () {
+      expect(
+        () => AtUri.parseStrict('at://did:plc:asdf123/short/stuff'),
+        throwsA(isA<InvalidAtUriError>()),
+      );
+    });
+
+    test('rejects invalid authority', () {
+      expect(
+        () => AtUri.parseStrict('at://name'),
+        throwsA(isA<InvalidAtUriError>()),
+      );
+    });
+
+    test('AtUri.parse stays loose (does not throw on these)', () {
+      // Loose parse must remain non-breaking for existing callers.
+      expect(
+        AtUri.parse(
+          'at://did:plc:asdf123/com.atproto.feed.post/rkey/extra',
+        ).hostname,
+        'did:plc:asdf123',
+      );
+    });
+  });
+
+  test('InvalidAtUriError.toString exposes the message (P-6)', () {
+    final error = InvalidAtUriError('boom');
+    expect(error.toString(), contains('boom'));
+    expect(error.toString(), 'InvalidAtUriError: boom');
   });
 
   test('.toString', () {

@@ -9,4 +9,7 @@ final class InvalidNsidError extends Error {
 
   /// The error message
   final String message;
+
+  @override
+  String toString() => 'InvalidNsidError: $message';
 }

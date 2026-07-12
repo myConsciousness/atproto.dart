@@ -22,9 +22,12 @@
 ///  - does not validate whether domain or TLD exists, or is a reserved or
 ///    special TLD (eg, .onion or .local)
 //  - does not validate punycode
+final _handleAllowedCharsRegExp = RegExp(r'^[a-zA-Z0-9.-]*$');
+final _handleTldStartRegExp = RegExp(r'^[a-zA-Z]');
+
 void ensureValidHandle(final String handle) {
   // check that all chars are boring ASCII
-  if (!RegExp(r'^[a-zA-Z0-9.-]*$').hasMatch(handle)) {
+  if (!_handleAllowedCharsRegExp.hasMatch(handle)) {
     throw InvalidHandleError(
       'Disallowed characters in handle '
       '(ASCII letters, digits, dashes, periods only)',
@@ -57,7 +60,7 @@ void ensureValidHandle(final String handle) {
       );
     }
 
-    if (i + 1 == labels.length && !RegExp(r'^[a-zA-Z]').hasMatch(label)) {
+    if (i + 1 == labels.length && !_handleTldStartRegExp.hasMatch(label)) {
       throw InvalidHandleError(
         'Handle final component (TLD) must start with ASCII letter',
       );
@@ -94,4 +97,7 @@ final class InvalidHandleError extends Error {
 
   /// The error message.
   final String message;
+
+  @override
+  String toString() => 'InvalidHandleError: $message';
 }

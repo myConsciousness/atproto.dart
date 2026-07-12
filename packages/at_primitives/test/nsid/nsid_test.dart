@@ -71,18 +71,21 @@ void main() {
     });
 
     test('long end', () {
-      final longEnd = 'com.example.${'o' * 128}';
+      // Name segment is capped at 63 characters (current atproto spec).
+      final longEnd = 'com.example.${'o' * 63}';
       expectValid(longEnd);
     });
 
     test('too long end', () {
-      final tooLongEnd = 'com.example.${'o' * 129}';
+      final tooLongEnd = 'com.example.${'o' * 64}';
       expectInvalid(tooLongEnd);
     });
 
     test('long overall', () {
-      final longOverall = 'com.${'middle.' * 50}foo';
-      expect(longOverall.length, equals(357));
+      // Overall NSID length is capped at 317 characters, with every
+      // individual segment capped at 63.
+      final longOverall = 'com.${'o' * 63}.${'o' * 63}.foo';
+      expect(longOverall.length, lessThanOrEqualTo(317));
       expectValid(longOverall);
     });
 
@@ -97,6 +100,20 @@ void main() {
       expectValid('a0.b1.c3');
       expectValid('a-0.b-1.c-3');
     });
+
+    test('name segment over 63 chars is invalid', () {
+      expectInvalid('com.example.${'o' * 64}');
+    });
+
+    test('domain segment over 63 chars is invalid', () {
+      expectInvalid('com.${'o' * 64}.foo');
+    });
+  });
+
+  test('InvalidNsidError.toString exposes the message (P-6)', () {
+    final error = InvalidNsidError('boom');
+    expect(error.toString(), contains('boom'));
+    expect(error.toString(), 'InvalidNsidError: boom');
   });
 
   group('==', () {
