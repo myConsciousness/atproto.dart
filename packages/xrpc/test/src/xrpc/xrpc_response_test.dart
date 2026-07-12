@@ -20,6 +20,36 @@ void main() {
     expect(response.toJson(), {'error': 'error', 'message': 'error'});
   });
 
+  test('.toJson when data is a String does not throw', () {
+    final response = XRPCResponse<String>(
+      headers: {'test': 'test'},
+      status: HttpStatus.ok,
+      request: XRPCRequest(
+        method: HttpMethod.get,
+        url: Uri.https('bsky.social'),
+      ),
+      rateLimit: RateLimit.unlimited(),
+      data: 'plain text',
+    );
+
+    expect(response.toJson(), {'data': 'plain text'});
+  });
+
+  test('.toJson when data is a Map returns the map', () {
+    final response = XRPCResponse<Map<String, dynamic>>(
+      headers: {'test': 'test'},
+      status: HttpStatus.ok,
+      request: XRPCRequest(
+        method: HttpMethod.get,
+        url: Uri.https('bsky.social'),
+      ),
+      rateLimit: RateLimit.unlimited(),
+      data: {'a': 1},
+    );
+
+    expect(response.toJson(), {'a': 1});
+  });
+
   test('.toString', () {
     final response = XRPCResponse<String>(
       headers: {'test': 'test'},

@@ -9,7 +9,8 @@ export 'package:xrpc/src/types.dart'
         PostClient,
         ResponseDataBuilder,
         HeaderBuilder,
-        ResponseDataAdaptor;
+        ResponseDataAdaptor,
+        WebSocketChannelFactory;
 export 'package:xrpc/src/entities/empty_data.dart';
 export 'package:xrpc/src/entities/rate_limit.dart';
 export 'package:xrpc/src/entities/rate_limit_policy.dart';

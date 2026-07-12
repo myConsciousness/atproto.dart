@@ -72,7 +72,12 @@ enum HttpStatus {
   insufficientStorage(507, 'Insufficient Storage'),
   loopDetected(508, 'Loop Detected'),
   notExtended(510, 'Not Extended'),
-  networkAuthenticationRequired(511, 'Network Authentication Required');
+  networkAuthenticationRequired(511, 'Network Authentication Required'),
+
+  /// Represents a status code that is not defined in this enum,
+  /// such as non-standard codes returned by proxies or CDNs
+  /// (e.g. Cloudflare's 520).
+  unknown(-1, 'Unknown');
 
   /// The http status code.
   final int code;
@@ -81,6 +86,9 @@ enum HttpStatus {
   final String message;
 
   /// Returns the http status of [code].
+  ///
+  /// Returns [HttpStatus.unknown] if [code] is not defined in this enum
+  /// so that unexpected status codes never crash response handling.
   static HttpStatus valueOf(final int code) {
     for (final status in values) {
       if (status.code == code) {
@@ -88,7 +96,7 @@ enum HttpStatus {
       }
     }
 
-    throw UnsupportedError('Unsupported value [$code].');
+    return unknown;
   }
 
   /// Returns true if this [code] equals to passed [code], otherwise false.

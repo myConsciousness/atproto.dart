@@ -29,6 +29,7 @@ dependencies:
 dev_dependencies:
   lints: ^6.0.0
   test: ^1.26.2
+  stream_channel: ^2.1.2
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
   freezed: ^3.2.0

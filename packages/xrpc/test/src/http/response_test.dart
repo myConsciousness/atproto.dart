@@ -19,6 +19,17 @@ void main() {
     expect(response.data, {'message': 'error'});
   });
 
+  test('.toJson when data is a String does not throw', () {
+    final response = Response<String>(
+      headers: {'test': 'test'},
+      status: HttpStatus.ok,
+      request: Request(method: HttpMethod.get, url: Uri.https('bsky.social')),
+      data: 'plain text',
+    );
+
+    expect(response.toJson(), {'data': 'plain text'});
+  });
+
   test('.toString', () {
     final response = Response<String>(
       headers: {'test': 'test'},

@@ -71,6 +71,58 @@ void main() {
       expect(rateLimit.isExceeded, isFalse);
       expect(rateLimit.isNotExceeded, isTrue);
     });
+
+    test('malformed numeric header falls back to unlimited', () {
+      final rateLimit = RateLimit.fromHeaders({
+        'ratelimit-limit': 'not-a-number',
+        'ratelimit-remaining': '1',
+        'ratelimit-reset': '50',
+        'ratelimit-policy': '100;w=300',
+      });
+
+      expect(rateLimit.limitCount, -1);
+      expect(rateLimit.remainingCount, -1);
+      expect(rateLimit.isExceeded, isFalse);
+    });
+
+    test('malformed reset header falls back to unlimited', () {
+      final rateLimit = RateLimit.fromHeaders({
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '0',
+        'ratelimit-reset': 'soon',
+        'ratelimit-policy': '100;w=300',
+      });
+
+      expect(rateLimit.limitCount, -1);
+      expect(rateLimit.isExceeded, isFalse);
+    });
+
+    test('malformed policy header falls back to unlimited', () {
+      for (final policy in ['garbage', '100', '100;300', '100;w=abc', ';w=1']) {
+        final rateLimit = RateLimit.fromHeaders({
+          'ratelimit-limit': '1000',
+          'ratelimit-remaining': '0',
+          'ratelimit-reset': '50',
+          'ratelimit-policy': policy,
+        });
+
+        expect(rateLimit.limitCount, -1, reason: 'policy: $policy');
+        expect(rateLimit.isExceeded, isFalse, reason: 'policy: $policy');
+      }
+    });
+
+    test('policy header with extra segments is parsed', () {
+      final rateLimit = RateLimit.fromHeaders({
+        'ratelimit-limit': '1000',
+        'ratelimit-remaining': '1',
+        'ratelimit-reset': '50',
+        'ratelimit-policy': '100;burst=10;w=300',
+      });
+
+      expect(rateLimit.limitCount, 1000);
+      expect(rateLimit.policy.limitCount, 100);
+      expect(rateLimit.policy.window.inSeconds, 300);
+    });
   });
 
   group('.waitUntilWait', () {

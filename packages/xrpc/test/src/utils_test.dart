@@ -79,6 +79,75 @@ void main() {
         'test': ['1', '2', '3'],
       });
     });
+
+    test('date time in list', () {
+      final now = DateTime.now();
+      final actual = convertParameters({
+        'test': [now],
+      });
+
+      expect(actual, {
+        'test': [now.toUtc().toIso8601String()],
+      });
+    });
+
+    test('serializable enum in list', () {
+      final actual = convertParameters({
+        'test': [TestEnum.test],
+      });
+
+      expect(actual, {
+        'test': ['test2'],
+      });
+    });
+  });
+
+  group('.removeNullValues (empty collections)', () {
+    test('empty list is removed like empty map', () {
+      final actual = removeNullValues({
+        'test': 'aaaa',
+        'emptyList': [],
+        'emptyMap': {},
+      });
+
+      expect(actual, {'test': 'aaaa'});
+    });
+
+    test('list containing only nulls is removed', () {
+      final actual = removeNullValues({
+        'test': 'aaaa',
+        'nulls': [null, null],
+      });
+
+      expect(actual, {'test': 'aaaa'});
+    });
+  });
+
+  group('.toQueryParameters', () {
+    test('null parameters', () {
+      expect(toQueryParameters(null), isNull);
+    });
+
+    test('empty parameters', () {
+      expect(toQueryParameters({}), isNull);
+    });
+
+    test('parameters with only null values', () {
+      expect(toQueryParameters({'a': null}), isNull);
+    });
+
+    test('parameters are converted', () {
+      final actual = toQueryParameters({
+        'a': 1,
+        'b': [1, 2],
+        'c': null,
+      });
+
+      expect(actual, {
+        'a': '1',
+        'b': ['1', '2'],
+      });
+    });
   });
 }
 
