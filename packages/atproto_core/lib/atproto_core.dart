@@ -24,6 +24,7 @@ export 'package:atproto_core/src/types/blob.dart';
 export 'package:atproto_core/src/types/blob_ref.dart';
 export 'package:atproto_core/src/utils/at_uri_converter.dart';
 export 'package:atproto_core/src/utils/nsid_converter.dart';
+export 'package:atproto_core/src/converters/nsid_converter.dart';
 
 export 'package:cbor/simple.dart' show cbor;
 export 'package:multiformats/multiformats.dart';

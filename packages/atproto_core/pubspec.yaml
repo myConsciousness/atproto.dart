@@ -19,6 +19,7 @@ topics:
   - core
 
 dependencies:
+  http: ^1.4.0
   xrpc: ^1.0.3
   at_primitives: ^1.0.0
   freezed_annotation: ^3.1.0
@@ -35,7 +36,6 @@ dev_dependencies:
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
   freezed: ^3.2.0
-  http: ^1.4.0
   import_sorter:
     git:
       url: https://github.com/myConsciousness/import_sorter.git

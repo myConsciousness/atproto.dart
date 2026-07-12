@@ -70,6 +70,53 @@ void main() {
 
       expect(decodeJwt(jwt).cnf, isNull);
     });
+
+    test('throws a descriptive error for a wrong number of segments', () {
+      expect(
+        () => decodeJwt('a.b'),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            allOf(contains('3'), contains('segments')),
+          ),
+        ),
+      );
+    });
+
+    test('preserves the underlying cause for malformed payloads', () {
+      // Payload decodes to a JSON array, not an object.
+      final jwt =
+          'header.${base64Url.encode(utf8.encode('[1,2,3]')).replaceAll('=', '')}.sig';
+
+      expect(
+        () => decodeJwt(jwt),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            contains('not a JSON object'),
+          ),
+        ),
+      );
+    });
+
+    test('surfaces the cause when required claims are missing', () {
+      // `sub`, `exp`, and `iat` are required by Jwt.fromJson.
+      final jwt = _jwt({'aud': 'did:web:pds.example.com'});
+
+      expect(
+        () => decodeJwt(jwt),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            // The original cause is kept rather than a bare "Invalid JWT.".
+            isNot('Invalid JWT.'),
+          ),
+        ),
+      );
+    });
   });
 }
 

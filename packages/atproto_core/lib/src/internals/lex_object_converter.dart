@@ -12,11 +12,15 @@ extension JsonConverterExtension<T, S> on JsonConverter<T, S> {
   ) {
     if (json.isEmpty) return const <String, dynamic>{};
 
+    //! O(1) lookup instead of a per-key List.contains, since this runs
+    //! for every (de)serialized lexicon object.
+    final knownProps = Set<String>.of(props);
+
     final result = <String, dynamic>{};
     for (final entry in json.entries) {
       if (entry.key == r'$type') {
         result[entry.key] = entry.value;
-      } else if (props.contains(entry.key)) {
+      } else if (knownProps.contains(entry.key)) {
         result[entry.key] = entry.value;
       } else {
         result[r'$unknown'] ??= <String, dynamic>{};
@@ -29,14 +33,19 @@ extension JsonConverterExtension<T, S> on JsonConverter<T, S> {
 
   Map<String, dynamic> untranslate(final Map<String, dynamic> json) {
     if (json.isEmpty) return const <String, dynamic>{};
-    if (json[r'$unknown'] == null) return json;
-    if (json[r'$unknown'].isEmpty) return json;
 
+    final unknown = json[r'$unknown'];
+    if (unknown == null) return json;
+
+    //! The `$unknown` key must never appear in wire JSON, even when its
+    //! value is an empty map.
     final result = <String, dynamic>{};
     for (final entry in json.entries) {
       if (entry.key == r'$unknown') {
-        for (final unknownEntry in entry.value.entries) {
-          result[unknownEntry.key] = unknownEntry.value;
+        if (unknown is Map) {
+          for (final unknownEntry in unknown.entries) {
+            result[unknownEntry.key] = unknownEntry.value;
+          }
         }
       } else {
         result[entry.key] = entry.value;

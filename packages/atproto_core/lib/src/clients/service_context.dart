@@ -130,7 +130,7 @@ base class ServiceContext {
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
   }) async => await _challenge.execute(
-    () => xrpc.subscribe(
+    () async => xrpc.subscribe(
       methodId,
       service: relayService,
       parameters: parameters,
@@ -145,7 +145,9 @@ base class ServiceContext {
     final String method,
   ) {
     if (session != null) {
-      return {'Authorization': 'Bearer ${session!.accessJwt}', ...header};
+      return _mergeAuthHeaders(header, {
+        'Authorization': 'Bearer ${session!.accessJwt}',
+      });
     }
 
     if (oAuthSession != null) {
@@ -168,19 +170,40 @@ base class ServiceContext {
         privateKey: oauthSession.$privateKey,
       );
 
-      return {
+      return _mergeAuthHeaders(header, {
         'Authorization': 'DPoP ${oauthSession.accessToken}',
         'DPoP': dPoPHeader,
-        ...header,
-      };
+      });
     }
 
     return header;
   }
 
+  /// Merges [authHeaders] into [header] so that authentication headers
+  /// always win, no matter what casing the caller used for conflicting
+  /// header names.
+  Map<String, String> _mergeAuthHeaders(
+    final Map<String, String> header,
+    final Map<String, String> authHeaders,
+  ) {
+    final reservedNames = authHeaders.keys
+        .map((e) => e.toLowerCase())
+        .toSet();
+
+    return {
+      for (final entry in header.entries)
+        if (!reservedNames.contains(entry.key.toLowerCase()))
+          entry.key: entry.value,
+      ...authHeaders,
+    };
+  }
+
   void _onUpdateDpopNonce(final Map<String, String> headers) {
-    if (headers.containsKey('dpop-nonce')) {
-      oAuthSession?.$dPoPNonce = headers['dpop-nonce']!;
+    for (final entry in headers.entries) {
+      if (entry.key.toLowerCase() == 'dpop-nonce') {
+        oAuthSession?.$dPoPNonce = entry.value;
+        return;
+      }
     }
   }
 }

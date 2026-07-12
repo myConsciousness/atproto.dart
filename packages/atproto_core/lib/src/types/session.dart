@@ -73,22 +73,50 @@ extension SessionExtension on Session {
 
   /// Returns PDS endpoint like `porcini.us-east.host.bsky.network` dynamically
   /// based on this [Session].
-  String? get atprotoPdsEndpoint {
-    try {
-      if (didDoc == null) return accessTokenJwt.atprotoPdsEndpoint;
+  ///
+  /// The authority (host and, when explicitly specified, port) of the
+  /// `#atproto_pds` service endpoint in [didDoc] is returned. If [didDoc]
+  /// is missing, malformed, or has no `#atproto_pds` service, the `aud`
+  /// claim of [accessJwt] is used as a fallback. Returns null only when
+  /// neither source yields an endpoint.
+  String? get atprotoPdsEndpoint =>
+      _didDocPdsEndpoint ?? _accessJwtPdsEndpoint;
 
-      final services = didDoc?['service'] ?? const <Map<String, dynamic>>[];
-      for (final service in services) {
-        if (service['serviceEndpoint'] != null &&
-            service['id'] == '#atproto_pds' &&
-            service['type'] == 'AtprotoPersonalDataServer') {
-          return Uri.parse(service['serviceEndpoint']).host;
+  String? get _didDocPdsEndpoint {
+    final services = didDoc?['service'];
+    if (services is! List) return null;
+
+    for (final service in services) {
+      if (service is! Map) continue;
+      final endpoint = service['serviceEndpoint'];
+
+      if (endpoint is String &&
+          service['id'] == '#atproto_pds' &&
+          service['type'] == 'AtprotoPersonalDataServer') {
+        final Uri uri;
+        try {
+          uri = Uri.parse(endpoint);
+        } on FormatException {
+          continue;
         }
+
+        if (uri.host.isEmpty) continue;
+
+        //! Keep an explicitly specified port so that endpoints like
+        //! `https://pds.example.com:3000` are not redirected to the
+        //! default port.
+        return uri.hasPort ? '${uri.host}:${uri.port}' : uri.host;
       }
-    } catch (_) {
-      return null;
     }
 
     return null;
+  }
+
+  String? get _accessJwtPdsEndpoint {
+    try {
+      return accessTokenJwt.atprotoPdsEndpoint;
+    } on FormatException {
+      return null;
+    }
   }
 }
