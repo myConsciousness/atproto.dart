@@ -87,10 +87,16 @@ String? _getDefaultValue(final lex.LexObjectProperty property) {
 
   switch (primitive) {
     case lex.ULexPrimitiveString string:
+      // TODO(G-18): A string that has both `knownValues` and a `default` drops
+      // the default here, so the field becomes a nullable enum-wrapper that
+      // reports `null` instead of the spec default (e.g. labelValueDefinition's
+      // `default: "warn"`). Emitting a const `@Default(...)` referencing the
+      // generated `Known…` enum member is feasible but fragile to get
+      // byte-exact without regeneration; deferred. Skipped (documented).
       if (string.data.knownValues != null) return null;
 
       final value = string.data.defaultValue;
-      return value != null ? "'$value'" : null;
+      return value != null ? "'${_escapeDartString(value)}'" : null;
     case lex.ULexPrimitiveInteger integer:
       final value = integer.data.defaultValue;
       return value != null ? '$value' : null;
@@ -100,6 +106,16 @@ String? _getDefaultValue(final lex.LexObjectProperty property) {
     default:
       return null;
   }
+}
+
+/// Escapes a raw string so it can be embedded inside single-quoted Dart source
+/// (used for `@Default('...')`). Without this, values containing `\`, `'` or
+/// `$` produce uncompilable generated code.
+String _escapeDartString(final String value) {
+  return value
+      .replaceAll(r'\', r'\\')
+      .replaceAll(r'$', r'\$')
+      .replaceAll("'", r"\'");
 }
 
 DartType _getDartType(
@@ -143,9 +159,24 @@ DartType _getDartType(
             lexiconId: type.lexiconId,
             type: type.name,
             packagePath: type.packagePath,
-            annotation: type.annotation,
+            // `iso8601` operates on a scalar `DateTime`, so it must not be
+            // attached to a `List<DateTime>` field. The element-wise UTC
+            // normalization for datetime arrays is intentionally left to the
+            // default serializer (rare in practice).
+            annotation: type.name == 'DateTime' ? null : type.annotation,
             description: type.description,
             knownValues: type.knownValues,
+          );
+
+        case lex.ULexArrayItemBlob blob:
+          // Arrays of blobs previously fell through to `List<Object>`. Map
+          // them to `List<Blob>` with the blob converter applied per element.
+          final type = DartType.blob(description: blob.data.description);
+          return DartType.array(
+            type: type.name,
+            packagePath: type.packagePath,
+            annotation: type.annotation,
+            description: type.description,
           );
 
         case lex.ULexArrayItemIpld ipld:
@@ -250,6 +281,11 @@ DartType _getLexPrimitiveType(
 }
 
 DartType _getIpldType(final lex.LexIpld ipld) {
+  // TODO(G-6): `bytes` -> Map and `cid-link` -> String only round-trip today
+  // because the CBOR adapter stringifies these before JSON serialization. On a
+  // pure JSON endpoint the wire shapes are `{"$bytes": ...}` / `{"$link": ...}`
+  // and these mappings collapse. Introduce dedicated converters when a JSON
+  // transport path exercises them. Latent: not hit by the current corpus.
   switch (ipld) {
     case lex.ULexIpldBytes bytes:
       return DartType.json(description: bytes.data.description);

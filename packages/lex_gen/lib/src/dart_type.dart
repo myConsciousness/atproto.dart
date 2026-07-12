@@ -51,8 +51,15 @@ final class DartType {
   factory DartType.object({String? description}) =>
       DartType(name: 'Object', description: description);
 
-  factory DartType.dateTime({String? description}) =>
-      DartType(name: 'DateTime', description: description);
+  factory DartType.dateTime({String? description}) => DartType(
+    name: 'DateTime',
+    // Serialize datetimes through `iso8601`, which normalizes to UTC before
+    // emitting an ISO-8601 string. Without this, a local `DateTime` is
+    // serialized with `toIso8601String()` and no timezone, violating the
+    // atproto `datetime` format.
+    annotation: '@JsonKey(toJson: iso8601)',
+    description: description,
+  );
 
   factory DartType.string({String? description}) =>
       DartType(name: 'String', description: description);

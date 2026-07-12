@@ -11,13 +11,6 @@ part of 'lex_xrpc_procedure.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-LexXrpcProcedure _$LexXrpcProcedureFromJson(
-  Map<String, dynamic> json
-) {
-    return _LexXrpcQuery.fromJson(
-      json
-    );
-}
 
 /// @nodoc
 mixin _$LexXrpcProcedure {
@@ -137,10 +130,10 @@ extension LexXrpcProcedurePatterns on LexXrpcProcedure {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LexXrpcQuery value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LexXrpcProcedure value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _LexXrpcQuery() when $default != null:
+case _LexXrpcProcedure() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -159,10 +152,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LexXrpcQuery value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LexXrpcProcedure value)  $default,){
 final _that = this;
 switch (_that) {
-case _LexXrpcQuery():
+case _LexXrpcProcedure():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -180,10 +173,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LexXrpcQuery value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LexXrpcProcedure value)?  $default,){
 final _that = this;
 switch (_that) {
-case _LexXrpcQuery() when $default != null:
+case _LexXrpcProcedure() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -203,7 +196,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String? description,  LexXrpcParameters? parameters,  LexXrpcBody? input,  LexXrpcBody? output,  List<LexXrpcError>? errors)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _LexXrpcQuery() when $default != null:
+case _LexXrpcProcedure() when $default != null:
 return $default(_that.type,_that.description,_that.parameters,_that.input,_that.output,_that.errors);case _:
   return orElse();
 
@@ -224,7 +217,7 @@ return $default(_that.type,_that.description,_that.parameters,_that.input,_that.
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String? description,  LexXrpcParameters? parameters,  LexXrpcBody? input,  LexXrpcBody? output,  List<LexXrpcError>? errors)  $default,) {final _that = this;
 switch (_that) {
-case _LexXrpcQuery():
+case _LexXrpcProcedure():
 return $default(_that.type,_that.description,_that.parameters,_that.input,_that.output,_that.errors);case _:
   throw StateError('Unexpected subclass');
 
@@ -244,7 +237,7 @@ return $default(_that.type,_that.description,_that.parameters,_that.input,_that.
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String? description,  LexXrpcParameters? parameters,  LexXrpcBody? input,  LexXrpcBody? output,  List<LexXrpcError>? errors)?  $default,) {final _that = this;
 switch (_that) {
-case _LexXrpcQuery() when $default != null:
+case _LexXrpcProcedure() when $default != null:
 return $default(_that.type,_that.description,_that.parameters,_that.input,_that.output,_that.errors);case _:
   return null;
 
@@ -256,9 +249,9 @@ return $default(_that.type,_that.description,_that.parameters,_that.input,_that.
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _LexXrpcQuery implements LexXrpcProcedure {
-  const _LexXrpcQuery({this.type = 'procedure', this.description, this.parameters, this.input, this.output, final  List<LexXrpcError>? errors}): _errors = errors;
-  factory _LexXrpcQuery.fromJson(Map<String, dynamic> json) => _$LexXrpcQueryFromJson(json);
+class _LexXrpcProcedure implements LexXrpcProcedure {
+  const _LexXrpcProcedure({this.type = 'procedure', this.description, this.parameters, this.input, this.output, final  List<LexXrpcError>? errors}): _errors = errors;
+  factory _LexXrpcProcedure.fromJson(Map<String, dynamic> json) => _$LexXrpcProcedureFromJson(json);
 
 @override@JsonKey() final  String type;
 @override final  String? description;
@@ -279,16 +272,16 @@ class _LexXrpcQuery implements LexXrpcProcedure {
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LexXrpcQueryCopyWith<_LexXrpcQuery> get copyWith => __$LexXrpcQueryCopyWithImpl<_LexXrpcQuery>(this, _$identity);
+_$LexXrpcProcedureCopyWith<_LexXrpcProcedure> get copyWith => __$LexXrpcProcedureCopyWithImpl<_LexXrpcProcedure>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$LexXrpcQueryToJson(this, );
+  return _$LexXrpcProcedureToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LexXrpcQuery&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&(identical(other.parameters, parameters) || other.parameters == parameters)&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&const DeepCollectionEquality().equals(other._errors, _errors));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LexXrpcProcedure&&(identical(other.type, type) || other.type == type)&&(identical(other.description, description) || other.description == description)&&(identical(other.parameters, parameters) || other.parameters == parameters)&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&const DeepCollectionEquality().equals(other._errors, _errors));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -304,8 +297,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LexXrpcQueryCopyWith<$Res> implements $LexXrpcProcedureCopyWith<$Res> {
-  factory _$LexXrpcQueryCopyWith(_LexXrpcQuery value, $Res Function(_LexXrpcQuery) _then) = __$LexXrpcQueryCopyWithImpl;
+abstract mixin class _$LexXrpcProcedureCopyWith<$Res> implements $LexXrpcProcedureCopyWith<$Res> {
+  factory _$LexXrpcProcedureCopyWith(_LexXrpcProcedure value, $Res Function(_LexXrpcProcedure) _then) = __$LexXrpcProcedureCopyWithImpl;
 @override @useResult
 $Res call({
  String type, String? description, LexXrpcParameters? parameters, LexXrpcBody? input, LexXrpcBody? output, List<LexXrpcError>? errors
@@ -316,17 +309,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$LexXrpcQueryCopyWithImpl<$Res>
-    implements _$LexXrpcQueryCopyWith<$Res> {
-  __$LexXrpcQueryCopyWithImpl(this._self, this._then);
+class __$LexXrpcProcedureCopyWithImpl<$Res>
+    implements _$LexXrpcProcedureCopyWith<$Res> {
+  __$LexXrpcProcedureCopyWithImpl(this._self, this._then);
 
-  final _LexXrpcQuery _self;
-  final $Res Function(_LexXrpcQuery) _then;
+  final _LexXrpcProcedure _self;
+  final $Res Function(_LexXrpcProcedure) _then;
 
 /// Create a copy of LexXrpcProcedure
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? description = freezed,Object? parameters = freezed,Object? input = freezed,Object? output = freezed,Object? errors = freezed,}) {
-  return _then(_LexXrpcQuery(
+  return _then(_LexXrpcProcedure(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,parameters: freezed == parameters ? _self.parameters : parameters // ignore: cast_nullable_to_non_nullable

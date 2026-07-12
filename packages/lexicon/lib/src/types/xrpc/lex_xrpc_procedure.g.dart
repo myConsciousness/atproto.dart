@@ -8,9 +8,9 @@ part of 'lex_xrpc_procedure.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_LexXrpcQuery _$LexXrpcQueryFromJson(Map json) =>
-    $checkedCreate('_LexXrpcQuery', json, ($checkedConvert) {
-      final val = _LexXrpcQuery(
+_LexXrpcProcedure _$LexXrpcProcedureFromJson(Map json) =>
+    $checkedCreate('_LexXrpcProcedure', json, ($checkedConvert) {
+      final val = _LexXrpcProcedure(
         type: $checkedConvert('type', (v) => v as String? ?? 'procedure'),
         description: $checkedConvert('description', (v) => v as String?),
         parameters: $checkedConvert(
@@ -44,7 +44,7 @@ _LexXrpcQuery _$LexXrpcQueryFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$LexXrpcQueryToJson(_LexXrpcQuery instance) =>
+Map<String, dynamic> _$LexXrpcProcedureToJson(_LexXrpcProcedure instance) =>
     <String, dynamic>{
       'type': instance.type,
       'description': ?instance.description,

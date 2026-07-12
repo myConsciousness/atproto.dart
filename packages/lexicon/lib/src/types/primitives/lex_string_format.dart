@@ -19,7 +19,14 @@ enum LexStringFormat {
   language('language'),
   tid('tid'),
   @JsonValue('record-key')
-  recordKey('record-key');
+  recordKey('record-key'),
+
+  /// Fallback for `format` values not known to this version of the parser.
+  ///
+  /// The atproto spec is open-ended about string formats, so an unrecognized
+  /// value (e.g. a newly introduced format) decodes to [unknown] instead of
+  /// throwing. Code generation treats an unknown format as a plain string.
+  unknown('unknown');
 
   /// The format value.
   final String value;

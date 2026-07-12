@@ -23,9 +23,20 @@ void setLexiconDocs(final List<LexiconDoc> docs) {
 
 bool isDeprecated(final String? description) {
   if (description == null) return false;
-  return description.toLowerCase().contains('deprecated');
+  // Anchor on a leading `DEPRECATED` marker (case-insensitive) rather than a
+  // substring match, so that live fields whose description merely mentions the
+  // word (e.g. "Replacement for the deprecated `foo`") are not silently
+  // dropped from the generated model.
+  return description.trimLeft().toLowerCase().startsWith('deprecated');
 }
 
+// TODO(G-5): Definitions that share a def name across different `*.defs`
+// lexicons (e.g. `ProfileViewBasic` in actor & chat, `ViewerState`,
+// `ReplyRef` in feed & convo, `ConvoView`) collapse to the same generated
+// class name here, forcing import collisions on consumers and becoming
+// uncompilable when two same-named defs appear in one union/object. A naming
+// scheme that disambiguates by namespace is needed; deferred by decision as it
+// is a breaking API design change. Known issue, intentionally not fixed.
 /// Ex: ActorProfileViewBasic
 String getLexObjectName(
   final String lexiconId,

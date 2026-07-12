@@ -39,8 +39,18 @@ final class LexProperty {
       buffer.writeln('/// $description');
     }
 
-    if (type.annotation != null) {
-      buffer.write(type.annotation);
+    // A property that is both `required` and `nullable` must keep its key with
+    // a `null` value on the wire (spec: key mandatory, value nullable). Under
+    // the enclosing `@JsonSerializable(includeIfNull: false)`, that key would
+    // otherwise be dropped, so override `includeIfNull` for this field only.
+    final forceIncludeIfNull = isRequired && isNullable;
+
+    final annotation = _resolveAnnotation(
+      type.annotation,
+      forceIncludeIfNull: forceIncludeIfNull,
+    );
+    if (annotation != null) {
+      buffer.write(annotation);
       buffer.write(' ');
     }
     if (defaultValue != null) {
@@ -70,5 +80,33 @@ final class LexProperty {
     buffer.write(',');
 
     return buffer.toString();
+  }
+
+  /// Combines the property's converter/JsonKey [annotation] with an optional
+  /// `includeIfNull: true` override, merging into an existing `@JsonKey(...)`
+  /// when present so a field never carries two `@JsonKey` annotations.
+  static String? _resolveAnnotation(
+    final String? annotation, {
+    required final bool forceIncludeIfNull,
+  }) {
+    if (!forceIncludeIfNull) return annotation;
+
+    const includeIfNull = 'includeIfNull: true';
+
+    if (annotation == null) {
+      return '@JsonKey($includeIfNull)';
+    }
+
+    if (annotation.startsWith('@JsonKey(')) {
+      // Merge into the existing JsonKey, e.g. `@JsonKey(toJson: iso8601)`.
+      final inner = annotation.substring('@JsonKey('.length, annotation.length - 1);
+      return inner.isEmpty
+          ? '@JsonKey($includeIfNull)'
+          : '@JsonKey($inner, $includeIfNull)';
+    }
+
+    // A non-JsonKey converter annotation (e.g. `@AtUriConverter()`) can coexist
+    // with a separate `@JsonKey`.
+    return '$annotation @JsonKey($includeIfNull)';
   }
 }

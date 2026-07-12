@@ -81,14 +81,17 @@ final class _LexTypeGenerator {
             ),
           );
         } else if (def.value is lex.ULexUserTypeString) {
+          final string = def.value.data as lex.LexString;
+          // A top-level string def without `knownValues` would generate an
+          // enum with no members, which does not compile. Such defs carry no
+          // closed value set to model, so skip them.
+          if (string.knownValues == null || string.knownValues!.isEmpty) {
+            continue;
+          }
+
           _aggregateTypes(
             types,
-            generateLexKnownValues(
-              doc.id,
-              def.key,
-              def.value.data as lex.LexString,
-              mainVariants,
-            ),
+            generateLexKnownValues(doc.id, def.key, string, mainVariants),
           );
         } else if (def.value is lex.ULexUserTypeXrpcQuery) {
           final type = generateLexXrpcQuery(
