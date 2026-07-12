@@ -20,9 +20,6 @@ abstract class OAuthClientMetadata with _$OAuthClientMetadata {
     required String clientUri,
     @Default(true) bool dpopBoundAccessTokens,
     @Default([]) List<String> grantTypes,
-    @JsonKey(name: 'redirect_uris_OLD')
-    @Default([])
-    List<String> redirectUrisOLD,
     @Default([]) List<String> redirectUris,
     @Default([]) List<String> responseTypes,
     required String scope,

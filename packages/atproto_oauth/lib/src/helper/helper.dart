@@ -47,18 +47,24 @@ String hashS256(final String value) {
   return base64Url.replaceAll('=', '');
 }
 
-AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
+/// Returns a new [FortunaRandom] seeded with 32 bytes of entropy obtained
+/// from the platform's cryptographically secure random source
+/// ([Random.secure]).
+SecureRandom _newSecureRandom() {
   final random = Random.secure();
   final seed = Uint8List.fromList(
-    List.generate(32, (n) => random.nextInt(256)),
+    List<int>.generate(32, (_) => random.nextInt(256)),
   );
-  final secureRandom = SecureRandom("Fortuna")..seed(KeyParameter(seed));
 
+  return FortunaRandom()..seed(KeyParameter(seed));
+}
+
+AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
   final keyGen = ECKeyGenerator();
   keyGen.init(
     ParametersWithRandom(
       ECKeyGeneratorParameters(ECCurve_secp256r1()),
-      secureRandom,
+      _newSecureRandom(),
     ),
   );
 
@@ -77,7 +83,9 @@ AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
 /// - [clientId]: The OAuth client identifier
 /// - [endpoint]: The complete URL of the endpoint being accessed
 /// - [method]: The HTTP method of the request (e.g., 'POST', 'GET')
-/// - [dPoPNonce]: The DPoP nonce provided by the server
+/// - [dPoPNonce]: Optional. The DPoP nonce provided by the server. The
+///   `nonce` claim is omitted when the server has not provided one yet
+///   (RFC 9449 treats the nonce as optional)
 /// - [authorizationServer]: Optional. The authorization server URL for access
 ///   token binding
 /// - [accessToken]: Optional. The access token to bind to this proof
@@ -146,7 +154,7 @@ String getDPoPHeader({
   required String clientId,
   required String endpoint,
   required String method,
-  required String dPoPNonce,
+  String? dPoPNonce,
   String? authorizationServer,
   String? accessToken,
   required String publicKey,
@@ -174,8 +182,11 @@ String getDPoPHeader({
     'exp': epoch + 60,
     'jti': randomValue(),
     'iat': epoch,
-    'nonce': dPoPNonce,
   };
+
+  if (dPoPNonce != null) {
+    payload['nonce'] = dPoPNonce;
+  }
 
   if (authorizationServer != null) {
     payload['iss'] = authorizationServer;
@@ -201,24 +212,12 @@ String getDPoPHeader({
 }
 
 Uint8List _sign(final String privateKey, final String jwtMessage) {
-  final secureRandom = FortunaRandom();
-  secureRandom.seed(
-    KeyParameter(
-      Uint8List.fromList(
-        List.generate(
-          32,
-          (_) => DateTime.now().toUtc().millisecondsSinceEpoch % 255,
-        ),
-      ),
-    ),
-  );
-
   final signer = ECDSASigner(SHA256Digest(), HMac(SHA256Digest(), 64))
     ..init(
       true,
       ParametersWithRandom(
         PrivateKeyParameter<ECPrivateKey>(decodePrivateKey(privateKey)),
-        secureRandom,
+        _newSecureRandom(),
       ),
     );
 
