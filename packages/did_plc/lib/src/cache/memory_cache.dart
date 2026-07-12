@@ -2,9 +2,6 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Dart imports:
-import 'dart:async';
-
 // Project imports:
 import 'cache_policy.dart';
 
@@ -25,16 +22,15 @@ class _CacheEntry<T> {
 /// eviction when the cache reaches its maximum size.
 class MemoryCache<T> {
   /// Creates a new memory cache with the specified policy.
-  MemoryCache(this._policy) {
-    if (_policy.isEnabled) {
-      _startCleanupTimer();
-    }
-  }
+  ///
+  /// This cache does not start any background timers. Expired entries are
+  /// purged lazily on read and when new entries are inserted, so it never
+  /// keeps the isolate alive and is safe to leave un-disposed.
+  MemoryCache(this._policy);
 
   final CachePolicy _policy;
   final Map<String, _CacheEntry<T>> _cache = {};
   final Map<String, DateTime> _accessTimes = {};
-  Timer? _cleanupTimer;
 
   /// Gets a value from the cache by key.
   ///
@@ -77,9 +73,13 @@ class MemoryCache<T> {
     final expiresAt = DateTime.now().add(_policy.effectiveTtl);
     final entry = _CacheEntry(value, expiresAt);
 
-    // Check if we need to evict entries
+    // Check if we need to evict entries. Purge expired entries first so we
+    // only evict a live entry when genuinely at capacity.
     if (_cache.length >= _policy.effectiveMaxSize && !_cache.containsKey(key)) {
-      _evictLeastRecentlyUsed();
+      _cleanupExpired();
+      if (_cache.length >= _policy.effectiveMaxSize) {
+        _evictLeastRecentlyUsed();
+      }
     }
 
     _cache[key] = entry;
@@ -135,10 +135,11 @@ class MemoryCache<T> {
     );
   }
 
-  /// Disposes the cache and stops the cleanup timer.
+  /// Disposes the cache by clearing all entries.
+  ///
+  /// Because the cache uses no background timers, calling this is optional;
+  /// it simply releases the referenced entries eagerly.
   void dispose() {
-    _cleanupTimer?.cancel();
-    _cleanupTimer = null;
     clear();
   }
 
@@ -188,13 +189,6 @@ class MemoryCache<T> {
     for (final key in expiredKeys) {
       _remove(key);
     }
-  }
-
-  void _startCleanupTimer() {
-    // Run cleanup every minute to remove expired entries
-    _cleanupTimer = Timer.periodic(const Duration(minutes: 1), (_) {
-      _cleanupExpired();
-    });
   }
 
   // Hit rate tracking

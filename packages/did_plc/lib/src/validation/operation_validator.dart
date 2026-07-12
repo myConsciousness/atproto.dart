@@ -18,20 +18,84 @@ class OperationValidator {
   ///
   /// Throws [ValidationException] if the operation is invalid.
   /// The exception will contain field-level error details.
+  ///
+  /// This accepts any of the three real PLC operation shapes:
+  /// the modern `plc_operation`, the legacy `create` genesis operation,
+  /// and `plc_tombstone`.
   void validateOperation(Map<String, dynamic> operation) {
     final errors = <String, String>{};
 
-    // Validate required fields
-    _validateRequiredFields(operation, errors);
+    final type = operation['type'];
+    if (type == 'create') {
+      _validateLegacyCreateOperation(operation, errors);
+    } else if (type == 'plc_tombstone') {
+      _validateTombstone(operation, errors);
+    } else {
+      // Validate required fields
+      _validateRequiredFields(operation, errors);
 
-    // Validate field formats
-    _validateFieldFormats(operation, errors);
-
-    // Validate operation structure
-    _validateOperationStructure(operation, errors);
+      // Validate field formats
+      _validateFieldFormats(operation, errors);
+    }
 
     if (errors.isNotEmpty) {
       throw ValidationException('Operation validation failed', errors);
+    }
+  }
+
+  /// Validates a legacy `create` genesis operation.
+  void _validateLegacyCreateOperation(
+    Map<String, dynamic> operation,
+    Map<String, String> errors,
+  ) {
+    _validateSignature(operation, errors);
+
+    for (final field in const ['signingKey', 'recoveryKey']) {
+      final value = operation[field];
+      if (value is! String || value.isEmpty) {
+        errors[field] = '$field is required';
+      } else if (!_isValidPublicKey(value)) {
+        errors[field] = 'Invalid $field format';
+      }
+    }
+
+    if (operation['handle'] is! String ||
+        (operation['handle'] as String).isEmpty) {
+      errors['handle'] = 'handle is required';
+    }
+
+    if (operation['service'] is! String ||
+        !_isValidUrl(operation['service'] as String)) {
+      errors['service'] = 'service must be a valid URL';
+    }
+  }
+
+  /// Validates a `plc_tombstone` operation.
+  void _validateTombstone(
+    Map<String, dynamic> operation,
+    Map<String, String> errors,
+  ) {
+    _validateSignature(operation, errors);
+
+    if (operation['prev'] is! String ||
+        (operation['prev'] as String).isEmpty) {
+      errors['prev'] = 'Tombstone must reference a prev operation';
+    }
+  }
+
+  void _validateSignature(
+    Map<String, dynamic> operation,
+    Map<String, String> errors,
+  ) {
+    final sig = operation['sig'];
+    if (sig == null) {
+      errors['sig'] = 'Operation signature is required';
+    } else if (sig is! String) {
+      errors['sig'] = 'Signature must be a string';
+    } else if (sig.isEmpty) {
+      errors['sig'] = 'Signature cannot be empty';
+    } else if (!_isValidSignature(sig)) {
+      errors['sig'] = 'Invalid signature format';
     }
   }
 
@@ -125,9 +189,7 @@ class OperationValidator {
       final sig = operation['sig'] as String;
       if (sig.isEmpty) {
         errors['sig'] = 'Signature cannot be empty';
-      }
-      // Basic signature format validation (should be base64url encoded)
-      if (!RegExp(r'^[A-Za-z0-9_-]+$').hasMatch(sig)) {
+      } else if (!_isValidSignature(sig)) {
         errors['sig'] = 'Invalid signature format';
       }
     } else if (operation.containsKey('sig')) {
@@ -251,33 +313,6 @@ class OperationValidator {
     }
   }
 
-  void _validateOperationStructure(
-    Map<String, dynamic> operation,
-    Map<String, String> errors,
-  ) {
-    // Validate that rotation keys and verification methods are consistent
-    if (operation['rotationKeys'] is List &&
-        operation['verificationMethods'] is Map) {
-      final rotationKeys = operation['rotationKeys'] as List;
-      final verificationMethods =
-          operation['verificationMethods'] as Map<String, dynamic>;
-
-      // Check that at least one rotation key is present in verification methods
-      bool hasRotationKeyInVerificationMethods = false;
-      for (final rotationKey in rotationKeys) {
-        if (verificationMethods.values.contains(rotationKey)) {
-          hasRotationKeyInVerificationMethods = true;
-          break;
-        }
-      }
-
-      if (!hasRotationKeyInVerificationMethods) {
-        errors['structure'] =
-            'At least one rotation key must be present in verification methods';
-      }
-    }
-  }
-
   void _validateCreateOperationSpecific(
     Map<String, dynamic> operation,
     Map<String, String> errors,
@@ -326,9 +361,14 @@ class OperationValidator {
       return;
     }
 
-    if (!service.containsKey('serviceEndpoint') ||
-        service['serviceEndpoint'] == null) {
-      errors['services'] = 'Service $serviceKey is missing serviceEndpoint';
+    // PLC operations use `endpoint`; DID documents use `serviceEndpoint`.
+    // Accept either so both shapes validate.
+    final endpointKey = service.containsKey('endpoint')
+        ? 'endpoint'
+        : 'serviceEndpoint';
+
+    if (service[endpointKey] == null) {
+      errors['services'] = 'Service $serviceKey is missing endpoint';
       return;
     }
 
@@ -345,31 +385,41 @@ class OperationValidator {
     }
 
     // Validate service endpoint
-    if (service['serviceEndpoint'] is! String) {
-      errors['services'] =
-          'Service $serviceKey serviceEndpoint must be a string';
+    if (service[endpointKey] is! String) {
+      errors['services'] = 'Service $serviceKey endpoint must be a string';
       return;
     }
 
-    final serviceEndpoint = service['serviceEndpoint'] as String;
+    final serviceEndpoint = service[endpointKey] as String;
     if (serviceEndpoint.isEmpty) {
-      errors['services'] =
-          'Service $serviceKey serviceEndpoint cannot be empty';
+      errors['services'] = 'Service $serviceKey endpoint cannot be empty';
       return;
     }
 
     // Validate URL format for service endpoint
     if (!_isValidUrl(serviceEndpoint)) {
       errors['services'] =
-          'Service $serviceKey serviceEndpoint must be a valid URL';
+          'Service $serviceKey endpoint must be a valid URL';
       return;
     }
   }
 
   bool _isValidPublicKey(String key) {
-    // Basic validation for public key format
-    // Should be a multibase encoded key
-    return key.isNotEmpty && RegExp(r'^[A-Za-z0-9_-]+$').hasMatch(key);
+    if (key.isEmpty) return false;
+
+    // PLC public keys are did:key strings (e.g. did:key:zQ3s...),
+    // occasionally provided as a bare multibase value (z...).
+    if (key.startsWith('did:key:z')) return true;
+    if (key.startsWith('z')) {
+      return RegExp(r'^z[A-Za-z0-9]+$').hasMatch(key);
+    }
+
+    return false;
+  }
+
+  bool _isValidSignature(String sig) {
+    // Signatures are base64url encoded, with or without padding.
+    return sig.isNotEmpty && RegExp(r'^[A-Za-z0-9_=-]+$').hasMatch(sig);
   }
 
   bool _isValidIdentifier(String identifier) {

@@ -15,13 +15,16 @@ class BatchProcessorConfig {
   /// [batchSize] - Number of items to process in each batch
   /// [maxConcurrency] - Maximum number of concurrent batch operations
   /// [timeout] - Timeout for individual batch operations
-  /// [retryAttempts] - Number of retry attempts for failed batches
+  /// [retryAttempts] - Number of retry attempts for failed items. Defaults
+  ///   to 0: retries are owned by the HTTP layer's [RetryPolicy], so
+  ///   retrying here as well would multiply the request count. Only set
+  ///   this above 0 when the item processor performs no retries of its own.
   /// [retryDelay] - Delay between retry attempts
   const BatchProcessorConfig({
     this.batchSize = 10,
     this.maxConcurrency = 5,
     this.timeout = const Duration(seconds: 30),
-    this.retryAttempts = 3,
+    this.retryAttempts = 0,
     this.retryDelay = const Duration(seconds: 1),
   });
 
@@ -167,17 +170,25 @@ class BatchProcessor<T, R> {
 
     controller = StreamController<ProcessingResult<T, R>>(
       onListen: () {
+        // Nothing to do for empty input; close immediately to avoid hanging.
+        if (batches.isEmpty) {
+          controller.close();
+          return;
+        }
+
         // Process all batches
         for (final batch in batches) {
           _processBatchWithStreaming(batch, processor, controller, semaphore)
               .then((_) {
                 completedBatches++;
-                if (completedBatches >= batches.length) {
+                if (completedBatches >= batches.length && !controller.isClosed) {
                   controller.close();
                 }
               })
-              .catchError((error, stackTrace) {
-                controller.addError(error, stackTrace);
+              .catchError((Object error, StackTrace stackTrace) {
+                if (!controller.isClosed) {
+                  controller.addError(error, stackTrace);
+                }
               });
         }
       },

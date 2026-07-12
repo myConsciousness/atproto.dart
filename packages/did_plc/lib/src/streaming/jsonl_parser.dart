@@ -242,63 +242,30 @@ class JsonlParser<T> {
     return results;
   }
 
-  /// Creates a buffered stream with backpressure control.
+  /// Creates a stream that applies backpressure to [input].
   ///
-  /// [input] - The input stream to buffer
-  ///
-  /// Returns a stream with controlled buffering to prevent memory issues.
+  /// Backpressure is driven by the downstream consumer: while the consumer
+  /// is not ready (the returned stream is paused), the upstream
+  /// subscription is paused too, so a slow consumer naturally throttles a
+  /// fast producer without unbounded buffering or deadlocks.
   Stream<T> createBufferedStream(Stream<T> input) {
-    late StreamController<T> controller;
-    late StreamSubscription<T> subscription;
-    var buffer = <T>[];
-    var isPaused = false;
+    late final StreamController<T> controller;
+    StreamSubscription<T>? subscription;
 
     controller = StreamController<T>(
       onListen: () {
         subscription = input.listen(
-          (item) {
-            buffer.add(item);
-
-            // Check if buffer is full
-            if (buffer.length >= bufferSize) {
-              subscription.pause();
-              isPaused = true;
-            }
-
-            // Emit buffered items
-            _emitBufferedItems(controller, buffer);
-          },
+          controller.add,
           onError: controller.addError,
-          onDone: () {
-            // Emit any remaining buffered items
-            _emitBufferedItems(controller, buffer);
-            controller.close();
-          },
+          onDone: controller.close,
         );
       },
-      onPause: () {
-        subscription.pause();
-      },
-      onResume: () {
-        subscription.resume();
-        if (isPaused && buffer.length < bufferSize ~/ 2) {
-          isPaused = false;
-          subscription.resume();
-        }
-      },
-      onCancel: () {
-        subscription.cancel();
-      },
+      onPause: () => subscription?.pause(),
+      onResume: () => subscription?.resume(),
+      onCancel: () => subscription?.cancel(),
     );
 
     return controller.stream;
-  }
-
-  /// Emits buffered items to the controller.
-  void _emitBufferedItems(StreamController<T> controller, List<T> buffer) {
-    while (buffer.isNotEmpty && !controller.isPaused) {
-      controller.add(buffer.removeAt(0));
-    }
   }
 }
 

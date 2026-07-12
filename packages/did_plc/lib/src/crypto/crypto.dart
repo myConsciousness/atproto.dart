@@ -4,6 +4,8 @@
 
 // Cryptographic utilities for PLC operations.
 
+export 'dag_cbor.dart';
+export 'encoding.dart';
 export 'key_manager.dart';
 export 'signer.dart';
 export 'verifier.dart';
