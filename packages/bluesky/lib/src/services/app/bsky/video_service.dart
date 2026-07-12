@@ -34,7 +34,9 @@ final class VideoServiceImpl extends VideoService {
   }) async => await super.uploadVideo(
     bytes: bytes,
     $parameters: {
-      'did': ctx.session!.did,
+      // Use `ctx.repo` so this also resolves the DID for OAuth sessions
+      // (where `ctx.session` is null and `ctx.session!.did` would crash).
+      'did': ctx.repo,
       'name': '${nanoid(12)}.mp4',
       ...?$parameters,
     },

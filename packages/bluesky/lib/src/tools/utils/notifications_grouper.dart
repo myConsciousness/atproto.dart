@@ -2,8 +2,12 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
+import 'dart:collection';
+
 // Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../ids.g.dart' as ids;
@@ -12,6 +16,7 @@ import '../../services/codegen/app/bsky/notification/listNotifications/notificat
 import '../../services/codegen/app/bsky/notification/listNotifications/notification_reason.dart';
 import '../../services/codegen/app/bsky/notification/listNotifications/output.dart';
 import 'group_by.dart';
+import 'grouped_notification.dart';
 import 'grouped_notification_reason.dart';
 import 'grouped_notifications.dart';
 
@@ -19,11 +24,53 @@ import 'grouped_notifications.dart';
 import '../../services/codegen/app/bsky/notification/listNotifications/output.dart'
     show NotificationListNotificationsOutput;
 
-const _groupableReasons = <NotificationReason>[
-  NotificationReason.knownValue(data: KnownNotificationReason.like),
-  NotificationReason.knownValue(data: KnownNotificationReason.repost),
-  NotificationReason.knownValue(data: KnownNotificationReason.follow),
-];
+const _groupableReasons = <KnownNotificationReason>{
+  KnownNotificationReason.like,
+  KnownNotificationReason.repost,
+  KnownNotificationReason.follow,
+};
+
+/// A key used to group related notifications together.
+///
+/// Two notifications are considered related when they share the same
+/// (already remapped) [reason] and [reasonSubject].
+typedef _GroupKey = (GroupedNotificationReason reason, String? reasonSubject);
+
+/// A mutable, strongly typed intermediate group used while aggregating
+/// notifications. This avoids the fragile JSON `Map` round trips that used to
+/// break on optional fields such as `labels`.
+class _MutableGroup {
+  _MutableGroup({
+    required this.uris,
+    required this.authors,
+    required this.reason,
+    required this.reasonSubject,
+    required this.isRead,
+    required this.labels,
+    required this.record,
+    required this.indexedAt,
+  });
+
+  final List<AtUri> uris;
+  final List<ProfileView> authors;
+  final GroupedNotificationReason reason;
+  final AtUri? reasonSubject;
+  bool isRead;
+  final List<Label> labels;
+  final Map<String, dynamic>? record;
+  DateTime indexedAt;
+
+  GroupedNotification toGroupedNotification() => GroupedNotification(
+    uris: uris,
+    authors: authors,
+    reason: reason,
+    reasonSubject: reasonSubject,
+    isRead: isRead,
+    labels: labels,
+    record: record,
+    indexedAt: indexedAt,
+  );
+}
 
 sealed class NotificationsGrouper {
   const factory NotificationsGrouper() = _NotificationsGrouper;
@@ -67,188 +114,121 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       return emptyGroupedNotifications;
     }
 
-    final groupedChunks = <List<Map<String, dynamic>>>[];
+    final groups = <_MutableGroup>[];
 
-    for (final chunks in _groupBy(by, data)) {
-      final groupedNotifications = <Map<String, dynamic>>[];
+    for (final chunk in _groupBy(by, data)) {
+      // O(n) lookup of an existing related group by (reason, reasonSubject).
+      final groupable = HashMap<_GroupKey, _MutableGroup>();
 
-      for (final notification in chunks) {
+      for (final notification in chunk) {
+        final reasonSubject = notification.reasonSubject?.toString();
+        final reason = _getGroupedReason(notification, reasonSubject);
+
         if (_isGroupable(notification.reason)) {
-          final reasonSubject = notification.reasonSubject?.toString();
+          final key = (reason, reasonSubject);
+          final existing = groupable[key];
 
-          final relatedGroup = _getRelatedGroup(
-            notification.reason,
-            reasonSubject,
-            groupedNotifications,
-          );
-
-          if (relatedGroup.isEmpty) {
-            groupedNotifications.add(
-              _buildRelatedGroup(notification, reasonSubject),
-            );
+          if (existing == null) {
+            final group = _buildGroup(notification, reason);
+            groupable[key] = group;
+            groups.add(group);
           } else {
-            _updateRelatedGroup(relatedGroup, notification);
+            _mergeInto(existing, notification);
           }
         } else {
-          groupedNotifications.add(
-            _buildRelatedGroup(
-              notification,
-              notification.reasonSubject?.toString(),
-            ),
-          );
+          groups.add(_buildGroup(notification, reason));
         }
       }
-
-      groupedChunks.add(groupedNotifications);
     }
 
-    return _buildGroupedNotificationsFromJson(
-      groupedChunks.expand((e) => e).toList(),
-      data.cursor,
+    // Order by indexedAt desc.
+    groups.sort((a, b) => b.indexedAt.compareTo(a.indexedAt));
+
+    return GroupedNotifications(
+      notifications: groups.map((e) => e.toGroupedNotification()).toList(),
+      cursor: data.cursor,
     );
   }
 
-  bool _isGroupable(final NotificationReason reason) =>
-      _groupableReasons.contains(reason);
+  bool _isGroupable(final NotificationReason reason) {
+    final knownValue = reason.knownValue;
 
-  Map<String, dynamic> _getRelatedGroup(
-    final NotificationReason reason,
-    final String? reasonSubject,
-    final List<Map<String, dynamic>> groupedNotifications,
-  ) {
-    if (groupedNotifications.isEmpty) {
-      return {};
-    }
-
-    for (final groupedNotification in groupedNotifications) {
-      if (groupedNotification['reason'] == reason.toJson() &&
-          groupedNotification['reasonSubject'] == reasonSubject) {
-        return groupedNotification;
-      }
-    }
-
-    return {};
+    return knownValue != null && _groupableReasons.contains(knownValue);
   }
 
-  Map<String, dynamic> _buildRelatedGroup(
+  _MutableGroup _buildGroup(
     final Notification notification,
-    final String? reasonSubject,
-  ) => {
-    'uris': [notification.uri.toString()],
-    'reason': _getGroupedReason(notification.reason.toJson(), reasonSubject),
-    'reasonSubject': reasonSubject,
-    'authors': [notification.author.toJson()],
-    'labels': notification.labels?.map((e) => e.toJson()).toList(),
-    'isRead': notification.isRead,
-    'record': notification.record,
-    'indexedAt': notification.indexedAt.toIso8601String(),
-  };
+    final GroupedNotificationReason reason,
+  ) => _MutableGroup(
+    uris: [notification.uri],
+    authors: [notification.author],
+    reason: reason,
+    reasonSubject: notification.reasonSubject,
+    isRead: notification.isRead,
+    labels: [...?notification.labels],
+    record: notification.record,
+    indexedAt: notification.indexedAt,
+  );
 
-  void _updateRelatedGroup(
-    final Map<String, dynamic> relatedGroup,
-    final Notification notification,
-  ) {
-    relatedGroup['uris'] = _mergeUris(
-      relatedGroup['uris'],
-      notification.uri.toString(),
-    );
+  void _mergeInto(final _MutableGroup group, final Notification notification) {
+    //! Technically the same uri could not appear on the same
+    //! notification, but just in case.
+    group.uris
+      ..removeWhere((element) => element == notification.uri)
+      ..add(notification.uri);
 
-    relatedGroup['authors'] = _mergeAuthors(
-      relatedGroup['authors'],
-      notification.author,
-    );
-
-    relatedGroup['labels'] = _mergeLabels(
-      relatedGroup['labels'],
-      notification.labels,
-    );
-
-    final relatedIndexedAt = DateTime.parse(relatedGroup['indexedAt']);
-
-    relatedGroup['isRead'] = _mergeRead(
-      relatedGroup['isRead'],
-      notification.isRead,
-      relatedIndexedAt,
-      notification.indexedAt,
-    );
-
-    relatedGroup['indexedAt'] = _mergeIndexedAt(
-      relatedIndexedAt,
-      notification.indexedAt,
-    ).toIso8601String();
-  }
-
-  List<Map<String, dynamic>> _mergeAuthors(
-    final List<Map<String, dynamic>> relatedAuthors,
-    final ProfileView author,
-  ) => relatedAuthors
     //! Technically the same person could not appear on the same
     //! notification, but just in case.
-    ..removeWhere((element) => element['did'] == author.did)
-    ..add(author.toJson());
+    group.authors
+      ..removeWhere((element) => element.did == notification.author.did)
+      ..add(notification.author);
 
-  List<String> _mergeUris(final List<String> relatedUris, final String uri) =>
-      relatedUris
-        //! Technically the same uri could not appear on the same
-        //! notification, but just in case.
-        ..removeWhere((element) => element == uri)
-        ..add(uri);
+    _mergeLabels(group.labels, notification.labels);
 
-  List<Map<String, dynamic>> _mergeLabels(
-    final List<Map<String, dynamic>> relatedLabels,
-    final List<Label>? labels,
-  ) {
-    if (labels == null || labels.isEmpty) {
-      return relatedLabels;
+    final incomingIsNewer = notification.indexedAt.isAfter(group.indexedAt);
+    if (incomingIsNewer) {
+      group.isRead = notification.isRead;
+      group.indexedAt = notification.indexedAt;
     }
-
-    for (final label in labels.map((e) => e.toJson())) {
-      relatedLabels.add(label);
-    }
-
-    return relatedLabels.toSet().toList();
   }
 
-  bool _mergeRead(
-    bool relatedRead,
-    bool read,
-    DateTime relatedIndexedAt,
-    DateTime indexedAt,
-  ) => indexedAt.isAfter(relatedIndexedAt) ? read : relatedRead;
+  void _mergeLabels(final List<Label> relatedLabels, final List<Label>? labels) {
+    if (labels == null || labels.isEmpty) {
+      return;
+    }
 
-  DateTime _mergeIndexedAt(DateTime relatedIndexedAt, DateTime indexedAt) =>
-      relatedIndexedAt.isAfter(indexedAt) ? relatedIndexedAt : indexedAt;
+    for (final label in labels) {
+      // Deduplicate on value equality (Label overrides == / hashCode),
+      // instead of the previous Map identity comparison which never matched.
+      if (!relatedLabels.contains(label)) {
+        relatedLabels.add(label);
+      }
+    }
+  }
 
   GroupedNotifications get emptyGroupedNotifications =>
-      GroupedNotifications(notifications: const []);
+      const GroupedNotifications(notifications: []);
 
-  GroupedNotifications _buildGroupedNotificationsFromJson(
-    final List<Map<String, dynamic>> groupedNotifications,
-    final String? cursor,
-  ) => GroupedNotifications.fromJson({
-    'notifications': groupedNotifications
-      ..sort((a, b) {
-        final dateA = DateTime.parse(a['indexedAt']);
-        final dateB = DateTime.parse(b['indexedAt']);
+  GroupedNotificationReason _getGroupedReason(
+    final Notification notification,
+    final String? reasonSubject,
+  ) {
+    final knownValue = notification.reason.knownValue;
 
-        //* order by indexedAt desc
-        return dateB.compareTo(dateA);
-      }),
-    'cursor': cursor,
-  });
+    if (knownValue == KnownNotificationReason.like &&
+        _isCustomFeedLike(reasonSubject)) {
+      return GroupedNotificationReason.customFeedLike;
+    }
 
-  String _getGroupedReason(final String reason, final String? reasonSubject) =>
-      _isCustomFeedLike(reason, reasonSubject)
-      ? GroupedNotificationReason.customFeedLike.value
-      : reason;
+    return GroupedNotificationReason.valueOf(notification.reason.toJson());
+  }
 
-  bool _isCustomFeedLike(final String reason, final String? reasonSubject) {
+  bool _isCustomFeedLike(final String? reasonSubject) {
     if (reasonSubject == null) {
       return false;
     }
 
-    return reason == KnownNotificationReason.like.name &&
-        reasonSubject.contains(ids.appBskyFeedGenerator);
+    return reasonSubject.contains(ids.appBskyFeedGenerator);
   }
 
   List<List<Notification>> _groupBy(

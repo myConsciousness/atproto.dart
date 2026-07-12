@@ -57,7 +57,10 @@ ModerationDecision decidePost(
     decision.addHidden();
   }
 
-  if (!decision.me) {
+  // Guard with `validate` before `fromJson`, mirroring the quoted-post paths.
+  // A federated post can carry a malformed record, and calling `fromJson`
+  // directly would throw and take down the whole `moderatePost` call.
+  if (!decision.me && FeedPostRecord.validate(record)) {
     decision.addMutedWord(
       _matchAllMuteWords(
         author,

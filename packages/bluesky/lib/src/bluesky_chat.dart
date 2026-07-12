@@ -99,6 +99,12 @@ sealed class BlueskyChat {
   /// [BlueskyChat.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Returns the current OAuth session.
+  ///
+  /// Set only if an instance of this object was created in
+  /// [BlueskyChat.fromOAuthSession], otherwise null.
+  oauth.OAuthSession? get oAuthSession;
+
   /// Returns atproto features.
   atp.ATProto get atproto;
 
@@ -106,7 +112,7 @@ sealed class BlueskyChat {
   /// Defaults to `bsky.social`.
   String get service;
 
-  /// Returns the current replay service.
+  /// Returns the current relay service.
   /// Defaults to `bsky.network`.
   String get relayService;
 
@@ -137,6 +143,9 @@ final class _BlueskyChat implements BlueskyChat {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
 
   @override
   String get service => _ctx.service;

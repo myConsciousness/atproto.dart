@@ -2,9 +2,6 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Package imports:
-import 'package:characters/characters.dart';
-
 // Project imports:
 import '../../services/codegen/app/bsky/actor/defs/muted_word.dart';
 import '../../services/codegen/app/bsky/actor/defs/muted_word_actor_target.dart';
@@ -69,13 +66,19 @@ List<MuteWordMatch> matchMuteWords({
 
   final matches = <MuteWordMatch>[];
 
+  // Hoist loop-invariant computations out of the per-muted-word loop below;
+  // these do not depend on the muted word and were previously recomputed on
+  // every iteration.
+  final postText = text.toLowerCase();
+  final now = DateTime.now();
+  final postWords = postText.split(_wordBoundaryRegex);
+
   outer:
   for (final mute in mutedWords) {
     final mutedWord = mute.value.toLowerCase();
-    final postText = text.toLowerCase();
 
     // expired, ignore
-    if (mute.expiresAt != null && mute.expiresAt!.isBefore(DateTime.now())) {
+    if (mute.expiresAt != null && mute.expiresAt!.isBefore(now)) {
       continue;
     }
 
@@ -98,7 +101,11 @@ List<MuteWordMatch> matchMuteWords({
     }
 
     // single character or other exception, has to use contains
-    if ((mutedWord.characters.length == 1 || exception) &&
+    //
+    // Use UTF-16 length (matching the official `@atproto/api`) instead of the
+    // grapheme count so a single-codepoint emoji muted word is treated the
+    // same way, and consistently with the `mutedWord.length` check below.
+    if ((mutedWord.length == 1 || exception) &&
         postText.contains(mutedWord)) {
       matches.add(MuteWordMatch(word: mute, predicate: mute.value));
       continue;
@@ -118,7 +125,7 @@ List<MuteWordMatch> matchMuteWords({
     }
 
     // check individual character groups
-    for (final word in postText.split(_wordBoundaryRegex)) {
+    for (final word in postWords) {
       if (word == mutedWord) {
         matches.add(MuteWordMatch(word: mute, predicate: word));
         continue outer;

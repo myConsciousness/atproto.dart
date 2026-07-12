@@ -137,7 +137,7 @@ sealed class Bluesky {
   /// Defaults to `bsky.social`.
   String get service;
 
-  /// Returns the current replay service.
+  /// Returns the current relay service.
   /// Defaults to `bsky.network`.
   String get relayService;
 

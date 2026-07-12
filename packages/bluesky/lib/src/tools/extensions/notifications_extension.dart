@@ -39,7 +39,7 @@ extension NotificationsExtension on NotificationListNotificationsOutput {
   /// `reasonSubject` and by [hour].
   ///
   /// Available [hour] range is from 1 to 23 (include), otherwise
-  /// it always throws [AssertionError].
+  /// it always throws [RangeError].
   GroupedNotifications groupByHour(final int hour) =>
       const NotificationsGrouper().group(this, by: GroupBy.hour(hour));
 
@@ -47,7 +47,7 @@ extension NotificationsExtension on NotificationListNotificationsOutput {
   /// `reasonSubject` and by [minute].
   ///
   /// Available [minute] range is from 1 to 59 (include), otherwise
-  /// it always throws [AssertionError].
+  /// it always throws [RangeError].
   GroupedNotifications groupByMinute(final int minute) =>
       const NotificationsGrouper().group(this, by: GroupBy.minute(minute));
 }
