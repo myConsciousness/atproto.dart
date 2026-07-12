@@ -26,15 +26,23 @@ final class RecordedRequest {
   Map<String, dynamic> get jsonBody => jsonDecode(body as String);
 }
 
+/// A stubbed response.
+final class _Stub {
+  const _Stub(this.body, this.status);
+  final String body;
+  final int status;
+}
+
 /// Mock HTTP clients compatible with `xrpc.GetClient`/`xrpc.PostClient`
 /// that record every request and return stubbed JSON responses.
 final class MockXrpc {
   final requests = <RecordedRequest>[];
-  final _stubs = <String, String>{};
+  final _stubs = <String, _Stub>{};
 
-  /// Stubs the response body for the method id (last path segment).
-  void stub(final String methodId, final String body) =>
-      _stubs[methodId] = body;
+  /// Stubs the response body (and optional status) for the method id
+  /// (last path segment).
+  void stub(final String methodId, final String body, {final int status = 200}) =>
+      _stubs[methodId] = _Stub(body, status);
 
   Future<http.Response> get(Uri url, {Map<String, String>? headers}) async {
     requests.add(RecordedRequest('GET', url, headers, null));
@@ -53,20 +61,31 @@ final class MockXrpc {
     return _respond('POST', url);
   }
 
-  http.Response _respond(final String method, final Uri url) => http.Response(
-    _stubs[url.path.split('/').last] ?? '{}',
-    200,
-    headers: const {'content-type': 'application/json; charset=utf-8'},
-    request: http.Request(method, url),
-  );
+  http.Response _respond(final String method, final Uri url) {
+    final stub = _stubs[url.path.split('/').last];
+
+    return http.Response(
+      stub?.body ?? '{}',
+      stub?.status ?? 200,
+      headers: const {'content-type': 'application/json; charset=utf-8'},
+      request: http.Request(method, url),
+    );
+  }
 
   /// Returns the first captured request for [methodId].
   RecordedRequest byMethod(final String methodId) =>
       requests.firstWhere((e) => e.url.path.endsWith(methodId));
 }
 
-BskyCommandRunner _runner(final MockXrpc mock) =>
-    BskyCommandRunner(getClient: mock.get, postClient: mock.post);
+/// Builds a runner whose session cache points at an isolated temp file
+/// so tests never read or write the real ~/.config/bsky/session.json.
+BskyCommandRunner _runner(final MockXrpc mock) => BskyCommandRunner(
+  getClient: mock.get,
+  postClient: mock.post,
+  sessionCachePath:
+      '${Directory.systemTemp.createTempSync('bsky_cli_session').path}'
+      '/session.json',
+);
 
 const _auth = <String>['--identifier', 'test.dev', '--password', 'xxxx'];
 
@@ -333,6 +352,143 @@ void main() {
       expect(request.url.host, 'cardyb.bsky.app');
       expect(request.url.path, '/v1/extract');
       expect(request.url.queryParameters['url'], 'https://example.com');
+    });
+  });
+
+  group('error paths', () {
+    test('wrong password reports a formatted error and exits 1', () async {
+      final mock = MockXrpc()
+        ..stub(
+          'com.atproto.server.createSession',
+          '{"error":"AuthenticationRequired",'
+              '"message":"Invalid identifier or password"}',
+          status: 401,
+        );
+
+      // Must complete without throwing a raw exception / stack trace.
+      await _runner(mock).run([
+        '--identifier',
+        'test.dev',
+        '--password',
+        'wrong',
+        'app-bsky-feed',
+        'get-timeline',
+      ]);
+
+      expect(exitCode, 1);
+    });
+
+    test('API error status yields exit 1 without a stack trace', () async {
+      final mock = _authenticatedMock()
+        ..stub(
+          'app.bsky.feed.getTimeline',
+          '{"error":"InternalServerError","message":"boom"}',
+          status: 500,
+        );
+
+      await _runner(
+        mock,
+      ).run([..._auth, 'app-bsky-feed', 'get-timeline']);
+
+      expect(exitCode, 1);
+    });
+
+    test('empty body with --pretty is reported as success', () async {
+      final mock = _authenticatedMock()
+        ..stub('com.atproto.server.requestAccountDelete', '');
+
+      await _runner(mock).run([
+        ..._auth,
+        '--pretty',
+        'com-atproto-server',
+        'request-account-delete',
+      ]);
+
+      // Empty 200 bodies must not be treated as a FormatException failure.
+      expect(exitCode, 0);
+    });
+  });
+
+  group('security regressions', () {
+    test('usage output never contains credentials (L-1)', () {
+      final previous = <String, String>{};
+      for (final key in ['BLUESKY_IDENTIFIER', 'BLUESKY_PASSWORD']) {
+        final value = Platform.environment[key];
+        if (value != null) previous[key] = value;
+      }
+
+      // The environment cannot be mutated from Dart, but the guarantee is
+      // structural: credentials are resolved at use time, never via
+      // `defaultsTo`, so the usage string must not carry any concrete
+      // credential values even when the env vars are set.
+      final usage = BskyCommandRunner().usage;
+
+      for (final value in previous.values) {
+        expect(usage.contains(value), isFalse);
+      }
+      // The env var names may be referenced in help text, but never a
+      // resolved `defaults to "<secret>"` clause.
+      expect(usage.toLowerCase().contains('defaults to "'), isFalse);
+    });
+
+    test('--service routes requests without leaking credentials', () async {
+      final mock = _authenticatedMock();
+      await _runner(mock).run([
+        ..._auth,
+        '--service',
+        'pds.example.com',
+        'app-bsky-feed',
+        'get-timeline',
+      ]);
+
+      // The public query goes to the custom --service host...
+      final request = mock.byMethod('app.bsky.feed.getTimeline');
+      expect(request.url.host, 'pds.example.com');
+
+      // ...but createSession (the credential POST) stays on the
+      // auth service, not the arbitrary --service host.
+      final session = mock.byMethod('com.atproto.server.createSession');
+      expect(session.url.host, 'bsky.social');
+    });
+
+    test('--no-auth suppresses createSession even with credentials', () async {
+      final mock = _authenticatedMock();
+      await _runner(mock).run([
+        ..._auth,
+        '--no-auth',
+        'app-bsky-feed',
+        'get-timeline',
+      ]);
+
+      expect(
+        mock.requests.any(
+          (e) => e.url.path.endsWith('com.atproto.server.createSession'),
+        ),
+        isFalse,
+      );
+      final request = mock.byMethod('app.bsky.feed.getTimeline');
+      expect(request.headers?['Authorization'], isNull);
+    });
+  });
+
+  group('version', () {
+    test('--version prints the version and skips command dispatch', () async {
+      final mock = MockXrpc();
+      await _runner(mock).run(['--version']);
+
+      expect(mock.requests, isEmpty);
+    });
+  });
+
+  group('sessions (refresh)', () {
+    test('refresh-session authenticates with the refresh token', () async {
+      final mock = _authenticatedMock();
+      await _runner(
+        mock,
+      ).run([..._auth, 'com-atproto-server', 'refresh-session']);
+
+      final request = mock.byMethod('com.atproto.server.refreshSession');
+      expect(request.headers?['Authorization'], 'Bearer test-refresh-jwt');
     });
   });
 }

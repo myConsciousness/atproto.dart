@@ -3,7 +3,6 @@ import 'package:xrpc/http.dart' as http;
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
-import '../runner/bsky_runner.dart';
 import 'bsky_command.dart';
 
 final class CardybCommand extends BskyCommand {
@@ -25,29 +24,24 @@ final class CardybCommand extends BskyCommand {
   final String invocation = "bsky cardyb [url]";
 
   @override
-  Future<void> run() async => await Bsky(
-    logger,
-    action: () async {
-      final response = await http.get<String>(
-        '/v1/extract',
-        service: 'cardyb.bsky.app',
-        parameters: {'url': argResults!['url']},
-        getClient: getClient,
-      );
+  Future<void> run() async => await execute(() async {
+    final response = await http.get<String>(
+      '/v1/extract',
+      service: 'cardyb.bsky.app',
+      parameters: {'url': argResults!['url']},
+      timeout: timeout,
+      getClient: getClient,
+    );
 
-      return xrpc.XRPCResponse<String>(
-        headers: response.headers,
-        status: response.status,
-        request: xrpc.XRPCRequest(
-          method: response.request.method,
-          url: response.request.url,
-        ),
-        rateLimit: xrpc.RateLimit.unlimited(),
-        data: response.data,
-      );
-    },
-    pretty: globalResults!['pretty'],
-    showStatus: globalResults!['status'],
-    showRequest: globalResults!['request'],
-  ).run();
+    return xrpc.XRPCResponse<String>(
+      headers: response.headers,
+      status: response.status,
+      request: xrpc.XRPCRequest(
+        method: response.request.method,
+        url: response.request.url,
+      ),
+      rateLimit: xrpc.RateLimit.unlimited(),
+      data: response.data,
+    );
+  });
 }
