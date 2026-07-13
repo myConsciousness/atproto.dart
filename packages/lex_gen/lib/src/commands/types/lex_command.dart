@@ -275,23 +275,6 @@ $contentTypeOverride}
 
     final rkeyOverride = _getReferenceKeyOverride();
 
-    final deleteOpts = literalRkey == null
-        ? 'argParser..addOption("rkey", help: r"The record key.", mandatory: true,);'
-        : '';
-    final deleteInvocation = literalRkey == null
-        ? 'bsky $serviceName $commandName delete --rkey=<value>'
-        : 'bsky $serviceName $commandName delete';
-
-    final getRkeyOpt = literalRkey == null
-        ? '..addOption("rkey", help: r"The record key.", mandatory: true,)'
-        : '';
-    final getRkeyValue = literalRkey == null
-        ? "argResults!['rkey']"
-        : "'$literalRkey'";
-    final getInvocation = literalRkey == null
-        ? 'bsky $serviceName $commandName get --rkey=<value> [--repo=<value>] [--cid=<value>]'
-        : 'bsky $serviceName $commandName get [--repo=<value>] [--cid=<value>]';
-
     return '''$kHeaderHint
 
 import 'dart:async';
@@ -329,61 +312,83 @@ mixin $recordArgsMixin on Command<void> {
   }
 ${_getInputHelpers()}}
 
-final class _Create$typeName extends CreateRecordCommand with $recordArgsMixin {
-  _Create$typeName() {
+${_recordMutationClass(typeName: typeName, classPrefix: 'Create', baseClass: 'CreateRecordCommand', recordArgsMixin: recordArgsMixin, rkeyStmt: createRkeyStmt, name: 'create', descriptionVerb: 'Creates a new record', invocation: invocationForCreation, rkeyOverride: rkeyOverride, parameters: parameters)}
+
+${_recordMutationClass(typeName: typeName, classPrefix: 'Put', baseClass: 'PutRecordCommand', recordArgsMixin: recordArgsMixin, rkeyStmt: putRkeyStmt, name: 'put', descriptionVerb: 'Updates a record', invocation: invocationForUpdate, rkeyOverride: rkeyOverride, parameters: parameters)}
+
+${_deleteRecordClass(typeName, serviceName, commandName, literalRkey)}
+
+${_getRecordClass(typeName, serviceName, commandName, literalRkey)}
+
+${_listRecordClass(typeName, serviceName, commandName)}
+''';
+  }
+
+  /// Method id for the shared `com.atproto.repo` record read endpoints, emitted
+  /// into the generated `get`/`list` record subcommands.
+  static const _getRecordMethodId = 'com.atproto.repo.getRecord';
+  static const _listRecordsMethodId = 'com.atproto.repo.listRecords';
+
+  /// Renders a `create` or `put` record subcommand. The two differ only by the
+  /// [classPrefix]/[baseClass], their `rkey` option ([rkeyStmt]), [name],
+  /// [descriptionVerb] and [invocation]; everything else is shared.
+  String _recordMutationClass({
+    required final String typeName,
+    required final String classPrefix,
+    required final String baseClass,
+    required final String recordArgsMixin,
+    required final String rkeyStmt,
+    required final String name,
+    required final String descriptionVerb,
+    required final String invocation,
+    required final String rkeyOverride,
+    required final String parameters,
+  }) {
+    final id = lexiconId.toString();
+
+    return '''final class _$classPrefix$typeName extends $baseClass with $recordArgsMixin {
+  _$classPrefix$typeName() {
     _addRecordOptions();
-    $createRkeyStmt
+    $rkeyStmt
   }
 
   @override
-  final String name = "create";
+  final String name = "$name";
 
   @override
-  final String description = r"Creates a new record for ${lexiconId.toString()}.";
+  final String description = r"$descriptionVerb for $id.";
 
   @override
-  final String invocation = "$invocationForCreation";
+  final String invocation = "$invocation";
 
   $rkeyOverride
 
   @override
-  String get collection => "${lexiconId.toString()}";
+  String get collection => "$id";
 
   @override
   Map<String, dynamic> get record => {
-    r"\$type": "${lexiconId.toString()}",
+    r"\$type": "$id",
     $parameters
   };
-}
-
-final class _Put$typeName extends PutRecordCommand with $recordArgsMixin {
-  _Put$typeName() {
-    _addRecordOptions();
-    $putRkeyStmt
+}''';
   }
 
-  @override
-  final String name = "put";
+  String _deleteRecordClass(
+    final String typeName,
+    final String serviceName,
+    final String commandName,
+    final String? literalRkey,
+  ) {
+    final id = lexiconId.toString();
+    final deleteOpts = literalRkey == null
+        ? 'argParser..addOption("rkey", help: r"The record key.", mandatory: true,);'
+        : '';
+    final deleteInvocation = literalRkey == null
+        ? 'bsky $serviceName $commandName delete --rkey=<value>'
+        : 'bsky $serviceName $commandName delete';
 
-  @override
-  final String description = r"Updates a record for ${lexiconId.toString()}.";
-
-  @override
-  final String invocation = "$invocationForUpdate";
-
-  $rkeyOverride
-
-  @override
-  String get collection => "${lexiconId.toString()}";
-
-  @override
-  Map<String, dynamic> get record => {
-    r"\$type": "${lexiconId.toString()}",
-    $parameters
-  };
-}
-
-final class _Delete$typeName extends DeleteRecordCommand {
+    return '''final class _Delete$typeName extends DeleteRecordCommand {
   _Delete$typeName() {
     $deleteOpts
   }
@@ -392,7 +397,7 @@ final class _Delete$typeName extends DeleteRecordCommand {
   final String name = "delete";
 
   @override
-  final String description = r"Deletes a record for ${lexiconId.toString()}.";
+  final String description = r"Deletes a record for $id.";
 
   @override
   final String invocation = "$deleteInvocation";
@@ -400,10 +405,28 @@ final class _Delete$typeName extends DeleteRecordCommand {
   ${_getReferenceKeyOverride(nullable: false)}
 
   @override
-  String get collection => "${lexiconId.toString()}";
-}
+  String get collection => "$id";
+}''';
+  }
 
-final class _Get$typeName extends QueryCommand {
+  String _getRecordClass(
+    final String typeName,
+    final String serviceName,
+    final String commandName,
+    final String? literalRkey,
+  ) {
+    final id = lexiconId.toString();
+    final getRkeyOpt = literalRkey == null
+        ? '..addOption("rkey", help: r"The record key.", mandatory: true,)'
+        : '';
+    final getRkeyValue = literalRkey == null
+        ? "argResults!['rkey']"
+        : "'$literalRkey'";
+    final getInvocation = literalRkey == null
+        ? 'bsky $serviceName $commandName get --rkey=<value> [--repo=<value>] [--cid=<value>]'
+        : 'bsky $serviceName $commandName get [--repo=<value>] [--cid=<value>]';
+
+    return '''final class _Get$typeName extends QueryCommand {
   _Get$typeName() {
     argParser
       $getRkeyOpt
@@ -415,23 +438,31 @@ final class _Get$typeName extends QueryCommand {
   final String name = "get";
 
   @override
-  final String description = r"Gets a record for ${lexiconId.toString()}.";
+  final String description = r"Gets a record for $id.";
 
   @override
   final String invocation = "$getInvocation";
 
   @override
-  String get methodId => "com.atproto.repo.getRecord";
+  String get methodId => "$_getRecordMethodId";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
-    'collection': "${lexiconId.toString()}",
+    'collection': "$id",
     'rkey': $getRkeyValue,
     if (argResults!['cid'] != null) 'cid': argResults!['cid'],};
-}
+}''';
+  }
 
-final class _List$typeName extends QueryCommand {
+  String _listRecordClass(
+    final String typeName,
+    final String serviceName,
+    final String commandName,
+  ) {
+    final id = lexiconId.toString();
+
+    return '''final class _List$typeName extends QueryCommand {
   _List$typeName() {
     argParser
       ..addOption("repo", help: r"The repo (handle or DID). Defaults to the authenticated user.",)
@@ -444,24 +475,23 @@ final class _List$typeName extends QueryCommand {
   final String name = "list";
 
   @override
-  final String description = r"Lists records for ${lexiconId.toString()}.";
+  final String description = r"Lists records for $id.";
 
   @override
   final String invocation = "bsky $serviceName $commandName list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
-  String get methodId => "com.atproto.repo.listRecords";
+  String get methodId => "$_listRecordsMethodId";
 
   @override
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
-    'collection': "${lexiconId.toString()}",
+    'collection': "$id",
     'limit': int.tryParse(argResults!['limit']) ?? usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };
-}
-''';
+}''';
   }
 
   String _getDescription() {
