@@ -1,0 +1,35 @@
+name: bluesky_text_flutter
+description: Flutter widgets for bluesky_text — a rich-text editing controller that highlights entities and the over-limit tail as you type, and a viewer for fetched posts.
+version: 0.1.0
+homepage: https://atprotodart.com
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text_flutter
+issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
+funding:
+  - https://github.com/sponsors/myConsciousness
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.16.0"
+
+topics:
+  - atproto
+  - bluesky
+  - flutter
+  - richtext
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bluesky_text: ^1.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+# TODO(bluesky_text_flutter): remove once bluesky_text 1.5.0 is published to
+# pub.dev. Until then this resolves the in-repo path so the package builds and
+# tests in the monorepo. It is ignored by consumers of the published package.
+dependency_overrides:
+  bluesky_text:
+    path: ../bluesky_text
