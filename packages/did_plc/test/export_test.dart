@@ -78,4 +78,82 @@ void main() {
       expect(ops, hasLength(3));
     });
   });
+
+  group('exportOpsStream shared-timestamp page boundary', () {
+    // The /export page size is 1000 and `after` is strictly exclusive, so
+    // operations sharing a createdAt that straddle the 1000-item page
+    // boundary used to be dropped when the cursor advanced to that
+    // timestamp. These tests build a directory of 1003 operations where
+    // indices 998..1001 share one createdAt, forcing the shared group to
+    // straddle the first page boundary.
+    final base = DateTime.utc(2024, 1, 1);
+
+    ExportedOperation operationAt(int i, DateTime createdAt) {
+      return ExportedOperation(
+        did: 'did:plc:boundary',
+        cid: 'cid-$i',
+        operation: CompatibleOpOrTombstone.op(
+          data: generator.generateOperation(),
+        ),
+        isNullified: false,
+        createdAt: createdAt,
+      );
+    }
+
+    List<ExportedOperation> straddlingOps() => List.generate(
+      1003,
+      (i) => operationAt(
+        i,
+        base.add(Duration(seconds: (i >= 998 && i <= 1001) ? 998 : i)),
+      ),
+    );
+
+    test('does not drop or duplicate operations across the boundary', () async {
+      final ops = straddlingOps();
+      directory.addAuditLog('did:plc:boundary', ops);
+
+      final streamed = await plc.exportOpsStream().toList();
+
+      expect(streamed, hasLength(1003));
+
+      final streamedCids = streamed.map((op) => op.cid).toList();
+      // No duplicates ...
+      expect(streamedCids.toSet(), hasLength(1003));
+      // ... and nothing dropped.
+      expect(streamedCids.toSet(), equals(ops.map((op) => op.cid).toSet()));
+      // createdAt must remain non-decreasing across the page boundary.
+      for (var i = 1; i < streamed.length; i++) {
+        expect(
+          streamed[i].createdAt.isBefore(streamed[i - 1].createdAt),
+          isFalse,
+        );
+      }
+    });
+
+    test('count-limited stream crosses the boundary without loss', () async {
+      directory.addAuditLog('did:plc:boundary', straddlingOps());
+
+      // 1002 spans the boundary: 1000 from page one, then two of the
+      // shared-timestamp group that were re-fetched on page two.
+      final streamed = await plc.exportOpsStream(count: 1002).toList();
+
+      expect(streamed, hasLength(1002));
+      expect(streamed.map((op) => op.cid).toSet(), hasLength(1002));
+    });
+
+    test('throws when a full page shares a single createdAt '
+        '(cannot paginate safely)', () async {
+      // 1001 operations sharing one timestamp: the exclusive cursor cannot
+      // advance past the first (full) page without risking data loss.
+      directory.addAuditLog(
+        'did:plc:pathological',
+        List.generate(1001, (i) => operationAt(i, base)),
+      );
+
+      await expectLater(
+        plc.exportOpsStream().toList(),
+        throwsA(isA<GenericPlcException>()),
+      );
+    });
+  });
 }

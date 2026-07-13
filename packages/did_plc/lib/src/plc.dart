@@ -179,18 +179,22 @@ abstract class PLC {
   /// ```
   Future<CompatibleOpOrTombstone> getLastOp(String did);
 
-  /// Exports operations from the PLC directory.
+  /// Exports a single page of operations from the PLC directory.
   ///
-  /// Retrieves a batch of operations from the directory, optionally filtered by
-  /// timestamp and limited by count. This is useful for synchronizing with the
-  /// directory or building analytics.
+  /// Retrieves at most one page (up to 1000 operations, the `/export`
+  /// endpoint's server-side limit) from the directory, optionally filtered
+  /// by timestamp and limited by count. This method does **not** paginate;
+  /// to export more than one page — or the entire directory — use
+  /// [exportOpsStream], which paginates automatically.
   ///
   /// **Parameters:**
   /// - [after] - Optional timestamp to export operations after (ISO 8601 format)
   /// - [count] - Optional maximum number of operations to export
+  ///   (capped at 1000 by the server)
   ///
   /// **Returns:**
-  /// An [AuditableLog] containing the exported operations with metadata.
+  /// An [AuditableLog] containing a single page of exported operations
+  /// with metadata.
   ///
   /// **Throws:**
   /// - [NetworkException] for network-related errors
@@ -198,15 +202,17 @@ abstract class PLC {
   ///
   /// **Example:**
   /// ```dart
-  /// // Export recent operations
+  /// // Export up to 100 recent operations (single request)
   /// final recent = await plc.exportOps(
   ///   after: DateTime.now().subtract(Duration(hours: 1)),
   ///   count: 100,
   /// );
   /// print('Exported ${recent.log.length} operations');
   ///
-  /// // Export all operations
-  /// final all = await plc.exportOps();
+  /// // To export ALL operations, use the paginating stream instead:
+  /// await for (final operation in plc.exportOpsStream()) {
+  ///   print(operation.did);
+  /// }
   /// ```
   Future<AuditableLog> exportOps({DateTime? after, int? count});
 
@@ -686,15 +692,29 @@ final class _PLCImpl implements PLC {
       var cursor = after;
       var remaining = count;
 
+      // CIDs of the operations that shared the final `createdAt` of the
+      // previous (full) page. The `/export` `after` parameter is strictly
+      // exclusive, so operations sharing one timestamp can straddle a page
+      // boundary and would be silently dropped if the cursor advanced to
+      // that timestamp. Instead, the cursor is rewound to the last distinct
+      // timestamp and the already-yielded trailing operations are skipped
+      // when they reappear at the head of the next page.
+      var boundaryCids = const <String>{};
+
       while (remaining == null || remaining > 0) {
-        final pageSize = remaining == null
+        // Request extra room for the boundary operations that will be
+        // re-fetched and skipped, so a `count`-limited stream still makes
+        // progress across a shared-timestamp boundary.
+        final desired = remaining == null
             ? _exportPageSize
-            : (remaining < _exportPageSize ? remaining : _exportPageSize);
+            : remaining + boundaryCids.length;
+        final pageSize = desired < _exportPageSize ? desired : _exportPageSize;
 
         final page = await _fetchExportPage(after: cursor, count: pageSize);
         if (page.isEmpty) break;
 
         for (final operation in page) {
+          if (boundaryCids.contains(operation.cid)) continue;
           yield operation;
           if (remaining != null) {
             remaining--;
@@ -702,10 +722,32 @@ final class _PLCImpl implements PLC {
           }
         }
 
-        // `after` is exclusive, so advancing to the last createdAt fetches
-        // the next window. A short page means the directory is exhausted.
-        cursor = page.last.createdAt;
+        // A short page means the directory is exhausted.
         if (page.length < pageSize) break;
+
+        // Find the start of the trailing group of operations that share the
+        // page's final createdAt.
+        final lastCreatedAt = page.last.createdAt;
+        var groupStart = page.length - 1;
+        while (groupStart > 0 &&
+            page[groupStart - 1].createdAt.isAtSameMomentAs(lastCreatedAt)) {
+          groupStart--;
+        }
+
+        if (groupStart == 0) {
+          // Every operation in a full page shares a single createdAt. The
+          // strictly exclusive cursor cannot advance past this timestamp
+          // without potentially dropping operations that share it.
+          throw GenericPlcException(
+            'Cannot paginate /export: all ${page.length} operations in the '
+            'page share createdAt ${lastCreatedAt.toUtc().toIso8601String()}',
+          );
+        }
+
+        cursor = page[groupStart - 1].createdAt;
+        boundaryCids = <String>{
+          for (final operation in page.sublist(groupStart)) operation.cid,
+        };
       }
     } catch (e) {
       if (e is PlcException) rethrow;

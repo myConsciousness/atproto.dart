@@ -154,6 +154,10 @@ class OperationValidator {
       errors['rotationKeys'] = 'Rotation keys are required';
     }
 
+    // Per the did:plc spec (and the reference implementation's schema),
+    // `verificationMethods`, `services`, and `alsoKnownAs` must be present
+    // in a `plc_operation`, but they may be empty (e.g. a rotation-key-only
+    // update is valid). Only presence/nullability is enforced here.
     if (!operation.containsKey('verificationMethods') ||
         operation['verificationMethods'] == null) {
       errors['verificationMethods'] = 'Verification methods are required';
@@ -232,14 +236,11 @@ class OperationValidator {
       errors['rotationKeys'] = 'Rotation keys must be a list';
     }
 
-    // Validate verification methods
+    // Validate verification methods. An empty map is valid per the spec:
+    // a rotation-key-only operation carries no verification methods.
     if (operation['verificationMethods'] is Map) {
       final verificationMethods =
           operation['verificationMethods'] as Map<String, dynamic>;
-      if (verificationMethods.isEmpty) {
-        errors['verificationMethods'] =
-            'At least one verification method is required';
-      }
       for (final entry in verificationMethods.entries) {
         if (entry.key.isEmpty) {
           errors['verificationMethods'] =

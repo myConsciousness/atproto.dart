@@ -40,6 +40,17 @@
   constructor `Timer.periodic` that kept the process alive (D-8/D-9).
 - **UTC timestamps** in export windows, and various low-severity fixes
   (immediate-retry, chunk cast, `serviceEndpoint` cast, 2xx parse) (D-10/D-17).
+- **`exportOpsStream` no longer drops operations at a page boundary**: the
+  `/export` `after` cursor is strictly exclusive, so operations sharing one
+  `createdAt` could straddle a 1000-op page boundary and be silently skipped.
+  The cursor now rewinds to the last distinct timestamp and de-duplicates the
+  re-fetched trailing operations by CID (a full page sharing a single
+  `createdAt` throws instead of losing data).
+- **Validator allows empty `verificationMethods`**: a rotation-key-only
+  `plc_operation` is valid per the spec, so the "at least one verification
+  method is required" rule was dropped (presence/nullability is still checked).
+- **doc**: `exportOps` now documents that it returns a single page (max 1000)
+  and points to `exportOpsStream` for exporting the whole directory.
 
 ### 🧪 Testing
 

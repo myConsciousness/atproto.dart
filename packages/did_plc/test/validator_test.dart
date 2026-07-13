@@ -101,5 +101,65 @@ void main() {
       final op = validPlcOperation();
       expect(() => validator.validateOperation(op), returnsNormally);
     });
+
+    group('empty collections (spec: required but may be empty)', () {
+      test('accepts an empty verificationMethods map', () {
+        final op = validPlcOperation()
+          ..['verificationMethods'] = <String, dynamic>{};
+        expect(() => validator.validateOperation(op), returnsNormally);
+      });
+
+      test('accepts an empty services map', () {
+        final op = validPlcOperation()..['services'] = <String, dynamic>{};
+        expect(() => validator.validateOperation(op), returnsNormally);
+      });
+
+      test('accepts an empty alsoKnownAs list', () {
+        final op = validPlcOperation()..['alsoKnownAs'] = <String>[];
+        expect(() => validator.validateOperation(op), returnsNormally);
+      });
+
+      test('accepts a rotation-key-only operation (all three empty)', () {
+        final op = validPlcOperation()
+          ..['verificationMethods'] = <String, dynamic>{}
+          ..['services'] = <String, dynamic>{}
+          ..['alsoKnownAs'] = <String>[];
+        expect(() => validator.validateOperation(op), returnsNormally);
+      });
+
+      test('still rejects an ABSENT verificationMethods field', () {
+        // Per the spec / reference schema the field is required to be
+        // present, even though it may be empty.
+        final op = validPlcOperation()..remove('verificationMethods');
+        expect(
+          () => validator.validateOperation(op),
+          throwsA(isA<ValidationException>()),
+        );
+      });
+
+      test('still rejects an ABSENT services field', () {
+        final op = validPlcOperation()..remove('services');
+        expect(
+          () => validator.validateOperation(op),
+          throwsA(isA<ValidationException>()),
+        );
+      });
+
+      test('still rejects an ABSENT alsoKnownAs field', () {
+        final op = validPlcOperation()..remove('alsoKnownAs');
+        expect(
+          () => validator.validateOperation(op),
+          throwsA(isA<ValidationException>()),
+        );
+      });
+
+      test('still rejects empty rotationKeys (spec: at least 1 key)', () {
+        final op = validPlcOperation()..['rotationKeys'] = <String>[];
+        expect(
+          () => validator.validateOperation(op),
+          throwsA(isA<ValidationException>()),
+        );
+      });
+    });
   });
 }
