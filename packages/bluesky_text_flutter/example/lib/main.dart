@@ -29,6 +29,29 @@ class _HomeState extends State<_Home> {
     text: 'Hello @shinyakato.dev 🦋 visit https://shinyakato.dev #bluesky',
   );
 
+  //! A fetched post's facets come from the API (`PostFacet.fromJson(json)`).
+  //! For this offline demo they are derived from bluesky_text so the byte
+  //! offsets are always correct — hand-counting UTF-8 offsets (note the 3-byte
+  //! em dash below) is easy to get wrong.
+  static const _timelineText =
+      'gm @shinyakato.dev — see https://atprotodart.com #atproto';
+  late final _timelineFacets = [
+    for (final entity in BlueskyText(_timelineText).entities)
+      PostFacet(
+        byteStart: entity.indices.start,
+        byteEnd: entity.indices.end,
+        features: [
+          FacetFeature(
+            type: entity.type,
+            //! A mention's DID is resolved server-side; placeholder here.
+            value: entity.isHandle
+                ? 'did:plc:iijrtk7ocored6zuziwmqq3c'
+                : entity.value,
+          ),
+        ],
+      ),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -77,33 +100,8 @@ class _HomeState extends State<_Home> {
             Text('Timeline', style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
             BlueskyRichText(
-              text: 'gm @shinyakato.dev — see https://atprotodart.com #atproto',
-              facets: [
-                const {
-                  'index': {'byteStart': 3, 'byteEnd': 18},
-                  'features': [
-                    {
-                      r'$type': 'app.bsky.richtext.facet#mention',
-                      'did': 'did:plc:iijrtk7ocored6zuziwmqq3c',
-                    },
-                  ],
-                },
-                const {
-                  'index': {'byteStart': 25, 'byteEnd': 45},
-                  'features': [
-                    {
-                      r'$type': 'app.bsky.richtext.facet#link',
-                      'uri': 'https://atprotodart.com',
-                    },
-                  ],
-                },
-                const {
-                  'index': {'byteStart': 46, 'byteEnd': 54},
-                  'features': [
-                    {r'$type': 'app.bsky.richtext.facet#tag', 'tag': 'atproto'},
-                  ],
-                },
-              ].map(PostFacet.fromJson).toList(),
+              text: _timelineText,
+              facets: _timelineFacets,
               onMentionTap: (did) => _snack('mention: $did'),
               onLinkTap: (uri) => _snack('link: $uri'),
               onTagTap: (tag) => _snack('tag: #$tag'),
