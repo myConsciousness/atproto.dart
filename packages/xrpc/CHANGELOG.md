@@ -8,6 +8,8 @@
 - fix: unknown HTTP status codes (e.g. Cloudflare `520`) map to `HttpStatus.unknown` instead of throwing `UnsupportedError` while building the error response.
 - fix: `_buildWsUri` now uses the `Uri` builder (percent-encoding, repeated list params, ISO8601 UTC), so multi-valued subscription params produce a valid URL.
 - fix: rate-limit header parsing is now defensive (`tryParse`, unlimited fallback), so a malformed header no longer turns a successful response into a crash.
+- fix: `RateLimit.fromHeaders` now honors the `Retry-After` header (delta-seconds and HTTP-date forms) when usable `ratelimit-*` headers are absent, so `isExceeded` and `waitUntilReset()` respect the backoff of a `429` relayed by a proxy that strips the `ratelimit-*` headers.
+- fix: the optional `ratelimit-policy` header is no longer required to parse rate limit info; responses carrying only `ratelimit-limit`/`ratelimit-remaining`/`ratelimit-reset` are now parsed instead of being treated as unlimited.
 - feat: injectable `http.Client` for connection reuse (non-breaking), plus a `procedure` adaptor param and `subscribe` protocol param.
 - chore: bump `at_primitives` to `^1.1.0`.
 
