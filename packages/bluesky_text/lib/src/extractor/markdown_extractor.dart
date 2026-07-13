@@ -27,6 +27,7 @@ final class MarkdownLinksExtractor {
     if (text.isEmpty) return const [];
 
     final entities = <MarkdownLinkEntity>[];
+    final utf8Index = Utf8IndexConverter(text.value);
 
     for (final match in markdownLinkRegex.allMatches(text.value)) {
       if (!isValidUrl(match.markdownLinkUrl)) continue;
@@ -55,7 +56,7 @@ final class MarkdownLinksExtractor {
           text: linkText,
           url: getPrefixedUri(linkUrl),
           indices: ByteIndices(
-            start: text.value.toUtf8Index(match.start),
+            start: utf8Index.convert(match.start),
             //* Derive the end from the *actual matched source URL*
             //* (`urlMatch.url`), not from the reconstructed `linkUrl` (which may
             //* gain an `https://` prefix or lose an IDN label and therefore have
@@ -64,7 +65,7 @@ final class MarkdownLinksExtractor {
             //* it undershoots URLs that contain balanced parentheses such as
             //* `/Primer_(film)`). Both mistakes shifted every following index
             //* and corrupted `format()` output.
-            end: text.value.toUtf8Index(
+            end: utf8Index.convert(
               match.start +
                   linkText.length +
                   urlMatch.url.length +
