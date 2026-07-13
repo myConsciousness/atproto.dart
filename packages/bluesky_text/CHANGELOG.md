@@ -60,6 +60,7 @@
   chunk starts or ends with whitespace. A markdown link is also kept atomic, so
   one straddling a chunk boundary is no longer torn open (which would drop its
   facet).
+- **PERF**: `BlueskyText` now lazily memoizes every derived value (`length`,
   `handles`, `entities`, `overflow`, `segments`, `format()`…), so touching
   several properties of one instance in a Flutter `build` costs one analysis
   instead of one per property (~1.6x faster when touching seven). Note: as a

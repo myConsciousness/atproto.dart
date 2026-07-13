@@ -6,24 +6,34 @@
 import 'package:lexicon/lexicon.dart' as lex;
 
 // Project imports:
+import '../gen_context.dart';
 import '../object/lex_record.dart';
 import '../rule.dart' as rule;
 import 'lex_property_generator.dart';
 
 LexRecord generateLexRecord(
+  final GenContext ctx,
   final lex.NSID lexiconId,
   final String defName,
   final lex.LexRecord record,
   final List<String> mainVariants,
-) => _LexRecordGenerator(lexiconId, defName, record, mainVariants).execute();
+) => _LexRecordGenerator(
+  ctx,
+  lexiconId,
+  defName,
+  record,
+  mainVariants,
+).execute();
 
 final class _LexRecordGenerator {
+  final GenContext ctx;
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexRecord record;
   final List<String> mainVariants;
 
   _LexRecordGenerator(
+    this.ctx,
     this.lexiconId,
     this.defName,
     this.record,
@@ -37,6 +47,7 @@ final class _LexRecordGenerator {
       name: rule.getLexObjectName(lexiconId.toString(), defName, mainVariants),
       description: record.description,
       properties: generateLexProperties(
+        ctx,
         lexiconId,
         defName,
         record.record.properties,

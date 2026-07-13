@@ -4,12 +4,11 @@
 
 // Project imports:
 import 'commands/lex_command_generator.dart';
-import 'commands/rule.dart' as command_rule;
 import 'config.dart';
+import 'services/gen_context.dart';
 import 'services/lex_service_generator.dart';
 import 'services/lex_tools_generator.dart';
 import 'services/lex_type_generator.dart';
-import 'services/rule.dart' as service_rule;
 import 'utils.dart';
 
 sealed class Gen {
@@ -29,13 +28,15 @@ final class ServiceGen implements Gen {
 
     final docs = config.docsProvider();
 
-    service_rule.setLexServiceRuleConfig(config.serviceRuleConfig);
-    service_rule.setLexiconDocs(docs);
+    final ctx = GenContext(
+      serviceRuleConfig: config.serviceRuleConfig,
+      docs: docs,
+    );
 
-    final types = generateLexTypes(config.services, config.packages, docs);
-    generateLexServices(config.services, config.packages, types, docs);
+    final types = generateLexTypes(ctx, config.services, config.packages, docs);
+    generateLexServices(ctx, config.services, config.packages, types, docs);
 
-    generateLexTools(docs);
+    generateLexTools(ctx, docs);
   }
 }
 
@@ -48,8 +49,6 @@ final class CommandGen implements Gen {
   void execute() {
     final docs = config.docsProvider();
 
-    command_rule.setLexCommandRuleConfig(config.commandRuleConfig);
-
-    generateLexCommands(docs);
+    generateLexCommands(config.commandRuleConfig, docs);
   }
 }

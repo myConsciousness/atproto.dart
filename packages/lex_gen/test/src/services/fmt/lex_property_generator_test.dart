@@ -10,6 +10,8 @@ import 'package:test/test.dart';
 import 'package:lex_gen/src/services/fmt/lex_property_generator.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
 
+import '../../test_context.dart';
+
 /// Builds a `{name: LexObjectProperty}` map from raw fixture JSON, mirroring how
 /// the generator receives object properties.
 Map<String, lex.LexObjectProperty> _props(
@@ -27,6 +29,7 @@ List<LexProperty> _generate(
   final List<String>? nullable,
 }) {
   return generateLexProperties(
+    buildTestGenContext(),
     lex.NSID('app.bsky.feed.post'),
     'main',
     _props(propsJson),

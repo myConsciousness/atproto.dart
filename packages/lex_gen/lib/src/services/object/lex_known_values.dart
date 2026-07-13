@@ -4,10 +4,11 @@
 
 // Project imports:
 import '../../utils.dart';
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
 
-final class LexKnownValues extends LexType {
+final class LexKnownValues extends GeneratableType {
   @override
   final String lexiconId;
   @override
@@ -29,8 +30,14 @@ final class LexKnownValues extends LexType {
   });
 
   @override
-  String getFilePath() {
-    return rule.getFilePath(lexiconId, defName, state, fieldName: fieldName);
+  String getFilePath(final GenContext ctx) {
+    return rule.getFilePath(
+      ctx,
+      lexiconId,
+      defName,
+      state,
+      fieldName: fieldName,
+    );
   }
 
   @override
@@ -51,7 +58,7 @@ final class LexKnownValues extends LexType {
   }
 
   @override
-  String format() {
+  String format(final GenContext ctx) {
     final elements = values
         .map((e) {
           final buffer = StringBuffer();

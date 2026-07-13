@@ -6,18 +6,21 @@
 import 'package:lexicon/lexicon.dart' as lex;
 
 // Project imports:
+import '../gen_context.dart';
 import '../object/lex_input.dart';
 import '../object/lex_output.dart';
 import '../rule.dart' as rule;
 import 'lex_property_generator.dart';
 
 (LexInput?, LexOutput?)? generateLexXrpcProcedure(
+  final GenContext ctx,
   final lex.NSID lexiconId,
   final String defName,
   final lex.LexXrpcProcedure procedure,
   final List<String> mainVariants,
 ) {
-  return _LexLexXrpcProcedureGenerator(
+  return _LexXrpcProcedureGenerator(
+    ctx,
     lexiconId,
     defName,
     procedure,
@@ -25,13 +28,15 @@ import 'lex_property_generator.dart';
   ).execute();
 }
 
-final class _LexLexXrpcProcedureGenerator {
+final class _LexXrpcProcedureGenerator {
+  final GenContext ctx;
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexXrpcProcedure procedure;
   final List<String> mainVariants;
 
-  _LexLexXrpcProcedureGenerator(
+  _LexXrpcProcedureGenerator(
+    this.ctx,
     this.lexiconId,
     this.defName,
     this.procedure,
@@ -61,6 +66,7 @@ final class _LexLexXrpcProcedureGenerator {
     final object = procedure.input?.schema?.whenOrNull(object: (e) => e);
     if (object != null) {
       final properties = generateLexProperties(
+        ctx,
         lexiconId,
         defName,
         object.properties,
@@ -105,6 +111,7 @@ final class _LexLexXrpcProcedureGenerator {
 
     if (object != null) {
       final properties = generateLexProperties(
+        ctx,
         lexiconId,
         defName,
         object.properties,

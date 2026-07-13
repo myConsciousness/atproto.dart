@@ -9,6 +9,8 @@ import 'package:test/test.dart';
 // Project imports:
 import 'package:lex_gen/src/services/fmt/lex_record_generator.dart';
 
+import '../test_context.dart';
+
 /// End-to-end golden: a fixture Lexicon document is parsed and run through the
 /// real record generator, then the emitted Dart source is asserted against the
 /// behaviors fixed in this workstream. This exercises the full
@@ -44,7 +46,14 @@ void main() {
     final doc = lex.LexiconDoc.fromJson(_fixture);
     final record = doc.defs['main']!.data as lex.LexRecord;
 
-    final output = generateLexRecord(doc.id, 'main', record, const []).format();
+    final ctx = buildTestGenContext();
+    final output = generateLexRecord(
+      ctx,
+      doc.id,
+      'main',
+      record,
+      const [],
+    ).format(ctx);
 
     test('(G-17) createdAt is UTC-normalized via iso8601', () {
       expect(

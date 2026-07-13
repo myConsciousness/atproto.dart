@@ -3,13 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import '../../utils.dart';
-import '../rule.dart' as rule;
+import '../gen_context.dart';
 import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
 
-final class LexOutput extends LexType {
+final class LexOutput extends GeneratableType {
   @override
   final String lexiconId;
   @override
@@ -36,20 +35,17 @@ final class LexOutput extends LexType {
     this.bytes = false,
   });
 
-  String? getDescription() {
-    return description != null ? '/// $description' : '';
-  }
+  /// A single-ref output on an `upload*` endpoint, which is served by the
+  /// referenced type directly rather than a generated wrapper (duct-tape rule).
+  bool get _isUploadRef =>
+      properties.length == 1 &&
+      properties.first.type.isRef &&
+      lexiconId.contains('upload');
 
   @override
   String? getRef() {
     if (ref != null) return ref;
-
-    if (properties.length == 1 &&
-        properties.first.type.isRef &&
-        lexiconId.contains('upload')) {
-      // Duct tape solution
-      return properties.first.type.ref;
-    }
+    if (_isUploadRef) return properties.first.type.ref;
 
     return null;
   }
@@ -58,13 +54,7 @@ final class LexOutput extends LexType {
   bool isShouldNotBeGenerated() {
     if (getRef() != null) return true;
     if (isBytes()) return true;
-
-    if (properties.length == 1 &&
-        properties.first.type.isRef &&
-        lexiconId.contains('upload')) {
-      // Duct tape solution
-      return true;
-    }
+    if (_isUploadRef) return true;
 
     return false;
   }
@@ -91,60 +81,13 @@ final class LexOutput extends LexType {
   }
 
   @override
-  String format() {
-    final properties = StringBuffer();
-    for (final property in this.properties) {
-      if (rule.isDeprecated(property.description)) {
-        continue;
-      }
-
-      properties.writeln(property.format());
-    }
-
-    final packages = StringBuffer();
-    for (final packagePath
-        in this.properties
-            .where((e) => e.type.packagePath != null)
-            .map((e) => e.type.packagePath)
-            .toSet()
-            .toList()) {
-      packages.writeln("import '$packagePath';");
-    }
-
-    final knownProps = getKnownProps(this.properties);
-    final extensions = getExtensions(name, this.properties, suffix: 'Output');
-    final converter = getObjectConverter(name, suffix: 'Output');
-
-    return '''$kHeaderHint
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart';
-
-${packages.toString()}
-
-part 'output.freezed.dart';
-part 'output.g.dart';
-
-$kHeader
-
-${getDescription()}
-@freezed
-abstract class ${name}Output with _\$${name}Output {
-  $knownProps
-
-  @JsonSerializable(includeIfNull: false)
-  const factory ${name}Output({
-    ${properties.toString()}
-    Map<String, dynamic>? \$unknown,
-  }) = _${name}Output;
-
-  factory ${name}Output.fromJson(Map<String, Object?> json) => _\$${name}OutputFromJson(json);
-}
-
-$extensions
-
-$converter
-''';
+  String format(final GenContext ctx) {
+    return renderFreezedDataClass(
+      name: name,
+      suffix: 'Output',
+      partBaseName: 'output',
+      description: description,
+      properties: properties,
+    );
   }
 }

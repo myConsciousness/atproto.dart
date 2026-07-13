@@ -9,7 +9,9 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart' as lex;
 
 // Project imports:
+import '../model/nsid.dart';
 import 'fmt/lex_known_values_generator.dart';
+import 'gen_context.dart';
 import 'fmt/lex_object_generator.dart';
 import 'fmt/lex_packages_generator.dart';
 import 'fmt/lex_record_generator.dart';
@@ -20,25 +22,27 @@ import 'fmt/lex_xrpc_subscription_generator.dart';
 import 'object/lex_package.dart';
 import 'object/lex_type.dart';
 
-List<LexType> generateLexTypes(
+List<GeneratableType> generateLexTypes(
+  final GenContext ctx,
   final List<String> services,
   final List<String> packages,
   final List<lex.LexiconDoc> docs,
 ) {
-  return _LexTypeGenerator(services, packages, docs).execute();
+  return _LexTypeGenerator(ctx, services, packages, docs).execute();
 }
 
 final class _LexTypeGenerator {
+  final GenContext ctx;
   final List<String> services;
   final List<String> packages;
   final List<lex.LexiconDoc> docs;
 
-  const _LexTypeGenerator(this.services, this.packages, this.docs);
+  const _LexTypeGenerator(this.ctx, this.services, this.packages, this.docs);
 
-  List<LexType> execute() {
+  List<GeneratableType> execute() {
     _cleanWorkspace();
 
-    final types = <LexType>[];
+    final types = <GeneratableType>[];
     final filteredLexicons = _filterLexicons(docs, services);
 
     final mainVariants = _checkMainVariants(filteredLexicons);
@@ -51,6 +55,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(
             types,
             generateLexObject(
+              ctx,
               doc.id,
               def.key,
               def.value.data as lex.LexObject,
@@ -74,6 +79,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(
             types,
             generateLexRecord(
+              ctx,
               doc.id,
               def.key,
               def.value.data as lex.LexRecord,
@@ -95,6 +101,7 @@ final class _LexTypeGenerator {
           );
         } else if (def.value is lex.ULexUserTypeXrpcQuery) {
           final type = generateLexXrpcQuery(
+            ctx,
             doc.id,
             def.key,
             def.value.data as lex.LexXrpcQuery,
@@ -107,6 +114,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(types, type.$2);
         } else if (def.value is lex.ULexUserTypeXrpcProcedure) {
           final type = generateLexXrpcProcedure(
+            ctx,
             doc.id,
             def.key,
             def.value.data as lex.LexXrpcProcedure,
@@ -119,6 +127,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(types, type.$2);
         } else if (def.value is lex.ULexUserTypeXrpcSubscription) {
           final type = generateLexXrpcSubscription(
+            ctx,
             doc.id,
             def.key,
             def.value.data as lex.LexXrpcSubscription,
@@ -136,9 +145,9 @@ final class _LexTypeGenerator {
     for (final type in types) {
       if (type.isShouldNotBeGenerated()) continue;
 
-      File(type.getFilePath())
+      File(type.getFilePath(ctx))
         ..createSync(recursive: true)
-        ..writeAsStringSync(type.format());
+        ..writeAsStringSync(type.format(ctx));
     }
 
     _generateLexPackages(types);
@@ -171,15 +180,14 @@ final class _LexTypeGenerator {
     final List<String> services,
   ) {
     return lexicons.where((lexicon) {
-      final id = lexicon.id.toString();
-      final service = id.split('.').sublist(0, 2).join('.');
+      final service = Nsid(lexicon.id.toString()).authority;
 
       return services.contains(service);
     }).toList();
   }
 
-  void _generateLexPackages(final List<LexType> type) {
-    final packages = generateLexPackages(type);
+  void _generateLexPackages(final List<GeneratableType> type) {
+    final packages = generateLexPackages(ctx, type);
     final basePackages = _getBasePackages(packages);
 
     for (final package in packages) {
@@ -227,10 +235,12 @@ final class _LexTypeGenerator {
     return mainVariants.toList();
   }
 
-  void _aggregateTypes(final List<LexType> types, final LexType? type) {
+  void _aggregateTypes(final List<GeneratableType> types, final LexType? type) {
     if (type == null) return;
 
-    if (type.state != LexTypeState.message) {
+    // Only generatable types are emitted; the sole non-generatable type is the
+    // subscription-message container, which is surfaced via its nested union.
+    if (type is GeneratableType) {
       types.add(type);
     }
 

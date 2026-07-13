@@ -1,9 +1,10 @@
 // Project imports:
 import '../../utils.dart';
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
 
-final class LexUnion extends LexType {
+final class LexUnion extends GeneratableType {
   @override
   final String lexiconId;
   @override
@@ -28,8 +29,8 @@ final class LexUnion extends LexType {
   });
 
   @override
-  String getFilePath() {
-    return rule.getFilePathForUnion(lexiconId, defName, fieldName);
+  String getFilePath(final GenContext ctx) {
+    return rule.getFilePathForUnion(ctx, lexiconId, defName, fieldName);
   }
 
   @override
@@ -43,13 +44,19 @@ final class LexUnion extends LexType {
   }
 
   @override
-  String format() {
+  String format(final GenContext ctx) {
     final fileName = rule.getFileNameForUnion(lexiconId, defName, fieldName);
-    final packagePaths = _getPackagePaths();
-    final factories = _getUnionFactories();
-    final extensions = _getExtensions();
-    final fromJson = _getFromJson();
-    final toJson = _getToJson();
+    // Resolve each ref's object name once and reuse it across every section
+    // below, instead of re-resolving it four times per ref.
+    final objectNames = [
+      for (final ref in refs)
+        rule.getLexObjectNameFromRef(lexiconId, ref, mainVariants),
+    ];
+    final packagePaths = _getPackagePaths(ctx);
+    final factories = _getUnionFactories(objectNames);
+    final extensions = _getExtensions(objectNames);
+    final fromJson = _getFromJson(objectNames);
+    final toJson = _getToJson(objectNames);
 
     return '''$kHeaderHint
 
@@ -102,27 +109,21 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
 ''';
   }
 
-  String _getPackagePaths() {
+  String _getPackagePaths(final GenContext ctx) {
     final buffer = StringBuffer();
 
     for (final ref in refs) {
-      final path = rule.getLexObjectPackagePathFromRef(lexiconId, ref);
+      final path = rule.getLexObjectPackagePathFromRef(ctx, lexiconId, ref);
       buffer.writeln("import '$path';");
     }
 
     return buffer.toString();
   }
 
-  String _getUnionFactories() {
+  String _getUnionFactories(final List<String> objectNames) {
     final buffer = StringBuffer();
 
-    for (final ref in refs) {
-      final objectName = rule.getLexObjectNameFromRef(
-        lexiconId,
-        ref,
-        mainVariants,
-      );
-
+    for (final objectName in objectNames) {
       buffer.writeln('const factory $name.${toFirstLowerCase(objectName)}({');
       buffer.writeln('  required $objectName data,');
       buffer.writeln('}) = $name$objectName;');
@@ -131,16 +132,10 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
     return buffer.toString();
   }
 
-  String _getExtensions() {
+  String _getExtensions(final List<String> objectNames) {
     final buffer = StringBuffer();
 
-    for (final ref in refs) {
-      final objectName = rule.getLexObjectNameFromRef(
-        lexiconId,
-        ref,
-        mainVariants,
-      );
-
+    for (final objectName in objectNames) {
       buffer.writeln('bool get is$objectName => isA<$name$objectName>(this);');
       buffer.writeln('bool get isNot$objectName => !is$objectName;');
 
@@ -161,16 +156,10 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
     return buffer.toString();
   }
 
-  String _getFromJson() {
+  String _getFromJson(final List<String> objectNames) {
     final buffer = StringBuffer();
 
-    for (final ref in refs) {
-      final objectName = rule.getLexObjectNameFromRef(
-        lexiconId,
-        ref,
-        mainVariants,
-      );
-
+    for (final objectName in objectNames) {
       buffer.writeln('if ($objectName.validate(json)) {');
       buffer.writeln('  return $name.${toFirstLowerCase(objectName)}(');
       buffer.writeln(
@@ -183,16 +172,10 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
     return buffer.toString();
   }
 
-  String _getToJson() {
+  String _getToJson(final List<String> objectNames) {
     final buffer = StringBuffer();
 
-    for (final ref in refs) {
-      final objectName = rule.getLexObjectNameFromRef(
-        lexiconId,
-        ref,
-        mainVariants,
-      );
-
+    for (final objectName in objectNames) {
       buffer.writeln(
         '${toFirstLowerCase(objectName)}: (data) => '
         'const ${objectName}Converter().toJson(data),',
