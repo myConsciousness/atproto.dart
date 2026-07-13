@@ -112,6 +112,39 @@ void main() {
       expect(styled.single.text, 'hello');
     });
 
+    test('a facet entirely beyond the text is dropped (no empty segment)', () {
+      // 'hello' is 5 bytes; the facet claims bytes 10..20 (malformed data from
+      // a third-party PDS). It must be dropped — not emitted as an empty
+      // segment that breaks the non-empty partition invariant.
+      final segments = renderFacets('hello', const [
+        PostFacet(
+          byteStart: 10,
+          byteEnd: 20,
+          features: [FacetFeature(type: EntityType.link, value: 'x')],
+        ),
+      ]);
+
+      _expectPartition('hello', segments);
+      expect(segments, hasLength(1));
+      expect(segments.single.type, isNull);
+    });
+
+    test('a facet extending past the end of the text is clamped', () {
+      // 'héllo' is 6 bytes / 5 UTF-16 units; the facet runs 3..99.
+      final segments = renderFacets('héllo', const [
+        PostFacet(
+          byteStart: 3,
+          byteEnd: 99,
+          features: [FacetFeature(type: EntityType.tag, value: 't')],
+        ),
+      ]);
+
+      _expectPartition('héllo', segments);
+      final tag = segments.singleWhere((s) => s.type == EntityType.tag);
+      expect(tag.text, 'llo');
+      expect(tag.utf16End, 5);
+    });
+
     test('PostFacet.fromJson parses the lexicon shape', () {
       final facet = PostFacet.fromJson({
         'index': {'byteStart': 2, 'byteEnd': 10},

@@ -26,6 +26,24 @@ void main() {
     });
   });
 
+  group('memoized collections are unmodifiable', () {
+    test('mutating .segments throws and does not corrupt later reads', () {
+      final text = BlueskyText('hello @alice.bsky.social');
+      final before = text.segments.length;
+
+      expect(() => text.segments.clear(), throwsUnsupportedError);
+      expect(text.segments.length, before);
+    });
+
+    test('mutating .split() throws and does not corrupt later calls', () {
+      final text = BlueskyText('a' * 700);
+      final before = text.split().length;
+
+      expect(() => text.split().clear(), throwsUnsupportedError);
+      expect(text.split().length, before);
+    });
+  });
+
   group('.toPostData', () {
     test('formats markdown into a link facet in one call', () async {
       final post = await BlueskyText(

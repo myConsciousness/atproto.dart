@@ -50,6 +50,20 @@ void main() {
       }
     });
 
+    test('a single grapheme cluster over 3000 bytes does not hang', () {
+      // ~500 ZWJ-joined emoji form ONE grapheme cluster of ~3500 bytes. It
+      // cannot fit any chunk, so it is emitted as its own over-limit chunk
+      // (detectable via isLengthLimitExceeded) and the split makes progress
+      // instead of looping forever.
+      final monster = List.filled(500, '\u{1F469}').join('‍');
+      final chunks = BlueskyText('$monster tail').split();
+
+      expect(chunks, hasLength(2));
+      expect(chunks.first.isLengthLimitExceeded, isTrue);
+      expect(chunks.last.isLengthLimitExceeded, isFalse);
+      expect(chunks.last.value, 'tail');
+    });
+
     test('within-limit text is returned unchanged', () {
       final text = BlueskyText('hello world');
       final chunks = text.split();

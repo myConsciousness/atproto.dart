@@ -20,8 +20,10 @@ import 'text_segment.dart';
 ///
 /// The facet byte offsets are expected to align with grapheme boundaries (as
 /// the API guarantees). Facets are sorted by start, and any facet overlapping a
-/// previously kept one — or with no recognized feature, or an empty range — is
-/// dropped, so the output is always a clean partition.
+/// previously kept one — or with no recognized feature, an empty range, or a
+/// range entirely beyond the text — is dropped, so the output is always a
+/// clean partition. A range extending past the end of the text is clamped to
+/// it. When a facet carries multiple features, the first is used.
 List<TextSegment> renderFacets(
   final String text,
   final List<PostFacet> facets,

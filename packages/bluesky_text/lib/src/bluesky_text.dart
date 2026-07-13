@@ -212,10 +212,13 @@ sealed class BlueskyText {
   /// tail in red:
   ///
   /// ```dart
-  /// final overflow = text.format().overflow;
+  /// final post = text.formatted;
+  /// final overflow = post.overflow;
   /// if (overflow != null) {
-  ///   final within = text.value.substring(0, overflow.utf16Start);
-  ///   final exceeded = text.value.substring(overflow.utf16Start);
+  ///   //! The offsets index into the *formatted* value, so substring that —
+  ///   //! not the raw `text.value`, whose offsets differ after formatting.
+  ///   final within = post.value.substring(0, overflow.utf16Start);
+  ///   final exceeded = post.value.substring(overflow.utf16Start);
   ///   // render `within` normally and `exceeded` in red.
   /// }
   /// ```
@@ -364,10 +367,15 @@ final class _BlueskyText implements BlueskyText {
     );
   }
 
-  late final List<BlueskyText> _chunks = splitter.execute(
-    this,
-    enableMarkdown: _enableMarkdown,
-    linkConfig: _linkConfig,
+  //* Memoized results are shared across calls, so they are wrapped
+  //* unmodifiable: a caller mutating the returned list (`..sort()`, `clear()`)
+  //* must not silently corrupt every later access.
+  late final List<BlueskyText> _chunks = List.unmodifiable(
+    splitter.execute(
+      this,
+      enableMarkdown: _enableMarkdown,
+      linkConfig: _linkConfig,
+    ),
   );
 
   @override
@@ -395,10 +403,8 @@ final class _BlueskyText implements BlueskyText {
       : _snapOverflow(_rawOverflow, entities);
 
   @override
-  late final List<TextSegment> segments = segmenter.execute(
-    value,
-    entities,
-    overflow,
+  late final List<TextSegment> segments = List.unmodifiable(
+    segmenter.execute(value, entities, overflow),
   );
 
   /// Snaps [raw]'s boundary back to the start of any entity that strictly

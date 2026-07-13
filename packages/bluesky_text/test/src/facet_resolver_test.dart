@@ -58,6 +58,16 @@ void main() {
       expect(facets, hasLength(1)); // only alice resolved
     });
 
+    test('a handle mentioned twice is reported unresolved once', () async {
+      final text = BlueskyText('@ghost.bsky.social and @ghost.bsky.social');
+
+      final result = await text.entities.toFacetsResult(
+        resolver: (handle) async => null,
+      );
+
+      expect(result.unresolvedHandles, ['ghost.bsky.social']);
+    });
+
     test('an all-resolving resolver leaves no unresolved handles', () async {
       final text = BlueskyText('@a.bsky.social @b.bsky.social');
 

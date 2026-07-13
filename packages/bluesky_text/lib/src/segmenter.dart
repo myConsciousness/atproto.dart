@@ -70,6 +70,12 @@ List<TextSegment> buildTextSegments(
     final utf16Start = converter.convert(startByte);
     final utf16End = converter.convert(endByte);
 
+    //* A byte range at or beyond the end of [value] (possible with malformed
+    //* facets from a third-party PDS) converts to an empty UTF-16 range; drop
+    //* it rather than emit an empty segment that would break the "every
+    //* segment is non-empty" partition invariant.
+    if (utf16Start >= utf16End) return;
+
     segments.add(
       TextSegment(
         text: value.substring(utf16Start, utf16End),

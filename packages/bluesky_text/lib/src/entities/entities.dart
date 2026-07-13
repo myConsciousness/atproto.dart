@@ -26,7 +26,8 @@ class Entities extends UnmodifiableListView<Entity> {
     );
 
     final facets = <Map<String, dynamic>>[];
-    final unresolvedHandles = <String>[];
+    //* A set so a handle mentioned multiple times is reported once.
+    final unresolvedHandles = <String>{};
     for (var i = 0; i < length; i++) {
       final facet = results[i];
       if (facet.isEmpty) {
@@ -39,7 +40,7 @@ class Entities extends UnmodifiableListView<Entity> {
       facets.add(facet);
     }
 
-    return (facets: facets, unresolvedHandles: unresolvedHandles);
+    return (facets: facets, unresolvedHandles: unresolvedHandles.toList());
   }
 
   /// Returns the collection of facet.
