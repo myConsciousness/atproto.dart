@@ -8,44 +8,32 @@ on:
     types:
       - closed
 
+permissions:
+  contents: read
+
 jobs:
   generate-codes:
-    if: github.event.pull_request.base.ref == 'main' &&
-      github.event.pull_request.head.ref == 'chore-sync-lexicons'
+    # Run manually, or only when the sync-lexicons PR is actually merged
+    # (not just closed without merging).
+    if: github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true &&
+      github.event.pull_request.head.ref == 'chore-sync-lexicons')
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          ref: main
 
-      - name: Delete Old Branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git fetch origin
-          if git show-ref --quiet refs/remotes/origin/chore-generate-codes; then
-            git push origin --delete chore-generate-codes
-          fi
-
-      - name: Create New Branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git switch -c chore-generate-codes
-          git push -u origin chore-generate-codes
-
-      - uses: dart-lang/setup-dart@v1.3
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
 
       - name: Install dependencies
-        run: |
-          dart pub get
-          cd packages/atproto
-          dart pub get
-          cd ../../packages/bluesky
-          dart pub get
-          cd ../../packages/bluesky_cli
-          dart pub get
-          cd ../../
+        # This repository is a pub workspace, so a single `pub get` at the
+        # root resolves every package.
+        run: dart pub get
 
       - name: Generate
         run: |
@@ -55,42 +43,36 @@ jobs:
           dart run ./scripts/gen_supported_api_matrix.dart
           dart run ./scripts/gen_codes.dart
 
-      - name: Build
-        run: |
-          cd packages/atproto
-          dart run build_runner build --delete-conflicting-outputs
-          cd ../../packages/bluesky
-          dart run build_runner build --delete-conflicting-outputs
-          cd ../../
+      - name: Build (atproto)
+        run: dart run build_runner build --delete-conflicting-outputs
+        working-directory: packages/atproto
+
+      - name: Build (bluesky)
+        run: dart run build_runner build --delete-conflicting-outputs
+        working-directory: packages/bluesky
 
       - name: Format
         run: |
-          cd packages/lexicon
-          dart fix --apply
-          dart run import_sorter:main
-          dart format .
-          cd ../../packages/atproto
-          dart fix --apply
-          dart run import_sorter:main
-          dart format .
-          cd ../../packages/bluesky
-          dart fix --apply
-          dart run import_sorter:main
-          dart format .
-          cd ../../packages/bluesky_cli
-          dart fix --apply
-          dart run import_sorter:main
-          dart format .
-          cd ../../
+          for package in lexicon atproto bluesky bluesky_cli; do
+            (
+              cd "packages/$package"
+              dart fix --apply
+              dart run import_sorter:main
+              dart format .
+            )
+          done
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
+          # A PAT is required so that CI workflows (Test, Validate
+          # Dependencies) run on the created pull request; PRs created
+          # with the default GITHUB_TOKEN do not trigger workflows.
+          token: ${{ secrets.PAT }}
           commit-message: "chore: Update source files automatically"
           title: "chore: Update source files automatically"
           branch: chore-generate-codes
           base: main
-          labels: Github Actions
+          delete-branch: true
+          labels: GitHub Actions
           assignees: "${{ github.actor }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

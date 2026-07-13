@@ -16,6 +16,7 @@ body:
       label: Package
       description: Which package is affected by this bug?
       options:
+        - at_primitives
         - atproto
         - atproto_core
         - atproto_oauth
@@ -92,13 +93,12 @@ body:
           // ...
         }
 
-  - type: dropdown
+  - type: input
     id: dart-version
     attributes:
       label: Dart Version
-      description: What version of Dart are you using?
-      options:
-        - "Please specify in additional context"
+      description: What version of Dart are you using? (`dart --version`)
+      placeholder: "e.g., 3.8.0"
     validations:
       required: true
 

@@ -16,6 +16,7 @@ body:
       label: Package
       description: Which package should this feature be added to?
       options:
+        - at_primitives
         - atproto
         - atproto_core
         - atproto_oauth
