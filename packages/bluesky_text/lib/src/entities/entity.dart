@@ -10,6 +10,14 @@ import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
 import 'facetable.dart';
 
+/// Resolves a Bluesky `handle` (e.g. `shinyakato.dev`) to its DID, or returns
+/// `null` when the handle does not resolve.
+///
+/// Supply one to [Entity.toFacet] / `Entities.toFacets` to control mention
+/// resolution — for example to serve already-known DIDs from a cache or to
+/// batch lookups — instead of the built-in per-handle network call.
+typedef HandleResolver = Future<String?> Function(String handle);
+
 final class Entity implements Facetable {
   final EntityType type;
   final String value;
@@ -24,7 +32,16 @@ final class Entity implements Facetable {
   });
 
   /// Returns the facet representation of this entity as JSON.
-  Future<Map<String, dynamic>> toFacet({String? service}) async {
+  ///
+  /// For a handle, [resolver] (when given) is used to look up the DID instead of
+  /// the built-in network call, so callers can inject a cache of known DIDs.
+  /// When the handle does not resolve, an empty map is returned; use
+  /// `Entities.toFacetsResult` to learn which handles were dropped rather than
+  /// silently posting without their mentions.
+  Future<Map<String, dynamic>> toFacet({
+    String? service,
+    HandleResolver? resolver,
+  }) async {
     final facet = <String, dynamic>{
       'index': {'byteStart': indices.start, 'byteEnd': indices.end},
       'features': [],
@@ -32,21 +49,33 @@ final class Entity implements Facetable {
 
     switch (type) {
       case EntityType.handle:
-        try {
-          final did = await api.findDID(handle: value, service: service);
-
-          facet['features'].add({
-            '\$type': 'app.bsky.richtext.facet#mention',
-            'did': did.data['did'],
-          });
-        } on xrpc.InvalidRequestException {
-          //* The handle could not be resolved to a DID (e.g. it does not
-          //* exist), so there is legitimately no mention facet to emit. Only
-          //* this specific case is swallowed; network failures and other
-          //* unexpected errors are intentionally rethrown so a transient outage
-          //* does not silently drop mentions without the caller noticing.
-          return {};
+        final String? did;
+        if (resolver != null) {
+          did = await resolver(value);
+        } else {
+          try {
+            did =
+                (await api.findDID(handle: value, service: service)).data['did']
+                    as String?;
+          } on xrpc.InvalidRequestException {
+            //* The handle could not be resolved to a DID (e.g. it does not
+            //* exist), so there is legitimately no mention facet to emit. Only
+            //* this specific case is swallowed; network failures and other
+            //* unexpected errors are intentionally rethrown so a transient
+            //* outage does not silently drop mentions without the caller
+            //* noticing.
+            return {};
+          }
         }
+
+        //* A resolver that returns null (unknown handle) is treated the same as
+        //* the `InvalidRequestException` above: no mention facet.
+        if (did == null) return {};
+
+        facet['features'].add({
+          '\$type': 'app.bsky.richtext.facet#mention',
+          'did': did,
+        });
 
         break;
       case EntityType.link:

@@ -7,7 +7,11 @@ export 'package:bluesky_text/src/config/link_config.dart';
 export 'package:bluesky_text/src/entities/byte_indices.dart';
 export 'package:bluesky_text/src/entities/entities.dart';
 export 'package:bluesky_text/src/entities/entity.dart';
+export 'package:bluesky_text/src/facet.dart';
+export 'package:bluesky_text/src/facet_segmenter.dart' show renderFacets;
 export 'package:bluesky_text/src/text_length_overflow.dart';
 export 'package:bluesky_text/src/text_segment.dart';
+export 'package:bluesky_text/src/unicode_string.dart'
+    show Utf16IndexConverter, utf8ByteLength;
 export 'package:bluesky_text/src/utils.dart'
     show isEmojiOnly, getGraphemeLength;

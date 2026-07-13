@@ -24,6 +24,33 @@
   single pass — without merging the byte-based entity indices and the overflow
   range by hand. Concatenating every `TextSegment.text` reproduces the value,
   and no segment is ever split across an entity boundary.
+- **FEAT**: Added `renderFacets(text, facets)` and `PostFacet` for displaying a
+  **fetched** post: it partitions the text into `TextSegment`s using the
+  server-provided facets (authoritative mentions/links/tags, mentions already
+  carrying their DID) instead of re-detecting entities. Each segment exposes a
+  `FacetFeature` with the resolved DID / URI / tag, so a Flutter client can
+  style received posts with one `TextSpan` builder shared with the compose path.
+  `PostFacet.fromJson` parses the `app.bsky.richtext.facet` API shape, and the
+  byte→UTF-16 `Utf16IndexConverter` is now public.
+- **FEAT**: `Entities.toFacets` / the new `Entities.toFacetsResult` accept a
+  `HandleResolver`, so mention DID resolution can be served from a cache or
+  batched instead of the built-in per-handle network call. `toFacetsResult`
+  additionally returns the handles that failed to resolve, so a client can warn
+  the user rather than silently posting a mention-less message.
+- **FEAT**: Added `BlueskyText.formatted` (the memoized, posting-ready form) and
+  `BlueskyText.toPostData(...)`, which formats and resolves facets in one call —
+  the only correct order, since markdown links become link facets only after
+  formatting — returning `(text, facets, unresolvedHandles)`.
+- **FIX**: `split()` now budgets each chunk against **both** post limits (300
+  graphemes and 3000 UTF-8 bytes). Previously it budgeted graphemes only, so a
+  byte-heavy chunk — e.g. many multi-byte ZWJ emoji — could stay under 300
+  graphemes yet exceed 3000 bytes and still be rejected by the server.
+- **PERF**: `BlueskyText` now lazily memoizes every derived value (`length`,
+  `handles`, `entities`, `overflow`, `segments`, `format()`…), so touching
+  several properties of one instance in a Flutter `build` costs one analysis
+  instead of one per property (~1.6x faster when touching seven). Note: as a
+  result `BlueskyText` is **no longer `const`** — `const BlueskyText(...)` must
+  become `BlueskyText(...)`.
 - **PERF**: The length-limit hot paths (polled on every keystroke in a Flutter
   editor) avoid the regex-based entity extraction entirely unless it is needed.
   `isLengthLimitExceeded` and `overflow` fall back to a cheap grapheme scan when

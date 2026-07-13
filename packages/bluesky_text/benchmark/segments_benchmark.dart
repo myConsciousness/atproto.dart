@@ -107,6 +107,38 @@ void _typingSimulation(final String value) {
   );
 }
 
+/// Touching several properties of one text — as a Flutter `build` does — costs
+/// one analysis when the instance is reused (memoized), versus one per property
+/// when a fresh instance is built each time.
+void _memoizationComparison(final String value) {
+  void touchAll(final BlueskyText text) {
+    text.length;
+    text.handles;
+    text.links;
+    text.tags;
+    text.entities;
+    text.overflow;
+    text.segments;
+  }
+
+  final reused = _bench('reused instance (memoized)', () {
+    touchAll(BlueskyText(value));
+  });
+  final fresh = _bench('fresh instance per property', () {
+    BlueskyText(value).length;
+    BlueskyText(value).handles;
+    BlueskyText(value).links;
+    BlueskyText(value).tags;
+    BlueskyText(value).entities;
+    BlueskyText(value).overflow;
+    BlueskyText(value).segments;
+  });
+  print(
+    'memoization saves ${(fresh - reused).toStringAsFixed(1)} µs/build '
+    '(${(fresh / reused).toStringAsFixed(1)}x)',
+  );
+}
+
 void main() {
   // Touch Random so the import is meaningful if the value builders evolve.
   final _ = Random(1);
@@ -116,4 +148,7 @@ void main() {
   _suite('oversized', _oversized);
 
   _typingSimulation(_realistic);
+
+  print('\n=== memoization (touching 7 properties of one text) ===');
+  _memoizationComparison(_realistic);
 }

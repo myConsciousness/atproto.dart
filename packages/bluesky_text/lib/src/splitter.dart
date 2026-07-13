@@ -9,6 +9,7 @@ import 'package:characters/characters.dart';
 import 'bluesky_text.dart';
 import 'config/link_config.dart';
 import 'const.dart';
+import 'unicode_string.dart';
 
 const splitter = Splitter();
 
@@ -37,11 +38,13 @@ final class _Splitter implements Splitter {
     final chunks = <BlueskyText>[];
     final buffer = StringBuffer();
 
-    //* The running length of [buffer] is tracked in graphemes (not UTF-16 code
-    //* units) so the budget matches [maxLength], which is a grapheme count.
-    //* Mixing UTF-16 length with grapheme counts previously under-filled every
-    //* chunk that contained emoji or other non-BMP characters.
-    int bufferLength = 0;
+    //* Each chunk is budgeted against BOTH post limits: [maxLength] graphemes
+    //* and [maxByteLength] UTF-8 bytes. Tracking only graphemes (as before) let
+    //* a byte-heavy chunk — e.g. many multi-byte ZWJ emoji — stay under 300
+    //* graphemes yet exceed 3000 bytes, so the produced chunk was still
+    //* rejected by the server.
+    int bufferLength = 0; //* graphemes
+    int bufferBytes = 0; //* UTF-8 bytes
 
     //* Propagate the markdown / link configuration to each produced chunk so a
     //* split preserves the same rendering behavior as the source text. The
@@ -58,52 +61,88 @@ final class _Splitter implements Splitter {
       chunks.add(create(buffer.toString()));
       buffer.clear();
       bufferLength = 0;
+      bufferBytes = 0;
     }
 
-    void appendToBuffer(final String value, final int length) {
-      if (bufferLength > 0 && bufferLength + length + 1 > maxLength) {
+    void appendToBuffer(final String value, final int length, final int bytes) {
+      //* The `+ 1` accounts for the joining space (one grapheme, one byte) that
+      //* is written before [value] when the buffer is non-empty.
+      if (bufferLength > 0 &&
+          (bufferLength + length + 1 > maxLength ||
+              bufferBytes + bytes + 1 > maxByteLength)) {
         flush();
       }
 
       if (buffer.isNotEmpty) {
         buffer.write(' ');
         bufferLength += 1;
+        bufferBytes += 1;
       }
 
       buffer.write(value);
       bufferLength += length;
+      bufferBytes += bytes;
     }
 
     for (final word in text.value.split(' ')) {
-      final characters = word.characters;
-      final wordLength = characters.length;
+      final graphemes = word.characters.toList();
+      final wordLength = graphemes.length;
+      final wordBytes = utf8ByteLength(word);
 
-      if (wordLength > maxLength) {
-        //* Hard-split a single word that is longer than the limit into
-        //* [maxLength]-grapheme chunks, flushing whatever is buffered first so
-        //* the oversized segments stand on their own.
+      if (wordLength > maxLength || wordBytes > maxByteLength) {
+        //* Hard-split a single word that alone blows either budget, flushing
+        //* whatever is buffered first so the oversized pieces stand on their
+        //* own. Each piece is the largest prefix fitting both budgets.
         int offset = 0;
-        while (characters.length - offset > maxLength) {
-          flush();
-          chunks.add(
-            create(characters.skip(offset).take(maxLength).toString()),
-          );
-          offset += maxLength;
-        }
+        int consumedBytes = 0;
+        while (offset < graphemes.length) {
+          final remaining = graphemes.length - offset;
+          final remainingBytes = wordBytes - consumedBytes;
 
-        //* The trailing remainder continues to accumulate with the following
-        //* words instead of forcing its own chunk.
-        appendToBuffer(
-          characters.skip(offset).toString(),
-          characters.length - offset,
-        );
+          if (remaining <= maxLength && remainingBytes <= maxByteLength) {
+            //* The trailing remainder fits, so accumulate it with the following
+            //* words instead of forcing its own chunk.
+            appendToBuffer(
+              graphemes.skip(offset).join(),
+              remaining,
+              remainingBytes,
+            );
+            break;
+          }
+
+          final (take, takeBytes) = _fit(graphemes, offset);
+          flush();
+          chunks.add(create(graphemes.skip(offset).take(take).join()));
+          offset += take;
+          consumedBytes += takeBytes;
+        }
       } else {
-        appendToBuffer(word, wordLength);
+        appendToBuffer(word, wordLength, wordBytes);
       }
     }
 
     flush();
 
     return chunks;
+  }
+
+  /// Returns `(graphemeCount, byteLength)` of the largest prefix of [graphemes]
+  /// starting at [offset] that fits within both a single chunk's grapheme
+  /// ([maxLength]) and byte ([maxByteLength]) budgets. Always takes at least the
+  /// first grapheme — even one that alone exceeds the byte budget (which cannot
+  /// be posted anyway) — so the split always makes progress.
+  (int, int) _fit(final List<String> graphemes, final int offset) {
+    int count = 0;
+    int bytes = 0;
+
+    for (int i = offset; i < graphemes.length && count < maxLength; i++) {
+      final graphemeBytes = utf8ByteLength(graphemes[i]);
+      if (count > 0 && bytes + graphemeBytes > maxByteLength) break;
+
+      bytes += graphemeBytes;
+      count++;
+    }
+
+    return (count, bytes);
   }
 }

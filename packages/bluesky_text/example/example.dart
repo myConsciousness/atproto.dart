@@ -62,13 +62,44 @@ Future<void> main() async {
     // {type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
     print(text.entities);
 
-    //! And you can easily integrate with bluesky package!
+    //! And you can easily integrate with bluesky package! `toPostData` formats
+    //! (markdown expanded, links shortened) AND resolves facets in one call —
+    //! the only correct order, since markdown links become facets only after
+    //! formatting.
     final bluesky = bsky.Bluesky.fromSession(await _session);
-    final facets = await text.entities.toFacets();
+    final post = await text.toPostData();
+
+    //! Unresolved mentions are surfaced instead of silently dropped, so you can
+    //! warn the user before posting.
+    if (post.unresolvedHandles.isNotEmpty) {
+      print('Could not resolve: ${post.unresolvedHandles}');
+    }
 
     await bluesky.feed.post.create(
-      text: text.value,
-      facets: facets.map(RichtextFacet.fromJson).toList(),
+      text: post.text,
+      facets: post.facets.map(RichtextFacet.fromJson).toList(),
+    );
+  }
+
+  //! Displaying a FETCHED post: render the server's facets (authoritative —
+  //! mentions already carry their DID) rather than re-detecting entities.
+  //! `renderFacets` gives the same `TextSegment` partition, so one `TextSpan`
+  //! builder styles both the composer and the timeline.
+  const fetchedText = 'hello @shinyakato.dev 🦋';
+  final fetchedFacets = [
+    {
+      'index': {'byteStart': 6, 'byteEnd': 21},
+      'features': [
+        {'\$type': 'app.bsky.richtext.facet#mention', 'did': 'did:plc:1234'},
+      ],
+    },
+  ];
+  for (final segment in renderFacets(
+    fetchedText,
+    fetchedFacets.map(PostFacet.fromJson).toList(),
+  )) {
+    print(
+      '[${segment.type ?? 'text'}] ${segment.text} ${segment.feature?.value ?? ''}',
     );
   }
 }
