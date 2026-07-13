@@ -156,11 +156,32 @@ final class CID {
       CID(_ensureBytesFormat(Uint8List.fromList(bytes)));
 
   /// Returns the new instance of [CID] based on [json].
-  factory CID.fromJson(final Map<String, dynamic> json) =>
-      CID.parse(json[_defaultJsonKey]);
+  ///
+  /// Accepts both JSON link shapes:
+  ///
+  /// - `{"/": "<base32 cid>"}` — the IPLD DAG-JSON convention, which is also
+  ///   what [toJson] emits.
+  /// - `{"$link": "<base32 cid>"}` — the atproto data model convention
+  ///   (https://atproto.com/specs/data-model), so atproto JSON round-trips
+  ///   through this factory.
+  ///
+  /// Throws [InvalidCidError] when neither key holds a CID string.
+  factory CID.fromJson(final Map<String, dynamic> json) {
+    final value = json[_defaultJsonKey] ?? json[_atprotoJsonKey];
+    if (value is! String) {
+      throw InvalidCidError(
+        r'JSON must contain a "/" or "$link" key with a string CID',
+      );
+    }
 
-  /// The default JSON key.
+    return CID.parse(value);
+  }
+
+  /// The default JSON key (IPLD DAG-JSON convention).
   static const _defaultJsonKey = '/';
+
+  /// The atproto data model JSON key for CID links.
+  static const _atprotoJsonKey = r'$link';
 
   static const _cidV1Code = 0x01;
   static const _sha256Code = 0x12;

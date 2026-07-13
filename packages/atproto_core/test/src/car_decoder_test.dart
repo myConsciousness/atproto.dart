@@ -94,6 +94,31 @@ void main() {
       expect(value['nums'], [1, 2, 3]);
     });
 
+    test(r'normalizes plain (non-tagged) byte strings to {"$bytes": '
+        '<base64, no padding>}', () {
+      final record = CborMap({
+        CborString(r'$type'): CborString('com.example.bytes'),
+        // 5 raw bytes -> base64 "AAECAwQ=" -> unpadded "AAECAwQ".
+        CborString('payload'): CborBytes(const [0, 1, 2, 3, 4]),
+        CborString('nested'): CborMap({
+          CborString('inner'): CborBytes(const [255, 254]),
+        }),
+      });
+
+      final blockData = Uint8List.fromList(cborEncode(record));
+      final blockCid = _cidBytes(0x71);
+      final block = Uint8List.fromList([...blockCid, ...blockData]);
+
+      final decoded = decodeCar(_buildCar([block], headerCbor: headerCbor));
+      final value = decoded[CID.fromList(blockCid).toString()]!;
+
+      // Standard base64 (RFC 4648 section 4), no '=' padding.
+      expect(value['payload'], {r'$bytes': 'AAECAwQ'});
+      expect(value['nested'], {
+        'inner': {r'$bytes': '//4'},
+      });
+    });
+
     test('decodes multiple sequential blocks without misalignment', () {
       final blocks = <Uint8List>[];
       final expectedKeys = <String>[];

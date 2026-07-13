@@ -5,6 +5,7 @@
 - feat: automatic access-token refresh — `Challenge` now retries once after refreshing on a genuine `401`, with a pre-emptive refresh when the token is within 30s of expiry (the `use_dpop_nonce` path is unchanged).
 - fix: `Challenge` now retries `429` (respecting `ratelimit-reset`/`Retry-After`), `SocketException`, and `ClientException`, and preserves the `XRPCResponse<T>` type — previously only `TimeoutException` and `500` were retried and the type was erased.
 - fix: `car_decoder` handles variable-length multihash CIDs and raises a typed `CarException` on truncated input; tag-42 CID links are normalized to `{$link: <cid>}` so downstream keeps type info, and the triple `jsonEncode`/`jsonDecode` round-trip is gone.
+- fix: `decodeCar` now normalizes plain (non-tagged) CBOR byte strings to `{$bytes: <base64>}` (standard base64, RFC 4648 section 4, no padding) per the atproto data model, instead of returning raw `Uint8List`.
 - fix: `atprotoPdsEndpoint` keeps an explicit port, falls back to the JWT `aud` when the did document has no `#atproto_pds`, and guards malformed did documents.
 - fix: caller-supplied headers can no longer override `Authorization`/DPoP; `dpop-nonce` lookup is case-insensitive.
 - fix: empty `$unknown` maps are stripped from the wire JSON.

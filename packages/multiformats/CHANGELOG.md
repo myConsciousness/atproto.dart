@@ -5,6 +5,7 @@
 - fix: the `dag-pb` multicodec was wrong (`0x55`, which is actually `raw`). Added correct `raw(0x55)`, `dagPb2(0x70)` and `dagCbor(0x71)` entries and fixed `isDagPb`/format checks so atproto blob CIDs are classified correctly and real `dag-pb` is no longer rejected.
 - chore: deprecated the incorrect `dagPb`/`dabCbor` enum values (kept for a deprecation cycle).
 - feat: added `CID.createFromBytes` (binary overload) and a single-decode `parse`.
+- feat: `CID.fromJson` now accepts the atproto `{"$link": <cid>}` shape in addition to the DAG-JSON `{"/": <cid>}` shape, so atproto JSON round-trips (`toJson` still emits `/`). A missing/non-string value now throws a typed `InvalidCidError` instead of a `TypeError`.
 - perf: cache normalized `bytes` and `hashCode` instead of recomputing on every access.
 
 ## v1.0.3

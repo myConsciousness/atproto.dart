@@ -56,6 +56,39 @@ void main() {
       expect(cid.bytes, [0, ...bytesCidDagPb]);
       expect(cid.toString(), stringCid);
     });
+
+    test(r'accepts the atproto {"$link": ...} shape', () {
+      final cid = CID.fromJson({r'$link': stringCid});
+
+      expect(cid.bytes, [0, ...bytesCidDagPb]);
+      expect(cid.toString(), stringCid);
+    });
+
+    test(r'atproto {"$link": ...} round-trips through toJson/parse', () {
+      final cid = CID.fromJson({r'$link': stringCid});
+
+      // toJson keeps emitting the DAG-JSON "/" key.
+      expect(cid.toJson(), {'/': stringCid});
+      expect(CID.fromJson(cid.toJson()), cid);
+      expect(CID.parse(cid.toString()), cid);
+    });
+
+    test('the "/" key wins when both keys are present', () {
+      final cid = CID.fromJson({'/': stringCid, r'$link': 'bogus'});
+
+      expect(cid.toString(), stringCid);
+    });
+
+    test('throws InvalidCidError when neither key is present', () {
+      expect(
+        () => CID.fromJson({'cid': stringCid}),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('throws InvalidCidError when the value is not a string', () {
+      expect(() => CID.fromJson({'/': 42}), throwsA(isA<InvalidCidError>()));
+    });
   });
 
   group('.toJson', () {

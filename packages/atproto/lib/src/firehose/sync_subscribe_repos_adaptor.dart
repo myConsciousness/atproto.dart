@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import '../services/codegen/com/atproto/sync/subscribeRepos/union_main_message.dart';
-import '../tools/adaptors/cid_links.dart';
 import 'firehose_adaptor.dart';
 
 final class SyncSubscribeReposAdaptor {
@@ -70,15 +69,9 @@ final class SyncSubscribeReposAdaptor {
     //! decoded is data loss, and `decodeCar` surfaces it as a typed
     //! `CarException` so the consumer can detect it instead of silently
     //! receiving an empty block map.
-    final decoded = core.decodeCar(Uint8List.fromList(blocks.cast<int>()));
-
-    //! CID links inside records are already normalized by `decodeCar`; run the
-    //! defensive in-place walk without rebuilding the map for every op.
-    for (final record in decoded.values) {
-      convertCidLinks(record);
-    }
-
-    return decoded;
+    //! CID links (and byte strings) inside records are already normalized by
+    //! `decodeCar`, so the blocks can be returned as-is.
+    return core.decodeCar(Uint8List.fromList(blocks.cast<int>()));
   }
 
   /// Converts a raw CID link (a `List<int>` of CBOR bytes) into its base32

@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Dart imports:
+import 'dart:convert';
 import 'dart:typed_data';
 
 // Package imports:
@@ -15,6 +16,10 @@ const _cidTag = 42;
 /// The JSON key used to represent a CID link, matching the DAG-JSON
 /// representation used across atproto (`{"$link": "<base32 cid>"}`).
 const _cidLinkKey = r'$link';
+
+/// The JSON key used to represent raw bytes, matching the atproto data model
+/// (`{"$bytes": "<base64>"}`). See https://atproto.com/specs/data-model.
+const _bytesKey = r'$bytes';
 
 /// Thrown when a CAR (Content Addressable aRchive) payload cannot be decoded,
 /// e.g. because the input is truncated or contains a malformed varint/CID.
@@ -39,7 +44,9 @@ final class CarException implements Exception {
 /// Each block is decoded directly from CBOR into Dart values (no
 /// `jsonEncode`/`jsonDecode` round trip), and any DAG-CBOR CID link (tag 42) is
 /// normalized to `{"$link": "<base32 cid>"}` so that the type information of a
-/// CID is preserved instead of collapsing into a raw integer array.
+/// CID is preserved instead of collapsing into a raw integer array. Plain
+/// (non-tagged) byte strings are normalized to `{"$bytes": "<base64>"}` per
+/// the atproto data model (standard base64, RFC 4648 section 4, no padding).
 ///
 /// Throws [CarException] on truncated or malformed input, and [InvalidCidError]
 /// when a block CID fails multiformats validation.
@@ -123,7 +130,8 @@ int _cidByteLength(final Uint8List bytes, final int offset, final int limit) {
 }
 
 /// Recursively converts a decoded [CborValue] into plain Dart values, mapping
-/// DAG-CBOR CID links (tag 42) to `{"$link": "<base32 cid>"}`.
+/// DAG-CBOR CID links (tag 42) to `{"$link": "<base32 cid>"}` and plain byte
+/// strings to `{"$bytes": "<base64, no padding>"}`.
 dynamic _normalize(final CborValue value) {
   if (value is CborMap) {
     final result = <String, dynamic>{};
@@ -167,7 +175,13 @@ dynamic _normalize(final CborValue value) {
       return <String, dynamic>{_cidLinkKey: CID.fromList(cidBytes).toString()};
     }
 
-    return value.bytes;
+    // Per the atproto data model, `bytes` values are represented in JSON as
+    // `{"$bytes": "<base64>"}` using standard base64 (RFC 4648 section 4).
+    // Padding is optional per the spec; the official implementation emits
+    // no padding, so match that here.
+    return <String, dynamic>{
+      _bytesKey: base64.encode(value.bytes).replaceAll('=', ''),
+    };
   }
 
   if (value is CborNull || value is CborUndefined) {
