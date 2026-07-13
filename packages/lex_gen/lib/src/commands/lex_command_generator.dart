@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../model/lex_def_kind.dart';
 import 'rule.dart';
 import 'types/lex_command.dart';
 import 'types/lex_parameter.dart';
@@ -34,7 +35,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
               query.parameters?.requiredProperties,
               query.parameters?.properties,
             ),
-            isQuery: true,
+            kind: LexCommandKind.query,
           ),
         );
       } else if (def.value is ULexUserTypeXrpcProcedure) {
@@ -51,7 +52,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
               doc.id,
               procedure.description,
               const [],
-              isProcedure: true,
+              kind: LexCommandKind.procedure,
             ),
           );
 
@@ -68,7 +69,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
               procedure.description,
               const [],
               encoding: input.encoding,
-              isBlobProcedure: true,
+              kind: LexCommandKind.blobProcedure,
             ),
           );
 
@@ -86,7 +87,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
               doc.id,
               procedure.description,
               const [],
-              isProcedure: true,
+              kind: LexCommandKind.procedure,
               isRawJsonBody: true,
             ),
           );
@@ -101,7 +102,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
             doc.id,
             procedure.description,
             _getParameters(object.requiredProperties, object.properties),
-            isProcedure: true,
+            kind: LexCommandKind.procedure,
           ),
         );
       } else if (def.value is ULexUserTypeXrpcSubscription) {
@@ -117,7 +118,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
             record.description,
             _getParameters(object.requiredProperties, object.properties),
             rkey: record.key,
-            isRecord: true,
+            kind: LexCommandKind.record,
           ),
         );
       }

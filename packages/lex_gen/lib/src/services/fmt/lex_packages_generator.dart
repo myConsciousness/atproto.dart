@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../model/nsid.dart';
 import '../object/lex_package.dart';
 import '../object/lex_service.dart';
 import '../object/lex_type.dart';
@@ -14,22 +15,15 @@ List<LexPackage> generateLexPackagesForService(
   final packages = <String, Set<String>>{};
 
   for (final service in services) {
-    final key = '${service.lexiconId.split('.').sublist(0, 2).join('.')}.';
-    if (packages.containsKey(key)) {
-      packages[key]!.add(
-        rule.getLexObjectAbsolutePathForService(
-          service.lexiconId,
-          service.getFileName(),
-        ),
-      );
-    } else {
-      packages[key] = <String>{
-        rule.getLexObjectAbsolutePathForService(
-          service.lexiconId,
-          service.getFileName(),
-        ),
-      };
-    }
+    final key = '${Nsid(service.lexiconId).authority}.';
+    packages
+        .putIfAbsent(key, () => <String>{})
+        .add(
+          rule.getLexObjectAbsolutePathForService(
+            service.lexiconId,
+            service.getFileName(),
+          ),
+        );
   }
 
   final lexPackages = <LexPackage>[];
@@ -58,15 +52,9 @@ List<LexPackage> generateLexPackages(final List<LexType> types) {
   for (final type in types) {
     if (type.isShouldNotBeGenerated()) continue;
 
-    if (packages.containsKey(type.lexiconId)) {
-      packages[type.lexiconId]!.add(
-        rule.getLexObjectAbsolutePath(type.lexiconId, type.getFileName()),
-      );
-    } else {
-      packages[type.lexiconId] = <String>{
-        rule.getLexObjectAbsolutePath(type.lexiconId, type.getFileName()),
-      };
-    }
+    packages
+        .putIfAbsent(type.lexiconId, () => <String>{})
+        .add(rule.getLexObjectAbsolutePath(type.lexiconId, type.getFileName()));
   }
 
   final lexPackages = <LexPackage>[];

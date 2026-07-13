@@ -18,7 +18,7 @@ import 'lex_union_generator.dart';
   final lex.LexXrpcSubscription subscription,
   final List<String> mainVariants,
 ) {
-  return _LexLexXrpcSubscriptionGenerator(
+  return _LexXrpcSubscriptionGenerator(
     lexiconId,
     defName,
     subscription,
@@ -26,13 +26,13 @@ import 'lex_union_generator.dart';
   ).execute();
 }
 
-final class _LexLexXrpcSubscriptionGenerator {
+final class _LexXrpcSubscriptionGenerator {
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexXrpcSubscription subscription;
   final List<String> mainVariants;
 
-  _LexLexXrpcSubscriptionGenerator(
+  _LexXrpcSubscriptionGenerator(
     this.lexiconId,
     this.defName,
     this.subscription,

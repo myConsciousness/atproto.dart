@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../model/nsid.dart';
 import '../../utils.dart';
 import '../rule.dart';
 
@@ -254,10 +255,10 @@ final class RepoCommitDelete {
 
     for (final lexiconId in lexiconIds) {
       if (_atprotoPrefixes.any(lexiconId.startsWith)) {
-        final libName = lexiconId.split('.').join('_');
+        final libName = Nsid(lexiconId).segments.join('_');
         imports.writeln("import 'package:atproto/$libName.dart';");
       } else {
-        final path = lexiconId.split('.').join('/');
+        final path = Nsid(lexiconId).fileDir;
         imports.writeln("import '$path/main.dart';");
       }
     }

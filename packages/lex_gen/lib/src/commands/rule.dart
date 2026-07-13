@@ -4,6 +4,7 @@
 
 // Project imports:
 import '../config.dart';
+import '../model/nsid.dart';
 import '../utils.dart';
 
 LexCommandRuleConfig? _config;
@@ -13,21 +14,21 @@ void setLexCommandRuleConfig(final LexCommandRuleConfig config) {
 }
 
 String getServiceId(final String lexiconId) {
-  return lexiconId.split('.').sublist(0, 3).join('.');
+  return Nsid(lexiconId).serviceId;
 }
 
 String getServiceName(final String lexiconId) {
-  return getServiceId(lexiconId).split('.').join('-');
+  return getServiceId(lexiconId).replaceAll('.', '-');
 }
 
 String getCommandTypeName(final String lexiconId) {
-  final name = lexiconId.split('.').last;
+  final name = Nsid(lexiconId).method;
 
   return '${toFirstUpperCase(name)}Command';
 }
 
 String getCommandName(final String lexiconId) {
-  final name = lexiconId.split('.').last;
+  final name = Nsid(lexiconId).method;
 
   return _splitWords(name).map(toFirstLowerCase).join('-');
 }
@@ -51,7 +52,7 @@ List<String> _splitWords(final String name) {
 }
 
 String getParentCommandTypeName(final String lexiconId) {
-  final name = getServiceId(lexiconId).split('.').map(toFirstUpperCase).join();
+  final name = Nsid(lexiconId).segments.take(3).map(toFirstUpperCase).join();
 
   return '${name}Command';
 }
@@ -74,21 +75,21 @@ String getHomeDir() {
 }
 
 String getFilePath(final String lexiconId) {
-  return lexiconId.split('.').sublist(0, 3).join('/');
+  return Nsid(lexiconId).serviceIdDir;
 }
 
 String getFilePathForParent(final String lexiconId) {
-  return lexiconId.split('.').sublist(0, 2).join('/');
+  return Nsid(lexiconId).serviceDir;
 }
 
 String getFileName(final String lexiconId) {
-  return _splitWords(lexiconId.split('.').last).map(toFirstLowerCase).join('_');
+  return _splitWords(Nsid(lexiconId).method).map(toFirstLowerCase).join('_');
 }
 
 String getRelativePathForParent(final String lexiconId) {
-  return lexiconId.split('.').sublist(2, 3).join();
+  return Nsid(lexiconId).service;
 }
 
 String getRelativePathForRoot(final String lexiconId) {
-  return lexiconId.split('.').sublist(0, 2).join('/');
+  return Nsid(lexiconId).serviceDir;
 }

@@ -7,6 +7,7 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:lex_gen/src/dart_type.dart';
+import 'package:lex_gen/src/model/lex_def_kind.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
 import 'package:lex_gen/src/services/object/lex_record.dart';
 import 'package:lex_gen/src/services/object/lex_service.dart';
@@ -35,7 +36,7 @@ void main() {
           lexiconId: 'app.bsky.feed.post',
           name: 'post',
           inputType: record,
-          isRecord: true,
+          kind: LexDefKind.record,
         ),
       ],
     );

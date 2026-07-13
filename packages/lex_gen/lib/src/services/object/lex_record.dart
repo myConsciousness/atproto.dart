@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import '../../utils.dart';
 import '../rule.dart' as rule;
 import 'lex_property.dart';
 import 'lex_type.dart';
@@ -42,72 +41,17 @@ final class LexRecord extends LexType {
 
   @override
   String format() {
-    final properties = StringBuffer();
-    for (final property in this.properties) {
-      if (rule.isDeprecated(property.description)) {
-        continue;
-      }
-
-      properties.writeln(property.format());
-    }
-
     final id = rule.getLexObjectTypeId(lexiconId, defName);
 
-    final packages = StringBuffer();
-    for (final packagePath
-        in this.properties
-            .where((e) => e.type.packagePath != null)
-            .map((e) => e.type.packagePath)
-            .toSet()
-            .toList()) {
-      packages.writeln("import '$packagePath';");
-    }
-
-    final knownProps = getKnownProps(this.properties);
-    final validateMethod = _getValidateMethod(id);
-    final extensions = getExtensions(name, this.properties, suffix: 'Record');
-    final converter = getObjectConverter(name, suffix: 'Record');
-
-    return '''$kHeaderHint
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart';
-
-${packages.toString()}
-
-part 'main.freezed.dart';
-part 'main.g.dart';
-
-$kHeader
-
-${_getDescription()}
-@freezed
-abstract class ${name}Record with _\$${name}Record {
-  $knownProps
-
-  @JsonSerializable(includeIfNull: false)
-  const factory ${name}Record({
-    @Default('$id') String \$type,
-    ${properties.toString()}
-    Map<String, dynamic>? \$unknown,
-  }) = _${name}Record;
-
-  factory ${name}Record.fromJson(Map<String, Object?> json) => _\$${name}RecordFromJson(json);
-
-  $validateMethod
-}
-
-$extensions
-
-$converter
-''';
-  }
-
-  String _getDescription() {
-    if (description == null) return '';
-
-    return '/// $description';
+    return renderFreezedDataClass(
+      name: name,
+      suffix: 'Record',
+      partBaseName: 'main',
+      description: description,
+      properties: properties,
+      typeDefaultId: id,
+      validateMethod: _getValidateMethod(id),
+    );
   }
 
   String _getValidateMethod(final String id) {

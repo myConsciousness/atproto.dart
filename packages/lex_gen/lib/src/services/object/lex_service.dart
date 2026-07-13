@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../model/lex_def_kind.dart';
+import '../../model/nsid.dart';
 import '../../utils.dart';
 import '../rule.dart' as rule;
 import 'lex_parameter.dart';
@@ -60,7 +62,7 @@ final class LexService {
           if (ref != null) {
             final lexiconId = ref.split('#').first;
 
-            final relativePath = lexiconId.split('.').sublist(2).join('/');
+            final relativePath = Nsid(lexiconId).dirAfterAuthority;
             final fileName = rule.getFileNameForUnion(
               lexiconId,
               parameter.type.defName,
@@ -69,10 +71,9 @@ final class LexService {
 
             importPaths.add("import '$relativePath/$fileName.dart';");
           } else {
-            final relativePath = parameter.type.lexiconId!
-                .split('.')
-                .sublist(2)
-                .join('/');
+            final relativePath = Nsid(
+              parameter.type.lexiconId!,
+            ).dirAfterAuthority;
             final fileName = rule.getFileNameForUnion(
               parameter.type.lexiconId!,
               parameter.type.defName,
@@ -82,10 +83,9 @@ final class LexService {
             importPaths.add("import '$relativePath/$fileName.dart';");
           }
         } else if (parameter.type.isKnownValues) {
-          final relativePath = parameter.type.knownValues!.lexiconId
-              .split('.')
-              .sublist(2)
-              .join('/');
+          final relativePath = Nsid(
+            parameter.type.knownValues!.lexiconId,
+          ).dirAfterAuthority;
           final fileName = parameter.type.knownValues!.getFileName();
 
           importPaths.add("import '$relativePath/$fileName.dart';");
@@ -104,7 +104,7 @@ final class LexService {
       if (api.returnType != null &&
           !(api.returnType?.isShouldNotBeGenerated() ?? true)) {
         final lexiconId = api.returnType!.lexiconId;
-        final fileDir = lexiconId.split('.').sublist(2).join('/');
+        final fileDir = Nsid(lexiconId).dirAfterAuthority;
         final fileName = api.returnType!.getFileName();
 
         importPaths.add("import '$fileDir/$fileName.dart';");
@@ -183,6 +183,18 @@ $recordAccessors
 ''';
   }
 
+  /// Renders the `rkey` parameter line for a record accessor. A record that
+  /// pins a literal rkey (`literal:foo`) turns it into a defaulted parameter;
+  /// otherwise [fallback] (required or nullable) is used verbatim.
+  String _rkeyParam(final LexApi api, final String fallback) {
+    final rkey = api.rkey;
+    if (rkey?.startsWith('literal') ?? false) {
+      return "    String rkey = '${rkey!.split('literal:').last}',";
+    }
+
+    return fallback;
+  }
+
   String _getRecordAccessors(final List<LexApi> recordApis) {
     if (recordApis.isEmpty) return '';
 
@@ -192,12 +204,7 @@ $recordAccessors
       final name = rule.getRecordTypeName(api.lexiconId);
       final id = rule.getNamespaceIdForApi(api.lexiconId);
 
-      final parameters = api.inputType == null
-          ? const <LexParameter>[]
-          : api.inputType!
-                .getProperties()
-                .map((e) => e.toLexParameter())
-                .toList();
+      final parameters = api._parameters;
 
       buffer.writeln('final class ${name}RecordAccessor {');
       buffer.writeln('  final ServiceContext ctx;');
@@ -206,12 +213,7 @@ $recordAccessors
       buffer.writeln();
       buffer.writeln('  Future<XRPCResponse<RepoGetRecordOutput>> get({');
       buffer.writeln('    required String repo,');
-      if (api.rkey?.startsWith('literal') ?? false) {
-        final key = api.rkey!.split('literal:').last;
-        buffer.writeln("    String rkey = '$key',");
-      } else {
-        buffer.writeln('    required String rkey,');
-      }
+      buffer.writeln(_rkeyParam(api, '    required String rkey,'));
       buffer.writeln('    String? cid,');
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    Map<String, String>? \$unknown,');
@@ -249,12 +251,7 @@ $recordAccessors
           parameter.getParams(ignoreRequired: parameter.name == 'createdAt'),
         );
       }
-      if (api.rkey?.startsWith('literal') ?? false) {
-        final key = api.rkey!.split('literal:').last;
-        buffer.writeln("    String rkey = '$key',");
-      } else {
-        buffer.writeln('    String? rkey,');
-      }
+      buffer.writeln(_rkeyParam(api, '    String? rkey,'));
       buffer.writeln('    bool? validate,');
       buffer.writeln('    String? swapCommit,');
       buffer.writeln('    Map<String, String>? \$headers,');
@@ -282,12 +279,7 @@ $recordAccessors
           parameter.getParams(ignoreRequired: parameter.name == 'createdAt'),
         );
       }
-      if (api.rkey?.startsWith('literal') ?? false) {
-        final key = api.rkey!.split('literal:').last;
-        buffer.writeln("    String rkey = '$key',");
-      } else {
-        buffer.writeln('    required String rkey,');
-      }
+      buffer.writeln(_rkeyParam(api, '    required String rkey,'));
       buffer.writeln('    bool? validate,');
       buffer.writeln('    String? swapRecord,');
       buffer.writeln('    String? swapCommit,');
@@ -312,12 +304,7 @@ $recordAccessors
       buffer.writeln('  );');
       buffer.writeln('');
       buffer.writeln('  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({');
-      if (api.rkey?.startsWith('literal') ?? false) {
-        final key = api.rkey!.split('literal:').last;
-        buffer.writeln("    String rkey = '$key',");
-      } else {
-        buffer.writeln('    required String rkey,');
-      }
+      buffer.writeln(_rkeyParam(api, '    required String rkey,'));
       buffer.writeln('    String? swapRecord,');
       buffer.writeln('    String? swapCommit,');
       buffer.writeln('    Map<String, String>? \$headers,');
@@ -374,58 +361,45 @@ final class LexApi {
 
   final String? rkey;
 
-  final bool isQuery;
-  final bool isProcedure;
-  final bool isSubscription;
-  final bool isRecord;
+  final LexDefKind kind;
 
   const LexApi({
     required this.lexiconId,
     required this.name,
+    required this.kind,
     this.description,
     this.inputType,
     this.returnType,
     this.rkey,
-    this.isQuery = false,
-    this.isProcedure = false,
-    this.isSubscription = false,
-    this.isRecord = false,
   });
 
+  bool get isRecord => kind == LexDefKind.record;
+
+  /// The API's input parameters, derived from its input/record type.
+  List<LexParameter> get _parameters => inputType == null
+      ? const <LexParameter>[]
+      : inputType!.getProperties().map((e) => e.toLexParameter()).toList();
+
   String toFunction() {
-    final parameters = inputType == null
-        ? const <LexParameter>[]
-        : inputType!.getProperties().map((e) => e.toLexParameter()).toList();
+    final parameters = _parameters;
 
-    if (isQuery) {
-      return _getQueryFunction(parameters);
-    } else if (isProcedure) {
-      return _getProcedureFunction(parameters);
-    } else if (isSubscription) {
-      return _getSubscriptionFunction(parameters);
-    } else if (isRecord) {
-      return '';
-    }
-
-    throw UnsupportedError('Unsupported API format');
+    return switch (kind) {
+      LexDefKind.query => _getQueryFunction(parameters),
+      LexDefKind.procedure => _getProcedureFunction(parameters),
+      LexDefKind.subscription => _getSubscriptionFunction(parameters),
+      LexDefKind.record => '',
+    };
   }
 
   String toMethod() {
-    final parameters = inputType == null
-        ? const <LexParameter>[]
-        : inputType!.getProperties().map((e) => e.toLexParameter()).toList();
+    final parameters = _parameters;
 
-    if (isQuery) {
-      return _getQueryMethod(parameters);
-    } else if (isProcedure) {
-      return _getProcedureMethod(parameters);
-    } else if (isSubscription) {
-      return _getSubscriptionMethod(parameters);
-    } else if (isRecord) {
-      return _getRecordMethod(parameters);
-    }
-
-    throw UnsupportedError('Unsupported API format');
+    return switch (kind) {
+      LexDefKind.query => _getQueryMethod(parameters),
+      LexDefKind.procedure => _getProcedureMethod(parameters),
+      LexDefKind.subscription => _getSubscriptionMethod(parameters),
+      LexDefKind.record => _getRecordMethod(parameters),
+    };
   }
 
   String _getQueryFunction(final List<LexParameter> parameters) {

@@ -9,6 +9,8 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../model/lex_def_kind.dart';
+import '../model/nsid.dart';
 import '../utils.dart';
 import 'fmt/lex_packages_generator.dart';
 import 'object/lex_package.dart';
@@ -70,10 +72,7 @@ final class _LexServiceGenerator {
             inputType: inputType,
             returnType: returnType,
             rkey: api is LexRecord ? api.key : null,
-            isQuery: _isQuery(doc),
-            isProcedure: _isProcedure(doc),
-            isSubscription: _isSubscription(doc),
-            isRecord: _isRecord(doc),
+            kind: _kindOf(doc),
           ),
         );
       }
@@ -98,8 +97,7 @@ final class _LexServiceGenerator {
 
   List<LexiconDoc> _filterLexicons(final List<LexiconDoc> docs) {
     return docs.where((lexicon) {
-      final id = lexicon.id.toString();
-      final service = id.split('.').sublist(0, 2).join('.');
+      final service = Nsid(lexicon.id.toString()).authority;
 
       return services.contains(service);
     }).toList();
@@ -114,13 +112,9 @@ final class _LexServiceGenerator {
       if (!_isApi(doc)) continue;
       if (rule.isDeprecated(doc.description)) continue;
 
-      final key = doc.id.toString().split('.').sublist(0, 3).join('.');
+      final key = Nsid(doc.id.toString()).serviceId;
 
-      if (result.containsKey(key)) {
-        result[key]!.add(doc);
-      } else {
-        result[key] = [doc];
-      }
+      result.putIfAbsent(key, () => []).add(doc);
     }
 
     return result;
@@ -131,6 +125,16 @@ final class _LexServiceGenerator {
         _isProcedure(doc) ||
         _isSubscription(doc) ||
         _isRecord(doc);
+  }
+
+  /// Resolves the API kind of [doc], keeping the historical dispatch priority
+  /// (query, then procedure, then subscription, then record) so that a doc
+  /// carrying more than one API def resolves exactly as the old boolean chain.
+  LexDefKind _kindOf(final LexiconDoc doc) {
+    if (_isQuery(doc)) return LexDefKind.query;
+    if (_isProcedure(doc)) return LexDefKind.procedure;
+    if (_isSubscription(doc)) return LexDefKind.subscription;
+    return LexDefKind.record;
   }
 
   bool _isQuery(final LexiconDoc doc) {

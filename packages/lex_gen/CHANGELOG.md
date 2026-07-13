@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.4.1
+
+Internal readability/standardization/optimization refactor. Generated output is **byte-for-byte identical** to v0.4.0 (verified by hashing the raw generator output across `atproto`/`bluesky`/`bluesky_cli`), so no downstream regeneration is required.
+
+- refactor: introduce `Nsid` / `LexRef` value objects (`lib/src/model/`) that parse a lexicon id / ref once, replacing ~40 inline `split('.')` / `split('#')` sites across 8 files.
+- refactor: resolve a ref's related def in O(1) via a precomputed index instead of scanning every doc's every def per lookup (`getRelatedDocFromRef`).
+- refactor: replace the mutually-exclusive `isQuery`/`isProcedure`/`isSubscription`/`isRecord` (and command `isBlobProcedure`) boolean sets with `LexDefKind` / `LexCommandKind` sealed enums dispatched by exhaustive `switch`.
+- refactor: unify the four byte-identical freezed data-class templates (`LexObject`/`LexRecord`/`LexInput`/`LexOutput`) into a single `renderFreezedDataClass`.
+- perf: `getExtensions` name lookup is O(1) via a precomputed set (was O(n²)); `LexUnion` resolves each ref name once instead of four times.
+- refactor: fix the `_LexLexXrpc*` double-`Lex` type-name typos, deduplicate the record-accessor `rkey` literal handling and the `LexOutput` upload-ref predicate, remove dead `getDescription` helpers, and use `putIfAbsent` for map aggregation.
+- test: add unit tests for `Nsid` and `LexRef`.
+
 ## v0.4.0
 
 - fix: params-record refs are routed through the converter so a `$unknown` map picked up from a fetched object is no longer stored as a literal `$unknown` key on records written to the PDS (G-1).

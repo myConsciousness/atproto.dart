@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart' as lex;
 
 // Project imports:
+import '../model/nsid.dart';
 import 'fmt/lex_known_values_generator.dart';
 import 'fmt/lex_object_generator.dart';
 import 'fmt/lex_packages_generator.dart';
@@ -171,8 +172,7 @@ final class _LexTypeGenerator {
     final List<String> services,
   ) {
     return lexicons.where((lexicon) {
-      final id = lexicon.id.toString();
-      final service = id.split('.').sublist(0, 2).join('.');
+      final service = Nsid(lexicon.id.toString()).authority;
 
       return services.contains(service);
     }).toList();

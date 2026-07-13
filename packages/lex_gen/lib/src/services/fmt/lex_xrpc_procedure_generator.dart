@@ -17,7 +17,7 @@ import 'lex_property_generator.dart';
   final lex.LexXrpcProcedure procedure,
   final List<String> mainVariants,
 ) {
-  return _LexLexXrpcProcedureGenerator(
+  return _LexXrpcProcedureGenerator(
     lexiconId,
     defName,
     procedure,
@@ -25,13 +25,13 @@ import 'lex_property_generator.dart';
   ).execute();
 }
 
-final class _LexLexXrpcProcedureGenerator {
+final class _LexXrpcProcedureGenerator {
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexXrpcProcedure procedure;
   final List<String> mainVariants;
 
-  _LexLexXrpcProcedureGenerator(
+  _LexXrpcProcedureGenerator(
     this.lexiconId,
     this.defName,
     this.procedure,

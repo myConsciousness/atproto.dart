@@ -3,22 +3,34 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
-import 'package:lexicon/lexicon.dart';
+import 'package:lexicon/lexicon.dart' hide LexRef;
 
 // Project imports:
 import '../config.dart';
+import '../model/lex_ref.dart';
+import '../model/nsid.dart';
 import '../utils.dart';
 import 'object/lex_type.dart';
 
 LexServiceRuleConfig? _config;
-List<LexiconDoc> _lexiconDocs = const [];
+
+/// Index of every def keyed by `<lexiconId>#<defName>`, so a ref can be
+/// resolved in O(1) instead of scanning every doc's every def per lookup.
+Map<String, LexUserType> _defsByRef = const {};
 
 void setLexServiceRuleConfig(final LexServiceRuleConfig config) {
   _config = config;
 }
 
 void setLexiconDocs(final List<LexiconDoc> docs) {
-  _lexiconDocs = List.unmodifiable(docs);
+  final index = <String, LexUserType>{};
+  for (final doc in docs) {
+    final lexiconId = doc.id.toString();
+    for (final def in doc.defs.entries) {
+      index['$lexiconId#${def.key}'] = def.value;
+    }
+  }
+  _defsByRef = Map.unmodifiable(index);
 }
 
 bool isDeprecated(final String? description) {
@@ -43,15 +55,15 @@ String getLexObjectName(
   final String defName,
   final List<String> mainVariants,
 ) {
+  String namePrefix() =>
+      Nsid(lexiconId).nameSegments().map(toFirstUpperCase).join();
+
   if (defName == 'main') {
-    final parts = lexiconId.split('.');
-    return _nameSegments(parts).map(toFirstUpperCase).join();
+    return namePrefix();
   }
 
   if (defName == 'record') {
-    final parts = lexiconId.split('.');
-    return _nameSegments(parts).map(toFirstUpperCase).join() +
-        toFirstUpperCase(defName);
+    return namePrefix() + toFirstUpperCase(defName);
   }
 
   if (lexiconId.endsWith('defs')) {
@@ -59,24 +71,10 @@ String getLexObjectName(
   }
 
   if (mainVariants.contains(lexiconId)) {
-    final parts = lexiconId.split('.');
-
-    return _nameSegments(parts).map(toFirstUpperCase).join() +
-        toFirstUpperCase(defName);
+    return namePrefix() + toFirstUpperCase(defName);
   }
 
   return toFirstUpperCase(defName);
-}
-
-/// Returns the name segments of a lexicon id after its 2-part authority,
-/// capped at two segments.
-///
-/// Most lexicon ids have at least four segments (e.g. `app.bsky.actor.profile`
-/// -> `[actor, profile]`), but shorter ids such as `com.germnetwork.declaration`
-/// -> `[declaration]` are also supported.
-List<String> _nameSegments(final List<String> parts) {
-  final end = parts.length < 4 ? parts.length : 4;
-  return parts.sublist(2, end);
 }
 
 /// Ex: URichtextFacetFeatures
@@ -192,11 +190,11 @@ String _getHomeDirForService(final String lexiconId) {
 }
 
 String _getFileDir(final String lexiconId) {
-  return lexiconId.split('.').join('/');
+  return Nsid(lexiconId).fileDir;
 }
 
 String getFileDirForService(final String lexiconId) {
-  return lexiconId.split('.').sublist(0, 2).join('/');
+  return Nsid(lexiconId).serviceDir;
 }
 
 String getLexObjectNameFromRef(
@@ -204,19 +202,19 @@ String getLexObjectNameFromRef(
   final String ref,
   final List<String> mainVariants,
 ) {
-  if (ref.startsWith('#')) {
-    final defName = ref.substring(1);
-
-    return getLexObjectName(lexiconId, defName, mainVariants);
-  }
-
-  if (ref.contains('#')) {
-    final parts = ref.split('#');
-
-    return getLexObjectName(parts[0], parts[1], mainVariants);
-  }
-
-  return getLexObjectName(ref, '', mainVariants);
+  return switch (LexRef.parse(ref)) {
+    LocalRef(:final defName) => getLexObjectName(
+      lexiconId,
+      defName,
+      mainVariants,
+    ),
+    ForeignRef(:final lexicon, :final defName) => getLexObjectName(
+      lexicon.raw,
+      defName,
+      mainVariants,
+    ),
+    BareRef(:final lexicon) => getLexObjectName(lexicon.raw, '', mainVariants),
+  };
 }
 
 String getLexObjectPackagePathFromRef(
@@ -226,58 +224,40 @@ String getLexObjectPackagePathFromRef(
 }) {
   final fileNamePrefix = isUnion ? 'union_' : '';
   final relativePath = getPackageRelativePath(lexiconId, ref);
+  final samePackage = _isInTheSamePackage(lexiconId, ref);
 
-  if (ref.startsWith('#')) {
-    final defName = ref.substring(1);
-    return '$relativePath/$fileNamePrefix${getLexObjectFileName(defName)}.dart';
-  }
+  final fileName = switch (LexRef.parse(ref)) {
+    LocalRef(:final defName) => getLexObjectFileName(defName),
+    ForeignRef(:final lexicon, :final defName) =>
+      samePackage ? getLexObjectFileName(defName) : getPackageName(lexicon.raw),
+    BareRef(:final lexicon) =>
+      samePackage ? getLexObjectFileName('main') : getPackageName(lexicon.raw),
+  };
 
-  if (_isInTheSamePackage(lexiconId, ref)) {
-    if (ref.contains('#')) {
-      final parts = ref.split('#');
-      return '$relativePath/$fileNamePrefix${getLexObjectFileName(parts[1])}.dart';
-    } else {
-      return '$relativePath/$fileNamePrefix${getLexObjectFileName('main')}.dart';
-    }
-  } else {
-    if (ref.contains('#')) {
-      final $lexiconId = ref.split('#').first;
-      return '$relativePath/$fileNamePrefix${getPackageName($lexiconId)}.dart';
-    } else {
-      return '$relativePath/$fileNamePrefix${getPackageName(ref)}.dart';
-    }
-  }
+  return '$relativePath/$fileNamePrefix$fileName.dart';
 }
 
 String getLexObjectPackagePathFromRefForService(
   final String lexiconId,
   final String ref,
 ) {
-  if (ref.startsWith('#')) {
-    final relativePath = lexiconId.split('.').sublist(2).join('/');
-    final defName = ref.substring(1);
-    return '$relativePath/${getLexObjectFileName(defName)}.dart';
-  }
+  String foreignPath(final Nsid lexicon) =>
+      '${_getHomeDirForService(lexicon.raw)}/${getPackageName(lexicon.raw)}.dart';
 
-  if (_isInTheSamePackage(lexiconId, ref)) {
-    if (ref.contains('#')) {
-      final parts = ref.split('#');
-      final relativePath = parts.first.split('.').sublist(2).join('/');
-      return '$relativePath/${getLexObjectFileName(parts[1])}.dart';
-    } else {
-      final relativePath = ref.split('.').sublist(2).join('/');
-      return '$relativePath/${getLexObjectFileName('main')}.dart';
-    }
-  } else {
-    if (ref.contains('#')) {
-      final $lexiconId = ref.split('#').first;
-      final relativePath = _getHomeDirForService($lexiconId);
-      return '$relativePath/${getPackageName($lexiconId)}.dart';
-    } else {
-      final relativePath = _getHomeDirForService(ref);
-      return '$relativePath/${getPackageName(ref)}.dart';
-    }
-  }
+  final samePackage = _isInTheSamePackage(lexiconId, ref);
+
+  return switch (LexRef.parse(ref)) {
+    LocalRef(:final defName) =>
+      '${Nsid(lexiconId).dirAfterAuthority}/${getLexObjectFileName(defName)}.dart',
+    ForeignRef(:final lexicon, :final defName) =>
+      samePackage
+          ? '${lexicon.dirAfterAuthority}/${getLexObjectFileName(defName)}.dart'
+          : foreignPath(lexicon),
+    BareRef(:final lexicon) =>
+      samePackage
+          ? '${lexicon.dirAfterAuthority}/${getLexObjectFileName('main')}.dart'
+          : foreignPath(lexicon),
+  };
 }
 
 String getLexObjectPackagePathForUnion(
@@ -291,23 +271,13 @@ String getLexObjectPackagePathForUnion(
 }
 
 String getPackageRelativePath(final String lexiconId, final String ref) {
-  if (ref.startsWith('#')) return '.';
-
-  if (_isInTheSamePackage(lexiconId, ref)) {
-    if (ref.contains('#')) {
-      final parts = ref.split('#');
-      return '../../../../${_getFileDir(parts[0])}';
-    } else {
-      return '../../../../${_getFileDir(ref)}';
-    }
-  } else {
-    if (ref.contains('#')) {
-      final lexiconId = ref.split('#').first;
-      return 'package:${getRootPackageName(lexiconId)}';
-    } else {
-      return 'package:${getRootPackageName(ref)}';
-    }
-  }
+  return switch (LexRef.parse(ref)) {
+    LocalRef() => '.',
+    ForeignRef(:final lexicon) || BareRef(:final lexicon) =>
+      _isInTheSamePackage(lexiconId, ref)
+          ? '../../../../${_getFileDir(lexicon.raw)}'
+          : 'package:${getRootPackageName(lexicon.raw)}',
+  };
 }
 
 bool _isInTheSamePackage(final String lexiconId, final String ref) {
@@ -316,11 +286,11 @@ bool _isInTheSamePackage(final String lexiconId, final String ref) {
 }
 
 String _getServiceFromLexiconId(final String lexiconId) {
-  return lexiconId.split('.').sublist(0, 2).join('.');
+  return Nsid(lexiconId).authority;
 }
 
 String getRecordTypeName(final String lexiconId) {
-  return lexiconId.split('.').sublist(2).map(toFirstUpperCase).join();
+  return Nsid(lexiconId).segmentsAfterAuthority().map(toFirstUpperCase).join();
 }
 
 String getRootPackageName(final String lexiconId) {
@@ -343,15 +313,15 @@ LexiconNamespaceRule _getNamespaceRule(final String lexiconId) {
 }
 
 String getPackageName(final String lexiconId) {
-  return lexiconId.split('.').join('_').toLowerCase();
+  return Nsid(lexiconId).packageName;
 }
 
 String getServiceName(final String lexiconId) {
-  return lexiconId.split('.')[2];
+  return Nsid(lexiconId).service;
 }
 
 String getServiceApiName(final String lexiconId) {
-  return lexiconId.split('.').last;
+  return Nsid(lexiconId).method;
 }
 
 String getLexObjectAbsolutePath(final String lexiconId, final String fileName) {
@@ -362,8 +332,7 @@ String getLexObjectAbsolutePathForService(
   final String lexiconId,
   final String fileName,
 ) {
-  final parts = lexiconId.split('.');
-  final root = parts.sublist(0, 2).join('/');
+  final root = Nsid(lexiconId).serviceDir;
   return '${_getHomeDirForExport(lexiconId)}/$root/$fileName.dart';
 }
 
@@ -385,14 +354,10 @@ String getLexKnownValuesElementName(
     if (value.startsWith('#')) {
       assert(lexiconId != null);
 
-      return toFirstLowerCase(
-            lexiconId!.split('.').map(toFirstUpperCase).join(),
-          ) +
+      return toFirstLowerCase(Nsid(lexiconId!).pascalCase()) +
           toFirstUpperCase(val);
     } else {
-      return toFirstLowerCase(
-            parts.first.split('.').map(toFirstUpperCase).join(),
-          ) +
+      return toFirstLowerCase(Nsid(parts.first).pascalCase()) +
           toFirstUpperCase(val);
     }
   }
@@ -403,7 +368,7 @@ String getLexKnownValuesElementName(
 }
 
 String getNamespaceIdForApi(final String lexiconId) {
-  return toFirstLowerCase(lexiconId.split('.').map(toFirstUpperCase).join());
+  return toFirstLowerCase(Nsid(lexiconId).pascalCase());
 }
 
 LexUserType? getRelatedDocFromRef(
@@ -414,26 +379,18 @@ LexUserType? getRelatedDocFromRef(
 
   final String targetLexiconId;
   final String defName;
-  if (ref.startsWith('#')) {
-    // Local ref within the same lexicon doc (e.g. `#draftEmbedGalleryItems`).
-    if (lexiconId == null) return null;
-    targetLexiconId = lexiconId;
-    defName = ref.substring(1);
-  } else if (ref.contains('#')) {
-    final parts = ref.split('#');
-    targetLexiconId = parts.first;
-    defName = parts.last;
-  } else {
-    return null;
+  switch (LexRef.parse(ref)) {
+    case LocalRef(defName: final name):
+      // Local ref within the same lexicon doc (e.g. `#draftEmbedGalleryItems`).
+      if (lexiconId == null) return null;
+      targetLexiconId = lexiconId;
+      defName = name;
+    case ForeignRef(:final lexicon, defName: final name):
+      targetLexiconId = lexicon.raw;
+      defName = name;
+    case BareRef():
+      return null;
   }
 
-  for (final doc in _lexiconDocs) {
-    for (final def in doc.defs.entries) {
-      if (doc.id.toString() == targetLexiconId && def.key == defName) {
-        return def.value;
-      }
-    }
-  }
-
-  return null;
+  return _defsByRef['$targetLexiconId#$defName'];
 }

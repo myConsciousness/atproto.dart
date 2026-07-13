@@ -6,6 +6,7 @@
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../../model/lex_def_kind.dart';
 import '../../utils.dart';
 import '../rule.dart';
 import 'lex_parameter.dart';
@@ -20,11 +21,7 @@ final class LexCommand {
   /// The input encoding for blob procedures, e.g. `*/*`, `video/mp4`.
   final String? encoding;
 
-  final bool isQuery;
-  final bool isProcedure;
-  final bool isSubscription;
-  final bool isRecord;
-  final bool isBlobProcedure;
+  final LexCommandKind kind;
 
   /// Whether the procedure input schema is a ref or union, meaning
   /// the entire request body is passed as a single JSON string.
@@ -34,23 +31,19 @@ final class LexCommand {
     this.lexiconId,
     this.description,
     this.parameters, {
+    required this.kind,
     this.rkey,
     this.encoding,
-    this.isQuery = false,
-    this.isProcedure = false,
-    this.isSubscription = false,
-    this.isRecord = false,
-    this.isBlobProcedure = false,
     this.isRawJsonBody = false,
   });
 
   String format() {
-    if (isQuery) return _getQueryCommand();
-    if (isBlobProcedure) return _getBlobProcedureCommand();
-    if (isProcedure) return _getProcedureCommand();
-    if (isRecord) return _getRecordCommand();
-
-    throw UnimplementedError();
+    return switch (kind) {
+      LexCommandKind.query => _getQueryCommand(),
+      LexCommandKind.blobProcedure => _getBlobProcedureCommand(),
+      LexCommandKind.procedure => _getProcedureCommand(),
+      LexCommandKind.record => _getRecordCommand(),
+    };
   }
 
   String _getQueryCommand() {

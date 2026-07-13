@@ -17,7 +17,7 @@ import 'lex_property_generator.dart';
   final lex.LexXrpcQuery query,
   final List<String> mainVariants,
 ) {
-  return _LexLexXrpcQueryGenerator(
+  return _LexXrpcQueryGenerator(
     lexiconId,
     defName,
     query,
@@ -25,13 +25,13 @@ import 'lex_property_generator.dart';
   ).execute();
 }
 
-final class _LexLexXrpcQueryGenerator {
+final class _LexXrpcQueryGenerator {
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexXrpcQuery query;
   final List<String> mainVariants;
 
-  _LexLexXrpcQueryGenerator(
+  _LexXrpcQueryGenerator(
     this.lexiconId,
     this.defName,
     this.query,
