@@ -59,10 +59,10 @@ abstract class ModerationQueryEventsInput with _$ModerationQueryEventsInput {
     @Default('desc') String sortDirection,
 
     /// Retrieve events created after a given timestamp
-    DateTime? createdAfter,
+    @JsonKey(toJson: iso8601) DateTime? createdAfter,
 
     /// Retrieve events created before a given timestamp
-    DateTime? createdBefore,
+    @JsonKey(toJson: iso8601) DateTime? createdBefore,
     String? subject,
     List<String>? collections,
 

@@ -55,9 +55,13 @@ final class AssignModeratorCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId": int.parse(argResults!["reportId"]),
+    "reportId":
+        int.tryParse(argResults!["reportId"]) ??
+        usageException('Invalid integer value for option "reportId".'),
     if (argResults!.wasParsed("queueId"))
-      "queueId": int.parse(argResults!["queueId"]),
+      "queueId":
+          int.tryParse(argResults!["queueId"]) ??
+          usageException('Invalid integer value for option "queueId".'),
     if (argResults!.wasParsed("did")) "did": argResults!["did"],
     if (argResults!.wasParsed("isPermanent"))
       "isPermanent": argResults!["isPermanent"],

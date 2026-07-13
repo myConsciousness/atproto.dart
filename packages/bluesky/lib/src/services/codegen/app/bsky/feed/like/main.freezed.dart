@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedLikeRecord {
 
- String get $type;@RepoStrongRefConverter() RepoStrongRef get subject; DateTime get createdAt;@RepoStrongRefConverter() RepoStrongRef? get via; Map<String, dynamic>? get $unknown;
+ String get $type;@RepoStrongRefConverter() RepoStrongRef get subject;@JsonKey(toJson: iso8601) DateTime get createdAt;@RepoStrongRefConverter() RepoStrongRef? get via; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedLikeRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FeedLikeRecordCopyWith<$Res>  {
   factory $FeedLikeRecordCopyWith(FeedLikeRecord value, $Res Function(FeedLikeRecord) _then) = _$FeedLikeRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@RepoStrongRefConverter() RepoStrongRef subject, DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
+ String $type,@RepoStrongRefConverter() RepoStrongRef subject,@JsonKey(toJson: iso8601) DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
 });
 
 
@@ -178,7 +178,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject,  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject, @JsonKey(toJson: iso8601)  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedLikeRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject,  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject, @JsonKey(toJson: iso8601)  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedLikeRecord():
 return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unknown);case _:
@@ -219,7 +219,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject,  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject, @JsonKey(toJson: iso8601)  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedLikeRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unknown);case _:
@@ -234,12 +234,12 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _FeedLikeRecord implements FeedLikeRecord {
-  const _FeedLikeRecord({this.$type = 'app.bsky.feed.like', @RepoStrongRefConverter() required this.subject, required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedLikeRecord({this.$type = 'app.bsky.feed.like', @RepoStrongRefConverter() required this.subject, @JsonKey(toJson: iso8601) required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedLikeRecord.fromJson(Map<String, dynamic> json) => _$FeedLikeRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@RepoStrongRefConverter() final  RepoStrongRef subject;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@RepoStrongRefConverter() final  RepoStrongRef? via;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -284,7 +284,7 @@ abstract mixin class _$FeedLikeRecordCopyWith<$Res> implements $FeedLikeRecordCo
   factory _$FeedLikeRecordCopyWith(_FeedLikeRecord value, $Res Function(_FeedLikeRecord) _then) = __$FeedLikeRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@RepoStrongRefConverter() RepoStrongRef subject, DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
+ String $type,@RepoStrongRefConverter() RepoStrongRef subject,@JsonKey(toJson: iso8601) DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
 });
 
 

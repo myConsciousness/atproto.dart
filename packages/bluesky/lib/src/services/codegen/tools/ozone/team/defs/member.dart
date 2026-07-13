@@ -40,8 +40,8 @@ abstract class Member with _$Member {
     required String did,
     bool? disabled,
     @ProfileViewDetailedConverter() ProfileViewDetailed? profile,
-    DateTime? createdAt,
-    DateTime? updatedAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? updatedAt,
     String? lastUpdatedBy,
     @MemberRoleConverter() required MemberRole role,
 

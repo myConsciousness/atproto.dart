@@ -37,7 +37,13 @@ final class CreateGroupCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "members": argResults!["members"],
+    "members": _requireNonEmpty("members", argResults!["members"]),
     "name": argResults!["name"],
   };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

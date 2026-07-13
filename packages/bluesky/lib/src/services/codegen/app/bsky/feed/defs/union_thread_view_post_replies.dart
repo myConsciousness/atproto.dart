@@ -68,27 +68,27 @@ final class UThreadViewPostRepliesConverter
 
   @override
   UThreadViewPostReplies fromJson(Map<String, dynamic> json) {
-    try {
-      if (ThreadViewPost.validate(json)) {
-        return UThreadViewPostReplies.threadViewPost(
-          data: const ThreadViewPostConverter().fromJson(json),
-        );
-      }
-      if (NotFoundPost.validate(json)) {
-        return UThreadViewPostReplies.notFoundPost(
-          data: const NotFoundPostConverter().fromJson(json),
-        );
-      }
-      if (BlockedPost.validate(json)) {
-        return UThreadViewPostReplies.blockedPost(
-          data: const BlockedPostConverter().fromJson(json),
-        );
-      }
-
-      return UThreadViewPostReplies.unknown(data: json);
-    } catch (_) {
-      return UThreadViewPostReplies.unknown(data: json);
+    if (ThreadViewPost.validate(json)) {
+      return UThreadViewPostReplies.threadViewPost(
+        data: const ThreadViewPostConverter().fromJson(json),
+      );
     }
+    if (NotFoundPost.validate(json)) {
+      return UThreadViewPostReplies.notFoundPost(
+        data: const NotFoundPostConverter().fromJson(json),
+      );
+    }
+    if (BlockedPost.validate(json)) {
+      return UThreadViewPostReplies.blockedPost(
+        data: const BlockedPostConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UThreadViewPostReplies.unknown(data: json);
   }
 
   @override

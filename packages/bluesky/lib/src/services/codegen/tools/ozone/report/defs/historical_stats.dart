@@ -40,7 +40,7 @@ abstract class HistoricalStats with _$HistoricalStats {
     required String date,
 
     /// When this snapshot was last computed.
-    DateTime? computedAt,
+    @JsonKey(toJson: iso8601) DateTime? computedAt,
 
     /// Number of reports not closed at time of computation.
     int? pendingCount,

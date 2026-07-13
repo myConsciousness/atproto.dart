@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PostView {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewBasicConverter() ProfileViewBasic get author; Map<String, dynamic> get record;@UPostViewEmbedConverter() UPostViewEmbed? get embed; int? get bookmarkCount; int? get replyCount; int? get repostCount; int? get likeCount; int? get quoteCount; DateTime get indexedAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@ThreadgateViewConverter() ThreadgateView? get threadgate; Map<String, dynamic>? get debug; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewBasicConverter() ProfileViewBasic get author; Map<String, dynamic> get record;@UPostViewEmbedConverter() UPostViewEmbed? get embed; int? get bookmarkCount; int? get replyCount; int? get repostCount; int? get likeCount; int? get quoteCount;@JsonKey(toJson: iso8601) DateTime get indexedAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@ThreadgateViewConverter() ThreadgateView? get threadgate; Map<String, dynamic>? get debug; Map<String, dynamic>? get $unknown;
 /// Create a copy of PostView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $PostViewCopyWith<$Res>  {
   factory $PostViewCopyWith(PostView value, $Res Function(PostView) _then) = _$PostViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> record,@UPostViewEmbedConverter() UPostViewEmbed? embed, int? bookmarkCount, int? replyCount, int? repostCount, int? likeCount, int? quoteCount, DateTime indexedAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@ThreadgateViewConverter() ThreadgateView? threadgate, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> record,@UPostViewEmbedConverter() UPostViewEmbed? embed, int? bookmarkCount, int? replyCount, int? repostCount, int? likeCount, int? quoteCount,@JsonKey(toJson: iso8601) DateTime indexedAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@ThreadgateViewConverter() ThreadgateView? threadgate, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
 });
 
 
@@ -214,7 +214,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> record, @UPostViewEmbedConverter()  UPostViewEmbed? embed,  int? bookmarkCount,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  DateTime indexedAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @ThreadgateViewConverter()  ThreadgateView? threadgate,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> record, @UPostViewEmbedConverter()  UPostViewEmbed? embed,  int? bookmarkCount,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @ThreadgateViewConverter()  ThreadgateView? threadgate,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PostView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.embed,_that.bookmarkCount,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.indexedAt,_that.viewer,_that.labels,_that.threadgate,_that.debug,_that.$unknown);case _:
@@ -235,7 +235,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> record, @UPostViewEmbedConverter()  UPostViewEmbed? embed,  int? bookmarkCount,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  DateTime indexedAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @ThreadgateViewConverter()  ThreadgateView? threadgate,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> record, @UPostViewEmbedConverter()  UPostViewEmbed? embed,  int? bookmarkCount,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @ThreadgateViewConverter()  ThreadgateView? threadgate,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _PostView():
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.embed,_that.bookmarkCount,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.indexedAt,_that.viewer,_that.labels,_that.threadgate,_that.debug,_that.$unknown);case _:
@@ -255,7 +255,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> record, @UPostViewEmbedConverter()  UPostViewEmbed? embed,  int? bookmarkCount,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  DateTime indexedAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @ThreadgateViewConverter()  ThreadgateView? threadgate,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> record, @UPostViewEmbedConverter()  UPostViewEmbed? embed,  int? bookmarkCount,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @ThreadgateViewConverter()  ThreadgateView? threadgate,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _PostView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.embed,_that.bookmarkCount,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.indexedAt,_that.viewer,_that.labels,_that.threadgate,_that.debug,_that.$unknown);case _:
@@ -270,7 +270,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.record,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _PostView implements PostView {
-  const _PostView({this.$type = 'app.bsky.feed.defs#postView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> record, @UPostViewEmbedConverter() this.embed, this.bookmarkCount, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, required this.indexedAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @ThreadgateViewConverter() this.threadgate, final  Map<String, dynamic>? debug, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_debug = debug,_$unknown = $unknown;
+  const _PostView({this.$type = 'app.bsky.feed.defs#postView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> record, @UPostViewEmbedConverter() this.embed, this.bookmarkCount, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @JsonKey(toJson: iso8601) required this.indexedAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @ThreadgateViewConverter() this.threadgate, final  Map<String, dynamic>? debug, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_debug = debug,_$unknown = $unknown;
   factory _PostView.fromJson(Map<String, dynamic> json) => _$PostViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -290,7 +290,7 @@ class _PostView implements PostView {
 @override final  int? repostCount;
 @override final  int? likeCount;
 @override final  int? quoteCount;
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
 @override@ViewerStateConverter() final  ViewerState? viewer;
  final  List<Label>? _labels;
 @override@LabelConverter() List<Label>? get labels {
@@ -354,7 +354,7 @@ abstract mixin class _$PostViewCopyWith<$Res> implements $PostViewCopyWith<$Res>
   factory _$PostViewCopyWith(_PostView value, $Res Function(_PostView) _then) = __$PostViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> record,@UPostViewEmbedConverter() UPostViewEmbed? embed, int? bookmarkCount, int? replyCount, int? repostCount, int? likeCount, int? quoteCount, DateTime indexedAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@ThreadgateViewConverter() ThreadgateView? threadgate, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> record,@UPostViewEmbedConverter() UPostViewEmbed? embed, int? bookmarkCount, int? replyCount, int? repostCount, int? likeCount, int? quoteCount,@JsonKey(toJson: iso8601) DateTime indexedAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@ThreadgateViewConverter() ThreadgateView? threadgate, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
 });
 
 

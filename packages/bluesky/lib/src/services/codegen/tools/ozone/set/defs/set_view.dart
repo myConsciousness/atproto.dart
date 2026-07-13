@@ -34,8 +34,8 @@ abstract class SetView with _$SetView {
     required String name,
     String? description,
     required int setSize,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime updatedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _SetView;

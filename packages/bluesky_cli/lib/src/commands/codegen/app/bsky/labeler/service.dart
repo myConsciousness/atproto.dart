@@ -41,8 +41,8 @@ final class ServiceCommand extends Command<void> {
       "A declaration of the existence of labeler service.";
 }
 
-final class _CreateServiceCommand extends CreateRecordCommand {
-  _CreateServiceCommand() {
+mixin _ServiceCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption("policies", mandatory: true)
       ..addOption("labels")
@@ -64,6 +64,31 @@ final class _CreateServiceCommand extends CreateRecordCommand {
         help:
             r"Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type.",
       );
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateServiceCommand extends CreateRecordCommand
+    with _ServiceCommandRecordArgs {
+  _CreateServiceCommand() {
+    _addRecordOptions();
   }
 
   @override
@@ -86,46 +111,26 @@ final class _CreateServiceCommand extends CreateRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.labeler.service",
-    "policies": jsonDecode(argResults!["policies"]),
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    "policies": _decodeJson("policies"),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     "createdAt": argResults!["createdAt"],
     if (argResults!.wasParsed("reasonTypes"))
       "reasonTypes": (argResults!["reasonTypes"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("reasonTypes", e))
           .toList(),
     if (argResults!.wasParsed("subjectTypes"))
       "subjectTypes": (argResults!["subjectTypes"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("subjectTypes", e))
           .toList(),
     if (argResults!.wasParsed("subjectCollections"))
       "subjectCollections": argResults!["subjectCollections"],
   };
 }
 
-final class _PutServiceCommand extends PutRecordCommand {
+final class _PutServiceCommand extends PutRecordCommand
+    with _ServiceCommandRecordArgs {
   _PutServiceCommand() {
-    argParser
-      ..addOption("policies", mandatory: true)
-      ..addOption("labels")
-      ..addOption("createdAt", mandatory: true)
-      ..addMultiOption(
-        "reasonTypes",
-        help:
-            r"The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed.",
-        splitCommas: false,
-      )
-      ..addMultiOption(
-        "subjectTypes",
-        help:
-            r"The set of subject types (account, record, etc) this service accepts reports on.",
-        splitCommas: false,
-      )
-      ..addMultiOption(
-        "subjectCollections",
-        help:
-            r"Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type.",
-      );
+    _addRecordOptions();
   }
 
   @override
@@ -147,17 +152,16 @@ final class _PutServiceCommand extends PutRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.labeler.service",
-    "policies": jsonDecode(argResults!["policies"]),
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    "policies": _decodeJson("policies"),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     "createdAt": argResults!["createdAt"],
     if (argResults!.wasParsed("reasonTypes"))
       "reasonTypes": (argResults!["reasonTypes"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("reasonTypes", e))
           .toList(),
     if (argResults!.wasParsed("subjectTypes"))
       "subjectTypes": (argResults!["subjectTypes"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("subjectTypes", e))
           .toList(),
     if (argResults!.wasParsed("subjectCollections"))
       "subjectCollections": argResults!["subjectCollections"],
@@ -244,7 +248,9 @@ final class _ListServiceCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.labeler.service",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

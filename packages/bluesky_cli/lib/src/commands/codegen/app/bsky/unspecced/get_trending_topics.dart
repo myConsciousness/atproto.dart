@@ -41,6 +41,8 @@ final class GetTrendingTopicsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
   };
 }

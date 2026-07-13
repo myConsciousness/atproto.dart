@@ -14,7 +14,7 @@ abstract class LexString with _$LexString {
   @JsonSerializable(includeIfNull: false)
   const factory LexString({
     @Default('string') String type,
-    LexStringFormat? format,
+    @JsonKey(unknownEnumValue: LexStringFormat.unknown) LexStringFormat? format,
     String? description,
     @JsonKey(name: 'default') String? defaultValue,
     int? minLength,

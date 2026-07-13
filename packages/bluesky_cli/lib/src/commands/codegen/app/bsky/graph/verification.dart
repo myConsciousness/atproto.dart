@@ -40,8 +40,8 @@ final class VerificationCommand extends Command<void> {
       "Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.";
 }
 
-final class _CreateVerificationCommand extends CreateRecordCommand {
-  _CreateVerificationCommand() {
+mixin _VerificationCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "subject",
@@ -64,8 +64,15 @@ final class _CreateVerificationCommand extends CreateRecordCommand {
         "createdAt",
         help: r"Date of when the verification was created.",
         mandatory: true,
-      )
-      ..addOption("rkey", help: r"Specific record key to use.");
+      );
+  }
+}
+
+final class _CreateVerificationCommand extends CreateRecordCommand
+    with _VerificationCommandRecordArgs {
+  _CreateVerificationCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -95,32 +102,11 @@ final class _CreateVerificationCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutVerificationCommand extends PutRecordCommand {
+final class _PutVerificationCommand extends PutRecordCommand
+    with _VerificationCommandRecordArgs {
   _PutVerificationCommand() {
-    argParser
-      ..addOption(
-        "subject",
-        help: r"DID of the subject the verification applies to.",
-        mandatory: true,
-      )
-      ..addOption(
-        "handle",
-        help:
-            r"Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
-        mandatory: true,
-      )
-      ..addOption(
-        "displayName",
-        help:
-            r"Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.",
-        mandatory: true,
-      )
-      ..addOption(
-        "createdAt",
-        help: r"Date of when the verification was created.",
-        mandatory: true,
-      )
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -235,7 +221,9 @@ final class _ListVerificationCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.graph.verification",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

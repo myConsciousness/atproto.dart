@@ -40,7 +40,9 @@ final class UnassignModeratorCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "queueId": int.parse(argResults!["queueId"]),
+    "queueId":
+        int.tryParse(argResults!["queueId"]) ??
+        usageException('Invalid integer value for option "queueId".'),
     "did": argResults!["did"],
   };
 }

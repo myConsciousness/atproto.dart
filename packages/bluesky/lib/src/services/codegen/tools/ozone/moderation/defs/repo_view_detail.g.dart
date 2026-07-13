@@ -91,7 +91,7 @@ Map<String, dynamic> _$RepoViewDetailToJson(
   'handle': instance.handle,
   'email': ?instance.email,
   'relatedRecords': instance.relatedRecords,
-  'indexedAt': instance.indexedAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
   'moderation': const ModerationDetailConverter().toJson(instance.moderation),
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
   'invitedBy': ?_$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
@@ -103,8 +103,8 @@ Map<String, dynamic> _$RepoViewDetailToJson(
       .toList(),
   'invitesDisabled': ?instance.invitesDisabled,
   'inviteNote': ?instance.inviteNote,
-  'emailConfirmedAt': ?instance.emailConfirmedAt?.toIso8601String(),
-  'deactivatedAt': ?instance.deactivatedAt?.toIso8601String(),
+  'emailConfirmedAt': iso8601(instance.emailConfirmedAt),
+  'deactivatedAt': iso8601(instance.deactivatedAt),
   'threatSignatures': ?instance.threatSignatures
       ?.map(const ThreatSignatureConverter().toJson)
       .toList(),

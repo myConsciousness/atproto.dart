@@ -59,13 +59,13 @@ abstract class ScheduledActionView with _$ScheduledActionView {
     required String did,
 
     /// Exact time to execute the action
-    DateTime? executeAt,
+    @JsonKey(toJson: iso8601) DateTime? executeAt,
 
     /// Earliest time to execute the action (for randomized scheduling)
-    DateTime? executeAfter,
+    @JsonKey(toJson: iso8601) DateTime? executeAfter,
 
     /// Latest time to execute the action (for randomized scheduling)
-    DateTime? executeUntil,
+    @JsonKey(toJson: iso8601) DateTime? executeUntil,
 
     /// Whether execution time should be randomized within the specified range
     bool? randomizeExecution,
@@ -74,17 +74,17 @@ abstract class ScheduledActionView with _$ScheduledActionView {
     required String createdBy,
 
     /// When the scheduled action was created
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// When the scheduled action was last updated
-    DateTime? updatedAt,
+    @JsonKey(toJson: iso8601) DateTime? updatedAt,
 
     /// Current status of the scheduled action
     @ScheduledActionViewStatusConverter()
     required ScheduledActionViewStatus status,
 
     /// When the action was last attempted to be executed
-    DateTime? lastExecutedAt,
+    @JsonKey(toJson: iso8601) DateTime? lastExecutedAt,
 
     /// Reason for the last execution failure
     String? lastFailureReason,

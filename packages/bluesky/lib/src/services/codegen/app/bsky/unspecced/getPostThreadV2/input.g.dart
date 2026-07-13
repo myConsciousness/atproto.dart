@@ -24,10 +24,11 @@ _UnspeccedGetPostThreadV2Input _$UnspeccedGetPostThreadV2InputFromJson(
     ),
     sort: $checkedConvert(
       'sort',
-      (v) => _$JsonConverterFromJson<String, UnspeccedGetPostThreadV2Sort>(
-        v,
-        const UnspeccedGetPostThreadV2SortConverter().fromJson,
-      ),
+      (v) => v == null
+          ? const UnspeccedGetPostThreadV2Sort.knownValue(
+              data: KnownUnspeccedGetPostThreadV2Sort.oldest,
+            )
+          : const UnspeccedGetPostThreadV2SortConverter().fromJson(v as String),
     ),
     $unknown: $checkedConvert(
       r'$unknown',
@@ -44,19 +45,6 @@ Map<String, dynamic> _$UnspeccedGetPostThreadV2InputToJson(
   'above': instance.above,
   'below': instance.below,
   'branchingFactor': instance.branchingFactor,
-  'sort': ?_$JsonConverterToJson<String, UnspeccedGetPostThreadV2Sort>(
-    instance.sort,
-    const UnspeccedGetPostThreadV2SortConverter().toJson,
-  ),
+  'sort': const UnspeccedGetPostThreadV2SortConverter().toJson(instance.sort),
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

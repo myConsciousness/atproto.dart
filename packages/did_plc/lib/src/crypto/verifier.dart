@@ -7,11 +7,15 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 // Package imports:
-import 'package:crypto/crypto.dart';
+import 'package:crypto/crypto.dart' show sha256;
+import 'package:multiformats/multiformats.dart' as multiformats;
+import 'package:pointycastle/export.dart';
 
 // Project imports:
 import '../exceptions.dart';
 import '../types/operation.dart';
+import 'dag_cbor.dart';
+import 'encoding.dart';
 import 'key_manager.dart';
 
 /// Result of signature verification.
@@ -29,7 +33,7 @@ class VerificationResult {
   /// Error message if verification failed.
   final String? error;
 
-  /// The key ID that was used for verification.
+  /// The key ID (did:key) that successfully verified the signature.
   final String? keyId;
 
   /// The type of key that was used for verification.
@@ -48,278 +52,189 @@ class VerificationResult {
   @override
   String toString() {
     if (isValid) {
-      return 'VerificationResult(valid: true, keyId: $keyId, keyType: $keyType)';
+      return 'VerificationResult(valid: true, keyId: $keyId, '
+          'keyType: $keyType)';
     } else {
       return 'VerificationResult(valid: false, error: $error)';
     }
   }
 }
 
-/// Verifies signatures on PLC operations.
+/// Verifies ECDSA signatures on PLC operations.
+///
+/// Verification only requires public keys (`did:key` strings). The signed
+/// payload is the canonical DAG-CBOR encoding of the operation without its
+/// `sig` field, and signatures are 64 byte compact `r ‖ s` values encoded
+/// as base64url.
 class PlcVerifier {
-  const PlcVerifier({required this.keyManager});
+  const PlcVerifier({
+    this.keyManager = const KeyManager(),
+    this.allowMalleableSig = false,
+  });
 
   /// The key manager for handling cryptographic keys.
   final KeyManager keyManager;
 
-  /// Verifies the signature on a PLC operation.
+  /// Whether to accept signatures that are not low-S normalized.
+  ///
+  /// The AT Protocol requires low-S signatures, but some historical PLC
+  /// operations may carry high-S signatures. Verification against a full
+  /// directory history may need this set to `true`.
+  final bool allowMalleableSig;
+
+  /// Verifies the signature on a PLC operation against a set of
+  /// authorized `did:key` strings (typically rotation keys).
   Future<VerificationResult> verifyOperation({
     required Operation operation,
-    required List<CryptoKey> rotationKeys,
+    required List<String> rotationKeys,
   }) async {
-    try {
-      if (operation.sig.isEmpty) {
-        return VerificationResult.invalid('Operation has no signature');
-      }
-
-      // Create the canonical representation for verification
-      final canonicalData = _createCanonicalData(operation);
-
-      // Try to verify with each rotation key
-      for (final key in rotationKeys) {
-        try {
-          keyManager.validateKey(key);
-
-          final isValid = await _verifySignature(
-            canonicalData,
-            operation.sig,
-            key,
-          );
-
-          if (isValid) {
-            return VerificationResult.valid(
-              keyId: keyManager.generateKeyId(key),
-              keyType: key.type,
-            );
-          }
-        } catch (e) {
-          // Continue to next key if this one fails
-          continue;
-        }
-      }
-
-      return VerificationResult.invalid(
-        'Signature verification failed with all rotation keys',
-      );
-    } catch (e) {
-      return VerificationResult.invalid('Verification error: $e');
-    }
+    return verifyRawOperation(operation.toJson(), rotationKeys);
   }
 
-  /// Verifies a signature against specific verification methods.
-  Future<VerificationResult> verifyWithVerificationMethods({
-    required Operation operation,
-    required Map<String, dynamic> verificationMethods,
-  }) async {
-    try {
-      if (operation.sig.isEmpty) {
-        return VerificationResult.invalid('Operation has no signature');
-      }
-
-      // Create the canonical representation for verification
-      final canonicalData = _createCanonicalData(operation);
-
-      // Try to verify with each verification method
-      for (final entry in verificationMethods.entries) {
-        final methodId = entry.key;
-        final method = entry.value as Map<String, dynamic>;
-
-        try {
-          final keyType = keyManager.getKeyTypeFromVerificationMethod(method);
-          final publicKeyBytes = keyManager.getPublicKeyFromVerificationMethod(
-            method,
-          );
-
-          final key = CryptoKey(
-            type: keyType,
-            keyBytes: Uint8List(32), // Placeholder for private key
-            publicKey: publicKeyBytes,
-          );
-
-          final isValid = await _verifySignature(
-            canonicalData,
-            operation.sig,
-            key,
-          );
-
-          if (isValid) {
-            return VerificationResult.valid(keyId: methodId, keyType: keyType);
-          }
-        } catch (e) {
-          // Continue to next method if this one fails
-          continue;
-        }
-      }
-
-      return VerificationResult.invalid(
-        'Signature verification failed with all verification methods',
-      );
-    } catch (e) {
-      return VerificationResult.invalid('Verification error: $e');
-    }
-  }
-
-  /// Creates a canonical representation of the operation for verification.
-  Map<String, dynamic> _createCanonicalData(Operation operation) {
-    // Create a copy of the operation without the signature
-    final data = <String, dynamic>{
-      'type': operation.type,
-      'rotationKeys': List<String>.from(operation.rotationKeys),
-      'verificationMethods': Map<String, dynamic>.from(
-        operation.verificationMethods,
-      ),
-      'alsoKnownAs': List<String>.from(operation.alsoKnownAs),
-      'services': Map<String, dynamic>.from(operation.services),
-    };
-
-    // Include prev if it exists
-    if (operation.prev != null) {
-      data['prev'] = operation.prev;
-    }
-
-    return data;
-  }
-
-  /// Verifies a signature against the canonical data.
-  Future<bool> _verifySignature(
-    Map<String, dynamic> data,
-    String signature,
-    CryptoKey key,
-  ) async {
-    try {
-      // Convert to canonical JSON string
-      final jsonString = _toCanonicalJson(data);
-      final messageBytes = utf8.encode(jsonString);
-
-      // Decode the signature
-      final signatureBytes = base64Decode(signature);
-
-      // Verify based on key type
-      switch (key.type) {
-        case KeyType.secp256k1:
-          return _verifySecp256k1Signature(messageBytes, signatureBytes, key);
-        case KeyType.ed25519:
-          return _verifyEd25519Signature(messageBytes, signatureBytes, key);
-      }
-    } catch (e) {
-      throw CryptoException('Signature verification failed: $e');
-    }
-  }
-
-  /// Verifies a secp256k1 signature.
-  bool _verifySecp256k1Signature(
-    Uint8List messageBytes,
-    Uint8List signatureBytes,
-    CryptoKey key,
+  /// Verifies a raw operation map (any PLC operation shape, including
+  /// legacy `create` operations and tombstones) against a set of
+  /// authorized `did:key` strings.
+  VerificationResult verifyRawOperation(
+    Map<String, dynamic> operation,
+    List<String> didKeys,
   ) {
-    // Hash the message with SHA-256
-    final messageHash = sha256.convert(messageBytes);
+    final sig = operation['sig'];
+    if (sig is! String || sig.isEmpty) {
+      return VerificationResult.invalid('Operation has no signature');
+    }
 
-    // In a real implementation, you would use a proper secp256k1 library
-    // For now, we'll verify against our mock signature format
-    return _verifyMockSignature(
-      messageHash.bytes,
-      signatureBytes,
-      key,
-      'secp256k1',
+    final Uint8List signature;
+    try {
+      signature = decodeSignature(sig);
+    } on CryptoException catch (e) {
+      return VerificationResult.invalid(e.message);
+    }
+
+    final unsigned = Map<String, dynamic>.from(operation)..remove('sig');
+    final Uint8List message;
+    try {
+      message = encodeDagCbor(unsigned);
+    } on CryptoException catch (e) {
+      return VerificationResult.invalid(
+        'Failed to encode operation as DAG-CBOR: ${e.message}',
+      );
+    }
+
+    if (didKeys.isEmpty) {
+      return VerificationResult.invalid('No keys provided for verification');
+    }
+
+    String? lastError;
+    for (final didKey in didKeys) {
+      try {
+        final parsed = keyManager.parseDidKey(didKey);
+        if (verifySignatureBytes(message, signature, parsed)) {
+          return VerificationResult.valid(keyId: didKey, keyType: parsed.type);
+        }
+      } on CryptoException catch (e) {
+        lastError = e.message;
+      }
+    }
+
+    return VerificationResult.invalid(
+      lastError != null
+          ? 'Signature verification failed with all keys '
+                '(last key error: $lastError)'
+          : 'Signature verification failed with all keys',
     );
   }
 
-  /// Verifies an ed25519 signature.
-  bool _verifyEd25519Signature(
-    Uint8List messageBytes,
-    Uint8List signatureBytes,
-    CryptoKey key,
+  /// Verifies a compact 64 byte ECDSA [signature] over [message] with the
+  /// given public [key].
+  bool verifySignatureBytes(
+    Uint8List message,
+    Uint8List signature,
+    ParsedDidKey key,
   ) {
-    // In a real implementation, you would use a proper ed25519 library
-    // For now, we'll verify against our mock signature format
-    return _verifyMockSignature(messageBytes, signatureBytes, key, 'ed25519');
-  }
+    if (signature.length != 64) return false;
 
-  /// Verifies a mock signature for demonstration purposes.
-  /// In production, this would be replaced with actual cryptographic verification.
-  bool _verifyMockSignature(
-    List<int> messageBytes,
-    Uint8List signatureBytes,
-    CryptoKey key,
-    String algorithm,
-  ) {
+    final domain = key.type.domainParameters;
+    final r = bytesToUnsignedBigInt(signature.sublist(0, 32));
+    final s = bytesToUnsignedBigInt(signature.sublist(32));
+
+    if (r == BigInt.zero || s == BigInt.zero) return false;
+    if (r >= domain.n || s >= domain.n) return false;
+
+    // Enforce low-S normalization unless malleable signatures are allowed.
+    if (!allowMalleableSig && s.compareTo(domain.n >> 1) > 0) {
+      return false;
+    }
+
+    final ECPublicKey publicKey;
     try {
-      // For verification, we need to use the public key if available
-      // In a real implementation, verification would use only the public key
-      final keyMaterial = key.publicKey ?? key.keyBytes;
+      publicKey = keyManager.toEcPublicKey(key);
+    } on CryptoException {
+      return false;
+    }
 
-      // Recreate the expected signature using the same logic as signing
-      final combined = <int>[
-        ...messageBytes,
-        ...keyMaterial,
-        ...utf8.encode(algorithm),
-      ];
+    final verifier = ECDSASigner(SHA256Digest())
+      ..init(false, PublicKeyParameter<ECPublicKey>(publicKey));
 
-      final hash = sha256.convert(combined);
-
-      // Create expected signature based on algorithm
-      Uint8List expectedSignature;
-      switch (algorithm) {
-        case 'ed25519':
-          expectedSignature = Uint8List.fromList([
-            ...hash.bytes,
-            ...hash.bytes,
-          ]); // 64 bytes
-          break;
-        case 'secp256k1':
-          expectedSignature = Uint8List.fromList([
-            0x30, 0x44, // DER sequence header
-            0x02, 0x20, // r component header
-            ...hash.bytes.take(32),
-            0x02, 0x20, // s component header
-            ...hash.bytes.skip(0).take(32),
-          ]);
-          break;
-        default:
-          return false;
-      }
-
-      // Compare signatures
-      if (signatureBytes.length != expectedSignature.length) {
-        return false;
-      }
-
-      for (int i = 0; i < signatureBytes.length; i++) {
-        if (signatureBytes[i] != expectedSignature[i]) {
-          return false;
-        }
-      }
-
-      return true;
-    } catch (e) {
+    try {
+      return verifier.verifySignature(message, ECSignature(r, s));
+    } catch (_) {
       return false;
     }
   }
 
-  /// Converts data to canonical JSON format for consistent verification.
-  String _toCanonicalJson(Map<String, dynamic> data) {
-    // Sort keys recursively for canonical representation
-    final sortedData = _sortMapKeys(data);
-    return jsonEncode(sortedData);
+  /// Decodes a base64url (with or without padding) signature string.
+  Uint8List decodeSignature(String sig) {
+    try {
+      return base64Url.decode(base64Url.normalize(sig));
+    } on FormatException catch (e) {
+      throw CryptoException('Operation signature is not valid base64url: $e');
+    }
   }
 
-  /// Recursively sorts map keys for canonical JSON representation.
-  dynamic _sortMapKeys(dynamic data) {
-    if (data is Map<String, dynamic>) {
-      final sortedMap = <String, dynamic>{};
-      final sortedKeys = data.keys.toList()..sort();
+  /// Computes the CIDv1 (dag-cbor, sha2-256, base32) string of a raw
+  /// operation, as used by the `prev` field and directory audit logs.
+  String operationCid(Map<String, dynamic> operation) {
+    final bytes = encodeDagCbor(operation);
+    final digest = sha256.convert(bytes).bytes;
 
-      for (final key in sortedKeys) {
-        sortedMap[key] = _sortMapKeys(data[key]);
-      }
+    return multiformats.CID.fromList([
+      0x01, // CIDv1
+      0x71, // dag-cbor
+      0x12, // sha2-256
+      0x20, // 32 byte digest
+      ...digest,
+    ]).toString();
+  }
 
-      return sortedMap;
-    } else if (data is List) {
-      return data.map(_sortMapKeys).toList();
-    } else {
-      return data;
+  /// Derives the `did:plc` identifier from a genesis operation
+  /// (including its signature):
+  /// `did:plc:` + base32(sha256(DAG-CBOR(genesisOp)))[:24].
+  String deriveDid(Map<String, dynamic> genesisOperation) {
+    final bytes = encodeDagCbor(genesisOperation);
+    final digest = sha256.convert(bytes).bytes;
+
+    return 'did:plc:${base32Encode(digest).substring(0, 24)}';
+  }
+
+  /// Returns the `did:key` strings that are authorized to sign the
+  /// operation *following* [operation].
+  List<String> authorizedKeysOf(Map<String, dynamic> operation) {
+    if (operation['type'] == 'create') {
+      // Legacy genesis format: recovery key first, then signing key.
+      return [
+        if (operation['recoveryKey'] is String)
+          operation['recoveryKey'] as String,
+        if (operation['signingKey'] is String)
+          operation['signingKey'] as String,
+      ];
     }
+
+    final rotationKeys = operation['rotationKeys'];
+    if (rotationKeys is List) {
+      return rotationKeys.whereType<String>().toList();
+    }
+
+    return const [];
   }
 
   /// Validates the structure of an operation before verification.
@@ -332,83 +247,162 @@ class PlcVerifier {
       throw CryptoException('Operation must have at least one rotation key');
     }
 
-    if (operation.verificationMethods.isEmpty) {
-      throw CryptoException(
-        'Operation must have at least one verification method',
-      );
-    }
-
-    // Validate that signature is valid base64
-    try {
-      base64Decode(operation.sig);
-    } catch (e) {
-      throw CryptoException('Operation signature is not valid base64: $e');
-    }
+    decodeSignature(operation.sig);
   }
 
-  /// Verifies the chain of operations by checking prev references.
+  /// Verifies a chain of operations:
+  ///
+  /// - the first operation must have no `prev` reference and verifies
+  ///   against its own keys,
+  /// - every subsequent operation's `prev` must be the CIDv1 of the
+  ///   previous operation's signed DAG-CBOR bytes,
+  /// - every subsequent operation must be signed by a key that was
+  ///   authorized by the previous operation.
   Future<VerificationResult> verifyOperationChain({
     required List<Operation> operations,
-    required List<CryptoKey> rotationKeys,
   }) async {
+    return verifyRawOperationChain(
+      operations.map((op) => op.toJson()).toList(),
+    );
+  }
+
+  /// Verifies a chain of raw operation maps. See [verifyOperationChain].
+  VerificationResult verifyRawOperationChain(
+    List<Map<String, dynamic>> operations, {
+    String? did,
+  }) {
     if (operations.isEmpty) {
       return VerificationResult.invalid('Operation chain cannot be empty');
     }
 
-    // First operation should not have a prev reference
-    if (operations.first.prev != null) {
+    if (operations.first['prev'] != null) {
       return VerificationResult.invalid(
         'First operation should not have prev reference',
       );
     }
 
-    // Verify each operation and check prev references
+    if (did != null) {
+      final derived = deriveDid(operations.first);
+      if (derived != did) {
+        return VerificationResult.invalid(
+          'DID mismatch: derived $derived, expected $did',
+        );
+      }
+    }
+
     String? expectedPrev;
-    for (int i = 0; i < operations.length; i++) {
+    List<String> authorizedKeys = authorizedKeysOf(operations.first);
+
+    for (var i = 0; i < operations.length; i++) {
       final operation = operations[i];
 
-      // Check prev reference
-      if (i == 0) {
-        if (operation.prev != null) {
-          return VerificationResult.invalid(
-            'First operation should not have prev reference',
-          );
-        }
-      } else {
-        if (operation.prev != expectedPrev) {
-          return VerificationResult.invalid(
-            'Operation $i has incorrect prev reference. Expected: $expectedPrev, Got: ${operation.prev}',
-          );
-        }
+      if (i > 0 && operation['prev'] != expectedPrev) {
+        return VerificationResult.invalid(
+          'Operation $i has incorrect prev reference. '
+          'Expected: $expectedPrev, Got: ${operation['prev']}',
+        );
       }
 
-      // Verify the operation signature
-      final result = await verifyOperation(
-        operation: operation,
-        rotationKeys: rotationKeys,
-      );
-
+      final keys = i == 0 ? authorizedKeysOf(operation) : authorizedKeys;
+      final result = verifyRawOperation(operation, keys);
       if (!result.isValid) {
         return VerificationResult.invalid(
           'Operation $i failed verification: ${result.error}',
         );
       }
 
-      // Calculate the hash for the next operation's prev reference
-      expectedPrev = _calculateOperationHash(operation);
+      expectedPrev = operationCid(operation);
+      authorizedKeys = authorizedKeysOf(operation);
     }
 
     return VerificationResult.valid();
   }
 
-  /// Calculates a hash for an operation to use as prev reference.
-  String _calculateOperationHash(Operation operation) {
-    final canonicalData = _createCanonicalData(operation);
-    canonicalData['sig'] = operation.sig; // Include signature in hash
+  /// Verifies a full audit log as returned by
+  /// `https://plc.directory/{did}/log/audit`.
+  ///
+  /// Each entry must contain `did`, `cid`, `operation` and `nullified`
+  /// fields. This verifies for every entry that:
+  ///
+  /// - the published `cid` matches the DAG-CBOR CIDv1 of the operation,
+  /// - the genesis operation derives the entry's `did`,
+  /// - `prev` references the CID of an earlier operation in the log,
+  /// - the signature verifies against the authorized keys of the
+  ///   referenced previous operation (or the operation's own keys for
+  ///   the genesis operation).
+  VerificationResult verifyAuditLog(List<Map<String, dynamic>> auditLog) {
+    if (auditLog.isEmpty) {
+      return VerificationResult.invalid('Audit log cannot be empty');
+    }
 
-    final jsonString = _toCanonicalJson(canonicalData);
-    final hash = sha256.convert(utf8.encode(jsonString));
+    final operationsByCid = <String, Map<String, dynamic>>{};
 
-    return base64Encode(hash.bytes);
+    for (var i = 0; i < auditLog.length; i++) {
+      final entry = auditLog[i];
+      final operation = entry['operation'];
+      if (operation is! Map<String, dynamic>) {
+        return VerificationResult.invalid('Entry $i has no operation');
+      }
+
+      final cid = operationCid(operation);
+      if (entry['cid'] != cid) {
+        return VerificationResult.invalid(
+          'Entry $i CID mismatch: computed $cid, published ${entry['cid']}',
+        );
+      }
+
+      final prev = operation['prev'];
+      if (i == 0) {
+        if (prev != null) {
+          return VerificationResult.invalid(
+            'Genesis operation must not have a prev reference',
+          );
+        }
+
+        final derived = deriveDid(operation);
+        if (entry['did'] != derived) {
+          return VerificationResult.invalid(
+            'DID mismatch: derived $derived, published ${entry['did']}',
+          );
+        }
+
+        final result = verifyRawOperation(
+          operation,
+          authorizedKeysOf(operation),
+        );
+        if (!result.isValid) {
+          return VerificationResult.invalid(
+            'Genesis operation failed verification: ${result.error}',
+          );
+        }
+      } else {
+        if (prev is! String) {
+          return VerificationResult.invalid(
+            'Entry $i is missing a prev reference',
+          );
+        }
+
+        final previous = operationsByCid[prev];
+        if (previous == null) {
+          return VerificationResult.invalid(
+            'Entry $i references unknown prev CID: $prev',
+          );
+        }
+
+        final result = verifyRawOperation(
+          operation,
+          authorizedKeysOf(previous),
+        );
+        if (!result.isValid) {
+          return VerificationResult.invalid(
+            'Entry $i failed verification: ${result.error}',
+          );
+        }
+      }
+
+      operationsByCid[cid] = operation;
+    }
+
+    return VerificationResult.valid();
   }
 }

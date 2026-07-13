@@ -56,6 +56,39 @@ void main() {
       expect(cid.bytes, [0, ...bytesCidDagPb]);
       expect(cid.toString(), stringCid);
     });
+
+    test(r'accepts the atproto {"$link": ...} shape', () {
+      final cid = CID.fromJson({r'$link': stringCid});
+
+      expect(cid.bytes, [0, ...bytesCidDagPb]);
+      expect(cid.toString(), stringCid);
+    });
+
+    test(r'atproto {"$link": ...} round-trips through toJson/parse', () {
+      final cid = CID.fromJson({r'$link': stringCid});
+
+      // toJson keeps emitting the DAG-JSON "/" key.
+      expect(cid.toJson(), {'/': stringCid});
+      expect(CID.fromJson(cid.toJson()), cid);
+      expect(CID.parse(cid.toString()), cid);
+    });
+
+    test('the "/" key wins when both keys are present', () {
+      final cid = CID.fromJson({'/': stringCid, r'$link': 'bogus'});
+
+      expect(cid.toString(), stringCid);
+    });
+
+    test('throws InvalidCidError when neither key is present', () {
+      expect(
+        () => CID.fromJson({'cid': stringCid}),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('throws InvalidCidError when the value is not a string', () {
+      expect(() => CID.fromJson({'/': 42}), throwsA(isA<InvalidCidError>()));
+    });
   });
 
   group('.toJson', () {
@@ -174,27 +207,49 @@ void main() {
   });
 
   group('.codec', () {
-    test('case1', () {
-      final cid = CID.fromList(bytesCidDagPb);
+    test('raw (0x55)', () {
+      final cid = CID.fromList(bytesCidRaw);
 
-      expect(cid.codec, Multicodec.dagPb);
+      expect(cid.codec, Multicodec.raw);
     });
 
-    test('case2', () {
+    test('real dag-pb (0x70)', () {
+      final cid = CID.fromList(bytesCidRealDagPb);
+
+      expect(cid.codec, Multicodec.dagPb2);
+    });
+
+    test('dag-cbor (0x71)', () {
       final cid = CID.fromList(bytesCidDagCbor);
 
-      expect(cid.codec, Multicodec.dabCbor);
+      expect(cid.codec, Multicodec.dagCbor);
+    });
+
+    test('valueOf never returns deprecated aliases', () {
+      // 0x55 must resolve to raw (not the deprecated dagPb alias).
+      expect(Multicodec.valueOf(0x55), Multicodec.raw);
+      // 0x71 must resolve to dagCbor (not the deprecated dabCbor alias).
+      expect(Multicodec.valueOf(0x71), Multicodec.dagCbor);
+      expect(Multicodec.valueOf(0x70), Multicodec.dagPb2);
     });
   });
 
   group('.isDagPb', () {
-    test('case1', () {
-      final cid = CID.fromList(bytesCidDagPb);
+    test('raw blob (0x55) is NOT dag-pb', () {
+      final cid = CID.fromList(bytesCidRaw);
+
+      // 0x55 is raw, not dag-pb -- this was the P-7 bug.
+      expect(cid.codec.isDagPb, isFalse);
+      expect(cid.codec.isRaw, isTrue);
+    });
+
+    test('real dag-pb (0x70) is dag-pb', () {
+      final cid = CID.fromList(bytesCidRealDagPb);
 
       expect(cid.codec.isDagPb, isTrue);
     });
 
-    test('case2', () {
+    test('dag-cbor is not dag-pb', () {
       final cid = CID.fromList(bytesCidDagCbor);
 
       expect(cid.codec.isDagPb, isFalse);
@@ -202,13 +257,19 @@ void main() {
   });
 
   group('.isNotDagPb', () {
-    test('case1', () {
-      final cid = CID.fromList(bytesCidDagPb);
+    test('raw blob (0x55)', () {
+      final cid = CID.fromList(bytesCidRaw);
+
+      expect(cid.codec.isNotDagPb, isTrue);
+    });
+
+    test('real dag-pb (0x70)', () {
+      final cid = CID.fromList(bytesCidRealDagPb);
 
       expect(cid.codec.isNotDagPb, isFalse);
     });
 
-    test('case2', () {
+    test('dag-cbor', () {
       final cid = CID.fromList(bytesCidDagCbor);
 
       expect(cid.codec.isNotDagPb, isTrue);
@@ -216,13 +277,13 @@ void main() {
   });
 
   group('.isDagCbor', () {
-    test('case1', () {
-      final cid = CID.fromList(bytesCidDagPb);
+    test('raw blob (0x55)', () {
+      final cid = CID.fromList(bytesCidRaw);
 
       expect(cid.codec.isDagCbor, isFalse);
     });
 
-    test('case2', () {
+    test('dag-cbor (0x71)', () {
       final cid = CID.fromList(bytesCidDagCbor);
 
       expect(cid.codec.isDagCbor, isTrue);
@@ -230,16 +291,39 @@ void main() {
   });
 
   group('.isNotDagCbor', () {
-    test('case1', () {
-      final cid = CID.fromList(bytesCidDagPb);
+    test('raw blob (0x55)', () {
+      final cid = CID.fromList(bytesCidRaw);
 
       expect(cid.codec.isNotDagCbor, isTrue);
     });
 
-    test('case2', () {
+    test('dag-cbor (0x71)', () {
       final cid = CID.fromList(bytesCidDagCbor);
 
       expect(cid.codec.isNotDagCbor, isFalse);
+    });
+  });
+
+  group('.createFromBytes (P-9)', () {
+    test('hashes binary input and round-trips through parse', () {
+      final cid = CID.createFromBytes([1, 2, 3, 4]);
+
+      expect(CID.parse(cid.toString()), cid);
+      // Default codec is raw (0x55) for atproto blobs.
+      expect(cid.codec, Multicodec.raw);
+    });
+
+    test('create(String) equals createFromBytes(utf8 bytes)', () {
+      final fromString = CID.create('hello world');
+      final fromBytes = CID.createFromBytes('hello world'.codeUnits);
+
+      expect(fromString, fromBytes);
+    });
+
+    test('accepts an explicit dag-cbor codec', () {
+      final cid = CID.createFromBytes([1, 2, 3], Multicodec.dagCbor);
+
+      expect(cid.codec, Multicodec.dagCbor);
     });
   });
 

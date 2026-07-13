@@ -14,10 +14,11 @@ _FeedSearchPostsInput _$FeedSearchPostsInputFromJson(Map json) =>
         q: $checkedConvert('q', (v) => v as String),
         sort: $checkedConvert(
           'sort',
-          (v) => _$JsonConverterFromJson<String, FeedSearchPostsSort>(
-            v,
-            const FeedSearchPostsSortConverter().fromJson,
-          ),
+          (v) => v == null
+              ? const FeedSearchPostsSort.knownValue(
+                  data: KnownFeedSearchPostsSort.latest,
+                )
+              : const FeedSearchPostsSortConverter().fromJson(v as String),
         ),
         since: $checkedConvert('since', (v) => v as String?),
         until: $checkedConvert('until', (v) => v as String?),
@@ -44,10 +45,7 @@ Map<String, dynamic> _$FeedSearchPostsInputToJson(
   _FeedSearchPostsInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'sort': ?_$JsonConverterToJson<String, FeedSearchPostsSort>(
-    instance.sort,
-    const FeedSearchPostsSortConverter().toJson,
-  ),
+  'sort': const FeedSearchPostsSortConverter().toJson(instance.sort),
   'since': ?instance.since,
   'until': ?instance.until,
   'mentions': ?instance.mentions,
@@ -60,13 +58,3 @@ Map<String, dynamic> _$FeedSearchPostsInputToJson(
   'cursor': ?instance.cursor,
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

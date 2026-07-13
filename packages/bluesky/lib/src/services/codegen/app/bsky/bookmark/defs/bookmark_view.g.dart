@@ -45,7 +45,7 @@ Map<String, dynamic> _$BookmarkViewToJson(_BookmarkView instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'subject': const RepoStrongRefConverter().toJson(instance.subject),
-      'createdAt': ?instance.createdAt?.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       'item': const UBookmarkViewItemConverter().toJson(instance.item),
       r'$unknown': ?instance.$unknown,
     };

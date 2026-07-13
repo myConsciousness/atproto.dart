@@ -158,7 +158,9 @@ final class SearchPostsV2Command extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("query")) "query": argResults!["query"],
     if (argResults!.wasParsed("sort")) "sort": argResults!["sort"],
     if (argResults!.wasParsed("authors")) "authors": argResults!["authors"],

@@ -95,7 +95,7 @@ Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
   'repostCount': ?instance.repostCount,
   'likeCount': ?instance.likeCount,
   'quoteCount': ?instance.quoteCount,
-  'indexedAt': instance.indexedAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
   'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
     instance.viewer,
     const ViewerStateConverter().toJson,

@@ -9,7 +9,6 @@ import 'dart:async';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
-import '../runner/bsky_runner.dart';
 import 'bsky_command.dart';
 
 /// The command for query communication.
@@ -24,22 +23,16 @@ abstract class QueryCommand extends BskyCommand {
   FutureOr<Map<String, dynamic>>? get parameters;
 
   @override
-  Future<void> run() async {
+  Future<void> run() async => await execute(() async {
     final jwt = await accessJwt;
-    return await Bsky(
-      logger,
-      action: () async => await xrpc.query<String>(
-        xrpc.NSID(methodId),
-        service: service,
-        headers: jwt != null
-            ? {'Authorization': 'Bearer ${await accessJwt}'}
-            : null,
-        parameters: await parameters,
-        getClient: getClient,
-      ),
-      pretty: globalResults!['pretty'],
-      showStatus: globalResults!['status'],
-      showRequest: globalResults!['request'],
-    ).run();
-  }
+
+    return await xrpc.query<String>(
+      xrpc.NSID(methodId),
+      service: service,
+      headers: jwt != null ? {'Authorization': 'Bearer $jwt'} : null,
+      parameters: await parameters,
+      timeout: timeout,
+      getClient: getClient,
+    );
+  });
 }

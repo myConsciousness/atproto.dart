@@ -43,7 +43,7 @@ _Event _$EventFromJson(Map json) => $checkedCreate('_Event', json, (
 
 Map<String, dynamic> _$EventToJson(_Event instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'attemptId': instance.attemptId,
   'status': const EventStatusConverter().toJson(instance.status),
   'access': const EventAccessConverter().toJson(instance.access),

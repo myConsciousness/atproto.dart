@@ -45,7 +45,13 @@ final class LexXrpcParametersPropertyConverter
         );
 
       default:
-        throw UnimplementedError('Unsupported type [$type]');
+        // Graceful degradation (G-12): unsupported parameter types fall back
+        // to an `unknown` primitive instead of aborting the document load.
+        return LexXrpcParametersProperty.primitive(
+          data: LexPrimitive.unknown(
+            data: LexUnknown(description: json['description'] as String?),
+          ),
+        );
     }
   }
 

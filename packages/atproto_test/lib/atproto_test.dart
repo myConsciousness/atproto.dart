@@ -7,3 +7,4 @@ export 'package:atproto_test/src/utils.dart';
 export 'package:atproto_test/src/service_runner.dart';
 export 'package:atproto_test/src/mocks/clients.dart';
 export 'package:atproto_test/src/mocks/values.dart';
+export 'package:atproto_test/src/mocks/web_socket.dart';

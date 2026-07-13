@@ -40,8 +40,8 @@ final class DeclarationCommand extends Command<void> {
   String get description => "A declaration of a Germ Network account";
 }
 
-final class _CreateDeclarationCommand extends CreateRecordCommand {
-  _CreateDeclarationCommand() {
+mixin _DeclarationCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "version",
@@ -64,6 +64,23 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
         "continuityProofs",
         help: r"Array of opaque values to allow for key rolling",
       );
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateDeclarationCommand extends CreateRecordCommand
+    with _DeclarationCommandRecordArgs {
+  _CreateDeclarationCommand() {
+    _addRecordOptions();
   }
 
   @override
@@ -89,7 +106,7 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
     "version": argResults!["version"],
     "currentKey": argResults!["currentKey"],
     if (argResults!.wasParsed("messageMe"))
-      "messageMe": jsonDecode(argResults!["messageMe"]),
+      "messageMe": _decodeJson("messageMe"),
     if (argResults!.wasParsed("keyPackage"))
       "keyPackage": argResults!["keyPackage"],
     if (argResults!.wasParsed("continuityProofs"))
@@ -97,30 +114,10 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutDeclarationCommand extends PutRecordCommand {
+final class _PutDeclarationCommand extends PutRecordCommand
+    with _DeclarationCommandRecordArgs {
   _PutDeclarationCommand() {
-    argParser
-      ..addOption(
-        "version",
-        help:
-            r"Semver version number, without pre-release or build information, for the format of opaque content",
-        mandatory: true,
-      )
-      ..addOption(
-        "currentKey",
-        help: r"Opaque value, an ed25519 public key prefixed with a byte enum",
-        mandatory: true,
-      )
-      ..addOption("messageMe", help: r"Controls who can message this account")
-      ..addOption(
-        "keyPackage",
-        help:
-            r"Opaque value, contains MLS KeyPackage(s), and other signature data, and is signed by the currentKey",
-      )
-      ..addMultiOption(
-        "continuityProofs",
-        help: r"Array of opaque values to allow for key rolling",
-      );
+    _addRecordOptions();
   }
 
   @override
@@ -146,7 +143,7 @@ final class _PutDeclarationCommand extends PutRecordCommand {
     "version": argResults!["version"],
     "currentKey": argResults!["currentKey"],
     if (argResults!.wasParsed("messageMe"))
-      "messageMe": jsonDecode(argResults!["messageMe"]),
+      "messageMe": _decodeJson("messageMe"),
     if (argResults!.wasParsed("keyPackage"))
       "keyPackage": argResults!["keyPackage"],
     if (argResults!.wasParsed("continuityProofs"))
@@ -236,7 +233,9 @@ final class _ListDeclarationCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "com.germnetwork.declaration",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -40,8 +40,8 @@ final class ListitemCommand extends Command<void> {
       "Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.";
 }
 
-final class _CreateListitemCommand extends CreateRecordCommand {
-  _CreateListitemCommand() {
+mixin _ListitemCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "subject",
@@ -53,8 +53,15 @@ final class _CreateListitemCommand extends CreateRecordCommand {
         help: r"Reference (AT-URI) to the list record (app.bsky.graph.list).",
         mandatory: true,
       )
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"Specific record key to use.");
+      ..addOption("createdAt", mandatory: true);
+  }
+}
+
+final class _CreateListitemCommand extends CreateRecordCommand
+    with _ListitemCommandRecordArgs {
+  _CreateListitemCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -83,21 +90,11 @@ final class _CreateListitemCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutListitemCommand extends PutRecordCommand {
+final class _PutListitemCommand extends PutRecordCommand
+    with _ListitemCommandRecordArgs {
   _PutListitemCommand() {
-    argParser
-      ..addOption(
-        "subject",
-        help: r"The account which is included on the list.",
-        mandatory: true,
-      )
-      ..addOption(
-        "list",
-        help: r"Reference (AT-URI) to the list record (app.bsky.graph.list).",
-        mandatory: true,
-      )
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -209,7 +206,9 @@ final class _ListListitemCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.graph.listitem",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

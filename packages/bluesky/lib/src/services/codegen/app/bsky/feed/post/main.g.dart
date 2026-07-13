@@ -86,7 +86,7 @@ Map<String, dynamic> _$FeedPostRecordToJson(_FeedPostRecord instance) =>
         const UFeedPostLabelsConverter().toJson,
       ),
       'tags': ?instance.tags,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };
 

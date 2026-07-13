@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Identity {
 
- String get $type; int get seq; String get did; DateTime get time;/// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
+ String get $type; int get seq; String get did;@JsonKey(toJson: iso8601) DateTime get time;/// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
  String? get handle; Map<String, dynamic>? get $unknown;
 /// Create a copy of Identity
 /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +49,7 @@ abstract mixin class $IdentityCopyWith<$Res>  {
   factory $IdentityCopyWith(Identity value, $Res Function(Identity) _then) = _$IdentityCopyWithImpl;
 @useResult
 $Res call({
- String $type, int seq, String did, DateTime time, String? handle, Map<String, dynamic>? $unknown
+ String $type, int seq, String did,@JsonKey(toJson: iso8601) DateTime time, String? handle, Map<String, dynamic>? $unknown
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  DateTime time,  String? handle,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String did, @JsonKey(toJson: iso8601)  DateTime time,  String? handle,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Identity() when $default != null:
 return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  DateTime time,  String? handle,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String did, @JsonKey(toJson: iso8601)  DateTime time,  String? handle,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Identity():
 return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String did,  DateTime time,  String? handle,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String did, @JsonKey(toJson: iso8601)  DateTime time,  String? handle,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Identity() when $default != null:
 return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$unknown);case _:
@@ -215,13 +215,13 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.handle,_that.$u
 
 @JsonSerializable(includeIfNull: false)
 class _Identity implements Identity {
-  const _Identity({this.$type = 'com.atproto.sync.subscribeRepos#identity', required this.seq, required this.did, required this.time, this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Identity({this.$type = 'com.atproto.sync.subscribeRepos#identity', required this.seq, required this.did, @JsonKey(toJson: iso8601) required this.time, this.handle, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Identity.fromJson(Map<String, dynamic> json) => _$IdentityFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  int seq;
 @override final  String did;
-@override final  DateTime time;
+@override@JsonKey(toJson: iso8601) final  DateTime time;
 /// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
 @override final  String? handle;
  final  Map<String, dynamic>? _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$IdentityCopyWith<$Res> implements $IdentityCopyWith<$Res>
   factory _$IdentityCopyWith(_Identity value, $Res Function(_Identity) _then) = __$IdentityCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int seq, String did, DateTime time, String? handle, Map<String, dynamic>? $unknown
+ String $type, int seq, String did,@JsonKey(toJson: iso8601) DateTime time, String? handle, Map<String, dynamic>? $unknown
 });
 
 

@@ -32,7 +32,7 @@ abstract class AppPassword with _$AppPassword {
     @Default('com.atproto.server.createAppPassword#appPassword') String $type,
     required String name,
     required String password,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     bool? privileged,
 
     Map<String, dynamic>? $unknown,

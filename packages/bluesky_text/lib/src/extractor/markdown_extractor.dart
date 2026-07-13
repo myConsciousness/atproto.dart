@@ -16,8 +16,9 @@ import '../utils.dart';
 
 const markdownLinksExtractor = MarkdownLinksExtractor();
 
-/// `[`, `]`, `(`, `)`
-const _parensCount = 4;
+/// The count of the bracket characters `[`, `]`, `(`, `)` that wrap a markdown
+/// link `[text](url)`.
+const _bracketCharsCount = 4;
 
 final class MarkdownLinksExtractor {
   const MarkdownLinksExtractor();
@@ -55,8 +56,19 @@ final class MarkdownLinksExtractor {
           url: getPrefixedUri(linkUrl),
           indices: ByteIndices(
             start: text.value.toUtf8Index(match.start),
+            //* Derive the end from the *actual matched source URL*
+            //* (`urlMatch.url`), not from the reconstructed `linkUrl` (which may
+            //* gain an `https://` prefix or lose an IDN label and therefore have
+            //* a different length), and not from the markdown regex's own
+            //* `match.end` (whose non-greedy `(.*?)` stops at the first `)`, so
+            //* it undershoots URLs that contain balanced parentheses such as
+            //* `/Primer_(film)`). Both mistakes shifted every following index
+            //* and corrupted `format()` output.
             end: text.value.toUtf8Index(
-              match.start + linkText.length + linkUrl.length + _parensCount,
+              match.start +
+                  linkText.length +
+                  urlMatch.url.length +
+                  _bracketCharsCount,
             ),
           ),
         ),

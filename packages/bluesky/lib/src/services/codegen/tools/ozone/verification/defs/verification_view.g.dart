@@ -83,9 +83,9 @@ Map<String, dynamic> _$VerificationViewToJson(
   'subject': instance.subject,
   'handle': instance.handle,
   'displayName': instance.displayName,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'revokeReason': ?instance.revokeReason,
-  'revokedAt': ?instance.revokedAt?.toIso8601String(),
+  'revokedAt': iso8601(instance.revokedAt),
   'revokedBy': ?instance.revokedBy,
   'subjectProfile':
       ?_$JsonConverterToJson<

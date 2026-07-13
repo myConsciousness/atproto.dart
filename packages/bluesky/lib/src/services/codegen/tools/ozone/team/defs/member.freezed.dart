@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Member {
 
- String get $type; String get did; bool? get disabled;@ProfileViewDetailedConverter() ProfileViewDetailed? get profile; DateTime? get createdAt; DateTime? get updatedAt; String? get lastUpdatedBy;@MemberRoleConverter() MemberRole get role; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; bool? get disabled;@ProfileViewDetailedConverter() ProfileViewDetailed? get profile;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get updatedAt; String? get lastUpdatedBy;@MemberRoleConverter() MemberRole get role; Map<String, dynamic>? get $unknown;
 /// Create a copy of Member
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MemberCopyWith<$Res>  {
   factory $MemberCopyWith(Member value, $Res Function(Member) _then) = _$MemberCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile, DateTime? createdAt, DateTime? updatedAt, String? lastUpdatedBy,@MemberRoleConverter() MemberRole role, Map<String, dynamic>? $unknown
+ String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt, String? lastUpdatedBy,@MemberRoleConverter() MemberRole role, Map<String, dynamic>? $unknown
 });
 
 
@@ -182,7 +182,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Member() when $default != null:
 return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.createdAt,_that.updatedAt,_that.lastUpdatedBy,_that.role,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Member():
 return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.createdAt,_that.updatedAt,_that.lastUpdatedBy,_that.role,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile,  DateTime? createdAt,  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  bool? disabled, @ProfileViewDetailedConverter()  ProfileViewDetailed? profile, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  String? lastUpdatedBy, @MemberRoleConverter()  MemberRole role,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Member() when $default != null:
 return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.createdAt,_that.updatedAt,_that.lastUpdatedBy,_that.role,_that.$unknown);case _:
@@ -238,15 +238,15 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 
 @JsonSerializable(includeIfNull: false)
 class _Member implements Member {
-  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, this.createdAt, this.updatedAt, this.lastUpdatedBy, @MemberRoleConverter() required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, this.lastUpdatedBy, @MemberRoleConverter() required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Member.fromJson(Map<String, dynamic> json) => _$MemberFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String did;
 @override final  bool? disabled;
 @override@ProfileViewDetailedConverter() final  ProfileViewDetailed? profile;
-@override final  DateTime? createdAt;
-@override final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
 @override final  String? lastUpdatedBy;
 @override@MemberRoleConverter() final  MemberRole role;
  final  Map<String, dynamic>? _$unknown;
@@ -292,7 +292,7 @@ abstract mixin class _$MemberCopyWith<$Res> implements $MemberCopyWith<$Res> {
   factory _$MemberCopyWith(_Member value, $Res Function(_Member) _then) = __$MemberCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile, DateTime? createdAt, DateTime? updatedAt, String? lastUpdatedBy,@MemberRoleConverter() MemberRole role, Map<String, dynamic>? $unknown
+ String $type, String did, bool? disabled,@ProfileViewDetailedConverter() ProfileViewDetailed? profile,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt, String? lastUpdatedBy,@MemberRoleConverter() MemberRole role, Map<String, dynamic>? $unknown
 });
 
 

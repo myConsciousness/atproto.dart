@@ -20,7 +20,7 @@ mixin _$Sync {
  String get did;/// CAR file containing the commit, as a block. The CAR header must include the commit block CID as the first 'root'.
  Map<String, dynamic> get blocks;/// The rev of the commit. This value must match that in the commit object.
  String get rev;/// Timestamp of when this message was originally broadcast.
- DateTime get time; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get time; Map<String, dynamic>? get $unknown;
 /// Create a copy of Sync
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -53,7 +53,7 @@ abstract mixin class $SyncCopyWith<$Res>  {
   factory $SyncCopyWith(Sync value, $Res Function(Sync) _then) = _$SyncCopyWithImpl;
 @useResult
 $Res call({
- String $type, int seq, String did, Map<String, dynamic> blocks, String rev, DateTime time, Map<String, dynamic>? $unknown
+ String $type, int seq, String did, Map<String, dynamic> blocks, String rev,@JsonKey(toJson: iso8601) DateTime time, Map<String, dynamic>? $unknown
 });
 
 
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  Map<String, dynamic> blocks,  String rev,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  Map<String, dynamic> blocks,  String rev, @JsonKey(toJson: iso8601)  DateTime time,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Sync() when $default != null:
 return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.time,_that.$unknown);case _:
@@ -185,7 +185,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.tim
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  Map<String, dynamic> blocks,  String rev,  DateTime time,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  Map<String, dynamic> blocks,  String rev, @JsonKey(toJson: iso8601)  DateTime time,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Sync():
 return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.time,_that.$unknown);case _:
@@ -205,7 +205,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.tim
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String did,  Map<String, dynamic> blocks,  String rev,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String did,  Map<String, dynamic> blocks,  String rev, @JsonKey(toJson: iso8601)  DateTime time,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Sync() when $default != null:
 return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.time,_that.$unknown);case _:
@@ -220,7 +220,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.tim
 
 @JsonSerializable(includeIfNull: false)
 class _Sync implements Sync {
-  const _Sync({this.$type = 'com.atproto.sync.subscribeRepos#sync', required this.seq, required this.did, required final  Map<String, dynamic> blocks, required this.rev, required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
+  const _Sync({this.$type = 'com.atproto.sync.subscribeRepos#sync', required this.seq, required this.did, required final  Map<String, dynamic> blocks, required this.rev, @JsonKey(toJson: iso8601) required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
   factory _Sync.fromJson(Map<String, dynamic> json) => _$SyncFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -240,7 +240,7 @@ class _Sync implements Sync {
 /// The rev of the commit. This value must match that in the commit object.
 @override final  String rev;
 /// Timestamp of when this message was originally broadcast.
-@override final  DateTime time;
+@override@JsonKey(toJson: iso8601) final  DateTime time;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -284,7 +284,7 @@ abstract mixin class _$SyncCopyWith<$Res> implements $SyncCopyWith<$Res> {
   factory _$SyncCopyWith(_Sync value, $Res Function(_Sync) _then) = __$SyncCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int seq, String did, Map<String, dynamic> blocks, String rev, DateTime time, Map<String, dynamic>? $unknown
+ String $type, int seq, String did, Map<String, dynamic> blocks, String rev,@JsonKey(toJson: iso8601) DateTime time, Map<String, dynamic>? $unknown
 });
 
 

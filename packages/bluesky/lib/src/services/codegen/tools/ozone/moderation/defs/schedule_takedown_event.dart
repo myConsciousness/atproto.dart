@@ -32,9 +32,9 @@ abstract class ScheduleTakedownEvent with _$ScheduleTakedownEvent {
   const factory ScheduleTakedownEvent({
     @Default('tools.ozone.moderation.defs#scheduleTakedownEvent') String $type,
     String? comment,
-    DateTime? executeAt,
-    DateTime? executeAfter,
-    DateTime? executeUntil,
+    @JsonKey(toJson: iso8601) DateTime? executeAt,
+    @JsonKey(toJson: iso8601) DateTime? executeAfter,
+    @JsonKey(toJson: iso8601) DateTime? executeUntil,
 
     Map<String, dynamic>? $unknown,
   }) = _ScheduleTakedownEvent;

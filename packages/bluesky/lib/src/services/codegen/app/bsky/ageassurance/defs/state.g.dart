@@ -37,7 +37,7 @@ _State _$StateFromJson(Map json) =>
 
 Map<String, dynamic> _$StateToJson(_State instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'lastInitiatedAt': ?instance.lastInitiatedAt?.toIso8601String(),
+  'lastInitiatedAt': iso8601(instance.lastInitiatedAt),
   'status': const StatusConverter().toJson(instance.status),
   'access': const AccessConverter().toJson(instance.access),
   r'$unknown': ?instance.$unknown,

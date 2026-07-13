@@ -40,8 +40,8 @@ final class PostCommand extends Command<void> {
   String get description => "Record containing a Bluesky post.";
 }
 
-final class _CreatePostCommand extends CreateRecordCommand {
-  _CreatePostCommand() {
+mixin _PostCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "text",
@@ -79,8 +79,33 @@ final class _CreatePostCommand extends CreateRecordCommand {
         help:
             r"Client-declared timestamp when this post was originally created.",
         mandatory: true,
-      )
-      ..addOption("rkey", help: r"Specific record key to use.");
+      );
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreatePostCommand extends CreateRecordCommand
+    with _PostCommandRecordArgs {
+  _CreatePostCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -105,65 +130,26 @@ final class _CreatePostCommand extends CreateRecordCommand {
     "text": argResults!["text"],
     if (argResults!.wasParsed("entities"))
       "entities": (argResults!["entities"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("entities", e))
           .toList(),
     if (argResults!.wasParsed("facets"))
       "facets": (argResults!["facets"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("facets", e))
           .toList(),
-    if (argResults!.wasParsed("reply"))
-      "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!.wasParsed("embed"))
-      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("reply")) "reply": _decodeJson("reply"),
+    if (argResults!.wasParsed("embed")) "embed": _decodeJson("embed"),
     if (argResults!.wasParsed("langs")) "langs": argResults!["langs"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     if (argResults!.wasParsed("tags")) "tags": argResults!["tags"],
     "createdAt": argResults!["createdAt"],
   };
 }
 
-final class _PutPostCommand extends PutRecordCommand {
+final class _PutPostCommand extends PutRecordCommand
+    with _PostCommandRecordArgs {
   _PutPostCommand() {
-    argParser
-      ..addOption(
-        "text",
-        help:
-            r"The primary post content. May be an empty string, if there are embeds.",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "entities",
-        help: r"DEPRECATED: replaced by app.bsky.richtext.facet.",
-        splitCommas: false,
-      )
-      ..addMultiOption(
-        "facets",
-        help: r"Annotations of text (mentions, URLs, hashtags, etc)",
-        splitCommas: false,
-      )
-      ..addOption("reply")
-      ..addOption("embed")
-      ..addMultiOption(
-        "langs",
-        help: r"Indicates human language of post primary text content.",
-      )
-      ..addOption(
-        "labels",
-        help: r"Self-label values for this post. Effectively content warnings.",
-      )
-      ..addMultiOption(
-        "tags",
-        help:
-            r"Additional hashtags, in addition to any included in post text and facets.",
-      )
-      ..addOption(
-        "createdAt",
-        help:
-            r"Client-declared timestamp when this post was originally created.",
-        mandatory: true,
-      )
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -188,19 +174,16 @@ final class _PutPostCommand extends PutRecordCommand {
     "text": argResults!["text"],
     if (argResults!.wasParsed("entities"))
       "entities": (argResults!["entities"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("entities", e))
           .toList(),
     if (argResults!.wasParsed("facets"))
       "facets": (argResults!["facets"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("facets", e))
           .toList(),
-    if (argResults!.wasParsed("reply"))
-      "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!.wasParsed("embed"))
-      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("reply")) "reply": _decodeJson("reply"),
+    if (argResults!.wasParsed("embed")) "embed": _decodeJson("embed"),
     if (argResults!.wasParsed("langs")) "langs": argResults!["langs"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     if (argResults!.wasParsed("tags")) "tags": argResults!["tags"],
     "createdAt": argResults!["createdAt"],
   };
@@ -289,7 +272,9 @@ final class _ListPostCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.feed.post",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -64,10 +64,10 @@ abstract class ReportQueryReportsInput with _$ReportQueryReportsInput {
     List<String>? collections,
 
     /// Retrieve reports created after a given timestamp
-    DateTime? reportedAfter,
+    @JsonKey(toJson: iso8601) DateTime? reportedAfter,
 
     /// Retrieve reports created before a given timestamp
-    DateTime? reportedBefore,
+    @JsonKey(toJson: iso8601) DateTime? reportedBefore,
 
     /// Filter by muted status. true returns only muted reports, false returns only unmuted reports. Defaults to false.
     @Default(false) bool isMuted,

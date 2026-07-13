@@ -42,8 +42,25 @@ final class GrantVerificationsCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "verifications": (argResults!["verifications"] as List<String>)
-        .map((e) => jsonDecode(e))
-        .toList(),
+    "verifications": _requireNonEmpty(
+      "verifications",
+      (argResults!["verifications"] as List<String>)
+          .map((e) => _decodeJsonItem("verifications", e))
+          .toList(),
+    ),
   };
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

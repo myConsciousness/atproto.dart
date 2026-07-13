@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$GraphBlockRecord {
 
  String get $type;/// DID of the account to be blocked.
- String get subject; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ String get subject;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphBlockRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $GraphBlockRecordCopyWith<$Res>  {
   factory $GraphBlockRecordCopyWith(GraphBlockRecord value, $Res Function(GraphBlockRecord) _then) = _$GraphBlockRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subject, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphBlockRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphBlockRecord():
 return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphBlockRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _:
@@ -213,13 +213,13 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 
 @JsonSerializable(includeIfNull: false)
 class _GraphBlockRecord implements GraphBlockRecord {
-  const _GraphBlockRecord({this.$type = 'app.bsky.graph.block', required this.subject, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphBlockRecord({this.$type = 'app.bsky.graph.block', required this.subject, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphBlockRecord.fromJson(Map<String, dynamic> json) => _$GraphBlockRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// DID of the account to be blocked.
 @override final  String subject;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -263,7 +263,7 @@ abstract mixin class _$GraphBlockRecordCopyWith<$Res> implements $GraphBlockReco
   factory _$GraphBlockRecordCopyWith(_GraphBlockRecord value, $Res Function(_GraphBlockRecord) _then) = __$GraphBlockRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subject, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

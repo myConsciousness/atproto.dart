@@ -45,7 +45,12 @@ abstract class SafelinkQueryEventsInput with _$SafelinkQueryEventsInput {
 
     /// Sort direction
     @SafelinkQueryEventsSortDirectionConverter()
-    SafelinkQueryEventsSortDirection? sortDirection,
+    @Default(
+      SafelinkQueryEventsSortDirection.knownValue(
+        data: KnownSafelinkQueryEventsSortDirection.desc,
+      ),
+    )
+    SafelinkQueryEventsSortDirection sortDirection,
 
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryEventsInput;
@@ -59,8 +64,6 @@ extension SafelinkQueryEventsInputExtension on SafelinkQueryEventsInput {
   bool get hasNotCursor => !hasCursor;
   bool get hasPatternType => patternType != null;
   bool get hasNotPatternType => !hasPatternType;
-  bool get hasSortDirection => sortDirection != null;
-  bool get hasNotSortDirection => !hasSortDirection;
 }
 
 final class SafelinkQueryEventsInputConverter

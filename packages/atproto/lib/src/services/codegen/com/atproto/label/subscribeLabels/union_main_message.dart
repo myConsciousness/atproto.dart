@@ -59,22 +59,22 @@ final class ULabelSubscribeLabelsMessageConverter
 
   @override
   ULabelSubscribeLabelsMessage fromJson(Map<String, dynamic> json) {
-    try {
-      if (Labels.validate(json)) {
-        return ULabelSubscribeLabelsMessage.labels(
-          data: const LabelsConverter().fromJson(json),
-        );
-      }
-      if (Info.validate(json)) {
-        return ULabelSubscribeLabelsMessage.info(
-          data: const InfoConverter().fromJson(json),
-        );
-      }
-
-      return ULabelSubscribeLabelsMessage.unknown(data: json);
-    } catch (_) {
-      return ULabelSubscribeLabelsMessage.unknown(data: json);
+    if (Labels.validate(json)) {
+      return ULabelSubscribeLabelsMessage.labels(
+        data: const LabelsConverter().fromJson(json),
+      );
     }
+    if (Info.validate(json)) {
+      return ULabelSubscribeLabelsMessage.info(
+        data: const InfoConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return ULabelSubscribeLabelsMessage.unknown(data: json);
   }
 
   @override

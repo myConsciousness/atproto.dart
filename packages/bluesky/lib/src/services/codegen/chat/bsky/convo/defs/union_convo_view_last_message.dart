@@ -69,27 +69,27 @@ final class UConvoViewLastMessageConverter
 
   @override
   UConvoViewLastMessage fromJson(Map<String, dynamic> json) {
-    try {
-      if (MessageView.validate(json)) {
-        return UConvoViewLastMessage.messageView(
-          data: const MessageViewConverter().fromJson(json),
-        );
-      }
-      if (DeletedMessageView.validate(json)) {
-        return UConvoViewLastMessage.deletedMessageView(
-          data: const DeletedMessageViewConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageView.validate(json)) {
-        return UConvoViewLastMessage.systemMessageView(
-          data: const SystemMessageViewConverter().fromJson(json),
-        );
-      }
-
-      return UConvoViewLastMessage.unknown(data: json);
-    } catch (_) {
-      return UConvoViewLastMessage.unknown(data: json);
+    if (MessageView.validate(json)) {
+      return UConvoViewLastMessage.messageView(
+        data: const MessageViewConverter().fromJson(json),
+      );
     }
+    if (DeletedMessageView.validate(json)) {
+      return UConvoViewLastMessage.deletedMessageView(
+        data: const DeletedMessageViewConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageView.validate(json)) {
+      return UConvoViewLastMessage.systemMessageView(
+        data: const SystemMessageViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UConvoViewLastMessage.unknown(data: json);
   }
 
   @override

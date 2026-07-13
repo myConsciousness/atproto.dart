@@ -45,9 +45,9 @@ abstract class EventChatAccepted with _$EventChatAccepted {
     required String actorDid,
 
     /// When the convo was originally created.
-    required DateTime convoCreatedAt,
+    @JsonKey(toJson: iso8601) required DateTime convoCreatedAt,
     required String convoId,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// Current member count at the time of the event. Only present for group convos.
     int? groupMemberCount,

@@ -34,7 +34,21 @@ final class XRPCResponse<D> {
   final D data;
 
   /// Returns the JSON representation.
-  Map<String, dynamic> toJson() => (data as dynamic).toJson();
+  ///
+  /// If [data] does not have a `toJson()` method, e.g. [String] or
+  /// `Uint8List`, the data is wrapped as `{'data': data}` instead of
+  /// throwing a [NoSuchMethodError].
+  Map<String, dynamic> toJson() {
+    final dynamic dynamicData = data;
+
+    if (dynamicData is Map<String, dynamic>) return dynamicData;
+
+    try {
+      return dynamicData.toJson() as Map<String, dynamic>;
+    } on NoSuchMethodError {
+      return {'data': dynamicData};
+    }
+  }
 
   @override
   String toString() {

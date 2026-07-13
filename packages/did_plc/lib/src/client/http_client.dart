@@ -142,16 +142,25 @@ final class _HttpClientImpl implements HttpClient {
       final request = http.Request('GET', uri);
       request.headers.addAll(headers);
 
-      final response = await _client.send(request);
+      final response = await _client.send(request).timeout(_timeout);
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
         if (fromJson != null) {
           // Handle streaming JSONL response
           yield* _handleStreamingResponse<T>(response, fromJson);
         } else {
-          // Handle raw string streaming
-          await for (final chunk in response.stream.transform(utf8.decoder)) {
-            yield chunk as T;
+          // Handle raw string streaming. A per-chunk idle timeout prevents
+          // a stalled connection from hanging the stream forever.
+          await for (final chunk
+              in response.stream.timeout(_timeout).transform(utf8.decoder)) {
+            if (chunk is T) {
+              yield chunk as T;
+            } else {
+              throw GenericPlcException(
+                'Streaming response is text but was requested as '
+                '${T.toString()}',
+              );
+            }
           }
         }
       } else {
@@ -463,8 +472,10 @@ final class _HttpClientImpl implements HttpClient {
     final parser = JsonlParser<T>(fromJson: fromJson);
 
     try {
-      // Convert byte stream to string stream
+      // Convert byte stream to string stream. The per-chunk idle timeout
+      // guards against a stalled connection hanging the stream.
       final stringStream = response.stream
+          .timeout(_timeout)
           .transform(utf8.decoder)
           .transform(const LineSplitter());
 

@@ -52,7 +52,7 @@ Map<String, dynamic> _$ActorStatusRecordToJson(_ActorStatusRecord instance) =>
         const UActorStatusEmbedConverter().toJson,
       ),
       'durationMinutes': ?instance.durationMinutes,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };
 

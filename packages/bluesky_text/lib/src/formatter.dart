@@ -17,6 +17,7 @@ import 'extractor/extractor.dart';
 import 'extractor/markdown_extractor.dart';
 import 'regex/valid_ascii_domain.dart';
 import 'regex/valid_url.dart';
+import 'utils.dart';
 
 const formatter = Formatter();
 
@@ -95,7 +96,7 @@ final class _Formatter implements Formatter {
         replacements.add(
           Replacement(
             entity.text,
-            !entity.url.startsWith('http')
+            !hasHttpScheme(entity.url)
                 ? '$httpsPrefix${entity.url}'
                 : entity.url,
             start,
@@ -109,7 +110,7 @@ final class _Formatter implements Formatter {
       } else {
         final (shortenedLink, factors) = _toShortLink(after, linkConfig);
 
-        if (!after.startsWith('http')) {
+        if (!hasHttpScheme(after)) {
           after = '$httpsPrefix$after';
         }
 
@@ -166,7 +167,11 @@ final class _Formatter implements Formatter {
 
     final pathPart = '$urlPath$urlQuery';
 
-    if (linkConfig.enableShortening && pathPart.length > 15) {
+    //* A shortened path is always `13` chars + the `...` suffix (`16` chars, or
+    //* `15` when a trailing `?` is dropped), so shortening only actually
+    //* shrinks paths longer than `16`. The previous `> 15` threshold
+    //* "shortened" a 16-char path back into 16 chars (a no-op).
+    if (linkConfig.enableShortening && pathPart.length > 16) {
       return (
         '$domainPart${_getShortenedPath(pathPart)}',
         factors..add(ReplacementFactor.linkShortening),

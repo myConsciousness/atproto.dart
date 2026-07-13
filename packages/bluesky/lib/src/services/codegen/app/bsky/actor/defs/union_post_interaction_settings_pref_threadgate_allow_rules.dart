@@ -90,36 +90,32 @@ final class UPostInteractionSettingsPrefThreadgateAllowRulesConverter
   UPostInteractionSettingsPrefThreadgateAllowRules fromJson(
     Map<String, dynamic> json,
   ) {
-    try {
-      if (MentionRule.validate(json)) {
-        return UPostInteractionSettingsPrefThreadgateAllowRules.mentionRule(
-          data: const MentionRuleConverter().fromJson(json),
-        );
-      }
-      if (FollowerRule.validate(json)) {
-        return UPostInteractionSettingsPrefThreadgateAllowRules.followerRule(
-          data: const FollowerRuleConverter().fromJson(json),
-        );
-      }
-      if (FollowingRule.validate(json)) {
-        return UPostInteractionSettingsPrefThreadgateAllowRules.followingRule(
-          data: const FollowingRuleConverter().fromJson(json),
-        );
-      }
-      if (ListRule.validate(json)) {
-        return UPostInteractionSettingsPrefThreadgateAllowRules.listRule(
-          data: const ListRuleConverter().fromJson(json),
-        );
-      }
-
-      return UPostInteractionSettingsPrefThreadgateAllowRules.unknown(
-        data: json,
-      );
-    } catch (_) {
-      return UPostInteractionSettingsPrefThreadgateAllowRules.unknown(
-        data: json,
+    if (MentionRule.validate(json)) {
+      return UPostInteractionSettingsPrefThreadgateAllowRules.mentionRule(
+        data: const MentionRuleConverter().fromJson(json),
       );
     }
+    if (FollowerRule.validate(json)) {
+      return UPostInteractionSettingsPrefThreadgateAllowRules.followerRule(
+        data: const FollowerRuleConverter().fromJson(json),
+      );
+    }
+    if (FollowingRule.validate(json)) {
+      return UPostInteractionSettingsPrefThreadgateAllowRules.followingRule(
+        data: const FollowingRuleConverter().fromJson(json),
+      );
+    }
+    if (ListRule.validate(json)) {
+      return UPostInteractionSettingsPrefThreadgateAllowRules.listRule(
+        data: const ListRuleConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UPostInteractionSettingsPrefThreadgateAllowRules.unknown(data: json);
   }
 
   @override

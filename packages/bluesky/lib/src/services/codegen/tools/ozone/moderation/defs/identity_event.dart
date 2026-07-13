@@ -36,7 +36,7 @@ abstract class IdentityEvent with _$IdentityEvent {
     String? handle,
     String? pdsHost,
     bool? tombstone,
-    required DateTime timestamp,
+    @JsonKey(toJson: iso8601) required DateTime timestamp,
 
     Map<String, dynamic>? $unknown,
   }) = _IdentityEvent;

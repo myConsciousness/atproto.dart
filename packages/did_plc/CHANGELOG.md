@@ -1,5 +1,67 @@
 # Release Note
 
+## v1.1.0
+
+**🔐 Real cryptography, working export & streaming**
+
+### ⚠️ Breaking Changes
+
+- **Real signing/verification**: the previous signing/verification stack was a
+  mock (`sha256(message‖keyMaterial‖alg)`) that could be forged by anyone holding
+  the public key and was incompatible with the real PLC directory. It is replaced
+  with real ECDSA (secp256k1 + p256), RFC 6979 deterministic `k`, low-S
+  normalization, DAG-CBOR canonicalization, CIDv1 `prev`, and correct `did:plc`
+  derivation. Signatures produced by earlier versions are **not** compatible; this
+  output is verified against live `plc.directory` audit logs (D-1/D-5).
+- **`did:key` encoding**: `did:key` generation/parsing now uses correct
+  base58btc + multicodec prefixes (previously a `'z' + base64url` pseudo-multibase
+  with no multicodec prefix), so output is now compatible with spec-conforming
+  consumers. `p256` is supported and the internally-inconsistent Ed25519 handling
+  was dropped (D-4/D-15).
+
+### 🔧 Fixes
+
+- **`exportOps` works again**: `/export` returns JSONL, but the whole body was
+  passed to `jsonDecode`, so any account with 2+ operations failed with a
+  spurious `NetworkException`. Lines are now parsed individually, and
+  `exportOpsStream` paginates instead of silently truncating at 1000 (D-3/D-18).
+- **Validator accepts real operations**: `did:key` rotation keys (with colons)
+  are accepted, and the non-spec "rotation key must be in verificationMethods"
+  rule was dropped (D-2/D-14).
+- **Retries actually fire**: the retry predicate is type-based, so connection
+  errors are retried (previously a lowercase substring match never matched the
+  real exception strings); retry logic is unified at the HTTP layer to avoid
+  amplification (D-7/D-13/D-16).
+- **Streaming**: fixed the `createBufferedStream` deadlock (consumer-driven
+  backpressure), real stream backpressure/concurrency, batch `maxWaitTime`, and
+  empty-input completion (D-6/D-11/D-12).
+- **Cache**: `CachedOperation` now writes to the cache (hit rate was permanently
+  0%), `_PLCImpl` takes a `cacheManager`, and purge is lazy instead of a
+  constructor `Timer.periodic` that kept the process alive (D-8/D-9).
+- **UTC timestamps** in export windows, and various low-severity fixes
+  (immediate-retry, chunk cast, `serviceEndpoint` cast, 2xx parse) (D-10/D-17).
+- **`exportOpsStream` no longer drops operations at a page boundary**: the
+  `/export` `after` cursor is strictly exclusive, so operations sharing one
+  `createdAt` could straddle a 1000-op page boundary and be silently skipped.
+  The cursor now rewinds to the last distinct timestamp and de-duplicates the
+  re-fetched trailing operations by CID (a full page sharing a single
+  `createdAt` throws instead of losing data).
+- **Validator allows empty `verificationMethods`**: a rotation-key-only
+  `plc_operation` is valid per the spec, so the "at least one verification
+  method is required" rule was dropped (presence/nullability is still checked).
+- **doc**: `exportOps` now documents that it returns a single page (max 1000)
+  and points to `exportOpsStream` for exporting the whole directory.
+
+### 🧪 Testing
+
+- Added crypto / validator (against real PLC fixtures) / retry / cache /
+  streaming / export tests (with live-gated fixtures) where there were
+  previously none (D-20).
+
+### 📦 Dependencies
+
+- Bump `multiformats` to `^1.1.0`.
+
 ## v1.0.3
 
 **🔧 PATCH RELEASE - README Method Name Corrections**

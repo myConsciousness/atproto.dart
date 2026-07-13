@@ -27,6 +27,15 @@
 /// - Nonce tracking for replay prevention
 /// - Separate storage of sensitive credentials
 ///
+/// ## Security Warning
+///
+/// **This object contains highly sensitive secrets**: the DPoP private key
+/// ([$privateKey]) as well as the access and refresh tokens. Anyone in
+/// possession of these values can impersonate the authenticated user.
+/// Never log this object, and only persist it (e.g. via [toJson]) into
+/// encrypted or otherwise access-controlled storage such as the platform
+/// keychain/keystore.
+///
 /// Example:
 /// ```dart
 /// final session = OAuthSession(
@@ -44,8 +53,6 @@
 final class OAuthSession {
   /// Creates an OAuth session with DPoP support.
   ///
-  /// All parameters are required as per OAuth 2.0 DPoP specifications.
-  ///
   /// Parameters:
   /// - [accessToken]: JWT access token bound to the DPoP proof
   /// - [refreshToken]: JWT refresh token for access token renewal
@@ -54,7 +61,9 @@ final class OAuthSession {
   /// - [expiresAt]: Token expiration timestamp
   /// - [sub]: Subject identifier for token binding
   /// - [$clientId]: OAuth client identifier used to mint the session
-  /// - [$dPoPNonce]: Server-provided nonce for DPoP proof freshness
+  /// - [$dPoPNonce]: Server-provided nonce for DPoP proof freshness. May be
+  ///   `null` when the server has not provided one (the `dpop-nonce` header
+  ///   is optional per RFC 9449)
   /// - [$publicKey]: Base64URL encoded public key for DPoP proof verification
   /// - [$privateKey]: Base64URL encoded private key for DPoP proof generation
   OAuthSession({
@@ -65,10 +74,28 @@ final class OAuthSession {
     required this.expiresAt,
     required this.sub,
     this.$clientId,
-    required this.$dPoPNonce,
+    this.$dPoPNonce,
     required this.$publicKey,
     required this.$privateKey,
   });
+
+  /// Restores a session previously serialized with [toJson].
+  ///
+  /// Throws a [FormatException] or [TypeError] if required fields are
+  /// missing or malformed.
+  factory OAuthSession.fromJson(final Map<String, dynamic> json) =>
+      OAuthSession(
+        accessToken: json['access_token'] as String,
+        refreshToken: (json['refresh_token'] as String?) ?? '',
+        tokenType: (json['token_type'] as String?) ?? 'DPoP',
+        scope: (json['scope'] as String?) ?? '',
+        expiresAt: DateTime.parse(json['expires_at'] as String).toUtc(),
+        sub: json['sub'] as String,
+        $clientId: json['client_id'] as String?,
+        $dPoPNonce: json['dpop_nonce'] as String?,
+        $publicKey: json['public_key'] as String,
+        $privateKey: json['private_key'] as String,
+      );
 
   /// The DPoP-bound JWT access token.
   ///
@@ -80,6 +107,9 @@ final class OAuthSession {
   ///
   /// Used in conjunction with DPoP proof for secure token refresh
   /// as specified in Section 5 of RFC 9449.
+  ///
+  /// May be an empty string when the authorization server did not issue a
+  /// refresh token.
   final String refreshToken;
 
   /// The token type identifier.
@@ -98,12 +128,16 @@ final class OAuthSession {
   ///
   /// After this time, a new access token must be obtained
   /// using the refresh token and DPoP proof.
+  ///
+  /// A small clock-skew safety margin is already subtracted when the session
+  /// is minted by `OAuthClient`, so it is safe to compare this value against
+  /// the local clock directly.
   final DateTime expiresAt;
 
   /// Subject identifier for token binding.
   ///
   /// Unique identifier that binds the token
-  /// to a specific user or entity.
+  /// to a specific user or entity. For atproto this is the account DID.
   final String sub;
 
   /// OAuth client identifier used to obtain this session.
@@ -116,7 +150,10 @@ final class OAuthSession {
   ///
   /// Used to ensure DPoP proof freshness and prevent
   /// replay attacks as specified in Section 4.3 of RFC 9449.
-  String $dPoPNonce;
+  ///
+  /// May be `null` when the server has not provided a nonce yet; the
+  /// `dpop-nonce` header is optional per RFC 9449.
+  String? $dPoPNonce;
 
   /// Base64URL encoded public key for DPoP.
   ///
@@ -129,4 +166,25 @@ final class OAuthSession {
   /// Used to sign DPoP proof JWTs. Must be kept secure
   /// and never exposed. Typically an EC P-256 key.
   final String $privateKey;
+
+  /// Serializes this session so it can be restored later with
+  /// [OAuthSession.fromJson].
+  ///
+  /// **Security warning**: the returned map contains the raw DPoP private
+  /// key ([$privateKey]) and the access/refresh tokens in plaintext. Do not
+  /// log it, and only persist it into encrypted or access-controlled storage
+  /// (e.g. the platform keychain/keystore) — never into plaintext files or
+  /// shared preferences.
+  Map<String, dynamic> toJson() => {
+    'access_token': accessToken,
+    'refresh_token': refreshToken,
+    'token_type': tokenType,
+    'scope': scope,
+    'expires_at': expiresAt.toUtc().toIso8601String(),
+    'sub': sub,
+    if ($clientId != null) 'client_id': $clientId,
+    if ($dPoPNonce != null) 'dpop_nonce': $dPoPNonce,
+    'public_key': $publicKey,
+    'private_key': $privateKey,
+  };
 }

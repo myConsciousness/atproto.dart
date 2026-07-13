@@ -27,7 +27,13 @@ abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
 
   @JsonSerializable(includeIfNull: false)
   const factory AdminGetInviteCodesInput({
-    @AdminGetInviteCodesSortConverter() AdminGetInviteCodesSort? sort,
+    @AdminGetInviteCodesSortConverter()
+    @Default(
+      AdminGetInviteCodesSort.knownValue(
+        data: KnownAdminGetInviteCodesSort.recent,
+      ),
+    )
+    AdminGetInviteCodesSort sort,
     @Default(100) int limit,
     String? cursor,
 
@@ -39,8 +45,6 @@ abstract class AdminGetInviteCodesInput with _$AdminGetInviteCodesInput {
 }
 
 extension AdminGetInviteCodesInputExtension on AdminGetInviteCodesInput {
-  bool get hasSort => sort != null;
-  bool get hasNotSort => !hasSort;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
 }

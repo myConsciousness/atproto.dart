@@ -61,22 +61,22 @@ final class ULogAddReactionMessageConverter
 
   @override
   ULogAddReactionMessage fromJson(Map<String, dynamic> json) {
-    try {
-      if (MessageView.validate(json)) {
-        return ULogAddReactionMessage.messageView(
-          data: const MessageViewConverter().fromJson(json),
-        );
-      }
-      if (DeletedMessageView.validate(json)) {
-        return ULogAddReactionMessage.deletedMessageView(
-          data: const DeletedMessageViewConverter().fromJson(json),
-        );
-      }
-
-      return ULogAddReactionMessage.unknown(data: json);
-    } catch (_) {
-      return ULogAddReactionMessage.unknown(data: json);
+    if (MessageView.validate(json)) {
+      return ULogAddReactionMessage.messageView(
+        data: const MessageViewConverter().fromJson(json),
+      );
     }
+    if (DeletedMessageView.validate(json)) {
+      return ULogAddReactionMessage.deletedMessageView(
+        data: const DeletedMessageViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return ULogAddReactionMessage.unknown(data: json);
   }
 
   @override

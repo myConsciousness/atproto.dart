@@ -33,7 +33,7 @@ abstract class GraphListitemRecord with _$GraphListitemRecord {
 
     /// Reference (AT-URI) to the list record (app.bsky.graph.list).
     @AtUriConverter() required AtUri list,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphListitemRecord;

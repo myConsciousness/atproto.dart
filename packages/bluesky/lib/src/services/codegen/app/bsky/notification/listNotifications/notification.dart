@@ -51,7 +51,7 @@ abstract class Notification with _$Notification {
     @AtUriConverter() AtUri? reasonSubject,
     required Map<String, dynamic> record,
     required bool isRead,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @LabelConverter() List<Label>? labels,
 
     Map<String, dynamic>? $unknown,

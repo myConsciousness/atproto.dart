@@ -74,6 +74,6 @@ Map<String, dynamic> _$EmbedRecordViewRecordToJson(
   'embeds': ?instance.embeds
       ?.map(const UEmbedRecordViewRecordEmbedsConverter().toJson)
       .toList(),
-  'indexedAt': instance.indexedAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
   r'$unknown': ?instance.$unknown,
 };

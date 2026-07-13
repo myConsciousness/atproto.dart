@@ -39,8 +39,8 @@ final class DeclarationCommand extends Command<void> {
   String get description => "A declaration of a Bluesky chat account.";
 }
 
-final class _CreateDeclarationCommand extends CreateRecordCommand {
-  _CreateDeclarationCommand() {
+mixin _DeclarationCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption("allowIncoming", mandatory: true)
       ..addOption(
@@ -48,6 +48,13 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
         help:
             r"Declaration about group chat invitation preferences for the record owner.",
       );
+  }
+}
+
+final class _CreateDeclarationCommand extends CreateRecordCommand
+    with _DeclarationCommandRecordArgs {
+  _CreateDeclarationCommand() {
+    _addRecordOptions();
   }
 
   @override
@@ -76,15 +83,10 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutDeclarationCommand extends PutRecordCommand {
+final class _PutDeclarationCommand extends PutRecordCommand
+    with _DeclarationCommandRecordArgs {
   _PutDeclarationCommand() {
-    argParser
-      ..addOption("allowIncoming", mandatory: true)
-      ..addOption(
-        "allowGroupInvites",
-        help:
-            r"Declaration about group chat invitation preferences for the record owner.",
-      );
+    _addRecordOptions();
   }
 
   @override
@@ -194,7 +196,9 @@ final class _ListDeclarationCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "chat.bsky.actor.declaration",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

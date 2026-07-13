@@ -26,7 +26,7 @@ abstract class AppPassword with _$AppPassword {
   const factory AppPassword({
     @Default('com.atproto.server.listAppPasswords#appPassword') String $type,
     required String name,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     bool? privileged,
 
     Map<String, dynamic>? $unknown,

@@ -50,7 +50,7 @@ Map<String, dynamic> _$AgeAssuranceEventToJson(
   _AgeAssuranceEvent instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'attemptId': instance.attemptId,
   'status': const AgeAssuranceEventStatusConverter().toJson(instance.status),
   'access': ?_$JsonConverterToJson<String, Access>(

@@ -41,8 +41,8 @@ Map<String, dynamic> _$ReportQueryActivitiesInputToJson(
   _ReportQueryActivitiesInput instance,
 ) => <String, dynamic>{
   'activityTypes': ?instance.activityTypes,
-  'createdAfter': ?instance.createdAfter?.toIso8601String(),
-  'createdBefore': ?instance.createdBefore?.toIso8601String(),
+  'createdAfter': iso8601(instance.createdAfter),
+  'createdBefore': iso8601(instance.createdBefore),
   'sortDirection': instance.sortDirection,
   'limit': instance.limit,
   'cursor': ?instance.cursor,

@@ -17,7 +17,7 @@ mixin _$StatusView {
 
  String get $type;@AtUriConverter() AtUri? get uri; String? get cid;/// The status for the account.
 @StatusViewStatusConverter() StatusViewStatus get status; Map<String, dynamic> get record;@UStatusViewEmbedConverter() UStatusViewEmbed? get embed;@LabelConverter() List<Label>? get labels;/// The date when this status will expire. The application might choose to no longer return the status after expiration.
- DateTime? get expiresAt;/// True if the status is not expired, false if it is expired. Only present if expiration was set.
+@JsonKey(toJson: iso8601) DateTime? get expiresAt;/// True if the status is not expired, false if it is expired. Only present if expiration was set.
  bool? get isActive;/// True if the user's go-live access has been disabled by a moderator, false otherwise.
  bool? get isDisabled; Map<String, dynamic>? get $unknown;
 /// Create a copy of StatusView
@@ -52,7 +52,7 @@ abstract mixin class $StatusViewCopyWith<$Res>  {
   factory $StatusViewCopyWith(StatusView value, $Res Function(StatusView) _then) = _$StatusViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed,@LabelConverter() List<Label>? labels, DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed,@LabelConverter() List<Label>? labels,@JsonKey(toJson: iso8601) DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
 });
 
 
@@ -188,7 +188,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StatusView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.labels,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
@@ -209,7 +209,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _StatusView():
 return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.labels,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
@@ -229,7 +229,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels,  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? uri,  String? cid, @StatusViewStatusConverter()  StatusViewStatus status,  Map<String, dynamic> record, @UStatusViewEmbedConverter()  UStatusViewEmbed? embed, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  bool? isActive,  bool? isDisabled,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _StatusView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.embed,_that.labels,_that.expiresAt,_that.isActive,_that.isDisabled,_that.$unknown);case _:
@@ -244,7 +244,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.status,_that.record,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _StatusView implements StatusView {
-  const _StatusView({this.$type = 'app.bsky.actor.defs#statusView', @AtUriConverter() this.uri, this.cid, @StatusViewStatusConverter() required this.status, required final  Map<String, dynamic> record, @UStatusViewEmbedConverter() this.embed, @LabelConverter() final  List<Label>? labels, this.expiresAt, this.isActive, this.isDisabled, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
+  const _StatusView({this.$type = 'app.bsky.actor.defs#statusView', @AtUriConverter() this.uri, this.cid, @StatusViewStatusConverter() required this.status, required final  Map<String, dynamic> record, @UStatusViewEmbedConverter() this.embed, @LabelConverter() final  List<Label>? labels, @JsonKey(toJson: iso8601) this.expiresAt, this.isActive, this.isDisabled, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _StatusView.fromJson(Map<String, dynamic> json) => _$StatusViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -270,7 +270,7 @@ class _StatusView implements StatusView {
 }
 
 /// The date when this status will expire. The application might choose to no longer return the status after expiration.
-@override final  DateTime? expiresAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? expiresAt;
 /// True if the status is not expired, false if it is expired. Only present if expiration was set.
 @override final  bool? isActive;
 /// True if the user's go-live access has been disabled by a moderator, false otherwise.
@@ -318,7 +318,7 @@ abstract mixin class _$StatusViewCopyWith<$Res> implements $StatusViewCopyWith<$
   factory _$StatusViewCopyWith(_StatusView value, $Res Function(_StatusView) _then) = __$StatusViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed,@LabelConverter() List<Label>? labels, DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? uri, String? cid,@StatusViewStatusConverter() StatusViewStatus status, Map<String, dynamic> record,@UStatusViewEmbedConverter() UStatusViewEmbed? embed,@LabelConverter() List<Label>? labels,@JsonKey(toJson: iso8601) DateTime? expiresAt, bool? isActive, bool? isDisabled, Map<String, dynamic>? $unknown
 });
 
 

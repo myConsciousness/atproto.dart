@@ -37,7 +37,7 @@ abstract class ReportAssignment with _$ReportAssignment {
     @MemberConverter() Member? moderator,
 
     /// When the report was assigned
-    required DateTime assignedAt,
+    @JsonKey(toJson: iso8601) required DateTime assignedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ReportAssignment;

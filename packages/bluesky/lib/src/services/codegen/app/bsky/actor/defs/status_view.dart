@@ -51,7 +51,7 @@ abstract class StatusView with _$StatusView {
     @LabelConverter() List<Label>? labels,
 
     /// The date when this status will expire. The application might choose to no longer return the status after expiration.
-    DateTime? expiresAt,
+    @JsonKey(toJson: iso8601) DateTime? expiresAt,
 
     /// True if the status is not expired, false if it is expired. Only present if expiration was set.
     bool? isActive,

@@ -6,6 +6,8 @@
 import 'dart:convert';
 
 // Project imports:
+import 'cache/cache_manager.dart';
+import 'cache/cached_operation.dart';
 import 'client/http_client.dart';
 import 'client/response.dart';
 import 'client/retry_policy.dart';
@@ -33,10 +35,14 @@ abstract class PLC {
   /// [service] - The PLC directory service URL (defaults to plc.directory)
   /// [httpClient] - Optional custom HTTP client
   /// [retryPolicy] - Optional retry policy for failed requests
+  /// [cacheManager] - Optional cache manager. When provided, read
+  ///   operations (document, document data, logs, health) are served from
+  ///   and written to this cache. Call [close] to release its resources.
   factory PLC({
     String? service,
     HttpClient? httpClient,
     RetryPolicy? retryPolicy,
+    CacheManager? cacheManager,
   }) = _PLCImpl;
 
   /// Resolves a DID to its current DID document.
@@ -173,18 +179,22 @@ abstract class PLC {
   /// ```
   Future<CompatibleOpOrTombstone> getLastOp(String did);
 
-  /// Exports operations from the PLC directory.
+  /// Exports a single page of operations from the PLC directory.
   ///
-  /// Retrieves a batch of operations from the directory, optionally filtered by
-  /// timestamp and limited by count. This is useful for synchronizing with the
-  /// directory or building analytics.
+  /// Retrieves at most one page (up to 1000 operations, the `/export`
+  /// endpoint's server-side limit) from the directory, optionally filtered
+  /// by timestamp and limited by count. This method does **not** paginate;
+  /// to export more than one page — or the entire directory — use
+  /// [exportOpsStream], which paginates automatically.
   ///
   /// **Parameters:**
   /// - [after] - Optional timestamp to export operations after (ISO 8601 format)
   /// - [count] - Optional maximum number of operations to export
+  ///   (capped at 1000 by the server)
   ///
   /// **Returns:**
-  /// An [AuditableLog] containing the exported operations with metadata.
+  /// An [AuditableLog] containing a single page of exported operations
+  /// with metadata.
   ///
   /// **Throws:**
   /// - [NetworkException] for network-related errors
@@ -192,15 +202,17 @@ abstract class PLC {
   ///
   /// **Example:**
   /// ```dart
-  /// // Export recent operations
+  /// // Export up to 100 recent operations (single request)
   /// final recent = await plc.exportOps(
   ///   after: DateTime.now().subtract(Duration(hours: 1)),
   ///   count: 100,
   /// );
   /// print('Exported ${recent.log.length} operations');
   ///
-  /// // Export all operations
-  /// final all = await plc.exportOps();
+  /// // To export ALL operations, use the paginating stream instead:
+  /// await for (final operation in plc.exportOpsStream()) {
+  ///   print(operation.did);
+  /// }
   /// ```
   Future<AuditableLog> exportOps({DateTime? after, int? count});
 
@@ -373,20 +385,36 @@ abstract class PLC {
 
 /// Internal implementation of the PLC client.
 final class _PLCImpl implements PLC {
-  _PLCImpl({String? service, HttpClient? httpClient, RetryPolicy? retryPolicy})
-    : _httpClient =
-          httpClient ??
-          HttpClient(
-            baseUrl: service ?? _defaultService,
-            retryPolicy: retryPolicy,
-          );
+  _PLCImpl({
+    String? service,
+    HttpClient? httpClient,
+    RetryPolicy? retryPolicy,
+    CacheManager? cacheManager,
+  }) : _httpClient =
+           httpClient ??
+           HttpClient(
+             baseUrl: service ?? _defaultService,
+             retryPolicy: retryPolicy,
+           ),
+       _cacheManager = cacheManager,
+       _cached = cacheManager != null ? CachedOperation(cacheManager) : null;
 
   final HttpClient _httpClient;
+  final CacheManager? _cacheManager;
+  final CachedOperation? _cached;
 
   @override
   Future<DidDocument> getDocument(String did) async {
     _validateDid(did);
 
+    final cached = _cached;
+    if (cached != null) {
+      return cached.didDocument(did, () => _getDocument(did));
+    }
+    return _getDocument(did);
+  }
+
+  Future<DidDocument> _getDocument(String did) async {
     try {
       final response = await _httpClient.get<DidDocument>(
         did,
@@ -412,6 +440,14 @@ final class _PLCImpl implements PLC {
   Future<DocumentData> getDocumentData(String did) async {
     _validateDid(did);
 
+    final cached = _cached;
+    if (cached != null) {
+      return cached.documentData(did, () => _getDocumentData(did));
+    }
+    return _getDocumentData(did);
+  }
+
+  Future<DocumentData> _getDocumentData(String did) async {
     try {
       final response = await _httpClient.get<DocumentData>(
         '$did/data',
@@ -437,6 +473,14 @@ final class _PLCImpl implements PLC {
   Future<OperationLog> getOperationLog(String did) async {
     _validateDid(did);
 
+    final cached = _cached;
+    if (cached != null) {
+      return cached.operationLog(did, () => _getOperationLog(did));
+    }
+    return _getOperationLog(did);
+  }
+
+  Future<OperationLog> _getOperationLog(String did) async {
     try {
       final response = await _httpClient.get<Map<String, dynamic>>(
         '$did/log',
@@ -465,6 +509,14 @@ final class _PLCImpl implements PLC {
   Future<AuditableLog> getAuditableLog(String did) async {
     _validateDid(did);
 
+    final cached = _cached;
+    if (cached != null) {
+      return cached.auditableLog(did, () => _getAuditableLog(did));
+    }
+    return _getAuditableLog(did);
+  }
+
+  Future<AuditableLog> _getAuditableLog(String did) async {
     try {
       final response = await _httpClient.get<Map<String, dynamic>>(
         '$did/log/audit',
@@ -517,41 +569,68 @@ final class _PLCImpl implements PLC {
   @override
   Future<AuditableLog> exportOps({DateTime? after, int? count}) async {
     try {
-      final queryParams = <String, dynamic>{};
-      if (after != null) {
-        queryParams['after'] = after.toIso8601String();
-      }
-      if (count != null) {
-        queryParams['count'] = count.toString();
-      }
-
-      final response = await _httpClient.get<Map<String, dynamic>>(
-        'export',
-        queryParameters: queryParams.isNotEmpty ? queryParams : null,
-        fromJson: (json) => json,
-      );
-
-      return response.when(
-        success: (_, _, data) {
-          // Convert the raw response to compatible format for JSONL
-          final compatibleData = _toCompatibleBody('log', data, jsonl: true);
-          return AuditableLog.fromJson(compatibleData);
-        },
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Failed to export operations',
-        ),
-      );
+      final operations = await _fetchExportPage(after: after, count: count);
+      return AuditableLog(log: operations);
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error exporting operations: $e');
     }
   }
 
+  /// Fetches a single page of exported operations from the `/export`
+  /// endpoint, parsing the JSONL response line by line.
+  Future<List<ExportedOperation>> _fetchExportPage({
+    DateTime? after,
+    int? count,
+  }) async {
+    final queryParams = <String, dynamic>{};
+    if (after != null) {
+      queryParams['after'] = after.toUtc().toIso8601String();
+    }
+    if (count != null) {
+      queryParams['count'] = count.toString();
+    }
+
+    // The /export endpoint returns JSONL (one operation per line), so the
+    // raw body must be parsed line-by-line rather than as a single JSON
+    // document.
+    final response = await _httpClient.get<String>(
+      'export',
+      queryParameters: queryParams.isNotEmpty ? queryParams : null,
+    );
+
+    return response.when(
+      success: (_, _, body) => _parseJsonl(body),
+      error: (statusCode, _, message, details) => throw _createException(
+        statusCode,
+        message,
+        details,
+        'Failed to export operations',
+      ),
+    );
+  }
+
+  /// Parses a JSONL body into a list of [ExportedOperation]s.
+  List<ExportedOperation> _parseJsonl(String body) {
+    final operations = <ExportedOperation>[];
+    for (final line in const LineSplitter().convert(body)) {
+      if (line.trim().isEmpty) continue;
+      final json = jsonDecode(line) as Map<String, dynamic>;
+      operations.add(ExportedOperation.fromJson(json));
+    }
+    return operations;
+  }
+
   @override
   Future<Instance> health() async {
+    final cached = _cached;
+    if (cached != null) {
+      return cached.instance('_health', _health);
+    }
+    return _health();
+  }
+
+  Future<Instance> _health() async {
     try {
       final response = await _httpClient.get<Instance>(
         '_health',
@@ -600,26 +679,76 @@ final class _PLCImpl implements PLC {
     });
   }
 
+  /// The maximum number of operations the `/export` endpoint returns per
+  /// request.
+  static const _exportPageSize = 1000;
+
   @override
   Stream<ExportedOperation> exportOpsStream({
     DateTime? after,
     int? count,
   }) async* {
     try {
-      final queryParams = <String, dynamic>{};
-      if (after != null) {
-        queryParams['after'] = after.toIso8601String();
-      }
-      if (count != null) {
-        queryParams['count'] = count.toString();
-      }
+      var cursor = after;
+      var remaining = count;
 
-      // Use streaming HTTP client for JSONL response
-      yield* _httpClient.getStream<ExportedOperation>(
-        'export',
-        queryParameters: queryParams.isNotEmpty ? queryParams : null,
-        fromJson: ExportedOperation.fromJson,
-      );
+      // CIDs of the operations that shared the final `createdAt` of the
+      // previous (full) page. The `/export` `after` parameter is strictly
+      // exclusive, so operations sharing one timestamp can straddle a page
+      // boundary and would be silently dropped if the cursor advanced to
+      // that timestamp. Instead, the cursor is rewound to the last distinct
+      // timestamp and the already-yielded trailing operations are skipped
+      // when they reappear at the head of the next page.
+      var boundaryCids = const <String>{};
+
+      while (remaining == null || remaining > 0) {
+        // Request extra room for the boundary operations that will be
+        // re-fetched and skipped, so a `count`-limited stream still makes
+        // progress across a shared-timestamp boundary.
+        final desired = remaining == null
+            ? _exportPageSize
+            : remaining + boundaryCids.length;
+        final pageSize = desired < _exportPageSize ? desired : _exportPageSize;
+
+        final page = await _fetchExportPage(after: cursor, count: pageSize);
+        if (page.isEmpty) break;
+
+        for (final operation in page) {
+          if (boundaryCids.contains(operation.cid)) continue;
+          yield operation;
+          if (remaining != null) {
+            remaining--;
+            if (remaining <= 0) return;
+          }
+        }
+
+        // A short page means the directory is exhausted.
+        if (page.length < pageSize) break;
+
+        // Find the start of the trailing group of operations that share the
+        // page's final createdAt.
+        final lastCreatedAt = page.last.createdAt;
+        var groupStart = page.length - 1;
+        while (groupStart > 0 &&
+            page[groupStart - 1].createdAt.isAtSameMomentAs(lastCreatedAt)) {
+          groupStart--;
+        }
+
+        if (groupStart == 0) {
+          // Every operation in a full page shares a single createdAt. The
+          // strictly exclusive cursor cannot advance past this timestamp
+          // without potentially dropping operations that share it.
+          throw GenericPlcException(
+            'Cannot paginate /export: all ${page.length} operations in the '
+            'page share createdAt ${lastCreatedAt.toUtc().toIso8601String()}',
+          );
+        }
+
+        cursor = page[groupStart - 1].createdAt;
+        boundaryCids = <String>{
+          for (final operation in page.sublist(groupStart)) operation.cid,
+        };
+      }
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error in export stream: $e');
@@ -631,32 +760,21 @@ final class _PLCImpl implements PLC {
     DateTime? after,
     int? count,
   }) async* {
-    try {
-      final queryParams = <String, dynamic>{};
-      if (after != null) {
-        queryParams['after'] = after.toIso8601String();
-      }
-      if (count != null) {
-        queryParams['count'] = count.toString();
-      }
-
-      // Use streaming HTTP client for raw JSONL response
-      yield* _httpClient.getStream<Map<String, dynamic>>(
-        'export',
-        queryParameters: queryParams.isNotEmpty ? queryParams : null,
-        fromJson: (json) => json,
-      );
-    } catch (e) {
-      if (e is PlcException) rethrow;
-      throw GenericPlcException(
-        'Unexpected error in auditable export stream: $e',
-      );
+    await for (final operation in exportOpsStream(after: after, count: count)) {
+      yield {
+        'did': operation.did,
+        'cid': operation.cid,
+        'operation': operation.operation.toJson(),
+        'nullified': operation.isNullified,
+        'createdAt': operation.createdAt.toUtc().toIso8601String(),
+      };
     }
   }
 
   @override
   void close() {
     _httpClient.close();
+    _cacheManager?.dispose();
   }
 
   /// Validates that a DID is properly formatted.
@@ -681,40 +799,6 @@ final class _PLCImpl implements PLC {
     }
   }
 
-  /// Converts raw response data to compatible format for legacy types.
-  Map<String, dynamic> _toCompatibleBody(
-    String root,
-    dynamic data, {
-    bool jsonl = false,
-  }) {
-    if (jsonl) {
-      // Handle JSONL format - split lines and parse each
-      if (data is String) {
-        final lines = data.split('\n').where((line) => line.isNotEmpty);
-        final parsedLines = lines.map((line) => jsonDecode(line)).toList();
-        return {root: parsedLines};
-      } else if (data is List) {
-        return {root: data};
-      } else {
-        return {
-          root: [data],
-        };
-      }
-    } else {
-      // Handle regular JSON format
-      if (data is String) {
-        return {root: jsonDecode(data)};
-      } else if (data is List) {
-        // If the response is already a List (common for operation logs), wrap it
-        return {root: data};
-      } else if (data is Map<String, dynamic>) {
-        return {root: data};
-      } else {
-        return {root: data};
-      }
-    }
-  }
-
   /// Creates appropriate exception based on HTTP status code and details.
   PlcException _createException(
     int statusCode,
@@ -722,6 +806,13 @@ final class _PLCImpl implements PLC {
     Map<String, dynamic>? details,
     String context,
   ) {
+    // A 2xx status carried on an error response means the body was
+    // received but could not be parsed; that is a client-side parse
+    // failure, not a network error.
+    if (statusCode >= 200 && statusCode < 300) {
+      return GenericPlcException('$context: $message');
+    }
+
     switch (statusCode) {
       case 400:
         return ValidationException(

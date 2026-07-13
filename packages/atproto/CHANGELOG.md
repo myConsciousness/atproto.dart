@@ -1,5 +1,19 @@
 # Release Note
 
+## v1.6.0
+
+- feat: automatic access-token refresh in `ATProto.fromSession` (wired through `com.atproto.server.refreshSession`); `atproto.session` reflects the new credentials. `fromOAuthSession` is untouched, and all new parameters are optional (non-breaking).
+- fix!: hardened the Firehose against hostile input — removed the `ref` int-list heuristic in `cid_links` that allowed any network user to crash every Firehose consumer by publishing a record containing `"ref": [1,2,3]` (A-3).
+- fix: `#commit` `prevData`/`prev` CID links are now converted, so sync v1.1 commits no longer degrade to `unknown` (A-1).
+- fix: `#sync` frame blocks are decoded into a typed `Sync` event (account migration/recovery) (A-2).
+- fix: Firehose error frames (`op == -1`, e.g. `FutureCursor`/`ConsumerTooSlow`) now surface as a typed `FirehoseErrorException`, and text frames raise a typed `FirehoseFrameException` instead of a `TypeError` (A-8/A-10).
+- fix: CAR decode failures are surfaced instead of being silently turned into an empty map (A-9).
+- fix: `protocol` is now forwarded in `create`/`refresh`/`deleteSession` (A-7).
+- chore: removed dead, unexported repo adaptors (A-5/A-6/A-12) and regenerated services from the fixed `lex_gen` (`$type` injection, UTC datetime, required+nullable serialization).
+- chore: removed the internal, unexported `convertCidLinks` no-op (and its call in the firehose adaptor) — CID links and byte strings are already normalized by `decodeCar` in `atproto_core`.
+- fix!: regenerated from the fixed `lex_gen` — a string field with both `knownValues` and a `default` is now non-nullable and carries its spec default instead of reporting `null`: `com.atproto.label.defs#labelValueDefinition.defaultSetting` (`warn`) and `com.atproto.admin.getInviteCodes.sort` (`recent`). The corresponding `hasX`/`hasNotX` getters were removed (G-18).
+- chore: bump `atproto_core` to `^1.3.0`.
+
 ## v1.5.1
 
 - chore: bump `atproto_core` to `^1.2.2`.

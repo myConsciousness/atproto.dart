@@ -28,7 +28,7 @@ abstract class StateMetadata with _$StateMetadata {
     @Default('app.bsky.ageassurance.defs#stateMetadata') String $type,
 
     /// The account creation timestamp.
-    DateTime? accountCreatedAt,
+    @JsonKey(toJson: iso8601) DateTime? accountCreatedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _StateMetadata;

@@ -10,7 +10,6 @@ import 'package:args/command_runner.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
-import '../runner/bsky_runner.dart';
 import 'bsky_command.dart';
 
 /// The command for procedures with binary (blob) input.
@@ -31,29 +30,36 @@ abstract class BlobCommand extends BskyCommand {
   /// from the file bytes.
   String? get contentType => null;
 
+  /// Blob uploads transfer large payloads, so the default timeout is
+  /// much longer than the regular 10 seconds.
+  @override
+  Duration get defaultTimeout => const Duration(minutes: 5);
+
   @override
   Future<void> run() async {
+    if (!argResults!.wasParsed('file')) {
+      usageException('The --file option is mandatory.');
+    }
+
     final file = File(argResults!['file']);
     if (!file.existsSync()) {
       throw UsageException('File not found: ${file.path}', usage);
     }
 
-    final jwt = await accessJwt;
-    return await Bsky(
-      logger,
-      action: () async => await xrpc.procedure<String>(
+    await execute(() async {
+      final jwt = await accessJwt;
+
+      return await xrpc.procedure<String>(
         xrpc.NSID(methodId),
         service: service,
         headers: {
           'Content-Type': ?contentType,
           if (jwt != null) 'Authorization': 'Bearer $jwt',
         },
-        body: file.readAsBytesSync(),
+        body: await file.readAsBytes(),
+        timeout: timeout,
         postClient: postClient,
-      ),
-      pretty: globalResults!['pretty'],
-      showStatus: globalResults!['status'],
-      showRequest: globalResults!['request'],
-    ).run();
+      );
+    });
   }
 }

@@ -39,7 +39,7 @@ abstract class BlobView with _$BlobView {
     required String cid,
     required String mimeType,
     required int size,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @UBlobViewDetailsConverter() UBlobViewDetails? details,
     @ModerationConverter() Moderation? moderation,
 

@@ -37,6 +37,6 @@ Map<String, dynamic> _$SyncToJson(_Sync instance) => <String, dynamic>{
   'did': instance.did,
   'blocks': instance.blocks,
   'rev': instance.rev,
-  'time': instance.time.toIso8601String(),
+  'time': iso8601(instance.time),
   r'$unknown': ?instance.$unknown,
 };

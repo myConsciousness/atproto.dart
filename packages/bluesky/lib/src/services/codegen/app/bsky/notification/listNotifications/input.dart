@@ -36,7 +36,7 @@ abstract class NotificationListNotificationsInput
     @Default(50) int limit,
     bool? priority,
     String? cursor,
-    DateTime? seenAt,
+    @JsonKey(toJson: iso8601) DateTime? seenAt,
 
     Map<String, dynamic>? $unknown,
   }) = _NotificationListNotificationsInput;

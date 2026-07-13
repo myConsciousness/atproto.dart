@@ -27,6 +27,6 @@ _ServerDeactivateAccountInput _$ServerDeactivateAccountInputFromJson(
 Map<String, dynamic> _$ServerDeactivateAccountInputToJson(
   _ServerDeactivateAccountInput instance,
 ) => <String, dynamic>{
-  'deleteAfter': ?instance.deleteAfter?.toIso8601String(),
+  'deleteAfter': iso8601(instance.deleteAfter),
   r'$unknown': ?instance.$unknown,
 };

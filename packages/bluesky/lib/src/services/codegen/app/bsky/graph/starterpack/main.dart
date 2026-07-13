@@ -47,7 +47,7 @@ abstract class GraphStarterpackRecord with _$GraphStarterpackRecord {
     /// Reference (AT-URI) to the list record.
     @AtUriConverter() required AtUri list,
     @FeedItemConverter() List<FeedItem>? feeds,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphStarterpackRecord;

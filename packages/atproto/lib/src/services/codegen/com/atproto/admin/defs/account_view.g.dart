@@ -77,7 +77,7 @@ Map<String, dynamic> _$AccountViewToJson(_AccountView instance) =>
       'handle': instance.handle,
       'email': ?instance.email,
       'relatedRecords': ?instance.relatedRecords,
-      'indexedAt': instance.indexedAt.toIso8601String(),
+      'indexedAt': iso8601(instance.indexedAt),
       'invitedBy': ?_$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
         instance.invitedBy,
         const InviteCodeConverter().toJson,
@@ -86,9 +86,9 @@ Map<String, dynamic> _$AccountViewToJson(_AccountView instance) =>
           ?.map(const InviteCodeConverter().toJson)
           .toList(),
       'invitesDisabled': ?instance.invitesDisabled,
-      'emailConfirmedAt': ?instance.emailConfirmedAt?.toIso8601String(),
+      'emailConfirmedAt': iso8601(instance.emailConfirmedAt),
       'inviteNote': ?instance.inviteNote,
-      'deactivatedAt': ?instance.deactivatedAt?.toIso8601String(),
+      'deactivatedAt': iso8601(instance.deactivatedAt),
       'threatSignatures': ?instance.threatSignatures
           ?.map(const ThreatSignatureConverter().toJson)
           .toList(),

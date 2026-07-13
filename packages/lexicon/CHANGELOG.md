@@ -1,5 +1,14 @@
 # Release Note
 
+## v1.2.0
+
+- fix: nested inline `object` types no longer raise `UnsupportedError`; converters degrade gracefully so one such document no longer fails the whole load (G-12).
+- fix: an unknown string `format` value now decodes to `LexStringFormat.unknown` instead of throwing (G-13).
+- fix: `LexXrpcProcedure`'s implementation class name was a copy-paste `_LexXrpcQuery` (G-14).
+- docs: documented that `LexRefUnion.closed` is parsed but intentionally not enforced by the generator — generated unions always keep an `.unknown` fallback variant for forward compatibility (G-14).
+- test: added negative / graceful-degradation coverage (nested objects, unknown formats, refs-less unions) and per-converter unit tests (G-16).
+- chore: bump `at_primitives` to `^1.1.0`.
+
 ## v1.1.0
 
 - feat: added `app.bsky.embed.gallery`, `chat.bsky.convo.getUnreadCounts`, and `tools.ozone.report.queryActivities` to the bundled lexicons.

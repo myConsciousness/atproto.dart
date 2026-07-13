@@ -41,8 +41,8 @@ final class GeneratorCommand extends Command<void> {
       "Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.";
 }
 
-final class _CreateGeneratorCommand extends CreateRecordCommand {
-  _CreateGeneratorCommand() {
+mixin _GeneratorCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption("did", mandatory: true)
       ..addOption("displayName", mandatory: true)
@@ -56,8 +56,33 @@ final class _CreateGeneratorCommand extends CreateRecordCommand {
       )
       ..addOption("labels", help: r"Self-label values")
       ..addOption("contentMode")
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"Specific record key to use.");
+      ..addOption("createdAt", mandatory: true);
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateGeneratorCommand extends CreateRecordCommand
+    with _GeneratorCommandRecordArgs {
+  _CreateGeneratorCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -86,36 +111,23 @@ final class _CreateGeneratorCommand extends CreateRecordCommand {
       "description": argResults!["description"],
     if (argResults!.wasParsed("descriptionFacets"))
       "descriptionFacets": (argResults!["descriptionFacets"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("descriptionFacets", e))
           .toList(),
     if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
     if (argResults!.wasParsed("acceptsInteractions"))
       "acceptsInteractions": argResults!["acceptsInteractions"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     if (argResults!.wasParsed("contentMode"))
       "contentMode": argResults!["contentMode"],
     "createdAt": argResults!["createdAt"],
   };
 }
 
-final class _PutGeneratorCommand extends PutRecordCommand {
+final class _PutGeneratorCommand extends PutRecordCommand
+    with _GeneratorCommandRecordArgs {
   _PutGeneratorCommand() {
-    argParser
-      ..addOption("did", mandatory: true)
-      ..addOption("displayName", mandatory: true)
-      ..addOption("description")
-      ..addMultiOption("descriptionFacets", splitCommas: false)
-      ..addOption("avatar")
-      ..addFlag(
-        "acceptsInteractions",
-        help:
-            r"Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions",
-      )
-      ..addOption("labels", help: r"Self-label values")
-      ..addOption("contentMode")
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -143,13 +155,12 @@ final class _PutGeneratorCommand extends PutRecordCommand {
       "description": argResults!["description"],
     if (argResults!.wasParsed("descriptionFacets"))
       "descriptionFacets": (argResults!["descriptionFacets"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("descriptionFacets", e))
           .toList(),
     if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
     if (argResults!.wasParsed("acceptsInteractions"))
       "acceptsInteractions": argResults!["acceptsInteractions"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     if (argResults!.wasParsed("contentMode"))
       "contentMode": argResults!["contentMode"],
     "createdAt": argResults!["createdAt"],
@@ -240,7 +251,9 @@ final class _ListGeneratorCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.feed.generator",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

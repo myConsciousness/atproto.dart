@@ -10,6 +10,7 @@ import 'package:atproto_oauth/src/helper/helper.dart' show getKeyPair;
 import 'package:atproto_oauth/src/helper/public_key.dart' show encodePublicKey;
 import 'package:http/http.dart' as http;
 import 'package:test/test.dart';
+import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
 import 'package:atproto_core/src/clients/service_context.dart';
@@ -272,6 +273,187 @@ void main() {
         expect(payload, isNot(contains('iss')));
       },
     );
+  });
+
+  group('.get (session refresh)', () {
+    Session session({
+      String accessJwt = 'old-token',
+      String refreshJwt = 'refresh-token',
+    }) => Session(
+      did: 'did:plc:testaccount',
+      handle: 'test.dev',
+      accessJwt: accessJwt,
+      refreshJwt: refreshJwt,
+    );
+
+    http.Response json(Uri url, int status, String body) => http.Response(
+      body,
+      status,
+      headers: {'content-type': 'application/json'},
+      request: http.Request('GET', url),
+    );
+
+    test(
+      'refreshes an expired access token and retries once with the new token',
+      () async {
+        int refreshCalls = 0;
+        final authHeaders = <String?>[];
+
+        final context = ServiceContext(
+          session: session(),
+          onRefreshSession: (current) async {
+            refreshCalls++;
+
+            return current.copyWith(accessJwt: 'new-token');
+          },
+          getClient: (url, {headers}) async {
+            authHeaders.add(headers?['Authorization']);
+
+            if (headers?['Authorization'] == 'Bearer new-token') {
+              return json(url, 200, '{}');
+            }
+
+            return json(url, 401, '{"error":"ExpiredToken"}');
+          },
+        );
+
+        final response = await context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+
+        expect(response.status.code, 200);
+        expect(refreshCalls, 1);
+        expect(authHeaders, ['Bearer old-token', 'Bearer new-token']);
+        //! `session` getter reflects the refreshed credentials.
+        expect(context.session?.accessJwt, 'new-token');
+      },
+    );
+
+    test('rethrows and refreshes only once when still unauthorized', () async {
+      int refreshCalls = 0;
+      int calls = 0;
+
+      final context = ServiceContext(
+        session: session(),
+        onRefreshSession: (current) async {
+          refreshCalls++;
+
+          return current.copyWith(accessJwt: 'new-token');
+        },
+        getClient: (url, {headers}) async {
+          calls++;
+
+          return json(url, 401, '{"error":"ExpiredToken"}');
+        },
+      );
+
+      await expectLater(
+        context.get(NSID.create('server.atproto.com', 'getSession')),
+        throwsA(isA<xrpc.UnauthorizedException>()),
+      );
+
+      expect(refreshCalls, 1);
+      //! Initial attempt + exactly one retry after refresh.
+      expect(calls, 2);
+    });
+
+    test('does not refresh on use_dpop_nonce errors', () async {
+      int refreshCalls = 0;
+      int calls = 0;
+
+      final context = ServiceContext(
+        session: session(),
+        onRefreshSession: (current) async {
+          refreshCalls++;
+
+          return current.copyWith(accessJwt: 'new-token');
+        },
+        getClient: (url, {headers}) async {
+          calls++;
+
+          return http.Response(
+            '{"error":"use_dpop_nonce"}',
+            401,
+            headers: {'content-type': 'application/json', 'dpop-nonce': 'abc'},
+            request: http.Request('GET', url),
+          );
+        },
+      );
+
+      await expectLater(
+        context.get(NSID.create('server.atproto.com', 'getSession')),
+        throwsA(isA<xrpc.UnauthorizedException>()),
+      );
+
+      //! The DPoP nonce path is unchanged and never triggers a session refresh.
+      expect(refreshCalls, 0);
+      //! Initial attempt + 3 DPoP nonce retries.
+      expect(calls, 4);
+    });
+
+    test(
+      'rethrows unchanged when onRefreshSession is not configured',
+      () async {
+        int calls = 0;
+
+        final context = ServiceContext(
+          session: session(),
+          getClient: (url, {headers}) async {
+            calls++;
+
+            return json(url, 401, '{"error":"ExpiredToken"}');
+          },
+        );
+
+        await expectLater(
+          context.get(NSID.create('server.atproto.com', 'getSession')),
+          throwsA(isA<xrpc.UnauthorizedException>()),
+        );
+
+        expect(calls, 1);
+      },
+    );
+
+    test('proactively refreshes a token that is about to expire', () async {
+      int refreshCalls = 0;
+      final authHeaders = <String?>[];
+
+      final expiredAt = DateTime.now().toUtc().subtract(
+        const Duration(seconds: 5),
+      );
+      final expSeconds = expiredAt.millisecondsSinceEpoch ~/ 1000;
+      final expiredAccessJwt = _jwt({
+        'sub': 'did:plc:testaccount',
+        'exp': expSeconds,
+        'iat': expSeconds - 100,
+      });
+
+      final context = ServiceContext(
+        session: session(accessJwt: expiredAccessJwt),
+        onRefreshSession: (current) async {
+          refreshCalls++;
+
+          return current.copyWith(accessJwt: 'new-token');
+        },
+        getClient: (url, {headers}) async {
+          authHeaders.add(headers?['Authorization']);
+
+          return json(url, 200, '{}');
+        },
+      );
+
+      await context.get<Map<String, Object?>>(
+        NSID.create('server.atproto.com', 'getSession'),
+        to: (json) => json,
+      );
+
+      //! The pre-flight refresh replaced the token before the first send,
+      //! so only one request is made and it carries the new token.
+      expect(refreshCalls, 1);
+      expect(authHeaders, ['Bearer new-token']);
+      expect(context.session?.accessJwt, 'new-token');
+    });
   });
 }
 

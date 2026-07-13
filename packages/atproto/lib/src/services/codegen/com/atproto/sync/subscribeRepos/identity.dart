@@ -28,7 +28,7 @@ abstract class Identity with _$Identity {
     @Default('com.atproto.sync.subscribeRepos#identity') String $type,
     required int seq,
     required String did,
-    required DateTime time,
+    @JsonKey(toJson: iso8601) required DateTime time,
 
     /// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
     String? handle,

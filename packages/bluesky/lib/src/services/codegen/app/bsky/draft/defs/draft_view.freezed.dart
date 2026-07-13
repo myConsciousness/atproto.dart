@@ -17,8 +17,8 @@ mixin _$DraftView {
 
  String get $type;/// A TID to be used as a draft identifier.
  String get id;@DraftConverter() Draft get draft;/// The time the draft was created.
- DateTime get createdAt;/// The time the draft was last updated.
- DateTime get updatedAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// The time the draft was last updated.
+@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of DraftView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $DraftViewCopyWith<$Res>  {
   factory $DraftViewCopyWith(DraftView value, $Res Function(DraftView) _then) = _$DraftViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id,@DraftConverter() Draft draft, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String id,@DraftConverter() Draft draft,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id, @DraftConverter()  Draft draft,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id, @DraftConverter()  Draft draft, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DraftView() when $default != null:
 return $default(_that.$type,_that.id,_that.draft,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -191,7 +191,7 @@ return $default(_that.$type,_that.id,_that.draft,_that.createdAt,_that.updatedAt
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id, @DraftConverter()  Draft draft,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id, @DraftConverter()  Draft draft, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _DraftView():
 return $default(_that.$type,_that.id,_that.draft,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.$type,_that.id,_that.draft,_that.createdAt,_that.updatedAt
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id, @DraftConverter()  Draft draft,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id, @DraftConverter()  Draft draft, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _DraftView() when $default != null:
 return $default(_that.$type,_that.id,_that.draft,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -226,7 +226,7 @@ return $default(_that.$type,_that.id,_that.draft,_that.createdAt,_that.updatedAt
 
 @JsonSerializable(includeIfNull: false)
 class _DraftView implements DraftView {
-  const _DraftView({this.$type = 'app.bsky.draft.defs#draftView', required this.id, @DraftConverter() required this.draft, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _DraftView({this.$type = 'app.bsky.draft.defs#draftView', required this.id, @DraftConverter() required this.draft, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DraftView.fromJson(Map<String, dynamic> json) => _$DraftViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -234,9 +234,9 @@ class _DraftView implements DraftView {
 @override final  String id;
 @override@DraftConverter() final  Draft draft;
 /// The time the draft was created.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// The time the draft was last updated.
-@override final  DateTime updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -280,7 +280,7 @@ abstract mixin class _$DraftViewCopyWith<$Res> implements $DraftViewCopyWith<$Re
   factory _$DraftViewCopyWith(_DraftView value, $Res Function(_DraftView) _then) = __$DraftViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id,@DraftConverter() Draft draft, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String id,@DraftConverter() Draft draft,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 

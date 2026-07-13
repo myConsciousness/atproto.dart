@@ -38,7 +38,7 @@ abstract class GroupConvo with _$GroupConvo {
   @JsonSerializable(includeIfNull: false)
   const factory GroupConvo({
     @Default('chat.bsky.moderation.defs#groupConvo') String $type,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @JoinLinkViewConverter() JoinLinkView? joinLink,
 
     /// The total number of pending join requests for the group conversation. This information is only visible to the owner and to moderators. Capped at 21.

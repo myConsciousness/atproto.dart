@@ -36,5 +36,13 @@ final class GetPostsCommand extends QueryCommand {
   String get methodId => "app.bsky.feed.getPosts";
 
   @override
-  Map<String, dynamic>? get parameters => {"uris": argResults!["uris"]};
+  Map<String, dynamic>? get parameters => {
+    "uris": _requireNonEmpty("uris", argResults!["uris"]),
+  };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

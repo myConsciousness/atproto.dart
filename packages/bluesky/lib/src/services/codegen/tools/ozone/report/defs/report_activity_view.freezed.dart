@@ -24,7 +24,7 @@ mixin _$ReportActivityView {
  String get createdBy;/// Full member record of the moderator who created this activity
 @MemberConverter() Member? get moderator;/// Full view of the report this activity belongs to.
 @ReportViewConverter() ReportView? get report;/// When this activity was created
- DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportActivityView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -57,7 +57,7 @@ abstract mixin class $ReportActivityViewCopyWith<$Res>  {
   factory $ReportActivityViewCopyWith(ReportActivityView value, $Res Function(ReportActivityView) _then) = _$ReportActivityViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator,@ReportViewConverter() ReportView? report, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator,@ReportViewConverter() ReportView? report,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -207,7 +207,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportActivityView() when $default != null:
 return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.report,_that.createdAt,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportActivityView():
 return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.report,_that.createdAt,_that.$unknown);case _:
@@ -248,7 +248,7 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int reportId, @UReportActivityViewActivityConverter()  UReportActivityViewActivity activity,  String? internalNote,  String? publicNote,  Map<String, dynamic>? meta,  bool isAutomated,  String createdBy, @MemberConverter()  Member? moderator, @ReportViewConverter()  ReportView? report, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportActivityView() when $default != null:
 return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.internalNote,_that.publicNote,_that.meta,_that.isAutomated,_that.createdBy,_that.moderator,_that.report,_that.createdAt,_that.$unknown);case _:
@@ -263,7 +263,7 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 
 @JsonSerializable(includeIfNull: false)
 class _ReportActivityView implements ReportActivityView {
-  const _ReportActivityView({this.$type = 'tools.ozone.report.defs#reportActivityView', required this.id, required this.reportId, @UReportActivityViewActivityConverter() required this.activity, this.internalNote, this.publicNote, final  Map<String, dynamic>? meta, required this.isAutomated, required this.createdBy, @MemberConverter() this.moderator, @ReportViewConverter() this.report, required this.createdAt, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
+  const _ReportActivityView({this.$type = 'tools.ozone.report.defs#reportActivityView', required this.id, required this.reportId, @UReportActivityViewActivityConverter() required this.activity, this.internalNote, this.publicNote, final  Map<String, dynamic>? meta, required this.isAutomated, required this.createdBy, @MemberConverter() this.moderator, @ReportViewConverter() this.report, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
   factory _ReportActivityView.fromJson(Map<String, dynamic> json) => _$ReportActivityViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -294,7 +294,7 @@ class _ReportActivityView implements ReportActivityView {
 /// Full view of the report this activity belongs to.
 @override@ReportViewConverter() final  ReportView? report;
 /// When this activity was created
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -338,7 +338,7 @@ abstract mixin class _$ReportActivityViewCopyWith<$Res> implements $ReportActivi
   factory _$ReportActivityViewCopyWith(_ReportActivityView value, $Res Function(_ReportActivityView) _then) = __$ReportActivityViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator,@ReportViewConverter() ReportView? report, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, int id, int reportId,@UReportActivityViewActivityConverter() UReportActivityViewActivity activity, String? internalNote, String? publicNote, Map<String, dynamic>? meta, bool isAutomated, String createdBy,@MemberConverter() Member? moderator,@ReportViewConverter() ReportView? report,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

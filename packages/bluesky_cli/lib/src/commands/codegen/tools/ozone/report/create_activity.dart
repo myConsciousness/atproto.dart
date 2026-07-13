@@ -63,12 +63,23 @@ final class CreateActivityCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId": int.parse(argResults!["reportId"]),
-    "activity": jsonDecode(argResults!["activity"]),
+    "reportId":
+        int.tryParse(argResults!["reportId"]) ??
+        usageException('Invalid integer value for option "reportId".'),
+    "activity": _decodeJson("activity"),
     if (argResults!.wasParsed("internalNote"))
       "internalNote": argResults!["internalNote"],
     if (argResults!.wasParsed("publicNote"))
       "publicNote": argResults!["publicNote"],
     "isAutomated": argResults!["isAutomated"],
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

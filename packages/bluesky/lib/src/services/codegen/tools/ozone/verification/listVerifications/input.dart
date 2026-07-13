@@ -41,10 +41,10 @@ abstract class VerificationListVerificationsInput
     @Default(50) int limit,
 
     /// Filter to verifications created after this timestamp
-    DateTime? createdAfter,
+    @JsonKey(toJson: iso8601) DateTime? createdAfter,
 
     /// Filter to verifications created before this timestamp
-    DateTime? createdBefore,
+    @JsonKey(toJson: iso8601) DateTime? createdBefore,
     List<String>? issuers,
     List<String>? subjects,
 

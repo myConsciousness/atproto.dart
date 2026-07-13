@@ -72,7 +72,7 @@ List<LexProperty> generateLexProperties(
         isNullable: nullableProps.contains(property.key),
         type: type,
         name: property.key,
-        defaultValue: _getDefaultValue(property.value),
+        defaultValue: _getDefaultValue(property.value, type),
       ),
     );
   }
@@ -80,17 +80,41 @@ List<LexProperty> generateLexProperties(
   return result;
 }
 
-String? _getDefaultValue(final lex.LexObjectProperty property) {
+String? _getDefaultValue(
+  final lex.LexObjectProperty property,
+  final DartType type,
+) {
   if (property is! lex.ULexObjectPropertyPrimitive) return null;
 
   final primitive = property.data;
 
   switch (primitive) {
     case lex.ULexPrimitiveString string:
-      if (string.data.knownValues != null) return null;
-
       final value = string.data.defaultValue;
-      return value != null ? "'$value'" : null;
+      if (value == null) return null;
+
+      // A string with `knownValues` is generated as an enum-backed wrapper
+      // union with a converter (e.g. `LabelValueDefinitionDefaultSetting`).
+      // Emit a const wrapper value so a field with a spec `default` (e.g.
+      // labelValueDefinition's `default: "warn"`) keeps that default instead
+      // of degrading to a nullable field that reports `null` (G-18).
+      final knownValues = type.knownValues;
+      if (knownValues != null && !type.isArray) {
+        final wrapper = type.name;
+        // A `#`-prefixed known value is a token reference stored as
+        // `<lexiconId>#<token>`; a plain `default` cannot match it, so only
+        // treat non-token values as known members.
+        final isKnownMember =
+            !value.contains('#') && knownValues.values.contains(value);
+        if (isKnownMember) {
+          final member = rule.getLexKnownValuesElementName(value);
+          return '$wrapper.knownValue(data: Known$wrapper.$member)';
+        }
+
+        return "$wrapper.unknown(data: '${_escapeDartString(value)}')";
+      }
+
+      return "'${_escapeDartString(value)}'";
     case lex.ULexPrimitiveInteger integer:
       final value = integer.data.defaultValue;
       return value != null ? '$value' : null;
@@ -100,6 +124,16 @@ String? _getDefaultValue(final lex.LexObjectProperty property) {
     default:
       return null;
   }
+}
+
+/// Escapes a raw string so it can be embedded inside single-quoted Dart source
+/// (used for `@Default('...')`). Without this, values containing `\`, `'` or
+/// `$` produce uncompilable generated code.
+String _escapeDartString(final String value) {
+  return value
+      .replaceAll(r'\', r'\\')
+      .replaceAll(r'$', r'\$')
+      .replaceAll("'", r"\'");
 }
 
 DartType _getDartType(
@@ -143,9 +177,24 @@ DartType _getDartType(
             lexiconId: type.lexiconId,
             type: type.name,
             packagePath: type.packagePath,
-            annotation: type.annotation,
+            // `iso8601` operates on a scalar `DateTime`, so it must not be
+            // attached to a `List<DateTime>` field. The element-wise UTC
+            // normalization for datetime arrays is intentionally left to the
+            // default serializer (rare in practice).
+            annotation: type.name == 'DateTime' ? null : type.annotation,
             description: type.description,
             knownValues: type.knownValues,
+          );
+
+        case lex.ULexArrayItemBlob blob:
+          // Arrays of blobs previously fell through to `List<Object>`. Map
+          // them to `List<Blob>` with the blob converter applied per element.
+          final type = DartType.blob(description: blob.data.description);
+          return DartType.array(
+            type: type.name,
+            packagePath: type.packagePath,
+            annotation: type.annotation,
+            description: type.description,
           );
 
         case lex.ULexArrayItemIpld ipld:
@@ -250,6 +299,19 @@ DartType _getLexPrimitiveType(
 }
 
 DartType _getIpldType(final lex.LexIpld ipld) {
+  // TODO(G-6): `bytes` -> Map and `cid-link` -> String. Verified to round-trip
+  // on every live path in the current corpus:
+  //   - `cid-link` only appears in `com.atproto.sync.subscribeRepos` (firehose),
+  //     where the CBOR adapter stringifies it to a bare CID before the model
+  //     sees it, so `String` is correct there. No pure-JSON endpoint returns a
+  //     `cid-link`, so the `{"$link": ...}` wire shape is never delivered to a
+  //     `String` field today.
+  //   - `bytes` (e.g. `com.atproto.label.defs#label.sig`) arrives as
+  //     `{"$bytes": ...}` on JSON endpoints and is stored as-is in the `Map`,
+  //     which round-trips; the CAR decoder emits the same shape.
+  // Dedicated converters that also restore the wrapped JSON shape from a typed
+  // value are deferred until a transport path actually requires them, to avoid
+  // changing the shape firehose consumers already read.
   switch (ipld) {
     case lex.ULexIpldBytes bytes:
       return DartType.json(description: bytes.data.description);

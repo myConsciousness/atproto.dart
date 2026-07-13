@@ -51,10 +51,10 @@ Map<String, dynamic> _$AccountHostingToJson(_AccountHosting instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'status': const AccountHostingStatusConverter().toJson(instance.status),
-      'updatedAt': ?instance.updatedAt?.toIso8601String(),
-      'createdAt': ?instance.createdAt?.toIso8601String(),
-      'deletedAt': ?instance.deletedAt?.toIso8601String(),
-      'deactivatedAt': ?instance.deactivatedAt?.toIso8601String(),
-      'reactivatedAt': ?instance.reactivatedAt?.toIso8601String(),
+      'updatedAt': iso8601(instance.updatedAt),
+      'createdAt': iso8601(instance.createdAt),
+      'deletedAt': iso8601(instance.deletedAt),
+      'deactivatedAt': iso8601(instance.deactivatedAt),
+      'reactivatedAt': iso8601(instance.reactivatedAt),
       r'$unknown': ?instance.$unknown,
     };

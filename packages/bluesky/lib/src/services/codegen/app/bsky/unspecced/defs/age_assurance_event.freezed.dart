@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AgeAssuranceEvent {
 
  String get $type;/// The date and time of this write operation.
- DateTime get createdAt;/// The status of the age assurance process.
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// The status of the age assurance process.
 @AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus get status;/// The unique identifier for this instance of the age assurance flow, in UUID format.
  String get attemptId;/// The email used for AA.
  String? get email;/// The IP address used when initiating the AA flow.
@@ -56,7 +56,7 @@ abstract mixin class $AgeAssuranceEventCopyWith<$Res>  {
   factory $AgeAssuranceEventCopyWith(AgeAssuranceEvent value, $Res Function(AgeAssuranceEvent) _then) = _$AgeAssuranceEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? email, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? email, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 
@@ -179,7 +179,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? email,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? email,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.email,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.e
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? email,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? email,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent():
 return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.email,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -220,7 +220,7 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.e
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? email,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status,  String attemptId,  String? email,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.email,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -235,12 +235,12 @@ return $default(_that.$type,_that.createdAt,_that.status,_that.attemptId,_that.e
 
 @JsonSerializable(includeIfNull: false)
 class _AgeAssuranceEvent implements AgeAssuranceEvent {
-  const _AgeAssuranceEvent({this.$type = 'app.bsky.unspecced.defs#ageAssuranceEvent', required this.createdAt, @AgeAssuranceEventStatusConverter() required this.status, required this.attemptId, this.email, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceEvent({this.$type = 'app.bsky.unspecced.defs#ageAssuranceEvent', @JsonKey(toJson: iso8601) required this.createdAt, @AgeAssuranceEventStatusConverter() required this.status, required this.attemptId, this.email, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The date and time of this write operation.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// The status of the age assurance process.
 @override@AgeAssuranceEventStatusConverter() final  AgeAssuranceEventStatus status;
 /// The unique identifier for this instance of the age assurance flow, in UUID format.
@@ -298,7 +298,7 @@ abstract mixin class _$AgeAssuranceEventCopyWith<$Res> implements $AgeAssuranceE
   factory _$AgeAssuranceEventCopyWith(_AgeAssuranceEvent value, $Res Function(_AgeAssuranceEvent) _then) = __$AgeAssuranceEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? email, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime createdAt,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status, String attemptId, String? email, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 

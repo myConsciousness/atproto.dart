@@ -76,6 +76,13 @@ const _$GroupedNotificationReasonEnumMap = {
   GroupedNotificationReason.reply: 'reply',
   GroupedNotificationReason.quote: 'quote',
   GroupedNotificationReason.starterpackJoined: 'starterpack-joined',
+  GroupedNotificationReason.verified: 'verified',
+  GroupedNotificationReason.unverified: 'unverified',
+  GroupedNotificationReason.likeViaRepost: 'like-via-repost',
+  GroupedNotificationReason.repostViaRepost: 'repost-via-repost',
+  GroupedNotificationReason.subscribedPost: 'subscribed-post',
+  GroupedNotificationReason.contactMatch: 'contact-match',
+  GroupedNotificationReason.unknown: 'unknown',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModEventViewDetail {
 
- String get $type; int get id;@UModEventViewDetailEventConverter() UModEventViewDetailEvent get event;@UModEventViewDetailSubjectConverter() UModEventViewDetailSubject get subject;@BlobViewConverter() List<BlobView> get subjectBlobs; String get createdBy; DateTime get createdAt;@ModToolConverter() ModTool? get modTool; Map<String, dynamic>? get $unknown;
+ String get $type; int get id;@UModEventViewDetailEventConverter() UModEventViewDetailEvent get event;@UModEventViewDetailSubjectConverter() UModEventViewDetailSubject get subject;@BlobViewConverter() List<BlobView> get subjectBlobs; String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt;@ModToolConverter() ModTool? get modTool; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventViewDetail
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ModEventViewDetailCopyWith<$Res>  {
   factory $ModEventViewDetailCopyWith(ModEventViewDetail value, $Res Function(ModEventViewDetail) _then) = _$ModEventViewDetailCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id,@UModEventViewDetailEventConverter() UModEventViewDetailEvent event,@UModEventViewDetailSubjectConverter() UModEventViewDetailSubject subject,@BlobViewConverter() List<BlobView> subjectBlobs, String createdBy, DateTime createdAt,@ModToolConverter() ModTool? modTool, Map<String, dynamic>? $unknown
+ String $type, int id,@UModEventViewDetailEventConverter() UModEventViewDetailEvent event,@UModEventViewDetailSubjectConverter() UModEventViewDetailSubject subject,@BlobViewConverter() List<BlobView> subjectBlobs, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@ModToolConverter() ModTool? modTool, Map<String, dynamic>? $unknown
 });
 
 
@@ -191,7 +191,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @UModEventViewDetailEventConverter()  UModEventViewDetailEvent event, @UModEventViewDetailSubjectConverter()  UModEventViewDetailSubject subject, @BlobViewConverter()  List<BlobView> subjectBlobs,  String createdBy,  DateTime createdAt, @ModToolConverter()  ModTool? modTool,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @UModEventViewDetailEventConverter()  UModEventViewDetailEvent event, @UModEventViewDetailSubjectConverter()  UModEventViewDetailSubject subject, @BlobViewConverter()  List<BlobView> subjectBlobs,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @ModToolConverter()  ModTool? modTool,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventViewDetail() when $default != null:
 return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlobs,_that.createdBy,_that.createdAt,_that.modTool,_that.$unknown);case _:
@@ -212,7 +212,7 @@ return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlob
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @UModEventViewDetailEventConverter()  UModEventViewDetailEvent event, @UModEventViewDetailSubjectConverter()  UModEventViewDetailSubject subject, @BlobViewConverter()  List<BlobView> subjectBlobs,  String createdBy,  DateTime createdAt, @ModToolConverter()  ModTool? modTool,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @UModEventViewDetailEventConverter()  UModEventViewDetailEvent event, @UModEventViewDetailSubjectConverter()  UModEventViewDetailSubject subject, @BlobViewConverter()  List<BlobView> subjectBlobs,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @ModToolConverter()  ModTool? modTool,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventViewDetail():
 return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlobs,_that.createdBy,_that.createdAt,_that.modTool,_that.$unknown);case _:
@@ -232,7 +232,7 @@ return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlob
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @UModEventViewDetailEventConverter()  UModEventViewDetailEvent event, @UModEventViewDetailSubjectConverter()  UModEventViewDetailSubject subject, @BlobViewConverter()  List<BlobView> subjectBlobs,  String createdBy,  DateTime createdAt, @ModToolConverter()  ModTool? modTool,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @UModEventViewDetailEventConverter()  UModEventViewDetailEvent event, @UModEventViewDetailSubjectConverter()  UModEventViewDetailSubject subject, @BlobViewConverter()  List<BlobView> subjectBlobs,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @ModToolConverter()  ModTool? modTool,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventViewDetail() when $default != null:
 return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlobs,_that.createdBy,_that.createdAt,_that.modTool,_that.$unknown);case _:
@@ -247,7 +247,7 @@ return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlob
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventViewDetail implements ModEventViewDetail {
-  const _ModEventViewDetail({this.$type = 'tools.ozone.moderation.defs#modEventViewDetail', required this.id, @UModEventViewDetailEventConverter() required this.event, @UModEventViewDetailSubjectConverter() required this.subject, @BlobViewConverter() required final  List<BlobView> subjectBlobs, required this.createdBy, required this.createdAt, @ModToolConverter() this.modTool, final  Map<String, dynamic>? $unknown}): _subjectBlobs = subjectBlobs,_$unknown = $unknown;
+  const _ModEventViewDetail({this.$type = 'tools.ozone.moderation.defs#modEventViewDetail', required this.id, @UModEventViewDetailEventConverter() required this.event, @UModEventViewDetailSubjectConverter() required this.subject, @BlobViewConverter() required final  List<BlobView> subjectBlobs, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @ModToolConverter() this.modTool, final  Map<String, dynamic>? $unknown}): _subjectBlobs = subjectBlobs,_$unknown = $unknown;
   factory _ModEventViewDetail.fromJson(Map<String, dynamic> json) => _$ModEventViewDetailFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -262,7 +262,7 @@ class _ModEventViewDetail implements ModEventViewDetail {
 }
 
 @override final  String createdBy;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@ModToolConverter() final  ModTool? modTool;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -307,7 +307,7 @@ abstract mixin class _$ModEventViewDetailCopyWith<$Res> implements $ModEventView
   factory _$ModEventViewDetailCopyWith(_ModEventViewDetail value, $Res Function(_ModEventViewDetail) _then) = __$ModEventViewDetailCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id,@UModEventViewDetailEventConverter() UModEventViewDetailEvent event,@UModEventViewDetailSubjectConverter() UModEventViewDetailSubject subject,@BlobViewConverter() List<BlobView> subjectBlobs, String createdBy, DateTime createdAt,@ModToolConverter() ModTool? modTool, Map<String, dynamic>? $unknown
+ String $type, int id,@UModEventViewDetailEventConverter() UModEventViewDetailEvent event,@UModEventViewDetailSubjectConverter() UModEventViewDetailSubject subject,@BlobViewConverter() List<BlobView> subjectBlobs, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@ModToolConverter() ModTool? modTool, Map<String, dynamic>? $unknown
 });
 
 

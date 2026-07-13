@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JoinLinkView {
 
- String get $type; String get code;@LinkEnabledStatusConverter() LinkEnabledStatus get enabledStatus; bool get requireApproval;@JoinRuleConverter() JoinRule get joinRule; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ String get $type; String get code;@LinkEnabledStatusConverter() LinkEnabledStatus get enabledStatus; bool get requireApproval;@JoinRuleConverter() JoinRule get joinRule;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of JoinLinkView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $JoinLinkViewCopyWith<$Res>  {
   factory $JoinLinkViewCopyWith(JoinLinkView value, $Res Function(JoinLinkView) _then) = _$JoinLinkViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String code,@LinkEnabledStatusConverter() LinkEnabledStatus enabledStatus, bool requireApproval,@JoinRuleConverter() JoinRule joinRule, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String code,@LinkEnabledStatusConverter() LinkEnabledStatus enabledStatus, bool requireApproval,@JoinRuleConverter() JoinRule joinRule,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -177,7 +177,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String code, @LinkEnabledStatusConverter()  LinkEnabledStatus enabledStatus,  bool requireApproval, @JoinRuleConverter()  JoinRule joinRule,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String code, @LinkEnabledStatusConverter()  LinkEnabledStatus enabledStatus,  bool requireApproval, @JoinRuleConverter()  JoinRule joinRule, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JoinLinkView() when $default != null:
 return $default(_that.$type,_that.code,_that.enabledStatus,_that.requireApproval,_that.joinRule,_that.createdAt,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.$type,_that.code,_that.enabledStatus,_that.requireApproval
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String code, @LinkEnabledStatusConverter()  LinkEnabledStatus enabledStatus,  bool requireApproval, @JoinRuleConverter()  JoinRule joinRule,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String code, @LinkEnabledStatusConverter()  LinkEnabledStatus enabledStatus,  bool requireApproval, @JoinRuleConverter()  JoinRule joinRule, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _JoinLinkView():
 return $default(_that.$type,_that.code,_that.enabledStatus,_that.requireApproval,_that.joinRule,_that.createdAt,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.$type,_that.code,_that.enabledStatus,_that.requireApproval
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String code, @LinkEnabledStatusConverter()  LinkEnabledStatus enabledStatus,  bool requireApproval, @JoinRuleConverter()  JoinRule joinRule,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String code, @LinkEnabledStatusConverter()  LinkEnabledStatus enabledStatus,  bool requireApproval, @JoinRuleConverter()  JoinRule joinRule, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _JoinLinkView() when $default != null:
 return $default(_that.$type,_that.code,_that.enabledStatus,_that.requireApproval,_that.joinRule,_that.createdAt,_that.$unknown);case _:
@@ -233,7 +233,7 @@ return $default(_that.$type,_that.code,_that.enabledStatus,_that.requireApproval
 
 @JsonSerializable(includeIfNull: false)
 class _JoinLinkView implements JoinLinkView {
-  const _JoinLinkView({this.$type = 'chat.bsky.group.defs#joinLinkView', required this.code, @LinkEnabledStatusConverter() required this.enabledStatus, required this.requireApproval, @JoinRuleConverter() required this.joinRule, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _JoinLinkView({this.$type = 'chat.bsky.group.defs#joinLinkView', required this.code, @LinkEnabledStatusConverter() required this.enabledStatus, required this.requireApproval, @JoinRuleConverter() required this.joinRule, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JoinLinkView.fromJson(Map<String, dynamic> json) => _$JoinLinkViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -241,7 +241,7 @@ class _JoinLinkView implements JoinLinkView {
 @override@LinkEnabledStatusConverter() final  LinkEnabledStatus enabledStatus;
 @override final  bool requireApproval;
 @override@JoinRuleConverter() final  JoinRule joinRule;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -285,7 +285,7 @@ abstract mixin class _$JoinLinkViewCopyWith<$Res> implements $JoinLinkViewCopyWi
   factory _$JoinLinkViewCopyWith(_JoinLinkView value, $Res Function(_JoinLinkView) _then) = __$JoinLinkViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String code,@LinkEnabledStatusConverter() LinkEnabledStatus enabledStatus, bool requireApproval,@JoinRuleConverter() JoinRule joinRule, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String code,@LinkEnabledStatusConverter() LinkEnabledStatus enabledStatus, bool requireApproval,@JoinRuleConverter() JoinRule joinRule,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

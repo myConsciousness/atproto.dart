@@ -77,7 +77,7 @@ Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
       ),
       'record': instance.record,
       'isRead': instance.isRead,
-      'indexedAt': instance.indexedAt.toIso8601String(),
+      'indexedAt': iso8601(instance.indexedAt),
       'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
       r'$unknown': ?instance.$unknown,
     };

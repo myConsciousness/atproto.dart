@@ -6,13 +6,20 @@
 import 'dart:async';
 
 // Project imports:
+import '../types/auditable_log.dart';
+import '../types/did_document.dart';
+import '../types/document_data.dart';
+import '../types/instance.dart';
+import '../types/operation_log.dart';
 import 'cache_manager.dart';
 
 /// A utility class for performing cached operations.
 ///
-/// This class provides methods to wrap async operations with caching logic,
-/// automatically checking the cache before performing the operation and
-/// storing the result in the cache afterward.
+/// This class wraps async operations with caching logic: it checks the
+/// cache before performing the operation and writes the result back into
+/// the cache afterward. Each typed method both reads from and writes to
+/// the appropriate cache, so callers do not need to store results
+/// themselves.
 class CachedOperation {
   const CachedOperation(this._cacheManager);
 
@@ -21,126 +28,99 @@ class CachedOperation {
   /// Performs a cached operation for DID documents.
   ///
   /// First checks the cache for the DID. If found and not expired, returns
-  /// the cached value. Otherwise, executes the [operation] and caches the result.
-  Future<T> didDocument<T>(
+  /// the cached value. Otherwise, executes the [operation] and caches the
+  /// result before returning it.
+  Future<DidDocument> didDocument(
     String did,
-    Future<T> Function() operation, {
-    void Function(String, T)? onCacheStore,
-  }) async {
+    Future<DidDocument> Function() operation,
+  ) async {
     if (!_cacheManager.isEnabled) {
-      return await operation();
+      return operation();
     }
 
-    // Try to get from cache first
     final cached = _cacheManager.getDidDocument(did);
-    if (cached != null && cached is T) {
-      return cached as T;
+    if (cached != null) {
+      return cached;
     }
 
-    // Execute the operation
     final result = await operation();
-
-    // Store in cache if it's the right type
-    if (onCacheStore != null) {
-      onCacheStore(did, result);
-    }
-
+    _cacheManager.putDidDocument(did, result);
     return result;
   }
 
   /// Performs a cached operation for document data.
-  Future<T> documentData<T>(
+  Future<DocumentData> documentData(
     String did,
-    Future<T> Function() operation, {
-    void Function(String, T)? onCacheStore,
-  }) async {
+    Future<DocumentData> Function() operation,
+  ) async {
     if (!_cacheManager.isEnabled) {
-      return await operation();
+      return operation();
     }
 
     final cached = _cacheManager.getDocumentData(did);
-    if (cached != null && cached is T) {
-      return cached as T;
+    if (cached != null) {
+      return cached;
     }
 
     final result = await operation();
-
-    if (onCacheStore != null) {
-      onCacheStore(did, result);
-    }
-
+    _cacheManager.putDocumentData(did, result);
     return result;
   }
 
   /// Performs a cached operation for operation logs.
-  Future<T> operationLog<T>(
+  Future<OperationLog> operationLog(
     String did,
-    Future<T> Function() operation, {
-    void Function(String, T)? onCacheStore,
-  }) async {
+    Future<OperationLog> Function() operation,
+  ) async {
     if (!_cacheManager.isEnabled) {
-      return await operation();
+      return operation();
     }
 
     final cached = _cacheManager.getOperationLog(did);
-    if (cached != null && cached is T) {
-      return cached as T;
+    if (cached != null) {
+      return cached;
     }
 
     final result = await operation();
-
-    if (onCacheStore != null) {
-      onCacheStore(did, result);
-    }
-
+    _cacheManager.putOperationLog(did, result);
     return result;
   }
 
   /// Performs a cached operation for auditable logs.
-  Future<T> auditableLog<T>(
+  Future<AuditableLog> auditableLog(
     String did,
-    Future<T> Function() operation, {
-    void Function(String, T)? onCacheStore,
-  }) async {
+    Future<AuditableLog> Function() operation,
+  ) async {
     if (!_cacheManager.isEnabled) {
-      return await operation();
+      return operation();
     }
 
     final cached = _cacheManager.getAuditableLog(did);
-    if (cached != null && cached is T) {
-      return cached as T;
+    if (cached != null) {
+      return cached;
     }
 
     final result = await operation();
-
-    if (onCacheStore != null) {
-      onCacheStore(did, result);
-    }
-
+    _cacheManager.putAuditableLog(did, result);
     return result;
   }
 
   /// Performs a cached operation for instance data.
-  Future<T> instance<T>(
+  Future<Instance> instance(
     String key,
-    Future<T> Function() operation, {
-    void Function(String, T)? onCacheStore,
-  }) async {
+    Future<Instance> Function() operation,
+  ) async {
     if (!_cacheManager.isEnabled) {
-      return await operation();
+      return operation();
     }
 
     final cached = _cacheManager.getInstance(key);
-    if (cached != null && cached is T) {
-      return cached as T;
+    if (cached != null) {
+      return cached;
     }
 
     final result = await operation();
-
-    if (onCacheStore != null) {
-      onCacheStore(key, result);
-    }
-
+    _cacheManager.putInstance(key, result);
     return result;
   }
 

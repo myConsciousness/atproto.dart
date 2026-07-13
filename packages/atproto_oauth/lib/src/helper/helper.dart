@@ -47,18 +47,24 @@ String hashS256(final String value) {
   return base64Url.replaceAll('=', '');
 }
 
-AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
+/// Returns a new [FortunaRandom] seeded with 32 bytes of entropy obtained
+/// from the platform's cryptographically secure random source
+/// ([Random.secure]).
+SecureRandom _newSecureRandom() {
   final random = Random.secure();
   final seed = Uint8List.fromList(
-    List.generate(32, (n) => random.nextInt(256)),
+    List<int>.generate(32, (_) => random.nextInt(256)),
   );
-  final secureRandom = SecureRandom("Fortuna")..seed(KeyParameter(seed));
 
+  return FortunaRandom()..seed(KeyParameter(seed));
+}
+
+AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
   final keyGen = ECKeyGenerator();
   keyGen.init(
     ParametersWithRandom(
       ECKeyGeneratorParameters(ECCurve_secp256r1()),
-      secureRandom,
+      _newSecureRandom(),
     ),
   );
 
@@ -74,10 +80,15 @@ AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
 /// The proof can be used for both token requests and protected resource access.
 ///
 /// Parameters:
-/// - [clientId]: The OAuth client identifier
+/// - [clientId]: The OAuth client identifier. Retained for backward
+///   compatibility of the function signature only; RFC 9449 does not define
+///   a claim carrying the client identifier, so it is **not** included in
+///   the proof
 /// - [endpoint]: The complete URL of the endpoint being accessed
 /// - [method]: The HTTP method of the request (e.g., 'POST', 'GET')
-/// - [dPoPNonce]: The DPoP nonce provided by the server
+/// - [dPoPNonce]: Optional. The DPoP nonce provided by the server. The
+///   `nonce` claim is omitted when the server has not provided one yet
+///   (RFC 9449 treats the nonce as optional)
 /// - [authorizationServer]: Optional. The authorization server URL for access
 ///   token binding
 /// - [accessToken]: Optional. The access token to bind to this proof
@@ -106,7 +117,6 @@ AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
 /// Payload:
 /// ```json
 /// {
-///   "sub": "client_id",
 ///   "htu": "endpoint_url",
 ///   "htm": "http_method",
 ///   "exp": timestamp + 60,
@@ -146,7 +156,7 @@ String getDPoPHeader({
   required String clientId,
   required String endpoint,
   required String method,
-  required String dPoPNonce,
+  String? dPoPNonce,
   String? authorizationServer,
   String? accessToken,
   required String publicKey,
@@ -167,15 +177,20 @@ String getDPoPHeader({
 
   final epoch = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000;
 
+  // RFC 9449 Section 4.2 defines the DPoP proof claims: jti, htm, htu, iat,
+  // and optionally nonce/ath. A `sub` claim is not part of the spec and is
+  // intentionally not emitted.
   final payload = <String, dynamic>{
-    'sub': clientId,
     'htu': endpoint,
     'htm': method,
     'exp': epoch + 60,
     'jti': randomValue(),
     'iat': epoch,
-    'nonce': dPoPNonce,
   };
+
+  if (dPoPNonce != null) {
+    payload['nonce'] = dPoPNonce;
+  }
 
   if (authorizationServer != null) {
     payload['iss'] = authorizationServer;
@@ -201,24 +216,12 @@ String getDPoPHeader({
 }
 
 Uint8List _sign(final String privateKey, final String jwtMessage) {
-  final secureRandom = FortunaRandom();
-  secureRandom.seed(
-    KeyParameter(
-      Uint8List.fromList(
-        List.generate(
-          32,
-          (_) => DateTime.now().toUtc().millisecondsSinceEpoch % 255,
-        ),
-      ),
-    ),
-  );
-
   final signer = ECDSASigner(SHA256Digest(), HMac(SHA256Digest(), 64))
     ..init(
       true,
       ParametersWithRandom(
         PrivateKeyParameter<ECPrivateKey>(decodePrivateKey(privateKey)),
-        secureRandom,
+        _newSecureRandom(),
       ),
     );
 

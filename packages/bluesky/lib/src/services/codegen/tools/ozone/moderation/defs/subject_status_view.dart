@@ -69,10 +69,10 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     String? subjectRepoHandle,
 
     /// Timestamp referencing when the last update was made to the moderation status of the subject
-    required DateTime updatedAt,
+    @JsonKey(toJson: iso8601) required DateTime updatedAt,
 
     /// Timestamp referencing the first moderation status impacting event was emitted on the subject
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @SubjectReviewStateConverter() required SubjectReviewState reviewState,
 
     /// Sticky comment on the subject.
@@ -80,19 +80,19 @@ abstract class SubjectStatusView with _$SubjectStatusView {
 
     /// Numeric value representing the level of priority. Higher score means higher priority.
     int? priorityScore,
-    DateTime? muteUntil,
-    DateTime? muteReportingUntil,
+    @JsonKey(toJson: iso8601) DateTime? muteUntil,
+    @JsonKey(toJson: iso8601) DateTime? muteReportingUntil,
     String? lastReviewedBy,
-    DateTime? lastReviewedAt,
-    DateTime? lastReportedAt,
+    @JsonKey(toJson: iso8601) DateTime? lastReviewedAt,
+    @JsonKey(toJson: iso8601) DateTime? lastReportedAt,
 
     /// Timestamp referencing when the author of the subject appealed a moderation action
-    DateTime? lastAppealedAt,
+    @JsonKey(toJson: iso8601) DateTime? lastAppealedAt,
     bool? takendown,
 
     /// True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators.
     bool? appealed,
-    DateTime? suspendUntil,
+    @JsonKey(toJson: iso8601) DateTime? suspendUntil,
     List<String>? tags,
 
     /// Statistics related to the account subject

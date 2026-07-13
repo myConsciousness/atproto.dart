@@ -20,7 +20,7 @@ mixin _$Takedown {
  bool? get acknowledgeAccountSubjects; List<String>? get policies;/// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
  String? get severityLevel;/// Number of strikes to assign to the user when takedown is applied.
  int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
- DateTime? get strikeExpiresAt;/// Email content to be sent to the user upon takedown.
+@JsonKey(toJson: iso8601) DateTime? get strikeExpiresAt;/// Email content to be sent to the user upon takedown.
  String? get emailContent;/// Subject of the email to be sent to the user upon takedown.
  String? get emailSubject; Map<String, dynamic>? get $unknown;
 /// Create a copy of Takedown
@@ -55,7 +55,7 @@ abstract mixin class $TakedownCopyWith<$Res>  {
   factory $TakedownCopyWith(Takedown value, $Res Function(Takedown) _then) = _$TakedownCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, String? emailContent, String? emailSubject, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, String? emailContent, String? emailSubject, Map<String, dynamic>? $unknown
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Takedown() when $default != null:
 return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.emailContent,_that.emailSubject,_that.$unknown);case _:
@@ -191,7 +191,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Takedown():
 return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.emailContent,_that.emailSubject,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  String? emailContent,  String? emailSubject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Takedown() when $default != null:
 return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.emailContent,_that.emailSubject,_that.$unknown);case _:
@@ -226,7 +226,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 
 @JsonSerializable(includeIfNull: false)
 class _Takedown implements Takedown {
-  const _Takedown({this.$type = 'tools.ozone.moderation.scheduleAction#takedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, this.strikeCount, this.strikeExpiresAt, this.emailContent, this.emailSubject, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _Takedown({this.$type = 'tools.ozone.moderation.scheduleAction#takedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, this.emailContent, this.emailSubject, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _Takedown.fromJson(Map<String, dynamic> json) => _$TakedownFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -249,7 +249,7 @@ class _Takedown implements Takedown {
 /// Number of strikes to assign to the user when takedown is applied.
 @override final  int? strikeCount;
 /// When the strike should expire. If not provided, the strike never expires.
-@override final  DateTime? strikeExpiresAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? strikeExpiresAt;
 /// Email content to be sent to the user upon takedown.
 @override final  String? emailContent;
 /// Subject of the email to be sent to the user upon takedown.
@@ -297,7 +297,7 @@ abstract mixin class _$TakedownCopyWith<$Res> implements $TakedownCopyWith<$Res>
   factory _$TakedownCopyWith(_Takedown value, $Res Function(_Takedown) _then) = __$TakedownCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, String? emailContent, String? emailSubject, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, String? emailContent, String? emailSubject, Map<String, dynamic>? $unknown
 });
 
 

@@ -4,6 +4,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 
 // Project imports:
@@ -294,13 +295,15 @@ class _MockHttpClient implements HttpClient {
             .getExportStream(after: after, count: count)
             .toList();
 
-        // Return the entries wrapped in a 'log' key for compatibility
-        final exportData = {'log': entries.map((e) => e.toJson()).toList()};
-        final data = fromJson != null ? fromJson(exportData) : exportData as T;
+        // The real /export endpoint returns JSONL (one operation per line).
+        final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
+        final data = fromJson != null
+            ? fromJson({'log': entries.map((e) => e.toJson()).toList()})
+            : jsonl as T;
 
         return HttpResponse.success(
           statusCode: 200,
-          headers: {'content-type': 'application/json'},
+          headers: {'content-type': 'application/jsonl'},
           data: data,
         );
       } else if (path == '_health') {

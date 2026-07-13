@@ -8,6 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../blobs/lex_blob.dart';
 import '../complex/lex_array_item.dart';
+import '../primitives/lex_primitive.dart';
+import '../primitives/lex_unknown.dart';
 import 'lex_ipld_converter.dart';
 import 'lex_primitive_converter.dart';
 import 'lex_ref_variant_converter.dart';
@@ -43,7 +45,14 @@ final class LexArrayItemConverter
         );
 
       default:
-        throw UnsupportedError('Unsupported type [$type]');
+        // Graceful degradation (G-12): an array of an unsupported/unknown item
+        // type falls back to an `unknown` primitive item instead of aborting
+        // the whole document load.
+        return LexArrayItem.primitive(
+          data: LexPrimitive.unknown(
+            data: LexUnknown(description: json['description'] as String?),
+          ),
+        );
     }
   }
 

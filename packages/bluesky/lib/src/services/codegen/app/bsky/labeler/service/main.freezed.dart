@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LabelerServiceRecord {
 
- String get $type;@LabelerPoliciesConverter() LabelerPolicies get policies;@ULabelerServiceLabelsConverter() ULabelerServiceLabels? get labels; DateTime get createdAt;@ReasonTypeConverter() List<ReasonType>? get reasonTypes;@SubjectTypeConverter() List<SubjectType>? get subjectTypes; List<String>? get subjectCollections; Map<String, dynamic>? get $unknown;
+ String get $type;@LabelerPoliciesConverter() LabelerPolicies get policies;@ULabelerServiceLabelsConverter() ULabelerServiceLabels? get labels;@JsonKey(toJson: iso8601) DateTime get createdAt;@ReasonTypeConverter() List<ReasonType>? get reasonTypes;@SubjectTypeConverter() List<SubjectType>? get subjectTypes; List<String>? get subjectCollections; Map<String, dynamic>? get $unknown;
 /// Create a copy of LabelerServiceRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LabelerServiceRecordCopyWith<$Res>  {
   factory $LabelerServiceRecordCopyWith(LabelerServiceRecord value, $Res Function(LabelerServiceRecord) _then) = _$LabelerServiceRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@LabelerPoliciesConverter() LabelerPolicies policies,@ULabelerServiceLabelsConverter() ULabelerServiceLabels? labels, DateTime createdAt,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
+ String $type,@LabelerPoliciesConverter() LabelerPolicies policies,@ULabelerServiceLabelsConverter() ULabelerServiceLabels? labels,@JsonKey(toJson: iso8601) DateTime createdAt,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
 });
 
 
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @LabelerPoliciesConverter()  LabelerPolicies policies, @ULabelerServiceLabelsConverter()  ULabelerServiceLabels? labels,  DateTime createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @LabelerPoliciesConverter()  LabelerPolicies policies, @ULabelerServiceLabelsConverter()  ULabelerServiceLabels? labels, @JsonKey(toJson: iso8601)  DateTime createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LabelerServiceRecord() when $default != null:
 return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.reasonTypes,_that.subjectTypes,_that.subjectCollections,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.re
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @LabelerPoliciesConverter()  LabelerPolicies policies, @ULabelerServiceLabelsConverter()  ULabelerServiceLabels? labels,  DateTime createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @LabelerPoliciesConverter()  LabelerPolicies policies, @ULabelerServiceLabelsConverter()  ULabelerServiceLabels? labels, @JsonKey(toJson: iso8601)  DateTime createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LabelerServiceRecord():
 return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.reasonTypes,_that.subjectTypes,_that.subjectCollections,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.re
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @LabelerPoliciesConverter()  LabelerPolicies policies, @ULabelerServiceLabelsConverter()  ULabelerServiceLabels? labels,  DateTime createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @LabelerPoliciesConverter()  LabelerPolicies policies, @ULabelerServiceLabelsConverter()  ULabelerServiceLabels? labels, @JsonKey(toJson: iso8601)  DateTime createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LabelerServiceRecord() when $default != null:
 return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.reasonTypes,_that.subjectTypes,_that.subjectCollections,_that.$unknown);case _:
@@ -237,13 +237,13 @@ return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.re
 
 @JsonSerializable(includeIfNull: false)
 class _LabelerServiceRecord implements LabelerServiceRecord {
-  const _LabelerServiceRecord({this.$type = 'app.bsky.labeler.service', @LabelerPoliciesConverter() required this.policies, @ULabelerServiceLabelsConverter() this.labels, required this.createdAt, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
+  const _LabelerServiceRecord({this.$type = 'app.bsky.labeler.service', @LabelerPoliciesConverter() required this.policies, @ULabelerServiceLabelsConverter() this.labels, @JsonKey(toJson: iso8601) required this.createdAt, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
   factory _LabelerServiceRecord.fromJson(Map<String, dynamic> json) => _$LabelerServiceRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@LabelerPoliciesConverter() final  LabelerPolicies policies;
 @override@ULabelerServiceLabelsConverter() final  ULabelerServiceLabels? labels;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  List<ReasonType>? _reasonTypes;
 @override@ReasonTypeConverter() List<ReasonType>? get reasonTypes {
   final value = _reasonTypes;
@@ -314,7 +314,7 @@ abstract mixin class _$LabelerServiceRecordCopyWith<$Res> implements $LabelerSer
   factory _$LabelerServiceRecordCopyWith(_LabelerServiceRecord value, $Res Function(_LabelerServiceRecord) _then) = __$LabelerServiceRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@LabelerPoliciesConverter() LabelerPolicies policies,@ULabelerServiceLabelsConverter() ULabelerServiceLabels? labels, DateTime createdAt,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
+ String $type,@LabelerPoliciesConverter() LabelerPolicies policies,@ULabelerServiceLabelsConverter() ULabelerServiceLabels? labels,@JsonKey(toJson: iso8601) DateTime createdAt,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
 });
 
 

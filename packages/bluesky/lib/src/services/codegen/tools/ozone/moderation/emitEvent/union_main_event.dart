@@ -266,137 +266,137 @@ final class UModerationEmitEventEventConverter
 
   @override
   UModerationEmitEventEvent fromJson(Map<String, dynamic> json) {
-    try {
-      if (ModEventTakedown.validate(json)) {
-        return UModerationEmitEventEvent.modEventTakedown(
-          data: const ModEventTakedownConverter().fromJson(json),
-        );
-      }
-      if (ModEventAcknowledge.validate(json)) {
-        return UModerationEmitEventEvent.modEventAcknowledge(
-          data: const ModEventAcknowledgeConverter().fromJson(json),
-        );
-      }
-      if (ModEventEscalate.validate(json)) {
-        return UModerationEmitEventEvent.modEventEscalate(
-          data: const ModEventEscalateConverter().fromJson(json),
-        );
-      }
-      if (ModEventComment.validate(json)) {
-        return UModerationEmitEventEvent.modEventComment(
-          data: const ModEventCommentConverter().fromJson(json),
-        );
-      }
-      if (ModEventLabel.validate(json)) {
-        return UModerationEmitEventEvent.modEventLabel(
-          data: const ModEventLabelConverter().fromJson(json),
-        );
-      }
-      if (ModEventReport.validate(json)) {
-        return UModerationEmitEventEvent.modEventReport(
-          data: const ModEventReportConverter().fromJson(json),
-        );
-      }
-      if (ModEventMute.validate(json)) {
-        return UModerationEmitEventEvent.modEventMute(
-          data: const ModEventMuteConverter().fromJson(json),
-        );
-      }
-      if (ModEventUnmute.validate(json)) {
-        return UModerationEmitEventEvent.modEventUnmute(
-          data: const ModEventUnmuteConverter().fromJson(json),
-        );
-      }
-      if (ModEventMuteReporter.validate(json)) {
-        return UModerationEmitEventEvent.modEventMuteReporter(
-          data: const ModEventMuteReporterConverter().fromJson(json),
-        );
-      }
-      if (ModEventUnmuteReporter.validate(json)) {
-        return UModerationEmitEventEvent.modEventUnmuteReporter(
-          data: const ModEventUnmuteReporterConverter().fromJson(json),
-        );
-      }
-      if (ModEventReverseTakedown.validate(json)) {
-        return UModerationEmitEventEvent.modEventReverseTakedown(
-          data: const ModEventReverseTakedownConverter().fromJson(json),
-        );
-      }
-      if (ModEventResolveAppeal.validate(json)) {
-        return UModerationEmitEventEvent.modEventResolveAppeal(
-          data: const ModEventResolveAppealConverter().fromJson(json),
-        );
-      }
-      if (ModEventEmail.validate(json)) {
-        return UModerationEmitEventEvent.modEventEmail(
-          data: const ModEventEmailConverter().fromJson(json),
-        );
-      }
-      if (ModEventDivert.validate(json)) {
-        return UModerationEmitEventEvent.modEventDivert(
-          data: const ModEventDivertConverter().fromJson(json),
-        );
-      }
-      if (ModEventTag.validate(json)) {
-        return UModerationEmitEventEvent.modEventTag(
-          data: const ModEventTagConverter().fromJson(json),
-        );
-      }
-      if (AccountEvent.validate(json)) {
-        return UModerationEmitEventEvent.accountEvent(
-          data: const AccountEventConverter().fromJson(json),
-        );
-      }
-      if (IdentityEvent.validate(json)) {
-        return UModerationEmitEventEvent.identityEvent(
-          data: const IdentityEventConverter().fromJson(json),
-        );
-      }
-      if (RecordEvent.validate(json)) {
-        return UModerationEmitEventEvent.recordEvent(
-          data: const RecordEventConverter().fromJson(json),
-        );
-      }
-      if (ModEventPriorityScore.validate(json)) {
-        return UModerationEmitEventEvent.modEventPriorityScore(
-          data: const ModEventPriorityScoreConverter().fromJson(json),
-        );
-      }
-      if (AgeAssuranceEvent.validate(json)) {
-        return UModerationEmitEventEvent.ageAssuranceEvent(
-          data: const AgeAssuranceEventConverter().fromJson(json),
-        );
-      }
-      if (AgeAssuranceOverrideEvent.validate(json)) {
-        return UModerationEmitEventEvent.ageAssuranceOverrideEvent(
-          data: const AgeAssuranceOverrideEventConverter().fromJson(json),
-        );
-      }
-      if (AgeAssurancePurgeEvent.validate(json)) {
-        return UModerationEmitEventEvent.ageAssurancePurgeEvent(
-          data: const AgeAssurancePurgeEventConverter().fromJson(json),
-        );
-      }
-      if (RevokeAccountCredentialsEvent.validate(json)) {
-        return UModerationEmitEventEvent.revokeAccountCredentialsEvent(
-          data: const RevokeAccountCredentialsEventConverter().fromJson(json),
-        );
-      }
-      if (ScheduleTakedownEvent.validate(json)) {
-        return UModerationEmitEventEvent.scheduleTakedownEvent(
-          data: const ScheduleTakedownEventConverter().fromJson(json),
-        );
-      }
-      if (CancelScheduledTakedownEvent.validate(json)) {
-        return UModerationEmitEventEvent.cancelScheduledTakedownEvent(
-          data: const CancelScheduledTakedownEventConverter().fromJson(json),
-        );
-      }
-
-      return UModerationEmitEventEvent.unknown(data: json);
-    } catch (_) {
-      return UModerationEmitEventEvent.unknown(data: json);
+    if (ModEventTakedown.validate(json)) {
+      return UModerationEmitEventEvent.modEventTakedown(
+        data: const ModEventTakedownConverter().fromJson(json),
+      );
     }
+    if (ModEventAcknowledge.validate(json)) {
+      return UModerationEmitEventEvent.modEventAcknowledge(
+        data: const ModEventAcknowledgeConverter().fromJson(json),
+      );
+    }
+    if (ModEventEscalate.validate(json)) {
+      return UModerationEmitEventEvent.modEventEscalate(
+        data: const ModEventEscalateConverter().fromJson(json),
+      );
+    }
+    if (ModEventComment.validate(json)) {
+      return UModerationEmitEventEvent.modEventComment(
+        data: const ModEventCommentConverter().fromJson(json),
+      );
+    }
+    if (ModEventLabel.validate(json)) {
+      return UModerationEmitEventEvent.modEventLabel(
+        data: const ModEventLabelConverter().fromJson(json),
+      );
+    }
+    if (ModEventReport.validate(json)) {
+      return UModerationEmitEventEvent.modEventReport(
+        data: const ModEventReportConverter().fromJson(json),
+      );
+    }
+    if (ModEventMute.validate(json)) {
+      return UModerationEmitEventEvent.modEventMute(
+        data: const ModEventMuteConverter().fromJson(json),
+      );
+    }
+    if (ModEventUnmute.validate(json)) {
+      return UModerationEmitEventEvent.modEventUnmute(
+        data: const ModEventUnmuteConverter().fromJson(json),
+      );
+    }
+    if (ModEventMuteReporter.validate(json)) {
+      return UModerationEmitEventEvent.modEventMuteReporter(
+        data: const ModEventMuteReporterConverter().fromJson(json),
+      );
+    }
+    if (ModEventUnmuteReporter.validate(json)) {
+      return UModerationEmitEventEvent.modEventUnmuteReporter(
+        data: const ModEventUnmuteReporterConverter().fromJson(json),
+      );
+    }
+    if (ModEventReverseTakedown.validate(json)) {
+      return UModerationEmitEventEvent.modEventReverseTakedown(
+        data: const ModEventReverseTakedownConverter().fromJson(json),
+      );
+    }
+    if (ModEventResolveAppeal.validate(json)) {
+      return UModerationEmitEventEvent.modEventResolveAppeal(
+        data: const ModEventResolveAppealConverter().fromJson(json),
+      );
+    }
+    if (ModEventEmail.validate(json)) {
+      return UModerationEmitEventEvent.modEventEmail(
+        data: const ModEventEmailConverter().fromJson(json),
+      );
+    }
+    if (ModEventDivert.validate(json)) {
+      return UModerationEmitEventEvent.modEventDivert(
+        data: const ModEventDivertConverter().fromJson(json),
+      );
+    }
+    if (ModEventTag.validate(json)) {
+      return UModerationEmitEventEvent.modEventTag(
+        data: const ModEventTagConverter().fromJson(json),
+      );
+    }
+    if (AccountEvent.validate(json)) {
+      return UModerationEmitEventEvent.accountEvent(
+        data: const AccountEventConverter().fromJson(json),
+      );
+    }
+    if (IdentityEvent.validate(json)) {
+      return UModerationEmitEventEvent.identityEvent(
+        data: const IdentityEventConverter().fromJson(json),
+      );
+    }
+    if (RecordEvent.validate(json)) {
+      return UModerationEmitEventEvent.recordEvent(
+        data: const RecordEventConverter().fromJson(json),
+      );
+    }
+    if (ModEventPriorityScore.validate(json)) {
+      return UModerationEmitEventEvent.modEventPriorityScore(
+        data: const ModEventPriorityScoreConverter().fromJson(json),
+      );
+    }
+    if (AgeAssuranceEvent.validate(json)) {
+      return UModerationEmitEventEvent.ageAssuranceEvent(
+        data: const AgeAssuranceEventConverter().fromJson(json),
+      );
+    }
+    if (AgeAssuranceOverrideEvent.validate(json)) {
+      return UModerationEmitEventEvent.ageAssuranceOverrideEvent(
+        data: const AgeAssuranceOverrideEventConverter().fromJson(json),
+      );
+    }
+    if (AgeAssurancePurgeEvent.validate(json)) {
+      return UModerationEmitEventEvent.ageAssurancePurgeEvent(
+        data: const AgeAssurancePurgeEventConverter().fromJson(json),
+      );
+    }
+    if (RevokeAccountCredentialsEvent.validate(json)) {
+      return UModerationEmitEventEvent.revokeAccountCredentialsEvent(
+        data: const RevokeAccountCredentialsEventConverter().fromJson(json),
+      );
+    }
+    if (ScheduleTakedownEvent.validate(json)) {
+      return UModerationEmitEventEvent.scheduleTakedownEvent(
+        data: const ScheduleTakedownEventConverter().fromJson(json),
+      );
+    }
+    if (CancelScheduledTakedownEvent.validate(json)) {
+      return UModerationEmitEventEvent.cancelScheduledTakedownEvent(
+        data: const CancelScheduledTakedownEventConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UModerationEmitEventEvent.unknown(data: json);
   }
 
   @override

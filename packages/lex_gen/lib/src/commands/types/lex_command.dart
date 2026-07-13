@@ -91,7 +91,7 @@ final class $typeName extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     $parameters
   };
-}
+${_getInputHelpers()}}
 ''';
   }
 
@@ -131,8 +131,13 @@ final class $typeName extends ProcedureCommand {
   String get methodId => "${lexiconId.toString()}";
 
   @override
-  Map<String, dynamic>? get body =>
-      Map<String, dynamic>.from(jsonDecode(argResults!["json"]));
+  Map<String, dynamic>? get body {
+    try {
+      return Map<String, dynamic>.from(jsonDecode(argResults!["json"]));
+    } on FormatException catch (e) {
+      usageException("Invalid JSON for option \\"json\\": \${e.message}");
+    }
+  }
 }
 ''';
     }
@@ -200,7 +205,7 @@ final class $typeName extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     $body
   };
-}
+${_getInputHelpers()}}
 ''';
   }
 
@@ -260,15 +265,20 @@ $contentTypeOverride}
 
     final parameters = _getParameters();
 
-    final rkeyOptForCreate = literalRkey == null
-        ? '..addOption("rkey", help: r"Specific record key to use.",)'
+    // The create and put subcommands share the same field options, so the
+    // shared configuration and the input-validation helpers are hoisted into a
+    // single mixin instead of being duplicated verbatim in both classes. Each
+    // subcommand only adds its own `rkey` option (optional for create,
+    // mandatory for put).
+    final sharedOpts = _getOpts();
+    final createRkeyStmt = literalRkey == null
+        ? 'argParser.addOption("rkey", help: r"Specific record key to use.",);'
         : '';
-    final rkeyOptForUpdate = literalRkey == null
-        ? '..addOption("rkey", help: r"The record key.", mandatory: true,)'
+    final putRkeyStmt = literalRkey == null
+        ? 'argParser.addOption("rkey", help: r"The record key.", mandatory: true,);'
         : '';
 
-    final optsForCreate = _getOpts(trailingOption: rkeyOptForCreate);
-    final optsForUpdate = _getOpts(trailingOption: rkeyOptForUpdate);
+    final recordArgsMixin = '_${typeName}RecordArgs';
 
     final rkeyOverride = _getReferenceKeyOverride();
 
@@ -320,9 +330,16 @@ final class $typeName extends Command<void> {
   String get description => "${_getDescription()}";
 }
 
-final class _Create$typeName extends CreateRecordCommand {
+mixin $recordArgsMixin on Command<void> {
+  void _addRecordOptions() {
+    $sharedOpts
+  }
+${_getInputHelpers()}}
+
+final class _Create$typeName extends CreateRecordCommand with $recordArgsMixin {
   _Create$typeName() {
-    $optsForCreate
+    _addRecordOptions();
+    $createRkeyStmt
   }
 
   @override
@@ -346,9 +363,10 @@ final class _Create$typeName extends CreateRecordCommand {
   };
 }
 
-final class _Put$typeName extends PutRecordCommand {
+final class _Put$typeName extends PutRecordCommand with $recordArgsMixin {
   _Put$typeName() {
-    $optsForUpdate
+    _addRecordOptions();
+    $putRkeyStmt
   }
 
   @override
@@ -445,7 +463,7 @@ final class _List$typeName extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "${lexiconId.toString()}",
-    'limit': int.parse(argResults!['limit']),
+    'limit': int.tryParse(argResults!['limit']) ?? usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };
@@ -521,6 +539,58 @@ final class _List$typeName extends QueryCommand {
     final buffer = StringBuffer();
     for (final param in parameters) {
       buffer.writeln(param.getParam());
+    }
+
+    return buffer.toString();
+  }
+
+  bool get _needsJsonHelper => parameters.any((e) => e.isJsonVariant);
+
+  bool get _needsJsonItemHelper =>
+      parameters.any((e) => e.isArray && e.hasJsonItems);
+
+  bool get _needsRequireNonEmptyHelper =>
+      parameters.any((e) => e.needsRequireNonEmptyHelper);
+
+  /// Instance helpers injected into a generated command class so that invalid
+  /// option input raises a [UsageException] (with usage text) instead of a raw
+  /// `FormatException`/stack trace. `usageException` returns `Never`, so it can
+  /// terminate the helpers without a fallthrough return.
+  String _getInputHelpers() {
+    final buffer = StringBuffer();
+
+    if (_needsJsonHelper) {
+      buffer.writeln('''
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "\$name": \${e.message}');
+    }
+  }''');
+    }
+
+    if (_needsJsonItemHelper) {
+      buffer.writeln('''
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "\$name": \${e.message}');
+    }
+  }''');
+    }
+
+    if (_needsRequireNonEmptyHelper) {
+      buffer.writeln('''
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "\$name" is required and must not be empty.');
+    }
+    return values;
+  }''');
     }
 
     return buffer.toString();

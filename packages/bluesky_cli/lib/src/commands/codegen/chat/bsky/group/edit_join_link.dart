@@ -44,7 +44,15 @@ final class EditJoinLinkCommand extends ProcedureCommand {
     "convoId": argResults!["convoId"],
     if (argResults!.wasParsed("requireApproval"))
       "requireApproval": argResults!["requireApproval"],
-    if (argResults!.wasParsed("joinRule"))
-      "joinRule": jsonDecode(argResults!["joinRule"]),
+    if (argResults!.wasParsed("joinRule")) "joinRule": _decodeJson("joinRule"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

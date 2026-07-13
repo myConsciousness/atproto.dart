@@ -50,7 +50,7 @@ abstract class GraphListRecord with _$GraphListRecord {
     @RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
     @UGraphListLabelsConverter() UGraphListLabels? labels,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphListRecord;

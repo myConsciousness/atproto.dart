@@ -51,7 +51,10 @@ final class GetServiceAuthCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "aud": argResults!["aud"],
-    if (argResults!.wasParsed("exp")) "exp": int.parse(argResults!["exp"]),
+    if (argResults!.wasParsed("exp"))
+      "exp":
+          int.tryParse(argResults!["exp"]) ??
+          usageException('Invalid integer value for option "exp".'),
     if (argResults!.wasParsed("lxm")) "lxm": argResults!["lxm"],
   };
 }

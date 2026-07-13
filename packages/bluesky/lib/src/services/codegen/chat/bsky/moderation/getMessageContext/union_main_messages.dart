@@ -68,22 +68,22 @@ final class UModerationGetMessageContextMessagesConverter
 
   @override
   UModerationGetMessageContextMessages fromJson(Map<String, dynamic> json) {
-    try {
-      if (MessageView.validate(json)) {
-        return UModerationGetMessageContextMessages.messageView(
-          data: const MessageViewConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageView.validate(json)) {
-        return UModerationGetMessageContextMessages.systemMessageView(
-          data: const SystemMessageViewConverter().fromJson(json),
-        );
-      }
-
-      return UModerationGetMessageContextMessages.unknown(data: json);
-    } catch (_) {
-      return UModerationGetMessageContextMessages.unknown(data: json);
+    if (MessageView.validate(json)) {
+      return UModerationGetMessageContextMessages.messageView(
+        data: const MessageViewConverter().fromJson(json),
+      );
     }
+    if (SystemMessageView.validate(json)) {
+      return UModerationGetMessageContextMessages.systemMessageView(
+        data: const SystemMessageViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UModerationGetMessageContextMessages.unknown(data: json);
   }
 
   @override

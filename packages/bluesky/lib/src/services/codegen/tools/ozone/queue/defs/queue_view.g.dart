@@ -64,10 +64,10 @@ Map<String, dynamic> _$QueueViewToJson(_QueueView instance) =>
       'reportTypes': instance.reportTypes,
       'description': ?instance.description,
       'createdBy': instance.createdBy,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
+      'updatedAt': iso8601(instance.updatedAt),
       'enabled': instance.enabled,
-      'deletedAt': ?instance.deletedAt?.toIso8601String(),
+      'deletedAt': iso8601(instance.deletedAt),
       'stats': const QueueStatsConverter().toJson(instance.stats),
       r'$unknown': ?instance.$unknown,
     };

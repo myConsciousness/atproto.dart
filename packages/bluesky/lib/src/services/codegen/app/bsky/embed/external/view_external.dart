@@ -49,10 +49,10 @@ abstract class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
     String? thumb,
 
     /// When the external content was created, if available. Example: a publication date, for an article.
-    DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
 
     /// When the external content was updated, if available.
-    DateTime? updatedAt,
+    @JsonKey(toJson: iso8601) DateTime? updatedAt,
 
     /// Estimated reading time in minutes, if applicable and available.
     int? readingTime,

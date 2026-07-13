@@ -47,6 +47,6 @@ Map<String, dynamic> _$NotificationListNotificationsOutputToJson(
       .map(const NotificationConverter().toJson)
       .toList(),
   'priority': ?instance.priority,
-  'seenAt': ?instance.seenAt?.toIso8601String(),
+  'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,
 };

@@ -32,7 +32,7 @@ abstract class BookmarkView with _$BookmarkView {
 
     /// A strong ref to the bookmarked record.
     @RepoStrongRefConverter() required RepoStrongRef subject,
-    DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
     @UBookmarkViewItemConverter() required UBookmarkViewItem item,
 
     Map<String, dynamic>? $unknown,

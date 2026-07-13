@@ -40,16 +40,23 @@ final class ListblockCommand extends Command<void> {
       "Record representing a block relationship against an entire an entire list of accounts (actors).";
 }
 
-final class _CreateListblockCommand extends CreateRecordCommand {
-  _CreateListblockCommand() {
+mixin _ListblockCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "subject",
         help: r"Reference (AT-URI) to the mod list record.",
         mandatory: true,
       )
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"Specific record key to use.");
+      ..addOption("createdAt", mandatory: true);
+  }
+}
+
+final class _CreateListblockCommand extends CreateRecordCommand
+    with _ListblockCommandRecordArgs {
+  _CreateListblockCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -77,16 +84,11 @@ final class _CreateListblockCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutListblockCommand extends PutRecordCommand {
+final class _PutListblockCommand extends PutRecordCommand
+    with _ListblockCommandRecordArgs {
   _PutListblockCommand() {
-    argParser
-      ..addOption(
-        "subject",
-        help: r"Reference (AT-URI) to the mod list record.",
-        mandatory: true,
-      )
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -197,7 +199,9 @@ final class _ListListblockCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.graph.listblock",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -17,7 +17,7 @@ mixin _$GraphListitemRecord {
 
  String get $type;/// The account which is included on the list.
  String get subject;/// Reference (AT-URI) to the list record (app.bsky.graph.list).
-@AtUriConverter() AtUri get list; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get list;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphListitemRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $GraphListitemRecordCopyWith<$Res>  {
   factory $GraphListitemRecordCopyWith(GraphListitemRecord value, $Res Function(GraphListitemRecord) _then) = _$GraphListitemRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subject,@AtUriConverter() AtUri list, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject,@AtUriConverter() AtUri list,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject, @AtUriConverter()  AtUri list,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject, @AtUriConverter()  AtUri list, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphListitemRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject, @AtUriConverter()  AtUri list,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject, @AtUriConverter()  AtUri list, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphListitemRecord():
 return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject, @AtUriConverter()  AtUri list,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject, @AtUriConverter()  AtUri list, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphListitemRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.$type,_that.subject,_that.list,_that.createdAt,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _GraphListitemRecord implements GraphListitemRecord {
-  const _GraphListitemRecord({this.$type = 'app.bsky.graph.listitem', required this.subject, @AtUriConverter() required this.list, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphListitemRecord({this.$type = 'app.bsky.graph.listitem', required this.subject, @AtUriConverter() required this.list, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphListitemRecord.fromJson(Map<String, dynamic> json) => _$GraphListitemRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -223,7 +223,7 @@ class _GraphListitemRecord implements GraphListitemRecord {
 @override final  String subject;
 /// Reference (AT-URI) to the list record (app.bsky.graph.list).
 @override@AtUriConverter() final  AtUri list;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$GraphListitemRecordCopyWith<$Res> implements $GraphListit
   factory _$GraphListitemRecordCopyWith(_GraphListitemRecord value, $Res Function(_GraphListitemRecord) _then) = __$GraphListitemRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subject,@AtUriConverter() AtUri list, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject,@AtUriConverter() AtUri list,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

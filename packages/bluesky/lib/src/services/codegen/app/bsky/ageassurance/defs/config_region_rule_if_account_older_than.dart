@@ -33,7 +33,7 @@ abstract class ConfigRegionRuleIfAccountOlderThan
     String $type,
 
     /// The date threshold as a datetime string.
-    required DateTime date,
+    @JsonKey(toJson: iso8601) required DateTime date,
     @AccessConverter() required Access access,
 
     Map<String, dynamic>? $unknown,

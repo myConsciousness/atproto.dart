@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$ModerationListScheduledActionsInput {
 
 /// Filter actions scheduled to execute after this time
- DateTime? get startsAfter;/// Filter actions scheduled to execute before this time
- DateTime? get endsBefore; List<String>? get subjects;@ModerationListScheduledActionsStatusesConverter() List<ModerationListScheduledActionsStatuses> get statuses;/// Maximum number of results to return
+@JsonKey(toJson: iso8601) DateTime? get startsAfter;/// Filter actions scheduled to execute before this time
+@JsonKey(toJson: iso8601) DateTime? get endsBefore; List<String>? get subjects;@ModerationListScheduledActionsStatusesConverter() List<ModerationListScheduledActionsStatuses> get statuses;/// Maximum number of results to return
  int get limit;/// Cursor for pagination
  String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationListScheduledActionsInput
@@ -52,7 +52,7 @@ abstract mixin class $ModerationListScheduledActionsInputCopyWith<$Res>  {
   factory $ModerationListScheduledActionsInputCopyWith(ModerationListScheduledActionsInput value, $Res Function(ModerationListScheduledActionsInput) _then) = _$ModerationListScheduledActionsInputCopyWithImpl;
 @useResult
 $Res call({
- DateTime? startsAfter, DateTime? endsBefore, List<String>? subjects,@ModerationListScheduledActionsStatusesConverter() List<ModerationListScheduledActionsStatuses> statuses, int limit, String? cursor, Map<String, dynamic>? $unknown
+@JsonKey(toJson: iso8601) DateTime? startsAfter,@JsonKey(toJson: iso8601) DateTime? endsBefore, List<String>? subjects,@ModerationListScheduledActionsStatusesConverter() List<ModerationListScheduledActionsStatuses> statuses, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime? startsAfter,  DateTime? endsBefore,  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter()  List<ModerationListScheduledActionsStatuses> statuses,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(toJson: iso8601)  DateTime? startsAfter, @JsonKey(toJson: iso8601)  DateTime? endsBefore,  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter()  List<ModerationListScheduledActionsStatuses> statuses,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationListScheduledActionsInput() when $default != null:
 return $default(_that.startsAfter,_that.endsBefore,_that.subjects,_that.statuses,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -184,7 +184,7 @@ return $default(_that.startsAfter,_that.endsBefore,_that.subjects,_that.statuses
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime? startsAfter,  DateTime? endsBefore,  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter()  List<ModerationListScheduledActionsStatuses> statuses,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(toJson: iso8601)  DateTime? startsAfter, @JsonKey(toJson: iso8601)  DateTime? endsBefore,  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter()  List<ModerationListScheduledActionsStatuses> statuses,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationListScheduledActionsInput():
 return $default(_that.startsAfter,_that.endsBefore,_that.subjects,_that.statuses,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -204,7 +204,7 @@ return $default(_that.startsAfter,_that.endsBefore,_that.subjects,_that.statuses
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime? startsAfter,  DateTime? endsBefore,  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter()  List<ModerationListScheduledActionsStatuses> statuses,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(toJson: iso8601)  DateTime? startsAfter, @JsonKey(toJson: iso8601)  DateTime? endsBefore,  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter()  List<ModerationListScheduledActionsStatuses> statuses,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationListScheduledActionsInput() when $default != null:
 return $default(_that.startsAfter,_that.endsBefore,_that.subjects,_that.statuses,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -219,13 +219,13 @@ return $default(_that.startsAfter,_that.endsBefore,_that.subjects,_that.statuses
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationListScheduledActionsInput implements ModerationListScheduledActionsInput {
-  const _ModerationListScheduledActionsInput({this.startsAfter, this.endsBefore, final  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter() required final  List<ModerationListScheduledActionsStatuses> statuses, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _subjects = subjects,_statuses = statuses,_$unknown = $unknown;
+  const _ModerationListScheduledActionsInput({@JsonKey(toJson: iso8601) this.startsAfter, @JsonKey(toJson: iso8601) this.endsBefore, final  List<String>? subjects, @ModerationListScheduledActionsStatusesConverter() required final  List<ModerationListScheduledActionsStatuses> statuses, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _subjects = subjects,_statuses = statuses,_$unknown = $unknown;
   factory _ModerationListScheduledActionsInput.fromJson(Map<String, dynamic> json) => _$ModerationListScheduledActionsInputFromJson(json);
 
 /// Filter actions scheduled to execute after this time
-@override final  DateTime? startsAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? startsAfter;
 /// Filter actions scheduled to execute before this time
-@override final  DateTime? endsBefore;
+@override@JsonKey(toJson: iso8601) final  DateTime? endsBefore;
  final  List<String>? _subjects;
 @override List<String>? get subjects {
   final value = _subjects;
@@ -289,7 +289,7 @@ abstract mixin class _$ModerationListScheduledActionsInputCopyWith<$Res> impleme
   factory _$ModerationListScheduledActionsInputCopyWith(_ModerationListScheduledActionsInput value, $Res Function(_ModerationListScheduledActionsInput) _then) = __$ModerationListScheduledActionsInputCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime? startsAfter, DateTime? endsBefore, List<String>? subjects,@ModerationListScheduledActionsStatusesConverter() List<ModerationListScheduledActionsStatuses> statuses, int limit, String? cursor, Map<String, dynamic>? $unknown
+@JsonKey(toJson: iso8601) DateTime? startsAfter,@JsonKey(toJson: iso8601) DateTime? endsBefore, List<String>? subjects,@ModerationListScheduledActionsStatusesConverter() List<ModerationListScheduledActionsStatuses> statuses, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 

@@ -18,8 +18,8 @@ mixin _$AccountStrike {
  String get $type;/// Current number of active strikes (excluding expired strikes)
  int? get activeStrikeCount;/// Total number of strikes ever received (including expired strikes)
  int? get totalStrikeCount;/// Timestamp of the first strike received
- DateTime? get firstStrikeAt;/// Timestamp of the most recent strike received
- DateTime? get lastStrikeAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get firstStrikeAt;/// Timestamp of the most recent strike received
+@JsonKey(toJson: iso8601) DateTime? get lastStrikeAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of AccountStrike
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -52,7 +52,7 @@ abstract mixin class $AccountStrikeCopyWith<$Res>  {
   factory $AccountStrikeCopyWith(AccountStrike value, $Res Function(AccountStrike) _then) = _$AccountStrikeCopyWithImpl;
 @useResult
 $Res call({
- String $type, int? activeStrikeCount, int? totalStrikeCount, DateTime? firstStrikeAt, DateTime? lastStrikeAt, Map<String, dynamic>? $unknown
+ String $type, int? activeStrikeCount, int? totalStrikeCount,@JsonKey(toJson: iso8601) DateTime? firstStrikeAt,@JsonKey(toJson: iso8601) DateTime? lastStrikeAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? activeStrikeCount,  int? totalStrikeCount,  DateTime? firstStrikeAt,  DateTime? lastStrikeAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? activeStrikeCount,  int? totalStrikeCount, @JsonKey(toJson: iso8601)  DateTime? firstStrikeAt, @JsonKey(toJson: iso8601)  DateTime? lastStrikeAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AccountStrike() when $default != null:
 return $default(_that.$type,_that.activeStrikeCount,_that.totalStrikeCount,_that.firstStrikeAt,_that.lastStrikeAt,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.$type,_that.activeStrikeCount,_that.totalStrikeCount,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? activeStrikeCount,  int? totalStrikeCount,  DateTime? firstStrikeAt,  DateTime? lastStrikeAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? activeStrikeCount,  int? totalStrikeCount, @JsonKey(toJson: iso8601)  DateTime? firstStrikeAt, @JsonKey(toJson: iso8601)  DateTime? lastStrikeAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AccountStrike():
 return $default(_that.$type,_that.activeStrikeCount,_that.totalStrikeCount,_that.firstStrikeAt,_that.lastStrikeAt,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.activeStrikeCount,_that.totalStrikeCount,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? activeStrikeCount,  int? totalStrikeCount,  DateTime? firstStrikeAt,  DateTime? lastStrikeAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? activeStrikeCount,  int? totalStrikeCount, @JsonKey(toJson: iso8601)  DateTime? firstStrikeAt, @JsonKey(toJson: iso8601)  DateTime? lastStrikeAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AccountStrike() when $default != null:
 return $default(_that.$type,_that.activeStrikeCount,_that.totalStrikeCount,_that.firstStrikeAt,_that.lastStrikeAt,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.$type,_that.activeStrikeCount,_that.totalStrikeCount,_that
 
 @JsonSerializable(includeIfNull: false)
 class _AccountStrike implements AccountStrike {
-  const _AccountStrike({this.$type = 'tools.ozone.moderation.defs#accountStrike', this.activeStrikeCount, this.totalStrikeCount, this.firstStrikeAt, this.lastStrikeAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountStrike({this.$type = 'tools.ozone.moderation.defs#accountStrike', this.activeStrikeCount, this.totalStrikeCount, @JsonKey(toJson: iso8601) this.firstStrikeAt, @JsonKey(toJson: iso8601) this.lastStrikeAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountStrike.fromJson(Map<String, dynamic> json) => _$AccountStrikeFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -227,9 +227,9 @@ class _AccountStrike implements AccountStrike {
 /// Total number of strikes ever received (including expired strikes)
 @override final  int? totalStrikeCount;
 /// Timestamp of the first strike received
-@override final  DateTime? firstStrikeAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? firstStrikeAt;
 /// Timestamp of the most recent strike received
-@override final  DateTime? lastStrikeAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? lastStrikeAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -273,7 +273,7 @@ abstract mixin class _$AccountStrikeCopyWith<$Res> implements $AccountStrikeCopy
   factory _$AccountStrikeCopyWith(_AccountStrike value, $Res Function(_AccountStrike) _then) = __$AccountStrikeCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int? activeStrikeCount, int? totalStrikeCount, DateTime? firstStrikeAt, DateTime? lastStrikeAt, Map<String, dynamic>? $unknown
+ String $type, int? activeStrikeCount, int? totalStrikeCount,@JsonKey(toJson: iso8601) DateTime? firstStrikeAt,@JsonKey(toJson: iso8601) DateTime? lastStrikeAt, Map<String, dynamic>? $unknown
 });
 
 

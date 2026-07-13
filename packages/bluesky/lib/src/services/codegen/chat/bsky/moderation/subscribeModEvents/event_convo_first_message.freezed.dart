@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventConvoFirstMessage {
 
- String get $type; String get convoId; DateTime get createdAt; String? get messageId; List<String> get recipients; String get rev;/// The DID of the message author.
+ String get $type; String get convoId;@JsonKey(toJson: iso8601) DateTime get createdAt; String? get messageId; List<String> get recipients; String get rev;/// The DID of the message author.
  String get user; Map<String, dynamic>? get $unknown;
 /// Create a copy of EventConvoFirstMessage
 /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +49,7 @@ abstract mixin class $EventConvoFirstMessageCopyWith<$Res>  {
   factory $EventConvoFirstMessageCopyWith(EventConvoFirstMessage value, $Res Function(EventConvoFirstMessage) _then) = _$EventConvoFirstMessageCopyWithImpl;
 @useResult
 $Res call({
- String $type, String convoId, DateTime createdAt, String? messageId, List<String> recipients, String rev, String user, Map<String, dynamic>? $unknown
+ String $type, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, String? messageId, List<String> recipients, String rev, String user, Map<String, dynamic>? $unknown
 });
 
 
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String convoId,  DateTime createdAt,  String? messageId,  List<String> recipients,  String rev,  String user,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? messageId,  List<String> recipients,  String rev,  String user,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventConvoFirstMessage() when $default != null:
 return $default(_that.$type,_that.convoId,_that.createdAt,_that.messageId,_that.recipients,_that.rev,_that.user,_that.$unknown);case _:
@@ -182,7 +182,7 @@ return $default(_that.$type,_that.convoId,_that.createdAt,_that.messageId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String convoId,  DateTime createdAt,  String? messageId,  List<String> recipients,  String rev,  String user,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? messageId,  List<String> recipients,  String rev,  String user,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EventConvoFirstMessage():
 return $default(_that.$type,_that.convoId,_that.createdAt,_that.messageId,_that.recipients,_that.rev,_that.user,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.$type,_that.convoId,_that.createdAt,_that.messageId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String convoId,  DateTime createdAt,  String? messageId,  List<String> recipients,  String rev,  String user,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? messageId,  List<String> recipients,  String rev,  String user,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EventConvoFirstMessage() when $default != null:
 return $default(_that.$type,_that.convoId,_that.createdAt,_that.messageId,_that.recipients,_that.rev,_that.user,_that.$unknown);case _:
@@ -217,12 +217,12 @@ return $default(_that.$type,_that.convoId,_that.createdAt,_that.messageId,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _EventConvoFirstMessage implements EventConvoFirstMessage {
-  const _EventConvoFirstMessage({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventConvoFirstMessage', required this.convoId, required this.createdAt, this.messageId, required final  List<String> recipients, required this.rev, required this.user, final  Map<String, dynamic>? $unknown}): _recipients = recipients,_$unknown = $unknown;
+  const _EventConvoFirstMessage({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventConvoFirstMessage', required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, this.messageId, required final  List<String> recipients, required this.rev, required this.user, final  Map<String, dynamic>? $unknown}): _recipients = recipients,_$unknown = $unknown;
   factory _EventConvoFirstMessage.fromJson(Map<String, dynamic> json) => _$EventConvoFirstMessageFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String convoId;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override final  String? messageId;
  final  List<String> _recipients;
 @override List<String> get recipients {
@@ -277,7 +277,7 @@ abstract mixin class _$EventConvoFirstMessageCopyWith<$Res> implements $EventCon
   factory _$EventConvoFirstMessageCopyWith(_EventConvoFirstMessage value, $Res Function(_EventConvoFirstMessage) _then) = __$EventConvoFirstMessageCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String convoId, DateTime createdAt, String? messageId, List<String> recipients, String rev, String user, Map<String, dynamic>? $unknown
+ String $type, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, String? messageId, List<String> recipients, String rev, String user, Map<String, dynamic>? $unknown
 });
 
 

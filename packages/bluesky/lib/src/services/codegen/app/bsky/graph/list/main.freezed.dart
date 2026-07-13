@@ -17,7 +17,7 @@ mixin _$GraphListRecord {
 
  String get $type;/// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
 @ListPurposeConverter() ListPurpose get purpose;/// Display name for list; can not be empty.
- String get name; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets;@BlobConverter() Blob? get avatar;@UGraphListLabelsConverter() UGraphListLabels? get labels; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ String get name; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets;@BlobConverter() Blob? get avatar;@UGraphListLabelsConverter() UGraphListLabels? get labels;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphListRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $GraphListRecordCopyWith<$Res>  {
   factory $GraphListRecordCopyWith(GraphListRecord value, $Res Function(GraphListRecord) _then) = _$GraphListRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@ListPurposeConverter() ListPurpose purpose, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar,@UGraphListLabelsConverter() UGraphListLabels? labels, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@ListPurposeConverter() ListPurpose purpose, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar,@UGraphListLabelsConverter() UGraphListLabels? labels,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -196,7 +196,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ListPurposeConverter()  ListPurpose purpose,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar, @UGraphListLabelsConverter()  UGraphListLabels? labels,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ListPurposeConverter()  ListPurpose purpose,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar, @UGraphListLabelsConverter()  UGraphListLabels? labels, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphListRecord() when $default != null:
 return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.descriptionFacets,_that.avatar,_that.labels,_that.createdAt,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.des
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ListPurposeConverter()  ListPurpose purpose,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar, @UGraphListLabelsConverter()  UGraphListLabels? labels,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ListPurposeConverter()  ListPurpose purpose,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar, @UGraphListLabelsConverter()  UGraphListLabels? labels, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphListRecord():
 return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.descriptionFacets,_that.avatar,_that.labels,_that.createdAt,_that.$unknown);case _:
@@ -237,7 +237,7 @@ return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.des
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ListPurposeConverter()  ListPurpose purpose,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar, @UGraphListLabelsConverter()  UGraphListLabels? labels,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ListPurposeConverter()  ListPurpose purpose,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter()  Blob? avatar, @UGraphListLabelsConverter()  UGraphListLabels? labels, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphListRecord() when $default != null:
 return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.descriptionFacets,_that.avatar,_that.labels,_that.createdAt,_that.$unknown);case _:
@@ -252,7 +252,7 @@ return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.des
 
 @JsonSerializable(includeIfNull: false)
 class _GraphListRecord implements GraphListRecord {
-  const _GraphListRecord({this.$type = 'app.bsky.graph.list', @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
+  const _GraphListRecord({this.$type = 'app.bsky.graph.list', @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _GraphListRecord.fromJson(Map<String, dynamic> json) => _$GraphListRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -272,7 +272,7 @@ class _GraphListRecord implements GraphListRecord {
 
 @override@BlobConverter() final  Blob? avatar;
 @override@UGraphListLabelsConverter() final  UGraphListLabels? labels;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -316,7 +316,7 @@ abstract mixin class _$GraphListRecordCopyWith<$Res> implements $GraphListRecord
   factory _$GraphListRecordCopyWith(_GraphListRecord value, $Res Function(_GraphListRecord) _then) = __$GraphListRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@ListPurposeConverter() ListPurpose purpose, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar,@UGraphListLabelsConverter() UGraphListLabels? labels, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@ListPurposeConverter() ListPurpose purpose, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@BlobConverter() Blob? avatar,@UGraphListLabelsConverter() UGraphListLabels? labels,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

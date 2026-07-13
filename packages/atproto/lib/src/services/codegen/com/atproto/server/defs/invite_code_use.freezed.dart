@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$InviteCodeUse {
 
- String get $type; String get usedBy; DateTime get usedAt; Map<String, dynamic>? get $unknown;
+ String get $type; String get usedBy;@JsonKey(toJson: iso8601) DateTime get usedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of InviteCodeUse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $InviteCodeUseCopyWith<$Res>  {
   factory $InviteCodeUseCopyWith(InviteCodeUse value, $Res Function(InviteCodeUse) _then) = _$InviteCodeUseCopyWithImpl;
 @useResult
 $Res call({
- String $type, String usedBy, DateTime usedAt, Map<String, dynamic>? $unknown
+ String $type, String usedBy,@JsonKey(toJson: iso8601) DateTime usedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String usedBy,  DateTime usedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String usedBy, @JsonKey(toJson: iso8601)  DateTime usedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _InviteCodeUse() when $default != null:
 return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String usedBy,  DateTime usedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String usedBy, @JsonKey(toJson: iso8601)  DateTime usedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _InviteCodeUse():
 return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String usedBy,  DateTime usedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String usedBy, @JsonKey(toJson: iso8601)  DateTime usedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _InviteCodeUse() when $default != null:
 return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.usedBy,_that.usedAt,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _InviteCodeUse implements InviteCodeUse {
-  const _InviteCodeUse({this.$type = 'com.atproto.server.defs#inviteCodeUse', required this.usedBy, required this.usedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _InviteCodeUse({this.$type = 'com.atproto.server.defs#inviteCodeUse', required this.usedBy, @JsonKey(toJson: iso8601) required this.usedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _InviteCodeUse.fromJson(Map<String, dynamic> json) => _$InviteCodeUseFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String usedBy;
-@override final  DateTime usedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime usedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$InviteCodeUseCopyWith<$Res> implements $InviteCodeUseCopy
   factory _$InviteCodeUseCopyWith(_InviteCodeUse value, $Res Function(_InviteCodeUse) _then) = __$InviteCodeUseCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String usedBy, DateTime usedAt, Map<String, dynamic>? $unknown
+ String $type, String usedBy,@JsonKey(toJson: iso8601) DateTime usedAt, Map<String, dynamic>? $unknown
 });
 
 

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$GraphListblockRecord {
 
  String get $type;/// Reference (AT-URI) to the mod list record.
-@AtUriConverter() AtUri get subject; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get subject;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphListblockRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $GraphListblockRecordCopyWith<$Res>  {
   factory $GraphListblockRecordCopyWith(GraphListblockRecord value, $Res Function(GraphListblockRecord) _then) = _$GraphListblockRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri subject, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri subject,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri subject,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri subject, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphListblockRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri subject,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri subject, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphListblockRecord():
 return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri subject,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri subject, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphListblockRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _:
@@ -213,13 +213,13 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.$unknown);case _
 
 @JsonSerializable(includeIfNull: false)
 class _GraphListblockRecord implements GraphListblockRecord {
-  const _GraphListblockRecord({this.$type = 'app.bsky.graph.listblock', @AtUriConverter() required this.subject, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphListblockRecord({this.$type = 'app.bsky.graph.listblock', @AtUriConverter() required this.subject, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphListblockRecord.fromJson(Map<String, dynamic> json) => _$GraphListblockRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Reference (AT-URI) to the mod list record.
 @override@AtUriConverter() final  AtUri subject;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -263,7 +263,7 @@ abstract mixin class _$GraphListblockRecordCopyWith<$Res> implements $GraphListb
   factory _$GraphListblockRecordCopyWith(_GraphListblockRecord value, $Res Function(_GraphListblockRecord) _then) = __$GraphListblockRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri subject, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri subject,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

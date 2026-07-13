@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GroupConvo {
 
- String get $type; DateTime get createdAt;@JoinLinkViewConverter() JoinLinkView? get joinLink;/// The total number of pending join requests for the group conversation. This information is only visible to the owner and to moderators. Capped at 21.
+ String get $type;@JsonKey(toJson: iso8601) DateTime get createdAt;@JoinLinkViewConverter() JoinLinkView? get joinLink;/// The total number of pending join requests for the group conversation. This information is only visible to the owner and to moderators. Capped at 21.
  int get joinRequestCount;/// The lock status of the conversation.
 @ConvoLockStatusConverter() ConvoLockStatus get lockStatus;/// The total number of members in the group conversation.
  int get memberCount;/// The maximum number of members allowed in the group conversation.
@@ -53,7 +53,7 @@ abstract mixin class $GroupConvoCopyWith<$Res>  {
   factory $GroupConvoCopyWith(GroupConvo value, $Res Function(GroupConvo) _then) = _$GroupConvoCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime createdAt,@JoinLinkViewConverter() JoinLinkView? joinLink, int joinRequestCount,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, int memberCount, int memberLimit, String name, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime createdAt,@JoinLinkViewConverter() JoinLinkView? joinLink, int joinRequestCount,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, int memberCount, int memberLimit, String name, Map<String, dynamic>? $unknown
 });
 
 
@@ -187,7 +187,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GroupConvo() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCount,_that.lockStatus,_that.memberCount,_that.memberLimit,_that.name,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCoun
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GroupConvo():
 return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCount,_that.lockStatus,_that.memberCount,_that.memberLimit,_that.name,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCoun
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt, @JoinLinkViewConverter()  JoinLinkView? joinLink,  int joinRequestCount, @ConvoLockStatusConverter()  ConvoLockStatus lockStatus,  int memberCount,  int memberLimit,  String name,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GroupConvo() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCount,_that.lockStatus,_that.memberCount,_that.memberLimit,_that.name,_that.$unknown);case _:
@@ -243,11 +243,11 @@ return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCoun
 
 @JsonSerializable(includeIfNull: false)
 class _GroupConvo implements GroupConvo {
-  const _GroupConvo({this.$type = 'chat.bsky.moderation.defs#groupConvo', required this.createdAt, @JoinLinkViewConverter() this.joinLink, required this.joinRequestCount, @ConvoLockStatusConverter() required this.lockStatus, required this.memberCount, required this.memberLimit, required this.name, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GroupConvo({this.$type = 'chat.bsky.moderation.defs#groupConvo', @JsonKey(toJson: iso8601) required this.createdAt, @JoinLinkViewConverter() this.joinLink, required this.joinRequestCount, @ConvoLockStatusConverter() required this.lockStatus, required this.memberCount, required this.memberLimit, required this.name, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GroupConvo.fromJson(Map<String, dynamic> json) => _$GroupConvoFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@JoinLinkViewConverter() final  JoinLinkView? joinLink;
 /// The total number of pending join requests for the group conversation. This information is only visible to the owner and to moderators. Capped at 21.
 @override final  int joinRequestCount;
@@ -302,7 +302,7 @@ abstract mixin class _$GroupConvoCopyWith<$Res> implements $GroupConvoCopyWith<$
   factory _$GroupConvoCopyWith(_GroupConvo value, $Res Function(_GroupConvo) _then) = __$GroupConvoCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime createdAt,@JoinLinkViewConverter() JoinLinkView? joinLink, int joinRequestCount,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, int memberCount, int memberLimit, String name, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime createdAt,@JoinLinkViewConverter() JoinLinkView? joinLink, int joinRequestCount,@ConvoLockStatusConverter() ConvoLockStatus lockStatus, int memberCount, int memberLimit, String name, Map<String, dynamic>? $unknown
 });
 
 

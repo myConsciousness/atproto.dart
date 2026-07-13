@@ -40,8 +40,8 @@ final class StatusCommand extends Command<void> {
   String get description => "A declaration of a Bluesky account status.";
 }
 
-final class _CreateStatusCommand extends CreateRecordCommand {
-  _CreateStatusCommand() {
+mixin _StatusCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "status",
@@ -58,6 +58,23 @@ final class _CreateStatusCommand extends CreateRecordCommand {
             r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
       )
       ..addOption("createdAt", mandatory: true);
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateStatusCommand extends CreateRecordCommand
+    with _StatusCommandRecordArgs {
+  _CreateStatusCommand() {
+    _addRecordOptions();
   }
 
   @override
@@ -80,32 +97,19 @@ final class _CreateStatusCommand extends CreateRecordCommand {
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.actor.status",
     "status": argResults!["status"],
-    if (argResults!.wasParsed("embed"))
-      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("embed")) "embed": _decodeJson("embed"),
     if (argResults!.wasParsed("durationMinutes"))
-      "durationMinutes": int.parse(argResults!["durationMinutes"]),
+      "durationMinutes":
+          int.tryParse(argResults!["durationMinutes"]) ??
+          usageException('Invalid integer value for option "durationMinutes".'),
     "createdAt": argResults!["createdAt"],
   };
 }
 
-final class _PutStatusCommand extends PutRecordCommand {
+final class _PutStatusCommand extends PutRecordCommand
+    with _StatusCommandRecordArgs {
   _PutStatusCommand() {
-    argParser
-      ..addOption(
-        "status",
-        help: r"The status for the account.",
-        mandatory: true,
-      )
-      ..addOption(
-        "embed",
-        help: r"An optional embed associated with the status.",
-      )
-      ..addOption(
-        "durationMinutes",
-        help:
-            r"The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.",
-      )
-      ..addOption("createdAt", mandatory: true);
+    _addRecordOptions();
   }
 
   @override
@@ -128,10 +132,11 @@ final class _PutStatusCommand extends PutRecordCommand {
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.actor.status",
     "status": argResults!["status"],
-    if (argResults!.wasParsed("embed"))
-      "embed": jsonDecode(argResults!["embed"]),
+    if (argResults!.wasParsed("embed")) "embed": _decodeJson("embed"),
     if (argResults!.wasParsed("durationMinutes"))
-      "durationMinutes": int.parse(argResults!["durationMinutes"]),
+      "durationMinutes":
+          int.tryParse(argResults!["durationMinutes"]) ??
+          usageException('Invalid integer value for option "durationMinutes".'),
     "createdAt": argResults!["createdAt"],
   };
 }
@@ -216,7 +221,9 @@ final class _ListStatusCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.actor.status",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

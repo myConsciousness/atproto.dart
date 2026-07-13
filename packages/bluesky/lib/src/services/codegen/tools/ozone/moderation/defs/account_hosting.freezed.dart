@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AccountHosting {
 
- String get $type;@AccountHostingStatusConverter() AccountHostingStatus get status; DateTime? get updatedAt; DateTime? get createdAt; DateTime? get deletedAt; DateTime? get deactivatedAt; DateTime? get reactivatedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AccountHostingStatusConverter() AccountHostingStatus get status;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get deletedAt;@JsonKey(toJson: iso8601) DateTime? get deactivatedAt;@JsonKey(toJson: iso8601) DateTime? get reactivatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of AccountHosting
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AccountHostingCopyWith<$Res>  {
   factory $AccountHostingCopyWith(AccountHosting value, $Res Function(AccountHosting) _then) = _$AccountHostingCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AccountHostingStatusConverter() AccountHostingStatus status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, DateTime? deactivatedAt, DateTime? reactivatedAt, Map<String, dynamic>? $unknown
+ String $type,@AccountHostingStatusConverter() AccountHostingStatus status,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? deletedAt,@JsonKey(toJson: iso8601) DateTime? deactivatedAt,@JsonKey(toJson: iso8601) DateTime? reactivatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AccountHostingStatusConverter()  AccountHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  DateTime? deactivatedAt,  DateTime? reactivatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AccountHostingStatusConverter()  AccountHostingStatus status, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @JsonKey(toJson: iso8601)  DateTime? reactivatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AccountHosting() when $default != null:
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.deactivatedAt,_that.reactivatedAt,_that.$unknown);case _:
@@ -190,7 +190,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AccountHostingStatusConverter()  AccountHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  DateTime? deactivatedAt,  DateTime? reactivatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AccountHostingStatusConverter()  AccountHostingStatus status, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @JsonKey(toJson: iso8601)  DateTime? reactivatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AccountHosting():
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.deactivatedAt,_that.reactivatedAt,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AccountHostingStatusConverter()  AccountHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  DateTime? deactivatedAt,  DateTime? reactivatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AccountHostingStatusConverter()  AccountHostingStatus status, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @JsonKey(toJson: iso8601)  DateTime? reactivatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AccountHosting() when $default != null:
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.deactivatedAt,_that.reactivatedAt,_that.$unknown);case _:
@@ -225,16 +225,16 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 
 @JsonSerializable(includeIfNull: false)
 class _AccountHosting implements AccountHosting {
-  const _AccountHosting({this.$type = 'tools.ozone.moderation.defs#accountHosting', @AccountHostingStatusConverter() required this.status, this.updatedAt, this.createdAt, this.deletedAt, this.deactivatedAt, this.reactivatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AccountHosting({this.$type = 'tools.ozone.moderation.defs#accountHosting', @AccountHostingStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.deletedAt, @JsonKey(toJson: iso8601) this.deactivatedAt, @JsonKey(toJson: iso8601) this.reactivatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AccountHosting.fromJson(Map<String, dynamic> json) => _$AccountHostingFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@AccountHostingStatusConverter() final  AccountHostingStatus status;
-@override final  DateTime? updatedAt;
-@override final  DateTime? createdAt;
-@override final  DateTime? deletedAt;
-@override final  DateTime? deactivatedAt;
-@override final  DateTime? reactivatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? deletedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? deactivatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? reactivatedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -278,7 +278,7 @@ abstract mixin class _$AccountHostingCopyWith<$Res> implements $AccountHostingCo
   factory _$AccountHostingCopyWith(_AccountHosting value, $Res Function(_AccountHosting) _then) = __$AccountHostingCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AccountHostingStatusConverter() AccountHostingStatus status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, DateTime? deactivatedAt, DateTime? reactivatedAt, Map<String, dynamic>? $unknown
+ String $type,@AccountHostingStatusConverter() AccountHostingStatus status,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? deletedAt,@JsonKey(toJson: iso8601) DateTime? deactivatedAt,@JsonKey(toJson: iso8601) DateTime? reactivatedAt, Map<String, dynamic>? $unknown
 });
 
 

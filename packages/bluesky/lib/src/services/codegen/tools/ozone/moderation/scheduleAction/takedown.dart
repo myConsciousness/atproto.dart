@@ -52,7 +52,7 @@ abstract class Takedown with _$Takedown {
     int? strikeCount,
 
     /// When the strike should expire. If not provided, the strike never expires.
-    DateTime? strikeExpiresAt,
+    @JsonKey(toJson: iso8601) DateTime? strikeExpiresAt,
 
     /// Email content to be sent to the user upon takedown.
     String? emailContent,

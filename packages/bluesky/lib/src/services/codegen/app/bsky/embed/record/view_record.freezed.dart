@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedRecordViewRecord {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewBasicConverter() ProfileViewBasic get author; Map<String, dynamic> get value;@LabelConverter() List<Label>? get labels; int? get replyCount; int? get repostCount; int? get likeCount; int? get quoteCount;@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? get embeds; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewBasicConverter() ProfileViewBasic get author; Map<String, dynamic> get value;@LabelConverter() List<Label>? get labels; int? get replyCount; int? get repostCount; int? get likeCount; int? get quoteCount;@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? get embeds;@JsonKey(toJson: iso8601) DateTime get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedRecordViewRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $EmbedRecordViewRecordCopyWith<$Res>  {
   factory $EmbedRecordViewRecordCopyWith(EmbedRecordViewRecord value, $Res Function(EmbedRecordViewRecord) _then) = _$EmbedRecordViewRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -174,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewRecord() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.embeds,_that.indexedAt,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewRecord():
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.embeds,_that.indexedAt,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewRecord() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.embeds,_that.indexedAt,_that.$unknown);case _:
@@ -230,7 +230,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
-  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
+  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
   factory _EmbedRecordViewRecord.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -266,7 +266,7 @@ class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -310,7 +310,7 @@ abstract mixin class _$EmbedRecordViewRecordCopyWith<$Res> implements $EmbedReco
   factory _$EmbedRecordViewRecordCopyWith(_EmbedRecordViewRecord value, $Res Function(_EmbedRecordViewRecord) _then) = __$EmbedRecordViewRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 

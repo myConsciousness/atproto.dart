@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppPassword {
 
- String get $type; String get name; DateTime get createdAt; bool? get privileged; Map<String, dynamic>? get $unknown;
+ String get $type; String get name;@JsonKey(toJson: iso8601) DateTime get createdAt; bool? get privileged; Map<String, dynamic>? get $unknown;
 /// Create a copy of AppPassword
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AppPasswordCopyWith<$Res>  {
   factory $AppPasswordCopyWith(AppPassword value, $Res Function(AppPassword) _then) = _$AppPasswordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String name, DateTime createdAt, bool? privileged, Map<String, dynamic>? $unknown
+ String $type, String name,@JsonKey(toJson: iso8601) DateTime createdAt, bool? privileged, Map<String, dynamic>? $unknown
 });
 
 
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name, @JsonKey(toJson: iso8601)  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppPassword() when $default != null:
 return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$unknown);case _:
@@ -178,7 +178,7 @@ return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name, @JsonKey(toJson: iso8601)  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AppPassword():
 return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name, @JsonKey(toJson: iso8601)  DateTime createdAt,  bool? privileged,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AppPassword() when $default != null:
 return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$unknown);case _:
@@ -213,12 +213,12 @@ return $default(_that.$type,_that.name,_that.createdAt,_that.privileged,_that.$u
 
 @JsonSerializable(includeIfNull: false)
 class _AppPassword implements AppPassword {
-  const _AppPassword({this.$type = 'com.atproto.server.listAppPasswords#appPassword', required this.name, required this.createdAt, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AppPassword({this.$type = 'com.atproto.server.listAppPasswords#appPassword', required this.name, @JsonKey(toJson: iso8601) required this.createdAt, this.privileged, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AppPassword.fromJson(Map<String, dynamic> json) => _$AppPasswordFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String name;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override final  bool? privileged;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -263,7 +263,7 @@ abstract mixin class _$AppPasswordCopyWith<$Res> implements $AppPasswordCopyWith
   factory _$AppPasswordCopyWith(_AppPassword value, $Res Function(_AppPassword) _then) = __$AppPasswordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String name, DateTime createdAt, bool? privileged, Map<String, dynamic>? $unknown
+ String $type, String name,@JsonKey(toJson: iso8601) DateTime createdAt, bool? privileged, Map<String, dynamic>? $unknown
 });
 
 

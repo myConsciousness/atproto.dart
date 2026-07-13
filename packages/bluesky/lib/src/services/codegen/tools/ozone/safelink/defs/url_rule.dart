@@ -54,10 +54,10 @@ abstract class UrlRule with _$UrlRule {
     required String createdBy,
 
     /// Timestamp when the rule was created
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// Timestamp when the rule was last updated
-    required DateTime updatedAt,
+    @JsonKey(toJson: iso8601) required DateTime updatedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _UrlRule;

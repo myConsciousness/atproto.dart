@@ -34,7 +34,7 @@ Map<String, dynamic> _$AppPasswordToJson(_AppPassword instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'name': instance.name,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       'privileged': ?instance.privileged,
       r'$unknown': ?instance.$unknown,
     };

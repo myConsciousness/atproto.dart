@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:async';
+
 // Project imports:
 import 'jitter.dart';
 import 'retry_event.dart';
@@ -56,5 +59,5 @@ final class RetryConfig {
   final Jitter jitter;
 
   /// A callback function to be called when the retry is executed.
-  final Function(RetryEvent event)? onExecute;
+  final FutureOr<void> Function(RetryEvent event)? onExecute;
 }

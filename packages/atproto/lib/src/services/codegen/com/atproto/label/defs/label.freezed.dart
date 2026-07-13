@@ -22,8 +22,8 @@ mixin _$Label {
  String? get cid;/// The short string name of the value or type of this label.
  String get val;/// If true, this is a negation label, overwriting a previous label.
  bool? get neg;/// Timestamp when this label was created.
- DateTime get cts;/// Timestamp at which this label expires (no longer applies).
- DateTime? get exp;/// Signature of dag-cbor encoded label.
+@JsonKey(toJson: iso8601) DateTime get cts;/// Timestamp at which this label expires (no longer applies).
+@JsonKey(toJson: iso8601) DateTime? get exp;/// Signature of dag-cbor encoded label.
  Map<String, dynamic>? get sig; Map<String, dynamic>? get $unknown;
 /// Create a copy of Label
 /// with the given fields replaced by the non-null parameter values.
@@ -57,7 +57,7 @@ abstract mixin class $LabelCopyWith<$Res>  {
   factory $LabelCopyWith(Label value, $Res Function(Label) _then) = _$LabelCopyWithImpl;
 @useResult
 $Res call({
- String $type, int? ver, String src, String uri, String? cid, String val, bool? neg, DateTime cts, DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
+ String $type, int? ver, String src, String uri, String? cid, String val, bool? neg,@JsonKey(toJson: iso8601) DateTime cts,@JsonKey(toJson: iso8601) DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
 });
 
 
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg, @JsonKey(toJson: iso8601)  DateTime cts, @JsonKey(toJson: iso8601)  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Label() when $default != null:
 return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_that.neg,_that.cts,_that.exp,_that.sig,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg, @JsonKey(toJson: iso8601)  DateTime cts, @JsonKey(toJson: iso8601)  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Label():
 return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_that.neg,_that.cts,_that.exp,_that.sig,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg,  DateTime cts,  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? ver,  String src,  String uri,  String? cid,  String val,  bool? neg, @JsonKey(toJson: iso8601)  DateTime cts, @JsonKey(toJson: iso8601)  DateTime? exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Label() when $default != null:
 return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_that.neg,_that.cts,_that.exp,_that.sig,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 
 @JsonSerializable(includeIfNull: false)
 class _Label implements Label {
-  const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, required this.uri, this.cid, required this.val, this.neg, required this.cts, this.exp, final  Map<String, dynamic>? sig, final  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
+  const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, required this.uri, this.cid, required this.val, this.neg, @JsonKey(toJson: iso8601) required this.cts, @JsonKey(toJson: iso8601) this.exp, final  Map<String, dynamic>? sig, final  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
   factory _Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -245,9 +245,9 @@ class _Label implements Label {
 /// If true, this is a negation label, overwriting a previous label.
 @override final  bool? neg;
 /// Timestamp when this label was created.
-@override final  DateTime cts;
+@override@JsonKey(toJson: iso8601) final  DateTime cts;
 /// Timestamp at which this label expires (no longer applies).
-@override final  DateTime? exp;
+@override@JsonKey(toJson: iso8601) final  DateTime? exp;
 /// Signature of dag-cbor encoded label.
  final  Map<String, dynamic>? _sig;
 /// Signature of dag-cbor encoded label.
@@ -302,7 +302,7 @@ abstract mixin class _$LabelCopyWith<$Res> implements $LabelCopyWith<$Res> {
   factory _$LabelCopyWith(_Label value, $Res Function(_Label) _then) = __$LabelCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int? ver, String src, String uri, String? cid, String val, bool? neg, DateTime cts, DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
+ String $type, int? ver, String src, String uri, String? cid, String val, bool? neg,@JsonKey(toJson: iso8601) DateTime cts,@JsonKey(toJson: iso8601) DateTime? exp, Map<String, dynamic>? sig, Map<String, dynamic>? $unknown
 });
 
 

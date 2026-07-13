@@ -44,7 +44,11 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
     required String q,
 
     /// Specifies the ranking order of results.
-    @FeedSearchPostsSortConverter() FeedSearchPostsSort? sort,
+    @FeedSearchPostsSortConverter()
+    @Default(
+      FeedSearchPostsSort.knownValue(data: KnownFeedSearchPostsSort.latest),
+    )
+    FeedSearchPostsSort sort,
 
     /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
     String? since,
@@ -80,8 +84,6 @@ abstract class FeedSearchPostsInput with _$FeedSearchPostsInput {
 }
 
 extension FeedSearchPostsInputExtension on FeedSearchPostsInput {
-  bool get hasSort => sort != null;
-  bool get hasNotSort => !hasSort;
   bool get hasSince => since != null;
   bool get hasNotSince => !hasSince;
   bool get hasUntil => until != null;

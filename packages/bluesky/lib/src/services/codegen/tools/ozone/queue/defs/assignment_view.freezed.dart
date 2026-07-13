@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AssignmentView {
 
  String get $type; int get id; String get did;/// The moderator assigned to this queue
-@MemberConverter() Member? get moderator;@QueueViewConverter() QueueView get queue; DateTime get startAt; DateTime? get endAt; Map<String, dynamic>? get $unknown;
+@MemberConverter() Member? get moderator;@QueueViewConverter() QueueView get queue;@JsonKey(toJson: iso8601) DateTime get startAt;@JsonKey(toJson: iso8601) DateTime? get endAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of AssignmentView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $AssignmentViewCopyWith<$Res>  {
   factory $AssignmentViewCopyWith(AssignmentView value, $Res Function(AssignmentView) _then) = _$AssignmentViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, String did,@MemberConverter() Member? moderator,@QueueViewConverter() QueueView queue, DateTime startAt, DateTime? endAt, Map<String, dynamic>? $unknown
+ String $type, int id, String did,@MemberConverter() Member? moderator,@QueueViewConverter() QueueView queue,@JsonKey(toJson: iso8601) DateTime startAt,@JsonKey(toJson: iso8601) DateTime? endAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -182,7 +182,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String did, @MemberConverter()  Member? moderator, @QueueViewConverter()  QueueView queue,  DateTime startAt,  DateTime? endAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String did, @MemberConverter()  Member? moderator, @QueueViewConverter()  QueueView queue, @JsonKey(toJson: iso8601)  DateTime startAt, @JsonKey(toJson: iso8601)  DateTime? endAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AssignmentView() when $default != null:
 return $default(_that.$type,_that.id,_that.did,_that.moderator,_that.queue,_that.startAt,_that.endAt,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.id,_that.did,_that.moderator,_that.queue,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String did, @MemberConverter()  Member? moderator, @QueueViewConverter()  QueueView queue,  DateTime startAt,  DateTime? endAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String did, @MemberConverter()  Member? moderator, @QueueViewConverter()  QueueView queue, @JsonKey(toJson: iso8601)  DateTime startAt, @JsonKey(toJson: iso8601)  DateTime? endAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AssignmentView():
 return $default(_that.$type,_that.id,_that.did,_that.moderator,_that.queue,_that.startAt,_that.endAt,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.$type,_that.id,_that.did,_that.moderator,_that.queue,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String did, @MemberConverter()  Member? moderator, @QueueViewConverter()  QueueView queue,  DateTime startAt,  DateTime? endAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String did, @MemberConverter()  Member? moderator, @QueueViewConverter()  QueueView queue, @JsonKey(toJson: iso8601)  DateTime startAt, @JsonKey(toJson: iso8601)  DateTime? endAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AssignmentView() when $default != null:
 return $default(_that.$type,_that.id,_that.did,_that.moderator,_that.queue,_that.startAt,_that.endAt,_that.$unknown);case _:
@@ -238,7 +238,7 @@ return $default(_that.$type,_that.id,_that.did,_that.moderator,_that.queue,_that
 
 @JsonSerializable(includeIfNull: false)
 class _AssignmentView implements AssignmentView {
-  const _AssignmentView({this.$type = 'tools.ozone.queue.defs#assignmentView', required this.id, required this.did, @MemberConverter() this.moderator, @QueueViewConverter() required this.queue, required this.startAt, this.endAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AssignmentView({this.$type = 'tools.ozone.queue.defs#assignmentView', required this.id, required this.did, @MemberConverter() this.moderator, @QueueViewConverter() required this.queue, @JsonKey(toJson: iso8601) required this.startAt, @JsonKey(toJson: iso8601) this.endAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AssignmentView.fromJson(Map<String, dynamic> json) => _$AssignmentViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -247,8 +247,8 @@ class _AssignmentView implements AssignmentView {
 /// The moderator assigned to this queue
 @override@MemberConverter() final  Member? moderator;
 @override@QueueViewConverter() final  QueueView queue;
-@override final  DateTime startAt;
-@override final  DateTime? endAt;
+@override@JsonKey(toJson: iso8601) final  DateTime startAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? endAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -292,7 +292,7 @@ abstract mixin class _$AssignmentViewCopyWith<$Res> implements $AssignmentViewCo
   factory _$AssignmentViewCopyWith(_AssignmentView value, $Res Function(_AssignmentView) _then) = __$AssignmentViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, String did,@MemberConverter() Member? moderator,@QueueViewConverter() QueueView queue, DateTime startAt, DateTime? endAt, Map<String, dynamic>? $unknown
+ String $type, int id, String did,@MemberConverter() Member? moderator,@QueueViewConverter() QueueView queue,@JsonKey(toJson: iso8601) DateTime startAt,@JsonKey(toJson: iso8601) DateTime? endAt, Map<String, dynamic>? $unknown
 });
 
 

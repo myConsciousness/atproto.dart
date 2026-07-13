@@ -69,22 +69,22 @@ final class UGraphGetRelationshipsRelationshipsConverter
 
   @override
   UGraphGetRelationshipsRelationships fromJson(Map<String, dynamic> json) {
-    try {
-      if (Relationship.validate(json)) {
-        return UGraphGetRelationshipsRelationships.relationship(
-          data: const RelationshipConverter().fromJson(json),
-        );
-      }
-      if (NotFoundActor.validate(json)) {
-        return UGraphGetRelationshipsRelationships.notFoundActor(
-          data: const NotFoundActorConverter().fromJson(json),
-        );
-      }
-
-      return UGraphGetRelationshipsRelationships.unknown(data: json);
-    } catch (_) {
-      return UGraphGetRelationshipsRelationships.unknown(data: json);
+    if (Relationship.validate(json)) {
+      return UGraphGetRelationshipsRelationships.relationship(
+        data: const RelationshipConverter().fromJson(json),
+      );
     }
+    if (NotFoundActor.validate(json)) {
+      return UGraphGetRelationshipsRelationships.notFoundActor(
+        data: const NotFoundActorConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UGraphGetRelationshipsRelationships.unknown(data: json);
   }
 
   @override

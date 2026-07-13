@@ -52,10 +52,16 @@ final class GetAssignmentsCommand extends QueryCommand {
     "onlyActive": argResults!["onlyActive"],
     if (argResults!.wasParsed("reportIds"))
       "reportIds": (argResults!["reportIds"] as List<String>)
-          .map((e) => int.parse(e))
+          .map(
+            (e) =>
+                int.tryParse(e) ??
+                usageException('Invalid integer value in option "reportIds".'),
+          )
           .toList(),
     if (argResults!.wasParsed("dids")) "dids": argResults!["dids"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

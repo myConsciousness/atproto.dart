@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StarterPackView {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic> get record;@ProfileViewBasicConverter() ProfileViewBasic get creator;@ListViewBasicConverter() ListViewBasic? get list;@ListItemViewConverter() List<ListItemView>? get listItemsSample;@GeneratorViewConverter() List<GeneratorView>? get feeds; int? get joinedWeekCount; int? get joinedAllTimeCount;@LabelConverter() List<Label>? get labels; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic> get record;@ProfileViewBasicConverter() ProfileViewBasic get creator;@ListViewBasicConverter() ListViewBasic? get list;@ListItemViewConverter() List<ListItemView>? get listItemsSample;@GeneratorViewConverter() List<GeneratorView>? get feeds; int? get joinedWeekCount; int? get joinedAllTimeCount;@LabelConverter() List<Label>? get labels;@JsonKey(toJson: iso8601) DateTime get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of StarterPackView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $StarterPackViewCopyWith<$Res>  {
   factory $StarterPackViewCopyWith(StarterPackView value, $Res Function(StarterPackView) _then) = _$StarterPackViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> record,@ProfileViewBasicConverter() ProfileViewBasic creator,@ListViewBasicConverter() ListViewBasic? list,@ListItemViewConverter() List<ListItemView>? listItemsSample,@GeneratorViewConverter() List<GeneratorView>? feeds, int? joinedWeekCount, int? joinedAllTimeCount,@LabelConverter() List<Label>? labels, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> record,@ProfileViewBasicConverter() ProfileViewBasic creator,@ListViewBasicConverter() ListViewBasic? list,@ListItemViewConverter() List<ListItemView>? listItemsSample,@GeneratorViewConverter() List<GeneratorView>? feeds, int? joinedWeekCount, int? joinedAllTimeCount,@LabelConverter() List<Label>? labels,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -186,7 +186,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> record, @ProfileViewBasicConverter()  ProfileViewBasic creator, @ListViewBasicConverter()  ListViewBasic? list, @ListItemViewConverter()  List<ListItemView>? listItemsSample, @GeneratorViewConverter()  List<GeneratorView>? feeds,  int? joinedWeekCount,  int? joinedAllTimeCount, @LabelConverter()  List<Label>? labels,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> record, @ProfileViewBasicConverter()  ProfileViewBasic creator, @ListViewBasicConverter()  ListViewBasic? list, @ListItemViewConverter()  List<ListItemView>? listItemsSample, @GeneratorViewConverter()  List<GeneratorView>? feeds,  int? joinedWeekCount,  int? joinedAllTimeCount, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StarterPackView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that.list,_that.listItemsSample,_that.feeds,_that.joinedWeekCount,_that.joinedAllTimeCount,_that.labels,_that.indexedAt,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> record, @ProfileViewBasicConverter()  ProfileViewBasic creator, @ListViewBasicConverter()  ListViewBasic? list, @ListItemViewConverter()  List<ListItemView>? listItemsSample, @GeneratorViewConverter()  List<GeneratorView>? feeds,  int? joinedWeekCount,  int? joinedAllTimeCount, @LabelConverter()  List<Label>? labels,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> record, @ProfileViewBasicConverter()  ProfileViewBasic creator, @ListViewBasicConverter()  ListViewBasic? list, @ListItemViewConverter()  List<ListItemView>? listItemsSample, @GeneratorViewConverter()  List<GeneratorView>? feeds,  int? joinedWeekCount,  int? joinedAllTimeCount, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _StarterPackView():
 return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that.list,_that.listItemsSample,_that.feeds,_that.joinedWeekCount,_that.joinedAllTimeCount,_that.labels,_that.indexedAt,_that.$unknown);case _:
@@ -227,7 +227,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> record, @ProfileViewBasicConverter()  ProfileViewBasic creator, @ListViewBasicConverter()  ListViewBasic? list, @ListItemViewConverter()  List<ListItemView>? listItemsSample, @GeneratorViewConverter()  List<GeneratorView>? feeds,  int? joinedWeekCount,  int? joinedAllTimeCount, @LabelConverter()  List<Label>? labels,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> record, @ProfileViewBasicConverter()  ProfileViewBasic creator, @ListViewBasicConverter()  ListViewBasic? list, @ListItemViewConverter()  List<ListItemView>? listItemsSample, @GeneratorViewConverter()  List<GeneratorView>? feeds,  int? joinedWeekCount,  int? joinedAllTimeCount, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _StarterPackView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that.list,_that.listItemsSample,_that.feeds,_that.joinedWeekCount,_that.joinedAllTimeCount,_that.labels,_that.indexedAt,_that.$unknown);case _:
@@ -242,7 +242,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that
 
 @JsonSerializable(includeIfNull: false)
 class _StarterPackView implements StarterPackView {
-  const _StarterPackView({this.$type = 'app.bsky.graph.defs#starterPackView', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> record, @ProfileViewBasicConverter() required this.creator, @ListViewBasicConverter() this.list, @ListItemViewConverter() final  List<ListItemView>? listItemsSample, @GeneratorViewConverter() final  List<GeneratorView>? feeds, this.joinedWeekCount, this.joinedAllTimeCount, @LabelConverter() final  List<Label>? labels, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _record = record,_listItemsSample = listItemsSample,_feeds = feeds,_labels = labels,_$unknown = $unknown;
+  const _StarterPackView({this.$type = 'app.bsky.graph.defs#starterPackView', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> record, @ProfileViewBasicConverter() required this.creator, @ListViewBasicConverter() this.list, @ListItemViewConverter() final  List<ListItemView>? listItemsSample, @GeneratorViewConverter() final  List<GeneratorView>? feeds, this.joinedWeekCount, this.joinedAllTimeCount, @LabelConverter() final  List<Label>? labels, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _record = record,_listItemsSample = listItemsSample,_feeds = feeds,_labels = labels,_$unknown = $unknown;
   factory _StarterPackView.fromJson(Map<String, dynamic> json) => _$StarterPackViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -286,7 +286,7 @@ class _StarterPackView implements StarterPackView {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -330,7 +330,7 @@ abstract mixin class _$StarterPackViewCopyWith<$Res> implements $StarterPackView
   factory _$StarterPackViewCopyWith(_StarterPackView value, $Res Function(_StarterPackView) _then) = __$StarterPackViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> record,@ProfileViewBasicConverter() ProfileViewBasic creator,@ListViewBasicConverter() ListViewBasic? list,@ListItemViewConverter() List<ListItemView>? listItemsSample,@GeneratorViewConverter() List<GeneratorView>? feeds, int? joinedWeekCount, int? joinedAllTimeCount,@LabelConverter() List<Label>? labels, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> record,@ProfileViewBasicConverter() ProfileViewBasic creator,@ListViewBasicConverter() ListViewBasic? list,@ListItemViewConverter() List<ListItemView>? listItemsSample,@GeneratorViewConverter() List<GeneratorView>? feeds, int? joinedWeekCount, int? joinedAllTimeCount,@LabelConverter() List<Label>? labels,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 

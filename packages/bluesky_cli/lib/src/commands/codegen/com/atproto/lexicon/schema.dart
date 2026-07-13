@@ -40,16 +40,22 @@ final class SchemaCommand extends Command<void> {
       "Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).";
 }
 
-final class _CreateSchemaCommand extends CreateRecordCommand {
+mixin _SchemaCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
+    argParser..addOption(
+      "lexicon",
+      help:
+          r"Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.",
+      mandatory: true,
+    );
+  }
+}
+
+final class _CreateSchemaCommand extends CreateRecordCommand
+    with _SchemaCommandRecordArgs {
   _CreateSchemaCommand() {
-    argParser
-      ..addOption(
-        "lexicon",
-        help:
-            r"Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.",
-        mandatory: true,
-      )
-      ..addOption("rkey", help: r"Specific record key to use.");
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -72,20 +78,17 @@ final class _CreateSchemaCommand extends CreateRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "com.atproto.lexicon.schema",
-    "lexicon": int.parse(argResults!["lexicon"]),
+    "lexicon":
+        int.tryParse(argResults!["lexicon"]) ??
+        usageException('Invalid integer value for option "lexicon".'),
   };
 }
 
-final class _PutSchemaCommand extends PutRecordCommand {
+final class _PutSchemaCommand extends PutRecordCommand
+    with _SchemaCommandRecordArgs {
   _PutSchemaCommand() {
-    argParser
-      ..addOption(
-        "lexicon",
-        help:
-            r"Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system.",
-        mandatory: true,
-      )
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -108,7 +111,9 @@ final class _PutSchemaCommand extends PutRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "com.atproto.lexicon.schema",
-    "lexicon": int.parse(argResults!["lexicon"]),
+    "lexicon":
+        int.tryParse(argResults!["lexicon"]) ??
+        usageException('Invalid integer value for option "lexicon".'),
   };
 }
 
@@ -197,7 +202,9 @@ final class _ListSchemaCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "com.atproto.lexicon.schema",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -8,6 +8,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // Package imports:
+import 'package:args/command_runner.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:xrpc/xrpc.dart';
 
@@ -55,6 +56,10 @@ class Bsky extends _Bsky {
       }
 
       logger.success(_getJsonString(response.data));
+    } on UsageException {
+      // Usage errors are handled by the command runner with the
+      // conventional exit code 64.
+      rethrow;
     } on XRPCException catch (e) {
       final status = e.response.status;
 
@@ -77,13 +82,16 @@ class Bsky extends _Bsky {
   }
 
   String _getJsonString(final String json) {
-    if (pretty) {
-      final encoder = JsonEncoder.withIndent('    ');
-
-      return encoder.convert(jsonDecode(json));
+    if (!pretty || json.trim().isEmpty) {
+      return json;
     }
 
-    return json;
+    try {
+      return const JsonEncoder.withIndent('    ').convert(jsonDecode(json));
+    } on FormatException {
+      // Not all successful responses have JSON bodies.
+      return json;
+    }
   }
 }
 

@@ -48,6 +48,8 @@ final class GetSuggestedUsersForExploreSkeletonCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
     if (argResults!.wasParsed("category")) "category": argResults!["category"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
   };
 }

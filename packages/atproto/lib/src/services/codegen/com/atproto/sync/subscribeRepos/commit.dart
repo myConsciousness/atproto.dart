@@ -53,7 +53,7 @@ abstract class Commit with _$Commit {
     required String rev,
 
     /// The rev of the last emitted commit from this repo (if any).
-    required String? since,
+    @JsonKey(includeIfNull: true) required String? since,
 
     /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
     required Map<String, dynamic> blocks,
@@ -65,7 +65,7 @@ abstract class Commit with _$Commit {
     String? prevData,
 
     /// Timestamp of when this message was originally broadcast.
-    required DateTime time,
+    @JsonKey(toJson: iso8601) required DateTime time,
 
     Map<String, dynamic>? $unknown,
   }) = _Commit;

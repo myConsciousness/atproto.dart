@@ -59,11 +59,23 @@ final class LexParameter {
     buffer.write(' ');
     if (type.name == 'DateTime') {
       buffer.write('iso8601($name)');
-    } else if (type.isRef || type.isUnion || type.isKnownValues) {
+    } else if (type.isUnion || type.isKnownValues) {
+      // Unions and known values already route their `toJson()` through the
+      // generated converter, which flattens the `$unknown` bag.
       if (type.isArray) {
         buffer.write('$name.map((e) => e.toJson()).toList()');
       } else {
         buffer.write('$name.toJson()');
+      }
+    } else if (type.isRef) {
+      // A bare ref's `toJson()` is the freezed map, which still contains the
+      // literal `$unknown` key. Route it through the generated converter so
+      // `untranslate` flattens the bag before it is persisted as a record.
+      final converter = 'const ${type.name}Converter()';
+      if (type.isArray) {
+        buffer.write('$name.map((e) => $converter.toJson(e)).toList()');
+      } else {
+        buffer.write('$converter.toJson($name)');
       }
     } else if (type.isAtUri) {
       if (type.isArray) {

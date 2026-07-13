@@ -16,7 +16,11 @@ _LexString _$LexStringFromJson(Map json) => $checkedCreate(
       type: $checkedConvert('type', (v) => v as String? ?? 'string'),
       format: $checkedConvert(
         'format',
-        (v) => $enumDecodeNullable(_$LexStringFormatEnumMap, v),
+        (v) => $enumDecodeNullable(
+          _$LexStringFormatEnumMap,
+          v,
+          unknownValue: LexStringFormat.unknown,
+        ),
       ),
       description: $checkedConvert('description', (v) => v as String?),
       defaultValue: $checkedConvert('default', (v) => v as String?),
@@ -76,4 +80,5 @@ const _$LexStringFormatEnumMap = {
   LexStringFormat.language: 'language',
   LexStringFormat.tid: 'tid',
   LexStringFormat.recordKey: 'record-key',
+  LexStringFormat.unknown: 'unknown',
 };

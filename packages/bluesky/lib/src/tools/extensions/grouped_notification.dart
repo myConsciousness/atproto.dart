@@ -16,9 +16,9 @@ import '../utils/grouped_notification_reason.dart'
 extension GroupedNotificationExtension on GroupedNotification {
   /// Returns the post url related to this notification.
   ///
-  /// It always throws [UnsupportedError] when [reason] is
-  /// [GroupedNotificationReason.follow] because notification has no post uri
-  /// for follow event.
+  /// It returns `null` when [reason] is [GroupedNotificationReason.follow]
+  /// (or any other reason without an associated post uri), because a follow
+  /// event has no post uri.
   AtUri? get uri {
     switch (reason) {
       case GroupedNotificationReason.like:

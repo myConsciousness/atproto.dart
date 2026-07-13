@@ -1,5 +1,20 @@
 # Release Note
 
+## v0.4.0
+
+- fix: params-record refs are routed through the converter so a `$unknown` map picked up from a fetched object is no longer stored as a literal `$unknown` key on records written to the PDS (G-1).
+- fix: generated `create()`/`put()` now inject the record's `$type` into the record map, as required by the spec (G-2).
+- fix: `format: datetime` object fields are UTC-normalized via `iso8601`, so a local `DateTime.now()` no longer serializes to a timezone-less, spec-violating string (G-17).
+- fix: `required` + `nullable` fields emit `includeIfNull: true`, so a required-but-null key is no longer dropped from the wire JSON (G-19).
+- fix: deprecation detection is anchored to a leading `DEPRECATED` instead of a substring match, so live fields are no longer silently removed (G-3).
+- fix: union `fromJson` surfaces conversion errors instead of silently degrading valid-but-malformed payloads to `.unknown` (G-4).
+- fix: skip empty-`knownValues` enums (previously uncompilable) and map arrays of blobs to `List<Blob>`; escape string default values (G-7/G-8).
+- fix: a string with both `knownValues` and a `default` now emits a const wrapper default (e.g. `@Default(LabelValueDefinitionDefaultSetting.knownValue(data: KnownLabelValueDefinitionDefaultSetting.warn))`) so the field is non-nullable and reports the spec default instead of `null` — e.g. `com.atproto.label.defs#labelValueDefinition.defaultSetting` (`default: "warn"`). Takes effect on the next downstream code regeneration (G-18).
+- docs: clarified that the `bytes` (`Map`) / `cid-link` (`String`) IPLD mappings round-trip on every live path in the current corpus (firehose adapter pre-stringifies; JSON `{"$bytes"}`/`{"$link"}` shapes are stored/restored as-is); dedicated typed converters are deferred to avoid changing the shape firehose consumers read (G-6).
+- fix: generated CLI commands use a validated parse (`usageException`), enforce required arrays, and share a record-args mixin (L-15).
+- test: new golden test harness (was zero tests) (G-15).
+- chore: bump `lexicon` to `^1.2.0`.
+
 ## v0.3.0
 
 - **feat**: command generation (`bluesky_cli`) is now fully aligned with the lexicon definitions:

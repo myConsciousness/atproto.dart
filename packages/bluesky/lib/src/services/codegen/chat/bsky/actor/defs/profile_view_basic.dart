@@ -49,7 +49,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
-    DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
 
     /// Set to true when the actor cannot actively participate in conversations
     bool? chatDisabled,

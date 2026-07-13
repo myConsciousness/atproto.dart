@@ -116,7 +116,7 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
             (e) => getInterpretedLabelValueDefinition(
               identifier: e.identifier,
               defaultSetting:
-                  LabelPreference.valueOf(e.defaultSetting?.toJson()) ??
+                  LabelPreference.valueOf(e.defaultSetting.toJson()) ??
                   LabelPreference.warn,
               severity: e.severity.toJson(),
               blurs: e.blurs.toJson(),

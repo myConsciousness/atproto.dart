@@ -31,7 +31,11 @@ final class LexPrimitiveConverter
         return LexPrimitive.unknown(data: LexUnknown.fromJson(json));
 
       default:
-        throw UnsupportedError('Unsupported type [$type]');
+        // Graceful degradation (G-12): fall back to `unknown` rather than
+        // aborting on an unsupported primitive type.
+        return LexPrimitive.unknown(
+          data: LexUnknown(description: json['description'] as String?),
+        );
     }
   }
 

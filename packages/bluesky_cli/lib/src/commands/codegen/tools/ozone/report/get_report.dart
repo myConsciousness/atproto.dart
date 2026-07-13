@@ -37,5 +37,9 @@ final class GetReportCommand extends QueryCommand {
   String get methodId => "tools.ozone.report.getReport";
 
   @override
-  Map<String, dynamic>? get parameters => {"id": int.parse(argResults!["id"])};
+  Map<String, dynamic>? get parameters => {
+    "id":
+        int.tryParse(argResults!["id"]) ??
+        usageException('Invalid integer value for option "id".'),
+  };
 }

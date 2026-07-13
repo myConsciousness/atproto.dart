@@ -43,8 +43,8 @@ Map<String, dynamic> _$ScheduleTakedownEventToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'comment': ?instance.comment,
-  'executeAt': ?instance.executeAt?.toIso8601String(),
-  'executeAfter': ?instance.executeAfter?.toIso8601String(),
-  'executeUntil': ?instance.executeUntil?.toIso8601String(),
+  'executeAt': iso8601(instance.executeAt),
+  'executeAfter': iso8601(instance.executeAfter),
+  'executeUntil': iso8601(instance.executeUntil),
   r'$unknown': ?instance.$unknown,
 };

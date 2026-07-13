@@ -265,6 +265,7 @@ $recordAccessors
       buffer.writeln('    rkey: rkey,');
       buffer.writeln('    validate: validate,');
       buffer.writeln('    record: {');
+      buffer.writeln("      r'\$type': '${api.lexiconId}',");
       buffer.writeln('      ...?\$unknown,');
       for (final parameter in parameters) {
         buffer.writeln(parameter.getParamsRecord());
@@ -298,6 +299,7 @@ $recordAccessors
       buffer.writeln('    rkey: rkey,');
       buffer.writeln('    validate: validate,');
       buffer.writeln('    record: {');
+      buffer.writeln("      r'\$type': '${api.lexiconId}',");
       buffer.writeln('      ...?\$unknown,');
       for (final parameter in parameters) {
         buffer.writeln(parameter.getParamsRecord());

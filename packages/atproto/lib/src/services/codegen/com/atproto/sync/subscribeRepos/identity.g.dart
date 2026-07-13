@@ -31,7 +31,7 @@ Map<String, dynamic> _$IdentityToJson(_Identity instance) => <String, dynamic>{
   r'$type': instance.$type,
   'seq': instance.seq,
   'did': instance.did,
-  'time': instance.time.toIso8601String(),
+  'time': iso8601(instance.time),
   'handle': ?instance.handle,
   r'$unknown': ?instance.$unknown,
 };

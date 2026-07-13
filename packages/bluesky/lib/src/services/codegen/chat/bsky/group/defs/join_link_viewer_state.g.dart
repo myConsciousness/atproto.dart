@@ -31,6 +31,6 @@ Map<String, dynamic> _$JoinLinkViewerStateToJson(
   _JoinLinkViewerState instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'requestedAt': ?instance.requestedAt?.toIso8601String(),
+  'requestedAt': iso8601(instance.requestedAt),
   r'$unknown': ?instance.$unknown,
 };

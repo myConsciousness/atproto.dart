@@ -17,7 +17,7 @@ mixin _$EventGroupChatMemberAdded {
 
  String get $type;/// The DID of the actor performing the action. For this event, same as ownerDid.
  String get actorDid;/// When the group was originally created.
- DateTime get convoCreatedAt; String get convoId; DateTime get createdAt;/// Current member count at the time of the event.
+@JsonKey(toJson: iso8601) DateTime get convoCreatedAt; String get convoId;@JsonKey(toJson: iso8601) DateTime get createdAt;/// Current member count at the time of the event.
  int get groupMemberCount; String get groupName;/// The DID of the group chat owner.
  String get ownerDid;/// The number of members who have not yet accepted the convo.
  int get requestMembersCount; String get rev;/// The DID of the member who was added.
@@ -55,7 +55,7 @@ abstract mixin class $EventGroupChatMemberAddedCopyWith<$Res>  {
   factory $EventGroupChatMemberAddedCopyWith(EventGroupChatMemberAdded value, $Res Function(EventGroupChatMemberAdded) _then) = _$EventGroupChatMemberAddedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName, String ownerDid, int requestMembersCount, String rev, String subjectDid, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName, String ownerDid, int requestMembersCount, String rev, String subjectDid, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
 });
 
 
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String ownerDid,  int requestMembersCount,  String rev,  String subjectDid,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String ownerDid,  int requestMembersCount,  String rev,  String subjectDid,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberAdded() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.ownerDid,_that.requestMembersCount,_that.rev,_that.subjectDid,_that.subjectFollowsOwner,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String ownerDid,  int requestMembersCount,  String rev,  String subjectDid,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String ownerDid,  int requestMembersCount,  String rev,  String subjectDid,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberAdded():
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.ownerDid,_that.requestMembersCount,_that.rev,_that.subjectDid,_that.subjectFollowsOwner,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String ownerDid,  int requestMembersCount,  String rev,  String subjectDid,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String ownerDid,  int requestMembersCount,  String rev,  String subjectDid,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberAdded() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.ownerDid,_that.requestMembersCount,_that.rev,_that.subjectDid,_that.subjectFollowsOwner,_that.$unknown);case _:
@@ -228,16 +228,16 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 
 @JsonSerializable(includeIfNull: false)
 class _EventGroupChatMemberAdded implements EventGroupChatMemberAdded {
-  const _EventGroupChatMemberAdded({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberAdded', required this.actorDid, required this.convoCreatedAt, required this.convoId, required this.createdAt, required this.groupMemberCount, required this.groupName, required this.ownerDid, required this.requestMembersCount, required this.rev, required this.subjectDid, required this.subjectFollowsOwner, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventGroupChatMemberAdded({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberAdded', required this.actorDid, @JsonKey(toJson: iso8601) required this.convoCreatedAt, required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, required this.groupMemberCount, required this.groupName, required this.ownerDid, required this.requestMembersCount, required this.rev, required this.subjectDid, required this.subjectFollowsOwner, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventGroupChatMemberAdded.fromJson(Map<String, dynamic> json) => _$EventGroupChatMemberAddedFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The DID of the actor performing the action. For this event, same as ownerDid.
 @override final  String actorDid;
 /// When the group was originally created.
-@override final  DateTime convoCreatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime convoCreatedAt;
 @override final  String convoId;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Current member count at the time of the event.
 @override final  int groupMemberCount;
 @override final  String groupName;
@@ -293,7 +293,7 @@ abstract mixin class _$EventGroupChatMemberAddedCopyWith<$Res> implements $Event
   factory _$EventGroupChatMemberAddedCopyWith(_EventGroupChatMemberAdded value, $Res Function(_EventGroupChatMemberAdded) _then) = __$EventGroupChatMemberAddedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName, String ownerDid, int requestMembersCount, String rev, String subjectDid, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName, String ownerDid, int requestMembersCount, String rev, String subjectDid, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
 });
 
 

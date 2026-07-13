@@ -138,7 +138,9 @@ final class QueryEventsCommand extends QueryCommand {
     if (argResults!.wasParsed("subjectType"))
       "subjectType": argResults!["subjectType"],
     "includeAllUserRecords": argResults!["includeAllUserRecords"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("hasComment"))
       "hasComment": argResults!["hasComment"],
     if (argResults!.wasParsed("comment")) "comment": argResults!["comment"],

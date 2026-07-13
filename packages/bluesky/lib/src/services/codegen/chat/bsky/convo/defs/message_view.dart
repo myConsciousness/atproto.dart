@@ -50,7 +50,7 @@ abstract class MessageView with _$MessageView {
     @ReactionViewConverter() List<ReactionView>? reactions,
     @UMessageViewReplyToConverter() UMessageViewReplyTo? replyTo,
     @MessageViewSenderConverter() required MessageViewSender sender,
-    required DateTime sentAt,
+    @JsonKey(toJson: iso8601) required DateTime sentAt,
 
     Map<String, dynamic>? $unknown,
   }) = _MessageView;

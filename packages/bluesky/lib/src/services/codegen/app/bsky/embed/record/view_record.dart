@@ -54,7 +54,7 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     int? quoteCount,
     @UEmbedRecordViewRecordEmbedsConverter()
     List<UEmbedRecordViewRecordEmbeds>? embeds,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordViewRecord;

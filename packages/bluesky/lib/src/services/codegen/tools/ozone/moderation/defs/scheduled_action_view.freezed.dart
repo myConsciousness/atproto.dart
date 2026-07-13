@@ -19,15 +19,15 @@ mixin _$ScheduledActionView {
  int get id;/// Type of action to be executed
 @ScheduledActionViewActionConverter() ScheduledActionViewAction get action; Map<String, dynamic>? get eventData;/// Subject DID for the action
  String get did;/// Exact time to execute the action
- DateTime? get executeAt;/// Earliest time to execute the action (for randomized scheduling)
- DateTime? get executeAfter;/// Latest time to execute the action (for randomized scheduling)
- DateTime? get executeUntil;/// Whether execution time should be randomized within the specified range
+@JsonKey(toJson: iso8601) DateTime? get executeAt;/// Earliest time to execute the action (for randomized scheduling)
+@JsonKey(toJson: iso8601) DateTime? get executeAfter;/// Latest time to execute the action (for randomized scheduling)
+@JsonKey(toJson: iso8601) DateTime? get executeUntil;/// Whether execution time should be randomized within the specified range
  bool? get randomizeExecution;/// DID of the user who created this scheduled action
  String get createdBy;/// When the scheduled action was created
- DateTime get createdAt;/// When the scheduled action was last updated
- DateTime? get updatedAt;/// Current status of the scheduled action
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// When the scheduled action was last updated
+@JsonKey(toJson: iso8601) DateTime? get updatedAt;/// Current status of the scheduled action
 @ScheduledActionViewStatusConverter() ScheduledActionViewStatus get status;/// When the action was last attempted to be executed
- DateTime? get lastExecutedAt;/// Reason for the last execution failure
+@JsonKey(toJson: iso8601) DateTime? get lastExecutedAt;/// Reason for the last execution failure
  String? get lastFailureReason;/// ID of the moderation event created when action was successfully executed
  int? get executionEventId; Map<String, dynamic>? get $unknown;
 /// Create a copy of ScheduledActionView
@@ -62,7 +62,7 @@ abstract mixin class $ScheduledActionViewCopyWith<$Res>  {
   factory $ScheduledActionViewCopyWith(ScheduledActionView value, $Res Function(ScheduledActionView) _then) = _$ScheduledActionViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id,@ScheduledActionViewActionConverter() ScheduledActionViewAction action, Map<String, dynamic>? eventData, String did, DateTime? executeAt, DateTime? executeAfter, DateTime? executeUntil, bool? randomizeExecution, String createdBy, DateTime createdAt, DateTime? updatedAt,@ScheduledActionViewStatusConverter() ScheduledActionViewStatus status, DateTime? lastExecutedAt, String? lastFailureReason, int? executionEventId, Map<String, dynamic>? $unknown
+ String $type, int id,@ScheduledActionViewActionConverter() ScheduledActionViewAction action, Map<String, dynamic>? eventData, String did,@JsonKey(toJson: iso8601) DateTime? executeAt,@JsonKey(toJson: iso8601) DateTime? executeAfter,@JsonKey(toJson: iso8601) DateTime? executeUntil, bool? randomizeExecution, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@ScheduledActionViewStatusConverter() ScheduledActionViewStatus status,@JsonKey(toJson: iso8601) DateTime? lastExecutedAt, String? lastFailureReason, int? executionEventId, Map<String, dynamic>? $unknown
 });
 
 
@@ -201,7 +201,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @ScheduledActionViewActionConverter()  ScheduledActionViewAction action,  Map<String, dynamic>? eventData,  String did,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  bool? randomizeExecution,  String createdBy,  DateTime createdAt,  DateTime? updatedAt, @ScheduledActionViewStatusConverter()  ScheduledActionViewStatus status,  DateTime? lastExecutedAt,  String? lastFailureReason,  int? executionEventId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @ScheduledActionViewActionConverter()  ScheduledActionViewAction action,  Map<String, dynamic>? eventData,  String did, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  bool? randomizeExecution,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @ScheduledActionViewStatusConverter()  ScheduledActionViewStatus status, @JsonKey(toJson: iso8601)  DateTime? lastExecutedAt,  String? lastFailureReason,  int? executionEventId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ScheduledActionView() when $default != null:
 return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.randomizeExecution,_that.createdBy,_that.createdAt,_that.updatedAt,_that.status,_that.lastExecutedAt,_that.lastFailureReason,_that.executionEventId,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @ScheduledActionViewActionConverter()  ScheduledActionViewAction action,  Map<String, dynamic>? eventData,  String did,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  bool? randomizeExecution,  String createdBy,  DateTime createdAt,  DateTime? updatedAt, @ScheduledActionViewStatusConverter()  ScheduledActionViewStatus status,  DateTime? lastExecutedAt,  String? lastFailureReason,  int? executionEventId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @ScheduledActionViewActionConverter()  ScheduledActionViewAction action,  Map<String, dynamic>? eventData,  String did, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  bool? randomizeExecution,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @ScheduledActionViewStatusConverter()  ScheduledActionViewStatus status, @JsonKey(toJson: iso8601)  DateTime? lastExecutedAt,  String? lastFailureReason,  int? executionEventId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ScheduledActionView():
 return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.randomizeExecution,_that.createdBy,_that.createdAt,_that.updatedAt,_that.status,_that.lastExecutedAt,_that.lastFailureReason,_that.executionEventId,_that.$unknown);case _:
@@ -242,7 +242,7 @@ return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @ScheduledActionViewActionConverter()  ScheduledActionViewAction action,  Map<String, dynamic>? eventData,  String did,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  bool? randomizeExecution,  String createdBy,  DateTime createdAt,  DateTime? updatedAt, @ScheduledActionViewStatusConverter()  ScheduledActionViewStatus status,  DateTime? lastExecutedAt,  String? lastFailureReason,  int? executionEventId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @ScheduledActionViewActionConverter()  ScheduledActionViewAction action,  Map<String, dynamic>? eventData,  String did, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  bool? randomizeExecution,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @ScheduledActionViewStatusConverter()  ScheduledActionViewStatus status, @JsonKey(toJson: iso8601)  DateTime? lastExecutedAt,  String? lastFailureReason,  int? executionEventId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ScheduledActionView() when $default != null:
 return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.randomizeExecution,_that.createdBy,_that.createdAt,_that.updatedAt,_that.status,_that.lastExecutedAt,_that.lastFailureReason,_that.executionEventId,_that.$unknown);case _:
@@ -257,7 +257,7 @@ return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _ScheduledActionView implements ScheduledActionView {
-  const _ScheduledActionView({this.$type = 'tools.ozone.moderation.defs#scheduledActionView', required this.id, @ScheduledActionViewActionConverter() required this.action, final  Map<String, dynamic>? eventData, required this.did, this.executeAt, this.executeAfter, this.executeUntil, this.randomizeExecution, required this.createdBy, required this.createdAt, this.updatedAt, @ScheduledActionViewStatusConverter() required this.status, this.lastExecutedAt, this.lastFailureReason, this.executionEventId, final  Map<String, dynamic>? $unknown}): _eventData = eventData,_$unknown = $unknown;
+  const _ScheduledActionView({this.$type = 'tools.ozone.moderation.defs#scheduledActionView', required this.id, @ScheduledActionViewActionConverter() required this.action, final  Map<String, dynamic>? eventData, required this.did, @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, this.randomizeExecution, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @ScheduledActionViewStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.lastExecutedAt, this.lastFailureReason, this.executionEventId, final  Map<String, dynamic>? $unknown}): _eventData = eventData,_$unknown = $unknown;
   factory _ScheduledActionView.fromJson(Map<String, dynamic> json) => _$ScheduledActionViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -277,23 +277,23 @@ class _ScheduledActionView implements ScheduledActionView {
 /// Subject DID for the action
 @override final  String did;
 /// Exact time to execute the action
-@override final  DateTime? executeAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeAt;
 /// Earliest time to execute the action (for randomized scheduling)
-@override final  DateTime? executeAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeAfter;
 /// Latest time to execute the action (for randomized scheduling)
-@override final  DateTime? executeUntil;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeUntil;
 /// Whether execution time should be randomized within the specified range
 @override final  bool? randomizeExecution;
 /// DID of the user who created this scheduled action
 @override final  String createdBy;
 /// When the scheduled action was created
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// When the scheduled action was last updated
-@override final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
 /// Current status of the scheduled action
 @override@ScheduledActionViewStatusConverter() final  ScheduledActionViewStatus status;
 /// When the action was last attempted to be executed
-@override final  DateTime? lastExecutedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? lastExecutedAt;
 /// Reason for the last execution failure
 @override final  String? lastFailureReason;
 /// ID of the moderation event created when action was successfully executed
@@ -341,7 +341,7 @@ abstract mixin class _$ScheduledActionViewCopyWith<$Res> implements $ScheduledAc
   factory _$ScheduledActionViewCopyWith(_ScheduledActionView value, $Res Function(_ScheduledActionView) _then) = __$ScheduledActionViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id,@ScheduledActionViewActionConverter() ScheduledActionViewAction action, Map<String, dynamic>? eventData, String did, DateTime? executeAt, DateTime? executeAfter, DateTime? executeUntil, bool? randomizeExecution, String createdBy, DateTime createdAt, DateTime? updatedAt,@ScheduledActionViewStatusConverter() ScheduledActionViewStatus status, DateTime? lastExecutedAt, String? lastFailureReason, int? executionEventId, Map<String, dynamic>? $unknown
+ String $type, int id,@ScheduledActionViewActionConverter() ScheduledActionViewAction action, Map<String, dynamic>? eventData, String did,@JsonKey(toJson: iso8601) DateTime? executeAt,@JsonKey(toJson: iso8601) DateTime? executeAfter,@JsonKey(toJson: iso8601) DateTime? executeUntil, bool? randomizeExecution, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@ScheduledActionViewStatusConverter() ScheduledActionViewStatus status,@JsonKey(toJson: iso8601) DateTime? lastExecutedAt, String? lastFailureReason, int? executionEventId, Map<String, dynamic>? $unknown
 });
 
 

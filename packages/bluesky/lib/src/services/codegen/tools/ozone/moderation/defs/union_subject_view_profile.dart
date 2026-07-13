@@ -41,11 +41,11 @@ final class USubjectViewProfileConverter
 
   @override
   USubjectViewProfile fromJson(Map<String, dynamic> json) {
-    try {
-      return USubjectViewProfile.unknown(data: json);
-    } catch (_) {
-      return USubjectViewProfile.unknown(data: json);
-    }
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return USubjectViewProfile.unknown(data: json);
   }
 
   @override

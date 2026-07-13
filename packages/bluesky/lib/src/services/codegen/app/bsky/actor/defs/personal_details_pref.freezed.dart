@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$PersonalDetailsPref {
 
  String get $type;/// The birth date of account owner.
- DateTime? get birthDate; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get birthDate; Map<String, dynamic>? get $unknown;
 /// Create a copy of PersonalDetailsPref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $PersonalDetailsPrefCopyWith<$Res>  {
   factory $PersonalDetailsPrefCopyWith(PersonalDetailsPref value, $Res Function(PersonalDetailsPref) _then) = _$PersonalDetailsPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? birthDate, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? birthDate, Map<String, dynamic>? $unknown
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PersonalDetailsPref() when $default != null:
 return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? birthDate,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? birthDate,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _PersonalDetailsPref():
 return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _PersonalDetailsPref() when $default != null:
 return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.birthDate,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _PersonalDetailsPref implements PersonalDetailsPref {
-  const _PersonalDetailsPref({this.$type = 'app.bsky.actor.defs#personalDetailsPref', this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _PersonalDetailsPref({this.$type = 'app.bsky.actor.defs#personalDetailsPref', @JsonKey(toJson: iso8601) this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _PersonalDetailsPref.fromJson(Map<String, dynamic> json) => _$PersonalDetailsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The birth date of account owner.
-@override final  DateTime? birthDate;
+@override@JsonKey(toJson: iso8601) final  DateTime? birthDate;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$PersonalDetailsPrefCopyWith<$Res> implements $PersonalDet
   factory _$PersonalDetailsPrefCopyWith(_PersonalDetailsPref value, $Res Function(_PersonalDetailsPref) _then) = __$PersonalDetailsPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? birthDate, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? birthDate, Map<String, dynamic>? $unknown
 });
 
 

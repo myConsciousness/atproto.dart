@@ -30,6 +30,6 @@ Map<String, dynamic> _$NotificationGetUnreadCountInputToJson(
   _NotificationGetUnreadCountInput instance,
 ) => <String, dynamic>{
   'priority': ?instance.priority,
-  'seenAt': ?instance.seenAt?.toIso8601String(),
+  'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,
 };

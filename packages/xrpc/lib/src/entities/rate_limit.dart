@@ -2,6 +2,9 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Package imports:
+import 'package:http_parser/http_parser.dart';
+
 // Project imports:
 import 'rate_limit_policy.dart';
 
@@ -100,27 +103,107 @@ final class _RateLimitConverter {
   const _RateLimitConverter();
 
   /// Parses headers and creates a `RateLimit` instance from it.
-  /// Returns an unlimited rate limit if headers do not have rate limit info.
-  RateLimit fromHeaders(final Map<String, String> headers) =>
-      _hasRateLimits(headers) ? _toRateLimit(headers) : RateLimit.unlimited();
+  ///
+  /// Prefers the `ratelimit-*` headers. When they are absent or malformed
+  /// but a `Retry-After` header is present (e.g. a `429` relayed by a proxy
+  /// that strips the `ratelimit-*` headers), the reset time is derived from
+  /// `Retry-After` instead. Returns an unlimited rate limit if no usable
+  /// rate limit info is present.
+  RateLimit fromHeaders(final Map<String, String> headers) {
+    if (_hasRateLimits(headers)) {
+      final rateLimit = _toRateLimit(headers);
+      if (rateLimit != null) return rateLimit;
+    }
+
+    return _fromRetryAfter(headers) ?? RateLimit.unlimited();
+  }
 
   /// Converts the given headers to a `RateLimit`.
-  RateLimit _toRateLimit(final Map<String, String> headers) => RateLimit._(
-    limitCount: int.parse(headers['ratelimit-limit']!),
-    remainingCount: int.parse(headers['ratelimit-remaining']!),
-    policy: const _RateLimitPolicyConverter().fromHeaders(headers),
-    resetAt: DateTime.fromMillisecondsSinceEpoch(
-      int.parse(headers['ratelimit-reset']!) * 1000,
-    ).toUtc(),
-    enabled: true,
-  );
+  ///
+  /// Returns null if any of the rate limit headers are malformed so that
+  /// a broken header never turns a successful response into a crash.
+  RateLimit? _toRateLimit(final Map<String, String> headers) {
+    final limitCount = int.tryParse(headers['ratelimit-limit']!);
+    final remainingCount = int.tryParse(headers['ratelimit-remaining']!);
+    final resetInSeconds = int.tryParse(headers['ratelimit-reset']!);
+
+    //! `ratelimit-policy` is optional per the IETF rate limit headers
+    //! draft. When absent, fall back to an unlimited placeholder policy
+    //! instead of discarding the whole rate limit info. A present but
+    //! malformed policy still invalidates the headers as before.
+    final policy = headers.containsKey('ratelimit-policy')
+        ? const _RateLimitPolicyConverter().fromHeaders(headers)
+        : RateLimitPolicy.unlimited();
+
+    if (limitCount == null ||
+        remainingCount == null ||
+        resetInSeconds == null ||
+        policy == null) {
+      return null;
+    }
+
+    return RateLimit._(
+      limitCount: limitCount,
+      remainingCount: remainingCount,
+      policy: policy,
+      resetAt: DateTime.fromMillisecondsSinceEpoch(
+        resetInSeconds * 1000,
+      ).toUtc(),
+      enabled: true,
+    );
+  }
 
   /// Checks if the given headers have rate limit related information.
+  ///
+  /// `ratelimit-policy` is intentionally not required because it is
+  /// optional per the IETF rate limit headers draft.
   bool _hasRateLimits(final Map<String, String> headers) =>
       headers.containsKey('ratelimit-limit') &&
       headers.containsKey('ratelimit-remaining') &&
-      headers.containsKey('ratelimit-reset') &&
-      headers.containsKey('ratelimit-policy');
+      headers.containsKey('ratelimit-reset');
+
+  /// Builds a `RateLimit` from a `Retry-After` header, supporting both the
+  /// delta-seconds and the HTTP-date forms defined by RFC 9110.
+  ///
+  /// The resulting instance has no request budget (`remainingCount` is 0),
+  /// so `isExceeded` stays true and `waitUntilReset()` waits until the
+  /// server-provided retry time has passed. Returns null if the header is
+  /// absent or malformed.
+  RateLimit? _fromRetryAfter(final Map<String, String> headers) {
+    final retryAfter = headers['retry-after'];
+    if (retryAfter == null) return null;
+
+    final resetAt = _parseRetryAfter(retryAfter.trim());
+    if (resetAt == null) return null;
+
+    return RateLimit._(
+      limitCount: 0,
+      remainingCount: 0,
+      policy: RateLimitPolicy.unlimited(),
+      resetAt: resetAt,
+      enabled: true,
+    );
+  }
+
+  /// Parses a `Retry-After` value into the point in time it refers to.
+  ///
+  /// Accepts a non-negative delta in seconds (e.g. `30`) or an HTTP-date
+  /// (e.g. `Wed, 21 Oct 2026 07:28:00 GMT`). Returns null if the value is
+  /// malformed so that a broken header never turns a response into a crash.
+  DateTime? _parseRetryAfter(final String value) {
+    final deltaInSeconds = int.tryParse(value);
+    if (deltaInSeconds != null) {
+      if (deltaInSeconds < 0) return null;
+
+      return DateTime.now().toUtc().add(Duration(seconds: deltaInSeconds));
+    }
+
+    try {
+      return parseHttpDate(value).toUtc();
+    } on FormatException {
+      return null;
+    }
+  }
 }
 
 /// Converts HTTP headers to a `RateLimitPolicy` instance.
@@ -128,12 +211,28 @@ final class _RateLimitPolicyConverter {
   const _RateLimitPolicyConverter();
 
   /// Parses headers and creates a `RateLimitPolicy` instance from it.
-  RateLimitPolicy fromHeaders(final Map<String, String> headers) {
+  ///
+  /// The expected format is `<limit>;w=<windowInSeconds>`, as produced by
+  /// [RateLimitPolicy.format]. Returns null if the header is malformed.
+  RateLimitPolicy? fromHeaders(final Map<String, String> headers) {
     final segments = headers['ratelimit-policy']!.split(';');
 
-    return RateLimitPolicy(
-      limitCount: int.parse(segments[0]),
-      window: Duration(seconds: int.parse(segments[1].split('=')[1])),
-    );
+    final limitCount = int.tryParse(segments.first.trim());
+    if (limitCount == null) return null;
+
+    for (final segment in segments.skip(1)) {
+      final parts = segment.split('=');
+      if (parts.length != 2 || parts[0].trim() != 'w') continue;
+
+      final windowInSeconds = int.tryParse(parts[1].trim());
+      if (windowInSeconds == null) return null;
+
+      return RateLimitPolicy(
+        limitCount: limitCount,
+        window: Duration(seconds: windowInSeconds),
+      );
+    }
+
+    return null;
   }
 }

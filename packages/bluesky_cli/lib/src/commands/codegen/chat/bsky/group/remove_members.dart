@@ -38,6 +38,12 @@ final class RemoveMembersCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "convoId": argResults!["convoId"],
-    "members": argResults!["members"],
+    "members": _requireNonEmpty("members", argResults!["members"]),
   };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

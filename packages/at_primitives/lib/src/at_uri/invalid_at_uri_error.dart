@@ -9,4 +9,7 @@ final class InvalidAtUriError extends Error {
 
   /// The error message
   final String message;
+
+  @override
+  String toString() => 'InvalidAtUriError: $message';
 }

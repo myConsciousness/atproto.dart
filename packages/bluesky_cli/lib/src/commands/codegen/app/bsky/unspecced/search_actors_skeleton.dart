@@ -60,7 +60,9 @@ final class SearchActorsSkeletonCommand extends QueryCommand {
     if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
     if (argResults!.wasParsed("typeahead"))
       "typeahead": argResults!["typeahead"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

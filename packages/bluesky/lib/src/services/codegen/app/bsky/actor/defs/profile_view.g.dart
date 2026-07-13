@@ -94,8 +94,8 @@ Map<String, dynamic> _$ProfileViewToJson(
     instance.associated,
     const ProfileAssociatedConverter().toJson,
   ),
-  'indexedAt': ?instance.indexedAt?.toIso8601String(),
-  'createdAt': ?instance.createdAt?.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
+  'createdAt': iso8601(instance.createdAt),
   'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
     instance.viewer,
     const ViewerStateConverter().toJson,

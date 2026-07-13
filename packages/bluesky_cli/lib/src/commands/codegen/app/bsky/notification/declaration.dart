@@ -40,14 +40,21 @@ final class DeclarationCommand extends Command<void> {
       "A declaration of the user's choices related to notifications that can be produced by them.";
 }
 
-final class _CreateDeclarationCommand extends CreateRecordCommand {
-  _CreateDeclarationCommand() {
+mixin _DeclarationCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser..addOption(
       "allowSubscriptions",
       help:
           r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
       mandatory: true,
     );
+  }
+}
+
+final class _CreateDeclarationCommand extends CreateRecordCommand
+    with _DeclarationCommandRecordArgs {
+  _CreateDeclarationCommand() {
+    _addRecordOptions();
   }
 
   @override
@@ -74,14 +81,10 @@ final class _CreateDeclarationCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutDeclarationCommand extends PutRecordCommand {
+final class _PutDeclarationCommand extends PutRecordCommand
+    with _DeclarationCommandRecordArgs {
   _PutDeclarationCommand() {
-    argParser..addOption(
-      "allowSubscriptions",
-      help:
-          r"A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
-      mandatory: true,
-    );
+    _addRecordOptions();
   }
 
   @override
@@ -191,7 +194,9 @@ final class _ListDeclarationCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.notification.declaration",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

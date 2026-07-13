@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AgeAssuranceEvent {
 
  String get $type;/// The date and time of this write operation.
- DateTime get createdAt;/// The unique identifier for this instance of the age assurance flow, in UUID format.
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// The unique identifier for this instance of the age assurance flow, in UUID format.
  String get attemptId;/// The status of the Age Assurance process.
 @AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus get status;@AccessConverter() Access? get access;/// The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow.
  String? get countryCode;/// The ISO 3166-2 region code provided when beginning the Age Assurance flow.
@@ -57,7 +57,7 @@ abstract mixin class $AgeAssuranceEventCopyWith<$Res>  {
   factory $AgeAssuranceEventCopyWith(AgeAssuranceEvent value, $Res Function(AgeAssuranceEvent) _then) = _$AgeAssuranceEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime createdAt, String attemptId,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status,@AccessConverter() Access? access, String? countryCode, String? regionCode, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime createdAt, String attemptId,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status,@AccessConverter() Access? access, String? countryCode, String? regionCode, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 
@@ -194,7 +194,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.access,_that.countryCode,_that.regionCode,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.a
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent():
 return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.access,_that.countryCode,_that.regionCode,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -235,7 +235,7 @@ return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.a
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime createdAt,  String attemptId, @AgeAssuranceEventStatusConverter()  AgeAssuranceEventStatus status, @AccessConverter()  Access? access,  String? countryCode,  String? regionCode,  String? initIp,  String? initUa,  String? completeIp,  String? completeUa,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceEvent() when $default != null:
 return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.access,_that.countryCode,_that.regionCode,_that.initIp,_that.initUa,_that.completeIp,_that.completeUa,_that.$unknown);case _:
@@ -250,12 +250,12 @@ return $default(_that.$type,_that.createdAt,_that.attemptId,_that.status,_that.a
 
 @JsonSerializable(includeIfNull: false)
 class _AgeAssuranceEvent implements AgeAssuranceEvent {
-  const _AgeAssuranceEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceEvent', required this.createdAt, required this.attemptId, @AgeAssuranceEventStatusConverter() required this.status, @AccessConverter() this.access, this.countryCode, this.regionCode, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceEvent({this.$type = 'tools.ozone.moderation.defs#ageAssuranceEvent', @JsonKey(toJson: iso8601) required this.createdAt, required this.attemptId, @AgeAssuranceEventStatusConverter() required this.status, @AccessConverter() this.access, this.countryCode, this.regionCode, this.initIp, this.initUa, this.completeIp, this.completeUa, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceEvent.fromJson(Map<String, dynamic> json) => _$AgeAssuranceEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The date and time of this write operation.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// The unique identifier for this instance of the age assurance flow, in UUID format.
 @override final  String attemptId;
 /// The status of the Age Assurance process.
@@ -316,7 +316,7 @@ abstract mixin class _$AgeAssuranceEventCopyWith<$Res> implements $AgeAssuranceE
   factory _$AgeAssuranceEventCopyWith(_AgeAssuranceEvent value, $Res Function(_AgeAssuranceEvent) _then) = __$AgeAssuranceEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime createdAt, String attemptId,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status,@AccessConverter() Access? access, String? countryCode, String? regionCode, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime createdAt, String attemptId,@AgeAssuranceEventStatusConverter() AgeAssuranceEventStatus status,@AccessConverter() Access? access, String? countryCode, String? regionCode, String? initIp, String? initUa, String? completeIp, String? completeUa, Map<String, dynamic>? $unknown
 });
 
 

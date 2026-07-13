@@ -88,7 +88,7 @@ Map<String, dynamic> _$ListViewToJson(_ListView instance) => <String, dynamic>{
     instance.viewer,
     const ListViewerStateConverter().toJson,
   ),
-  'indexedAt': instance.indexedAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
   r'$unknown': ?instance.$unknown,
 };
 

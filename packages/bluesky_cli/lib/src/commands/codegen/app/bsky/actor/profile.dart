@@ -40,8 +40,8 @@ final class ProfileCommand extends Command<void> {
   String get description => "A declaration of a Bluesky account profile.";
 }
 
-final class _CreateProfileCommand extends CreateRecordCommand {
-  _CreateProfileCommand() {
+mixin _ProfileCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption("displayName")
       ..addOption("description", help: r"Free-form profile description text.")
@@ -64,6 +64,23 @@ final class _CreateProfileCommand extends CreateRecordCommand {
       ..addOption("joinedViaStarterPack")
       ..addOption("pinnedPost")
       ..addOption("createdAt");
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateProfileCommand extends CreateRecordCommand
+    with _ProfileCommandRecordArgs {
+  _CreateProfileCommand() {
+    _addRecordOptions();
   }
 
   @override
@@ -94,41 +111,20 @@ final class _CreateProfileCommand extends CreateRecordCommand {
     if (argResults!.wasParsed("website")) "website": argResults!["website"],
     if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
     if (argResults!.wasParsed("banner")) "banner": argResults!["banner"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     if (argResults!.wasParsed("joinedViaStarterPack"))
-      "joinedViaStarterPack": jsonDecode(argResults!["joinedViaStarterPack"]),
+      "joinedViaStarterPack": _decodeJson("joinedViaStarterPack"),
     if (argResults!.wasParsed("pinnedPost"))
-      "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
+      "pinnedPost": _decodeJson("pinnedPost"),
     if (argResults!.wasParsed("createdAt"))
       "createdAt": argResults!["createdAt"],
   };
 }
 
-final class _PutProfileCommand extends PutRecordCommand {
+final class _PutProfileCommand extends PutRecordCommand
+    with _ProfileCommandRecordArgs {
   _PutProfileCommand() {
-    argParser
-      ..addOption("displayName")
-      ..addOption("description", help: r"Free-form profile description text.")
-      ..addOption("pronouns", help: r"Free-form pronouns text.")
-      ..addOption("website")
-      ..addOption(
-        "avatar",
-        help:
-            r"Small image to be displayed next to posts from account. AKA, 'profile picture'",
-      )
-      ..addOption(
-        "banner",
-        help: r"Larger horizontal image to display behind profile view.",
-      )
-      ..addOption(
-        "labels",
-        help:
-            r"Self-label values, specific to the Bluesky application, on the overall account.",
-      )
-      ..addOption("joinedViaStarterPack")
-      ..addOption("pinnedPost")
-      ..addOption("createdAt");
+    _addRecordOptions();
   }
 
   @override
@@ -158,12 +154,11 @@ final class _PutProfileCommand extends PutRecordCommand {
     if (argResults!.wasParsed("website")) "website": argResults!["website"],
     if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
     if (argResults!.wasParsed("banner")) "banner": argResults!["banner"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     if (argResults!.wasParsed("joinedViaStarterPack"))
-      "joinedViaStarterPack": jsonDecode(argResults!["joinedViaStarterPack"]),
+      "joinedViaStarterPack": _decodeJson("joinedViaStarterPack"),
     if (argResults!.wasParsed("pinnedPost"))
-      "pinnedPost": jsonDecode(argResults!["pinnedPost"]),
+      "pinnedPost": _decodeJson("pinnedPost"),
     if (argResults!.wasParsed("createdAt"))
       "createdAt": argResults!["createdAt"],
   };
@@ -249,7 +244,9 @@ final class _ListProfileCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.actor.profile",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

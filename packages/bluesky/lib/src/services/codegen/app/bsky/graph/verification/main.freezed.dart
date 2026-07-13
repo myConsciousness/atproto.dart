@@ -19,7 +19,7 @@ mixin _$GraphVerificationRecord {
  String get subject;/// Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.
  String get handle;/// Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.
  String get displayName;/// Date of when the verification was created.
- DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphVerificationRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -52,7 +52,7 @@ abstract mixin class $GraphVerificationRecordCopyWith<$Res>  {
   factory $GraphVerificationRecordCopyWith(GraphVerificationRecord value, $Res Function(GraphVerificationRecord) _then) = _$GraphVerificationRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subject, String handle, String displayName, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject, String handle, String displayName,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphVerificationRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphVerificationRecord():
 return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject,  String handle,  String displayName,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphVerificationRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 
 @JsonSerializable(includeIfNull: false)
 class _GraphVerificationRecord implements GraphVerificationRecord {
-  const _GraphVerificationRecord({this.$type = 'app.bsky.graph.verification', required this.subject, required this.handle, required this.displayName, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphVerificationRecord({this.$type = 'app.bsky.graph.verification', required this.subject, required this.handle, required this.displayName, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphVerificationRecord.fromJson(Map<String, dynamic> json) => _$GraphVerificationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -229,7 +229,7 @@ class _GraphVerificationRecord implements GraphVerificationRecord {
 /// Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.
 @override final  String displayName;
 /// Date of when the verification was created.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -273,7 +273,7 @@ abstract mixin class _$GraphVerificationRecordCopyWith<$Res> implements $GraphVe
   factory _$GraphVerificationRecordCopyWith(_GraphVerificationRecord value, $Res Function(_GraphVerificationRecord) _then) = __$GraphVerificationRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subject, String handle, String displayName, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject, String handle, String displayName,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

@@ -19,11 +19,14 @@
 ///        length of a DID"
 ///   - in current atproto, only allowing did:plc and did:web. But not
 ///     *forcing* this at lexicon layer
-///   - hard length limit of 8KBytes
+///   - hard length limit of 2048 characters (current atproto spec)
 ///   - not going to validate "percent encoding" here
+final _didAllowedCharsRegExp = RegExp(r'^[a-zA-Z0-9._:%-]*$');
+final _didMethodRegExp = RegExp(r'^[a-z]+$');
+
 void ensureValidDid(final String did) {
   // check that all chars are boring ASCII
-  if (!RegExp(r'^[a-zA-Z0-9._:%-]*$').hasMatch(did)) {
+  if (!_didAllowedCharsRegExp.hasMatch(did)) {
     throw InvalidDidError(
       'Disallowed characters in DID (ASCII letters, digits, and a couple '
       'other characters only)',
@@ -41,7 +44,7 @@ void ensureValidDid(final String did) {
     throw InvalidDidError('DID requires "did:" prefix');
   }
 
-  if (!RegExp(r'^[a-z]+$').hasMatch(parts[1])) {
+  if (!_didMethodRegExp.hasMatch(parts[1])) {
     throw InvalidDidError('DID method must be lower-case letters');
   }
 
@@ -49,8 +52,9 @@ void ensureValidDid(final String did) {
     throw InvalidDidError('DID can not end with ":" or "%"');
   }
 
-  if (did.length > 8 * 1024) {
-    throw InvalidDidError('DID is far too long');
+  // The atproto spec sets a current hard limit of 2048 characters.
+  if (did.length > 2048) {
+    throw InvalidDidError('DID is too long (2048 chars max)');
   }
 }
 
@@ -61,4 +65,7 @@ final class InvalidDidError extends Error {
 
   /// The error message.
   final String message;
+
+  @override
+  String toString() => 'InvalidDidError: $message';
 }

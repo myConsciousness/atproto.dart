@@ -10,8 +10,8 @@ sealed class GroupBy {
   // ignore: unused_element
   const GroupBy._();
 
-  const factory GroupBy.hour(final int hour) = Hour;
-  const factory GroupBy.minute(final int minute) = Minute;
+  factory GroupBy.hour(final int hour) = Hour;
+  factory GroupBy.minute(final int minute) = Minute;
 
   List<List<Notification>> execute(
     final NotificationListNotificationsOutput data,
@@ -19,7 +19,14 @@ sealed class GroupBy {
 }
 
 final class Hour implements GroupBy {
-  const Hour(this.hour) : assert(hour > 0 && hour < 24, 'Invalid hour value');
+  Hour(this.hour) {
+    // Validate at runtime so the check also holds in release builds, where
+    // `assert` is stripped and an invalid value would otherwise cause a
+    // zero-division (`hour == 0`) or silently produce wrong groupings.
+    if (hour <= 0 || hour >= 24) {
+      throw RangeError.range(hour, 1, 23, 'hour', 'Invalid hour value');
+    }
+  }
 
   final int hour;
 
@@ -40,8 +47,14 @@ final class Hour implements GroupBy {
 }
 
 final class Minute implements GroupBy {
-  const Minute(this.minute)
-    : assert(minute > 0 && minute < 60, 'Invalid minute value.');
+  Minute(this.minute) {
+    // Validate at runtime so the check also holds in release builds, where
+    // `assert` is stripped and an invalid value would otherwise cause a
+    // zero-division (`minute == 0`) or silently produce wrong groupings.
+    if (minute <= 0 || minute >= 60) {
+      throw RangeError.range(minute, 1, 59, 'minute', 'Invalid minute value');
+    }
+  }
 
   final int minute;
 

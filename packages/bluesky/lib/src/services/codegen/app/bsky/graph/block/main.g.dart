@@ -32,6 +32,6 @@ Map<String, dynamic> _$GraphBlockRecordToJson(_GraphBlockRecord instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'subject': instance.subject,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };

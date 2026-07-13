@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ReasonRepost {
 
- String get $type;@ProfileViewBasicConverter() ProfileViewBasic get by;@AtUriConverter() AtUri? get uri; String? get cid; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@ProfileViewBasicConverter() ProfileViewBasic get by;@AtUriConverter() AtUri? get uri; String? get cid;@JsonKey(toJson: iso8601) DateTime get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReasonRepost
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ReasonRepostCopyWith<$Res>  {
   factory $ReasonRepostCopyWith(ReasonRepost value, $Res Function(ReasonRepost) _then) = _$ReasonRepostCopyWithImpl;
 @useResult
 $Res call({
- String $type,@ProfileViewBasicConverter() ProfileViewBasic by,@AtUriConverter() AtUri? uri, String? cid, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@ProfileViewBasicConverter() ProfileViewBasic by,@AtUriConverter() AtUri? uri, String? cid,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ProfileViewBasicConverter()  ProfileViewBasic by, @AtUriConverter()  AtUri? uri,  String? cid,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ProfileViewBasicConverter()  ProfileViewBasic by, @AtUriConverter()  AtUri? uri,  String? cid, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReasonRepost() when $default != null:
 return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ProfileViewBasicConverter()  ProfileViewBasic by, @AtUriConverter()  AtUri? uri,  String? cid,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ProfileViewBasicConverter()  ProfileViewBasic by, @AtUriConverter()  AtUri? uri,  String? cid, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReasonRepost():
 return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ProfileViewBasicConverter()  ProfileViewBasic by, @AtUriConverter()  AtUri? uri,  String? cid,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ProfileViewBasicConverter()  ProfileViewBasic by, @AtUriConverter()  AtUri? uri,  String? cid, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReasonRepost() when $default != null:
 return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$unknown);case _:
@@ -223,14 +223,14 @@ return $default(_that.$type,_that.by,_that.uri,_that.cid,_that.indexedAt,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _ReasonRepost implements ReasonRepost {
-  const _ReasonRepost({this.$type = 'app.bsky.feed.defs#reasonRepost', @ProfileViewBasicConverter() required this.by, @AtUriConverter() this.uri, this.cid, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReasonRepost({this.$type = 'app.bsky.feed.defs#reasonRepost', @ProfileViewBasicConverter() required this.by, @AtUriConverter() this.uri, this.cid, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReasonRepost.fromJson(Map<String, dynamic> json) => _$ReasonRepostFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@ProfileViewBasicConverter() final  ProfileViewBasic by;
 @override@AtUriConverter() final  AtUri? uri;
 @override final  String? cid;
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -274,7 +274,7 @@ abstract mixin class _$ReasonRepostCopyWith<$Res> implements $ReasonRepostCopyWi
   factory _$ReasonRepostCopyWith(_ReasonRepost value, $Res Function(_ReasonRepost) _then) = __$ReasonRepostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@ProfileViewBasicConverter() ProfileViewBasic by,@AtUriConverter() AtUri? uri, String? cid, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@ProfileViewBasicConverter() ProfileViewBasic by,@AtUriConverter() AtUri? uri, String? cid,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 

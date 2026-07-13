@@ -48,7 +48,7 @@ Map<String, dynamic> _$HistoricalStatsToJson(_HistoricalStats instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'date': instance.date,
-      'computedAt': ?instance.computedAt?.toIso8601String(),
+      'computedAt': iso8601(instance.computedAt),
       'pendingCount': ?instance.pendingCount,
       'actionedCount': ?instance.actionedCount,
       'escalatedCount': ?instance.escalatedCount,

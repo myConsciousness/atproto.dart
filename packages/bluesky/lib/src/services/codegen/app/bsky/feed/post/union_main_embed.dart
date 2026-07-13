@@ -84,42 +84,42 @@ final class UFeedPostEmbedConverter
 
   @override
   UFeedPostEmbed fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedImages.validate(json)) {
-        return UFeedPostEmbed.embedImages(
-          data: const EmbedImagesConverter().fromJson(json),
-        );
-      }
-      if (EmbedVideo.validate(json)) {
-        return UFeedPostEmbed.embedVideo(
-          data: const EmbedVideoConverter().fromJson(json),
-        );
-      }
-      if (EmbedGallery.validate(json)) {
-        return UFeedPostEmbed.embedGallery(
-          data: const EmbedGalleryConverter().fromJson(json),
-        );
-      }
-      if (EmbedExternal.validate(json)) {
-        return UFeedPostEmbed.embedExternal(
-          data: const EmbedExternalConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecord.validate(json)) {
-        return UFeedPostEmbed.embedRecord(
-          data: const EmbedRecordConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecordWithMedia.validate(json)) {
-        return UFeedPostEmbed.embedRecordWithMedia(
-          data: const EmbedRecordWithMediaConverter().fromJson(json),
-        );
-      }
-
-      return UFeedPostEmbed.unknown(data: json);
-    } catch (_) {
-      return UFeedPostEmbed.unknown(data: json);
+    if (EmbedImages.validate(json)) {
+      return UFeedPostEmbed.embedImages(
+        data: const EmbedImagesConverter().fromJson(json),
+      );
     }
+    if (EmbedVideo.validate(json)) {
+      return UFeedPostEmbed.embedVideo(
+        data: const EmbedVideoConverter().fromJson(json),
+      );
+    }
+    if (EmbedGallery.validate(json)) {
+      return UFeedPostEmbed.embedGallery(
+        data: const EmbedGalleryConverter().fromJson(json),
+      );
+    }
+    if (EmbedExternal.validate(json)) {
+      return UFeedPostEmbed.embedExternal(
+        data: const EmbedExternalConverter().fromJson(json),
+      );
+    }
+    if (EmbedRecord.validate(json)) {
+      return UFeedPostEmbed.embedRecord(
+        data: const EmbedRecordConverter().fromJson(json),
+      );
+    }
+    if (EmbedRecordWithMedia.validate(json)) {
+      return UFeedPostEmbed.embedRecordWithMedia(
+        data: const EmbedRecordWithMediaConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UFeedPostEmbed.unknown(data: json);
   }
 
   @override

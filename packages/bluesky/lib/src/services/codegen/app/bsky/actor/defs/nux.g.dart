@@ -34,6 +34,6 @@ Map<String, dynamic> _$NuxToJson(_Nux instance) => <String, dynamic>{
   'id': instance.id,
   'completed': instance.completed,
   'data': ?instance.data,
-  'expiresAt': ?instance.expiresAt?.toIso8601String(),
+  'expiresAt': iso8601(instance.expiresAt),
   r'$unknown': ?instance.$unknown,
 };

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Option {
 
- String get $type; String get key; String get did; Map<String, dynamic> get value; String? get description; DateTime? get createdAt; DateTime? get updatedAt;@OptionManagerRoleConverter() OptionManagerRole? get managerRole;@OptionScopeConverter() OptionScope get scope; String get createdBy; String get lastUpdatedBy; Map<String, dynamic>? get $unknown;
+ String get $type; String get key; String get did; Map<String, dynamic> get value; String? get description;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@OptionManagerRoleConverter() OptionManagerRole? get managerRole;@OptionScopeConverter() OptionScope get scope; String get createdBy; String get lastUpdatedBy; Map<String, dynamic>? get $unknown;
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $OptionCopyWith<$Res>  {
   factory $OptionCopyWith(Option value, $Res Function(Option) _then) = _$OptionCopyWithImpl;
 @useResult
 $Res call({
- String $type, String key, String did, Map<String, dynamic> value, String? description, DateTime? createdAt, DateTime? updatedAt,@OptionManagerRoleConverter() OptionManagerRole? managerRole,@OptionScopeConverter() OptionScope scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
+ String $type, String key, String did, Map<String, dynamic> value, String? description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@OptionManagerRoleConverter() OptionManagerRole? managerRole,@OptionScopeConverter() OptionScope scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -185,7 +185,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Option() when $default != null:
 return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_that.createdAt,_that.updatedAt,_that.managerRole,_that.scope,_that.createdBy,_that.lastUpdatedBy,_that.$unknown);case _:
@@ -206,7 +206,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Option():
 return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_that.createdAt,_that.updatedAt,_that.managerRole,_that.scope,_that.createdBy,_that.lastUpdatedBy,_that.$unknown);case _:
@@ -226,7 +226,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description,  DateTime? createdAt,  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String key,  String did,  Map<String, dynamic> value,  String? description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @OptionManagerRoleConverter()  OptionManagerRole? managerRole, @OptionScopeConverter()  OptionScope scope,  String createdBy,  String lastUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Option() when $default != null:
 return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_that.createdAt,_that.updatedAt,_that.managerRole,_that.scope,_that.createdBy,_that.lastUpdatedBy,_that.$unknown);case _:
@@ -241,7 +241,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 
 @JsonSerializable(includeIfNull: false)
 class _Option implements Option {
-  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required final  Map<String, dynamic> value, this.description, this.createdAt, this.updatedAt, @OptionManagerRoleConverter() this.managerRole, @OptionScopeConverter() required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required final  Map<String, dynamic> value, this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @OptionManagerRoleConverter() this.managerRole, @OptionScopeConverter() required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -255,8 +255,8 @@ class _Option implements Option {
 }
 
 @override final  String? description;
-@override final  DateTime? createdAt;
-@override final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
 @override@OptionManagerRoleConverter() final  OptionManagerRole? managerRole;
 @override@OptionScopeConverter() final  OptionScope scope;
 @override final  String createdBy;
@@ -304,7 +304,7 @@ abstract mixin class _$OptionCopyWith<$Res> implements $OptionCopyWith<$Res> {
   factory _$OptionCopyWith(_Option value, $Res Function(_Option) _then) = __$OptionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String key, String did, Map<String, dynamic> value, String? description, DateTime? createdAt, DateTime? updatedAt,@OptionManagerRoleConverter() OptionManagerRole? managerRole,@OptionScopeConverter() OptionScope scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
+ String $type, String key, String did, Map<String, dynamic> value, String? description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@OptionManagerRoleConverter() OptionManagerRole? managerRole,@OptionScopeConverter() OptionScope scope, String createdBy, String lastUpdatedBy, Map<String, dynamic>? $unknown
 });
 
 

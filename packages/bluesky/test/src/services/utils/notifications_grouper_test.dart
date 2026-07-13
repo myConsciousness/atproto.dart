@@ -11,6 +11,34 @@ import 'package:bluesky/src/tools/utils/notifications_grouper.dart';
 
 const _grouper = NotificationsGrouper();
 
+/// Builds a minimal notification map. Intentionally omits the optional
+/// `labels` key unless [labels] is provided, to exercise the missing-labels
+/// path (B-1/B-2).
+Map<String, dynamic> _notification({
+  required String did,
+  required String reason,
+  required String indexedAt,
+  String? reasonSubject,
+  List<Map<String, dynamic>>? labels,
+}) => {
+  'uri': 'at://$did/app.bsky.feed.like/fake',
+  'cid': 'bafyreidpmsxdbmw7gn55ek5xk4qwb6nyx6f6rppyjir4fizrdhyb44o2va',
+  'author': {'did': did, 'handle': '$did.test'},
+  'reason': reason,
+  'reasonSubject': ?reasonSubject,
+  'record': <String, dynamic>{},
+  'isRead': true,
+  'indexedAt': indexedAt,
+  'labels': ?labels,
+};
+
+Map<String, dynamic> _label({required String val}) => {
+  'src': 'did:plc:fake-labeler',
+  'uri': 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+  'val': val,
+  'cts': '2023-04-30T04:00:00.000Z',
+};
+
 void main() {
   group('.group', () {
     test('case1', () {
@@ -517,6 +545,164 @@ void main() {
 
       expect(grouped.cursor, 'xxxx');
     });
+
+    test('does not crash when labels field is missing', () {
+      // Regression for B-1: real notifications omit `labels` (optional in the
+      // lexicon). The old implementation threw a CheckedFromJsonException.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(grouped.notifications[0].reason, GroupedNotificationReason.like);
+      expect(grouped.notifications[0].labels, isEmpty);
+    });
+
+    test('merges two likes without labels', () {
+      // Regression for B-2: merging two label-less likes used to throw a
+      // TypeError inside `_mergeLabels`.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+            _notification(
+              did: 'did:plc:bbbb',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              indexedAt: '2023-04-30T04:05:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(grouped.notifications[0].reason, GroupedNotificationReason.like);
+      expect(grouped.notifications[0].authors.length, 2);
+      expect(grouped.notifications[0].labels, isEmpty);
+    });
+
+    test('handles new reason like-via-repost without crashing', () {
+      // Regression for B-3: the enum lacked newer AppView reasons which used
+      // to make GroupedNotifications.fromJson throw.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like-via-repost',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(
+        grouped.notifications[0].reason,
+        GroupedNotificationReason.likeViaRepost,
+      );
+    });
+
+    test('maps unknown reason to the unknown fallback', () {
+      // Regression for B-3: unknown reasons must fall back rather than throw.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'some-future-reason',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(
+        grouped.notifications[0].reason,
+        GroupedNotificationReason.unknown,
+      );
+    });
+
+    test('merges custom feed likes to the same generator', () {
+      // Regression for B-4: `customFeedLike` was compared against the raw
+      // `like` reason and thus never grouped. Two likes to the same feed
+      // generator must merge into a single customFeedLike group.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+            _notification(
+              did: 'did:plc:bbbb',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
+              indexedAt: '2023-04-30T04:05:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(
+        grouped.notifications[0].reason,
+        GroupedNotificationReason.customFeedLike,
+      );
+      expect(grouped.notifications[0].authors.length, 2);
+    });
+
+    test('deduplicates identical labels but keeps distinct ones', () {
+      // Regression for B-5: label dedup previously relied on Map identity and
+      // never removed duplicates.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+              labels: [_label(val: 'spam')],
+            ),
+            _notification(
+              did: 'did:plc:bbbb',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              indexedAt: '2023-04-30T04:05:00.000Z',
+              // Same label as above -> should be deduplicated.
+              labels: [
+                _label(val: 'spam'),
+                _label(val: 'nudity'),
+              ],
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      final labels = grouped.notifications[0].labels;
+      expect(labels.length, 2);
+      expect(labels.map((e) => e.val).toSet(), {'spam', 'nudity'});
+    });
   });
 
   group('.groupByHour', () {
@@ -620,10 +806,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(0),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByHour(0), throwsA(isA<RangeError>()));
     });
 
     test('when hour is less than 0', () {
@@ -631,10 +814,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(-1),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByHour(-1), throwsA(isA<RangeError>()));
     });
 
     test('when hour is 24', () {
@@ -642,10 +822,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(24),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByHour(24), throwsA(isA<RangeError>()));
     });
 
     test('when hour is greater than 24', () {
@@ -653,10 +830,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(25),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByHour(25), throwsA(isA<RangeError>()));
     });
   });
 
@@ -763,10 +937,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByMinute(0),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByMinute(0), throwsA(isA<RangeError>()));
     });
 
     test('when minute is less than 0', () {
@@ -774,10 +945,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByMinute(-1),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByMinute(-1), throwsA(isA<RangeError>()));
     });
 
     test('when minute is 60', () {
@@ -785,10 +953,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByMinute(60),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByMinute(60), throwsA(isA<RangeError>()));
     });
 
     test('when minute is greater than 60', () {
@@ -796,10 +961,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(61),
-        throwsA(isA<AssertionError>()),
-      );
+      expect(() => notifications.groupByHour(61), throwsA(isA<RangeError>()));
     });
   });
 }

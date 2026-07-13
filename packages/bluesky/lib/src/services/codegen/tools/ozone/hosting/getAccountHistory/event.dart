@@ -30,7 +30,7 @@ abstract class Event with _$Event {
     @Default('tools.ozone.hosting.getAccountHistory#event') String $type,
     @UEventDetailsConverter() required UEventDetails details,
     required String createdBy,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _Event;

@@ -17,7 +17,7 @@ mixin _$EventGroupChatMemberLeft {
 
  String get $type;/// The DID of the actor. For voluntary: the person leaving. For kicked: the owner.
  String get actorDid;/// When the group was originally created.
- DateTime get convoCreatedAt; String get convoId; DateTime get createdAt;/// Current member count at the time of the event.
+@JsonKey(toJson: iso8601) DateTime get convoCreatedAt; String get convoId;@JsonKey(toJson: iso8601) DateTime get createdAt;/// Current member count at the time of the event.
  int get groupMemberCount; String get groupName;/// How the member left.
 @EventGroupChatMemberLeftLeaveMethodConverter() EventGroupChatMemberLeftLeaveMethod get leaveMethod;/// The DID of the group chat owner.
  String get ownerDid; String get rev;/// The DID of the member who left or was removed.
@@ -54,7 +54,7 @@ abstract mixin class $EventGroupChatMemberLeftCopyWith<$Res>  {
   factory $EventGroupChatMemberLeftCopyWith(EventGroupChatMemberLeft value, $Res Function(EventGroupChatMemberLeft) _then) = _$EventGroupChatMemberLeftCopyWithImpl;
 @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName,@EventGroupChatMemberLeftLeaveMethodConverter() EventGroupChatMemberLeftLeaveMethod leaveMethod, String ownerDid, String rev, String subjectDid, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName,@EventGroupChatMemberLeftLeaveMethodConverter() EventGroupChatMemberLeftLeaveMethod leaveMethod, String ownerDid, String rev, String subjectDid, Map<String, dynamic>? $unknown
 });
 
 
@@ -179,7 +179,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName, @EventGroupChatMemberLeftLeaveMethodConverter()  EventGroupChatMemberLeftLeaveMethod leaveMethod,  String ownerDid,  String rev,  String subjectDid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName, @EventGroupChatMemberLeftLeaveMethodConverter()  EventGroupChatMemberLeftLeaveMethod leaveMethod,  String ownerDid,  String rev,  String subjectDid,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberLeft() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.leaveMethod,_that.ownerDid,_that.rev,_that.subjectDid,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName, @EventGroupChatMemberLeftLeaveMethodConverter()  EventGroupChatMemberLeftLeaveMethod leaveMethod,  String ownerDid,  String rev,  String subjectDid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName, @EventGroupChatMemberLeftLeaveMethodConverter()  EventGroupChatMemberLeftLeaveMethod leaveMethod,  String ownerDid,  String rev,  String subjectDid,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberLeft():
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.leaveMethod,_that.ownerDid,_that.rev,_that.subjectDid,_that.$unknown);case _:
@@ -220,7 +220,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName, @EventGroupChatMemberLeftLeaveMethodConverter()  EventGroupChatMemberLeftLeaveMethod leaveMethod,  String ownerDid,  String rev,  String subjectDid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName, @EventGroupChatMemberLeftLeaveMethodConverter()  EventGroupChatMemberLeftLeaveMethod leaveMethod,  String ownerDid,  String rev,  String subjectDid,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberLeft() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.leaveMethod,_that.ownerDid,_that.rev,_that.subjectDid,_that.$unknown);case _:
@@ -235,16 +235,16 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 
 @JsonSerializable(includeIfNull: false)
 class _EventGroupChatMemberLeft implements EventGroupChatMemberLeft {
-  const _EventGroupChatMemberLeft({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberLeft', required this.actorDid, required this.convoCreatedAt, required this.convoId, required this.createdAt, required this.groupMemberCount, required this.groupName, @EventGroupChatMemberLeftLeaveMethodConverter() required this.leaveMethod, required this.ownerDid, required this.rev, required this.subjectDid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventGroupChatMemberLeft({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberLeft', required this.actorDid, @JsonKey(toJson: iso8601) required this.convoCreatedAt, required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, required this.groupMemberCount, required this.groupName, @EventGroupChatMemberLeftLeaveMethodConverter() required this.leaveMethod, required this.ownerDid, required this.rev, required this.subjectDid, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventGroupChatMemberLeft.fromJson(Map<String, dynamic> json) => _$EventGroupChatMemberLeftFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The DID of the actor. For voluntary: the person leaving. For kicked: the owner.
 @override final  String actorDid;
 /// When the group was originally created.
-@override final  DateTime convoCreatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime convoCreatedAt;
 @override final  String convoId;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Current member count at the time of the event.
 @override final  int groupMemberCount;
 @override final  String groupName;
@@ -298,7 +298,7 @@ abstract mixin class _$EventGroupChatMemberLeftCopyWith<$Res> implements $EventG
   factory _$EventGroupChatMemberLeftCopyWith(_EventGroupChatMemberLeft value, $Res Function(_EventGroupChatMemberLeft) _then) = __$EventGroupChatMemberLeftCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName,@EventGroupChatMemberLeftLeaveMethodConverter() EventGroupChatMemberLeftLeaveMethod leaveMethod, String ownerDid, String rev, String subjectDid, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName,@EventGroupChatMemberLeftLeaveMethodConverter() EventGroupChatMemberLeftLeaveMethod leaveMethod, String ownerDid, String rev, String subjectDid, Map<String, dynamic>? $unknown
 });
 
 

@@ -48,7 +48,9 @@ final class GetQuotesCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     "uri": argResults!["uri"],
     if (argResults!.wasParsed("cid")) "cid": argResults!["cid"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

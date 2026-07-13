@@ -38,6 +38,6 @@ Map<String, dynamic> _$IdentityEventToJson(_IdentityEvent instance) =>
       'handle': ?instance.handle,
       'pdsHost': ?instance.pdsHost,
       'tombstone': ?instance.tombstone,
-      'timestamp': instance.timestamp.toIso8601String(),
+      'timestamp': iso8601(instance.timestamp),
       r'$unknown': ?instance.$unknown,
     };

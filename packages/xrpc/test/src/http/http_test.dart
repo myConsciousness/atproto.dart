@@ -3,6 +3,7 @@ import 'dart:convert';
 
 // Package imports:
 import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -10,6 +11,7 @@ import 'package:xrpc/src/entities/empty_data.dart';
 import 'package:xrpc/src/http/exception/http_exception.dart';
 import 'package:xrpc/src/http/http.dart';
 import 'package:xrpc/src/http/response.dart';
+import 'package:xrpc/src/http_status.dart';
 
 void main() {
   group('.checkStatus', () {
@@ -104,6 +106,45 @@ void main() {
           ),
         ),
         throwsA(isA<HttpException>()),
+      );
+    });
+
+    test('non-JSON error body falls back to raw body message', () {
+      expect(
+        () => checkStatus(
+          http.Response(
+            '<html>502 Bad Gateway</html>',
+            502,
+            request: http.Request('GET', Uri.https('bsky.social')),
+          ),
+        ),
+        throwsA(
+          isA<HttpException>()
+              .having((e) => e.response.status, 'status', HttpStatus.badGateway)
+              .having((e) => e.response.data, 'data', {
+                'error': 'UnknownError',
+                'message': '<html>502 Bad Gateway</html>',
+              }),
+        ),
+      );
+    });
+
+    test('unknown status code does not crash error handling', () {
+      expect(
+        () => checkStatus(
+          http.Response(
+            'upstream error',
+            520,
+            request: http.Request('GET', Uri.https('bsky.social')),
+          ),
+        ),
+        throwsA(
+          isA<HttpException>().having(
+            (e) => e.response.status,
+            'status',
+            HttpStatus.unknown,
+          ),
+        ),
       );
     });
   });
@@ -231,6 +272,45 @@ void main() {
       expect(response, isA<Response<Map<String, dynamic>>>());
       expect(response.data, isA<Map<String, dynamic>>());
       expect(response.data, jsonDecode('{"test": "test"}'));
+    });
+
+    test('with injected http.Client', () async {
+      var used = false;
+
+      final mockedClient = MockClient((request) async {
+        used = true;
+
+        return http.Response('{}', 200, request: request);
+      });
+
+      final response = await post<Map<String, dynamic>>(
+        'test.com',
+        body: {'a': 1},
+        client: mockedClient,
+      );
+
+      expect(used, isTrue);
+      expect(response.data, isEmpty);
+    });
+  });
+
+  group('http.Client injection for .get', () {
+    test('with injected http.Client', () async {
+      var used = false;
+
+      final mockedClient = MockClient((request) async {
+        used = true;
+
+        return http.Response('{}', 200, request: request);
+      });
+
+      final response = await get<Map<String, dynamic>>(
+        'test.com',
+        client: mockedClient,
+      );
+
+      expect(used, isTrue);
+      expect(response.data, isEmpty);
     });
   });
 }

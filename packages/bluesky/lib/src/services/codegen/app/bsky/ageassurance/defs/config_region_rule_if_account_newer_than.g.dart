@@ -38,7 +38,7 @@ Map<String, dynamic> _$ConfigRegionRuleIfAccountNewerThanToJson(
   _ConfigRegionRuleIfAccountNewerThan instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'date': instance.date.toIso8601String(),
+  'date': iso8601(instance.date),
   'access': const AccessConverter().toJson(instance.access),
   r'$unknown': ?instance.$unknown,
 };

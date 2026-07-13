@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Account {
 
- String get $type; int get seq; String get did; DateTime get time;/// Indicates that the account has a repository which can be fetched from the host that emitted this event.
+ String get $type; int get seq; String get did;@JsonKey(toJson: iso8601) DateTime get time;/// Indicates that the account has a repository which can be fetched from the host that emitted this event.
  bool get active;/// If active=false, this optional field indicates a reason for why the account is not active.
 @AccountStatusConverter() AccountStatus? get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of Account
@@ -50,7 +50,7 @@ abstract mixin class $AccountCopyWith<$Res>  {
   factory $AccountCopyWith(Account value, $Res Function(Account) _then) = _$AccountCopyWithImpl;
 @useResult
 $Res call({
- String $type, int seq, String did, DateTime time, bool active,@AccountStatusConverter() AccountStatus? status, Map<String, dynamic>? $unknown
+ String $type, int seq, String did,@JsonKey(toJson: iso8601) DateTime time, bool active,@AccountStatusConverter() AccountStatus? status, Map<String, dynamic>? $unknown
 });
 
 
@@ -173,7 +173,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  DateTime time,  bool active, @AccountStatusConverter()  AccountStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String did, @JsonKey(toJson: iso8601)  DateTime time,  bool active, @AccountStatusConverter()  AccountStatus? status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Account() when $default != null:
 return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.status,_that.$unknown);case _:
@@ -194,7 +194,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.st
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String did,  DateTime time,  bool active, @AccountStatusConverter()  AccountStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String did, @JsonKey(toJson: iso8601)  DateTime time,  bool active, @AccountStatusConverter()  AccountStatus? status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Account():
 return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.status,_that.$unknown);case _:
@@ -214,7 +214,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.st
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String did,  DateTime time,  bool active, @AccountStatusConverter()  AccountStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String did, @JsonKey(toJson: iso8601)  DateTime time,  bool active, @AccountStatusConverter()  AccountStatus? status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Account() when $default != null:
 return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.status,_that.$unknown);case _:
@@ -229,13 +229,13 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.st
 
 @JsonSerializable(includeIfNull: false)
 class _Account implements Account {
-  const _Account({this.$type = 'com.atproto.sync.subscribeRepos#account', required this.seq, required this.did, required this.time, required this.active, @AccountStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Account({this.$type = 'com.atproto.sync.subscribeRepos#account', required this.seq, required this.did, @JsonKey(toJson: iso8601) required this.time, required this.active, @AccountStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  int seq;
 @override final  String did;
-@override final  DateTime time;
+@override@JsonKey(toJson: iso8601) final  DateTime time;
 /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
 @override final  bool active;
 /// If active=false, this optional field indicates a reason for why the account is not active.
@@ -283,7 +283,7 @@ abstract mixin class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   factory _$AccountCopyWith(_Account value, $Res Function(_Account) _then) = __$AccountCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int seq, String did, DateTime time, bool active,@AccountStatusConverter() AccountStatus? status, Map<String, dynamic>? $unknown
+ String $type, int seq, String did,@JsonKey(toJson: iso8601) DateTime time, bool active,@AccountStatusConverter() AccountStatus? status, Map<String, dynamic>? $unknown
 });
 
 

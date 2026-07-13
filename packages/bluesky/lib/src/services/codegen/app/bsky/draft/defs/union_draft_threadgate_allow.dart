@@ -73,32 +73,32 @@ final class UDraftThreadgateAllowConverter
 
   @override
   UDraftThreadgateAllow fromJson(Map<String, dynamic> json) {
-    try {
-      if (MentionRule.validate(json)) {
-        return UDraftThreadgateAllow.mentionRule(
-          data: const MentionRuleConverter().fromJson(json),
-        );
-      }
-      if (FollowerRule.validate(json)) {
-        return UDraftThreadgateAllow.followerRule(
-          data: const FollowerRuleConverter().fromJson(json),
-        );
-      }
-      if (FollowingRule.validate(json)) {
-        return UDraftThreadgateAllow.followingRule(
-          data: const FollowingRuleConverter().fromJson(json),
-        );
-      }
-      if (ListRule.validate(json)) {
-        return UDraftThreadgateAllow.listRule(
-          data: const ListRuleConverter().fromJson(json),
-        );
-      }
-
-      return UDraftThreadgateAllow.unknown(data: json);
-    } catch (_) {
-      return UDraftThreadgateAllow.unknown(data: json);
+    if (MentionRule.validate(json)) {
+      return UDraftThreadgateAllow.mentionRule(
+        data: const MentionRuleConverter().fromJson(json),
+      );
     }
+    if (FollowerRule.validate(json)) {
+      return UDraftThreadgateAllow.followerRule(
+        data: const FollowerRuleConverter().fromJson(json),
+      );
+    }
+    if (FollowingRule.validate(json)) {
+      return UDraftThreadgateAllow.followingRule(
+        data: const FollowingRuleConverter().fromJson(json),
+      );
+    }
+    if (ListRule.validate(json)) {
+      return UDraftThreadgateAllow.listRule(
+        data: const ListRuleConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UDraftThreadgateAllow.unknown(data: json);
   }
 
   @override

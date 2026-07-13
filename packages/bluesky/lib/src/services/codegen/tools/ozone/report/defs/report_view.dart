@@ -80,13 +80,13 @@ abstract class ReportView with _$ReportView {
     String? comment,
 
     /// When the report was created
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// When the report was last updated
-    DateTime? updatedAt,
+    @JsonKey(toJson: iso8601) DateTime? updatedAt,
 
     /// When the report was assigned to its current queue
-    DateTime? queuedAt,
+    @JsonKey(toJson: iso8601) DateTime? queuedAt,
     List<int>? actionEventIds,
     @ModEventViewConverter() List<ModEventView>? actions,
 

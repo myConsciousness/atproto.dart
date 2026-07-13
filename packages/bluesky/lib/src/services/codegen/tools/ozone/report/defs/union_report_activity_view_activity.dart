@@ -99,42 +99,42 @@ final class UReportActivityViewActivityConverter
 
   @override
   UReportActivityViewActivity fromJson(Map<String, dynamic> json) {
-    try {
-      if (QueueActivity.validate(json)) {
-        return UReportActivityViewActivity.queueActivity(
-          data: const QueueActivityConverter().fromJson(json),
-        );
-      }
-      if (AssignmentActivity.validate(json)) {
-        return UReportActivityViewActivity.assignmentActivity(
-          data: const AssignmentActivityConverter().fromJson(json),
-        );
-      }
-      if (EscalationActivity.validate(json)) {
-        return UReportActivityViewActivity.escalationActivity(
-          data: const EscalationActivityConverter().fromJson(json),
-        );
-      }
-      if (CloseActivity.validate(json)) {
-        return UReportActivityViewActivity.closeActivity(
-          data: const CloseActivityConverter().fromJson(json),
-        );
-      }
-      if (ReopenActivity.validate(json)) {
-        return UReportActivityViewActivity.reopenActivity(
-          data: const ReopenActivityConverter().fromJson(json),
-        );
-      }
-      if (NoteActivity.validate(json)) {
-        return UReportActivityViewActivity.noteActivity(
-          data: const NoteActivityConverter().fromJson(json),
-        );
-      }
-
-      return UReportActivityViewActivity.unknown(data: json);
-    } catch (_) {
-      return UReportActivityViewActivity.unknown(data: json);
+    if (QueueActivity.validate(json)) {
+      return UReportActivityViewActivity.queueActivity(
+        data: const QueueActivityConverter().fromJson(json),
+      );
     }
+    if (AssignmentActivity.validate(json)) {
+      return UReportActivityViewActivity.assignmentActivity(
+        data: const AssignmentActivityConverter().fromJson(json),
+      );
+    }
+    if (EscalationActivity.validate(json)) {
+      return UReportActivityViewActivity.escalationActivity(
+        data: const EscalationActivityConverter().fromJson(json),
+      );
+    }
+    if (CloseActivity.validate(json)) {
+      return UReportActivityViewActivity.closeActivity(
+        data: const CloseActivityConverter().fromJson(json),
+      );
+    }
+    if (ReopenActivity.validate(json)) {
+      return UReportActivityViewActivity.reopenActivity(
+        data: const ReopenActivityConverter().fromJson(json),
+      );
+    }
+    if (NoteActivity.validate(json)) {
+      return UReportActivityViewActivity.noteActivity(
+        data: const NoteActivityConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UReportActivityViewActivity.unknown(data: json);
   }
 
   @override

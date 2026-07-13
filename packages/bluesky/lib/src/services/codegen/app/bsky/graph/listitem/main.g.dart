@@ -38,6 +38,6 @@ Map<String, dynamic> _$GraphListitemRecordToJson(
   r'$type': instance.$type,
   'subject': instance.subject,
   'list': const AtUriConverter().toJson(instance.list),
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   r'$unknown': ?instance.$unknown,
 };

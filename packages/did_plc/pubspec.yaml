@@ -1,7 +1,7 @@
 name: did_plc
 resolution: workspace
 description: High-performance, independent DID PLC Directory client with caching, streaming, and batch processing for Dart/Flutter applications.
-version: 1.0.3
+version: 1.1.0
 homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
@@ -23,6 +23,8 @@ dependencies:
   crypto: ^3.0.3
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
+  multiformats: ^1.1.0
+  pointycastle: ^4.0.0
 
 dev_dependencies:
   lints: ^6.0.0

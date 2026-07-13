@@ -67,7 +67,7 @@ Map<String, dynamic> _$ModEventViewDetailToJson(_ModEventViewDetail instance) =>
           .map(const BlobViewConverter().toJson)
           .toList(),
       'createdBy': instance.createdBy,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       'modTool': ?_$JsonConverterToJson<Map<String, dynamic>, ModTool>(
         instance.modTool,
         const ModToolConverter().toJson,

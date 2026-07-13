@@ -41,8 +41,8 @@ final class ListCommand extends Command<void> {
       "Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.";
 }
 
-final class _CreateListCommand extends CreateRecordCommand {
-  _CreateListCommand() {
+mixin _ListCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "purpose",
@@ -59,8 +59,33 @@ final class _CreateListCommand extends CreateRecordCommand {
       ..addMultiOption("descriptionFacets", splitCommas: false)
       ..addOption("avatar")
       ..addOption("labels")
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"Specific record key to use.");
+      ..addOption("createdAt", mandatory: true);
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateListCommand extends CreateRecordCommand
+    with _ListCommandRecordArgs {
+  _CreateListCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -82,41 +107,25 @@ final class _CreateListCommand extends CreateRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.graph.list",
-    "purpose": jsonDecode(argResults!["purpose"]),
+    "purpose": _decodeJson("purpose"),
     "name": argResults!["name"],
     if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
     if (argResults!.wasParsed("descriptionFacets"))
       "descriptionFacets": (argResults!["descriptionFacets"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("descriptionFacets", e))
           .toList(),
     if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     "createdAt": argResults!["createdAt"],
   };
 }
 
-final class _PutListCommand extends PutRecordCommand {
+final class _PutListCommand extends PutRecordCommand
+    with _ListCommandRecordArgs {
   _PutListCommand() {
-    argParser
-      ..addOption(
-        "purpose",
-        help:
-            r"Defines the purpose of the list (aka, moderation-oriented or curration-oriented)",
-        mandatory: true,
-      )
-      ..addOption(
-        "name",
-        help: r"Display name for list; can not be empty.",
-        mandatory: true,
-      )
-      ..addOption("description")
-      ..addMultiOption("descriptionFacets", splitCommas: false)
-      ..addOption("avatar")
-      ..addOption("labels")
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -138,17 +147,16 @@ final class _PutListCommand extends PutRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.graph.list",
-    "purpose": jsonDecode(argResults!["purpose"]),
+    "purpose": _decodeJson("purpose"),
     "name": argResults!["name"],
     if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
     if (argResults!.wasParsed("descriptionFacets"))
       "descriptionFacets": (argResults!["descriptionFacets"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("descriptionFacets", e))
           .toList(),
     if (argResults!.wasParsed("avatar")) "avatar": argResults!["avatar"],
-    if (argResults!.wasParsed("labels"))
-      "labels": jsonDecode(argResults!["labels"]),
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
     "createdAt": argResults!["createdAt"],
   };
 }
@@ -236,7 +244,9 @@ final class _ListListCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.graph.list",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

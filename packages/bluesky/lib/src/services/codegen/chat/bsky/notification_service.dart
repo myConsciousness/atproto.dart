@@ -51,8 +51,9 @@ chatBskyNotificationPutPreferences({
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
-    if (chat != null) 'chat': chat.toJson(),
-    if (chatRequest != null) 'chatRequest': chatRequest.toJson(),
+    if (chat != null) 'chat': const ChatPreferenceConverter().toJson(chat),
+    if (chatRequest != null)
+      'chatRequest': const ChatPreferenceConverter().toJson(chatRequest),
   },
   to: const NotificationPutPreferencesOutputConverter().fromJson,
 );

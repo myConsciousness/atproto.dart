@@ -55,7 +55,12 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
 
     /// Sort direction
     @SafelinkQueryRulesSortDirectionConverter()
-    SafelinkQueryRulesSortDirection? sortDirection,
+    @Default(
+      SafelinkQueryRulesSortDirection.knownValue(
+        data: KnownSafelinkQueryRulesSortDirection.desc,
+      ),
+    )
+    SafelinkQueryRulesSortDirection sortDirection,
 
     Map<String, dynamic>? $unknown,
   }) = _SafelinkQueryRulesInput;
@@ -73,8 +78,6 @@ extension SafelinkQueryRulesInputExtension on SafelinkQueryRulesInput {
   bool get hasNotReason => !hasReason;
   bool get hasCreatedBy => createdBy != null;
   bool get hasNotCreatedBy => !hasCreatedBy;
-  bool get hasSortDirection => sortDirection != null;
-  bool get hasNotSortDirection => !hasSortDirection;
 }
 
 final class SafelinkQueryRulesInputConverter

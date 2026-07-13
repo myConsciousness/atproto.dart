@@ -72,7 +72,7 @@ abstract class ReportActivityView with _$ReportActivityView {
     @ReportViewConverter() ReportView? report,
 
     /// When this activity was created
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ReportActivityView;

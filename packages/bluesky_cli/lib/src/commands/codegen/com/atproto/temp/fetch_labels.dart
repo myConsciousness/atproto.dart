@@ -38,7 +38,11 @@ final class FetchLabelsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("since"))
-      "since": int.parse(argResults!["since"]),
-    "limit": int.parse(argResults!["limit"]),
+      "since":
+          int.tryParse(argResults!["since"]) ??
+          usageException('Invalid integer value for option "since".'),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
   };
 }

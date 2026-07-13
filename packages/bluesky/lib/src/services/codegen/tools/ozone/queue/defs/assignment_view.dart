@@ -42,8 +42,8 @@ abstract class AssignmentView with _$AssignmentView {
     /// The moderator assigned to this queue
     @MemberConverter() Member? moderator,
     @QueueViewConverter() required QueueView queue,
-    required DateTime startAt,
-    DateTime? endAt,
+    @JsonKey(toJson: iso8601) required DateTime startAt,
+    @JsonKey(toJson: iso8601) DateTime? endAt,
 
     Map<String, dynamic>? $unknown,
   }) = _AssignmentView;

@@ -78,7 +78,7 @@ Map<String, dynamic> _$ReportActivityViewToJson(_ReportActivityView instance) =>
         instance.report,
         const ReportViewConverter().toJson,
       ),
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };
 

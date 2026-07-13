@@ -77,7 +77,7 @@ Map<String, dynamic> _$StatusViewToJson(_StatusView instance) =>
         const UStatusViewEmbedConverter().toJson,
       ),
       'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
-      'expiresAt': ?instance.expiresAt?.toIso8601String(),
+      'expiresAt': iso8601(instance.expiresAt),
       'isActive': ?instance.isActive,
       'isDisabled': ?instance.isDisabled,
       r'$unknown': ?instance.$unknown,

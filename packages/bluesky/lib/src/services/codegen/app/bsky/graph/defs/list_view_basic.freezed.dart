@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListViewBasic {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid; String get name;@ListPurposeConverter() ListPurpose get purpose; String? get avatar; int? get listItemCount;@LabelConverter() List<Label>? get labels;@ListViewerStateConverter() ListViewerState? get viewer; DateTime? get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid; String get name;@ListPurposeConverter() ListPurpose get purpose; String? get avatar; int? get listItemCount;@LabelConverter() List<Label>? get labels;@ListViewerStateConverter() ListViewerState? get viewer;@JsonKey(toJson: iso8601) DateTime? get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListViewBasic
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ListViewBasicCopyWith<$Res>  {
   factory $ListViewBasicCopyWith(ListViewBasic value, $Res Function(ListViewBasic) _then) = _$ListViewBasicCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, String name,@ListPurposeConverter() ListPurpose purpose, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime? indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, String name,@ListPurposeConverter() ListPurpose purpose, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer,@JsonKey(toJson: iso8601) DateTime? indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -184,7 +184,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime? indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime? indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListViewBasic() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -205,7 +205,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.a
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime? indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime? indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListViewBasic():
 return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -225,7 +225,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.a
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime? indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime? indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListViewBasic() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -240,7 +240,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.name,_that.purpose,_that.a
 
 @JsonSerializable(includeIfNull: false)
 class _ListViewBasic implements ListViewBasic {
-  const _ListViewBasic({this.$type = 'app.bsky.graph.defs#listViewBasic', @AtUriConverter() required this.uri, required this.cid, required this.name, @ListPurposeConverter() required this.purpose, this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, this.indexedAt, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _ListViewBasic({this.$type = 'app.bsky.graph.defs#listViewBasic', @AtUriConverter() required this.uri, required this.cid, required this.name, @ListPurposeConverter() required this.purpose, this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, @JsonKey(toJson: iso8601) this.indexedAt, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) => _$ListViewBasicFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -260,7 +260,7 @@ class _ListViewBasic implements ListViewBasic {
 }
 
 @override@ListViewerStateConverter() final  ListViewerState? viewer;
-@override final  DateTime? indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? indexedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -304,7 +304,7 @@ abstract mixin class _$ListViewBasicCopyWith<$Res> implements $ListViewBasicCopy
   factory _$ListViewBasicCopyWith(_ListViewBasic value, $Res Function(_ListViewBasic) _then) = __$ListViewBasicCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, String name,@ListPurposeConverter() ListPurpose purpose, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime? indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, String name,@ListPurposeConverter() ListPurpose purpose, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer,@JsonKey(toJson: iso8601) DateTime? indexedAt, Map<String, dynamic>? $unknown
 });
 
 

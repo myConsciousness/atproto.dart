@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ReactionView {
 
- String get $type; String get value;@ReactionViewSenderConverter() ReactionViewSender get sender; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ String get $type; String get value;@ReactionViewSenderConverter() ReactionViewSender get sender;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReactionView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ReactionViewCopyWith<$Res>  {
   factory $ReactionViewCopyWith(ReactionView value, $Res Function(ReactionView) _then) = _$ReactionViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String value,@ReactionViewSenderConverter() ReactionViewSender sender, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String value,@ReactionViewSenderConverter() ReactionViewSender sender,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String value, @ReactionViewSenderConverter()  ReactionViewSender sender,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String value, @ReactionViewSenderConverter()  ReactionViewSender sender, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReactionView() when $default != null:
 return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String value, @ReactionViewSenderConverter()  ReactionViewSender sender,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String value, @ReactionViewSenderConverter()  ReactionViewSender sender, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReactionView():
 return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String value, @ReactionViewSenderConverter()  ReactionViewSender sender,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String value, @ReactionViewSenderConverter()  ReactionViewSender sender, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReactionView() when $default != null:
 return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unknown);case _:
@@ -222,13 +222,13 @@ return $default(_that.$type,_that.value,_that.sender,_that.createdAt,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _ReactionView implements ReactionView {
-  const _ReactionView({this.$type = 'chat.bsky.convo.defs#reactionView', required this.value, @ReactionViewSenderConverter() required this.sender, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReactionView({this.$type = 'chat.bsky.convo.defs#reactionView', required this.value, @ReactionViewSenderConverter() required this.sender, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReactionView.fromJson(Map<String, dynamic> json) => _$ReactionViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String value;
 @override@ReactionViewSenderConverter() final  ReactionViewSender sender;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -272,7 +272,7 @@ abstract mixin class _$ReactionViewCopyWith<$Res> implements $ReactionViewCopyWi
   factory _$ReactionViewCopyWith(_ReactionView value, $Res Function(_ReactionView) _then) = __$ReactionViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String value,@ReactionViewSenderConverter() ReactionViewSender sender, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String value,@ReactionViewSenderConverter() ReactionViewSender sender,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

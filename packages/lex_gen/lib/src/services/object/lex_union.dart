@@ -84,13 +84,13 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
 
   @override
   $name fromJson(Map<String, dynamic> json) {
-    try {
-      $fromJson
+    $fromJson
 
-      return $name.unknown(data: json);
-    } catch (_) {
-      return $name.unknown(data: json);
-    }
+    // No known `\$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `\$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return $name.unknown(data: json);
   }
 
   @override

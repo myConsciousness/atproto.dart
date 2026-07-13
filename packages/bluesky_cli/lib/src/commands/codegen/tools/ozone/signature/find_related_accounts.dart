@@ -40,6 +40,8 @@ final class FindRelatedAccountsCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     "did": argResults!["did"],
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
   };
 }

@@ -5,6 +5,7 @@
 // Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
 import 'services/codegen/tools/ozone/communication_service.dart';
@@ -56,6 +57,42 @@ sealed class OzoneTool {
     ),
   );
 
+  /// Returns the new instance of [OzoneTool].
+  factory OzoneTool.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  }) => _OzoneTool(
+    core.ServiceContext(
+      headers: headers,
+      protocol: protocol,
+      service: service,
+      relayService: relayService,
+      oAuthSession: session,
+      timeout: timeout,
+      retryConfig: retryConfig,
+      getClient: getClient,
+      postClient: postClient,
+    ),
+    atp.ATProto.fromOAuthSession(
+      session,
+      headers: headers,
+      protocol: protocol,
+      service: service,
+      relayService: relayService,
+      timeout: timeout,
+      retryConfig: retryConfig,
+      getClient: getClient,
+      postClient: postClient,
+    ),
+  );
+
   /// Returns the global headers without auth header.
   Map<String, String> get headers;
 
@@ -65,11 +102,17 @@ sealed class OzoneTool {
   /// [OzoneTool.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Returns the current OAuth session.
+  ///
+  /// Set only if an instance of this object was created in
+  /// [OzoneTool.fromOAuthSession], otherwise null.
+  oauth.OAuthSession? get oAuthSession;
+
   /// Returns the current service.
   /// Defaults to `bsky.social`.
   String get service;
 
-  /// Returns the current replay service.
+  /// Returns the current relay service.
   /// Defaults to `bsky.network`.
   String get relayService;
 
@@ -138,6 +181,9 @@ final class _OzoneTool implements OzoneTool {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
 
   @override
   String get service => _ctx.service;

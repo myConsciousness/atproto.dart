@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$StateMetadata {
 
  String get $type;/// The account creation timestamp.
- DateTime? get accountCreatedAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get accountCreatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of StateMetadata
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $StateMetadataCopyWith<$Res>  {
   factory $StateMetadataCopyWith(StateMetadata value, $Res Function(StateMetadata) _then) = _$StateMetadataCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? accountCreatedAt, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? accountCreatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? accountCreatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? accountCreatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StateMetadata() when $default != null:
 return $default(_that.$type,_that.accountCreatedAt,_that.$unknown);case _:
@@ -177,7 +177,7 @@ return $default(_that.$type,_that.accountCreatedAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? accountCreatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? accountCreatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _StateMetadata():
 return $default(_that.$type,_that.accountCreatedAt,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.accountCreatedAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? accountCreatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? accountCreatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _StateMetadata() when $default != null:
 return $default(_that.$type,_that.accountCreatedAt,_that.$unknown);case _:
@@ -212,12 +212,12 @@ return $default(_that.$type,_that.accountCreatedAt,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _StateMetadata implements StateMetadata {
-  const _StateMetadata({this.$type = 'app.bsky.ageassurance.defs#stateMetadata', this.accountCreatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _StateMetadata({this.$type = 'app.bsky.ageassurance.defs#stateMetadata', @JsonKey(toJson: iso8601) this.accountCreatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _StateMetadata.fromJson(Map<String, dynamic> json) => _$StateMetadataFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The account creation timestamp.
-@override final  DateTime? accountCreatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? accountCreatedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -261,7 +261,7 @@ abstract mixin class _$StateMetadataCopyWith<$Res> implements $StateMetadataCopy
   factory _$StateMetadataCopyWith(_StateMetadata value, $Res Function(_StateMetadata) _then) = __$StateMetadataCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? accountCreatedAt, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? accountCreatedAt, Map<String, dynamic>? $unknown
 });
 
 

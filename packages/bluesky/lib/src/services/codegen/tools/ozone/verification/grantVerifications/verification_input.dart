@@ -42,7 +42,7 @@ abstract class VerificationInput with _$VerificationInput {
     required String displayName,
 
     /// Timestamp for verification record. Defaults to current time when not specified.
-    DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _VerificationInput;

@@ -43,7 +43,9 @@ final class UpdateQueueCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "queueId": int.parse(argResults!["queueId"]),
+    "queueId":
+        int.tryParse(argResults!["queueId"]) ??
+        usageException('Invalid integer value for option "queueId".'),
     if (argResults!.wasParsed("name")) "name": argResults!["name"],
     if (argResults!.wasParsed("enabled")) "enabled": argResults!["enabled"],
     if (argResults!.wasParsed("description"))

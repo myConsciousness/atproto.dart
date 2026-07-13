@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JoinLinkViewerState {
 
- String get $type; DateTime? get requestedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@JsonKey(toJson: iso8601) DateTime? get requestedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of JoinLinkViewerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $JoinLinkViewerStateCopyWith<$Res>  {
   factory $JoinLinkViewerStateCopyWith(JoinLinkViewerState value, $Res Function(JoinLinkViewerState) _then) = _$JoinLinkViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? requestedAt, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? requestedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? requestedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? requestedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JoinLinkViewerState() when $default != null:
 return $default(_that.$type,_that.requestedAt,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.$type,_that.requestedAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? requestedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? requestedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _JoinLinkViewerState():
 return $default(_that.$type,_that.requestedAt,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.$type,_that.requestedAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? requestedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? requestedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _JoinLinkViewerState() when $default != null:
 return $default(_that.$type,_that.requestedAt,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.$type,_that.requestedAt,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _JoinLinkViewerState implements JoinLinkViewerState {
-  const _JoinLinkViewerState({this.$type = 'chat.bsky.group.defs#joinLinkViewerState', this.requestedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _JoinLinkViewerState({this.$type = 'chat.bsky.group.defs#joinLinkViewerState', @JsonKey(toJson: iso8601) this.requestedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JoinLinkViewerState.fromJson(Map<String, dynamic> json) => _$JoinLinkViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  DateTime? requestedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? requestedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$JoinLinkViewerStateCopyWith<$Res> implements $JoinLinkVie
   factory _$JoinLinkViewerStateCopyWith(_JoinLinkViewerState value, $Res Function(_JoinLinkViewerState) _then) = __$JoinLinkViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? requestedAt, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? requestedAt, Map<String, dynamic>? $unknown
 });
 
 

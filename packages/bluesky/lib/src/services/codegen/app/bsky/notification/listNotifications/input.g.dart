@@ -41,6 +41,6 @@ Map<String, dynamic> _$NotificationListNotificationsInputToJson(
   'limit': instance.limit,
   'priority': ?instance.priority,
   'cursor': ?instance.cursor,
-  'seenAt': ?instance.seenAt?.toIso8601String(),
+  'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,
 };

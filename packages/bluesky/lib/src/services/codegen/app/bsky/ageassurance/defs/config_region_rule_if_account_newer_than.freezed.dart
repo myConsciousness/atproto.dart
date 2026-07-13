@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ConfigRegionRuleIfAccountNewerThan {
 
  String get $type;/// The date threshold as a datetime string.
- DateTime get date;@AccessConverter() Access get access; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get date;@AccessConverter() Access get access; Map<String, dynamic>? get $unknown;
 /// Create a copy of ConfigRegionRuleIfAccountNewerThan
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $ConfigRegionRuleIfAccountNewerThanCopyWith<$Res>  {
   factory $ConfigRegionRuleIfAccountNewerThanCopyWith(ConfigRegionRuleIfAccountNewerThan value, $Res Function(ConfigRegionRuleIfAccountNewerThan) _then) = _$ConfigRegionRuleIfAccountNewerThanCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime date,@AccessConverter() Access access, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime date,@AccessConverter() Access access, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime date, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime date, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConfigRegionRuleIfAccountNewerThan() when $default != null:
 return $default(_that.$type,_that.date,_that.access,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.date,_that.access,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime date, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime date, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ConfigRegionRuleIfAccountNewerThan():
 return $default(_that.$type,_that.date,_that.access,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.date,_that.access,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime date, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime date, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ConfigRegionRuleIfAccountNewerThan() when $default != null:
 return $default(_that.$type,_that.date,_that.access,_that.$unknown);case _:
@@ -222,12 +222,12 @@ return $default(_that.$type,_that.date,_that.access,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ConfigRegionRuleIfAccountNewerThan implements ConfigRegionRuleIfAccountNewerThan {
-  const _ConfigRegionRuleIfAccountNewerThan({this.$type = 'app.bsky.ageassurance.defs#configRegionRuleIfAccountNewerThan', required this.date, @AccessConverter() required this.access, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ConfigRegionRuleIfAccountNewerThan({this.$type = 'app.bsky.ageassurance.defs#configRegionRuleIfAccountNewerThan', @JsonKey(toJson: iso8601) required this.date, @AccessConverter() required this.access, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ConfigRegionRuleIfAccountNewerThan.fromJson(Map<String, dynamic> json) => _$ConfigRegionRuleIfAccountNewerThanFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The date threshold as a datetime string.
-@override final  DateTime date;
+@override@JsonKey(toJson: iso8601) final  DateTime date;
 @override@AccessConverter() final  Access access;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -272,7 +272,7 @@ abstract mixin class _$ConfigRegionRuleIfAccountNewerThanCopyWith<$Res> implemen
   factory _$ConfigRegionRuleIfAccountNewerThanCopyWith(_ConfigRegionRuleIfAccountNewerThan value, $Res Function(_ConfigRegionRuleIfAccountNewerThan) _then) = __$ConfigRegionRuleIfAccountNewerThanCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime date,@AccessConverter() Access access, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime date,@AccessConverter() Access access, Map<String, dynamic>? $unknown
 });
 
 

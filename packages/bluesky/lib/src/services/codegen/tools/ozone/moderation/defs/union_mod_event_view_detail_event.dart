@@ -266,137 +266,137 @@ final class UModEventViewDetailEventConverter
 
   @override
   UModEventViewDetailEvent fromJson(Map<String, dynamic> json) {
-    try {
-      if (ModEventTakedown.validate(json)) {
-        return UModEventViewDetailEvent.modEventTakedown(
-          data: const ModEventTakedownConverter().fromJson(json),
-        );
-      }
-      if (ModEventReverseTakedown.validate(json)) {
-        return UModEventViewDetailEvent.modEventReverseTakedown(
-          data: const ModEventReverseTakedownConverter().fromJson(json),
-        );
-      }
-      if (ModEventComment.validate(json)) {
-        return UModEventViewDetailEvent.modEventComment(
-          data: const ModEventCommentConverter().fromJson(json),
-        );
-      }
-      if (ModEventReport.validate(json)) {
-        return UModEventViewDetailEvent.modEventReport(
-          data: const ModEventReportConverter().fromJson(json),
-        );
-      }
-      if (ModEventLabel.validate(json)) {
-        return UModEventViewDetailEvent.modEventLabel(
-          data: const ModEventLabelConverter().fromJson(json),
-        );
-      }
-      if (ModEventAcknowledge.validate(json)) {
-        return UModEventViewDetailEvent.modEventAcknowledge(
-          data: const ModEventAcknowledgeConverter().fromJson(json),
-        );
-      }
-      if (ModEventEscalate.validate(json)) {
-        return UModEventViewDetailEvent.modEventEscalate(
-          data: const ModEventEscalateConverter().fromJson(json),
-        );
-      }
-      if (ModEventMute.validate(json)) {
-        return UModEventViewDetailEvent.modEventMute(
-          data: const ModEventMuteConverter().fromJson(json),
-        );
-      }
-      if (ModEventUnmute.validate(json)) {
-        return UModEventViewDetailEvent.modEventUnmute(
-          data: const ModEventUnmuteConverter().fromJson(json),
-        );
-      }
-      if (ModEventMuteReporter.validate(json)) {
-        return UModEventViewDetailEvent.modEventMuteReporter(
-          data: const ModEventMuteReporterConverter().fromJson(json),
-        );
-      }
-      if (ModEventUnmuteReporter.validate(json)) {
-        return UModEventViewDetailEvent.modEventUnmuteReporter(
-          data: const ModEventUnmuteReporterConverter().fromJson(json),
-        );
-      }
-      if (ModEventEmail.validate(json)) {
-        return UModEventViewDetailEvent.modEventEmail(
-          data: const ModEventEmailConverter().fromJson(json),
-        );
-      }
-      if (ModEventResolveAppeal.validate(json)) {
-        return UModEventViewDetailEvent.modEventResolveAppeal(
-          data: const ModEventResolveAppealConverter().fromJson(json),
-        );
-      }
-      if (ModEventDivert.validate(json)) {
-        return UModEventViewDetailEvent.modEventDivert(
-          data: const ModEventDivertConverter().fromJson(json),
-        );
-      }
-      if (ModEventTag.validate(json)) {
-        return UModEventViewDetailEvent.modEventTag(
-          data: const ModEventTagConverter().fromJson(json),
-        );
-      }
-      if (AccountEvent.validate(json)) {
-        return UModEventViewDetailEvent.accountEvent(
-          data: const AccountEventConverter().fromJson(json),
-        );
-      }
-      if (IdentityEvent.validate(json)) {
-        return UModEventViewDetailEvent.identityEvent(
-          data: const IdentityEventConverter().fromJson(json),
-        );
-      }
-      if (RecordEvent.validate(json)) {
-        return UModEventViewDetailEvent.recordEvent(
-          data: const RecordEventConverter().fromJson(json),
-        );
-      }
-      if (ModEventPriorityScore.validate(json)) {
-        return UModEventViewDetailEvent.modEventPriorityScore(
-          data: const ModEventPriorityScoreConverter().fromJson(json),
-        );
-      }
-      if (AgeAssuranceEvent.validate(json)) {
-        return UModEventViewDetailEvent.ageAssuranceEvent(
-          data: const AgeAssuranceEventConverter().fromJson(json),
-        );
-      }
-      if (AgeAssuranceOverrideEvent.validate(json)) {
-        return UModEventViewDetailEvent.ageAssuranceOverrideEvent(
-          data: const AgeAssuranceOverrideEventConverter().fromJson(json),
-        );
-      }
-      if (AgeAssurancePurgeEvent.validate(json)) {
-        return UModEventViewDetailEvent.ageAssurancePurgeEvent(
-          data: const AgeAssurancePurgeEventConverter().fromJson(json),
-        );
-      }
-      if (RevokeAccountCredentialsEvent.validate(json)) {
-        return UModEventViewDetailEvent.revokeAccountCredentialsEvent(
-          data: const RevokeAccountCredentialsEventConverter().fromJson(json),
-        );
-      }
-      if (ScheduleTakedownEvent.validate(json)) {
-        return UModEventViewDetailEvent.scheduleTakedownEvent(
-          data: const ScheduleTakedownEventConverter().fromJson(json),
-        );
-      }
-      if (CancelScheduledTakedownEvent.validate(json)) {
-        return UModEventViewDetailEvent.cancelScheduledTakedownEvent(
-          data: const CancelScheduledTakedownEventConverter().fromJson(json),
-        );
-      }
-
-      return UModEventViewDetailEvent.unknown(data: json);
-    } catch (_) {
-      return UModEventViewDetailEvent.unknown(data: json);
+    if (ModEventTakedown.validate(json)) {
+      return UModEventViewDetailEvent.modEventTakedown(
+        data: const ModEventTakedownConverter().fromJson(json),
+      );
     }
+    if (ModEventReverseTakedown.validate(json)) {
+      return UModEventViewDetailEvent.modEventReverseTakedown(
+        data: const ModEventReverseTakedownConverter().fromJson(json),
+      );
+    }
+    if (ModEventComment.validate(json)) {
+      return UModEventViewDetailEvent.modEventComment(
+        data: const ModEventCommentConverter().fromJson(json),
+      );
+    }
+    if (ModEventReport.validate(json)) {
+      return UModEventViewDetailEvent.modEventReport(
+        data: const ModEventReportConverter().fromJson(json),
+      );
+    }
+    if (ModEventLabel.validate(json)) {
+      return UModEventViewDetailEvent.modEventLabel(
+        data: const ModEventLabelConverter().fromJson(json),
+      );
+    }
+    if (ModEventAcknowledge.validate(json)) {
+      return UModEventViewDetailEvent.modEventAcknowledge(
+        data: const ModEventAcknowledgeConverter().fromJson(json),
+      );
+    }
+    if (ModEventEscalate.validate(json)) {
+      return UModEventViewDetailEvent.modEventEscalate(
+        data: const ModEventEscalateConverter().fromJson(json),
+      );
+    }
+    if (ModEventMute.validate(json)) {
+      return UModEventViewDetailEvent.modEventMute(
+        data: const ModEventMuteConverter().fromJson(json),
+      );
+    }
+    if (ModEventUnmute.validate(json)) {
+      return UModEventViewDetailEvent.modEventUnmute(
+        data: const ModEventUnmuteConverter().fromJson(json),
+      );
+    }
+    if (ModEventMuteReporter.validate(json)) {
+      return UModEventViewDetailEvent.modEventMuteReporter(
+        data: const ModEventMuteReporterConverter().fromJson(json),
+      );
+    }
+    if (ModEventUnmuteReporter.validate(json)) {
+      return UModEventViewDetailEvent.modEventUnmuteReporter(
+        data: const ModEventUnmuteReporterConverter().fromJson(json),
+      );
+    }
+    if (ModEventEmail.validate(json)) {
+      return UModEventViewDetailEvent.modEventEmail(
+        data: const ModEventEmailConverter().fromJson(json),
+      );
+    }
+    if (ModEventResolveAppeal.validate(json)) {
+      return UModEventViewDetailEvent.modEventResolveAppeal(
+        data: const ModEventResolveAppealConverter().fromJson(json),
+      );
+    }
+    if (ModEventDivert.validate(json)) {
+      return UModEventViewDetailEvent.modEventDivert(
+        data: const ModEventDivertConverter().fromJson(json),
+      );
+    }
+    if (ModEventTag.validate(json)) {
+      return UModEventViewDetailEvent.modEventTag(
+        data: const ModEventTagConverter().fromJson(json),
+      );
+    }
+    if (AccountEvent.validate(json)) {
+      return UModEventViewDetailEvent.accountEvent(
+        data: const AccountEventConverter().fromJson(json),
+      );
+    }
+    if (IdentityEvent.validate(json)) {
+      return UModEventViewDetailEvent.identityEvent(
+        data: const IdentityEventConverter().fromJson(json),
+      );
+    }
+    if (RecordEvent.validate(json)) {
+      return UModEventViewDetailEvent.recordEvent(
+        data: const RecordEventConverter().fromJson(json),
+      );
+    }
+    if (ModEventPriorityScore.validate(json)) {
+      return UModEventViewDetailEvent.modEventPriorityScore(
+        data: const ModEventPriorityScoreConverter().fromJson(json),
+      );
+    }
+    if (AgeAssuranceEvent.validate(json)) {
+      return UModEventViewDetailEvent.ageAssuranceEvent(
+        data: const AgeAssuranceEventConverter().fromJson(json),
+      );
+    }
+    if (AgeAssuranceOverrideEvent.validate(json)) {
+      return UModEventViewDetailEvent.ageAssuranceOverrideEvent(
+        data: const AgeAssuranceOverrideEventConverter().fromJson(json),
+      );
+    }
+    if (AgeAssurancePurgeEvent.validate(json)) {
+      return UModEventViewDetailEvent.ageAssurancePurgeEvent(
+        data: const AgeAssurancePurgeEventConverter().fromJson(json),
+      );
+    }
+    if (RevokeAccountCredentialsEvent.validate(json)) {
+      return UModEventViewDetailEvent.revokeAccountCredentialsEvent(
+        data: const RevokeAccountCredentialsEventConverter().fromJson(json),
+      );
+    }
+    if (ScheduleTakedownEvent.validate(json)) {
+      return UModEventViewDetailEvent.scheduleTakedownEvent(
+        data: const ScheduleTakedownEventConverter().fromJson(json),
+      );
+    }
+    if (CancelScheduledTakedownEvent.validate(json)) {
+      return UModEventViewDetailEvent.cancelScheduledTakedownEvent(
+        data: const CancelScheduledTakedownEventConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UModEventViewDetailEvent.unknown(data: json);
   }
 
   @override

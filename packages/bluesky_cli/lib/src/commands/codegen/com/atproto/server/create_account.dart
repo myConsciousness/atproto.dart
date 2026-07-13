@@ -77,7 +77,15 @@ final class CreateAccountCommand extends ProcedureCommand {
     if (argResults!.wasParsed("password")) "password": argResults!["password"],
     if (argResults!.wasParsed("recoveryKey"))
       "recoveryKey": argResults!["recoveryKey"],
-    if (argResults!.wasParsed("plcOp"))
-      "plcOp": jsonDecode(argResults!["plcOp"]),
+    if (argResults!.wasParsed("plcOp")) "plcOp": _decodeJson("plcOp"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

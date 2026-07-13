@@ -20,11 +20,13 @@ _SafelinkQueryEventsInput _$SafelinkQueryEventsInputFromJson(Map json) =>
         patternType: $checkedConvert('patternType', (v) => v as String?),
         sortDirection: $checkedConvert(
           'sortDirection',
-          (v) =>
-              _$JsonConverterFromJson<String, SafelinkQueryEventsSortDirection>(
-                v,
-                const SafelinkQueryEventsSortDirectionConverter().fromJson,
-              ),
+          (v) => v == null
+              ? const SafelinkQueryEventsSortDirection.knownValue(
+                  data: KnownSafelinkQueryEventsSortDirection.desc,
+                )
+              : const SafelinkQueryEventsSortDirectionConverter().fromJson(
+                  v as String,
+                ),
         ),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -41,20 +43,8 @@ Map<String, dynamic> _$SafelinkQueryEventsInputToJson(
   'limit': instance.limit,
   'urls': ?instance.urls,
   'patternType': ?instance.patternType,
-  'sortDirection':
-      ?_$JsonConverterToJson<String, SafelinkQueryEventsSortDirection>(
-        instance.sortDirection,
-        const SafelinkQueryEventsSortDirectionConverter().toJson,
-      ),
+  'sortDirection': const SafelinkQueryEventsSortDirectionConverter().toJson(
+    instance.sortDirection,
+  ),
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

@@ -91,16 +91,18 @@ void main() {
       });
     });
 
-    test('case6', () async {
+    test('case6 network failure is surfaced, not silently swallowed', () async {
       final entity = Entity(
         type: EntityType.handle,
         value: 'shinyakato.dev',
         indices: ByteIndices(start: 0, end: 0),
       );
 
-      final facet = await entity.toFacet(service: 'test');
-
-      expect(facet, {});
+      //* A DNS/connection failure (here, the unresolvable `test` host) must
+      //* propagate so the caller can detect a transient outage, instead of
+      //* silently dropping the mention by returning `{}` (audit T-17). Only a
+      //* genuine "handle not found" (`InvalidRequestException`) yields `{}`.
+      await expectLater(entity.toFacet(service: 'test'), throwsA(anything));
     });
 
     test('case7', () async {

@@ -19,7 +19,7 @@ mixin _$VerificationInput {
  String get subject;/// Handle of the subject the verification applies to at the moment of verifying.
  String get handle;/// Display name of the subject the verification applies to at the moment of verifying.
  String get displayName;/// Timestamp for verification record. Defaults to current time when not specified.
- DateTime? get createdAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -52,7 +52,7 @@ abstract mixin class $VerificationInputCopyWith<$Res>  {
   factory $VerificationInputCopyWith(VerificationInput value, $Res Function(VerificationInput) _then) = _$VerificationInputCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subject, String handle, String displayName, DateTime? createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject, String handle, String displayName,@JsonKey(toJson: iso8601) DateTime? createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName,  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationInput() when $default != null:
 return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName,  DateTime? createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationInput():
 return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject,  String handle,  String displayName,  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationInput() when $default != null:
 return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.$type,_that.subject,_that.handle,_that.displayName,_that.c
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationInput implements VerificationInput {
-  const _VerificationInput({this.$type = 'tools.ozone.verification.grantVerifications#verificationInput', required this.subject, required this.handle, required this.displayName, this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationInput({this.$type = 'tools.ozone.verification.grantVerifications#verificationInput', required this.subject, required this.handle, required this.displayName, @JsonKey(toJson: iso8601) this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationInput.fromJson(Map<String, dynamic> json) => _$VerificationInputFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -229,7 +229,7 @@ class _VerificationInput implements VerificationInput {
 /// Display name of the subject the verification applies to at the moment of verifying.
 @override final  String displayName;
 /// Timestamp for verification record. Defaults to current time when not specified.
-@override final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -273,7 +273,7 @@ abstract mixin class _$VerificationInputCopyWith<$Res> implements $VerificationI
   factory _$VerificationInputCopyWith(_VerificationInput value, $Res Function(_VerificationInput) _then) = __$VerificationInputCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subject, String handle, String displayName, DateTime? createdAt, Map<String, dynamic>? $unknown
+ String $type, String subject, String handle, String displayName,@JsonKey(toJson: iso8601) DateTime? createdAt, Map<String, dynamic>? $unknown
 });
 
 

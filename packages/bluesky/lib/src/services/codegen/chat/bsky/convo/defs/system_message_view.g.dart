@@ -37,7 +37,7 @@ Map<String, dynamic> _$SystemMessageViewToJson(_SystemMessageView instance) =>
       r'$type': instance.$type,
       'id': instance.id,
       'rev': instance.rev,
-      'sentAt': instance.sentAt.toIso8601String(),
+      'sentAt': iso8601(instance.sentAt),
       'data': const USystemMessageViewDataConverter().toJson(instance.data),
       r'$unknown': ?instance.$unknown,
     };

@@ -31,7 +31,7 @@ abstract class AgeAssuranceState with _$AgeAssuranceState {
     @Default('app.bsky.unspecced.defs#ageAssuranceState') String $type,
 
     /// The timestamp when this state was last updated.
-    DateTime? lastInitiatedAt,
+    @JsonKey(toJson: iso8601) DateTime? lastInitiatedAt,
 
     /// The status of the age assurance process.
     @AgeAssuranceStateStatusConverter() required AgeAssuranceStateStatus status,

@@ -18,8 +18,8 @@ mixin _$ReportGetHistoricalStatsInput {
 /// Filter stats by queue. Use -1 for unqueued reports.
  int? get queueId;/// Filter stats by moderator DID.
  String? get moderatorDid; List<String>? get reportTypes;/// Earliest date to include (inclusive).
- DateTime? get startDate;/// Latest date to include (inclusive).
- DateTime? get endDate;/// Maximum number of entries to return.
+@JsonKey(toJson: iso8601) DateTime? get startDate;/// Latest date to include (inclusive).
+@JsonKey(toJson: iso8601) DateTime? get endDate;/// Maximum number of entries to return.
  int get limit;/// Pagination cursor.
  String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportGetHistoricalStatsInput
@@ -54,7 +54,7 @@ abstract mixin class $ReportGetHistoricalStatsInputCopyWith<$Res>  {
   factory $ReportGetHistoricalStatsInputCopyWith(ReportGetHistoricalStatsInput value, $Res Function(ReportGetHistoricalStatsInput) _then) = _$ReportGetHistoricalStatsInputCopyWithImpl;
 @useResult
 $Res call({
- int? queueId, String? moderatorDid, List<String>? reportTypes, DateTime? startDate, DateTime? endDate, int limit, String? cursor, Map<String, dynamic>? $unknown
+ int? queueId, String? moderatorDid, List<String>? reportTypes,@JsonKey(toJson: iso8601) DateTime? startDate,@JsonKey(toJson: iso8601) DateTime? endDate, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? queueId,  String? moderatorDid,  List<String>? reportTypes,  DateTime? startDate,  DateTime? endDate,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? queueId,  String? moderatorDid,  List<String>? reportTypes, @JsonKey(toJson: iso8601)  DateTime? startDate, @JsonKey(toJson: iso8601)  DateTime? endDate,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportGetHistoricalStatsInput() when $default != null:
 return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.startDate,_that.endDate,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.startDa
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? queueId,  String? moderatorDid,  List<String>? reportTypes,  DateTime? startDate,  DateTime? endDate,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? queueId,  String? moderatorDid,  List<String>? reportTypes, @JsonKey(toJson: iso8601)  DateTime? startDate, @JsonKey(toJson: iso8601)  DateTime? endDate,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportGetHistoricalStatsInput():
 return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.startDate,_that.endDate,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.startDa
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? queueId,  String? moderatorDid,  List<String>? reportTypes,  DateTime? startDate,  DateTime? endDate,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? queueId,  String? moderatorDid,  List<String>? reportTypes, @JsonKey(toJson: iso8601)  DateTime? startDate, @JsonKey(toJson: iso8601)  DateTime? endDate,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportGetHistoricalStatsInput() when $default != null:
 return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.startDate,_that.endDate,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.startDa
 
 @JsonSerializable(includeIfNull: false)
 class _ReportGetHistoricalStatsInput implements ReportGetHistoricalStatsInput {
-  const _ReportGetHistoricalStatsInput({this.queueId, this.moderatorDid, final  List<String>? reportTypes, this.startDate, this.endDate, this.limit = 30, this.cursor, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_$unknown = $unknown;
+  const _ReportGetHistoricalStatsInput({this.queueId, this.moderatorDid, final  List<String>? reportTypes, @JsonKey(toJson: iso8601) this.startDate, @JsonKey(toJson: iso8601) this.endDate, this.limit = 30, this.cursor, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_$unknown = $unknown;
   factory _ReportGetHistoricalStatsInput.fromJson(Map<String, dynamic> json) => _$ReportGetHistoricalStatsInputFromJson(json);
 
 /// Filter stats by queue. Use -1 for unqueued reports.
@@ -239,9 +239,9 @@ class _ReportGetHistoricalStatsInput implements ReportGetHistoricalStatsInput {
 }
 
 /// Earliest date to include (inclusive).
-@override final  DateTime? startDate;
+@override@JsonKey(toJson: iso8601) final  DateTime? startDate;
 /// Latest date to include (inclusive).
-@override final  DateTime? endDate;
+@override@JsonKey(toJson: iso8601) final  DateTime? endDate;
 /// Maximum number of entries to return.
 @override@JsonKey() final  int limit;
 /// Pagination cursor.
@@ -289,7 +289,7 @@ abstract mixin class _$ReportGetHistoricalStatsInputCopyWith<$Res> implements $R
   factory _$ReportGetHistoricalStatsInputCopyWith(_ReportGetHistoricalStatsInput value, $Res Function(_ReportGetHistoricalStatsInput) _then) = __$ReportGetHistoricalStatsInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? queueId, String? moderatorDid, List<String>? reportTypes, DateTime? startDate, DateTime? endDate, int limit, String? cursor, Map<String, dynamic>? $unknown
+ int? queueId, String? moderatorDid, List<String>? reportTypes,@JsonKey(toJson: iso8601) DateTime? startDate,@JsonKey(toJson: iso8601) DateTime? endDate, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 

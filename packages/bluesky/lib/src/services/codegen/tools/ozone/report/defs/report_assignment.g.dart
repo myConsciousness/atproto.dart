@@ -43,7 +43,7 @@ Map<String, dynamic> _$ReportAssignmentToJson(_ReportAssignment instance) =>
         instance.moderator,
         const MemberConverter().toJson,
       ),
-      'assignedAt': instance.assignedAt.toIso8601String(),
+      'assignedAt': iso8601(instance.assignedAt),
       r'$unknown': ?instance.$unknown,
     };
 

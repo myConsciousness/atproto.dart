@@ -29,20 +29,22 @@ Future<Response<T>> get<T>(
   final type.ResponseDataBuilder<T>? to,
   final type.ResponseDataAdaptor? adaptor,
   final type.GetClient? getClient,
+  final http.Client? client,
 }) async => _buildResponse<T>(
   checkStatus(
-    await (getClient ?? http.get)
-        .call(
-          util
-              .getUriFactory(protocol)
-              .call(
-                service ?? defaultService,
-                unencodedPath,
-                util.convertParameters(util.removeNullValues(parameters) ?? {}),
-              ),
-          headers: headers,
-        )
-        .timeout(timeout),
+    await util.executeGet(
+      util
+          .getUriFactory(protocol)
+          .call(
+            service ?? defaultService,
+            unencodedPath,
+            util.toQueryParameters(parameters),
+          ),
+      headers: headers,
+      timeout: timeout,
+      getClient: getClient,
+      client: client,
+    ),
   ),
   to,
   adaptor,
@@ -57,27 +59,30 @@ Future<Response<T>> post<T>(
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
+  final type.ResponseDataAdaptor? adaptor,
   final type.PostClient? postClient,
+  final http.Client? client,
 }) async => _buildResponse<T>(
   checkStatus(
-    await (postClient ?? http.post)
-        .call(
-          util
-              .getUriFactory(protocol)
-              .call(
-                service ?? defaultService,
-                unencodedPath,
-                util.convertParameters(util.removeNullValues(parameters) ?? {}),
-              ),
-          headers: {'Content-type': 'application/json'}..addAll(headers ?? {}),
-          body: body != null
-              ? jsonEncode(util.removeNullValues(body) ?? {})
-              : null,
-          encoding: utf8,
-        )
-        .timeout(timeout),
+    await util.executePost(
+      util
+          .getUriFactory(protocol)
+          .call(
+            service ?? defaultService,
+            unencodedPath,
+            util.toQueryParameters(parameters),
+          ),
+      headers: {'Content-Type': 'application/json; charset=UTF-8'}
+        ..addAll(headers ?? {}),
+      body: body != null ? jsonEncode(util.removeNullValues(body) ?? {}) : null,
+      encoding: utf8,
+      timeout: timeout,
+      postClient: postClient,
+      client: client,
+    ),
   ),
   to,
+  adaptor,
 );
 
 http.Response checkStatus(final http.Response response) {
@@ -108,4 +113,30 @@ Response<T> _buildResponse<T>(
 /// Returns the error response.
 Response<Map<String, dynamic>> _buildErrorResponse(
   final http.Response response,
-) => _buildResponse<Map<String, dynamic>>(response, null);
+) => Response(
+  headers: response.headers,
+  status: HttpStatus.valueOf(response.statusCode),
+  request: Request(
+    method: HttpMethod.valueOf(response.request!.method),
+    url: response.request!.url,
+  ),
+  data: _parseErrorBody(response),
+);
+
+/// Parses the error body of [response].
+///
+/// Falls back to a map with the raw body as the message when the body is
+/// not a valid JSON object, e.g. an HTML page returned by a proxy or an
+/// empty body.
+Map<String, dynamic> _parseErrorBody(final http.Response response) {
+  try {
+    final dynamic json = jsonDecode(response.body);
+    if (json is Map<String, dynamic>) {
+      return json;
+    }
+  } catch (_) {
+    //! Fall through to the raw-body fallback below.
+  }
+
+  return {'error': 'UnknownError', 'message': response.body};
+}

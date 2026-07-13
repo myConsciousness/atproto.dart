@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
 import '../services/codegen/com/atproto/sync/subscribeRepos/union_main_message.dart';
-import '../tools/adaptors/cid_links.dart';
 import 'firehose_adaptor.dart';
 
 final class SyncSubscribeReposAdaptor {
@@ -18,29 +17,43 @@ final class SyncSubscribeReposAdaptor {
 
   USyncSubscribeReposMessage execute(final dynamic data) {
     final repos = const FirehoseAdaptor().execute(data);
-    if (!_isRepoCommit(repos)) {
-      return const USyncSubscribeReposMessageConverter().fromJson(repos);
+
+    if (_isCommit(repos)) {
+      return const USyncSubscribeReposMessageConverter().fromJson({
+        ...repos,
+        'ops': _getOps(repos),
+        'blocks': _getBlocks(repos),
+        'commit': _getCidLink(repos['commit']),
+        //! `prevData` (sync v1.1) is a CID link the relay adds to every commit.
+        //! Without converting it the whole commit degraded to `unknown`.
+        'prevData': _getCidLink(repos['prevData']),
+      });
     }
 
-    final blocks = _getBlocks(repos);
-    final ops = _getOps(repos);
+    if (_isSync(repos)) {
+      //! `#sync` frames (account migration/recovery) carry the commit as a CAR
+      //! in `blocks`; decode it so a typed `Sync` event is produced.
+      return const USyncSubscribeReposMessageConverter().fromJson({
+        ...repos,
+        'blocks': _getBlocks(repos),
+      });
+    }
 
-    return const USyncSubscribeReposMessageConverter().fromJson({
-      ...repos,
-      'ops': ops,
-      'blocks': _convertBlocks(blocks, ops),
-      'commit': _getCommitCidLink(repos),
-    });
+    return const USyncSubscribeReposMessageConverter().fromJson(repos);
   }
 
   List<Map<String, dynamic>> _getOps(final Map<String, dynamic> repos) {
-    if (repos['ops'] == null) return const [];
-    if (repos['ops'].isEmpty) return const [];
+    final ops = repos['ops'];
+    if (ops is! List || ops.isEmpty) return const [];
 
-    return List<Map>.from(repos['ops']).map((e) {
+    return ops.map<Map<String, dynamic>>((e) {
+      final op = Map<String, dynamic>.from(e as Map);
+
       return <String, dynamic>{
-        ...e,
-        if (e['cid'] != null) 'cid': core.CID.fromList(e['cid']).toString(),
+        ...op,
+        if (op['cid'] != null) 'cid': _getCidLink(op['cid']),
+        //! `prev` is the previous record CID (required for inductive firehose).
+        if (op['prev'] != null) 'prev': _getCidLink(op['prev']),
       };
     }).toList();
   }
@@ -48,54 +61,31 @@ final class SyncSubscribeReposAdaptor {
   Map<String, Map<String, dynamic>> _getBlocks(
     final Map<String, dynamic> repos,
   ) {
-    if (repos['blocks'] == null) return const {};
-    if (repos['blocks'].isEmpty) return const {};
+    final blocks = repos['blocks'];
+    if (blocks == null) return const {};
+    if (blocks is! List || blocks.isEmpty) return const {};
 
-    try {
-      return core.decodeCar(Uint8List.fromList(repos['blocks']));
-    } catch (_) {
-      return const {};
-    }
+    //! Do not swallow decode failures: a commit whose CAR diff cannot be
+    //! decoded is data loss, and `decodeCar` surfaces it as a typed
+    //! `CarException` so the consumer can detect it instead of silently
+    //! receiving an empty block map.
+    //! CID links (and byte strings) inside records are already normalized by
+    //! `decodeCar`, so the blocks can be returned as-is.
+    return core.decodeCar(Uint8List.fromList(blocks.cast<int>()));
   }
 
-  Map<String, Map<String, dynamic>> _convertBlocks(
-    final Map<String, Map<String, dynamic>> blocks,
-    final List<Map<dynamic, dynamic>> ops,
-  ) {
-    if (blocks.isEmpty) return const {};
-    if (ops.isEmpty) return blocks;
-
-    var result = <String, Map<String, dynamic>>{...blocks};
-    for (final op in ops) {
-      if (op['cid'] == null) continue;
-
-      final root = op['cid'] as String;
-      final record = blocks[root];
-
-      if (record != null) {
-        result = {...blocks, root: convertCidLinks(record)};
-      }
-    }
-
-    return result;
-  }
-
-  String? _getCommitCidLink(final Map<String, dynamic> repos) {
-    if (!_isValidRootCidLink(repos['commit'])) return null;
+  /// Converts a raw CID link (a `List<int>` of CBOR bytes) into its base32
+  /// string form, or returns null when the value is absent or invalid.
+  String? _getCidLink(final dynamic value) {
+    if (value is! List) return null;
 
     try {
-      return core.CID.fromList(repos['commit']).toString();
+      return core.CID.fromList(value.cast<int>()).toString();
     } catch (_) {
       return null;
     }
   }
 
-  bool _isValidRootCidLink(final dynamic data) {
-    if (data == null) return false;
-    if (data is! List<int>) return false;
-
-    return true;
-  }
-
-  bool _isRepoCommit(final Map repos) => repos['t'] == '#commit';
+  bool _isCommit(final Map repos) => repos['t'] == '#commit';
+  bool _isSync(final Map repos) => repos['t'] == '#sync';
 }

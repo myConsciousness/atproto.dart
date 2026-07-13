@@ -42,7 +42,9 @@ final class GetLiveStatsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("queueId"))
-      "queueId": int.parse(argResults!["queueId"]),
+      "queueId":
+          int.tryParse(argResults!["queueId"]) ??
+          usageException('Invalid integer value for option "queueId".'),
     if (argResults!.wasParsed("moderatorDid"))
       "moderatorDid": argResults!["moderatorDid"],
     if (argResults!.wasParsed("reportTypes"))

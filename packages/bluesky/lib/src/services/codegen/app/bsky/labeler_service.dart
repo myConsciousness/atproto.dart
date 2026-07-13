@@ -143,14 +143,19 @@ final class LabelerServiceRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.labeler.service',
       ...?$unknown,
-      'policies': policies.toJson(),
+      'policies': const LabelerPoliciesConverter().toJson(policies),
       if (labels != null) 'labels': labels.toJson(),
       'createdAt': iso8601(createdAt),
       if (reasonTypes != null)
-        'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
+        'reasonTypes': reasonTypes
+            .map((e) => const ReasonTypeConverter().toJson(e))
+            .toList(),
       if (subjectTypes != null)
-        'subjectTypes': subjectTypes.map((e) => e.toJson()).toList(),
+        'subjectTypes': subjectTypes
+            .map((e) => const SubjectTypeConverter().toJson(e))
+            .toList(),
       if (subjectCollections != null) 'subjectCollections': subjectCollections,
     },
     swapCommit: swapCommit,
@@ -177,14 +182,19 @@ final class LabelerServiceRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.labeler.service',
       ...?$unknown,
-      'policies': policies.toJson(),
+      'policies': const LabelerPoliciesConverter().toJson(policies),
       if (labels != null) 'labels': labels.toJson(),
       'createdAt': iso8601(createdAt),
       if (reasonTypes != null)
-        'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
+        'reasonTypes': reasonTypes
+            .map((e) => const ReasonTypeConverter().toJson(e))
+            .toList(),
       if (subjectTypes != null)
-        'subjectTypes': subjectTypes.map((e) => e.toJson()).toList(),
+        'subjectTypes': subjectTypes
+            .map((e) => const SubjectTypeConverter().toJson(e))
+            .toList(),
       if (subjectCollections != null) 'subjectCollections': subjectCollections,
     },
     swapRecord: swapRecord,

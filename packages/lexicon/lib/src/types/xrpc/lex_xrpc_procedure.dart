@@ -25,7 +25,7 @@ abstract class LexXrpcProcedure with _$LexXrpcProcedure {
     LexXrpcBody? input,
     LexXrpcBody? output,
     List<LexXrpcError>? errors,
-  }) = _LexXrpcQuery;
+  }) = _LexXrpcProcedure;
 
   factory LexXrpcProcedure.fromJson(Map<String, Object?> json) =>
       _$LexXrpcProcedureFromJson(json);

@@ -16,10 +16,11 @@ _FeedGetAuthorFeedInput _$FeedGetAuthorFeedInputFromJson(Map json) =>
         cursor: $checkedConvert('cursor', (v) => v as String?),
         filter: $checkedConvert(
           'filter',
-          (v) => _$JsonConverterFromJson<String, FeedGetAuthorFeedFilter>(
-            v,
-            const FeedGetAuthorFeedFilterConverter().fromJson,
-          ),
+          (v) => v == null
+              ? const FeedGetAuthorFeedFilter.knownValue(
+                  data: KnownFeedGetAuthorFeedFilter.posts_with_replies,
+                )
+              : const FeedGetAuthorFeedFilterConverter().fromJson(v as String),
         ),
         includePins: $checkedConvert('includePins', (v) => v as bool? ?? false),
         $unknown: $checkedConvert(
@@ -36,20 +37,7 @@ Map<String, dynamic> _$FeedGetAuthorFeedInputToJson(
   'actor': instance.actor,
   'limit': instance.limit,
   'cursor': ?instance.cursor,
-  'filter': ?_$JsonConverterToJson<String, FeedGetAuthorFeedFilter>(
-    instance.filter,
-    const FeedGetAuthorFeedFilterConverter().toJson,
-  ),
+  'filter': const FeedGetAuthorFeedFilterConverter().toJson(instance.filter),
   'includePins': instance.includePins,
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

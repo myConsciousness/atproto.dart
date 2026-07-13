@@ -72,27 +72,27 @@ final class UProfileViewBasicKindConverter
 
   @override
   UProfileViewBasicKind fromJson(Map<String, dynamic> json) {
-    try {
-      if (DirectConvoMember.validate(json)) {
-        return UProfileViewBasicKind.directConvoMember(
-          data: const DirectConvoMemberConverter().fromJson(json),
-        );
-      }
-      if (GroupConvoMember.validate(json)) {
-        return UProfileViewBasicKind.groupConvoMember(
-          data: const GroupConvoMemberConverter().fromJson(json),
-        );
-      }
-      if (PastGroupConvoMember.validate(json)) {
-        return UProfileViewBasicKind.pastGroupConvoMember(
-          data: const PastGroupConvoMemberConverter().fromJson(json),
-        );
-      }
-
-      return UProfileViewBasicKind.unknown(data: json);
-    } catch (_) {
-      return UProfileViewBasicKind.unknown(data: json);
+    if (DirectConvoMember.validate(json)) {
+      return UProfileViewBasicKind.directConvoMember(
+        data: const DirectConvoMemberConverter().fromJson(json),
+      );
     }
+    if (GroupConvoMember.validate(json)) {
+      return UProfileViewBasicKind.groupConvoMember(
+        data: const GroupConvoMemberConverter().fromJson(json),
+      );
+    }
+    if (PastGroupConvoMember.validate(json)) {
+      return UProfileViewBasicKind.pastGroupConvoMember(
+        data: const PastGroupConvoMemberConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UProfileViewBasicKind.unknown(data: json);
   }
 
   @override

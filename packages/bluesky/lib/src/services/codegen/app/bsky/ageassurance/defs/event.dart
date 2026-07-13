@@ -44,7 +44,7 @@ abstract class Event with _$Event {
     @Default('app.bsky.ageassurance.defs#event') String $type,
 
     /// The date and time of this write operation.
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// The unique identifier for this instance of the Age Assurance flow, in UUID format.
     required String attemptId,

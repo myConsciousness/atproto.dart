@@ -95,18 +95,17 @@ void main() async {
 
   const targetDid = 'did:plc:cached_example';
 
-  // First call - will execute the network operation
+  // First call - will execute the network operation and cache the result.
   print('\nFirst call (should make network request):');
-  final doc1 = await cachedOperation.didDocument<DidDocument>(
+  final doc1 = await cachedOperation.didDocument(
     targetDid,
     () => fetchDidDocument(targetDid),
-    onCacheStore: (key, value) => cacheManager.putDidDocument(key, value),
   );
   print('Result: ${doc1.id}');
 
   // Second call - should return cached result
   print('\nSecond call (should use cache):');
-  final doc2 = await cachedOperation.didDocument<DidDocument>(
+  final doc2 = await cachedOperation.didDocument(
     targetDid,
     () => fetchDidDocument(targetDid),
   );

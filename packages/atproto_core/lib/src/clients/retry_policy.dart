@@ -29,14 +29,25 @@ final class RetryPolicy {
     return _retryConfig!.maxAttempts > retryCount;
   }
 
-  Future wait(final int retryCount) async {
+  /// Maximum wait a server-provided reset time ([wait]'s `atLeast`) can
+  /// raise the interval to, so a misbehaving server cannot make clients
+  /// hang for an unbounded amount of time.
+  static const int _maxServerWaitInSeconds = 60;
+
+  Future wait(final int retryCount, {final Duration? atLeast}) async {
     _checkRetryCount(retryCount);
 
     if (!_hasRetryConfig) {
       return;
     }
 
-    final int intervalInSeconds = _computeWaitIntervals(retryCount - 1);
+    int intervalInSeconds = _computeWaitIntervals(retryCount - 1);
+    if (atLeast != null) {
+      final atLeastInSeconds = (atLeast.inMilliseconds / 1000).ceil();
+      if (atLeastInSeconds > intervalInSeconds) {
+        intervalInSeconds = math.min(atLeastInSeconds, _maxServerWaitInSeconds);
+      }
+    }
 
     await _retryConfig!.onExecute?.call(
       RetryEvent(retryCount: retryCount, intervalInSeconds: intervalInSeconds),

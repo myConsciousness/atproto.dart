@@ -35,7 +35,13 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
   const factory SettingListOptionsInput({
     @Default(50) int limit,
     String? cursor,
-    @SettingListOptionsScopeConverter() SettingListOptionsScope? scope,
+    @SettingListOptionsScopeConverter()
+    @Default(
+      SettingListOptionsScope.knownValue(
+        data: KnownSettingListOptionsScope.instance,
+      ),
+    )
+    SettingListOptionsScope scope,
 
     /// Filter keys by prefix
     String? prefix,
@@ -51,8 +57,6 @@ abstract class SettingListOptionsInput with _$SettingListOptionsInput {
 extension SettingListOptionsInputExtension on SettingListOptionsInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get hasScope => scope != null;
-  bool get hasNotScope => !hasScope;
   bool get hasPrefix => prefix != null;
   bool get hasNotPrefix => !hasPrefix;
 }

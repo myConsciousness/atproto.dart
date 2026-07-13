@@ -32,7 +32,7 @@ abstract class TempCheckHandleAvailabilityInput
     String? email,
 
     /// User-provided birth date. Might be used to build handle suggestions.
-    DateTime? birthDate,
+    @JsonKey(toJson: iso8601) DateTime? birthDate,
 
     Map<String, dynamic>? $unknown,
   }) = _TempCheckHandleAvailabilityInput;

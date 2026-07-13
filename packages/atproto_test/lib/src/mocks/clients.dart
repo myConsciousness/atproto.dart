@@ -26,7 +26,7 @@ core.GetClient createMockedGetClientFromJson(
   final Map<String, dynamic> json, {
   final int statusCode = 200,
 }) => createMockedGetClientFromBytes(
-  jsonEncode(json).codeUnits,
+  utf8.encode(jsonEncode(json)),
   statusCode: statusCode,
 );
 
@@ -63,7 +63,7 @@ core.PostClient createMockedPostClientFromJson(
   final Map<String, dynamic> json, {
   final int statusCode = 200,
 }) => createMockedPostClientFromBytes(
-  jsonEncode(json).codeUnits,
+  utf8.encode(jsonEncode(json)),
   statusCode: statusCode,
 );
 

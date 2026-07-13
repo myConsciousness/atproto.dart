@@ -47,7 +47,12 @@ abstract class UnspeccedSearchPostsSkeletonInput
 
     /// Specifies the ranking order of results.
     @UnspeccedSearchPostsSkeletonSortConverter()
-    UnspeccedSearchPostsSkeletonSort? sort,
+    @Default(
+      UnspeccedSearchPostsSkeletonSort.knownValue(
+        data: KnownUnspeccedSearchPostsSkeletonSort.latest,
+      ),
+    )
+    UnspeccedSearchPostsSkeletonSort sort,
 
     /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
     String? since,
@@ -88,8 +93,6 @@ abstract class UnspeccedSearchPostsSkeletonInput
 
 extension UnspeccedSearchPostsSkeletonInputExtension
     on UnspeccedSearchPostsSkeletonInput {
-  bool get hasSort => sort != null;
-  bool get hasNotSort => !hasSort;
   bool get hasSince => since != null;
   bool get hasNotSince => !hasSince;
   bool get hasUntil => until != null;

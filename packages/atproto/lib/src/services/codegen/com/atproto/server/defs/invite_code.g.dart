@@ -48,7 +48,7 @@ Map<String, dynamic> _$InviteCodeToJson(_InviteCode instance) =>
       'disabled': instance.disabled,
       'forAccount': instance.forAccount,
       'createdBy': instance.createdBy,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       'uses': instance.uses.map(const InviteCodeUseConverter().toJson).toList(),
       r'$unknown': ?instance.$unknown,
     };

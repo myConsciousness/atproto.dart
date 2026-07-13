@@ -44,7 +44,7 @@ Map<String, dynamic> _$AccountStrikeToJson(_AccountStrike instance) =>
       r'$type': instance.$type,
       'activeStrikeCount': ?instance.activeStrikeCount,
       'totalStrikeCount': ?instance.totalStrikeCount,
-      'firstStrikeAt': ?instance.firstStrikeAt?.toIso8601String(),
-      'lastStrikeAt': ?instance.lastStrikeAt?.toIso8601String(),
+      'firstStrikeAt': iso8601(instance.firstStrikeAt),
+      'lastStrikeAt': iso8601(instance.lastStrikeAt),
       r'$unknown': ?instance.$unknown,
     };

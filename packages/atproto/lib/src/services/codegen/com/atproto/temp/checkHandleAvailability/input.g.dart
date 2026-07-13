@@ -33,6 +33,6 @@ Map<String, dynamic> _$TempCheckHandleAvailabilityInputToJson(
 ) => <String, dynamic>{
   'handle': instance.handle,
   'email': ?instance.email,
-  'birthDate': ?instance.birthDate?.toIso8601String(),
+  'birthDate': iso8601(instance.birthDate),
   r'$unknown': ?instance.$unknown,
 };

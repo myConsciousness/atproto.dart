@@ -53,7 +53,7 @@ abstract class QueueStats with _$QueueStats {
     int? avgHandlingTimeSec,
 
     /// When these statistics were last computed
-    DateTime? lastUpdated,
+    @JsonKey(toJson: iso8601) DateTime? lastUpdated,
 
     Map<String, dynamic>? $unknown,
   }) = _QueueStats;

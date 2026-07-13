@@ -51,7 +51,7 @@ abstract class VerificationView with _$VerificationView {
     required bool isValid,
 
     /// Timestamp when the verification was created.
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _VerificationView;

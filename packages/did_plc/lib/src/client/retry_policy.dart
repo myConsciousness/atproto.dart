@@ -3,10 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Dart imports:
+import 'dart:io';
 import 'dart:math' as math;
 
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import '../exceptions.dart';
 
 part 'retry_policy.freezed.dart';
 
@@ -47,9 +51,11 @@ class RetryPolicy with _$RetryPolicy {
 extension RetryPolicyExtension on RetryPolicy {
   /// Calculates the delay for a specific retry attempt.
   ///
-  /// [attempt] - The retry attempt number (0-based)
+  /// [attempt] is the 0-based retry index: attempt 0 is the first retry and
+  /// waits [initialDelay]; each subsequent attempt multiplies by
+  /// `backoffMultiplier`.
   Duration delayForAttempt(int attempt) {
-    if (attempt <= 0) return Duration.zero;
+    if (attempt < 0) return Duration.zero;
 
     return when(
       (maxAttempts, initialDelay, backoffMultiplier, maxDelay, _) {
@@ -147,30 +153,36 @@ extension RetryPolicyExtension on RetryPolicy {
 
   /// Returns true if the exception should trigger a retry.
   ///
+  /// Matching is done by exception type rather than by string content, so
+  /// it is robust against message casing and wording.
+  ///
   /// [exception] - The exception to check
   bool shouldRetryException(Exception exception) {
+    final retryable = _isRetryableException(exception);
     return when(
-      (_, _, _, _, _) {
-        // Network-related exceptions that should be retried
-        if (exception.toString().contains('timeout') ||
-            exception.toString().contains('connection') ||
-            exception.toString().contains('socket')) {
-          return true;
-        }
-        return false;
-      },
+      (_, _, _, _, _) => retryable,
       none: () => false,
-      aggressive: (_, _, _, _) {
-        // More aggressive retry for network issues
-        if (exception.toString().contains('timeout') ||
-            exception.toString().contains('connection') ||
-            exception.toString().contains('socket') ||
-            exception.toString().contains('dns') ||
-            exception.toString().contains('network')) {
-          return true;
-        }
-        return false;
-      },
+      aggressive: (_, _, _, _) => retryable,
     );
+  }
+
+  bool _isRetryableException(Exception exception) {
+    // Transient transport failures are always retryable.
+    if (exception is TimeoutException ||
+        exception is ConnectionException ||
+        exception is ServiceUnavailableException ||
+        exception is RateLimitException ||
+        exception is SocketException ||
+        exception is HttpException) {
+      return true;
+    }
+
+    // A generic network failure is retryable only for a retryable status.
+    if (exception is NetworkException) {
+      final statusCode = exception.statusCode;
+      return statusCode != null && shouldRetry(statusCode);
+    }
+
+    return false;
   }
 }

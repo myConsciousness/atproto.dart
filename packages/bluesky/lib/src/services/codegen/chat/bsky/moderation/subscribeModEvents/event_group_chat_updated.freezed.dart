@@ -17,7 +17,7 @@ mixin _$EventGroupChatUpdated {
 
  String get $type;/// The DID of the actor performing the action (the owner).
  String get actorDid;/// When the group was originally created.
- DateTime get convoCreatedAt; String get convoId; DateTime get createdAt;/// Current member count at the time of the event.
+@JsonKey(toJson: iso8601) DateTime get convoCreatedAt; String get convoId;@JsonKey(toJson: iso8601) DateTime get createdAt;/// Current member count at the time of the event.
  int get groupMemberCount;/// Current group name.
  String get groupName;/// The code of the join link. Only present when updateType is join-link-related.
  String? get joinLinkCode;/// Whether the join link is restricted to followers of the owner. Only present when updateType is join-link-related.
@@ -60,7 +60,7 @@ abstract mixin class $EventGroupChatUpdatedCopyWith<$Res>  {
   factory $EventGroupChatUpdatedCopyWith(EventGroupChatUpdated value, $Res Function(EventGroupChatUpdated) _then) = _$EventGroupChatUpdatedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName, String? joinLinkCode, bool? joinLinkFollowersOnly, bool? joinLinkRequiresApproval,@EventGroupChatUpdatedLockReasonConverter() EventGroupChatUpdatedLockReason? lockReason, String? newName, String? oldName, String ownerDid, String rev,@EventGroupChatUpdatedUpdateTypeConverter() EventGroupChatUpdatedUpdateType updateType, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName, String? joinLinkCode, bool? joinLinkFollowersOnly, bool? joinLinkRequiresApproval,@EventGroupChatUpdatedLockReasonConverter() EventGroupChatUpdatedLockReason? lockReason, String? newName, String? oldName, String ownerDid, String rev,@EventGroupChatUpdatedUpdateTypeConverter() EventGroupChatUpdatedUpdateType updateType, Map<String, dynamic>? $unknown
 });
 
 
@@ -202,7 +202,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String? joinLinkCode,  bool? joinLinkFollowersOnly,  bool? joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter()  EventGroupChatUpdatedLockReason? lockReason,  String? newName,  String? oldName,  String ownerDid,  String rev, @EventGroupChatUpdatedUpdateTypeConverter()  EventGroupChatUpdatedUpdateType updateType,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String? joinLinkCode,  bool? joinLinkFollowersOnly,  bool? joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter()  EventGroupChatUpdatedLockReason? lockReason,  String? newName,  String? oldName,  String ownerDid,  String rev, @EventGroupChatUpdatedUpdateTypeConverter()  EventGroupChatUpdatedUpdateType updateType,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventGroupChatUpdated() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.joinLinkCode,_that.joinLinkFollowersOnly,_that.joinLinkRequiresApproval,_that.lockReason,_that.newName,_that.oldName,_that.ownerDid,_that.rev,_that.updateType,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String? joinLinkCode,  bool? joinLinkFollowersOnly,  bool? joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter()  EventGroupChatUpdatedLockReason? lockReason,  String? newName,  String? oldName,  String ownerDid,  String rev, @EventGroupChatUpdatedUpdateTypeConverter()  EventGroupChatUpdatedUpdateType updateType,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String? joinLinkCode,  bool? joinLinkFollowersOnly,  bool? joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter()  EventGroupChatUpdatedLockReason? lockReason,  String? newName,  String? oldName,  String ownerDid,  String rev, @EventGroupChatUpdatedUpdateTypeConverter()  EventGroupChatUpdatedUpdateType updateType,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatUpdated():
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.joinLinkCode,_that.joinLinkFollowersOnly,_that.joinLinkRequiresApproval,_that.lockReason,_that.newName,_that.oldName,_that.ownerDid,_that.rev,_that.updateType,_that.$unknown);case _:
@@ -243,7 +243,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String? joinLinkCode,  bool? joinLinkFollowersOnly,  bool? joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter()  EventGroupChatUpdatedLockReason? lockReason,  String? newName,  String? oldName,  String ownerDid,  String rev, @EventGroupChatUpdatedUpdateTypeConverter()  EventGroupChatUpdatedUpdateType updateType,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String? joinLinkCode,  bool? joinLinkFollowersOnly,  bool? joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter()  EventGroupChatUpdatedLockReason? lockReason,  String? newName,  String? oldName,  String ownerDid,  String rev, @EventGroupChatUpdatedUpdateTypeConverter()  EventGroupChatUpdatedUpdateType updateType,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatUpdated() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.joinLinkCode,_that.joinLinkFollowersOnly,_that.joinLinkRequiresApproval,_that.lockReason,_that.newName,_that.oldName,_that.ownerDid,_that.rev,_that.updateType,_that.$unknown);case _:
@@ -258,16 +258,16 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 
 @JsonSerializable(includeIfNull: false)
 class _EventGroupChatUpdated implements EventGroupChatUpdated {
-  const _EventGroupChatUpdated({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated', required this.actorDid, required this.convoCreatedAt, required this.convoId, required this.createdAt, required this.groupMemberCount, required this.groupName, this.joinLinkCode, this.joinLinkFollowersOnly, this.joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter() this.lockReason, this.newName, this.oldName, required this.ownerDid, required this.rev, @EventGroupChatUpdatedUpdateTypeConverter() required this.updateType, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventGroupChatUpdated({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatUpdated', required this.actorDid, @JsonKey(toJson: iso8601) required this.convoCreatedAt, required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, required this.groupMemberCount, required this.groupName, this.joinLinkCode, this.joinLinkFollowersOnly, this.joinLinkRequiresApproval, @EventGroupChatUpdatedLockReasonConverter() this.lockReason, this.newName, this.oldName, required this.ownerDid, required this.rev, @EventGroupChatUpdatedUpdateTypeConverter() required this.updateType, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventGroupChatUpdated.fromJson(Map<String, dynamic> json) => _$EventGroupChatUpdatedFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The DID of the actor performing the action (the owner).
 @override final  String actorDid;
 /// When the group was originally created.
-@override final  DateTime convoCreatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime convoCreatedAt;
 @override final  String convoId;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Current member count at the time of the event.
 @override final  int groupMemberCount;
 /// Current group name.
@@ -332,7 +332,7 @@ abstract mixin class _$EventGroupChatUpdatedCopyWith<$Res> implements $EventGrou
   factory _$EventGroupChatUpdatedCopyWith(_EventGroupChatUpdated value, $Res Function(_EventGroupChatUpdated) _then) = __$EventGroupChatUpdatedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName, String? joinLinkCode, bool? joinLinkFollowersOnly, bool? joinLinkRequiresApproval,@EventGroupChatUpdatedLockReasonConverter() EventGroupChatUpdatedLockReason? lockReason, String? newName, String? oldName, String ownerDid, String rev,@EventGroupChatUpdatedUpdateTypeConverter() EventGroupChatUpdatedUpdateType updateType, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName, String? joinLinkCode, bool? joinLinkFollowersOnly, bool? joinLinkRequiresApproval,@EventGroupChatUpdatedLockReasonConverter() EventGroupChatUpdatedLockReason? lockReason, String? newName, String? oldName, String ownerDid, String rev,@EventGroupChatUpdatedUpdateTypeConverter() EventGroupChatUpdatedUpdateType updateType, Map<String, dynamic>? $unknown
 });
 
 

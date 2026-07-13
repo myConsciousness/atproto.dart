@@ -49,10 +49,18 @@ final class CreateReportCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "reasonType": jsonDecode(argResults!["reasonType"]),
+    "reasonType": _decodeJson("reasonType"),
     if (argResults!.wasParsed("reason")) "reason": argResults!["reason"],
-    "subject": jsonDecode(argResults!["subject"]),
-    if (argResults!.wasParsed("modTool"))
-      "modTool": jsonDecode(argResults!["modTool"]),
+    "subject": _decodeJson("subject"),
+    if (argResults!.wasParsed("modTool")) "modTool": _decodeJson("modTool"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

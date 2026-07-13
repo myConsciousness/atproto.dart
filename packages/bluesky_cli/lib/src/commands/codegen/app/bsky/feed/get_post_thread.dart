@@ -52,7 +52,11 @@ final class GetPostThreadCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "uri": argResults!["uri"],
-    "depth": int.parse(argResults!["depth"]),
-    "parentHeight": int.parse(argResults!["parentHeight"]),
+    "depth":
+        int.tryParse(argResults!["depth"]) ??
+        usageException('Invalid integer value for option "depth".'),
+    "parentHeight":
+        int.tryParse(argResults!["parentHeight"]) ??
+        usageException('Invalid integer value for option "parentHeight".'),
   };
 }

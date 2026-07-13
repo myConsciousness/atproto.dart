@@ -37,7 +37,14 @@ final class SubmitPlcOperationCommand extends ProcedureCommand {
   String get methodId => "com.atproto.identity.submitPlcOperation";
 
   @override
-  Map<String, dynamic>? get body => {
-    "operation": jsonDecode(argResults!["operation"]),
-  };
+  Map<String, dynamic>? get body => {"operation": _decodeJson("operation")};
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

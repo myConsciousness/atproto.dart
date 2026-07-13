@@ -21,8 +21,8 @@ mixin _$ReportQueryReportsInput {
  String? get subject;/// Filter to reports where the subject is this DID or any record owned by this DID. Unlike `subject` (which scopes to a specific account or record), this returns all reports tied to the DID across both account-level and record-level subjects.
  String? get did;/// If specified, reports of the given type (account or record) will be returned.
 @ReportQueryReportsSubjectTypeConverter() ReportQueryReportsSubjectType? get subjectType; List<String>? get collections;/// Retrieve reports created after a given timestamp
- DateTime? get reportedAfter;/// Retrieve reports created before a given timestamp
- DateTime? get reportedBefore;/// Filter by muted status. true returns only muted reports, false returns only unmuted reports. Defaults to false.
+@JsonKey(toJson: iso8601) DateTime? get reportedAfter;/// Retrieve reports created before a given timestamp
+@JsonKey(toJson: iso8601) DateTime? get reportedBefore;/// Filter by muted status. true returns only muted reports, false returns only unmuted reports. Defaults to false.
  bool get isMuted;/// Filter by the DID of the moderator permanently assigned to the report.
  String? get assignedTo; String get sortField; String get sortDirection; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportQueryReportsInput
@@ -57,7 +57,7 @@ abstract mixin class $ReportQueryReportsInputCopyWith<$Res>  {
   factory $ReportQueryReportsInputCopyWith(ReportQueryReportsInput value, $Res Function(ReportQueryReportsInput) _then) = _$ReportQueryReportsInputCopyWithImpl;
 @useResult
 $Res call({
- int? queueId, List<String>? reportTypes,@ReportQueryReportsStatusConverter() ReportQueryReportsStatus status, String? subject, String? did,@ReportQueryReportsSubjectTypeConverter() ReportQueryReportsSubjectType? subjectType, List<String>? collections, DateTime? reportedAfter, DateTime? reportedBefore, bool isMuted, String? assignedTo, String sortField, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
+ int? queueId, List<String>? reportTypes,@ReportQueryReportsStatusConverter() ReportQueryReportsStatus status, String? subject, String? did,@ReportQueryReportsSubjectTypeConverter() ReportQueryReportsSubjectType? subjectType, List<String>? collections,@JsonKey(toJson: iso8601) DateTime? reportedAfter,@JsonKey(toJson: iso8601) DateTime? reportedBefore, bool isMuted, String? assignedTo, String sortField, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -198,7 +198,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter()  ReportQueryReportsStatus status,  String? subject,  String? did, @ReportQueryReportsSubjectTypeConverter()  ReportQueryReportsSubjectType? subjectType,  List<String>? collections,  DateTime? reportedAfter,  DateTime? reportedBefore,  bool isMuted,  String? assignedTo,  String sortField,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter()  ReportQueryReportsStatus status,  String? subject,  String? did, @ReportQueryReportsSubjectTypeConverter()  ReportQueryReportsSubjectType? subjectType,  List<String>? collections, @JsonKey(toJson: iso8601)  DateTime? reportedAfter, @JsonKey(toJson: iso8601)  DateTime? reportedBefore,  bool isMuted,  String? assignedTo,  String sortField,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportQueryReportsInput() when $default != null:
 return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that.did,_that.subjectType,_that.collections,_that.reportedAfter,_that.reportedBefore,_that.isMuted,_that.assignedTo,_that.sortField,_that.sortDirection,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -219,7 +219,7 @@ return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter()  ReportQueryReportsStatus status,  String? subject,  String? did, @ReportQueryReportsSubjectTypeConverter()  ReportQueryReportsSubjectType? subjectType,  List<String>? collections,  DateTime? reportedAfter,  DateTime? reportedBefore,  bool isMuted,  String? assignedTo,  String sortField,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter()  ReportQueryReportsStatus status,  String? subject,  String? did, @ReportQueryReportsSubjectTypeConverter()  ReportQueryReportsSubjectType? subjectType,  List<String>? collections, @JsonKey(toJson: iso8601)  DateTime? reportedAfter, @JsonKey(toJson: iso8601)  DateTime? reportedBefore,  bool isMuted,  String? assignedTo,  String sortField,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportQueryReportsInput():
 return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that.did,_that.subjectType,_that.collections,_that.reportedAfter,_that.reportedBefore,_that.isMuted,_that.assignedTo,_that.sortField,_that.sortDirection,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -239,7 +239,7 @@ return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter()  ReportQueryReportsStatus status,  String? subject,  String? did, @ReportQueryReportsSubjectTypeConverter()  ReportQueryReportsSubjectType? subjectType,  List<String>? collections,  DateTime? reportedAfter,  DateTime? reportedBefore,  bool isMuted,  String? assignedTo,  String sortField,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter()  ReportQueryReportsStatus status,  String? subject,  String? did, @ReportQueryReportsSubjectTypeConverter()  ReportQueryReportsSubjectType? subjectType,  List<String>? collections, @JsonKey(toJson: iso8601)  DateTime? reportedAfter, @JsonKey(toJson: iso8601)  DateTime? reportedBefore,  bool isMuted,  String? assignedTo,  String sortField,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportQueryReportsInput() when $default != null:
 return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that.did,_that.subjectType,_that.collections,_that.reportedAfter,_that.reportedBefore,_that.isMuted,_that.assignedTo,_that.sortField,_that.sortDirection,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -254,7 +254,7 @@ return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ReportQueryReportsInput implements ReportQueryReportsInput {
-  const _ReportQueryReportsInput({this.queueId, final  List<String>? reportTypes, @ReportQueryReportsStatusConverter() required this.status, this.subject, this.did, @ReportQueryReportsSubjectTypeConverter() this.subjectType, final  List<String>? collections, this.reportedAfter, this.reportedBefore, this.isMuted = false, this.assignedTo, this.sortField = 'createdAt', this.sortDirection = 'desc', this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_collections = collections,_$unknown = $unknown;
+  const _ReportQueryReportsInput({this.queueId, final  List<String>? reportTypes, @ReportQueryReportsStatusConverter() required this.status, this.subject, this.did, @ReportQueryReportsSubjectTypeConverter() this.subjectType, final  List<String>? collections, @JsonKey(toJson: iso8601) this.reportedAfter, @JsonKey(toJson: iso8601) this.reportedBefore, this.isMuted = false, this.assignedTo, this.sortField = 'createdAt', this.sortDirection = 'desc', this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_collections = collections,_$unknown = $unknown;
   factory _ReportQueryReportsInput.fromJson(Map<String, dynamic> json) => _$ReportQueryReportsInputFromJson(json);
 
 /// Filter by queue ID. Use -1 for unassigned reports.
@@ -286,9 +286,9 @@ class _ReportQueryReportsInput implements ReportQueryReportsInput {
 }
 
 /// Retrieve reports created after a given timestamp
-@override final  DateTime? reportedAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? reportedAfter;
 /// Retrieve reports created before a given timestamp
-@override final  DateTime? reportedBefore;
+@override@JsonKey(toJson: iso8601) final  DateTime? reportedBefore;
 /// Filter by muted status. true returns only muted reports, false returns only unmuted reports. Defaults to false.
 @override@JsonKey() final  bool isMuted;
 /// Filter by the DID of the moderator permanently assigned to the report.
@@ -340,7 +340,7 @@ abstract mixin class _$ReportQueryReportsInputCopyWith<$Res> implements $ReportQ
   factory _$ReportQueryReportsInputCopyWith(_ReportQueryReportsInput value, $Res Function(_ReportQueryReportsInput) _then) = __$ReportQueryReportsInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? queueId, List<String>? reportTypes,@ReportQueryReportsStatusConverter() ReportQueryReportsStatus status, String? subject, String? did,@ReportQueryReportsSubjectTypeConverter() ReportQueryReportsSubjectType? subjectType, List<String>? collections, DateTime? reportedAfter, DateTime? reportedBefore, bool isMuted, String? assignedTo, String sortField, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
+ int? queueId, List<String>? reportTypes,@ReportQueryReportsStatusConverter() ReportQueryReportsStatus status, String? subject, String? did,@ReportQueryReportsSubjectTypeConverter() ReportQueryReportsSubjectType? subjectType, List<String>? collections,@JsonKey(toJson: iso8601) DateTime? reportedAfter,@JsonKey(toJson: iso8601) DateTime? reportedBefore, bool isMuted, String? assignedTo, String sortField, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 

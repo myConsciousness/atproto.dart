@@ -1,4 +1,8 @@
 const stringCid = 'bafkreicks4diafps5lz5hjf5lflqbxkhevgdty4k66inqtw4brjyqcr6ou';
+
+// This vector uses multicodec 0x55 (85), which is `raw` -- the codec atproto
+// uses for blob CIDs. It is retained under its historical name for backwards
+// compatibility with existing tests.
 const bytesCidDagPb = [
   1,
   85,
@@ -38,9 +42,53 @@ const bytesCidDagPb = [
   117,
 ];
 
+// This vector uses multicodec 0x55 (85), i.e. `raw`. Alias of [bytesCidDagPb]
+// under the semantically-correct name.
+const bytesCidRaw = bytesCidDagPb;
+
 const bytesCidDagCbor = [
   1,
   113,
+  18,
+  32,
+  74,
+  151,
+  6,
+  128,
+  21,
+  242,
+  234,
+  243,
+  211,
+  164,
+  189,
+  89,
+  87,
+  0,
+  221,
+  71,
+  37,
+  76,
+  57,
+  227,
+  138,
+  247,
+  144,
+  216,
+  78,
+  220,
+  12,
+  83,
+  136,
+  10,
+  62,
+  117,
+];
+
+// A real dag-pb CID vector using multicodec 0x70 (112).
+const bytesCidRealDagPb = [
+  1,
+  112,
   18,
   32,
   74,

@@ -15,10 +15,11 @@ _SettingListOptionsInput _$SettingListOptionsInputFromJson(Map json) =>
         cursor: $checkedConvert('cursor', (v) => v as String?),
         scope: $checkedConvert(
           'scope',
-          (v) => _$JsonConverterFromJson<String, SettingListOptionsScope>(
-            v,
-            const SettingListOptionsScopeConverter().fromJson,
-          ),
+          (v) => v == null
+              ? const SettingListOptionsScope.knownValue(
+                  data: KnownSettingListOptionsScope.instance,
+                )
+              : const SettingListOptionsScopeConverter().fromJson(v as String),
         ),
         prefix: $checkedConvert('prefix', (v) => v as String?),
         keys: $checkedConvert(
@@ -38,21 +39,8 @@ Map<String, dynamic> _$SettingListOptionsInputToJson(
 ) => <String, dynamic>{
   'limit': instance.limit,
   'cursor': ?instance.cursor,
-  'scope': ?_$JsonConverterToJson<String, SettingListOptionsScope>(
-    instance.scope,
-    const SettingListOptionsScopeConverter().toJson,
-  ),
+  'scope': const SettingListOptionsScopeConverter().toJson(instance.scope),
   'prefix': ?instance.prefix,
   'keys': ?instance.keys,
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

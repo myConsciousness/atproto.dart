@@ -67,6 +67,6 @@ Map<String, dynamic> _$ModEventTakedownToJson(_ModEventTakedown instance) =>
           ?.map(const ModEventTakedownTargetServicesConverter().toJson)
           .toList(),
       'strikeCount': ?instance.strikeCount,
-      'strikeExpiresAt': ?instance.strikeExpiresAt?.toIso8601String(),
+      'strikeExpiresAt': iso8601(instance.strikeExpiresAt),
       r'$unknown': ?instance.$unknown,
     };

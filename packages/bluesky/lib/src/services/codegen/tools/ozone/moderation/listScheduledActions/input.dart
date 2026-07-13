@@ -36,10 +36,10 @@ abstract class ModerationListScheduledActionsInput
   @JsonSerializable(includeIfNull: false)
   const factory ModerationListScheduledActionsInput({
     /// Filter actions scheduled to execute after this time
-    DateTime? startsAfter,
+    @JsonKey(toJson: iso8601) DateTime? startsAfter,
 
     /// Filter actions scheduled to execute before this time
-    DateTime? endsBefore,
+    @JsonKey(toJson: iso8601) DateTime? endsBefore,
     List<String>? subjects,
     @ModerationListScheduledActionsStatusesConverter()
     required List<ModerationListScheduledActionsStatuses> statuses,

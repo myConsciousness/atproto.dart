@@ -67,8 +67,17 @@ final class CreateRecordCommand extends ProcedureCommand {
     "collection": argResults!["collection"],
     if (argResults!.wasParsed("rkey")) "rkey": argResults!["rkey"],
     if (argResults!.wasParsed("validate")) "validate": argResults!["validate"],
-    "record": jsonDecode(argResults!["record"]),
+    "record": _decodeJson("record"),
     if (argResults!.wasParsed("swapCommit"))
       "swapCommit": argResults!["swapCommit"],
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LexString {
 
- String get type; LexStringFormat? get format; String? get description;@JsonKey(name: 'default') String? get defaultValue; int? get minLength; int? get maxLength; int? get minGraphemes; int? get maxGraphemes;@JsonKey(name: 'enum') List<String>? get enumValues;@JsonKey(name: 'const') String? get constValue; List<String>? get knownValues;
+ String get type;@JsonKey(unknownEnumValue: LexStringFormat.unknown) LexStringFormat? get format; String? get description;@JsonKey(name: 'default') String? get defaultValue; int? get minLength; int? get maxLength; int? get minGraphemes; int? get maxGraphemes;@JsonKey(name: 'enum') List<String>? get enumValues;@JsonKey(name: 'const') String? get constValue; List<String>? get knownValues;
 /// Create a copy of LexString
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LexStringCopyWith<$Res>  {
   factory $LexStringCopyWith(LexString value, $Res Function(LexString) _then) = _$LexStringCopyWithImpl;
 @useResult
 $Res call({
- String type, LexStringFormat? format, String? description,@JsonKey(name: 'default') String? defaultValue, int? minLength, int? maxLength, int? minGraphemes, int? maxGraphemes,@JsonKey(name: 'enum') List<String>? enumValues,@JsonKey(name: 'const') String? constValue, List<String>? knownValues
+ String type,@JsonKey(unknownEnumValue: LexStringFormat.unknown) LexStringFormat? format, String? description,@JsonKey(name: 'default') String? defaultValue, int? minLength, int? maxLength, int? minGraphemes, int? maxGraphemes,@JsonKey(name: 'enum') List<String>? enumValues,@JsonKey(name: 'const') String? constValue, List<String>? knownValues
 });
 
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  LexStringFormat? format,  String? description, @JsonKey(name: 'default')  String? defaultValue,  int? minLength,  int? maxLength,  int? minGraphemes,  int? maxGraphemes, @JsonKey(name: 'enum')  List<String>? enumValues, @JsonKey(name: 'const')  String? constValue,  List<String>? knownValues)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(unknownEnumValue: LexStringFormat.unknown)  LexStringFormat? format,  String? description, @JsonKey(name: 'default')  String? defaultValue,  int? minLength,  int? maxLength,  int? minGraphemes,  int? maxGraphemes, @JsonKey(name: 'enum')  List<String>? enumValues, @JsonKey(name: 'const')  String? constValue,  List<String>? knownValues)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LexString() when $default != null:
 return $default(_that.type,_that.format,_that.description,_that.defaultValue,_that.minLength,_that.maxLength,_that.minGraphemes,_that.maxGraphemes,_that.enumValues,_that.constValue,_that.knownValues);case _:
@@ -184,7 +184,7 @@ return $default(_that.type,_that.format,_that.description,_that.defaultValue,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  LexStringFormat? format,  String? description, @JsonKey(name: 'default')  String? defaultValue,  int? minLength,  int? maxLength,  int? minGraphemes,  int? maxGraphemes, @JsonKey(name: 'enum')  List<String>? enumValues, @JsonKey(name: 'const')  String? constValue,  List<String>? knownValues)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(unknownEnumValue: LexStringFormat.unknown)  LexStringFormat? format,  String? description, @JsonKey(name: 'default')  String? defaultValue,  int? minLength,  int? maxLength,  int? minGraphemes,  int? maxGraphemes, @JsonKey(name: 'enum')  List<String>? enumValues, @JsonKey(name: 'const')  String? constValue,  List<String>? knownValues)  $default,) {final _that = this;
 switch (_that) {
 case _LexString():
 return $default(_that.type,_that.format,_that.description,_that.defaultValue,_that.minLength,_that.maxLength,_that.minGraphemes,_that.maxGraphemes,_that.enumValues,_that.constValue,_that.knownValues);case _:
@@ -204,7 +204,7 @@ return $default(_that.type,_that.format,_that.description,_that.defaultValue,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  LexStringFormat? format,  String? description, @JsonKey(name: 'default')  String? defaultValue,  int? minLength,  int? maxLength,  int? minGraphemes,  int? maxGraphemes, @JsonKey(name: 'enum')  List<String>? enumValues, @JsonKey(name: 'const')  String? constValue,  List<String>? knownValues)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(unknownEnumValue: LexStringFormat.unknown)  LexStringFormat? format,  String? description, @JsonKey(name: 'default')  String? defaultValue,  int? minLength,  int? maxLength,  int? minGraphemes,  int? maxGraphemes, @JsonKey(name: 'enum')  List<String>? enumValues, @JsonKey(name: 'const')  String? constValue,  List<String>? knownValues)?  $default,) {final _that = this;
 switch (_that) {
 case _LexString() when $default != null:
 return $default(_that.type,_that.format,_that.description,_that.defaultValue,_that.minLength,_that.maxLength,_that.minGraphemes,_that.maxGraphemes,_that.enumValues,_that.constValue,_that.knownValues);case _:
@@ -219,11 +219,11 @@ return $default(_that.type,_that.format,_that.description,_that.defaultValue,_th
 
 @JsonSerializable(includeIfNull: false)
 class _LexString implements LexString {
-  const _LexString({this.type = 'string', this.format, this.description, @JsonKey(name: 'default') this.defaultValue, this.minLength, this.maxLength, this.minGraphemes, this.maxGraphemes, @JsonKey(name: 'enum') final  List<String>? enumValues, @JsonKey(name: 'const') this.constValue, final  List<String>? knownValues}): _enumValues = enumValues,_knownValues = knownValues;
+  const _LexString({this.type = 'string', @JsonKey(unknownEnumValue: LexStringFormat.unknown) this.format, this.description, @JsonKey(name: 'default') this.defaultValue, this.minLength, this.maxLength, this.minGraphemes, this.maxGraphemes, @JsonKey(name: 'enum') final  List<String>? enumValues, @JsonKey(name: 'const') this.constValue, final  List<String>? knownValues}): _enumValues = enumValues,_knownValues = knownValues;
   factory _LexString.fromJson(Map<String, dynamic> json) => _$LexStringFromJson(json);
 
 @override@JsonKey() final  String type;
-@override final  LexStringFormat? format;
+@override@JsonKey(unknownEnumValue: LexStringFormat.unknown) final  LexStringFormat? format;
 @override final  String? description;
 @override@JsonKey(name: 'default') final  String? defaultValue;
 @override final  int? minLength;
@@ -283,7 +283,7 @@ abstract mixin class _$LexStringCopyWith<$Res> implements $LexStringCopyWith<$Re
   factory _$LexStringCopyWith(_LexString value, $Res Function(_LexString) _then) = __$LexStringCopyWithImpl;
 @override @useResult
 $Res call({
- String type, LexStringFormat? format, String? description,@JsonKey(name: 'default') String? defaultValue, int? minLength, int? maxLength, int? minGraphemes, int? maxGraphemes,@JsonKey(name: 'enum') List<String>? enumValues,@JsonKey(name: 'const') String? constValue, List<String>? knownValues
+ String type,@JsonKey(unknownEnumValue: LexStringFormat.unknown) LexStringFormat? format, String? description,@JsonKey(name: 'default') String? defaultValue, int? minLength, int? maxLength, int? minGraphemes, int? maxGraphemes,@JsonKey(name: 'enum') List<String>? enumValues,@JsonKey(name: 'const') String? constValue, List<String>? knownValues
 });
 
 

@@ -42,7 +42,7 @@ abstract class RecordView with _$RecordView {
     required String cid,
     required Map<String, dynamic> value,
     required List<String> blobCids,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @ModerationConverter() required Moderation moderation,
     @RepoViewConverter() required RepoView repo,
 

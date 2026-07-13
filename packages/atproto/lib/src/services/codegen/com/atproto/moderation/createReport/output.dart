@@ -42,7 +42,7 @@ abstract class ModerationCreateReportOutput
     @UModerationCreateReportSubjectConverter()
     required UModerationCreateReportSubject subject,
     required String reportedBy,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ModerationCreateReportOutput;

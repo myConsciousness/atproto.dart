@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DeletedMessageView {
 
- String get $type; String get id; String get rev;@MessageViewSenderConverter() MessageViewSender get sender; DateTime get sentAt; Map<String, dynamic>? get $unknown;
+ String get $type; String get id; String get rev;@MessageViewSenderConverter() MessageViewSender get sender;@JsonKey(toJson: iso8601) DateTime get sentAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of DeletedMessageView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $DeletedMessageViewCopyWith<$Res>  {
   factory $DeletedMessageViewCopyWith(DeletedMessageView value, $Res Function(DeletedMessageView) _then) = _$DeletedMessageViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id, String rev,@MessageViewSenderConverter() MessageViewSender sender, DateTime sentAt, Map<String, dynamic>? $unknown
+ String $type, String id, String rev,@MessageViewSenderConverter() MessageViewSender sender,@JsonKey(toJson: iso8601) DateTime sentAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @MessageViewSenderConverter()  MessageViewSender sender,  DateTime sentAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @MessageViewSenderConverter()  MessageViewSender sender, @JsonKey(toJson: iso8601)  DateTime sentAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DeletedMessageView() when $default != null:
 return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @MessageViewSenderConverter()  MessageViewSender sender,  DateTime sentAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @MessageViewSenderConverter()  MessageViewSender sender, @JsonKey(toJson: iso8601)  DateTime sentAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _DeletedMessageView():
 return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String rev, @MessageViewSenderConverter()  MessageViewSender sender,  DateTime sentAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String rev, @MessageViewSenderConverter()  MessageViewSender sender, @JsonKey(toJson: iso8601)  DateTime sentAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _DeletedMessageView() when $default != null:
 return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$unknown);case _:
@@ -223,14 +223,14 @@ return $default(_that.$type,_that.id,_that.rev,_that.sender,_that.sentAt,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _DeletedMessageView implements DeletedMessageView {
-  const _DeletedMessageView({this.$type = 'chat.bsky.convo.defs#deletedMessageView', required this.id, required this.rev, @MessageViewSenderConverter() required this.sender, required this.sentAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _DeletedMessageView({this.$type = 'chat.bsky.convo.defs#deletedMessageView', required this.id, required this.rev, @MessageViewSenderConverter() required this.sender, @JsonKey(toJson: iso8601) required this.sentAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DeletedMessageView.fromJson(Map<String, dynamic> json) => _$DeletedMessageViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String id;
 @override final  String rev;
 @override@MessageViewSenderConverter() final  MessageViewSender sender;
-@override final  DateTime sentAt;
+@override@JsonKey(toJson: iso8601) final  DateTime sentAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -274,7 +274,7 @@ abstract mixin class _$DeletedMessageViewCopyWith<$Res> implements $DeletedMessa
   factory _$DeletedMessageViewCopyWith(_DeletedMessageView value, $Res Function(_DeletedMessageView) _then) = __$DeletedMessageViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id, String rev,@MessageViewSenderConverter() MessageViewSender sender, DateTime sentAt, Map<String, dynamic>? $unknown
+ String $type, String id, String rev,@MessageViewSenderConverter() MessageViewSender sender,@JsonKey(toJson: iso8601) DateTime sentAt, Map<String, dynamic>? $unknown
 });
 
 

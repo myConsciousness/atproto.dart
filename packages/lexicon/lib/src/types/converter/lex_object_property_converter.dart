@@ -72,7 +72,15 @@ final class LexObjectPropertyConverter
         );
 
       default:
-        throw UnsupportedError('Unsupported type [$type]');
+        // Graceful degradation (G-12): unsupported/unknown property types
+        // (e.g. a nested inline `object`, which is legal per spec) must not
+        // abort loading the entire lexicon document. Fall back to an `unknown`
+        // primitive so downstream generation treats it as a raw map.
+        return LexObjectProperty.primitive(
+          data: LexPrimitive.unknown(
+            data: LexUnknown(description: json['description'] as String?),
+          ),
+        );
     }
   }
 

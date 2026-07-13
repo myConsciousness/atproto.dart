@@ -237,8 +237,16 @@ void main() {
       expect(actual, HttpStatus.ok);
     });
 
-    test('when value is unsupported', () {
-      expect(() => HttpStatus.valueOf(999), throwsA(isA<UnsupportedError>()));
+    test('when value is unknown', () {
+      expect(HttpStatus.valueOf(999), HttpStatus.unknown);
+    });
+
+    test('when value is a non-standard CDN status code', () {
+      //! e.g. Cloudflare returns 520 when the origin returns an
+      //! unexpected response.
+      expect(HttpStatus.valueOf(520), HttpStatus.unknown);
+      expect(HttpStatus.valueOf(520).code, -1);
+      expect(HttpStatus.valueOf(520).message, 'Unknown');
     });
   });
 

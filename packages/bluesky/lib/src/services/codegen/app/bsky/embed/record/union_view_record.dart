@@ -111,52 +111,52 @@ final class UEmbedRecordViewRecordConverter
 
   @override
   UEmbedRecordViewRecord fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedRecordViewRecord.validate(json)) {
-        return UEmbedRecordViewRecord.embedRecordViewRecord(
-          data: const EmbedRecordViewRecordConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecordViewNotFound.validate(json)) {
-        return UEmbedRecordViewRecord.embedRecordViewNotFound(
-          data: const EmbedRecordViewNotFoundConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecordViewBlocked.validate(json)) {
-        return UEmbedRecordViewRecord.embedRecordViewBlocked(
-          data: const EmbedRecordViewBlockedConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecordViewDetached.validate(json)) {
-        return UEmbedRecordViewRecord.embedRecordViewDetached(
-          data: const EmbedRecordViewDetachedConverter().fromJson(json),
-        );
-      }
-      if (GeneratorView.validate(json)) {
-        return UEmbedRecordViewRecord.generatorView(
-          data: const GeneratorViewConverter().fromJson(json),
-        );
-      }
-      if (ListView.validate(json)) {
-        return UEmbedRecordViewRecord.listView(
-          data: const ListViewConverter().fromJson(json),
-        );
-      }
-      if (LabelerView.validate(json)) {
-        return UEmbedRecordViewRecord.labelerView(
-          data: const LabelerViewConverter().fromJson(json),
-        );
-      }
-      if (StarterPackViewBasic.validate(json)) {
-        return UEmbedRecordViewRecord.starterPackViewBasic(
-          data: const StarterPackViewBasicConverter().fromJson(json),
-        );
-      }
-
-      return UEmbedRecordViewRecord.unknown(data: json);
-    } catch (_) {
-      return UEmbedRecordViewRecord.unknown(data: json);
+    if (EmbedRecordViewRecord.validate(json)) {
+      return UEmbedRecordViewRecord.embedRecordViewRecord(
+        data: const EmbedRecordViewRecordConverter().fromJson(json),
+      );
     }
+    if (EmbedRecordViewNotFound.validate(json)) {
+      return UEmbedRecordViewRecord.embedRecordViewNotFound(
+        data: const EmbedRecordViewNotFoundConverter().fromJson(json),
+      );
+    }
+    if (EmbedRecordViewBlocked.validate(json)) {
+      return UEmbedRecordViewRecord.embedRecordViewBlocked(
+        data: const EmbedRecordViewBlockedConverter().fromJson(json),
+      );
+    }
+    if (EmbedRecordViewDetached.validate(json)) {
+      return UEmbedRecordViewRecord.embedRecordViewDetached(
+        data: const EmbedRecordViewDetachedConverter().fromJson(json),
+      );
+    }
+    if (GeneratorView.validate(json)) {
+      return UEmbedRecordViewRecord.generatorView(
+        data: const GeneratorViewConverter().fromJson(json),
+      );
+    }
+    if (ListView.validate(json)) {
+      return UEmbedRecordViewRecord.listView(
+        data: const ListViewConverter().fromJson(json),
+      );
+    }
+    if (LabelerView.validate(json)) {
+      return UEmbedRecordViewRecord.labelerView(
+        data: const LabelerViewConverter().fromJson(json),
+      );
+    }
+    if (StarterPackViewBasic.validate(json)) {
+      return UEmbedRecordViewRecord.starterPackViewBasic(
+        data: const StarterPackViewBasicConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UEmbedRecordViewRecord.unknown(data: json);
   }
 
   @override

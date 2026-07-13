@@ -71,18 +71,21 @@ void main() {
     });
 
     test('long end', () {
-      final longEnd = 'com.example.${'o' * 128}';
+      // Name segment is capped at 63 characters (current atproto spec).
+      final longEnd = 'com.example.${'o' * 63}';
       expectValid(longEnd);
     });
 
     test('too long end', () {
-      final tooLongEnd = 'com.example.${'o' * 129}';
+      final tooLongEnd = 'com.example.${'o' * 64}';
       expectInvalid(tooLongEnd);
     });
 
     test('long overall', () {
-      final longOverall = 'com.${'middle.' * 50}foo';
-      expect(longOverall.length, equals(357));
+      // Overall NSID length is capped at 317 characters, with every
+      // individual segment capped at 63.
+      final longOverall = 'com.${'o' * 63}.${'o' * 63}.foo';
+      expect(longOverall.length, lessThanOrEqualTo(317));
       expectValid(longOverall);
     });
 
@@ -95,8 +98,50 @@ void main() {
     test('misc', () {
       expectValid('a.b.c');
       expectValid('a0.b1.c3');
-      expectValid('a-0.b-1.c-3');
+      expectValid('a-0.b-1.c3');
     });
+
+    test('middle authority segments may start with a digit', () {
+      expectValid('com.4chan.example');
+      expectValid('net.users.12345.record');
+    });
+
+    test('first segment (TLD) may not start with a digit', () {
+      expectInvalid('4com.example.foo');
+      expectInvalid('0.b1.c3');
+    });
+
+    test('name segment must be letters and digits only', () {
+      expectInvalid('com.example.foo-bar');
+      expectInvalid('a-0.b-1.c-3');
+      expectInvalid('com.example.3foo');
+      expectValid('com.example.fooBar2');
+    });
+
+    test('segments can not start or end with a hyphen', () {
+      expectInvalid('com.-example.foo');
+      expectInvalid('com.example-.foo');
+      expectInvalid('-com.example.foo');
+    });
+
+    test('namespace glob remains valid', () {
+      expectValid('com.example.*');
+      expectValid('com.4chan.*');
+    });
+
+    test('name segment over 63 chars is invalid', () {
+      expectInvalid('com.example.${'o' * 64}');
+    });
+
+    test('domain segment over 63 chars is invalid', () {
+      expectInvalid('com.${'o' * 64}.foo');
+    });
+  });
+
+  test('InvalidNsidError.toString exposes the message (P-6)', () {
+    final error = InvalidNsidError('boom');
+    expect(error.toString(), contains('boom'));
+    expect(error.toString(), 'InvalidNsidError: boom');
   });
 
   group('==', () {

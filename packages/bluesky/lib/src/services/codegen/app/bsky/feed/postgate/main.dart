@@ -35,7 +35,7 @@ abstract class FeedPostgateRecord with _$FeedPostgateRecord {
   @JsonSerializable(includeIfNull: false)
   const factory FeedPostgateRecord({
     @Default('app.bsky.feed.postgate') String $type,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,

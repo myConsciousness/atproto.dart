@@ -30,7 +30,7 @@ abstract class ReactionView with _$ReactionView {
     @Default('chat.bsky.convo.defs#reactionView') String $type,
     required String value,
     @ReactionViewSenderConverter() required ReactionViewSender sender,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ReactionView;

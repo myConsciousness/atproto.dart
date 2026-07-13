@@ -107,7 +107,9 @@ final class SearchPostsSkeletonCommand extends QueryCommand {
     if (argResults!.wasParsed("url")) "url": argResults!["url"],
     if (argResults!.wasParsed("tag")) "tag": argResults!["tag"],
     if (argResults!.wasParsed("viewer")) "viewer": argResults!["viewer"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

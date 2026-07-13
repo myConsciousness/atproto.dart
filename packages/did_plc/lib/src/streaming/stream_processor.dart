@@ -50,146 +50,98 @@ class StreamProcessor<T> {
     : _config = config ?? const StreamProcessorConfig();
 
   final StreamProcessorConfig _config;
-  bool hasError = false;
-  bool isInputDone = false;
 
-  /// Processes a stream with backpressure control.
+  /// Processes a stream with bounded concurrency and backpressure.
   ///
-  /// [input] - The input stream to process
-  /// [processor] - Function to process each item
+  /// At most [StreamProcessorConfig.maxConcurrency] items are processed at
+  /// once. The upstream subscription is paused whenever the concurrency
+  /// limit is reached, providing real backpressure. Results are emitted as
+  /// they complete; per-item failures are reported exactly once via the
+  /// stream's error channel (they do not tear down processing of other
+  /// items).
   ///
-  /// Returns a stream of processed results with backpressure control.
-  Stream<R> processStream<R>(
-    Stream<T> input,
-    Future<R> Function(T) processor,
-  ) async* {
-    final buffer = <T>[];
-    final activeOperations = <Future<R>>[];
-    late StreamController<R> controller;
-    late StreamSubscription<T> subscription;
+  /// This method keeps no processing state on the instance, so a single
+  /// [StreamProcessor] can drive multiple concurrent [processStream] calls
+  /// safely.
+  Stream<R> processStream<R>(Stream<T> input, Future<R> Function(T) processor) {
+    late final StreamController<R> controller;
+    StreamSubscription<T>? subscription;
+    var inFlight = 0;
+    var inputDone = false;
+    var paused = false;
+
+    void resumeIfPossible() {
+      if (paused && inFlight < _config.maxConcurrency) {
+        paused = false;
+        subscription?.resume();
+      }
+    }
+
+    void closeIfComplete() {
+      if (inputDone && inFlight == 0 && !controller.isClosed) {
+        controller.close();
+      }
+    }
+
+    void handleItem(T item) {
+      inFlight++;
+      if (inFlight >= _config.maxConcurrency && !paused) {
+        paused = true;
+        subscription?.pause();
+      }
+
+      () async {
+        try {
+          final result = await processor(item).timeout(_config.timeout);
+          if (!controller.isClosed) {
+            controller.add(result);
+          }
+        } on TimeoutException catch (_, stackTrace) {
+          if (!controller.isClosed) {
+            controller.addError(
+              StreamProcessingException(
+                'Processing timeout after ${_config.timeout}',
+                item,
+              ),
+              stackTrace,
+            );
+          }
+        } catch (e, stackTrace) {
+          if (!controller.isClosed) {
+            controller.addError(
+              StreamProcessingException('Failed to process item: $e', item),
+              stackTrace,
+            );
+          }
+        } finally {
+          inFlight--;
+          resumeIfPossible();
+          closeIfComplete();
+        }
+      }();
+    }
 
     controller = StreamController<R>(
       onListen: () {
         subscription = input.listen(
-          (item) {
-            buffer.add(item);
-            _processBuffer(buffer, activeOperations, processor, controller);
-          },
-          onError: (error, stackTrace) {
-            hasError = true;
-            controller.addError(error, stackTrace);
+          handleItem,
+          onError: (Object error, StackTrace stackTrace) {
+            if (!controller.isClosed) {
+              controller.addError(error, stackTrace);
+            }
           },
           onDone: () {
-            isInputDone = true;
-            _finishProcessing(buffer, activeOperations, processor, controller);
+            inputDone = true;
+            closeIfComplete();
           },
         );
       },
-      onPause: () {
-        subscription.pause();
-      },
-      onResume: () {
-        subscription.resume();
-      },
-      onCancel: () {
-        subscription.cancel();
+      onCancel: () async {
+        await subscription?.cancel();
       },
     );
 
-    yield* controller.stream;
-  }
-
-  /// Processes items from the buffer while respecting concurrency limits.
-  void _processBuffer<R>(
-    List<T> buffer,
-    List<Future<R>> activeOperations,
-    Future<R> Function(T) processor,
-    StreamController<R> controller,
-  ) {
-    // Apply backpressure if buffer is getting full
-    final backpressureLimit =
-        (_config.bufferSize * _config.backpressureThreshold).round();
-    if (buffer.length >= backpressureLimit) {
-      // Pause input to apply backpressure
-      // This will be handled by the stream controller's pause mechanism
-    }
-
-    // Process items while respecting concurrency limits
-    while (buffer.isNotEmpty &&
-        activeOperations.length < _config.maxConcurrency &&
-        !controller.isClosed) {
-      final item = buffer.removeAt(0);
-      final future = _processItem(item, processor, controller);
-      activeOperations.add(future);
-
-      // Remove completed operations
-      future.whenComplete(() {
-        activeOperations.remove(future);
-      });
-    }
-  }
-
-  /// Processes a single item with timeout and error handling.
-  Future<R> _processItem<R>(
-    T item,
-    Future<R> Function(T) processor,
-    StreamController<R> controller,
-  ) async {
-    try {
-      final result = await processor(item).timeout(_config.timeout);
-      if (!controller.isClosed) {
-        controller.add(result);
-      }
-      return result;
-    } catch (e, stackTrace) {
-      if (e is TimeoutException) {
-        final timeoutError = StreamProcessingException(
-          'Processing timeout after ${_config.timeout}',
-          item,
-        );
-        if (!controller.isClosed) {
-          controller.addError(timeoutError, stackTrace);
-        }
-        throw timeoutError;
-      } else {
-        final processingError = StreamProcessingException(
-          'Failed to process item: $e',
-          item,
-        );
-        if (!controller.isClosed) {
-          controller.addError(processingError, stackTrace);
-        }
-        throw processingError;
-      }
-    }
-  }
-
-  /// Finishes processing remaining items and closes the controller.
-  void _finishProcessing<R>(
-    List<T> buffer,
-    List<Future<R>> activeOperations,
-    Future<R> Function(T) processor,
-    StreamController<R> controller,
-  ) async {
-    // Process remaining items in buffer
-    while (buffer.isNotEmpty && !controller.isClosed) {
-      final item = buffer.removeAt(0);
-      final future = _processItem(item, processor, controller);
-      activeOperations.add(future);
-    }
-
-    // Wait for all active operations to complete
-    if (activeOperations.isNotEmpty) {
-      try {
-        await Future.wait(activeOperations);
-      } catch (e) {
-        // Errors are already handled in _processItem
-      }
-    }
-
-    if (!controller.isClosed) {
-      controller.close();
-    }
+    return controller.stream;
   }
 
   /// Creates a batched stream that groups items into batches.
@@ -203,33 +155,55 @@ class StreamProcessor<T> {
     Stream<T> input, {
     int batchSize = 10,
     Duration maxWaitTime = const Duration(seconds: 1),
-  }) async* {
+  }) {
+    late final StreamController<List<T>> controller;
+    StreamSubscription<T>? subscription;
     final batch = <T>[];
     Timer? timer;
 
-    await for (final item in input) {
-      batch.add(item);
-
-      // Start timer for partial batch emission if this is the first item
-      if (batch.length == 1) {
-        timer = Timer(maxWaitTime, () {
-          // This will be handled by the stream controller
-        });
-      }
-
-      // Emit batch when it reaches the desired size
-      if (batch.length >= batchSize) {
-        timer?.cancel();
-        yield List<T>.from(batch);
+    void flush() {
+      timer?.cancel();
+      timer = null;
+      if (batch.isNotEmpty && !controller.isClosed) {
+        controller.add(List<T>.from(batch));
         batch.clear();
       }
     }
 
-    // Emit any remaining items as a final batch
-    timer?.cancel();
-    if (batch.isNotEmpty) {
-      yield List<T>.from(batch);
-    }
+    controller = StreamController<List<T>>(
+      onListen: () {
+        subscription = input.listen(
+          (item) {
+            batch.add(item);
+
+            // Start the max-wait timer when a new batch begins so a partial
+            // batch is still emitted even if [batchSize] is never reached.
+            timer ??= Timer(maxWaitTime, flush);
+
+            if (batch.length >= batchSize) {
+              flush();
+            }
+          },
+          onError: (Object error, StackTrace stackTrace) {
+            if (!controller.isClosed) {
+              controller.addError(error, stackTrace);
+            }
+          },
+          onDone: () {
+            flush();
+            if (!controller.isClosed) {
+              controller.close();
+            }
+          },
+        );
+      },
+      onCancel: () async {
+        timer?.cancel();
+        await subscription?.cancel();
+      },
+    );
+
+    return controller.stream;
   }
 
   /// Creates a throttled stream that limits the rate of emissions.

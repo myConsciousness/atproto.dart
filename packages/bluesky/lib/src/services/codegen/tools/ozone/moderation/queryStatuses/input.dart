@@ -86,29 +86,29 @@ abstract class ModerationQueryStatusesInput
     String? comment,
 
     /// Search subjects reported after a given timestamp
-    DateTime? reportedAfter,
+    @JsonKey(toJson: iso8601) DateTime? reportedAfter,
 
     /// Search subjects reported before a given timestamp
-    DateTime? reportedBefore,
+    @JsonKey(toJson: iso8601) DateTime? reportedBefore,
 
     /// Search subjects reviewed after a given timestamp
-    DateTime? reviewedAfter,
+    @JsonKey(toJson: iso8601) DateTime? reviewedAfter,
 
     /// Search subjects where the associated record/account was deleted after a given timestamp
-    DateTime? hostingDeletedAfter,
+    @JsonKey(toJson: iso8601) DateTime? hostingDeletedAfter,
 
     /// Search subjects where the associated record/account was deleted before a given timestamp
-    DateTime? hostingDeletedBefore,
+    @JsonKey(toJson: iso8601) DateTime? hostingDeletedBefore,
 
     /// Search subjects where the associated record/account was updated after a given timestamp
-    DateTime? hostingUpdatedAfter,
+    @JsonKey(toJson: iso8601) DateTime? hostingUpdatedAfter,
 
     /// Search subjects where the associated record/account was updated before a given timestamp
-    DateTime? hostingUpdatedBefore,
+    @JsonKey(toJson: iso8601) DateTime? hostingUpdatedBefore,
     List<String>? hostingStatuses,
 
     /// Search subjects reviewed before a given timestamp
-    DateTime? reviewedBefore,
+    @JsonKey(toJson: iso8601) DateTime? reviewedBefore,
 
     /// By default, we don't include muted subjects in the results. Set this to true to include them.
     bool? includeMuted,

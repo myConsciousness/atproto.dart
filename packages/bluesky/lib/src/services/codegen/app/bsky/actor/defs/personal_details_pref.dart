@@ -27,7 +27,7 @@ abstract class PersonalDetailsPref with _$PersonalDetailsPref {
     @Default('app.bsky.actor.defs#personalDetailsPref') String $type,
 
     /// The birth date of account owner.
-    DateTime? birthDate,
+    @JsonKey(toJson: iso8601) DateTime? birthDate,
 
     Map<String, dynamic>? $unknown,
   }) = _PersonalDetailsPref;

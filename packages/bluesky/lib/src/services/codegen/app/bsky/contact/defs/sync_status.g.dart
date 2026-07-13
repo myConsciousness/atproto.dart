@@ -31,7 +31,7 @@ _SyncStatus _$SyncStatusFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$SyncStatusToJson(_SyncStatus instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'syncedAt': instance.syncedAt.toIso8601String(),
+      'syncedAt': iso8601(instance.syncedAt),
       'matchesCount': instance.matchesCount,
       r'$unknown': ?instance.$unknown,
     };

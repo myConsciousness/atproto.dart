@@ -2,6 +2,9 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Package imports:
+import 'package:xrpc/xrpc.dart' as xrpc;
+
 // Project imports:
 import '../api/find_did.dart' as api;
 import 'byte_indices.dart';
@@ -36,7 +39,12 @@ final class Entity implements Facetable {
             '\$type': 'app.bsky.richtext.facet#mention',
             'did': did.data['did'],
           });
-        } catch (_) {
+        } on xrpc.InvalidRequestException {
+          //* The handle could not be resolved to a DID (e.g. it does not
+          //* exist), so there is legitimately no mention facet to emit. Only
+          //* this specific case is swallowed; network failures and other
+          //* unexpected errors are intentionally rethrown so a transient outage
+          //* does not silently drop mentions without the caller noticing.
           return {};
         }
 

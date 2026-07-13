@@ -34,10 +34,10 @@ abstract class ReportQueryActivitiesInput with _$ReportQueryActivitiesInput {
     List<String>? activityTypes,
 
     /// Retrieve activities created at or after a given timestamp
-    DateTime? createdAfter,
+    @JsonKey(toJson: iso8601) DateTime? createdAfter,
 
     /// Retrieve activities created at or before a given timestamp
-    DateTime? createdBefore,
+    @JsonKey(toJson: iso8601) DateTime? createdBefore,
     @Default('desc') String sortDirection,
     @Default(50) int limit,
 

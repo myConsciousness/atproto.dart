@@ -33,5 +33,13 @@ final class GetProfilesCommand extends QueryCommand {
   String get methodId => "app.bsky.actor.getProfiles";
 
   @override
-  Map<String, dynamic>? get parameters => {"actors": argResults!["actors"]};
+  Map<String, dynamic>? get parameters => {
+    "actors": _requireNonEmpty("actors", argResults!["actors"]),
+  };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

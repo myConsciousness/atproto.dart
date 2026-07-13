@@ -8,6 +8,9 @@ import '../at_identifier/handle.dart';
 import '../nsid/validation.dart';
 import 'invalid_at_uri_error.dart';
 
+final _asciiRegExp = RegExp(r"^[a-zA-Z0-9._~:@!$&\'()*+,;=%/-]*$");
+final _fragmentRegExp = RegExp(r"^\/[a-zA-Z0-9._~:@!$&\'()*+,;=%[\]/-]*$");
+
 void ensureValidAtUri(String uri) {
   // JSON pointer is pretty different from rest of URI, so split that out first
   final uriParts = uri.split('#');
@@ -20,7 +23,7 @@ void ensureValidAtUri(String uri) {
   uri = uriParts[0];
 
   // check that all chars are boring ASCII
-  if (!RegExp(r"^[a-zA-Z0-9._~:@!$&\'()*+,;=%/-]*$").hasMatch(uri)) {
+  if (!_asciiRegExp.hasMatch(uri)) {
     throw InvalidAtUriError('Disallowed characters in ATURI (ASCII)');
   }
 
@@ -88,9 +91,7 @@ void ensureValidAtUri(String uri) {
     }
 
     // NOTE: enforcing *some* checks here for sanity. Eg, at least no whitespace
-    if (!RegExp(
-      r"^\/[a-zA-Z0-9._~:@!$&\'()*+,;=%[\]/-]*$",
-    ).hasMatch(fragmentPart)) {
+    if (!_fragmentRegExp.hasMatch(fragmentPart)) {
       throw InvalidAtUriError(
         'Disallowed characters in ATURI fragment (ASCII)',
       );

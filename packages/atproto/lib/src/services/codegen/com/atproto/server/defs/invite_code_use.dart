@@ -26,7 +26,7 @@ abstract class InviteCodeUse with _$InviteCodeUse {
   const factory InviteCodeUse({
     @Default('com.atproto.server.defs#inviteCodeUse') String $type,
     required String usedBy,
-    required DateTime usedAt,
+    @JsonKey(toJson: iso8601) required DateTime usedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _InviteCodeUse;

@@ -43,7 +43,7 @@ Map<String, dynamic> _$TemplateViewToJson(_TemplateView instance) =>
       'disabled': instance.disabled,
       'lang': ?instance.lang,
       'lastUpdatedBy': instance.lastUpdatedBy,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
+      'updatedAt': iso8601(instance.updatedAt),
       r'$unknown': ?instance.$unknown,
     };

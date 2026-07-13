@@ -7,6 +7,11 @@ import 'dart:convert';
 
 // Package imports:
 import 'package:http/http.dart' as http;
+import 'package:web_socket_channel/web_socket_channel.dart';
+
+/// A function type abstracted from [WebSocketChannel.connect], mainly for
+/// mocking at test time.
+typedef WebSocketChannelFactory = WebSocketChannel Function(Uri uri);
 
 /// A function type abstracted from [http.get], mainly for mocking
 /// at test time.

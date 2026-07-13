@@ -69,6 +69,16 @@ final class LexParameter {
     return buffer.toString();
   }
 
+  /// Whether generating this parameter's value requires the `_decodeJson`
+  /// instance helper (a scalar JSON option or an array of JSON items).
+  bool get needsJsonHelper => isJsonVariant || (isArray && hasJsonItems);
+
+  /// Whether generating this parameter's value requires the `_requireNonEmpty`
+  /// instance helper (a mandatory array; `addMultiOption` cannot enforce
+  /// `mandatory`, so emptiness is validated at runtime instead).
+  bool get needsRequireNonEmptyHelper =>
+      isArray && isRequired && defaultValue == null;
+
   String getParam() {
     final buffer = StringBuffer();
 
@@ -76,28 +86,36 @@ final class LexParameter {
       buffer.write('if (argResults!.wasParsed("$name"))');
     }
 
-    buffer.write('"$name": ${_getValue()},');
+    var value = _getValue();
+    if (needsRequireNonEmptyHelper) {
+      value = '_requireNonEmpty("$name", $value)';
+    }
+
+    buffer.write('"$name": $value,');
 
     return buffer.toString();
   }
 
   String _getValue() {
     if (isJsonVariant) {
-      return 'jsonDecode(argResults!["$name"])';
+      return '_decodeJson("$name")';
     }
 
     if (isInteger) {
-      return 'int.parse(argResults!["$name"])';
+      return 'int.tryParse(argResults!["$name"]) ?? '
+          'usageException(\'Invalid integer value for option "$name".\')';
     }
 
     if (isArray) {
       if (hasJsonItems) {
         return '(argResults!["$name"] as List<String>)'
-            '.map((e) => jsonDecode(e)).toList()';
+            '.map((e) => _decodeJsonItem("$name", e)).toList()';
       }
       if (itemsType == 'integer') {
         return '(argResults!["$name"] as List<String>)'
-            '.map((e) => int.parse(e)).toList()';
+            '.map((e) => int.tryParse(e) ?? '
+            'usageException(\'Invalid integer value in option "$name".\'))'
+            '.toList()';
       }
     }
 

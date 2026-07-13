@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordEvent {
 
- String get $type; String? get comment;@RecordEventOpConverter() RecordEventOp get op; String? get cid; DateTime get timestamp; Map<String, dynamic>? get $unknown;
+ String get $type; String? get comment;@RecordEventOpConverter() RecordEventOp get op; String? get cid;@JsonKey(toJson: iso8601) DateTime get timestamp; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RecordEventCopyWith<$Res>  {
   factory $RecordEventCopyWith(RecordEvent value, $Res Function(RecordEvent) _then) = _$RecordEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment,@RecordEventOpConverter() RecordEventOp op, String? cid, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment,@RecordEventOpConverter() RecordEventOp op, String? cid,@JsonKey(toJson: iso8601) DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid, @JsonKey(toJson: iso8601)  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid, @JsonKey(toJson: iso8601)  DateTime timestamp,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordEvent():
 return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid,  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment, @RecordEventOpConverter()  RecordEventOp op,  String? cid, @JsonKey(toJson: iso8601)  DateTime timestamp,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_that.$unknown);case _:
@@ -223,14 +223,14 @@ return $default(_that.$type,_that.comment,_that.op,_that.cid,_that.timestamp,_th
 
 @JsonSerializable(includeIfNull: false)
 class _RecordEvent implements RecordEvent {
-  const _RecordEvent({this.$type = 'tools.ozone.moderation.defs#recordEvent', this.comment, @RecordEventOpConverter() required this.op, this.cid, required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordEvent({this.$type = 'tools.ozone.moderation.defs#recordEvent', this.comment, @RecordEventOpConverter() required this.op, this.cid, @JsonKey(toJson: iso8601) required this.timestamp, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordEvent.fromJson(Map<String, dynamic> json) => _$RecordEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String? comment;
 @override@RecordEventOpConverter() final  RecordEventOp op;
 @override final  String? cid;
-@override final  DateTime timestamp;
+@override@JsonKey(toJson: iso8601) final  DateTime timestamp;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -274,7 +274,7 @@ abstract mixin class _$RecordEventCopyWith<$Res> implements $RecordEventCopyWith
   factory _$RecordEventCopyWith(_RecordEvent value, $Res Function(_RecordEvent) _then) = __$RecordEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment,@RecordEventOpConverter() RecordEventOp op, String? cid, DateTime timestamp, Map<String, dynamic>? $unknown
+ String $type, String? comment,@RecordEventOpConverter() RecordEventOp op, String? cid,@JsonKey(toJson: iso8601) DateTime timestamp, Map<String, dynamic>? $unknown
 });
 
 

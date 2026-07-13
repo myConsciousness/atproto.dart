@@ -61,7 +61,7 @@ abstract class GeneratorView with _$GeneratorView {
     @LabelConverter() List<Label>? labels,
     @GeneratorViewerStateConverter() GeneratorViewerState? viewer,
     @GeneratorViewContentModeConverter() GeneratorViewContentMode? contentMode,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _GeneratorView;

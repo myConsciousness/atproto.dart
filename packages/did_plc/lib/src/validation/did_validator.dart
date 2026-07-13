@@ -86,6 +86,11 @@ class DidValidator {
                 'Service at index $i is missing serviceEndpoint';
             break;
           }
+          if (service['serviceEndpoint'] is! String) {
+            errors['service'] =
+                'Service at index $i serviceEndpoint must be a string';
+            break;
+          }
           final endpoint = service['serviceEndpoint'] as String;
           try {
             final uri = Uri.parse(endpoint);

@@ -59,7 +59,7 @@ abstract class PostView with _$PostView {
     int? repostCount,
     int? likeCount,
     int? quoteCount,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
     @ThreadgateViewConverter() ThreadgateView? threadgate,

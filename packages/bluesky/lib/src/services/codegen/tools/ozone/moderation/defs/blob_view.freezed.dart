@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BlobView {
 
- String get $type; String get cid; String get mimeType; int get size; DateTime get createdAt;@UBlobViewDetailsConverter() UBlobViewDetails? get details;@ModerationConverter() Moderation? get moderation; Map<String, dynamic>? get $unknown;
+ String get $type; String get cid; String get mimeType; int get size;@JsonKey(toJson: iso8601) DateTime get createdAt;@UBlobViewDetailsConverter() UBlobViewDetails? get details;@ModerationConverter() Moderation? get moderation; Map<String, dynamic>? get $unknown;
 /// Create a copy of BlobView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $BlobViewCopyWith<$Res>  {
   factory $BlobViewCopyWith(BlobView value, $Res Function(BlobView) _then) = _$BlobViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String cid, String mimeType, int size, DateTime createdAt,@UBlobViewDetailsConverter() UBlobViewDetails? details,@ModerationConverter() Moderation? moderation, Map<String, dynamic>? $unknown
+ String $type, String cid, String mimeType, int size,@JsonKey(toJson: iso8601) DateTime createdAt,@UBlobViewDetailsConverter() UBlobViewDetails? details,@ModerationConverter() Moderation? moderation, Map<String, dynamic>? $unknown
 });
 
 
@@ -184,7 +184,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid,  String mimeType,  int size,  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String cid,  String mimeType,  int size, @JsonKey(toJson: iso8601)  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BlobView() when $default != null:
 return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,_that.details,_that.moderation,_that.$unknown);case _:
@@ -205,7 +205,7 @@ return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid,  String mimeType,  int size,  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String cid,  String mimeType,  int size, @JsonKey(toJson: iso8601)  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _BlobView():
 return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,_that.details,_that.moderation,_that.$unknown);case _:
@@ -225,7 +225,7 @@ return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid,  String mimeType,  int size,  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String cid,  String mimeType,  int size, @JsonKey(toJson: iso8601)  DateTime createdAt, @UBlobViewDetailsConverter()  UBlobViewDetails? details, @ModerationConverter()  Moderation? moderation,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _BlobView() when $default != null:
 return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,_that.details,_that.moderation,_that.$unknown);case _:
@@ -240,14 +240,14 @@ return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,
 
 @JsonSerializable(includeIfNull: false)
 class _BlobView implements BlobView {
-  const _BlobView({this.$type = 'tools.ozone.moderation.defs#blobView', required this.cid, required this.mimeType, required this.size, required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BlobView({this.$type = 'tools.ozone.moderation.defs#blobView', required this.cid, required this.mimeType, required this.size, @JsonKey(toJson: iso8601) required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlobView.fromJson(Map<String, dynamic> json) => _$BlobViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String cid;
 @override final  String mimeType;
 @override final  int size;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@UBlobViewDetailsConverter() final  UBlobViewDetails? details;
 @override@ModerationConverter() final  Moderation? moderation;
  final  Map<String, dynamic>? _$unknown;
@@ -293,7 +293,7 @@ abstract mixin class _$BlobViewCopyWith<$Res> implements $BlobViewCopyWith<$Res>
   factory _$BlobViewCopyWith(_BlobView value, $Res Function(_BlobView) _then) = __$BlobViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String cid, String mimeType, int size, DateTime createdAt,@UBlobViewDetailsConverter() UBlobViewDetails? details,@ModerationConverter() Moderation? moderation, Map<String, dynamic>? $unknown
+ String $type, String cid, String mimeType, int size,@JsonKey(toJson: iso8601) DateTime createdAt,@UBlobViewDetailsConverter() UBlobViewDetails? details,@ModerationConverter() Moderation? moderation, Map<String, dynamic>? $unknown
 });
 
 

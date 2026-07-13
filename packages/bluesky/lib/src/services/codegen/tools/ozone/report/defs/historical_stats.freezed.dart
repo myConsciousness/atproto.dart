@@ -17,7 +17,7 @@ mixin _$HistoricalStats {
 
  String get $type;/// The calendar date this snapshot covers (YYYY-MM-DD).
  String get date;/// When this snapshot was last computed.
- DateTime? get computedAt;/// Number of reports not closed at time of computation.
+@JsonKey(toJson: iso8601) DateTime? get computedAt;/// Number of reports not closed at time of computation.
  int? get pendingCount;/// Number of reports closed during this day.
  int? get actionedCount;/// Number of reports escalated during this day.
  int? get escalatedCount;/// Reports received during this day.
@@ -56,7 +56,7 @@ abstract mixin class $HistoricalStatsCopyWith<$Res>  {
   factory $HistoricalStatsCopyWith(HistoricalStats value, $Res Function(HistoricalStats) _then) = _$HistoricalStatsCopyWithImpl;
 @useResult
 $Res call({
- String $type, String date, DateTime? computedAt, int? pendingCount, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec, Map<String, dynamic>? $unknown
+ String $type, String date,@JsonKey(toJson: iso8601) DateTime? computedAt, int? pendingCount, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec, Map<String, dynamic>? $unknown
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String date,  DateTime? computedAt,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HistoricalStats() when $default != null:
 return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.$unknown);case _:
@@ -191,7 +191,7 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String date,  DateTime? computedAt,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _HistoricalStats():
 return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String date,  DateTime? computedAt,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _HistoricalStats() when $default != null:
 return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.$unknown);case _:
@@ -226,14 +226,14 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 
 @JsonSerializable(includeIfNull: false)
 class _HistoricalStats implements HistoricalStats {
-  const _HistoricalStats({this.$type = 'tools.ozone.report.defs#historicalStats', required this.date, this.computedAt, this.pendingCount, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _HistoricalStats({this.$type = 'tools.ozone.report.defs#historicalStats', required this.date, @JsonKey(toJson: iso8601) this.computedAt, this.pendingCount, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _HistoricalStats.fromJson(Map<String, dynamic> json) => _$HistoricalStatsFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The calendar date this snapshot covers (YYYY-MM-DD).
 @override final  String date;
 /// When this snapshot was last computed.
-@override final  DateTime? computedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? computedAt;
 /// Number of reports not closed at time of computation.
 @override final  int? pendingCount;
 /// Number of reports closed during this day.
@@ -289,7 +289,7 @@ abstract mixin class _$HistoricalStatsCopyWith<$Res> implements $HistoricalStats
   factory _$HistoricalStatsCopyWith(_HistoricalStats value, $Res Function(_HistoricalStats) _then) = __$HistoricalStatsCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String date, DateTime? computedAt, int? pendingCount, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec, Map<String, dynamic>? $unknown
+ String $type, String date,@JsonKey(toJson: iso8601) DateTime? computedAt, int? pendingCount, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec, Map<String, dynamic>? $unknown
 });
 
 
