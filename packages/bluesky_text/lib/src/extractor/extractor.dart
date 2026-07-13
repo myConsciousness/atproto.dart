@@ -143,6 +143,7 @@ final class _HandlesExtractor implements Extractor {
     if (!text.value.contains('@')) return const [];
 
     final entities = <Entity>[];
+    final utf8Index = Utf8IndexConverter(text.value);
 
     for (final match in validMentionRegex.allMatches(text.value)) {
       final handle = match.handle;
@@ -155,8 +156,8 @@ final class _HandlesExtractor implements Extractor {
           type: EntityType.handle,
           value: handle,
           indices: ByteIndices(
-            start: text.value.toUtf8Index(start),
-            end: text.value.toUtf8Index(start + mention.length),
+            start: utf8Index.convert(start),
+            end: utf8Index.convert(start + mention.length),
           ),
         ),
       );
@@ -182,6 +183,7 @@ final class _LinksExtractor implements Extractor {
     if (!text.value.contains('.')) return const [];
 
     final entities = <Entity>[];
+    final utf8Index = Utf8IndexConverter(text.value);
     final $handles = config?.handles ?? handlesExtractor.execute(text);
     final $markdownLinks = config?.enableMarkdown ?? false
         ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
@@ -236,6 +238,7 @@ final class _LinksExtractor implements Extractor {
             handles: $handles,
             markdownLinks: $markdownLinks,
             value: text.value,
+            utf8Index: utf8Index,
             source: found['url'],
             matchStart: found['start'],
           );
@@ -253,6 +256,7 @@ final class _LinksExtractor implements Extractor {
           handles: $handles,
           markdownLinks: $markdownLinks,
           value: text.value,
+          utf8Index: utf8Index,
           source: uri,
           matchStart: match.start,
         );
@@ -272,13 +276,14 @@ final class _LinksExtractor implements Extractor {
     required List<Entity> handles,
     required List<MarkdownLinkEntity> markdownLinks,
     required String value,
+    required Utf8IndexConverter utf8Index,
     required String source,
     required int matchStart,
   }) {
     final start = value.indexOf(source, matchStart);
 
-    final startUtf8 = value.toUtf8Index(start);
-    final endUtf8 = value.toUtf8Index(start + source.length);
+    final startUtf8 = utf8Index.convert(start);
+    final endUtf8 = utf8Index.convert(start + source.length);
 
     if (_isHandle(startUtf8, endUtf8, handles)) return;
     if (_isMarkdownLink(startUtf8, endUtf8, markdownLinks)) return;
@@ -295,18 +300,22 @@ final class _LinksExtractor implements Extractor {
   List<Entity> _getLinkEntitiesFromReplacements(
     final List<Replacement> replacements,
     final String value,
-  ) => replacements
-      .map(
-        (e) => Entity(
-          type: EntityType.link,
-          value: e.value,
-          indices: ByteIndices(
-            start: value.toUtf8Index(e.start),
-            end: value.toUtf8Index(e.end),
+  ) {
+    final utf8Index = Utf8IndexConverter(value);
+
+    return replacements
+        .map(
+          (e) => Entity(
+            type: EntityType.link,
+            value: e.value,
+            indices: ByteIndices(
+              start: utf8Index.convert(e.start),
+              end: utf8Index.convert(e.end),
+            ),
           ),
-        ),
-      )
-      .toList();
+        )
+        .toList();
+  }
 
   bool _isHandle(final int start, final int end, final List<Entity> handles) {
     //* Only treat the candidate link as a handle when it is fully contained in
@@ -358,6 +367,7 @@ final class _TagsExtractor implements Extractor {
     }
 
     final entities = <Entity>[];
+    final utf8Index = Utf8IndexConverter(text.value);
 
     for (final match in validHashtagRegex.allMatches(text.value)) {
       final after = match.input.substring(match.start + match.group(0)!.length);
@@ -388,8 +398,8 @@ final class _TagsExtractor implements Extractor {
           type: EntityType.tag,
           value: value,
           indices: ByteIndices(
-            start: text.value.toUtf8Index(start),
-            end: text.value.toUtf8Index(start + tag.length),
+            start: utf8Index.convert(start),
+            end: utf8Index.convert(start + tag.length),
           ),
         ),
       );
@@ -411,6 +421,7 @@ final class _CashtagsExtractor implements Extractor {
     if (!text.value.contains(r'$')) return const [];
 
     final entities = <Entity>[];
+    final utf8Index = Utf8IndexConverter(text.value);
 
     for (final match in validCashtagRegex.allMatches(text.value)) {
       //* The leading boundary (start of string, whitespace or `(`) is captured
@@ -426,8 +437,8 @@ final class _CashtagsExtractor implements Extractor {
           type: EntityType.cashtag,
           value: cashtag,
           indices: ByteIndices(
-            start: text.value.toUtf8Index(start),
-            end: text.value.toUtf8Index(start + cashtag.length),
+            start: utf8Index.convert(start),
+            end: utf8Index.convert(start + cashtag.length),
           ),
         ),
       );

@@ -4047,5 +4047,55 @@ github.com/videah/SkyBridge
         }
       });
     });
+
+    group('Utf8IndexConverter is identical to toUtf8Index', () {
+      final samples = <String>[
+        '',
+        'abc',
+        '日本語',
+        '😀test😀',
+        '#😀😀test',
+        '👨‍👩‍👧‍👦 fam',
+        '@a.io 日本 🚀 https://ex.com/日本 #tag \$AAPL 😀😀',
+      ];
+
+      test('monotonic non-decreasing requests match every index', () {
+        for (final sample in samples) {
+          final converter = Utf8IndexConverter(sample);
+          for (var i = 0; i <= sample.length; i++) {
+            expect(
+              converter.convert(i),
+              sample.toUtf8Index(i),
+              reason: 'mismatch for ${jsonEncode(sample)} at $i',
+            );
+          }
+        }
+      });
+
+      test('a request that splits a surrogate pair still resumes correctly', () {
+        //* '😀😀' is two surrogate pairs: code units [H,L,H,L]. Stopping at
+        //* index 1 (between the first pair) must return 3 (unpaired high),
+        //* and the following request must still pair the surrogates so the
+        //* pair counts as 4 bytes total — identical to independent
+        //* `toUtf8Index` calls.
+        const sample = '😀😀';
+        final converter = Utf8IndexConverter(sample);
+
+        expect(converter.convert(1), sample.toUtf8Index(1)); // 3
+        expect(converter.convert(2), sample.toUtf8Index(2)); // 4
+        expect(converter.convert(3), sample.toUtf8Index(3)); // 7
+        expect(converter.convert(4), sample.toUtf8Index(4)); // 8
+      });
+
+      test('repeated and backwards requests fall back correctly', () {
+        const sample = '日本語abc';
+        final converter = Utf8IndexConverter(sample);
+
+        expect(converter.convert(3), sample.toUtf8Index(3)); // advance
+        expect(converter.convert(3), sample.toUtf8Index(3)); // repeat (==)
+        expect(converter.convert(1), sample.toUtf8Index(1)); // backwards (<)
+        expect(converter.convert(6), sample.toUtf8Index(6)); // forward again
+      });
+    });
   });
 }
