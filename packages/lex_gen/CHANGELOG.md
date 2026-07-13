@@ -8,7 +8,8 @@ Internal readability/standardization/optimization refactor. Generated output is 
 - refactor: resolve a ref's related def in O(1) via a precomputed index instead of scanning every doc's every def per lookup (`getRelatedDocFromRef`).
 - refactor: replace the mutually-exclusive `isQuery`/`isProcedure`/`isSubscription`/`isRecord` (and command `isBlobProcedure`) boolean sets with `LexDefKind` / `LexCommandKind` sealed enums dispatched by exhaustive `switch`.
 - refactor: unify the four byte-identical freezed data-class templates (`LexObject`/`LexRecord`/`LexInput`/`LexOutput`) into a single `renderFreezedDataClass`.
-- perf: `getExtensions` name lookup is O(1) via a precomputed set (was O(n²)); `LexUnion` resolves each ref name once instead of four times.
+- perf: `getExtensions` name lookup is O(1) via a precomputed set (was O(n²)); `LexUnion` resolves each ref name once instead of four times; `RepoCommitHandler` resolves each record type name once instead of six times.
+- refactor: unify `RepoCommitHandler`'s near-identical `_onCreate` / `_onUpdate` firehose event builders into a single parameterized `_getMutationEvent`.
 - refactor: fix the `_LexLexXrpc*` double-`Lex` type-name typos, deduplicate the record-accessor `rkey` literal handling and the `LexOutput` upload-ref predicate, remove dead `getDescription` helpers, and use `putIfAbsent` for map aggregation.
 - test: add unit tests for `Nsid` and `LexRef`.
 
