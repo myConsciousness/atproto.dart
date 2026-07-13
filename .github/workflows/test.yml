@@ -93,10 +93,13 @@ jobs:
             flutter test
           fi
 
-      - name: Analyze example
+      - name: Analyze & test example
         run: |
           if test -d "example"; then
             cd example
             flutter pub get
             flutter analyze
+            if test -d "test"; then
+              flutter test
+            fi
           fi
