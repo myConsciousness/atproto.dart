@@ -15,11 +15,23 @@ import 'firehose_adaptor.dart';
 final class SyncSubscribeReposAdaptor {
   const SyncSubscribeReposAdaptor();
 
-  USyncSubscribeReposMessage execute(final dynamic data) {
+  USyncSubscribeReposMessage execute(final dynamic data) =>
+      const USyncSubscribeReposMessageConverter().fromJson(toJson(data));
+
+  /// Decodes a raw firehose frame into the JSON map form of a
+  /// `com.atproto.sync.subscribeRepos` message, with the CAR `blocks`, the
+  /// `ops` CID links, and the top-level `commit`/`prevData` CID links already
+  /// normalized per the atproto data model.
+  ///
+  /// This is the map consumed by [USyncSubscribeReposMessageConverter], and
+  /// [execute] simply wraps it. It is exposed so an XRPC subscription can feed
+  /// the decode straight into its `adaptor`, handing the caller a typed
+  /// `Subscription<USyncSubscribeReposMessage>` instead of raw bytes.
+  Map<String, dynamic> toJson(final dynamic data) {
     final repos = const FirehoseAdaptor().execute(data);
 
     if (_isCommit(repos)) {
-      return const USyncSubscribeReposMessageConverter().fromJson({
+      return {
         ...repos,
         'ops': _getOps(repos),
         'blocks': _getBlocks(repos),
@@ -27,19 +39,16 @@ final class SyncSubscribeReposAdaptor {
         //! `prevData` (sync v1.1) is a CID link the relay adds to every commit.
         //! Without converting it the whole commit degraded to `unknown`.
         'prevData': _getCidLink(repos['prevData']),
-      });
+      };
     }
 
     if (_isSync(repos)) {
       //! `#sync` frames (account migration/recovery) carry the commit as a CAR
       //! in `blocks`; decode it so a typed `Sync` event is produced.
-      return const USyncSubscribeReposMessageConverter().fromJson({
-        ...repos,
-        'blocks': _getBlocks(repos),
-      });
+      return {...repos, 'blocks': _getBlocks(repos)};
     }
 
-    return const USyncSubscribeReposMessageConverter().fromJson(repos);
+    return repos;
   }
 
   List<Map<String, dynamic>> _getOps(final Map<String, dynamic> repos) {

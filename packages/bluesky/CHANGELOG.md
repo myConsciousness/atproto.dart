@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.7.1
+
+- chore: bump `atproto` to `^1.7.0`, which exposes `bsky.atproto.sync.subscribeReposAsMessages()` — a Firehose subscription that yields already-decoded, typed messages instead of raw binary frames.
+
 ## v1.7.0
 
 - fix!: rewrote the notification grouper as a typed O(n) implementation; notifications with a missing `labels` field (optional in the lexicon, common in practice) no longer crash `group()`/`_mergeLabels` (B-1/B-2/B-8).

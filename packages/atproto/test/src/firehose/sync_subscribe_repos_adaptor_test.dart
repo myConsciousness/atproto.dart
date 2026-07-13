@@ -11,7 +11,6 @@ import 'package:cbor/cbor.dart';
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 import 'package:atproto/firehose.dart';
 
 /// Encodes [value] as an unsigned LEB128 varint.
@@ -228,6 +227,64 @@ void main() {
       final record = commit.blocks.values.first;
       // Left untouched, not turned into a bogus CID.
       expect(record['ref'], [1, 2, 3]);
+    });
+  });
+
+  group('SyncSubscribeReposAdaptor.toJson', () {
+    final commitFrame = _frame(
+      CborMap({
+        CborString('op'): const CborSmallInt(1),
+        CborString('t'): CborString('#commit'),
+      }),
+      CborMap({
+        CborString('seq'): const CborSmallInt(9),
+        CborString('repo'): CborString('did:plc:alice'),
+        CborString('commit'): _cidLink(0x71, fill: 1),
+        CborString('rev'): CborString('3k'),
+        CborString('since'): CborNull(),
+        CborString('blocks'): CborBytes(recordCar),
+        CborString('ops'): CborList([
+          CborMap({
+            CborString('action'): CborString('create'),
+            CborString('path'): CborString('app.bsky.feed.post/abc'),
+            CborString('cid'): _cidLink(0x71, fill: 3),
+          }),
+        ]),
+        CborString('prevData'): _cidLink(0x71, fill: 2),
+        CborString('time'): CborString('2024-01-01T00:00:00.000Z'),
+      }),
+    );
+
+    test('produces the enriched map with decoded blocks and CID links', () {
+      final json = adaptor.toJson(commitFrame);
+
+      // blocks decoded from the CAR into a `CID -> record` map.
+      expect(json['blocks'], isA<Map<String, dynamic>>());
+      expect(json['blocks'], isNotEmpty);
+
+      // Top-level and op CID links normalized to base32 strings.
+      expect(json['commit'], CID.fromList(_cidBytes(0x71, fill: 1)).toString());
+      expect(
+        json['prevData'],
+        CID.fromList(_cidBytes(0x71, fill: 2)).toString(),
+      );
+      final ops = json['ops'] as List;
+      expect(
+        ops.first['cid'],
+        CID.fromList(_cidBytes(0x71, fill: 3)).toString(),
+      );
+    });
+
+    test('execute() equals converter.fromJson(toJson()) — same result', () {
+      // The typed subscription feeds `toJson` through the XRPC `adaptor` and the
+      // converter through `to`; that pipeline must match the all-in-one
+      // `execute`.
+      final viaExecute = adaptor.execute(commitFrame);
+      final viaPipeline = const USyncSubscribeReposMessageConverter().fromJson(
+        adaptor.toJson(commitFrame),
+      );
+
+      expect(viaPipeline, viaExecute);
     });
   });
 }
