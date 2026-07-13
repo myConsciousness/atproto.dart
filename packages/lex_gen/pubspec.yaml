@@ -1,7 +1,7 @@
 name: lex_gen
 resolution: workspace
 description: Provides a generator that automatically generates source code from the Lexicon in the AT Protocol.
-version: 0.3.0
+version: 0.4.0
 homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/lex_gen
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
@@ -12,7 +12,7 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
-  lexicon: ^1.1.0
+  lexicon: ^1.2.0
 
 dev_dependencies:
   lints: ^6.0.0

@@ -1,5 +1,16 @@
 # Release Note
 
+## v1.7.0
+
+- fix!: rewrote the notification grouper as a typed O(n) implementation; notifications with a missing `labels` field (optional in the lexicon, common in practice) no longer crash `group()`/`_mergeLabels` (B-1/B-2/B-8).
+- fix: added current AppView reasons (`verified`, `like-via-repost`, `subscribed-post`, etc.); unknown reasons now fall back instead of throwing, so `group()` no longer crashes on live timelines (B-3).
+- fix: grouping keys use the remapped reason, so likes on feed generators (`customFeedLike`) actually merge (B-4).
+- fix: `uploadVideo` now uses `ctx.repo`, so it no longer crashes under an OAuth-authenticated client (`session!.did` was null) (B-13).
+- fix: the single-character mute-word check uses UTF-16 length (spec-conformant), and `decidePost` now guards with `validate()` so a malformed federated record no longer throws (B-9/B-11).
+- fix: out-of-range hour/minute now raise a runtime `RangeError` (was assert-only, so release builds silently misbehaved); labels are de-duped by value equality (B-5/B-6).
+- feat: added `OzoneTool.fromOAuthSession` and `oAuthSession` getters for parity with sibling clients (B-14).
+- chore: bump `atproto` to `^1.6.0`, `atproto_core` to `^1.3.0`, and `bluesky_text` to `^1.4.0`.
+
 ## v1.6.0
 
 Aligned the client-side moderation engine with the official `@atproto/api` implementation:

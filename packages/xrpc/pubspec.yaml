@@ -1,7 +1,7 @@
 name: xrpc
 resolution: workspace
 description: Core library for XRPC communication. This is a wrapped HTTP client for AT Protocol.
-version: 1.0.3
+version: 1.1.0
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc
@@ -20,7 +20,7 @@ topics:
 
 dependencies:
   http: ^1.4.0
-  at_primitives: ^1.0.0
+  at_primitives: ^1.1.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   mime: ^2.0.0

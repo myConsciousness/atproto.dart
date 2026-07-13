@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.6.0
+
+- fix!: stop leaking `BLUESKY_PASSWORD` in `--help`/usage output — the env var is now resolved at use-time instead of being printed as an option `defaultsTo` (could end up in CI logs/recordings) (L-1).
+- fix: authentication moved inside the guarded region, so a wrong password or network error no longer produces a raw stack trace and `exit 255`; usage errors now exit `64` and failures exit `1` (L-4/L-5/L-6).
+- feat: separated `--auth-service` from `--service` and added `--no-auth`, so raw credentials are only sent to your own PDS (L-2).
+- fix: `refresh-session`/`delete-session` now send `refreshJwt` instead of `accessJwt` (previously they could never succeed) (L-8).
+- feat: session cache at `~/.config/bsky/session.json` (mode `0600`) with refresh, so every invocation no longer performs a fresh password login and trips createSession rate limits (L-12).
+- fix: `--pretty` no longer turns an empty `200` body into a `FormatException`; added a `--timeout` flag and async file reads for large uploads (L-7/L-9).
+- fix: `--version`/`-v` are registered as real flags (they were matched against the whole arg list) (L-10).
+- chore: regenerated commands from the fixed `lex_gen`, removed dead code (L-14).
+- chore: bump `xrpc` to `^1.1.0`, `at_primitives` to `^1.1.0`, and `bluesky_text` to `^1.4.0`.
+
 ## v0.5.0
 
 - **feat**: All commands, arguments and invocations are now fully aligned with the official lexicon definitions.

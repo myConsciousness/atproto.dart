@@ -1,5 +1,41 @@
 # Release Note
 
+## v1.4.0
+
+- **FIX**: Fixed crashes on IDN (internationalized domain) URLs. Text containing
+  URLs such as `https://日本語.jp` or `https://日本.example.com` no longer throws
+  from `.links` / `.entities` / `.format()` or markdown-link extraction.
+- **BREAKING**: Aligned several detectors with Bluesky's official implementation:
+  - The mention regex is now case-insensitive, so `@Alice.Bsky.Social` and
+    `@SHINYAKATO.DEV` are detected.
+  - The hashtag "emoji" character class was rewritten to drop whitespace,
+    `U+3000`, line separators, CJK punctuation, and lone surrogate ranges, so
+    `#タグ　こんにちは` is one tag and `#tag3　#tag4` are both preserved.
+  - Tag facet values strip a single leading `#`, and the tag length limit is now
+    64 graphemes (excluding `#`), matching the spec.
+  - Mention preceding-character rules follow the official `(^|\s|\()` boundary
+    (the leftover twitter-text `RT:` alternative is removed).
+  - Full-width `＃` is now recognized as a hashtag sign (partial; `#tag1#tag2`
+    splitting is still deferred).
+- **FIX**: The chunk splitter now budgets by grapheme count instead of UTF-16
+  length, so emoji-heavy text is packed correctly. `split()` also propagates the
+  active `format()` replacements / link config to each chunk, so shortened
+  display strings are no longer re-extracted into truncated facet URLs.
+- **FIX**: `http(s)` scheme detection is case-insensitive and no longer
+  double-prefixes (`HTTPS://EXAMPLE.COM` is handled; `httpstatus.io` is not a
+  scheme).
+- **FIX**: Overlapping facets are resolved by priority (link > mention > tag >
+  cashtag), so an `@handle` or `#fragment` inside a URL no longer produces a
+  duplicate facet.
+- **FIX**: Enforce the lexicon's 3000 UTF-8 byte limit alongside the 300
+  grapheme limit; misc fixes to `isEmojiOnly`, the shorten threshold, and
+  `toFacet` error propagation.
+- **PERF**: `toUtf8Index` is now incremental (no per-call full re-encode).
+- **TEST**: Added a WS-6 regression suite (IDN input, upper-case TLD/scheme,
+  `format()` → `split()`, non-BMP splitting, facet overlap) and de-duplicated
+  test names. Where existing tests pinned non-official behavior, they were
+  updated to match the reference implementation.
+
 ## v1.3.0
 
 - **BREAKING**: Aligned cashtag detection with Bluesky's official `CASHTAG_REGEX`

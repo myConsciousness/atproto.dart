@@ -1,5 +1,12 @@
 # Release Note
 
+## v1.1.0
+
+- fix: the `dag-pb` multicodec was wrong (`0x55`, which is actually `raw`). Added correct `raw(0x55)`, `dagPb2(0x70)` and `dagCbor(0x71)` entries and fixed `isDagPb`/format checks so atproto blob CIDs are classified correctly and real `dag-pb` is no longer rejected.
+- chore: deprecated the incorrect `dagPb`/`dabCbor` enum values (kept for a deprecation cycle).
+- feat: added `CID.createFromBytes` (binary overload) and a single-decode `parse`.
+- perf: cache normalized `bytes` and `hashCode` instead of recomputing on every access.
+
 ## v1.0.3
 
 - fix: `CID ==` now returns `false` for different-length or non-`CID` operands instead of throwing a `RangeError`/`TypeError`.

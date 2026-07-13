@@ -1,7 +1,7 @@
 name: multiformats
 resolution: workspace
 description: Core library for parsing IPFS-related things. This package is mainly used by https://atprotodart.com packages.
-version: 1.0.3
+version: 1.1.0
 homepage: https://atprotodart.com
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats
 issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
