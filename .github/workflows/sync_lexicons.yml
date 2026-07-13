@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           # A PAT is required so that CI workflows (Test, Validate
           # Dependencies) run on the created pull request and so that
