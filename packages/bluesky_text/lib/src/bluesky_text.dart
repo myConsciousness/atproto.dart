@@ -142,7 +142,24 @@ sealed class BlueskyText {
   /// means that even if you specify a maximum number of characters for
   /// splitting, if some tokens exceed the maximum number of characters in t
   /// he middle, you do not have to worry about them being split at the halfway
-  /// point.
+  /// point. Each chunk respects **both** post limits (300 graphemes and 3000
+  /// UTF-8 bytes).
+  ///
+  /// Each chunk is a **raw**, independently-formattable piece, so format each
+  /// one *after* splitting — do not split an already-[format]ted instance and
+  /// post its chunks directly. (Calling [split] on a formatted instance is
+  /// safe: it transparently splits the original text, so `format().split()` is
+  /// equivalent to `split()` on the original.) The canonical thread flow is:
+  ///
+  /// ```dart
+  /// for (final chunk in text.split()) {
+  ///   final data = await chunk.toPostData();
+  ///   await bluesky.feed.post.create(
+  ///     text: data.text,
+  ///     facets: data.facets.map(RichtextFacet.fromJson).toList(),
+  ///   );
+  /// }
+  /// ```
   List<BlueskyText> split();
 
   /// Returns a new formatted [BlueskyText] based on configs.
@@ -372,11 +389,29 @@ final class _BlueskyText implements BlueskyText {
   //* must not silently corrupt every later access.
   late final List<BlueskyText> _chunks = List.unmodifiable(
     splitter.execute(
-      this,
+      _splitSource,
       enableMarkdown: _enableMarkdown,
       linkConfig: _linkConfig,
     ),
   );
+
+  /// The text to actually split. For a formatted instance, [value] is lossy
+  /// display text (shortened URLs, expanded markdown) whose entities can no
+  /// longer be re-derived correctly, so splitting it and re-extracting would
+  /// corrupt facets (a shortened URL would become the mention/link `uri`, and a
+  /// markdown link would vanish). Split the ORIGINAL text instead, so each chunk
+  /// is a raw, independently-formattable piece — this makes `format().split()`
+  /// behave exactly like `split()` on the original text.
+  BlueskyText get _splitSource {
+    final replacements = _replacements;
+    if (replacements == null) return this;
+
+    return BlueskyText(
+      replacements.base,
+      enableMarkdown: _enableMarkdown,
+      linkConfig: _linkConfig,
+    );
+  }
 
   @override
   List<BlueskyText> split() => _chunks;

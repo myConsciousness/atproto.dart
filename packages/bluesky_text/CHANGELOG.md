@@ -45,6 +45,13 @@
   graphemes and 3000 UTF-8 bytes). Previously it budgeted graphemes only, so a
   byte-heavy chunk — e.g. many multi-byte ZWJ emoji — could stay under 300
   graphemes yet exceed 3000 bytes and still be rejected by the server.
+- **FIX**: `split()` on a `format()`ted instance now splits the original text
+  instead of the lossy formatted value, so `format().split()` behaves exactly
+  like `split()` on the original. Splitting formatted text and re-extracting
+  previously corrupted facets — a shortened link's `uri` became its truncated
+  display text and a markdown link's facet vanished — because the chunks dropped
+  the position-bound replacements. Each chunk is a raw, independently-formattable
+  piece; format each one *after* splitting (e.g. via `chunk.toPostData()`).
 - **PERF**: `BlueskyText` now lazily memoizes every derived value (`length`,
   `handles`, `entities`, `overflow`, `segments`, `format()`…), so touching
   several properties of one instance in a Flutter `build` costs one analysis
