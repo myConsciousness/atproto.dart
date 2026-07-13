@@ -10,6 +10,8 @@ import 'package:lex_gen/src/dart_type.dart';
 import 'package:lex_gen/src/services/object/lex_object.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
 
+import '../../test_context.dart';
+
 void main() {
   group('LexObject.format golden', () {
     final object = LexObject(
@@ -39,7 +41,7 @@ void main() {
       ],
     );
 
-    final output = object.format();
+    final output = object.format(buildTestGenContext());
 
     test('keeps includeIfNull:false on the class', () {
       expect(output, contains('@JsonSerializable(includeIfNull: false)'));

@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../model/nsid.dart';
 import '../../utils.dart';
 import '../rule.dart';
 
@@ -14,13 +15,25 @@ final class RepoCommitHandler {
   String format() {
     final imports = _getImports();
 
-    final fields = _getFields();
-    final constructorArgs = _getConstructorArgs();
-    final constructorArgsSetter = _getConstructorArgsSetter();
+    // Resolve every record's type name once and reuse it across all sections
+    // below, instead of re-deriving it in each builder (was six passes).
+    final typeNames = [for (final id in lexiconIds) getRecordTypeName(id)];
 
-    final onCreateEvent = _getOnCreateEvent();
-    final onUpdateEvent = _getOnUpdateEvent();
-    final onDeleteEvent = _getOnDeleteEvent();
+    final fields = _getFields(typeNames);
+    final constructorArgs = _getConstructorArgs(typeNames);
+    final constructorArgsSetter = _getConstructorArgsSetter(typeNames);
+
+    final onCreateEvent = _getMutationEvent(
+      typeNames,
+      verb: 'Create',
+      withCreatedAt: false,
+    );
+    final onUpdateEvent = _getMutationEvent(
+      typeNames,
+      verb: 'Update',
+      withCreatedAt: true,
+    );
+    final onDeleteEvent = _getOnDeleteEvent(typeNames);
 
     return '''$kHeaderHint
 
@@ -254,10 +267,10 @@ final class RepoCommitDelete {
 
     for (final lexiconId in lexiconIds) {
       if (_atprotoPrefixes.any(lexiconId.startsWith)) {
-        final libName = lexiconId.split('.').join('_');
+        final libName = Nsid(lexiconId).segments.join('_');
         imports.writeln("import 'package:atproto/$libName.dart';");
       } else {
-        final path = lexiconId.split('.').join('/');
+        final path = Nsid(lexiconId).fileDir;
         imports.writeln("import '$path/main.dart';");
       }
     }
@@ -265,12 +278,10 @@ final class RepoCommitDelete {
     return imports.toString();
   }
 
-  String _getFields() {
+  String _getFields(final List<String> typeNames) {
     final buffer = StringBuffer();
 
-    for (final lexiconId in lexiconIds) {
-      final typeName = getRecordTypeName(lexiconId);
-
+    for (final typeName in typeNames) {
       buffer.writeln(
         'final RepoCommitOnCreate<${typeName}Record>? _onCreate$typeName;',
       );
@@ -283,12 +294,10 @@ final class RepoCommitDelete {
     return buffer.toString();
   }
 
-  String _getConstructorArgs() {
+  String _getConstructorArgs(final List<String> typeNames) {
     final buffer = StringBuffer();
 
-    for (final lexiconId in lexiconIds) {
-      final typeName = getRecordTypeName(lexiconId);
-
+    for (final typeName in typeNames) {
       buffer.writeln(
         'final RepoCommitOnCreate<${typeName}Record>? onCreate$typeName,',
       );
@@ -301,12 +310,10 @@ final class RepoCommitDelete {
     return buffer.toString();
   }
 
-  String _getConstructorArgsSetter() {
+  String _getConstructorArgsSetter(final List<String> typeNames) {
     final buffer = StringBuffer();
 
-    for (final lexiconId in lexiconIds) {
-      final typeName = getRecordTypeName(lexiconId);
-
+    for (final typeName in typeNames) {
       buffer.writeln('_onCreate$typeName = onCreate$typeName,');
       buffer.writeln('_onUpdate$typeName = onUpdate$typeName,');
       buffer.writeln('_onDelete$typeName = onDelete$typeName,');
@@ -315,21 +322,27 @@ final class RepoCommitDelete {
     return buffer.toString();
   }
 
-  String _getOnCreateEvent() {
+  /// Renders the `_onCreate` / `_onUpdate` firehose handler, which differ only
+  /// by the `Create`/`Update` [verb] and whether an `Update`'s `createdAt` is
+  /// carried through ([withCreatedAt]).
+  String _getMutationEvent(
+    final List<String> typeNames, {
+    required final String verb,
+    required final bool withCreatedAt,
+  }) {
+    final createdAtLine = withCreatedAt ? '\n      createdAt: data.time,' : '';
     final handlers = StringBuffer();
 
-    for (final lexiconId in lexiconIds) {
-      final typeName = getRecordTypeName(lexiconId);
-
+    for (final typeName in typeNames) {
       handlers.write(
         '''if (uri.is$typeName && ${typeName}Record.validate(record)) {
-  await _onCreate$typeName?.call(
-    RepoCommitCreate<${typeName}Record>(
+  await _on$verb$typeName?.call(
+    RepoCommit$verb<${typeName}Record>(
       record: const ${typeName}RecordConverter().fromJson(record),
       uri: uri,
       cid: op.cid,
       author: data.repo,
-      cursor: data.seq,
+      cursor: data.seq,$createdAtLine
     ),
   );
   return;
@@ -338,75 +351,29 @@ final class RepoCommitDelete {
       );
     }
 
-    return '''Future<void> _onCreate(final Commit data, final RepoOp op) async {
+    return '''Future<void> _on$verb(final Commit data, final RepoOp op) async {
   final uri = _getUri(data, op);
   final record = _getRecord(data, op);
 
   $handlers
 
-  await _onCreateUnknown?.call(
-    RepoCommitCreate<Map<String, dynamic>>(
+  await _on${verb}Unknown?.call(
+    RepoCommit$verb<Map<String, dynamic>>(
       record: record,
       uri: uri,
       cid: op.cid,
       author: data.repo,
-      cursor: data.seq,
+      cursor: data.seq,$createdAtLine
     ),
   );
 }
 ''';
   }
 
-  String _getOnUpdateEvent() {
+  String _getOnDeleteEvent(final List<String> typeNames) {
     final handlers = StringBuffer();
 
-    for (final lexiconId in lexiconIds) {
-      final typeName = getRecordTypeName(lexiconId);
-
-      handlers.write(
-        '''if (uri.is$typeName && ${typeName}Record.validate(record)) {
-  await _onUpdate$typeName?.call(
-    RepoCommitUpdate<${typeName}Record>(
-      record: const ${typeName}RecordConverter().fromJson(record),
-      uri: uri,
-      cid: op.cid,
-      author: data.repo,
-      cursor: data.seq,
-      createdAt: data.time,
-    ),
-  );
-  return;
-}
-''',
-      );
-    }
-
-    return '''Future<void> _onUpdate(final Commit data, final RepoOp op) async {
-  final uri = _getUri(data, op);
-  final record = _getRecord(data, op);
-
-  $handlers
-
-  await _onUpdateUnknown?.call(
-    RepoCommitUpdate<Map<String, dynamic>>(
-      record: record,
-      uri: uri,
-      cid: op.cid,
-      author: data.repo,
-      cursor: data.seq,
-      createdAt: data.time,
-    ),
-  );
-}
-''';
-  }
-
-  String _getOnDeleteEvent() {
-    final handlers = StringBuffer();
-
-    for (final lexiconId in lexiconIds) {
-      final typeName = getRecordTypeName(lexiconId);
-
+    for (final typeName in typeNames) {
       handlers.write('''if (uri.is$typeName) {
   await _onDelete$typeName?.call(
     RepoCommitDelete(

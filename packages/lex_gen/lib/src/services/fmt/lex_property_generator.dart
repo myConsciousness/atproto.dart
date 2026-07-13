@@ -7,12 +7,14 @@ import 'package:lexicon/lexicon.dart' as lex;
 
 // Project imports:
 import '../../dart_type.dart';
+import '../gen_context.dart';
 import '../object/lex_property.dart';
 import '../rule.dart' as rule;
 import 'lex_known_values_generator.dart';
 import 'lex_union_generator.dart';
 
 List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
+  final GenContext ctx,
   final lex.NSID lexiconId,
   final String defName,
   final Map<String, lex.LexXrpcParametersProperty>? properties,
@@ -30,6 +32,7 @@ List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
   );
 
   return generateLexProperties(
+    ctx,
     lexiconId,
     defName,
     $properties,
@@ -40,6 +43,7 @@ List<LexProperty> generateLexPropertiesFromLexXrpcParameters(
 }
 
 List<LexProperty> generateLexProperties(
+  final GenContext ctx,
   final lex.NSID lexiconId,
   final String defName,
   final Map<String, lex.LexObjectProperty>? properties,
@@ -57,6 +61,7 @@ List<LexProperty> generateLexProperties(
   final result = <LexProperty>[];
   for (final property in properties.entries) {
     final type = _getDartType(
+      ctx,
       property,
       lexiconId,
       defName,
@@ -137,6 +142,7 @@ String _escapeDartString(final String value) {
 }
 
 DartType _getDartType(
+  final GenContext ctx,
   final MapEntry<String, lex.LexObjectProperty> property,
   final lex.NSID lexiconId,
   final String defName,
@@ -209,6 +215,7 @@ DartType _getDartType(
 
         case lex.ULexArrayRefVariant refVariant:
           final type = _getLexRefVariantType(
+            ctx,
             refVariant.data,
             lexiconId,
             defName,
@@ -234,6 +241,7 @@ DartType _getDartType(
 
     case lex.ULexObjectPropertyRefVariant refVariant:
       return _getLexRefVariantType(
+        ctx,
         refVariant.data,
         lexiconId,
         defName,
@@ -323,6 +331,7 @@ DartType _getIpldType(final lex.LexIpld ipld) {
 }
 
 DartType _getLexRefVariantType(
+  final GenContext ctx,
   final lex.LexRefVariant ref,
   final lex.NSID lexiconId,
   final String defName,
@@ -336,6 +345,7 @@ DartType _getLexRefVariantType(
       bool isUnion = false;
 
       final relatedDoc = rule.getRelatedDocFromRef(
+        ctx,
         ref.data.ref,
         lexiconId: lexiconId.toString(),
       );
@@ -370,6 +380,7 @@ DartType _getLexRefVariantType(
         fieldName: isUnion ? fieldName : '',
         ref: ref.data.ref!,
         packagePath: rule.getLexObjectPackagePathFromRef(
+          ctx,
           lexiconId.toString(),
           ref.data.ref!,
           isUnion: isUnion,

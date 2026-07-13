@@ -9,21 +9,26 @@ import 'package:test/test.dart';
 // Project imports:
 import 'package:lex_gen/src/commands/types/lex_command.dart';
 import 'package:lex_gen/src/commands/types/lex_parameter.dart';
+import 'package:lex_gen/src/model/lex_def_kind.dart';
 
 void main() {
   group('record command (L-15.3) — shared mixin', () {
-    final command =
-        LexCommand(NSID('app.bsky.feed.post'), 'A declaration of a post.', [
-          LexParameter('text', 'The primary text.', true, null, type: 'string'),
-          LexParameter(
-            'facets',
-            null,
-            false,
-            null,
-            type: 'array',
-            itemsType: 'union',
-          ),
-        ], isRecord: true);
+    final command = LexCommand(
+      NSID('app.bsky.feed.post'),
+      'A declaration of a post.',
+      [
+        LexParameter('text', 'The primary text.', true, null, type: 'string'),
+        LexParameter(
+          'facets',
+          null,
+          false,
+          null,
+          type: 'array',
+          itemsType: 'union',
+        ),
+      ],
+      kind: LexCommandKind.record,
+    );
 
     final output = command.format();
 
@@ -98,7 +103,7 @@ void main() {
       NSID('app.bsky.feed.getTimeline'),
       'Get a timeline.',
       [LexParameter('limit', null, false, '50', type: 'integer')],
-      isQuery: true,
+      kind: LexCommandKind.query,
     );
 
     test('integer option parses via int.tryParse + usageException', () {
@@ -117,7 +122,7 @@ void main() {
       NSID('tools.ozone.set.upsertSet'),
       'Upsert a set.',
       const [],
-      isProcedure: true,
+      kind: LexCommandKind.procedure,
       isRawJsonBody: true,
     );
 

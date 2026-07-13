@@ -3,13 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import '../../utils.dart';
+import '../../model/nsid.dart';
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
 
-final class LexObject extends LexType {
+final class LexObject extends GeneratableType {
   @override
   final String lexiconId;
   @override
@@ -30,10 +31,6 @@ final class LexObject extends LexType {
     required this.properties,
   });
 
-  String getDescription() {
-    return description != null ? '/// $description' : '';
-  }
-
   @override
   List<LexProperty> getProperties() {
     return properties;
@@ -45,74 +42,24 @@ final class LexObject extends LexType {
   }
 
   @override
-  String format() {
+  String format(final GenContext ctx) {
     final id = rule.getLexObjectTypeId(lexiconId, defName);
-    final fileName = rule.getLexObjectFileName(defName);
 
-    final properties = StringBuffer();
-    for (final property in this.properties) {
-      if (rule.isDeprecated(property.description)) {
-        continue;
-      }
-
-      properties.writeln(property.format());
-    }
-
-    final packages = StringBuffer();
-    for (final packagePath
-        in this.properties
-            .where((e) => e.type.packagePath != null)
-            .map((e) => e.type.packagePath)
-            .toSet()
-            .toList()) {
-      packages.writeln("import '$packagePath';");
-    }
-
-    final knownProps = getKnownProps(this.properties);
-    final validateMethod = _getValidateMethod(id);
-    final extensions = getExtensions(name, this.properties);
-    final converter = getObjectConverter(name);
-
-    return '''$kHeaderHint
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart';
-
-${packages.toString()}
-
-part '$fileName.freezed.dart';
-part '$fileName.g.dart';
-
-$kHeader
-
-${getDescription()}
-@freezed
-abstract class $name with _\$$name {
-  $knownProps
-
-  @JsonSerializable(includeIfNull: false)
-  const factory $name({
-    @Default('$id') String \$type,
-    ${properties.toString()}
-    Map<String, dynamic>? \$unknown,
-  }) = _$name;
-
-  factory $name.fromJson(Map<String, Object?> json) => _\$${name}FromJson(json);
-
-  $validateMethod
-}
-
-$extensions
-
-$converter
-''';
+    return renderFreezedDataClass(
+      name: name,
+      suffix: '',
+      partBaseName: rule.getLexObjectFileName(defName),
+      description: description,
+      properties: properties,
+      typeDefaultId: id,
+      validateMethod: _getValidateMethod(id),
+    );
   }
 
   String _getValidateMethod(final String id) {
     final buffer = StringBuffer();
     buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
-    if (lexiconId.split('.').last.startsWith('subscribe')) {
+    if (Nsid(lexiconId).method.startsWith('subscribe')) {
       buffer.writeln("  if (!object.containsKey('t')) return false;");
       buffer.writeln("  return object['t'] == '#$defName'");
     } else {

@@ -9,29 +9,35 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../model/lex_def_kind.dart';
+import '../model/nsid.dart';
 import '../utils.dart';
 import 'fmt/lex_packages_generator.dart';
+import 'gen_context.dart';
 import 'object/lex_package.dart';
 import 'object/lex_service.dart';
 import 'object/lex_type.dart';
 import 'rule.dart' as rule;
 
 void generateLexServices(
+  final GenContext ctx,
   final List<String> services,
   final List<String> packages,
-  final List<LexType> types,
+  final List<GeneratableType> types,
   final List<LexiconDoc> docs,
 ) {
-  return _LexServiceGenerator(services, packages, types, docs).execute();
+  return _LexServiceGenerator(ctx, services, packages, types, docs).execute();
 }
 
 final class _LexServiceGenerator {
+  final GenContext ctx;
   final List<String> services;
   final List<String> packages;
-  final List<LexType> types;
+  final List<GeneratableType> types;
   final List<LexiconDoc> docs;
 
   const _LexServiceGenerator(
+    this.ctx,
     this.services,
     this.packages,
     this.types,
@@ -70,10 +76,7 @@ final class _LexServiceGenerator {
             inputType: inputType,
             returnType: returnType,
             rkey: api is LexRecord ? api.key : null,
-            isQuery: _isQuery(doc),
-            isProcedure: _isProcedure(doc),
-            isSubscription: _isSubscription(doc),
-            isRecord: _isRecord(doc),
+            kind: _kindOf(doc),
           ),
         );
       }
@@ -88,9 +91,9 @@ final class _LexServiceGenerator {
     }
 
     for (final service in services) {
-      File(service.getFilePath())
+      File(service.getFilePath(ctx))
         ..createSync(recursive: true)
-        ..writeAsStringSync(service.format());
+        ..writeAsStringSync(service.format(ctx));
     }
 
     _generateLexPackages(services);
@@ -98,8 +101,7 @@ final class _LexServiceGenerator {
 
   List<LexiconDoc> _filterLexicons(final List<LexiconDoc> docs) {
     return docs.where((lexicon) {
-      final id = lexicon.id.toString();
-      final service = id.split('.').sublist(0, 2).join('.');
+      final service = Nsid(lexicon.id.toString()).authority;
 
       return services.contains(service);
     }).toList();
@@ -114,13 +116,9 @@ final class _LexServiceGenerator {
       if (!_isApi(doc)) continue;
       if (rule.isDeprecated(doc.description)) continue;
 
-      final key = doc.id.toString().split('.').sublist(0, 3).join('.');
+      final key = Nsid(doc.id.toString()).serviceId;
 
-      if (result.containsKey(key)) {
-        result[key]!.add(doc);
-      } else {
-        result[key] = [doc];
-      }
+      result.putIfAbsent(key, () => []).add(doc);
     }
 
     return result;
@@ -131,6 +129,16 @@ final class _LexServiceGenerator {
         _isProcedure(doc) ||
         _isSubscription(doc) ||
         _isRecord(doc);
+  }
+
+  /// Resolves the API kind of [doc], keeping the historical dispatch priority
+  /// (query, then procedure, then subscription, then record) so that a doc
+  /// carrying more than one API def resolves exactly as the old boolean chain.
+  LexDefKind _kindOf(final LexiconDoc doc) {
+    if (_isQuery(doc)) return LexDefKind.query;
+    if (_isProcedure(doc)) return LexDefKind.procedure;
+    if (_isSubscription(doc)) return LexDefKind.subscription;
+    return LexDefKind.record;
   }
 
   bool _isQuery(final LexiconDoc doc) {
@@ -159,7 +167,7 @@ final class _LexServiceGenerator {
     return false;
   }
 
-  LexType? _getRelatedType(
+  GeneratableType? _getRelatedType(
     final String lexiconId,
     final List<LexTypeState> states, {
     String? refDefName,
@@ -226,7 +234,7 @@ final class _LexServiceGenerator {
   }
 
   void _generateLexPackages(final List<LexService> services) {
-    final packages = generateLexPackagesForService(services);
+    final packages = generateLexPackagesForService(ctx, services);
     final basePackages = _getBasePackages(packages);
 
     for (final package in packages) {

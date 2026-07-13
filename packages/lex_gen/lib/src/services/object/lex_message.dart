@@ -6,37 +6,24 @@
 import 'lex_type.dart';
 import 'lex_union.dart';
 
+/// A subscription message container. It is never generated to a file on its
+/// own — it only carries a [LexUnion] that is surfaced via [getNestedTypes] —
+/// so it is a plain [LexType] rather than a [GeneratableType].
 final class LexMessage extends LexType {
-  @override
-  String get lexiconId =>
-      throw UnsupportedError('not allowed for subscription message');
-  @override
-  String get defName =>
-      throw UnsupportedError('not allowed for subscription message');
+  const LexMessage({required this.union});
 
   final LexUnion union;
 
   @override
-  List<LexType> getNestedTypes() {
+  LexTypeState get state => LexTypeState.message;
+
+  @override
+  List<GeneratableType> getNestedTypes() {
     return [union];
   }
 
   @override
   bool isShouldNotBeGenerated() {
     return true;
-  }
-
-  @override
-  LexTypeState get state => LexTypeState.message;
-
-  const LexMessage({required this.union});
-
-  @override
-  String getTypeName() =>
-      throw UnsupportedError('not allowed for subscription message');
-
-  @override
-  String format() {
-    throw UnsupportedError('format() not allowed for subscription message');
   }
 }

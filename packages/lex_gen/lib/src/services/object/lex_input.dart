@@ -3,13 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import '../../utils.dart';
-import '../rule.dart' as rule;
+import '../gen_context.dart';
 import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
 
-final class LexInput extends LexType {
+final class LexInput extends GeneratableType {
   @override
   final String lexiconId;
   @override
@@ -37,10 +36,6 @@ final class LexInput extends LexType {
     this.ref,
     this.encoding,
   });
-
-  String? getDescription() {
-    return description != null ? '/// $description' : '';
-  }
 
   @override
   String? getRef() {
@@ -78,61 +73,13 @@ final class LexInput extends LexType {
   }
 
   @override
-  String format() {
-    final properties = StringBuffer();
-    for (final property in this.properties) {
-      if (rule.isDeprecated(property.description)) {
-        continue;
-      }
-
-      properties.writeln(property.format());
-    }
-
-    final packages = StringBuffer();
-    for (final packagePath
-        in this.properties
-            .where((e) => e.type.packagePath != null)
-            .map((e) => e.type.packagePath)
-            .toSet()
-            .toList()) {
-      packages.writeln("import '$packagePath';");
-    }
-
-    final typeName = getTypeName();
-    final knownProps = getKnownProps(this.properties);
-    final extensions = getExtensions(name, this.properties, suffix: 'Input');
-    final converter = getObjectConverter(name, suffix: 'Input');
-
-    return '''$kHeaderHint
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart';
-
-${packages.toString()}
-
-part 'input.freezed.dart';
-part 'input.g.dart';
-
-$kHeader
-
-${getDescription()}
-@freezed
-abstract class $typeName with _\$$typeName {
-  $knownProps
-
-  @JsonSerializable(includeIfNull: false)
-  const factory $typeName({
-    ${properties.toString()}
-    Map<String, dynamic>? \$unknown,
-  }) = _$typeName;
-
-  factory $typeName.fromJson(Map<String, Object?> json) => _\$${typeName}FromJson(json);
-}
-
-$extensions
-
-$converter
-''';
+  String format(final GenContext ctx) {
+    return renderFreezedDataClass(
+      name: name,
+      suffix: 'Input',
+      partBaseName: 'input',
+      description: description,
+      properties: properties,
+    );
   }
 }

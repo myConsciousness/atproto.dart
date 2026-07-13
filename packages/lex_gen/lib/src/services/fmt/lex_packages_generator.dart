@@ -3,40 +3,37 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../model/nsid.dart';
+import '../gen_context.dart';
 import '../object/lex_package.dart';
 import '../object/lex_service.dart';
 import '../object/lex_type.dart';
 import '../rule.dart' as rule;
 
 List<LexPackage> generateLexPackagesForService(
+  final GenContext ctx,
   final List<LexService> services,
 ) {
   final packages = <String, Set<String>>{};
 
   for (final service in services) {
-    final key = '${service.lexiconId.split('.').sublist(0, 2).join('.')}.';
-    if (packages.containsKey(key)) {
-      packages[key]!.add(
-        rule.getLexObjectAbsolutePathForService(
-          service.lexiconId,
-          service.getFileName(),
-        ),
-      );
-    } else {
-      packages[key] = <String>{
-        rule.getLexObjectAbsolutePathForService(
-          service.lexiconId,
-          service.getFileName(),
-        ),
-      };
-    }
+    final key = '${Nsid(service.lexiconId).authority}.';
+    packages
+        .putIfAbsent(key, () => <String>{})
+        .add(
+          rule.getLexObjectAbsolutePathForService(
+            ctx,
+            service.lexiconId,
+            service.getFileName(),
+          ),
+        );
   }
 
   final lexPackages = <LexPackage>[];
   for (final package in packages.entries) {
     final lexiconId = package.key;
 
-    final root = rule.getRootPackageName(lexiconId);
+    final root = rule.getRootPackageName(ctx, lexiconId);
     final name = rule.getPackageName(
       lexiconId.substring(0, lexiconId.length - 1),
     );
@@ -53,27 +50,30 @@ List<LexPackage> generateLexPackagesForService(
   return lexPackages;
 }
 
-List<LexPackage> generateLexPackages(final List<LexType> types) {
+List<LexPackage> generateLexPackages(
+  final GenContext ctx,
+  final List<GeneratableType> types,
+) {
   final packages = <String, Set<String>>{};
   for (final type in types) {
     if (type.isShouldNotBeGenerated()) continue;
 
-    if (packages.containsKey(type.lexiconId)) {
-      packages[type.lexiconId]!.add(
-        rule.getLexObjectAbsolutePath(type.lexiconId, type.getFileName()),
-      );
-    } else {
-      packages[type.lexiconId] = <String>{
-        rule.getLexObjectAbsolutePath(type.lexiconId, type.getFileName()),
-      };
-    }
+    packages
+        .putIfAbsent(type.lexiconId, () => <String>{})
+        .add(
+          rule.getLexObjectAbsolutePath(
+            ctx,
+            type.lexiconId,
+            type.getFileName(),
+          ),
+        );
   }
 
   final lexPackages = <LexPackage>[];
   for (final package in packages.entries) {
     final lexiconId = package.key;
 
-    final root = rule.getRootPackageName(lexiconId);
+    final root = rule.getRootPackageName(ctx, lexiconId);
     final name = rule.getPackageName(lexiconId);
 
     lexPackages.add(

@@ -7,9 +7,12 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:lex_gen/src/dart_type.dart';
+import 'package:lex_gen/src/model/lex_def_kind.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
 import 'package:lex_gen/src/services/object/lex_record.dart';
 import 'package:lex_gen/src/services/object/lex_service.dart';
+
+import '../../test_context.dart';
 
 void main() {
   group('LexService record accessor (G-2)', () {
@@ -35,12 +38,12 @@ void main() {
           lexiconId: 'app.bsky.feed.post',
           name: 'post',
           inputType: record,
-          isRecord: true,
+          kind: LexDefKind.record,
         ),
       ],
     );
 
-    final output = service.format();
+    final output = service.format(buildTestGenContext());
 
     test('create() injects \$type into the record map', () {
       // The `\$type` must appear inside the `record: { ... }` literal so a

@@ -1,5 +1,21 @@
 # Release Note
 
+## v0.4.1
+
+Internal readability/standardization/optimization refactor. Generated output is **byte-for-byte identical** to v0.4.0 (verified by hashing the raw generator output across `atproto`/`bluesky`/`bluesky_cli`), so no downstream regeneration is required.
+
+- refactor: introduce `Nsid` / `LexRef` value objects (`lib/src/model/`) that parse a lexicon id / ref once, replacing ~40 inline `split('.')` / `split('#')` sites across 8 files.
+- refactor: resolve a ref's related def in O(1) via a precomputed index instead of scanning every doc's every def per lookup (`getRelatedDocFromRef`).
+- refactor: replace the mutually-exclusive `isQuery`/`isProcedure`/`isSubscription`/`isRecord` (and command `isBlobProcedure`) boolean sets with `LexDefKind` / `LexCommandKind` sealed enums dispatched by exhaustive `switch`.
+- refactor: unify the four byte-identical freezed data-class templates (`LexObject`/`LexRecord`/`LexInput`/`LexOutput`) into a single `renderFreezedDataClass`.
+- perf: `getExtensions` name lookup is O(1) via a precomputed set (was O(n²)); `LexUnion` resolves each ref name once instead of four times; `RepoCommitHandler` resolves each record type name once instead of six times.
+- refactor: unify `RepoCommitHandler`'s near-identical `_onCreate` / `_onUpdate` firehose event builders into a single parameterized `_getMutationEvent`.
+- refactor: split the 225-line `LexCommand._getRecordCommand` into per-subcommand emitters, unify the near-identical `create`/`put` classes into `_recordMutationClass`, and hoist the hardcoded `com.atproto.repo.getRecord` / `listRecords` method ids to named constants.
+- refactor: split `LexType` into a minimal base and a `GeneratableType` subtype, so the non-generatable `LexMessage` container no longer throws `UnsupportedError` from inherited `lexiconId` / `defName` / `getTypeName` / `format` members.
+- refactor: remove the module-level mutable state from both `rule.dart` files (the `_config` / `_defsByRef` globals and their `setLexServiceRuleConfig` / `setLexiconDocs` / `setLexCommandRuleConfig` setters) in favour of an explicit `GenContext` (and the command config) threaded through the generators and `rule.*` helpers, so generation no longer depends on hidden global state or setter-call ordering and the helpers are unit-testable.
+- refactor: fix the `_LexLexXrpc*` double-`Lex` type-name typos, deduplicate the record-accessor `rkey` literal handling and the `LexOutput` upload-ref predicate, remove dead `getDescription` helpers, and use `putIfAbsent` for map aggregation.
+- test: add unit tests for `Nsid` and `LexRef`.
+
 ## v0.4.0
 
 - fix: params-record refs are routed through the converter so a `$unknown` map picked up from a fetched object is no longer stored as a literal `$unknown` key on records written to the PDS (G-1).
