@@ -1,6 +1,6 @@
 # Release Note
 
-## v1.4.1
+## v1.5.0
 
 - **FEAT**: Added `BlueskyText.overflow`, which returns a `TextLengthOverflow`
   describing the range of the text that exceeds the post-length limit (more than
@@ -66,6 +66,9 @@
   bytes without allocating an intermediate byte list. For over-limit text this
   cuts `isLengthLimitExceeded` ~18x and `segments` ~2x; a 300-grapheme post
   segments in well under 0.1 ms.
+
+## v1.4.1
+
 - **FIX**: Markdown links whose destination contains surrounding whitespace are
   now detected and formatted correctly. Previously the link's end offset was
   reconstructed from `label length + URL length + 4`, which ignored any
