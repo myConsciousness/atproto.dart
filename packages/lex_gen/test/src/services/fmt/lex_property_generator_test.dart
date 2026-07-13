@@ -86,6 +86,53 @@ void main() {
     });
   });
 
+  group('knownValues + default (G-18)', () {
+    test('a knownValues string with a default emits a const wrapper '
+        'default', () {
+      final property = _one({
+        'type': 'string',
+        'knownValues': ['ignore', 'warn', 'hide'],
+        'default': 'warn',
+      });
+
+      // The field must carry a const wrapper default (not degrade to a
+      // nullable field reporting null), referencing the generated Known enum
+      // member for the default value.
+      final wrapper = property.type.name;
+      expect(property.type.knownValues, isNotNull);
+      expect(
+        property.defaultValue,
+        '$wrapper.knownValue(data: Known$wrapper.warn)',
+      );
+
+      // A defaulted field is non-nullable and annotated with @Default.
+      final formatted = property.format();
+      expect(formatted, contains('@Default('));
+      expect(formatted, isNot(contains('$wrapper? x')));
+    });
+
+    test('a default outside knownValues falls back to the unknown '
+        'variant', () {
+      final property = _one({
+        'type': 'string',
+        'knownValues': ['ignore', 'hide'],
+        'default': 'warn',
+      });
+
+      final wrapper = property.type.name;
+      expect(property.defaultValue, "$wrapper.unknown(data: 'warn')");
+    });
+
+    test('a knownValues string without a default has no default', () {
+      final property = _one({
+        'type': 'string',
+        'knownValues': ['ignore', 'warn', 'hide'],
+      });
+
+      expect(property.defaultValue, isNull);
+    });
+  });
+
   group('blob array (G-7)', () {
     test('an array of blobs maps to List<Blob> instead of List<Object>', () {
       final property = _one({

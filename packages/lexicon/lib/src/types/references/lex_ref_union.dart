@@ -17,6 +17,12 @@ abstract class LexRefUnion with _$LexRefUnion {
     @Default('union') String type,
     String? description,
     List<String>? refs,
+    // Whether the union is closed (the set of `refs` is exhaustive). This is
+    // parsed for spec completeness but intentionally not enforced by the code
+    // generator: generated unions always keep an `.unknown` fallback variant
+    // so that a value with an unrecognized `$type` decodes gracefully rather
+    // than throwing, which is the forward-compatible behavior even for a
+    // closed union (upstream may add variants).
     bool? closed,
   }) = _LexRefUnion;
 
