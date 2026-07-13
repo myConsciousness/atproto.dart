@@ -4072,20 +4072,23 @@ github.com/videah/SkyBridge
         }
       });
 
-      test('a request that splits a surrogate pair still resumes correctly', () {
-        //* '😀😀' is two surrogate pairs: code units [H,L,H,L]. Stopping at
-        //* index 1 (between the first pair) must return 3 (unpaired high),
-        //* and the following request must still pair the surrogates so the
-        //* pair counts as 4 bytes total — identical to independent
-        //* `toUtf8Index` calls.
-        const sample = '😀😀';
-        final converter = Utf8IndexConverter(sample);
+      test(
+        'a request that splits a surrogate pair still resumes correctly',
+        () {
+          //* '😀😀' is two surrogate pairs: code units [H,L,H,L]. Stopping at
+          //* index 1 (between the first pair) must return 3 (unpaired high),
+          //* and the following request must still pair the surrogates so the
+          //* pair counts as 4 bytes total — identical to independent
+          //* `toUtf8Index` calls.
+          const sample = '😀😀';
+          final converter = Utf8IndexConverter(sample);
 
-        expect(converter.convert(1), sample.toUtf8Index(1)); // 3
-        expect(converter.convert(2), sample.toUtf8Index(2)); // 4
-        expect(converter.convert(3), sample.toUtf8Index(3)); // 7
-        expect(converter.convert(4), sample.toUtf8Index(4)); // 8
-      });
+          expect(converter.convert(1), sample.toUtf8Index(1)); // 3
+          expect(converter.convert(2), sample.toUtf8Index(2)); // 4
+          expect(converter.convert(3), sample.toUtf8Index(3)); // 7
+          expect(converter.convert(4), sample.toUtf8Index(4)); // 8
+        },
+      );
 
       test('repeated and backwards requests fall back correctly', () {
         const sample = '日本語abc';
