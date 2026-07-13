@@ -16,7 +16,8 @@ dependencies:
 dev_dependencies:
   flutter_lints: ^5.0.0
 
-# See the note in ../pubspec.yaml — needed until bluesky_text 1.5.0 is on pub.dev.
+# Resolves bluesky_text from the monorepo until it is on pub.dev; see the note in
+# ../pubspec.yaml.
 dependency_overrides:
   bluesky_text:
     path: ../../bluesky_text

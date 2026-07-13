@@ -27,9 +27,12 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
-# TODO(bluesky_text_flutter): remove once bluesky_text 1.5.0 is published to
-# pub.dev. Until then this resolves the in-repo path so the package builds and
-# tests in the monorepo. It is ignored by consumers of the published package.
+# bluesky_text 1.5.0 is merged to `main` but not yet on pub.dev, so this cannot
+# join the Dart-only pub workspace (a Flutter member would break `dart pub get`
+# for every package). This override resolves the sibling from the monorepo for
+# local builds, tests and CI. It is publish-safe (pub reports it only as a hint)
+# and is ignored by consumers of the published package. Drop it once bluesky_text
+# 1.5.0 is on pub.dev, so CI exercises the published version.
 dependency_overrides:
   bluesky_text:
     path: ../bluesky_text

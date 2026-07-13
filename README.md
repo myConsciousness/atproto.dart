@@ -99,6 +99,7 @@ The atproto.dart ecosystem is organized into focused packages that work together
 | Package | Description | pub.dev | Docs |
 | ------- | ----------- | :-----: | :--: |
 | **[bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)** | Rich text parsing for mentions, links, hashtags, and formatting | [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text/README.md) / [GUIDE](https://atprotodart.com/docs/packages/bluesky_text) |
+| **[bluesky_text_flutter](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text_flutter)** | Flutter widgets for `bluesky_text`: a rich-text editing controller and a post viewer | [![pub package](https://img.shields.io/pub/v/bluesky_text_flutter.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text_flutter) | [README](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text_flutter/README.md) |
 
 ### 2.4. CLI Tool
 
