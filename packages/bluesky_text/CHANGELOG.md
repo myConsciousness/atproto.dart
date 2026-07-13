@@ -2,6 +2,36 @@
 
 ## v1.4.1
 
+- **FEAT**: Added `BlueskyText.overflow`, which returns a `TextLengthOverflow`
+  describing the range of the text that exceeds the post-length limit (more than
+  300 graphemes or 3000 UTF-8 bytes), or `null` when it is within both. The
+  boundary is reported in UTF-16, UTF-8 byte and grapheme coordinates so a UI
+  can, for example, split the value with `TextLengthOverflow.utf16Start` and
+  render the overflowing tail in red via a Flutter `TextSpan`.
+  - The boundary always lands on a grapheme cluster boundary, so emoji and other
+    multi-code-unit characters are never split.
+  - When the boundary would fall inside an entity (handle, link, tag, cashtag or
+    markdown link) it is snapped back to that entity's start, so the entity is
+    treated atomically — wholly within the limit or wholly in the overflow.
+  - Because the range is derived from the value, calling `.format().overflow`
+    reports the overflow of the formatted text (markdown expanded, links
+    shortened), which is what is displayed and posted.
+- **FEAT**: Added `BlueskyText.segments`, which partitions the value into
+  non-overlapping, gap-free `TextSegment`s in document order. Each segment
+  carries UTF-16 offsets, the entity it belongs to (if any) and whether it lies
+  in the overflow region, so a Flutter `TextEditingController` can color links,
+  handles and tags together with the over-limit tail (for example in red) in a
+  single pass — without merging the byte-based entity indices and the overflow
+  range by hand. Concatenating every `TextSegment.text` reproduces the value,
+  and no segment is ever split across an entity boundary.
+- **PERF**: The length-limit hot paths (polled on every keystroke in a Flutter
+  editor) avoid the regex-based entity extraction entirely unless it is needed.
+  `isLengthLimitExceeded` and `overflow` fall back to a cheap grapheme scan when
+  within the limit, `segments` resolves the entities only once (instead of
+  extracting them again via `overflow`), and the grapheme scan counts UTF-8
+  bytes without allocating an intermediate byte list. For over-limit text this
+  cuts `isLengthLimitExceeded` ~18x and `segments` ~2x; a 300-grapheme post
+  segments in well under 0.1 ms.
 - **FIX**: Markdown links whose destination contains surrounding whitespace are
   now detected and formatted correctly. Previously the link's end offset was
   reconstructed from `label length + URL length + 4`, which ignored any

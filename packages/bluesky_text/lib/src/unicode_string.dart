@@ -53,6 +53,41 @@ extension UnicodeString on String {
   }
 }
 
+/// Returns the UTF-8 byte length of [value] without allocating an intermediate
+/// byte list.
+///
+/// Behaviorally identical to `utf8.encode(value).length` (unpaired surrogates
+/// count as 3 bytes, matching Dart's encoder), but counts widths directly over
+/// the code units. Used on the per-keystroke hot path where re-encoding each
+/// grapheme cluster to a `Uint8List` just to read its length is pure garbage.
+int utf8ByteLength(final String value) {
+  int bytes = 0;
+
+  for (int j = 0; j < value.length; j++) {
+    final unit = value.codeUnitAt(j);
+
+    if (unit < 0x80) {
+      bytes += 1;
+    } else if (unit < 0x800) {
+      bytes += 2;
+    } else if (unit >= 0xD800 && unit <= 0xDBFF && j + 1 < value.length) {
+      final next = value.codeUnitAt(j + 1);
+      if (next >= 0xDC00 && next <= 0xDFFF) {
+        bytes += 4;
+        j += 1;
+      } else {
+        //* Unpaired high surrogate.
+        bytes += 3;
+      }
+    } else {
+      //* Any other BMP code unit (including an unpaired low surrogate).
+      bytes += 3;
+    }
+  }
+
+  return bytes;
+}
+
 /// A forward-only converter from UTF-16 code-unit indices to UTF-8 byte
 /// offsets over a fixed [String].
 ///
@@ -137,5 +172,71 @@ class Utf8IndexConverter {
     _bytes = bytes;
 
     return bytes;
+  }
+}
+
+/// A forward-only converter from UTF-8 byte offsets back to UTF-16 code-unit
+/// indices over a fixed [String] — the inverse of [Utf8IndexConverter].
+///
+/// Entity `ByteIndices` and `TextLengthOverflow.byteStart` live on the UTF-8
+/// byte axis, but Flutter's `TextSpan` / `String.substring` work on UTF-16 code
+/// units. When building a segment partition the requested byte offsets are
+/// monotonically non-decreasing (segment boundaries are emitted left-to-right),
+/// so this converter keeps a running cursor and only walks the code units
+/// *between* successive requests — an `O(n)` pass over the whole string.
+///
+/// Every requested [byteOffset] is expected to fall on a character boundary (all
+/// entity and overflow boundaries do); the walk stops at the first code-unit
+/// boundary whose byte total reaches it. An out-of-order (smaller) request
+/// transparently falls back to a fresh scan from the start.
+class Utf16IndexConverter {
+  Utf16IndexConverter(this._value);
+
+  final String _value;
+
+  int _codeUnit = 0;
+  int _bytes = 0;
+
+  /// Returns the UTF-16 code-unit index whose UTF-8 prefix length is
+  /// [byteOffset].
+  int convert(final int byteOffset) {
+    if (byteOffset <= _bytes) {
+      return byteOffset == _bytes ? _codeUnit : _scan(byteOffset, 0, 0);
+    }
+
+    return _scan(byteOffset, _codeUnit, _bytes);
+  }
+
+  int _scan(final int byteOffset, int j, int bytes) {
+    while (bytes < byteOffset && j < _value.length) {
+      final unit = _value.codeUnitAt(j);
+
+      if (unit < 0x80) {
+        bytes += 1;
+        j += 1;
+      } else if (unit < 0x800) {
+        bytes += 2;
+        j += 1;
+      } else if (unit >= 0xD800 && unit <= 0xDBFF && j + 1 < _value.length) {
+        final next = _value.codeUnitAt(j + 1);
+        if (next >= 0xDC00 && next <= 0xDFFF) {
+          bytes += 4;
+          j += 2;
+        } else {
+          //* Unpaired high surrogate.
+          bytes += 3;
+          j += 1;
+        }
+      } else {
+        //* Any other BMP code unit (including an unpaired low surrogate).
+        bytes += 3;
+        j += 1;
+      }
+    }
+
+    _codeUnit = j;
+    _bytes = bytes;
+
+    return j;
   }
 }

@@ -2,17 +2,17 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Dart imports:
-import 'dart:convert';
-
 // Project imports:
 import 'config/link_config.dart';
-import 'const.dart';
 import 'entities/entities.dart';
+import 'entities/entity.dart';
 import 'entities/replacements.dart';
 import 'extractor/extractor.dart';
 import 'formatter.dart';
+import 'segmenter.dart';
 import 'splitter.dart';
+import 'text_length_overflow.dart';
+import 'text_segment.dart';
 import 'utils.dart' as utils;
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
@@ -150,6 +150,66 @@ sealed class BlueskyText {
   /// graphemes ([length]) and at most 3000 UTF-8 bytes — otherwise false.
   bool get isNotLengthLimitExceeded;
 
+  /// Returns the range of [value] that exceeds the post-length limit, or `null`
+  /// when the text is within both limits ([isNotLengthLimitExceeded]).
+  ///
+  /// The overflow spans from a boundary offset to the end of [value] and is
+  /// reported in UTF-16, UTF-8 byte and grapheme coordinates (see
+  /// [TextLengthOverflow]). Use [TextLengthOverflow.utf16Start] to split the
+  /// value for a Flutter `TextSpan` — for example to render the overflowing
+  /// tail in red:
+  ///
+  /// ```dart
+  /// final overflow = text.format().overflow;
+  /// if (overflow != null) {
+  ///   final within = text.value.substring(0, overflow.utf16Start);
+  ///   final exceeded = text.value.substring(overflow.utf16Start);
+  ///   // render `within` normally and `exceeded` in red.
+  /// }
+  /// ```
+  ///
+  /// The boundary always lands on a grapheme cluster boundary, and when it
+  /// would otherwise fall inside an entity (a handle, link, tag, cashtag or
+  /// markdown link) it is snapped back to that entity's start so the entity is
+  /// treated atomically — either wholly within the limit or wholly in the
+  /// overflow. Because the boundary is derived from [value], calling this after
+  /// [format] reports the overflow of the formatted text (markdown expanded,
+  /// links shortened), which is what is displayed and posted.
+  TextLengthOverflow? get overflow;
+
+  /// Returns [value] partitioned into non-overlapping, gap-free [TextSegment]s
+  /// in document order, each tagged with the [entities] it belongs to (if any)
+  /// and whether it lies in the [overflow] region.
+  ///
+  /// This is a ready-to-render partition for a Flutter `TextSpan` tree: on each
+  /// keystroke you can color entities (links, handles, tags) and the
+  /// over-limit tail (for example in red) in a single pass, without merging the
+  /// byte-based [entities] and the [overflow] range yourself. Concatenating
+  /// every [TextSegment.text] reproduces [value].
+  ///
+  /// ```dart
+  /// TextSpan(
+  ///   children: [
+  ///     for (final s in text.segments)
+  ///       TextSpan(
+  ///         text: s.text,
+  ///         style: TextStyle(
+  ///           color: s.isOverflow
+  ///               ? Colors.red
+  ///               : s.isEntity
+  ///                   ? Colors.blue
+  ///                   : null,
+  ///         ),
+  ///       ),
+  ///   ],
+  /// )
+  /// ```
+  ///
+  /// Like [overflow], the segmentation is measured against [value], so call it
+  /// on the instance whose text is displayed — typically the raw input while
+  /// editing, or `format()` for a preview of the posted text.
+  List<TextSegment> get segments;
+
   /// Returns true if this [value] is empty, otherwise false.
   bool get isEmpty;
 
@@ -230,10 +290,59 @@ final class _BlueskyText implements BlueskyText {
 
   @override
   bool get isLengthLimitExceeded =>
-      maxLength < length || maxByteLength < utf8.encode(value).length;
+      //* Existence of an overflow never depends on entity snapping (snapping
+      //* only moves the boundary, never creates or removes it), so this stays
+      //* on the cheap raw scan and never triggers the regex-based extraction —
+      //* it is polled on every keystroke to toggle a post button.
+      utils.computeLengthOverflow(value) != null;
 
   @override
   bool get isNotLengthLimitExceeded => !isLengthLimitExceeded;
+
+  @override
+  TextLengthOverflow? get overflow {
+    final raw = utils.computeLengthOverflow(value);
+    if (raw == null) return null;
+
+    //* `entities` (the regex extraction) is only resolved once the limit is
+    //* actually exceeded.
+    return _snapOverflow(raw, entities);
+  }
+
+  @override
+  List<TextSegment> get segments {
+    //* Resolve the entities exactly once and reuse them for both the overflow
+    //* snapping and the partition, instead of letting `overflow` re-extract.
+    final resolved = entities;
+    final raw = utils.computeLengthOverflow(value);
+    final overflow = raw == null ? null : _snapOverflow(raw, resolved);
+
+    return segmenter.execute(value, resolved, overflow);
+  }
+
+  /// Snaps [raw]'s boundary back to the start of any entity that strictly
+  /// contains it, so a straddling entity is pushed wholly into the overflow.
+  /// Entities carry UTF-8 byte indices, matching [TextLengthOverflow.byteStart],
+  /// and never overlap, so at most one strictly contains the boundary point.
+  TextLengthOverflow _snapOverflow(
+    final TextLengthOverflow raw,
+    final List<Entity> entities,
+  ) {
+    for (final entity in entities) {
+      if (entity.indices.start < raw.byteStart &&
+          raw.byteStart < entity.indices.end) {
+        return utils.snapLengthOverflowToByte(
+          value,
+          byteStart: entity.indices.start,
+          limit: raw.limit,
+          utf16End: raw.utf16End,
+          byteEnd: raw.byteEnd,
+        );
+      }
+    }
+
+    return raw;
+  }
 
   @override
   bool get isEmpty => value.trim().isEmpty;

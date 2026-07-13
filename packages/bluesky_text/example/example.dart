@@ -13,6 +13,33 @@ Future<void> main() async {
     'Visit 🚀 https://shinyakato.dev.',
   );
 
+  //! Rendering for Flutter: color entities and the over-limit tail together.
+  //!
+  //! `segments` partitions the (formatted) text into non-overlapping slices,
+  //! each tagged with its entity (if any) and whether it lies past the
+  //! 300-grapheme / 3000-byte limit. Map each slice straight to a `TextSpan`
+  //! style — links/handles in blue, the overflowing tail in red — in a single
+  //! pass, with no manual index math. This is the natural body of a Flutter
+  //! `TextEditingController.buildTextSpan`, called on every keystroke.
+  for (final segment in text.format().segments) {
+    final style = segment.isOverflow
+        ? 'red'
+        : segment.isEntity
+        ? 'blue (${segment.type})'
+        : 'default';
+    print('[$style] ${segment.text}');
+  }
+
+  //! Need just the boundary (e.g. to show a live "-N over" counter)? `overflow`
+  //! returns it in UTF-16, UTF-8 byte and grapheme coordinates, or null when
+  //! within the limit.
+  final overflow = text.format().overflow;
+  if (overflow != null) {
+    final displayed = text.format().value;
+    print('within:   ${displayed.substring(0, overflow.utf16Start)}');
+    print('exceeded: ${displayed.substring(overflow.utf16Start)}');
+  }
+
   if (text.isLengthLimitExceeded) {
     //! Let's split.
     final texts = text.split();
