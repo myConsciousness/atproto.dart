@@ -80,7 +80,10 @@ AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
 /// The proof can be used for both token requests and protected resource access.
 ///
 /// Parameters:
-/// - [clientId]: The OAuth client identifier
+/// - [clientId]: The OAuth client identifier. Retained for backward
+///   compatibility of the function signature only; RFC 9449 does not define
+///   a claim carrying the client identifier, so it is **not** included in
+///   the proof
 /// - [endpoint]: The complete URL of the endpoint being accessed
 /// - [method]: The HTTP method of the request (e.g., 'POST', 'GET')
 /// - [dPoPNonce]: Optional. The DPoP nonce provided by the server. The
@@ -114,7 +117,6 @@ AsymmetricKeyPair<PublicKey, PrivateKey> getKeyPair() {
 /// Payload:
 /// ```json
 /// {
-///   "sub": "client_id",
 ///   "htu": "endpoint_url",
 ///   "htm": "http_method",
 ///   "exp": timestamp + 60,
@@ -175,8 +177,10 @@ String getDPoPHeader({
 
   final epoch = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000;
 
+  // RFC 9449 Section 4.2 defines the DPoP proof claims: jti, htm, htu, iat,
+  // and optionally nonce/ath. A `sub` claim is not part of the spec and is
+  // intentionally not emitted.
   final payload = <String, dynamic>{
-    'sub': clientId,
     'htu': endpoint,
     'htm': method,
     'exp': epoch + 60,

@@ -43,7 +43,9 @@ import 'types/session.dart';
 /// Throws:
 /// - [ArgumentError] in the following cases:
 ///   * When clientId is empty
-///   * When clientId is not a valid absolute http(s) URI
+///   * When clientId is not a valid absolute https URI (`http://` is only
+///     accepted for loopback hosts — `localhost`, `127.0.0.1`, `[::1]` — as
+///     the development exception allowed by the atproto OAuth spec)
 /// - [OAuthException] when:
 ///   * The HTTP request fails
 ///   * The server returns a non-200 status code
@@ -78,14 +80,18 @@ Future<OAuthClientMetadata> getClientMetadata(
     throw ArgumentError.value(clientId, 'clientId', 'must not be empty');
   }
 
+  // The atproto OAuth spec restricts `client_id` to `https://` URLs, with a
+  // development-only exception for `http://` on loopback hosts.
   final uri = Uri.tryParse(clientId);
   if (uri == null ||
       !uri.isAbsolute ||
-      !(uri.isScheme('https') || uri.isScheme('http'))) {
+      !(uri.isScheme('https') ||
+          (uri.isScheme('http') && _isLoopbackHost(uri.host)))) {
     throw ArgumentError.value(
       clientId,
       'clientId',
-      'must be a valid absolute http(s) URI',
+      'must be a valid absolute https URI '
+          '(http is only allowed for localhost)',
     );
   }
 
@@ -111,14 +117,169 @@ final class OAuthClient {
   const OAuthClient(
     this.metadata, {
     this.service = 'bsky.social',
+    this.pds,
+    this.expectedSub,
     final http.Client? httpClient,
   }) : _httpClient = httpClient;
+
+  /// Resolves the OAuth authorization server for a user's PDS and returns a
+  /// ready-to-use [OAuthClient].
+  ///
+  /// Implements the atproto OAuth server-discovery flow: fetches the
+  /// protected resource metadata (RFC 9728) from
+  /// `https://<pds>/.well-known/oauth-protected-resource`, takes the first
+  /// entry of `authorization_servers`, and configures the returned client to
+  /// talk to that authorization server (entryway). The authorization
+  /// server's own RFC 8414 metadata (PAR/authorize/token endpoints) is then
+  /// resolved as usual by [authorize] and [refresh].
+  ///
+  /// [pds] is the personal data server URL or hostname (e.g.
+  /// `https://morel.us-east.host.bsky.network`). A bare hostname is treated
+  /// as `https://<host>`.
+  ///
+  /// Throws an [OAuthException] when the protected resource metadata cannot
+  /// be fetched or parsed, or when it does not declare a valid
+  /// authorization server.
+  static Future<OAuthClient> resolveFromPds(
+    final OAuthClientMetadata metadata,
+    final String pds, {
+    final http.Client? httpClient,
+  }) async {
+    final pdsOrigin = _normalizeHttpOrigin(pds, what: 'PDS URL');
+    final authorizationServer = await _resolveAuthorizationServer(
+      pdsOrigin,
+      httpClient,
+    );
+
+    return OAuthClient(
+      metadata,
+      service: authorizationServer.authority,
+      pds: pdsOrigin,
+      httpClient: httpClient,
+    );
+  }
+
+  /// Resolves an atproto identity (handle or DID) down to its OAuth
+  /// authorization server and returns a ready-to-use [OAuthClient].
+  ///
+  /// Implements the atproto identity-resolution flow:
+  ///
+  /// 1. When [identity] is a handle, it is resolved to a DID via
+  ///    `com.atproto.identity.resolveHandle` against [handleResolver].
+  ///    A `did:...` identity is used as-is.
+  /// 2. The DID document is fetched — from [plcDirectory] for `did:plc`, or
+  ///    from `/.well-known/did.json` (or the path form) for `did:web`.
+  /// 3. When the flow started from a handle, bidirectional verification is
+  ///    performed: the DID document's `alsoKnownAs` must contain
+  ///    `at://<handle>`.
+  /// 4. The `#atproto_pds` service endpoint is extracted and the PDS is
+  ///    resolved to its authorization server exactly like [resolveFromPds].
+  ///
+  /// The returned client has [expectedSub] set to the resolved DID, so the
+  /// `sub` of every token response is verified to match the identity this
+  /// flow was initiated for.
+  ///
+  /// [identity] may be a handle (`alice.example.com`, optionally prefixed
+  /// with `@` or `at://`) or a DID (`did:plc:...` / `did:web:...`).
+  ///
+  /// [handleResolver] is the XRPC service used to resolve handles; it
+  /// defaults to the public Bluesky AppView. Self-hosters can point this at
+  /// their own PDS/entryway.
+  ///
+  /// Throws an [OAuthException] when any resolution step fails, when
+  /// bidirectional handle verification fails, or when the DID method is not
+  /// supported (only `did:plc` and `did:web` are).
+  static Future<OAuthClient> resolveFromIdentity(
+    final OAuthClientMetadata metadata,
+    final String identity, {
+    final String handleResolver = 'https://public.api.bsky.app',
+    final String plcDirectory = 'https://plc.directory',
+    final http.Client? httpClient,
+  }) async {
+    var normalized = identity.trim();
+    if (normalized.startsWith('at://')) {
+      normalized = normalized.substring('at://'.length);
+    }
+    if (normalized.startsWith('@')) {
+      normalized = normalized.substring(1);
+    }
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(identity, 'identity', 'must not be empty');
+    }
+
+    final String did;
+    final String? handle;
+    if (normalized.startsWith('did:')) {
+      did = normalized;
+      handle = null;
+    } else {
+      // Handles are case-insensitive; normalize to lowercase.
+      handle = normalized.toLowerCase();
+      did = await _resolveHandle(handle, handleResolver, httpClient);
+    }
+
+    final didDocument = await _resolveDidDocument(
+      did,
+      plcDirectory,
+      httpClient,
+    );
+
+    if (handle != null) {
+      // Bidirectional verification: the DID document must claim the handle
+      // back via `alsoKnownAs`, otherwise anyone could point a handle at an
+      // arbitrary DID.
+      final alsoKnownAs = didDocument['alsoKnownAs'];
+      final claimsHandle =
+          alsoKnownAs is List &&
+          alsoKnownAs.whereType<String>().any(
+            (final aka) => aka.toLowerCase() == 'at://$handle',
+          );
+      if (!claimsHandle) {
+        throw OAuthException(
+          'Bidirectional handle verification failed: the DID document for '
+          '"$did" does not list "at://$handle" in "alsoKnownAs"',
+        );
+      }
+    }
+
+    final pdsOrigin = _extractPdsEndpoint(didDocument, did);
+    final authorizationServer = await _resolveAuthorizationServer(
+      pdsOrigin,
+      httpClient,
+    );
+
+    return OAuthClient(
+      metadata,
+      service: authorizationServer.authority,
+      pds: pdsOrigin,
+      expectedSub: did,
+      httpClient: httpClient,
+    );
+  }
 
   /// Client metadata to be used during authentication.
   final OAuthClientMetadata metadata;
 
   /// Service for which the account to be authenticated exists.
+  ///
+  /// This must be the OAuth authorization server (entryway) host itself,
+  /// e.g. `bsky.social`. Use [resolveFromPds] or [resolveFromIdentity] to
+  /// discover it from a PDS URL or a user identity.
   final String service;
+
+  /// The user's personal data server origin (e.g.
+  /// `https://morel.us-east.host.bsky.network`), when this client was
+  /// created via [resolveFromPds] or [resolveFromIdentity]. Purely
+  /// informational for API calls after authentication; `null` when the
+  /// client was constructed directly.
+  final String? pds;
+
+  /// The DID this OAuth flow is expected to authenticate, when known.
+  ///
+  /// Set by [resolveFromIdentity]. When non-null, the `sub` member of every
+  /// token response must equal this DID, otherwise an [OAuthException] is
+  /// thrown (atproto OAuth spec: account identity verification).
+  final String? expectedSub;
 
   /// Optional HTTP client, mainly for testing.
   ///
@@ -153,9 +314,9 @@ final class OAuthClient {
   /// Throws an [OAuthException] when the document cannot be fetched or
   /// parsed, or when the issuer does not match.
   ///
-  /// Note: resolving a user's PDS to its entryway authorization server
-  /// (atproto identity resolution) is not implemented yet; [service] must
-  /// currently be the authorization server (entryway) host itself.
+  /// Note: [service] must be the authorization server (entryway) host
+  /// itself. Use [resolveFromPds] or [resolveFromIdentity] to discover the
+  /// authorization server from a PDS URL or a user identity first.
   Future<OAuthServerMetadata> getServerMetadata() async {
     final response = await _get(_wellKnownServerMetadataUri);
 
@@ -213,8 +374,12 @@ final class OAuthClient {
   /// Security measures implemented:
   /// - Generates cryptographically secure random values for PKCE and state
   /// - Uses SHA-256 for PKCE code challenge
-  /// - Stores DPoP nonce from server response (when provided; the
-  ///   `dpop-nonce` header is optional)
+  /// - Sends a DPoP proof with the PAR request (RFC 9449); the same key
+  ///   pair is carried in the returned [OAuthContext] and reused for the
+  ///   token request, since the authorization server binds the pushed
+  ///   request to the DPoP key
+  /// - Absorbs a `use_dpop_nonce` challenge on the PAR request so the
+  ///   nonce is pre-acquired for the token request
   /// - Validates server response status (201 Created)
   ///
   /// Throws:
@@ -263,7 +428,22 @@ final class OAuthClient {
       bodyParams['login_hint'] = identity;
     }
 
-    final response = await _post(parEndpoint, body: bodyParams);
+    // The DPoP key pair is generated up front so the PAR request can carry
+    // a DPoP proof (the atproto authorization server binds the pushed
+    // request to this key's thumbprint); the same pair is then carried in
+    // the context and reused for the token request in [callback].
+    final keyPair = getKeyPair();
+    final publicKey = encodePublicKey(keyPair.publicKey as ECPublicKey);
+    final privateKey = encodePrivateKey(keyPair.privateKey as ECPrivateKey);
+
+    final result = await _postWithDPoPProof(
+      endpoint: parEndpoint,
+      initialDPoPNonce: null,
+      publicKey: publicKey,
+      privateKey: privateKey,
+      bodyParams: bodyParams,
+    );
+    final response = result.response;
 
     if (response.statusCode != 201) {
       throw OAuthException(
@@ -272,8 +452,7 @@ final class OAuthClient {
       );
     }
 
-    final body = _tryDecodeJsonMap(response.body);
-    final requestUri = body?['request_uri'];
+    final requestUri = result.body?['request_uri'];
     if (requestUri is! String || requestUri.isEmpty) {
       throw OAuthException(
         'Pushed authorization response is missing "request_uri": '
@@ -293,11 +472,12 @@ final class OAuthClient {
         codeVerifier: codeVerifier,
         state: state,
         // The `dpop-nonce` header is optional (RFC 9449); its absence is a
-        // perfectly normal response, especially since no DPoP proof is sent
-        // with the PAR request.
-        dpopNonce: response.headers['dpop-nonce'],
+        // perfectly normal response.
+        dpopNonce: result.dPoPNonce,
         issuer: issuer,
         tokenEndpoint: tokenEndpoint,
+        dpopPublicKey: publicKey,
+        dpopPrivateKey: privateKey,
       ),
     );
   }
@@ -313,15 +493,15 @@ final class OAuthClient {
   /// OAuth authorization server. Must be a valid URI
   /// containing the necessary OAuth parameters including state and code.
   ///
-  /// [issuer] Optional expected issuer identifier for strict `iss`
-  /// validation (RFC 9207). When provided, the callback **must** contain an
-  /// `iss` parameter that exactly matches this value; otherwise an
-  /// [OAuthException] is thrown. When omitted, the expected issuer defaults
-  /// to the issuer discovered during [authorize] (carried in [context]) or
-  /// the [service] origin, and an `iss` parameter — if present — is
-  /// validated against it. atproto's OAuth profile requires clients to
-  /// perform this validation, so passing the expected issuer explicitly is
-  /// recommended.
+  /// [issuer] Optional expected issuer identifier for `iss` validation
+  /// (RFC 9207). When omitted, the expected issuer defaults to the issuer
+  /// discovered during [authorize] (carried in [context]) or the [service]
+  /// origin. The callback **must** contain an `iss` parameter that exactly
+  /// matches the expected issuer; a missing or mismatched `iss` throws an
+  /// [OAuthException]. atproto requires
+  /// `authorization_response_iss_parameter_supported=true`, so every
+  /// conforming authorization server always includes `iss` — including on
+  /// error responses.
   ///
   /// Returns a [Future<OAuthSession>] containing the access token, refresh
   /// token, and associated metadata including DPoP-specific information.
@@ -385,16 +565,19 @@ final class OAuthClient {
       issuer ?? context.issuer ?? _origin,
     );
     final issParam = params['iss'];
-    if (issParam != null) {
-      if (_normalizeIssuer(issParam) != expectedIssuer) {
-        throw OAuthException(
-          'Issuer mismatch: expected "$expectedIssuer" but the callback '
-          'was issued by "$issParam"',
-        );
-      }
-    } else if (issuer != null) {
+    if (issParam == null) {
+      // atproto requires authorization servers to support RFC 9207
+      // (`authorization_response_iss_parameter_supported=true`), so a
+      // conforming server always includes `iss` — its absence indicates a
+      // non-conforming or hostile party.
       throw OAuthException(
         'Missing "iss" parameter (RFC 9207): expected "$expectedIssuer"',
+      );
+    }
+    if (_normalizeIssuer(issParam) != expectedIssuer) {
+      throw OAuthException(
+        'Issuer mismatch: expected "$expectedIssuer" but the callback '
+        'was issued by "$issParam"',
       );
     }
 
@@ -409,11 +592,25 @@ final class OAuthClient {
     final codeParam = params['code'];
     if (codeParam == null) throw OAuthException('Missing "code" query param');
 
-    final keyPair = getKeyPair();
     final endpoint = Uri.parse(context.tokenEndpoint ?? '$_origin/oauth/token');
 
-    final publicKey = encodePublicKey(keyPair.publicKey as ECPublicKey);
-    final privateKey = encodePrivateKey(keyPair.privateKey as ECPrivateKey);
+    // Reuse the DPoP key pair generated during [authorize]: the pushed
+    // authorization request was bound to that key's thumbprint, so the
+    // token request must be signed with the same key. Contexts serialized
+    // by older versions of this library have no key material; generate a
+    // fresh pair in that case for backward compatibility.
+    final String publicKey;
+    final String privateKey;
+    final contextPublicKey = context.dpopPublicKey;
+    final contextPrivateKey = context.dpopPrivateKey;
+    if (contextPublicKey != null && contextPrivateKey != null) {
+      publicKey = contextPublicKey;
+      privateKey = contextPrivateKey;
+    } else {
+      final keyPair = getKeyPair();
+      publicKey = encodePublicKey(keyPair.publicKey as ECPublicKey);
+      privateKey = encodePrivateKey(keyPair.privateKey as ECPrivateKey);
+    }
 
     final result = await _postTokenRequest(
       endpoint: endpoint,
@@ -433,7 +630,7 @@ final class OAuthClient {
       result: result,
       publicKey: publicKey,
       privateKey: privateKey,
-      fallbackScope: metadata.scope,
+      expectedSub: expectedSub,
     );
   }
 
@@ -508,8 +705,13 @@ final class OAuthClient {
       // Servers that do not rotate refresh tokens omit `refresh_token`
       // from the response; keep using the existing one in that case.
       fallbackRefreshToken: session.refreshToken,
-      fallbackScope: session.scope,
       fallbackSub: session.sub,
+      // A refresh response may omit `scope`; fall back to the already
+      // validated scope of the session being refreshed.
+      fallbackScope: session.scope,
+      // The refreshed tokens must belong to the same account the session
+      // was minted for.
+      expectedSub: session.sub,
     );
   }
 
@@ -571,10 +773,14 @@ final class OAuthClient {
     }
   }
 
-  /// Posts a token request with a DPoP proof, transparently retrying with
-  /// the server-provided nonce on `use_dpop_nonce` errors
+  /// Posts [bodyParams] to [endpoint] with a DPoP proof, transparently
+  /// retrying with the server-provided nonce on `use_dpop_nonce` errors
   /// (RFC 9449 Section 8), bounded by [_maxDPoPNonceRetries].
-  Future<_TokenResult> _postTokenRequest({
+  ///
+  /// The raw response is returned without status inspection so callers with
+  /// different success codes (`200` for token requests, `201` for PAR) can
+  /// interpret it themselves.
+  Future<_DPoPPostResult> _postWithDPoPProof({
     required final Uri endpoint,
     required final String? initialDPoPNonce,
     required final String publicKey,
@@ -617,6 +823,31 @@ final class OAuthClient {
       dPoPNonce = nextNonce;
     }
 
+    return _DPoPPostResult(
+      response: response,
+      body: body,
+      dPoPNonce: response.headers['dpop-nonce'] ?? dPoPNonce,
+    );
+  }
+
+  /// Posts a token request via [_postWithDPoPProof] and enforces the `200`
+  /// success status and a JSON object body required for token responses.
+  Future<_TokenResult> _postTokenRequest({
+    required final Uri endpoint,
+    required final String? initialDPoPNonce,
+    required final String publicKey,
+    required final String privateKey,
+    required final Map<String, String> bodyParams,
+  }) async {
+    final result = await _postWithDPoPProof(
+      endpoint: endpoint,
+      initialDPoPNonce: initialDPoPNonce,
+      publicKey: publicKey,
+      privateKey: privateKey,
+      bodyParams: bodyParams,
+    );
+    final response = result.response;
+
     if (response.statusCode != 200) {
       throw OAuthException(
         'Token request failed (status ${response.statusCode}): '
@@ -624,16 +855,222 @@ final class OAuthClient {
       );
     }
 
+    final body = result.body;
     if (body == null) {
       throw OAuthException(
         'Token response is not a valid JSON object: ${response.body}',
       );
     }
 
-    return _TokenResult(
-      body: body,
-      dPoPNonce: response.headers['dpop-nonce'] ?? dPoPNonce,
+    return _TokenResult(body: body, dPoPNonce: result.dPoPNonce);
+  }
+
+  /// Fetches the RFC 8414 authorization server metadata for [authority]
+  /// (host[:port]) and returns its declared endpoints.
+  ///
+  /// Fetches `https://<pdsOrigin>/.well-known/oauth-protected-resource`
+  /// (RFC 9728), reads the first entry of `authorization_servers`, and
+  /// returns it as an absolute [Uri]. Used by [resolveFromPds] and
+  /// [resolveFromIdentity] to discover the authorization server (entryway)
+  /// for a given PDS.
+  static Future<Uri> _resolveAuthorizationServer(
+    final String pdsOrigin,
+    final http.Client? httpClient,
+  ) async {
+    final metadataUri = Uri.parse(
+      '$pdsOrigin/.well-known/oauth-protected-resource',
     );
+    final response = httpClient == null
+        ? await http.get(metadataUri)
+        : await httpClient.get(metadataUri);
+
+    if (response.statusCode != 200) {
+      throw OAuthException(
+        'Failed to fetch protected resource metadata from "$metadataUri" '
+        '(status ${response.statusCode})',
+      );
+    }
+
+    final json = _tryDecodeJsonMap(response.body);
+    if (json == null) {
+      throw OAuthException(
+        'Protected resource metadata at "$metadataUri" is not a JSON object',
+      );
+    }
+
+    final servers = json['authorization_servers'];
+    if (servers is! List || servers.isEmpty) {
+      throw OAuthException(
+        'Protected resource metadata at "$metadataUri" declares no '
+        '"authorization_servers"',
+      );
+    }
+
+    final first = servers.first;
+    final serverUri = first is String ? Uri.tryParse(first) : null;
+    if (serverUri == null || !serverUri.isAbsolute) {
+      throw OAuthException(
+        'Protected resource metadata at "$metadataUri" declares an invalid '
+        'authorization server: "$first"',
+      );
+    }
+
+    return serverUri;
+  }
+
+  /// Resolves a handle to a DID via `com.atproto.identity.resolveHandle`
+  /// against [handleResolver].
+  static Future<String> _resolveHandle(
+    final String handle,
+    final String handleResolver,
+    final http.Client? httpClient,
+  ) async {
+    final origin = _normalizeHttpOrigin(
+      handleResolver,
+      what: 'handle resolver URL',
+    );
+    final uri = Uri.parse(
+      '$origin/xrpc/com.atproto.identity.resolveHandle',
+    ).replace(queryParameters: {'handle': handle});
+
+    final response = httpClient == null
+        ? await http.get(uri)
+        : await httpClient.get(uri);
+
+    if (response.statusCode != 200) {
+      throw OAuthException(
+        'Failed to resolve handle "$handle" (status ${response.statusCode}): '
+        '${response.body}',
+      );
+    }
+
+    final did = _tryDecodeJsonMap(response.body)?['did'];
+    if (did is! String || !did.startsWith('did:')) {
+      throw OAuthException(
+        'Handle resolution for "$handle" returned an invalid DID: '
+        '${response.body}',
+      );
+    }
+
+    return did;
+  }
+
+  /// Fetches the DID document for [did] — from [plcDirectory] for `did:plc`,
+  /// or from the `did:web` well-known/path location for `did:web`.
+  static Future<Map<String, dynamic>> _resolveDidDocument(
+    final String did,
+    final String plcDirectory,
+    final http.Client? httpClient,
+  ) async {
+    final Uri uri;
+    if (did.startsWith('did:plc:')) {
+      final origin = _normalizeHttpOrigin(
+        plcDirectory,
+        what: 'PLC directory URL',
+      );
+      uri = Uri.parse('$origin/$did');
+    } else if (did.startsWith('did:web:')) {
+      uri = _didWebDocumentUri(did);
+    } else {
+      throw OAuthException(
+        'Unsupported DID method for "$did" '
+        '(only did:plc and did:web are supported)',
+      );
+    }
+
+    final response = httpClient == null
+        ? await http.get(uri)
+        : await httpClient.get(uri);
+
+    if (response.statusCode != 200) {
+      throw OAuthException(
+        'Failed to fetch DID document for "$did" from "$uri" '
+        '(status ${response.statusCode})',
+      );
+    }
+
+    final json = _tryDecodeJsonMap(response.body);
+    if (json == null) {
+      throw OAuthException(
+        'DID document for "$did" at "$uri" is not a JSON object',
+      );
+    }
+
+    return json;
+  }
+
+  /// Maps a `did:web` identifier to the URL of its DID document
+  /// (`did:web:example.com` -> `https://example.com/.well-known/did.json`;
+  /// `did:web:example.com:u:alice` -> `https://example.com/u/alice/did.json`).
+  static Uri _didWebDocumentUri(final String did) {
+    final id = did.substring('did:web:'.length);
+    if (id.isEmpty) {
+      throw OAuthException('Invalid did:web identifier: "$did"');
+    }
+
+    final segments = id.split(':').map(Uri.decodeComponent).toList();
+    final host = segments.first;
+    if (host.isEmpty) {
+      throw OAuthException('Invalid did:web identifier: "$did"');
+    }
+
+    if (segments.length == 1) {
+      return Uri.parse('https://$host/.well-known/did.json');
+    }
+
+    final path = segments.sublist(1).join('/');
+    return Uri.parse('https://$host/$path/did.json');
+  }
+
+  /// Extracts the `#atproto_pds` service endpoint origin from a DID
+  /// document, per the atproto identity spec.
+  static String _extractPdsEndpoint(
+    final Map<String, dynamic> didDocument,
+    final String did,
+  ) {
+    final services = didDocument['service'];
+    if (services is List) {
+      for (final service in services) {
+        if (service is! Map) continue;
+        final id = service['id'];
+        if (id != '#atproto_pds' && id != '$did#atproto_pds') continue;
+        if (service['type'] != 'AtprotoPersonalDataServer') continue;
+        final endpoint = service['serviceEndpoint'];
+        if (endpoint is String && endpoint.isNotEmpty) {
+          return _normalizeHttpOrigin(endpoint, what: 'PDS serviceEndpoint');
+        }
+      }
+    }
+
+    throw OAuthException(
+      'DID document for "$did" declares no "#atproto_pds" service endpoint',
+    );
+  }
+
+  /// Normalizes a user-supplied host or URL to an `https`/`http` origin
+  /// (`scheme://host[:port]`, no trailing slash). A bare hostname is treated
+  /// as `https://<host>`.
+  static String _normalizeHttpOrigin(
+    final String input, {
+    required final String what,
+  }) {
+    var value = input.trim();
+    if (value.isEmpty) {
+      throw OAuthException('$what must not be empty');
+    }
+    if (!value.contains('://')) {
+      value = 'https://$value';
+    }
+
+    final uri = Uri.tryParse(value);
+    if (uri == null ||
+        !uri.hasScheme ||
+        !(uri.isScheme('https') || uri.isScheme('http')) ||
+        uri.host.isEmpty) {
+      throw OAuthException('Invalid $what: "$input"');
+    }
+
+    return uri.origin;
   }
 
   /// Builds an [OAuthSession] from a successful token response, validating
@@ -645,6 +1082,7 @@ final class OAuthClient {
     final String? fallbackRefreshToken,
     final String? fallbackScope,
     final String? fallbackSub,
+    final String? expectedSub,
   }) {
     final body = result.body;
 
@@ -656,10 +1094,6 @@ final class OAuthClient {
     }
 
     // The atproto OAuth profile requires `sub` to be the account DID.
-    //
-    // TODO: verify `sub` against the identity the flow was initiated for
-    // (handle/DID resolution). This requires atproto identity resolution
-    // (PDS -> entryway), which is not implemented yet.
     var sub = body['sub'] is String ? body['sub'] as String : null;
     if (sub != null && !sub.startsWith('did:')) {
       throw OAuthException(
@@ -672,6 +1106,28 @@ final class OAuthClient {
         'Token response is missing "sub": ${jsonEncode(body)}',
       );
     }
+    // atproto OAuth account-identity verification: when the account this flow
+    // was initiated for is known (resolved from an identity, or carried over
+    // on refresh), the returned `sub` must match it.
+    if (expectedSub != null && sub != expectedSub) {
+      throw OAuthException(
+        'Account mismatch: expected "$expectedSub" but the token response is '
+        'for "$sub"',
+      );
+    }
+
+    // The atproto OAuth spec requires clients to reject a token response that
+    // omits `scope` or whose scope does not contain `atproto`. On refresh, a
+    // server may omit `scope`; the existing session scope is used as a
+    // fallback in that case (it was validated when first issued).
+    final scope = body['scope'] is String ? body['scope'] as String : null;
+    final effectiveScope = scope ?? fallbackScope;
+    if (effectiveScope == null || !_scopeContainsAtproto(effectiveScope)) {
+      throw OAuthException(
+        'Token response scope must contain "atproto" '
+        '(got: ${scope == null ? 'no "scope" member' : '"$scope"'})',
+      );
+    }
 
     final refreshToken = body['refresh_token'] is String
         ? body['refresh_token'] as String
@@ -679,13 +1135,12 @@ final class OAuthClient {
     final tokenType = body['token_type'] is String
         ? body['token_type'] as String
         : null;
-    final scope = body['scope'] is String ? body['scope'] as String : null;
 
     return OAuthSession(
       accessToken: accessToken,
       refreshToken: refreshToken ?? fallbackRefreshToken ?? '',
       tokenType: tokenType ?? 'DPoP',
-      scope: scope ?? fallbackScope ?? '',
+      scope: effectiveScope,
       expiresAt: _computeExpiresAt(body['expires_in']),
       sub: sub,
       $clientId: metadata.clientId,
@@ -718,10 +1173,42 @@ final class _TokenResult {
   final String? dPoPNonce;
 }
 
+/// The raw outcome of a DPoP-signed POST (after `use_dpop_nonce` retries),
+/// returned without status inspection so callers can apply their own success
+/// semantics.
+final class _DPoPPostResult {
+  const _DPoPPostResult({
+    required this.response,
+    required this.body,
+    required this.dPoPNonce,
+  });
+
+  final http.Response response;
+  final Map<String, dynamic>? body;
+  final String? dPoPNonce;
+}
+
 /// Strips a single trailing slash so `https://x.example` and
 /// `https://x.example/` compare equal.
 String _normalizeIssuer(final String issuer) =>
     issuer.endsWith('/') ? issuer.substring(0, issuer.length - 1) : issuer;
+
+/// Whether [host] is a loopback host, for which the atproto OAuth spec
+/// permits an `http://` `client_id` (development exception).
+bool _isLoopbackHost(final String host) {
+  final normalized = host.startsWith('[') && host.endsWith(']')
+      ? host.substring(1, host.length - 1)
+      : host;
+
+  return normalized == 'localhost' ||
+      normalized == '127.0.0.1' ||
+      normalized == '::1';
+}
+
+/// Whether a space-delimited OAuth `scope` string contains the `atproto`
+/// scope required by the atproto OAuth profile.
+bool _scopeContainsAtproto(final String scope) =>
+    scope.split(' ').where((final s) => s.isNotEmpty).contains('atproto');
 
 /// Constant-time string comparison to avoid leaking match prefixes through
 /// timing when validating `state`.

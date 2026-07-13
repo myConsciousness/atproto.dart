@@ -182,7 +182,7 @@ void main() {
       expect(jwk['y'], isNotEmpty);
     });
 
-    test('emits the required claims and binds htu/htm/sub/nonce', () {
+    test('emits the required claims and binds htu/htm/nonce', () {
       final jwt = getDPoPHeader(
         clientId: 'client-id',
         endpoint: 'https://bsky.social/oauth/token',
@@ -193,7 +193,9 @@ void main() {
       );
 
       final payload = _decodeSegment(jwt.split('.')[1]);
-      expect(payload['sub'], 'client-id');
+      // RFC 9449 defines jti/htm/htu/iat (+ optional nonce/ath); `sub` is not
+      // a DPoP proof claim and must not be present.
+      expect(payload.containsKey('sub'), isFalse);
       expect(payload['htu'], 'https://bsky.social/oauth/token');
       expect(payload['htm'], 'POST');
       expect(payload['nonce'], 'a-nonce');

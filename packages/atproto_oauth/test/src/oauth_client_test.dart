@@ -658,5 +658,267 @@ void main() {
       await client.refresh(sessionWith());
       expect(tokenCalls, 1);
     });
+
+    test(
+      'rejects a refreshed token whose sub differs (account swap)',
+      () async {
+        final client = OAuthClient(
+          _metadata(),
+          service: _service,
+          httpClient: MockClient((r) async {
+            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+            // A different account DID than the session was minted for.
+            if (_isToken(r)) {
+              return _json(_tokenBody(sub: 'did:plc:zzzzzzzzzzzzzzzzzzzzzzzz'));
+            }
+            return http.Response('unexpected', 500);
+          }),
+        );
+
+        await expectLater(
+          () => client.refresh(sessionWith()),
+          throwsA(isA<OAuthException>()),
+        );
+      },
+    );
+
+    test('a refresh that omits scope keeps the session scope', () async {
+      final client = OAuthClient(
+        _metadata(),
+        service: _service,
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isToken(r)) return _json(_tokenBody(scope: null));
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      final refreshed = await client.refresh(sessionWith());
+      expect(refreshed.scope, 'atproto');
+    });
+  });
+
+  group('scope validation (atproto profile)', () {
+    OAuthContext contextWith() => const OAuthContext(
+      codeVerifier: 'the-code-verifier',
+      state: 'the-state',
+      dpopNonce: 'nonce-0',
+      issuer: _origin,
+      tokenEndpoint: '$_origin/oauth/token',
+    );
+
+    Future<OAuthSession> exchangeWithScope(final String? scope) {
+      final client = OAuthClient(
+        _metadata(),
+        service: _service,
+        httpClient: MockClient((r) async {
+          if (_isToken(r)) return _json(_tokenBody(scope: scope));
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      return client.callback(
+        '$_redirectUri?iss=$_origin&state=the-state&code=c',
+        contextWith(),
+      );
+    }
+
+    test('rejects a token response with no scope member', () async {
+      await expectLater(
+        () => exchangeWithScope(null),
+        throwsA(isA<OAuthException>()),
+      );
+    });
+
+    test('rejects a scope that does not contain atproto', () async {
+      await expectLater(
+        () => exchangeWithScope('transition:generic openid'),
+        throwsA(isA<OAuthException>()),
+      );
+    });
+
+    test('accepts a scope that contains atproto among others', () async {
+      final session = await exchangeWithScope('transition:generic atproto');
+      expect(session.scope, 'transition:generic atproto');
+    });
+  });
+
+  group('iss enforcement by default (RFC 9207)', () {
+    test(
+      'rejects a callback missing iss even without an explicit issuer',
+      () async {
+        final client = OAuthClient(
+          _metadata(),
+          service: _service,
+          httpClient: MockClient((r) async => _json(_tokenBody())),
+        );
+
+        await expectLater(
+          () => client.callback(
+            '$_redirectUri?state=the-state&code=c',
+            const OAuthContext(
+              codeVerifier: 'the-code-verifier',
+              state: 'the-state',
+              dpopNonce: 'nonce-0',
+              issuer: _origin,
+              tokenEndpoint: '$_origin/oauth/token',
+            ),
+          ),
+          throwsA(isA<OAuthException>()),
+        );
+      },
+    );
+  });
+
+  group('getClientMetadata client_id scheme', () {
+    test('rejects http on a non-loopback host', () {
+      expect(
+        () => getClientMetadata('http://client.example/client-metadata.json'),
+        throwsA(isA<ArgumentError>()),
+      );
+    });
+
+    test('accepts http on localhost (dev exception)', () async {
+      final metadata = await getClientMetadata(
+        'http://localhost:8080/client-metadata.json',
+        client: MockClient((r) async => _json(_metadata().toJson())),
+      );
+      expect(metadata.clientId, _clientId);
+    });
+
+    test('accepts http on 127.0.0.1 (dev exception)', () async {
+      final metadata = await getClientMetadata(
+        'http://127.0.0.1:8080/client-metadata.json',
+        client: MockClient((r) async => _json(_metadata().toJson())),
+      );
+      expect(metadata.clientId, _clientId);
+    });
+  });
+
+  group('authorization server / identity resolution', () {
+    const pdsOrigin = 'https://pds.example';
+    const did = 'did:plc:abcdefghijklmnopqrstuvwx';
+    const handle = 'alice.example';
+
+    bool isProtectedResource(final http.Request r) =>
+        r.url.host == 'pds.example' &&
+        r.url.path == '/.well-known/oauth-protected-resource';
+
+    Map<String, dynamic> didDoc({final List<String>? alsoKnownAs}) => {
+      'id': did,
+      if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
+      'service': [
+        {
+          'id': '#atproto_pds',
+          'type': 'AtprotoPersonalDataServer',
+          'serviceEndpoint': pdsOrigin,
+        },
+      ],
+    };
+
+    test('resolveFromPds discovers the authorization server', () async {
+      final client = await OAuthClient.resolveFromPds(
+        _metadata(),
+        pdsOrigin,
+        httpClient: MockClient((r) async {
+          if (isProtectedResource(r)) {
+            return _json({
+              'resource': pdsOrigin,
+              'authorization_servers': [_origin],
+            });
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      expect(client.service, _service);
+      expect(client.pds, pdsOrigin);
+    });
+
+    test(
+      'resolveFromPds throws when no authorization server is declared',
+      () async {
+        await expectLater(
+          () => OAuthClient.resolveFromPds(
+            _metadata(),
+            pdsOrigin,
+            httpClient: MockClient((r) async {
+              if (isProtectedResource(r)) {
+                return _json({'authorization_servers': <String>[]});
+              }
+              return http.Response('unexpected', 500);
+            }),
+          ),
+          throwsA(isA<OAuthException>()),
+        );
+      },
+    );
+
+    test(
+      'resolveFromIdentity resolves a did:plc and sets expectedSub',
+      () async {
+        final client = await OAuthClient.resolveFromIdentity(
+          _metadata(),
+          did,
+          plcDirectory: 'https://plc.example',
+          httpClient: MockClient((r) async {
+            if (r.url.host == 'plc.example' && r.url.path == '/$did') {
+              return _json(didDoc());
+            }
+            if (isProtectedResource(r)) {
+              return _json({
+                'authorization_servers': [_origin],
+              });
+            }
+            return http.Response('unexpected', 500);
+          }),
+        );
+
+        expect(client.service, _service);
+        expect(client.pds, pdsOrigin);
+        expect(client.expectedSub, did);
+      },
+    );
+
+    test('resolveFromIdentity verifies handle bidirectionally', () async {
+      MockClient buildClient(final List<String> alsoKnownAs) =>
+          MockClient((r) async {
+            if (r.url.host == 'resolver.example' &&
+                r.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
+              return _json({'did': did});
+            }
+            if (r.url.host == 'plc.example' && r.url.path == '/$did') {
+              return _json(didDoc(alsoKnownAs: alsoKnownAs));
+            }
+            if (isProtectedResource(r)) {
+              return _json({
+                'authorization_servers': [_origin],
+              });
+            }
+            return http.Response('unexpected', 500);
+          });
+
+      // Matching alsoKnownAs -> success.
+      final client = await OAuthClient.resolveFromIdentity(
+        _metadata(),
+        handle,
+        handleResolver: 'https://resolver.example',
+        plcDirectory: 'https://plc.example',
+        httpClient: buildClient(['at://$handle']),
+      );
+      expect(client.expectedSub, did);
+
+      // DID document does not claim the handle back -> rejected.
+      await expectLater(
+        () => OAuthClient.resolveFromIdentity(
+          _metadata(),
+          handle,
+          handleResolver: 'https://resolver.example',
+          plcDirectory: 'https://plc.example',
+          httpClient: buildClient(['at://someone.else']),
+        ),
+        throwsA(isA<OAuthException>()),
+      );
+    });
   });
 }
