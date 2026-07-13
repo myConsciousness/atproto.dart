@@ -12,11 +12,16 @@ import 'validation.dart';
 /// - alpha     = "a" / "b" / "c" / "d" / "e" / "f" / "g" / "h" / "i" / "j" / "k" / "l" / "m" / "n" / "o" / "p" / "q" / "r" / "s" / "t" / "u" / "v" / "w" / "x" / "y" / "z" / "A" / "B" / "C" / "D" / "E" / "F" / "G" / "H" / "I" / "J" / "K" / "L" / "M" / "N" / "O" / "P" / "Q" / "R" / "S" / "T" / "U" / "V" / "W" / "X" / "Y" / "Z"
 /// - number    = "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "0"
 /// - delim     = "."
-/// - segment   = alpha *( alpha / number / "-" )
-/// - authority = segment *( delim segment )
-/// - name      = segment
+/// - segment   = ( alpha / number ) *( alpha / number / "-" )
+/// - authority = alpha *( alpha / number / "-" ) *( delim segment )
+/// - name      = alpha *( alpha / number )
 /// - nsid      = authority delim name
 /// - nsid-ns   = authority delim "*"
+///
+/// Note: the first authority segment (the TLD) must start with a letter,
+/// while later authority segments may start with a digit. The name
+/// segment allows letters and digits only (no hyphens). Segments can not
+/// start or end with a hyphen.
 sealed class NSID {
   /// Returns the new instance of unparsed NSID.
   const factory NSID(final String nsid) = UnparsedNSID;

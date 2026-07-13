@@ -370,6 +370,42 @@ void main() {
       );
     });
 
+    test('accepts valid record keys', () {
+      expect(
+        AtUri.parseStrict(
+          'at://did:plc:asdf123/com.atproto.feed.post/3jui7kd54zh2y',
+        ).rkey,
+        '3jui7kd54zh2y',
+      );
+      expect(
+        AtUri.parseStrict(
+          'at://did:plc:asdf123/com.atproto.feed.post/self',
+        ).rkey,
+        'self',
+      );
+      expect(
+        AtUri.parseStrict(
+          'at://did:plc:asdf123/com.atproto.feed.post/literal:x',
+        ).rkey,
+        'literal:x',
+      );
+    });
+
+    test('rejects invalid record keys', () {
+      void expectInvalidRkey(String uri) {
+        expect(() => AtUri.parseStrict(uri), throwsA(isA<InvalidAtUriError>()));
+      }
+
+      expectInvalidRkey('at://did:plc:asdf123/com.atproto.feed.post/..');
+      expectInvalidRkey('at://did:plc:asdf123/com.atproto.feed.post/.');
+      expectInvalidRkey(
+        'at://did:plc:asdf123/com.atproto.feed.post/${'o' * 513}',
+      );
+      // Characters outside the record key charset.
+      expectInvalidRkey('at://did:plc:asdf123/com.atproto.feed.post/%23');
+      expectInvalidRkey('at://did:plc:asdf123/com.atproto.feed.post/@handle');
+    });
+
     test('AtUri.parse stays loose (does not throw on these)', () {
       // Loose parse must remain non-breaking for existing callers.
       expect(
@@ -378,6 +414,27 @@ void main() {
         ).hostname,
         'did:plc:asdf123',
       );
+      // A disallowed record key does not throw on loose parse either.
+      expect(
+        AtUri.parse('at://did:plc:asdf123/com.atproto.feed.post/..').rkey,
+        '..',
+      );
+    });
+  });
+
+  group('AtUri.parse lenient DID authority', () {
+    test('parses did:web with dots and percent-encoding', () {
+      final uri = AtUri.parse(
+        'at://did:web:example.com%3A3000/com.atproto.feed.post/self',
+      );
+      expect(uri.hostname, 'did:web:example.com%3A3000');
+      expect(uri.collection.toString(), 'com.atproto.feed.post');
+      expect(uri.rkey, 'self');
+    });
+
+    test('parses DIDs containing underscores', () {
+      final uri = AtUri.parse('at://did:web:foo_bar.example.com');
+      expect(uri.hostname, 'did:web:foo_bar.example.com');
     });
   });
 

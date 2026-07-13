@@ -19,7 +19,7 @@
 ///        length of a DID"
 ///   - in current atproto, only allowing did:plc and did:web. But not
 ///     *forcing* this at lexicon layer
-///   - hard length limit of 8KBytes
+///   - hard length limit of 2048 characters (current atproto spec)
 ///   - not going to validate "percent encoding" here
 final _didAllowedCharsRegExp = RegExp(r'^[a-zA-Z0-9._:%-]*$');
 final _didMethodRegExp = RegExp(r'^[a-z]+$');
@@ -52,8 +52,9 @@ void ensureValidDid(final String did) {
     throw InvalidDidError('DID can not end with ":" or "%"');
   }
 
-  if (did.length > 8 * 1024) {
-    throw InvalidDidError('DID is far too long');
+  // The atproto spec sets a current hard limit of 2048 characters.
+  if (did.length > 2048) {
+    throw InvalidDidError('DID is too long (2048 chars max)');
   }
 }
 

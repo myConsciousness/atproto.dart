@@ -98,7 +98,35 @@ void main() {
     test('misc', () {
       expectValid('a.b.c');
       expectValid('a0.b1.c3');
-      expectValid('a-0.b-1.c-3');
+      expectValid('a-0.b-1.c3');
+    });
+
+    test('middle authority segments may start with a digit', () {
+      expectValid('com.4chan.example');
+      expectValid('net.users.12345.record');
+    });
+
+    test('first segment (TLD) may not start with a digit', () {
+      expectInvalid('4com.example.foo');
+      expectInvalid('0.b1.c3');
+    });
+
+    test('name segment must be letters and digits only', () {
+      expectInvalid('com.example.foo-bar');
+      expectInvalid('a-0.b-1.c-3');
+      expectInvalid('com.example.3foo');
+      expectValid('com.example.fooBar2');
+    });
+
+    test('segments can not start or end with a hyphen', () {
+      expectInvalid('com.-example.foo');
+      expectInvalid('com.example-.foo');
+      expectInvalid('-com.example.foo');
+    });
+
+    test('namespace glob remains valid', () {
+      expectValid('com.example.*');
+      expectValid('com.4chan.*');
     });
 
     test('name segment over 63 chars is invalid', () {

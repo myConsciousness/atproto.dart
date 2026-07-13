@@ -58,6 +58,12 @@ void main() {
       expectInvalid('did:method:${'v' * 8500}');
     });
 
+    test('enforces the 2048 character hard limit', () {
+      const prefix = 'did:method:';
+      expectValid(prefix + 'v' * (2048 - prefix.length));
+      expectInvalid(prefix + 'v' * (2049 - prefix.length));
+    });
+
     test('allows some real DID values', () {
       expectValid('did:example:123456789abcdefghi');
       expectValid('did:plc:7iza6de2dwap2sbkpav7c6c6');

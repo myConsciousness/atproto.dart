@@ -4,13 +4,15 @@
 
 // Project imports:
 import '../nsid/nsid.dart';
+import '../record_key/invalid_record_key_error.dart';
+import '../record_key/validation.dart';
 import 'invalid_at_uri_error.dart';
 import 'validation.dart';
 
 final _atUriRegex = RegExp(
   // ignore: lines_longer_than_80_chars
   // proto-    --did--------------   --name-------------   --path----   --query--   --hash--
-  r'^(at:\/\/)?((?:did:[a-z0-9:%-]+)|(?:[a-z0-9][a-z0-9.:-]*))(\/[^?#\s]*)?(\?[^#\s]+)?(#[^\s]+)?$',
+  r'^(at:\/\/)?((?:did:[a-z0-9._:%-]+)|(?:[a-z0-9][a-z0-9.:-]*))(\/[^?#\s]*)?(\?[^#\s]+)?(#[^\s]+)?$',
   caseSensitive: false,
 );
 
@@ -40,13 +42,33 @@ sealed class AtUri {
   /// Unlike [AtUri.parse], this factory enforces the full AT URI syntax
   /// rules: the URI must start with `at://`, the authority must be a
   /// valid handle or DID, the first path segment (if any) must be a
-  /// valid NSID, and so on.
+  /// valid NSID, the second path segment (if any) must be a valid
+  /// Record Key, and so on.
+  ///
+  /// Note that [ensureValidAtUri] itself intentionally does not validate
+  /// the record key segment, matching the official atproto
+  /// implementation; the record key check here mirrors the official
+  /// strict AT URI parsing behavior.
   ///
   /// Throws an [InvalidAtUriError] if [uri] is not a valid AT URI.
   factory AtUri.parseStrict(final String uri) {
     ensureValidAtUri(uri);
 
-    return CheckedAtUri(uri);
+    final atUri = CheckedAtUri(uri);
+
+    final rkey = atUri.rkeyOrNull;
+    if (rkey != null) {
+      try {
+        ensureValidRecordKey(rkey);
+      } on InvalidRecordKeyError catch (e) {
+        throw InvalidAtUriError(
+          'ATURI requires second path segment (if supplied) to be a valid '
+          'record key: ${e.message}',
+        );
+      }
+    }
+
+    return atUri;
   }
 
   /// Returns the new instance of parsed AT URI based on [handleOrDid],

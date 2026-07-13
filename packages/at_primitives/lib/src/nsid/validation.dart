@@ -9,8 +9,12 @@ import 'invalid_nsid_error.dart';
 /// contains the allowed ASCII characters.
 final _allowedCharsRegExp = RegExp(r'^[a-zA-Z0-9.-]*$');
 
-/// Matches a label that starts with an ASCII letter.
-final _labelStartRegExp = RegExp(r'^[a-zA-Z]');
+/// Matches a label that starts with an ASCII digit.
+final _digitStartRegExp = RegExp(r'^[0-9]');
+
+/// Matches a valid name segment: starts with an ASCII letter, followed by
+/// ASCII letters and digits only (no hyphens).
+final _nameSegmentRegExp = RegExp(r'^[a-zA-Z][a-zA-Z0-9]*$');
 
 void ensureValidNsid(final String nsid) {
   final split = nsid.split('.');
@@ -52,12 +56,24 @@ void ensureValidNsid(final String nsid) {
       throw InvalidNsidError('NSID part too long (max 63 chars)');
     }
 
-    if (label.endsWith('-')) {
-      throw InvalidNsidError('NSID parts can not end with hyphen');
+    if (label.startsWith('-') || label.endsWith('-')) {
+      throw InvalidNsidError('NSID parts can not start or end with hyphen');
     }
+  }
 
-    if (!_labelStartRegExp.hasMatch(label)) {
-      throw InvalidNsidError('NSID parts must start with ASCII letter');
-    }
+  // Only the first segment (the TLD of the domain authority) must not
+  // start with a digit; other domain authority segments may (eg,
+  // `com.4chan.example` is valid).
+  if (_digitStartRegExp.hasMatch(labels.first)) {
+    throw InvalidNsidError('NSID first part may not start with a digit');
+  }
+
+  // The name segment (final label) must be ASCII letters and digits only,
+  // starting with a letter. This does not apply to namespace globs, where
+  // the trailing `*` stands in for the name segment.
+  if (split.last != '*' && !_nameSegmentRegExp.hasMatch(labels.last)) {
+    throw InvalidNsidError(
+      'NSID name part must be only letters and digits (and no leading digit)',
+    );
   }
 }
