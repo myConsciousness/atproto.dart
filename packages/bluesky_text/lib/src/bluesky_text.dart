@@ -2,17 +2,17 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// Dart imports:
-import 'dart:convert';
-
 // Project imports:
 import 'config/link_config.dart';
-import 'const.dart';
 import 'entities/entities.dart';
+import 'entities/entity.dart';
 import 'entities/replacements.dart';
 import 'extractor/extractor.dart';
 import 'formatter.dart';
+import 'segmenter.dart';
 import 'splitter.dart';
+import 'text_length_overflow.dart';
+import 'text_segment.dart';
 import 'utils.dart' as utils;
 
 /// This class provides high-performance analysis of [Bluesky Social](https://blueskyweb.xyz)'s text
@@ -77,7 +77,13 @@ import 'utils.dart' as utils;
 /// ```
 sealed class BlueskyText {
   /// Returns the new instance of [BlueskyText].
-  const factory BlueskyText(
+  ///
+  /// The instance lazily memoizes every derived value ([length], [handles],
+  /// [entities], [overflow], [segments], [format]…) the first time it is read,
+  /// so touching several of them in a Flutter `build` costs one analysis, not
+  /// one per property. Construct once per text and reuse the instance; a new
+  /// instance re-analyzes from scratch.
+  factory BlueskyText(
     final String text, {
     final bool enableMarkdown,
     final LinkConfig? linkConfig,
@@ -136,11 +142,74 @@ sealed class BlueskyText {
   /// means that even if you specify a maximum number of characters for
   /// splitting, if some tokens exceed the maximum number of characters in t
   /// he middle, you do not have to worry about them being split at the halfway
-  /// point.
+  /// point. Each chunk respects **both** post limits (300 graphemes and 3000
+  /// UTF-8 bytes).
+  ///
+  /// Each chunk is a **raw**, independently-formattable piece, so format each
+  /// one *after* splitting — do not split an already-[format]ted instance and
+  /// post its chunks directly. (Calling [split] on a formatted instance is
+  /// safe: it transparently splits the original text, so `format().split()` is
+  /// equivalent to `split()` on the original.) The canonical thread flow is:
+  ///
+  /// ```dart
+  /// for (final chunk in text.split()) {
+  ///   final data = await chunk.toPostData();
+  ///   await bluesky.feed.post.create(
+  ///     text: data.text,
+  ///     facets: data.facets.map(RichtextFacet.fromJson).toList(),
+  ///   );
+  /// }
+  /// ```
   List<BlueskyText> split();
 
   /// Returns a new formatted [BlueskyText] based on configs.
   BlueskyText format();
+
+  /// The formatted, posting-ready form of this text — the same instance
+  /// [format] returns, memoized (markdown expanded, links shortened).
+  ///
+  /// Post-length and facet concerns should be measured against **this**, not
+  /// the raw instance: the raw [value] may contain markdown syntax and full
+  /// URLs that shrink when posted (or a markdown label that is longer than the
+  /// text actually posted). The canonical flow is:
+  ///
+  /// ```dart
+  /// final post = text.formatted;
+  /// if (post.isNotLengthLimitExceeded) {
+  ///   await bluesky.feed.post.create(
+  ///     text: post.value,
+  ///     facets: (await post.entities.toFacets()).map(RichtextFacet.fromJson).toList(),
+  ///   );
+  /// }
+  /// ```
+  ///
+  /// See [toPostData] for a one-call shortcut.
+  BlueskyText get formatted;
+
+  /// Builds everything needed to create a post in a single call: the formatted
+  /// [value], its facets, and any handles that failed to resolve.
+  ///
+  /// This formats first and resolves facets on the formatted entities — the
+  /// only correct order, since markdown links become link facets only after
+  /// [format]. Pass a [resolver] to control mention DID resolution (e.g. a
+  /// cache); inspect `unresolvedHandles` to warn the user rather than silently
+  /// posting without those mentions.
+  ///
+  /// ```dart
+  /// final post = await text.toPostData();
+  /// await bluesky.feed.post.create(
+  ///   text: post.text,
+  ///   facets: post.facets.map(RichtextFacet.fromJson).toList(),
+  /// );
+  /// ```
+  Future<
+    ({
+      String text,
+      List<Map<String, dynamic>> facets,
+      List<String> unresolvedHandles,
+    })
+  >
+  toPostData({String? service, HandleResolver? resolver});
 
   /// Returns true if this text exceeds either post limit — more than 300
   /// graphemes ([length]) or more than 3000 UTF-8 bytes — otherwise false.
@@ -149,6 +218,69 @@ sealed class BlueskyText {
   /// Returns true if this text is within both post limits — at most 300
   /// graphemes ([length]) and at most 3000 UTF-8 bytes — otherwise false.
   bool get isNotLengthLimitExceeded;
+
+  /// Returns the range of [value] that exceeds the post-length limit, or `null`
+  /// when the text is within both limits ([isNotLengthLimitExceeded]).
+  ///
+  /// The overflow spans from a boundary offset to the end of [value] and is
+  /// reported in UTF-16, UTF-8 byte and grapheme coordinates (see
+  /// [TextLengthOverflow]). Use [TextLengthOverflow.utf16Start] to split the
+  /// value for a Flutter `TextSpan` — for example to render the overflowing
+  /// tail in red:
+  ///
+  /// ```dart
+  /// final post = text.formatted;
+  /// final overflow = post.overflow;
+  /// if (overflow != null) {
+  ///   //! The offsets index into the *formatted* value, so substring that —
+  ///   //! not the raw `text.value`, whose offsets differ after formatting.
+  ///   final within = post.value.substring(0, overflow.utf16Start);
+  ///   final exceeded = post.value.substring(overflow.utf16Start);
+  ///   // render `within` normally and `exceeded` in red.
+  /// }
+  /// ```
+  ///
+  /// The boundary always lands on a grapheme cluster boundary, and when it
+  /// would otherwise fall inside an entity (a handle, link, tag, cashtag or
+  /// markdown link) it is snapped back to that entity's start so the entity is
+  /// treated atomically — either wholly within the limit or wholly in the
+  /// overflow. Because the boundary is derived from [value], calling this after
+  /// [format] reports the overflow of the formatted text (markdown expanded,
+  /// links shortened), which is what is displayed and posted.
+  TextLengthOverflow? get overflow;
+
+  /// Returns [value] partitioned into non-overlapping, gap-free [TextSegment]s
+  /// in document order, each tagged with the [entities] it belongs to (if any)
+  /// and whether it lies in the [overflow] region.
+  ///
+  /// This is a ready-to-render partition for a Flutter `TextSpan` tree: on each
+  /// keystroke you can color entities (links, handles, tags) and the
+  /// over-limit tail (for example in red) in a single pass, without merging the
+  /// byte-based [entities] and the [overflow] range yourself. Concatenating
+  /// every [TextSegment.text] reproduces [value].
+  ///
+  /// ```dart
+  /// TextSpan(
+  ///   children: [
+  ///     for (final s in text.segments)
+  ///       TextSpan(
+  ///         text: s.text,
+  ///         style: TextStyle(
+  ///           color: s.isOverflow
+  ///               ? Colors.red
+  ///               : s.isEntity
+  ///                   ? Colors.blue
+  ///                   : null,
+  ///         ),
+  ///       ),
+  ///   ],
+  /// )
+  /// ```
+  ///
+  /// Like [overflow], the segmentation is measured against [value], so call it
+  /// on the instance whose text is displayed — typically the raw input while
+  /// editing, or `format()` for a preview of the posted text.
+  List<TextSegment> get segments;
 
   /// Returns true if this [value] is empty, otherwise false.
   bool get isEmpty;
@@ -165,7 +297,7 @@ sealed class BlueskyText {
 
 final class _BlueskyText implements BlueskyText {
   /// Returns the new instance of [_BlueskyText].
-  const _BlueskyText(
+  _BlueskyText(
     this.value, {
     bool enableMarkdown = true,
     LinkConfig? linkConfig,
@@ -182,13 +314,13 @@ final class _BlueskyText implements BlueskyText {
   final String value;
 
   @override
-  int get length => utils.getGraphemeLength(value);
+  late final int length = utils.getGraphemeLength(value);
 
   @override
-  Entities get handles => Entities(handlesExtractor.execute(this));
+  late final Entities handles = Entities(handlesExtractor.execute(this));
 
   @override
-  Entities get links => Entities(
+  late final Entities links = Entities(
     linksExtractor.execute(
       this,
       ExtractorConfig(
@@ -199,16 +331,17 @@ final class _BlueskyText implements BlueskyText {
   );
 
   @override
-  Entities get tags => Entities(tagsExtractor.execute(this));
+  late final Entities tags = Entities(tagsExtractor.execute(this));
 
   @override
-  Entities get cashtags => Entities(cashtagsExtractor.execute(this));
+  late final Entities cashtags = Entities(cashtagsExtractor.execute(this));
 
   @override
-  Entities get entities => Entities(
+  late final Entities entities = Entities(
     allExtractor.execute(
       this,
       ExtractorConfig(
+        //* Reuses the memoized [handles] instead of re-extracting them.
         handles: handles,
         replacements: _replacements,
         enableMarkdown: _enableMarkdown,
@@ -216,24 +349,122 @@ final class _BlueskyText implements BlueskyText {
     ),
   );
 
-  @override
-  BlueskyText format() => _replacements != null
-      ? this //* is already formatted.
+  /// The formatted (markdown-expanded, link-shortened) instance — what is
+  /// actually displayed and posted. An already-formatted instance (one carrying
+  /// `replacements`) is its own formatted form.
+  late final BlueskyText _formatted = _replacements != null
+      ? this
       : formatter.execute(this, _enableMarkdown, _linkConfig).$1;
 
   @override
-  List<BlueskyText> split() => splitter.execute(
-    this,
-    enableMarkdown: _enableMarkdown,
-    linkConfig: _linkConfig,
+  BlueskyText format() => _formatted;
+
+  @override
+  BlueskyText get formatted => _formatted;
+
+  @override
+  Future<
+    ({
+      String text,
+      List<Map<String, dynamic>> facets,
+      List<String> unresolvedHandles,
+    })
+  >
+  toPostData({String? service, HandleResolver? resolver}) async {
+    final post = _formatted;
+    final result = await post.entities.toFacetsResult(
+      service: service,
+      resolver: resolver,
+    );
+
+    return (
+      text: post.value,
+      facets: result.facets,
+      unresolvedHandles: result.unresolvedHandles,
+    );
+  }
+
+  //* Memoized results are shared across calls, so they are wrapped
+  //* unmodifiable: a caller mutating the returned list (`..sort()`, `clear()`)
+  //* must not silently corrupt every later access.
+  late final List<BlueskyText> _chunks = List.unmodifiable(
+    splitter.execute(
+      _splitSource,
+      enableMarkdown: _enableMarkdown,
+      linkConfig: _linkConfig,
+    ),
+  );
+
+  /// The text to actually split. For a formatted instance, [value] is lossy
+  /// display text (shortened URLs, expanded markdown) whose entities can no
+  /// longer be re-derived correctly, so splitting it and re-extracting would
+  /// corrupt facets (a shortened URL would become the mention/link `uri`, and a
+  /// markdown link would vanish). Split the ORIGINAL text instead, so each chunk
+  /// is a raw, independently-formattable piece — this makes `format().split()`
+  /// behave exactly like `split()` on the original text.
+  BlueskyText get _splitSource {
+    final replacements = _replacements;
+    if (replacements == null) return this;
+
+    return BlueskyText(
+      replacements.base,
+      enableMarkdown: _enableMarkdown,
+      linkConfig: _linkConfig,
+    );
+  }
+
+  @override
+  List<BlueskyText> split() => _chunks;
+
+  /// The raw (pre-snapping) overflow. Kept separate from [overflow] so
+  /// [isLengthLimitExceeded] can answer from this cheap grapheme scan alone,
+  /// without ever triggering the regex-based entity extraction — it is polled
+  /// on every keystroke to toggle a post button.
+  late final TextLengthOverflow? _rawOverflow = utils.computeLengthOverflow(
+    value,
   );
 
   @override
-  bool get isLengthLimitExceeded =>
-      maxLength < length || maxByteLength < utf8.encode(value).length;
+  bool get isLengthLimitExceeded => _rawOverflow != null;
 
   @override
   bool get isNotLengthLimitExceeded => !isLengthLimitExceeded;
+
+  @override
+  late final TextLengthOverflow? overflow = _rawOverflow == null
+      ? null
+      //* `entities` (the regex extraction) is only resolved once the limit is
+      //* actually exceeded.
+      : _snapOverflow(_rawOverflow, entities);
+
+  @override
+  late final List<TextSegment> segments = List.unmodifiable(
+    segmenter.execute(value, entities, overflow),
+  );
+
+  /// Snaps [raw]'s boundary back to the start of any entity that strictly
+  /// contains it, so a straddling entity is pushed wholly into the overflow.
+  /// Entities carry UTF-8 byte indices, matching [TextLengthOverflow.byteStart],
+  /// and never overlap, so at most one strictly contains the boundary point.
+  TextLengthOverflow _snapOverflow(
+    final TextLengthOverflow raw,
+    final List<Entity> entities,
+  ) {
+    for (final entity in entities) {
+      if (entity.indices.start < raw.byteStart &&
+          raw.byteStart < entity.indices.end) {
+        return utils.snapLengthOverflowToByte(
+          value,
+          byteStart: entity.indices.start,
+          limit: raw.limit,
+          utf16End: raw.utf16End,
+          byteEnd: raw.byteEnd,
+        );
+      }
+    }
+
+    return raw;
+  }
 
   @override
   bool get isEmpty => value.trim().isEmpty;
@@ -242,7 +473,7 @@ final class _BlueskyText implements BlueskyText {
   bool get isNotEmpty => !isEmpty;
 
   @override
-  bool get isEmojiOnly => utils.isEmojiOnly(value);
+  late final bool isEmojiOnly = utils.isEmojiOnly(value);
 
   @override
   bool get isNotEmojiOnly => !isEmojiOnly;

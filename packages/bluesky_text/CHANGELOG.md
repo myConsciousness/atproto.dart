@@ -1,5 +1,79 @@
 # Release Note
 
+## v1.5.0
+
+- **FEAT**: Added `BlueskyText.overflow`, which returns a `TextLengthOverflow`
+  describing the range of the text that exceeds the post-length limit (more than
+  300 graphemes or 3000 UTF-8 bytes), or `null` when it is within both. The
+  boundary is reported in UTF-16, UTF-8 byte and grapheme coordinates so a UI
+  can, for example, split the value with `TextLengthOverflow.utf16Start` and
+  render the overflowing tail in red via a Flutter `TextSpan`.
+  - The boundary always lands on a grapheme cluster boundary, so emoji and other
+    multi-code-unit characters are never split.
+  - When the boundary would fall inside an entity (handle, link, tag, cashtag or
+    markdown link) it is snapped back to that entity's start, so the entity is
+    treated atomically — wholly within the limit or wholly in the overflow.
+  - Because the range is derived from the value, calling `.format().overflow`
+    reports the overflow of the formatted text (markdown expanded, links
+    shortened), which is what is displayed and posted.
+- **FEAT**: Added `BlueskyText.segments`, which partitions the value into
+  non-overlapping, gap-free `TextSegment`s in document order. Each segment
+  carries UTF-16 offsets, the entity it belongs to (if any) and whether it lies
+  in the overflow region, so a Flutter `TextEditingController` can color links,
+  handles and tags together with the over-limit tail (for example in red) in a
+  single pass — without merging the byte-based entity indices and the overflow
+  range by hand. Concatenating every `TextSegment.text` reproduces the value,
+  and no segment is ever split across an entity boundary.
+- **FEAT**: Added `renderFacets(text, facets)` and `PostFacet` for displaying a
+  **fetched** post: it partitions the text into `TextSegment`s using the
+  server-provided facets (authoritative mentions/links/tags, mentions already
+  carrying their DID) instead of re-detecting entities. Each segment exposes a
+  `FacetFeature` with the resolved DID / URI / tag, so a Flutter client can
+  style received posts with one `TextSpan` builder shared with the compose path.
+  `PostFacet.fromJson` parses the `app.bsky.richtext.facet` API shape, and the
+  byte→UTF-16 `Utf16IndexConverter` is now public.
+- **FEAT**: `Entities.toFacets` / the new `Entities.toFacetsResult` accept a
+  `HandleResolver`, so mention DID resolution can be served from a cache or
+  batched instead of the built-in per-handle network call. `toFacetsResult`
+  additionally returns the handles that failed to resolve, so a client can warn
+  the user rather than silently posting a mention-less message.
+- **FEAT**: Added `BlueskyText.formatted` (the memoized, posting-ready form) and
+  `BlueskyText.toPostData(...)`, which formats and resolves facets in one call —
+  the only correct order, since markdown links become link facets only after
+  formatting — returning `(text, facets, unresolvedHandles)`.
+- **FIX**: `split()` now budgets each chunk against **both** post limits (300
+  graphemes and 3000 UTF-8 bytes). Previously it budgeted graphemes only, so a
+  byte-heavy chunk — e.g. many multi-byte ZWJ emoji — could stay under 300
+  graphemes yet exceed 3000 bytes and still be rejected by the server.
+- **FIX**: `split()` on a `format()`ted instance now splits the original text
+  instead of the lossy formatted value, so `format().split()` behaves exactly
+  like `split()` on the original. Splitting formatted text and re-extracting
+  previously corrupted facets — a shortened link's `uri` became its truncated
+  display text and a markdown link's facet vanished — because the chunks dropped
+  the position-bound replacements. Each chunk is a raw, independently-formattable
+  piece; format each one *after* splitting (e.g. via `chunk.toPostData()`).
+- **FIX**: `split()` now breaks on **any** Unicode whitespace — newlines, tabs
+  and the ideographic (full-width) space `U+3000` — not just the ASCII space.
+  Previously a multi-line or CJK post with no ASCII spaces was treated as one
+  giant word and hard-split mid-word (e.g. `word44` became `wo` | `rd44`). The
+  author's newlines and spacing are now preserved within each chunk, and no
+  chunk starts or ends with whitespace. A markdown link is also kept atomic, so
+  one straddling a chunk boundary is no longer torn open (which would drop its
+  facet).
+  `handles`, `entities`, `overflow`, `segments`, `format()`…), so touching
+  several properties of one instance in a Flutter `build` costs one analysis
+  instead of one per property (~1.6x faster when touching seven). Note: as a
+  result `BlueskyText` is **no longer `const`** — `const BlueskyText(...)` must
+  become `BlueskyText(...)`.
+- **PERF**: The length-limit hot paths (polled on every keystroke in a Flutter
+  editor) avoid the regex-based entity extraction entirely unless it is needed.
+  `isLengthLimitExceeded` and `overflow` fall back to a cheap grapheme scan when
+  within the limit, `segments` resolves the entities only once (instead of
+  extracting them again via `overflow`), and the grapheme scan counts UTF-8
+  bytes without allocating an intermediate byte list. For over-limit text this
+  cuts `isLengthLimitExceeded` ~18x and `segments` ~2x; a 300-grapheme post
+  segments in well under 0.1 ms.
+
 ## v1.4.1
 
 - **FIX**: Markdown links whose destination contains surrounding whitespace are
