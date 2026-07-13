@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.7.0
+
+- feat: added `atproto.sync.subscribeReposAsMessages()`, a Firehose subscription that yields already-decoded, typed `USyncSubscribeReposMessage`s (CBOR/CAR-decoded `blocks`, normalized `ops`/`commit`/`prevData` CID links) instead of raw `Uint8List` frames. The existing `subscribeRepos()` (raw bytes) is unchanged, and a frame that fails to decode surfaces as a stream error without terminating the subscription.
+- feat: `package:atproto/firehose.dart` now re-exports the `com.atproto.sync.subscribeRepos` message types, so a single import provides the adaptors, the typed `USyncSubscribeReposMessage`, and its `isCommit`/`commit` accessors.
+
 ## v1.6.0
 
 - feat: automatic access-token refresh in `ATProto.fromSession` (wired through `com.atproto.server.refreshSession`); `atproto.session` reflects the new credentials. `fromOAuthSession` is untouched, and all new parameters are optional (non-breaking).

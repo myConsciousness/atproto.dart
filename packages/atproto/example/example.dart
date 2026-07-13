@@ -58,8 +58,21 @@ Future<void> main() async {
     );
 
     //! You can use Stream API easily.
-    final subscription = await atproto.sync.subscribeRepos();
-    subscription.data.stream.listen((event) {
+    //!
+    //! `subscribeReposAsMessages` decodes each frame for you (CBOR/CAR, with
+    //! `blocks`, `ops`, and CID links normalized) and yields typed messages.
+    final subscription = await atproto.sync.subscribeReposAsMessages();
+    subscription.data.stream.listen((message) {
+      if (message.isCommit) {
+        final commit = message.commit!;
+        print('${commit.repo}: ${commit.blocks.length} blocks');
+      }
+    });
+
+    //! If you want the raw binary frames instead, use `subscribeRepos()` and
+    //! decode them yourself with `SyncSubscribeReposAdaptor`.
+    final rawSubscription = await atproto.sync.subscribeRepos();
+    rawSubscription.data.stream.listen((event) {
       final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
 
       print(repos);

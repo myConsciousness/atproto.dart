@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
 import '../com_atproto_services.dart';
+import 'services/com/atproto/sync_service.dart';
 import 'services/session.dart' show refreshSession;
 
 /// Provides `com.atproto.*` services.
@@ -140,7 +141,7 @@ sealed class ATProto {
 
   /// Returns the sync service.
   /// This service represents `com.atproto.sync.*`.
-  SyncService get sync;
+  SyncServiceImpl get sync;
 
   /// Returns the labels service.
   /// This service represents `com.atproto.label.*`.
@@ -205,7 +206,7 @@ final class _ATProto implements ATProto {
       identity = IdentityService(ctx),
       repo = RepoService(ctx),
       moderation = ModerationService(ctx),
-      sync = SyncService(ctx),
+      sync = SyncServiceImpl(ctx),
       label = LabelService(ctx),
       lexicon = LexiconService(ctx),
       temp = TempService(ctx),
@@ -242,7 +243,7 @@ final class _ATProto implements ATProto {
   final ModerationService moderation;
 
   @override
-  final SyncService sync;
+  final SyncServiceImpl sync;
 
   @override
   final LabelService label;
