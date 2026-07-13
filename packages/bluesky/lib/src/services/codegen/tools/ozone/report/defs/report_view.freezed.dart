@@ -24,9 +24,9 @@ mixin _$ReportView {
  String get reportedBy;/// Full subject view of the reporter account
 @SubjectViewConverter() SubjectView get reporter;/// Comment provided by the reporter
  String? get comment;/// When the report was created
- DateTime get createdAt;/// When the report was last updated
- DateTime? get updatedAt;/// When the report was assigned to its current queue
- DateTime? get queuedAt; List<int>? get actionEventIds;@ModEventViewConverter() List<ModEventView>? get actions;/// Note sent to reporter when report was actioned
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// When the report was last updated
+@JsonKey(toJson: iso8601) DateTime? get updatedAt;/// When the report was assigned to its current queue
+@JsonKey(toJson: iso8601) DateTime? get queuedAt; List<int>? get actionEventIds;@ModEventViewConverter() List<ModEventView>? get actions;/// Note sent to reporter when report was actioned
  String? get actionNote;/// Current status of the reported subject
 @SubjectStatusViewConverter() SubjectStatusView? get subjectStatus;/// Number of other pending reports on the same subject
  int? get relatedReportCount;/// Information about moderator currently assigned to this report (if any)
@@ -65,7 +65,7 @@ abstract mixin class $ReportViewCopyWith<$Res>  {
   factory $ReportViewCopyWith(ReportView value, $Res Function(ReportView) _then) = _$ReportViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment, DateTime createdAt, DateTime? updatedAt, DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, Map<String, dynamic>? $unknown
+ String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, Map<String, dynamic>? $unknown
 });
 
 
@@ -262,7 +262,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment,  DateTime createdAt,  DateTime? updatedAt,  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportView() when $default != null:
 return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.$unknown);case _:
@@ -283,7 +283,7 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment,  DateTime createdAt,  DateTime? updatedAt,  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportView():
 return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.$unknown);case _:
@@ -303,7 +303,7 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment,  DateTime createdAt,  DateTime? updatedAt,  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportView() when $default != null:
 return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.$unknown);case _:
@@ -318,7 +318,7 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 
 @JsonSerializable(includeIfNull: false)
 class _ReportView implements ReportView {
-  const _ReportView({this.$type = 'tools.ozone.report.defs#reportView', required this.id, required this.eventId, @ReportViewStatusConverter() required this.status, @SubjectViewConverter() required this.subject, @ReasonTypeConverter() required this.reportType, required this.reportedBy, @SubjectViewConverter() required this.reporter, this.comment, required this.createdAt, this.updatedAt, this.queuedAt, final  List<int>? actionEventIds, @ModEventViewConverter() final  List<ModEventView>? actions, this.actionNote, @SubjectStatusViewConverter() this.subjectStatus, this.relatedReportCount, @ReportAssignmentConverter() this.assignment, @QueueViewConverter() this.queue, this.isMuted, final  Map<String, dynamic>? $unknown}): _actionEventIds = actionEventIds,_actions = actions,_$unknown = $unknown;
+  const _ReportView({this.$type = 'tools.ozone.report.defs#reportView', required this.id, required this.eventId, @ReportViewStatusConverter() required this.status, @SubjectViewConverter() required this.subject, @ReasonTypeConverter() required this.reportType, required this.reportedBy, @SubjectViewConverter() required this.reporter, this.comment, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.queuedAt, final  List<int>? actionEventIds, @ModEventViewConverter() final  List<ModEventView>? actions, this.actionNote, @SubjectStatusViewConverter() this.subjectStatus, this.relatedReportCount, @ReportAssignmentConverter() this.assignment, @QueueViewConverter() this.queue, this.isMuted, final  Map<String, dynamic>? $unknown}): _actionEventIds = actionEventIds,_actions = actions,_$unknown = $unknown;
   factory _ReportView.fromJson(Map<String, dynamic> json) => _$ReportViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -339,11 +339,11 @@ class _ReportView implements ReportView {
 /// Comment provided by the reporter
 @override final  String? comment;
 /// When the report was created
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// When the report was last updated
-@override final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
 /// When the report was assigned to its current queue
-@override final  DateTime? queuedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? queuedAt;
  final  List<int>? _actionEventIds;
 @override List<int>? get actionEventIds {
   final value = _actionEventIds;
@@ -417,7 +417,7 @@ abstract mixin class _$ReportViewCopyWith<$Res> implements $ReportViewCopyWith<$
   factory _$ReportViewCopyWith(_ReportView value, $Res Function(_ReportView) _then) = __$ReportViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment, DateTime createdAt, DateTime? updatedAt, DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, Map<String, dynamic>? $unknown
+ String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, Map<String, dynamic>? $unknown
 });
 
 

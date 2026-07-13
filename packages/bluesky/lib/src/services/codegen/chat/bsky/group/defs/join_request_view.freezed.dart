@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JoinRequestView {
 
- String get $type; String get convoId;@ProfileViewBasicConverter() ProfileViewBasic get requestedBy; DateTime get requestedAt; Map<String, dynamic>? get $unknown;
+ String get $type; String get convoId;@ProfileViewBasicConverter() ProfileViewBasic get requestedBy;@JsonKey(toJson: iso8601) DateTime get requestedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of JoinRequestView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $JoinRequestViewCopyWith<$Res>  {
   factory $JoinRequestViewCopyWith(JoinRequestView value, $Res Function(JoinRequestView) _then) = _$JoinRequestViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String convoId,@ProfileViewBasicConverter() ProfileViewBasic requestedBy, DateTime requestedAt, Map<String, dynamic>? $unknown
+ String $type, String convoId,@ProfileViewBasicConverter() ProfileViewBasic requestedBy,@JsonKey(toJson: iso8601) DateTime requestedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String convoId, @ProfileViewBasicConverter()  ProfileViewBasic requestedBy,  DateTime requestedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String convoId, @ProfileViewBasicConverter()  ProfileViewBasic requestedBy, @JsonKey(toJson: iso8601)  DateTime requestedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JoinRequestView() when $default != null:
 return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String convoId, @ProfileViewBasicConverter()  ProfileViewBasic requestedBy,  DateTime requestedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String convoId, @ProfileViewBasicConverter()  ProfileViewBasic requestedBy, @JsonKey(toJson: iso8601)  DateTime requestedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _JoinRequestView():
 return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String convoId, @ProfileViewBasicConverter()  ProfileViewBasic requestedBy,  DateTime requestedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String convoId, @ProfileViewBasicConverter()  ProfileViewBasic requestedBy, @JsonKey(toJson: iso8601)  DateTime requestedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _JoinRequestView() when $default != null:
 return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_that.$unknown);case _:
@@ -222,13 +222,13 @@ return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_t
 
 @JsonSerializable(includeIfNull: false)
 class _JoinRequestView implements JoinRequestView {
-  const _JoinRequestView({this.$type = 'chat.bsky.group.defs#joinRequestView', required this.convoId, @ProfileViewBasicConverter() required this.requestedBy, required this.requestedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _JoinRequestView({this.$type = 'chat.bsky.group.defs#joinRequestView', required this.convoId, @ProfileViewBasicConverter() required this.requestedBy, @JsonKey(toJson: iso8601) required this.requestedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JoinRequestView.fromJson(Map<String, dynamic> json) => _$JoinRequestViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String convoId;
 @override@ProfileViewBasicConverter() final  ProfileViewBasic requestedBy;
-@override final  DateTime requestedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime requestedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -272,7 +272,7 @@ abstract mixin class _$JoinRequestViewCopyWith<$Res> implements $JoinRequestView
   factory _$JoinRequestViewCopyWith(_JoinRequestView value, $Res Function(_JoinRequestView) _then) = __$JoinRequestViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String convoId,@ProfileViewBasicConverter() ProfileViewBasic requestedBy, DateTime requestedAt, Map<String, dynamic>? $unknown
+ String $type, String convoId,@ProfileViewBasicConverter() ProfileViewBasic requestedBy,@JsonKey(toJson: iso8601) DateTime requestedAt, Map<String, dynamic>? $unknown
 });
 
 

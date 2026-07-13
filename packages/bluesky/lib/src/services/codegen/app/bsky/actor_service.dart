@@ -360,6 +360,7 @@ final class ActorProfileRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.actor.profile',
       ...?$unknown,
       if (displayName != null) 'displayName': displayName,
       if (description != null) 'description': description,
@@ -369,8 +370,11 @@ final class ActorProfileRecordAccessor {
       if (banner != null) 'banner': banner,
       if (labels != null) 'labels': labels.toJson(),
       if (joinedViaStarterPack != null)
-        'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-      if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
+        'joinedViaStarterPack': const RepoStrongRefConverter().toJson(
+          joinedViaStarterPack,
+        ),
+      if (pinnedPost != null)
+        'pinnedPost': const RepoStrongRefConverter().toJson(pinnedPost),
       if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
@@ -401,6 +405,7 @@ final class ActorProfileRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.actor.profile',
       ...?$unknown,
       if (displayName != null) 'displayName': displayName,
       if (description != null) 'description': description,
@@ -410,8 +415,11 @@ final class ActorProfileRecordAccessor {
       if (banner != null) 'banner': banner,
       if (labels != null) 'labels': labels.toJson(),
       if (joinedViaStarterPack != null)
-        'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-      if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
+        'joinedViaStarterPack': const RepoStrongRefConverter().toJson(
+          joinedViaStarterPack,
+        ),
+      if (pinnedPost != null)
+        'pinnedPost': const RepoStrongRefConverter().toJson(pinnedPost),
       if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
@@ -492,6 +500,7 @@ final class ActorStatusRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.actor.status',
       ...?$unknown,
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),
@@ -520,6 +529,7 @@ final class ActorStatusRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.actor.status',
       ...?$unknown,
       'status': status.toJson(),
       if (embed != null) 'embed': embed.toJson(),

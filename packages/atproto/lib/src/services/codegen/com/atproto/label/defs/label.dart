@@ -56,10 +56,10 @@ abstract class Label with _$Label {
     bool? neg,
 
     /// Timestamp when this label was created.
-    required DateTime cts,
+    @JsonKey(toJson: iso8601) required DateTime cts,
 
     /// Timestamp at which this label expires (no longer applies).
-    DateTime? exp,
+    @JsonKey(toJson: iso8601) DateTime? exp,
 
     /// Signature of dag-cbor encoded label.
     Map<String, dynamic>? sig,

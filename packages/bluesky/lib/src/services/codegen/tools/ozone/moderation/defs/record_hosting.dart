@@ -34,9 +34,9 @@ abstract class RecordHosting with _$RecordHosting {
   const factory RecordHosting({
     @Default('tools.ozone.moderation.defs#recordHosting') String $type,
     @RecordHostingStatusConverter() required RecordHostingStatus status,
-    DateTime? updatedAt,
-    DateTime? createdAt,
-    DateTime? deletedAt,
+    @JsonKey(toJson: iso8601) DateTime? updatedAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? deletedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _RecordHosting;

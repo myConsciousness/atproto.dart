@@ -54,7 +54,11 @@ final class RefreshStatsCommand extends ProcedureCommand {
     "endDate": argResults!["endDate"],
     if (argResults!.wasParsed("queueIds"))
       "queueIds": (argResults!["queueIds"] as List<String>)
-          .map((e) => int.parse(e))
+          .map(
+            (e) =>
+                int.tryParse(e) ??
+                usageException('Invalid integer value in option "queueIds".'),
+          )
           .toList(),
   };
 }

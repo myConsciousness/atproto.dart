@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ScheduleTakedownEvent {
 
- String get $type; String? get comment; DateTime? get executeAt; DateTime? get executeAfter; DateTime? get executeUntil; Map<String, dynamic>? get $unknown;
+ String get $type; String? get comment;@JsonKey(toJson: iso8601) DateTime? get executeAt;@JsonKey(toJson: iso8601) DateTime? get executeAfter;@JsonKey(toJson: iso8601) DateTime? get executeUntil; Map<String, dynamic>? get $unknown;
 /// Create a copy of ScheduleTakedownEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ScheduleTakedownEventCopyWith<$Res>  {
   factory $ScheduleTakedownEventCopyWith(ScheduleTakedownEvent value, $Res Function(ScheduleTakedownEvent) _then) = _$ScheduleTakedownEventCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, DateTime? executeAt, DateTime? executeAfter, DateTime? executeUntil, Map<String, dynamic>? $unknown
+ String $type, String? comment,@JsonKey(toJson: iso8601) DateTime? executeAt,@JsonKey(toJson: iso8601) DateTime? executeAfter,@JsonKey(toJson: iso8601) DateTime? executeUntil, Map<String, dynamic>? $unknown
 });
 
 
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ScheduleTakedownEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ScheduleTakedownEvent():
 return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ScheduleTakedownEvent() when $default != null:
 return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.$unknown);case _:
@@ -214,14 +214,14 @@ return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_th
 
 @JsonSerializable(includeIfNull: false)
 class _ScheduleTakedownEvent implements ScheduleTakedownEvent {
-  const _ScheduleTakedownEvent({this.$type = 'tools.ozone.moderation.defs#scheduleTakedownEvent', this.comment, this.executeAt, this.executeAfter, this.executeUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ScheduleTakedownEvent({this.$type = 'tools.ozone.moderation.defs#scheduleTakedownEvent', this.comment, @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ScheduleTakedownEvent.fromJson(Map<String, dynamic> json) => _$ScheduleTakedownEventFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String? comment;
-@override final  DateTime? executeAt;
-@override final  DateTime? executeAfter;
-@override final  DateTime? executeUntil;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeUntil;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,7 +265,7 @@ abstract mixin class _$ScheduleTakedownEventCopyWith<$Res> implements $ScheduleT
   factory _$ScheduleTakedownEventCopyWith(_ScheduleTakedownEvent value, $Res Function(_ScheduleTakedownEvent) _then) = __$ScheduleTakedownEventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, DateTime? executeAt, DateTime? executeAfter, DateTime? executeUntil, Map<String, dynamic>? $unknown
+ String $type, String? comment,@JsonKey(toJson: iso8601) DateTime? executeAt,@JsonKey(toJson: iso8601) DateTime? executeAfter,@JsonKey(toJson: iso8601) DateTime? executeUntil, Map<String, dynamic>? $unknown
 });
 
 

@@ -40,7 +40,7 @@ abstract class LabelerServiceRecord with _$LabelerServiceRecord {
     @Default('app.bsky.labeler.service') String $type,
     @LabelerPoliciesConverter() required LabelerPolicies policies,
     @ULabelerServiceLabelsConverter() ULabelerServiceLabels? labels,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @ReasonTypeConverter() List<ReasonType>? reasonTypes,
     @SubjectTypeConverter() List<SubjectType>? subjectTypes,
     List<String>? subjectCollections,

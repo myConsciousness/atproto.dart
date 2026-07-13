@@ -92,10 +92,8 @@ final class MockWebSocketChannel extends StreamChannelMixin
   }
 
   /// Simulates the server closing the connection.
-  Future<void> addCloseFromServer([
-    final int? code,
-    final String? reason,
-  ]) => _close(code, reason);
+  Future<void> addCloseFromServer([final int? code, final String? reason]) =>
+      _close(code, reason);
 
   @override
   Stream<dynamic> get stream => _incoming.stream;

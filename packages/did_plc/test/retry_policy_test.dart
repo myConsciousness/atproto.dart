@@ -16,32 +16,35 @@ void main() {
   group('RetryPolicy.shouldRetryException', () {
     const policy = RetryPolicy();
 
-    test('retries transient transport exceptions (case-insensitive by type)', () {
-      // Regression: these carry capitalized messages that a lowercase
-      // substring match would miss.
-      expect(
-        policy.shouldRetryException(
-          const ConnectionException('Connection failed: refused'),
-        ),
-        isTrue,
-      );
-      expect(
-        policy.shouldRetryException(
-          const TimeoutException('Request timed out', Duration(seconds: 30)),
-        ),
-        isTrue,
-      );
-      expect(
-        policy.shouldRetryException(
-          const ServiceUnavailableException('down', null),
-        ),
-        isTrue,
-      );
-      expect(
-        policy.shouldRetryException(const SocketException('reset')),
-        isTrue,
-      );
-    });
+    test(
+      'retries transient transport exceptions (case-insensitive by type)',
+      () {
+        // Regression: these carry capitalized messages that a lowercase
+        // substring match would miss.
+        expect(
+          policy.shouldRetryException(
+            const ConnectionException('Connection failed: refused'),
+          ),
+          isTrue,
+        );
+        expect(
+          policy.shouldRetryException(
+            const TimeoutException('Request timed out', Duration(seconds: 30)),
+          ),
+          isTrue,
+        );
+        expect(
+          policy.shouldRetryException(
+            const ServiceUnavailableException('down', null),
+          ),
+          isTrue,
+        );
+        expect(
+          policy.shouldRetryException(const SocketException('reset')),
+          isTrue,
+        );
+      },
+    );
 
     test('retries network exceptions only for retryable status codes', () {
       expect(

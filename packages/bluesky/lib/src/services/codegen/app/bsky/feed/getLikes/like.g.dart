@@ -32,8 +32,8 @@ _Like _$LikeFromJson(Map json) => $checkedCreate('_Like', json, (
 
 Map<String, dynamic> _$LikeToJson(_Like instance) => <String, dynamic>{
   r'$type': instance.$type,
-  'indexedAt': instance.indexedAt.toIso8601String(),
-  'createdAt': instance.createdAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
+  'createdAt': iso8601(instance.createdAt),
   'actor': const ProfileViewConverter().toJson(instance.actor),
   r'$unknown': ?instance.$unknown,
 };

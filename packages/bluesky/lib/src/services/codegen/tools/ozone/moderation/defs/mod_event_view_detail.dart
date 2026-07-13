@@ -46,7 +46,7 @@ abstract class ModEventViewDetail with _$ModEventViewDetail {
     required UModEventViewDetailSubject subject,
     @BlobViewConverter() required List<BlobView> subjectBlobs,
     required String createdBy,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @ModToolConverter() ModTool? modTool,
 
     Map<String, dynamic>? $unknown,

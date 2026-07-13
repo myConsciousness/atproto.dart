@@ -33,7 +33,7 @@ abstract class Nux with _$Nux {
     String? data,
 
     /// The date and time at which the NUX will expire and should be considered completed.
-    DateTime? expiresAt,
+    @JsonKey(toJson: iso8601) DateTime? expiresAt,
 
     Map<String, dynamic>? $unknown,
   }) = _Nux;

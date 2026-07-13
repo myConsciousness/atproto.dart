@@ -18,7 +18,9 @@ void main() {
       final result = const LexObjectPropertyConverter().fromJson({
         'type': 'object',
         'description': 'A nested inline object.',
-        'properties': {'foo': {'type': 'string'}},
+        'properties': {
+          'foo': {'type': 'string'},
+        },
       });
 
       expect(result, isA<ULexObjectPropertyPrimitive>());
@@ -41,9 +43,7 @@ void main() {
 
   group('LexArrayItemConverter graceful degradation (G-12)', () {
     test('unknown array item type falls back to an unknown primitive', () {
-      final result = const LexArrayItemConverter().fromJson({
-        'type': 'object',
-      });
+      final result = const LexArrayItemConverter().fromJson({'type': 'object'});
 
       expect(result, isA<ULexArrayItemPrimitive>());
       expect(

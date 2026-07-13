@@ -93,7 +93,7 @@ Map<String, dynamic> _$ProfileViewBasicToJson(
     const ViewerStateConverter().toJson,
   ),
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
-  'createdAt': ?instance.createdAt?.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'verification':
       ?_$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
         instance.verification,

@@ -45,7 +45,9 @@ final class SearchActorsCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("term")) "term": argResults!["term"],
     if (argResults!.wasParsed("q")) "q": argResults!["q"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

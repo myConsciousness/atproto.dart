@@ -18,7 +18,7 @@ mixin _$Event {
  String get $type;/// Auto-incrementing row ID
  int get id;@EventTypeConverter() EventType get eventType;/// The URL that this rule applies to
  String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// DID of the user who created this rule
- String get createdBy; DateTime get createdAt;/// Optional comment about the decision
+ String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt;/// Optional comment about the decision
  String? get comment; Map<String, dynamic>? get $unknown;
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
@@ -52,7 +52,7 @@ abstract mixin class $EventCopyWith<$Res>  {
   factory $EventCopyWith(Event value, $Res Function(Event) _then) = _$EventCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String createdBy, DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
+ String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
 });
 
 
@@ -203,7 +203,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy,  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
 return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
@@ -224,7 +224,7 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy,  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Event():
 return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
@@ -244,7 +244,7 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy,  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
 return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
@@ -259,7 +259,7 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 
 @JsonSerializable(includeIfNull: false)
 class _Event implements Event {
-  const _Event({this.$type = 'tools.ozone.safelink.defs#event', required this.id, @EventTypeConverter() required this.eventType, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, required this.createdBy, required this.createdAt, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Event({this.$type = 'tools.ozone.safelink.defs#event', required this.id, @EventTypeConverter() required this.eventType, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -273,7 +273,7 @@ class _Event implements Event {
 @override@ReasonTypeConverter() final  ReasonType reason;
 /// DID of the user who created this rule
 @override final  String createdBy;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Optional comment about the decision
 @override final  String? comment;
  final  Map<String, dynamic>? _$unknown;
@@ -319,7 +319,7 @@ abstract mixin class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   factory _$EventCopyWith(_Event value, $Res Function(_Event) _then) = __$EventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String createdBy, DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
+ String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
 });
 
 

@@ -40,7 +40,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
     required String topic,
     required String displayName,
     required String link,
-    required DateTime startedAt,
+    @JsonKey(toJson: iso8601) required DateTime startedAt,
     required int postCount,
     @SkeletonTrendStatusConverter() SkeletonTrendStatus? status,
     String? category,

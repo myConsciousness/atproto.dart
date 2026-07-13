@@ -69,22 +69,22 @@ final class UTempCheckHandleAvailabilityResultConverter
 
   @override
   UTempCheckHandleAvailabilityResult fromJson(Map<String, dynamic> json) {
-    try {
-      if (ResultAvailable.validate(json)) {
-        return UTempCheckHandleAvailabilityResult.resultAvailable(
-          data: const ResultAvailableConverter().fromJson(json),
-        );
-      }
-      if (ResultUnavailable.validate(json)) {
-        return UTempCheckHandleAvailabilityResult.resultUnavailable(
-          data: const ResultUnavailableConverter().fromJson(json),
-        );
-      }
-
-      return UTempCheckHandleAvailabilityResult.unknown(data: json);
-    } catch (_) {
-      return UTempCheckHandleAvailabilityResult.unknown(data: json);
+    if (ResultAvailable.validate(json)) {
+      return UTempCheckHandleAvailabilityResult.resultAvailable(
+        data: const ResultAvailableConverter().fromJson(json),
+      );
     }
+    if (ResultUnavailable.validate(json)) {
+      return UTempCheckHandleAvailabilityResult.resultUnavailable(
+        data: const ResultUnavailableConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UTempCheckHandleAvailabilityResult.unknown(data: json);
   }
 
   @override

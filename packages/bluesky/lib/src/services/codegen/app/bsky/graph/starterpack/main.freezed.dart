@@ -17,7 +17,7 @@ mixin _$GraphStarterpackRecord {
 
  String get $type;/// Display name for starter pack; can not be empty.
  String get name; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets;/// Reference (AT-URI) to the list record.
-@AtUriConverter() AtUri get list;@FeedItemConverter() List<FeedItem>? get feeds; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri get list;@FeedItemConverter() List<FeedItem>? get feeds;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphStarterpackRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $GraphStarterpackRecordCopyWith<$Res>  {
   factory $GraphStarterpackRecordCopyWith(GraphStarterpackRecord value, $Res Function(GraphStarterpackRecord) _then) = _$GraphStarterpackRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri list,@FeedItemConverter() List<FeedItem>? feeds, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri list,@FeedItemConverter() List<FeedItem>? feeds,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri list, @FeedItemConverter()  List<FeedItem>? feeds,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri list, @FeedItemConverter()  List<FeedItem>? feeds, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphStarterpackRecord() when $default != null:
 return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets,_that.list,_that.feeds,_that.createdAt,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri list, @FeedItemConverter()  List<FeedItem>? feeds,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri list, @FeedItemConverter()  List<FeedItem>? feeds, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphStarterpackRecord():
 return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets,_that.list,_that.feeds,_that.createdAt,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri list, @FeedItemConverter()  List<FeedItem>? feeds,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @AtUriConverter()  AtUri list, @FeedItemConverter()  List<FeedItem>? feeds, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphStarterpackRecord() when $default != null:
 return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets,_that.list,_that.feeds,_that.createdAt,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.$type,_that.name,_that.description,_that.descriptionFacets
 
 @JsonSerializable(includeIfNull: false)
 class _GraphStarterpackRecord implements GraphStarterpackRecord {
-  const _GraphStarterpackRecord({this.$type = 'app.bsky.graph.starterpack', required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() required this.list, @FeedItemConverter() final  List<FeedItem>? feeds, required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_feeds = feeds,_$unknown = $unknown;
+  const _GraphStarterpackRecord({this.$type = 'app.bsky.graph.starterpack', required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @AtUriConverter() required this.list, @FeedItemConverter() final  List<FeedItem>? feeds, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_feeds = feeds,_$unknown = $unknown;
   factory _GraphStarterpackRecord.fromJson(Map<String, dynamic> json) => _$GraphStarterpackRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -245,7 +245,7 @@ class _GraphStarterpackRecord implements GraphStarterpackRecord {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -289,7 +289,7 @@ abstract mixin class _$GraphStarterpackRecordCopyWith<$Res> implements $GraphSta
   factory _$GraphStarterpackRecordCopyWith(_GraphStarterpackRecord value, $Res Function(_GraphStarterpackRecord) _then) = __$GraphStarterpackRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri list,@FeedItemConverter() List<FeedItem>? feeds, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String name, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets,@AtUriConverter() AtUri list,@FeedItemConverter() List<FeedItem>? feeds,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

@@ -30,7 +30,7 @@ abstract class SystemMessageView with _$SystemMessageView {
     @Default('chat.bsky.convo.defs#systemMessageView') String $type,
     required String id,
     required String rev,
-    required DateTime sentAt,
+    @JsonKey(toJson: iso8601) required DateTime sentAt,
     @USystemMessageViewDataConverter() required USystemMessageViewData data,
 
     Map<String, dynamic>? $unknown,

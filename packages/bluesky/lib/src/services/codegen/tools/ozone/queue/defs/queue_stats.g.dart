@@ -52,6 +52,6 @@ Map<String, dynamic> _$QueueStatsToJson(_QueueStats instance) =>
       'inboundCount': ?instance.inboundCount,
       'actionRate': ?instance.actionRate,
       'avgHandlingTimeSec': ?instance.avgHandlingTimeSec,
-      'lastUpdated': ?instance.lastUpdated?.toIso8601String(),
+      'lastUpdated': iso8601(instance.lastUpdated),
       r'$unknown': ?instance.$unknown,
     };

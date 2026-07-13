@@ -84,7 +84,7 @@ Map<String, dynamic> _$LabelerViewDetailedToJson(
     instance.viewer,
     const LabelerViewerStateConverter().toJson,
   ),
-  'indexedAt': instance.indexedAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
   'reasonTypes': ?instance.reasonTypes
       ?.map(const ReasonTypeConverter().toJson)

@@ -50,11 +50,26 @@ final class ScheduleActionCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "action": jsonDecode(argResults!["action"]),
-    "subjects": argResults!["subjects"],
+    "action": _decodeJson("action"),
+    "subjects": _requireNonEmpty("subjects", argResults!["subjects"]),
     "createdBy": argResults!["createdBy"],
-    "scheduling": jsonDecode(argResults!["scheduling"]),
-    if (argResults!.wasParsed("modTool"))
-      "modTool": jsonDecode(argResults!["modTool"]),
+    "scheduling": _decodeJson("scheduling"),
+    if (argResults!.wasParsed("modTool")) "modTool": _decodeJson("modTool"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

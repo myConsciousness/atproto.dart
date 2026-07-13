@@ -33,5 +33,9 @@ final class GetEventCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getEvent";
 
   @override
-  Map<String, dynamic>? get parameters => {"id": int.parse(argResults!["id"])};
+  Map<String, dynamic>? get parameters => {
+    "id":
+        int.tryParse(argResults!["id"]) ??
+        usageException('Invalid integer value for option "id".'),
+  };
 }

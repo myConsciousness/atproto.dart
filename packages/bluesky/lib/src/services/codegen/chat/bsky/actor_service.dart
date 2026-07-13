@@ -169,6 +169,7 @@ final class ActorDeclarationRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'chat.bsky.actor.declaration',
       ...?$unknown,
       'allowIncoming': allowIncoming.toJson(),
       if (allowGroupInvites != null)
@@ -194,6 +195,7 @@ final class ActorDeclarationRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'chat.bsky.actor.declaration',
       ...?$unknown,
       'allowIncoming': allowIncoming.toJson(),
       if (allowGroupInvites != null)

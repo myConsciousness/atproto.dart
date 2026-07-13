@@ -25,10 +25,7 @@ Session _sessionWithDidDoc(List<Map<String, dynamic>> services) => Session(
     'iat': 1893452400,
   }),
   refreshJwt: '1234',
-  didDoc: {
-    'id': 'did:plc:iijrtk7ocored6zuziwmqq3c',
-    'service': services,
-  },
+  didDoc: {'id': 'did:plc:iijrtk7ocored6zuziwmqq3c', 'service': services},
 );
 
 void main() {
@@ -54,10 +51,7 @@ void main() {
         },
       ]);
 
-      expect(
-        session.atprotoPdsEndpoint,
-        'porcini.us-east.host.bsky.network',
-      );
+      expect(session.atprotoPdsEndpoint, 'porcini.us-east.host.bsky.network');
     });
 
     test('falls back to the JWT aud when didDoc has no #atproto_pds', () {

@@ -45,9 +45,9 @@ abstract class EventGroupChatMemberJoined with _$EventGroupChatMemberJoined {
     required String actorDid,
 
     /// When the group was originally created.
-    required DateTime convoCreatedAt,
+    @JsonKey(toJson: iso8601) required DateTime convoCreatedAt,
     required String convoId,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// Current member count at the time of the event.
     required int groupMemberCount,

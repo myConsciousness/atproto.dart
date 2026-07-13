@@ -55,7 +55,7 @@ Map<String, dynamic> _$FeedThreadgateRecordToJson(
   'allow': ?instance.allow
       ?.map(const UFeedThreadgateAllowConverter().toJson)
       .toList(),
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'hiddenReplies': ?instance.hiddenReplies
       ?.map(const AtUriConverter().toJson)
       .toList(),

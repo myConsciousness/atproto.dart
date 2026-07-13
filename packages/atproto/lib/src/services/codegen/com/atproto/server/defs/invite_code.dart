@@ -41,7 +41,7 @@ abstract class InviteCode with _$InviteCode {
     required bool disabled,
     required String forAccount,
     required String createdBy,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @InviteCodeUseConverter() required List<InviteCodeUse> uses,
 
     Map<String, dynamic>? $unknown,

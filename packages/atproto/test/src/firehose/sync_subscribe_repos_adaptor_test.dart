@@ -30,13 +30,8 @@ Uint8List _varint(int value) {
 }
 
 /// Builds a valid CIDv1 (sha-256) byte sequence with the given [codec].
-Uint8List _cidBytes(int codec, {int fill = 7}) => Uint8List.fromList([
-  0x01,
-  codec,
-  0x12,
-  0x20,
-  ...List.filled(32, fill),
-]);
+Uint8List _cidBytes(int codec, {int fill = 7}) =>
+    Uint8List.fromList([0x01, codec, 0x12, 0x20, ...List.filled(32, fill)]);
 
 /// A DAG-CBOR CID link value (tag 42, 0x00 multibase prefix).
 CborBytes _cidLink(int codec, {int fill = 7}) =>
@@ -66,10 +61,8 @@ Uint8List _buildCar(CborMap record, {int fill = 7}) {
 }
 
 /// Serializes a firehose frame as a CBOR sequence of `[header, body]`.
-Uint8List _frame(CborMap header, CborMap body) => Uint8List.fromList([
-  ...cborEncode(header),
-  ...cborEncode(body),
-]);
+Uint8List _frame(CborMap header, CborMap body) =>
+    Uint8List.fromList([...cborEncode(header), ...cborEncode(body)]);
 
 void main() {
   const adaptor = SyncSubscribeReposAdaptor();
@@ -106,7 +99,10 @@ void main() {
       expect(message.isCommit, isTrue, reason: 'must not degrade to unknown');
       final commit = message.commit!;
       expect(commit.hasPrevData, isTrue);
-      expect(commit.prevData, CID.fromList(_cidBytes(0x71, fill: 2)).toString());
+      expect(
+        commit.prevData,
+        CID.fromList(_cidBytes(0x71, fill: 2)).toString(),
+      );
       expect(commit.seq, 42);
       expect(commit.blocks, isNotEmpty);
     });

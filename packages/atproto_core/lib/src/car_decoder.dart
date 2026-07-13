@@ -164,9 +164,7 @@ dynamic _normalize(final CborValue value) {
           ? raw.sublist(1)
           : raw;
 
-      return <String, dynamic>{
-        _cidLinkKey: CID.fromList(cidBytes).toString(),
-      };
+      return <String, dynamic>{_cidLinkKey: CID.fromList(cidBytes).toString()};
     }
 
     return value.bytes;

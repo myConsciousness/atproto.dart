@@ -41,8 +41,25 @@ final class SendInteractionsCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     if (argResults!.wasParsed("feed")) "feed": argResults!["feed"],
-    "interactions": (argResults!["interactions"] as List<String>)
-        .map((e) => jsonDecode(e))
-        .toList(),
+    "interactions": _requireNonEmpty(
+      "interactions",
+      (argResults!["interactions"] as List<String>)
+          .map((e) => _decodeJsonItem("interactions", e))
+          .toList(),
+    ),
   };
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

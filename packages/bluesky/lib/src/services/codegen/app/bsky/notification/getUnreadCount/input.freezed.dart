@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationGetUnreadCountInput {
 
- bool? get priority; DateTime? get seenAt; Map<String, dynamic>? get $unknown;
+ bool? get priority;@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationGetUnreadCountInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $NotificationGetUnreadCountInputCopyWith<$Res>  {
   factory $NotificationGetUnreadCountInputCopyWith(NotificationGetUnreadCountInput value, $Res Function(NotificationGetUnreadCountInput) _then) = _$NotificationGetUnreadCountInputCopyWithImpl;
 @useResult
 $Res call({
- bool? priority, DateTime? seenAt, Map<String, dynamic>? $unknown
+ bool? priority,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? priority,  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationGetUnreadCountInput() when $default != null:
 return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? priority,  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationGetUnreadCountInput():
 return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? priority,  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationGetUnreadCountInput() when $default != null:
 return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationGetUnreadCountInput implements NotificationGetUnreadCountInput {
-  const _NotificationGetUnreadCountInput({this.priority, this.seenAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationGetUnreadCountInput({this.priority, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationGetUnreadCountInput.fromJson(Map<String, dynamic> json) => _$NotificationGetUnreadCountInputFromJson(json);
 
 @override final  bool? priority;
-@override final  DateTime? seenAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? seenAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$NotificationGetUnreadCountInputCopyWith<$Res> implements 
   factory _$NotificationGetUnreadCountInputCopyWith(_NotificationGetUnreadCountInput value, $Res Function(_NotificationGetUnreadCountInput) _then) = __$NotificationGetUnreadCountInputCopyWithImpl;
 @override @useResult
 $Res call({
- bool? priority, DateTime? seenAt, Map<String, dynamic>? $unknown
+ bool? priority,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 

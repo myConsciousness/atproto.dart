@@ -102,7 +102,9 @@ final class SearchPostsCommand extends QueryCommand {
     if (argResults!.wasParsed("domain")) "domain": argResults!["domain"],
     if (argResults!.wasParsed("url")) "url": argResults!["url"],
     if (argResults!.wasParsed("tag")) "tag": argResults!["tag"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

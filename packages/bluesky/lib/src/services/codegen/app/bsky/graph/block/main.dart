@@ -29,7 +29,7 @@ abstract class GraphBlockRecord with _$GraphBlockRecord {
 
     /// DID of the account to be blocked.
     required String subject,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphBlockRecord;

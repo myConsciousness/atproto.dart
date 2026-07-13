@@ -37,6 +37,6 @@ Map<String, dynamic> _$GraphVerificationRecordToJson(
   'subject': instance.subject,
   'handle': instance.handle,
   'displayName': instance.displayName,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   r'$unknown': ?instance.$unknown,
 };

@@ -34,5 +34,13 @@ final class GetConvoForMembersCommand extends QueryCommand {
   String get methodId => "chat.bsky.convo.getConvoForMembers";
 
   @override
-  Map<String, dynamic>? get parameters => {"members": argResults!["members"]};
+  Map<String, dynamic>? get parameters => {
+    "members": _requireNonEmpty("members", argResults!["members"]),
+  };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

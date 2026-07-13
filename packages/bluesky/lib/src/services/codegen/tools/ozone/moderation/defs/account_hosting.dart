@@ -36,11 +36,11 @@ abstract class AccountHosting with _$AccountHosting {
   const factory AccountHosting({
     @Default('tools.ozone.moderation.defs#accountHosting') String $type,
     @AccountHostingStatusConverter() required AccountHostingStatus status,
-    DateTime? updatedAt,
-    DateTime? createdAt,
-    DateTime? deletedAt,
-    DateTime? deactivatedAt,
-    DateTime? reactivatedAt,
+    @JsonKey(toJson: iso8601) DateTime? updatedAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? deletedAt,
+    @JsonKey(toJson: iso8601) DateTime? deactivatedAt,
+    @JsonKey(toJson: iso8601) DateTime? reactivatedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _AccountHosting;

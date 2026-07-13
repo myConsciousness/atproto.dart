@@ -72,7 +72,7 @@ Map<String, dynamic> _$GraphListRecordToJson(_GraphListRecord instance) =>
         instance.labels,
         const UGraphListLabelsConverter().toJson,
       ),
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };
 

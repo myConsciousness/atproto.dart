@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SystemMessageView {
 
- String get $type; String get id; String get rev; DateTime get sentAt;@USystemMessageViewDataConverter() USystemMessageViewData get data; Map<String, dynamic>? get $unknown;
+ String get $type; String get id; String get rev;@JsonKey(toJson: iso8601) DateTime get sentAt;@USystemMessageViewDataConverter() USystemMessageViewData get data; Map<String, dynamic>? get $unknown;
 /// Create a copy of SystemMessageView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SystemMessageViewCopyWith<$Res>  {
   factory $SystemMessageViewCopyWith(SystemMessageView value, $Res Function(SystemMessageView) _then) = _$SystemMessageViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id, String rev, DateTime sentAt,@USystemMessageViewDataConverter() USystemMessageViewData data, Map<String, dynamic>? $unknown
+ String $type, String id, String rev,@JsonKey(toJson: iso8601) DateTime sentAt,@USystemMessageViewDataConverter() USystemMessageViewData data, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String rev,  DateTime sentAt, @USystemMessageViewDataConverter()  USystemMessageViewData data,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @JsonKey(toJson: iso8601)  DateTime sentAt, @USystemMessageViewDataConverter()  USystemMessageViewData data,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SystemMessageView() when $default != null:
 return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String rev,  DateTime sentAt, @USystemMessageViewDataConverter()  USystemMessageViewData data,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String rev, @JsonKey(toJson: iso8601)  DateTime sentAt, @USystemMessageViewDataConverter()  USystemMessageViewData data,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SystemMessageView():
 return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String rev,  DateTime sentAt, @USystemMessageViewDataConverter()  USystemMessageViewData data,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String rev, @JsonKey(toJson: iso8601)  DateTime sentAt, @USystemMessageViewDataConverter()  USystemMessageViewData data,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SystemMessageView() when $default != null:
 return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$unknown);case _:
@@ -223,13 +223,13 @@ return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _SystemMessageView implements SystemMessageView {
-  const _SystemMessageView({this.$type = 'chat.bsky.convo.defs#systemMessageView', required this.id, required this.rev, required this.sentAt, @USystemMessageViewDataConverter() required this.data, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SystemMessageView({this.$type = 'chat.bsky.convo.defs#systemMessageView', required this.id, required this.rev, @JsonKey(toJson: iso8601) required this.sentAt, @USystemMessageViewDataConverter() required this.data, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SystemMessageView.fromJson(Map<String, dynamic> json) => _$SystemMessageViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String id;
 @override final  String rev;
-@override final  DateTime sentAt;
+@override@JsonKey(toJson: iso8601) final  DateTime sentAt;
 @override@USystemMessageViewDataConverter() final  USystemMessageViewData data;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -274,7 +274,7 @@ abstract mixin class _$SystemMessageViewCopyWith<$Res> implements $SystemMessage
   factory _$SystemMessageViewCopyWith(_SystemMessageView value, $Res Function(_SystemMessageView) _then) = __$SystemMessageViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id, String rev, DateTime sentAt,@USystemMessageViewDataConverter() USystemMessageViewData data, Map<String, dynamic>? $unknown
+ String $type, String id, String rev,@JsonKey(toJson: iso8601) DateTime sentAt,@USystemMessageViewDataConverter() USystemMessageViewData data, Map<String, dynamic>? $unknown
 });
 
 

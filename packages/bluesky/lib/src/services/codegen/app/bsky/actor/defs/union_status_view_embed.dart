@@ -52,17 +52,17 @@ final class UStatusViewEmbedConverter
 
   @override
   UStatusViewEmbed fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedExternalView.validate(json)) {
-        return UStatusViewEmbed.embedExternalView(
-          data: const EmbedExternalViewConverter().fromJson(json),
-        );
-      }
-
-      return UStatusViewEmbed.unknown(data: json);
-    } catch (_) {
-      return UStatusViewEmbed.unknown(data: json);
+    if (EmbedExternalView.validate(json)) {
+      return UStatusViewEmbed.embedExternalView(
+        data: const EmbedExternalViewConverter().fromJson(json),
+      );
     }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UStatusViewEmbed.unknown(data: json);
   }
 
   @override

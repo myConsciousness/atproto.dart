@@ -69,27 +69,27 @@ final class UFeedGetPostThreadThreadConverter
 
   @override
   UFeedGetPostThreadThread fromJson(Map<String, dynamic> json) {
-    try {
-      if (ThreadViewPost.validate(json)) {
-        return UFeedGetPostThreadThread.threadViewPost(
-          data: const ThreadViewPostConverter().fromJson(json),
-        );
-      }
-      if (NotFoundPost.validate(json)) {
-        return UFeedGetPostThreadThread.notFoundPost(
-          data: const NotFoundPostConverter().fromJson(json),
-        );
-      }
-      if (BlockedPost.validate(json)) {
-        return UFeedGetPostThreadThread.blockedPost(
-          data: const BlockedPostConverter().fromJson(json),
-        );
-      }
-
-      return UFeedGetPostThreadThread.unknown(data: json);
-    } catch (_) {
-      return UFeedGetPostThreadThread.unknown(data: json);
+    if (ThreadViewPost.validate(json)) {
+      return UFeedGetPostThreadThread.threadViewPost(
+        data: const ThreadViewPostConverter().fromJson(json),
+      );
     }
+    if (NotFoundPost.validate(json)) {
+      return UFeedGetPostThreadThread.notFoundPost(
+        data: const NotFoundPostConverter().fromJson(json),
+      );
+    }
+    if (BlockedPost.validate(json)) {
+      return UFeedGetPostThreadThread.blockedPost(
+        data: const BlockedPostConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UFeedGetPostThreadThread.unknown(data: json);
   }
 
   @override

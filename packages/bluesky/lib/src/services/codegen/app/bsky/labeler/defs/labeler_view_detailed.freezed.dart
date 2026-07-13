@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LabelerViewDetailed {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator;@LabelerPoliciesConverter() LabelerPolicies get policies; int? get likeCount;@LabelerViewerStateConverter() LabelerViewerState? get viewer; DateTime get indexedAt;@LabelConverter() List<Label>? get labels;@ReasonTypeConverter() List<ReasonType>? get reasonTypes;@SubjectTypeConverter() List<SubjectType>? get subjectTypes; List<String>? get subjectCollections; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator;@LabelerPoliciesConverter() LabelerPolicies get policies; int? get likeCount;@LabelerViewerStateConverter() LabelerViewerState? get viewer;@JsonKey(toJson: iso8601) DateTime get indexedAt;@LabelConverter() List<Label>? get labels;@ReasonTypeConverter() List<ReasonType>? get reasonTypes;@SubjectTypeConverter() List<SubjectType>? get subjectTypes; List<String>? get subjectCollections; Map<String, dynamic>? get $unknown;
 /// Create a copy of LabelerViewDetailed
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LabelerViewDetailedCopyWith<$Res>  {
   factory $LabelerViewDetailedCopyWith(LabelerViewDetailed value, $Res Function(LabelerViewDetailed) _then) = _$LabelerViewDetailedCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator,@LabelerPoliciesConverter() LabelerPolicies policies, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer, DateTime indexedAt,@LabelConverter() List<Label>? labels,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator,@LabelerPoliciesConverter() LabelerPolicies policies, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer,@JsonKey(toJson: iso8601) DateTime indexedAt,@LabelConverter() List<Label>? labels,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
 });
 
 
@@ -195,7 +195,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator, @LabelerPoliciesConverter()  LabelerPolicies policies,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer,  DateTime indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator, @LabelerPoliciesConverter()  LabelerPolicies policies,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LabelerViewDetailed() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_that.likeCount,_that.viewer,_that.indexedAt,_that.labels,_that.reasonTypes,_that.subjectTypes,_that.subjectCollections,_that.$unknown);case _:
@@ -216,7 +216,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator, @LabelerPoliciesConverter()  LabelerPolicies policies,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer,  DateTime indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator, @LabelerPoliciesConverter()  LabelerPolicies policies,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LabelerViewDetailed():
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_that.likeCount,_that.viewer,_that.indexedAt,_that.labels,_that.reasonTypes,_that.subjectTypes,_that.subjectCollections,_that.$unknown);case _:
@@ -236,7 +236,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator, @LabelerPoliciesConverter()  LabelerPolicies policies,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer,  DateTime indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator, @LabelerPoliciesConverter()  LabelerPolicies policies,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LabelerViewDetailed() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_that.likeCount,_that.viewer,_that.indexedAt,_that.labels,_that.reasonTypes,_that.subjectTypes,_that.subjectCollections,_that.$unknown);case _:
@@ -251,7 +251,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_th
 
 @JsonSerializable(includeIfNull: false)
 class _LabelerViewDetailed implements LabelerViewDetailed {
-  const _LabelerViewDetailed({this.$type = 'app.bsky.labeler.defs#labelerViewDetailed', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, @LabelerPoliciesConverter() required this.policies, this.likeCount, @LabelerViewerStateConverter() this.viewer, required this.indexedAt, @LabelConverter() final  List<Label>? labels, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _labels = labels,_reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
+  const _LabelerViewDetailed({this.$type = 'app.bsky.labeler.defs#labelerViewDetailed', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, @LabelerPoliciesConverter() required this.policies, this.likeCount, @LabelerViewerStateConverter() this.viewer, @JsonKey(toJson: iso8601) required this.indexedAt, @LabelConverter() final  List<Label>? labels, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _labels = labels,_reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
   factory _LabelerViewDetailed.fromJson(Map<String, dynamic> json) => _$LabelerViewDetailedFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -261,7 +261,7 @@ class _LabelerViewDetailed implements LabelerViewDetailed {
 @override@LabelerPoliciesConverter() final  LabelerPolicies policies;
 @override final  int? likeCount;
 @override@LabelerViewerStateConverter() final  LabelerViewerState? viewer;
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  List<Label>? _labels;
 @override@LabelConverter() List<Label>? get labels {
   final value = _labels;
@@ -341,7 +341,7 @@ abstract mixin class _$LabelerViewDetailedCopyWith<$Res> implements $LabelerView
   factory _$LabelerViewDetailedCopyWith(_LabelerViewDetailed value, $Res Function(_LabelerViewDetailed) _then) = __$LabelerViewDetailedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator,@LabelerPoliciesConverter() LabelerPolicies policies, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer, DateTime indexedAt,@LabelConverter() List<Label>? labels,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator,@LabelerPoliciesConverter() LabelerPolicies policies, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer,@JsonKey(toJson: iso8601) DateTime indexedAt,@LabelConverter() List<Label>? labels,@ReasonTypeConverter() List<ReasonType>? reasonTypes,@SubjectTypeConverter() List<SubjectType>? subjectTypes, List<String>? subjectCollections, Map<String, dynamic>? $unknown
 });
 
 

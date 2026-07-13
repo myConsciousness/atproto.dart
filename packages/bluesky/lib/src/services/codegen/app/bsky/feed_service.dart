@@ -530,7 +530,9 @@ Future<XRPCResponse<EmptyData>> appBskyFeedSendInteractions({
   body: {
     ...?$unknown,
     if (feed != null) 'feed': feed.toString(),
-    'interactions': interactions.map((e) => e.toJson()).toList(),
+    'interactions': interactions
+        .map((e) => const InteractionConverter().toJson(e))
+        .toList(),
   },
 );
 
@@ -1033,12 +1035,15 @@ final class FeedGeneratorRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.generator',
       ...?$unknown,
       'did': did,
       'displayName': displayName,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
-        'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
+        'descriptionFacets': descriptionFacets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
       if (avatar != null) 'avatar': avatar,
       if (acceptsInteractions != null)
         'acceptsInteractions': acceptsInteractions,
@@ -1073,12 +1078,15 @@ final class FeedGeneratorRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.generator',
       ...?$unknown,
       'did': did,
       'displayName': displayName,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
-        'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
+        'descriptionFacets': descriptionFacets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
       if (avatar != null) 'avatar': avatar,
       if (acceptsInteractions != null)
         'acceptsInteractions': acceptsInteractions,
@@ -1163,10 +1171,11 @@ final class FeedLikeRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.like',
       ...?$unknown,
-      'subject': subject.toJson(),
+      'subject': const RepoStrongRefConverter().toJson(subject),
       'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
+      if (via != null) 'via': const RepoStrongRefConverter().toJson(via),
     },
     swapCommit: swapCommit,
     $ctx: ctx,
@@ -1189,10 +1198,11 @@ final class FeedLikeRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.like',
       ...?$unknown,
-      'subject': subject.toJson(),
+      'subject': const RepoStrongRefConverter().toJson(subject),
       'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
+      if (via != null) 'via': const RepoStrongRefConverter().toJson(via),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1276,10 +1286,14 @@ final class FeedPostRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.post',
       ...?$unknown,
       'text': text,
-      if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
-      if (reply != null) 'reply': reply.toJson(),
+      if (facets != null)
+        'facets': facets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
+      if (reply != null) 'reply': const ReplyRefConverter().toJson(reply),
       if (embed != null) 'embed': embed.toJson(),
       if (langs != null) 'langs': langs,
       if (labels != null) 'labels': labels.toJson(),
@@ -1312,10 +1326,14 @@ final class FeedPostRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.post',
       ...?$unknown,
       'text': text,
-      if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
-      if (reply != null) 'reply': reply.toJson(),
+      if (facets != null)
+        'facets': facets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
+      if (reply != null) 'reply': const ReplyRefConverter().toJson(reply),
       if (embed != null) 'embed': embed.toJson(),
       if (langs != null) 'langs': langs,
       if (labels != null) 'labels': labels.toJson(),
@@ -1400,6 +1418,7 @@ final class FeedPostgateRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.postgate',
       ...?$unknown,
       'createdAt': iso8601(createdAt),
       'post': post.toString(),
@@ -1432,6 +1451,7 @@ final class FeedPostgateRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.postgate',
       ...?$unknown,
       'createdAt': iso8601(createdAt),
       'post': post.toString(),
@@ -1519,10 +1539,11 @@ final class FeedRepostRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.repost',
       ...?$unknown,
-      'subject': subject.toJson(),
+      'subject': const RepoStrongRefConverter().toJson(subject),
       'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
+      if (via != null) 'via': const RepoStrongRefConverter().toJson(via),
     },
     swapCommit: swapCommit,
     $ctx: ctx,
@@ -1545,10 +1566,11 @@ final class FeedRepostRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.repost',
       ...?$unknown,
-      'subject': subject.toJson(),
+      'subject': const RepoStrongRefConverter().toJson(subject),
       'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
+      if (via != null) 'via': const RepoStrongRefConverter().toJson(via),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1628,6 +1650,7 @@ final class FeedThreadgateRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.threadgate',
       ...?$unknown,
       'post': post.toString(),
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
@@ -1657,6 +1680,7 @@ final class FeedThreadgateRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.feed.threadgate',
       ...?$unknown,
       'post': post.toString(),
       if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),

@@ -106,9 +106,9 @@ Map<String, dynamic> _$ReportViewToJson(
   'reportedBy': instance.reportedBy,
   'reporter': const SubjectViewConverter().toJson(instance.reporter),
   'comment': ?instance.comment,
-  'createdAt': instance.createdAt.toIso8601String(),
-  'updatedAt': ?instance.updatedAt?.toIso8601String(),
-  'queuedAt': ?instance.queuedAt?.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
+  'updatedAt': iso8601(instance.updatedAt),
+  'queuedAt': iso8601(instance.queuedAt),
   'actionEventIds': ?instance.actionEventIds,
   'actions': ?instance.actions
       ?.map(const ModEventViewConverter().toJson)

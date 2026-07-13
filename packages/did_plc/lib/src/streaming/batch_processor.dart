@@ -181,7 +181,8 @@ class BatchProcessor<T, R> {
           _processBatchWithStreaming(batch, processor, controller, semaphore)
               .then((_) {
                 completedBatches++;
-                if (completedBatches >= batches.length && !controller.isClosed) {
+                if (completedBatches >= batches.length &&
+                    !controller.isClosed) {
                   controller.close();
                 }
               })

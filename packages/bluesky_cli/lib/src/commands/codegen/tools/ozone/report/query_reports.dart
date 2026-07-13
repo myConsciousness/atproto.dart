@@ -85,7 +85,9 @@ final class QueryReportsCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("queueId"))
-      "queueId": int.parse(argResults!["queueId"]),
+      "queueId":
+          int.tryParse(argResults!["queueId"]) ??
+          usageException('Invalid integer value for option "queueId".'),
     if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
     "status": argResults!["status"],
@@ -104,7 +106,9 @@ final class QueryReportsCommand extends QueryCommand {
       "assignedTo": argResults!["assignedTo"],
     "sortField": argResults!["sortField"],
     "sortDirection": argResults!["sortDirection"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

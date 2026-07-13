@@ -3876,7 +3876,9 @@ github.com/videah/SkyBridge
           ['SHINYAKATO.DEV'],
         );
         expect(
-          BlueskyText('@Alice.Bsky.Social').handles.map((e) => e.value).toList(),
+          BlueskyText(
+            '@Alice.Bsky.Social',
+          ).handles.map((e) => e.value).toList(),
           ['Alice.Bsky.Social'],
         );
       });
@@ -3905,10 +3907,9 @@ github.com/videah/SkyBridge
 
       test('mention glued to a preceding CJK char is still detected', () {
         expect(
-          BlueskyText('よろしく@alice.bsky.social')
-              .handles
-              .map((e) => e.value)
-              .toList(),
+          BlueskyText(
+            'よろしく@alice.bsky.social',
+          ).handles.map((e) => e.value).toList(),
           ['alice.bsky.social'],
         );
       });
@@ -3928,8 +3929,9 @@ github.com/videah/SkyBridge
       });
 
       test('tags separated by a full-width space are both detected', () {
-        final tags =
-            BlueskyText('#tag3　#tag4').tags.map((e) => e.value).toList();
+        final tags = BlueskyText(
+          '#tag3　#tag4',
+        ).tags.map((e) => e.value).toList();
         expect(tags, ['tag3', 'tag4']);
       });
     });
@@ -3972,22 +3974,25 @@ github.com/videah/SkyBridge
 
     group('facet overlap resolution (T-10)', () {
       test('a URL fragment does not also become a tag', () {
-        final entities =
-            BlueskyText('see https://example.com/p#frag here').entities;
+        final entities = BlueskyText(
+          'see https://example.com/p#frag here',
+        ).entities;
         expect(entities.length, 1);
         expect(entities.first.isLink, isTrue);
       });
 
       test('an @handle inside a URL path does not also become a mention', () {
-        final entities =
-            BlueskyText('go https://example.com/@user.bsky.social ok').entities;
+        final entities = BlueskyText(
+          'go https://example.com/@user.bsky.social ok',
+        ).entities;
         expect(entities.where((e) => e.isLink).length, 1);
         expect(entities.where((e) => e.isHandle).length, 0);
       });
 
       test('non-overlapping facets are all kept', () {
-        final entities =
-            BlueskyText(r'@a.dev #topic $AAPL https://x.com').entities;
+        final entities = BlueskyText(
+          r'@a.dev #topic $AAPL https://x.com',
+        ).entities;
         expect(entities.length, 4);
       });
     });
@@ -4043,5 +4048,4 @@ github.com/videah/SkyBridge
       });
     });
   });
-
 }

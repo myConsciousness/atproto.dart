@@ -30,7 +30,7 @@ abstract class GraphListblockRecord with _$GraphListblockRecord {
 
     /// Reference (AT-URI) to the mod list record.
     @AtUriConverter() required AtUri subject,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphListblockRecord;

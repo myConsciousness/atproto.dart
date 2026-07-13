@@ -32,7 +32,7 @@ abstract class State with _$State {
     @Default('app.bsky.ageassurance.defs#state') String $type,
 
     /// The timestamp when this state was last updated.
-    DateTime? lastInitiatedAt,
+    @JsonKey(toJson: iso8601) DateTime? lastInitiatedAt,
     @StatusConverter() required Status status,
     @AccessConverter() required Access access,
 

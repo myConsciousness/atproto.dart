@@ -116,8 +116,10 @@ sealed class AtUri {
 List<String> _splitPathSegments(final String pathname) =>
     pathname.split('/')..removeWhere((s) => s.isEmpty);
 
-NSID? _collectionOf(final List<String> segments, final NSID Function(String) toNsid) =>
-    segments.isEmpty ? null : toNsid(segments.first);
+NSID? _collectionOf(
+  final List<String> segments,
+  final NSID Function(String) toNsid,
+) => segments.isEmpty ? null : toNsid(segments.first);
 
 String? _rkeyOf(final List<String> segments) =>
     segments.length < 2 ? null : segments[1];

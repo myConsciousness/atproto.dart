@@ -39,7 +39,7 @@ abstract class FeedThreadgateRecord with _$FeedThreadgateRecord {
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
     @UFeedThreadgateAllowConverter() List<UFeedThreadgateAllow>? allow,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @AtUriConverter() List<AtUri>? hiddenReplies,
 
     Map<String, dynamic>? $unknown,

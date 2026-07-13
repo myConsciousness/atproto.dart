@@ -102,10 +102,7 @@ void main() {
       //* propagate so the caller can detect a transient outage, instead of
       //* silently dropping the mention by returning `{}` (audit T-17). Only a
       //* genuine "handle not found" (`InvalidRequestException`) yields `{}`.
-      await expectLater(
-        entity.toFacet(service: 'test'),
-        throwsA(anything),
-      );
+      await expectLater(entity.toFacet(service: 'test'), throwsA(anything));
     });
 
     test('case7', () async {

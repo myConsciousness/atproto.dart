@@ -77,8 +77,7 @@ class OperationValidator {
   ) {
     _validateSignature(operation, errors);
 
-    if (operation['prev'] is! String ||
-        (operation['prev'] as String).isEmpty) {
+    if (operation['prev'] is! String || (operation['prev'] as String).isEmpty) {
       errors['prev'] = 'Tombstone must reference a prev operation';
     }
   }
@@ -398,8 +397,7 @@ class OperationValidator {
 
     // Validate URL format for service endpoint
     if (!_isValidUrl(serviceEndpoint)) {
-      errors['services'] =
-          'Service $serviceKey endpoint must be a valid URL';
+      errors['services'] = 'Service $serviceKey endpoint must be a valid URL';
       return;
     }
   }

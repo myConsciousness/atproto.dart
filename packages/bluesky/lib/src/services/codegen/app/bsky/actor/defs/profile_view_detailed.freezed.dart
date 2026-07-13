@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileViewDetailed {
 
- String get $type; String get did; String get handle; String? get displayName; String? get description; String? get pronouns; String? get website; String? get avatar; String? get banner; int? get followersCount; int? get followsCount; int? get postsCount;@ProfileAssociatedConverter() ProfileAssociated? get associated;@StarterPackViewBasicConverter() StarterPackViewBasic? get joinedViaStarterPack; DateTime? get indexedAt; DateTime? get createdAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() RepoStrongRef? get pinnedPost;@VerificationStateConverter() VerificationState? get verification;@StatusViewConverter() StatusView? get status; Map<String, dynamic>? get debug; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; String get handle; String? get displayName; String? get description; String? get pronouns; String? get website; String? get avatar; String? get banner; int? get followersCount; int? get followsCount; int? get postsCount;@ProfileAssociatedConverter() ProfileAssociated? get associated;@StarterPackViewBasicConverter() StarterPackViewBasic? get joinedViaStarterPack;@JsonKey(toJson: iso8601) DateTime? get indexedAt;@JsonKey(toJson: iso8601) DateTime? get createdAt;@ViewerStateConverter() ViewerState? get viewer;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() RepoStrongRef? get pinnedPost;@VerificationStateConverter() VerificationState? get verification;@StatusViewConverter() StatusView? get status; Map<String, dynamic>? get debug; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileViewDetailed
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ProfileViewDetailedCopyWith<$Res>  {
   factory $ProfileViewDetailedCopyWith(ProfileViewDetailed value, $Res Function(ProfileViewDetailed) _then) = _$ProfileViewDetailedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? description, String? pronouns, String? website, String? avatar, String? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? description, String? pronouns, String? website, String? avatar, String? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack,@JsonKey(toJson: iso8601) DateTime? indexedAt,@JsonKey(toJson: iso8601) DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
 });
 
 
@@ -247,7 +247,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack, @JsonKey(toJson: iso8601)  DateTime? indexedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileViewDetailed() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.followersCount,_that.followsCount,_that.postsCount,_that.associated,_that.joinedViaStarterPack,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.pinnedPost,_that.verification,_that.status,_that.debug,_that.$unknown);case _:
@@ -268,7 +268,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack, @JsonKey(toJson: iso8601)  DateTime? indexedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewDetailed():
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.followersCount,_that.followsCount,_that.postsCount,_that.associated,_that.joinedViaStarterPack,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.pinnedPost,_that.verification,_that.status,_that.debug,_that.$unknown);case _:
@@ -288,7 +288,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack,  DateTime? indexedAt,  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? displayName,  String? description,  String? pronouns,  String? website,  String? avatar,  String? banner,  int? followersCount,  int? followsCount,  int? postsCount, @ProfileAssociatedConverter()  ProfileAssociated? associated, @StarterPackViewBasicConverter()  StarterPackViewBasic? joinedViaStarterPack, @JsonKey(toJson: iso8601)  DateTime? indexedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @ViewerStateConverter()  ViewerState? viewer, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @VerificationStateConverter()  VerificationState? verification, @StatusViewConverter()  StatusView? status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileViewDetailed() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.followersCount,_that.followsCount,_that.postsCount,_that.associated,_that.joinedViaStarterPack,_that.indexedAt,_that.createdAt,_that.viewer,_that.labels,_that.pinnedPost,_that.verification,_that.status,_that.debug,_that.$unknown);case _:
@@ -303,7 +303,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.descr
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileViewDetailed implements ProfileViewDetailed {
-  const _ProfileViewDetailed({this.$type = 'app.bsky.actor.defs#profileViewDetailed', required this.did, required this.handle, this.displayName, this.description, this.pronouns, this.website, this.avatar, this.banner, this.followersCount, this.followsCount, this.postsCount, @ProfileAssociatedConverter() this.associated, @StarterPackViewBasicConverter() this.joinedViaStarterPack, this.indexedAt, this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() this.pinnedPost, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? debug, final  Map<String, dynamic>? $unknown}): _labels = labels,_debug = debug,_$unknown = $unknown;
+  const _ProfileViewDetailed({this.$type = 'app.bsky.actor.defs#profileViewDetailed', required this.did, required this.handle, this.displayName, this.description, this.pronouns, this.website, this.avatar, this.banner, this.followersCount, this.followsCount, this.postsCount, @ProfileAssociatedConverter() this.associated, @StarterPackViewBasicConverter() this.joinedViaStarterPack, @JsonKey(toJson: iso8601) this.indexedAt, @JsonKey(toJson: iso8601) this.createdAt, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() this.pinnedPost, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? debug, final  Map<String, dynamic>? $unknown}): _labels = labels,_debug = debug,_$unknown = $unknown;
   factory _ProfileViewDetailed.fromJson(Map<String, dynamic> json) => _$ProfileViewDetailedFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -320,8 +320,8 @@ class _ProfileViewDetailed implements ProfileViewDetailed {
 @override final  int? postsCount;
 @override@ProfileAssociatedConverter() final  ProfileAssociated? associated;
 @override@StarterPackViewBasicConverter() final  StarterPackViewBasic? joinedViaStarterPack;
-@override final  DateTime? indexedAt;
-@override final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
 @override@ViewerStateConverter() final  ViewerState? viewer;
  final  List<Label>? _labels;
 @override@LabelConverter() List<Label>? get labels {
@@ -387,7 +387,7 @@ abstract mixin class _$ProfileViewDetailedCopyWith<$Res> implements $ProfileView
   factory _$ProfileViewDetailedCopyWith(_ProfileViewDetailed value, $Res Function(_ProfileViewDetailed) _then) = __$ProfileViewDetailedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? displayName, String? description, String? pronouns, String? website, String? avatar, String? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack, DateTime? indexedAt, DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? displayName, String? description, String? pronouns, String? website, String? avatar, String? banner, int? followersCount, int? followsCount, int? postsCount,@ProfileAssociatedConverter() ProfileAssociated? associated,@StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack,@JsonKey(toJson: iso8601) DateTime? indexedAt,@JsonKey(toJson: iso8601) DateTime? createdAt,@ViewerStateConverter() ViewerState? viewer,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@VerificationStateConverter() VerificationState? verification,@StatusViewConverter() StatusView? status, Map<String, dynamic>? debug, Map<String, dynamic>? $unknown
 });
 
 

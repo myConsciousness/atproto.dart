@@ -40,8 +40,17 @@ final class PutPreferencesCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!.wasParsed("chat")) "chat": jsonDecode(argResults!["chat"]),
+    if (argResults!.wasParsed("chat")) "chat": _decodeJson("chat"),
     if (argResults!.wasParsed("chatRequest"))
-      "chatRequest": jsonDecode(argResults!["chatRequest"]),
+      "chatRequest": _decodeJson("chatRequest"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

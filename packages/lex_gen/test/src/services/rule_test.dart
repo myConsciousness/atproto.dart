@@ -43,13 +43,19 @@ void main() {
 
   group('getLexObjectName', () {
     test('main def uses the namespace segments', () {
-      expect(rule.getLexObjectName('app.bsky.actor.profile', 'main', const []),
-          'ActorProfile');
+      expect(
+        rule.getLexObjectName('app.bsky.actor.profile', 'main', const []),
+        'ActorProfile',
+      );
     });
 
     test('defs def uses the def name', () {
       expect(
-        rule.getLexObjectName('app.bsky.actor.defs', 'profileViewBasic', const []),
+        rule.getLexObjectName(
+          'app.bsky.actor.defs',
+          'profileViewBasic',
+          const [],
+        ),
         'ProfileViewBasic',
       );
     });

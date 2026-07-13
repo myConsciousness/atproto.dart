@@ -77,27 +77,27 @@ final class UEmbedJoinLinkViewJoinLinkPreviewConverter
 
   @override
   UEmbedJoinLinkViewJoinLinkPreview fromJson(Map<String, dynamic> json) {
-    try {
-      if (JoinLinkPreviewView.validate(json)) {
-        return UEmbedJoinLinkViewJoinLinkPreview.joinLinkPreviewView(
-          data: const JoinLinkPreviewViewConverter().fromJson(json),
-        );
-      }
-      if (DisabledJoinLinkPreviewView.validate(json)) {
-        return UEmbedJoinLinkViewJoinLinkPreview.disabledJoinLinkPreviewView(
-          data: const DisabledJoinLinkPreviewViewConverter().fromJson(json),
-        );
-      }
-      if (InvalidJoinLinkPreviewView.validate(json)) {
-        return UEmbedJoinLinkViewJoinLinkPreview.invalidJoinLinkPreviewView(
-          data: const InvalidJoinLinkPreviewViewConverter().fromJson(json),
-        );
-      }
-
-      return UEmbedJoinLinkViewJoinLinkPreview.unknown(data: json);
-    } catch (_) {
-      return UEmbedJoinLinkViewJoinLinkPreview.unknown(data: json);
+    if (JoinLinkPreviewView.validate(json)) {
+      return UEmbedJoinLinkViewJoinLinkPreview.joinLinkPreviewView(
+        data: const JoinLinkPreviewViewConverter().fromJson(json),
+      );
     }
+    if (DisabledJoinLinkPreviewView.validate(json)) {
+      return UEmbedJoinLinkViewJoinLinkPreview.disabledJoinLinkPreviewView(
+        data: const DisabledJoinLinkPreviewViewConverter().fromJson(json),
+      );
+    }
+    if (InvalidJoinLinkPreviewView.validate(json)) {
+      return UEmbedJoinLinkViewJoinLinkPreview.invalidJoinLinkPreviewView(
+        data: const InvalidJoinLinkPreviewViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UEmbedJoinLinkViewJoinLinkPreview.unknown(data: json);
   }
 
   @override

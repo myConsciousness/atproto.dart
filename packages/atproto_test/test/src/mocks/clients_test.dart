@@ -33,7 +33,10 @@ void main() {
       // truncate multi-byte characters. UTF-8 encoding of Japanese/emoji
       // yields strictly more bytes than the string's code-unit count.
       const encoded = '{"text":"こんにちは👋"}';
-      expect(utf8.encode(encoded).length, greaterThan(encoded.codeUnits.length));
+      expect(
+        utf8.encode(encoded).length,
+        greaterThan(encoded.codeUnits.length),
+      );
     });
   });
 
@@ -50,10 +53,10 @@ void main() {
 
   group('mock clients handle error/non-JSON bodies (P-12)', () {
     test('400 status is preserved for the GET client', () async {
-      final client = createMockedGetClientFromJson(
-        {'error': 'InvalidRequest', 'message': 'bad'},
-        statusCode: 400,
-      );
+      final client = createMockedGetClientFromJson({
+        'error': 'InvalidRequest',
+        'message': 'bad',
+      }, statusCode: 400);
 
       final response = await client(Uri.parse('https://example.com/xrpc'));
       expect(response.statusCode, 400);

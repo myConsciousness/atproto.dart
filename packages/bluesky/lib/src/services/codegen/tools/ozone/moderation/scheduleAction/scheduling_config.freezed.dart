@@ -16,9 +16,9 @@ T _$identity<T>(T value) => value;
 mixin _$SchedulingConfig {
 
  String get $type;/// Exact time to execute the action
- DateTime? get executeAt;/// Earliest time to execute the action (for randomized scheduling)
- DateTime? get executeAfter;/// Latest time to execute the action (for randomized scheduling)
- DateTime? get executeUntil; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get executeAt;/// Earliest time to execute the action (for randomized scheduling)
+@JsonKey(toJson: iso8601) DateTime? get executeAfter;/// Latest time to execute the action (for randomized scheduling)
+@JsonKey(toJson: iso8601) DateTime? get executeUntil; Map<String, dynamic>? get $unknown;
 /// Create a copy of SchedulingConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $SchedulingConfigCopyWith<$Res>  {
   factory $SchedulingConfigCopyWith(SchedulingConfig value, $Res Function(SchedulingConfig) _then) = _$SchedulingConfigCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? executeAt, DateTime? executeAfter, DateTime? executeUntil, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? executeAt,@JsonKey(toJson: iso8601) DateTime? executeAfter,@JsonKey(toJson: iso8601) DateTime? executeUntil, Map<String, dynamic>? $unknown
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SchedulingConfig() when $default != null:
 return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.$unknown);case _:
@@ -181,7 +181,7 @@ return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUnti
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SchedulingConfig():
 return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.$unknown);case _:
@@ -201,7 +201,7 @@ return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUnti
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? executeAt,  DateTime? executeAfter,  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? executeAt, @JsonKey(toJson: iso8601)  DateTime? executeAfter, @JsonKey(toJson: iso8601)  DateTime? executeUntil,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SchedulingConfig() when $default != null:
 return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUntil,_that.$unknown);case _:
@@ -216,16 +216,16 @@ return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUnti
 
 @JsonSerializable(includeIfNull: false)
 class _SchedulingConfig implements SchedulingConfig {
-  const _SchedulingConfig({this.$type = 'tools.ozone.moderation.scheduleAction#schedulingConfig', this.executeAt, this.executeAfter, this.executeUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SchedulingConfig({this.$type = 'tools.ozone.moderation.scheduleAction#schedulingConfig', @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SchedulingConfig.fromJson(Map<String, dynamic> json) => _$SchedulingConfigFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Exact time to execute the action
-@override final  DateTime? executeAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeAt;
 /// Earliest time to execute the action (for randomized scheduling)
-@override final  DateTime? executeAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeAfter;
 /// Latest time to execute the action (for randomized scheduling)
-@override final  DateTime? executeUntil;
+@override@JsonKey(toJson: iso8601) final  DateTime? executeUntil;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -269,7 +269,7 @@ abstract mixin class _$SchedulingConfigCopyWith<$Res> implements $SchedulingConf
   factory _$SchedulingConfigCopyWith(_SchedulingConfig value, $Res Function(_SchedulingConfig) _then) = __$SchedulingConfigCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? executeAt, DateTime? executeAfter, DateTime? executeUntil, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? executeAt,@JsonKey(toJson: iso8601) DateTime? executeAfter,@JsonKey(toJson: iso8601) DateTime? executeUntil, Map<String, dynamic>? $unknown
 });
 
 

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GraphFollowRecord {
 
- String get $type; String get subject; DateTime get createdAt;@RepoStrongRefConverter() RepoStrongRef? get via; Map<String, dynamic>? get $unknown;
+ String get $type; String get subject;@JsonKey(toJson: iso8601) DateTime get createdAt;@RepoStrongRefConverter() RepoStrongRef? get via; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphFollowRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GraphFollowRecordCopyWith<$Res>  {
   factory $GraphFollowRecordCopyWith(GraphFollowRecord value, $Res Function(GraphFollowRecord) _then) = _$GraphFollowRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subject, DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
+ String $type, String subject,@JsonKey(toJson: iso8601) DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
 });
 
 
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject,  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subject, @JsonKey(toJson: iso8601)  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphFollowRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unknown);case _:
@@ -190,7 +190,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject,  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subject, @JsonKey(toJson: iso8601)  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphFollowRecord():
 return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject,  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subject, @JsonKey(toJson: iso8601)  DateTime createdAt, @RepoStrongRefConverter()  RepoStrongRef? via,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphFollowRecord() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unknown);case _:
@@ -225,12 +225,12 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.via,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _GraphFollowRecord implements GraphFollowRecord {
-  const _GraphFollowRecord({this.$type = 'app.bsky.graph.follow', required this.subject, required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphFollowRecord({this.$type = 'app.bsky.graph.follow', required this.subject, @JsonKey(toJson: iso8601) required this.createdAt, @RepoStrongRefConverter() this.via, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphFollowRecord.fromJson(Map<String, dynamic> json) => _$GraphFollowRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String subject;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@RepoStrongRefConverter() final  RepoStrongRef? via;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -275,7 +275,7 @@ abstract mixin class _$GraphFollowRecordCopyWith<$Res> implements $GraphFollowRe
   factory _$GraphFollowRecordCopyWith(_GraphFollowRecord value, $Res Function(_GraphFollowRecord) _then) = __$GraphFollowRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subject, DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
+ String $type, String subject,@JsonKey(toJson: iso8601) DateTime createdAt,@RepoStrongRefConverter() RepoStrongRef? via, Map<String, dynamic>? $unknown
 });
 
 

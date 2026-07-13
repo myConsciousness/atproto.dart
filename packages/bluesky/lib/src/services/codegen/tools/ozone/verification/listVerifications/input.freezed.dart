@@ -18,8 +18,8 @@ mixin _$VerificationListVerificationsInput {
 /// Pagination cursor
  String? get cursor;/// Maximum number of results to return
  int get limit;/// Filter to verifications created after this timestamp
- DateTime? get createdAfter;/// Filter to verifications created before this timestamp
- DateTime? get createdBefore; List<String>? get issuers; List<String>? get subjects;/// Sort direction for creation date
+@JsonKey(toJson: iso8601) DateTime? get createdAfter;/// Filter to verifications created before this timestamp
+@JsonKey(toJson: iso8601) DateTime? get createdBefore; List<String>? get issuers; List<String>? get subjects;/// Sort direction for creation date
  String get sortDirection;/// Filter to verifications that are revoked or not. By default, includes both.
  bool? get isRevoked; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationListVerificationsInput
@@ -54,7 +54,7 @@ abstract mixin class $VerificationListVerificationsInputCopyWith<$Res>  {
   factory $VerificationListVerificationsInputCopyWith(VerificationListVerificationsInput value, $Res Function(VerificationListVerificationsInput) _then) = _$VerificationListVerificationsInputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor, int limit, DateTime? createdAfter, DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
+ String? cursor, int limit,@JsonKey(toJson: iso8601) DateTime? createdAfter,@JsonKey(toJson: iso8601) DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  int limit, @JsonKey(toJson: iso8601)  DateTime? createdAfter, @JsonKey(toJson: iso8601)  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationListVerificationsInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,_that.issuers,_that.subjects,_that.sortDirection,_that.isRevoked,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  int limit, @JsonKey(toJson: iso8601)  DateTime? createdAfter, @JsonKey(toJson: iso8601)  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationListVerificationsInput():
 return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,_that.issuers,_that.subjects,_that.sortDirection,_that.isRevoked,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int limit,  DateTime? createdAfter,  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  int limit, @JsonKey(toJson: iso8601)  DateTime? createdAfter, @JsonKey(toJson: iso8601)  DateTime? createdBefore,  List<String>? issuers,  List<String>? subjects,  String sortDirection,  bool? isRevoked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationListVerificationsInput() when $default != null:
 return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,_that.issuers,_that.subjects,_that.sortDirection,_that.isRevoked,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationListVerificationsInput implements VerificationListVerificationsInput {
-  const _VerificationListVerificationsInput({this.cursor, this.limit = 50, this.createdAfter, this.createdBefore, final  List<String>? issuers, final  List<String>? subjects, this.sortDirection = 'desc', this.isRevoked, final  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
+  const _VerificationListVerificationsInput({this.cursor, this.limit = 50, @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, final  List<String>? issuers, final  List<String>? subjects, this.sortDirection = 'desc', this.isRevoked, final  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
   factory _VerificationListVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationListVerificationsInputFromJson(json);
 
 /// Pagination cursor
@@ -231,9 +231,9 @@ class _VerificationListVerificationsInput implements VerificationListVerificatio
 /// Maximum number of results to return
 @override@JsonKey() final  int limit;
 /// Filter to verifications created after this timestamp
-@override final  DateTime? createdAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAfter;
 /// Filter to verifications created before this timestamp
-@override final  DateTime? createdBefore;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdBefore;
  final  List<String>? _issuers;
 @override List<String>? get issuers {
   final value = _issuers;
@@ -299,7 +299,7 @@ abstract mixin class _$VerificationListVerificationsInputCopyWith<$Res> implemen
   factory _$VerificationListVerificationsInputCopyWith(_VerificationListVerificationsInput value, $Res Function(_VerificationListVerificationsInput) _then) = __$VerificationListVerificationsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor, int limit, DateTime? createdAfter, DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
+ String? cursor, int limit,@JsonKey(toJson: iso8601) DateTime? createdAfter,@JsonKey(toJson: iso8601) DateTime? createdBefore, List<String>? issuers, List<String>? subjects, String sortDirection, bool? isRevoked, Map<String, dynamic>? $unknown
 });
 
 

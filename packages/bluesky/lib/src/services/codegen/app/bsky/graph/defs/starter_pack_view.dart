@@ -55,7 +55,7 @@ abstract class StarterPackView with _$StarterPackView {
     int? joinedWeekCount,
     int? joinedAllTimeCount,
     @LabelConverter() List<Label>? labels,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _StarterPackView;

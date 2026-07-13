@@ -44,11 +44,11 @@ final class UVerificationViewSubjectProfileConverter
 
   @override
   UVerificationViewSubjectProfile fromJson(Map<String, dynamic> json) {
-    try {
-      return UVerificationViewSubjectProfile.unknown(data: json);
-    } catch (_) {
-      return UVerificationViewSubjectProfile.unknown(data: json);
-    }
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UVerificationViewSubjectProfile.unknown(data: json);
   }
 
   @override

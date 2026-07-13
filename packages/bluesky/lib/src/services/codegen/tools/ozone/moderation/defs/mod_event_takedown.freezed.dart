@@ -20,7 +20,7 @@ mixin _$ModEventTakedown {
  bool? get acknowledgeAccountSubjects; List<String>? get policies;/// Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.).
  String? get severityLevel;@ModEventTakedownTargetServicesConverter() List<ModEventTakedownTargetServices>? get targetServices;/// Number of strikes to assign to the user for this violation.
  int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
- DateTime? get strikeExpiresAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get strikeExpiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventTakedown
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -53,7 +53,7 @@ abstract mixin class $ModEventTakedownCopyWith<$Res>  {
   factory $ModEventTakedownCopyWith(ModEventTakedown value, $Res Function(ModEventTakedown) _then) = _$ModEventTakedownCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel,@ModEventTakedownTargetServicesConverter() List<ModEventTakedownTargetServices>? targetServices, int? strikeCount, DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel,@ModEventTakedownTargetServicesConverter() List<ModEventTakedownTargetServices>? targetServices, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventTakedown() when $default != null:
 return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.targetServices,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventTakedown():
 return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.targetServices,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices,  int? strikeCount,  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  int? durationInHours,  bool? acknowledgeAccountSubjects,  List<String>? policies,  String? severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventTakedown() when $default != null:
 return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledgeAccountSubjects,_that.policies,_that.severityLevel,_that.targetServices,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventTakedown implements ModEventTakedown {
-  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, @ModEventTakedownTargetServicesConverter() final  List<ModEventTakedownTargetServices>? targetServices, this.strikeCount, this.strikeExpiresAt, final  Map<String, dynamic>? $unknown}): _policies = policies,_targetServices = targetServices,_$unknown = $unknown;
+  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, @ModEventTakedownTargetServicesConverter() final  List<ModEventTakedownTargetServices>? targetServices, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, final  Map<String, dynamic>? $unknown}): _policies = policies,_targetServices = targetServices,_$unknown = $unknown;
   factory _ModEventTakedown.fromJson(Map<String, dynamic> json) => _$ModEventTakedownFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -255,7 +255,7 @@ class _ModEventTakedown implements ModEventTakedown {
 /// Number of strikes to assign to the user for this violation.
 @override final  int? strikeCount;
 /// When the strike should expire. If not provided, the strike never expires.
-@override final  DateTime? strikeExpiresAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? strikeExpiresAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -299,7 +299,7 @@ abstract mixin class _$ModEventTakedownCopyWith<$Res> implements $ModEventTakedo
   factory _$ModEventTakedownCopyWith(_ModEventTakedown value, $Res Function(_ModEventTakedown) _then) = __$ModEventTakedownCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel,@ModEventTakedownTargetServicesConverter() List<ModEventTakedownTargetServices>? targetServices, int? strikeCount, DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
+ String $type, String? comment, int? durationInHours, bool? acknowledgeAccountSubjects, List<String>? policies, String? severityLevel,@ModEventTakedownTargetServicesConverter() List<ModEventTakedownTargetServices>? targetServices, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 

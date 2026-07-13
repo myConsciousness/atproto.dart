@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$SyncStatus {
 
  String get $type;/// Last date when contacts where imported.
- DateTime get syncedAt;/// Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.
+@JsonKey(toJson: iso8601) DateTime get syncedAt;/// Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.
  int get matchesCount; Map<String, dynamic>? get $unknown;
 /// Create a copy of SyncStatus
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $SyncStatusCopyWith<$Res>  {
   factory $SyncStatusCopyWith(SyncStatus value, $Res Function(SyncStatus) _then) = _$SyncStatusCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime syncedAt, int matchesCount, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime syncedAt, int matchesCount, Map<String, dynamic>? $unknown
 });
 
 
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime syncedAt,  int matchesCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime syncedAt,  int matchesCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SyncStatus() when $default != null:
 return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);case _:
@@ -179,7 +179,7 @@ return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime syncedAt,  int matchesCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime syncedAt,  int matchesCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SyncStatus():
 return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime syncedAt,  int matchesCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime syncedAt,  int matchesCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SyncStatus() when $default != null:
 return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);case _:
@@ -214,12 +214,12 @@ return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);ca
 
 @JsonSerializable(includeIfNull: false)
 class _SyncStatus implements SyncStatus {
-  const _SyncStatus({this.$type = 'app.bsky.contact.defs#syncStatus', required this.syncedAt, required this.matchesCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SyncStatus({this.$type = 'app.bsky.contact.defs#syncStatus', @JsonKey(toJson: iso8601) required this.syncedAt, required this.matchesCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncStatus.fromJson(Map<String, dynamic> json) => _$SyncStatusFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// Last date when contacts where imported.
-@override final  DateTime syncedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime syncedAt;
 /// Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match.
 @override final  int matchesCount;
  final  Map<String, dynamic>? _$unknown;
@@ -265,7 +265,7 @@ abstract mixin class _$SyncStatusCopyWith<$Res> implements $SyncStatusCopyWith<$
   factory _$SyncStatusCopyWith(_SyncStatus value, $Res Function(_SyncStatus) _then) = __$SyncStatusCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime syncedAt, int matchesCount, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime syncedAt, int matchesCount, Map<String, dynamic>? $unknown
 });
 
 

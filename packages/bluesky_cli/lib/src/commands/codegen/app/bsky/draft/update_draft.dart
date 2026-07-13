@@ -36,5 +36,14 @@ final class UpdateDraftCommand extends ProcedureCommand {
   String get methodId => "app.bsky.draft.updateDraft";
 
   @override
-  Map<String, dynamic>? get body => {"draft": jsonDecode(argResults!["draft"])};
+  Map<String, dynamic>? get body => {"draft": _decodeJson("draft")};
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

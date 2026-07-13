@@ -70,32 +70,32 @@ final class UModEventViewSubjectConverter
 
   @override
   UModEventViewSubject fromJson(Map<String, dynamic> json) {
-    try {
-      if (RepoRef.validate(json)) {
-        return UModEventViewSubject.repoRef(
-          data: const RepoRefConverter().fromJson(json),
-        );
-      }
-      if (RepoStrongRef.validate(json)) {
-        return UModEventViewSubject.repoStrongRef(
-          data: const RepoStrongRefConverter().fromJson(json),
-        );
-      }
-      if (MessageRef.validate(json)) {
-        return UModEventViewSubject.messageRef(
-          data: const MessageRefConverter().fromJson(json),
-        );
-      }
-      if (ConvoRef.validate(json)) {
-        return UModEventViewSubject.convoRef(
-          data: const ConvoRefConverter().fromJson(json),
-        );
-      }
-
-      return UModEventViewSubject.unknown(data: json);
-    } catch (_) {
-      return UModEventViewSubject.unknown(data: json);
+    if (RepoRef.validate(json)) {
+      return UModEventViewSubject.repoRef(
+        data: const RepoRefConverter().fromJson(json),
+      );
     }
+    if (RepoStrongRef.validate(json)) {
+      return UModEventViewSubject.repoStrongRef(
+        data: const RepoStrongRefConverter().fromJson(json),
+      );
+    }
+    if (MessageRef.validate(json)) {
+      return UModEventViewSubject.messageRef(
+        data: const MessageRefConverter().fromJson(json),
+      );
+    }
+    if (ConvoRef.validate(json)) {
+      return UModEventViewSubject.convoRef(
+        data: const ConvoRefConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UModEventViewSubject.unknown(data: json);
   }
 
   @override

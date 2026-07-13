@@ -33,13 +33,13 @@ abstract class SchedulingConfig with _$SchedulingConfig {
     String $type,
 
     /// Exact time to execute the action
-    DateTime? executeAt,
+    @JsonKey(toJson: iso8601) DateTime? executeAt,
 
     /// Earliest time to execute the action (for randomized scheduling)
-    DateTime? executeAfter,
+    @JsonKey(toJson: iso8601) DateTime? executeAfter,
 
     /// Latest time to execute the action (for randomized scheduling)
-    DateTime? executeUntil,
+    @JsonKey(toJson: iso8601) DateTime? executeUntil,
 
     Map<String, dynamic>? $unknown,
   }) = _SchedulingConfig;

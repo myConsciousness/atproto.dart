@@ -96,10 +96,7 @@ Uint8List base58BtcDecode(String input) {
     bytes.clear();
   }
 
-  return Uint8List.fromList([
-    ...List.filled(zeros, 0),
-    ...bytes.reversed,
-  ]);
+  return Uint8List.fromList([...List.filled(zeros, 0), ...bytes.reversed]);
 }
 
 const _base32Alphabet = 'abcdefghijklmnopqrstuvwxyz234567';

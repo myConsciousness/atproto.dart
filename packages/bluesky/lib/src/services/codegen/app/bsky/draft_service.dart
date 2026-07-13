@@ -33,7 +33,7 @@ Future<XRPCResponse<DraftCreateDraftOutput>> appBskyDraftCreateDraft({
   ns.appBskyDraftCreateDraft,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'draft': draft.toJson()},
+  body: {...?$unknown, 'draft': const DraftConverter().toJson(draft)},
   to: const DraftCreateDraftOutputConverter().fromJson,
 );
 
@@ -82,7 +82,7 @@ Future<XRPCResponse<EmptyData>> appBskyDraftUpdateDraft({
   ns.appBskyDraftUpdateDraft,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'draft': draft.toJson()},
+  body: {...?$unknown, 'draft': const DraftWithIdConverter().toJson(draft)},
 );
 
 /// `app.bsky.draft.*`

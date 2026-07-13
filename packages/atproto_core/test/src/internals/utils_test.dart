@@ -44,9 +44,7 @@ void main() {
     });
 
     test('converts a local DateTime to UTC', () {
-      final result = internals.iso8601(
-        DateTime.utc(2024, 6, 1, 12).toLocal(),
-      );
+      final result = internals.iso8601(DateTime.utc(2024, 6, 1, 12).toLocal());
 
       expect(result, endsWith('Z'));
     });

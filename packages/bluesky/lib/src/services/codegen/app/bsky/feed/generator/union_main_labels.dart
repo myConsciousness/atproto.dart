@@ -49,17 +49,17 @@ final class UFeedGeneratorLabelsConverter
 
   @override
   UFeedGeneratorLabels fromJson(Map<String, dynamic> json) {
-    try {
-      if (SelfLabels.validate(json)) {
-        return UFeedGeneratorLabels.selfLabels(
-          data: const SelfLabelsConverter().fromJson(json),
-        );
-      }
-
-      return UFeedGeneratorLabels.unknown(data: json);
-    } catch (_) {
-      return UFeedGeneratorLabels.unknown(data: json);
+    if (SelfLabels.validate(json)) {
+      return UFeedGeneratorLabels.selfLabels(
+        data: const SelfLabelsConverter().fromJson(json),
+      );
     }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UFeedGeneratorLabels.unknown(data: json);
   }
 
   @override

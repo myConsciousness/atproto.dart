@@ -198,11 +198,12 @@ void main() {
   });
 
   group('.getLabelDefinitions', () {
-    LabelerService labelerServiceOf(Map<String, dynamic> json) => LabelerService(
-      core.ServiceContext(
-        getClient: atp_test.createMockedGetClientFromJson(json),
-      ),
-    );
+    LabelerService labelerServiceOf(Map<String, dynamic> json) =>
+        LabelerService(
+          core.ServiceContext(
+            getClient: atp_test.createMockedGetClientFromJson(json),
+          ),
+        );
 
     test('interprets label value definitions keyed by labeler did', () async {
       final service = labelerServiceOf({

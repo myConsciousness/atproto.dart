@@ -23,6 +23,6 @@ _NotificationUpdateSeenInput _$NotificationUpdateSeenInputFromJson(Map json) =>
 Map<String, dynamic> _$NotificationUpdateSeenInputToJson(
   _NotificationUpdateSeenInput instance,
 ) => <String, dynamic>{
-  'seenAt': instance.seenAt.toIso8601String(),
+  'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,
 };

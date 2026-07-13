@@ -41,8 +41,8 @@ final class ThreadgateCommand extends Command<void> {
       "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.";
 }
 
-final class _CreateThreadgateCommand extends CreateRecordCommand {
-  _CreateThreadgateCommand() {
+mixin _ThreadgateCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption(
         "post",
@@ -56,8 +56,23 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
         splitCommas: false,
       )
       ..addOption("createdAt", mandatory: true)
-      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
-      ..addOption("rkey", help: r"Specific record key to use.");
+      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.");
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateThreadgateCommand extends CreateRecordCommand
+    with _ThreadgateCommandRecordArgs {
+  _CreateThreadgateCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -83,7 +98,7 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
     "post": argResults!["post"],
     if (argResults!.wasParsed("allow"))
       "allow": (argResults!["allow"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("allow", e))
           .toList(),
     "createdAt": argResults!["createdAt"],
     if (argResults!.wasParsed("hiddenReplies"))
@@ -91,23 +106,11 @@ final class _CreateThreadgateCommand extends CreateRecordCommand {
   };
 }
 
-final class _PutThreadgateCommand extends PutRecordCommand {
+final class _PutThreadgateCommand extends PutRecordCommand
+    with _ThreadgateCommandRecordArgs {
   _PutThreadgateCommand() {
-    argParser
-      ..addOption(
-        "post",
-        help: r"Reference (AT-URI) to the post record.",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "allow",
-        help:
-            r"List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
-        splitCommas: false,
-      )
-      ..addOption("createdAt", mandatory: true)
-      ..addMultiOption("hiddenReplies", help: r"List of hidden reply URIs.")
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -132,7 +135,7 @@ final class _PutThreadgateCommand extends PutRecordCommand {
     "post": argResults!["post"],
     if (argResults!.wasParsed("allow"))
       "allow": (argResults!["allow"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("allow", e))
           .toList(),
     "createdAt": argResults!["createdAt"],
     if (argResults!.wasParsed("hiddenReplies"))
@@ -224,7 +227,9 @@ final class _ListThreadgateCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.feed.threadgate",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

@@ -99,7 +99,10 @@ final class LexProperty {
 
     if (annotation.startsWith('@JsonKey(')) {
       // Merge into the existing JsonKey, e.g. `@JsonKey(toJson: iso8601)`.
-      final inner = annotation.substring('@JsonKey('.length, annotation.length - 1);
+      final inner = annotation.substring(
+        '@JsonKey('.length,
+        annotation.length - 1,
+      );
       return inner.isEmpty
           ? '@JsonKey($includeIfNull)'
           : '@JsonKey($inner, $includeIfNull)';

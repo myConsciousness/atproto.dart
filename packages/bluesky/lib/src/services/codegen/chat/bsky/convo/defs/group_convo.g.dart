@@ -57,7 +57,7 @@ Map<String, dynamic> _$GroupConvoToJson(
   _GroupConvo instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'joinLink': ?_$JsonConverterToJson<Map<String, dynamic>, JoinLinkView>(
     instance.joinLink,
     const JoinLinkViewConverter().toJson,

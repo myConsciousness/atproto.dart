@@ -55,29 +55,32 @@ final class PutPreferencesV2Command extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    if (argResults!.wasParsed("chat")) "chat": jsonDecode(argResults!["chat"]),
-    if (argResults!.wasParsed("follow"))
-      "follow": jsonDecode(argResults!["follow"]),
-    if (argResults!.wasParsed("like")) "like": jsonDecode(argResults!["like"]),
+    if (argResults!.wasParsed("chat")) "chat": _decodeJson("chat"),
+    if (argResults!.wasParsed("follow")) "follow": _decodeJson("follow"),
+    if (argResults!.wasParsed("like")) "like": _decodeJson("like"),
     if (argResults!.wasParsed("likeViaRepost"))
-      "likeViaRepost": jsonDecode(argResults!["likeViaRepost"]),
-    if (argResults!.wasParsed("mention"))
-      "mention": jsonDecode(argResults!["mention"]),
-    if (argResults!.wasParsed("quote"))
-      "quote": jsonDecode(argResults!["quote"]),
-    if (argResults!.wasParsed("reply"))
-      "reply": jsonDecode(argResults!["reply"]),
-    if (argResults!.wasParsed("repost"))
-      "repost": jsonDecode(argResults!["repost"]),
+      "likeViaRepost": _decodeJson("likeViaRepost"),
+    if (argResults!.wasParsed("mention")) "mention": _decodeJson("mention"),
+    if (argResults!.wasParsed("quote")) "quote": _decodeJson("quote"),
+    if (argResults!.wasParsed("reply")) "reply": _decodeJson("reply"),
+    if (argResults!.wasParsed("repost")) "repost": _decodeJson("repost"),
     if (argResults!.wasParsed("repostViaRepost"))
-      "repostViaRepost": jsonDecode(argResults!["repostViaRepost"]),
+      "repostViaRepost": _decodeJson("repostViaRepost"),
     if (argResults!.wasParsed("starterpackJoined"))
-      "starterpackJoined": jsonDecode(argResults!["starterpackJoined"]),
+      "starterpackJoined": _decodeJson("starterpackJoined"),
     if (argResults!.wasParsed("subscribedPost"))
-      "subscribedPost": jsonDecode(argResults!["subscribedPost"]),
+      "subscribedPost": _decodeJson("subscribedPost"),
     if (argResults!.wasParsed("unverified"))
-      "unverified": jsonDecode(argResults!["unverified"]),
-    if (argResults!.wasParsed("verified"))
-      "verified": jsonDecode(argResults!["verified"]),
+      "unverified": _decodeJson("unverified"),
+    if (argResults!.wasParsed("verified")) "verified": _decodeJson("verified"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

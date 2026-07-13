@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordHosting {
 
- String get $type;@RecordHostingStatusConverter() RecordHostingStatus get status; DateTime? get updatedAt; DateTime? get createdAt; DateTime? get deletedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@RecordHostingStatusConverter() RecordHostingStatus get status;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get deletedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordHosting
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RecordHostingCopyWith<$Res>  {
   factory $RecordHostingCopyWith(RecordHosting value, $Res Function(RecordHosting) _then) = _$RecordHostingCopyWithImpl;
 @useResult
 $Res call({
- String $type,@RecordHostingStatusConverter() RecordHostingStatus status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, Map<String, dynamic>? $unknown
+ String $type,@RecordHostingStatusConverter() RecordHostingStatus status,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? deletedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordHosting() when $default != null:
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? deletedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordHosting():
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status,  DateTime? updatedAt,  DateTime? createdAt,  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RecordHostingStatusConverter()  RecordHostingStatus status, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? deletedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordHosting() when $default != null:
 return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.deletedAt,_that.$unknown);case _:
@@ -223,14 +223,14 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 
 @JsonSerializable(includeIfNull: false)
 class _RecordHosting implements RecordHosting {
-  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', @RecordHostingStatusConverter() required this.status, this.updatedAt, this.createdAt, this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', @RecordHostingStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordHosting.fromJson(Map<String, dynamic> json) => _$RecordHostingFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@RecordHostingStatusConverter() final  RecordHostingStatus status;
-@override final  DateTime? updatedAt;
-@override final  DateTime? createdAt;
-@override final  DateTime? deletedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? deletedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -274,7 +274,7 @@ abstract mixin class _$RecordHostingCopyWith<$Res> implements $RecordHostingCopy
   factory _$RecordHostingCopyWith(_RecordHosting value, $Res Function(_RecordHosting) _then) = __$RecordHostingCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@RecordHostingStatusConverter() RecordHostingStatus status, DateTime? updatedAt, DateTime? createdAt, DateTime? deletedAt, Map<String, dynamic>? $unknown
+ String $type,@RecordHostingStatusConverter() RecordHostingStatus status,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? deletedAt, Map<String, dynamic>? $unknown
 });
 
 

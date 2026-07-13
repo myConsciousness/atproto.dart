@@ -18,7 +18,7 @@ mixin _$ReportAssignment {
  String get $type;/// DID of the assigned moderator
  String get did;/// Full member record of the assigned moderator
 @MemberConverter() Member? get moderator;/// When the report was assigned
- DateTime get assignedAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get assignedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportAssignment
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $ReportAssignmentCopyWith<$Res>  {
   factory $ReportAssignmentCopyWith(ReportAssignment value, $Res Function(ReportAssignment) _then) = _$ReportAssignmentCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did,@MemberConverter() Member? moderator, DateTime assignedAt, Map<String, dynamic>? $unknown
+ String $type, String did,@MemberConverter() Member? moderator,@JsonKey(toJson: iso8601) DateTime assignedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did, @MemberConverter()  Member? moderator,  DateTime assignedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did, @MemberConverter()  Member? moderator, @JsonKey(toJson: iso8601)  DateTime assignedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportAssignment() when $default != null:
 return $default(_that.$type,_that.did,_that.moderator,_that.assignedAt,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.did,_that.moderator,_that.assignedAt,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did, @MemberConverter()  Member? moderator,  DateTime assignedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did, @MemberConverter()  Member? moderator, @JsonKey(toJson: iso8601)  DateTime assignedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportAssignment():
 return $default(_that.$type,_that.did,_that.moderator,_that.assignedAt,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.did,_that.moderator,_that.assignedAt,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did, @MemberConverter()  Member? moderator,  DateTime assignedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did, @MemberConverter()  Member? moderator, @JsonKey(toJson: iso8601)  DateTime assignedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportAssignment() when $default != null:
 return $default(_that.$type,_that.did,_that.moderator,_that.assignedAt,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.$type,_that.did,_that.moderator,_that.assignedAt,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _ReportAssignment implements ReportAssignment {
-  const _ReportAssignment({this.$type = 'tools.ozone.report.defs#reportAssignment', required this.did, @MemberConverter() this.moderator, required this.assignedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReportAssignment({this.$type = 'tools.ozone.report.defs#reportAssignment', required this.did, @MemberConverter() this.moderator, @JsonKey(toJson: iso8601) required this.assignedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReportAssignment.fromJson(Map<String, dynamic> json) => _$ReportAssignmentFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -237,7 +237,7 @@ class _ReportAssignment implements ReportAssignment {
 /// Full member record of the assigned moderator
 @override@MemberConverter() final  Member? moderator;
 /// When the report was assigned
-@override final  DateTime assignedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime assignedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -281,7 +281,7 @@ abstract mixin class _$ReportAssignmentCopyWith<$Res> implements $ReportAssignme
   factory _$ReportAssignmentCopyWith(_ReportAssignment value, $Res Function(_ReportAssignment) _then) = __$ReportAssignmentCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did,@MemberConverter() Member? moderator, DateTime assignedAt, Map<String, dynamic>? $unknown
+ String $type, String did,@MemberConverter() Member? moderator,@JsonKey(toJson: iso8601) DateTime assignedAt, Map<String, dynamic>? $unknown
 });
 
 

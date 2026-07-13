@@ -56,10 +56,27 @@ final class ApplyWritesCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "repo": argResults!["repo"],
     if (argResults!.wasParsed("validate")) "validate": argResults!["validate"],
-    "writes": (argResults!["writes"] as List<String>)
-        .map((e) => jsonDecode(e))
-        .toList(),
+    "writes": _requireNonEmpty(
+      "writes",
+      (argResults!["writes"] as List<String>)
+          .map((e) => _decodeJsonItem("writes", e))
+          .toList(),
+    ),
     if (argResults!.wasParsed("swapCommit"))
       "swapCommit": argResults!["swapCommit"],
   };
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

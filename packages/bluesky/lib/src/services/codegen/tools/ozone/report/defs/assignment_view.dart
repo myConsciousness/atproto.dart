@@ -44,8 +44,8 @@ abstract class AssignmentView with _$AssignmentView {
     @MemberConverter() Member? moderator,
     @QueueViewConverter() QueueView? queue,
     required int reportId,
-    required DateTime startAt,
-    DateTime? endAt,
+    @JsonKey(toJson: iso8601) required DateTime startAt,
+    @JsonKey(toJson: iso8601) DateTime? endAt,
 
     Map<String, dynamic>? $unknown,
   }) = _AssignmentView;

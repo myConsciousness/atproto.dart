@@ -41,10 +41,18 @@ final class UpdateSubjectStatusCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "subject": jsonDecode(argResults!["subject"]),
-    if (argResults!.wasParsed("takedown"))
-      "takedown": jsonDecode(argResults!["takedown"]),
+    "subject": _decodeJson("subject"),
+    if (argResults!.wasParsed("takedown")) "takedown": _decodeJson("takedown"),
     if (argResults!.wasParsed("deactivated"))
-      "deactivated": jsonDecode(argResults!["deactivated"]),
+      "deactivated": _decodeJson("deactivated"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

@@ -20,7 +20,7 @@ mixin _$TemplateView {
  String? get subject;/// Subject of the message, used in emails.
  String get contentMarkdown; bool get disabled;/// Message language.
  String? get lang;/// DID of the user who last updated the template.
- String get lastUpdatedBy; DateTime get createdAt; DateTime get updatedAt; Map<String, dynamic>? get $unknown;
+ String get lastUpdatedBy;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of TemplateView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -53,7 +53,7 @@ abstract mixin class $TemplateViewCopyWith<$Res>  {
   factory $TemplateViewCopyWith(TemplateView value, $Res Function(TemplateView) _then) = _$TemplateViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id, String name, String? subject, String contentMarkdown, bool disabled, String? lang, String lastUpdatedBy, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String id, String name, String? subject, String contentMarkdown, bool disabled, String? lang, String lastUpdatedBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -168,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String name,  String? subject,  String contentMarkdown,  bool disabled,  String? lang,  String lastUpdatedBy,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  String name,  String? subject,  String contentMarkdown,  bool disabled,  String? lang,  String lastUpdatedBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TemplateView() when $default != null:
 return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkdown,_that.disabled,_that.lang,_that.lastUpdatedBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -189,7 +189,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkd
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String name,  String? subject,  String contentMarkdown,  bool disabled,  String? lang,  String lastUpdatedBy,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  String name,  String? subject,  String contentMarkdown,  bool disabled,  String? lang,  String lastUpdatedBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _TemplateView():
 return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkdown,_that.disabled,_that.lang,_that.lastUpdatedBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -209,7 +209,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkd
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String name,  String? subject,  String contentMarkdown,  bool disabled,  String? lang,  String lastUpdatedBy,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  String name,  String? subject,  String contentMarkdown,  bool disabled,  String? lang,  String lastUpdatedBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _TemplateView() when $default != null:
 return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkdown,_that.disabled,_that.lang,_that.lastUpdatedBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -224,7 +224,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subject,_that.contentMarkd
 
 @JsonSerializable(includeIfNull: false)
 class _TemplateView implements TemplateView {
-  const _TemplateView({this.$type = 'tools.ozone.communication.defs#templateView', required this.id, required this.name, this.subject, required this.contentMarkdown, required this.disabled, this.lang, required this.lastUpdatedBy, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _TemplateView({this.$type = 'tools.ozone.communication.defs#templateView', required this.id, required this.name, this.subject, required this.contentMarkdown, required this.disabled, this.lang, required this.lastUpdatedBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TemplateView.fromJson(Map<String, dynamic> json) => _$TemplateViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -240,8 +240,8 @@ class _TemplateView implements TemplateView {
 @override final  String? lang;
 /// DID of the user who last updated the template.
 @override final  String lastUpdatedBy;
-@override final  DateTime createdAt;
-@override final  DateTime updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -285,7 +285,7 @@ abstract mixin class _$TemplateViewCopyWith<$Res> implements $TemplateViewCopyWi
   factory _$TemplateViewCopyWith(_TemplateView value, $Res Function(_TemplateView) _then) = __$TemplateViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id, String name, String? subject, String contentMarkdown, bool disabled, String? lang, String lastUpdatedBy, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String id, String name, String? subject, String contentMarkdown, bool disabled, String? lang, String lastUpdatedBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 

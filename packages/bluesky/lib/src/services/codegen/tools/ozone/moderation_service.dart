@@ -90,9 +90,10 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
     'subject': subject.toJson(),
     if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
     'createdBy': createdBy,
-    if (modTool != null) 'modTool': modTool.toJson(),
+    if (modTool != null) 'modTool': const ModToolConverter().toJson(modTool),
     if (externalId != null) 'externalId': externalId,
-    if (reportAction != null) 'reportAction': reportAction.toJson(),
+    if (reportAction != null)
+      'reportAction': const ReportActionConverter().toJson(reportAction),
   },
   to: const ModEventViewConverter().fromJson,
 );
@@ -439,8 +440,8 @@ toolsOzoneModerationScheduleAction({
     'action': action.toJson(),
     'subjects': subjects,
     'createdBy': createdBy,
-    'scheduling': scheduling.toJson(),
-    if (modTool != null) 'modTool': modTool.toJson(),
+    'scheduling': const SchedulingConfigConverter().toJson(scheduling),
+    if (modTool != null) 'modTool': const ModToolConverter().toJson(modTool),
   },
   to: const ScheduledActionResultsConverter().fromJson,
 );

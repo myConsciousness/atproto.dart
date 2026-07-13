@@ -51,7 +51,7 @@ abstract class LabelerViewDetailed with _$LabelerViewDetailed {
     @LabelerPoliciesConverter() required LabelerPolicies policies,
     int? likeCount,
     @LabelerViewerStateConverter() LabelerViewerState? viewer,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @LabelConverter() List<Label>? labels,
     @ReasonTypeConverter() List<ReasonType>? reasonTypes,
     @SubjectTypeConverter() List<SubjectType>? subjectTypes,

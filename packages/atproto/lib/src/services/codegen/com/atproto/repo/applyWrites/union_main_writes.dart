@@ -63,27 +63,27 @@ final class URepoApplyWritesWritesConverter
 
   @override
   URepoApplyWritesWrites fromJson(Map<String, dynamic> json) {
-    try {
-      if (Create.validate(json)) {
-        return URepoApplyWritesWrites.create(
-          data: const CreateConverter().fromJson(json),
-        );
-      }
-      if (Update.validate(json)) {
-        return URepoApplyWritesWrites.update(
-          data: const UpdateConverter().fromJson(json),
-        );
-      }
-      if (Delete.validate(json)) {
-        return URepoApplyWritesWrites.delete(
-          data: const DeleteConverter().fromJson(json),
-        );
-      }
-
-      return URepoApplyWritesWrites.unknown(data: json);
-    } catch (_) {
-      return URepoApplyWritesWrites.unknown(data: json);
+    if (Create.validate(json)) {
+      return URepoApplyWritesWrites.create(
+        data: const CreateConverter().fromJson(json),
+      );
     }
+    if (Update.validate(json)) {
+      return URepoApplyWritesWrites.update(
+        data: const UpdateConverter().fromJson(json),
+      );
+    }
+    if (Delete.validate(json)) {
+      return URepoApplyWritesWrites.delete(
+        data: const DeleteConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return URepoApplyWritesWrites.unknown(data: json);
   }
 
   @override

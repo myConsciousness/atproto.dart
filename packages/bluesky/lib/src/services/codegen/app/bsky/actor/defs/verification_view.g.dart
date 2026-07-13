@@ -46,6 +46,6 @@ Map<String, dynamic> _$VerificationViewToJson(_VerificationView instance) =>
       'issuerHandle': ?instance.issuerHandle,
       'uri': const AtUriConverter().toJson(instance.uri),
       'isValid': instance.isValid,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };

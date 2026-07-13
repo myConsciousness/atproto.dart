@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ServerDeactivateAccountInput {
 
 /// A recommendation to server as to how long they should hold onto the deactivated account before deleting.
- DateTime? get deleteAfter; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get deleteAfter; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServerDeactivateAccountInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $ServerDeactivateAccountInputCopyWith<$Res>  {
   factory $ServerDeactivateAccountInputCopyWith(ServerDeactivateAccountInput value, $Res Function(ServerDeactivateAccountInput) _then) = _$ServerDeactivateAccountInputCopyWithImpl;
 @useResult
 $Res call({
- DateTime? deleteAfter, Map<String, dynamic>? $unknown
+@JsonKey(toJson: iso8601) DateTime? deleteAfter, Map<String, dynamic>? $unknown
 });
 
 
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime? deleteAfter,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(toJson: iso8601)  DateTime? deleteAfter,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServerDeactivateAccountInput() when $default != null:
 return $default(_that.deleteAfter,_that.$unknown);case _:
@@ -176,7 +176,7 @@ return $default(_that.deleteAfter,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime? deleteAfter,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(toJson: iso8601)  DateTime? deleteAfter,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServerDeactivateAccountInput():
 return $default(_that.deleteAfter,_that.$unknown);case _:
@@ -196,7 +196,7 @@ return $default(_that.deleteAfter,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime? deleteAfter,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(toJson: iso8601)  DateTime? deleteAfter,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServerDeactivateAccountInput() when $default != null:
 return $default(_that.deleteAfter,_that.$unknown);case _:
@@ -211,11 +211,11 @@ return $default(_that.deleteAfter,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ServerDeactivateAccountInput implements ServerDeactivateAccountInput {
-  const _ServerDeactivateAccountInput({this.deleteAfter, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ServerDeactivateAccountInput({@JsonKey(toJson: iso8601) this.deleteAfter, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerDeactivateAccountInput.fromJson(Map<String, dynamic> json) => _$ServerDeactivateAccountInputFromJson(json);
 
 /// A recommendation to server as to how long they should hold onto the deactivated account before deleting.
-@override final  DateTime? deleteAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? deleteAfter;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,7 +259,7 @@ abstract mixin class _$ServerDeactivateAccountInputCopyWith<$Res> implements $Se
   factory _$ServerDeactivateAccountInputCopyWith(_ServerDeactivateAccountInput value, $Res Function(_ServerDeactivateAccountInput) _then) = __$ServerDeactivateAccountInputCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime? deleteAfter, Map<String, dynamic>? $unknown
+@JsonKey(toJson: iso8601) DateTime? deleteAfter, Map<String, dynamic>? $unknown
 });
 
 

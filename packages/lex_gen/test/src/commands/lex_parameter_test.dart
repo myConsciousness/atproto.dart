@@ -64,20 +64,23 @@ void main() {
       );
     });
 
-    test('an optional array keeps the wasParsed guard (no empty array sent)', () {
-      final param = LexParameter(
-        'langs',
-        null,
-        false,
-        null,
-        type: 'array',
-        itemsType: 'string',
-      );
+    test(
+      'an optional array keeps the wasParsed guard (no empty array sent)',
+      () {
+        final param = LexParameter(
+          'langs',
+          null,
+          false,
+          null,
+          type: 'array',
+          itemsType: 'string',
+        );
 
-      expect(
-        param.getParam(),
-        'if (argResults!.wasParsed("langs"))"langs": argResults!["langs"],',
-      );
-    });
+        expect(
+          param.getParam(),
+          'if (argResults!.wasParsed("langs"))"langs": argResults!["langs"],',
+        );
+      },
+    );
   });
 }

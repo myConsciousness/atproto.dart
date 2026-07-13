@@ -61,22 +61,22 @@ final class ULabelerGetServicesViewsConverter
 
   @override
   ULabelerGetServicesViews fromJson(Map<String, dynamic> json) {
-    try {
-      if (LabelerView.validate(json)) {
-        return ULabelerGetServicesViews.labelerView(
-          data: const LabelerViewConverter().fromJson(json),
-        );
-      }
-      if (LabelerViewDetailed.validate(json)) {
-        return ULabelerGetServicesViews.labelerViewDetailed(
-          data: const LabelerViewDetailedConverter().fromJson(json),
-        );
-      }
-
-      return ULabelerGetServicesViews.unknown(data: json);
-    } catch (_) {
-      return ULabelerGetServicesViews.unknown(data: json);
+    if (LabelerView.validate(json)) {
+      return ULabelerGetServicesViews.labelerView(
+        data: const LabelerViewConverter().fromJson(json),
+      );
     }
+    if (LabelerViewDetailed.validate(json)) {
+      return ULabelerGetServicesViews.labelerViewDetailed(
+        data: const LabelerViewDetailedConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return ULabelerGetServicesViews.unknown(data: json);
   }
 
   @override

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AgeAssuranceState {
 
  String get $type;/// The timestamp when this state was last updated.
- DateTime? get lastInitiatedAt;/// The status of the age assurance process.
+@JsonKey(toJson: iso8601) DateTime? get lastInitiatedAt;/// The status of the age assurance process.
 @AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus get status; Map<String, dynamic>? get $unknown;
 /// Create a copy of AgeAssuranceState
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $AgeAssuranceStateCopyWith<$Res>  {
   factory $AgeAssuranceStateCopyWith(AgeAssuranceState value, $Res Function(AgeAssuranceState) _then) = _$AgeAssuranceStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? lastInitiatedAt,@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus status, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? lastInitiatedAt,@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus status, Map<String, dynamic>? $unknown
 });
 
 
@@ -167,7 +167,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgeAssuranceState() when $default != null:
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);case _:
@@ -188,7 +188,7 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceState():
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);case _:
@@ -208,7 +208,7 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? lastInitiatedAt, @AgeAssuranceStateStatusConverter()  AgeAssuranceStateStatus status,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AgeAssuranceState() when $default != null:
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);case _:
@@ -223,12 +223,12 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.$unknown);c
 
 @JsonSerializable(includeIfNull: false)
 class _AgeAssuranceState implements AgeAssuranceState {
-  const _AgeAssuranceState({this.$type = 'app.bsky.unspecced.defs#ageAssuranceState', this.lastInitiatedAt, @AgeAssuranceStateStatusConverter() required this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AgeAssuranceState({this.$type = 'app.bsky.unspecced.defs#ageAssuranceState', @JsonKey(toJson: iso8601) this.lastInitiatedAt, @AgeAssuranceStateStatusConverter() required this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AgeAssuranceState.fromJson(Map<String, dynamic> json) => _$AgeAssuranceStateFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The timestamp when this state was last updated.
-@override final  DateTime? lastInitiatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? lastInitiatedAt;
 /// The status of the age assurance process.
 @override@AgeAssuranceStateStatusConverter() final  AgeAssuranceStateStatus status;
  final  Map<String, dynamic>? _$unknown;
@@ -274,7 +274,7 @@ abstract mixin class _$AgeAssuranceStateCopyWith<$Res> implements $AgeAssuranceS
   factory _$AgeAssuranceStateCopyWith(_AgeAssuranceState value, $Res Function(_AgeAssuranceState) _then) = __$AgeAssuranceStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? lastInitiatedAt,@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus status, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? lastInitiatedAt,@AgeAssuranceStateStatusConverter() AgeAssuranceStateStatus status, Map<String, dynamic>? $unknown
 });
 
 

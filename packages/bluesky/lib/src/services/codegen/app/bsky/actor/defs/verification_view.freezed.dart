@@ -21,7 +21,7 @@ mixin _$VerificationView {
  String? get issuerHandle;/// The AT-URI of the verification record.
 @AtUriConverter() AtUri get uri;/// True if the verification passes validation, otherwise false.
  bool get isValid;/// Timestamp when the verification was created.
- DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $VerificationViewCopyWith<$Res>  {
   factory $VerificationViewCopyWith(VerificationView value, $Res Function(VerificationView) _then) = _$VerificationViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String issuer, String? issuerDisplayName, String? issuerHandle,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String issuer, String? issuerDisplayName, String? issuerHandle,@AtUriConverter() AtUri uri, bool isValid,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
 return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHandle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHan
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView():
 return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHandle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHan
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer,  String? issuerDisplayName,  String? issuerHandle, @AtUriConverter()  AtUri uri,  bool isValid, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
 return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHandle,_that.uri,_that.isValid,_that.createdAt,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.$type,_that.issuer,_that.issuerDisplayName,_that.issuerHan
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationView implements VerificationView {
-  const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, this.issuerDisplayName, this.issuerHandle, @AtUriConverter() required this.uri, required this.isValid, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationView({this.$type = 'app.bsky.actor.defs#verificationView', required this.issuer, this.issuerDisplayName, this.issuerHandle, @AtUriConverter() required this.uri, required this.isValid, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationView.fromJson(Map<String, dynamic> json) => _$VerificationViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -237,7 +237,7 @@ class _VerificationView implements VerificationView {
 /// True if the verification passes validation, otherwise false.
 @override final  bool isValid;
 /// Timestamp when the verification was created.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -281,7 +281,7 @@ abstract mixin class _$VerificationViewCopyWith<$Res> implements $VerificationVi
   factory _$VerificationViewCopyWith(_VerificationView value, $Res Function(_VerificationView) _then) = __$VerificationViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String issuer, String? issuerDisplayName, String? issuerHandle,@AtUriConverter() AtUri uri, bool isValid, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String issuer, String? issuerDisplayName, String? issuerHandle,@AtUriConverter() AtUri uri, bool isValid,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$BookmarkView {
 
  String get $type;/// A strong ref to the bookmarked record.
-@RepoStrongRefConverter() RepoStrongRef get subject; DateTime? get createdAt;@UBookmarkViewItemConverter() UBookmarkViewItem get item; Map<String, dynamic>? get $unknown;
+@RepoStrongRefConverter() RepoStrongRef get subject;@JsonKey(toJson: iso8601) DateTime? get createdAt;@UBookmarkViewItemConverter() UBookmarkViewItem get item; Map<String, dynamic>? get $unknown;
 /// Create a copy of BookmarkView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $BookmarkViewCopyWith<$Res>  {
   factory $BookmarkViewCopyWith(BookmarkView value, $Res Function(BookmarkView) _then) = _$BookmarkViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@RepoStrongRefConverter() RepoStrongRef subject, DateTime? createdAt,@UBookmarkViewItemConverter() UBookmarkViewItem item, Map<String, dynamic>? $unknown
+ String $type,@RepoStrongRefConverter() RepoStrongRef subject,@JsonKey(toJson: iso8601) DateTime? createdAt,@UBookmarkViewItemConverter() UBookmarkViewItem item, Map<String, dynamic>? $unknown
 });
 
 
@@ -176,7 +176,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject,  DateTime? createdAt, @UBookmarkViewItemConverter()  UBookmarkViewItem item,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject, @JsonKey(toJson: iso8601)  DateTime? createdAt, @UBookmarkViewItemConverter()  UBookmarkViewItem item,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BookmarkView() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.item,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.item,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject,  DateTime? createdAt, @UBookmarkViewItemConverter()  UBookmarkViewItem item,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject, @JsonKey(toJson: iso8601)  DateTime? createdAt, @UBookmarkViewItemConverter()  UBookmarkViewItem item,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _BookmarkView():
 return $default(_that.$type,_that.subject,_that.createdAt,_that.item,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.item,_that.$unkn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject,  DateTime? createdAt, @UBookmarkViewItemConverter()  UBookmarkViewItem item,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoStrongRefConverter()  RepoStrongRef subject, @JsonKey(toJson: iso8601)  DateTime? createdAt, @UBookmarkViewItemConverter()  UBookmarkViewItem item,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _BookmarkView() when $default != null:
 return $default(_that.$type,_that.subject,_that.createdAt,_that.item,_that.$unknown);case _:
@@ -232,13 +232,13 @@ return $default(_that.$type,_that.subject,_that.createdAt,_that.item,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _BookmarkView implements BookmarkView {
-  const _BookmarkView({this.$type = 'app.bsky.bookmark.defs#bookmarkView', @RepoStrongRefConverter() required this.subject, this.createdAt, @UBookmarkViewItemConverter() required this.item, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BookmarkView({this.$type = 'app.bsky.bookmark.defs#bookmarkView', @RepoStrongRefConverter() required this.subject, @JsonKey(toJson: iso8601) this.createdAt, @UBookmarkViewItemConverter() required this.item, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BookmarkView.fromJson(Map<String, dynamic> json) => _$BookmarkViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// A strong ref to the bookmarked record.
 @override@RepoStrongRefConverter() final  RepoStrongRef subject;
-@override final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
 @override@UBookmarkViewItemConverter() final  UBookmarkViewItem item;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -283,7 +283,7 @@ abstract mixin class _$BookmarkViewCopyWith<$Res> implements $BookmarkViewCopyWi
   factory _$BookmarkViewCopyWith(_BookmarkView value, $Res Function(_BookmarkView) _then) = __$BookmarkViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@RepoStrongRefConverter() RepoStrongRef subject, DateTime? createdAt,@UBookmarkViewItemConverter() UBookmarkViewItem item, Map<String, dynamic>? $unknown
+ String $type,@RepoStrongRefConverter() RepoStrongRef subject,@JsonKey(toJson: iso8601) DateTime? createdAt,@UBookmarkViewItemConverter() UBookmarkViewItem item, Map<String, dynamic>? $unknown
 });
 
 

@@ -84,32 +84,32 @@ final class UEmbedRecordWithMediaViewMediaConverter
 
   @override
   UEmbedRecordWithMediaViewMedia fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedImagesView.validate(json)) {
-        return UEmbedRecordWithMediaViewMedia.embedImagesView(
-          data: const EmbedImagesViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedVideoView.validate(json)) {
-        return UEmbedRecordWithMediaViewMedia.embedVideoView(
-          data: const EmbedVideoViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedGalleryView.validate(json)) {
-        return UEmbedRecordWithMediaViewMedia.embedGalleryView(
-          data: const EmbedGalleryViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedExternalView.validate(json)) {
-        return UEmbedRecordWithMediaViewMedia.embedExternalView(
-          data: const EmbedExternalViewConverter().fromJson(json),
-        );
-      }
-
-      return UEmbedRecordWithMediaViewMedia.unknown(data: json);
-    } catch (_) {
-      return UEmbedRecordWithMediaViewMedia.unknown(data: json);
+    if (EmbedImagesView.validate(json)) {
+      return UEmbedRecordWithMediaViewMedia.embedImagesView(
+        data: const EmbedImagesViewConverter().fromJson(json),
+      );
     }
+    if (EmbedVideoView.validate(json)) {
+      return UEmbedRecordWithMediaViewMedia.embedVideoView(
+        data: const EmbedVideoViewConverter().fromJson(json),
+      );
+    }
+    if (EmbedGalleryView.validate(json)) {
+      return UEmbedRecordWithMediaViewMedia.embedGalleryView(
+        data: const EmbedGalleryViewConverter().fromJson(json),
+      );
+    }
+    if (EmbedExternalView.validate(json)) {
+      return UEmbedRecordWithMediaViewMedia.embedExternalView(
+        data: const EmbedExternalViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UEmbedRecordWithMediaViewMedia.unknown(data: json);
   }
 
   @override

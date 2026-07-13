@@ -63,22 +63,22 @@ final class UModerationGetReposReposConverter
 
   @override
   UModerationGetReposRepos fromJson(Map<String, dynamic> json) {
-    try {
-      if (RepoViewDetail.validate(json)) {
-        return UModerationGetReposRepos.repoViewDetail(
-          data: const RepoViewDetailConverter().fromJson(json),
-        );
-      }
-      if (RepoViewNotFound.validate(json)) {
-        return UModerationGetReposRepos.repoViewNotFound(
-          data: const RepoViewNotFoundConverter().fromJson(json),
-        );
-      }
-
-      return UModerationGetReposRepos.unknown(data: json);
-    } catch (_) {
-      return UModerationGetReposRepos.unknown(data: json);
+    if (RepoViewDetail.validate(json)) {
+      return UModerationGetReposRepos.repoViewDetail(
+        data: const RepoViewDetailConverter().fromJson(json),
+      );
     }
+    if (RepoViewNotFound.validate(json)) {
+      return UModerationGetReposRepos.repoViewNotFound(
+        data: const RepoViewNotFoundConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UModerationGetReposRepos.unknown(data: json);
   }
 
   @override

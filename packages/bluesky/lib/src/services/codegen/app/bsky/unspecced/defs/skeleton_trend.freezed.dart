@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonTrend {
 
- String get $type; String get topic; String get displayName; String get link; DateTime get startedAt; int get postCount;@SkeletonTrendStatusConverter() SkeletonTrendStatus? get status; String? get category; List<String> get dids; Map<String, dynamic>? get $unknown;
+ String get $type; String get topic; String get displayName; String get link;@JsonKey(toJson: iso8601) DateTime get startedAt; int get postCount;@SkeletonTrendStatusConverter() SkeletonTrendStatus? get status; String? get category; List<String> get dids; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonTrend
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SkeletonTrendCopyWith<$Res>  {
   factory $SkeletonTrendCopyWith(SkeletonTrend value, $Res Function(SkeletonTrend) _then) = _$SkeletonTrendCopyWithImpl;
 @useResult
 $Res call({
- String $type, String topic, String displayName, String link, DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String link,@JsonKey(toJson: iso8601) DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
 });
 
 
@@ -174,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonTrend() when $default != null:
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonTrend():
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link,  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonTrend() when $default != null:
 return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
@@ -230,14 +230,14 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonTrend implements SkeletonTrend {
-  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
+  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _SkeletonTrend.fromJson(Map<String, dynamic> json) => _$SkeletonTrendFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String topic;
 @override final  String displayName;
 @override final  String link;
-@override final  DateTime startedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime startedAt;
 @override final  int postCount;
 @override@SkeletonTrendStatusConverter() final  SkeletonTrendStatus? status;
 @override final  String? category;
@@ -291,7 +291,7 @@ abstract mixin class _$SkeletonTrendCopyWith<$Res> implements $SkeletonTrendCopy
   factory _$SkeletonTrendCopyWith(_SkeletonTrend value, $Res Function(_SkeletonTrend) _then) = __$SkeletonTrendCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String topic, String displayName, String link, DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String link,@JsonKey(toJson: iso8601) DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
 });
 
 

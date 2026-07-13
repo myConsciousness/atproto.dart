@@ -41,8 +41,11 @@ final class MockXrpc {
 
   /// Stubs the response body (and optional status) for the method id
   /// (last path segment).
-  void stub(final String methodId, final String body, {final int status = 200}) =>
-      _stubs[methodId] = _Stub(body, status);
+  void stub(
+    final String methodId,
+    final String body, {
+    final int status = 200,
+  }) => _stubs[methodId] = _Stub(body, status);
 
   Future<http.Response> get(Uri url, {Map<String, String>? headers}) async {
     requests.add(RecordedRequest('GET', url, headers, null));
@@ -386,9 +389,7 @@ void main() {
           status: 500,
         );
 
-      await _runner(
-        mock,
-      ).run([..._auth, 'app-bsky-feed', 'get-timeline']);
+      await _runner(mock).run([..._auth, 'app-bsky-feed', 'get-timeline']);
 
       expect(exitCode, 1);
     });
@@ -453,12 +454,9 @@ void main() {
 
     test('--no-auth suppresses createSession even with credentials', () async {
       final mock = _authenticatedMock();
-      await _runner(mock).run([
-        ..._auth,
-        '--no-auth',
-        'app-bsky-feed',
-        'get-timeline',
-      ]);
+      await _runner(
+        mock,
+      ).run([..._auth, '--no-auth', 'app-bsky-feed', 'get-timeline']);
 
       expect(
         mock.requests.any(

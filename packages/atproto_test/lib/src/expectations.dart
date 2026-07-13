@@ -195,34 +195,42 @@ void testSubscription<S, D>(
       await mocked.subscription.close();
     });
 
-    test('close() always delivers a done event', () async {
-      final mocked = createMockedSubscription<Map<String, dynamic>>();
-      final done = Completer<void>();
-      mocked.subscription.stream.listen((_) {}, onDone: done.complete);
+    test(
+      'close() always delivers a done event',
+      () async {
+        final mocked = createMockedSubscription<Map<String, dynamic>>();
+        final done = Completer<void>();
+        mocked.subscription.stream.listen((_) {}, onDone: done.complete);
 
-      await mocked.subscription.close();
+        await mocked.subscription.close();
 
-      // Must complete quickly; a done event is guaranteed on close.
-      await done.future.timeout(const Duration(seconds: 5));
-    }, timeout: const Timeout(Duration(seconds: 10)));
+        // Must complete quickly; a done event is guaranteed on close.
+        await done.future.timeout(const Duration(seconds: 5));
+      },
+      timeout: const Timeout(Duration(seconds: 10)),
+    );
 
-    test('connection errors propagate to the stream', () async {
-      final mocked = createMockedSubscription<Map<String, dynamic>>();
-      final errors = <Object>[];
-      final done = Completer<void>();
-      mocked.subscription.stream.listen(
-        (_) {},
-        onError: errors.add,
-        onDone: done.complete,
-      );
+    test(
+      'connection errors propagate to the stream',
+      () async {
+        final mocked = createMockedSubscription<Map<String, dynamic>>();
+        final errors = <Object>[];
+        final done = Completer<void>();
+        mocked.subscription.stream.listen(
+          (_) {},
+          onError: errors.add,
+          onDone: done.complete,
+        );
 
-      mocked.channel.addError(Exception('connection reset'));
-      await Future<void>.delayed(Duration.zero);
-      await mocked.subscription.close();
-      await done.future.timeout(const Duration(seconds: 5));
+        mocked.channel.addError(Exception('connection reset'));
+        await Future<void>.delayed(Duration.zero);
+        await mocked.subscription.close();
+        await done.future.timeout(const Duration(seconds: 5));
 
-      expect(errors, hasLength(1));
-    }, timeout: const Timeout(Duration(seconds: 10)));
+        expect(errors, hasLength(1));
+      },
+      timeout: const Timeout(Duration(seconds: 10)),
+    );
   });
 }
 

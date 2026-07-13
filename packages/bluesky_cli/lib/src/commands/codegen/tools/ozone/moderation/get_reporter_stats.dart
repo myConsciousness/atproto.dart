@@ -33,5 +33,13 @@ final class GetReporterStatsCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getReporterStats";
 
   @override
-  Map<String, dynamic>? get parameters => {"dids": argResults!["dids"]};
+  Map<String, dynamic>? get parameters => {
+    "dids": _requireNonEmpty("dids", argResults!["dids"]),
+  };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

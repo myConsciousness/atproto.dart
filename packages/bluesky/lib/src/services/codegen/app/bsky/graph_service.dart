@@ -965,7 +965,12 @@ final class GraphBlockRecordAccessor {
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    record: {
+      r'$type': 'app.bsky.graph.block',
+      ...?$unknown,
+      'subject': subject,
+      'createdAt': iso8601(createdAt),
+    },
     swapCommit: swapCommit,
     $ctx: ctx,
     $headers: $headers,
@@ -985,7 +990,12 @@ final class GraphBlockRecordAccessor {
     collection: ids.appBskyGraphBlock,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'subject': subject, 'createdAt': iso8601(createdAt)},
+    record: {
+      r'$type': 'app.bsky.graph.block',
+      ...?$unknown,
+      'subject': subject,
+      'createdAt': iso8601(createdAt),
+    },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $ctx: ctx,
@@ -1063,10 +1073,11 @@ final class GraphFollowRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.follow',
       ...?$unknown,
       'subject': subject,
       'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
+      if (via != null) 'via': const RepoStrongRefConverter().toJson(via),
     },
     swapCommit: swapCommit,
     $ctx: ctx,
@@ -1089,10 +1100,11 @@ final class GraphFollowRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.follow',
       ...?$unknown,
       'subject': subject,
       'createdAt': iso8601(createdAt),
-      if (via != null) 'via': via.toJson(),
+      if (via != null) 'via': const RepoStrongRefConverter().toJson(via),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
@@ -1175,12 +1187,15 @@ final class GraphListRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.list',
       ...?$unknown,
-      'purpose': purpose.toJson(),
+      'purpose': const ListPurposeConverter().toJson(purpose),
       'name': name,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
-        'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
+        'descriptionFacets': descriptionFacets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
       if (avatar != null) 'avatar': avatar,
       if (labels != null) 'labels': labels.toJson(),
       'createdAt': iso8601(createdAt),
@@ -1210,12 +1225,15 @@ final class GraphListRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.list',
       ...?$unknown,
-      'purpose': purpose.toJson(),
+      'purpose': const ListPurposeConverter().toJson(purpose),
       'name': name,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
-        'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
+        'descriptionFacets': descriptionFacets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
       if (avatar != null) 'avatar': avatar,
       if (labels != null) 'labels': labels.toJson(),
       'createdAt': iso8601(createdAt),
@@ -1296,6 +1314,7 @@ final class GraphListblockRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.listblock',
       ...?$unknown,
       'subject': subject.toString(),
       'createdAt': iso8601(createdAt),
@@ -1320,6 +1339,7 @@ final class GraphListblockRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.listblock',
       ...?$unknown,
       'subject': subject.toString(),
       'createdAt': iso8601(createdAt),
@@ -1401,6 +1421,7 @@ final class GraphListitemRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.listitem',
       ...?$unknown,
       'subject': subject,
       'list': list.toString(),
@@ -1427,6 +1448,7 @@ final class GraphListitemRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.listitem',
       ...?$unknown,
       'subject': subject,
       'list': list.toString(),
@@ -1512,13 +1534,17 @@ final class GraphStarterpackRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.starterpack',
       ...?$unknown,
       'name': name,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
-        'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
+        'descriptionFacets': descriptionFacets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
       'list': list.toString(),
-      if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
+      if (feeds != null)
+        'feeds': feeds.map((e) => const FeedItemConverter().toJson(e)).toList(),
       'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
@@ -1545,13 +1571,17 @@ final class GraphStarterpackRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.starterpack',
       ...?$unknown,
       'name': name,
       if (description != null) 'description': description,
       if (descriptionFacets != null)
-        'descriptionFacets': descriptionFacets.map((e) => e.toJson()).toList(),
+        'descriptionFacets': descriptionFacets
+            .map((e) => const RichtextFacetConverter().toJson(e))
+            .toList(),
       'list': list.toString(),
-      if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
+      if (feeds != null)
+        'feeds': feeds.map((e) => const FeedItemConverter().toJson(e)).toList(),
       'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,
@@ -1632,6 +1662,7 @@ final class GraphVerificationRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.verification',
       ...?$unknown,
       'subject': subject,
       'handle': handle,
@@ -1660,6 +1691,7 @@ final class GraphVerificationRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'app.bsky.graph.verification',
       ...?$unknown,
       'subject': subject,
       'handle': handle,

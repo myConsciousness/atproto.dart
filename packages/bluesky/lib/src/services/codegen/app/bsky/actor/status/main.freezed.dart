@@ -17,7 +17,7 @@ mixin _$ActorStatusRecord {
 
  String get $type;/// The status for the account.
 @ActorStatusStatusConverter() ActorStatusStatus get status;@UActorStatusEmbedConverter() UActorStatusEmbed? get embed;/// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
- int? get durationMinutes; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ int? get durationMinutes;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorStatusRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $ActorStatusRecordCopyWith<$Res>  {
   factory $ActorStatusRecordCopyWith(ActorStatusRecord value, $Res Function(ActorStatusRecord) _then) = _$ActorStatusRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@ActorStatusStatusConverter() ActorStatusStatus status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@ActorStatusStatusConverter() ActorStatusStatus status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorStatusRecord() when $default != null:
 return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that.createdAt,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorStatusRecord():
 return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that.createdAt,_that.$unknown);case _:
@@ -222,7 +222,7 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @ActorStatusStatusConverter()  ActorStatusStatus status, @UActorStatusEmbedConverter()  UActorStatusEmbed? embed,  int? durationMinutes, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorStatusRecord() when $default != null:
 return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that.createdAt,_that.$unknown);case _:
@@ -237,7 +237,7 @@ return $default(_that.$type,_that.status,_that.embed,_that.durationMinutes,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ActorStatusRecord implements ActorStatusRecord {
-  const _ActorStatusRecord({this.$type = 'app.bsky.actor.status', @ActorStatusStatusConverter() required this.status, @UActorStatusEmbedConverter() this.embed, this.durationMinutes, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorStatusRecord({this.$type = 'app.bsky.actor.status', @ActorStatusStatusConverter() required this.status, @UActorStatusEmbedConverter() this.embed, this.durationMinutes, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorStatusRecord.fromJson(Map<String, dynamic> json) => _$ActorStatusRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -246,7 +246,7 @@ class _ActorStatusRecord implements ActorStatusRecord {
 @override@UActorStatusEmbedConverter() final  UActorStatusEmbed? embed;
 /// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
 @override final  int? durationMinutes;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -290,7 +290,7 @@ abstract mixin class _$ActorStatusRecordCopyWith<$Res> implements $ActorStatusRe
   factory _$ActorStatusRecordCopyWith(_ActorStatusRecord value, $Res Function(_ActorStatusRecord) _then) = __$ActorStatusRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@ActorStatusStatusConverter() ActorStatusStatus status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@ActorStatusStatusConverter() ActorStatusStatus status,@UActorStatusEmbedConverter() UActorStatusEmbed? embed, int? durationMinutes,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

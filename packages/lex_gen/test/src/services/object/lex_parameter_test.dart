@@ -48,10 +48,7 @@ void main() {
     });
 
     test('a datetime is normalized to UTC via iso8601', () {
-      final param = LexParameter(
-        name: 'createdAt',
-        type: DartType.dateTime(),
-      );
+      final param = LexParameter(name: 'createdAt', type: DartType.dateTime());
 
       expect(
         param.getParamsRecord(),
@@ -91,10 +88,7 @@ void main() {
         type: DartType(name: 'Foo', knownValues: knownValues),
       );
 
-      expect(
-        param.getParamsRecord(),
-        "if (foo != null) 'foo': foo.toJson(),",
-      );
+      expect(param.getParamsRecord(), "if (foo != null) 'foo': foo.toJson(),");
     });
 
     test('an at-uri is stringified', () {

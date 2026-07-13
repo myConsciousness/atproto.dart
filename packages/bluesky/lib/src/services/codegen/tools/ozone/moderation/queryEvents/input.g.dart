@@ -104,8 +104,8 @@ Map<String, dynamic> _$ModerationQueryEventsInputToJson(
   'types': ?instance.types,
   'createdBy': ?instance.createdBy,
   'sortDirection': instance.sortDirection,
-  'createdAfter': ?instance.createdAfter?.toIso8601String(),
-  'createdBefore': ?instance.createdBefore?.toIso8601String(),
+  'createdAfter': iso8601(instance.createdAfter),
+  'createdBefore': iso8601(instance.createdBefore),
   'subject': ?instance.subject,
   'collections': ?instance.collections,
   'subjectType':

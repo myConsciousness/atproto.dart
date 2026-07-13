@@ -7,8 +7,8 @@ import 'package:lexicon/lexicon.dart' as lex;
 import 'package:test/test.dart';
 
 // Project imports:
-import 'package:lex_gen/src/services/object/lex_property.dart';
 import 'package:lex_gen/src/services/fmt/lex_property_generator.dart';
+import 'package:lex_gen/src/services/object/lex_property.dart';
 
 /// Builds a `{name: LexObjectProperty}` map from raw fixture JSON, mirroring how
 /// the generator receives object properties.
@@ -73,10 +73,7 @@ void main() {
 
   group('default value escaping (G-8)', () {
     test('backslash, dollar and single-quote are escaped', () {
-      final property = _one({
-        'type': 'string',
-        'default': r"a'b\c$d",
-      });
+      final property = _one({'type': 'string', 'default': r"a'b\c$d"});
 
       // Wrapped in single quotes with each metacharacter escaped so the
       // resulting `@Default('...')` compiles.

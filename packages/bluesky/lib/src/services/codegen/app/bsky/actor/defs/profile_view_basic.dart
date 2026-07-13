@@ -53,7 +53,7 @@ abstract class ProfileViewBasic with _$ProfileViewBasic {
     @ProfileAssociatedConverter() ProfileAssociated? associated,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
-    DateTime? createdAt,
+    @JsonKey(toJson: iso8601) DateTime? createdAt,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
     Map<String, dynamic>? debug,

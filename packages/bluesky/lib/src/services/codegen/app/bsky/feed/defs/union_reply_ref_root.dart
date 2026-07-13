@@ -62,27 +62,27 @@ final class UReplyRefRootConverter
 
   @override
   UReplyRefRoot fromJson(Map<String, dynamic> json) {
-    try {
-      if (PostView.validate(json)) {
-        return UReplyRefRoot.postView(
-          data: const PostViewConverter().fromJson(json),
-        );
-      }
-      if (NotFoundPost.validate(json)) {
-        return UReplyRefRoot.notFoundPost(
-          data: const NotFoundPostConverter().fromJson(json),
-        );
-      }
-      if (BlockedPost.validate(json)) {
-        return UReplyRefRoot.blockedPost(
-          data: const BlockedPostConverter().fromJson(json),
-        );
-      }
-
-      return UReplyRefRoot.unknown(data: json);
-    } catch (_) {
-      return UReplyRefRoot.unknown(data: json);
+    if (PostView.validate(json)) {
+      return UReplyRefRoot.postView(
+        data: const PostViewConverter().fromJson(json),
+      );
     }
+    if (NotFoundPost.validate(json)) {
+      return UReplyRefRoot.notFoundPost(
+        data: const NotFoundPostConverter().fromJson(json),
+      );
+    }
+    if (BlockedPost.validate(json)) {
+      return UReplyRefRoot.blockedPost(
+        data: const BlockedPostConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UReplyRefRoot.unknown(data: json);
   }
 
   @override

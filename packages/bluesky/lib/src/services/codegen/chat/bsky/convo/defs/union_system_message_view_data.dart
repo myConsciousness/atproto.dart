@@ -178,76 +178,74 @@ final class USystemMessageViewDataConverter
 
   @override
   USystemMessageViewData fromJson(Map<String, dynamic> json) {
-    try {
-      if (SystemMessageDataAddMember.validate(json)) {
-        return USystemMessageViewData.systemMessageDataAddMember(
-          data: const SystemMessageDataAddMemberConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataRemoveMember.validate(json)) {
-        return USystemMessageViewData.systemMessageDataRemoveMember(
-          data: const SystemMessageDataRemoveMemberConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataMemberJoin.validate(json)) {
-        return USystemMessageViewData.systemMessageDataMemberJoin(
-          data: const SystemMessageDataMemberJoinConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataMemberLeave.validate(json)) {
-        return USystemMessageViewData.systemMessageDataMemberLeave(
-          data: const SystemMessageDataMemberLeaveConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataLockConvo.validate(json)) {
-        return USystemMessageViewData.systemMessageDataLockConvo(
-          data: const SystemMessageDataLockConvoConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataUnlockConvo.validate(json)) {
-        return USystemMessageViewData.systemMessageDataUnlockConvo(
-          data: const SystemMessageDataUnlockConvoConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataLockConvoPermanently.validate(json)) {
-        return USystemMessageViewData.systemMessageDataLockConvoPermanently(
-          data: const SystemMessageDataLockConvoPermanentlyConverter().fromJson(
-            json,
-          ),
-        );
-      }
-      if (SystemMessageDataEditGroup.validate(json)) {
-        return USystemMessageViewData.systemMessageDataEditGroup(
-          data: const SystemMessageDataEditGroupConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataCreateJoinLink.validate(json)) {
-        return USystemMessageViewData.systemMessageDataCreateJoinLink(
-          data: const SystemMessageDataCreateJoinLinkConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataEditJoinLink.validate(json)) {
-        return USystemMessageViewData.systemMessageDataEditJoinLink(
-          data: const SystemMessageDataEditJoinLinkConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataEnableJoinLink.validate(json)) {
-        return USystemMessageViewData.systemMessageDataEnableJoinLink(
-          data: const SystemMessageDataEnableJoinLinkConverter().fromJson(json),
-        );
-      }
-      if (SystemMessageDataDisableJoinLink.validate(json)) {
-        return USystemMessageViewData.systemMessageDataDisableJoinLink(
-          data: const SystemMessageDataDisableJoinLinkConverter().fromJson(
-            json,
-          ),
-        );
-      }
-
-      return USystemMessageViewData.unknown(data: json);
-    } catch (_) {
-      return USystemMessageViewData.unknown(data: json);
+    if (SystemMessageDataAddMember.validate(json)) {
+      return USystemMessageViewData.systemMessageDataAddMember(
+        data: const SystemMessageDataAddMemberConverter().fromJson(json),
+      );
     }
+    if (SystemMessageDataRemoveMember.validate(json)) {
+      return USystemMessageViewData.systemMessageDataRemoveMember(
+        data: const SystemMessageDataRemoveMemberConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataMemberJoin.validate(json)) {
+      return USystemMessageViewData.systemMessageDataMemberJoin(
+        data: const SystemMessageDataMemberJoinConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataMemberLeave.validate(json)) {
+      return USystemMessageViewData.systemMessageDataMemberLeave(
+        data: const SystemMessageDataMemberLeaveConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataLockConvo.validate(json)) {
+      return USystemMessageViewData.systemMessageDataLockConvo(
+        data: const SystemMessageDataLockConvoConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataUnlockConvo.validate(json)) {
+      return USystemMessageViewData.systemMessageDataUnlockConvo(
+        data: const SystemMessageDataUnlockConvoConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataLockConvoPermanently.validate(json)) {
+      return USystemMessageViewData.systemMessageDataLockConvoPermanently(
+        data: const SystemMessageDataLockConvoPermanentlyConverter().fromJson(
+          json,
+        ),
+      );
+    }
+    if (SystemMessageDataEditGroup.validate(json)) {
+      return USystemMessageViewData.systemMessageDataEditGroup(
+        data: const SystemMessageDataEditGroupConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataCreateJoinLink.validate(json)) {
+      return USystemMessageViewData.systemMessageDataCreateJoinLink(
+        data: const SystemMessageDataCreateJoinLinkConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataEditJoinLink.validate(json)) {
+      return USystemMessageViewData.systemMessageDataEditJoinLink(
+        data: const SystemMessageDataEditJoinLinkConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataEnableJoinLink.validate(json)) {
+      return USystemMessageViewData.systemMessageDataEnableJoinLink(
+        data: const SystemMessageDataEnableJoinLinkConverter().fromJson(json),
+      );
+    }
+    if (SystemMessageDataDisableJoinLink.validate(json)) {
+      return USystemMessageViewData.systemMessageDataDisableJoinLink(
+        data: const SystemMessageDataDisableJoinLinkConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return USystemMessageViewData.unknown(data: json);
   }
 
   @override

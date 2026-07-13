@@ -10,9 +10,11 @@ import 'package:http/http.dart' as http;
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
+import 'retry_policy.dart';
+
+// Project imports:
 import 'network_error_detector_stub.dart'
     if (dart.library.io) 'network_error_detector_io.dart';
-import 'retry_policy.dart';
 
 final class Challenge {
   /// Returns the new instance of [Challenge].

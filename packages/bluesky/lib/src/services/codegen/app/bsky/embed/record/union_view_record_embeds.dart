@@ -101,42 +101,42 @@ final class UEmbedRecordViewRecordEmbedsConverter
 
   @override
   UEmbedRecordViewRecordEmbeds fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedImagesView.validate(json)) {
-        return UEmbedRecordViewRecordEmbeds.embedImagesView(
-          data: const EmbedImagesViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedVideoView.validate(json)) {
-        return UEmbedRecordViewRecordEmbeds.embedVideoView(
-          data: const EmbedVideoViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedGalleryView.validate(json)) {
-        return UEmbedRecordViewRecordEmbeds.embedGalleryView(
-          data: const EmbedGalleryViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedExternalView.validate(json)) {
-        return UEmbedRecordViewRecordEmbeds.embedExternalView(
-          data: const EmbedExternalViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecordView.validate(json)) {
-        return UEmbedRecordViewRecordEmbeds.embedRecordView(
-          data: const EmbedRecordViewConverter().fromJson(json),
-        );
-      }
-      if (EmbedRecordWithMediaView.validate(json)) {
-        return UEmbedRecordViewRecordEmbeds.embedRecordWithMediaView(
-          data: const EmbedRecordWithMediaViewConverter().fromJson(json),
-        );
-      }
-
-      return UEmbedRecordViewRecordEmbeds.unknown(data: json);
-    } catch (_) {
-      return UEmbedRecordViewRecordEmbeds.unknown(data: json);
+    if (EmbedImagesView.validate(json)) {
+      return UEmbedRecordViewRecordEmbeds.embedImagesView(
+        data: const EmbedImagesViewConverter().fromJson(json),
+      );
     }
+    if (EmbedVideoView.validate(json)) {
+      return UEmbedRecordViewRecordEmbeds.embedVideoView(
+        data: const EmbedVideoViewConverter().fromJson(json),
+      );
+    }
+    if (EmbedGalleryView.validate(json)) {
+      return UEmbedRecordViewRecordEmbeds.embedGalleryView(
+        data: const EmbedGalleryViewConverter().fromJson(json),
+      );
+    }
+    if (EmbedExternalView.validate(json)) {
+      return UEmbedRecordViewRecordEmbeds.embedExternalView(
+        data: const EmbedExternalViewConverter().fromJson(json),
+      );
+    }
+    if (EmbedRecordView.validate(json)) {
+      return UEmbedRecordViewRecordEmbeds.embedRecordView(
+        data: const EmbedRecordViewConverter().fromJson(json),
+      );
+    }
+    if (EmbedRecordWithMediaView.validate(json)) {
+      return UEmbedRecordViewRecordEmbeds.embedRecordWithMediaView(
+        data: const EmbedRecordWithMediaViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UEmbedRecordViewRecordEmbeds.unknown(data: json);
   }
 
   @override

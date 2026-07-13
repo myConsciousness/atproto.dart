@@ -36,7 +36,7 @@ abstract class NotificationListNotificationsOutput
     String? cursor,
     @NotificationConverter() required List<Notification> notifications,
     bool? priority,
-    DateTime? seenAt,
+    @JsonKey(toJson: iso8601) DateTime? seenAt,
 
     Map<String, dynamic>? $unknown,
   }) = _NotificationListNotificationsOutput;

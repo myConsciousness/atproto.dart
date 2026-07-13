@@ -31,7 +31,7 @@ abstract class Account with _$Account {
     @Default('com.atproto.sync.subscribeRepos#account') String $type,
     required int seq,
     required String did,
-    required DateTime time,
+    @JsonKey(toJson: iso8601) required DateTime time,
 
     /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
     required bool active,

@@ -37,7 +37,13 @@ final class GetServicesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "dids": argResults!["dids"],
+    "dids": _requireNonEmpty("dids", argResults!["dids"]),
     "detailed": argResults!["detailed"],
   };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

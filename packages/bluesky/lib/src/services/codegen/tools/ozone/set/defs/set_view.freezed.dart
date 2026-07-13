@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SetView {
 
- String get $type; String get name; String? get description; int get setSize; DateTime get createdAt; DateTime get updatedAt; Map<String, dynamic>? get $unknown;
+ String get $type; String get name; String? get description; int get setSize;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of SetView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SetViewCopyWith<$Res>  {
   factory $SetViewCopyWith(SetView value, $Res Function(SetView) _then) = _$SetViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String name, String? description, int setSize, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String name, String? description, int setSize,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  String? description,  int setSize,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String name,  String? description,  int setSize, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SetView() when $default != null:
 return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.cre
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  String? description,  int setSize,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String name,  String? description,  int setSize, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SetView():
 return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.cre
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  String? description,  int setSize,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String name,  String? description,  int setSize, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SetView() when $default != null:
 return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -215,15 +215,15 @@ return $default(_that.$type,_that.name,_that.description,_that.setSize,_that.cre
 
 @JsonSerializable(includeIfNull: false)
 class _SetView implements SetView {
-  const _SetView({this.$type = 'tools.ozone.set.defs#setView', required this.name, this.description, required this.setSize, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SetView({this.$type = 'tools.ozone.set.defs#setView', required this.name, this.description, required this.setSize, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SetView.fromJson(Map<String, dynamic> json) => _$SetViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String name;
 @override final  String? description;
 @override final  int setSize;
-@override final  DateTime createdAt;
-@override final  DateTime updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$SetViewCopyWith<$Res> implements $SetViewCopyWith<$Res> {
   factory _$SetViewCopyWith(_SetView value, $Res Function(_SetView) _then) = __$SetViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String name, String? description, int setSize, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String name, String? description, int setSize,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 

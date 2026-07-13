@@ -28,7 +28,7 @@ abstract class GraphFollowRecord with _$GraphFollowRecord {
   const factory GraphFollowRecord({
     @Default('app.bsky.graph.follow') String $type,
     required String subject,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @RepoStrongRefConverter() RepoStrongRef? via,
 
     Map<String, dynamic>? $unknown,

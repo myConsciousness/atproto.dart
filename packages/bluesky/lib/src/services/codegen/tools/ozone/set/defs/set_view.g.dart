@@ -34,7 +34,7 @@ Map<String, dynamic> _$SetViewToJson(_SetView instance) => <String, dynamic>{
   'name': instance.name,
   'description': ?instance.description,
   'setSize': instance.setSize,
-  'createdAt': instance.createdAt.toIso8601String(),
-  'updatedAt': instance.updatedAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
+  'updatedAt': iso8601(instance.updatedAt),
   r'$unknown': ?instance.$unknown,
 };

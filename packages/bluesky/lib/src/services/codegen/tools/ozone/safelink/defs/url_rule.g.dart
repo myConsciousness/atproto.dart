@@ -49,7 +49,7 @@ Map<String, dynamic> _$UrlRuleToJson(_UrlRule instance) => <String, dynamic>{
   'reason': const ReasonTypeConverter().toJson(instance.reason),
   'comment': ?instance.comment,
   'createdBy': instance.createdBy,
-  'createdAt': instance.createdAt.toIso8601String(),
-  'updatedAt': instance.updatedAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
+  'updatedAt': iso8601(instance.updatedAt),
   r'$unknown': ?instance.$unknown,
 };

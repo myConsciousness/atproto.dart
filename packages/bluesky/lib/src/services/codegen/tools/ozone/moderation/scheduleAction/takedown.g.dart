@@ -53,7 +53,7 @@ Map<String, dynamic> _$TakedownToJson(_Takedown instance) => <String, dynamic>{
   'policies': ?instance.policies,
   'severityLevel': ?instance.severityLevel,
   'strikeCount': ?instance.strikeCount,
-  'strikeExpiresAt': ?instance.strikeExpiresAt?.toIso8601String(),
+  'strikeExpiresAt': iso8601(instance.strikeExpiresAt),
   'emailContent': ?instance.emailContent,
   'emailSubject': ?instance.emailSubject,
   r'$unknown': ?instance.$unknown,

@@ -17,7 +17,7 @@ mixin _$Nux {
 
  String get $type; String get id; bool get completed;/// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
  String? get data;/// The date and time at which the NUX will expire and should be considered completed.
- DateTime? get expiresAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get expiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of Nux
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $NuxCopyWith<$Res>  {
   factory $NuxCopyWith(Nux value, $Res Function(Nux) _then) = _$NuxCopyWithImpl;
 @useResult
 $Res call({
- String $type, String id, bool completed, String? data, DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String $type, String id, bool completed, String? data,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  bool completed,  String? data,  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String id,  bool completed,  String? data, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Nux() when $default != null:
 return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,_that.$unknown);case _:
@@ -181,7 +181,7 @@ return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  bool completed,  String? data,  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String id,  bool completed,  String? data, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Nux():
 return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,_that.$unknown);case _:
@@ -201,7 +201,7 @@ return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  bool completed,  String? data,  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String id,  bool completed,  String? data, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Nux() when $default != null:
 return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,_that.$unknown);case _:
@@ -216,7 +216,7 @@ return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,
 
 @JsonSerializable(includeIfNull: false)
 class _Nux implements Nux {
-  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, this.completed = false, this.data, this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, this.completed = false, this.data, @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Nux.fromJson(Map<String, dynamic> json) => _$NuxFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -225,7 +225,7 @@ class _Nux implements Nux {
 /// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
 @override final  String? data;
 /// The date and time at which the NUX will expire and should be considered completed.
-@override final  DateTime? expiresAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? expiresAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -269,7 +269,7 @@ abstract mixin class _$NuxCopyWith<$Res> implements $NuxCopyWith<$Res> {
   factory _$NuxCopyWith(_Nux value, $Res Function(_Nux) _then) = __$NuxCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String id, bool completed, String? data, DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String $type, String id, bool completed, String? data,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 

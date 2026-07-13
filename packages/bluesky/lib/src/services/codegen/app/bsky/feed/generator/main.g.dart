@@ -87,7 +87,7 @@ Map<String, dynamic> _$FeedGeneratorRecordToJson(
     instance.contentMode,
     const FeedGeneratorContentModeConverter().toJson,
   ),
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   r'$unknown': ?instance.$unknown,
 };
 

@@ -61,7 +61,9 @@ final class QueryActivitiesCommand extends QueryCommand {
     if (argResults!.wasParsed("createdBefore"))
       "createdBefore": argResults!["createdBefore"],
     "sortDirection": argResults!["sortDirection"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

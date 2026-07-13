@@ -45,7 +45,7 @@ abstract class ModEventView with _$ModEventView {
     @UModEventViewSubjectConverter() required UModEventViewSubject subject,
     required List<String> subjectBlobCids,
     required String createdBy,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     String? creatorHandle,
     String? subjectHandle,
     @ModToolConverter() ModTool? modTool,

@@ -28,7 +28,7 @@ abstract class FeedLikeRecord with _$FeedLikeRecord {
   const factory FeedLikeRecord({
     @Default('app.bsky.feed.like') String $type,
     @RepoStrongRefConverter() required RepoStrongRef subject,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @RepoStrongRefConverter() RepoStrongRef? via,
 
     Map<String, dynamic>? $unknown,

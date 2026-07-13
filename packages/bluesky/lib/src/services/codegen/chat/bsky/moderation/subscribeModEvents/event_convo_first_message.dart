@@ -35,7 +35,7 @@ abstract class EventConvoFirstMessage with _$EventConvoFirstMessage {
     @Default('chat.bsky.moderation.subscribeModEvents#eventConvoFirstMessage')
     String $type,
     required String convoId,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     String? messageId,
     required List<String> recipients,
     required String rev,

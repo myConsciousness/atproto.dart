@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$InviteCode {
 
- String get $type; String get code; int get available; bool get disabled; String get forAccount; String get createdBy; DateTime get createdAt;@InviteCodeUseConverter() List<InviteCodeUse> get uses; Map<String, dynamic>? get $unknown;
+ String get $type; String get code; int get available; bool get disabled; String get forAccount; String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt;@InviteCodeUseConverter() List<InviteCodeUse> get uses; Map<String, dynamic>? get $unknown;
 /// Create a copy of InviteCode
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $InviteCodeCopyWith<$Res>  {
   factory $InviteCodeCopyWith(InviteCode value, $Res Function(InviteCode) _then) = _$InviteCodeCopyWithImpl;
 @useResult
 $Res call({
- String $type, String code, int available, bool disabled, String forAccount, String createdBy, DateTime createdAt,@InviteCodeUseConverter() List<InviteCodeUse> uses, Map<String, dynamic>? $unknown
+ String $type, String code, int available, bool disabled, String forAccount, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@InviteCodeUseConverter() List<InviteCodeUse> uses, Map<String, dynamic>? $unknown
 });
 
 
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String code,  int available,  bool disabled,  String forAccount,  String createdBy,  DateTime createdAt, @InviteCodeUseConverter()  List<InviteCodeUse> uses,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String code,  int available,  bool disabled,  String forAccount,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @InviteCodeUseConverter()  List<InviteCodeUse> uses,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _InviteCode() when $default != null:
 return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forAccount,_that.createdBy,_that.createdAt,_that.uses,_that.$unknown);case _:
@@ -182,7 +182,7 @@ return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forA
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String code,  int available,  bool disabled,  String forAccount,  String createdBy,  DateTime createdAt, @InviteCodeUseConverter()  List<InviteCodeUse> uses,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String code,  int available,  bool disabled,  String forAccount,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @InviteCodeUseConverter()  List<InviteCodeUse> uses,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _InviteCode():
 return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forAccount,_that.createdBy,_that.createdAt,_that.uses,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forA
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String code,  int available,  bool disabled,  String forAccount,  String createdBy,  DateTime createdAt, @InviteCodeUseConverter()  List<InviteCodeUse> uses,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String code,  int available,  bool disabled,  String forAccount,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @InviteCodeUseConverter()  List<InviteCodeUse> uses,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _InviteCode() when $default != null:
 return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forAccount,_that.createdBy,_that.createdAt,_that.uses,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.code,_that.available,_that.disabled,_that.forA
 
 @JsonSerializable(includeIfNull: false)
 class _InviteCode implements InviteCode {
-  const _InviteCode({this.$type = 'com.atproto.server.defs#inviteCode', required this.code, required this.available, required this.disabled, required this.forAccount, required this.createdBy, required this.createdAt, @InviteCodeUseConverter() required final  List<InviteCodeUse> uses, final  Map<String, dynamic>? $unknown}): _uses = uses,_$unknown = $unknown;
+  const _InviteCode({this.$type = 'com.atproto.server.defs#inviteCode', required this.code, required this.available, required this.disabled, required this.forAccount, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @InviteCodeUseConverter() required final  List<InviteCodeUse> uses, final  Map<String, dynamic>? $unknown}): _uses = uses,_$unknown = $unknown;
   factory _InviteCode.fromJson(Map<String, dynamic> json) => _$InviteCodeFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -226,7 +226,7 @@ class _InviteCode implements InviteCode {
 @override final  bool disabled;
 @override final  String forAccount;
 @override final  String createdBy;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  List<InviteCodeUse> _uses;
 @override@InviteCodeUseConverter() List<InviteCodeUse> get uses {
   if (_uses is EqualUnmodifiableListView) return _uses;
@@ -277,7 +277,7 @@ abstract mixin class _$InviteCodeCopyWith<$Res> implements $InviteCodeCopyWith<$
   factory _$InviteCodeCopyWith(_InviteCode value, $Res Function(_InviteCode) _then) = __$InviteCodeCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String code, int available, bool disabled, String forAccount, String createdBy, DateTime createdAt,@InviteCodeUseConverter() List<InviteCodeUse> uses, Map<String, dynamic>? $unknown
+ String $type, String code, int available, bool disabled, String forAccount, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@InviteCodeUseConverter() List<InviteCodeUse> uses, Map<String, dynamic>? $unknown
 });
 
 

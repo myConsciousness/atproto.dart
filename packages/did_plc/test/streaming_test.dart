@@ -31,17 +31,16 @@ void main() {
       var active = 0;
       var maxActive = 0;
 
-      final results = await processor
-          .processStream(Stream.fromIterable(List.generate(20, (i) => i)), (
-            item,
-          ) async {
-            active++;
-            maxActive = active > maxActive ? active : maxActive;
-            await Future<void>.delayed(const Duration(milliseconds: 5));
-            active--;
-            return item * 2;
-          })
-          .toList();
+      final results = await processor.processStream(
+        Stream.fromIterable(List.generate(20, (i) => i)),
+        (item) async {
+          active++;
+          maxActive = active > maxActive ? active : maxActive;
+          await Future<void>.delayed(const Duration(milliseconds: 5));
+          active--;
+          return item * 2;
+        },
+      ).toList();
 
       expect(results, hasLength(20));
       expect(results.toSet(), equals({for (var i = 0; i < 20; i++) i * 2}));
@@ -62,11 +61,7 @@ void main() {
             if (item == 2) throw StateError('boom');
             return item;
           })
-          .listen(
-            results.add,
-            onError: errors.add,
-            onDone: completer.complete,
-          );
+          .listen(results.add, onError: errors.add, onDone: completer.complete);
 
       await completer.future;
       expect(results, containsAll(<int>[1, 3]));
@@ -87,16 +82,16 @@ void main() {
     test('groups items into full batches', () async {
       final processor = StreamProcessor<int>();
       final batches = await processor
-          .batchStream(
-            Stream.fromIterable([1, 2, 3, 4, 5]),
-            batchSize: 2,
-          )
+          .batchStream(Stream.fromIterable([1, 2, 3, 4, 5]), batchSize: 2)
           .toList();
-      expect(batches, equals([
-        [1, 2],
-        [3, 4],
-        [5],
-      ]));
+      expect(
+        batches,
+        equals([
+          [1, 2],
+          [3, 4],
+          [5],
+        ]),
+      );
     });
 
     test('flushes a partial batch after maxWaitTime', () async {
@@ -195,12 +190,12 @@ void main() {
       final processor = BatchProcessor<int, int>(
         config: const BatchProcessorConfig(batchSize: 2),
       );
-      final results = await processor
-          .processStreamIndividual([1, 2, 3], (item) async {
-            if (item == 2) throw StateError('bad');
-            return item;
-          })
-          .toList();
+      final results = await processor.processStreamIndividual([1, 2, 3], (
+        item,
+      ) async {
+        if (item == 2) throw StateError('bad');
+        return item;
+      }).toList();
 
       expect(results, hasLength(3));
       expect(results.where((r) => r.isSuccess), hasLength(2));

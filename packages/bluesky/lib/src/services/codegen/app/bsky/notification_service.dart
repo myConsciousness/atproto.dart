@@ -146,7 +146,9 @@ appBskyNotificationPutActivitySubscription({
   body: {
     ...?$unknown,
     'subject': subject,
-    'activitySubscription': activitySubscription.toJson(),
+    'activitySubscription': const ActivitySubscriptionConverter().toJson(
+      activitySubscription,
+    ),
   },
   to: const NotificationPutActivitySubscriptionOutputConverter().fromJson,
 );
@@ -191,20 +193,37 @@ appBskyNotificationPutPreferencesV2({
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
-    if (chat != null) 'chat': chat.toJson(),
-    if (follow != null) 'follow': follow.toJson(),
-    if (like != null) 'like': like.toJson(),
-    if (likeViaRepost != null) 'likeViaRepost': likeViaRepost.toJson(),
-    if (mention != null) 'mention': mention.toJson(),
-    if (quote != null) 'quote': quote.toJson(),
-    if (reply != null) 'reply': reply.toJson(),
-    if (repost != null) 'repost': repost.toJson(),
-    if (repostViaRepost != null) 'repostViaRepost': repostViaRepost.toJson(),
+    if (chat != null) 'chat': const ChatPreferenceConverter().toJson(chat),
+    if (follow != null)
+      'follow': const FilterablePreferenceConverter().toJson(follow),
+    if (like != null)
+      'like': const FilterablePreferenceConverter().toJson(like),
+    if (likeViaRepost != null)
+      'likeViaRepost': const FilterablePreferenceConverter().toJson(
+        likeViaRepost,
+      ),
+    if (mention != null)
+      'mention': const FilterablePreferenceConverter().toJson(mention),
+    if (quote != null)
+      'quote': const FilterablePreferenceConverter().toJson(quote),
+    if (reply != null)
+      'reply': const FilterablePreferenceConverter().toJson(reply),
+    if (repost != null)
+      'repost': const FilterablePreferenceConverter().toJson(repost),
+    if (repostViaRepost != null)
+      'repostViaRepost': const FilterablePreferenceConverter().toJson(
+        repostViaRepost,
+      ),
     if (starterpackJoined != null)
-      'starterpackJoined': starterpackJoined.toJson(),
-    if (subscribedPost != null) 'subscribedPost': subscribedPost.toJson(),
-    if (unverified != null) 'unverified': unverified.toJson(),
-    if (verified != null) 'verified': verified.toJson(),
+      'starterpackJoined': const PreferenceConverter().toJson(
+        starterpackJoined,
+      ),
+    if (subscribedPost != null)
+      'subscribedPost': const PreferenceConverter().toJson(subscribedPost),
+    if (unverified != null)
+      'unverified': const PreferenceConverter().toJson(unverified),
+    if (verified != null)
+      'verified': const PreferenceConverter().toJson(verified),
   },
   to: const NotificationPutPreferencesV2OutputConverter().fromJson,
 );
@@ -528,7 +547,11 @@ final class NotificationDeclarationRecordAccessor {
     collection: ids.appBskyNotificationDeclaration,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
+    record: {
+      r'$type': 'app.bsky.notification.declaration',
+      ...?$unknown,
+      'allowSubscriptions': allowSubscriptions.toJson(),
+    },
     swapCommit: swapCommit,
     $ctx: ctx,
     $headers: $headers,
@@ -547,7 +570,11 @@ final class NotificationDeclarationRecordAccessor {
     collection: ids.appBskyNotificationDeclaration,
     rkey: rkey,
     validate: validate,
-    record: {...?$unknown, 'allowSubscriptions': allowSubscriptions.toJson()},
+    record: {
+      r'$type': 'app.bsky.notification.declaration',
+      ...?$unknown,
+      'allowSubscriptions': allowSubscriptions.toJson(),
+    },
     swapRecord: swapRecord,
     swapCommit: swapCommit,
     $ctx: ctx,

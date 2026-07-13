@@ -32,7 +32,7 @@ abstract class ReasonRepost with _$ReasonRepost {
     @ProfileViewBasicConverter() required ProfileViewBasic by,
     @AtUriConverter() AtUri? uri,
     String? cid,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ReasonRepost;

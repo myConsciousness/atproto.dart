@@ -41,13 +41,30 @@ final class LikeCommand extends Command<void> {
       "Record declaring a 'like' of a piece of subject content.";
 }
 
-final class _CreateLikeCommand extends CreateRecordCommand {
-  _CreateLikeCommand() {
+mixin _LikeCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption("subject", mandatory: true)
       ..addOption("createdAt", mandatory: true)
-      ..addOption("via")
-      ..addOption("rkey", help: r"Specific record key to use.");
+      ..addOption("via");
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreateLikeCommand extends CreateRecordCommand
+    with _LikeCommandRecordArgs {
+  _CreateLikeCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -69,19 +86,17 @@ final class _CreateLikeCommand extends CreateRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.feed.like",
-    "subject": jsonDecode(argResults!["subject"]),
+    "subject": _decodeJson("subject"),
     "createdAt": argResults!["createdAt"],
-    if (argResults!.wasParsed("via")) "via": jsonDecode(argResults!["via"]),
+    if (argResults!.wasParsed("via")) "via": _decodeJson("via"),
   };
 }
 
-final class _PutLikeCommand extends PutRecordCommand {
+final class _PutLikeCommand extends PutRecordCommand
+    with _LikeCommandRecordArgs {
   _PutLikeCommand() {
-    argParser
-      ..addOption("subject", mandatory: true)
-      ..addOption("createdAt", mandatory: true)
-      ..addOption("via")
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -103,9 +118,9 @@ final class _PutLikeCommand extends PutRecordCommand {
   @override
   Map<String, dynamic> get record => {
     r"$type": "app.bsky.feed.like",
-    "subject": jsonDecode(argResults!["subject"]),
+    "subject": _decodeJson("subject"),
     "createdAt": argResults!["createdAt"],
-    if (argResults!.wasParsed("via")) "via": jsonDecode(argResults!["via"]),
+    if (argResults!.wasParsed("via")) "via": _decodeJson("via"),
   };
 }
 
@@ -192,7 +207,9 @@ final class _ListLikeCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.feed.like",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

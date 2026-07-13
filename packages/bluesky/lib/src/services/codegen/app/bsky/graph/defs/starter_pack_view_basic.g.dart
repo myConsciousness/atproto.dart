@@ -71,6 +71,6 @@ Map<String, dynamic> _$StarterPackViewBasicToJson(
   'joinedWeekCount': ?instance.joinedWeekCount,
   'joinedAllTimeCount': ?instance.joinedAllTimeCount,
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
-  'indexedAt': instance.indexedAt.toIso8601String(),
+  'indexedAt': iso8601(instance.indexedAt),
   r'$unknown': ?instance.$unknown,
 };

@@ -47,7 +47,7 @@ Map<String, dynamic> _$BlobViewToJson(_BlobView instance) => <String, dynamic>{
   'cid': instance.cid,
   'mimeType': instance.mimeType,
   'size': instance.size,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'details': ?_$JsonConverterToJson<Map<String, dynamic>, UBlobViewDetails>(
     instance.details,
     const UBlobViewDetailsConverter().toJson,

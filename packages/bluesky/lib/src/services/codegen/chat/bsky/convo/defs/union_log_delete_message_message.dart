@@ -61,22 +61,22 @@ final class ULogDeleteMessageMessageConverter
 
   @override
   ULogDeleteMessageMessage fromJson(Map<String, dynamic> json) {
-    try {
-      if (MessageView.validate(json)) {
-        return ULogDeleteMessageMessage.messageView(
-          data: const MessageViewConverter().fromJson(json),
-        );
-      }
-      if (DeletedMessageView.validate(json)) {
-        return ULogDeleteMessageMessage.deletedMessageView(
-          data: const DeletedMessageViewConverter().fromJson(json),
-        );
-      }
-
-      return ULogDeleteMessageMessage.unknown(data: json);
-    } catch (_) {
-      return ULogDeleteMessageMessage.unknown(data: json);
+    if (MessageView.validate(json)) {
+      return ULogDeleteMessageMessage.messageView(
+        data: const MessageViewConverter().fromJson(json),
+      );
     }
+    if (DeletedMessageView.validate(json)) {
+      return ULogDeleteMessageMessage.deletedMessageView(
+        data: const DeletedMessageViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return ULogDeleteMessageMessage.unknown(data: json);
   }
 
   @override

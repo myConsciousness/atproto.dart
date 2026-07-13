@@ -21,9 +21,9 @@ mixin _$VerificationView {
  String get subject;/// Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.
  String get handle;/// Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.
  String get displayName;/// Timestamp when the verification was created.
- DateTime get createdAt;/// Describes the reason for revocation, also indicating that the verification is no longer valid.
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// Describes the reason for revocation, also indicating that the verification is no longer valid.
  String? get revokeReason;/// Timestamp when the verification was revoked.
- DateTime? get revokedAt;/// The user who revoked this verification.
+@JsonKey(toJson: iso8601) DateTime? get revokedAt;/// The user who revoked this verification.
  String? get revokedBy;@UVerificationViewSubjectProfileConverter() UVerificationViewSubjectProfile? get subjectProfile;@UVerificationViewIssuerProfileConverter() UVerificationViewIssuerProfile? get issuerProfile;@UVerificationViewSubjectRepoConverter() UVerificationViewSubjectRepo? get subjectRepo;@UVerificationViewIssuerRepoConverter() UVerificationViewIssuerRepo? get issuerRepo; Map<String, dynamic>? get $unknown;
 /// Create a copy of VerificationView
 /// with the given fields replaced by the non-null parameter values.
@@ -57,7 +57,7 @@ abstract mixin class $VerificationViewCopyWith<$Res>  {
   factory $VerificationViewCopyWith(VerificationView value, $Res Function(VerificationView) _then) = _$VerificationViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String issuer,@AtUriConverter() AtUri uri, String subject, String handle, String displayName, DateTime createdAt, String? revokeReason, DateTime? revokedAt, String? revokedBy,@UVerificationViewSubjectProfileConverter() UVerificationViewSubjectProfile? subjectProfile,@UVerificationViewIssuerProfileConverter() UVerificationViewIssuerProfile? issuerProfile,@UVerificationViewSubjectRepoConverter() UVerificationViewSubjectRepo? subjectRepo,@UVerificationViewIssuerRepoConverter() UVerificationViewIssuerRepo? issuerRepo, Map<String, dynamic>? $unknown
+ String $type, String issuer,@AtUriConverter() AtUri uri, String subject, String handle, String displayName,@JsonKey(toJson: iso8601) DateTime createdAt, String? revokeReason,@JsonKey(toJson: iso8601) DateTime? revokedAt, String? revokedBy,@UVerificationViewSubjectProfileConverter() UVerificationViewSubjectProfile? subjectProfile,@UVerificationViewIssuerProfileConverter() UVerificationViewIssuerProfile? issuerProfile,@UVerificationViewSubjectRepoConverter() UVerificationViewSubjectRepo? subjectRepo,@UVerificationViewIssuerRepoConverter() UVerificationViewIssuerRepo? issuerRepo, Map<String, dynamic>? $unknown
 });
 
 
@@ -224,7 +224,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  String subject,  String handle,  String displayName,  DateTime createdAt,  String? revokeReason,  DateTime? revokedAt,  String? revokedBy, @UVerificationViewSubjectProfileConverter()  UVerificationViewSubjectProfile? subjectProfile, @UVerificationViewIssuerProfileConverter()  UVerificationViewIssuerProfile? issuerProfile, @UVerificationViewSubjectRepoConverter()  UVerificationViewSubjectRepo? subjectRepo, @UVerificationViewIssuerRepoConverter()  UVerificationViewIssuerRepo? issuerRepo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? revokeReason, @JsonKey(toJson: iso8601)  DateTime? revokedAt,  String? revokedBy, @UVerificationViewSubjectProfileConverter()  UVerificationViewSubjectProfile? subjectProfile, @UVerificationViewIssuerProfileConverter()  UVerificationViewIssuerProfile? issuerProfile, @UVerificationViewSubjectRepoConverter()  UVerificationViewSubjectRepo? subjectRepo, @UVerificationViewIssuerRepoConverter()  UVerificationViewIssuerRepo? issuerRepo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
 return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.revokeReason,_that.revokedAt,_that.revokedBy,_that.subjectProfile,_that.issuerProfile,_that.subjectRepo,_that.issuerRepo,_that.$unknown);case _:
@@ -245,7 +245,7 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  String subject,  String handle,  String displayName,  DateTime createdAt,  String? revokeReason,  DateTime? revokedAt,  String? revokedBy, @UVerificationViewSubjectProfileConverter()  UVerificationViewSubjectProfile? subjectProfile, @UVerificationViewIssuerProfileConverter()  UVerificationViewIssuerProfile? issuerProfile, @UVerificationViewSubjectRepoConverter()  UVerificationViewSubjectRepo? subjectRepo, @UVerificationViewIssuerRepoConverter()  UVerificationViewIssuerRepo? issuerRepo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? revokeReason, @JsonKey(toJson: iso8601)  DateTime? revokedAt,  String? revokedBy, @UVerificationViewSubjectProfileConverter()  UVerificationViewSubjectProfile? subjectProfile, @UVerificationViewIssuerProfileConverter()  UVerificationViewIssuerProfile? issuerProfile, @UVerificationViewSubjectRepoConverter()  UVerificationViewSubjectRepo? subjectRepo, @UVerificationViewIssuerRepoConverter()  UVerificationViewIssuerRepo? issuerRepo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView():
 return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.revokeReason,_that.revokedAt,_that.revokedBy,_that.subjectProfile,_that.issuerProfile,_that.subjectRepo,_that.issuerRepo,_that.$unknown);case _:
@@ -265,7 +265,7 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  String subject,  String handle,  String displayName,  DateTime createdAt,  String? revokeReason,  DateTime? revokedAt,  String? revokedBy, @UVerificationViewSubjectProfileConverter()  UVerificationViewSubjectProfile? subjectProfile, @UVerificationViewIssuerProfileConverter()  UVerificationViewIssuerProfile? issuerProfile, @UVerificationViewSubjectRepoConverter()  UVerificationViewSubjectRepo? subjectRepo, @UVerificationViewIssuerRepoConverter()  UVerificationViewIssuerRepo? issuerRepo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String issuer, @AtUriConverter()  AtUri uri,  String subject,  String handle,  String displayName, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? revokeReason, @JsonKey(toJson: iso8601)  DateTime? revokedAt,  String? revokedBy, @UVerificationViewSubjectProfileConverter()  UVerificationViewSubjectProfile? subjectProfile, @UVerificationViewIssuerProfileConverter()  UVerificationViewIssuerProfile? issuerProfile, @UVerificationViewSubjectRepoConverter()  UVerificationViewSubjectRepo? subjectRepo, @UVerificationViewIssuerRepoConverter()  UVerificationViewIssuerRepo? issuerRepo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _VerificationView() when $default != null:
 return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_that.displayName,_that.createdAt,_that.revokeReason,_that.revokedAt,_that.revokedBy,_that.subjectProfile,_that.issuerProfile,_that.subjectRepo,_that.issuerRepo,_that.$unknown);case _:
@@ -280,7 +280,7 @@ return $default(_that.$type,_that.issuer,_that.uri,_that.subject,_that.handle,_t
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationView implements VerificationView {
-  const _VerificationView({this.$type = 'tools.ozone.verification.defs#verificationView', required this.issuer, @AtUriConverter() required this.uri, required this.subject, required this.handle, required this.displayName, required this.createdAt, this.revokeReason, this.revokedAt, this.revokedBy, @UVerificationViewSubjectProfileConverter() this.subjectProfile, @UVerificationViewIssuerProfileConverter() this.issuerProfile, @UVerificationViewSubjectRepoConverter() this.subjectRepo, @UVerificationViewIssuerRepoConverter() this.issuerRepo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationView({this.$type = 'tools.ozone.verification.defs#verificationView', required this.issuer, @AtUriConverter() required this.uri, required this.subject, required this.handle, required this.displayName, @JsonKey(toJson: iso8601) required this.createdAt, this.revokeReason, @JsonKey(toJson: iso8601) this.revokedAt, this.revokedBy, @UVerificationViewSubjectProfileConverter() this.subjectProfile, @UVerificationViewIssuerProfileConverter() this.issuerProfile, @UVerificationViewSubjectRepoConverter() this.subjectRepo, @UVerificationViewIssuerRepoConverter() this.issuerRepo, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationView.fromJson(Map<String, dynamic> json) => _$VerificationViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -295,11 +295,11 @@ class _VerificationView implements VerificationView {
 /// Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying.
 @override final  String displayName;
 /// Timestamp when the verification was created.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Describes the reason for revocation, also indicating that the verification is no longer valid.
 @override final  String? revokeReason;
 /// Timestamp when the verification was revoked.
-@override final  DateTime? revokedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? revokedAt;
 /// The user who revoked this verification.
 @override final  String? revokedBy;
 @override@UVerificationViewSubjectProfileConverter() final  UVerificationViewSubjectProfile? subjectProfile;
@@ -349,7 +349,7 @@ abstract mixin class _$VerificationViewCopyWith<$Res> implements $VerificationVi
   factory _$VerificationViewCopyWith(_VerificationView value, $Res Function(_VerificationView) _then) = __$VerificationViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String issuer,@AtUriConverter() AtUri uri, String subject, String handle, String displayName, DateTime createdAt, String? revokeReason, DateTime? revokedAt, String? revokedBy,@UVerificationViewSubjectProfileConverter() UVerificationViewSubjectProfile? subjectProfile,@UVerificationViewIssuerProfileConverter() UVerificationViewIssuerProfile? issuerProfile,@UVerificationViewSubjectRepoConverter() UVerificationViewSubjectRepo? subjectRepo,@UVerificationViewIssuerRepoConverter() UVerificationViewIssuerRepo? issuerRepo, Map<String, dynamic>? $unknown
+ String $type, String issuer,@AtUriConverter() AtUri uri, String subject, String handle, String displayName,@JsonKey(toJson: iso8601) DateTime createdAt, String? revokeReason,@JsonKey(toJson: iso8601) DateTime? revokedAt, String? revokedBy,@UVerificationViewSubjectProfileConverter() UVerificationViewSubjectProfile? subjectProfile,@UVerificationViewIssuerProfileConverter() UVerificationViewIssuerProfile? issuerProfile,@UVerificationViewSubjectRepoConverter() UVerificationViewSubjectRepo? subjectRepo,@UVerificationViewIssuerRepoConverter() UVerificationViewIssuerRepo? issuerRepo, Map<String, dynamic>? $unknown
 });
 
 

@@ -275,7 +275,9 @@ class KeyManager {
         verificationMethod['publicKeyMultibase'] as String?;
 
     if (publicKeyMultibase == null) {
-      throw CryptoException('Missing publicKeyMultibase in verification method');
+      throw CryptoException(
+        'Missing publicKeyMultibase in verification method',
+      );
     }
 
     return decodeMultibasePublicKey(publicKeyMultibase).publicKey;

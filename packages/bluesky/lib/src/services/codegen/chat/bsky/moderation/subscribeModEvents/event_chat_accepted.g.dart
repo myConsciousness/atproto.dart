@@ -51,9 +51,9 @@ Map<String, dynamic> _$EventChatAcceptedToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'actorDid': instance.actorDid,
-  'convoCreatedAt': instance.convoCreatedAt.toIso8601String(),
+  'convoCreatedAt': iso8601(instance.convoCreatedAt),
   'convoId': instance.convoId,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'groupMemberCount': ?instance.groupMemberCount,
   'groupName': ?instance.groupName,
   'method': const EventChatAcceptedMethodConverter().toJson(instance.method),

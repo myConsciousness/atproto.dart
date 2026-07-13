@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$RepoOp {
 
  String get $type;@RepoOpActionConverter() RepoOpAction get action; String get path;/// For creates and updates, the new record CID. For deletions, null.
- String? get cid;/// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
+@JsonKey(includeIfNull: true) String? get cid;/// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
  String? get prev; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoOp
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $RepoOpCopyWith<$Res>  {
   factory $RepoOpCopyWith(RepoOp value, $Res Function(RepoOp) _then) = _$RepoOpCopyWithImpl;
 @useResult
 $Res call({
- String $type,@RepoOpActionConverter() RepoOpAction action, String path, String? cid, String? prev, Map<String, dynamic>? $unknown
+ String $type,@RepoOpActionConverter() RepoOpAction action, String path,@JsonKey(includeIfNull: true) String? cid, String? prev, Map<String, dynamic>? $unknown
 });
 
 
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String? cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path, @JsonKey(includeIfNull: true)  String? cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoOp() when $default != null:
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -190,7 +190,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String? cid,  String? prev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path, @JsonKey(includeIfNull: true)  String? cid,  String? prev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoOp():
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path,  String? cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoOpActionConverter()  RepoOpAction action,  String path, @JsonKey(includeIfNull: true)  String? cid,  String? prev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoOp() when $default != null:
 return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$unknown);case _:
@@ -225,14 +225,14 @@ return $default(_that.$type,_that.action,_that.path,_that.cid,_that.prev,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _RepoOp implements RepoOp {
-  const _RepoOp({this.$type = 'com.atproto.sync.subscribeRepos#repoOp', @RepoOpActionConverter() required this.action, required this.path, required this.cid, this.prev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RepoOp({this.$type = 'com.atproto.sync.subscribeRepos#repoOp', @RepoOpActionConverter() required this.action, required this.path, @JsonKey(includeIfNull: true) required this.cid, this.prev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@RepoOpActionConverter() final  RepoOpAction action;
 @override final  String path;
 /// For creates and updates, the new record CID. For deletions, null.
-@override final  String? cid;
+@override@JsonKey(includeIfNull: true) final  String? cid;
 /// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
 @override final  String? prev;
  final  Map<String, dynamic>? _$unknown;
@@ -278,7 +278,7 @@ abstract mixin class _$RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   factory _$RepoOpCopyWith(_RepoOp value, $Res Function(_RepoOp) _then) = __$RepoOpCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@RepoOpActionConverter() RepoOpAction action, String path, String? cid, String? prev, Map<String, dynamic>? $unknown
+ String $type,@RepoOpActionConverter() RepoOpAction action, String path,@JsonKey(includeIfNull: true) String? cid, String? prev, Map<String, dynamic>? $unknown
 });
 
 

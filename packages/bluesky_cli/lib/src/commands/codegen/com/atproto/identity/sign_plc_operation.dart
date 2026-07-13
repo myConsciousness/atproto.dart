@@ -53,8 +53,16 @@ final class SignPlcOperationCommand extends ProcedureCommand {
     if (argResults!.wasParsed("alsoKnownAs"))
       "alsoKnownAs": argResults!["alsoKnownAs"],
     if (argResults!.wasParsed("verificationMethods"))
-      "verificationMethods": jsonDecode(argResults!["verificationMethods"]),
-    if (argResults!.wasParsed("services"))
-      "services": jsonDecode(argResults!["services"]),
+      "verificationMethods": _decodeJson("verificationMethods"),
+    if (argResults!.wasParsed("services")) "services": _decodeJson("services"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

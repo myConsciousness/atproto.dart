@@ -33,5 +33,13 @@ final class GetSubjectsCommand extends QueryCommand {
   String get methodId => "tools.ozone.moderation.getSubjects";
 
   @override
-  Map<String, dynamic>? get parameters => {"subjects": argResults!["subjects"]};
+  Map<String, dynamic>? get parameters => {
+    "subjects": _requireNonEmpty("subjects", argResults!["subjects"]),
+  };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

@@ -60,14 +60,14 @@ abstract class QueueView with _$QueueView {
 
     /// DID of moderator who created this queue
     required String createdBy,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime updatedAt,
 
     /// Whether this queue is currently active
     required bool enabled,
 
     /// When the queue was deleted, if applicable
-    DateTime? deletedAt,
+    @JsonKey(toJson: iso8601) DateTime? deletedAt,
 
     /// Statistics about this queue
     @QueueStatsConverter() required QueueStats stats,

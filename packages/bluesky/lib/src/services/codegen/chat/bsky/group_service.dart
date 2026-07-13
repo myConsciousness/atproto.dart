@@ -98,7 +98,7 @@ Future<XRPCResponse<GroupCreateJoinLinkOutput>> chatBskyGroupCreateJoinLink({
     ...?$unknown,
     'convoId': convoId,
     if (requireApproval != null) 'requireApproval': requireApproval,
-    'joinRule': joinRule.toJson(),
+    'joinRule': const JoinRuleConverter().toJson(joinRule),
   },
   to: const GroupCreateJoinLinkOutputConverter().fromJson,
 );
@@ -151,7 +151,8 @@ Future<XRPCResponse<GroupEditJoinLinkOutput>> chatBskyGroupEditJoinLink({
     ...?$unknown,
     'convoId': convoId,
     if (requireApproval != null) 'requireApproval': requireApproval,
-    if (joinRule != null) 'joinRule': joinRule.toJson(),
+    if (joinRule != null)
+      'joinRule': const JoinRuleConverter().toJson(joinRule),
   },
   to: const GroupEditJoinLinkOutputConverter().fromJson,
 );

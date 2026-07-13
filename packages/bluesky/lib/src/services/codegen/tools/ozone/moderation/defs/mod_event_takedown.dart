@@ -56,7 +56,7 @@ abstract class ModEventTakedown with _$ModEventTakedown {
     int? strikeCount,
 
     /// When the strike should expire. If not provided, the strike never expires.
-    DateTime? strikeExpiresAt,
+    @JsonKey(toJson: iso8601) DateTime? strikeExpiresAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ModEventTakedown;

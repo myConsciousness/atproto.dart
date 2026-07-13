@@ -39,7 +39,9 @@ final class GetConvoMembersCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "convoId": argResults!["convoId"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

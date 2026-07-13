@@ -44,7 +44,7 @@ abstract class LabelerView with _$LabelerView {
     @ProfileViewConverter() required ProfileView creator,
     int? likeCount,
     @LabelerViewerStateConverter() LabelerViewerState? viewer,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @LabelConverter() List<Label>? labels,
 
     Map<String, dynamic>? $unknown,

@@ -61,10 +61,7 @@ void main() {
       expect(ops, hasLength(9));
       // createdAt must be non-decreasing across the paginated stream.
       for (var i = 1; i < ops.length; i++) {
-        expect(
-          ops[i].createdAt.isBefore(ops[i - 1].createdAt),
-          isFalse,
-        );
+        expect(ops[i].createdAt.isBefore(ops[i - 1].createdAt), isFalse);
       }
     });
 

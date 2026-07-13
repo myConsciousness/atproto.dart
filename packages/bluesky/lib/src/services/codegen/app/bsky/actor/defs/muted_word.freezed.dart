@@ -18,7 +18,7 @@ mixin _$MutedWord {
  String get $type; String? get id;/// The muted word itself.
  String get value;@MutedWordTargetConverter() List<MutedWordTarget> get targets;/// Groups of users to apply the muted word to. If undefined, applies to all users.
 @MutedWordActorTargetConverter() MutedWordActorTarget? get actorTarget;/// The date and time at which the muted word will expire and no longer be applied.
- DateTime? get expiresAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get expiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of MutedWord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $MutedWordCopyWith<$Res>  {
   factory $MutedWordCopyWith(MutedWord value, $Res Function(MutedWord) _then) = _$MutedWordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget, DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -174,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget,  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MutedWord() when $default != null:
 return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget,_that.expiresAt,_that.$unknown);case _:
@@ -195,7 +195,7 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget,  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _MutedWord():
 return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget,_that.expiresAt,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget,  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _MutedWord() when $default != null:
 return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget,_that.expiresAt,_that.$unknown);case _:
@@ -230,7 +230,7 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 
 @JsonSerializable(includeIfNull: false)
 class _MutedWord implements MutedWord {
-  const _MutedWord({this.$type = 'app.bsky.actor.defs#mutedWord', this.id, required this.value, @MutedWordTargetConverter() required final  List<MutedWordTarget> targets, @MutedWordActorTargetConverter() this.actorTarget, this.expiresAt, final  Map<String, dynamic>? $unknown}): _targets = targets,_$unknown = $unknown;
+  const _MutedWord({this.$type = 'app.bsky.actor.defs#mutedWord', this.id, required this.value, @MutedWordTargetConverter() required final  List<MutedWordTarget> targets, @MutedWordActorTargetConverter() this.actorTarget, @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _targets = targets,_$unknown = $unknown;
   factory _MutedWord.fromJson(Map<String, dynamic> json) => _$MutedWordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -247,7 +247,7 @@ class _MutedWord implements MutedWord {
 /// Groups of users to apply the muted word to. If undefined, applies to all users.
 @override@MutedWordActorTargetConverter() final  MutedWordActorTarget? actorTarget;
 /// The date and time at which the muted word will expire and no longer be applied.
-@override final  DateTime? expiresAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? expiresAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -291,7 +291,7 @@ abstract mixin class _$MutedWordCopyWith<$Res> implements $MutedWordCopyWith<$Re
   factory _$MutedWordCopyWith(_MutedWord value, $Res Function(_MutedWord) _then) = __$MutedWordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget, DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 

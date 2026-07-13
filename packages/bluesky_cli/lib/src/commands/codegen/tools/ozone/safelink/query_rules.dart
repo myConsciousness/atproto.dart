@@ -47,7 +47,9 @@ final class QueryRulesCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("urls")) "urls": argResults!["urls"],
     if (argResults!.wasParsed("patternType"))
       "patternType": argResults!["patternType"],

@@ -64,13 +64,13 @@ abstract class VerificationView with _$VerificationView {
     required String displayName,
 
     /// Timestamp when the verification was created.
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// Describes the reason for revocation, also indicating that the verification is no longer valid.
     String? revokeReason,
 
     /// Timestamp when the verification was revoked.
-    DateTime? revokedAt,
+    @JsonKey(toJson: iso8601) DateTime? revokedAt,
 
     /// The user who revoked this verification.
     String? revokedBy,

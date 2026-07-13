@@ -55,7 +55,7 @@ abstract class Event with _$Event {
 
     /// DID of the user who created this rule
     required String createdBy,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// Optional comment about the decision
     String? comment,

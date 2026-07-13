@@ -23,10 +23,7 @@ void main() {
     });
 
     test('rejects a syntactically invalid NSID', () {
-      expect(
-        () => converter.fromJson('not a valid nsid'),
-        throwsA(anything),
-      );
+      expect(() => converter.fromJson('not a valid nsid'), throwsA(anything));
     });
 
     test('serializes back to a string', () {
@@ -46,10 +43,7 @@ void main() {
     });
 
     test('rejects an invalid NSID (aligned with NsidConverter)', () {
-      expect(
-        () => converter.fromJson('not a valid nsid'),
-        throwsA(anything),
-      );
+      expect(() => converter.fromJson('not a valid nsid'), throwsA(anything));
     });
 
     test('serializes back to a string', () {

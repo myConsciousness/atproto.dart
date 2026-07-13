@@ -49,8 +49,8 @@ _$ModerationListScheduledActionsInputFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$ModerationListScheduledActionsInputToJson(
   _ModerationListScheduledActionsInput instance,
 ) => <String, dynamic>{
-  'startsAfter': ?instance.startsAfter?.toIso8601String(),
-  'endsBefore': ?instance.endsBefore?.toIso8601String(),
+  'startsAfter': iso8601(instance.startsAfter),
+  'endsBefore': iso8601(instance.endsBefore),
   'subjects': ?instance.subjects,
   'statuses': instance.statuses
       .map(const ModerationListScheduledActionsStatusesConverter().toJson)

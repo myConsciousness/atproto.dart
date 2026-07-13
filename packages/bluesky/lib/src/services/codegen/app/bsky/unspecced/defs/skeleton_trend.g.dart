@@ -49,7 +49,7 @@ Map<String, dynamic> _$SkeletonTrendToJson(_SkeletonTrend instance) =>
       'topic': instance.topic,
       'displayName': instance.displayName,
       'link': instance.link,
-      'startedAt': instance.startedAt.toIso8601String(),
+      'startedAt': iso8601(instance.startedAt),
       'postCount': instance.postCount,
       'status': ?_$JsonConverterToJson<String, SkeletonTrendStatus>(
         instance.status,

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AccountView {
 
- String get $type; String get did; String get handle; String? get email; List<Map<String, dynamic>>? get relatedRecords; DateTime get indexedAt;@InviteCodeConverter() InviteCode? get invitedBy;@InviteCodeConverter() List<InviteCode>? get invites; bool? get invitesDisabled; DateTime? get emailConfirmedAt; String? get inviteNote; DateTime? get deactivatedAt;@ThreatSignatureConverter() List<ThreatSignature>? get threatSignatures; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; String get handle; String? get email; List<Map<String, dynamic>>? get relatedRecords;@JsonKey(toJson: iso8601) DateTime get indexedAt;@InviteCodeConverter() InviteCode? get invitedBy;@InviteCodeConverter() List<InviteCode>? get invites; bool? get invitesDisabled;@JsonKey(toJson: iso8601) DateTime? get emailConfirmedAt; String? get inviteNote;@JsonKey(toJson: iso8601) DateTime? get deactivatedAt;@ThreatSignatureConverter() List<ThreatSignature>? get threatSignatures; Map<String, dynamic>? get $unknown;
 /// Create a copy of AccountView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AccountViewCopyWith<$Res>  {
   factory $AccountViewCopyWith(AccountView value, $Res Function(AccountView) _then) = _$AccountViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? email, List<Map<String, dynamic>>? relatedRecords, DateTime indexedAt,@InviteCodeConverter() InviteCode? invitedBy,@InviteCodeConverter() List<InviteCode>? invites, bool? invitesDisabled, DateTime? emailConfirmedAt, String? inviteNote, DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? email, List<Map<String, dynamic>>? relatedRecords,@JsonKey(toJson: iso8601) DateTime indexedAt,@InviteCodeConverter() InviteCode? invitedBy,@InviteCodeConverter() List<InviteCode>? invites, bool? invitesDisabled,@JsonKey(toJson: iso8601) DateTime? emailConfirmedAt, String? inviteNote,@JsonKey(toJson: iso8601) DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
 });
 
 
@@ -178,7 +178,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>>? relatedRecords,  DateTime indexedAt, @InviteCodeConverter()  InviteCode? invitedBy, @InviteCodeConverter()  List<InviteCode>? invites,  bool? invitesDisabled,  DateTime? emailConfirmedAt,  String? inviteNote,  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>>? relatedRecords, @JsonKey(toJson: iso8601)  DateTime indexedAt, @InviteCodeConverter()  InviteCode? invitedBy, @InviteCodeConverter()  List<InviteCode>? invites,  bool? invitesDisabled, @JsonKey(toJson: iso8601)  DateTime? emailConfirmedAt,  String? inviteNote, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AccountView() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedRecords,_that.indexedAt,_that.invitedBy,_that.invites,_that.invitesDisabled,_that.emailConfirmedAt,_that.inviteNote,_that.deactivatedAt,_that.threatSignatures,_that.$unknown);case _:
@@ -199,7 +199,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>>? relatedRecords,  DateTime indexedAt, @InviteCodeConverter()  InviteCode? invitedBy, @InviteCodeConverter()  List<InviteCode>? invites,  bool? invitesDisabled,  DateTime? emailConfirmedAt,  String? inviteNote,  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>>? relatedRecords, @JsonKey(toJson: iso8601)  DateTime indexedAt, @InviteCodeConverter()  InviteCode? invitedBy, @InviteCodeConverter()  List<InviteCode>? invites,  bool? invitesDisabled, @JsonKey(toJson: iso8601)  DateTime? emailConfirmedAt,  String? inviteNote, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AccountView():
 return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedRecords,_that.indexedAt,_that.invitedBy,_that.invites,_that.invitesDisabled,_that.emailConfirmedAt,_that.inviteNote,_that.deactivatedAt,_that.threatSignatures,_that.$unknown);case _:
@@ -219,7 +219,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>>? relatedRecords,  DateTime indexedAt, @InviteCodeConverter()  InviteCode? invitedBy, @InviteCodeConverter()  List<InviteCode>? invites,  bool? invitesDisabled,  DateTime? emailConfirmedAt,  String? inviteNote,  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>>? relatedRecords, @JsonKey(toJson: iso8601)  DateTime indexedAt, @InviteCodeConverter()  InviteCode? invitedBy, @InviteCodeConverter()  List<InviteCode>? invites,  bool? invitesDisabled, @JsonKey(toJson: iso8601)  DateTime? emailConfirmedAt,  String? inviteNote, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AccountView() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedRecords,_that.indexedAt,_that.invitedBy,_that.invites,_that.invitesDisabled,_that.emailConfirmedAt,_that.inviteNote,_that.deactivatedAt,_that.threatSignatures,_that.$unknown);case _:
@@ -234,7 +234,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 
 @JsonSerializable(includeIfNull: false)
 class _AccountView implements AccountView {
-  const _AccountView({this.$type = 'com.atproto.admin.defs#accountView', required this.did, required this.handle, this.email, final  List<Map<String, dynamic>>? relatedRecords, required this.indexedAt, @InviteCodeConverter() this.invitedBy, @InviteCodeConverter() final  List<InviteCode>? invites, this.invitesDisabled, this.emailConfirmedAt, this.inviteNote, this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_invites = invites,_threatSignatures = threatSignatures,_$unknown = $unknown;
+  const _AccountView({this.$type = 'com.atproto.admin.defs#accountView', required this.did, required this.handle, this.email, final  List<Map<String, dynamic>>? relatedRecords, @JsonKey(toJson: iso8601) required this.indexedAt, @InviteCodeConverter() this.invitedBy, @InviteCodeConverter() final  List<InviteCode>? invites, this.invitesDisabled, @JsonKey(toJson: iso8601) this.emailConfirmedAt, this.inviteNote, @JsonKey(toJson: iso8601) this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_invites = invites,_threatSignatures = threatSignatures,_$unknown = $unknown;
   factory _AccountView.fromJson(Map<String, dynamic> json) => _$AccountViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -250,7 +250,7 @@ class _AccountView implements AccountView {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
 @override@InviteCodeConverter() final  InviteCode? invitedBy;
  final  List<InviteCode>? _invites;
 @override@InviteCodeConverter() List<InviteCode>? get invites {
@@ -262,9 +262,9 @@ class _AccountView implements AccountView {
 }
 
 @override final  bool? invitesDisabled;
-@override final  DateTime? emailConfirmedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? emailConfirmedAt;
 @override final  String? inviteNote;
-@override final  DateTime? deactivatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? deactivatedAt;
  final  List<ThreatSignature>? _threatSignatures;
 @override@ThreatSignatureConverter() List<ThreatSignature>? get threatSignatures {
   final value = _threatSignatures;
@@ -317,7 +317,7 @@ abstract mixin class _$AccountViewCopyWith<$Res> implements $AccountViewCopyWith
   factory _$AccountViewCopyWith(_AccountView value, $Res Function(_AccountView) _then) = __$AccountViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? email, List<Map<String, dynamic>>? relatedRecords, DateTime indexedAt,@InviteCodeConverter() InviteCode? invitedBy,@InviteCodeConverter() List<InviteCode>? invites, bool? invitesDisabled, DateTime? emailConfirmedAt, String? inviteNote, DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? email, List<Map<String, dynamic>>? relatedRecords,@JsonKey(toJson: iso8601) DateTime indexedAt,@InviteCodeConverter() InviteCode? invitedBy,@InviteCodeConverter() List<InviteCode>? invites, bool? invitesDisabled,@JsonKey(toJson: iso8601) DateTime? emailConfirmedAt, String? inviteNote,@JsonKey(toJson: iso8601) DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
 });
 
 

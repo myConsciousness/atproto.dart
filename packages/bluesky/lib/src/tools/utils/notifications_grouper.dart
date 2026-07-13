@@ -192,7 +192,10 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     }
   }
 
-  void _mergeLabels(final List<Label> relatedLabels, final List<Label>? labels) {
+  void _mergeLabels(
+    final List<Label> relatedLabels,
+    final List<Label>? labels,
+  ) {
     if (labels == null || labels.isEmpty) {
       return;
     }

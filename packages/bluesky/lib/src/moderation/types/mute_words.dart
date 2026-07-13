@@ -105,8 +105,7 @@ List<MuteWordMatch> matchMuteWords({
     // Use UTF-16 length (matching the official `@atproto/api`) instead of the
     // grapheme count so a single-codepoint emoji muted word is treated the
     // same way, and consistently with the `mutedWord.length` check below.
-    if ((mutedWord.length == 1 || exception) &&
-        postText.contains(mutedWord)) {
+    if ((mutedWord.length == 1 || exception) && postText.contains(mutedWord)) {
       matches.add(MuteWordMatch(word: mute, predicate: mute.value));
       continue;
     }

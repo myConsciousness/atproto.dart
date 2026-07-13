@@ -17,7 +17,7 @@ mixin _$FeedPostRecord {
 
  String get $type;/// The primary post content. May be an empty string, if there are embeds.
  String get text;@RichtextFacetConverter() List<RichtextFacet>? get facets;@ReplyRefConverter() ReplyRef? get reply;@UFeedPostEmbedConverter() UFeedPostEmbed? get embed; List<String>? get langs;@UFeedPostLabelsConverter() UFeedPostLabels? get labels; List<String>? get tags;/// Client-declared timestamp when this post was originally created.
- DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedPostRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $FeedPostRecordCopyWith<$Res>  {
   factory $FeedPostRecordCopyWith(FeedPostRecord value, $Res Function(FeedPostRecord) _then) = _$FeedPostRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@ReplyRefConverter() ReplyRef? reply,@UFeedPostEmbedConverter() UFeedPostEmbed? embed, List<String>? langs,@UFeedPostLabelsConverter() UFeedPostLabels? labels, List<String>? tags, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@ReplyRefConverter() ReplyRef? reply,@UFeedPostEmbedConverter() UFeedPostEmbed? embed, List<String>? langs,@UFeedPostLabelsConverter() UFeedPostLabels? labels, List<String>? tags,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -200,7 +200,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter()  ReplyRef? reply, @UFeedPostEmbedConverter()  UFeedPostEmbed? embed,  List<String>? langs, @UFeedPostLabelsConverter()  UFeedPostLabels? labels,  List<String>? tags,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter()  ReplyRef? reply, @UFeedPostEmbedConverter()  UFeedPostEmbed? embed,  List<String>? langs, @UFeedPostLabelsConverter()  UFeedPostLabels? labels,  List<String>? tags, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedPostRecord() when $default != null:
 return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_that.langs,_that.labels,_that.tags,_that.createdAt,_that.$unknown);case _:
@@ -221,7 +221,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter()  ReplyRef? reply, @UFeedPostEmbedConverter()  UFeedPostEmbed? embed,  List<String>? langs, @UFeedPostLabelsConverter()  UFeedPostLabels? labels,  List<String>? tags,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter()  ReplyRef? reply, @UFeedPostEmbedConverter()  UFeedPostEmbed? embed,  List<String>? langs, @UFeedPostLabelsConverter()  UFeedPostLabels? labels,  List<String>? tags, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedPostRecord():
 return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_that.langs,_that.labels,_that.tags,_that.createdAt,_that.$unknown);case _:
@@ -241,7 +241,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter()  ReplyRef? reply, @UFeedPostEmbedConverter()  UFeedPostEmbed? embed,  List<String>? langs, @UFeedPostLabelsConverter()  UFeedPostLabels? labels,  List<String>? tags,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter()  ReplyRef? reply, @UFeedPostEmbedConverter()  UFeedPostEmbed? embed,  List<String>? langs, @UFeedPostLabelsConverter()  UFeedPostLabels? labels,  List<String>? tags, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedPostRecord() when $default != null:
 return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_that.langs,_that.labels,_that.tags,_that.createdAt,_that.$unknown);case _:
@@ -256,7 +256,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _FeedPostRecord implements FeedPostRecord {
-  const _FeedPostRecord({this.$type = 'app.bsky.feed.post', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @ReplyRefConverter() this.reply, @UFeedPostEmbedConverter() this.embed, final  List<String>? langs, @UFeedPostLabelsConverter() this.labels, final  List<String>? tags, required this.createdAt, final  Map<String, dynamic>? $unknown}): _facets = facets,_langs = langs,_tags = tags,_$unknown = $unknown;
+  const _FeedPostRecord({this.$type = 'app.bsky.feed.post', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @ReplyRefConverter() this.reply, @UFeedPostEmbedConverter() this.embed, final  List<String>? langs, @UFeedPostLabelsConverter() this.labels, final  List<String>? tags, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _facets = facets,_langs = langs,_tags = tags,_$unknown = $unknown;
   factory _FeedPostRecord.fromJson(Map<String, dynamic> json) => _$FeedPostRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -293,7 +293,7 @@ class _FeedPostRecord implements FeedPostRecord {
 }
 
 /// Client-declared timestamp when this post was originally created.
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -337,7 +337,7 @@ abstract mixin class _$FeedPostRecordCopyWith<$Res> implements $FeedPostRecordCo
   factory _$FeedPostRecordCopyWith(_FeedPostRecord value, $Res Function(_FeedPostRecord) _then) = __$FeedPostRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@ReplyRefConverter() ReplyRef? reply,@UFeedPostEmbedConverter() UFeedPostEmbed? embed, List<String>? langs,@UFeedPostLabelsConverter() UFeedPostLabels? labels, List<String>? tags, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String text,@RichtextFacetConverter() List<RichtextFacet>? facets,@ReplyRefConverter() ReplyRef? reply,@UFeedPostEmbedConverter() UFeedPostEmbed? embed, List<String>? langs,@UFeedPostLabelsConverter() UFeedPostLabels? labels, List<String>? tags,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

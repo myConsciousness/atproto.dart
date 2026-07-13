@@ -39,7 +39,7 @@ abstract class AccountEvent with _$AccountEvent {
     /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
     required bool active,
     @AccountEventStatusConverter() AccountEventStatus? status,
-    required DateTime timestamp,
+    @JsonKey(toJson: iso8601) required DateTime timestamp,
 
     Map<String, dynamic>? $unknown,
   }) = _AccountEvent;

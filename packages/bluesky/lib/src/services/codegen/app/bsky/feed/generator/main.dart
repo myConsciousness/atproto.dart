@@ -52,7 +52,7 @@ abstract class FeedGeneratorRecord with _$FeedGeneratorRecord {
     bool? acceptsInteractions,
     @UFeedGeneratorLabelsConverter() UFeedGeneratorLabels? labels,
     @FeedGeneratorContentModeConverter() FeedGeneratorContentMode? contentMode,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _FeedGeneratorRecord;

@@ -165,9 +165,13 @@ final class QueryStatusesCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("queueCount"))
-      "queueCount": int.parse(argResults!["queueCount"]),
+      "queueCount":
+          int.tryParse(argResults!["queueCount"]) ??
+          usageException('Invalid integer value for option "queueCount".'),
     if (argResults!.wasParsed("queueIndex"))
-      "queueIndex": int.parse(argResults!["queueIndex"]),
+      "queueIndex":
+          int.tryParse(argResults!["queueIndex"]) ??
+          usageException('Invalid integer value for option "queueIndex".'),
     if (argResults!.wasParsed("queueSeed"))
       "queueSeed": argResults!["queueSeed"],
     if (argResults!.wasParsed("includeAllUserRecords"))
@@ -207,7 +211,9 @@ final class QueryStatusesCommand extends QueryCommand {
     if (argResults!.wasParsed("takendown"))
       "takendown": argResults!["takendown"],
     if (argResults!.wasParsed("appealed")) "appealed": argResults!["appealed"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("tags")) "tags": argResults!["tags"],
     if (argResults!.wasParsed("excludeTags"))
       "excludeTags": argResults!["excludeTags"],
@@ -217,21 +223,33 @@ final class QueryStatusesCommand extends QueryCommand {
     if (argResults!.wasParsed("subjectType"))
       "subjectType": argResults!["subjectType"],
     if (argResults!.wasParsed("minAccountSuspendCount"))
-      "minAccountSuspendCount": int.parse(
-        argResults!["minAccountSuspendCount"],
-      ),
+      "minAccountSuspendCount":
+          int.tryParse(argResults!["minAccountSuspendCount"]) ??
+          usageException(
+            'Invalid integer value for option "minAccountSuspendCount".',
+          ),
     if (argResults!.wasParsed("minReportedRecordsCount"))
-      "minReportedRecordsCount": int.parse(
-        argResults!["minReportedRecordsCount"],
-      ),
+      "minReportedRecordsCount":
+          int.tryParse(argResults!["minReportedRecordsCount"]) ??
+          usageException(
+            'Invalid integer value for option "minReportedRecordsCount".',
+          ),
     if (argResults!.wasParsed("minTakendownRecordsCount"))
-      "minTakendownRecordsCount": int.parse(
-        argResults!["minTakendownRecordsCount"],
-      ),
+      "minTakendownRecordsCount":
+          int.tryParse(argResults!["minTakendownRecordsCount"]) ??
+          usageException(
+            'Invalid integer value for option "minTakendownRecordsCount".',
+          ),
     if (argResults!.wasParsed("minPriorityScore"))
-      "minPriorityScore": int.parse(argResults!["minPriorityScore"]),
+      "minPriorityScore":
+          int.tryParse(argResults!["minPriorityScore"]) ??
+          usageException(
+            'Invalid integer value for option "minPriorityScore".',
+          ),
     if (argResults!.wasParsed("minStrikeCount"))
-      "minStrikeCount": int.parse(argResults!["minStrikeCount"]),
+      "minStrikeCount":
+          int.tryParse(argResults!["minStrikeCount"]) ??
+          usageException('Invalid integer value for option "minStrikeCount".'),
     if (argResults!.wasParsed("ageAssuranceState"))
       "ageAssuranceState": argResults!["ageAssuranceState"],
   };

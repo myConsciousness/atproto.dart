@@ -81,8 +81,8 @@ Map<String, dynamic> _$EmbedExternalViewExternalToJson(
   'title': instance.title,
   'description': instance.description,
   'thumb': ?instance.thumb,
-  'createdAt': ?instance.createdAt?.toIso8601String(),
-  'updatedAt': ?instance.updatedAt?.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
+  'updatedAt': iso8601(instance.updatedAt),
   'readingTime': ?instance.readingTime,
   'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
   'source':

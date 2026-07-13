@@ -57,12 +57,13 @@ bool _overlaps(final Entity a, final Entity b) =>
 List<Entity> resolveFacetOverlaps(final List<Entity> entities) {
   if (entities.length < 2) return orderByIndicesStart(entities);
 
-  final byPriority = [...entities]..sort((a, b) {
-    final priority = _facetPriority(a.type).compareTo(_facetPriority(b.type));
-    if (priority != 0) return priority;
+  final byPriority = [...entities]
+    ..sort((a, b) {
+      final priority = _facetPriority(a.type).compareTo(_facetPriority(b.type));
+      if (priority != 0) return priority;
 
-    return a.indices.start.compareTo(b.indices.start);
-  });
+      return a.indices.start.compareTo(b.indices.start);
+    });
 
   final kept = <Entity>[];
   for (final entity in byPriority) {
@@ -307,11 +308,7 @@ final class _LinksExtractor implements Extractor {
       )
       .toList();
 
-  bool _isHandle(
-    final int start,
-    final int end,
-    final List<Entity> handles,
-  ) {
+  bool _isHandle(final int start, final int end, final List<Entity> handles) {
     //* Only treat the candidate link as a handle when it is fully contained in
     //* a handle span (i.e. it is the handle's own domain, as in
     //* `@shinyakato.dev`). A URL that merely *contains* an `@handle` in its path
@@ -371,8 +368,7 @@ final class _TagsExtractor implements Extractor {
       //* keeps the inner hash while only the outermost marker is stripped from
       //* the facet value. This matches the official behavior of removing a
       //* single leading hash.
-      final boundaryIsHashSign =
-          match.boundary == '#' || match.boundary == '＃';
+      final boundaryIsHashSign = match.boundary == '#' || match.boundary == '＃';
       final tag = boundaryIsHashSign
           ? '${match.boundary}${match.hashMark}${match.tag}'
           : '${match.hashMark}${match.tag}';

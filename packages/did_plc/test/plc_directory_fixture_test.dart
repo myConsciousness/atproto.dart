@@ -87,8 +87,7 @@ void main() {
         tampered[1]['operation'] as Map<String, dynamic>,
       );
       op['alsoKnownAs'] = ['at://attacker.example.com'];
-      tampered[1] = Map<String, dynamic>.from(tampered[1])
-        ..['operation'] = op;
+      tampered[1] = Map<String, dynamic>.from(tampered[1])..['operation'] = op;
 
       final result = verifier.verifyAuditLog(tampered);
       expect(result.isValid, isFalse);

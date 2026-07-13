@@ -26,7 +26,7 @@ abstract class NotificationGetUnreadCountInput
   @JsonSerializable(includeIfNull: false)
   const factory NotificationGetUnreadCountInput({
     bool? priority,
-    DateTime? seenAt,
+    @JsonKey(toJson: iso8601) DateTime? seenAt,
 
     Map<String, dynamic>? $unknown,
   }) = _NotificationGetUnreadCountInput;

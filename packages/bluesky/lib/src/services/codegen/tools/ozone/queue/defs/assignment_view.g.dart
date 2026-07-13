@@ -51,8 +51,8 @@ Map<String, dynamic> _$AssignmentViewToJson(_AssignmentView instance) =>
         const MemberConverter().toJson,
       ),
       'queue': const QueueViewConverter().toJson(instance.queue),
-      'startAt': instance.startAt.toIso8601String(),
-      'endAt': ?instance.endAt?.toIso8601String(),
+      'startAt': iso8601(instance.startAt),
+      'endAt': iso8601(instance.endAt),
       r'$unknown': ?instance.$unknown,
     };
 

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModerationCreateReportOutput {
 
- int get id;@ReasonTypeConverter() ReasonType get reasonType; String? get reason;@UModerationCreateReportSubjectConverter() UModerationCreateReportSubject get subject; String get reportedBy; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ int get id;@ReasonTypeConverter() ReasonType get reasonType; String? get reason;@UModerationCreateReportSubjectConverter() UModerationCreateReportSubject get subject; String get reportedBy;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModerationCreateReportOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ModerationCreateReportOutputCopyWith<$Res>  {
   factory $ModerationCreateReportOutputCopyWith(ModerationCreateReportOutput value, $Res Function(ModerationCreateReportOutput) _then) = _$ModerationCreateReportOutputCopyWithImpl;
 @useResult
 $Res call({
- int id,@ReasonTypeConverter() ReasonType reasonType, String? reason,@UModerationCreateReportSubjectConverter() UModerationCreateReportSubject subject, String reportedBy, DateTime createdAt, Map<String, dynamic>? $unknown
+ int id,@ReasonTypeConverter() ReasonType reasonType, String? reason,@UModerationCreateReportSubjectConverter() UModerationCreateReportSubject subject, String reportedBy,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -177,7 +177,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id, @ReasonTypeConverter()  ReasonType reasonType,  String? reason, @UModerationCreateReportSubjectConverter()  UModerationCreateReportSubject subject,  String reportedBy,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id, @ReasonTypeConverter()  ReasonType reasonType,  String? reason, @UModerationCreateReportSubjectConverter()  UModerationCreateReportSubject subject,  String reportedBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModerationCreateReportOutput() when $default != null:
 return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.reportedBy,_that.createdAt,_that.$unknown);case _:
@@ -198,7 +198,7 @@ return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.repor
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id, @ReasonTypeConverter()  ReasonType reasonType,  String? reason, @UModerationCreateReportSubjectConverter()  UModerationCreateReportSubject subject,  String reportedBy,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id, @ReasonTypeConverter()  ReasonType reasonType,  String? reason, @UModerationCreateReportSubjectConverter()  UModerationCreateReportSubject subject,  String reportedBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModerationCreateReportOutput():
 return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.reportedBy,_that.createdAt,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.repor
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id, @ReasonTypeConverter()  ReasonType reasonType,  String? reason, @UModerationCreateReportSubjectConverter()  UModerationCreateReportSubject subject,  String reportedBy,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id, @ReasonTypeConverter()  ReasonType reasonType,  String? reason, @UModerationCreateReportSubjectConverter()  UModerationCreateReportSubject subject,  String reportedBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModerationCreateReportOutput() when $default != null:
 return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.reportedBy,_that.createdAt,_that.$unknown);case _:
@@ -233,7 +233,7 @@ return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.repor
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationCreateReportOutput implements ModerationCreateReportOutput {
-  const _ModerationCreateReportOutput({required this.id, @ReasonTypeConverter() required this.reasonType, this.reason, @UModerationCreateReportSubjectConverter() required this.subject, required this.reportedBy, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationCreateReportOutput({required this.id, @ReasonTypeConverter() required this.reasonType, this.reason, @UModerationCreateReportSubjectConverter() required this.subject, required this.reportedBy, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationCreateReportOutput.fromJson(Map<String, dynamic> json) => _$ModerationCreateReportOutputFromJson(json);
 
 @override final  int id;
@@ -241,7 +241,7 @@ class _ModerationCreateReportOutput implements ModerationCreateReportOutput {
 @override final  String? reason;
 @override@UModerationCreateReportSubjectConverter() final  UModerationCreateReportSubject subject;
 @override final  String reportedBy;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -285,7 +285,7 @@ abstract mixin class _$ModerationCreateReportOutputCopyWith<$Res> implements $Mo
   factory _$ModerationCreateReportOutputCopyWith(_ModerationCreateReportOutput value, $Res Function(_ModerationCreateReportOutput) _then) = __$ModerationCreateReportOutputCopyWithImpl;
 @override @useResult
 $Res call({
- int id,@ReasonTypeConverter() ReasonType reasonType, String? reason,@UModerationCreateReportSubjectConverter() UModerationCreateReportSubject subject, String reportedBy, DateTime createdAt, Map<String, dynamic>? $unknown
+ int id,@ReasonTypeConverter() ReasonType reasonType, String? reason,@UModerationCreateReportSubjectConverter() UModerationCreateReportSubject subject, String reportedBy,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

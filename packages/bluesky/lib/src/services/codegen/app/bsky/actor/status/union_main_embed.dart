@@ -52,17 +52,17 @@ final class UActorStatusEmbedConverter
 
   @override
   UActorStatusEmbed fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedExternal.validate(json)) {
-        return UActorStatusEmbed.embedExternal(
-          data: const EmbedExternalConverter().fromJson(json),
-        );
-      }
-
-      return UActorStatusEmbed.unknown(data: json);
-    } catch (_) {
-      return UActorStatusEmbed.unknown(data: json);
+    if (EmbedExternal.validate(json)) {
+      return UActorStatusEmbed.embedExternal(
+        data: const EmbedExternalConverter().fromJson(json),
+      );
     }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UActorStatusEmbed.unknown(data: json);
   }
 
   @override

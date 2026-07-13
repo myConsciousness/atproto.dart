@@ -18,7 +18,7 @@ mixin _$TempCheckHandleAvailabilityInput {
 /// Tentative handle. Will be checked for availability or used to build handle suggestions.
  String get handle;/// User-provided email. Might be used to build handle suggestions.
  String? get email;/// User-provided birth date. Might be used to build handle suggestions.
- DateTime? get birthDate; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get birthDate; Map<String, dynamic>? get $unknown;
 /// Create a copy of TempCheckHandleAvailabilityInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $TempCheckHandleAvailabilityInputCopyWith<$Res>  {
   factory $TempCheckHandleAvailabilityInputCopyWith(TempCheckHandleAvailabilityInput value, $Res Function(TempCheckHandleAvailabilityInput) _then) = _$TempCheckHandleAvailabilityInputCopyWithImpl;
 @useResult
 $Res call({
- String handle, String? email, DateTime? birthDate, Map<String, dynamic>? $unknown
+ String handle, String? email,@JsonKey(toJson: iso8601) DateTime? birthDate, Map<String, dynamic>? $unknown
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String handle,  String? email,  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String handle,  String? email, @JsonKey(toJson: iso8601)  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TempCheckHandleAvailabilityInput() when $default != null:
 return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String handle,  String? email,  DateTime? birthDate,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String handle,  String? email, @JsonKey(toJson: iso8601)  DateTime? birthDate,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _TempCheckHandleAvailabilityInput():
 return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String handle,  String? email,  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String handle,  String? email, @JsonKey(toJson: iso8601)  DateTime? birthDate,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _TempCheckHandleAvailabilityInput() when $default != null:
 return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.handle,_that.email,_that.birthDate,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _TempCheckHandleAvailabilityInput implements TempCheckHandleAvailabilityInput {
-  const _TempCheckHandleAvailabilityInput({required this.handle, this.email, this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _TempCheckHandleAvailabilityInput({required this.handle, this.email, @JsonKey(toJson: iso8601) this.birthDate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempCheckHandleAvailabilityInput.fromJson(Map<String, dynamic> json) => _$TempCheckHandleAvailabilityInputFromJson(json);
 
 /// Tentative handle. Will be checked for availability or used to build handle suggestions.
@@ -223,7 +223,7 @@ class _TempCheckHandleAvailabilityInput implements TempCheckHandleAvailabilityIn
 /// User-provided email. Might be used to build handle suggestions.
 @override final  String? email;
 /// User-provided birth date. Might be used to build handle suggestions.
-@override final  DateTime? birthDate;
+@override@JsonKey(toJson: iso8601) final  DateTime? birthDate;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -267,7 +267,7 @@ abstract mixin class _$TempCheckHandleAvailabilityInputCopyWith<$Res> implements
   factory _$TempCheckHandleAvailabilityInputCopyWith(_TempCheckHandleAvailabilityInput value, $Res Function(_TempCheckHandleAvailabilityInput) _then) = __$TempCheckHandleAvailabilityInputCopyWithImpl;
 @override @useResult
 $Res call({
- String handle, String? email, DateTime? birthDate, Map<String, dynamic>? $unknown
+ String handle, String? email,@JsonKey(toJson: iso8601) DateTime? birthDate, Map<String, dynamic>? $unknown
 });
 
 

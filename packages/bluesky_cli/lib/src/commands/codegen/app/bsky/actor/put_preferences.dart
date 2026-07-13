@@ -37,7 +37,14 @@ final class PutPreferencesCommand extends ProcedureCommand {
   String get methodId => "app.bsky.actor.putPreferences";
 
   @override
-  Map<String, dynamic>? get body => {
-    "preferences": jsonDecode(argResults!["preferences"]),
-  };
+  Map<String, dynamic>? get body => {"preferences": _decodeJson("preferences")};
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

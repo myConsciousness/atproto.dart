@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListView {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator; String get name;@ListPurposeConverter() ListPurpose get purpose; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets; String? get avatar; int? get listItemCount;@LabelConverter() List<Label>? get labels;@ListViewerStateConverter() ListViewerState? get viewer; DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator; String get name;@ListPurposeConverter() ListPurpose get purpose; String? get description;@RichtextFacetConverter() List<RichtextFacet>? get descriptionFacets; String? get avatar; int? get listItemCount;@LabelConverter() List<Label>? get labels;@ListViewerStateConverter() ListViewerState? get viewer;@JsonKey(toJson: iso8601) DateTime get indexedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ListViewCopyWith<$Res>  {
   factory $ListViewCopyWith(ListView value, $Res Function(ListView) _then) = _$ListViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -196,7 +196,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.purpose,_that.description,_that.descriptionFacets,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListView():
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.purpose,_that.description,_that.descriptionFacets,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -237,7 +237,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer,  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  String name, @ListPurposeConverter()  ListPurpose purpose,  String? description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets,  String? avatar,  int? listItemCount, @LabelConverter()  List<Label>? labels, @ListViewerStateConverter()  ListViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.purpose,_that.description,_that.descriptionFacets,_that.avatar,_that.listItemCount,_that.labels,_that.viewer,_that.indexedAt,_that.$unknown);case _:
@@ -252,7 +252,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.name,_that.p
 
 @JsonSerializable(includeIfNull: false)
 class _ListView implements ListView {
-  const _ListView({this.$type = 'app.bsky.graph.defs#listView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, required this.name, @ListPurposeConverter() required this.purpose, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
+  const _ListView({this.$type = 'app.bsky.graph.defs#listView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, required this.name, @ListPurposeConverter() required this.purpose, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, this.avatar, this.listItemCount, @LabelConverter() final  List<Label>? labels, @ListViewerStateConverter() this.viewer, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
   factory _ListView.fromJson(Map<String, dynamic> json) => _$ListViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -283,7 +283,7 @@ class _ListView implements ListView {
 }
 
 @override@ListViewerStateConverter() final  ListViewerState? viewer;
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -327,7 +327,7 @@ abstract mixin class _$ListViewCopyWith<$Res> implements $ListViewCopyWith<$Res>
   factory _$ListViewCopyWith(_ListView value, $Res Function(_ListView) _then) = __$ListViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer, DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, String name,@ListPurposeConverter() ListPurpose purpose, String? description,@RichtextFacetConverter() List<RichtextFacet>? descriptionFacets, String? avatar, int? listItemCount,@LabelConverter() List<Label>? labels,@ListViewerStateConverter() ListViewerState? viewer,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
 });
 
 

@@ -52,8 +52,8 @@ abstract class TemplateView with _$TemplateView {
 
     /// DID of the user who last updated the template.
     required String lastUpdatedBy,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime updatedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _TemplateView;

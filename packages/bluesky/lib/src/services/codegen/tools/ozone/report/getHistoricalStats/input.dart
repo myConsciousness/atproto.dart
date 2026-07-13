@@ -41,10 +41,10 @@ abstract class ReportGetHistoricalStatsInput
     List<String>? reportTypes,
 
     /// Earliest date to include (inclusive).
-    DateTime? startDate,
+    @JsonKey(toJson: iso8601) DateTime? startDate,
 
     /// Latest date to include (inclusive).
-    DateTime? endDate,
+    @JsonKey(toJson: iso8601) DateTime? endDate,
 
     /// Maximum number of entries to return.
     @Default(30) int limit,

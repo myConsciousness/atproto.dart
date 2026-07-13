@@ -87,27 +87,27 @@ final class UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter
   UGroupGetJoinLinkPreviewsJoinLinkPreviews fromJson(
     Map<String, dynamic> json,
   ) {
-    try {
-      if (JoinLinkPreviewView.validate(json)) {
-        return UGroupGetJoinLinkPreviewsJoinLinkPreviews.joinLinkPreviewView(
-          data: const JoinLinkPreviewViewConverter().fromJson(json),
-        );
-      }
-      if (DisabledJoinLinkPreviewView.validate(json)) {
-        return UGroupGetJoinLinkPreviewsJoinLinkPreviews.disabledJoinLinkPreviewView(
-          data: const DisabledJoinLinkPreviewViewConverter().fromJson(json),
-        );
-      }
-      if (InvalidJoinLinkPreviewView.validate(json)) {
-        return UGroupGetJoinLinkPreviewsJoinLinkPreviews.invalidJoinLinkPreviewView(
-          data: const InvalidJoinLinkPreviewViewConverter().fromJson(json),
-        );
-      }
-
-      return UGroupGetJoinLinkPreviewsJoinLinkPreviews.unknown(data: json);
-    } catch (_) {
-      return UGroupGetJoinLinkPreviewsJoinLinkPreviews.unknown(data: json);
+    if (JoinLinkPreviewView.validate(json)) {
+      return UGroupGetJoinLinkPreviewsJoinLinkPreviews.joinLinkPreviewView(
+        data: const JoinLinkPreviewViewConverter().fromJson(json),
+      );
     }
+    if (DisabledJoinLinkPreviewView.validate(json)) {
+      return UGroupGetJoinLinkPreviewsJoinLinkPreviews.disabledJoinLinkPreviewView(
+        data: const DisabledJoinLinkPreviewViewConverter().fromJson(json),
+      );
+    }
+    if (InvalidJoinLinkPreviewView.validate(json)) {
+      return UGroupGetJoinLinkPreviewsJoinLinkPreviews.invalidJoinLinkPreviewView(
+        data: const InvalidJoinLinkPreviewViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UGroupGetJoinLinkPreviewsJoinLinkPreviews.unknown(data: json);
   }
 
   @override

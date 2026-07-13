@@ -12,21 +12,26 @@ import 'package:lex_gen/src/commands/types/lex_parameter.dart';
 
 void main() {
   group('record command (L-15.3) — shared mixin', () {
-    final command = LexCommand(
-      NSID('app.bsky.feed.post'),
-      'A declaration of a post.',
-      [
-        LexParameter('text', 'The primary text.', true, null, type: 'string'),
-        LexParameter('facets', null, false, null,
-            type: 'array', itemsType: 'union'),
-      ],
-      isRecord: true,
-    );
+    final command =
+        LexCommand(NSID('app.bsky.feed.post'), 'A declaration of a post.', [
+          LexParameter('text', 'The primary text.', true, null, type: 'string'),
+          LexParameter(
+            'facets',
+            null,
+            false,
+            null,
+            type: 'array',
+            itemsType: 'union',
+          ),
+        ], isRecord: true);
 
     final output = command.format();
 
     test('a shared mixin holds the field options and helpers', () {
-      expect(output, contains('mixin _PostCommandRecordArgs on Command<void> {'));
+      expect(
+        output,
+        contains('mixin _PostCommandRecordArgs on Command<void> {'),
+      );
       expect(output, contains('void _addRecordOptions() {'));
     });
 
@@ -52,11 +57,15 @@ void main() {
     test('create rkey is optional; put rkey is mandatory', () {
       expect(
         output,
-        contains('argParser.addOption("rkey", help: r"Specific record key to use.",);'),
+        contains(
+          'argParser.addOption("rkey", help: r"Specific record key to use.",);',
+        ),
       );
       expect(
         output,
-        contains('argParser.addOption("rkey", help: r"The record key.", mandatory: true,);'),
+        contains(
+          'argParser.addOption("rkey", help: r"The record key.", mandatory: true,);',
+        ),
       );
     });
 

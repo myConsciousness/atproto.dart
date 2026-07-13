@@ -186,9 +186,7 @@ base class ServiceContext {
     final Map<String, String> header,
     final Map<String, String> authHeaders,
   ) {
-    final reservedNames = authHeaders.keys
-        .map((e) => e.toLowerCase())
-        .toSet();
+    final reservedNames = authHeaders.keys.map((e) => e.toLowerCase()).toSet();
 
     return {
       for (final entry in header.entries)

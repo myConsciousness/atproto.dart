@@ -40,7 +40,7 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
     @Default('app.bsky.unspecced.defs#ageAssuranceEvent') String $type,
 
     /// The date and time of this write operation.
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// The status of the age assurance process.
     @AgeAssuranceEventStatusConverter() required AgeAssuranceEventStatus status,

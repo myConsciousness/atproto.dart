@@ -44,6 +44,6 @@ Map<String, dynamic> _$ModerationCreateReportOutputToJson(
     instance.subject,
   ),
   'reportedBy': instance.reportedBy,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   r'$unknown': ?instance.$unknown,
 };

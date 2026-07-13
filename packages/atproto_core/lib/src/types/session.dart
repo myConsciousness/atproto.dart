@@ -79,8 +79,7 @@ extension SessionExtension on Session {
   /// is missing, malformed, or has no `#atproto_pds` service, the `aud`
   /// claim of [accessJwt] is used as a fallback. Returns null only when
   /// neither source yields an endpoint.
-  String? get atprotoPdsEndpoint =>
-      _didDocPdsEndpoint ?? _accessJwtPdsEndpoint;
+  String? get atprotoPdsEndpoint => _didDocPdsEndpoint ?? _accessJwtPdsEndpoint;
 
   String? get _didDocPdsEndpoint {
     final services = didDoc?['service'];

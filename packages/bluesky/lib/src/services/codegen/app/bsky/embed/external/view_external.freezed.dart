@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$EmbedExternalViewExternal {
 
  String get $type; String get uri; String get title; String get description; String? get thumb;/// When the external content was created, if available. Example: a publication date, for an article.
- DateTime? get createdAt;/// When the external content was updated, if available.
- DateTime? get updatedAt;/// Estimated reading time in minutes, if applicable and available.
+@JsonKey(toJson: iso8601) DateTime? get createdAt;/// When the external content was updated, if available.
+@JsonKey(toJson: iso8601) DateTime? get updatedAt;/// Estimated reading time in minutes, if applicable and available.
  int? get readingTime;@LabelConverter() List<Label>? get labels;@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? get source;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs;@ProfileViewBasicConverter() List<ProfileViewBasic>? get associatedProfiles; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalViewExternal
 /// with the given fields replaced by the non-null parameter values.
@@ -51,7 +51,7 @@ abstract mixin class $EmbedExternalViewExternalCopyWith<$Res>  {
   factory $EmbedExternalViewExternalCopyWith(EmbedExternalViewExternal value, $Res Function(EmbedExternalViewExternal) _then) = _$EmbedExternalViewExternalCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String title, String description, String? thumb, DateTime? createdAt, DateTime? updatedAt, int? readingTime,@LabelConverter() List<Label>? labels,@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? source,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description, String? thumb,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt, int? readingTime,@LabelConverter() List<Label>? labels,@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? source,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, Map<String, dynamic>? $unknown
 });
 
 
@@ -180,7 +180,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb,  DateTime? createdAt,  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewExternal() when $default != null:
 return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.createdAt,_that.updatedAt,_that.readingTime,_that.labels,_that.source,_that.associatedRefs,_that.associatedProfiles,_that.$unknown);case _:
@@ -201,7 +201,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb,  DateTime? createdAt,  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description,  String? thumb, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewExternal():
 return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.createdAt,_that.updatedAt,_that.readingTime,_that.labels,_that.source,_that.associatedRefs,_that.associatedProfiles,_that.$unknown);case _:
@@ -221,7 +221,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description,  String? thumb,  DateTime? createdAt,  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description,  String? thumb, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  int? readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter()  EmbedExternalViewExternalSource? source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewExternal() when $default != null:
 return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,_that.createdAt,_that.updatedAt,_that.readingTime,_that.labels,_that.source,_that.associatedRefs,_that.associatedProfiles,_that.$unknown);case _:
@@ -236,7 +236,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
-  const _EmbedExternalViewExternal({this.$type = 'app.bsky.embed.external#viewExternal', required this.uri, required this.title, required this.description, this.thumb, this.createdAt, this.updatedAt, this.readingTime, @LabelConverter() final  List<Label>? labels, @EmbedExternalViewExternalSourceConverter() this.source, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_$unknown = $unknown;
+  const _EmbedExternalViewExternal({this.$type = 'app.bsky.embed.external#viewExternal', required this.uri, required this.title, required this.description, this.thumb, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, this.readingTime, @LabelConverter() final  List<Label>? labels, @EmbedExternalViewExternalSourceConverter() this.source, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_$unknown = $unknown;
   factory _EmbedExternalViewExternal.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewExternalFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -245,9 +245,9 @@ class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
 @override final  String description;
 @override final  String? thumb;
 /// When the external content was created, if available. Example: a publication date, for an article.
-@override final  DateTime? createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAt;
 /// When the external content was updated, if available.
-@override final  DateTime? updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
 /// Estimated reading time in minutes, if applicable and available.
 @override final  int? readingTime;
  final  List<Label>? _labels;
@@ -321,7 +321,7 @@ abstract mixin class _$EmbedExternalViewExternalCopyWith<$Res> implements $Embed
   factory _$EmbedExternalViewExternalCopyWith(_EmbedExternalViewExternal value, $Res Function(_EmbedExternalViewExternal) _then) = __$EmbedExternalViewExternalCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String title, String description, String? thumb, DateTime? createdAt, DateTime? updatedAt, int? readingTime,@LabelConverter() List<Label>? labels,@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? source,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, Map<String, dynamic>? $unknown
+ String $type, String uri, String title, String description, String? thumb,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt, int? readingTime,@LabelConverter() List<Label>? labels,@EmbedExternalViewExternalSourceConverter() EmbedExternalViewExternalSource? source,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, Map<String, dynamic>? $unknown
 });
 
 

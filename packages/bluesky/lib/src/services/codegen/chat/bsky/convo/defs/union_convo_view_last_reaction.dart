@@ -54,17 +54,17 @@ final class UConvoViewLastReactionConverter
 
   @override
   UConvoViewLastReaction fromJson(Map<String, dynamic> json) {
-    try {
-      if (MessageAndReactionView.validate(json)) {
-        return UConvoViewLastReaction.messageAndReactionView(
-          data: const MessageAndReactionViewConverter().fromJson(json),
-        );
-      }
-
-      return UConvoViewLastReaction.unknown(data: json);
-    } catch (_) {
-      return UConvoViewLastReaction.unknown(data: json);
+    if (MessageAndReactionView.validate(json)) {
+      return UConvoViewLastReaction.messageAndReactionView(
+        data: const MessageAndReactionViewConverter().fromJson(json),
+      );
     }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UConvoViewLastReaction.unknown(data: json);
   }
 
   @override

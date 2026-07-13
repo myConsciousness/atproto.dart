@@ -42,6 +42,15 @@ final class CreateJoinLinkCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "convoId": argResults!["convoId"],
     "requireApproval": argResults!["requireApproval"],
-    "joinRule": jsonDecode(argResults!["joinRule"]),
+    "joinRule": _decodeJson("joinRule"),
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

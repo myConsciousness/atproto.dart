@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$EventRateLimitExceeded {
 
  String get $type;/// The DID of the user who hit the rate limit.
- String get actorDid; DateTime get createdAt;/// The NSID of the endpoint that was rate limited.
+ String get actorDid;@JsonKey(toJson: iso8601) DateTime get createdAt;/// The NSID of the endpoint that was rate limited.
  String get endpoint; String get rev; Map<String, dynamic>? get $unknown;
 /// Create a copy of EventRateLimitExceeded
 /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +50,7 @@ abstract mixin class $EventRateLimitExceededCopyWith<$Res>  {
   factory $EventRateLimitExceededCopyWith(EventRateLimitExceeded value, $Res Function(EventRateLimitExceeded) _then) = _$EventRateLimitExceededCopyWithImpl;
 @useResult
 $Res call({
- String $type, String actorDid, DateTime createdAt, String endpoint, String rev, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime createdAt, String endpoint, String rev, Map<String, dynamic>? $unknown
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime createdAt,  String endpoint,  String rev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime createdAt,  String endpoint,  String rev,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventRateLimitExceeded() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.rev,_that.$unknown);case _:
@@ -181,7 +181,7 @@ return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime createdAt,  String endpoint,  String rev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime createdAt,  String endpoint,  String rev,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EventRateLimitExceeded():
 return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.rev,_that.$unknown);case _:
@@ -201,7 +201,7 @@ return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid,  DateTime createdAt,  String endpoint,  String rev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime createdAt,  String endpoint,  String rev,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EventRateLimitExceeded() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.rev,_that.$unknown);case _:
@@ -216,13 +216,13 @@ return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _EventRateLimitExceeded implements EventRateLimitExceeded {
-  const _EventRateLimitExceeded({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded', required this.actorDid, required this.createdAt, required this.endpoint, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventRateLimitExceeded({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded', required this.actorDid, @JsonKey(toJson: iso8601) required this.createdAt, required this.endpoint, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventRateLimitExceeded.fromJson(Map<String, dynamic> json) => _$EventRateLimitExceededFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The DID of the user who hit the rate limit.
 @override final  String actorDid;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// The NSID of the endpoint that was rate limited.
 @override final  String endpoint;
 @override final  String rev;
@@ -269,7 +269,7 @@ abstract mixin class _$EventRateLimitExceededCopyWith<$Res> implements $EventRat
   factory _$EventRateLimitExceededCopyWith(_EventRateLimitExceeded value, $Res Function(_EventRateLimitExceeded) _then) = __$EventRateLimitExceededCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String actorDid, DateTime createdAt, String endpoint, String rev, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime createdAt, String endpoint, String rev, Map<String, dynamic>? $unknown
 });
 
 

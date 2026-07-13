@@ -139,7 +139,7 @@ class PlcVerifier {
     return VerificationResult.invalid(
       lastError != null
           ? 'Signature verification failed with all keys '
-              '(last key error: $lastError)'
+                '(last key error: $lastError)'
           : 'Signature verification failed with all keys',
     );
   }

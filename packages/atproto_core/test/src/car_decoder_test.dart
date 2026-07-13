@@ -37,10 +37,7 @@ Uint8List _cidBytes(int codec, {int fill = 7}) => Uint8List.fromList([
 ]);
 
 /// Frames a CAR file: header block followed by `(cid + block data)` entries.
-Uint8List _buildCar(
-  List<Uint8List> blocks, {
-  required Uint8List headerCbor,
-}) {
+Uint8List _buildCar(List<Uint8List> blocks, {required Uint8List headerCbor}) {
   final builder = BytesBuilder();
   builder.add(_varint(headerCbor.length));
   builder.add(headerCbor);
@@ -93,9 +90,7 @@ void main() {
       final value = decoded[cidKey]!;
       expect(value['text'], 'hi');
       expect(value[r'$type'], 'app.bsky.feed.post');
-      expect(value['ref'], {
-        r'$link': CID.fromList(linkCid).toString(),
-      });
+      expect(value['ref'], {r'$link': CID.fromList(linkCid).toString()});
       expect(value['nums'], [1, 2, 3]);
     });
 
@@ -106,9 +101,7 @@ void main() {
         final record = CborMap({CborString('i'): CborSmallInt(i)});
         final cid = _cidBytes(0x71, fill: i + 1);
         expectedKeys.add(CID.fromList(cid).toString());
-        blocks.add(
-          Uint8List.fromList([...cid, ...cborEncode(record)]),
-        );
+        blocks.add(Uint8List.fromList([...cid, ...cborEncode(record)]));
       }
 
       final decoded = decodeCar(_buildCar(blocks, headerCbor: headerCbor));
@@ -140,10 +133,7 @@ void main() {
       builder.add(headerCbor);
       builder.add(_varint(1000)); // claim 1000 bytes but provide none.
 
-      expect(
-        () => decodeCar(builder.toBytes()),
-        throwsA(isA<CarException>()),
-      );
+      expect(() => decodeCar(builder.toBytes()), throwsA(isA<CarException>()));
     });
   });
 }

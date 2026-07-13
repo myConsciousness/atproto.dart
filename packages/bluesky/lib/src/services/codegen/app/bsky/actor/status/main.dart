@@ -42,7 +42,7 @@ abstract class ActorStatusRecord with _$ActorStatusRecord {
 
     /// The duration of the status in minutes. Applications can choose to impose minimum and maximum limits.
     int? durationMinutes,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorStatusRecord;

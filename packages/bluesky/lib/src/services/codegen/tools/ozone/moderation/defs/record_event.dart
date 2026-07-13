@@ -32,7 +32,7 @@ abstract class RecordEvent with _$RecordEvent {
     String? comment,
     @RecordEventOpConverter() required RecordEventOp op,
     String? cid,
-    required DateTime timestamp,
+    @JsonKey(toJson: iso8601) required DateTime timestamp,
 
     Map<String, dynamic>? $unknown,
   }) = _RecordEvent;

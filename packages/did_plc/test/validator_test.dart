@@ -56,7 +56,8 @@ void main() {
         'type': 'create',
         'handle': 'paul.bsky.social',
         'service': 'https://bsky.social',
-        'signingKey': 'did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ',
+        'signingKey':
+            'did:key:zQ3shP5TBe1sQfSttXty15FAEHV1DZgcxRZNxvEWnPfLFwLxJ',
         'recoveryKey':
             'did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg',
       };
@@ -83,7 +84,10 @@ void main() {
     test('rejects a service with a non-URL endpoint', () {
       final op = validPlcOperation()
         ..['services'] = {
-          'atproto_pds': {'type': 'AtprotoPersonalDataServer', 'endpoint': 'nope'},
+          'atproto_pds': {
+            'type': 'AtprotoPersonalDataServer',
+            'endpoint': 'nope',
+          },
         };
       expect(
         () => validator.validateOperation(op),

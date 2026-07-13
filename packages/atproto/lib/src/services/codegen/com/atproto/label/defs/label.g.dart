@@ -46,8 +46,8 @@ Map<String, dynamic> _$LabelToJson(_Label instance) => <String, dynamic>{
   'cid': ?instance.cid,
   'val': instance.val,
   'neg': ?instance.neg,
-  'cts': instance.cts.toIso8601String(),
-  'exp': ?instance.exp?.toIso8601String(),
+  'cts': iso8601(instance.cts),
+  'exp': iso8601(instance.exp),
   'sig': ?instance.sig,
   r'$unknown': ?instance.$unknown,
 };

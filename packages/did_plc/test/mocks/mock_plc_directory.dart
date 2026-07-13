@@ -296,9 +296,7 @@ class _MockHttpClient implements HttpClient {
             .toList();
 
         // The real /export endpoint returns JSONL (one operation per line).
-        final jsonl = entries
-            .map((e) => jsonEncode(e.toJson()))
-            .join('\n');
+        final jsonl = entries.map((e) => jsonEncode(e.toJson())).join('\n');
         final data = fromJson != null
             ? fromJson({'log': entries.map((e) => e.toJson()).toList()})
             : jsonl as T;

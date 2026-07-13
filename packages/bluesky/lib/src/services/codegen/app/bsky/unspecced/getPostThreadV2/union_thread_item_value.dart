@@ -80,32 +80,32 @@ final class UThreadItemValueConverter
 
   @override
   UThreadItemValue fromJson(Map<String, dynamic> json) {
-    try {
-      if (ThreadItemPost.validate(json)) {
-        return UThreadItemValue.threadItemPost(
-          data: const ThreadItemPostConverter().fromJson(json),
-        );
-      }
-      if (ThreadItemNoUnauthenticated.validate(json)) {
-        return UThreadItemValue.threadItemNoUnauthenticated(
-          data: const ThreadItemNoUnauthenticatedConverter().fromJson(json),
-        );
-      }
-      if (ThreadItemNotFound.validate(json)) {
-        return UThreadItemValue.threadItemNotFound(
-          data: const ThreadItemNotFoundConverter().fromJson(json),
-        );
-      }
-      if (ThreadItemBlocked.validate(json)) {
-        return UThreadItemValue.threadItemBlocked(
-          data: const ThreadItemBlockedConverter().fromJson(json),
-        );
-      }
-
-      return UThreadItemValue.unknown(data: json);
-    } catch (_) {
-      return UThreadItemValue.unknown(data: json);
+    if (ThreadItemPost.validate(json)) {
+      return UThreadItemValue.threadItemPost(
+        data: const ThreadItemPostConverter().fromJson(json),
+      );
     }
+    if (ThreadItemNoUnauthenticated.validate(json)) {
+      return UThreadItemValue.threadItemNoUnauthenticated(
+        data: const ThreadItemNoUnauthenticatedConverter().fromJson(json),
+      );
+    }
+    if (ThreadItemNotFound.validate(json)) {
+      return UThreadItemValue.threadItemNotFound(
+        data: const ThreadItemNotFoundConverter().fromJson(json),
+      );
+    }
+    if (ThreadItemBlocked.validate(json)) {
+      return UThreadItemValue.threadItemBlocked(
+        data: const ThreadItemBlockedConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UThreadItemValue.unknown(data: json);
   }
 
   @override

@@ -59,8 +59,16 @@ final class ListScheduledActionsCommand extends ProcedureCommand {
     if (argResults!.wasParsed("endsBefore"))
       "endsBefore": argResults!["endsBefore"],
     if (argResults!.wasParsed("subjects")) "subjects": argResults!["subjects"],
-    "statuses": argResults!["statuses"],
-    "limit": int.parse(argResults!["limit"]),
+    "statuses": _requireNonEmpty("statuses", argResults!["statuses"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

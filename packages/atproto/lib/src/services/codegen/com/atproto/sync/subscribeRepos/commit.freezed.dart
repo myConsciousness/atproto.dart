@@ -20,11 +20,11 @@ mixin _$Commit {
  String get repo;/// Repo commit object CID.
  String get commit;/// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
  String get rev;/// The rev of the last emitted commit from this repo (if any).
- String? get since;/// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
+@JsonKey(includeIfNull: true) String? get since;/// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
  Map<String, dynamic> get blocks;/// List of repo mutation operations in this commit (eg, records created, updated, or deleted).
 @RepoOpConverter() List<RepoOp> get ops;/// The root CID of the MST tree for the previous commit from this repo (indicated by the 'since' revision field in this message). Corresponds to the 'data' field in the repo commit object. NOTE: this field is effectively required for the 'inductive' version of firehose.
  String? get prevData;/// Timestamp of when this message was originally broadcast.
- DateTime get time; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get time; Map<String, dynamic>? get $unknown;
 /// Create a copy of Commit
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -57,7 +57,7 @@ abstract mixin class $CommitCopyWith<$Res>  {
   factory $CommitCopyWith(Commit value, $Res Function(Commit) _then) = _$CommitCopyWithImpl;
 @useResult
 $Res call({
- String $type, int seq, String repo, String commit, String rev, String? since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData, DateTime time, Map<String, dynamic>? $unknown
+ String $type, int seq, String repo, String commit, String rev,@JsonKey(includeIfNull: true) String? since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData,@JsonKey(toJson: iso8601) DateTime time, Map<String, dynamic>? $unknown
 });
 
 
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev,  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev, @JsonKey(includeIfNull: true)  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData, @JsonKey(toJson: iso8601)  DateTime time,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Commit() when $default != null:
 return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.since,_that.blocks,_that.ops,_that.prevData,_that.time,_that.$unknown);case _:
@@ -193,7 +193,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev,  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int seq,  String repo,  String commit,  String rev, @JsonKey(includeIfNull: true)  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData, @JsonKey(toJson: iso8601)  DateTime time,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Commit():
 return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.since,_that.blocks,_that.ops,_that.prevData,_that.time,_that.$unknown);case _:
@@ -213,7 +213,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String repo,  String commit,  String rev,  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData,  DateTime time,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int seq,  String repo,  String commit,  String rev, @JsonKey(includeIfNull: true)  String? since,  Map<String, dynamic> blocks, @RepoOpConverter()  List<RepoOp> ops,  String? prevData, @JsonKey(toJson: iso8601)  DateTime time,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Commit() when $default != null:
 return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.since,_that.blocks,_that.ops,_that.prevData,_that.time,_that.$unknown);case _:
@@ -228,7 +228,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 
 @JsonSerializable(includeIfNull: false)
 class _Commit implements Commit {
-  const _Commit({this.$type = 'com.atproto.sync.subscribeRepos#commit', required this.seq, required this.repo, required this.commit, required this.rev, required this.since, required final  Map<String, dynamic> blocks, @RepoOpConverter() required final  List<RepoOp> ops, this.prevData, required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_ops = ops,_$unknown = $unknown;
+  const _Commit({this.$type = 'com.atproto.sync.subscribeRepos#commit', required this.seq, required this.repo, required this.commit, required this.rev, @JsonKey(includeIfNull: true) required this.since, required final  Map<String, dynamic> blocks, @RepoOpConverter() required final  List<RepoOp> ops, this.prevData, @JsonKey(toJson: iso8601) required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_ops = ops,_$unknown = $unknown;
   factory _Commit.fromJson(Map<String, dynamic> json) => _$CommitFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -241,7 +241,7 @@ class _Commit implements Commit {
 /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
 @override final  String rev;
 /// The rev of the last emitted commit from this repo (if any).
-@override final  String? since;
+@override@JsonKey(includeIfNull: true) final  String? since;
 /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
  final  Map<String, dynamic> _blocks;
 /// CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list.
@@ -263,7 +263,7 @@ class _Commit implements Commit {
 /// The root CID of the MST tree for the previous commit from this repo (indicated by the 'since' revision field in this message). Corresponds to the 'data' field in the repo commit object. NOTE: this field is effectively required for the 'inductive' version of firehose.
 @override final  String? prevData;
 /// Timestamp of when this message was originally broadcast.
-@override final  DateTime time;
+@override@JsonKey(toJson: iso8601) final  DateTime time;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -307,7 +307,7 @@ abstract mixin class _$CommitCopyWith<$Res> implements $CommitCopyWith<$Res> {
   factory _$CommitCopyWith(_Commit value, $Res Function(_Commit) _then) = __$CommitCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int seq, String repo, String commit, String rev, String? since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData, DateTime time, Map<String, dynamic>? $unknown
+ String $type, int seq, String repo, String commit, String rev,@JsonKey(includeIfNull: true) String? since, Map<String, dynamic> blocks,@RepoOpConverter() List<RepoOp> ops, String? prevData,@JsonKey(toJson: iso8601) DateTime time, Map<String, dynamic>? $unknown
 });
 
 

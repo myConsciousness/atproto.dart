@@ -57,7 +57,7 @@ abstract class ListView with _$ListView {
     int? listItemCount,
     @LabelConverter() List<Label>? labels,
     @ListViewerStateConverter() ListViewerState? viewer,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _ListView;

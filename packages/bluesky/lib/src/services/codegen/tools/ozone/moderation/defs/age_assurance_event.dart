@@ -43,7 +43,7 @@ abstract class AgeAssuranceEvent with _$AgeAssuranceEvent {
     @Default('tools.ozone.moderation.defs#ageAssuranceEvent') String $type,
 
     /// The date and time of this write operation.
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// The unique identifier for this instance of the age assurance flow, in UUID format.
     required String attemptId,

@@ -53,7 +53,7 @@ abstract class ModEventEmail with _$ModEventEmail {
     int? strikeCount,
 
     /// When the strike should expire. If not provided, the strike never expires.
-    DateTime? strikeExpiresAt,
+    @JsonKey(toJson: iso8601) DateTime? strikeExpiresAt,
 
     /// Indicates whether the email was successfully delivered to the user's inbox.
     bool? isDelivered,

@@ -51,8 +51,8 @@ Map<String, dynamic> _$VerificationListVerificationsInputToJson(
 ) => <String, dynamic>{
   'cursor': ?instance.cursor,
   'limit': instance.limit,
-  'createdAfter': ?instance.createdAfter?.toIso8601String(),
-  'createdBefore': ?instance.createdBefore?.toIso8601String(),
+  'createdAfter': iso8601(instance.createdAfter),
+  'createdBefore': iso8601(instance.createdBefore),
   'issuers': ?instance.issuers,
   'subjects': ?instance.subjects,
   'sortDirection': instance.sortDirection,

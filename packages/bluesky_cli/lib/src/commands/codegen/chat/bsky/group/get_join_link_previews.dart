@@ -34,5 +34,13 @@ final class GetJoinLinkPreviewsCommand extends QueryCommand {
   String get methodId => "chat.bsky.group.getJoinLinkPreviews";
 
   @override
-  Map<String, dynamic>? get parameters => {"codes": argResults!["codes"]};
+  Map<String, dynamic>? get parameters => {
+    "codes": _requireNonEmpty("codes", argResults!["codes"]),
+  };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

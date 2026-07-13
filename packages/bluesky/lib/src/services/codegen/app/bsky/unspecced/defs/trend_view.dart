@@ -41,7 +41,7 @@ abstract class TrendView with _$TrendView {
     required String topic,
     required String displayName,
     required String link,
-    required DateTime startedAt,
+    @JsonKey(toJson: iso8601) required DateTime startedAt,
     required int postCount,
     @TrendViewStatusConverter() TrendViewStatus? status,
     String? category,

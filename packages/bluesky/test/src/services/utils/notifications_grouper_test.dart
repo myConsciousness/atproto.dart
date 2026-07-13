@@ -555,8 +555,7 @@ void main() {
             _notification(
               did: 'did:plc:aaaa',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
               indexedAt: '2023-04-30T04:00:00.000Z',
             ),
           ],
@@ -577,15 +576,13 @@ void main() {
             _notification(
               did: 'did:plc:aaaa',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
               indexedAt: '2023-04-30T04:00:00.000Z',
             ),
             _notification(
               did: 'did:plc:bbbb',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
               indexedAt: '2023-04-30T04:05:00.000Z',
             ),
           ],
@@ -607,8 +604,7 @@ void main() {
             _notification(
               did: 'did:plc:aaaa',
               reason: 'like-via-repost',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
               indexedAt: '2023-04-30T04:00:00.000Z',
             ),
           ],
@@ -653,15 +649,13 @@ void main() {
             _notification(
               did: 'did:plc:aaaa',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
               indexedAt: '2023-04-30T04:00:00.000Z',
             ),
             _notification(
               did: 'did:plc:bbbb',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
               indexedAt: '2023-04-30T04:05:00.000Z',
             ),
           ],
@@ -685,19 +679,20 @@ void main() {
             _notification(
               did: 'did:plc:aaaa',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
               indexedAt: '2023-04-30T04:00:00.000Z',
               labels: [_label(val: 'spam')],
             ),
             _notification(
               did: 'did:plc:bbbb',
               reason: 'like',
-              reasonSubject:
-                  'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.post/aaaa',
               indexedAt: '2023-04-30T04:05:00.000Z',
               // Same label as above -> should be deduplicated.
-              labels: [_label(val: 'spam'), _label(val: 'nudity')],
+              labels: [
+                _label(val: 'spam'),
+                _label(val: 'nudity'),
+              ],
             ),
           ],
         }),
@@ -811,10 +806,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(0),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByHour(0), throwsA(isA<RangeError>()));
     });
 
     test('when hour is less than 0', () {
@@ -822,10 +814,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(-1),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByHour(-1), throwsA(isA<RangeError>()));
     });
 
     test('when hour is 24', () {
@@ -833,10 +822,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(24),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByHour(24), throwsA(isA<RangeError>()));
     });
 
     test('when hour is greater than 24', () {
@@ -844,10 +830,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(25),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByHour(25), throwsA(isA<RangeError>()));
     });
   });
 
@@ -954,10 +937,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByMinute(0),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByMinute(0), throwsA(isA<RangeError>()));
     });
 
     test('when minute is less than 0', () {
@@ -965,10 +945,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByMinute(-1),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByMinute(-1), throwsA(isA<RangeError>()));
     });
 
     test('when minute is 60', () {
@@ -976,10 +953,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByMinute(60),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByMinute(60), throwsA(isA<RangeError>()));
     });
 
     test('when minute is greater than 60', () {
@@ -987,10 +961,7 @@ void main() {
         notifications: [],
       );
 
-      expect(
-        () => notifications.groupByHour(61),
-        throwsA(isA<RangeError>()),
-      );
+      expect(() => notifications.groupByHour(61), throwsA(isA<RangeError>()));
     });
   });
 }

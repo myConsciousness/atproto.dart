@@ -36,7 +36,9 @@ final class CreateInviteCodeCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "useCount": int.parse(argResults!["useCount"]),
+    "useCount":
+        int.tryParse(argResults!["useCount"]) ??
+        usageException('Invalid integer value for option "useCount".'),
     if (argResults!.wasParsed("forAccount"))
       "forAccount": argResults!["forAccount"],
   };

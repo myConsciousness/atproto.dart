@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$Notification {
 
  String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get author;/// The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.
-@NotificationReasonConverter() NotificationReason get reason;@AtUriConverter() AtUri? get reasonSubject; Map<String, dynamic> get record; bool get isRead; DateTime get indexedAt;@LabelConverter() List<Label>? get labels; Map<String, dynamic>? get $unknown;
+@NotificationReasonConverter() NotificationReason get reason;@AtUriConverter() AtUri? get reasonSubject; Map<String, dynamic> get record; bool get isRead;@JsonKey(toJson: iso8601) DateTime get indexedAt;@LabelConverter() List<Label>? get labels; Map<String, dynamic>? get $unknown;
 /// Create a copy of Notification
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $NotificationCopyWith<$Res>  {
   factory $NotificationCopyWith(Notification value, $Res Function(Notification) _then) = _$NotificationCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView author,@NotificationReasonConverter() NotificationReason reason,@AtUriConverter() AtUri? reasonSubject, Map<String, dynamic> record, bool isRead, DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView author,@NotificationReasonConverter() NotificationReason reason,@AtUriConverter() AtUri? reasonSubject, Map<String, dynamic> record, bool isRead,@JsonKey(toJson: iso8601) DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -182,7 +182,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView author, @NotificationReasonConverter()  NotificationReason reason, @AtUriConverter()  AtUri? reasonSubject,  Map<String, dynamic> record,  bool isRead,  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView author, @NotificationReasonConverter()  NotificationReason reason, @AtUriConverter()  AtUri? reasonSubject,  Map<String, dynamic> record,  bool isRead, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Notification() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.reasonSubject,_that.record,_that.isRead,_that.indexedAt,_that.labels,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView author, @NotificationReasonConverter()  NotificationReason reason, @AtUriConverter()  AtUri? reasonSubject,  Map<String, dynamic> record,  bool isRead,  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView author, @NotificationReasonConverter()  NotificationReason reason, @AtUriConverter()  AtUri? reasonSubject,  Map<String, dynamic> record,  bool isRead, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Notification():
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.reasonSubject,_that.record,_that.isRead,_that.indexedAt,_that.labels,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView author, @NotificationReasonConverter()  NotificationReason reason, @AtUriConverter()  AtUri? reasonSubject,  Map<String, dynamic> record,  bool isRead,  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView author, @NotificationReasonConverter()  NotificationReason reason, @AtUriConverter()  AtUri? reasonSubject,  Map<String, dynamic> record,  bool isRead, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Notification() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.reasonSubject,_that.record,_that.isRead,_that.indexedAt,_that.labels,_that.$unknown);case _:
@@ -238,7 +238,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.reason,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _Notification implements Notification {
-  const _Notification({this.$type = 'app.bsky.notification.listNotifications#notification', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.author, @NotificationReasonConverter() required this.reason, @AtUriConverter() this.reasonSubject, required final  Map<String, dynamic> record, required this.isRead, required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
+  const _Notification({this.$type = 'app.bsky.notification.listNotifications#notification', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.author, @NotificationReasonConverter() required this.reason, @AtUriConverter() this.reasonSubject, required final  Map<String, dynamic> record, required this.isRead, @JsonKey(toJson: iso8601) required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _Notification.fromJson(Map<String, dynamic> json) => _$NotificationFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -256,7 +256,7 @@ class _Notification implements Notification {
 }
 
 @override final  bool isRead;
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  List<Label>? _labels;
 @override@LabelConverter() List<Label>? get labels {
   final value = _labels;
@@ -309,7 +309,7 @@ abstract mixin class _$NotificationCopyWith<$Res> implements $NotificationCopyWi
   factory _$NotificationCopyWith(_Notification value, $Res Function(_Notification) _then) = __$NotificationCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView author,@NotificationReasonConverter() NotificationReason reason,@AtUriConverter() AtUri? reasonSubject, Map<String, dynamic> record, bool isRead, DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView author,@NotificationReasonConverter() NotificationReason reason,@AtUriConverter() AtUri? reasonSubject, Map<String, dynamic> record, bool isRead,@JsonKey(toJson: iso8601) DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
 });
 
 

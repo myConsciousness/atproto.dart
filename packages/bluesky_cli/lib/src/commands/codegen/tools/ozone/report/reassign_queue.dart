@@ -50,8 +50,12 @@ final class ReassignQueueCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId": int.parse(argResults!["reportId"]),
-    "queueId": int.parse(argResults!["queueId"]),
+    "reportId":
+        int.tryParse(argResults!["reportId"]) ??
+        usageException('Invalid integer value for option "reportId".'),
+    "queueId":
+        int.tryParse(argResults!["queueId"]) ??
+        usageException('Invalid integer value for option "queueId".'),
     if (argResults!.wasParsed("comment")) "comment": argResults!["comment"],
   };
 }

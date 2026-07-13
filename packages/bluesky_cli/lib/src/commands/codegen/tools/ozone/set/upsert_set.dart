@@ -39,6 +39,11 @@ final class UpsertSetCommand extends ProcedureCommand {
   String get methodId => "tools.ozone.set.upsertSet";
 
   @override
-  Map<String, dynamic>? get body =>
-      Map<String, dynamic>.from(jsonDecode(argResults!["json"]));
+  Map<String, dynamic>? get body {
+    try {
+      return Map<String, dynamic>.from(jsonDecode(argResults!["json"]));
+    } on FormatException catch (e) {
+      usageException("Invalid JSON for option \"json\": ${e.message}");
+    }
+  }
 }

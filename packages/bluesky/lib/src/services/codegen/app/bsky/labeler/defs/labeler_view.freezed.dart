@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LabelerView {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator; int? get likeCount;@LabelerViewerStateConverter() LabelerViewerState? get viewer; DateTime get indexedAt;@LabelConverter() List<Label>? get labels; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewConverter() ProfileView get creator; int? get likeCount;@LabelerViewerStateConverter() LabelerViewerState? get viewer;@JsonKey(toJson: iso8601) DateTime get indexedAt;@LabelConverter() List<Label>? get labels; Map<String, dynamic>? get $unknown;
 /// Create a copy of LabelerView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LabelerViewCopyWith<$Res>  {
   factory $LabelerViewCopyWith(LabelerView value, $Res Function(LabelerView) _then) = _$LabelerViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer, DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer,@JsonKey(toJson: iso8601) DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -182,7 +182,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer,  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LabelerView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_that.viewer,_that.indexedAt,_that.labels,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer,  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LabelerView():
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_that.viewer,_that.indexedAt,_that.labels,_that.$unknown);case _:
@@ -223,7 +223,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer,  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewConverter()  ProfileView creator,  int? likeCount, @LabelerViewerStateConverter()  LabelerViewerState? viewer, @JsonKey(toJson: iso8601)  DateTime indexedAt, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LabelerView() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_that.viewer,_that.indexedAt,_that.labels,_that.$unknown);case _:
@@ -238,7 +238,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.likeCount,_t
 
 @JsonSerializable(includeIfNull: false)
 class _LabelerView implements LabelerView {
-  const _LabelerView({this.$type = 'app.bsky.labeler.defs#labelerView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, this.likeCount, @LabelerViewerStateConverter() this.viewer, required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _LabelerView({this.$type = 'app.bsky.labeler.defs#labelerView', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, this.likeCount, @LabelerViewerStateConverter() this.viewer, @JsonKey(toJson: iso8601) required this.indexedAt, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _LabelerView.fromJson(Map<String, dynamic> json) => _$LabelerViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -247,7 +247,7 @@ class _LabelerView implements LabelerView {
 @override@ProfileViewConverter() final  ProfileView creator;
 @override final  int? likeCount;
 @override@LabelerViewerStateConverter() final  LabelerViewerState? viewer;
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
  final  List<Label>? _labels;
 @override@LabelConverter() List<Label>? get labels {
   final value = _labels;
@@ -300,7 +300,7 @@ abstract mixin class _$LabelerViewCopyWith<$Res> implements $LabelerViewCopyWith
   factory _$LabelerViewCopyWith(_LabelerView value, $Res Function(_LabelerView) _then) = __$LabelerViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer, DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewConverter() ProfileView creator, int? likeCount,@LabelerViewerStateConverter() LabelerViewerState? viewer,@JsonKey(toJson: iso8601) DateTime indexedAt,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
 });
 
 

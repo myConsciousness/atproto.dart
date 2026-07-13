@@ -46,6 +46,6 @@ Map<String, dynamic> _$JoinLinkViewToJson(_JoinLinkView instance) =>
       ),
       'requireApproval': instance.requireApproval,
       'joinRule': const JoinRuleConverter().toJson(instance.joinRule),
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': iso8601(instance.createdAt),
       r'$unknown': ?instance.$unknown,
     };

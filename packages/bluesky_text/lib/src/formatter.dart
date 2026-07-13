@@ -96,7 +96,9 @@ final class _Formatter implements Formatter {
         replacements.add(
           Replacement(
             entity.text,
-            !hasHttpScheme(entity.url) ? '$httpsPrefix${entity.url}' : entity.url,
+            !hasHttpScheme(entity.url)
+                ? '$httpsPrefix${entity.url}'
+                : entity.url,
             start,
             start + entity.text.length,
             entity,

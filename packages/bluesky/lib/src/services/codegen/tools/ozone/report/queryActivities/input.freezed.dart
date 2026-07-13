@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$ReportQueryActivitiesInput {
 
  List<String>? get activityTypes;/// Retrieve activities created at or after a given timestamp
- DateTime? get createdAfter;/// Retrieve activities created at or before a given timestamp
- DateTime? get createdBefore; String get sortDirection; int get limit;/// Cursor of the form `<createdAtMs>::<activityId>`.
+@JsonKey(toJson: iso8601) DateTime? get createdAfter;/// Retrieve activities created at or before a given timestamp
+@JsonKey(toJson: iso8601) DateTime? get createdBefore; String get sortDirection; int get limit;/// Cursor of the form `<createdAtMs>::<activityId>`.
  String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportQueryActivitiesInput
 /// with the given fields replaced by the non-null parameter values.
@@ -51,7 +51,7 @@ abstract mixin class $ReportQueryActivitiesInputCopyWith<$Res>  {
   factory $ReportQueryActivitiesInputCopyWith(ReportQueryActivitiesInput value, $Res Function(ReportQueryActivitiesInput) _then) = _$ReportQueryActivitiesInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? activityTypes, DateTime? createdAfter, DateTime? createdBefore, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? activityTypes,@JsonKey(toJson: iso8601) DateTime? createdAfter,@JsonKey(toJson: iso8601) DateTime? createdBefore, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? activityTypes,  DateTime? createdAfter,  DateTime? createdBefore,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? activityTypes, @JsonKey(toJson: iso8601)  DateTime? createdAfter, @JsonKey(toJson: iso8601)  DateTime? createdBefore,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportQueryActivitiesInput() when $default != null:
 return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that.sortDirection,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -183,7 +183,7 @@ return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? activityTypes,  DateTime? createdAfter,  DateTime? createdBefore,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? activityTypes, @JsonKey(toJson: iso8601)  DateTime? createdAfter, @JsonKey(toJson: iso8601)  DateTime? createdBefore,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportQueryActivitiesInput():
 return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that.sortDirection,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -203,7 +203,7 @@ return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? activityTypes,  DateTime? createdAfter,  DateTime? createdBefore,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? activityTypes, @JsonKey(toJson: iso8601)  DateTime? createdAfter, @JsonKey(toJson: iso8601)  DateTime? createdBefore,  String sortDirection,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportQueryActivitiesInput() when $default != null:
 return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that.sortDirection,_that.limit,_that.cursor,_that.$unknown);case _:
@@ -218,7 +218,7 @@ return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ReportQueryActivitiesInput implements ReportQueryActivitiesInput {
-  const _ReportQueryActivitiesInput({final  List<String>? activityTypes, this.createdAfter, this.createdBefore, this.sortDirection = 'desc', this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _activityTypes = activityTypes,_$unknown = $unknown;
+  const _ReportQueryActivitiesInput({final  List<String>? activityTypes, @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, this.sortDirection = 'desc', this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _activityTypes = activityTypes,_$unknown = $unknown;
   factory _ReportQueryActivitiesInput.fromJson(Map<String, dynamic> json) => _$ReportQueryActivitiesInputFromJson(json);
 
  final  List<String>? _activityTypes;
@@ -231,9 +231,9 @@ class _ReportQueryActivitiesInput implements ReportQueryActivitiesInput {
 }
 
 /// Retrieve activities created at or after a given timestamp
-@override final  DateTime? createdAfter;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdAfter;
 /// Retrieve activities created at or before a given timestamp
-@override final  DateTime? createdBefore;
+@override@JsonKey(toJson: iso8601) final  DateTime? createdBefore;
 @override@JsonKey() final  String sortDirection;
 @override@JsonKey() final  int limit;
 /// Cursor of the form `<createdAtMs>::<activityId>`.
@@ -281,7 +281,7 @@ abstract mixin class _$ReportQueryActivitiesInputCopyWith<$Res> implements $Repo
   factory _$ReportQueryActivitiesInputCopyWith(_ReportQueryActivitiesInput value, $Res Function(_ReportQueryActivitiesInput) _then) = __$ReportQueryActivitiesInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? activityTypes, DateTime? createdAfter, DateTime? createdBefore, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
+ List<String>? activityTypes,@JsonKey(toJson: iso8601) DateTime? createdAfter,@JsonKey(toJson: iso8601) DateTime? createdBefore, String sortDirection, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 

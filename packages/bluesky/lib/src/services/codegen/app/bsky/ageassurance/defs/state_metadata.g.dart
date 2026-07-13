@@ -30,6 +30,6 @@ _StateMetadata _$StateMetadataFromJson(Map json) =>
 Map<String, dynamic> _$StateMetadataToJson(_StateMetadata instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'accountCreatedAt': ?instance.accountCreatedAt?.toIso8601String(),
+      'accountCreatedAt': iso8601(instance.accountCreatedAt),
       r'$unknown': ?instance.$unknown,
     };

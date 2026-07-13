@@ -30,7 +30,10 @@ void main() {
 
     test('keeps known props at top level', () {
       final result = converter.translate(
-        {'text': 'hello', 'langs': ['en']},
+        {
+          'text': 'hello',
+          'langs': ['en'],
+        },
         const ['text', 'langs'],
       );
 
@@ -61,10 +64,7 @@ void main() {
     });
 
     test('does not create \$unknown when all props are known', () {
-      final result = converter.translate(
-        {'text': 'hi'},
-        const ['text'],
-      );
+      final result = converter.translate({'text': 'hi'}, const ['text']);
 
       expect(result.containsKey(r'$unknown'), isFalse);
     });

@@ -46,7 +46,7 @@ abstract class RecordViewDetail with _$RecordViewDetail {
     required Map<String, dynamic> value,
     @BlobViewConverter() required List<BlobView> blobs,
     @LabelConverter() List<Label>? labels,
-    required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @ModerationDetailConverter() required ModerationDetail moderation,
     @RepoViewConverter() required RepoView repo,
 

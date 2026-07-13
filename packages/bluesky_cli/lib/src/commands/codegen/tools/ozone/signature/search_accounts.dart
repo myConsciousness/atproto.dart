@@ -38,8 +38,16 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "values": argResults!["values"],
+    "values": _requireNonEmpty("values", argResults!["values"]),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
   };
+  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
+    if (values.isEmpty) {
+      usageException('Option "$name" is required and must not be empty.');
+    }
+    return values;
+  }
 }

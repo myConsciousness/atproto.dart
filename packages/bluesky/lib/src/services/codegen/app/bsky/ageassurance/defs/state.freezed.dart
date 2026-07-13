@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$State {
 
  String get $type;/// The timestamp when this state was last updated.
- DateTime? get lastInitiatedAt;@StatusConverter() Status get status;@AccessConverter() Access get access; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get lastInitiatedAt;@StatusConverter() Status get status;@AccessConverter() Access get access; Map<String, dynamic>? get $unknown;
 /// Create a copy of State
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $StateCopyWith<$Res>  {
   factory $StateCopyWith(State value, $Res Function(State) _then) = _$StateCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime? lastInitiatedAt,@StatusConverter() Status status,@AccessConverter() Access access, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? lastInitiatedAt,@StatusConverter() Status status,@AccessConverter() Access access, Map<String, dynamic>? $unknown
 });
 
 
@@ -176,7 +176,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt, @StatusConverter()  Status status, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? lastInitiatedAt, @StatusConverter()  Status status, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _State() when $default != null:
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.access,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.access,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime? lastInitiatedAt, @StatusConverter()  Status status, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? lastInitiatedAt, @StatusConverter()  Status status, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _State():
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.access,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.access,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime? lastInitiatedAt, @StatusConverter()  Status status, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? lastInitiatedAt, @StatusConverter()  Status status, @AccessConverter()  Access access,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _State() when $default != null:
 return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.access,_that.$unknown);case _:
@@ -232,12 +232,12 @@ return $default(_that.$type,_that.lastInitiatedAt,_that.status,_that.access,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _State implements State {
-  const _State({this.$type = 'app.bsky.ageassurance.defs#state', this.lastInitiatedAt, @StatusConverter() required this.status, @AccessConverter() required this.access, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _State({this.$type = 'app.bsky.ageassurance.defs#state', @JsonKey(toJson: iso8601) this.lastInitiatedAt, @StatusConverter() required this.status, @AccessConverter() required this.access, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _State.fromJson(Map<String, dynamic> json) => _$StateFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The timestamp when this state was last updated.
-@override final  DateTime? lastInitiatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? lastInitiatedAt;
 @override@StatusConverter() final  Status status;
 @override@AccessConverter() final  Access access;
  final  Map<String, dynamic>? _$unknown;
@@ -283,7 +283,7 @@ abstract mixin class _$StateCopyWith<$Res> implements $StateCopyWith<$Res> {
   factory _$StateCopyWith(_State value, $Res Function(_State) _then) = __$StateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime? lastInitiatedAt,@StatusConverter() Status status,@AccessConverter() Access access, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? lastInitiatedAt,@StatusConverter() Status status,@AccessConverter() Access access, Map<String, dynamic>? $unknown
 });
 
 

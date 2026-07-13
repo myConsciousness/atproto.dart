@@ -46,7 +46,11 @@ final class RouteReportsCommand extends ProcedureCommand {
 
   @override
   Map<String, dynamic>? get body => {
-    "startReportId": int.parse(argResults!["startReportId"]),
-    "endReportId": int.parse(argResults!["endReportId"]),
+    "startReportId":
+        int.tryParse(argResults!["startReportId"]) ??
+        usageException('Invalid integer value for option "startReportId".'),
+    "endReportId":
+        int.tryParse(argResults!["endReportId"]) ??
+        usageException('Invalid integer value for option "endReportId".'),
   };
 }

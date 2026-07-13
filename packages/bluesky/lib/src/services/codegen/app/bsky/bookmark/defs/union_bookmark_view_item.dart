@@ -64,27 +64,27 @@ final class UBookmarkViewItemConverter
 
   @override
   UBookmarkViewItem fromJson(Map<String, dynamic> json) {
-    try {
-      if (BlockedPost.validate(json)) {
-        return UBookmarkViewItem.blockedPost(
-          data: const BlockedPostConverter().fromJson(json),
-        );
-      }
-      if (NotFoundPost.validate(json)) {
-        return UBookmarkViewItem.notFoundPost(
-          data: const NotFoundPostConverter().fromJson(json),
-        );
-      }
-      if (PostView.validate(json)) {
-        return UBookmarkViewItem.postView(
-          data: const PostViewConverter().fromJson(json),
-        );
-      }
-
-      return UBookmarkViewItem.unknown(data: json);
-    } catch (_) {
-      return UBookmarkViewItem.unknown(data: json);
+    if (BlockedPost.validate(json)) {
+      return UBookmarkViewItem.blockedPost(
+        data: const BlockedPostConverter().fromJson(json),
+      );
     }
+    if (NotFoundPost.validate(json)) {
+      return UBookmarkViewItem.notFoundPost(
+        data: const NotFoundPostConverter().fromJson(json),
+      );
+    }
+    if (PostView.validate(json)) {
+      return UBookmarkViewItem.postView(
+        data: const PostViewConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UBookmarkViewItem.unknown(data: json);
   }
 
   @override

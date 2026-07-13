@@ -42,8 +42,12 @@ final class ListActivitiesCommand extends QueryCommand {
 
   @override
   Map<String, dynamic>? get parameters => {
-    "reportId": int.parse(argResults!["reportId"]),
-    "limit": int.parse(argResults!["limit"]),
+    "reportId":
+        int.tryParse(argResults!["reportId"]) ??
+        usageException('Invalid integer value for option "reportId".'),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

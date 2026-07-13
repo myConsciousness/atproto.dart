@@ -40,7 +40,7 @@ abstract class Sync with _$Sync {
     required String rev,
 
     /// Timestamp of when this message was originally broadcast.
-    required DateTime time,
+    @JsonKey(toJson: iso8601) required DateTime time,
 
     Map<String, dynamic>? $unknown,
   }) = _Sync;

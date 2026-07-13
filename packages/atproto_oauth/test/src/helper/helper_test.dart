@@ -39,10 +39,7 @@ bool _verifyDPoP(final String jwt) {
   final y = _bytesToBigInt(base64Url.decode(base64Url.normalize(jwk['y'])));
 
   final curve = ECCurve_secp256r1();
-  final publicKey = ECPublicKey(
-    curve.curve.createPoint(x, y),
-    curve,
-  );
+  final publicKey = ECPublicKey(curve.curve.createPoint(x, y), curve);
 
   final signatureBytes = base64Url.decode(base64Url.normalize(segments[2]));
   final r = _bytesToBigInt(signatureBytes.sublist(0, 32));

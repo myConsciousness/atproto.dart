@@ -63,10 +63,7 @@ class StreamProcessor<T> {
   /// This method keeps no processing state on the instance, so a single
   /// [StreamProcessor] can drive multiple concurrent [processStream] calls
   /// safely.
-  Stream<R> processStream<R>(
-    Stream<T> input,
-    Future<R> Function(T) processor,
-  ) {
+  Stream<R> processStream<R>(Stream<T> input, Future<R> Function(T) processor) {
     late final StreamController<R> controller;
     StreamSubscription<T>? subscription;
     var inFlight = 0;

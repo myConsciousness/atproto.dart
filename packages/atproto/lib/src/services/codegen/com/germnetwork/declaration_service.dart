@@ -101,10 +101,12 @@ final class DeclarationRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'com.germnetwork.declaration',
       ...?$unknown,
       'version': version,
       'currentKey': currentKey,
-      if (messageMe != null) 'messageMe': messageMe.toJson(),
+      if (messageMe != null)
+        'messageMe': const MessageMeConverter().toJson(messageMe),
       if (keyPackage != null) 'keyPackage': keyPackage,
       if (continuityProofs != null) 'continuityProofs': continuityProofs,
     },
@@ -131,10 +133,12 @@ final class DeclarationRecordAccessor {
     rkey: rkey,
     validate: validate,
     record: {
+      r'$type': 'com.germnetwork.declaration',
       ...?$unknown,
       'version': version,
       'currentKey': currentKey,
-      if (messageMe != null) 'messageMe': messageMe.toJson(),
+      if (messageMe != null)
+        'messageMe': const MessageMeConverter().toJson(messageMe),
       if (keyPackage != null) 'keyPackage': keyPackage,
       if (continuityProofs != null) 'continuityProofs': continuityProofs,
     },

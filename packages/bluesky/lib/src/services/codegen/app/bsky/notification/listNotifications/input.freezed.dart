@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$NotificationListNotificationsInput {
 
 /// A reason that matches the reason property of #notification.
- List<String>? get reasons; int get limit; bool? get priority; String? get cursor; DateTime? get seenAt; Map<String, dynamic>? get $unknown;
+ List<String>? get reasons; int get limit; bool? get priority; String? get cursor;@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationListNotificationsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $NotificationListNotificationsInputCopyWith<$Res>  {
   factory $NotificationListNotificationsInputCopyWith(NotificationListNotificationsInput value, $Res Function(NotificationListNotificationsInput) _then) = _$NotificationListNotificationsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? reasons, int limit, bool? priority, String? cursor, DateTime? seenAt, Map<String, dynamic>? $unknown
+ List<String>? reasons, int limit, bool? priority, String? cursor,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  bool? priority,  String? cursor,  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  bool? priority,  String? cursor, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsInput() when $default != null:
 return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seenAt,_that.$unknown);case _:
@@ -180,7 +180,7 @@ return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seen
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  bool? priority,  String? cursor,  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  bool? priority,  String? cursor, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsInput():
 return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seenAt,_that.$unknown);case _:
@@ -200,7 +200,7 @@ return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seen
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? reasons,  int limit,  bool? priority,  String? cursor,  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? reasons,  int limit,  bool? priority,  String? cursor, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsInput() when $default != null:
 return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seenAt,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.reasons,_that.limit,_that.priority,_that.cursor,_that.seen
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationListNotificationsInput implements NotificationListNotificationsInput {
-  const _NotificationListNotificationsInput({final  List<String>? reasons, this.limit = 50, this.priority, this.cursor, this.seenAt, final  Map<String, dynamic>? $unknown}): _reasons = reasons,_$unknown = $unknown;
+  const _NotificationListNotificationsInput({final  List<String>? reasons, this.limit = 50, this.priority, this.cursor, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _reasons = reasons,_$unknown = $unknown;
   factory _NotificationListNotificationsInput.fromJson(Map<String, dynamic> json) => _$NotificationListNotificationsInputFromJson(json);
 
 /// A reason that matches the reason property of #notification.
@@ -232,7 +232,7 @@ class _NotificationListNotificationsInput implements NotificationListNotificatio
 @override@JsonKey() final  int limit;
 @override final  bool? priority;
 @override final  String? cursor;
-@override final  DateTime? seenAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? seenAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -276,7 +276,7 @@ abstract mixin class _$NotificationListNotificationsInputCopyWith<$Res> implemen
   factory _$NotificationListNotificationsInputCopyWith(_NotificationListNotificationsInput value, $Res Function(_NotificationListNotificationsInput) _then) = __$NotificationListNotificationsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? reasons, int limit, bool? priority, String? cursor, DateTime? seenAt, Map<String, dynamic>? $unknown
+ List<String>? reasons, int limit, bool? priority, String? cursor,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 

@@ -38,3 +38,5 @@ dev_dependencies:
 
   atproto_test:
     path: ../atproto_test
+  atproto_oauth: any
+  http: any

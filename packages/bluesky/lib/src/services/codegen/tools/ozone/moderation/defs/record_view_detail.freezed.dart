@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordViewDetail {
 
- String get $type;@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic> get value;@BlobViewConverter() List<BlobView> get blobs;@LabelConverter() List<Label>? get labels; DateTime get indexedAt;@ModerationDetailConverter() ModerationDetail get moderation;@RepoViewConverter() RepoView get repo; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri; String get cid; Map<String, dynamic> get value;@BlobViewConverter() List<BlobView> get blobs;@LabelConverter() List<Label>? get labels;@JsonKey(toJson: iso8601) DateTime get indexedAt;@ModerationDetailConverter() ModerationDetail get moderation;@RepoViewConverter() RepoView get repo; Map<String, dynamic>? get $unknown;
 /// Create a copy of RecordViewDetail
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RecordViewDetailCopyWith<$Res>  {
   factory $RecordViewDetailCopyWith(RecordViewDetail value, $Res Function(RecordViewDetail) _then) = _$RecordViewDetailCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value,@BlobViewConverter() List<BlobView> blobs,@LabelConverter() List<Label>? labels, DateTime indexedAt,@ModerationDetailConverter() ModerationDetail moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value,@BlobViewConverter() List<BlobView> blobs,@LabelConverter() List<Label>? labels,@JsonKey(toJson: iso8601) DateTime indexedAt,@ModerationDetailConverter() ModerationDetail moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
 });
 
 
@@ -180,7 +180,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value, @BlobViewConverter()  List<BlobView> blobs, @LabelConverter()  List<Label>? labels,  DateTime indexedAt, @ModerationDetailConverter()  ModerationDetail moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value, @BlobViewConverter()  List<BlobView> blobs, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ModerationDetailConverter()  ModerationDetail moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordViewDetail() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.labels,_that.indexedAt,_that.moderation,_that.repo,_that.$unknown);case _:
@@ -201,7 +201,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.la
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value, @BlobViewConverter()  List<BlobView> blobs, @LabelConverter()  List<Label>? labels,  DateTime indexedAt, @ModerationDetailConverter()  ModerationDetail moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value, @BlobViewConverter()  List<BlobView> blobs, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ModerationDetailConverter()  ModerationDetail moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RecordViewDetail():
 return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.labels,_that.indexedAt,_that.moderation,_that.repo,_that.$unknown);case _:
@@ -221,7 +221,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.la
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value, @BlobViewConverter()  List<BlobView> blobs, @LabelConverter()  List<Label>? labels,  DateTime indexedAt, @ModerationDetailConverter()  ModerationDetail moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  Map<String, dynamic> value, @BlobViewConverter()  List<BlobView> blobs, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ModerationDetailConverter()  ModerationDetail moderation, @RepoViewConverter()  RepoView repo,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordViewDetail() when $default != null:
 return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.labels,_that.indexedAt,_that.moderation,_that.repo,_that.$unknown);case _:
@@ -236,7 +236,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.la
 
 @JsonSerializable(includeIfNull: false)
 class _RecordViewDetail implements RecordViewDetail {
-  const _RecordViewDetail({this.$type = 'tools.ozone.moderation.defs#recordViewDetail', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> value, @BlobViewConverter() required final  List<BlobView> blobs, @LabelConverter() final  List<Label>? labels, required this.indexedAt, @ModerationDetailConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobs = blobs,_labels = labels,_$unknown = $unknown;
+  const _RecordViewDetail({this.$type = 'tools.ozone.moderation.defs#recordViewDetail', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> value, @BlobViewConverter() required final  List<BlobView> blobs, @LabelConverter() final  List<Label>? labels, @JsonKey(toJson: iso8601) required this.indexedAt, @ModerationDetailConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobs = blobs,_labels = labels,_$unknown = $unknown;
   factory _RecordViewDetail.fromJson(Map<String, dynamic> json) => _$RecordViewDetailFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -265,7 +265,7 @@ class _RecordViewDetail implements RecordViewDetail {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
 @override@ModerationDetailConverter() final  ModerationDetail moderation;
 @override@RepoViewConverter() final  RepoView repo;
  final  Map<String, dynamic>? _$unknown;
@@ -311,7 +311,7 @@ abstract mixin class _$RecordViewDetailCopyWith<$Res> implements $RecordViewDeta
   factory _$RecordViewDetailCopyWith(_RecordViewDetail value, $Res Function(_RecordViewDetail) _then) = __$RecordViewDetailCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value,@BlobViewConverter() List<BlobView> blobs,@LabelConverter() List<Label>? labels, DateTime indexedAt,@ModerationDetailConverter() ModerationDetail moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value,@BlobViewConverter() List<BlobView> blobs,@LabelConverter() List<Label>? labels,@JsonKey(toJson: iso8601) DateTime indexedAt,@ModerationDetailConverter() ModerationDetail moderation,@RepoViewConverter() RepoView repo, Map<String, dynamic>? $unknown
 });
 
 

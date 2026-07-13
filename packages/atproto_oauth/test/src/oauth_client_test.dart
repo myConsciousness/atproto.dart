@@ -248,10 +248,7 @@ void main() {
         service: _service,
         httpClient: recorder.build((r) async {
           if (_isToken(r)) {
-            return _json(
-              _tokenBody(),
-              headers: {'dpop-nonce': 'nonce-1'},
-            );
+            return _json(_tokenBody(), headers: {'dpop-nonce': 'nonce-1'});
           }
           return http.Response('unexpected', 500);
         }),
@@ -596,20 +593,23 @@ void main() {
       expect(fields['refresh_token'], 'refresh-token-1');
     });
 
-    test('non-rotating server keeps the existing refresh token (O-3)', () async {
-      final client = OAuthClient(
-        _metadata(),
-        service: _service,
-        httpClient: MockClient((r) async {
-          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
-          if (_isToken(r)) return _json(_tokenBody(refreshToken: null));
-          return http.Response('unexpected', 500);
-        }),
-      );
+    test(
+      'non-rotating server keeps the existing refresh token (O-3)',
+      () async {
+        final client = OAuthClient(
+          _metadata(),
+          service: _service,
+          httpClient: MockClient((r) async {
+            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+            if (_isToken(r)) return _json(_tokenBody(refreshToken: null));
+            return http.Response('unexpected', 500);
+          }),
+        );
 
-      final refreshed = await client.refresh(sessionWith());
-      expect(refreshed.refreshToken, 'refresh-token-1');
-    });
+        final refreshed = await client.refresh(sessionWith());
+        expect(refreshed.refreshToken, 'refresh-token-1');
+      },
+    );
 
     test('refresh checks statusCode before retrying nonce (O-2)', () async {
       var tokenCalls = 0;

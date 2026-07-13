@@ -27,7 +27,9 @@ void main() {
       // a2 (map, 2) 61 62 (str "b") 02 62 6161 (str "aa") 01
       expect(
         bytes,
-        equals(Uint8List.fromList([0xa2, 0x61, 0x62, 0x02, 0x62, 0x61, 0x61, 0x01])),
+        equals(
+          Uint8List.fromList([0xa2, 0x61, 0x62, 0x02, 0x62, 0x61, 0x61, 0x01]),
+        ),
       );
     });
 
@@ -164,9 +166,7 @@ void main() {
           operation: buildOp(key.toDidKey()),
           signingKey: key,
         );
-        final tampered = signed.copyWith(
-          alsoKnownAs: const ['at://evil.test'],
-        );
+        final tampered = signed.copyWith(alsoKnownAs: const ['at://evil.test']);
 
         final result = await verifier.verifyOperation(
           operation: tampered,
@@ -211,7 +211,8 @@ void main() {
           'did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK',
         ],
         'verificationMethods': {
-          'atproto': 'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
+          'atproto':
+              'did:key:zQ3shXjHeiBuRCKmM36cuYnm7YEMzhGnCmCyW92sRJ9pribSF',
         },
       };
 

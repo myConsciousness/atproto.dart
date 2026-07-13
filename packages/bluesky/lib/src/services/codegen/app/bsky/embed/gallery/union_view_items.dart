@@ -54,17 +54,17 @@ final class UEmbedGalleryViewItemsConverter
 
   @override
   UEmbedGalleryViewItems fromJson(Map<String, dynamic> json) {
-    try {
-      if (EmbedGalleryViewImage.validate(json)) {
-        return UEmbedGalleryViewItems.embedGalleryViewImage(
-          data: const EmbedGalleryViewImageConverter().fromJson(json),
-        );
-      }
-
-      return UEmbedGalleryViewItems.unknown(data: json);
-    } catch (_) {
-      return UEmbedGalleryViewItems.unknown(data: json);
+    if (EmbedGalleryViewImage.validate(json)) {
+      return UEmbedGalleryViewItems.embedGalleryViewImage(
+        data: const EmbedGalleryViewImageConverter().fromJson(json),
+      );
     }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UEmbedGalleryViewItems.unknown(data: json);
   }
 
   @override

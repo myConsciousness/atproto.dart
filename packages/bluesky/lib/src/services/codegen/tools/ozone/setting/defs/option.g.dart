@@ -55,8 +55,8 @@ Map<String, dynamic> _$OptionToJson(_Option instance) => <String, dynamic>{
   'did': instance.did,
   'value': instance.value,
   'description': ?instance.description,
-  'createdAt': ?instance.createdAt?.toIso8601String(),
-  'updatedAt': ?instance.updatedAt?.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
+  'updatedAt': iso8601(instance.updatedAt),
   'managerRole': ?_$JsonConverterToJson<String, OptionManagerRole>(
     instance.managerRole,
     const OptionManagerRoleConverter().toJson,

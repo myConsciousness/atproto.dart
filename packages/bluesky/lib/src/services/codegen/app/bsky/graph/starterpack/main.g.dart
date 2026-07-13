@@ -61,6 +61,6 @@ Map<String, dynamic> _$GraphStarterpackRecordToJson(
       .toList(),
   'list': const AtUriConverter().toJson(instance.list),
   'feeds': ?instance.feeds?.map(const FeedItemConverter().toJson).toList(),
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   r'$unknown': ?instance.$unknown,
 };

@@ -78,37 +78,37 @@ final class UEventDetailsConverter
 
   @override
   UEventDetails fromJson(Map<String, dynamic> json) {
-    try {
-      if (AccountCreated.validate(json)) {
-        return UEventDetails.accountCreated(
-          data: const AccountCreatedConverter().fromJson(json),
-        );
-      }
-      if (EmailUpdated.validate(json)) {
-        return UEventDetails.emailUpdated(
-          data: const EmailUpdatedConverter().fromJson(json),
-        );
-      }
-      if (EmailConfirmed.validate(json)) {
-        return UEventDetails.emailConfirmed(
-          data: const EmailConfirmedConverter().fromJson(json),
-        );
-      }
-      if (PasswordUpdated.validate(json)) {
-        return UEventDetails.passwordUpdated(
-          data: const PasswordUpdatedConverter().fromJson(json),
-        );
-      }
-      if (HandleUpdated.validate(json)) {
-        return UEventDetails.handleUpdated(
-          data: const HandleUpdatedConverter().fromJson(json),
-        );
-      }
-
-      return UEventDetails.unknown(data: json);
-    } catch (_) {
-      return UEventDetails.unknown(data: json);
+    if (AccountCreated.validate(json)) {
+      return UEventDetails.accountCreated(
+        data: const AccountCreatedConverter().fromJson(json),
+      );
     }
+    if (EmailUpdated.validate(json)) {
+      return UEventDetails.emailUpdated(
+        data: const EmailUpdatedConverter().fromJson(json),
+      );
+    }
+    if (EmailConfirmed.validate(json)) {
+      return UEventDetails.emailConfirmed(
+        data: const EmailConfirmedConverter().fromJson(json),
+      );
+    }
+    if (PasswordUpdated.validate(json)) {
+      return UEventDetails.passwordUpdated(
+        data: const PasswordUpdatedConverter().fromJson(json),
+      );
+    }
+    if (HandleUpdated.validate(json)) {
+      return UEventDetails.handleUpdated(
+        data: const HandleUpdatedConverter().fromJson(json),
+      );
+    }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return UEventDetails.unknown(data: json);
   }
 
   @override

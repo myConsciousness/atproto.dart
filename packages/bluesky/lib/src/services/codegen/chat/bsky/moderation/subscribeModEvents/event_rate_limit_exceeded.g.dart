@@ -37,7 +37,7 @@ Map<String, dynamic> _$EventRateLimitExceededToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'actorDid': instance.actorDid,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'endpoint': instance.endpoint,
   'rev': instance.rev,
   r'$unknown': ?instance.$unknown,

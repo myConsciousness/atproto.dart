@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Event {
 
- String get $type;@UEventDetailsConverter() UEventDetails get details; String get createdBy; DateTime get createdAt; Map<String, dynamic>? get $unknown;
+ String get $type;@UEventDetailsConverter() UEventDetails get details; String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $EventCopyWith<$Res>  {
   factory $EventCopyWith(Event value, $Res Function(Event) _then) = _$EventCopyWithImpl;
 @useResult
 $Res call({
- String $type,@UEventDetailsConverter() UEventDetails details, String createdBy, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@UEventDetailsConverter() UEventDetails details, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @UEventDetailsConverter()  UEventDetails details,  String createdBy,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @UEventDetailsConverter()  UEventDetails details,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
 return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @UEventDetailsConverter()  UEventDetails details,  String createdBy,  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @UEventDetailsConverter()  UEventDetails details,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Event():
 return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @UEventDetailsConverter()  UEventDetails details,  String createdBy,  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @UEventDetailsConverter()  UEventDetails details,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
 return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.$unknown);case _:
@@ -222,13 +222,13 @@ return $default(_that.$type,_that.details,_that.createdBy,_that.createdAt,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _Event implements Event {
-  const _Event({this.$type = 'tools.ozone.hosting.getAccountHistory#event', @UEventDetailsConverter() required this.details, required this.createdBy, required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Event({this.$type = 'tools.ozone.hosting.getAccountHistory#event', @UEventDetailsConverter() required this.details, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@UEventDetailsConverter() final  UEventDetails details;
 @override final  String createdBy;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -272,7 +272,7 @@ abstract mixin class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   factory _$EventCopyWith(_Event value, $Res Function(_Event) _then) = __$EventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@UEventDetailsConverter() UEventDetails details, String createdBy, DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type,@UEventDetailsConverter() UEventDetails details, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
 });
 
 

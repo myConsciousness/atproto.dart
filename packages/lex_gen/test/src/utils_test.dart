@@ -29,7 +29,11 @@ void main() {
 
   group('splitByUpperCase', () {
     test('splits camel case words', () {
-      expect(splitByUpperCase('profileViewBasic'), ['profile', 'View', 'Basic']);
+      expect(splitByUpperCase('profileViewBasic'), [
+        'profile',
+        'View',
+        'Basic',
+      ]);
       expect(splitByUpperCase('RichtextFacet'), ['Richtext', 'Facet']);
     });
   });

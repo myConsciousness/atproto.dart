@@ -17,7 +17,7 @@ mixin _$EventGroupChatMemberJoined {
 
  String get $type;/// The DID of the person joining.
  String get actorDid;/// When the group was originally created.
- DateTime get convoCreatedAt; String get convoId; DateTime get createdAt;/// Current member count at the time of the event.
+@JsonKey(toJson: iso8601) DateTime get convoCreatedAt; String get convoId;@JsonKey(toJson: iso8601) DateTime get createdAt;/// Current member count at the time of the event.
  int get groupMemberCount; String get groupName;/// The code of the join link used to join.
  String get joinLinkCode;/// The DID of the group chat owner.
  String get ownerDid; String get rev;/// Whether the joining member follows the group owner.
@@ -54,7 +54,7 @@ abstract mixin class $EventGroupChatMemberJoinedCopyWith<$Res>  {
   factory $EventGroupChatMemberJoinedCopyWith(EventGroupChatMemberJoined value, $Res Function(EventGroupChatMemberJoined) _then) = _$EventGroupChatMemberJoinedCopyWithImpl;
 @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName, String joinLinkCode, String ownerDid, String rev, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName, String joinLinkCode, String ownerDid, String rev, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String joinLinkCode,  String ownerDid,  String rev,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String joinLinkCode,  String ownerDid,  String rev,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberJoined() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.joinLinkCode,_that.ownerDid,_that.rev,_that.subjectFollowsOwner,_that.$unknown);case _:
@@ -191,7 +191,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String joinLinkCode,  String ownerDid,  String rev,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String joinLinkCode,  String ownerDid,  String rev,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberJoined():
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.joinLinkCode,_that.ownerDid,_that.rev,_that.subjectFollowsOwner,_that.$unknown);case _:
@@ -211,7 +211,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid,  DateTime convoCreatedAt,  String convoId,  DateTime createdAt,  int groupMemberCount,  String groupName,  String joinLinkCode,  String ownerDid,  String rev,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actorDid, @JsonKey(toJson: iso8601)  DateTime convoCreatedAt,  String convoId, @JsonKey(toJson: iso8601)  DateTime createdAt,  int groupMemberCount,  String groupName,  String joinLinkCode,  String ownerDid,  String rev,  bool subjectFollowsOwner,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EventGroupChatMemberJoined() when $default != null:
 return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_that.createdAt,_that.groupMemberCount,_that.groupName,_that.joinLinkCode,_that.ownerDid,_that.rev,_that.subjectFollowsOwner,_that.$unknown);case _:
@@ -226,16 +226,16 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 
 @JsonSerializable(includeIfNull: false)
 class _EventGroupChatMemberJoined implements EventGroupChatMemberJoined {
-  const _EventGroupChatMemberJoined({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberJoined', required this.actorDid, required this.convoCreatedAt, required this.convoId, required this.createdAt, required this.groupMemberCount, required this.groupName, required this.joinLinkCode, required this.ownerDid, required this.rev, required this.subjectFollowsOwner, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventGroupChatMemberJoined({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatMemberJoined', required this.actorDid, @JsonKey(toJson: iso8601) required this.convoCreatedAt, required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, required this.groupMemberCount, required this.groupName, required this.joinLinkCode, required this.ownerDid, required this.rev, required this.subjectFollowsOwner, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventGroupChatMemberJoined.fromJson(Map<String, dynamic> json) => _$EventGroupChatMemberJoinedFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The DID of the person joining.
 @override final  String actorDid;
 /// When the group was originally created.
-@override final  DateTime convoCreatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime convoCreatedAt;
 @override final  String convoId;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Current member count at the time of the event.
 @override final  int groupMemberCount;
 @override final  String groupName;
@@ -289,7 +289,7 @@ abstract mixin class _$EventGroupChatMemberJoinedCopyWith<$Res> implements $Even
   factory _$EventGroupChatMemberJoinedCopyWith(_EventGroupChatMemberJoined value, $Res Function(_EventGroupChatMemberJoined) _then) = __$EventGroupChatMemberJoinedCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String actorDid, DateTime convoCreatedAt, String convoId, DateTime createdAt, int groupMemberCount, String groupName, String joinLinkCode, String ownerDid, String rev, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
+ String $type, String actorDid,@JsonKey(toJson: iso8601) DateTime convoCreatedAt, String convoId,@JsonKey(toJson: iso8601) DateTime createdAt, int groupMemberCount, String groupName, String joinLinkCode, String ownerDid, String rev, bool subjectFollowsOwner, Map<String, dynamic>? $unknown
 });
 
 

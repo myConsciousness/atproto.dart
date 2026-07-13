@@ -350,7 +350,11 @@ Future<XRPCResponse<MessageView>> chatBskyConvoSendMessage({
   ns.chatBskyConvoSendMessage,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'convoId': convoId, 'message': message.toJson()},
+  body: {
+    ...?$unknown,
+    'convoId': convoId,
+    'message': const MessageInputConverter().toJson(message),
+  },
   to: const MessageViewConverter().fromJson,
 );
 
@@ -366,7 +370,10 @@ chatBskyConvoSendMessageBatch({
   ns.chatBskyConvoSendMessageBatch,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'items': items.map((e) => e.toJson()).toList()},
+  body: {
+    ...?$unknown,
+    'items': items.map((e) => const BatchItemConverter().toJson(e)).toList(),
+  },
   to: const ConvoSendMessageBatchOutputConverter().fromJson,
 );
 

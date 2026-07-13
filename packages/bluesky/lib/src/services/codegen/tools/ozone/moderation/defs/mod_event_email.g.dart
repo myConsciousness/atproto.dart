@@ -49,7 +49,7 @@ Map<String, dynamic> _$ModEventEmailToJson(_ModEventEmail instance) =>
       'policies': ?instance.policies,
       'severityLevel': ?instance.severityLevel,
       'strikeCount': ?instance.strikeCount,
-      'strikeExpiresAt': ?instance.strikeExpiresAt?.toIso8601String(),
+      'strikeExpiresAt': iso8601(instance.strikeExpiresAt),
       'isDelivered': ?instance.isDelivered,
       r'$unknown': ?instance.$unknown,
     };

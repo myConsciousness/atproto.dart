@@ -110,8 +110,7 @@ void main() {
       final events = <RetryEvent>[];
       final challenge = _challenge(maxAttempts: 1, onExecute: events.add);
 
-      final resetAt =
-          DateTime.now().toUtc().add(const Duration(seconds: 3));
+      final resetAt = DateTime.now().toUtc().add(const Duration(seconds: 3));
 
       int calls = 0;
       await challenge.execute(() async {
@@ -122,8 +121,7 @@ void main() {
               statusCode: 429,
               error: 'RateLimitExceeded',
               headers: {
-                'ratelimit-reset':
-                    '${resetAt.millisecondsSinceEpoch ~/ 1000}',
+                'ratelimit-reset': '${resetAt.millisecondsSinceEpoch ~/ 1000}',
               },
             ),
           );
@@ -140,31 +138,33 @@ void main() {
       expect(events.first.intervalInSeconds, lessThanOrEqualTo(3));
     });
 
-    test('respects Retry-After (delay seconds) for the wait interval',
-        () async {
-      final events = <RetryEvent>[];
-      final challenge = _challenge(maxAttempts: 1, onExecute: events.add);
+    test(
+      'respects Retry-After (delay seconds) for the wait interval',
+      () async {
+        final events = <RetryEvent>[];
+        final challenge = _challenge(maxAttempts: 1, onExecute: events.add);
 
-      int calls = 0;
-      await challenge.execute(() async {
-        calls++;
-        if (calls == 1) {
-          throw xrpc.RateLimitExceededException(
-            _errorResponse(
-              statusCode: 429,
-              error: 'RateLimitExceeded',
-              headers: {'Retry-After': '2'},
-            ),
-          );
-        }
+        int calls = 0;
+        await challenge.execute(() async {
+          calls++;
+          if (calls == 1) {
+            throw xrpc.RateLimitExceededException(
+              _errorResponse(
+                statusCode: 429,
+                error: 'RateLimitExceeded',
+                headers: {'Retry-After': '2'},
+              ),
+            );
+          }
 
-        return _okResponse();
-      });
+          return _okResponse();
+        });
 
-      expect(calls, 2);
-      expect(events, hasLength(1));
-      expect(events.first.intervalInSeconds, 2);
-    });
+        expect(calls, 2);
+        expect(events, hasLength(1));
+        expect(events.first.intervalInSeconds, 2);
+      },
+    );
 
     test('falls back to plain backoff without rate limit headers', () async {
       final events = <RetryEvent>[];
@@ -364,8 +364,7 @@ void main() {
           return _okResponse(headers: {'dpop-nonce': 'final-nonce'});
         },
         onUpdateDpopNonce: (headers) {
-          final nonce =
-              headers['dpop-nonce'] ?? headers['DPoP-Nonce'] ?? '';
+          final nonce = headers['dpop-nonce'] ?? headers['DPoP-Nonce'] ?? '';
           nonces.add(nonce);
         },
       );
@@ -383,19 +382,16 @@ void main() {
       int nonceUpdates = 0;
 
       await expectLater(
-        challenge.execute(
-          () async {
-            calls++;
-            throw xrpc.UnauthorizedException(
-              _errorResponse(
-                statusCode: 401,
-                error: 'use_dpop_nonce',
-                headers: {'dpop-nonce': 'nonce-$calls'},
-              ),
-            );
-          },
-          onUpdateDpopNonce: (_) => nonceUpdates++,
-        ),
+        challenge.execute(() async {
+          calls++;
+          throw xrpc.UnauthorizedException(
+            _errorResponse(
+              statusCode: 401,
+              error: 'use_dpop_nonce',
+              headers: {'dpop-nonce': 'nonce-$calls'},
+            ),
+          );
+        }, onUpdateDpopNonce: (_) => nonceUpdates++),
         throwsA(isA<xrpc.UnauthorizedException>()),
       );
 
@@ -409,40 +405,33 @@ void main() {
 
       int calls = 0;
       await expectLater(
-        challenge.execute(
-          () async {
-            calls++;
-            throw xrpc.UnauthorizedException(
-              _errorResponse(
-                statusCode: 401,
-                error: 'InvalidToken',
-                headers: {'dpop-nonce': 'nonce'},
-              ),
-            );
-          },
-          onUpdateDpopNonce: (_) {},
-        ),
+        challenge.execute(() async {
+          calls++;
+          throw xrpc.UnauthorizedException(
+            _errorResponse(
+              statusCode: 401,
+              error: 'InvalidToken',
+              headers: {'dpop-nonce': 'nonce'},
+            ),
+          );
+        }, onUpdateDpopNonce: (_) {}),
         throwsA(isA<xrpc.UnauthorizedException>()),
       );
 
       expect(calls, 1);
     });
 
-    test('does not retry use_dpop_nonce without a dpop-nonce header',
-        () async {
+    test('does not retry use_dpop_nonce without a dpop-nonce header', () async {
       final challenge = _challenge(maxAttempts: 3);
 
       int calls = 0;
       await expectLater(
-        challenge.execute(
-          () async {
-            calls++;
-            throw xrpc.UnauthorizedException(
-              _errorResponse(statusCode: 401, error: 'use_dpop_nonce'),
-            );
-          },
-          onUpdateDpopNonce: (_) {},
-        ),
+        challenge.execute(() async {
+          calls++;
+          throw xrpc.UnauthorizedException(
+            _errorResponse(statusCode: 401, error: 'use_dpop_nonce'),
+          );
+        }, onUpdateDpopNonce: (_) {}),
         throwsA(isA<xrpc.UnauthorizedException>()),
       );
 

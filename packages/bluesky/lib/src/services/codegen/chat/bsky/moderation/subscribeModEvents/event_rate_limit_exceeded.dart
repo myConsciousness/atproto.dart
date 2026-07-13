@@ -35,7 +35,7 @@ abstract class EventRateLimitExceeded with _$EventRateLimitExceeded {
 
     /// The DID of the user who hit the rate limit.
     required String actorDid,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     /// The NSID of the endpoint that was rate limited.
     required String endpoint,

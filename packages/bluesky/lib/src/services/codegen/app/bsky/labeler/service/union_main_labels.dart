@@ -49,17 +49,17 @@ final class ULabelerServiceLabelsConverter
 
   @override
   ULabelerServiceLabels fromJson(Map<String, dynamic> json) {
-    try {
-      if (SelfLabels.validate(json)) {
-        return ULabelerServiceLabels.selfLabels(
-          data: const SelfLabelsConverter().fromJson(json),
-        );
-      }
-
-      return ULabelerServiceLabels.unknown(data: json);
-    } catch (_) {
-      return ULabelerServiceLabels.unknown(data: json);
+    if (SelfLabels.validate(json)) {
+      return ULabelerServiceLabels.selfLabels(
+        data: const SelfLabelsConverter().fromJson(json),
+      );
     }
+
+    // No known `$type` matched: preserve the payload verbatim as an unknown
+    // variant. A payload whose `$type` *does* match a known ref but fails to
+    // convert is intentionally left to throw, so malformed data surfaces
+    // instead of being silently degraded to `.unknown`.
+    return ULabelerServiceLabels.unknown(data: json);
   }
 
   @override

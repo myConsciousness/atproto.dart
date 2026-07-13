@@ -42,7 +42,7 @@ Map<String, dynamic> _$EventConvoFirstMessageToJson(
 ) => <String, dynamic>{
   r'$type': instance.$type,
   'convoId': instance.convoId,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': iso8601(instance.createdAt),
   'messageId': ?instance.messageId,
   'recipients': instance.recipients,
   'rev': instance.rev,

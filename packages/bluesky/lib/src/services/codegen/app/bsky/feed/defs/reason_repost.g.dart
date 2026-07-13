@@ -47,7 +47,7 @@ Map<String, dynamic> _$ReasonRepostToJson(_ReasonRepost instance) =>
         const AtUriConverter().toJson,
       ),
       'cid': ?instance.cid,
-      'indexedAt': instance.indexedAt.toIso8601String(),
+      'indexedAt': iso8601(instance.indexedAt),
       r'$unknown': ?instance.$unknown,
     };
 

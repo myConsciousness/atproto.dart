@@ -19,8 +19,8 @@ mixin _$UrlRule {
  String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// Optional comment about the decision
  String? get comment;/// DID of the user added the rule.
  String get createdBy;/// Timestamp when the rule was created
- DateTime get createdAt;/// Timestamp when the rule was last updated
- DateTime get updatedAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime get createdAt;/// Timestamp when the rule was last updated
+@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of UrlRule
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -53,7 +53,7 @@ abstract mixin class $UrlRuleCopyWith<$Res>  {
   factory $UrlRuleCopyWith(UrlRule value, $Res Function(UrlRule) _then) = _$UrlRuleCopyWithImpl;
 @useResult
 $Res call({
- String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String createdBy, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -194,7 +194,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UrlRule() when $default != null:
 return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -215,7 +215,7 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UrlRule():
 return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -235,7 +235,7 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy,  DateTime createdAt,  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UrlRule() when $default != null:
 return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
@@ -250,7 +250,7 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 
 @JsonSerializable(includeIfNull: false)
 class _UrlRule implements UrlRule {
-  const _UrlRule({this.$type = 'tools.ozone.safelink.defs#urlRule', required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, required this.createdBy, required this.createdAt, required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UrlRule({this.$type = 'tools.ozone.safelink.defs#urlRule', required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UrlRule.fromJson(Map<String, dynamic> json) => _$UrlRuleFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -264,9 +264,9 @@ class _UrlRule implements UrlRule {
 /// DID of the user added the rule.
 @override final  String createdBy;
 /// Timestamp when the rule was created
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 /// Timestamp when the rule was last updated
-@override final  DateTime updatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -310,7 +310,7 @@ abstract mixin class _$UrlRuleCopyWith<$Res> implements $UrlRuleCopyWith<$Res> {
   factory _$UrlRuleCopyWith(_UrlRule value, $Res Function(_UrlRule) _then) = __$UrlRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String createdBy, DateTime createdAt, DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 

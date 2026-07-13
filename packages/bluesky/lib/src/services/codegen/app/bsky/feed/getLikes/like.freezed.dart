@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Like {
 
- String get $type; DateTime get indexedAt; DateTime get createdAt;@ProfileViewConverter() ProfileView get actor; Map<String, dynamic>? get $unknown;
+ String get $type;@JsonKey(toJson: iso8601) DateTime get indexedAt;@JsonKey(toJson: iso8601) DateTime get createdAt;@ProfileViewConverter() ProfileView get actor; Map<String, dynamic>? get $unknown;
 /// Create a copy of Like
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LikeCopyWith<$Res>  {
   factory $LikeCopyWith(Like value, $Res Function(Like) _then) = _$LikeCopyWithImpl;
 @useResult
 $Res call({
- String $type, DateTime indexedAt, DateTime createdAt,@ProfileViewConverter() ProfileView actor, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime indexedAt,@JsonKey(toJson: iso8601) DateTime createdAt,@ProfileViewConverter() ProfileView actor, Map<String, dynamic>? $unknown
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  DateTime indexedAt,  DateTime createdAt, @ProfileViewConverter()  ProfileView actor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime indexedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @ProfileViewConverter()  ProfileView actor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Like() when $default != null:
 return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$unknown);case _:
@@ -187,7 +187,7 @@ return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  DateTime indexedAt,  DateTime createdAt, @ProfileViewConverter()  ProfileView actor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime indexedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @ProfileViewConverter()  ProfileView actor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Like():
 return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  DateTime indexedAt,  DateTime createdAt, @ProfileViewConverter()  ProfileView actor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime indexedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @ProfileViewConverter()  ProfileView actor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Like() when $default != null:
 return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$unknown);case _:
@@ -222,12 +222,12 @@ return $default(_that.$type,_that.indexedAt,_that.createdAt,_that.actor,_that.$u
 
 @JsonSerializable(includeIfNull: false)
 class _Like implements Like {
-  const _Like({this.$type = 'app.bsky.feed.getLikes#like', required this.indexedAt, required this.createdAt, @ProfileViewConverter() required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Like({this.$type = 'app.bsky.feed.getLikes#like', @JsonKey(toJson: iso8601) required this.indexedAt, @JsonKey(toJson: iso8601) required this.createdAt, @ProfileViewConverter() required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Like.fromJson(Map<String, dynamic> json) => _$LikeFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  DateTime indexedAt;
-@override final  DateTime createdAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@ProfileViewConverter() final  ProfileView actor;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -272,7 +272,7 @@ abstract mixin class _$LikeCopyWith<$Res> implements $LikeCopyWith<$Res> {
   factory _$LikeCopyWith(_Like value, $Res Function(_Like) _then) = __$LikeCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, DateTime indexedAt, DateTime createdAt,@ProfileViewConverter() ProfileView actor, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime indexedAt,@JsonKey(toJson: iso8601) DateTime createdAt,@ProfileViewConverter() ProfileView actor, Map<String, dynamic>? $unknown
 });
 
 

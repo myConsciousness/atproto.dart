@@ -40,7 +40,7 @@ abstract class JoinLinkView with _$JoinLinkView {
     @LinkEnabledStatusConverter() required LinkEnabledStatus enabledStatus,
     required bool requireApproval,
     @JoinRuleConverter() required JoinRule joinRule,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
 
     Map<String, dynamic>? $unknown,
   }) = _JoinLinkView;

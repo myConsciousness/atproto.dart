@@ -240,7 +240,8 @@ final class OAuthClient {
     final authorizationEndpoint = Uri.parse(
       serverMetadata.authorizationEndpoint ?? '$_origin/oauth/authorize',
     );
-    final tokenEndpoint = serverMetadata.tokenEndpoint ?? '$_origin/oauth/token';
+    final tokenEndpoint =
+        serverMetadata.tokenEndpoint ?? '$_origin/oauth/token';
     final issuer = _normalizeIssuer(serverMetadata.issuer ?? _origin);
 
     final codeVerifier = random(46);

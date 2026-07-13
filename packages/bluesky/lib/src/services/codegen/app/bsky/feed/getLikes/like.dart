@@ -28,8 +28,8 @@ abstract class Like with _$Like {
   @JsonSerializable(includeIfNull: false)
   const factory Like({
     @Default('app.bsky.feed.getLikes#like') String $type,
-    required DateTime indexedAt,
-    required DateTime createdAt,
+    @JsonKey(toJson: iso8601) required DateTime indexedAt,
+    @JsonKey(toJson: iso8601) required DateTime createdAt,
     @ProfileViewConverter() required ProfileView actor,
 
     Map<String, dynamic>? $unknown,

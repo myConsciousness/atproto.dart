@@ -41,8 +41,8 @@ final class PostgateCommand extends Command<void> {
       "Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.";
 }
 
-final class _CreatePostgateCommand extends CreateRecordCommand {
-  _CreatePostgateCommand() {
+mixin _PostgateCommandRecordArgs on Command<void> {
+  void _addRecordOptions() {
     argParser
       ..addOption("createdAt", mandatory: true)
       ..addOption(
@@ -60,8 +60,23 @@ final class _CreatePostgateCommand extends CreateRecordCommand {
         help:
             r"List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
         splitCommas: false,
-      )
-      ..addOption("rkey", help: r"Specific record key to use.");
+      );
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
+    }
+  }
+}
+
+final class _CreatePostgateCommand extends CreateRecordCommand
+    with _PostgateCommandRecordArgs {
+  _CreatePostgateCommand() {
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"Specific record key to use.");
   }
 
   @override
@@ -90,32 +105,16 @@ final class _CreatePostgateCommand extends CreateRecordCommand {
       "detachedEmbeddingUris": argResults!["detachedEmbeddingUris"],
     if (argResults!.wasParsed("embeddingRules"))
       "embeddingRules": (argResults!["embeddingRules"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("embeddingRules", e))
           .toList(),
   };
 }
 
-final class _PutPostgateCommand extends PutRecordCommand {
+final class _PutPostgateCommand extends PutRecordCommand
+    with _PostgateCommandRecordArgs {
   _PutPostgateCommand() {
-    argParser
-      ..addOption("createdAt", mandatory: true)
-      ..addOption(
-        "post",
-        help: r"Reference (AT-URI) to the post record.",
-        mandatory: true,
-      )
-      ..addMultiOption(
-        "detachedEmbeddingUris",
-        help:
-            r"List of AT-URIs embedding this post that the author has detached from.",
-      )
-      ..addMultiOption(
-        "embeddingRules",
-        help:
-            r"List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
-        splitCommas: false,
-      )
-      ..addOption("rkey", help: r"The record key.", mandatory: true);
+    _addRecordOptions();
+    argParser.addOption("rkey", help: r"The record key.", mandatory: true);
   }
 
   @override
@@ -143,7 +142,7 @@ final class _PutPostgateCommand extends PutRecordCommand {
       "detachedEmbeddingUris": argResults!["detachedEmbeddingUris"],
     if (argResults!.wasParsed("embeddingRules"))
       "embeddingRules": (argResults!["embeddingRules"] as List<String>)
-          .map((e) => jsonDecode(e))
+          .map((e) => _decodeJsonItem("embeddingRules", e))
           .toList(),
   };
 }
@@ -231,7 +230,9 @@ final class _ListPostgateCommand extends QueryCommand {
   FutureOr<Map<String, dynamic>>? get parameters async => {
     'repo': argResults!['repo'] ?? await did,
     'collection': "app.bsky.feed.postgate",
-    'limit': int.parse(argResults!['limit']),
+    'limit':
+        int.tryParse(argResults!['limit']) ??
+        usageException(r'Invalid integer value for option "limit".'),
     if (argResults!['cursor'] != null) 'cursor': argResults!['cursor'],
     'reverse': argResults!['reverse'],
   };

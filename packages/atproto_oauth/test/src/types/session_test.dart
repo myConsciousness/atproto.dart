@@ -45,9 +45,7 @@ void main() {
     });
 
     test('round-trips a null dpop nonce (O-1)', () {
-      final restored = OAuthSession.fromJson(
-        sample(dPoPNonce: null).toJson(),
-      );
+      final restored = OAuthSession.fromJson(sample(dPoPNonce: null).toJson());
       expect(restored.$dPoPNonce, isNull);
     });
 

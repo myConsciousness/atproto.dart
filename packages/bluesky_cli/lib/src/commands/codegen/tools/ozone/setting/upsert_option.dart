@@ -44,10 +44,19 @@ final class UpsertOptionCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "key": argResults!["key"],
     "scope": argResults!["scope"],
-    "value": jsonDecode(argResults!["value"]),
+    "value": _decodeJson("value"),
     if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
     if (argResults!.wasParsed("managerRole"))
       "managerRole": argResults!["managerRole"],
   };
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
 }

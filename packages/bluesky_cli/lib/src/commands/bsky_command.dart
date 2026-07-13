@@ -57,8 +57,7 @@ abstract class BskyCommand extends Command<void> {
 
   /// Whether the session cache is enabled
   /// (`--no-session-cache` disables it).
-  late final bool sessionCacheEnabled =
-      globalResults!['session-cache'] as bool;
+  late final bool sessionCacheEnabled = globalResults!['session-cache'] as bool;
 
   /// The identifier used for authentication. Credentials are
   /// resolved lazily at use time so that they never appear in

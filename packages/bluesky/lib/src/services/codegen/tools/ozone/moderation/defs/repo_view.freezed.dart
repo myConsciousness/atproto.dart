@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RepoView {
 
- String get $type; String get did; String get handle; String? get email; List<Map<String, dynamic>> get relatedRecords; DateTime get indexedAt;@ModerationConverter() Moderation get moderation;@InviteCodeConverter() InviteCode? get invitedBy; bool? get invitesDisabled; String? get inviteNote; DateTime? get deactivatedAt;@ThreatSignatureConverter() List<ThreatSignature>? get threatSignatures; Map<String, dynamic>? get $unknown;
+ String get $type; String get did; String get handle; String? get email; List<Map<String, dynamic>> get relatedRecords;@JsonKey(toJson: iso8601) DateTime get indexedAt;@ModerationConverter() Moderation get moderation;@InviteCodeConverter() InviteCode? get invitedBy; bool? get invitesDisabled; String? get inviteNote;@JsonKey(toJson: iso8601) DateTime? get deactivatedAt;@ThreatSignatureConverter() List<ThreatSignature>? get threatSignatures; Map<String, dynamic>? get $unknown;
 /// Create a copy of RepoView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RepoViewCopyWith<$Res>  {
   factory $RepoViewCopyWith(RepoView value, $Res Function(RepoView) _then) = _$RepoViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String did, String handle, String? email, List<Map<String, dynamic>> relatedRecords, DateTime indexedAt,@ModerationConverter() Moderation moderation,@InviteCodeConverter() InviteCode? invitedBy, bool? invitesDisabled, String? inviteNote, DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? email, List<Map<String, dynamic>> relatedRecords,@JsonKey(toJson: iso8601) DateTime indexedAt,@ModerationConverter() Moderation moderation,@InviteCodeConverter() InviteCode? invitedBy, bool? invitesDisabled, String? inviteNote,@JsonKey(toJson: iso8601) DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
 });
 
 
@@ -186,7 +186,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>> relatedRecords,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @InviteCodeConverter()  InviteCode? invitedBy,  bool? invitesDisabled,  String? inviteNote,  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>> relatedRecords, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @InviteCodeConverter()  InviteCode? invitedBy,  bool? invitesDisabled,  String? inviteNote, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RepoView() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedRecords,_that.indexedAt,_that.moderation,_that.invitedBy,_that.invitesDisabled,_that.inviteNote,_that.deactivatedAt,_that.threatSignatures,_that.$unknown);case _:
@@ -207,7 +207,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>> relatedRecords,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @InviteCodeConverter()  InviteCode? invitedBy,  bool? invitesDisabled,  String? inviteNote,  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>> relatedRecords, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @InviteCodeConverter()  InviteCode? invitedBy,  bool? invitesDisabled,  String? inviteNote, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _RepoView():
 return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedRecords,_that.indexedAt,_that.moderation,_that.invitedBy,_that.invitesDisabled,_that.inviteNote,_that.deactivatedAt,_that.threatSignatures,_that.$unknown);case _:
@@ -227,7 +227,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>> relatedRecords,  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @InviteCodeConverter()  InviteCode? invitedBy,  bool? invitesDisabled,  String? inviteNote,  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String did,  String handle,  String? email,  List<Map<String, dynamic>> relatedRecords, @JsonKey(toJson: iso8601)  DateTime indexedAt, @ModerationConverter()  Moderation moderation, @InviteCodeConverter()  InviteCode? invitedBy,  bool? invitesDisabled,  String? inviteNote, @JsonKey(toJson: iso8601)  DateTime? deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _RepoView() when $default != null:
 return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedRecords,_that.indexedAt,_that.moderation,_that.invitedBy,_that.invitesDisabled,_that.inviteNote,_that.deactivatedAt,_that.threatSignatures,_that.$unknown);case _:
@@ -242,7 +242,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 
 @JsonSerializable(includeIfNull: false)
 class _RepoView implements RepoView {
-  const _RepoView({this.$type = 'tools.ozone.moderation.defs#repoView', required this.did, required this.handle, this.email, required final  List<Map<String, dynamic>> relatedRecords, required this.indexedAt, @ModerationConverter() required this.moderation, @InviteCodeConverter() this.invitedBy, this.invitesDisabled, this.inviteNote, this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_threatSignatures = threatSignatures,_$unknown = $unknown;
+  const _RepoView({this.$type = 'tools.ozone.moderation.defs#repoView', required this.did, required this.handle, this.email, required final  List<Map<String, dynamic>> relatedRecords, @JsonKey(toJson: iso8601) required this.indexedAt, @ModerationConverter() required this.moderation, @InviteCodeConverter() this.invitedBy, this.invitesDisabled, this.inviteNote, @JsonKey(toJson: iso8601) this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_threatSignatures = threatSignatures,_$unknown = $unknown;
   factory _RepoView.fromJson(Map<String, dynamic> json) => _$RepoViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -256,12 +256,12 @@ class _RepoView implements RepoView {
   return EqualUnmodifiableListView(_relatedRecords);
 }
 
-@override final  DateTime indexedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
 @override@ModerationConverter() final  Moderation moderation;
 @override@InviteCodeConverter() final  InviteCode? invitedBy;
 @override final  bool? invitesDisabled;
 @override final  String? inviteNote;
-@override final  DateTime? deactivatedAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? deactivatedAt;
  final  List<ThreatSignature>? _threatSignatures;
 @override@ThreatSignatureConverter() List<ThreatSignature>? get threatSignatures {
   final value = _threatSignatures;
@@ -314,7 +314,7 @@ abstract mixin class _$RepoViewCopyWith<$Res> implements $RepoViewCopyWith<$Res>
   factory _$RepoViewCopyWith(_RepoView value, $Res Function(_RepoView) _then) = __$RepoViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String did, String handle, String? email, List<Map<String, dynamic>> relatedRecords, DateTime indexedAt,@ModerationConverter() Moderation moderation,@InviteCodeConverter() InviteCode? invitedBy, bool? invitesDisabled, String? inviteNote, DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
+ String $type, String did, String handle, String? email, List<Map<String, dynamic>> relatedRecords,@JsonKey(toJson: iso8601) DateTime indexedAt,@ModerationConverter() Moderation moderation,@InviteCodeConverter() InviteCode? invitedBy, bool? invitesDisabled, String? inviteNote,@JsonKey(toJson: iso8601) DateTime? deactivatedAt,@ThreatSignatureConverter() List<ThreatSignature>? threatSignatures, Map<String, dynamic>? $unknown
 });
 
 

@@ -33,7 +33,7 @@ abstract class RepoOp with _$RepoOp {
     required String path,
 
     /// For creates and updates, the new record CID. For deletions, null.
-    required String? cid,
+    @JsonKey(includeIfNull: true) required String? cid,
 
     /// For updates and deletes, the previous record CID (required for inductive firehose). For creations, field should not be defined.
     String? prev,

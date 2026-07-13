@@ -21,7 +21,7 @@ mixin _$ModEventEmail {
  String? get comment; List<String>? get policies;/// Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense
  String? get severityLevel;/// Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense.
  int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
- DateTime? get strikeExpiresAt;/// Indicates whether the email was successfully delivered to the user's inbox.
+@JsonKey(toJson: iso8601) DateTime? get strikeExpiresAt;/// Indicates whether the email was successfully delivered to the user's inbox.
  bool? get isDelivered; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventEmail
 /// with the given fields replaced by the non-null parameter values.
@@ -55,7 +55,7 @@ abstract mixin class $ModEventEmailCopyWith<$Res>  {
   factory $ModEventEmailCopyWith(ModEventEmail value, $Res Function(ModEventEmail) _then) = _$ModEventEmailCopyWithImpl;
 @useResult
 $Res call({
- String $type, String subjectLine, String? content, String? comment, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, bool? isDelivered, Map<String, dynamic>? $unknown
+ String $type, String subjectLine, String? content, String? comment, List<String>? policies, String? severityLevel, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, bool? isDelivered, Map<String, dynamic>? $unknown
 });
 
 
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  bool? isDelivered,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  bool? isDelivered,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventEmail() when $default != null:
 return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.isDelivered,_that.$unknown);case _:
@@ -190,7 +190,7 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  bool? isDelivered,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  bool? isDelivered,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventEmail():
 return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.isDelivered,_that.$unknown);case _:
@@ -210,7 +210,7 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  DateTime? strikeExpiresAt,  bool? isDelivered,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String subjectLine,  String? content,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  bool? isDelivered,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventEmail() when $default != null:
 return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.isDelivered,_that.$unknown);case _:
@@ -225,7 +225,7 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventEmail implements ModEventEmail {
-  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  List<String>? policies, this.severityLevel, this.strikeCount, this.strikeExpiresAt, this.isDelivered, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  List<String>? policies, this.severityLevel, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, this.isDelivered, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _ModEventEmail.fromJson(Map<String, dynamic> json) => _$ModEventEmailFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -249,7 +249,7 @@ class _ModEventEmail implements ModEventEmail {
 /// Number of strikes to assign to the user for this violation. Normally 0 as an indicator of a warning and only added as a strike on a repeat offense.
 @override final  int? strikeCount;
 /// When the strike should expire. If not provided, the strike never expires.
-@override final  DateTime? strikeExpiresAt;
+@override@JsonKey(toJson: iso8601) final  DateTime? strikeExpiresAt;
 /// Indicates whether the email was successfully delivered to the user's inbox.
 @override final  bool? isDelivered;
  final  Map<String, dynamic>? _$unknown;
@@ -295,7 +295,7 @@ abstract mixin class _$ModEventEmailCopyWith<$Res> implements $ModEventEmailCopy
   factory _$ModEventEmailCopyWith(_ModEventEmail value, $Res Function(_ModEventEmail) _then) = __$ModEventEmailCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String subjectLine, String? content, String? comment, List<String>? policies, String? severityLevel, int? strikeCount, DateTime? strikeExpiresAt, bool? isDelivered, Map<String, dynamic>? $unknown
+ String $type, String subjectLine, String? content, String? comment, List<String>? policies, String? severityLevel, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, bool? isDelivered, Map<String, dynamic>? $unknown
 });
 
 

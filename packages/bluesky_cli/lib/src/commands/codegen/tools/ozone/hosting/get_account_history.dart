@@ -42,6 +42,8 @@ final class GetAccountHistoryCommand extends QueryCommand {
     "did": argResults!["did"],
     if (argResults!.wasParsed("events")) "events": argResults!["events"],
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
   };
 }

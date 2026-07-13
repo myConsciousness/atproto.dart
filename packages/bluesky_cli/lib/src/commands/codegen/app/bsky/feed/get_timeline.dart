@@ -44,7 +44,9 @@ final class GetTimelineCommand extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("algorithm"))
       "algorithm": argResults!["algorithm"],
-    "limit": int.parse(argResults!["limit"]),
+    "limit":
+        int.tryParse(argResults!["limit"]) ??
+        usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
   };
 }

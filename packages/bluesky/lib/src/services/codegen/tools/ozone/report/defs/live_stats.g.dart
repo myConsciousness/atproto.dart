@@ -52,6 +52,6 @@ Map<String, dynamic> _$LiveStatsToJson(_LiveStats instance) =>
       'inboundCount': ?instance.inboundCount,
       'actionRate': ?instance.actionRate,
       'avgHandlingTimeSec': ?instance.avgHandlingTimeSec,
-      'lastUpdated': ?instance.lastUpdated?.toIso8601String(),
+      'lastUpdated': iso8601(instance.lastUpdated),
       r'$unknown': ?instance.$unknown,
     };
