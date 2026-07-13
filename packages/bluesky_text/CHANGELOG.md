@@ -52,7 +52,14 @@
   display text and a markdown link's facet vanished — because the chunks dropped
   the position-bound replacements. Each chunk is a raw, independently-formattable
   piece; format each one *after* splitting (e.g. via `chunk.toPostData()`).
-- **PERF**: `BlueskyText` now lazily memoizes every derived value (`length`,
+- **FIX**: `split()` now breaks on **any** Unicode whitespace — newlines, tabs
+  and the ideographic (full-width) space `U+3000` — not just the ASCII space.
+  Previously a multi-line or CJK post with no ASCII spaces was treated as one
+  giant word and hard-split mid-word (e.g. `word44` became `wo` | `rd44`). The
+  author's newlines and spacing are now preserved within each chunk, and no
+  chunk starts or ends with whitespace. A markdown link is also kept atomic, so
+  one straddling a chunk boundary is no longer torn open (which would drop its
+  facet).
   `handles`, `entities`, `overflow`, `segments`, `format()`…), so touching
   several properties of one instance in a Flutter `build` costs one analysis
   instead of one per property (~1.6x faster when touching seven). Note: as a
