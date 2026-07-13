@@ -7,21 +7,35 @@ import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main() async {
-  //! You just need to pass text to parse.
+  //! --------------------------------------------------------------------
+  //! 1. Analyze: just pass text — handles, links and tags are detected.
+  //! --------------------------------------------------------------------
   final text = BlueskyText(
     'I speak 日本語 and English 🚀 @shinyakato.dev and @shinyakato.bsky.social. '
     'Visit 🚀 https://shinyakato.dev.',
   );
 
-  //! Rendering for Flutter: color entities and the over-limit tail together.
-  //!
-  //! `segments` partitions the (formatted) text into non-overlapping slices,
-  //! each tagged with its entity (if any) and whether it lies past the
-  //! 300-grapheme / 3000-byte limit. Map each slice straight to a `TextSpan`
-  //! style — links/handles in blue, the overflowing tail in red — in a single
-  //! pass, with no manual index math. This is the natural body of a Flutter
-  //! `TextEditingController.buildTextSpan`, called on every keystroke.
-  for (final segment in text.format().segments) {
+  print(text.handles); //! @shinyakato.dev, @shinyakato.bsky.social
+  print(text.links); //! https://shinyakato.dev
+  print(text.entities); //! all of the above, in document order
+
+  //! Derived values (length, entities, segments, …) are lazily memoized, so
+  //! touching several of them on one instance — as a Flutter `build` does —
+  //! costs one analysis, not one per property.
+
+  //! --------------------------------------------------------------------
+  //! 2. Render while composing (Flutter).
+  //! --------------------------------------------------------------------
+  //! `formatted` is the posting-ready form (markdown expanded, links
+  //! shortened) — measure and render what will actually be posted.
+  final post = text.formatted;
+
+  //! `segments` partitions the text into non-overlapping slices, each tagged
+  //! with its entity (if any) and whether it lies past the 300-grapheme /
+  //! 3000-byte limit. Map each slice straight to a `TextSpan` style — this is
+  //! the body of a `TextEditingController.buildTextSpan`, called on every
+  //! keystroke. Offsets are UTF-16, directly usable with `substring`.
+  for (final segment in post.segments) {
     final style = segment.isOverflow
         ? 'red'
         : segment.isEntity
@@ -30,79 +44,85 @@ Future<void> main() async {
     print('[$style] ${segment.text}');
   }
 
-  //! Need just the boundary (e.g. to show a live "-N over" counter)? `overflow`
-  //! returns it in UTF-16, UTF-8 byte and grapheme coordinates, or null when
-  //! within the limit.
-  final overflow = text.format().overflow;
+  //! --------------------------------------------------------------------
+  //! 3. The length limit and the overflowing tail.
+  //! --------------------------------------------------------------------
+  final tooLong = BlueskyText('${'とても長い投稿です。' * 40} #bluesky').formatted;
+
+  //! `overflow` locates where the text first exceeds the limit — in UTF-16
+  //! (for `substring` / `TextSpan`), UTF-8 bytes (the facet axis) and
+  //! graphemes — or null when within it. The boundary never splits an emoji
+  //! or an entity: a straddling entity moves wholly into the overflow.
+  final overflow = tooLong.overflow;
   if (overflow != null) {
-    final displayed = text.format().value;
-    print('within:   ${displayed.substring(0, overflow.utf16Start)}');
-    print('exceeded: ${displayed.substring(overflow.utf16Start)}');
-  }
-
-  if (text.isLengthLimitExceeded) {
-    //! Let's split.
-    final texts = text.split();
-
-    for (final text in texts) {
-      print(text.handles);
-      print(text.links);
-      print(text.entities);
-    }
-  } else {
-    // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
-    // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}}]
-    print(text.handles);
-
-    // [{type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
-    print(text.links);
-
-    // [{type: handle, value: @shinyakato.dev, indices: {start: 35, end: 50}},
-    // {type: handle, value: @shinyakato.bsky.social, indices: {start: 55, end: 78}},
-    // {type: link, value: https://shinyakato.dev, indices: {start: 91, end: 113}}]
-    print(text.entities);
-
-    //! And you can easily integrate with bluesky package! `toPostData` formats
-    //! (markdown expanded, links shortened) AND resolves facets in one call —
-    //! the only correct order, since markdown links become facets only after
-    //! formatting.
-    final bluesky = bsky.Bluesky.fromSession(await _session);
-    final post = await text.toPostData();
-
-    //! Unresolved mentions are surfaced instead of silently dropped, so you can
-    //! warn the user before posting.
-    if (post.unresolvedHandles.isNotEmpty) {
-      print('Could not resolve: ${post.unresolvedHandles}');
-    }
-
-    await bluesky.feed.post.create(
-      text: post.text,
-      facets: post.facets.map(RichtextFacet.fromJson).toList(),
+    print(
+      'exceeds at grapheme ${overflow.graphemeStart}: '
+      '"…${tooLong.value.substring(overflow.utf16Start)}"',
     );
   }
 
-  //! Displaying a FETCHED post: render the server's facets (authoritative —
-  //! mentions already carry their DID) rather than re-detecting entities.
-  //! `renderFacets` gives the same `TextSegment` partition, so one `TextSpan`
-  //! builder styles both the composer and the timeline.
+  //! Or split it into postable chunks for a thread — every chunk respects
+  //! BOTH limits (300 graphemes AND 3000 UTF-8 bytes).
+  for (final chunk in tooLong.split()) {
+    print('chunk: ${chunk.length} graphemes');
+  }
+
+  //! --------------------------------------------------------------------
+  //! 4. Post it: format + facets in one call.
+  //! --------------------------------------------------------------------
+  //! `toPostData` formats and resolves facets in the correct order (markdown
+  //! links become facets only after formatting). Inject a resolver to serve
+  //! mention DIDs from your own cache instead of a per-handle network call.
+  final data = await text.toPostData(
+    resolver: (handle) async => _didCache[handle],
+  );
+
+  //! Handles that failed to resolve are surfaced — warn the user instead of
+  //! silently posting without those mentions.
+  if (data.unresolvedHandles.isNotEmpty) {
+    print('Could not resolve: ${data.unresolvedHandles}');
+  }
+
+  final bluesky = bsky.Bluesky.fromSession(await _session);
+  await bluesky.feed.post.create(
+    text: data.text,
+    facets: data.facets.map(RichtextFacet.fromJson).toList(),
+  );
+
+  //! --------------------------------------------------------------------
+  //! 5. Display a FETCHED post (timeline).
+  //! --------------------------------------------------------------------
+  //! Render the server's facets — authoritative, mentions already carry
+  //! their DID — instead of re-detecting entities. `renderFacets` returns
+  //! the same `TextSegment` partition as step 2, so ONE `TextSpan` builder
+  //! styles both the composer and the timeline.
   const fetchedText = 'hello @shinyakato.dev 🦋';
-  final fetchedFacets = [
+  const fetchedFacets = [
     {
       'index': {'byteStart': 6, 'byteEnd': 21},
       'features': [
-        {'\$type': 'app.bsky.richtext.facet#mention', 'did': 'did:plc:1234'},
+        {r'$type': 'app.bsky.richtext.facet#mention', 'did': 'did:plc:xxxx'},
       ],
     },
   ];
+
   for (final segment in renderFacets(
     fetchedText,
     fetchedFacets.map(PostFacet.fromJson).toList(),
   )) {
-    print(
-      '[${segment.type ?? 'text'}] ${segment.text} ${segment.feature?.value ?? ''}',
-    );
+    //! `segment.feature` carries the resolved DID / URI / tag — exactly what
+    //! a tap handler needs.
+    final target = segment.isFeature ? ' -> ${segment.feature!.value}' : '';
+    print('[${segment.type ?? 'text'}] ${segment.text}$target');
   }
 }
+
+//! Your app usually already knows the DIDs of the handles the user mentions
+//! (from search results, follows, etc.) — serve them from a cache.
+const _didCache = {
+  'shinyakato.dev': 'did:plc:xxxx',
+  'shinyakato.bsky.social': 'did:plc:xxxx',
+};
 
 Future<Session> get _session async {
   final session = await createSession(
