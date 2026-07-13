@@ -2,6 +2,27 @@
 
 ## v1.4.1
 
+- **FIX**: Markdown links whose destination contains surrounding whitespace are
+  now detected and formatted correctly. Previously the link's end offset was
+  reconstructed from `label length + URL length + 4`, which ignored any
+  whitespace padding inside the parentheses. As a result inputs such as
+  `[ test ]( https://example.com  )` left the padding and the closing `)` behind
+  in the formatted output (`" test   )"`) and, because every following entity is
+  positioned relative to that offset, shifted and corrupted all subsequent
+  facets. The destination is now parsed structurally, so the following are all
+  handled:
+  - leading/trailing whitespace, tabs and newlines inside the parentheses
+    (`[t]( https://example.com )`, `[t](\n https://example.com \n)`);
+  - an optional angle-bracket wrapper (`[t](<https://example.com>)`);
+  - a gap between `]` and `(` (`[t] (https://example.com)`);
+  - balanced parentheses in the URL path remain intact
+    (`[film](https://en.wikipedia.org/wiki/Primer_(film))`).
+- **PERF**: Destination parsing anchors the URL match with `matchAsPrefix`
+  instead of a forward-scanning `firstMatch` over a freshly allocated substring
+  per link opener. Formatting bracket-heavy input on every keystroke (as a
+  Flutter editor does) is now `O(n)` instead of `O(n^2)` — a 4 KB string of
+  `[a](` fragments drops from ~240 ms to ~1 ms — and no per-match substring is
+  allocated.
 - **PERF**: Entity extraction now converts UTF-16 code-unit boundaries to UTF-8
   byte offsets with a forward-only `Utf8IndexConverter` instead of rescanning
   the prefix from the start on every boundary. Because each extractor pass emits
