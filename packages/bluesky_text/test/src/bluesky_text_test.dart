@@ -1,5 +1,8 @@
 // ignore_for_file: deprecated_member_use_from_same_package
 
+// Dart imports:
+import 'dart:convert';
+
 // Package imports:
 import 'package:test/test.dart';
 
@@ -7,6 +10,7 @@ import 'package:test/test.dart';
 import 'package:bluesky_text/src/bluesky_text.dart';
 import 'package:bluesky_text/src/config/link_config.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
+import 'package:bluesky_text/src/unicode_string.dart';
 
 void main() {
   test('.value', () {
@@ -457,7 +461,10 @@ void main() {
           ('text,@handle.dev', 1), // Comma before
           ('text;@handle.dev', 1), // Semicolon before
           ('text:@handle.dev', 1), // Colon before
-          ('text!@handle.dev', 1), // Exclamation before
+          // `!` is a word-adjacent char excluded by the official / twitter-text
+          // mention preceding-chars rule, so `text!@handle.dev` is not a mention
+          // (matches the audit example `hi!@alice.bsky.social`).
+          ('text!@handle.dev', 0), // Exclamation before
           ('text?@handle.dev', 1), // Question mark before
           ('text(@handle.dev)', 1), // Parenthesis before
           ('text[@handle.dev]', 1), // Bracket before
@@ -729,7 +736,7 @@ void main() {
       expect(links.first.indices.end, 15);
     });
 
-    test('case16', () {
+    test('case16b', () {
       final text = BlueskyText('atprotodart.com...');
       final links = text.links;
 
@@ -873,7 +880,7 @@ void main() {
       expect(links.first.indices.end, 51);
     });
 
-    test('case29', () {
+    test('case29b', () {
       final text = BlueskyText(
         'wikipedia.com//track/We_Up_(Album_Version_(Edited))/',
       );
@@ -1610,17 +1617,26 @@ becomes
     });
 
     test('case11', () async {
-      final text = BlueskyText('#${'a' * 65}');
+      //* Tag length is measured in graphemes on the body, excluding the leading
+      //* hash. 64 is the maximum (matching the official @atproto/api limit), so
+      //* a 65-grapheme body is rejected.
+      final text = BlueskyText('#${'a' * 64}');
       final tags = text.tags;
 
       expect(tags.length, 1);
+
+      final tooLong = BlueskyText('#${'a' * 65}');
+      expect(tooLong.tags.length, 0);
     });
 
     test('case12', () async {
-      final text = BlueskyText('##${'a' * 64}');
+      //* A doubled hash keeps the inner `#` in the value (`#` + 63 chars = 64
+      //* graphemes), which is within the limit.
+      final text = BlueskyText('##${'a' * 63}');
       final tags = text.tags;
 
       expect(tags.length, 1);
+      expect(tags.first.value, '#${'a' * 63}');
     });
 
     test('case13', () async {
@@ -1717,7 +1733,7 @@ becomes
       expect(tags.first.indices.end, 7);
     });
 
-    test('case21', () async {
+    test('case21b', () async {
       final text = BlueskyText('#test-a');
       final tags = text.tags;
 
@@ -1727,7 +1743,7 @@ becomes
       expect(tags.first.indices.end, 7);
     });
 
-    test('case22', () async {
+    test('case22b', () async {
       final text = BlueskyText('#💗');
       final tags = text.tags;
 
@@ -1960,9 +1976,10 @@ becomes
       });
 
       test('hashtag length limits', () {
-        // Test maximum length (should be 66 characters based on existing tests)
-        final maxLengthTag = '#${'a' * 65}';
-        final tooLongTag = '#${'a' * 66}';
+        // The limit is 64 graphemes on the tag body (excluding the leading
+        // hash), matching the official @atproto/api behavior.
+        final maxLengthTag = '#${'a' * 64}';
+        final tooLongTag = '#${'a' * 65}';
 
         final maxText = BlueskyText(maxLengthTag);
         final tooLongText = BlueskyText(tooLongTag);
@@ -3679,130 +3696,6 @@ github.com/videah/SkyBridge
     });
   });
 
-  // group('.lengthExceededEntities', () {
-  //   test('case1', () {
-  //     final text = BlueskyText('a' * 300);
-
-  //     expect(text.lengthExceededEntities.isEmpty, isTrue);
-  //   });
-
-  //   test('case2', () {
-  //     final text = BlueskyText('');
-
-  //     expect(text.lengthExceededEntities.isEmpty, isTrue);
-  //   });
-
-  //   test('case3', () {
-  //     final text = BlueskyText(' ');
-
-  //     expect(text.lengthExceededEntities.isEmpty, isTrue);
-  //   });
-
-  //   test('case4', () {
-  //     final text = BlueskyText('a' * 301);
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 1);
-  //     expect(entities.first.value, 'a');
-  //     expect(entities.first.indices.start, 300);
-  //     expect(entities.first.indices.end, 301);
-  //   });
-
-  //   test('case5', () {
-  //     final text = BlueskyText('${'a' * 300}[test](https://atprotodart.com)');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 1);
-  //     expect(entities.first.value, 'test');
-  //     expect(entities.first.indices.start, 301);
-  //     expect(entities.first.indices.end, 305);
-  //   });
-
-  //   test('case6', () {
-  //     final text = BlueskyText('${'a' * 300}[テスト](https://atprotodart.com)');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 1);
-  //     expect(entities.first.value, 'テスト');
-  //     expect(entities.first.indices.start, 301);
-  //     expect(entities.first.indices.end, 310);
-  //   });
-
-  //   test('case7', () {
-  //     final text = BlueskyText('${'a' * 299}[テスト](https://atprotodart.com)');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 1);
-  //     expect(entities.first.value, 'スト');
-  //     expect(entities.first.indices.start, 303);
-  //     expect(entities.first.indices.end, 309);
-  //   });
-
-  //   test('case8', () {
-  //     final text = BlueskyText('${'a' * 298}[テスト](https://atprotodart.com)');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 1);
-  //     expect(entities.first.value, 'ト');
-  //     expect(entities.first.indices.start, 305);
-  //     expect(entities.first.indices.end, 308);
-  //   });
-
-  //   test('case9', () {
-  //     final text = BlueskyText('${'a' * 298}[test](https://atprotodart.com)');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 1);
-  //     expect(entities.first.value, 'st');
-  //     expect(entities.first.indices.start, 301);
-  //     expect(entities.first.indices.end, 303);
-  //   });
-
-  //   test('case10', () {
-  //     final text =
-  //         BlueskyText('${'a' * 298}[test](https://atprotodart.com) test テスト');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 2);
-  //     expect(entities.first.value, 'st');
-  //     expect(entities.first.indices.start, 301);
-  //     expect(entities.first.indices.end, 303);
-  //     expect(entities[1].value, ' test テスト');
-  //     expect(entities[1].indices.start, 329);
-  //     expect(entities[1].indices.end, 344);
-  //   });
-
-  //   test('case11', () {
-  //     final text =
-  //         BlueskyText('${'a' * 300}[test](https://atprotodart.com) test テスト');
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 2);
-  //     expect(entities.first.value, 'test');
-  //     expect(entities.first.indices.start, 301);
-  //     expect(entities.first.indices.end, 305);
-  //     expect(entities[1].value, ' test テスト');
-  //     expect(entities[1].indices.start, 331);
-  //     expect(entities[1].indices.end, 346);
-  //   });
-
-  //   test('case12', () {
-  //     final text = BlueskyText(
-  //       '${'a' * 300}[test](https://atprotodart.com) test テスト https://atprotodart.com',
-  //     );
-
-  //     final entities = text.lengthExceededEntities;
-
-  //     expect(entities.length, 2);
-  //     expect(entities.first.value, 'test');
-  //     expect(entities.first.indices.start, 301);
-  //     expect(entities.first.indices.end, 305);
-  //     expect(entities[1].value, ' test テスト https://atprotodart.com');
-  //     expect(entities[1].indices.start, 331);
-  //     expect(entities[1].indices.end, 370);
-  //   });
-  // });
-
   group('Unicode space characters as tag delimiters (issue #1933)', () {
     test('security - no Unicode normalization attacks', () {
       // Test that visually similar but different Unicode characters
@@ -3947,4 +3840,208 @@ github.com/videah/SkyBridge
       expect(tags[3].indices.end, 39);
     });
   });
+
+  group('audit regressions (WS-6)', () {
+    group('IDN URLs (T-1)', () {
+      test('pure IDN is extracted without crashing', () {
+        final text = BlueskyText('https://日本語.jp');
+        expect(() => text.entities, returnsNormally);
+        expect(() => text.format(), returnsNormally);
+
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://日本語.jp');
+      });
+
+      test('mixed ASCII/IDN label is extracted without crashing', () {
+        final text = BlueskyText('テスト https://日本.example.com です');
+        expect(() => text.format(), returnsNormally);
+
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://日本.example.com');
+      });
+
+      test('IDN markdown link does not crash', () {
+        final text = BlueskyText('見て [サイト](https://日本語.jp) ね');
+        expect(() => text.format(), returnsNormally);
+        expect(() => text.entities, returnsNormally);
+      });
+    });
+
+    group('uppercase TLD and scheme (T-2, T-5)', () {
+      test('mention with uppercase TLD is detected', () {
+        expect(
+          BlueskyText('@SHINYAKATO.DEV').handles.map((e) => e.value).toList(),
+          ['SHINYAKATO.DEV'],
+        );
+        expect(
+          BlueskyText('@Alice.Bsky.Social').handles.map((e) => e.value).toList(),
+          ['Alice.Bsky.Social'],
+        );
+      });
+
+      test('uppercase scheme is not double-prefixed', () {
+        final links = BlueskyText('HTTPS://EXAMPLE.COM').links;
+        expect(links.length, 1);
+        expect(links.first.value, 'HTTPS://EXAMPLE.COM');
+      });
+
+      test('http-like domain without a scheme gets an https prefix', () {
+        final links = BlueskyText('httpstatus.io').links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://httpstatus.io');
+      });
+    });
+
+    group('mention preceding chars (T-9)', () {
+      test('mention after a punctuation like "!" is not detected', () {
+        expect(BlueskyText('hi!@alice.bsky.social').handles.length, 0);
+      });
+
+      test('email address is not a mention', () {
+        expect(BlueskyText('contact@shinyakato.dev').handles.length, 0);
+      });
+
+      test('mention glued to a preceding CJK char is still detected', () {
+        expect(
+          BlueskyText('よろしく@alice.bsky.social')
+              .handles
+              .map((e) => e.value)
+              .toList(),
+          ['alice.bsky.social'],
+        );
+      });
+    });
+
+    group('tag body Unicode spaces and punctuation (T-3)', () {
+      test('full-width space is a delimiter, not part of the tag body', () {
+        final tags = BlueskyText('#タグ　こんにちは').tags;
+        expect(tags.length, 1);
+        expect(tags.first.value, 'タグ');
+      });
+
+      test('CJK punctuation terminates a tag body', () {
+        final tags = BlueskyText('#テスト、です').tags;
+        expect(tags.length, 1);
+        expect(tags.first.value, 'テスト');
+      });
+
+      test('tags separated by a full-width space are both detected', () {
+        final tags =
+            BlueskyText('#tag3　#tag4').tags.map((e) => e.value).toList();
+        expect(tags, ['tag3', 'tag4']);
+      });
+    });
+
+    group('grapheme-based split (T-4)', () {
+      test('non-BMP text is split by the grapheme budget', () {
+        final texts = BlueskyText('😀' * 350).split();
+        expect(texts.length, 2);
+        expect(texts[0].length, 300);
+        expect(texts[1].length, 50);
+      });
+    });
+
+    group('format() then split() carries config (T-6)', () {
+      test('split preserves valid links produced by format', () {
+        final formatted = BlueskyText(
+          '${'あ' * 250} https://example.com/${'a' * 80}',
+          linkConfig: const LinkConfig(
+            excludeProtocol: true,
+            enableShortening: true,
+          ),
+        ).format();
+
+        final chunks = formatted.split();
+        for (final chunk in chunks) {
+          expect(chunk.isLengthLimitExceeded, isFalse);
+          for (final link in chunk.links) {
+            expect(link.value.startsWith('http'), isTrue);
+          }
+        }
+      });
+    });
+
+    group('tag length in graphemes (T-8)', () {
+      test('a 64-emoji tag is accepted and a 65-emoji tag is rejected', () {
+        expect(BlueskyText('#${'😀' * 64}').tags.length, 1);
+        expect(BlueskyText('#${'😀' * 65}').tags.length, 0);
+      });
+    });
+
+    group('facet overlap resolution (T-10)', () {
+      test('a URL fragment does not also become a tag', () {
+        final entities =
+            BlueskyText('see https://example.com/p#frag here').entities;
+        expect(entities.length, 1);
+        expect(entities.first.isLink, isTrue);
+      });
+
+      test('an @handle inside a URL path does not also become a mention', () {
+        final entities =
+            BlueskyText('go https://example.com/@user.bsky.social ok').entities;
+        expect(entities.where((e) => e.isLink).length, 1);
+        expect(entities.where((e) => e.isHandle).length, 0);
+      });
+
+      test('non-overlapping facets are all kept', () {
+        final entities =
+            BlueskyText(r'@a.dev #topic $AAPL https://x.com').entities;
+        expect(entities.length, 4);
+      });
+    });
+
+    group('full-width hash (T-14)', () {
+      test('a tag typed with a full-width hash is detected', () {
+        final tags = BlueskyText('＃tag').tags;
+        expect(tags.length, 1);
+        expect(tags.first.value, 'tag');
+      });
+    });
+
+    group('isEmojiOnly ignores surrounding whitespace (T-15)', () {
+      test('leading/trailing spaces do not change the result', () {
+        expect(BlueskyText('👍 ').isEmojiOnly, isTrue);
+        expect(BlueskyText(' 👍').isEmojiOnly, isTrue);
+        expect(BlueskyText('👍👍 ').isEmojiOnly, isTrue);
+      });
+    });
+
+    group('byte length limit (T-18)', () {
+      test('within 300 graphemes but over 3000 UTF-8 bytes is exceeded', () {
+        final text = BlueskyText('👨‍👩‍👧‍👦' * 130);
+        expect(text.length, lessThanOrEqualTo(300));
+        expect(text.isLengthLimitExceeded, isTrue);
+      });
+
+      test('300 ASCII chars are within both limits', () {
+        expect(BlueskyText('a' * 300).isLengthLimitExceeded, isFalse);
+      });
+    });
+
+    group('toUtf8Index matches utf8.encode (T-19)', () {
+      test('byte offsets are identical for tricky inputs', () {
+        final samples = <String>[
+          '',
+          'abc',
+          '日本語',
+          '😀test😀',
+          '#😀😀test',
+          '👨‍👩‍👧‍👦 fam',
+        ];
+
+        for (final sample in samples) {
+          for (var i = 0; i <= sample.length; i++) {
+            expect(
+              sample.toUtf8Index(i),
+              utf8.encode(sample.substring(0, i)).length,
+              reason: 'mismatch for ${jsonEncode(sample)} at $i',
+            );
+          }
+        }
+      });
+    });
+  });
+
 }

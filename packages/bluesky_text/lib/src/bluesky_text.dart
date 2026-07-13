@@ -2,14 +2,15 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Dart imports:
+import 'dart:convert';
+
 // Project imports:
 import 'config/link_config.dart';
 import 'const.dart';
 import 'entities/entities.dart';
-import 'entities/length_exceeded_entity.dart';
 import 'entities/replacements.dart';
 import 'extractor/extractor.dart';
-import 'extractor/length_exceeded_extractor.dart';
 import 'formatter.dart';
 import 'splitter.dart';
 import 'utils.dart' as utils;
@@ -122,8 +123,6 @@ sealed class BlueskyText {
   /// It includes the response from [handles], [links], [tags], [cashtags].
   Entities get entities;
 
-  // List<LengthExceededEntity> get lengthExceededEntities;
-
   /// Splits this [value].
   ///
   /// The maximum number of characters that can be posted on Bluesky Social
@@ -143,12 +142,12 @@ sealed class BlueskyText {
   /// Returns a new formatted [BlueskyText] based on configs.
   BlueskyText format();
 
-  /// Returns true if this [length] is more than 300 chars,
-  /// otherwise false.
+  /// Returns true if this text exceeds either post limit — more than 300
+  /// graphemes ([length]) or more than 3000 UTF-8 bytes — otherwise false.
   bool get isLengthLimitExceeded;
 
-  /// Returns true if this [length] is not more than 300 chars,
-  /// otherwise false.
+  /// Returns true if this text is within both post limits — at most 300
+  /// graphemes ([length]) and at most 3000 UTF-8 bytes — otherwise false.
   bool get isNotLengthLimitExceeded;
 
   /// Returns true if this [value] is empty, otherwise false.
@@ -217,24 +216,21 @@ final class _BlueskyText implements BlueskyText {
     ),
   );
 
-  List<LengthExceededEntity> get lengthExceededEntities =>
-      lengthExceededExtractor.execute(
-        this,
-        _replacements,
-        _enableMarkdown,
-        _linkConfig,
-      );
-
   @override
   BlueskyText format() => _replacements != null
       ? this //* is already formatted.
       : formatter.execute(this, _enableMarkdown, _linkConfig).$1;
 
   @override
-  List<BlueskyText> split() => splitter.execute(this);
+  List<BlueskyText> split() => splitter.execute(
+    this,
+    enableMarkdown: _enableMarkdown,
+    linkConfig: _linkConfig,
+  );
 
   @override
-  bool get isLengthLimitExceeded => maxLength < length;
+  bool get isLengthLimitExceeded =>
+      maxLength < length || maxByteLength < utf8.encode(value).length;
 
   @override
   bool get isNotLengthLimitExceeded => !isLengthLimitExceeded;

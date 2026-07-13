@@ -11,7 +11,6 @@
 /// - Next Line (NEL): U+0085
 /// - No-Break Space: U+00A0
 /// - Ogham Space Mark: U+1680
-/// - Mongolian Vowel Separator: U+180E
 /// - General Punctuation spaces: U+2000–U+200A
 /// - Line Separator: U+2028
 /// - Paragraph Separator: U+2029
@@ -21,5 +20,7 @@
 ///
 /// These characters are generally used to represent spaces or whitespace in different contexts or scripts
 /// and are often used in regular expressions to match any whitespace character.
+//* U+180E (Mongolian Vowel Separator) is intentionally omitted: it was
+//* reclassified as a non-whitespace format character in Unicode 6.3.
 const spacesGroup =
-    r'\x09-\x0D\x20\x85\xA0\u1680\u180E\u2000-\u200A\u2028\u2029\u202F\u205F\u3000';
+    r'\x09-\x0D\x20\x85\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000';

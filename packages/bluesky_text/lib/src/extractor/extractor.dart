@@ -2,6 +2,9 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Package imports:
+import 'package:characters/characters.dart';
+
 // Project imports:
 import '../bluesky_text.dart';
 import '../const.dart';
@@ -30,6 +33,44 @@ List<Entity> orderByIndicesStart(final List<Entity> entities) {
   if (entities.isEmpty) return const [];
 
   return entities..sort((a, b) => a.indices.start.compareTo(b.indices.start));
+}
+
+/// The relative priority of each facet type when two facets overlap. A lower
+/// value wins. Following twitter-text (and the Bluesky rich-text model, where a
+/// byte range can only carry one facet), links win over mentions, which win
+/// over tags and cashtags. This drops, for example, a `#fragment` tag or an
+/// `@handle` mention that lives inside a URL.
+int _facetPriority(final EntityType type) => switch (type) {
+  EntityType.link => 0,
+  EntityType.markdownLink => 0,
+  EntityType.handle => 1,
+  EntityType.tag => 2,
+  EntityType.cashtag => 3,
+};
+
+/// Returns true if the two byte ranges overlap (share at least one byte).
+bool _overlaps(final Entity a, final Entity b) =>
+    a.indices.start < b.indices.end && b.indices.start < a.indices.end;
+
+/// Drops lower-priority facets that overlap a higher-priority one, then returns
+/// the survivors ordered by their start index.
+List<Entity> resolveFacetOverlaps(final List<Entity> entities) {
+  if (entities.length < 2) return orderByIndicesStart(entities);
+
+  final byPriority = [...entities]..sort((a, b) {
+    final priority = _facetPriority(a.type).compareTo(_facetPriority(b.type));
+    if (priority != 0) return priority;
+
+    return a.indices.start.compareTo(b.indices.start);
+  });
+
+  final kept = <Entity>[];
+  for (final entity in byPriority) {
+    if (kept.any((other) => _overlaps(entity, other))) continue;
+    kept.add(entity);
+  }
+
+  return orderByIndicesStart(kept);
 }
 
 final class ExtractorConfig {
@@ -66,12 +107,27 @@ final class _AllExtractor implements Extractor {
   List<Entity> execute(
     final BlueskyText text, [
     final ExtractorConfig? config,
-  ]) => orderByIndicesStart([
-    ...config!.handles!,
-    ...linksExtractor.execute(text, config),
-    ...tagsExtractor.execute(text),
-    ...cashtagsExtractor.execute(text),
-  ]);
+  ]) {
+    //* Resolve the handles once and reuse them so calling `Extractor.all()`
+    //* without a config (or without pre-computed handles) no longer throws a
+    //* null dereference on `config!.handles!`.
+    final handles = config?.handles ?? Entities(handlesExtractor.execute(text));
+
+    final linkConfig = ExtractorConfig(
+      handles: handles,
+      markdownLinks: config?.markdownLinks,
+      replacements: config?.replacements,
+      enableMarkdown: config?.enableMarkdown ?? true,
+      fromFormat: config?.fromFormat ?? false,
+    );
+
+    return resolveFacetOverlaps([
+      ...handles,
+      ...linksExtractor.execute(text, linkConfig),
+      ...tagsExtractor.execute(text),
+      ...cashtagsExtractor.execute(text),
+    ]);
+  }
 }
 
 final class _HandlesExtractor implements Extractor {
@@ -184,9 +240,12 @@ final class _LinksExtractor implements Extractor {
           );
         }
       } else {
-        final uri =
-            '$protocol${getFirstValidDomain(domain)}'
-            '$portNumber$urlPath$urlQuery';
+        //* When an explicit scheme is present, keep the full original domain
+        //* (including internationalized/IDN labels such as `日本.example.com`).
+        //* Re-deriving the ASCII-only label here used to corrupt the URI so it
+        //* no longer matched the source text, making `indexOf` return -1 and
+        //* `toUtf8Index(-1)` throw a `RangeError`.
+        final uri = '$protocol$domain$portNumber$urlPath$urlQuery';
 
         _addLinkEntity(
           entities: entities,
@@ -220,7 +279,7 @@ final class _LinksExtractor implements Extractor {
     final startUtf8 = value.toUtf8Index(start);
     final endUtf8 = value.toUtf8Index(start + source.length);
 
-    if (_isHandle(endUtf8, handles)) return;
+    if (_isHandle(startUtf8, endUtf8, handles)) return;
     if (_isMarkdownLink(startUtf8, endUtf8, markdownLinks)) return;
 
     entities.add(
@@ -248,9 +307,19 @@ final class _LinksExtractor implements Extractor {
       )
       .toList();
 
-  bool _isHandle(final int end, final List<Entity> handles) {
+  bool _isHandle(
+    final int start,
+    final int end,
+    final List<Entity> handles,
+  ) {
+    //* Only treat the candidate link as a handle when it is fully contained in
+    //* a handle span (i.e. it is the handle's own domain, as in
+    //* `@shinyakato.dev`). A URL that merely *contains* an `@handle` in its path
+    //* (e.g. `https://example.com/@handle`) starts before the handle, so the
+    //* link is kept and the overlapping mention is dropped later by
+    //* [resolveFacetOverlaps].
     for (final handle in handles) {
-      if (handle.indices.end == end) {
+      if (handle.indices.start <= start && end <= handle.indices.end) {
         return true;
       }
     }
@@ -285,7 +354,11 @@ final class _TagsExtractor implements Extractor {
     final ExtractorConfig? config,
   ]) {
     if (text.isEmpty) return const [];
-    if (!text.value.contains('#')) return const [];
+    //* Fast-path bail-out must recognize the full-width `＃` (U+FF03) too,
+    //* otherwise tags typed with a full-width hash are never extracted.
+    if (!text.value.contains('#') && !text.value.contains('＃')) {
+      return const [];
+    }
 
     final entities = <Entity>[];
 
@@ -293,17 +366,31 @@ final class _TagsExtractor implements Extractor {
       final after = match.input.substring(match.start + match.group(0)!.length);
       if (endHashtagRegex.hasMatch(after)) continue;
 
-      final tag = match.boundary == '#'
-          ? '#${match.hashMark}${match.tag}'
+      //* When the boundary itself is a hash sign (e.g. `##tag`, where the first
+      //* `#` was consumed by the boundary group), prepend it back so the tag
+      //* keeps the inner hash while only the outermost marker is stripped from
+      //* the facet value. This matches the official behavior of removing a
+      //* single leading hash.
+      final boundaryIsHashSign =
+          match.boundary == '#' || match.boundary == '＃';
+      final tag = boundaryIsHashSign
+          ? '${match.boundary}${match.hashMark}${match.tag}'
           : '${match.hashMark}${match.tag}';
-      if (tag.length > tagMaxLength) continue;
+
+      //* The stored facet value drops exactly one leading hash marker (ASCII
+      //* `#` or full-width `＃`, both a single UTF-16 code unit).
+      final value = tag.substring(1);
+
+      //* The length limit is measured in graphemes on the tag body (excluding
+      //* the leading hash) so emoji count as one character each.
+      if (value.characters.length > tagMaxLength) continue;
 
       final start = text.value.indexOf(tag, match.start);
 
       entities.add(
         Entity(
           type: EntityType.tag,
-          value: tag.substring(1),
+          value: value,
           indices: ByteIndices(
             start: text.value.toUtf8Index(start),
             end: text.value.toUtf8Index(start + tag.length),
