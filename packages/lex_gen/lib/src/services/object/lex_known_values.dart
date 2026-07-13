@@ -7,7 +7,7 @@ import '../../utils.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
 
-final class LexKnownValues extends LexType {
+final class LexKnownValues extends GeneratableType {
   @override
   final String lexiconId;
   @override

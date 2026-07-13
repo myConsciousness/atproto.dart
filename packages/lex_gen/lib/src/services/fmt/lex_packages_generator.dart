@@ -47,7 +47,7 @@ List<LexPackage> generateLexPackagesForService(
   return lexPackages;
 }
 
-List<LexPackage> generateLexPackages(final List<LexType> types) {
+List<LexPackage> generateLexPackages(final List<GeneratableType> types) {
   final packages = <String, Set<String>>{};
   for (final type in types) {
     if (type.isShouldNotBeGenerated()) continue;

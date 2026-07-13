@@ -21,7 +21,7 @@ import 'rule.dart' as rule;
 void generateLexServices(
   final List<String> services,
   final List<String> packages,
-  final List<LexType> types,
+  final List<GeneratableType> types,
   final List<LexiconDoc> docs,
 ) {
   return _LexServiceGenerator(services, packages, types, docs).execute();
@@ -30,7 +30,7 @@ void generateLexServices(
 final class _LexServiceGenerator {
   final List<String> services;
   final List<String> packages;
-  final List<LexType> types;
+  final List<GeneratableType> types;
   final List<LexiconDoc> docs;
 
   const _LexServiceGenerator(
@@ -163,7 +163,7 @@ final class _LexServiceGenerator {
     return false;
   }
 
-  LexType? _getRelatedType(
+  GeneratableType? _getRelatedType(
     final String lexiconId,
     final List<LexTypeState> states, {
     String? refDefName,

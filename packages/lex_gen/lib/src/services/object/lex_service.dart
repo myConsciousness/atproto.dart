@@ -356,8 +356,8 @@ final class LexApi {
 
   final String name;
   final String? description;
-  final LexType? inputType;
-  final LexType? returnType;
+  final GeneratableType? inputType;
+  final GeneratableType? returnType;
 
   final String? rkey;
 

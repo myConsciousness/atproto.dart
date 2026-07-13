@@ -11,6 +11,7 @@ Internal readability/standardization/optimization refactor. Generated output is 
 - perf: `getExtensions` name lookup is O(1) via a precomputed set (was O(n²)); `LexUnion` resolves each ref name once instead of four times; `RepoCommitHandler` resolves each record type name once instead of six times.
 - refactor: unify `RepoCommitHandler`'s near-identical `_onCreate` / `_onUpdate` firehose event builders into a single parameterized `_getMutationEvent`.
 - refactor: split the 225-line `LexCommand._getRecordCommand` into per-subcommand emitters, unify the near-identical `create`/`put` classes into `_recordMutationClass`, and hoist the hardcoded `com.atproto.repo.getRecord` / `listRecords` method ids to named constants.
+- refactor: split `LexType` into a minimal base and a `GeneratableType` subtype, so the non-generatable `LexMessage` container no longer throws `UnsupportedError` from inherited `lexiconId` / `defName` / `getTypeName` / `format` members.
 - refactor: fix the `_LexLexXrpc*` double-`Lex` type-name typos, deduplicate the record-accessor `rkey` literal handling and the `LexOutput` upload-ref predicate, remove dead `getDescription` helpers, and use `putIfAbsent` for map aggregation.
 - test: add unit tests for `Nsid` and `LexRef`.
 

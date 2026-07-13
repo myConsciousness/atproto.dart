@@ -17,12 +17,23 @@ enum LexTypeState {
   union,
 }
 
+/// Base type for everything the generator tracks, including containers that
+/// are never emitted to a file on their own (e.g. [LexMessage]).
+///
+/// Only [GeneratableType]s carry a lexicon id / file / `format()`; keeping
+/// those off this base lets non-generatable containers implement just what
+/// they can honor, instead of throwing `UnsupportedError` from inherited
+/// members.
 abstract class LexType {
-  LexTypeState get state;
-  String get lexiconId;
-  String get defName;
+  const LexType();
 
-  List<LexType> getNestedTypes() {
+  LexTypeState get state;
+
+  List<LexProperty> getProperties() {
+    return const [];
+  }
+
+  List<GeneratableType> getNestedTypes() {
     final properties = getProperties();
 
     return [
@@ -35,15 +46,17 @@ abstract class LexType {
     ];
   }
 
-  const LexType();
-
-  List<LexProperty> getProperties() {
-    return const [];
-  }
-
   bool isShouldNotBeGenerated() {
     return false;
   }
+}
+
+/// A [LexType] that is emitted to its own generated source file.
+abstract class GeneratableType extends LexType {
+  const GeneratableType();
+
+  String get lexiconId;
+  String get defName;
 
   String? getRef() {
     return null;

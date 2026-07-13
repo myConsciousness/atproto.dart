@@ -21,7 +21,7 @@ import 'fmt/lex_xrpc_subscription_generator.dart';
 import 'object/lex_package.dart';
 import 'object/lex_type.dart';
 
-List<LexType> generateLexTypes(
+List<GeneratableType> generateLexTypes(
   final List<String> services,
   final List<String> packages,
   final List<lex.LexiconDoc> docs,
@@ -36,10 +36,10 @@ final class _LexTypeGenerator {
 
   const _LexTypeGenerator(this.services, this.packages, this.docs);
 
-  List<LexType> execute() {
+  List<GeneratableType> execute() {
     _cleanWorkspace();
 
-    final types = <LexType>[];
+    final types = <GeneratableType>[];
     final filteredLexicons = _filterLexicons(docs, services);
 
     final mainVariants = _checkMainVariants(filteredLexicons);
@@ -178,7 +178,7 @@ final class _LexTypeGenerator {
     }).toList();
   }
 
-  void _generateLexPackages(final List<LexType> type) {
+  void _generateLexPackages(final List<GeneratableType> type) {
     final packages = generateLexPackages(type);
     final basePackages = _getBasePackages(packages);
 
@@ -227,10 +227,12 @@ final class _LexTypeGenerator {
     return mainVariants.toList();
   }
 
-  void _aggregateTypes(final List<LexType> types, final LexType? type) {
+  void _aggregateTypes(final List<GeneratableType> types, final LexType? type) {
     if (type == null) return;
 
-    if (type.state != LexTypeState.message) {
+    // Only generatable types are emitted; the sole non-generatable type is the
+    // subscription-message container, which is surfaced via its nested union.
+    if (type is GeneratableType) {
       types.add(type);
     }
 

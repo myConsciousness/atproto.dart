@@ -3,7 +3,7 @@ import '../../utils.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
 
-final class LexUnion extends LexType {
+final class LexUnion extends GeneratableType {
   @override
   final String lexiconId;
   @override

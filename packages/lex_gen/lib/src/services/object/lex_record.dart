@@ -8,7 +8,7 @@ import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
 
-final class LexRecord extends LexType {
+final class LexRecord extends GeneratableType {
   @override
   final String lexiconId;
   @override
