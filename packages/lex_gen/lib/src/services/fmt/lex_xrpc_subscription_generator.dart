@@ -6,6 +6,7 @@
 import 'package:lexicon/lexicon.dart' as lex;
 
 // Project imports:
+import '../gen_context.dart';
 import '../object/lex_input.dart';
 import '../object/lex_message.dart';
 import '../rule.dart' as rule;
@@ -13,12 +14,14 @@ import 'lex_property_generator.dart';
 import 'lex_union_generator.dart';
 
 (LexInput?, LexMessage?)? generateLexXrpcSubscription(
+  final GenContext ctx,
   final lex.NSID lexiconId,
   final String defName,
   final lex.LexXrpcSubscription subscription,
   final List<String> mainVariants,
 ) {
   return _LexXrpcSubscriptionGenerator(
+    ctx,
     lexiconId,
     defName,
     subscription,
@@ -27,12 +30,14 @@ import 'lex_union_generator.dart';
 }
 
 final class _LexXrpcSubscriptionGenerator {
+  final GenContext ctx;
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexXrpcSubscription subscription;
   final List<String> mainVariants;
 
   _LexXrpcSubscriptionGenerator(
+    this.ctx,
     this.lexiconId,
     this.defName,
     this.subscription,
@@ -50,6 +55,7 @@ final class _LexXrpcSubscriptionGenerator {
     final parameters = subscription.parameters!;
 
     final properties = generateLexPropertiesFromLexXrpcParameters(
+      ctx,
       lexiconId,
       defName,
       parameters.properties,

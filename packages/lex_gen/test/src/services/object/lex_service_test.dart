@@ -12,6 +12,8 @@ import 'package:lex_gen/src/services/object/lex_property.dart';
 import 'package:lex_gen/src/services/object/lex_record.dart';
 import 'package:lex_gen/src/services/object/lex_service.dart';
 
+import '../../test_context.dart';
+
 void main() {
   group('LexService record accessor (G-2)', () {
     final record = LexRecord(
@@ -41,7 +43,7 @@ void main() {
       ],
     );
 
-    final output = service.format();
+    final output = service.format(buildTestGenContext());
 
     test('create() injects \$type into the record map', () {
       // The `\$type` must appear inside the `record: { ... }` literal so a

@@ -13,27 +13,31 @@ import '../model/lex_def_kind.dart';
 import '../model/nsid.dart';
 import '../utils.dart';
 import 'fmt/lex_packages_generator.dart';
+import 'gen_context.dart';
 import 'object/lex_package.dart';
 import 'object/lex_service.dart';
 import 'object/lex_type.dart';
 import 'rule.dart' as rule;
 
 void generateLexServices(
+  final GenContext ctx,
   final List<String> services,
   final List<String> packages,
   final List<GeneratableType> types,
   final List<LexiconDoc> docs,
 ) {
-  return _LexServiceGenerator(services, packages, types, docs).execute();
+  return _LexServiceGenerator(ctx, services, packages, types, docs).execute();
 }
 
 final class _LexServiceGenerator {
+  final GenContext ctx;
   final List<String> services;
   final List<String> packages;
   final List<GeneratableType> types;
   final List<LexiconDoc> docs;
 
   const _LexServiceGenerator(
+    this.ctx,
     this.services,
     this.packages,
     this.types,
@@ -87,9 +91,9 @@ final class _LexServiceGenerator {
     }
 
     for (final service in services) {
-      File(service.getFilePath())
+      File(service.getFilePath(ctx))
         ..createSync(recursive: true)
-        ..writeAsStringSync(service.format());
+        ..writeAsStringSync(service.format(ctx));
     }
 
     _generateLexPackages(services);
@@ -230,7 +234,7 @@ final class _LexServiceGenerator {
   }
 
   void _generateLexPackages(final List<LexService> services) {
-    final packages = generateLexPackagesForService(services);
+    final packages = generateLexPackagesForService(ctx, services);
     final basePackages = _getBasePackages(packages);
 
     for (final package in packages) {

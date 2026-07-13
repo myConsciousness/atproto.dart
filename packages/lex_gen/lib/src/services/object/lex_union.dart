@@ -1,5 +1,6 @@
 // Project imports:
 import '../../utils.dart';
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
 
@@ -28,8 +29,8 @@ final class LexUnion extends GeneratableType {
   });
 
   @override
-  String getFilePath() {
-    return rule.getFilePathForUnion(lexiconId, defName, fieldName);
+  String getFilePath(final GenContext ctx) {
+    return rule.getFilePathForUnion(ctx, lexiconId, defName, fieldName);
   }
 
   @override
@@ -43,7 +44,7 @@ final class LexUnion extends GeneratableType {
   }
 
   @override
-  String format() {
+  String format(final GenContext ctx) {
     final fileName = rule.getFileNameForUnion(lexiconId, defName, fieldName);
     // Resolve each ref's object name once and reuse it across every section
     // below, instead of re-resolving it four times per ref.
@@ -51,7 +52,7 @@ final class LexUnion extends GeneratableType {
       for (final ref in refs)
         rule.getLexObjectNameFromRef(lexiconId, ref, mainVariants),
     ];
-    final packagePaths = _getPackagePaths();
+    final packagePaths = _getPackagePaths(ctx);
     final factories = _getUnionFactories(objectNames);
     final extensions = _getExtensions(objectNames);
     final fromJson = _getFromJson(objectNames);
@@ -108,11 +109,11 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
 ''';
   }
 
-  String _getPackagePaths() {
+  String _getPackagePaths(final GenContext ctx) {
     final buffer = StringBuffer();
 
     for (final ref in refs) {
-      final path = rule.getLexObjectPackagePathFromRef(lexiconId, ref);
+      final path = rule.getLexObjectPackagePathFromRef(ctx, lexiconId, ref);
       buffer.writeln("import '$path';");
     }
 

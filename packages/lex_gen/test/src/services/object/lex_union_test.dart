@@ -8,6 +8,8 @@ import 'package:test/test.dart';
 // Project imports:
 import 'package:lex_gen/src/services/object/lex_union.dart';
 
+import '../../test_context.dart';
+
 void main() {
   group('LexUnion.format (G-4)', () {
     final union = const LexUnion(
@@ -20,7 +22,7 @@ void main() {
     );
 
     test('fromJson does not swallow conversion errors', () {
-      final output = union.format();
+      final output = union.format(buildTestGenContext());
 
       // The catch-all `try { ... } catch (_) { return unknown }` is removed so
       // a matched-`\$type` payload that fails to convert throws instead of
@@ -31,13 +33,13 @@ void main() {
 
     test('fromJson still falls back to unknown when nothing matches', () {
       expect(
-        union.format(),
+        union.format(buildTestGenContext()),
         contains('return UFeedPostReply.unknown(data: json);'),
       );
     });
 
     test('each known ref is dispatched by validate()', () {
-      final output = union.format();
+      final output = union.format(buildTestGenContext());
       expect(output, contains('if (PostView.validate(json)) {'));
       expect(output, contains('if (NotFoundPost.validate(json)) {'));
     });

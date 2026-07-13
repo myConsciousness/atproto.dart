@@ -7,12 +7,6 @@ import '../config.dart';
 import '../model/nsid.dart';
 import '../utils.dart';
 
-LexCommandRuleConfig? _config;
-
-void setLexCommandRuleConfig(final LexCommandRuleConfig config) {
-  _config = config;
-}
-
 String getServiceId(final String lexiconId) {
   return Nsid(lexiconId).serviceId;
 }
@@ -57,21 +51,18 @@ String getParentCommandTypeName(final String lexiconId) {
   return '${name}Command';
 }
 
-String getAbsoluteFilePath(final String lexiconId) {
-  return '${getHomeDir()}/${getFilePath(lexiconId)}/${getFileName(lexiconId)}.dart';
+String getAbsoluteFilePath(
+  final LexCommandRuleConfig config,
+  final String lexiconId,
+) {
+  return '${config.homeDir}/${getFilePath(lexiconId)}/${getFileName(lexiconId)}.dart';
 }
 
-String getAbsoluteFilePathForParent(final String lexiconId) {
-  return '${getHomeDir()}/${getFilePathForParent(lexiconId)}/${getFileName(lexiconId)}.dart';
-}
-
-String getHomeDir() {
-  final config = _config;
-  if (config == null) {
-    throw StateError('Lex command rule config is not set');
-  }
-
-  return config.homeDir;
+String getAbsoluteFilePathForParent(
+  final LexCommandRuleConfig config,
+  final String lexiconId,
+) {
+  return '${config.homeDir}/${getFilePathForParent(lexiconId)}/${getFileName(lexiconId)}.dart';
 }
 
 String getFilePath(final String lexiconId) {

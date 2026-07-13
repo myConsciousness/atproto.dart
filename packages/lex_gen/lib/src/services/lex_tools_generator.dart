@@ -9,22 +9,24 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import 'gen_context.dart';
 import 'object/at_uri_extension.dart';
 import 'object/repo_commit_handler.dart';
 import 'rule.dart';
 
-void generateLexTools(final List<LexiconDoc> docs) {
-  return _LexToolsGenerator(docs).execute();
+void generateLexTools(final GenContext ctx, final List<LexiconDoc> docs) {
+  return _LexToolsGenerator(ctx, docs).execute();
 }
 
 final class _LexToolsGenerator {
+  final GenContext ctx;
   final List<LexiconDoc> docs;
 
-  const _LexToolsGenerator(this.docs);
+  const _LexToolsGenerator(this.ctx, this.docs);
 
   void execute() {
     final recordLexiconIds = _getRecordLexiconIds();
-    final homeDir = getHomeDir('app.bsky.');
+    final homeDir = getHomeDir(ctx, 'app.bsky.');
 
     File('$homeDir/at_uri_extension.dart')
       ..createSync(recursive: true)

@@ -6,6 +6,7 @@
 import '../../model/lex_def_kind.dart';
 import '../../model/nsid.dart';
 import '../../utils.dart';
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_parameter.dart';
 import 'lex_type.dart';
@@ -26,8 +27,8 @@ final class LexService {
     return '${name.toLowerCase()}_service';
   }
 
-  String getFilePath() {
-    final homeDir = rule.getHomeDir(lexiconId);
+  String getFilePath(final GenContext ctx) {
+    final homeDir = rule.getHomeDir(ctx, lexiconId);
     final fileDir = rule.getFileDirForService(lexiconId);
 
     return '$homeDir/$fileDir/${getFileName()}.dart';
@@ -41,7 +42,7 @@ final class LexService {
     return false;
   }
 
-  String _getPackagePaths() {
+  String _getPackagePaths(final GenContext ctx) {
     final importPaths = <String>[];
     for (final api in apis) {
       final parameters = api.inputType == null
@@ -93,6 +94,7 @@ final class LexService {
           if (parameter.type.ref == null) continue;
 
           final packagePath = rule.getLexObjectPackagePathFromRefForService(
+            ctx,
             parameter.type.lexiconId!,
             parameter.type.ref!,
           );
@@ -120,8 +122,8 @@ final class LexService {
     return importPaths.toSet().join('\n');
   }
 
-  String format() {
-    final packagePaths = _getPackagePaths();
+  String format(final GenContext ctx) {
+    final packagePaths = _getPackagePaths(ctx);
 
     final functions = apis.map((e) => e.toFunction()).join();
     final methods = apis.map((e) => e.toMethod()).join();

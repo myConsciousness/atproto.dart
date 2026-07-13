@@ -11,6 +11,7 @@ import 'package:lexicon/lexicon.dart' as lex;
 // Project imports:
 import '../model/nsid.dart';
 import 'fmt/lex_known_values_generator.dart';
+import 'gen_context.dart';
 import 'fmt/lex_object_generator.dart';
 import 'fmt/lex_packages_generator.dart';
 import 'fmt/lex_record_generator.dart';
@@ -22,19 +23,21 @@ import 'object/lex_package.dart';
 import 'object/lex_type.dart';
 
 List<GeneratableType> generateLexTypes(
+  final GenContext ctx,
   final List<String> services,
   final List<String> packages,
   final List<lex.LexiconDoc> docs,
 ) {
-  return _LexTypeGenerator(services, packages, docs).execute();
+  return _LexTypeGenerator(ctx, services, packages, docs).execute();
 }
 
 final class _LexTypeGenerator {
+  final GenContext ctx;
   final List<String> services;
   final List<String> packages;
   final List<lex.LexiconDoc> docs;
 
-  const _LexTypeGenerator(this.services, this.packages, this.docs);
+  const _LexTypeGenerator(this.ctx, this.services, this.packages, this.docs);
 
   List<GeneratableType> execute() {
     _cleanWorkspace();
@@ -52,6 +55,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(
             types,
             generateLexObject(
+              ctx,
               doc.id,
               def.key,
               def.value.data as lex.LexObject,
@@ -75,6 +79,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(
             types,
             generateLexRecord(
+              ctx,
               doc.id,
               def.key,
               def.value.data as lex.LexRecord,
@@ -96,6 +101,7 @@ final class _LexTypeGenerator {
           );
         } else if (def.value is lex.ULexUserTypeXrpcQuery) {
           final type = generateLexXrpcQuery(
+            ctx,
             doc.id,
             def.key,
             def.value.data as lex.LexXrpcQuery,
@@ -108,6 +114,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(types, type.$2);
         } else if (def.value is lex.ULexUserTypeXrpcProcedure) {
           final type = generateLexXrpcProcedure(
+            ctx,
             doc.id,
             def.key,
             def.value.data as lex.LexXrpcProcedure,
@@ -120,6 +127,7 @@ final class _LexTypeGenerator {
           _aggregateTypes(types, type.$2);
         } else if (def.value is lex.ULexUserTypeXrpcSubscription) {
           final type = generateLexXrpcSubscription(
+            ctx,
             doc.id,
             def.key,
             def.value.data as lex.LexXrpcSubscription,
@@ -137,9 +145,9 @@ final class _LexTypeGenerator {
     for (final type in types) {
       if (type.isShouldNotBeGenerated()) continue;
 
-      File(type.getFilePath())
+      File(type.getFilePath(ctx))
         ..createSync(recursive: true)
-        ..writeAsStringSync(type.format());
+        ..writeAsStringSync(type.format(ctx));
     }
 
     _generateLexPackages(types);
@@ -179,7 +187,7 @@ final class _LexTypeGenerator {
   }
 
   void _generateLexPackages(final List<GeneratableType> type) {
-    final packages = generateLexPackages(type);
+    final packages = generateLexPackages(ctx, type);
     final basePackages = _getBasePackages(packages);
 
     for (final package in packages) {

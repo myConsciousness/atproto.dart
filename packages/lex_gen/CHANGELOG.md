@@ -12,6 +12,7 @@ Internal readability/standardization/optimization refactor. Generated output is 
 - refactor: unify `RepoCommitHandler`'s near-identical `_onCreate` / `_onUpdate` firehose event builders into a single parameterized `_getMutationEvent`.
 - refactor: split the 225-line `LexCommand._getRecordCommand` into per-subcommand emitters, unify the near-identical `create`/`put` classes into `_recordMutationClass`, and hoist the hardcoded `com.atproto.repo.getRecord` / `listRecords` method ids to named constants.
 - refactor: split `LexType` into a minimal base and a `GeneratableType` subtype, so the non-generatable `LexMessage` container no longer throws `UnsupportedError` from inherited `lexiconId` / `defName` / `getTypeName` / `format` members.
+- refactor: remove the module-level mutable state from both `rule.dart` files (the `_config` / `_defsByRef` globals and their `setLexServiceRuleConfig` / `setLexiconDocs` / `setLexCommandRuleConfig` setters) in favour of an explicit `GenContext` (and the command config) threaded through the generators and `rule.*` helpers, so generation no longer depends on hidden global state or setter-call ordering and the helpers are unit-testable.
 - refactor: fix the `_LexLexXrpc*` double-`Lex` type-name typos, deduplicate the record-accessor `rkey` literal handling and the `LexOutput` upload-ref predicate, remove dead `getDescription` helpers, and use `putIfAbsent` for map aggregation.
 - test: add unit tests for `Nsid` and `LexRef`.
 

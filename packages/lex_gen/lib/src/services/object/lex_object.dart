@@ -4,6 +4,7 @@
 
 // Project imports:
 import '../../model/nsid.dart';
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_property.dart';
 import 'lex_type.dart';
@@ -41,7 +42,7 @@ final class LexObject extends GeneratableType {
   }
 
   @override
-  String format() {
+  String format(final GenContext ctx) {
     final id = rule.getLexObjectTypeId(lexiconId, defName);
 
     return renderFreezedDataClass(

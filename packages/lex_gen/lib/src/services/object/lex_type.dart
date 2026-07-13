@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_property.dart';
 
@@ -70,8 +71,8 @@ abstract class GeneratableType extends LexType {
     return 'application/json';
   }
 
-  String getFilePath() {
-    return rule.getFilePath(lexiconId, defName, state);
+  String getFilePath(final GenContext ctx) {
+    return rule.getFilePath(ctx, lexiconId, defName, state);
   }
 
   String getFileName() {
@@ -80,5 +81,5 @@ abstract class GeneratableType extends LexType {
 
   String getTypeName();
 
-  String format();
+  String format(final GenContext ctx);
 }

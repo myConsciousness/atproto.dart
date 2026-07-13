@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../gen_context.dart';
 import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
@@ -72,7 +73,7 @@ final class LexInput extends GeneratableType {
   }
 
   @override
-  String format() {
+  String format(final GenContext ctx) {
     return renderFreezedDataClass(
       name: name,
       suffix: 'Input',

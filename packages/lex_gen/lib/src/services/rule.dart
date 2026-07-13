@@ -6,32 +6,11 @@
 import 'package:lexicon/lexicon.dart' hide LexRef;
 
 // Project imports:
-import '../config.dart';
 import '../model/lex_ref.dart';
 import '../model/nsid.dart';
 import '../utils.dart';
+import 'gen_context.dart';
 import 'object/lex_type.dart';
-
-LexServiceRuleConfig? _config;
-
-/// Index of every def keyed by `<lexiconId>#<defName>`, so a ref can be
-/// resolved in O(1) instead of scanning every doc's every def per lookup.
-Map<String, LexUserType> _defsByRef = const {};
-
-void setLexServiceRuleConfig(final LexServiceRuleConfig config) {
-  _config = config;
-}
-
-void setLexiconDocs(final List<LexiconDoc> docs) {
-  final index = <String, LexUserType>{};
-  for (final doc in docs) {
-    final lexiconId = doc.id.toString();
-    for (final def in doc.defs.entries) {
-      index['$lexiconId#${def.key}'] = def.value;
-    }
-  }
-  _defsByRef = Map.unmodifiable(index);
-}
 
 bool isDeprecated(final String? description) {
   if (description == null) return false;
@@ -119,24 +98,25 @@ String getLexOutputObjectFileName() {
 }
 
 String getFilePath(
+  final GenContext ctx,
   final String lexiconId,
   final String defName,
   final LexTypeState state, {
   final String? fieldName,
 }) {
   if (state == LexTypeState.input) {
-    return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/input.dart';
+    return '${getHomeDir(ctx, lexiconId)}/${_getFileDir(lexiconId)}/input.dart';
   } else if (state == LexTypeState.output) {
-    return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/output.dart';
+    return '${getHomeDir(ctx, lexiconId)}/${_getFileDir(lexiconId)}/output.dart';
   } else {
     if (fieldName != null) {
       final prefix = getLexObjectFileName(defName);
       final suffix = getLexObjectFileName(fieldName);
       final fileName = [prefix, suffix].join('_');
 
-      return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
+      return '${getHomeDir(ctx, lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
     } else {
-      return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/${getLexObjectFileName(defName)}.dart';
+      return '${getHomeDir(ctx, lexiconId)}/${_getFileDir(lexiconId)}/${getLexObjectFileName(defName)}.dart';
     }
   }
 }
@@ -160,13 +140,14 @@ String getFileNameForUnion(
 }
 
 String getFilePathForUnion(
+  final GenContext ctx,
   final String lexiconId,
   final String defName,
   final String fieldName,
 ) {
   final fileName = getFileNameForUnion(lexiconId, defName, fieldName);
 
-  return '${getHomeDir(lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
+  return '${getHomeDir(ctx, lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
 }
 
 String getLexObjectTypeId(final String lexiconId, final String defName) {
@@ -177,16 +158,16 @@ String getLexObjectTypeId(final String lexiconId, final String defName) {
   return '$lexiconId#$defName';
 }
 
-String getHomeDir(final String lexiconId) {
-  return _getNamespaceRule(lexiconId).homeDir;
+String getHomeDir(final GenContext ctx, final String lexiconId) {
+  return ctx.namespaceRule(lexiconId).homeDir;
 }
 
-String _getHomeDirForExport(final String lexiconId) {
-  return _getNamespaceRule(lexiconId).exportCodegenPath;
+String _getHomeDirForExport(final GenContext ctx, final String lexiconId) {
+  return ctx.namespaceRule(lexiconId).exportCodegenPath;
 }
 
-String _getHomeDirForService(final String lexiconId) {
-  return _getNamespaceRule(lexiconId).servicePackagePath;
+String _getHomeDirForService(final GenContext ctx, final String lexiconId) {
+  return ctx.namespaceRule(lexiconId).servicePackagePath;
 }
 
 String _getFileDir(final String lexiconId) {
@@ -218,12 +199,13 @@ String getLexObjectNameFromRef(
 }
 
 String getLexObjectPackagePathFromRef(
+  final GenContext ctx,
   final String lexiconId,
   final String ref, {
   bool isUnion = false,
 }) {
   final fileNamePrefix = isUnion ? 'union_' : '';
-  final relativePath = getPackageRelativePath(lexiconId, ref);
+  final relativePath = getPackageRelativePath(ctx, lexiconId, ref);
   final samePackage = _isInTheSamePackage(lexiconId, ref);
 
   final fileName = switch (LexRef.parse(ref)) {
@@ -238,11 +220,12 @@ String getLexObjectPackagePathFromRef(
 }
 
 String getLexObjectPackagePathFromRefForService(
+  final GenContext ctx,
   final String lexiconId,
   final String ref,
 ) {
   String foreignPath(final Nsid lexicon) =>
-      '${_getHomeDirForService(lexicon.raw)}/${getPackageName(lexicon.raw)}.dart';
+      '${_getHomeDirForService(ctx, lexicon.raw)}/${getPackageName(lexicon.raw)}.dart';
 
   final samePackage = _isInTheSamePackage(lexiconId, ref);
 
@@ -270,13 +253,17 @@ String getLexObjectPackagePathForUnion(
   return './$fileName.dart';
 }
 
-String getPackageRelativePath(final String lexiconId, final String ref) {
+String getPackageRelativePath(
+  final GenContext ctx,
+  final String lexiconId,
+  final String ref,
+) {
   return switch (LexRef.parse(ref)) {
     LocalRef() => '.',
     ForeignRef(:final lexicon) || BareRef(:final lexicon) =>
       _isInTheSamePackage(lexiconId, ref)
           ? '../../../../${_getFileDir(lexicon.raw)}'
-          : 'package:${getRootPackageName(lexicon.raw)}',
+          : 'package:${getRootPackageName(ctx, lexicon.raw)}',
   };
 }
 
@@ -293,23 +280,8 @@ String getRecordTypeName(final String lexiconId) {
   return Nsid(lexiconId).segmentsAfterAuthority().map(toFirstUpperCase).join();
 }
 
-String getRootPackageName(final String lexiconId) {
-  return _getNamespaceRule(lexiconId).rootPackageName;
-}
-
-LexiconNamespaceRule _getNamespaceRule(final String lexiconId) {
-  final config = _config;
-  if (config == null) {
-    throw StateError('Lex service rule config is not set');
-  }
-
-  for (final rule in config.namespaceRules) {
-    if (rule.matches(lexiconId)) {
-      return rule;
-    }
-  }
-
-  throw ArgumentError('Unsupported lexicon ID: $lexiconId');
+String getRootPackageName(final GenContext ctx, final String lexiconId) {
+  return ctx.namespaceRule(lexiconId).rootPackageName;
 }
 
 String getPackageName(final String lexiconId) {
@@ -324,16 +296,21 @@ String getServiceApiName(final String lexiconId) {
   return Nsid(lexiconId).method;
 }
 
-String getLexObjectAbsolutePath(final String lexiconId, final String fileName) {
-  return '${_getHomeDirForExport(lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
+String getLexObjectAbsolutePath(
+  final GenContext ctx,
+  final String lexiconId,
+  final String fileName,
+) {
+  return '${_getHomeDirForExport(ctx, lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
 }
 
 String getLexObjectAbsolutePathForService(
+  final GenContext ctx,
   final String lexiconId,
   final String fileName,
 ) {
   final root = Nsid(lexiconId).serviceDir;
-  return '${_getHomeDirForExport(lexiconId)}/$root/$fileName.dart';
+  return '${_getHomeDirForExport(ctx, lexiconId)}/$root/$fileName.dart';
 }
 
 String getLexKnownValuesElementName(
@@ -372,6 +349,7 @@ String getNamespaceIdForApi(final String lexiconId) {
 }
 
 LexUserType? getRelatedDocFromRef(
+  final GenContext ctx,
   final String? ref, {
   final String? lexiconId,
 }) {
@@ -392,5 +370,5 @@ LexUserType? getRelatedDocFromRef(
       return null;
   }
 
-  return _defsByRef['$targetLexiconId#$defName'];
+  return ctx.defByRef(targetLexiconId, defName);
 }

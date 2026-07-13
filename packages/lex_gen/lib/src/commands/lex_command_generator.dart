@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../config.dart';
 import '../model/lex_def_kind.dart';
 import 'rule.dart';
 import 'types/lex_command.dart';
@@ -16,8 +17,11 @@ import 'types/lex_parameter.dart';
 import 'types/lex_parent_command.dart';
 import 'types/lex_root_command.dart';
 
-void generateLexCommands(final List<LexiconDoc> docs) {
-  _cleanWorkspace();
+void generateLexCommands(
+  final LexCommandRuleConfig config,
+  final List<LexiconDoc> docs,
+) {
+  _cleanWorkspace(config);
 
   final result = <String, List<LexCommand>>{};
   for (final doc in docs) {
@@ -128,13 +132,18 @@ void generateLexCommands(final List<LexiconDoc> docs) {
   final parentCommands = <LexParentCommand>[];
   for (final entry in result.entries) {
     for (final command in entry.value) {
-      File(getAbsoluteFilePath(command.lexiconId.toString()))
+      File(getAbsoluteFilePath(config, command.lexiconId.toString()))
         ..createSync(recursive: true)
         ..writeAsStringSync(command.format());
     }
 
     final parentCommand = LexParentCommand(entry.key, entry.value);
-    File(getAbsoluteFilePathForParent(parentCommand.lexiconId.toString()))
+    File(
+        getAbsoluteFilePathForParent(
+          config,
+          parentCommand.lexiconId.toString(),
+        ),
+      )
       ..createSync(recursive: true)
       ..writeAsStringSync(parentCommand.format());
 
@@ -142,7 +151,7 @@ void generateLexCommands(final List<LexiconDoc> docs) {
   }
 
   final rootCommand = LexRootCommand(parentCommands);
-  File('${getHomeDir()}/lex_commands.dart')
+  File('${config.homeDir}/lex_commands.dart')
     ..createSync(recursive: true)
     ..writeAsStringSync(rootCommand.format());
 }
@@ -172,8 +181,8 @@ List<LexParameter> _getParameters(
   return parameters;
 }
 
-void _cleanWorkspace() {
-  final dir = Directory(getHomeDir());
+void _cleanWorkspace(final LexCommandRuleConfig config) {
+  final dir = Directory(config.homeDir);
   if (dir.existsSync()) dir.deleteSync(recursive: true);
 }
 
