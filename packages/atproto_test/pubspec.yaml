@@ -3,6 +3,12 @@ resolution: workspace
 description: This package provides core reusable and useful functionality for testing atproto based packages.
 version: 1.1.0
 publish_to: none
+homepage: https://atprotodart.com
+documentation: https://atprotodart.com/docs/intro
+repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_test
+issue_tracker: https://github.com/myConsciousness/atproto.dart/issues
+funding:
+  - https://github.com/sponsors/myConsciousness
 environment:
   sdk: ">=3.8.0 <4.0.0"
 
