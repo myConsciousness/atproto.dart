@@ -24,14 +24,16 @@ base class ServiceContext {
     xrpc.Protocol? protocol,
     String? service,
     String? relayService,
-    this.session,
+    Session? session,
     this.oAuthSession,
     Duration? timeout,
     RetryConfig? retryConfig,
     final xrpc.GetClient? getClient,
     final xrpc.PostClient? postClient,
+    this.onRefreshSession,
   }) : _headers = headers,
        _protocol = protocol ?? defaultProtocol,
+       _currentSession = session,
        service =
            service ??
            session?.atprotoPdsEndpoint ??
@@ -47,7 +49,27 @@ base class ServiceContext {
   final Map<String, String>? _headers;
 
   /// The current session.
-  final Session? session;
+  ///
+  /// This is mutable internally so that an expired access token can be
+  /// transparently refreshed via [onRefreshSession] without recreating the
+  /// context.
+  Session? _currentSession;
+
+  /// Returns the current session.
+  ///
+  /// After an automatic refresh this reflects the latest credentials, so
+  /// callers can persist the up-to-date session.
+  Session? get session => _currentSession;
+
+  /// Optional callback used to refresh an expired [session].
+  ///
+  /// Given the current session it must return a new session with fresh
+  /// tokens. When null, expired access tokens are not refreshed automatically.
+  final Future<Session> Function(Session current)? onRefreshSession;
+
+  /// The clock skew margin used to refresh an access token slightly before it
+  /// actually expires.
+  static const Duration _refreshSkew = Duration(seconds: 30);
 
   /// The current OAuth session.
   final OAuthSession? oAuthSession;
@@ -84,21 +106,26 @@ base class ServiceContext {
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
     final xrpc.GetClient? client,
-  }) async => await _challenge.execute(
-    () async => await xrpc.query(
-      methodId,
-      protocol: _protocol,
-      service: service ?? this.service,
-      headers: {..._headers ?? const {}, ...headers ?? const {}},
-      parameters: parameters,
-      to: to,
-      adaptor: adaptor,
-      timeout: _timeout,
-      headerBuilder: _buildAuthHeader,
-      getClient: client ?? _getClient,
-    ),
-    onUpdateDpopNonce: _onUpdateDpopNonce,
-  );
+  }) async {
+    await _maybeRefreshBeforeSend();
+
+    return await _challenge.execute(
+      () async => await xrpc.query(
+        methodId,
+        protocol: _protocol,
+        service: service ?? this.service,
+        headers: {..._headers ?? const {}, ...headers ?? const {}},
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+        timeout: _timeout,
+        headerBuilder: _buildAuthHeader,
+        getClient: client ?? _getClient,
+      ),
+      onUpdateDpopNonce: _onUpdateDpopNonce,
+      onUnauthorized: _onUnauthorized,
+    );
+  }
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final NSID methodId, {
@@ -108,21 +135,26 @@ base class ServiceContext {
     final dynamic body,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.PostClient? client,
-  }) async => await _challenge.execute(
-    () async => await xrpc.procedure(
-      methodId,
-      protocol: _protocol,
-      service: service ?? this.service,
-      headers: {..._headers ?? const {}, ...headers ?? const {}},
-      parameters: parameters,
-      body: body,
-      to: to,
-      timeout: _timeout,
-      headerBuilder: _buildAuthHeader,
-      postClient: client ?? _postClient,
-    ),
-    onUpdateDpopNonce: _onUpdateDpopNonce,
-  );
+  }) async {
+    await _maybeRefreshBeforeSend();
+
+    return await _challenge.execute(
+      () async => await xrpc.procedure(
+        methodId,
+        protocol: _protocol,
+        service: service ?? this.service,
+        headers: {..._headers ?? const {}, ...headers ?? const {}},
+        parameters: parameters,
+        body: body,
+        to: to,
+        timeout: _timeout,
+        headerBuilder: _buildAuthHeader,
+        postClient: client ?? _postClient,
+      ),
+      onUpdateDpopNonce: _onUpdateDpopNonce,
+      onUnauthorized: _onUnauthorized,
+    );
+  }
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final NSID methodId, {
@@ -144,9 +176,10 @@ base class ServiceContext {
     final Uri endpoint,
     final String method,
   ) {
-    if (session != null) {
+    final currentSession = _currentSession;
+    if (currentSession != null) {
       return _mergeAuthHeaders(header, {
-        'Authorization': 'Bearer ${session!.accessJwt}',
+        'Authorization': 'Bearer ${currentSession.accessJwt}',
       });
     }
 
@@ -202,6 +235,57 @@ base class ServiceContext {
         oAuthSession?.$dPoPNonce = entry.value;
         return;
       }
+    }
+  }
+
+  /// Attempts to refresh an expired access token in response to a genuine
+  /// `401 Unauthorized`.
+  ///
+  /// Returns true when the session was refreshed and the request should be
+  /// retried, or false when no refresh is possible (no session, no callback)
+  /// or the refresh itself failed. On failure the original `401` is surfaced
+  /// by the caller.
+  Future<bool> _onUnauthorized(final xrpc.UnauthorizedException _) async {
+    final current = _currentSession;
+    final refresh = onRefreshSession;
+    if (current == null || refresh == null) return false;
+
+    try {
+      _currentSession = await refresh(current);
+
+      return true;
+    } catch (_) {
+      //! Swallow refresh errors so the original unauthorized error surfaces.
+      return false;
+    }
+  }
+
+  /// Proactively refreshes the session when the current access token is
+  /// expired or about to expire within [_refreshSkew].
+  ///
+  /// This is best-effort: if the access token cannot be decoded, or the
+  /// refresh fails, the request proceeds unchanged and the reactive
+  /// [_onUnauthorized] path handles any resulting `401`.
+  Future<void> _maybeRefreshBeforeSend() async {
+    final current = _currentSession;
+    final refresh = onRefreshSession;
+    if (current == null || refresh == null) return;
+
+    final DateTime exp;
+    try {
+      exp = current.accessTokenJwt.exp;
+    } on FormatException {
+      //! Cannot determine expiry, e.g. a non-JWT access token. Send as-is.
+      return;
+    }
+
+    final threshold = DateTime.now().toUtc().add(_refreshSkew);
+    if (threshold.isBefore(exp)) return;
+
+    try {
+      _currentSession = await refresh(current);
+    } catch (_) {
+      //! Ignore; the reactive 401 handler will retry if needed.
     }
   }
 }

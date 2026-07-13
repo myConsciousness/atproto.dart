@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
 import '../com_atproto_services.dart';
+import 'services/session.dart' show refreshSession;
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {
@@ -33,6 +34,16 @@ sealed class ATProto {
       retryConfig: retryConfig,
       getClient: getClient,
       postClient: postClient,
+      // Automatically refresh an expired access token using the refresh token
+      // of the current session. The refreshed session is held by the
+      // `ServiceContext`, so `atproto.session` reflects the new credentials.
+      onRefreshSession: (current) async => (await refreshSession(
+        refreshJwt: current.refreshJwt,
+        protocol: protocol,
+        service: service ?? current.atprotoPdsEndpoint,
+        retryConfig: retryConfig,
+        client: postClient,
+      )).data,
     ),
   );
 

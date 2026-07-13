@@ -30,7 +30,9 @@ final class Challenge {
     final FutureOr<xrpc.XRPCResponse<T>> Function() action, {
     int retryCount = 0,
     int dpopNonceRetryCount = 0,
+    bool sessionRefreshed = false,
     void Function(Map<String, String> headers)? onUpdateDpopNonce,
+    Future<bool> Function(xrpc.UnauthorizedException e)? onUnauthorized,
   }) async {
     try {
       final response = await action.call();
@@ -46,7 +48,9 @@ final class Challenge {
           action,
           retryCount: ++retryCount,
           dpopNonceRetryCount: dpopNonceRetryCount,
+          sessionRefreshed: sessionRefreshed,
           onUpdateDpopNonce: onUpdateDpopNonce,
+          onUnauthorized: onUnauthorized,
         );
       }
 
@@ -57,7 +61,9 @@ final class Challenge {
           action,
           retryCount: ++retryCount,
           dpopNonceRetryCount: dpopNonceRetryCount,
+          sessionRefreshed: sessionRefreshed,
           onUpdateDpopNonce: onUpdateDpopNonce,
+          onUnauthorized: onUnauthorized,
         );
       }
 
@@ -68,7 +74,9 @@ final class Challenge {
           action,
           retryCount: ++retryCount,
           dpopNonceRetryCount: dpopNonceRetryCount,
+          sessionRefreshed: sessionRefreshed,
           onUpdateDpopNonce: onUpdateDpopNonce,
+          onUnauthorized: onUnauthorized,
           // Respect the reset time advertised by the server, if any.
           atLeast: _getRateLimitWait(e.response.headers),
         );
@@ -84,7 +92,9 @@ final class Challenge {
           action,
           retryCount: ++retryCount,
           dpopNonceRetryCount: dpopNonceRetryCount,
+          sessionRefreshed: sessionRefreshed,
           onUpdateDpopNonce: onUpdateDpopNonce,
+          onUnauthorized: onUnauthorized,
         );
       }
 
@@ -106,8 +116,32 @@ final class Challenge {
           action,
           retryCount: retryCount,
           dpopNonceRetryCount: dpopNonceRetryCount + 1,
+          sessionRefreshed: sessionRefreshed,
           onUpdateDpopNonce: onUpdateDpopNonce,
+          onUnauthorized: onUnauthorized,
         );
+      }
+
+      // Handle expired access tokens (a genuine 401 that is not a DPoP nonce
+      // challenge). Delegate the actual refresh decision to the caller, which
+      // knows about authentication. Only one refresh is attempted per request
+      // to avoid infinite loops.
+      if (e.response.data.error != 'use_dpop_nonce' &&
+          onUnauthorized != null &&
+          !sessionRefreshed) {
+        final refreshed = await onUnauthorized(e);
+
+        if (refreshed) {
+          // Retry once with the refreshed credentials.
+          return await execute(
+            action,
+            retryCount: retryCount,
+            dpopNonceRetryCount: dpopNonceRetryCount,
+            sessionRefreshed: true,
+            onUpdateDpopNonce: onUpdateDpopNonce,
+            onUnauthorized: onUnauthorized,
+          );
+        }
       }
 
       rethrow;
@@ -119,7 +153,9 @@ final class Challenge {
           action,
           retryCount: ++retryCount,
           dpopNonceRetryCount: dpopNonceRetryCount,
+          sessionRefreshed: sessionRefreshed,
           onUpdateDpopNonce: onUpdateDpopNonce,
+          onUnauthorized: onUnauthorized,
         );
       }
 
@@ -131,7 +167,9 @@ final class Challenge {
     final FutureOr<xrpc.XRPCResponse<T>> Function() action, {
     int retryCount = 0,
     int dpopNonceRetryCount = 0,
+    bool sessionRefreshed = false,
     void Function(Map<String, String> headers)? onUpdateDpopNonce,
+    Future<bool> Function(xrpc.UnauthorizedException e)? onUnauthorized,
     Duration? atLeast,
   }) async {
     await _retryPolicy.wait(retryCount, atLeast: atLeast);
@@ -140,7 +178,9 @@ final class Challenge {
       action,
       retryCount: retryCount,
       dpopNonceRetryCount: dpopNonceRetryCount,
+      sessionRefreshed: sessionRefreshed,
       onUpdateDpopNonce: onUpdateDpopNonce,
+      onUnauthorized: onUnauthorized,
     );
   }
 
