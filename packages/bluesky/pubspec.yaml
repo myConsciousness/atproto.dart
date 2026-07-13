@@ -34,7 +34,7 @@ dev_dependencies:
     git:
       url: https://github.com/myConsciousness/import_sorter.git
       ref: fix/monorepo-pub-workspaces
-  bluesky_text: ^1.4.0
+  bluesky_text: ^1.4.1
 
   atproto_test:
     path: ../atproto_test
