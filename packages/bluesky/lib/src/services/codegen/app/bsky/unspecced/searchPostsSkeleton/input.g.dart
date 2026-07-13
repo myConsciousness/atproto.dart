@@ -17,10 +17,13 @@ _UnspeccedSearchPostsSkeletonInput _$UnspeccedSearchPostsSkeletonInputFromJson(
     q: $checkedConvert('q', (v) => v as String),
     sort: $checkedConvert(
       'sort',
-      (v) => _$JsonConverterFromJson<String, UnspeccedSearchPostsSkeletonSort>(
-        v,
-        const UnspeccedSearchPostsSkeletonSortConverter().fromJson,
-      ),
+      (v) => v == null
+          ? const UnspeccedSearchPostsSkeletonSort.knownValue(
+              data: KnownUnspeccedSearchPostsSkeletonSort.latest,
+            )
+          : const UnspeccedSearchPostsSkeletonSortConverter().fromJson(
+              v as String,
+            ),
     ),
     since: $checkedConvert('since', (v) => v as String?),
     until: $checkedConvert('until', (v) => v as String?),
@@ -48,9 +51,8 @@ Map<String, dynamic> _$UnspeccedSearchPostsSkeletonInputToJson(
   _UnspeccedSearchPostsSkeletonInput instance,
 ) => <String, dynamic>{
   'q': instance.q,
-  'sort': ?_$JsonConverterToJson<String, UnspeccedSearchPostsSkeletonSort>(
+  'sort': const UnspeccedSearchPostsSkeletonSortConverter().toJson(
     instance.sort,
-    const UnspeccedSearchPostsSkeletonSortConverter().toJson,
   ),
   'since': ?instance.since,
   'until': ?instance.until,
@@ -65,13 +67,3 @@ Map<String, dynamic> _$UnspeccedSearchPostsSkeletonInputToJson(
   'cursor': ?instance.cursor,
   r'$unknown': ?instance.$unknown,
 };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

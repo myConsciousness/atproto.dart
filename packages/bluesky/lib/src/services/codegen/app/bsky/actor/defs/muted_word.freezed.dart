@@ -17,7 +17,7 @@ mixin _$MutedWord {
 
  String get $type; String? get id;/// The muted word itself.
  String get value;@MutedWordTargetConverter() List<MutedWordTarget> get targets;/// Groups of users to apply the muted word to. If undefined, applies to all users.
-@MutedWordActorTargetConverter() MutedWordActorTarget? get actorTarget;/// The date and time at which the muted word will expire and no longer be applied.
+@MutedWordActorTargetConverter() MutedWordActorTarget get actorTarget;/// The date and time at which the muted word will expire and no longer be applied.
 @JsonKey(toJson: iso8601) DateTime? get expiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of MutedWord
 /// with the given fields replaced by the non-null parameter values.
@@ -51,11 +51,11 @@ abstract mixin class $MutedWordCopyWith<$Res>  {
   factory $MutedWordCopyWith(MutedWord value, $Res Function(MutedWord) _then) = _$MutedWordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget actorTarget,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 
-$MutedWordActorTargetCopyWith<$Res>? get actorTarget;
+$MutedWordActorTargetCopyWith<$Res> get actorTarget;
 
 }
 /// @nodoc
@@ -68,14 +68,14 @@ class _$MutedWordCopyWithImpl<$Res>
 
 /// Create a copy of MutedWord
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = freezed,Object? value = null,Object? targets = null,Object? actorTarget = freezed,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = freezed,Object? value = null,Object? targets = null,Object? actorTarget = null,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,targets: null == targets ? _self.targets : targets // ignore: cast_nullable_to_non_nullable
-as List<MutedWordTarget>,actorTarget: freezed == actorTarget ? _self.actorTarget : actorTarget // ignore: cast_nullable_to_non_nullable
-as MutedWordActorTarget?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as List<MutedWordTarget>,actorTarget: null == actorTarget ? _self.actorTarget : actorTarget // ignore: cast_nullable_to_non_nullable
+as MutedWordActorTarget,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -84,12 +84,9 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MutedWordActorTargetCopyWith<$Res>? get actorTarget {
-    if (_self.actorTarget == null) {
-    return null;
-  }
-
-  return $MutedWordActorTargetCopyWith<$Res>(_self.actorTarget!, (value) {
+$MutedWordActorTargetCopyWith<$Res> get actorTarget {
+  
+  return $MutedWordActorTargetCopyWith<$Res>(_self.actorTarget, (value) {
     return _then(_self.copyWith(actorTarget: value));
   });
 }
@@ -174,7 +171,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MutedWord() when $default != null:
 return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget,_that.expiresAt,_that.$unknown);case _:
@@ -195,7 +192,7 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _MutedWord():
 return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget,_that.expiresAt,_that.$unknown);case _:
@@ -215,7 +212,7 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget? actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? id,  String value, @MutedWordTargetConverter()  List<MutedWordTarget> targets, @MutedWordActorTargetConverter()  MutedWordActorTarget actorTarget, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _MutedWord() when $default != null:
 return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget,_that.expiresAt,_that.$unknown);case _:
@@ -230,7 +227,7 @@ return $default(_that.$type,_that.id,_that.value,_that.targets,_that.actorTarget
 
 @JsonSerializable(includeIfNull: false)
 class _MutedWord implements MutedWord {
-  const _MutedWord({this.$type = 'app.bsky.actor.defs#mutedWord', this.id, required this.value, @MutedWordTargetConverter() required final  List<MutedWordTarget> targets, @MutedWordActorTargetConverter() this.actorTarget, @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _targets = targets,_$unknown = $unknown;
+  const _MutedWord({this.$type = 'app.bsky.actor.defs#mutedWord', this.id, required this.value, @MutedWordTargetConverter() required final  List<MutedWordTarget> targets, @MutedWordActorTargetConverter() this.actorTarget = const MutedWordActorTarget.knownValue(data: KnownMutedWordActorTarget.all), @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _targets = targets,_$unknown = $unknown;
   factory _MutedWord.fromJson(Map<String, dynamic> json) => _$MutedWordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -245,7 +242,7 @@ class _MutedWord implements MutedWord {
 }
 
 /// Groups of users to apply the muted word to. If undefined, applies to all users.
-@override@MutedWordActorTargetConverter() final  MutedWordActorTarget? actorTarget;
+@override@JsonKey()@MutedWordActorTargetConverter() final  MutedWordActorTarget actorTarget;
 /// The date and time at which the muted word will expire and no longer be applied.
 @override@JsonKey(toJson: iso8601) final  DateTime? expiresAt;
  final  Map<String, dynamic>? _$unknown;
@@ -291,11 +288,11 @@ abstract mixin class _$MutedWordCopyWith<$Res> implements $MutedWordCopyWith<$Re
   factory _$MutedWordCopyWith(_MutedWord value, $Res Function(_MutedWord) _then) = __$MutedWordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String $type, String? id, String value,@MutedWordTargetConverter() List<MutedWordTarget> targets,@MutedWordActorTargetConverter() MutedWordActorTarget actorTarget,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 
-@override $MutedWordActorTargetCopyWith<$Res>? get actorTarget;
+@override $MutedWordActorTargetCopyWith<$Res> get actorTarget;
 
 }
 /// @nodoc
@@ -308,14 +305,14 @@ class __$MutedWordCopyWithImpl<$Res>
 
 /// Create a copy of MutedWord
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = freezed,Object? value = null,Object? targets = null,Object? actorTarget = freezed,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = freezed,Object? value = null,Object? targets = null,Object? actorTarget = null,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_MutedWord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,targets: null == targets ? _self._targets : targets // ignore: cast_nullable_to_non_nullable
-as List<MutedWordTarget>,actorTarget: freezed == actorTarget ? _self.actorTarget : actorTarget // ignore: cast_nullable_to_non_nullable
-as MutedWordActorTarget?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as List<MutedWordTarget>,actorTarget: null == actorTarget ? _self.actorTarget : actorTarget // ignore: cast_nullable_to_non_nullable
+as MutedWordActorTarget,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -325,12 +322,9 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MutedWordActorTargetCopyWith<$Res>? get actorTarget {
-    if (_self.actorTarget == null) {
-    return null;
-  }
-
-  return $MutedWordActorTargetCopyWith<$Res>(_self.actorTarget!, (value) {
+$MutedWordActorTargetCopyWith<$Res> get actorTarget {
+  
+  return $MutedWordActorTargetCopyWith<$Res>(_self.actorTarget, (value) {
     return _then(_self.copyWith(actorTarget: value));
   });
 }

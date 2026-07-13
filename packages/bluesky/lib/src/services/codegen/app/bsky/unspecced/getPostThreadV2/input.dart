@@ -48,7 +48,13 @@ abstract class UnspeccedGetPostThreadV2Input
     @Default(10) int branchingFactor,
 
     /// Sorting for the thread replies.
-    @UnspeccedGetPostThreadV2SortConverter() UnspeccedGetPostThreadV2Sort? sort,
+    @UnspeccedGetPostThreadV2SortConverter()
+    @Default(
+      UnspeccedGetPostThreadV2Sort.knownValue(
+        data: KnownUnspeccedGetPostThreadV2Sort.oldest,
+      ),
+    )
+    UnspeccedGetPostThreadV2Sort sort,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetPostThreadV2Input;
@@ -61,8 +67,6 @@ extension UnspeccedGetPostThreadV2InputExtension
     on UnspeccedGetPostThreadV2Input {
   bool get isAbove => above;
   bool get isNotAbove => !isAbove;
-  bool get hasSort => sort != null;
-  bool get hasNotSort => !hasSort;
 }
 
 final class UnspeccedGetPostThreadV2InputConverter

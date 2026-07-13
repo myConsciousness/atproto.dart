@@ -43,7 +43,11 @@ abstract class MutedWord with _$MutedWord {
     @MutedWordTargetConverter() required List<MutedWordTarget> targets,
 
     /// Groups of users to apply the muted word to. If undefined, applies to all users.
-    @MutedWordActorTargetConverter() MutedWordActorTarget? actorTarget,
+    @MutedWordActorTargetConverter()
+    @Default(
+      MutedWordActorTarget.knownValue(data: KnownMutedWordActorTarget.all),
+    )
+    MutedWordActorTarget actorTarget,
 
     /// The date and time at which the muted word will expire and no longer be applied.
     @JsonKey(toJson: iso8601) DateTime? expiresAt,
@@ -63,8 +67,6 @@ abstract class MutedWord with _$MutedWord {
 extension MutedWordExtension on MutedWord {
   bool get hasId => id != null;
   bool get hasNotId => !hasId;
-  bool get hasActorTarget => actorTarget != null;
-  bool get hasNotActorTarget => !hasActorTarget;
   bool get hasExpiresAt => expiresAt != null;
   bool get hasNotExpiresAt => !hasExpiresAt;
 }

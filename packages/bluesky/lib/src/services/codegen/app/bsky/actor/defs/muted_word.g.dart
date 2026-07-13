@@ -26,10 +26,11 @@ _MutedWord _$MutedWordFromJson(Map json) => $checkedCreate('_MutedWord', json, (
     ),
     actorTarget: $checkedConvert(
       'actorTarget',
-      (v) => _$JsonConverterFromJson<String, MutedWordActorTarget>(
-        v,
-        const MutedWordActorTargetConverter().fromJson,
-      ),
+      (v) => v == null
+          ? const MutedWordActorTarget.knownValue(
+              data: KnownMutedWordActorTarget.all,
+            )
+          : const MutedWordActorTargetConverter().fromJson(v as String),
     ),
     expiresAt: $checkedConvert(
       'expiresAt',
@@ -51,20 +52,9 @@ Map<String, dynamic> _$MutedWordToJson(_MutedWord instance) =>
       'targets': instance.targets
           .map(const MutedWordTargetConverter().toJson)
           .toList(),
-      'actorTarget': ?_$JsonConverterToJson<String, MutedWordActorTarget>(
+      'actorTarget': const MutedWordActorTargetConverter().toJson(
         instance.actorTarget,
-        const MutedWordActorTargetConverter().toJson,
       ),
       'expiresAt': iso8601(instance.expiresAt),
       r'$unknown': ?instance.$unknown,
     };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) => json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) => value == null ? null : toJson(value);

@@ -53,7 +53,12 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
 
     /// The default setting for this label.
     @LabelValueDefinitionDefaultSettingConverter()
-    LabelValueDefinitionDefaultSetting? defaultSetting,
+    @Default(
+      LabelValueDefinitionDefaultSetting.knownValue(
+        data: KnownLabelValueDefinitionDefaultSetting.warn,
+      ),
+    )
+    LabelValueDefinitionDefaultSetting defaultSetting,
 
     /// Does the user need to have adult content enabled in order to configure this label?
     bool? adultOnly,
@@ -73,8 +78,6 @@ abstract class LabelValueDefinition with _$LabelValueDefinition {
 }
 
 extension LabelValueDefinitionExtension on LabelValueDefinition {
-  bool get hasDefaultSetting => defaultSetting != null;
-  bool get hasNotDefaultSetting => !hasDefaultSetting;
   bool get isAdultOnly => adultOnly ?? false;
   bool get isNotAdultOnly => !isAdultOnly;
 }

@@ -82,7 +82,7 @@ List<MuteWordMatch> matchMuteWords({
       continue;
     }
 
-    if (mute.actorTarget?.knownValue ==
+    if (mute.actorTarget.knownValue ==
             KnownMutedWordActorTarget.excludeFollowing &&
         (actor?.viewer?.following != null)) {
       continue;

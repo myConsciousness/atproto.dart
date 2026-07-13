@@ -9,6 +9,7 @@
 - fix: the single-character mute-word check uses UTF-16 length (spec-conformant), and `decidePost` now guards with `validate()` so a malformed federated record no longer throws (B-9/B-11).
 - fix: out-of-range hour/minute now raise a runtime `RangeError` (was assert-only, so release builds silently misbehaved); labels are de-duped by value equality (B-5/B-6).
 - feat: added `OzoneTool.fromOAuthSession` and `oAuthSession` getters for parity with sibling clients (B-14).
+- fix!: regenerated from the fixed `lex_gen` — knownValues+default fields are now non-nullable with their spec default (e.g. `app.bsky.actor.defs#mutedWord.actorTarget` → `all`, `app.bsky.feed.getAuthorFeed.filter` → `posts_with_replies`, `tools.ozone.setting.listOptions.scope` → `instance`); the corresponding `hasX` getters were removed and the moderation engine adapted accordingly (G-18).
 - chore: bump `atproto` to `^1.6.0`, `atproto_core` to `^1.3.0`, and `bluesky_text` to `^1.4.0`.
 
 ## v1.6.0
