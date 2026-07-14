@@ -138,3 +138,5 @@ coverage.lcov
 
 # Kiro IDE
 .kiro
+.lex_gen_baseline/
+docs
