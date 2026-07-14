@@ -18,3 +18,6 @@ export 'package:atproto_oauth/src/types/dpop_key_pair.dart';
 export 'package:atproto_oauth/src/stores/oauth_state_store.dart';
 export 'package:atproto_oauth/src/stores/oauth_session_store.dart';
 export 'package:atproto_oauth/src/stores/dpop_nonce_cache.dart';
+
+export 'package:atproto_oauth/src/identity/identity_resolver.dart';
+export 'package:atproto_oauth/src/types/resolved_identity.dart';
