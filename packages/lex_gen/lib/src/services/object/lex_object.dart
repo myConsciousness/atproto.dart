@@ -3,38 +3,22 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
-import '../../model/nsid.dart';
 import '../gen_context.dart';
 import '../rule.dart' as rule;
-import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
 
-final class LexObject extends GeneratableType {
-  @override
-  final String lexiconId;
-  @override
-  final String defName;
-
-  final String name;
-  final String? description;
-  final List<LexProperty> properties;
-
-  @override
-  LexTypeState get state => LexTypeState.object;
-
+final class LexObject extends FreezedModel {
   const LexObject({
-    required this.lexiconId,
-    required this.defName,
-    required this.name,
-    this.description,
-    required this.properties,
+    required super.lexiconId,
+    required super.defName,
+    required super.name,
+    super.description,
+    required super.properties,
   });
 
   @override
-  List<LexProperty> getProperties() {
-    return properties;
-  }
+  LexTypeState get state => LexTypeState.object;
 
   @override
   String getTypeName() {
@@ -52,26 +36,11 @@ final class LexObject extends GeneratableType {
       description: description,
       properties: properties,
       typeDefaultId: id,
-      validateMethod: _getValidateMethod(id),
+      validateMethod: buildValidateMethod(
+        id,
+        includeSubscription: true,
+        includeMainAlias: true,
+      ),
     );
-  }
-
-  String _getValidateMethod(final String id) {
-    final buffer = StringBuffer();
-    buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
-    if (Nsid(lexiconId).method.startsWith('subscribe')) {
-      buffer.writeln("  if (!object.containsKey('t')) return false;");
-      buffer.writeln("  return object['t'] == '#$defName'");
-    } else {
-      buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
-      buffer.writeln("  return object['\\\$type'] == '$id'");
-      if (defName == 'main') {
-        buffer.writeln("  || object['\\\$type'] == '$lexiconId#main'");
-      }
-    }
-    buffer.writeln(';');
-    buffer.writeln('}');
-
-    return buffer.toString();
   }
 }

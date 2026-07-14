@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../model/nsid.dart';
 import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_property.dart';
@@ -82,4 +83,65 @@ abstract class GeneratableType extends LexType {
   String getTypeName();
 
   String format(final GenContext ctx);
+}
+
+/// A [GeneratableType] emitted as a freezed data class through
+/// `renderFreezedDataClass`.
+///
+/// `LexObject`, `LexRecord`, `LexInput` and `LexOutput` all carry the same core
+/// fields ([name], [description], [properties]) and differ only in the `suffix`
+/// / `partBaseName` they render with, so those fields — and the shared
+/// `validate` guard emitter — live here instead of being duplicated four times.
+abstract base class FreezedModel extends GeneratableType {
+  @override
+  final String lexiconId;
+  @override
+  final String defName;
+
+  final String name;
+  final String? description;
+  final List<LexProperty> properties;
+
+  const FreezedModel({
+    required this.lexiconId,
+    required this.defName,
+    required this.name,
+    this.description,
+    required this.properties,
+  });
+
+  @override
+  List<LexProperty> getProperties() {
+    return properties;
+  }
+
+  /// Builds the `static bool validate(...)` guard shared by object/record
+  /// types.
+  ///
+  /// When [includeSubscription] is set and the lexicon method is a
+  /// `subscribe*`, the guard matches on the `t` discriminator; otherwise it
+  /// matches on `$type` against [id]. When [includeMainAlias] is set, a `main`
+  /// def additionally accepts the bare `<lexiconId>#main` id.
+  String buildValidateMethod(
+    final String id, {
+    required final bool includeSubscription,
+    required final bool includeMainAlias,
+  }) {
+    final buffer = StringBuffer();
+    buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
+    if (includeSubscription && Nsid(lexiconId).method.startsWith('subscribe')) {
+      buffer.writeln("  if (!object.containsKey('t')) return false;");
+      buffer.writeln("  return object['t'] == '#$defName'");
+    } else {
+      buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
+      buffer.writeln("  return object['\\\$type'] == '$id'");
+      if (includeMainAlias && defName == 'main') {
+        buffer.writeln("  || object['\\\$type'] == '$lexiconId#main'");
+      }
+    }
+    buffer.writeln(';');
+    buffer.writeln('}');
+
+    return buffer.toString();
+  }
 }
