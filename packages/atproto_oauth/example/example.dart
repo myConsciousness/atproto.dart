@@ -7,23 +7,28 @@ Future<void> main() async {
 
   final client = OAuthClient(metadata);
 
-  final (url, ctx) = await client.authorize('shinyakato.dev');
+  // Resolves the identity, discovers its authorization server, performs the
+  // pushed authorization request, and persists the per-authorization state
+  // in the (in-memory by default) state store keyed by `state`.
+  final url = await client.authorize('shinyakato.dev');
 
   print(url);
-  print(ctx);
 
   //! Make user visit url.
-  //! Then, once it was redirected to the callback URI, perform the following:
+  //! Then, once it was redirected to the callback URI, perform the following.
+  //! The `state` in the callback URL is used to recover the stored context.
 
   final session = await client.callback(
-    'https://atprotodart.com/oauth/bluesky/auth.html?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
-    ctx,
+    'https://atprotodart.com/oauth/bluesky/auth.html'
+    '?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
   );
 
   print(session.accessToken);
   print(session.refreshToken);
+  print(session.pds);
 
-  print(session.$dPoPNonce);
-  print(session.$publicKey);
-  print(session.$privateKey);
+  // Later, restore the session from the store (refreshing it if expired), or
+  // refresh/revoke it explicitly.
+  final restored = await client.restore(session.sub);
+  print(restored?.accessToken);
 }
