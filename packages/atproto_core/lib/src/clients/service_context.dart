@@ -25,7 +25,7 @@ base class ServiceContext {
     String? service,
     String? relayService,
     Session? session,
-    this.oAuthSession,
+    this.oAuthSessionManager,
     Duration? timeout,
     RetryConfig? retryConfig,
     final xrpc.GetClient? getClient,
@@ -37,7 +37,7 @@ base class ServiceContext {
        service =
            service ??
            session?.atprotoPdsEndpoint ??
-           oAuthSession?.atprotoPdsEndpoint ??
+           oAuthSessionManager?.currentPdsHost ??
            defaultService,
        relayService = relayService ?? defaultRelayService,
        _challenge = Challenge(RetryPolicy(retryConfig)),
@@ -71,8 +71,13 @@ base class ServiceContext {
   /// actually expires.
   static const Duration _refreshSkew = Duration(seconds: 30);
 
-  /// The current OAuth session.
-  final OAuthSession? oAuthSession;
+  /// The current OAuth session manager.
+  ///
+  /// When present, this context is OAuth-authenticated: DPoP `Authorization`
+  /// header building, per-origin nonce reporting, and token refresh are all
+  /// delegated to this manager. OAuth access tokens are opaque and are never
+  /// JWT-decoded here.
+  final OAuthSessionManager? oAuthSessionManager;
 
   /// The current service.
   /// Defaults to `bsky.social`.
@@ -96,7 +101,7 @@ base class ServiceContext {
 
   Map<String, String> get headers => _headers ?? const {};
 
-  String get repo => session?.did ?? oAuthSession?.sub ?? '';
+  String get repo => session?.did ?? oAuthSessionManager?.currentSub ?? '';
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final NSID methodId, {
@@ -108,21 +113,33 @@ base class ServiceContext {
     final xrpc.GetClient? client,
   }) async {
     await _maybeRefreshBeforeSend();
+    final resolvedService = service ?? this.service;
+    final endpoint = _endpointFor(resolvedService, methodId);
 
     return await _challenge.execute(
-      () async => await xrpc.query(
-        methodId,
-        protocol: _protocol,
-        service: service ?? this.service,
-        headers: {..._headers ?? const {}, ...headers ?? const {}},
-        parameters: parameters,
-        to: to,
-        adaptor: adaptor,
-        timeout: _timeout,
-        headerBuilder: _buildAuthHeader,
-        getClient: client ?? _getClient,
-      ),
-      onUpdateDpopNonce: _onUpdateDpopNonce,
+      () async {
+        final oauthHeaders = await _oauthAuthHeaders(endpoint, 'GET');
+        return await xrpc.query(
+          methodId,
+          protocol: _protocol,
+          service: resolvedService,
+          headers: {
+            ..._headers ?? const {},
+            ...headers ?? const {},
+            ...oauthHeaders,
+          },
+          parameters: parameters,
+          to: to,
+          adaptor: adaptor,
+          timeout: _timeout,
+          // Legacy Bearer path still uses the sync header builder; OAuth
+          // headers are already merged above, so only attach the builder
+          // when there is no OAuth manager.
+          headerBuilder: oAuthSessionManager == null ? _buildAuthHeader : null,
+          getClient: client ?? _getClient,
+        );
+      },
+      onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
       onUnauthorized: _onUnauthorized,
     );
   }
@@ -137,21 +154,33 @@ base class ServiceContext {
     final xrpc.PostClient? client,
   }) async {
     await _maybeRefreshBeforeSend();
+    final resolvedService = service ?? this.service;
+    final endpoint = _endpointFor(resolvedService, methodId);
 
     return await _challenge.execute(
-      () async => await xrpc.procedure(
-        methodId,
-        protocol: _protocol,
-        service: service ?? this.service,
-        headers: {..._headers ?? const {}, ...headers ?? const {}},
-        parameters: parameters,
-        body: body,
-        to: to,
-        timeout: _timeout,
-        headerBuilder: _buildAuthHeader,
-        postClient: client ?? _postClient,
-      ),
-      onUpdateDpopNonce: _onUpdateDpopNonce,
+      () async {
+        final oauthHeaders = await _oauthAuthHeaders(endpoint, 'POST');
+        return await xrpc.procedure(
+          methodId,
+          protocol: _protocol,
+          service: resolvedService,
+          headers: {
+            ..._headers ?? const {},
+            ...headers ?? const {},
+            ...oauthHeaders,
+          },
+          parameters: parameters,
+          body: body,
+          to: to,
+          timeout: _timeout,
+          // Legacy Bearer path still uses the sync header builder; OAuth
+          // headers are already merged above, so only attach the builder
+          // when there is no OAuth manager.
+          headerBuilder: oAuthSessionManager == null ? _buildAuthHeader : null,
+          postClient: client ?? _postClient,
+        );
+      },
+      onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
       onUnauthorized: _onUnauthorized,
     );
   }
@@ -183,33 +212,25 @@ base class ServiceContext {
       });
     }
 
-    if (oAuthSession != null) {
-      final oauthSession = oAuthSession!;
-      final clientId = oauthSession.clientId;
-
-      if (clientId == null || clientId.isEmpty) {
-        throw const FormatException(
-          'OAuth token is missing client_id and cannot build DPoP headers.',
-        );
-      }
-
-      final dPoPHeader = getDPoPHeader(
-        clientId: clientId,
-        endpoint: endpoint.toString(),
-        method: method,
-        accessToken: oauthSession.accessToken,
-        dPoPNonce: oauthSession.$dPoPNonce,
-        publicKey: oauthSession.$publicKey,
-        privateKey: oauthSession.$privateKey,
-      );
-
-      return _mergeAuthHeaders(header, {
-        'Authorization': 'DPoP ${oauthSession.accessToken}',
-        'DPoP': dPoPHeader,
-      });
-    }
-
     return header;
+  }
+
+  /// Builds the query-free endpoint URI matching xrpc's own construction,
+  /// used as the DPoP `htu` and for per-endpoint nonce reporting.
+  Uri _endpointFor(final String service, final NSID methodId) =>
+      _protocol == xrpc.Protocol.http
+          ? Uri.http(service, '/xrpc/$methodId')
+          : Uri.https(service, '/xrpc/$methodId');
+
+  /// Returns the OAuth DPoP auth headers for [endpoint]/[method], or an empty
+  /// map when this context is not OAuth-authenticated.
+  Future<Map<String, String>> _oauthAuthHeaders(
+    final Uri endpoint,
+    final String method,
+  ) async {
+    final manager = oAuthSessionManager;
+    if (manager == null) return const {};
+    return await manager.buildAuthHeaders(endpoint, method);
   }
 
   /// Merges [authHeaders] into [header] so that authentication headers
@@ -229,10 +250,15 @@ base class ServiceContext {
     };
   }
 
-  void _onUpdateDpopNonce(final Map<String, String> headers) {
+  void _onUpdateDpopNonce(
+    final Uri endpoint,
+    final Map<String, String> headers,
+  ) {
+    final manager = oAuthSessionManager;
+    if (manager == null) return;
     for (final entry in headers.entries) {
       if (entry.key.toLowerCase() == 'dpop-nonce') {
-        oAuthSession?.$dPoPNonce = entry.value;
+        unawaited(manager.reportDpopNonce(endpoint, entry.value));
         return;
       }
     }
@@ -246,6 +272,11 @@ base class ServiceContext {
   /// or the refresh itself failed. On failure the original `401` is surfaced
   /// by the caller.
   Future<bool> _onUnauthorized(final xrpc.UnauthorizedException _) async {
+    final manager = oAuthSessionManager;
+    if (manager != null) {
+      return await manager.refreshOnUnauthorized();
+    }
+
     final current = _currentSession;
     final refresh = onRefreshSession;
     if (current == null || refresh == null) return false;
