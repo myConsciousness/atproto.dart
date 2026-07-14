@@ -118,6 +118,33 @@ String getObjectConverter(final String name, {String suffix = ''}) {
 ''';
 }
 
+/// Appends the recurring `is<Name>` / `isNot<Name>` / cast-getter triple used
+/// by the union and known-values extension emitters, e.g.
+///
+/// ```dart
+/// bool get isFoo => isA<BarFoo>(this);
+/// bool get isNotFoo => !isFoo;
+/// Foo? get foo => isFoo ? data as Foo : null;
+/// ```
+///
+/// [isName] is the `is<isName>` suffix, [typeName] the concrete type passed to
+/// `isA<...>`, [castGetter] the cast getter name and [castType] its return type
+/// (also the `data as <castType>` cast target).
+void writeIsAExtensionGetters(
+  final StringBuffer buffer, {
+  required final String isName,
+  required final String typeName,
+  required final String castGetter,
+  required final String castType,
+}) {
+  buffer.writeln('bool get is$isName => isA<$typeName>(this);');
+  buffer.writeln('bool get isNot$isName => !is$isName;');
+  buffer.writeln(
+    '$castType? get $castGetter => '
+    'is$isName ? data as $castType : null;',
+  );
+}
+
 String getExtensions(
   final String name,
   final List<LexProperty> properties, {

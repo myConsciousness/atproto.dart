@@ -7,6 +7,7 @@ import '../../utils.dart';
 import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
+import 'utils.dart';
 
 final class LexKnownValues extends GeneratableType {
   @override
@@ -59,21 +60,7 @@ final class LexKnownValues extends GeneratableType {
 
   @override
   String format(final GenContext ctx) {
-    final elements = values
-        .map((e) {
-          final buffer = StringBuffer();
-          if (e.startsWith('#')) {
-            buffer.writeln("@JsonValue('$lexiconId$e')");
-            buffer.write(
-              "${rule.getLexKnownValuesElementName(e, lexiconId: lexiconId)}('$lexiconId$e'),",
-            );
-          } else {
-            buffer.writeln("@JsonValue('$e')");
-            buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
-          }
-          return buffer.toString();
-        })
-        .join('\n');
+    final elements = _getElements();
 
     final fileName = getFileName();
 
@@ -168,23 +155,41 @@ enum Known$name implements Serializable{
 ''';
   }
 
+  String _getElements() {
+    return values
+        .map((e) {
+          final buffer = StringBuffer();
+          if (e.startsWith('#')) {
+            buffer.writeln("@JsonValue('$lexiconId$e')");
+            buffer.write(
+              "${rule.getLexKnownValuesElementName(e, lexiconId: lexiconId)}('$lexiconId$e'),",
+            );
+          } else {
+            buffer.writeln("@JsonValue('$e')");
+            buffer.write("${rule.getLexKnownValuesElementName(e)}('$e'),");
+          }
+          return buffer.toString();
+        })
+        .join('\n');
+  }
+
   String _getExtensions() {
     final buffer = StringBuffer();
 
-    buffer.writeln('bool get isKnownValue => isA<${name}KnownValue>(this);');
-    buffer.writeln('bool get isNotKnownValue => !isKnownValue;');
-
-    buffer.writeln(
-      'Known$name? get knownValue => '
-      'isKnownValue ? data as Known$name : null;',
+    writeIsAExtensionGetters(
+      buffer,
+      isName: 'KnownValue',
+      typeName: '${name}KnownValue',
+      castGetter: 'knownValue',
+      castType: 'Known$name',
     );
 
-    buffer.writeln('bool get isUnknown => isA<${name}Unknown>(this);');
-    buffer.writeln('bool get isNotUnknown => !isUnknown;');
-
-    buffer.writeln(
-      'String? get unknown => '
-      'isUnknown ? data as String : null;',
+    writeIsAExtensionGetters(
+      buffer,
+      isName: 'Unknown',
+      typeName: '${name}Unknown',
+      castGetter: 'unknown',
+      castType: 'String',
     );
 
     return buffer.toString();
