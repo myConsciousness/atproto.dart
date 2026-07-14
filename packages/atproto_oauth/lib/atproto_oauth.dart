@@ -4,6 +4,7 @@
 
 export 'package:atproto_oauth/src/oauth_client.dart';
 export 'package:atproto_oauth/src/oauth_exception.dart';
+export 'package:atproto_oauth/src/oauth_session_manager.dart';
 
 export 'package:atproto_oauth/src/types/client_metadata.dart';
 export 'package:atproto_oauth/src/types/context.dart';
