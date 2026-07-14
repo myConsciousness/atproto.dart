@@ -80,6 +80,9 @@ melos:
 
     # Dart workspace release, split into three explicit steps (mirroring the
     # flutter_* scripts) so each stage can be run and verified independently.
+    # Note: the step names deliberately avoid the bare name `publish`, which is
+    # a built-in melos command — a script named `publish` would shadow it and
+    # recurse when the script body calls `melos publish`.
     publish_dry:
       run: melos publish
       description: >-
@@ -87,7 +90,7 @@ melos:
         defaults to a dry run, so this validates the release without
         publishing. Run this first.
 
-    publish:
+    publish_live:
       run: melos publish --no-dry-run --git-tag-version
       description: >-
         Publish all Dart workspace packages to pub.dev and create the git
@@ -97,7 +100,7 @@ melos:
     push_tags:
       run: git push origin --tags
       description: >-
-        Push the git version tags created by `publish` to origin.
+        Push the git version tags created by `publish_live` to origin.
 
     # Flutter packages live outside the Dart pub workspace, so `melos` (and
     # therefore the publish scripts above) does not manage them. Release them
