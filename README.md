@@ -249,10 +249,10 @@ The `melos setup` command handles everything: installing dependencies, running c
 | ------- | ----------- |
 | `melos publish_dry` | Dry-run publish for all Dart workspace packages (validate only) - run this first |
 | `melos publish_live` | Publish all Dart packages to pub.dev and create git version tags |
-| `melos push_tags` | Push the git version tags created by `melos publish_live` to origin |
+| `melos publish_tags` | Push the git version tags created by `melos publish_live` to origin |
 | `melos flutter_publish_dry` | Dry-run publish for the Flutter package (bluesky_text_flutter) |
-| `melos flutter_publish` | Publish the Flutter package (bluesky_text_flutter) to pub.dev |
-| `melos flutter_tag` | Tag and push the Flutter package release |
+| `melos flutter_publish_live` | Publish the Flutter package (bluesky_text_flutter) to pub.dev |
+| `melos flutter_publish_tags` | Tag and push the Flutter package release |
 
 ### 4.4. Troubleshooting
 

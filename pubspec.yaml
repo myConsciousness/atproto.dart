@@ -95,9 +95,9 @@ melos:
       description: >-
         Publish all Dart workspace packages to pub.dev and create the git
         version tags locally (`--git-tag-version`). Run `publish_dry` first,
-        then `push_tags` to push the tags.
+        then `publish_tags` to push the tags.
 
-    push_tags:
+    publish_tags:
       run: git push origin --tags
       description: >-
         Push the git version tags created by `publish_live` to origin.
@@ -111,7 +111,7 @@ melos:
         flutter pub publish --dry-run
       description: Dry-run publish the Flutter package (bluesky_text_flutter).
 
-    flutter_publish:
+    flutter_publish_live:
       run: |
         cd packages/bluesky_text_flutter
         flutter pub publish
@@ -119,7 +119,7 @@ melos:
         Publish the Flutter package (bluesky_text_flutter) to pub.dev. Run
         `flutter_publish_dry` first; append `--force` to skip the prompt.
 
-    flutter_tag:
+    flutter_publish_tags:
       run: |
         cd packages/bluesky_text_flutter
         version=$(grep '^version:' pubspec.yaml | awk '{print $2}')
