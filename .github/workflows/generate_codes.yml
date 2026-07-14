@@ -25,6 +25,9 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: main
+          # Full history so the changelog step can diff `lexicons/` against the
+          # pre-sync base commit (github.event.pull_request.base.sha).
+          fetch-depth: 0
 
       - uses: dart-lang/setup-dart@v1
         with:
@@ -61,6 +64,15 @@ jobs:
               dart format .
             )
           done
+
+      - name: Update changelogs & versions
+        # Diff the synced lexicons against the pre-sync base commit, then append
+        # per-package CHANGELOG entries and bump versions (patch for additions,
+        # minor for breaking changes), propagating patch bumps to dependents.
+        # Changes land in the same chore-generate-codes PR for human review.
+        run: dart run ./scripts/gen_changelog.dart
+        env:
+          CHANGELOG_BASE_REF: ${{ github.event.pull_request.base.sha || 'HEAD~1' }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
