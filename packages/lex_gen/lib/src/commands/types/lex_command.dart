@@ -46,22 +46,35 @@ final class LexCommand {
     };
   }
 
+  /// The three derived names every emitter needs, computed once from
+  /// [lexiconId]: the service (e.g. `feed`), the generated class type name,
+  /// and the CLI command name.
+  ({String serviceName, String typeName, String commandName}) get _names {
+    final id = lexiconId.toString();
+    return (
+      serviceName: getServiceName(id),
+      typeName: getCommandTypeName(id),
+      commandName: getCommandName(id),
+    );
+  }
+
+  /// The shared top-of-file boilerplate (license/hint banner, the given
+  /// [imports] block, then the generated-code header) prepended to every
+  /// emitted command file.
+  String _fileHeader(final String imports) => '''$kHeaderHint
+
+$imports
+
+$kHeader''';
+
   String _getQueryCommand() {
-    final serviceName = getServiceName(lexiconId.toString());
-    final typeName = getCommandTypeName(lexiconId.toString());
-    final commandName = getCommandName(lexiconId.toString());
+    final (:serviceName, :typeName, :commandName) = _names;
 
     final invocation = _getInvocation(serviceName, commandName);
     final opts = _getOpts();
     final parameters = _getParameters();
 
-    return '''$kHeaderHint
-
-import '../../../../query_command.dart';
-
-import 'dart:convert';
-
-$kHeader
+    return '''${_fileHeader("import '../../../../query_command.dart';\n\nimport 'dart:convert';")}
 
 final class $typeName extends QueryCommand {
   $typeName() {
@@ -89,98 +102,52 @@ ${_getInputHelpers()}}
   }
 
   String _getProcedureCommand() {
-    final serviceName = getServiceName(lexiconId.toString());
-    final typeName = getCommandTypeName(lexiconId.toString());
-    final commandName = getCommandName(lexiconId.toString());
+    final (:serviceName, :typeName, :commandName) = _names;
+
+    // The three procedure variants share the same class shell and differ only
+    // in constructor body, invocation, `body` getter and trailing helpers.
+    final String constructorBody;
+    final String invocation;
+    final String bodyMember;
+    final String helpers;
 
     if (isRawJsonBody) {
-      return '''$kHeaderHint
-
-import '../../../../procedure_command.dart';
-
-import 'dart:convert';
-
-$kHeader
-
-final class $typeName extends ProcedureCommand {
-  $typeName() {
+      constructorBody = '''{
     argParser.addOption(
       "json",
       help: r"JSON string representing the entire request body.",
       mandatory: true,
     );
-  }
-
-  @override
-  final String name = "$commandName";
-
-  @override
-  final String description = r"${_getDescription()}";
-
-  @override
-  final String invocation = "bsky $serviceName $commandName --json=<value>";
-
-  @override
-  String get methodId => "${lexiconId.toString()}";
-
-  @override
-  Map<String, dynamic>? get body {
+  }''';
+      invocation = 'bsky $serviceName $commandName --json=<value>';
+      bodyMember = '''Map<String, dynamic>? get body {
     try {
       return Map<String, dynamic>.from(jsonDecode(argResults!["json"]));
     } on FormatException catch (e) {
       usageException("Invalid JSON for option \\"json\\": \${e.message}");
     }
-  }
-}
-''';
+  }''';
+      helpers = '';
+    } else if (parameters.isEmpty) {
+      constructorBody = ';';
+      invocation = 'bsky $serviceName $commandName';
+      bodyMember = 'Map<String, dynamic>? get body => null;';
+      helpers = '';
+    } else {
+      constructorBody = '''{
+    ${_getOpts()}
+  }''';
+      invocation = _getInvocation(serviceName, commandName);
+      bodyMember = '''Map<String, dynamic>? get body => {
+    ${_getParameters()}
+  };''';
+      helpers = _getInputHelpers();
     }
 
-    if (parameters.isEmpty) {
-      return '''$kHeaderHint
-
-import '../../../../procedure_command.dart';
-
-import 'dart:convert';
-
-$kHeader
+    return '''${_fileHeader("import '../../../../procedure_command.dart';\n\nimport 'dart:convert';")}
 
 final class $typeName extends ProcedureCommand {
-  $typeName();
-
-  @override
-  final String name = "$commandName";
-
-  @override
-  final String description = r"${_getDescription()}";
-
-  @override
-  final String invocation = "bsky $serviceName $commandName";
-
-  @override
-  String get methodId => "${lexiconId.toString()}";
-
-  @override
-  Map<String, dynamic>? get body => null;
-}
-''';
-    }
-
-    final invocation = _getInvocation(serviceName, commandName);
-    final opts = _getOpts();
-    final body = _getParameters();
-
-    return '''$kHeaderHint
-
-import '../../../../procedure_command.dart';
-
-import 'dart:convert';
-
-$kHeader
-
-final class $typeName extends ProcedureCommand {
-  $typeName() {
-    $opts
-  }
+  $typeName()$constructorBody
 
   @override
   final String name = "$commandName";
@@ -195,17 +162,13 @@ final class $typeName extends ProcedureCommand {
   String get methodId => "${lexiconId.toString()}";
 
   @override
-  Map<String, dynamic>? get body => {
-    $body
-  };
-${_getInputHelpers()}}
+  $bodyMember
+$helpers}
 ''';
   }
 
   String _getBlobProcedureCommand() {
-    final serviceName = getServiceName(lexiconId.toString());
-    final typeName = getCommandTypeName(lexiconId.toString());
-    final commandName = getCommandName(lexiconId.toString());
+    final (:serviceName, :typeName, :commandName) = _names;
 
     final contentTypeOverride = encoding == null || encoding == '*/*'
         ? ''
@@ -214,11 +177,7 @@ ${_getInputHelpers()}}
   String get contentType => "$encoding";
 ''';
 
-    return '''$kHeaderHint
-
-import '../../../../blob_command.dart';
-
-$kHeader
+    return '''${_fileHeader("import '../../../../blob_command.dart';")}
 
 final class $typeName extends BlobCommand {
   $typeName();
@@ -239,9 +198,7 @@ $contentTypeOverride}
   }
 
   String _getRecordCommand() {
-    final serviceName = getServiceName(lexiconId.toString());
-    final typeName = getCommandTypeName(lexiconId.toString());
-    final commandName = getCommandName(lexiconId.toString());
+    final (:serviceName, :typeName, :commandName) = _names;
 
     final literalRkey = _getReferenceKey();
 
@@ -275,8 +232,7 @@ $contentTypeOverride}
 
     final rkeyOverride = _getReferenceKeyOverride();
 
-    return '''$kHeaderHint
-
+    const imports = '''
 import 'dart:async';
 
 import 'package:args/command_runner.dart';
@@ -286,9 +242,9 @@ import '../../../../create_record_command.dart';
 import '../../../../put_record_command.dart';
 import '../../../../delete_record_command.dart';
 
-import 'dart:convert';
+import 'dart:convert';''';
 
-$kHeader
+    return '''${_fileHeader(imports)}
 
 final class $typeName extends Command<void> {
   $typeName() {
@@ -316,11 +272,11 @@ ${_recordMutationClass(typeName: typeName, classPrefix: 'Create', baseClass: 'Cr
 
 ${_recordMutationClass(typeName: typeName, classPrefix: 'Put', baseClass: 'PutRecordCommand', recordArgsMixin: recordArgsMixin, rkeyStmt: putRkeyStmt, name: 'put', descriptionVerb: 'Updates a record', invocation: invocationForUpdate, rkeyOverride: rkeyOverride, parameters: parameters)}
 
-${_deleteRecordClass(typeName, serviceName, commandName, literalRkey)}
+${_deleteRecordClass()}
 
-${_getRecordClass(typeName, serviceName, commandName, literalRkey)}
+${_getRecordClass()}
 
-${_listRecordClass(typeName, serviceName, commandName)}
+${_listRecordClass()}
 ''';
   }
 
@@ -328,6 +284,13 @@ ${_listRecordClass(typeName, serviceName, commandName)}
   /// into the generated `get`/`list` record subcommands.
   static const _getRecordMethodId = 'com.atproto.repo.getRecord';
   static const _listRecordsMethodId = 'com.atproto.repo.listRecords';
+
+  /// The `bsky <service> <command>` prefix every record subcommand invocation
+  /// string is built on.
+  String get _recordInvocationBase {
+    final names = _names;
+    return 'bsky ${names.serviceName} ${names.commandName}';
+  }
 
   /// Renders a `create` or `put` record subcommand. The two differ only by the
   /// [classPrefix]/[baseClass], their `rkey` option ([rkeyStmt]), [name],
@@ -374,19 +337,18 @@ ${_listRecordClass(typeName, serviceName, commandName)}
 }''';
   }
 
-  String _deleteRecordClass(
-    final String typeName,
-    final String serviceName,
-    final String commandName,
-    final String? literalRkey,
-  ) {
+  String _deleteRecordClass() {
     final id = lexiconId.toString();
-    final deleteOpts = literalRkey == null
-        ? 'argParser..addOption("rkey", help: r"The record key.", mandatory: true,);'
-        : '';
-    final deleteInvocation = literalRkey == null
-        ? 'bsky $serviceName $commandName delete --rkey=<value>'
-        : 'bsky $serviceName $commandName delete';
+    final typeName = _names.typeName;
+    final base = _recordInvocationBase;
+    final hasLiteralRkey = _getReferenceKey() != null;
+
+    final deleteOpts = hasLiteralRkey
+        ? ''
+        : 'argParser..addOption("rkey", help: r"The record key.", mandatory: true,);';
+    final deleteInvocation = hasLiteralRkey
+        ? '$base delete'
+        : '$base delete --rkey=<value>';
 
     return '''final class _Delete$typeName extends DeleteRecordCommand {
   _Delete$typeName() {
@@ -409,13 +371,12 @@ ${_listRecordClass(typeName, serviceName, commandName)}
 }''';
   }
 
-  String _getRecordClass(
-    final String typeName,
-    final String serviceName,
-    final String commandName,
-    final String? literalRkey,
-  ) {
+  String _getRecordClass() {
     final id = lexiconId.toString();
+    final typeName = _names.typeName;
+    final base = _recordInvocationBase;
+    final literalRkey = _getReferenceKey();
+
     final getRkeyOpt = literalRkey == null
         ? '..addOption("rkey", help: r"The record key.", mandatory: true,)'
         : '';
@@ -423,8 +384,8 @@ ${_listRecordClass(typeName, serviceName, commandName)}
         ? "argResults!['rkey']"
         : "'$literalRkey'";
     final getInvocation = literalRkey == null
-        ? 'bsky $serviceName $commandName get --rkey=<value> [--repo=<value>] [--cid=<value>]'
-        : 'bsky $serviceName $commandName get [--repo=<value>] [--cid=<value>]';
+        ? '$base get --rkey=<value> [--repo=<value>] [--cid=<value>]'
+        : '$base get [--repo=<value>] [--cid=<value>]';
 
     return '''final class _Get$typeName extends QueryCommand {
   _Get$typeName() {
@@ -455,12 +416,10 @@ ${_listRecordClass(typeName, serviceName, commandName)}
 }''';
   }
 
-  String _listRecordClass(
-    final String typeName,
-    final String serviceName,
-    final String commandName,
-  ) {
+  String _listRecordClass() {
     final id = lexiconId.toString();
+    final typeName = _names.typeName;
+    final base = _recordInvocationBase;
 
     return '''final class _List$typeName extends QueryCommand {
   _List$typeName() {
@@ -478,7 +437,7 @@ ${_listRecordClass(typeName, serviceName, commandName)}
   final String description = r"Lists records for $id.";
 
   @override
-  final String invocation = "bsky $serviceName $commandName list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
+  final String invocation = "$base list [--repo=<value>] [--limit=<value>] [--cursor=<value>] [--reverse]";
 
   @override
   String get methodId => "$_listRecordsMethodId";
