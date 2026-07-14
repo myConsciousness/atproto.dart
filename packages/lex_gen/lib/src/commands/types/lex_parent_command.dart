@@ -13,7 +13,10 @@ final class LexParentCommand {
     final serviceName = getServiceName(lexiconId.toString());
     final commandName = getParentCommandTypeName(lexiconId.toString());
 
-    final importPaths = _getImportPaths();
+    final importPaths = getCommandImports(
+      commands.map((command) => command.lexiconId.toString()),
+      getRelativePathForParent,
+    );
     final subcommands = _getSubcommands();
 
     return '''$kHeaderHint
@@ -36,21 +39,6 @@ final class $commandName extends Command<void>  {
   String get description => "Provides commands for $lexiconId.*";
 }
 ''';
-  }
-
-  String _getImportPaths() {
-    final buffer = StringBuffer();
-
-    for (final command in commands) {
-      final relativePath = getRelativePathForParent(
-        command.lexiconId.toString(),
-      );
-      final fileName = getFileName(command.lexiconId.toString());
-
-      buffer.writeln("import '$relativePath/$fileName.dart';");
-    }
-
-    return buffer.toString();
   }
 
   String _getSubcommands() {

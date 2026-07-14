@@ -9,7 +9,10 @@ final class LexRootCommand {
   const LexRootCommand(this.commands);
 
   String format() {
-    final importPaths = _getImportPaths();
+    final importPaths = getCommandImports(
+      commands.map((command) => command.lexiconId.toString()),
+      getRelativePathForRoot,
+    );
     final commandNames = _getParentCommandNames();
 
     return '''$kHeaderHint
@@ -29,19 +32,6 @@ List<Command<void>> get lexCommands => [
     $commandNames
 ];
 ''';
-  }
-
-  String _getImportPaths() {
-    final buffer = StringBuffer();
-
-    for (final command in commands) {
-      final relativePath = getRelativePathForRoot(command.lexiconId.toString());
-      final fileName = getFileName(command.lexiconId.toString());
-
-      buffer.writeln("import '$relativePath/$fileName.dart';");
-    }
-
-    return buffer.toString();
   }
 
   String _getParentCommandNames() {
