@@ -188,7 +188,9 @@ $dtos
     final String verb, {
     required final bool withCreatedAt,
   }) {
-    final createdAtParam = withCreatedAt ? '\n    required this.createdAt,' : '';
+    final createdAtParam = withCreatedAt
+        ? '\n    required this.createdAt,'
+        : '';
     final createdAtField = withCreatedAt
         ? '\n\n  /// The date and time this event was created.'
               '\n  final DateTime createdAt;'

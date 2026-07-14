@@ -11,7 +11,6 @@ import 'package:lexicon/lexicon.dart' as lex;
 // Project imports:
 import '../model/nsid.dart';
 import 'fmt/lex_known_values_generator.dart';
-import 'gen_context.dart';
 import 'fmt/lex_object_generator.dart';
 import 'fmt/lex_packages_generator.dart';
 import 'fmt/lex_record_generator.dart';
@@ -19,6 +18,7 @@ import 'fmt/lex_union_generator.dart';
 import 'fmt/lex_xrpc_procedure_generator.dart';
 import 'fmt/lex_xrpc_query_generator.dart';
 import 'fmt/lex_xrpc_subscription_generator.dart';
+import 'gen_context.dart';
 import 'object/lex_type.dart';
 import 'services_common.dart';
 
@@ -56,13 +56,7 @@ final class _LexTypeGenerator {
           case lex.ULexUserTypeObject():
             _aggregateTypes(
               types,
-              generateLexObject(
-                ctx,
-                doc.id,
-                def.key,
-                value.data,
-                mainVariants,
-              ),
+              generateLexObject(ctx, doc.id, def.key, value.data, mainVariants),
             );
           case lex.ULexUserTypeArray():
             final data = value.data;
@@ -82,13 +76,7 @@ final class _LexTypeGenerator {
           case lex.ULexUserTypeRecord():
             _aggregateTypes(
               types,
-              generateLexRecord(
-                ctx,
-                doc.id,
-                def.key,
-                value.data,
-                mainVariants,
-              ),
+              generateLexRecord(ctx, doc.id, def.key, value.data, mainVariants),
             );
           case lex.ULexUserTypeString():
             final string = value.data;
