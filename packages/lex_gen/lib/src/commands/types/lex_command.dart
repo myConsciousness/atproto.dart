@@ -14,7 +14,7 @@ import 'lex_parameter.dart';
 final class LexCommand {
   final NSID lexiconId;
   final String? description;
-  final List<LexParameter> parameters;
+  final List<LexCliParameter> parameters;
 
   final String? rkey;
 
@@ -478,7 +478,7 @@ ${_listRecordClass()}
     return result.join(' ');
   }
 
-  String _getInvocationOption(final LexParameter param) {
+  String _getInvocationOption(final LexCliParameter param) {
     if (param.isBoolean) {
       return '[--${param.name}]';
     }
