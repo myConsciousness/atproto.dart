@@ -268,7 +268,8 @@ String getPackageRelativePath(
 }
 
 bool _isInTheSamePackage(final String lexiconId, final String ref) {
-  if (ref.startsWith('#')) return true;
+  // A local ref (`#def`) always resolves within the current lexicon's package.
+  if (LexRef.parse(ref) is LocalRef) return true;
   return _getServiceFromLexiconId(lexiconId) == _getServiceFromLexiconId(ref);
 }
 
@@ -301,7 +302,7 @@ String getLexObjectAbsolutePath(
   final String lexiconId,
   final String fileName,
 ) {
-  return '${_getHomeDirForExport(ctx, lexiconId)}/${_getFileDir(lexiconId)}/$fileName.dart';
+  return _exportAbsolutePath(ctx, lexiconId, _getFileDir(lexiconId), fileName);
 }
 
 String getLexObjectAbsolutePathForService(
@@ -309,8 +310,24 @@ String getLexObjectAbsolutePathForService(
   final String lexiconId,
   final String fileName,
 ) {
-  final root = Nsid(lexiconId).serviceDir;
-  return '${_getHomeDirForExport(ctx, lexiconId)}/$root/$fileName.dart';
+  return _exportAbsolutePath(
+    ctx,
+    lexiconId,
+    Nsid(lexiconId).serviceDir,
+    fileName,
+  );
+}
+
+/// Builds `<export home>/<dir>/<fileName>.dart`, shared by the absolute-path
+/// helpers that differ only in which sub-directory (`fileDir` vs `serviceDir`)
+/// they place the file under.
+String _exportAbsolutePath(
+  final GenContext ctx,
+  final String lexiconId,
+  final String dir,
+  final String fileName,
+) {
+  return '${_getHomeDirForExport(ctx, lexiconId)}/$dir/$fileName.dart';
 }
 
 String getLexKnownValuesElementName(
