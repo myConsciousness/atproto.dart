@@ -20062,12 +20062,12 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "Create a new moderation queue. Will fail if the queue configuration conflicts with an existing queue.",
+          "Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["name", "subjectTypes", "reportTypes"],
+          "required": ["name"],
           "properties": {
             "name": {
               "type": "string",
@@ -20080,7 +20080,6 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
                 "type": "string",
                 "knownValues": ["account", "record", "message"],
               },
-              "minLength": 1,
             },
             "collection": {
               "type": "string",
@@ -20092,7 +20091,6 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
               "type": "array",
               "description": "Report reason types (fully qualified NSIDs)",
               "items": {"type": "string"},
-              "minLength": 1,
               "maxLength": 25,
             },
             "description": {
@@ -20133,8 +20131,6 @@ const toolsOzoneQueueDefs = <String, dynamic>{
       "required": [
         "id",
         "name",
-        "subjectTypes",
-        "reportTypes",
         "createdBy",
         "createdAt",
         "updatedAt",
@@ -20151,7 +20147,6 @@ const toolsOzoneQueueDefs = <String, dynamic>{
             "type": "string",
             "knownValues": ["account", "record", "message"],
           },
-          "minLength": 1,
         },
         "collection": {
           "type": "string",
@@ -20164,7 +20159,6 @@ const toolsOzoneQueueDefs = <String, dynamic>{
           "description":
               "Report reason types this queue accepts (fully qualified NSIDs)",
           "items": {"type": "string"},
-          "minLength": 1,
         },
         "description": {
           "type": "string",
@@ -21022,6 +21016,12 @@ const toolsOzoneReportDefs = <String, dynamic>{
           "type": "boolean",
           "description":
               "Whether this report is muted. A report is muted if the reporter was muted or the subject was muted at the time the report was created.",
+        },
+        "isAutomated": {
+          "type": "boolean",
+          "description":
+              "Whether this report was emitted by automated tooling.",
+          "default": false,
         },
       },
     },

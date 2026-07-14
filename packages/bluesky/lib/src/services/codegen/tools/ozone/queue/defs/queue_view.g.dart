@@ -20,8 +20,8 @@ _QueueView _$QueueViewFromJson(Map json) => $checkedCreate('_QueueView', json, (
     name: $checkedConvert('name', (v) => v as String),
     subjectTypes: $checkedConvert(
       'subjectTypes',
-      (v) => (v as List<dynamic>)
-          .map(
+      (v) => (v as List<dynamic>?)
+          ?.map(
             (e) => const QueueViewSubjectTypesConverter().fromJson(e as String),
           )
           .toList(),
@@ -29,7 +29,7 @@ _QueueView _$QueueViewFromJson(Map json) => $checkedCreate('_QueueView', json, (
     collection: $checkedConvert('collection', (v) => v as String?),
     reportTypes: $checkedConvert(
       'reportTypes',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
     description: $checkedConvert('description', (v) => v as String?),
     createdBy: $checkedConvert('createdBy', (v) => v as String),
@@ -57,11 +57,11 @@ Map<String, dynamic> _$QueueViewToJson(_QueueView instance) =>
       r'$type': instance.$type,
       'id': instance.id,
       'name': instance.name,
-      'subjectTypes': instance.subjectTypes
-          .map(const QueueViewSubjectTypesConverter().toJson)
+      'subjectTypes': ?instance.subjectTypes
+          ?.map(const QueueViewSubjectTypesConverter().toJson)
           .toList(),
       'collection': ?instance.collection,
-      'reportTypes': instance.reportTypes,
+      'reportTypes': ?instance.reportTypes,
       'description': ?instance.description,
       'createdBy': instance.createdBy,
       'createdAt': iso8601(instance.createdAt),

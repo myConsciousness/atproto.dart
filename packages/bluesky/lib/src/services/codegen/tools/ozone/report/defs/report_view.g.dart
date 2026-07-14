@@ -86,6 +86,7 @@ _ReportView _$ReportViewFromJson(
       ),
     ),
     isMuted: $checkedConvert('isMuted', (v) => v as bool?),
+    isAutomated: $checkedConvert('isAutomated', (v) => v as bool? ?? false),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -129,6 +130,7 @@ Map<String, dynamic> _$ReportViewToJson(
     const QueueViewConverter().toJson,
   ),
   'isMuted': ?instance.isMuted,
+  'isAutomated': instance.isAutomated,
   r'$unknown': ?instance.$unknown,
 };
 
