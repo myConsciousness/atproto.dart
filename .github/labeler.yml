@@ -32,6 +32,9 @@ atproto:
 bluesky_text:
 - changed-files:
   - any-glob-to-any-file: packages/bluesky_text/**
+bluesky_text_flutter:
+- changed-files:
+  - any-glob-to-any-file: packages/bluesky_text_flutter/**
 bluesky:
 - changed-files:
   - any-glob-to-any-file: packages/bluesky/**
