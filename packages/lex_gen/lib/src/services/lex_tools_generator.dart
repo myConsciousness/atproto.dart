@@ -13,6 +13,7 @@ import 'gen_context.dart';
 import 'object/at_uri_extension.dart';
 import 'object/repo_commit_handler.dart';
 import 'rule.dart';
+import 'services_common.dart';
 
 void generateLexTools(final GenContext ctx, final List<LexiconDoc> docs) {
   return _LexToolsGenerator(ctx, docs).execute();
@@ -41,25 +42,11 @@ final class _LexToolsGenerator {
     final recordLexiconIds = <String>[];
 
     for (final doc in docs) {
-      if (_isRecord(doc)) {
+      if (isRecordDoc(doc)) {
         recordLexiconIds.add(doc.id.toString());
       }
     }
 
     return recordLexiconIds;
-  }
-
-  bool _isRecord(final LexiconDoc doc) {
-    return _isDocA<ULexUserTypeRecord>(doc);
-  }
-
-  bool _isDocA<T>(final LexiconDoc doc) {
-    for (final def in doc.defs.entries) {
-      if (def.value is T) {
-        return true;
-      }
-    }
-
-    return false;
   }
 }
