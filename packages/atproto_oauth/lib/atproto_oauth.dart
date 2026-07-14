@@ -11,3 +11,7 @@ export 'package:atproto_oauth/src/types/server_metadata.dart';
 export 'package:atproto_oauth/src/types/session.dart';
 
 export 'package:atproto_oauth/src/helper/helper.dart' show getDPoPHeader;
+
+export 'package:atproto_oauth/src/stores/oauth_state_store.dart';
+export 'package:atproto_oauth/src/stores/oauth_session_store.dart';
+export 'package:atproto_oauth/src/stores/dpop_nonce_cache.dart';
