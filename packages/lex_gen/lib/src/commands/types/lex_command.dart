@@ -61,7 +61,8 @@ final class LexCommand {
   /// The shared top-of-file boilerplate (license/hint banner, the given
   /// [imports] block, then the generated-code header) prepended to every
   /// emitted command file.
-  String _fileHeader(final String imports) => '''$kHeaderHint
+  String _fileHeader(final String imports) =>
+      '''$kHeaderHint
 
 $imports
 
@@ -134,11 +135,13 @@ ${_getInputHelpers()}}
       bodyMember = 'Map<String, dynamic>? get body => null;';
       helpers = '';
     } else {
-      constructorBody = '''{
+      constructorBody =
+          '''{
     ${_getOpts()}
   }''';
       invocation = _getInvocation(serviceName, commandName);
-      bodyMember = '''Map<String, dynamic>? get body => {
+      bodyMember =
+          '''Map<String, dynamic>? get body => {
     ${_getParameters()}
   };''';
       helpers = _getInputHelpers();

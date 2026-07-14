@@ -26,130 +26,143 @@ void generateLexCommands(
   final result = <String, List<LexCommand>>{};
   for (final doc in docs) {
     for (final def in doc.defs.entries) {
-      if (def.value is ULexUserTypeXrpcQuery) {
-        final query = def.value.data as LexXrpcQuery;
-
-        _appendCommand(
-          result,
-          doc.id,
-          LexCommand(
-            doc.id,
-            query.description,
-            _getParameters(
-              query.parameters?.requiredProperties,
-              query.parameters?.properties,
-            ),
-            kind: LexCommandKind.query,
-          ),
-        );
-      } else if (def.value is ULexUserTypeXrpcProcedure) {
-        final procedure = def.value.data as LexXrpcProcedure;
-        final input = procedure.input;
-
-        if (input == null) {
-          // Procedures without input body, e.g. com.atproto.server
-          // .refreshSession.
-          _appendCommand(
-            result,
-            doc.id,
-            LexCommand(
-              doc.id,
-              procedure.description,
-              const [],
-              kind: LexCommandKind.procedure,
-            ),
-          );
-
-          continue;
-        }
-
-        if (input.encoding != 'application/json') {
-          // Procedures with binary input, e.g. com.atproto.repo.uploadBlob.
-          _appendCommand(
-            result,
-            doc.id,
-            LexCommand(
-              doc.id,
-              procedure.description,
-              const [],
-              encoding: input.encoding,
-              kind: LexCommandKind.blobProcedure,
-            ),
-          );
-
-          continue;
-        }
-
-        final object = input.schema?.whenOrNull(object: (data) => data);
-        if (object == null) {
-          // JSON procedures whose input schema is a ref or union,
-          // e.g. tools.ozone.set.upsertSet.
-          _appendCommand(
-            result,
-            doc.id,
-            LexCommand(
-              doc.id,
-              procedure.description,
-              const [],
-              kind: LexCommandKind.procedure,
-              isRawJsonBody: true,
-            ),
-          );
-
-          continue;
-        }
-
-        _appendCommand(
-          result,
-          doc.id,
-          LexCommand(
-            doc.id,
-            procedure.description,
-            _getParameters(object.requiredProperties, object.properties),
-            kind: LexCommandKind.procedure,
-          ),
-        );
-      } else if (def.value is ULexUserTypeXrpcSubscription) {
-      } else if (def.value is ULexUserTypeRecord) {
-        final record = def.value.data as LexRecord;
-        final object = record.record;
-
-        _appendCommand(
-          result,
-          doc.id,
-          LexCommand(
-            doc.id,
-            record.description,
-            _getParameters(object.requiredProperties, object.properties),
-            rkey: record.key,
-            kind: LexCommandKind.record,
-          ),
-        );
+      final command = _buildCommand(doc.id, def.value);
+      if (command != null) {
+        _appendCommand(result, doc.id, command);
       }
     }
   }
 
   final parentCommands = <LexParentCommand>[];
   for (final entry in result.entries) {
-    for (final command in entry.value) {
-      File(getAbsoluteFilePath(config, command.lexiconId.toString()))
-        ..createSync(recursive: true)
-        ..writeAsStringSync(command.format());
-    }
+    _writeChildCommands(config, entry.value);
 
     final parentCommand = LexParentCommand(entry.key, entry.value);
-    File(
-        getAbsoluteFilePathForParent(
-          config,
-          parentCommand.lexiconId.toString(),
-        ),
-      )
-      ..createSync(recursive: true)
-      ..writeAsStringSync(parentCommand.format());
+    _writeParentCommand(config, parentCommand);
 
     parentCommands.add(parentCommand);
   }
 
+  _writeRootCommand(config, parentCommands);
+}
+
+/// Builds the [LexCommand] for a single lexicon [def], or returns `null`
+/// when the def has no command surface (e.g. subscriptions).
+LexCommand? _buildCommand(final NSID lexiconId, final LexUserType def) {
+  if (def is ULexUserTypeXrpcQuery) {
+    final query = def.data;
+
+    return LexCommand(
+      lexiconId,
+      query.description,
+      _getParameters(
+        query.parameters?.requiredProperties,
+        query.parameters?.properties,
+      ),
+      kind: LexCommandKind.query,
+    );
+  }
+
+  if (def is ULexUserTypeXrpcProcedure) {
+    return _buildProcedureCommand(lexiconId, def.data);
+  }
+
+  if (def is ULexUserTypeXrpcSubscription) {
+    // Subscriptions expose no CLI command, so they are intentionally skipped.
+    return null;
+  }
+
+  if (def is ULexUserTypeRecord) {
+    final record = def.data;
+    final object = record.record;
+
+    return LexCommand(
+      lexiconId,
+      record.description,
+      _getParameters(object.requiredProperties, object.properties),
+      rkey: record.key,
+      kind: LexCommandKind.record,
+    );
+  }
+
+  return null;
+}
+
+/// Classifies an XRPC procedure by its input schema into one of the four
+/// command shapes: no input body, binary (blob) input, raw-JSON body, or a
+/// structured object body.
+LexCommand _buildProcedureCommand(
+  final NSID lexiconId,
+  final LexXrpcProcedure procedure,
+) {
+  final input = procedure.input;
+
+  if (input == null) {
+    // Procedures without input body, e.g. com.atproto.server.refreshSession.
+    return LexCommand(
+      lexiconId,
+      procedure.description,
+      const [],
+      kind: LexCommandKind.procedure,
+    );
+  }
+
+  if (input.encoding != 'application/json') {
+    // Procedures with binary input, e.g. com.atproto.repo.uploadBlob.
+    return LexCommand(
+      lexiconId,
+      procedure.description,
+      const [],
+      encoding: input.encoding,
+      kind: LexCommandKind.blobProcedure,
+    );
+  }
+
+  final object = input.schema?.whenOrNull(object: (data) => data);
+  if (object == null) {
+    // JSON procedures whose input schema is a ref or union,
+    // e.g. tools.ozone.set.upsertSet.
+    return LexCommand(
+      lexiconId,
+      procedure.description,
+      const [],
+      kind: LexCommandKind.procedure,
+      isRawJsonBody: true,
+    );
+  }
+
+  return LexCommand(
+    lexiconId,
+    procedure.description,
+    _getParameters(object.requiredProperties, object.properties),
+    kind: LexCommandKind.procedure,
+  );
+}
+
+void _writeChildCommands(
+  final LexCommandRuleConfig config,
+  final List<LexCommand> commands,
+) {
+  for (final command in commands) {
+    File(getAbsoluteFilePath(config, command.lexiconId.toString()))
+      ..createSync(recursive: true)
+      ..writeAsStringSync(command.format());
+  }
+}
+
+void _writeParentCommand(
+  final LexCommandRuleConfig config,
+  final LexParentCommand parentCommand,
+) {
+  File(getAbsoluteFilePathForParent(config, parentCommand.lexiconId.toString()))
+    ..createSync(recursive: true)
+    ..writeAsStringSync(parentCommand.format());
+}
+
+void _writeRootCommand(
+  final LexCommandRuleConfig config,
+  final List<LexParentCommand> parentCommands,
+) {
   final rootCommand = LexRootCommand(parentCommands);
   File('${config.homeDir}/lex_commands.dart')
     ..createSync(recursive: true)
