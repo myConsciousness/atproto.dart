@@ -9,6 +9,30 @@
 
 ---
 
+## 0. 実装結果（as-built・2026-07-15 完了）
+
+ブランチ `refactor/lex-gen-structural`。全 Theme を10ワークストリームに分解し、隔離 git worktree の並列エージェントで実装。各ワークストリームは Tier A（出力不変）+ analyze + 70テストを合格制約に自己検証し、integration worktree へ順次マージ。
+
+| ワークストリーム | 対象 | 状態 |
+|---|---|---|
+| S1 | `object/lex_service.dart` 648→618 | ✅ record accessors/function-method対 統合 |
+| S2 | `object/repo_commit_handler.dart` 407→378 | ✅ 定数DTO退避・create/update統合 |
+| S4 | `fmt/lex_property_generator.dart` | ✅ array重複解消・単一RefVariant |
+| C1 | `commands/types/lex_command.dart` 652→611 | ✅ preamble/ヘッダ抽出・kind分割 |
+| B1 | freezed 4モデル + `FreezedModel` 基底 | ✅ 共通フィールド/validate集約 |
+| B2 | services orchestrator（`is`ラダー→switch, `services_common.dart` 新設で dedup） | ✅ |
+| B3 | `services/rule.dart` パスヘルパ内部dedup | ✅ 保守的 |
+| B4 | commands dispatch平坦化 + parent/root import dedup | ✅ |
+| C-theme1 | 拡張getterエミッタ集約 + known_values elements helper | ✅ 部分（分岐する変種は据置） |
+| C-theme5 | `LexParameter`→`LexCliParameter` 衝突リネーム | ✅ |
+
+**最終検証**: Tier A PASS / analyze クリーン / 70テスト / **Tier B PASS（フルパイプライン→空 git diff、出力バイト一致を決定的に立証）**。lib 22ファイル・純減 −51行、重複は `services_common.dart` と `FreezedModel` 基底に集約。
+
+### 得られた教訓（重要・ハーネスに反映済）
+Tier A（gen→dart format→diff）は生成**出力**の不変は担保するが、**lex_gen 自身のソースが `melos fmt`(import_sorter) を生き延びるか**は検証しない。C1 の record-command emitter が `import 'dart:convert';'''`（import 行が三重引用の閉じ `'''` に密着する形）を生み、import_sorter がこれを誤ってトップへ hoist してファイルを破壊した（生成出力は不変・analyze/testは合格のため10エージェント全員が見逃した）。Tier B で捕捉→ソースを内容不変のまま import_sorter 安全に修正。ハーネスに **`srccheck`**（lex_gen ソースに import_sorter+analyze をかけ安定性を確認）を追加し、per-change でこのクラスの退行を検出できるようにした。
+
+---
+
 ## 1. 現状アーキテクチャ（維持する骨格）
 
 `lex_gen` は 2 つの独立した生成ワールドを持ち、各ワールドが 3 層のパイプラインで構成される。

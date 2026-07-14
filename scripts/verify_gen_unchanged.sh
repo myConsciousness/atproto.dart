@@ -14,8 +14,13 @@
 #   full      Tier B (ground truth, minutes): run the real codegen pipeline
 #             (gen_codes -> build_runner -> dart fix -> melos fmt) and assert
 #             `git diff --exit-code` on the 3 codegen dirs is empty.
+#   srccheck  Guards the lex_gen SOURCE itself (not the generated output): runs
+#             import_sorter + `dart analyze` on packages/lex_gen and asserts they
+#             leave it clean, then restores. Catches emitter templates whose
+#             `import '...';'''` shape import_sorter mis-hoists (which `check`
+#             cannot see, since it only compares generated output).
 #
-# Usage: scripts/verify_gen_unchanged.sh {baseline|check|full}
+# Usage: scripts/verify_gen_unchanged.sh {baseline|check|full|srccheck}
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -91,9 +96,33 @@ cmd_full() {
   fi
 }
 
+cmd_srccheck() {
+  echo ">> srccheck: import_sorter + analyze on lex_gen source"
+  (cd packages/lex_gen && dart run import_sorter:main >/dev/null 2>&1)
+  local rc=0
+  if ! git diff --quiet --exit-code -- packages/lex_gen; then
+    echo "!! import_sorter changed lex_gen source (not at fmt fixed-point):" >&2
+    git diff --stat -- packages/lex_gen >&2
+    rc=1
+  fi
+  if ! dart analyze packages/lex_gen >/tmp/lex_gen_srccheck_analyze.txt 2>&1; then
+    echo "!! dart analyze failed on lex_gen source (import_sorter likely corrupted a template):" >&2
+    tail -20 /tmp/lex_gen_srccheck_analyze.txt >&2
+    rc=1
+  fi
+  git checkout -- packages/lex_gen
+  if [[ $rc -eq 0 ]]; then
+    echo ">> srccheck PASS: lex_gen source is import_sorter-stable and analyzes clean"
+  else
+    echo ">> srccheck FAIL" >&2
+  fi
+  return $rc
+}
+
 case "${1:-}" in
   baseline) cmd_baseline ;;
   check)    cmd_check ;;
   full)     cmd_full ;;
-  *) echo "usage: $0 {baseline|check|full}" >&2; exit 64 ;;
+  srccheck) cmd_srccheck ;;
+  *) echo "usage: $0 {baseline|check|full|srccheck}" >&2; exit 64 ;;
 esac
