@@ -17,7 +17,13 @@ void main() {
       NSID('app.bsky.feed.post'),
       'A declaration of a post.',
       [
-        LexCliParameter('text', 'The primary text.', true, null, type: 'string'),
+        LexCliParameter(
+          'text',
+          'The primary text.',
+          true,
+          null,
+          type: 'string',
+        ),
         LexCliParameter(
           'facets',
           null,

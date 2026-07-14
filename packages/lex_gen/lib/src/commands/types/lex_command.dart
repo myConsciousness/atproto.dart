@@ -235,7 +235,12 @@ $contentTypeOverride}
 
     final rkeyOverride = _getReferenceKeyOverride();
 
-    const imports = '''
+    // NOTE: the closing `'''` is kept on its own line and the trailing
+    // `import 'dart:convert';` is a concatenated literal so that no source line
+    // reads `import '...';'''` — import_sorter mis-hoists that shape out of the
+    // template. The emitted string content is unchanged.
+    const imports =
+        '''
 import 'dart:async';
 
 import 'package:args/command_runner.dart';
@@ -245,7 +250,8 @@ import '../../../../create_record_command.dart';
 import '../../../../put_record_command.dart';
 import '../../../../delete_record_command.dart';
 
-import 'dart:convert';''';
+'''
+        "import 'dart:convert';";
 
     return '''${_fileHeader(imports)}
 
