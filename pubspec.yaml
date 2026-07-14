@@ -81,6 +81,32 @@ melos:
         git push origin --tags
       description: Publish all packages, create git tags and push them to origin.
 
+    # Flutter packages live outside the Dart pub workspace, so `melos` (and
+    # therefore `publish_all`) does not manage them. Release them explicitly.
+    flutter_publish_dry:
+      run: |
+        cd packages/bluesky_text_flutter
+        flutter pub publish --dry-run
+      description: Dry-run publish the Flutter package (bluesky_text_flutter).
+
+    flutter_publish:
+      run: |
+        cd packages/bluesky_text_flutter
+        flutter pub publish
+      description: >-
+        Publish the Flutter package (bluesky_text_flutter) to pub.dev. Run
+        `flutter_publish_dry` first; append `--force` to skip the prompt.
+
+    flutter_tag:
+      run: |
+        cd packages/bluesky_text_flutter
+        version=$(grep '^version:' pubspec.yaml | awk '{print $2}')
+        git tag "bluesky_text_flutter-v$version"
+        git push origin "bluesky_text_flutter-v$version"
+      description: >-
+        Tag and push the Flutter package release
+        (bluesky_text_flutter-vX.Y.Z), matching melos' tag format.
+
     gen:
       run: |
         dart run ./scripts/gen_lexicon_docs.dart
