@@ -1,0 +1,23 @@
+name: bluesky_text_flutter_example
+description: Example app for bluesky_text_flutter.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bluesky_text_flutter:
+    path: ../
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
