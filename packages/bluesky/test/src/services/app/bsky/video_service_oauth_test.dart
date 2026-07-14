@@ -8,14 +8,15 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_core/atproto_oauth.dart';
 import 'package:atproto_oauth/src/helper/helper.dart' show getKeyPair;
-import 'package:atproto_oauth/src/helper/private_key.dart'
-    show encodePrivateKey;
 import 'package:atproto_oauth/src/helper/public_key.dart' show encodePublicKey;
 import 'package:http/http.dart' as http;
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/services/app/bsky/video_service.dart';
+
+import 'package:atproto_oauth/src/helper/private_key.dart'
+    show encodePrivateKey;
 
 /// Builds an [OAuthSession] with a freshly generated DPoP key pair.
 ///

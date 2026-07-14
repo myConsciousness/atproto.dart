@@ -204,6 +204,7 @@ Information about the moderator currently assigned to a report.
 | **assignment** | [#reportAssignment](#reportassignment) | - | ❌ | - |
 | **queue** | [tools.ozone.queue.defs#queueView](../../../../lexicons/tools/ozone/queue/defs.md#queueview) | - | ❌ | - |
 | **isMuted** | boolean | - | ❌ | Whether this report is muted. A report is muted if the reporter was muted or the subject was muted at the time the report was created. |
+| **isAutomated** | boolean | - | ❌ | Whether this report was emitted by automated tooling. |
 
 ## #queueActivity
 

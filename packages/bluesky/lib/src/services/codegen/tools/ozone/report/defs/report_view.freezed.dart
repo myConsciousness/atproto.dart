@@ -32,7 +32,8 @@ mixin _$ReportView {
  int? get relatedReportCount;/// Information about moderator currently assigned to this report (if any)
 @ReportAssignmentConverter() ReportAssignment? get assignment;/// The queue this report is assigned to (if any)
 @QueueViewConverter() QueueView? get queue;/// Whether this report is muted. A report is muted if the reporter was muted or the subject was muted at the time the report was created.
- bool? get isMuted; Map<String, dynamic>? get $unknown;
+ bool? get isMuted;/// Whether this report was emitted by automated tooling.
+ bool get isAutomated; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,16 +46,16 @@ $ReportViewCopyWith<ReportView> get copyWith => _$ReportViewCopyWithImpl<ReportV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.status, status) || other.status == status)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&(identical(other.reportedBy, reportedBy) || other.reportedBy == reportedBy)&&(identical(other.reporter, reporter) || other.reporter == reporter)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.queuedAt, queuedAt) || other.queuedAt == queuedAt)&&const DeepCollectionEquality().equals(other.actionEventIds, actionEventIds)&&const DeepCollectionEquality().equals(other.actions, actions)&&(identical(other.actionNote, actionNote) || other.actionNote == actionNote)&&(identical(other.subjectStatus, subjectStatus) || other.subjectStatus == subjectStatus)&&(identical(other.relatedReportCount, relatedReportCount) || other.relatedReportCount == relatedReportCount)&&(identical(other.assignment, assignment) || other.assignment == assignment)&&(identical(other.queue, queue) || other.queue == queue)&&(identical(other.isMuted, isMuted) || other.isMuted == isMuted)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.status, status) || other.status == status)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&(identical(other.reportedBy, reportedBy) || other.reportedBy == reportedBy)&&(identical(other.reporter, reporter) || other.reporter == reporter)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.queuedAt, queuedAt) || other.queuedAt == queuedAt)&&const DeepCollectionEquality().equals(other.actionEventIds, actionEventIds)&&const DeepCollectionEquality().equals(other.actions, actions)&&(identical(other.actionNote, actionNote) || other.actionNote == actionNote)&&(identical(other.subjectStatus, subjectStatus) || other.subjectStatus == subjectStatus)&&(identical(other.relatedReportCount, relatedReportCount) || other.relatedReportCount == relatedReportCount)&&(identical(other.assignment, assignment) || other.assignment == assignment)&&(identical(other.queue, queue) || other.queue == queue)&&(identical(other.isMuted, isMuted) || other.isMuted == isMuted)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,$type,id,eventId,status,subject,reportType,reportedBy,reporter,comment,createdAt,updatedAt,queuedAt,const DeepCollectionEquality().hash(actionEventIds),const DeepCollectionEquality().hash(actions),actionNote,subjectStatus,relatedReportCount,assignment,queue,isMuted,const DeepCollectionEquality().hash($unknown)]);
+int get hashCode => Object.hashAll([runtimeType,$type,id,eventId,status,subject,reportType,reportedBy,reporter,comment,createdAt,updatedAt,queuedAt,const DeepCollectionEquality().hash(actionEventIds),const DeepCollectionEquality().hash(actions),actionNote,subjectStatus,relatedReportCount,assignment,queue,isMuted,isAutomated,const DeepCollectionEquality().hash($unknown)]);
 
 @override
 String toString() {
-  return 'ReportView(\$type: ${$type}, id: $id, eventId: $eventId, status: $status, subject: $subject, reportType: $reportType, reportedBy: $reportedBy, reporter: $reporter, comment: $comment, createdAt: $createdAt, updatedAt: $updatedAt, queuedAt: $queuedAt, actionEventIds: $actionEventIds, actions: $actions, actionNote: $actionNote, subjectStatus: $subjectStatus, relatedReportCount: $relatedReportCount, assignment: $assignment, queue: $queue, isMuted: $isMuted, \$unknown: ${$unknown})';
+  return 'ReportView(\$type: ${$type}, id: $id, eventId: $eventId, status: $status, subject: $subject, reportType: $reportType, reportedBy: $reportedBy, reporter: $reporter, comment: $comment, createdAt: $createdAt, updatedAt: $updatedAt, queuedAt: $queuedAt, actionEventIds: $actionEventIds, actions: $actions, actionNote: $actionNote, subjectStatus: $subjectStatus, relatedReportCount: $relatedReportCount, assignment: $assignment, queue: $queue, isMuted: $isMuted, isAutomated: $isAutomated, \$unknown: ${$unknown})';
 }
 
 
@@ -65,7 +66,7 @@ abstract mixin class $ReportViewCopyWith<$Res>  {
   factory $ReportViewCopyWith(ReportView value, $Res Function(ReportView) _then) = _$ReportViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, Map<String, dynamic>? $unknown
+ String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, bool isAutomated, Map<String, dynamic>? $unknown
 });
 
 
@@ -82,7 +83,7 @@ class _$ReportViewCopyWithImpl<$Res>
 
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? eventId = null,Object? status = null,Object? subject = null,Object? reportType = null,Object? reportedBy = null,Object? reporter = null,Object? comment = freezed,Object? createdAt = null,Object? updatedAt = freezed,Object? queuedAt = freezed,Object? actionEventIds = freezed,Object? actions = freezed,Object? actionNote = freezed,Object? subjectStatus = freezed,Object? relatedReportCount = freezed,Object? assignment = freezed,Object? queue = freezed,Object? isMuted = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? eventId = null,Object? status = null,Object? subject = null,Object? reportType = null,Object? reportedBy = null,Object? reporter = null,Object? comment = freezed,Object? createdAt = null,Object? updatedAt = freezed,Object? queuedAt = freezed,Object? actionEventIds = freezed,Object? actions = freezed,Object? actionNote = freezed,Object? subjectStatus = freezed,Object? relatedReportCount = freezed,Object? assignment = freezed,Object? queue = freezed,Object? isMuted = freezed,Object? isAutomated = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -104,7 +105,8 @@ as SubjectStatusView?,relatedReportCount: freezed == relatedReportCount ? _self.
 as int?,assignment: freezed == assignment ? _self.assignment : assignment // ignore: cast_nullable_to_non_nullable
 as ReportAssignment?,queue: freezed == queue ? _self.queue : queue // ignore: cast_nullable_to_non_nullable
 as QueueView?,isMuted: freezed == isMuted ? _self.isMuted : isMuted // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as bool?,isAutomated: null == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -262,10 +264,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  bool isAutomated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportView() when $default != null:
-return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.isAutomated,_that.$unknown);case _:
   return orElse();
 
 }
@@ -283,10 +285,10 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  bool isAutomated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportView():
-return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.isAutomated,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -303,10 +305,10 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  int eventId, @ReportViewStatusConverter()  ReportViewStatus status, @SubjectViewConverter()  SubjectView subject, @ReasonTypeConverter()  ReasonType reportType,  String reportedBy, @SubjectViewConverter()  SubjectView reporter,  String? comment, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @JsonKey(toJson: iso8601)  DateTime? queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions,  String? actionNote, @SubjectStatusViewConverter()  SubjectStatusView? subjectStatus,  int? relatedReportCount, @ReportAssignmentConverter()  ReportAssignment? assignment, @QueueViewConverter()  QueueView? queue,  bool? isMuted,  bool isAutomated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportView() when $default != null:
-return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_that.reportType,_that.reportedBy,_that.reporter,_that.comment,_that.createdAt,_that.updatedAt,_that.queuedAt,_that.actionEventIds,_that.actions,_that.actionNote,_that.subjectStatus,_that.relatedReportCount,_that.assignment,_that.queue,_that.isMuted,_that.isAutomated,_that.$unknown);case _:
   return null;
 
 }
@@ -318,7 +320,7 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 
 @JsonSerializable(includeIfNull: false)
 class _ReportView implements ReportView {
-  const _ReportView({this.$type = 'tools.ozone.report.defs#reportView', required this.id, required this.eventId, @ReportViewStatusConverter() required this.status, @SubjectViewConverter() required this.subject, @ReasonTypeConverter() required this.reportType, required this.reportedBy, @SubjectViewConverter() required this.reporter, this.comment, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.queuedAt, final  List<int>? actionEventIds, @ModEventViewConverter() final  List<ModEventView>? actions, this.actionNote, @SubjectStatusViewConverter() this.subjectStatus, this.relatedReportCount, @ReportAssignmentConverter() this.assignment, @QueueViewConverter() this.queue, this.isMuted, final  Map<String, dynamic>? $unknown}): _actionEventIds = actionEventIds,_actions = actions,_$unknown = $unknown;
+  const _ReportView({this.$type = 'tools.ozone.report.defs#reportView', required this.id, required this.eventId, @ReportViewStatusConverter() required this.status, @SubjectViewConverter() required this.subject, @ReasonTypeConverter() required this.reportType, required this.reportedBy, @SubjectViewConverter() required this.reporter, this.comment, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.queuedAt, final  List<int>? actionEventIds, @ModEventViewConverter() final  List<ModEventView>? actions, this.actionNote, @SubjectStatusViewConverter() this.subjectStatus, this.relatedReportCount, @ReportAssignmentConverter() this.assignment, @QueueViewConverter() this.queue, this.isMuted, this.isAutomated = false, final  Map<String, dynamic>? $unknown}): _actionEventIds = actionEventIds,_actions = actions,_$unknown = $unknown;
   factory _ReportView.fromJson(Map<String, dynamic> json) => _$ReportViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -374,6 +376,8 @@ class _ReportView implements ReportView {
 @override@QueueViewConverter() final  QueueView? queue;
 /// Whether this report is muted. A report is muted if the reporter was muted or the subject was muted at the time the report was created.
 @override final  bool? isMuted;
+/// Whether this report was emitted by automated tooling.
+@override@JsonKey() final  bool isAutomated;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -397,16 +401,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.status, status) || other.status == status)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&(identical(other.reportedBy, reportedBy) || other.reportedBy == reportedBy)&&(identical(other.reporter, reporter) || other.reporter == reporter)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.queuedAt, queuedAt) || other.queuedAt == queuedAt)&&const DeepCollectionEquality().equals(other._actionEventIds, _actionEventIds)&&const DeepCollectionEquality().equals(other._actions, _actions)&&(identical(other.actionNote, actionNote) || other.actionNote == actionNote)&&(identical(other.subjectStatus, subjectStatus) || other.subjectStatus == subjectStatus)&&(identical(other.relatedReportCount, relatedReportCount) || other.relatedReportCount == relatedReportCount)&&(identical(other.assignment, assignment) || other.assignment == assignment)&&(identical(other.queue, queue) || other.queue == queue)&&(identical(other.isMuted, isMuted) || other.isMuted == isMuted)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.status, status) || other.status == status)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&(identical(other.reportedBy, reportedBy) || other.reportedBy == reportedBy)&&(identical(other.reporter, reporter) || other.reporter == reporter)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.queuedAt, queuedAt) || other.queuedAt == queuedAt)&&const DeepCollectionEquality().equals(other._actionEventIds, _actionEventIds)&&const DeepCollectionEquality().equals(other._actions, _actions)&&(identical(other.actionNote, actionNote) || other.actionNote == actionNote)&&(identical(other.subjectStatus, subjectStatus) || other.subjectStatus == subjectStatus)&&(identical(other.relatedReportCount, relatedReportCount) || other.relatedReportCount == relatedReportCount)&&(identical(other.assignment, assignment) || other.assignment == assignment)&&(identical(other.queue, queue) || other.queue == queue)&&(identical(other.isMuted, isMuted) || other.isMuted == isMuted)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,$type,id,eventId,status,subject,reportType,reportedBy,reporter,comment,createdAt,updatedAt,queuedAt,const DeepCollectionEquality().hash(_actionEventIds),const DeepCollectionEquality().hash(_actions),actionNote,subjectStatus,relatedReportCount,assignment,queue,isMuted,const DeepCollectionEquality().hash(_$unknown)]);
+int get hashCode => Object.hashAll([runtimeType,$type,id,eventId,status,subject,reportType,reportedBy,reporter,comment,createdAt,updatedAt,queuedAt,const DeepCollectionEquality().hash(_actionEventIds),const DeepCollectionEquality().hash(_actions),actionNote,subjectStatus,relatedReportCount,assignment,queue,isMuted,isAutomated,const DeepCollectionEquality().hash(_$unknown)]);
 
 @override
 String toString() {
-  return 'ReportView(\$type: ${$type}, id: $id, eventId: $eventId, status: $status, subject: $subject, reportType: $reportType, reportedBy: $reportedBy, reporter: $reporter, comment: $comment, createdAt: $createdAt, updatedAt: $updatedAt, queuedAt: $queuedAt, actionEventIds: $actionEventIds, actions: $actions, actionNote: $actionNote, subjectStatus: $subjectStatus, relatedReportCount: $relatedReportCount, assignment: $assignment, queue: $queue, isMuted: $isMuted, \$unknown: ${$unknown})';
+  return 'ReportView(\$type: ${$type}, id: $id, eventId: $eventId, status: $status, subject: $subject, reportType: $reportType, reportedBy: $reportedBy, reporter: $reporter, comment: $comment, createdAt: $createdAt, updatedAt: $updatedAt, queuedAt: $queuedAt, actionEventIds: $actionEventIds, actions: $actions, actionNote: $actionNote, subjectStatus: $subjectStatus, relatedReportCount: $relatedReportCount, assignment: $assignment, queue: $queue, isMuted: $isMuted, isAutomated: $isAutomated, \$unknown: ${$unknown})';
 }
 
 
@@ -417,7 +421,7 @@ abstract mixin class _$ReportViewCopyWith<$Res> implements $ReportViewCopyWith<$
   factory _$ReportViewCopyWith(_ReportView value, $Res Function(_ReportView) _then) = __$ReportViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, Map<String, dynamic>? $unknown
+ String $type, int id, int eventId,@ReportViewStatusConverter() ReportViewStatus status,@SubjectViewConverter() SubjectView subject,@ReasonTypeConverter() ReasonType reportType, String reportedBy,@SubjectViewConverter() SubjectView reporter, String? comment,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@JsonKey(toJson: iso8601) DateTime? queuedAt, List<int>? actionEventIds,@ModEventViewConverter() List<ModEventView>? actions, String? actionNote,@SubjectStatusViewConverter() SubjectStatusView? subjectStatus, int? relatedReportCount,@ReportAssignmentConverter() ReportAssignment? assignment,@QueueViewConverter() QueueView? queue, bool? isMuted, bool isAutomated, Map<String, dynamic>? $unknown
 });
 
 
@@ -434,7 +438,7 @@ class __$ReportViewCopyWithImpl<$Res>
 
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? eventId = null,Object? status = null,Object? subject = null,Object? reportType = null,Object? reportedBy = null,Object? reporter = null,Object? comment = freezed,Object? createdAt = null,Object? updatedAt = freezed,Object? queuedAt = freezed,Object? actionEventIds = freezed,Object? actions = freezed,Object? actionNote = freezed,Object? subjectStatus = freezed,Object? relatedReportCount = freezed,Object? assignment = freezed,Object? queue = freezed,Object? isMuted = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? eventId = null,Object? status = null,Object? subject = null,Object? reportType = null,Object? reportedBy = null,Object? reporter = null,Object? comment = freezed,Object? createdAt = null,Object? updatedAt = freezed,Object? queuedAt = freezed,Object? actionEventIds = freezed,Object? actions = freezed,Object? actionNote = freezed,Object? subjectStatus = freezed,Object? relatedReportCount = freezed,Object? assignment = freezed,Object? queue = freezed,Object? isMuted = freezed,Object? isAutomated = null,Object? $unknown = freezed,}) {
   return _then(_ReportView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -456,7 +460,8 @@ as SubjectStatusView?,relatedReportCount: freezed == relatedReportCount ? _self.
 as int?,assignment: freezed == assignment ? _self.assignment : assignment // ignore: cast_nullable_to_non_nullable
 as ReportAssignment?,queue: freezed == queue ? _self.queue : queue // ignore: cast_nullable_to_non_nullable
 as QueueView?,isMuted: freezed == isMuted ? _self.isMuted : isMuted // ignore: cast_nullable_to_non_nullable
-as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as bool?,isAutomated: null == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

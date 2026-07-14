@@ -17,8 +17,8 @@ mixin _$QueueView {
 
  String get $type;/// Queue ID
  int get id;/// Display name of the queue
- String get name;@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes> get subjectTypes;/// Collection name for record subjects (e.g., 'app.bsky.feed.post')
- String? get collection; List<String> get reportTypes;/// Optional description of the queue
+ String get name;@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? get subjectTypes;/// Collection name for record subjects (e.g., 'app.bsky.feed.post')
+ String? get collection; List<String>? get reportTypes;/// Optional description of the queue
  String? get description;/// DID of moderator who created this queue
  String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt;/// Whether this queue is currently active
  bool get enabled;/// When the queue was deleted, if applicable
@@ -56,7 +56,7 @@ abstract mixin class $QueueViewCopyWith<$Res>  {
   factory $QueueViewCopyWith(QueueView value, $Res Function(QueueView) _then) = _$QueueViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes> subjectTypes, String? collection, List<String> reportTypes, String? description, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
+ String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, String? description, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
 });
 
 
@@ -73,15 +73,15 @@ class _$QueueViewCopyWithImpl<$Res>
 
 /// Create a copy of QueueView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = null,Object? collection = freezed,Object? reportTypes = null,Object? description = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,subjectTypes: null == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
-as List<QueueViewSubjectTypes>,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
-as String?,reportTypes: null == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,subjectTypes: freezed == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
+as List<QueueViewSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
+as String?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes> subjectTypes,  String? collection,  List<String> reportTypes,  String? description,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _QueueView() when $default != null:
 return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
@@ -204,7 +204,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collect
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes> subjectTypes,  String? collection,  List<String> reportTypes,  String? description,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _QueueView():
 return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
@@ -224,7 +224,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collect
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes> subjectTypes,  String? collection,  List<String> reportTypes,  String? description,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _QueueView() when $default != null:
 return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
@@ -239,7 +239,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collect
 
 @JsonSerializable(includeIfNull: false)
 class _QueueView implements QueueView {
-  const _QueueView({this.$type = 'tools.ozone.queue.defs#queueView', required this.id, required this.name, @QueueViewSubjectTypesConverter() required final  List<QueueViewSubjectTypes> subjectTypes, this.collection, required final  List<String> reportTypes, this.description, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, required this.enabled, @JsonKey(toJson: iso8601) this.deletedAt, @QueueStatsConverter() required this.stats, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_$unknown = $unknown;
+  const _QueueView({this.$type = 'tools.ozone.queue.defs#queueView', required this.id, required this.name, @QueueViewSubjectTypesConverter() final  List<QueueViewSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, this.description, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, required this.enabled, @JsonKey(toJson: iso8601) this.deletedAt, @QueueStatsConverter() required this.stats, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_$unknown = $unknown;
   factory _QueueView.fromJson(Map<String, dynamic> json) => _$QueueViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -247,20 +247,24 @@ class _QueueView implements QueueView {
 @override final  int id;
 /// Display name of the queue
 @override final  String name;
- final  List<QueueViewSubjectTypes> _subjectTypes;
-@override@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes> get subjectTypes {
+ final  List<QueueViewSubjectTypes>? _subjectTypes;
+@override@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? get subjectTypes {
+  final value = _subjectTypes;
+  if (value == null) return null;
   if (_subjectTypes is EqualUnmodifiableListView) return _subjectTypes;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_subjectTypes);
+  return EqualUnmodifiableListView(value);
 }
 
 /// Collection name for record subjects (e.g., 'app.bsky.feed.post')
 @override final  String? collection;
- final  List<String> _reportTypes;
-@override List<String> get reportTypes {
+ final  List<String>? _reportTypes;
+@override List<String>? get reportTypes {
+  final value = _reportTypes;
+  if (value == null) return null;
   if (_reportTypes is EqualUnmodifiableListView) return _reportTypes;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_reportTypes);
+  return EqualUnmodifiableListView(value);
 }
 
 /// Optional description of the queue
@@ -318,7 +322,7 @@ abstract mixin class _$QueueViewCopyWith<$Res> implements $QueueViewCopyWith<$Re
   factory _$QueueViewCopyWith(_QueueView value, $Res Function(_QueueView) _then) = __$QueueViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes> subjectTypes, String? collection, List<String> reportTypes, String? description, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
+ String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, String? description, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
 });
 
 
@@ -335,15 +339,15 @@ class __$QueueViewCopyWithImpl<$Res>
 
 /// Create a copy of QueueView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = null,Object? collection = freezed,Object? reportTypes = null,Object? description = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
   return _then(_QueueView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,subjectTypes: null == subjectTypes ? _self._subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
-as List<QueueViewSubjectTypes>,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
-as String?,reportTypes: null == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,subjectTypes: freezed == subjectTypes ? _self._subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
+as List<QueueViewSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
+as String?,reportTypes: freezed == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable

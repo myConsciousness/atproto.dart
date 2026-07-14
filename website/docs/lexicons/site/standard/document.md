@@ -19,16 +19,16 @@ description: site.standard.document
 
 A document record representing a published article, blog post, or other content. Documents can belong to a publication or exist independently.
 
-Use [com.atproto.repo.createRecord](../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
+Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **bskyPostRef** | [com.atproto.repo.strongRef](../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **bskyPostRef** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
 | **content** | union of <br/> | - | ❌ | - |
 | **contributors** | array of [#contributor](#contributor) | - | ❌ | - |
 | **coverImage** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | Image to used for thumbnail or cover image. Less than 1MB is size. |
 | **description** | string | - | ❌ | A brief description or excerpt from the document. |
-| **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
+| **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **links** | union of <br/> | - | ❌ | - |
 | **path** | string | - | ❌ | Combine with site or publication url to construct a canonical URL to the document. Prepend with a leading slash. |
 | **publishedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp of the documents publish time. |
@@ -42,4 +42,4 @@ Use [com.atproto.repo.createRecord](../../../lexicons/com/atproto/repo/createRec
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| ref | [com.atproto.repo.strongRef](../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
+| ref | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |

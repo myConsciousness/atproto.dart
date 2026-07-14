@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$QueueCreateQueueInput {
 
 /// Display name for the queue (must be unique)
- String get name;@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes> get subjectTypes;/// Collection name for record subjects. Required if subjectTypes includes 'record'.
- String? get collection; List<String> get reportTypes;/// Optional description of the queue
+ String get name;@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? get subjectTypes;/// Collection name for record subjects. Required if subjectTypes includes 'record'.
+ String? get collection; List<String>? get reportTypes;/// Optional description of the queue
  String? get description; Map<String, dynamic>? get $unknown;
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
@@ -51,7 +51,7 @@ abstract mixin class $QueueCreateQueueInputCopyWith<$Res>  {
   factory $QueueCreateQueueInputCopyWith(QueueCreateQueueInput value, $Res Function(QueueCreateQueueInput) _then) = _$QueueCreateQueueInputCopyWithImpl;
 @useResult
 $Res call({
- String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes> subjectTypes, String? collection, List<String> reportTypes, String? description, Map<String, dynamic>? $unknown
+ String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, String? description, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,13 +68,13 @@ class _$QueueCreateQueueInputCopyWithImpl<$Res>
 
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? subjectTypes = null,Object? collection = freezed,Object? reportTypes = null,Object? description = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,subjectTypes: null == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
-as List<QueueCreateQueueSubjectTypes>,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
-as String?,reportTypes: null == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,subjectTypes: freezed == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
+as List<QueueCreateQueueSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
+as String?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes> subjectTypes,  String? collection,  List<String> reportTypes,  String? description,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _QueueCreateQueueInput() when $default != null:
 return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.$unknown);case _:
@@ -182,7 +182,7 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes> subjectTypes,  String? collection,  List<String> reportTypes,  String? description,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _QueueCreateQueueInput():
 return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.$unknown);case _:
@@ -202,7 +202,7 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes> subjectTypes,  String? collection,  List<String> reportTypes,  String? description,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _QueueCreateQueueInput() when $default != null:
 return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.$unknown);case _:
@@ -217,25 +217,29 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 
 @JsonSerializable(includeIfNull: false)
 class _QueueCreateQueueInput implements QueueCreateQueueInput {
-  const _QueueCreateQueueInput({required this.name, @QueueCreateQueueSubjectTypesConverter() required final  List<QueueCreateQueueSubjectTypes> subjectTypes, this.collection, required final  List<String> reportTypes, this.description, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_$unknown = $unknown;
+  const _QueueCreateQueueInput({required this.name, @QueueCreateQueueSubjectTypesConverter() final  List<QueueCreateQueueSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, this.description, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_$unknown = $unknown;
   factory _QueueCreateQueueInput.fromJson(Map<String, dynamic> json) => _$QueueCreateQueueInputFromJson(json);
 
 /// Display name for the queue (must be unique)
 @override final  String name;
- final  List<QueueCreateQueueSubjectTypes> _subjectTypes;
-@override@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes> get subjectTypes {
+ final  List<QueueCreateQueueSubjectTypes>? _subjectTypes;
+@override@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? get subjectTypes {
+  final value = _subjectTypes;
+  if (value == null) return null;
   if (_subjectTypes is EqualUnmodifiableListView) return _subjectTypes;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_subjectTypes);
+  return EqualUnmodifiableListView(value);
 }
 
 /// Collection name for record subjects. Required if subjectTypes includes 'record'.
 @override final  String? collection;
- final  List<String> _reportTypes;
-@override List<String> get reportTypes {
+ final  List<String>? _reportTypes;
+@override List<String>? get reportTypes {
+  final value = _reportTypes;
+  if (value == null) return null;
   if (_reportTypes is EqualUnmodifiableListView) return _reportTypes;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_reportTypes);
+  return EqualUnmodifiableListView(value);
 }
 
 /// Optional description of the queue
@@ -283,7 +287,7 @@ abstract mixin class _$QueueCreateQueueInputCopyWith<$Res> implements $QueueCrea
   factory _$QueueCreateQueueInputCopyWith(_QueueCreateQueueInput value, $Res Function(_QueueCreateQueueInput) _then) = __$QueueCreateQueueInputCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes> subjectTypes, String? collection, List<String> reportTypes, String? description, Map<String, dynamic>? $unknown
+ String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, String? description, Map<String, dynamic>? $unknown
 });
 
 
@@ -300,13 +304,13 @@ class __$QueueCreateQueueInputCopyWithImpl<$Res>
 
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? subjectTypes = null,Object? collection = freezed,Object? reportTypes = null,Object? description = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? $unknown = freezed,}) {
   return _then(_QueueCreateQueueInput(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,subjectTypes: null == subjectTypes ? _self._subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
-as List<QueueCreateQueueSubjectTypes>,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
-as String?,reportTypes: null == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
-as List<String>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,subjectTypes: freezed == subjectTypes ? _self._subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
+as List<QueueCreateQueueSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
+as String?,reportTypes: freezed == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

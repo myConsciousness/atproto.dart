@@ -43,7 +43,7 @@ final class CreateQueueCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Create a new moderation queue. Will fail if the queue configuration conflicts with an existing queue.";
+      r"Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.";
 
   @override
   final String invocation =
@@ -55,20 +55,13 @@ final class CreateQueueCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "name": argResults!["name"],
-    "subjectTypes": _requireNonEmpty(
-      "subjectTypes",
-      argResults!["subjectTypes"],
-    ),
+    if (argResults!.wasParsed("subjectTypes"))
+      "subjectTypes": argResults!["subjectTypes"],
     if (argResults!.wasParsed("collection"))
       "collection": argResults!["collection"],
-    "reportTypes": _requireNonEmpty("reportTypes", argResults!["reportTypes"]),
+    if (argResults!.wasParsed("reportTypes"))
+      "reportTypes": argResults!["reportTypes"],
     if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
   };
-  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
-    if (values.isEmpty) {
-      usageException('Option "$name" is required and must not be empty.');
-    }
-    return values;
-  }
 }
