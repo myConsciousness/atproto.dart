@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OAuthContext {
 
- String get codeVerifier; String get state; String? get dpopNonce; String? get issuer; String? get tokenEndpoint; String? get dpopPublicKey; String? get dpopPrivateKey;
+ String get codeVerifier; String get state; String? get dpopNonce; String? get issuer; String? get tokenEndpoint; String? get dpopPublicKey; String? get dpopPrivateKey; String? get pds; String? get expectedSub;
 /// Create a copy of OAuthContext
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $OAuthContextCopyWith<OAuthContext> get copyWith => _$OAuthContextCopyWithImpl<O
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OAuthContext&&(identical(other.codeVerifier, codeVerifier) || other.codeVerifier == codeVerifier)&&(identical(other.state, state) || other.state == state)&&(identical(other.dpopNonce, dpopNonce) || other.dpopNonce == dpopNonce)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.tokenEndpoint, tokenEndpoint) || other.tokenEndpoint == tokenEndpoint)&&(identical(other.dpopPublicKey, dpopPublicKey) || other.dpopPublicKey == dpopPublicKey)&&(identical(other.dpopPrivateKey, dpopPrivateKey) || other.dpopPrivateKey == dpopPrivateKey));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OAuthContext&&(identical(other.codeVerifier, codeVerifier) || other.codeVerifier == codeVerifier)&&(identical(other.state, state) || other.state == state)&&(identical(other.dpopNonce, dpopNonce) || other.dpopNonce == dpopNonce)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.tokenEndpoint, tokenEndpoint) || other.tokenEndpoint == tokenEndpoint)&&(identical(other.dpopPublicKey, dpopPublicKey) || other.dpopPublicKey == dpopPublicKey)&&(identical(other.dpopPrivateKey, dpopPrivateKey) || other.dpopPrivateKey == dpopPrivateKey)&&(identical(other.pds, pds) || other.pds == pds)&&(identical(other.expectedSub, expectedSub) || other.expectedSub == expectedSub));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,codeVerifier,state,dpopNonce,issuer,tokenEndpoint,dpopPublicKey,dpopPrivateKey);
+int get hashCode => Object.hash(runtimeType,codeVerifier,state,dpopNonce,issuer,tokenEndpoint,dpopPublicKey,dpopPrivateKey,pds,expectedSub);
 
 @override
 String toString() {
-  return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce, issuer: $issuer, tokenEndpoint: $tokenEndpoint, dpopPublicKey: $dpopPublicKey, dpopPrivateKey: $dpopPrivateKey)';
+  return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce, issuer: $issuer, tokenEndpoint: $tokenEndpoint, dpopPublicKey: $dpopPublicKey, dpopPrivateKey: $dpopPrivateKey, pds: $pds, expectedSub: $expectedSub)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $OAuthContextCopyWith<$Res>  {
   factory $OAuthContextCopyWith(OAuthContext value, $Res Function(OAuthContext) _then) = _$OAuthContextCopyWithImpl;
 @useResult
 $Res call({
- String codeVerifier, String state, String? dpopNonce, String? issuer, String? tokenEndpoint, String? dpopPublicKey, String? dpopPrivateKey
+ String codeVerifier, String state, String? dpopNonce, String? issuer, String? tokenEndpoint, String? dpopPublicKey, String? dpopPrivateKey, String? pds, String? expectedSub
 });
 
 
@@ -65,7 +65,7 @@ class _$OAuthContextCopyWithImpl<$Res>
 
 /// Create a copy of OAuthContext
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? codeVerifier = null,Object? state = null,Object? dpopNonce = freezed,Object? issuer = freezed,Object? tokenEndpoint = freezed,Object? dpopPublicKey = freezed,Object? dpopPrivateKey = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? codeVerifier = null,Object? state = null,Object? dpopNonce = freezed,Object? issuer = freezed,Object? tokenEndpoint = freezed,Object? dpopPublicKey = freezed,Object? dpopPrivateKey = freezed,Object? pds = freezed,Object? expectedSub = freezed,}) {
   return _then(_self.copyWith(
 codeVerifier: null == codeVerifier ? _self.codeVerifier : codeVerifier // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
@@ -74,6 +74,8 @@ as String?,issuer: freezed == issuer ? _self.issuer : issuer // ignore: cast_nul
 as String?,tokenEndpoint: freezed == tokenEndpoint ? _self.tokenEndpoint : tokenEndpoint // ignore: cast_nullable_to_non_nullable
 as String?,dpopPublicKey: freezed == dpopPublicKey ? _self.dpopPublicKey : dpopPublicKey // ignore: cast_nullable_to_non_nullable
 as String?,dpopPrivateKey: freezed == dpopPrivateKey ? _self.dpopPrivateKey : dpopPrivateKey // ignore: cast_nullable_to_non_nullable
+as String?,pds: freezed == pds ? _self.pds : pds // ignore: cast_nullable_to_non_nullable
+as String?,expectedSub: freezed == expectedSub ? _self.expectedSub : expectedSub // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -159,10 +161,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String codeVerifier,  String state,  String? dpopNonce,  String? issuer,  String? tokenEndpoint,  String? dpopPublicKey,  String? dpopPrivateKey)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String codeVerifier,  String state,  String? dpopNonce,  String? issuer,  String? tokenEndpoint,  String? dpopPublicKey,  String? dpopPrivateKey,  String? pds,  String? expectedSub)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OAuthContext() when $default != null:
-return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_that.tokenEndpoint,_that.dpopPublicKey,_that.dpopPrivateKey);case _:
+return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_that.tokenEndpoint,_that.dpopPublicKey,_that.dpopPrivateKey,_that.pds,_that.expectedSub);case _:
   return orElse();
 
 }
@@ -180,10 +182,10 @@ return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String codeVerifier,  String state,  String? dpopNonce,  String? issuer,  String? tokenEndpoint,  String? dpopPublicKey,  String? dpopPrivateKey)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String codeVerifier,  String state,  String? dpopNonce,  String? issuer,  String? tokenEndpoint,  String? dpopPublicKey,  String? dpopPrivateKey,  String? pds,  String? expectedSub)  $default,) {final _that = this;
 switch (_that) {
 case _OAuthContext():
-return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_that.tokenEndpoint,_that.dpopPublicKey,_that.dpopPrivateKey);case _:
+return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_that.tokenEndpoint,_that.dpopPublicKey,_that.dpopPrivateKey,_that.pds,_that.expectedSub);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -200,10 +202,10 @@ return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String codeVerifier,  String state,  String? dpopNonce,  String? issuer,  String? tokenEndpoint,  String? dpopPublicKey,  String? dpopPrivateKey)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String codeVerifier,  String state,  String? dpopNonce,  String? issuer,  String? tokenEndpoint,  String? dpopPublicKey,  String? dpopPrivateKey,  String? pds,  String? expectedSub)?  $default,) {final _that = this;
 switch (_that) {
 case _OAuthContext() when $default != null:
-return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_that.tokenEndpoint,_that.dpopPublicKey,_that.dpopPrivateKey);case _:
+return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_that.tokenEndpoint,_that.dpopPublicKey,_that.dpopPrivateKey,_that.pds,_that.expectedSub);case _:
   return null;
 
 }
@@ -215,7 +217,7 @@ return $default(_that.codeVerifier,_that.state,_that.dpopNonce,_that.issuer,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _OAuthContext implements OAuthContext {
-  const _OAuthContext({required this.codeVerifier, required this.state, this.dpopNonce, this.issuer, this.tokenEndpoint, this.dpopPublicKey, this.dpopPrivateKey});
+  const _OAuthContext({required this.codeVerifier, required this.state, this.dpopNonce, this.issuer, this.tokenEndpoint, this.dpopPublicKey, this.dpopPrivateKey, this.pds, this.expectedSub});
   factory _OAuthContext.fromJson(Map<String, dynamic> json) => _$OAuthContextFromJson(json);
 
 @override final  String codeVerifier;
@@ -225,6 +227,8 @@ class _OAuthContext implements OAuthContext {
 @override final  String? tokenEndpoint;
 @override final  String? dpopPublicKey;
 @override final  String? dpopPrivateKey;
+@override final  String? pds;
+@override final  String? expectedSub;
 
 /// Create a copy of OAuthContext
 /// with the given fields replaced by the non-null parameter values.
@@ -239,16 +243,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OAuthContext&&(identical(other.codeVerifier, codeVerifier) || other.codeVerifier == codeVerifier)&&(identical(other.state, state) || other.state == state)&&(identical(other.dpopNonce, dpopNonce) || other.dpopNonce == dpopNonce)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.tokenEndpoint, tokenEndpoint) || other.tokenEndpoint == tokenEndpoint)&&(identical(other.dpopPublicKey, dpopPublicKey) || other.dpopPublicKey == dpopPublicKey)&&(identical(other.dpopPrivateKey, dpopPrivateKey) || other.dpopPrivateKey == dpopPrivateKey));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OAuthContext&&(identical(other.codeVerifier, codeVerifier) || other.codeVerifier == codeVerifier)&&(identical(other.state, state) || other.state == state)&&(identical(other.dpopNonce, dpopNonce) || other.dpopNonce == dpopNonce)&&(identical(other.issuer, issuer) || other.issuer == issuer)&&(identical(other.tokenEndpoint, tokenEndpoint) || other.tokenEndpoint == tokenEndpoint)&&(identical(other.dpopPublicKey, dpopPublicKey) || other.dpopPublicKey == dpopPublicKey)&&(identical(other.dpopPrivateKey, dpopPrivateKey) || other.dpopPrivateKey == dpopPrivateKey)&&(identical(other.pds, pds) || other.pds == pds)&&(identical(other.expectedSub, expectedSub) || other.expectedSub == expectedSub));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,codeVerifier,state,dpopNonce,issuer,tokenEndpoint,dpopPublicKey,dpopPrivateKey);
+int get hashCode => Object.hash(runtimeType,codeVerifier,state,dpopNonce,issuer,tokenEndpoint,dpopPublicKey,dpopPrivateKey,pds,expectedSub);
 
 @override
 String toString() {
-  return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce, issuer: $issuer, tokenEndpoint: $tokenEndpoint, dpopPublicKey: $dpopPublicKey, dpopPrivateKey: $dpopPrivateKey)';
+  return 'OAuthContext(codeVerifier: $codeVerifier, state: $state, dpopNonce: $dpopNonce, issuer: $issuer, tokenEndpoint: $tokenEndpoint, dpopPublicKey: $dpopPublicKey, dpopPrivateKey: $dpopPrivateKey, pds: $pds, expectedSub: $expectedSub)';
 }
 
 
@@ -259,7 +263,7 @@ abstract mixin class _$OAuthContextCopyWith<$Res> implements $OAuthContextCopyWi
   factory _$OAuthContextCopyWith(_OAuthContext value, $Res Function(_OAuthContext) _then) = __$OAuthContextCopyWithImpl;
 @override @useResult
 $Res call({
- String codeVerifier, String state, String? dpopNonce, String? issuer, String? tokenEndpoint, String? dpopPublicKey, String? dpopPrivateKey
+ String codeVerifier, String state, String? dpopNonce, String? issuer, String? tokenEndpoint, String? dpopPublicKey, String? dpopPrivateKey, String? pds, String? expectedSub
 });
 
 
@@ -276,7 +280,7 @@ class __$OAuthContextCopyWithImpl<$Res>
 
 /// Create a copy of OAuthContext
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? codeVerifier = null,Object? state = null,Object? dpopNonce = freezed,Object? issuer = freezed,Object? tokenEndpoint = freezed,Object? dpopPublicKey = freezed,Object? dpopPrivateKey = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? codeVerifier = null,Object? state = null,Object? dpopNonce = freezed,Object? issuer = freezed,Object? tokenEndpoint = freezed,Object? dpopPublicKey = freezed,Object? dpopPrivateKey = freezed,Object? pds = freezed,Object? expectedSub = freezed,}) {
   return _then(_OAuthContext(
 codeVerifier: null == codeVerifier ? _self.codeVerifier : codeVerifier // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
@@ -285,6 +289,8 @@ as String?,issuer: freezed == issuer ? _self.issuer : issuer // ignore: cast_nul
 as String?,tokenEndpoint: freezed == tokenEndpoint ? _self.tokenEndpoint : tokenEndpoint // ignore: cast_nullable_to_non_nullable
 as String?,dpopPublicKey: freezed == dpopPublicKey ? _self.dpopPublicKey : dpopPublicKey // ignore: cast_nullable_to_non_nullable
 as String?,dpopPrivateKey: freezed == dpopPrivateKey ? _self.dpopPrivateKey : dpopPrivateKey // ignore: cast_nullable_to_non_nullable
+as String?,pds: freezed == pds ? _self.pds : pds // ignore: cast_nullable_to_non_nullable
+as String?,expectedSub: freezed == expectedSub ? _self.expectedSub : expectedSub // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
