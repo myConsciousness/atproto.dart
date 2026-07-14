@@ -17,8 +17,8 @@ void main() {
       NSID('app.bsky.feed.post'),
       'A declaration of a post.',
       [
-        LexParameter('text', 'The primary text.', true, null, type: 'string'),
-        LexParameter(
+        LexCliParameter('text', 'The primary text.', true, null, type: 'string'),
+        LexCliParameter(
           'facets',
           null,
           false,
@@ -102,7 +102,7 @@ void main() {
     final command = LexCommand(
       NSID('app.bsky.feed.getTimeline'),
       'Get a timeline.',
-      [LexParameter('limit', null, false, '50', type: 'integer')],
+      [LexCliParameter('limit', null, false, '50', type: 'integer')],
       kind: LexCommandKind.query,
     );
 

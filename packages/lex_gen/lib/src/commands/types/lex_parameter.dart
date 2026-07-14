@@ -2,7 +2,7 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-final class LexParameter {
+final class LexCliParameter {
   final String name;
   final String? description;
   final bool isRequired;
@@ -15,7 +15,7 @@ final class LexParameter {
   /// The lexicon type of array items when [type] is `array`.
   final String? itemsType;
 
-  const LexParameter(
+  const LexCliParameter(
     this.name,
     this.description,
     this.isRequired,

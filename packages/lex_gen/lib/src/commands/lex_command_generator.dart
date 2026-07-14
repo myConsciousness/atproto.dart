@@ -169,18 +169,18 @@ void _writeRootCommand(
     ..writeAsStringSync(rootCommand.format());
 }
 
-List<LexParameter> _getParameters(
+List<LexCliParameter> _getParameters(
   final List<String>? requiredProperties,
   final Map<String, dynamic>? properties,
 ) {
   final requiredProps = requiredProperties ?? const [];
   final props = properties ?? const {};
 
-  final parameters = <LexParameter>[];
+  final parameters = <LexCliParameter>[];
   for (final prop in props.entries) {
     final propJson = prop.value.toJson();
     parameters.add(
-      LexParameter(
+      LexCliParameter(
         prop.key,
         propJson['description'],
         requiredProps.contains(prop.key),
