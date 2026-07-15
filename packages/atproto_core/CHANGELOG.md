@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.0.0
+
+- feat!: OAuth requests are now driven by `OAuthSessionManager`; `ServiceContext` takes `oAuthSessionManager` instead of `oAuthSession`, enabling transparent OAuth token auto-refresh. OAuth tokens are never JWT-decoded. `restoreOAuthSession`/`OauthSessionExtension` removed (opaque tokens). Legacy password-auth `Session` is unaffected.
+
 ## v1.3.0
 
 - feat: automatic access-token refresh — `Challenge` now retries once after refreshing on a genuine `401`, with a pre-emptive refresh when the token is within 30s of expiry (the `use_dpop_nonce` path is unchanged).

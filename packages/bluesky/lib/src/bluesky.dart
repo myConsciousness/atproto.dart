@@ -49,9 +49,10 @@ sealed class Bluesky {
     ),
   );
 
-  /// Returns the new instance of [Bluesky].
-  factory Bluesky.fromOAuthSession(
-    final oauth.OAuthSession session, {
+  /// Returns a new [Bluesky] backed by an OAuth [manager], which owns DPoP
+  /// header building and transparent token refresh.
+  factory Bluesky.fromOAuth(
+    final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
@@ -66,15 +67,15 @@ sealed class Bluesky {
       protocol: protocol,
       service: service,
       relayService: relayService,
-      oAuthSession: session,
+      oAuthSessionManager: manager,
       timeout: timeout,
       retryConfig: retryConfig,
       getClient: getClient,
       postClient: postClient,
     ),
-    atp.ATProto.fromOAuthSession(
+    atp.ATProto.fromOAuth(
+      manager,
       headers: headers,
-      session,
       protocol: protocol,
       service: service,
       relayService: relayService,
@@ -83,6 +84,33 @@ sealed class Bluesky {
       getClient: getClient,
       postClient: postClient,
     ),
+  );
+
+  /// Returns the new instance of [Bluesky].
+  ///
+  /// Pass [oauthClient] to enable transparent token refresh; without it the
+  /// session is used as-is and cannot be refreshed.
+  factory Bluesky.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final oauth.OAuthClient? oauthClient,
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  }) => Bluesky.fromOAuth(
+    oauth.OAuthSessionManager.fromSession(session, client: oauthClient),
+    headers: headers,
+    protocol: protocol,
+    service: service,
+    relayService: relayService,
+    timeout: timeout,
+    retryConfig: retryConfig,
+    getClient: getClient,
+    postClient: postClient,
   );
 
   /// Returns the new instance of [Bluesky] as anonymous.
@@ -127,11 +155,11 @@ sealed class Bluesky {
   /// [Bluesky.fromSession], otherwise null.
   core.Session? get session;
 
-  /// Returns the current OAuth session.
+  /// Returns the current OAuth session manager.
   ///
-  /// Set only if an instance of this object was created in
+  /// Set only when this instance was created via [Bluesky.fromOAuth] or
   /// [Bluesky.fromOAuthSession], otherwise null.
-  oauth.OAuthSession? get oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager;
 
   /// Returns the current service.
   /// Defaults to `bsky.social`.
@@ -213,7 +241,7 @@ final class _Bluesky implements Bluesky {
   core.Session? get session => _ctx.session;
 
   @override
-  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager => _ctx.oAuthSessionManager;
 
   @override
   String get service => _ctx.service;
