@@ -79,7 +79,7 @@ void main() {
       Map<String, String>? notified;
       await challenge.execute(
         () async => _okResponse(headers: {'dpop-nonce': 'abcd'}),
-        onUpdateDpopNonce: (headers) => notified = headers,
+        onUpdateDpopNonce: (headers) async => notified = headers,
       );
 
       expect(notified, {'dpop-nonce': 'abcd'});
@@ -363,7 +363,7 @@ void main() {
 
           return _okResponse(headers: {'dpop-nonce': 'final-nonce'});
         },
-        onUpdateDpopNonce: (headers) {
+        onUpdateDpopNonce: (headers) async {
           final nonce = headers['dpop-nonce'] ?? headers['DPoP-Nonce'] ?? '';
           nonces.add(nonce);
         },
@@ -391,7 +391,7 @@ void main() {
               headers: {'dpop-nonce': 'nonce-$calls'},
             ),
           );
-        }, onUpdateDpopNonce: (_) => nonceUpdates++),
+        }, onUpdateDpopNonce: (_) async => nonceUpdates++),
         throwsA(isA<xrpc.UnauthorizedException>()),
       );
 
@@ -414,7 +414,7 @@ void main() {
               headers: {'dpop-nonce': 'nonce'},
             ),
           );
-        }, onUpdateDpopNonce: (_) {}),
+        }, onUpdateDpopNonce: (_) async {}),
         throwsA(isA<xrpc.UnauthorizedException>()),
       );
 
@@ -431,7 +431,7 @@ void main() {
           throw xrpc.UnauthorizedException(
             _errorResponse(statusCode: 401, error: 'use_dpop_nonce'),
           );
-        }, onUpdateDpopNonce: (_) {}),
+        }, onUpdateDpopNonce: (_) async {}),
         throwsA(isA<xrpc.UnauthorizedException>()),
       );
 
