@@ -145,13 +145,13 @@ final class OAuthClient {
     final DPoPNonceCache? nonceCache,
     final DPoPSigner? signer,
     final http.Client? httpClient,
-  })  : _identityResolver =
-            identityResolver ?? HttpIdentityResolver(httpClient: httpClient),
-        _stateStore = stateStore ?? InMemoryOAuthStateStore(),
-        _sessionStore = sessionStore ?? InMemoryOAuthSessionStore(),
-        _nonceCache = nonceCache ?? InMemoryDPoPNonceCache(),
-        _signer = signer ?? const PointyCastleDPoPSigner(),
-        _httpClient = httpClient;
+  }) : _identityResolver =
+           identityResolver ?? HttpIdentityResolver(httpClient: httpClient),
+       _stateStore = stateStore ?? InMemoryOAuthStateStore(),
+       _sessionStore = sessionStore ?? InMemoryOAuthSessionStore(),
+       _nonceCache = nonceCache ?? InMemoryDPoPNonceCache(),
+       _signer = signer ?? const PointyCastleDPoPSigner(),
+       _httpClient = httpClient;
 
   /// Client metadata to be used during authentication.
   final OAuthClientMetadata metadata;
@@ -322,7 +322,11 @@ final class OAuthClient {
   ///   token exchange.
   Future<OAuthSession> callback(final String callbackUrl) async {
     if (callbackUrl.isEmpty) {
-      throw ArgumentError.value(callbackUrl, 'callbackUrl', 'must not be empty');
+      throw ArgumentError.value(
+        callbackUrl,
+        'callbackUrl',
+        'must not be empty',
+      );
     }
 
     final callbackUri = Uri.tryParse(callbackUrl);
@@ -763,12 +767,12 @@ final class OAuthClient {
   /// Returns [endpoint] as a string with the query and fragment stripped,
   /// for use as the DPoP `htu` claim (RFC 9449 §4.2).
   static String _htuFor(final Uri endpoint) => Uri(
-        scheme: endpoint.scheme,
-        userInfo: endpoint.userInfo.isEmpty ? null : endpoint.userInfo,
-        host: endpoint.host,
-        port: endpoint.hasPort ? endpoint.port : null,
-        path: endpoint.path,
-      ).toString();
+    scheme: endpoint.scheme,
+    userInfo: endpoint.userInfo.isEmpty ? null : endpoint.userInfo,
+    host: endpoint.host,
+    port: endpoint.hasPort ? endpoint.port : null,
+    path: endpoint.path,
+  ).toString();
 
   /// Builds an [OAuthSession] from a successful token response, validating
   /// the members required by the atproto OAuth profile.

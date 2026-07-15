@@ -47,14 +47,13 @@ final class PointyCastleDPoPSigner implements DPoPSigner {
     required final DPoPKeyPair keyPair,
     final String? nonce,
     final String? accessToken,
-  }) async =>
-      getDPoPHeader(
-        clientId: '', // ignored by getDPoPHeader; no client_id claim is emitted
-        endpoint: htu,
-        method: htm,
-        dPoPNonce: nonce,
-        accessToken: accessToken,
-        publicKey: keyPair.publicKey,
-        privateKey: keyPair.privateKey,
-      );
+  }) async => getDPoPHeader(
+    clientId: '', // ignored by getDPoPHeader; no client_id claim is emitted
+    endpoint: htu,
+    method: htm,
+    dPoPNonce: nonce,
+    accessToken: accessToken,
+    publicKey: keyPair.publicKey,
+    privateKey: keyPair.privateKey,
+  );
 }

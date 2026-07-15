@@ -211,7 +211,8 @@ final class _OzoneTool implements OzoneTool {
   core.Session? get session => _ctx.session;
 
   @override
-  oauth.OAuthSessionManager? get oAuthSessionManager => _ctx.oAuthSessionManager;
+  oauth.OAuthSessionManager? get oAuthSessionManager =>
+      _ctx.oAuthSessionManager;
 
   @override
   String get service => _ctx.service;

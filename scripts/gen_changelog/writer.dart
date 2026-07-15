@@ -18,7 +18,9 @@ String bumpPubspec(String content, PackagePlan plan) {
       continue;
     }
     for (final dep in plan.depRangeUpdates.entries) {
-      final match = RegExp('^(\\s+)${RegExp.escape(dep.key)}:\\s*\\^').firstMatch(line);
+      final match = RegExp(
+        '^(\\s+)${RegExp.escape(dep.key)}:\\s*\\^',
+      ).firstMatch(line);
       if (match != null) {
         lines[i] = '${match.group(1)}${dep.key}: ^${dep.value}';
       }
@@ -48,7 +50,9 @@ String insertChangelog(String content, PackagePlan plan) {
     return '$body$content';
   }
   final insertAt = idx + marker.length;
-  return content.substring(0, insertAt) + body.toString() + content.substring(insertAt);
+  return content.substring(0, insertAt) +
+      body.toString() +
+      content.substring(insertAt);
 }
 
 /// Applies [plan] to the package's pubspec and changelog on disk.
@@ -57,5 +61,7 @@ void applyPlan(PackagePlan plan) {
   pubspec.writeAsStringSync(bumpPubspec(pubspec.readAsStringSync(), plan));
 
   final changelog = File('packages/${plan.package}/CHANGELOG.md');
-  changelog.writeAsStringSync(insertChangelog(changelog.readAsStringSync(), plan));
+  changelog.writeAsStringSync(
+    insertChangelog(changelog.readAsStringSync(), plan),
+  );
 }

@@ -17,7 +17,8 @@ void main() {
     final snap = parseSnapshot({
       'bad.json': 'not json',
       'nodefs.json': '{"id":"x.y.z"}',
-      'ok.json': '{"id":"com.atproto.repo.createRecord","defs":{"main":{"type":"query"}}}',
+      'ok.json':
+          '{"id":"com.atproto.repo.createRecord","defs":{"main":{"type":"query"}}}',
     });
     expect(snap.keys, ['com.atproto.repo.createRecord']);
   });
