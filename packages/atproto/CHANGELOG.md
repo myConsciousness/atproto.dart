@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.0.0
+
+- feat!: `ATProto.fromOAuth(OAuthSessionManager)`. `fromOAuthSession(session, {oauthClient})` now wraps a manager (pass `oauthClient` for auto-refresh); the `oAuthSession` getter is replaced by `oAuthSessionManager`.
+
 ## v1.7.0
 
 - feat: added `atproto.sync.subscribeReposAsMessages()`, a Firehose subscription that yields already-decoded, typed `USyncSubscribeReposMessage`s (CBOR/CAR-decoded `blocks`, normalized `ops`/`commit`/`prevData` CID links) instead of raw `Uint8List` frames. The existing `subscribeRepos()` (raw bytes) is unchanged, and a frame that fails to decode surfaces as a stream error without terminating the subscription.

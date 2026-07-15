@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:bluesky/app_bsky_embed_video.dart';
@@ -128,7 +129,7 @@ Future<Session> get _session async {
 
 /// OAuth flow for Flutter apps:
 // ignore: unused_element
-Future<OAuthSession> get _oAuthSession async {
+Future<Bluesky> get _bskyFromOAuth async {
   // Use your client metadata
   final metadata = await getClientMetadata(
     'https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json',
@@ -136,36 +137,36 @@ Future<OAuthSession> get _oAuthSession async {
 
   final oauth = OAuthClient(metadata);
 
-  final (authUrl, ctx) = await oauth.authorize('shinyakato.dev');
+  // Resolves the identity, discovers its authorization server, performs the
+  // pushed authorization request, and persists the per-authorization state
+  // in the (in-memory by default) state store keyed by `state`.
+  final authUrl = await oauth.authorize('shinyakato.dev');
   print(authUrl);
-  print(ctx);
 
   // Make user visit url
   // final callback = await FlutterWebAuth2.authenticate(
-  //   url: authorizationUrl,
+  //   url: authUrl.toString(),
   //   callbackUrlScheme: 'https',
   // );
+  const callbackUrl =
+      'https://atprotodart.com/oauth/bluesky/auth.html'
+      '?iss=xxxx&state=xxxxxxx&code=xxxxxxx';
 
-  final session = await oauth.callback(
-    // callback url
-    'https://atprotodart.com/oauth/bluesky/auth.html?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
-    ctx,
-  );
+  final session = await oauth.callback(callbackUrl);
   print(session.accessToken);
-  print(session.$dPoPNonce); // Updated with every request
-  print(session.$publicKey);
-  print(session.$privateKey);
+  print(session.pds);
 
-  // You can restore OAuthSession from stored keys
-  final restoredSession = restoreOAuthSession(
-    accessToken: session.accessToken,
-    refreshToken: session.refreshToken,
-    publicKey: session.$publicKey,
-    privateKey: session.$privateKey,
-  );
+  final manager = OAuthSessionManager(oauth, sub: session.sub);
 
-  // If you want to refresh session
-  // final refreshed = await oauth.refresh(bsky.oAuthSession!);
+  return Bluesky.fromOAuth(manager);
+}
 
-  return restoredSession;
+/// Restoring a persisted OAuth session for Flutter apps:
+// ignore: unused_element
+Future<Bluesky> _bskyFromStoredSession(final String storedJson) async {
+  // Restore a persisted session (opaque tokens; no JWT decoding):
+  final restored = OAuthSession.fromJson(jsonDecode(storedJson));
+  final manager = OAuthSessionManager.fromSession(restored);
+
+  return Bluesky.fromOAuth(manager);
 }
