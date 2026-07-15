@@ -413,8 +413,11 @@ void main() {
       final response = await query(
         NSID.create('test.com', 'get'),
         to: EmptyData.fromJson,
-        getClient: (url, {headers}) async =>
-            Response('', 200, request: Request('GET', Uri.https('bsky.social'))),
+        getClient: (url, {headers}) async => Response(
+          '',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
       );
 
       expect(response.data, isA<EmptyData>());
@@ -423,8 +426,11 @@ void main() {
     test('empty 200 body with T is Map returns an empty map', () async {
       final response = await query<Map<String, dynamic>>(
         NSID.create('test.com', 'get'),
-        getClient: (url, {headers}) async =>
-            Response('', 200, request: Request('GET', Uri.https('bsky.social'))),
+        getClient: (url, {headers}) async => Response(
+          '',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
       );
 
       expect(response.data, <String, dynamic>{});

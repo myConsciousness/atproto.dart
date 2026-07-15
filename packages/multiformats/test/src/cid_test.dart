@@ -118,10 +118,7 @@ void main() {
       final cid = CID.parse(stringCid);
       final before = cid.hashCode;
 
-      expect(
-        () => cid.bytes[0] = 0xff,
-        throwsA(isA<UnsupportedError>()),
-      );
+      expect(() => cid.bytes[0] = 0xff, throwsA(isA<UnsupportedError>()));
 
       // The CID is unchanged: bytes, string form, and hashCode all stable.
       expect(cid.bytes, [0, ...bytesCidDagPb]);

@@ -219,8 +219,8 @@ final class CID {
   Uint8List get bytes => _unmodifiableBytes;
 
   /// A cached unmodifiable view over [_normalizedBytes].
-  late final Uint8List _unmodifiableBytes =
-      _normalizedBytes.asUnmodifiableView();
+  late final Uint8List _unmodifiableBytes = _normalizedBytes
+      .asUnmodifiableView();
 
   /// Returns the multicodec of this CID.
   Multicodec get codec => Multicodec.valueOf(_normalizedBytes[2]);

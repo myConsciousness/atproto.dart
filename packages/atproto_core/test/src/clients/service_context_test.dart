@@ -652,69 +652,66 @@ void main() {
   });
 
   group('.get (DPoP nonce retry)', () {
-    test(
-      'commits the new nonce before re-issuing on use_dpop_nonce',
-      () async {
-        final signer = _RecordingSigner();
-        final cache = _SlowNonceCache();
-        int calls = 0;
+    test('commits the new nonce before re-issuing on use_dpop_nonce', () async {
+      final signer = _RecordingSigner();
+      final cache = _SlowNonceCache();
+      int calls = 0;
 
-        final context = ServiceContext(
-          oAuthSessionManager: OAuthSessionManager.fromSession(
-            OAuthSession(
-              accessToken: 'opaque-access',
-              refreshToken: 'opaque-refresh',
-              tokenType: 'DPoP',
-              scope: 'atproto',
-              expiresAt: DateTime.utc(2999),
-              sub: 'did:plc:testaccount',
-              issuer: 'https://bsky.social',
-              pds: 'https://pds.sprk.so',
-              clientId: 'cid',
-              dpopPublicKey: 'PUB',
-              dpopPrivateKey: 'PRIV',
-            ),
-            signer: signer,
-            nonceCache: cache,
+      final context = ServiceContext(
+        oAuthSessionManager: OAuthSessionManager.fromSession(
+          OAuthSession(
+            accessToken: 'opaque-access',
+            refreshToken: 'opaque-refresh',
+            tokenType: 'DPoP',
+            scope: 'atproto',
+            expiresAt: DateTime.utc(2999),
+            sub: 'did:plc:testaccount',
+            issuer: 'https://bsky.social',
+            pds: 'https://pds.sprk.so',
+            clientId: 'cid',
+            dpopPublicKey: 'PUB',
+            dpopPrivateKey: 'PRIV',
           ),
-          getClient: (url, {headers}) async {
-            calls++;
-            if (signer.lastNonce == 'server-nonce') {
-              return http.Response(
-                '{}',
-                200,
-                headers: {'content-type': 'application/json'},
-                request: http.Request('GET', url),
-              );
-            }
-
+          signer: signer,
+          nonceCache: cache,
+        ),
+        getClient: (url, {headers}) async {
+          calls++;
+          if (signer.lastNonce == 'server-nonce') {
             return http.Response(
-              '{"error":"use_dpop_nonce"}',
-              401,
-              headers: {
-                'content-type': 'application/json',
-                'dpop-nonce': 'server-nonce',
-              },
+              '{}',
+              200,
+              headers: {'content-type': 'application/json'},
               request: http.Request('GET', url),
             );
-          },
-        );
+          }
 
-        final response = await context.get<Map<String, Object?>>(
-          NSID.create('server.atproto.com', 'describeServer'),
-          to: (json) => json,
-        );
+          return http.Response(
+            '{"error":"use_dpop_nonce"}',
+            401,
+            headers: {
+              'content-type': 'application/json',
+              'dpop-nonce': 'server-nonce',
+            },
+            request: http.Request('GET', url),
+          );
+        },
+      );
 
-        expect(response.status.code, 200);
-        //! The retry built its DPoP proof with the server nonce, proving the
-        //! (slow) nonce write committed before the request was re-issued.
-        expect(signer.lastNonce, 'server-nonce');
-        //! Success on the very first retry: initial 401 + one retry. Without
-        //! awaiting the nonce write, the first retry would still lack the
-        //! nonce and burn additional attempts.
-        expect(calls, 2);
-      },
-    );
+      final response = await context.get<Map<String, Object?>>(
+        NSID.create('server.atproto.com', 'describeServer'),
+        to: (json) => json,
+      );
+
+      expect(response.status.code, 200);
+      //! The retry built its DPoP proof with the server nonce, proving the
+      //! (slow) nonce write committed before the request was re-issued.
+      expect(signer.lastNonce, 'server-nonce');
+      //! Success on the very first retry: initial 401 + one retry. Without
+      //! awaiting the nonce write, the first retry would still lack the
+      //! nonce and burn additional attempts.
+      expect(calls, 2);
+    });
   });
 
   group('.stream', () {

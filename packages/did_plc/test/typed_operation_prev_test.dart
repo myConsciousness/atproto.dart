@@ -36,8 +36,9 @@ void main() {
     setUp(() => log = loadFixture('audit_log_bsky.json'));
 
     test('Operation.toJson() emits an explicit null prev for genesis', () {
-      final genesis =
-          Operation.fromJson(log.first['operation'] as Map<String, dynamic>);
+      final genesis = Operation.fromJson(
+        log.first['operation'] as Map<String, dynamic>,
+      );
       final json = genesis.toJson();
 
       expect(json.containsKey('prev'), isTrue);
@@ -45,14 +46,16 @@ void main() {
     });
 
     test('deriveDid on the typed genesis matches the real DID', () {
-      final genesis =
-          Operation.fromJson(log.first['operation'] as Map<String, dynamic>);
+      final genesis = Operation.fromJson(
+        log.first['operation'] as Map<String, dynamic>,
+      );
       expect(verifier.deriveDid(genesis.toJson()), equals(expectedDid));
     });
 
     test('verifyOperation passes on the typed genesis Operation', () async {
-      final genesis =
-          Operation.fromJson(log.first['operation'] as Map<String, dynamic>);
+      final genesis = Operation.fromJson(
+        log.first['operation'] as Map<String, dynamic>,
+      );
       final result = await verifier.verifyOperation(
         operation: genesis,
         rotationKeys: genesis.rotationKeys,
@@ -62,10 +65,13 @@ void main() {
 
     test('verifyOperationChain passes on the typed Operation chain', () async {
       final operations = log
-          .map((e) => Operation.fromJson(e['operation'] as Map<String, dynamic>))
+          .map(
+            (e) => Operation.fromJson(e['operation'] as Map<String, dynamic>),
+          )
           .toList();
-      final result =
-          await verifier.verifyOperationChain(operations: operations);
+      final result = await verifier.verifyOperationChain(
+        operations: operations,
+      );
       expect(result.isValid, isTrue, reason: result.error);
     });
   });

@@ -379,11 +379,13 @@ base class ServiceContext {
     if (existing != null) return existing;
 
     final refresh = onRefreshSession!;
-    final future = refresh(current).then((refreshed) {
-      _currentSession = refreshed;
+    final future = refresh(current)
+        .then((refreshed) {
+          _currentSession = refreshed;
 
-      return refreshed;
-    }).whenComplete(() => _inflightRefresh = null);
+          return refreshed;
+        })
+        .whenComplete(() => _inflightRefresh = null);
 
     return _inflightRefresh = future;
   }
