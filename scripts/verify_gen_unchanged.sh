@@ -98,11 +98,17 @@ cmd_full() {
 
 cmd_srccheck() {
   echo ">> srccheck: import_sorter + analyze on lex_gen source"
+  # Snapshot the CURRENT working state (may contain uncommitted work) and restore
+  # from it afterwards, so this check never discards in-progress edits the way a
+  # blanket `git checkout -- packages/lex_gen` would.
+  local snap
+  snap="$(mktemp -d)"
+  cp -R packages/lex_gen "$snap/"
   (cd packages/lex_gen && dart run import_sorter:main >/dev/null 2>&1)
   local rc=0
-  if ! git diff --quiet --exit-code -- packages/lex_gen; then
+  if ! diff -rq "$snap/lex_gen" packages/lex_gen >/tmp/lex_gen_srccheck_diff.txt 2>&1; then
     echo "!! import_sorter changed lex_gen source (not at fmt fixed-point):" >&2
-    git diff --stat -- packages/lex_gen >&2
+    head -30 /tmp/lex_gen_srccheck_diff.txt >&2
     rc=1
   fi
   if ! dart analyze packages/lex_gen >/tmp/lex_gen_srccheck_analyze.txt 2>&1; then
@@ -110,7 +116,10 @@ cmd_srccheck() {
     tail -20 /tmp/lex_gen_srccheck_analyze.txt >&2
     rc=1
   fi
-  git checkout -- packages/lex_gen
+  # restore the exact pre-check working state
+  rm -rf packages/lex_gen
+  cp -R "$snap/lex_gen" packages/lex_gen
+  rm -rf "$snap"
   if [[ $rc -eq 0 ]]; then
     echo ">> srccheck PASS: lex_gen source is import_sorter-stable and analyzes clean"
   else
