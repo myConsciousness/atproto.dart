@@ -3,7 +3,6 @@
 // Dart imports:
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
 // Package imports:
 import 'package:at_primitives/nsid.dart';
@@ -719,81 +718,62 @@ void main() {
   });
 
   group('.stream', () {
-    test(
-      'overrides the relay host and connects over ws:// for Protocol.http',
-      () async {
-        final server = await HttpServer.bind(
-          InternetAddress.loopbackIPv4,
-          0,
-        );
-        addTearDown(() async => server.close(force: true));
+    //! A capturing [xrpc.WebSocketChannelFactory] records the exact URI the
+    //! subscription would dial, then aborts before any real socket is opened.
+    //! This asserts host/scheme deterministically, without depending on
+    //! network handshake timing (a real wss:// attempt against a plain server
+    //! closes only after a nondeterministic delay).
 
-        final upgraded = Completer<HttpRequest>();
-        server.listen((req) async {
-          if (WebSocketTransformer.isUpgradeRequest(req)) {
-            if (!upgraded.isCompleted) upgraded.complete(req);
-            final ws = await WebSocketTransformer.upgrade(req);
-            await ws.close();
-          } else {
-            req.response.statusCode = 400;
-            await req.response.close();
-          }
-        });
+    test('overrides the relay host and maps Protocol.http to ws://', () async {
+      final dialed = <Uri>[];
+      final context = ServiceContext(protocol: xrpc.Protocol.http);
 
-        final context = ServiceContext(protocol: xrpc.Protocol.http);
-
-        final res = await context.stream<Map<String, dynamic>>(
+      await expectLater(
+        context.stream<Map<String, dynamic>>(
           NSID.create('sync.atproto.com', 'subscribeRepos'),
-          service: 'localhost:${server.port}',
-        );
-        final sub = res.data.stream.listen((_) {}, onError: (_) {});
-        addTearDown(sub.cancel);
+          service: 'relay.example.com',
+          channelFactory: (uri) {
+            dialed.add(uri);
+            throw const _StopDial();
+          },
+        ),
+        throwsA(isA<_StopDial>()),
+      );
 
-        final req = await upgraded.future.timeout(const Duration(seconds: 5));
+      expect(dialed, hasLength(1));
+      expect(dialed.single.scheme, 'ws');
+      expect(dialed.single.host, 'relay.example.com');
+      expect(dialed.single.path, '/xrpc/com.atproto.sync.subscribeRepos');
+    });
 
-        //! Reaching our local (plain, non-TLS) server proves both the service
-        //! override and the http -> ws:// scheme mapping. A wss:// attempt
-        //! against this plain server would never complete a WS upgrade.
-        expect(req.uri.path, '/xrpc/com.atproto.sync.subscribeRepos');
-      },
-    );
-
-    test('uses wss:// for the https protocol (no plain ws upgrade)', () async {
-      final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
-      addTearDown(() async => server.close(force: true));
-
-      var upgradeSeen = false;
-      server.listen((req) async {
-        if (WebSocketTransformer.isUpgradeRequest(req)) {
-          upgradeSeen = true;
-          final ws = await WebSocketTransformer.upgrade(req);
-          await ws.close();
-        } else {
-          req.response.statusCode = 400;
-          await req.response.close();
-        }
-      });
-
+    test('maps Protocol.https to wss://', () async {
+      final dialed = <Uri>[];
       final context = ServiceContext(protocol: xrpc.Protocol.https);
 
-      final res = await context.stream<Map<String, dynamic>>(
-        NSID.create('sync.atproto.com', 'subscribeRepos'),
-        service: 'localhost:${server.port}',
+      await expectLater(
+        context.stream<Map<String, dynamic>>(
+          NSID.create('sync.atproto.com', 'subscribeRepos'),
+          service: 'relay.example.com',
+          channelFactory: (uri) {
+            dialed.add(uri);
+            throw const _StopDial();
+          },
+        ),
+        throwsA(isA<_StopDial>()),
       );
-      final done = Completer<void>();
-      final sub = res.data.stream.listen(
-        (_) {},
-        onError: (_) {},
-        onDone: done.complete,
-      );
-      addTearDown(sub.cancel);
 
-      //! A wss:// (TLS) connection to a plain server fails the handshake, so
-      //! the stream closes without our server ever seeing a WS upgrade.
-      await done.future.timeout(const Duration(seconds: 5));
-      expect(upgradeSeen, isFalse);
+      expect(dialed, hasLength(1));
+      expect(dialed.single.scheme, 'wss');
+      expect(dialed.single.host, 'relay.example.com');
+      expect(dialed.single.path, '/xrpc/com.atproto.sync.subscribeRepos');
     });
   });
+}
+
+/// Sentinel thrown by the capturing channel factory in the `.stream` tests to
+/// abort the subscription after the dial URI has been recorded.
+class _StopDial {
+  const _StopDial();
 }
 
 /// A [DPoPSigner] returning a fixed proof so tests do not depend on real

@@ -230,6 +230,7 @@ base class ServiceContext {
     final Map<String, dynamic>? parameters,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
+    final xrpc.WebSocketChannelFactory? channelFactory,
   }) async => await _challenge.execute(
     () async => xrpc.subscribe(
       methodId,
@@ -238,6 +239,7 @@ base class ServiceContext {
       parameters: parameters,
       to: to,
       adaptor: adaptor,
+      channelFactory: channelFactory,
     ),
   );
 
