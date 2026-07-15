@@ -15,6 +15,34 @@ String toFirstLowerCase(final String str) {
   return str[0].toLowerCase() + str.substring(1);
 }
 
+/// Escapes [value] so it can be embedded inside a double-quoted, non-raw Dart
+/// string literal.
+///
+/// Lexicon-supplied text (e.g. a command description or a string default) is
+/// interpolated straight into generated Dart source. Without escaping, a value
+/// containing `"` terminates the literal early, a `$` triggers an unintended
+/// interpolation, a `\` starts a stray escape, and a newline breaks the literal
+/// across lines — all producing uncompilable output. Backslashes are escaped
+/// first so the escapes introduced afterwards are not themselves re-escaped.
+String escapeDartString(final String value) {
+  return value
+      .replaceAll(r'\', r'\\')
+      .replaceAll(r'$', r'\$')
+      .replaceAll('"', r'\"')
+      .replaceAll('\r', r'\r')
+      .replaceAll('\n', r'\n');
+}
+
+/// Renders [description] as a Dart doc comment, prefixing every line with
+/// `/// `.
+///
+/// A multi-line lexicon description embeds a literal `\n`; emitting it as a
+/// single `/// ...` line would dump every line after the first as bare source.
+/// A single-line description is returned unchanged (`/// <description>`).
+String toDocComment(final String description) {
+  return description.split('\n').map((line) => '/// $line').join('\n');
+}
+
 /// Splits a string by uppercase letters, returning a list of words.
 List<String> splitByUpperCase(final String str) {
   final result = <String>[];

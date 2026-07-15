@@ -72,4 +72,23 @@ void main() {
       expect(output, contains("== 'app.bsky.feed.post'"));
     });
   });
+
+  group('LexObject.format multi-line class doc', () {
+    test('a multi-line description prefixes every line with ///', () {
+      final object = LexObject(
+        lexiconId: 'app.bsky.feed.post',
+        defName: 'main',
+        name: 'FeedPost',
+        description: 'First line.\nSecond line.',
+        properties: [
+          LexProperty(name: 'text', isRequired: true, type: DartType.string()),
+        ],
+      );
+
+      expect(
+        object.format(buildTestGenContext()),
+        contains('/// First line.\n/// Second line.'),
+      );
+    });
+  });
 }

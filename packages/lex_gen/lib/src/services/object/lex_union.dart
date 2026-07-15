@@ -53,7 +53,7 @@ final class LexUnion extends GeneratableType {
     // below, instead of re-resolving it four times per ref.
     final objectNames = [
       for (final ref in refs)
-        rule.getLexObjectNameFromRef(lexiconId, ref, mainVariants),
+        rule.getLexObjectNameFromRef(ctx, lexiconId, ref, mainVariants),
     ];
 
     final file = DartFile(

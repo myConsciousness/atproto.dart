@@ -81,5 +81,16 @@ void main() {
 
       expect(property.format().trim(), 'String? bar,');
     });
+
+    test('a multi-line description prefixes every line with ///', () {
+      // A raw `\n` in the description must not dump the second line as bare
+      // source; each line becomes its own `/// ...` doc-comment line.
+      final property = LexProperty(
+        name: 'note',
+        type: DartType.string(description: 'Line one.\nLine two.'),
+      );
+
+      expect(property.format(), contains('/// Line one.\n/// Line two.'));
+    });
   });
 }

@@ -56,7 +56,7 @@ String renderFreezedDataClass({
     banner: kHeader,
     decls: [
       DartClass(
-        doc: description != null ? '/// $description' : null,
+        doc: description != null ? toDocComment(description) : null,
         annotations: const ['@freezed'],
         modifier: 'abstract',
         name: className,

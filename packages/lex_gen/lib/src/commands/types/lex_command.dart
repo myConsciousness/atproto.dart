@@ -84,7 +84,7 @@ final class LexCommand {
   final String name = "$commandName";
 
   @override
-  final String description = r"${_getDescription()}";
+  final String description = "${escapeDartString(_getDescription())}";
 
   @override
   final String invocation = "$invocation";
@@ -163,7 +163,7 @@ ${_getInputHelpers()}}'''),
   final String name = "$commandName";
 
   @override
-  final String description = r"${_getDescription()}";
+  final String description = "${escapeDartString(_getDescription())}";
 
   @override
   final String invocation = "$invocation";
@@ -204,7 +204,7 @@ $helpers}'''),
   final String name = "$commandName";
 
   @override
-  final String description = r"${_getDescription()}";
+  final String description = "${escapeDartString(_getDescription())}";
 
   @override
   final String invocation = "bsky $serviceName $commandName --file=<path>";
@@ -281,7 +281,7 @@ $contentTypeOverride}'''),
   String get name => "$commandName";
 
   @override
-  String get description => "${_getDescription()}";
+  String get description => "${escapeDartString(_getDescription())}";
 }'''),
         RawDecl('''mixin $recordArgsMixin on Command<void> {
   void _addRecordOptions() {
