@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../utils.dart';
 import '../rule.dart';
 
@@ -12,15 +14,23 @@ final class AtUriExtension {
   const AtUriExtension(this.lexiconIds);
 
   String format() {
-    final buffer = StringBuffer(kHeaderHint);
-    buffer.writeln();
-
-    buffer.writeln(
-      "import 'package:atproto_core/atproto_core.dart' show AtUri;",
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: const [
+        [
+          DartImport('package:atproto_core/atproto_core.dart', show: ['AtUri']),
+        ],
+      ],
+      banner: kHeader,
+      decls: [RawDecl(_extensionBlock())],
     );
-    buffer.writeln();
-    buffer.writeln(kHeader);
-    buffer.writeln();
+
+    return emitDartFile(file);
+  }
+
+  String _extensionBlock() {
+    final buffer = StringBuffer();
+
     buffer.writeln('extension AtUriExtension on AtUri {');
     for (final lexiconId in lexiconIds) {
       final name = getRecordTypeName(lexiconId);
@@ -36,7 +46,7 @@ final class AtUriExtension {
       );
       buffer.writeln('  bool get isNot$name => !is$name;');
     }
-    buffer.writeln('}');
+    buffer.write('}');
 
     return buffer.toString();
   }
