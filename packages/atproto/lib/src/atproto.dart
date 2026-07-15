@@ -48,9 +48,10 @@ sealed class ATProto {
     ),
   );
 
-  /// Returns the new instance of [ATProto] based on OAuth [session].
-  factory ATProto.fromOAuthSession(
-    final oauth.OAuthSession session, {
+  /// Returns a new [ATProto] backed by an OAuth [manager], which owns DPoP
+  /// header building and transparent token refresh.
+  factory ATProto.fromOAuth(
+    final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
@@ -65,12 +66,39 @@ sealed class ATProto {
       protocol: protocol,
       service: service,
       relayService: relayService,
-      oAuthSession: session,
+      oAuthSessionManager: manager,
       timeout: timeout,
       retryConfig: retryConfig,
       getClient: getClient,
       postClient: postClient,
     ),
+  );
+
+  /// Returns the new instance of [ATProto] based on OAuth [session].
+  ///
+  /// Pass [oauthClient] to enable transparent token refresh; without it the
+  /// session is used as-is and cannot be refreshed.
+  factory ATProto.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final oauth.OAuthClient? oauthClient,
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  }) => ATProto.fromOAuth(
+    oauth.OAuthSessionManager.fromSession(session, client: oauthClient),
+    headers: headers,
+    protocol: protocol,
+    service: service,
+    relayService: relayService,
+    timeout: timeout,
+    retryConfig: retryConfig,
+    getClient: getClient,
+    postClient: postClient,
   );
 
   /// Returns the new instance of [ATProto] as anonymous.
@@ -105,11 +133,11 @@ sealed class ATProto {
   /// [ATProto.fromSession], otherwise null.
   core.Session? get session;
 
-  /// Returns the current OAuth session.
+  /// Returns the current OAuth session manager.
   ///
-  /// Set only if an instance of this object was created in
+  /// Set only when this instance was created via [ATProto.fromOAuth] or
   /// [ATProto.fromOAuthSession], otherwise null.
-  oauth.OAuthSession? get oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager;
 
   /// Returns the current service.
   /// Defaults to `bsky.social`.
@@ -219,7 +247,7 @@ final class _ATProto implements ATProto {
   core.Session? get session => _ctx.session;
 
   @override
-  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager => _ctx.oAuthSessionManager;
 
   @override
   String get service => _ctx.service;
