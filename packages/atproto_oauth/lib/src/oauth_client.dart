@@ -396,11 +396,20 @@ final class OAuthClient {
       },
     );
 
+    final contextPds = context.pds;
+    final contextIssuer = context.issuer;
+    if (contextPds == null || contextIssuer == null) {
+      throw OAuthException(
+        'Malformed authorization context for state "$stateParam": '
+        'missing "pds"/"issuer" (was it created by an incompatible version?)',
+      );
+    }
+
     final session = _buildSession(
       result: result,
       keyPair: keyPair,
-      issuer: context.issuer ?? expectedIssuer,
-      pds: context.pds ?? '',
+      issuer: contextIssuer,
+      pds: contextPds,
       expectedSub: context.expectedSub,
     );
 
