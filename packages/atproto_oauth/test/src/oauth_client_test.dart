@@ -298,6 +298,30 @@ void main() {
       );
     });
 
+    test('login_hint uses the normalized handle, not the raw input', () async {
+      final recorder = _Recorder();
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: recorder.build((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isPar(r)) return _json({'request_uri': 'urn:x'}, status: 201);
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      // A prefixed / mixed-case identity must be normalized before use as the
+      // login_hint (the `@` / `at://` prefixes must never be forwarded).
+      await client.authorize('at://@$_handle');
+
+      final fields = Uri.splitQueryString(
+        recorder.requests.firstWhere(_isPar).body,
+      );
+      expect(fields['login_hint'], _handle);
+    });
+
     test('rejects an issuer that does not match the auth server', () async {
       final client = OAuthClient(
         _metadata(),
@@ -648,6 +672,134 @@ void main() {
       expect(session.expiresAt!.isAfter(DateTime.now().toUtc()), isTrue);
     });
 
+    test('consumes the state even when the callback fails', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async => _json(_tokenBody())),
+      );
+
+      // An `iss` mismatch fails the callback; the one-time state must still be
+      // consumed so it cannot be replayed.
+      await expectLater(
+        () => client.callback(
+          '$_redirectUri?iss=https://evil.example&state=the-state&code=c',
+        ),
+        throwsA(isA<OAuthException>()),
+      );
+      expect(await stateStore.find('the-state'), isNull);
+    });
+
+    test('rejects a malformed context (empty issuer) before token '
+        'exchange', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore, issuer: '');
+      var tokenCalls = 0;
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isToken(r)) {
+            tokenCalls++;
+            return _json(_tokenBody());
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.callback(
+          '$_redirectUri?iss=$_origin&state=the-state&code=c',
+        ),
+        throwsA(isA<OAuthException>()),
+      );
+      // The malformed context is rejected before any token request is sent...
+      expect(tokenCalls, 0);
+      // ...and the state is still consumed.
+      expect(await stateStore.find('the-state'), isNull);
+    });
+
+    test('a malformed 200 token response never leaks token values', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isToken(r)) {
+            // 200 OK but missing "access_token": the old code serialized the
+            // whole body (incl. the refresh token) into the exception.
+            return _json({
+              'refresh_token': 'super-secret-refresh',
+              'token_type': 'DPoP',
+              'scope': 'atproto',
+              'sub': _sub,
+            });
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.callback(
+          '$_redirectUri?iss=$_origin&state=the-state&code=c',
+        ),
+        throwsA(
+          isA<OAuthException>().having(
+            (e) => e.message,
+            'message',
+            isNot(contains('super-secret-refresh')),
+          ),
+        ),
+      );
+    });
+
+    test('a malformed 200 response missing sub never leaks tokens', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isToken(r)) {
+            // 200 OK, valid access token, but no "sub".
+            return _json({
+              'access_token': 'super-secret-access',
+              'refresh_token': 'super-secret-refresh',
+              'token_type': 'DPoP',
+              'scope': 'atproto',
+            });
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.callback(
+          '$_redirectUri?iss=$_origin&state=the-state&code=c',
+        ),
+        throwsA(
+          isA<OAuthException>()
+              .having(
+                (e) => e.message,
+                'message',
+                isNot(contains('super-secret-access')),
+              )
+              .having(
+                (e) => e.message,
+                'message',
+                isNot(contains('super-secret-refresh')),
+              ),
+        ),
+      );
+    });
+
     test('accepts an opaque (non-JWT) access token', () async {
       final stateStore = InMemoryOAuthStateStore();
       final sessionStore = InMemoryOAuthSessionStore();
@@ -845,6 +997,78 @@ void main() {
 
       final refreshed = await client.refresh(_sessionWith());
       expect(refreshed.scope, 'atproto');
+    });
+
+    test(
+      'concurrent refreshes share one token request (single-flight)',
+      () async {
+        final sessionStore = InMemoryOAuthSessionStore();
+        await sessionStore.set(_sub, _sessionWith());
+        var tokenCalls = 0;
+        final client = OAuthClient(
+          _metadata(),
+          sessionStore: sessionStore,
+          signer: _StubSigner(),
+          httpClient: MockClient((r) async {
+            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+            if (_isToken(r)) {
+              tokenCalls++;
+              return _json(_tokenBody(refreshToken: 'refresh-token-2'));
+            }
+            return http.Response('unexpected', 500);
+          }),
+        );
+
+        // Two concurrent refreshes of the same session must not both POST the
+        // rotating refresh token (which would make the second fail).
+        final results = await Future.wait([
+          client.refresh(_sessionWith()),
+          client.refresh(_sessionWith()),
+        ]);
+
+        // Exactly one token request; both callers share the same result.
+        expect(tokenCalls, 1);
+        expect(identical(results[0], results[1]), isTrue);
+        expect(results[0].refreshToken, 'refresh-token-2');
+
+        // The valid rotated session is preserved (no spurious deletion).
+        final stored = await sessionStore.find(_sub);
+        expect(stored, isNotNull);
+        expect(stored!.refreshToken, 'refresh-token-2');
+      },
+    );
+
+    test('invalid_grant does not clobber a newer stored session', () async {
+      final sessionStore = InMemoryOAuthSessionStore();
+      // A newer session (rotated refresh token) is already in the store, e.g.
+      // because a concurrent refresh already rotated it.
+      await sessionStore.set(
+        _sub,
+        _sessionWith(refreshToken: 'refresh-token-2'),
+      );
+      final client = OAuthClient(
+        _metadata(),
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isToken(r)) {
+            return _json({'error': 'invalid_grant'}, status: 400);
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      // Refreshing a STALE session (old refresh token) gets invalid_grant, but
+      // the newer stored session must survive.
+      await expectLater(
+        () => client.refresh(_sessionWith(refreshToken: 'refresh-token-1')),
+        throwsA(isA<OAuthSessionRevokedException>()),
+      );
+
+      final stored = await sessionStore.find(_sub);
+      expect(stored, isNotNull);
+      expect(stored!.refreshToken, 'refresh-token-2');
     });
 
     test(
