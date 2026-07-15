@@ -35,7 +35,7 @@ final class GetRepostedByCommand extends QueryCommand {
   final String name = "get-reposted-by";
 
   @override
-  final String description = r"Get a list of reposts for a given post.";
+  final String description = "Get a list of reposts for a given post.";
 
   @override
   final String invocation =

@@ -25,7 +25,7 @@ final class RemoveOptionsCommand extends ProcedureCommand {
   final String name = "remove-options";
 
   @override
-  final String description = r"Delete settings by key";
+  final String description = "Delete settings by key";
 
   @override
   final String invocation =

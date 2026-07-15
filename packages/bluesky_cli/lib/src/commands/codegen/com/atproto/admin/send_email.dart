@@ -32,7 +32,7 @@ final class SendEmailCommand extends ProcedureCommand {
   final String name = "send-email";
 
   @override
-  final String description = r"Send email to a user's account email address.";
+  final String description = "Send email to a user's account email address.";
 
   @override
   final String invocation =

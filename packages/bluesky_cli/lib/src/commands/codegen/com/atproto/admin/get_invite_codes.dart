@@ -26,7 +26,7 @@ final class GetInviteCodesCommand extends QueryCommand {
   final String name = "get-invite-codes";
 
   @override
-  final String description = r"Get an admin view of invite codes.";
+  final String description = "Get an admin view of invite codes.";
 
   @override
   final String invocation =

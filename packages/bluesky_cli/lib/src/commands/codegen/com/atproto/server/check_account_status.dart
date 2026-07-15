@@ -22,7 +22,7 @@ final class CheckAccountStatusCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.";
+      "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.";
 
   @override
   final String invocation = "bsky com-atproto-server check-account-status";

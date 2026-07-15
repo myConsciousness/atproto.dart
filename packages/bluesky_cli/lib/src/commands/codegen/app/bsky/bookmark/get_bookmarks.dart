@@ -26,7 +26,7 @@ final class GetBookmarksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Gets views of records bookmarked by the authenticated user. Requires authentication.";
+      "Gets views of records bookmarked by the authenticated user. Requires authentication.";
 
   @override
   final String invocation =

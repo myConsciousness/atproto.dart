@@ -42,7 +42,7 @@ final class UpdateTemplateCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.";
+      "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.";
 
   @override
   final String invocation =

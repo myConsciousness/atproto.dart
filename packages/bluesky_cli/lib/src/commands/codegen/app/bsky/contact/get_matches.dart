@@ -26,7 +26,7 @@ final class GetMatchesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.";
+      "Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.";
 
   @override
   final String invocation =

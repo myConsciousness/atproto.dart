@@ -26,7 +26,7 @@ final class RemoveMembersCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Removes members from a group. This deletes convo memberships, doesn't just set a status.";
+      "Removes members from a group. This deletes convo memberships, doesn't just set a status.";
 
   @override
   final String invocation =

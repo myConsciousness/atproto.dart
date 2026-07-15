@@ -24,7 +24,7 @@ final class UnmuteConvoCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Unmutes a conversation, allowing notifications related to it.";
+      "Unmutes a conversation, allowing notifications related to it.";
 
   @override
   final String invocation =

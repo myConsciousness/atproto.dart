@@ -70,12 +70,7 @@ ModerationDecision decidePost(
         : null;
 
     decision.addMutedWord(
-      _matchAllMuteWords(
-        author,
-        postRecord,
-        embed,
-        opts.prefs.mutedWords,
-      ),
+      _matchAllMuteWords(author, postRecord, embed, opts.prefs.mutedWords),
     );
   }
 

@@ -26,7 +26,7 @@ final class DisableInviteCodesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Disable some set of codes and/or all codes associated with a set of users.";
+      "Disable some set of codes and/or all codes associated with a set of users.";
 
   @override
   final String invocation =

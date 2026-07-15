@@ -24,7 +24,7 @@ final class UpdateSeenCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Notify server that the requesting account has seen notifications. Requires auth.";
+      "Notify server that the requesting account has seen notifications. Requires auth.";
 
   @override
   final String invocation =

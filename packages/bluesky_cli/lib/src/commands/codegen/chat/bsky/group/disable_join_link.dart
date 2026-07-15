@@ -24,7 +24,7 @@ final class DisableJoinLinkCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Disables the active join link for the group convo.";
+      "Disables the active join link for the group convo.";
 
   @override
   final String invocation =

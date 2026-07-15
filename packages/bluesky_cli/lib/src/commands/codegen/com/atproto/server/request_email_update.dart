@@ -21,7 +21,7 @@ final class RequestEmailUpdateCommand extends ProcedureCommand {
   final String name = "request-email-update";
 
   @override
-  final String description = r"Request a token in order to update email.";
+  final String description = "Request a token in order to update email.";
 
   @override
   final String invocation = "bsky com-atproto-server request-email-update";

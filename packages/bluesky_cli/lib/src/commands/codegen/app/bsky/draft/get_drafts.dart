@@ -26,7 +26,7 @@ final class GetDraftsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Gets views of user drafts. Requires authentication.";
+      "Gets views of user drafts. Requires authentication.";
 
   @override
   final String invocation =

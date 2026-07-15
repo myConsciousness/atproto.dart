@@ -29,7 +29,7 @@ final class PutPreferencesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Set the requesting account's chat notification preferences. Only the provided preferences are updated; omitted preferences are left unchanged.";
+      "Set the requesting account's chat notification preferences. Only the provided preferences are updated; omitted preferences are left unchanged.";
 
   @override
   final String invocation =

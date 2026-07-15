@@ -31,7 +31,7 @@ final class GetAccountInviteCodesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get all invite codes for the current account. Requires auth.";
+      "Get all invite codes for the current account. Requires auth.";
 
   @override
   final String invocation =

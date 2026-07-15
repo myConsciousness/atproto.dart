@@ -43,7 +43,7 @@ final class ListScheduledActionsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"List scheduled moderation actions with optional filtering";
+      "List scheduled moderation actions with optional filtering";
 
   @override
   final String invocation =

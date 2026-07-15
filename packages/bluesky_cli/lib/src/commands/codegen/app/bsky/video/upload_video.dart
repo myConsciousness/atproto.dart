@@ -22,7 +22,7 @@ final class UploadVideoCommand extends BlobCommand {
 
   @override
   final String description =
-      r"Upload a video to be processed then stored on the PDS.";
+      "Upload a video to be processed then stored on the PDS.";
 
   @override
   final String invocation = "bsky app-bsky-video upload-video --file=<path>";

@@ -31,7 +31,7 @@ final class GetListCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Gets a 'view' (with additional context) of a specified list.";
+      "Gets a 'view' (with additional context) of a specified list.";
 
   @override
   final String invocation =

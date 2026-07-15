@@ -52,7 +52,7 @@ final class ListVerificationsCommand extends QueryCommand {
   final String name = "list-verifications";
 
   @override
-  final String description = r"List verifications";
+  final String description = "List verifications";
 
   @override
   final String invocation =

@@ -84,37 +84,40 @@ void main() {
   });
 
   group('VideoServiceImpl.getUploadVideoAuth did:web aud', () {
-    test('percent-encodes the colon when the service host has a port', () async {
-      // A `did:web` identifier must percent-encode the colon in a
-      // `host:port` authority (`%3A`); otherwise the colon is parsed as the
-      // method separator and the aud is malformed.
-      const sub = 'did:plc:testaccount';
-      Uri? capturedUrl;
+    test(
+      'percent-encodes the colon when the service host has a port',
+      () async {
+        // A `did:web` identifier must percent-encode the colon in a
+        // `host:port` authority (`%3A`); otherwise the colon is parsed as the
+        // method separator and the aud is malformed.
+        const sub = 'did:plc:testaccount';
+        Uri? capturedUrl;
 
-      final service = VideoServiceImpl(
-        core.ServiceContext(
-          service: 'localhost:3000',
-          oAuthSessionManager: OAuthSessionManager.fromSession(
-            _oAuthSession(sub: sub),
+        final service = VideoServiceImpl(
+          core.ServiceContext(
+            service: 'localhost:3000',
+            oAuthSessionManager: OAuthSessionManager.fromSession(
+              _oAuthSession(sub: sub),
+            ),
+            getClient: (url, {headers}) async {
+              capturedUrl = url;
+
+              return http.Response(
+                jsonEncode({'token': 'header.payload.signature'}),
+                200,
+                headers: {'content-type': 'application/json; charset=utf-8'},
+                request: http.Request('GET', url),
+              );
+            },
           ),
-          getClient: (url, {headers}) async {
-            capturedUrl = url;
+        );
 
-            return http.Response(
-              jsonEncode({'token': 'header.payload.signature'}),
-              200,
-              headers: {'content-type': 'application/json; charset=utf-8'},
-              request: http.Request('GET', url),
-            );
-          },
-        ),
-      );
+        await service.getUploadVideoAuth();
 
-      await service.getUploadVideoAuth();
-
-      expect(capturedUrl, isNotNull);
-      expect(capturedUrl!.queryParameters['aud'], 'did:web:localhost%3A3000');
-    });
+        expect(capturedUrl, isNotNull);
+        expect(capturedUrl!.queryParameters['aud'], 'did:web:localhost%3A3000');
+      },
+    );
 
     test('leaves a portless service host unchanged', () async {
       const sub = 'did:plc:testaccount';

@@ -21,7 +21,7 @@ final class RequestAccountDeleteCommand extends ProcedureCommand {
   final String name = "request-account-delete";
 
   @override
-  final String description = r"Initiate a user account deletion via email.";
+  final String description = "Initiate a user account deletion via email.";
 
   @override
   final String invocation = "bsky com-atproto-server request-account-delete";

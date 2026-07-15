@@ -24,7 +24,7 @@ final class MuteThreadCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.";
+      "Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.";
 
   @override
   final String invocation = "bsky app-bsky-graph mute-thread --root=<value>";

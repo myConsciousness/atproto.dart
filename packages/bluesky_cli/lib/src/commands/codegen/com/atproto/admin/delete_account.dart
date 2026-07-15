@@ -23,7 +23,7 @@ final class DeleteAccountCommand extends ProcedureCommand {
   final String name = "delete-account";
 
   @override
-  final String description = r"Delete a user account as an administrator.";
+  final String description = "Delete a user account as an administrator.";
 
   @override
   final String invocation =

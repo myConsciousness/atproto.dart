@@ -40,7 +40,7 @@ final class GetRecordCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a single record from a repository. Does not require auth.";
+      "Get a single record from a repository. Does not require auth.";
 
   @override
   final String invocation =

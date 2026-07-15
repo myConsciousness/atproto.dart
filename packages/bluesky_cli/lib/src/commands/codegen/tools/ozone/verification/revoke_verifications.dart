@@ -33,7 +33,7 @@ final class RevokeVerificationsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Revoke previously granted verifications in batches of up to 100.";
+      "Revoke previously granted verifications in batches of up to 100.";
 
   @override
   final String invocation =

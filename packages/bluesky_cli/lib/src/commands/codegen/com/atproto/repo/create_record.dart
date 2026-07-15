@@ -52,7 +52,7 @@ final class CreateRecordCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Create a single new repository record. Requires auth, implemented by PDS.";
+      "Create a single new repository record. Requires auth, implemented by PDS.";
 
   @override
   final String invocation =

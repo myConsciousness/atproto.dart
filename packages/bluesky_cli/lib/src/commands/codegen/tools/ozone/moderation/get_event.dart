@@ -23,7 +23,7 @@ final class GetEventCommand extends QueryCommand {
   final String name = "get-event";
 
   @override
-  final String description = r"Get details about a moderation event.";
+  final String description = "Get details about a moderation event.";
 
   @override
   final String invocation =

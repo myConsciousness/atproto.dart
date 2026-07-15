@@ -28,7 +28,7 @@ final class DereferenceScopeCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Allows finding the oauth permission scope from a reference";
+      "Allows finding the oauth permission scope from a reference";
 
   @override
   final String invocation =

@@ -32,7 +32,7 @@ final class UpdateQueueCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.";
+      "Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.";
 
   @override
   final String invocation =

@@ -113,7 +113,7 @@ final class QueryEventsCommand extends QueryCommand {
   final String name = "query-events";
 
   @override
-  final String description = r"List moderation events related to a subject.";
+  final String description = "List moderation events related to a subject.";
 
   @override
   final String invocation =

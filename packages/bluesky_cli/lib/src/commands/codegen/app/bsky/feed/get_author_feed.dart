@@ -33,7 +33,7 @@ final class GetAuthorFeedCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.";
+      "Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.";
 
   @override
   final String invocation =

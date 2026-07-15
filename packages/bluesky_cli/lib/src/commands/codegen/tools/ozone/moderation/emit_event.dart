@@ -41,7 +41,7 @@ final class EmitEventCommand extends ProcedureCommand {
   final String name = "emit-event";
 
   @override
-  final String description = r"Take a moderation action on an actor.";
+  final String description = "Take a moderation action on an actor.";
 
   @override
   final String invocation =

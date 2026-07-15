@@ -29,7 +29,7 @@ final class UnassignModeratorCommand extends ProcedureCommand {
   final String name = "unassign-moderator";
 
   @override
-  final String description = r"Remove a user's assignment from a queue.";
+  final String description = "Remove a user's assignment from a queue.";
 
   @override
   final String invocation =

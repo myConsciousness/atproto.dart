@@ -24,7 +24,7 @@ final class GetSuggestedFollowsByActorCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.";
+      "Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.";
 
   @override
   final String invocation =

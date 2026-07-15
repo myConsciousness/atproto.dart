@@ -32,7 +32,7 @@ final class QuerySetsCommand extends QueryCommand {
   final String name = "query-sets";
 
   @override
-  final String description = r"Query available sets";
+  final String description = "Query available sets";
 
   @override
   final String invocation =

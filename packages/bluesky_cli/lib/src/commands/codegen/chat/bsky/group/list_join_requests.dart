@@ -27,7 +27,7 @@ final class ListJoinRequestsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Lists a page of request to join a group (via join link) the user owns. Shows the data from the owner's point of view.";
+      "Lists a page of request to join a group (via join link) the user owns. Shows the data from the owner's point of view.";
 
   @override
   final String invocation =

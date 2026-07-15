@@ -26,7 +26,7 @@ final class FetchLabelsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.";
+      "DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.";
 
   @override
   final String invocation =

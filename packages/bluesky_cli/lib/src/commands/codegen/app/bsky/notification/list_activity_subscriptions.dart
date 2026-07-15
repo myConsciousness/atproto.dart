@@ -26,7 +26,7 @@ final class ListActivitySubscriptionsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.";
+      "Enumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.";
 
   @override
   final String invocation =

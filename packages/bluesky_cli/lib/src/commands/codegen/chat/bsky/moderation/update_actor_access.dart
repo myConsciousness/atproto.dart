@@ -26,7 +26,7 @@ final class UpdateActorAccessCommand extends ProcedureCommand {
   final String name = "update-actor-access";
 
   @override
-  final String description = r"";
+  final String description = "";
 
   @override
   final String invocation =

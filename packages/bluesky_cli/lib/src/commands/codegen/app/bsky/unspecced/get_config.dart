@@ -21,7 +21,7 @@ final class GetConfigCommand extends QueryCommand {
   final String name = "get-config";
 
   @override
-  final String description = r"Get miscellaneous runtime configuration.";
+  final String description = "Get miscellaneous runtime configuration.";
 
   @override
   final String invocation = "bsky app-bsky-unspecced get-config";

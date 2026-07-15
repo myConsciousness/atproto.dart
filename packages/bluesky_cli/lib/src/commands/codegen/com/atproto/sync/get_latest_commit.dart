@@ -24,7 +24,7 @@ final class GetLatestCommitCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get the current commit CID & revision of the specified repo. Does not require auth.";
+      "Get the current commit CID & revision of the specified repo. Does not require auth.";
 
   @override
   final String invocation =

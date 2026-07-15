@@ -27,7 +27,7 @@ final class PutPreferencesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Set the private preferences attached to the account.";
+      "Set the private preferences attached to the account.";
 
   @override
   final String invocation =

@@ -21,7 +21,7 @@ final class ListTemplatesCommand extends QueryCommand {
   final String name = "list-templates";
 
   @override
-  final String description = r"Get list of all communication templates.";
+  final String description = "Get list of all communication templates.";
 
   @override
   final String invocation = "bsky tools-ozone-communication list-templates";

@@ -24,7 +24,7 @@ final class RequestPhoneVerificationCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Request a verification code to be sent to the supplied phone number";
+      "Request a verification code to be sent to the supplied phone number";
 
   @override
   final String invocation =

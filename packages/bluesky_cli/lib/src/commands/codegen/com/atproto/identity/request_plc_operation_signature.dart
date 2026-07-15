@@ -22,7 +22,7 @@ final class RequestPlcOperationSignatureCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Request an email with a code to in order to request a signed PLC operation. Requires Auth.";
+      "Request an email with a code to in order to request a signed PLC operation. Requires Auth.";
 
   @override
   final String invocation =

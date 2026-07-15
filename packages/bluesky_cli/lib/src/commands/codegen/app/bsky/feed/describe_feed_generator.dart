@@ -22,7 +22,7 @@ final class DescribeFeedGeneratorCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).";
+      "Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).";
 
   @override
   final String invocation = "bsky app-bsky-feed describe-feed-generator";

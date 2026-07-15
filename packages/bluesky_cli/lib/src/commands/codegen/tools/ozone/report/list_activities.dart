@@ -31,7 +31,7 @@ final class ListActivitiesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"List all activities for a report, sorted most-recent-first.";
+      "List all activities for a report, sorted most-recent-first.";
 
   @override
   final String invocation =

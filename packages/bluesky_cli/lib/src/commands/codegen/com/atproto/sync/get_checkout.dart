@@ -24,7 +24,7 @@ final class GetCheckoutCommand extends QueryCommand {
 
   @override
   final String description =
-      r"DEPRECATED - please use com.atproto.sync.getRepo instead";
+      "DEPRECATED - please use com.atproto.sync.getRepo instead";
 
   @override
   final String invocation = "bsky com-atproto-sync get-checkout --did=<value>";

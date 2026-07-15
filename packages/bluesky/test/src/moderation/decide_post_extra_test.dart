@@ -95,10 +95,7 @@ void main() {
         ),
       );
 
-      expect(
-        actual.causes.whereType<UModerationCauseMuteWord>(),
-        isNotEmpty,
-      );
+      expect(actual.causes.whereType<UModerationCauseMuteWord>(), isNotEmpty);
     });
   });
 

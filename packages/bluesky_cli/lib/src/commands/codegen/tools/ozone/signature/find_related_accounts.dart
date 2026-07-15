@@ -27,7 +27,7 @@ final class FindRelatedAccountsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get accounts that share some matching threat signatures with the root account.";
+      "Get accounts that share some matching threat signatures with the root account.";
 
   @override
   final String invocation =

@@ -28,7 +28,7 @@ final class DismissMatchCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.";
+      "Removes a match that was found via contact import. It shouldn't appear again if the same contact is re-imported. Requires authentication.";
 
   @override
   final String invocation =

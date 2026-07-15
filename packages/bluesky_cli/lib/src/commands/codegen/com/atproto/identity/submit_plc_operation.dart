@@ -27,7 +27,7 @@ final class SubmitPlcOperationCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry";
+      "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry";
 
   @override
   final String invocation =

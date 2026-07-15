@@ -26,7 +26,7 @@ final class GetServicesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get information about a list of labeler services.";
+      "Get information about a list of labeler services.";
 
   @override
   final String invocation =

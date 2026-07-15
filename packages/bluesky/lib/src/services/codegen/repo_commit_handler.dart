@@ -275,6 +275,10 @@ final class RepoCommitHandler {
   Future<void> _onCreate(final Commit data, final RepoOp op) async {
     final uri = _getUri(data, op);
     final record = _getRecord(data, op);
+    // A commit op whose block is absent from `blocks` (relay quirk, partial CAR,
+    // or a `tooBig` commit) yields a null/typeless record; skip it rather than
+    // aborting the whole commit with an implicit-downcast `TypeError`.
+    if (record == null) return;
 
     if (uri.isActorProfile && ActorProfileRecord.validate(record)) {
       await _onCreateActorProfile?.call(
@@ -534,6 +538,10 @@ final class RepoCommitHandler {
   Future<void> _onUpdate(final Commit data, final RepoOp op) async {
     final uri = _getUri(data, op);
     final record = _getRecord(data, op);
+    // A commit op whose block is absent from `blocks` (relay quirk, partial CAR,
+    // or a `tooBig` commit) yields a null/typeless record; skip it rather than
+    // aborting the whole commit with an implicit-downcast `TypeError`.
+    if (record == null) return;
 
     if (uri.isActorProfile && ActorProfileRecord.validate(record)) {
       await _onUpdateActorProfile?.call(
@@ -1049,8 +1057,11 @@ final class RepoCommitHandler {
     return AtUri('at://${commit.repo}/${op.path}');
   }
 
-  Map<String, dynamic> _getRecord(final Commit commit, final RepoOp op) {
-    return commit.blocks[op.cid];
+  Map<String, dynamic>? _getRecord(final Commit commit, final RepoOp op) {
+    final record = commit.blocks[op.cid];
+    if (record is! Map<String, dynamic>) return null;
+
+    return record;
   }
 }
 

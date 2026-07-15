@@ -23,7 +23,7 @@ final class GetRecordsCommand extends QueryCommand {
   final String name = "get-records";
 
   @override
-  final String description = r"Get details about some records.";
+  final String description = "Get details about some records.";
 
   @override
   final String invocation =

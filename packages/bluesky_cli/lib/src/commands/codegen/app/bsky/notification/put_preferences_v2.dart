@@ -44,7 +44,7 @@ final class PutPreferencesV2Command extends ProcedureCommand {
 
   @override
   final String description =
-      r"Set notification-related preferences for an account. Requires auth.";
+      "Set notification-related preferences for an account. Requires auth.";
 
   @override
   final String invocation =

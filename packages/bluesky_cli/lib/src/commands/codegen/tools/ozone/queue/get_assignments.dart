@@ -39,7 +39,7 @@ final class GetAssignmentsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get moderator assignments, optionally filtered by active status, queue, or moderator.";
+      "Get moderator assignments, optionally filtered by active status, queue, or moderator.";
 
   @override
   final String invocation =

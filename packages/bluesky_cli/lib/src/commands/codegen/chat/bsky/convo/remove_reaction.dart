@@ -27,7 +27,7 @@ final class RemoveReactionCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.";
+      "Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.";
 
   @override
   final String invocation =

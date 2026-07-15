@@ -25,7 +25,7 @@ final class CreateInviteCodeCommand extends ProcedureCommand {
   final String name = "create-invite-code";
 
   @override
-  final String description = r"Create an invite code.";
+  final String description = "Create an invite code.";
 
   @override
   final String invocation =

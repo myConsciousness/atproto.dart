@@ -27,7 +27,7 @@ final class GetActorLikesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.";
+      "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.";
 
   @override
   final String invocation =

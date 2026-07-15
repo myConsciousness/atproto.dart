@@ -31,10 +31,9 @@ void main() {
 
       cache.save('alice.test', 'bsky.social', const {'accessJwt': 'token'});
 
-      expect(
-        cache.load('alice.test', 'bsky.social'),
-        const {'accessJwt': 'token'},
-      );
+      expect(cache.load('alice.test', 'bsky.social'), const {
+        'accessJwt': 'token',
+      });
     });
 
     test(
@@ -50,7 +49,8 @@ void main() {
         expect(file.existsSync(), isTrue);
 
         // Only the owner may read/write the file that holds bearer tokens.
-        final permissionBits = file.statSync().mode & int.parse('777', radix: 8);
+        final permissionBits =
+            file.statSync().mode & int.parse('777', radix: 8);
         expect(permissionBits, int.parse('600', radix: 8));
 
         // Sanity check: the tokens were actually written after locking down

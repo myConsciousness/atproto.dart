@@ -22,7 +22,7 @@ final class GetRecommendedDidCredentialsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Describe the credentials that should be included in the DID doc of an account that is migrating to this service.";
+      "Describe the credentials that should be included in the DID doc of an account that is migrating to this service.";
 
   @override
   final String invocation =

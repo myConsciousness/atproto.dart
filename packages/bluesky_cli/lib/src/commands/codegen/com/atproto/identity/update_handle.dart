@@ -24,7 +24,7 @@ final class UpdateHandleCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.";
+      "Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.";
 
   @override
   final String invocation =

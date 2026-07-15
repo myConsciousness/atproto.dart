@@ -40,7 +40,7 @@ final class CheckHandleAvailabilityCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.";
+      "Checks whether the provided handle is available. If the handle is not available, available suggestions will be returned. Optional inputs will be used to generate suggestions.";
 
   @override
   final String invocation =

@@ -24,7 +24,7 @@ final class GetOnboardingSuggestedStarterPacksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of suggested starterpacks for onboarding";
+      "Get a list of suggested starterpacks for onboarding";
 
   @override
   final String invocation =

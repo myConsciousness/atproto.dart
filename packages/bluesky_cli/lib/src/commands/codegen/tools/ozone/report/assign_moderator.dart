@@ -44,7 +44,7 @@ final class AssignModeratorCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Assign a report to a user. Defaults to the caller. Admins may assign to any moderator.";
+      "Assign a report to a user. Defaults to the caller. Admins may assign to any moderator.";
 
   @override
   final String invocation =

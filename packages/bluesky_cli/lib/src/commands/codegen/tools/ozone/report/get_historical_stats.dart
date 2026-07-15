@@ -38,7 +38,7 @@ final class GetHistoricalStatsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get historical daily report statistics. Returns a paginated list of daily stat snapshots, newest first. Filter by queue, moderator, or report type.";
+      "Get historical daily report statistics. Returns a paginated list of daily stat snapshots, newest first. Filter by queue, moderator, or report type.";
 
   @override
   final String invocation =

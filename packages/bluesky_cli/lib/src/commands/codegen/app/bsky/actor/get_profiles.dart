@@ -23,7 +23,7 @@ final class GetProfilesCommand extends QueryCommand {
   final String name = "get-profiles";
 
   @override
-  final String description = r"Get detailed profile views of multiple actors.";
+  final String description = "Get detailed profile views of multiple actors.";
 
   @override
   final String invocation =

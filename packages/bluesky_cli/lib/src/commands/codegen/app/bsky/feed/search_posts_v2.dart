@@ -146,7 +146,7 @@ final class SearchPostsV2Command extends QueryCommand {
 
   @override
   final String description =
-      r"Find posts matching a search query or filters, returning search hits for matching post records.";
+      "Find posts matching a search query or filters, returning search hits for matching post records.";
 
   @override
   final String invocation =

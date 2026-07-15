@@ -32,7 +32,7 @@ final class QueryEventsCommand extends ProcedureCommand {
   final String name = "query-events";
 
   @override
-  final String description = r"Query URL safety audit events";
+  final String description = "Query URL safety audit events";
 
   @override
   final String invocation =

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'create_operation_v1.dart';
@@ -9,6 +9,7 @@ part of 'create_operation_v1.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$CreateOperationV1CopyWithImpl<$Res>
 /// Create a copy of CreateOperationV1
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? sig = null,Object? type = null,Object? signingKey = null,Object? recoveryKey = null,Object? handle = null,Object? service = null,Object? prev = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CreateOperationV1(
 sig: null == sig ? _self.sig : sig // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,signingKey: null == signingKey ? _self.signingKey : signingKey // ignore: cast_nullable_to_non_nullable

@@ -39,7 +39,7 @@ final class AddRuleCommand extends ProcedureCommand {
   final String name = "add-rule";
 
   @override
-  final String description = r"Add a new URL safety rule";
+  final String description = "Add a new URL safety rule";
 
   @override
   final String invocation =

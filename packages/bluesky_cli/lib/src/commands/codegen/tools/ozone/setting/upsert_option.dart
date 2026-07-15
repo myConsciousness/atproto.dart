@@ -31,7 +31,7 @@ final class UpsertOptionCommand extends ProcedureCommand {
   final String name = "upsert-option";
 
   @override
-  final String description = r"Create or update setting option";
+  final String description = "Create or update setting option";
 
   @override
   final String invocation =

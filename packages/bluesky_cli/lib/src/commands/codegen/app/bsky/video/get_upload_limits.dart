@@ -22,7 +22,7 @@ final class GetUploadLimitsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get video upload limits for the authenticated user.";
+      "Get video upload limits for the authenticated user.";
 
   @override
   final String invocation = "bsky app-bsky-video get-upload-limits";

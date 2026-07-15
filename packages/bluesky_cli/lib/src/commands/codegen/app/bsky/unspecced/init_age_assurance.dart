@@ -40,7 +40,7 @@ final class InitAgeAssuranceCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Initiate age assurance for an account. This is a one-time action that will start the process of verifying the user's age.";
+      "Initiate age assurance for an account. This is a one-time action that will start the process of verifying the user's age.";
 
   @override
   final String invocation =

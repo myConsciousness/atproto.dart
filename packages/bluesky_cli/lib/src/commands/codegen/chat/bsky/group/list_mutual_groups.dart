@@ -27,7 +27,7 @@ final class ListMutualGroupsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns a page of group conversations that both the requester and the specified actor are members of.";
+      "Returns a page of group conversations that both the requester and the specified actor are members of.";
 
   @override
   final String invocation =

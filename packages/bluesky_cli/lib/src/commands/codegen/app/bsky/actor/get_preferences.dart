@@ -22,7 +22,7 @@ final class GetPreferencesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.";
+      "Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.";
 
   @override
   final String invocation = "bsky app-bsky-actor get-preferences";

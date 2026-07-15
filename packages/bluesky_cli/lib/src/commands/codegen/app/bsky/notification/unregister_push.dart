@@ -28,7 +28,7 @@ final class UnregisterPushCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.";
+      "The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.";
 
   @override
   final String invocation =

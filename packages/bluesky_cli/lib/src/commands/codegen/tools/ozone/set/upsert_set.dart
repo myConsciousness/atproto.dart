@@ -30,7 +30,7 @@ final class UpsertSetCommand extends ProcedureCommand {
   final String name = "upsert-set";
 
   @override
-  final String description = r"Create or update set metadata";
+  final String description = "Create or update set metadata";
 
   @override
   final String invocation = "bsky tools-ozone-set upsert-set --json=<value>";

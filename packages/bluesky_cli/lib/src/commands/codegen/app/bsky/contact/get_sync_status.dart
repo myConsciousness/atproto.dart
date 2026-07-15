@@ -22,7 +22,7 @@ final class GetSyncStatusCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Gets the user's current contact import status. Requires authentication.";
+      "Gets the user's current contact import status. Requires authentication.";
 
   @override
   final String invocation = "bsky app-bsky-contact get-sync-status";

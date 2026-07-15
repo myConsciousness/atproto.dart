@@ -43,7 +43,7 @@ final class ApplyWritesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.";
+      "Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.";
 
   @override
   final String invocation =

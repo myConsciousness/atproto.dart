@@ -29,7 +29,7 @@ final class GetSuggestedUsersForExploreCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of suggested users for the Explore page";
+      "Get a list of suggested users for the Explore page";
 
   @override
   final String invocation =

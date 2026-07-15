@@ -24,7 +24,7 @@ final class UpdateAllReadCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Sets conversations from a user as read to the latest message, with filters.";
+      "Sets conversations from a user as read to the latest message, with filters.";
 
   @override
   final String invocation =

@@ -21,7 +21,7 @@ final class GetLatestReportCommand extends QueryCommand {
   final String name = "get-latest-report";
 
   @override
-  final String description = r"Get the most recent report.";
+  final String description = "Get the most recent report.";
 
   @override
   final String invocation = "bsky tools-ozone-report get-latest-report";

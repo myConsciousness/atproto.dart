@@ -26,7 +26,7 @@ final class ListConvoRequestsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns a page of incoming conversation requests for the user. Direct convo requests are returned as convoView; group join requests made by the user are returned as joinRequestConvoView.";
+      "Returns a page of incoming conversation requests for the user. Direct convo requests are returned as convoView; group join requests made by the user are returned as joinRequestConvoView.";
 
   @override
   final String invocation =

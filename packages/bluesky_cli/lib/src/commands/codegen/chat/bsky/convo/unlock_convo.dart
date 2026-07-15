@@ -24,7 +24,7 @@ final class UnlockConvoCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Unlocks a group convo so it is able to receive new content.";
+      "Unlocks a group convo so it is able to receive new content.";
 
   @override
   final String invocation =

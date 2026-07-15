@@ -30,7 +30,7 @@ final class GetTrendsSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get the skeleton of trends on the network. Intended to be called and then hydrated through app.bsky.unspecced.getTrends";
+      "Get the skeleton of trends on the network. Intended to be called and then hydrated through app.bsky.unspecced.getTrends";
 
   @override
   final String invocation =

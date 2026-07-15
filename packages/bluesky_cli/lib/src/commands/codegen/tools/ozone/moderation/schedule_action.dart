@@ -39,7 +39,7 @@ final class ScheduleActionCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Schedule a moderation action to be executed at a future time";
+      "Schedule a moderation action to be executed at a future time";
 
   @override
   final String invocation =

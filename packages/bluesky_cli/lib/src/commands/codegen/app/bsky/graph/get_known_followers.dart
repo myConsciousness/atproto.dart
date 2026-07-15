@@ -27,7 +27,7 @@ final class GetKnownFollowersCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates accounts which follow a specified account (actor) and are followed by the viewer.";
+      "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.";
 
   @override
   final String invocation =

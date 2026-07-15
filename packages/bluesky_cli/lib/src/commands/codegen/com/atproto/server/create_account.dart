@@ -54,7 +54,7 @@ final class CreateAccountCommand extends ProcedureCommand {
   final String name = "create-account";
 
   @override
-  final String description = r"Create an account. Implemented by PDS.";
+  final String description = "Create an account. Implemented by PDS.";
 
   @override
   final String invocation =

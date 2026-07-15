@@ -26,7 +26,7 @@ final class ListReposCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.";
+      "Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.";
 
   @override
   final String invocation =

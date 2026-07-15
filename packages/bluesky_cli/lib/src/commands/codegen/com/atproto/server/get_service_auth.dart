@@ -39,7 +39,7 @@ final class GetServiceAuthCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a signed token on behalf of the requesting DID for the requested service.";
+      "Get a signed token on behalf of the requesting DID for the requested service.";
 
   @override
   final String invocation =

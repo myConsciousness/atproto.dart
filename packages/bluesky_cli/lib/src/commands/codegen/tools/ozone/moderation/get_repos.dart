@@ -23,7 +23,7 @@ final class GetReposCommand extends QueryCommand {
   final String name = "get-repos";
 
   @override
-  final String description = r"Get details about some repositories.";
+  final String description = "Get details about some repositories.";
 
   @override
   final String invocation =

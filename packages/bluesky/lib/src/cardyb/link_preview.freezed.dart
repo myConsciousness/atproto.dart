@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'link_preview.dart';
@@ -9,6 +9,7 @@ part of 'link_preview.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -20,7 +21,12 @@ mixin _$LinkPreview {
  String? get title;/// The preview description of the link.
  String? get description;/// The preview image of the link.
  String? get image;/// The error message returned by cardyb, if any.
- String? get error;/// The likely type of the resource cardyb attempted to extract.
+///
+/// cardyb's `/v1/extract` endpoint responds with HTTP 200 even when
+/// extraction fails, carrying a non-empty `error` field. Inspect this
+/// to distinguish a genuine failure from an empty preview.
+ String? get error;/// The likely type of the resource cardyb attempted to extract
+/// (e.g. `html`), mapped from the `likely_type` field.
 @JsonKey(name: 'likely_type') String? get likelyType;
 /// Create a copy of LinkPreview
 /// with the given fields replaced by the non-null parameter values.
@@ -72,7 +78,7 @@ class _$LinkPreviewCopyWithImpl<$Res>
 /// Create a copy of LinkPreview
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = freezed,Object? title = freezed,Object? description = freezed,Object? image = freezed,Object? error = freezed,Object? likelyType = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(LinkPreview(
 url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -164,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type') String? likelyType)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type')  String? likelyType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LinkPreview() when $default != null:
 return $default(_that.url,_that.title,_that.description,_that.image,_that.error,_that.likelyType);case _:
@@ -185,7 +191,7 @@ return $default(_that.url,_that.title,_that.description,_that.image,_that.error,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type') String? likelyType)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type')  String? likelyType)  $default,) {final _that = this;
 switch (_that) {
 case _LinkPreview():
 return $default(_that.url,_that.title,_that.description,_that.image,_that.error,_that.likelyType);case _:
@@ -205,7 +211,7 @@ return $default(_that.url,_that.title,_that.description,_that.image,_that.error,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type') String? likelyType)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type')  String? likelyType)?  $default,) {final _that = this;
 switch (_that) {
 case _LinkPreview() when $default != null:
 return $default(_that.url,_that.title,_that.description,_that.image,_that.error,_that.likelyType);case _:
@@ -232,8 +238,13 @@ class _LinkPreview implements LinkPreview {
 /// The preview image of the link.
 @override final  String? image;
 /// The error message returned by cardyb, if any.
+///
+/// cardyb's `/v1/extract` endpoint responds with HTTP 200 even when
+/// extraction fails, carrying a non-empty `error` field. Inspect this
+/// to distinguish a genuine failure from an empty preview.
 @override final  String? error;
-/// The likely type of the resource cardyb attempted to extract.
+/// The likely type of the resource cardyb attempted to extract
+/// (e.g. `html`), mapped from the `likely_type` field.
 @override@JsonKey(name: 'likely_type') final  String? likelyType;
 
 /// Create a copy of LinkPreview

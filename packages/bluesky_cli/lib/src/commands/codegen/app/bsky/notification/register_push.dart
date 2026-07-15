@@ -32,7 +32,7 @@ final class RegisterPushCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Register to receive push notifications, via a specified service, for the requesting account. Requires auth.";
+      "Register to receive push notifications, via a specified service, for the requesting account. Requires auth.";
 
   @override
   final String invocation =

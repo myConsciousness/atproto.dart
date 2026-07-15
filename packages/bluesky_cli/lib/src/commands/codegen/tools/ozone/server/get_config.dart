@@ -21,7 +21,7 @@ final class GetConfigCommand extends QueryCommand {
   final String name = "get-config";
 
   @override
-  final String description = r"Get details about ozone's server configuration.";
+  final String description = "Get details about ozone's server configuration.";
 
   @override
   final String invocation = "bsky tools-ozone-server get-config";

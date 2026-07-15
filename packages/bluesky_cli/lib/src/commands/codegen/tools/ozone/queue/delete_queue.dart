@@ -34,7 +34,7 @@ final class DeleteQueueCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Delete a moderation queue. Optionally migrate reports to another queue.";
+      "Delete a moderation queue. Optionally migrate reports to another queue.";
 
   @override
   final String invocation =

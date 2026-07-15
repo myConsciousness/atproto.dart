@@ -21,7 +21,7 @@ final class CheckSignupQueueCommand extends QueryCommand {
   final String name = "check-signup-queue";
 
   @override
-  final String description = r"Check accounts location in signup queue.";
+  final String description = "Check accounts location in signup queue.";
 
   @override
   final String invocation = "bsky com-atproto-temp check-signup-queue";

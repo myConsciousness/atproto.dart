@@ -28,7 +28,7 @@ final class GetSuggestedOnboardingUsersCommand extends QueryCommand {
   final String name = "get-suggested-onboarding-users";
 
   @override
-  final String description = r"Get a list of suggested users for onboarding";
+  final String description = "Get a list of suggested users for onboarding";
 
   @override
   final String invocation =

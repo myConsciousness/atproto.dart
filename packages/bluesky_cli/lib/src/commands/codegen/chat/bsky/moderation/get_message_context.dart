@@ -47,7 +47,7 @@ final class GetMessageContextCommand extends QueryCommand {
   final String name = "get-message-context";
 
   @override
-  final String description = r"";
+  final String description = "";
 
   @override
   final String invocation =

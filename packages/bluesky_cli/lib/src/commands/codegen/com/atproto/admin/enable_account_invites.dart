@@ -26,7 +26,7 @@ final class EnableAccountInvitesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Re-enable an account's ability to receive invite codes.";
+      "Re-enable an account's ability to receive invite codes.";
 
   @override
   final String invocation =

@@ -24,7 +24,7 @@ final class FindCorrelationCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Find all correlated threat signatures between 2 or more accounts.";
+      "Find all correlated threat signatures between 2 or more accounts.";
 
   @override
   final String invocation =

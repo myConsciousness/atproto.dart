@@ -23,7 +23,7 @@ final class GetReporterStatsCommand extends QueryCommand {
   final String name = "get-reporter-stats";
 
   @override
-  final String description = r"Get reporter stats for a list of users.";
+  final String description = "Get reporter stats for a list of users.";
 
   @override
   final String invocation =

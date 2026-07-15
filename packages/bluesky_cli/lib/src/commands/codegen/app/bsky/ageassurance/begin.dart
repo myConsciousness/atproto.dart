@@ -45,7 +45,7 @@ final class BeginCommand extends ProcedureCommand {
   final String name = "begin";
 
   @override
-  final String description = r"Initiate Age Assurance for an account.";
+  final String description = "Initiate Age Assurance for an account.";
 
   @override
   final String invocation =

@@ -24,7 +24,7 @@ final class GetRepoStatusCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.";
+      "Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.";
 
   @override
   final String invocation =

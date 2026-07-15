@@ -23,7 +23,7 @@ final class AddReservedHandleCommand extends ProcedureCommand {
   final String name = "add-reserved-handle";
 
   @override
-  final String description = r"Add a handle to the set of reserved handles.";
+  final String description = "Add a handle to the set of reserved handles.";
 
   @override
   final String invocation =

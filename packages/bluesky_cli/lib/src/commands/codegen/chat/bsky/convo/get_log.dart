@@ -23,7 +23,7 @@ final class GetLogCommand extends QueryCommand {
   final String name = "get-log";
 
   @override
-  final String description = r"";
+  final String description = "";
 
   @override
   final String invocation = "bsky chat-bsky-convo get-log [--cursor=<value>]";

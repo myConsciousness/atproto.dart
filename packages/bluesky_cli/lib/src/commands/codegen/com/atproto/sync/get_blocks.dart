@@ -26,7 +26,7 @@ final class GetBlocksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.";
+      "Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.";
 
   @override
   final String invocation =

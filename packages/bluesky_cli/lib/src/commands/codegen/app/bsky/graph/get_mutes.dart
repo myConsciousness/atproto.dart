@@ -26,7 +26,7 @@ final class GetMutesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.";
+      "Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.";
 
   @override
   final String invocation =

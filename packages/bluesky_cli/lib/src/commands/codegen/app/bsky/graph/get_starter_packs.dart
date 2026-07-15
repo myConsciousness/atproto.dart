@@ -23,7 +23,7 @@ final class GetStarterPacksCommand extends QueryCommand {
   final String name = "get-starter-packs";
 
   @override
-  final String description = r"Get views for a list of starter packs.";
+  final String description = "Get views for a list of starter packs.";
 
   @override
   final String invocation =

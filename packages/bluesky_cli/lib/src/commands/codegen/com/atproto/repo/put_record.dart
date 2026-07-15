@@ -53,7 +53,7 @@ final class PutRecordCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.";
+      "Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.";
 
   @override
   final String invocation =

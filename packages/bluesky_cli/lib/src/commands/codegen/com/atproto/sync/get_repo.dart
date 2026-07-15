@@ -29,7 +29,7 @@ final class GetRepoCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.";
+      "Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.";
 
   @override
   final String invocation =

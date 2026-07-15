@@ -27,7 +27,7 @@ final class GetFeedCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a hydrated feed from an actor's selected feed generator. Implemented by App View.";
+      "Get a hydrated feed from an actor's selected feed generator. Implemented by App View.";
 
   @override
   final String invocation =

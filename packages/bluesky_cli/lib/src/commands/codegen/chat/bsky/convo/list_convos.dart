@@ -38,7 +38,7 @@ final class ListConvosCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns a page of conversations (direct or group) for the user.";
+      "Returns a page of conversations (direct or group) for the user.";
 
   @override
   final String invocation =

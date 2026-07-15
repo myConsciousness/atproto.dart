@@ -24,7 +24,7 @@ final class DeleteMemberCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Delete a member from ozone team. Requires admin role.";
+      "Delete a member from ozone team. Requires admin role.";
 
   @override
   final String invocation = "bsky tools-ozone-team delete-member --did=<value>";

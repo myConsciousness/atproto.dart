@@ -33,7 +33,7 @@ final class DeleteValuesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error";
+      "Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error";
 
   @override
   final String invocation =

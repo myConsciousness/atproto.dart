@@ -36,7 +36,7 @@ final class GetLikesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get like records which reference a subject (by AT-URI and CID).";
+      "Get like records which reference a subject (by AT-URI and CID).";
 
   @override
   final String invocation =

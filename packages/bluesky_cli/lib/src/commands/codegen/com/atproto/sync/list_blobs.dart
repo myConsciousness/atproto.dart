@@ -31,7 +31,7 @@ final class ListBlobsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.";
+      "List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.";
 
   @override
   final String invocation =

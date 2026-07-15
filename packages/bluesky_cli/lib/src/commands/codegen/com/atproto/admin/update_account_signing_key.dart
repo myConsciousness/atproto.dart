@@ -30,7 +30,7 @@ final class UpdateAccountSigningKeyCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Administrative action to update an account's signing key in their Did document.";
+      "Administrative action to update an account's signing key in their Did document.";
 
   @override
   final String invocation =

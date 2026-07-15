@@ -26,7 +26,7 @@ final class ListHostsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.";
+      "Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.";
 
   @override
   final String invocation =

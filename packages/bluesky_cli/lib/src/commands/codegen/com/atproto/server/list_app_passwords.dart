@@ -21,7 +21,7 @@ final class ListAppPasswordsCommand extends QueryCommand {
   final String name = "list-app-passwords";
 
   @override
-  final String description = r"List all App Passwords.";
+  final String description = "List all App Passwords.";
 
   @override
   final String invocation = "bsky com-atproto-server list-app-passwords";

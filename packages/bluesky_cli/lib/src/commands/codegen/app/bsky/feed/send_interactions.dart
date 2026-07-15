@@ -29,7 +29,7 @@ final class SendInteractionsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Send information about interactions with feed items back to the feed generator that served them.";
+      "Send information about interactions with feed items back to the feed generator that served them.";
 
   @override
   final String invocation =

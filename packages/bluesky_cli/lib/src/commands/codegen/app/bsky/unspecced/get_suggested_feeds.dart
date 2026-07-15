@@ -23,7 +23,7 @@ final class GetSuggestedFeedsCommand extends QueryCommand {
   final String name = "get-suggested-feeds";
 
   @override
-  final String description = r"Get a list of suggested feeds";
+  final String description = "Get a list of suggested feeds";
 
   @override
   final String invocation =

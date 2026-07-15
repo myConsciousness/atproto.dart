@@ -26,7 +26,7 @@ final class UpdateReadCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Updates the read state of a conversation from, optionally specifying the last read message.";
+      "Updates the read state of a conversation from, optionally specifying the last read message.";
 
   @override
   final String invocation =

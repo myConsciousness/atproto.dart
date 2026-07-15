@@ -32,7 +32,7 @@ final class ListNotificationsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerate notifications for the requesting account. Requires auth.";
+      "Enumerate notifications for the requesting account. Requires auth.";
 
   @override
   final String invocation =

@@ -22,7 +22,7 @@ final class GetSessionCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get information about the current auth session. Requires auth.";
+      "Get information about the current auth session. Requires auth.";
 
   @override
   final String invocation = "bsky com-atproto-server get-session";

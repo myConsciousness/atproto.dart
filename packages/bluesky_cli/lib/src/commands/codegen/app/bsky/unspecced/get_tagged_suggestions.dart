@@ -22,7 +22,7 @@ final class GetTaggedSuggestionsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of suggestions (feeds and users) tagged with categories";
+      "Get a list of suggestions (feeds and users) tagged with categories";
 
   @override
   final String invocation = "bsky app-bsky-unspecced get-tagged-suggestions";

@@ -44,7 +44,7 @@ final class ListQueuesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"List all configured moderation queues with statistics.";
+      "List all configured moderation queues with statistics.";
 
   @override
   final String invocation =

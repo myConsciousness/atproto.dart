@@ -24,7 +24,7 @@ final class AcceptConvoCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Marks a conversation as accepted, so it is shown in the list of accepted convos instead on the request convos.";
+      "Marks a conversation as accepted, so it is shown in the list of accepted convos instead on the request convos.";
 
   @override
   final String invocation =

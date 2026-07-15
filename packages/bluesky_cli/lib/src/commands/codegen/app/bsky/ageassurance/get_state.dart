@@ -26,7 +26,7 @@ final class GetStateCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.";
+      "Returns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.";
 
   @override
   final String invocation =
