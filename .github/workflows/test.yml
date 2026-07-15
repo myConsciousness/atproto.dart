@@ -128,23 +128,35 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
   # ---------------------------------------------------------------------------
-  # Format + analyze once for the whole workspace. Because this is a Dart pub
-  # workspace, a single root resolve + `dart format`/`dart analyze` covers every
-  # package, so there is no need to fan this out per package.
+  # Format + analyze the whole Dart workspace in a single job. Because this is a
+  # Dart pub workspace, one root resolve covers every package. Both commands take
+  # an EXPLICIT list of the 13 Dart package dirs — never a bare `.` — because a
+  # root-level `dart format`/`dart analyze` would recurse into the Flutter
+  # package (bluesky_text_flutter), whose `flutter_lints` include cannot be
+  # resolved without the Flutter SDK. The Flutter package is checked in its own
+  # job below. A single stable job name (`format-analyze`) also makes this easy
+  # to require in branch protection.
   # ---------------------------------------------------------------------------
   format-analyze:
-    needs: changes
     runs-on: ubuntu-latest
+    env:
+      # Dart-only packages (excludes bluesky_text_flutter).
+      DART_DIRS: >-
+        packages/at_primitives packages/lexicon packages/xrpc
+        packages/multiformats packages/atproto_core packages/atproto_oauth
+        packages/atproto_test packages/did_plc packages/atproto
+        packages/bluesky packages/bluesky_text packages/bluesky_cli
+        packages/lex_gen
     steps:
       - uses: actions/checkout@v7
 
       - uses: ./.github/actions/setup-dart-cached
 
       - name: Check format
-        run: dart format --output=none --set-exit-if-changed .
+        run: dart format --output=none --set-exit-if-changed $DART_DIRS
 
       - name: Analyze
-        run: dart analyze
+        run: dart analyze $DART_DIRS
 
   # ---------------------------------------------------------------------------
   # Test only the affected packages (dynamic matrix from the `changes` job).
@@ -209,7 +221,7 @@ jobs:
         run: flutter pub get
 
       - name: Check format
-        run: dart format --set-exit-if-changed .
+        run: dart format --output=none --set-exit-if-changed .
 
       - name: Analyze
         run: flutter analyze
@@ -230,3 +242,23 @@ jobs:
               flutter test
             fi
           fi
+
+  # ---------------------------------------------------------------------------
+  # Single aggregation gate. `test` and `flutter` are conditional / matrix jobs
+  # whose individual check names vary, which makes them awkward to require in
+  # branch protection. Requiring this one job instead gives a stable required
+  # check that passes only when every upstream job succeeded or was
+  # legitimately skipped (a skipped job is not a failure).
+  # ---------------------------------------------------------------------------
+  ci-ok:
+    needs: [format-analyze, test, flutter]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assert no upstream job failed
+        run: |
+          if ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}; then
+            echo "A required job failed or was cancelled."
+            exit 1
+          fi
+          echo "All required jobs passed (or were skipped)."

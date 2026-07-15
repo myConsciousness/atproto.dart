@@ -11,7 +11,7 @@
 # automatically exchange a short-lived GitHub Actions token for a temporary
 # pub.dev credential. No secrets or long-lived tokens are stored. Each package
 # must have "Automated publishing" enabled in its pub.dev Admin tab pointing at
-# this repo with a matching tag pattern (see docs/RELEASING.md).
+# this repo with a matching tag pattern.
 
 name: Publish
 
