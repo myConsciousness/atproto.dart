@@ -66,7 +66,14 @@ final class LexUserTypeConverter
       case 'unknown':
         return LexUserType.unknown(data: LexUnknown.fromJson(json));
       default:
-        throw UnsupportedError('Unsupported type [$type]');
+        // Graceful degradation (G-12): an unrecognized top-level def type
+        // (e.g. atproto's granular-OAuth `permission-set` / `permission`, or a
+        // yet-to-be-defined future kind) must not abort parsing the entire
+        // lexicon document. Fall back to an `unknown` user type — mirroring the
+        // nested converters — so the unattended codegen pipeline keeps working.
+        return LexUserType.unknown(
+          data: LexUnknown(description: json['description'] as String?),
+        );
     }
   }
 
