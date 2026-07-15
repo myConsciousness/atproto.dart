@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: crazy-max/ghaction-github-labeler@v5
+      - uses: actions/checkout@v7
+      - uses: crazy-max/ghaction-github-labeler@v6
         with:
           yaml_file: .github/labels.yml
           skip_delete: true
