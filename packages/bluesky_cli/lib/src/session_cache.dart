@@ -122,10 +122,24 @@ final class SessionCache {
       final file = File(path);
       file.parent.createSync(recursive: true);
 
-      // Restrict permissions before the tokens are written so that
-      // the file is never readable by other users.
+      // Create the file empty and lock down its permissions BEFORE any
+      // token bytes touch disk, so the tokens are never momentarily
+      // world-readable. If the file cannot be secured, refuse to write the
+      // tokens at all rather than leaving them in a world-readable file.
       file.writeAsStringSync('');
-      _restrictPermissions(file);
+      if (!_restrictPermissions(file)) {
+        stderr.writeln(
+          'bsky: could not secure the session cache file at $path '
+          '(chmod 600 failed); skipping session caching.',
+        );
+        try {
+          file.deleteSync();
+        } catch (_) {
+          // Best-effort cleanup.
+        }
+
+        return;
+      }
 
       file.writeAsStringSync(
         jsonEncode({
@@ -151,9 +165,23 @@ final class SessionCache {
     }
   }
 
-  void _restrictPermissions(final File file) {
-    if (!Platform.isWindows) {
-      Process.runSync('chmod', ['600', file.path]);
+  /// Restricts [file] to owner-only read/write (`0600`) on POSIX systems.
+  ///
+  /// Returns true when the permissions were successfully restricted (or when
+  /// running on Windows, where POSIX modes do not apply), and false when the
+  /// `chmod` invocation failed. Callers must not write secrets to a file for
+  /// which this returns false.
+  bool _restrictPermissions(final File file) {
+    if (Platform.isWindows) {
+      return true;
+    }
+
+    try {
+      final result = Process.runSync('chmod', ['600', file.path]);
+
+      return result.exitCode == 0;
+    } catch (_) {
+      return false;
     }
   }
 }

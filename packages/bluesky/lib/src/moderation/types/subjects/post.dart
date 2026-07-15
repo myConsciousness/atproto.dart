@@ -57,14 +57,22 @@ ModerationDecision decidePost(
     decision.addHidden();
   }
 
-  // Guard with `validate` before `fromJson`, mirroring the quoted-post paths.
-  // A federated post can carry a malformed record, and calling `fromJson`
-  // directly would throw and take down the whole `moderatePost` call.
-  if (!decision.me && FeedPostRecord.validate(record)) {
+  if (!decision.me) {
+    // Guard with `validate` before `fromJson`, mirroring the quoted-post
+    // paths. A federated post can carry a malformed record, and calling
+    // `fromJson` directly would throw and take down the whole
+    // `moderatePost` call. Unlike upstream, we only skip the top-level
+    // post text/images checks when the record is invalid; the embed
+    // (quoted post) is still scanned, matching @atproto/api's
+    // `subjects/post.ts` behavior.
+    final postRecord = FeedPostRecord.validate(record)
+        ? FeedPostRecord.fromJson(record)
+        : null;
+
     decision.addMutedWord(
       _matchAllMuteWords(
         author,
-        FeedPostRecord.fromJson(record),
+        postRecord,
         embed,
         opts.prefs.mutedWords,
       ),
@@ -204,49 +212,55 @@ bool _hasHiddenPost(
 
 List<MuteWordMatch> _matchAllMuteWords(
   final ProfileViewBasic author,
-  final FeedPostRecord record,
+  final FeedPostRecord? record,
   final UPostViewEmbed? embed,
   final List<MutedWord> mutedWords,
 ) {
   if (mutedWords.isEmpty) return const [];
 
-  // post text
-  final matches = matchMuteWords(
-    mutedWords: mutedWords,
-    text: record.text,
-    facets: record.facets,
-    outlineTags: record.tags,
-    languages: record.langs,
-    actor: author,
-  );
-  if (matches.isNotEmpty) return matches;
+  // The top-level post text/images are only scanned when the record is a
+  // valid `app.bsky.feed.post`. A malformed or foreign top-level record must
+  // not prevent the embed (quoted post) from being scanned below, mirroring
+  // @atproto/api's `subjects/post.ts`.
+  if (record != null) {
+    // post text
+    final matches = matchMuteWords(
+      mutedWords: mutedWords,
+      text: record.text,
+      facets: record.facets,
+      outlineTags: record.tags,
+      languages: record.langs,
+      actor: author,
+    );
+    if (matches.isNotEmpty) return matches;
 
-  final recordEmbed = record.embed;
-  if (recordEmbed != null) {
-    // post images
-    if (recordEmbed.isEmbedImages) {
-      for (final image in recordEmbed.embedImages!.images) {
-        final matches = matchMuteWords(
-          mutedWords: mutedWords,
-          text: image.alt,
-          languages: record.langs,
-          actor: author,
-        );
-        if (matches.isNotEmpty) return matches;
-      }
-    }
-
-    // post gallery items
-    if (recordEmbed.isEmbedGallery) {
-      for (final item in recordEmbed.embedGallery!.items) {
-        if (item.isEmbedGalleryImage) {
+    final recordEmbed = record.embed;
+    if (recordEmbed != null) {
+      // post images
+      if (recordEmbed.isEmbedImages) {
+        for (final image in recordEmbed.embedImages!.images) {
           final matches = matchMuteWords(
             mutedWords: mutedWords,
-            text: item.embedGalleryImage!.alt,
+            text: image.alt,
             languages: record.langs,
             actor: author,
           );
           if (matches.isNotEmpty) return matches;
+        }
+      }
+
+      // post gallery items
+      if (recordEmbed.isEmbedGallery) {
+        for (final item in recordEmbed.embedGallery!.items) {
+          if (item.isEmbedGalleryImage) {
+            final matches = matchMuteWords(
+              mutedWords: mutedWords,
+              text: item.embedGalleryImage!.alt,
+              languages: record.langs,
+              actor: author,
+            );
+            if (matches.isNotEmpty) return matches;
+          }
         }
       }
     }
@@ -406,7 +420,7 @@ List<MuteWordMatch> _matchAllMuteWords(
           final matches = matchMuteWords(
             mutedWords: mutedWords,
             text: image.alt,
-            languages: record.langs,
+            languages: record?.langs ?? const [],
             actor: embedAuthor,
           );
           if (matches.isNotEmpty) return matches;
@@ -420,7 +434,7 @@ List<MuteWordMatch> _matchAllMuteWords(
             final matches = matchMuteWords(
               mutedWords: mutedWords,
               text: item.embedGalleryViewImage!.alt,
-              languages: record.langs,
+              languages: record?.langs ?? const [],
               actor: embedAuthor,
             );
             if (matches.isNotEmpty) return matches;

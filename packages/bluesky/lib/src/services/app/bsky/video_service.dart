@@ -184,7 +184,11 @@ final class VideoServiceImpl extends VideoService {
   /// ```
   Future<XRPCResponse<ServerGetServiceAuthOutput>> getUploadVideoAuth() async =>
       await comAtprotoServerGetServiceAuth(
-        aud: 'did:web:${ctx.service}',
+        // A `did:web` identifier must percent-encode the colon in a
+        // `host:port` authority (RFC-compliant `did:web` uses `%3A` for the
+        // port separator); otherwise the colon would be parsed as the
+        // method/method-specific-id separator.
+        aud: 'did:web:${ctx.service.replaceAll(':', '%3A')}',
         lxm: atproto_id.comAtprotoRepoUploadBlob,
         exp:
             DateTime.now().add(Duration(minutes: 30)).millisecondsSinceEpoch ~/
