@@ -33,4 +33,53 @@ void main() {
       );
     });
   });
+
+  group('LinkPreview.fromJson', () {
+    test('exposes cardyb error field and likely_type', () {
+      // cardyb's `/v1/extract` responds with HTTP 200 even on failure,
+      // carrying a non-empty `error` field. The model must surface it so
+      // apps can distinguish a failure from an empty preview.
+      final preview = LinkPreview.fromJson(const {
+        'error': 'failed to fetch: 404 Not Found',
+        'likely_type': 'text/html',
+        'url': 'https://example.com/',
+        'title': '',
+        'description': '',
+        'image': '',
+      });
+
+      expect(preview.error, 'failed to fetch: 404 Not Found');
+      expect(preview.likelyType, 'text/html');
+      expect(preview.url, 'https://example.com/');
+    });
+
+    test('leaves error null on a successful extraction with no error', () {
+      final preview = LinkPreview.fromJson(const {
+        'likely_type': 'html',
+        'url': 'https://atprotodart.com/',
+        'title': 'atproto.dart',
+        'description': 'desc',
+        'image': 'https://cardyb.bsky.app/v1/image?url=x',
+      });
+
+      expect(preview.error, isNull);
+      expect(preview.likelyType, 'html');
+      expect(preview.title, 'atproto.dart');
+    });
+
+    test('round-trips error and likely_type through toJson', () {
+      const preview = LinkPreview(
+        url: 'https://example.com/',
+        error: 'boom',
+        likelyType: 'html',
+      );
+
+      final json = preview.toJson();
+      expect(json['error'], 'boom');
+      expect(json['likely_type'], 'html');
+
+      final restored = LinkPreview.fromJson(json);
+      expect(restored, preview);
+    });
+  });
 }
