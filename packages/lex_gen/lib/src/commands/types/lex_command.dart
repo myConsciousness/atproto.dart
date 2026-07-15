@@ -6,6 +6,8 @@
 import 'package:lexicon/lexicon.dart';
 
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../model/lex_def_kind.dart';
 import '../../utils.dart';
 import '../rule.dart';
@@ -58,16 +60,6 @@ final class LexCommand {
     );
   }
 
-  /// The shared top-of-file boilerplate (license/hint banner, the given
-  /// [imports] block, then the generated-code header) prepended to every
-  /// emitted command file.
-  String _fileHeader(final String imports) =>
-      '''$kHeaderHint
-
-$imports
-
-$kHeader''';
-
   String _getQueryCommand() {
     final (:serviceName, :typeName, :commandName) = _names;
 
@@ -75,9 +67,15 @@ $kHeader''';
     final opts = _getOpts();
     final parameters = _getParameters();
 
-    return '''${_fileHeader("import '../../../../query_command.dart';\n\nimport 'dart:convert';")}
-
-final class $typeName extends QueryCommand {
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: const [
+        [DartImport('../../../../query_command.dart')],
+        [DartImport('dart:convert')],
+      ],
+      banner: kHeader,
+      decls: [
+        RawDecl('''final class $typeName extends QueryCommand {
   $typeName() {
     $opts
   }
@@ -98,8 +96,11 @@ final class $typeName extends QueryCommand {
   Map<String, dynamic>? get parameters => {
     $parameters
   };
-${_getInputHelpers()}}
-''';
+${_getInputHelpers()}}'''),
+      ],
+    );
+
+    return emitDartFile(file);
   }
 
   String _getProcedureCommand() {
@@ -147,9 +148,15 @@ ${_getInputHelpers()}}
       helpers = _getInputHelpers();
     }
 
-    return '''${_fileHeader("import '../../../../procedure_command.dart';\n\nimport 'dart:convert';")}
-
-final class $typeName extends ProcedureCommand {
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: const [
+        [DartImport('../../../../procedure_command.dart')],
+        [DartImport('dart:convert')],
+      ],
+      banner: kHeader,
+      decls: [
+        RawDecl('''final class $typeName extends ProcedureCommand {
   $typeName()$constructorBody
 
   @override
@@ -166,8 +173,11 @@ final class $typeName extends ProcedureCommand {
 
   @override
   $bodyMember
-$helpers}
-''';
+$helpers}'''),
+      ],
+    );
+
+    return emitDartFile(file);
   }
 
   String _getBlobProcedureCommand() {
@@ -180,9 +190,14 @@ $helpers}
   String get contentType => "$encoding";
 ''';
 
-    return '''${_fileHeader("import '../../../../blob_command.dart';")}
-
-final class $typeName extends BlobCommand {
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: const [
+        [DartImport('../../../../blob_command.dart')],
+      ],
+      banner: kHeader,
+      decls: [
+        RawDecl('''final class $typeName extends BlobCommand {
   $typeName();
 
   @override
@@ -196,8 +211,11 @@ final class $typeName extends BlobCommand {
 
   @override
   String get methodId => "${lexiconId.toString()}";
-$contentTypeOverride}
-''';
+$contentTypeOverride}'''),
+      ],
+    );
+
+    return emitDartFile(file);
   }
 
   String _getRecordCommand() {
@@ -235,27 +253,22 @@ $contentTypeOverride}
 
     final rkeyOverride = _getReferenceKeyOverride();
 
-    // NOTE: the closing `'''` is kept on its own line and the trailing
-    // `import 'dart:convert';` is a concatenated literal so that no source line
-    // reads `import '...';'''` — import_sorter mis-hoists that shape out of the
-    // template. The emitted string content is unchanged.
-    const imports =
-        '''
-import 'dart:async';
-
-import 'package:args/command_runner.dart';
-
-import '../../../../query_command.dart';
-import '../../../../create_record_command.dart';
-import '../../../../put_record_command.dart';
-import '../../../../delete_record_command.dart';
-
-'''
-        "import 'dart:convert';";
-
-    return '''${_fileHeader(imports)}
-
-final class $typeName extends Command<void> {
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: const [
+        [DartImport('dart:async')],
+        [DartImport('package:args/command_runner.dart')],
+        [
+          DartImport('../../../../query_command.dart'),
+          DartImport('../../../../create_record_command.dart'),
+          DartImport('../../../../put_record_command.dart'),
+          DartImport('../../../../delete_record_command.dart'),
+        ],
+        [DartImport('dart:convert')],
+      ],
+      banner: kHeader,
+      decls: [
+        RawDecl('''final class $typeName extends Command<void> {
   $typeName() {
     addSubcommand(_Create$typeName());
     addSubcommand(_Put$typeName());
@@ -269,24 +282,47 @@ final class $typeName extends Command<void> {
 
   @override
   String get description => "${_getDescription()}";
-}
-
-mixin $recordArgsMixin on Command<void> {
+}'''),
+        RawDecl('''mixin $recordArgsMixin on Command<void> {
   void _addRecordOptions() {
     $sharedOpts
   }
-${_getInputHelpers()}}
+${_getInputHelpers()}}'''),
+        RawDecl(
+          _recordMutationClass(
+            typeName: typeName,
+            classPrefix: 'Create',
+            baseClass: 'CreateRecordCommand',
+            recordArgsMixin: recordArgsMixin,
+            rkeyStmt: createRkeyStmt,
+            name: 'create',
+            descriptionVerb: 'Creates a new record',
+            invocation: invocationForCreation,
+            rkeyOverride: rkeyOverride,
+            parameters: parameters,
+          ),
+        ),
+        RawDecl(
+          _recordMutationClass(
+            typeName: typeName,
+            classPrefix: 'Put',
+            baseClass: 'PutRecordCommand',
+            recordArgsMixin: recordArgsMixin,
+            rkeyStmt: putRkeyStmt,
+            name: 'put',
+            descriptionVerb: 'Updates a record',
+            invocation: invocationForUpdate,
+            rkeyOverride: rkeyOverride,
+            parameters: parameters,
+          ),
+        ),
+        RawDecl(_deleteRecordClass()),
+        RawDecl(_getRecordClass()),
+        RawDecl(_listRecordClass()),
+      ],
+    );
 
-${_recordMutationClass(typeName: typeName, classPrefix: 'Create', baseClass: 'CreateRecordCommand', recordArgsMixin: recordArgsMixin, rkeyStmt: createRkeyStmt, name: 'create', descriptionVerb: 'Creates a new record', invocation: invocationForCreation, rkeyOverride: rkeyOverride, parameters: parameters)}
-
-${_recordMutationClass(typeName: typeName, classPrefix: 'Put', baseClass: 'PutRecordCommand', recordArgsMixin: recordArgsMixin, rkeyStmt: putRkeyStmt, name: 'put', descriptionVerb: 'Updates a record', invocation: invocationForUpdate, rkeyOverride: rkeyOverride, parameters: parameters)}
-
-${_deleteRecordClass()}
-
-${_getRecordClass()}
-
-${_listRecordClass()}
-''';
+    return emitDartFile(file);
   }
 
   /// Method id for the shared `com.atproto.repo` record read endpoints, emitted

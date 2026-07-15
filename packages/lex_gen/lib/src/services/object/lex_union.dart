@@ -1,4 +1,6 @@
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../utils.dart';
 import '../gen_context.dart';
 import '../rule.dart' as rule;
@@ -53,46 +55,54 @@ final class LexUnion extends GeneratableType {
       for (final ref in refs)
         rule.getLexObjectNameFromRef(lexiconId, ref, mainVariants),
     ];
-    final packagePaths = _getPackagePaths(ctx);
-    final factories = _getUnionFactories(objectNames);
-    final extensions = _getExtensions(objectNames);
-    final fromJson = _getFromJson(objectNames);
-    final toJson = _getToJson(objectNames);
 
-    return '''$kHeaderHint
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: [
+        const [
+          DartImport('package:freezed_annotation/freezed_annotation.dart'),
+          DartImport('package:atproto_core/internals.dart', show: ['isA']),
+        ],
+        _getPackageImports(ctx),
+      ],
+      parts: ['$fileName.freezed.dart'],
+      banner: kHeader,
+      decls: [
+        RawDecl(_unionClass(objectNames)),
+        RawDecl(_extensionBlock(objectNames)),
+        RawDecl(_converterClass(objectNames)),
+      ],
+    );
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/internals.dart' show isA;
+    return emitDartFile(file);
+  }
 
-$packagePaths
-
-part '$fileName.freezed.dart';
-
-$kHeader
-
-@freezed
+  String _unionClass(final List<String> objectNames) =>
+      '''@freezed
 sealed class $name with _\$$name {
   const $name._();
 
-  $factories
+  ${_getUnionFactories(objectNames)}
 
   const factory $name.unknown({
     required Map<String, dynamic> data,
   }) = ${name}Unknown;
 
   Map<String, dynamic> toJson() => const ${name}Converter().toJson(this);
-}
+}''';
 
-extension ${name}Extension on $name {
-  $extensions
-}
+  String _extensionBlock(final List<String> objectNames) =>
+      '''extension ${name}Extension on $name {
+  ${_getExtensions(objectNames)}
+}''';
 
-final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic>> {
+  String _converterClass(final List<String> objectNames) =>
+      '''final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic>> {
   const ${name}Converter();
 
   @override
   $name fromJson(Map<String, dynamic> json) {
-    $fromJson
+    ${_getFromJson(objectNames)}
 
     // No known `\$type` matched: preserve the payload verbatim as an unknown
     // variant. A payload whose `\$type` *does* match a known ref but fails to
@@ -103,23 +113,15 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
 
   @override
   Map<String, dynamic> toJson($name object) => object.when(
-        $toJson
+        ${_getToJson(objectNames)}
         unknown: (data) => data,
       );
-}
-''';
-  }
+}''';
 
-  String _getPackagePaths(final GenContext ctx) {
-    final buffer = StringBuffer();
-
-    for (final ref in refs) {
-      final path = rule.getLexObjectPackagePathFromRef(ctx, lexiconId, ref);
-      buffer.writeln("import '$path';");
-    }
-
-    return buffer.toString();
-  }
+  List<DartImport> _getPackageImports(final GenContext ctx) => [
+    for (final ref in refs)
+      DartImport(rule.getLexObjectPackagePathFromRef(ctx, lexiconId, ref)),
+  ];
 
   String _getUnionFactories(final List<String> objectNames) {
     final buffer = StringBuffer();

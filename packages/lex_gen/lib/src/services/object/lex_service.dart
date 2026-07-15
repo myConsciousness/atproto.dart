@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../model/lex_def_kind.dart';
 import '../../model/nsid.dart';
 import '../../utils.dart';
@@ -42,9 +44,9 @@ final class LexService {
     return false;
   }
 
-  /// Resolves the import line a single input [parameter] contributes, or
-  /// `null` when it needs no dedicated import.
-  String? _importLineForParameter(
+  /// Resolves the import a single input [parameter] contributes, or `null` when
+  /// it needs no dedicated import.
+  DartImport? _importForParameter(
     final GenContext ctx,
     final LexParameter parameter,
   ) {
@@ -67,12 +69,12 @@ final class LexService {
         type.fieldName!,
       );
 
-      return "import '$relativePath/$fileName.dart';";
+      return DartImport('$relativePath/$fileName.dart');
     } else if (type.isKnownValues) {
       final relativePath = Nsid(type.knownValues!.lexiconId).dirAfterAuthority;
       final fileName = type.knownValues!.getFileName();
 
-      return "import '$relativePath/$fileName.dart';";
+      return DartImport('$relativePath/$fileName.dart');
     } else {
       if (type.ref == null) return null;
 
@@ -82,18 +84,25 @@ final class LexService {
         type.ref!,
       );
 
-      return "import '$packagePath';";
+      return DartImport(packagePath);
     }
   }
 
-  String _getPackagePaths(final GenContext ctx) {
-    final importPaths = <String>[];
+  /// The property-derived import group, deduplicated by uri (first occurrence
+  /// wins), matching the previous `.toSet()` behaviour.
+  List<DartImport> _getPackageImports(final GenContext ctx) {
+    final imports = <DartImport>[];
+    final seen = <String>{};
     final hasRecordApi = _hasRecordApi();
+
+    void add(final DartImport import) {
+      if (seen.add(import.uri)) imports.add(import);
+    }
 
     for (final api in apis) {
       for (final parameter in api._parameters) {
-        final importLine = _importLineForParameter(ctx, parameter);
-        if (importLine != null) importPaths.add(importLine);
+        final import = _importForParameter(ctx, parameter);
+        if (import != null) add(import);
       }
 
       if (api.returnType != null &&
@@ -102,22 +111,22 @@ final class LexService {
         final fileDir = Nsid(lexiconId).dirAfterAuthority;
         final fileName = api.returnType!.getFileName();
 
-        importPaths.add("import '$fileDir/$fileName.dart';");
+        add(DartImport('$fileDir/$fileName.dart'));
       }
 
       if (hasRecordApi) {
-        importPaths.add(
-          "import 'package:atproto/com_atproto_repo_createrecord.dart';",
+        add(
+          const DartImport(
+            'package:atproto/com_atproto_repo_createrecord.dart',
+          ),
         );
       }
     }
 
-    return importPaths.toSet().join('\n');
+    return imports;
   }
 
   String format(final GenContext ctx) {
-    final packagePaths = _getPackagePaths(ctx);
-
     final functions = apis.map((e) => e.toFunction()).join();
     final methods = apis.map((e) => e.toMethod()).join();
 
@@ -128,39 +137,69 @@ final class LexService {
       recordApis,
     );
 
-    return '''$kHeaderHint
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: [
+        const [
+          DartImport(
+            'package:atproto_core/internals.dart',
+            show: ['protected'],
+          ),
+        ],
+        const [
+          DartImport('package:atproto_core/atproto_core.dart'),
+          DartImport('package:atproto_core/internals.dart', show: ['iso8601']),
+        ],
+        const [
+          DartImport(
+            'package:atproto/com_atproto_services.dart',
+            show: [
+              'comAtprotoRepoGetRecord',
+              'comAtprotoRepoListRecords',
+              'comAtprotoRepoCreateRecord',
+              'comAtprotoRepoPutRecord',
+              'comAtprotoRepoDeleteRecord',
+            ],
+          ),
+        ],
+        const [
+          DartImport('package:atproto/com_atproto_repo_createrecord.dart'),
+          DartImport('package:atproto/com_atproto_repo_deleterecord.dart'),
+          DartImport('package:atproto/com_atproto_repo_getrecord.dart'),
+          DartImport('package:atproto/com_atproto_repo_listrecords.dart'),
+          DartImport('package:atproto/com_atproto_repo_putrecord.dart'),
+        ],
+        _getPackageImports(ctx),
+        const [DartImport('dart:typed_data')],
+        const [
+          DartImport('../../../../ids.g.dart', prefix: 'ids'),
+          DartImport('../../../../nsids.g.dart', prefix: 'ns'),
+        ],
+      ],
+      banner: kHeader,
+      decls: [
+        RawDecl(functions),
+        RawDecl(
+          _serviceClass(
+            recordAccessorsFields,
+            recordAccessorsConstructor,
+            methods,
+          ),
+        ),
+        RawDecl(recordAccessors),
+      ],
+    );
 
-import 'package:atproto_core/internals.dart' show protected;
+    return emitDartFile(file);
+  }
 
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart' show iso8601;
-
-import 'package:atproto/com_atproto_services.dart'
-    show
-        comAtprotoRepoGetRecord,
-        comAtprotoRepoListRecords,
-        comAtprotoRepoCreateRecord,
-        comAtprotoRepoPutRecord,
-        comAtprotoRepoDeleteRecord;
-
-import 'package:atproto/com_atproto_repo_createrecord.dart';
-import 'package:atproto/com_atproto_repo_deleterecord.dart';
-import 'package:atproto/com_atproto_repo_getrecord.dart';
-import 'package:atproto/com_atproto_repo_listrecords.dart';
-import 'package:atproto/com_atproto_repo_putrecord.dart';
-
-$packagePaths
-
-import 'dart:typed_data';
-
-import '../../../../ids.g.dart' as ids;
-import '../../../../nsids.g.dart' as ns;
-
-$kHeader
-
-$functions
-
-/// `${lexiconId.toString()}.*`
+  /// The `<Name>Service` base class body.
+  String _serviceClass(
+    final String recordAccessorsFields,
+    final String recordAccessorsConstructor,
+    final String methods,
+  ) =>
+      '''/// `$lexiconId.*`
 base class ${name}Service {
   @protected
   final ServiceContext ctx;
@@ -172,11 +211,7 @@ base class ${name}Service {
   ;
 
   $methods
-}
-
-$recordAccessors
-''';
-  }
+}''';
 
   /// Renders the `rkey` parameter line for a record accessor. A record that
   /// pins a literal rkey (`literal:foo`) turns it into a defaulted parameter;

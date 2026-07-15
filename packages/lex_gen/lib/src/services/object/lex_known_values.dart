@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../utils.dart';
 import '../gen_context.dart';
 import '../rule.dart' as rule;
@@ -60,24 +62,33 @@ final class LexKnownValues extends GeneratableType {
 
   @override
   String format(final GenContext ctx) {
-    final elements = _getElements();
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: const [
+        [
+          DartImport(
+            'package:atproto_core/atproto_core.dart',
+            show: ['Serializable'],
+          ),
+          DartImport('package:atproto_core/internals.dart', show: ['isA']),
+        ],
+        [DartImport('package:freezed_annotation/freezed_annotation.dart')],
+      ],
+      parts: ['${getFileName()}.freezed.dart'],
+      banner: kHeader,
+      decls: [
+        RawDecl(_unionClass()),
+        RawDecl(_extensionBlock()),
+        RawDecl(_converterClass()),
+        RawDecl(_enumBlock()),
+      ],
+    );
 
-    final fileName = getFileName();
+    return emitDartFile(file);
+  }
 
-    final extensions = _getExtensions();
-
-    return '''$kHeaderHint
-
-import 'package:atproto_core/atproto_core.dart' show Serializable;
-import 'package:atproto_core/internals.dart' show isA;
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part '$fileName.freezed.dart';
-
-$kHeader
-
-@freezed
+  String _unionClass() =>
+      '''@freezed
 abstract class $name with _\$$name {
   const $name._();
 
@@ -97,13 +108,15 @@ abstract class $name with _\$$name {
   }
 
   String toJson() => const ${name}Converter().toJson(this);
-}
+}''';
 
-extension ${name}Extension on $name {
-  $extensions
-}
+  String _extensionBlock() =>
+      '''extension ${name}Extension on $name {
+  ${_getExtensions()}
+}''';
 
-final class ${name}Converter extends JsonConverter<$name, String> {
+  String _converterClass() =>
+      '''final class ${name}Converter extends JsonConverter<$name, String> {
   const ${name}Converter();
 
   @override
@@ -125,10 +138,11 @@ final class ${name}Converter extends JsonConverter<$name, String> {
         knownValue: (data) => data.value,
         unknown: (data) => data,
       );
-}
+}''';
 
-enum Known$name implements Serializable{
-  $elements
+  String _enumBlock() =>
+      '''enum Known$name implements Serializable{
+  ${_getElements()}
   ;
 
   @override
@@ -151,9 +165,7 @@ enum Known$name implements Serializable{
 
     return null;
   }
-}
-''';
-  }
+}''';
 
   String _getElements() {
     return values
