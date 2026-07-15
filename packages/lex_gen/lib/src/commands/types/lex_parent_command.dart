@@ -1,4 +1,6 @@
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../utils.dart';
 import '../rule.dart';
 import 'lex_command.dart';
@@ -10,24 +12,35 @@ final class LexParentCommand {
   const LexParentCommand(this.lexiconId, this.commands);
 
   String format() {
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: [
+        const [DartImport('package:args/command_runner.dart')],
+        _commandImports(),
+      ],
+      banner: kHeader,
+      decls: [RawDecl(_commandClass())],
+    );
+
+    return emitDartFile(file);
+  }
+
+  List<DartImport> _commandImports() {
+    return commands.map((command) {
+      final lexiconId = command.lexiconId.toString();
+      final relativePath = getRelativePathForParent(lexiconId);
+      final fileName = getFileName(lexiconId);
+
+      return DartImport('$relativePath/$fileName.dart');
+    }).toList();
+  }
+
+  String _commandClass() {
     final serviceName = getServiceName(lexiconId.toString());
     final commandName = getParentCommandTypeName(lexiconId.toString());
-
-    final importPaths = getCommandImports(
-      commands.map((command) => command.lexiconId.toString()),
-      getRelativePathForParent,
-    );
     final subcommands = _getSubcommands();
 
-    return '''$kHeaderHint
-
-import 'package:args/command_runner.dart';
-
-$importPaths
-
-$kHeader
-
-final class $commandName extends Command<void>  {
+    return '''final class $commandName extends Command<void>  {
   $commandName() {
     $subcommands
   }
@@ -37,8 +50,7 @@ final class $commandName extends Command<void>  {
 
   @override
   String get description => "Provides commands for $lexiconId.*";
-}
-''';
+}''';
   }
 
   String _getSubcommands() {

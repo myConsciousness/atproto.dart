@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../model/nsid.dart';
 import '../../utils.dart';
 import '../rule.dart';
@@ -13,15 +15,11 @@ final class RepoCommitHandler {
   const RepoCommitHandler(this.lexiconIds);
 
   String format() {
-    final imports = _getImports();
-
     // Resolve every record's type name once and reuse it across all sections
     // below, instead of re-deriving it in each builder (was six passes).
     final typeNames = [for (final id in lexiconIds) getRecordTypeName(id)];
 
     final (:fields, :constructorArgs, :setters) = _getMemberDecls(typeNames);
-
-    final dtos = _getDtoClasses();
 
     final onCreateEvent = _getMutationEvent(
       typeNames,
@@ -35,28 +33,80 @@ final class RepoCommitHandler {
     );
     final onDeleteEvent = _getOnDeleteEvent(typeNames);
 
-    return '''$kHeaderHint
+    final file = DartFile(
+      header: kHeaderHint,
+      imports: [
+        const [DartImport('dart:async')],
+        const [
+          DartImport('package:atproto/com_atproto_sync_subscriberepos.dart'),
+          DartImport('package:atproto_core/atproto_core.dart'),
+        ],
+        _getImports(),
+        const [DartImport('at_uri_extension.dart')],
+      ],
+      banner: kHeader,
+      decls: [
+        RawDecl(_typedefs()),
+        RawDecl(
+          _handlerClass(
+            fields: fields,
+            constructorArgs: constructorArgs,
+            setters: setters,
+            onCreateEvent: onCreateEvent,
+            onUpdateEvent: onUpdateEvent,
+            onDeleteEvent: onDeleteEvent,
+          ),
+        ),
+        RawDecl(_getMutationDto('Create', withCreatedAt: false)),
+        RawDecl(_getMutationDto('Update', withCreatedAt: true)),
+        const RawDecl(_repoCommitDeleteDto),
+      ],
+    );
 
-import 'dart:async';
+    return emitDartFile(file);
+  }
 
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
-import 'package:atproto_core/atproto_core.dart';
+  /// Namespace prefixes whose records are generated into the `atproto`
+  /// package. The handler itself lives in the `bluesky` package, so these
+  /// records must be imported cross-package rather than relatively.
+  static const _atprotoPrefixes = ['com.atproto.', 'com.germnetwork.'];
 
-$imports
+  List<DartImport> _getImports() {
+    final imports = <DartImport>[];
 
-import 'at_uri_extension.dart';
+    for (final lexiconId in lexiconIds) {
+      if (_atprotoPrefixes.any(lexiconId.startsWith)) {
+        final libName = Nsid(lexiconId).segments.join('_');
+        imports.add(DartImport('package:atproto/$libName.dart'));
+      } else {
+        final path = Nsid(lexiconId).fileDir;
+        imports.add(DartImport('$path/main.dart'));
+      }
+    }
 
-$kHeader
+    return imports;
+  }
 
-typedef RepoCommitOnCreate<T> =
+  /// Emits the three firehose callback typedefs that precede the handler class.
+  String _typedefs() => '''typedef RepoCommitOnCreate<T> =
     FutureOr<void> Function(RepoCommitCreate<T> data);
 
 typedef RepoCommitOnUpdate<T> =
     FutureOr<void> Function(RepoCommitUpdate<T> data);
 
-typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
+typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);''';
 
-final class RepoCommitHandler {
+  /// Emits the `RepoCommitHandler` class, splicing in the per-record member
+  /// sections and the mutation/delete event handlers computed in [format].
+  String _handlerClass({
+    required final String fields,
+    required final String constructorArgs,
+    required final String setters,
+    required final String onCreateEvent,
+    required final String onUpdateEvent,
+    required final String onDeleteEvent,
+  }) =>
+      '''final class RepoCommitHandler {
 
   $fields
 
@@ -106,32 +156,7 @@ final class RepoCommitHandler {
   Map<String, dynamic> _getRecord(final Commit commit, final RepoOp op) {
     return commit.blocks[op.cid];
   }
-}
-
-$dtos
-''';
-  }
-
-  /// Namespace prefixes whose records are generated into the `atproto`
-  /// package. The handler itself lives in the `bluesky` package, so these
-  /// records must be imported cross-package rather than relatively.
-  static const _atprotoPrefixes = ['com.atproto.', 'com.germnetwork.'];
-
-  String _getImports() {
-    final imports = StringBuffer();
-
-    for (final lexiconId in lexiconIds) {
-      if (_atprotoPrefixes.any(lexiconId.startsWith)) {
-        final libName = Nsid(lexiconId).segments.join('_');
-        imports.writeln("import 'package:atproto/$libName.dart';");
-      } else {
-        final path = Nsid(lexiconId).fileDir;
-        imports.writeln("import '$path/main.dart';");
-      }
-    }
-
-    return imports.toString();
-  }
+}''';
 
   /// Builds the three per-record member sections in a single pass: the private
   /// [fields], the [constructorArgs] parameters, and their initializer-list
@@ -172,14 +197,6 @@ $dtos
       setters: setters.toString(),
     );
   }
-
-  /// Assembles the three DTO classes emitted alongside the handler: the
-  /// `RepoCommitCreate` / `RepoCommitUpdate` mutation pair (which differ only
-  /// by `Update`'s extra `createdAt`) plus the static `RepoCommitDelete`.
-  String _getDtoClasses() =>
-      '${_getMutationDto('Create', withCreatedAt: false)}\n\n'
-      '${_getMutationDto('Update', withCreatedAt: true)}\n\n'
-      '$_repoCommitDeleteDto';
 
   /// Emits the `RepoCommitCreate` / `RepoCommitUpdate` DTO for [verb]. They are
   /// identical except that `Update` ([withCreatedAt]) also carries a
