@@ -42,5 +42,5 @@ Map<String, dynamic> _$OperationToJson(_Operation instance) =>
       'alsoKnownAs': instance.alsoKnownAs,
       'rotationKeys': instance.rotationKeys,
       'verificationMethods': instance.verificationMethods,
-      'prev': ?instance.prev,
+      'prev': instance.prev,
     };
