@@ -19,13 +19,17 @@ List<LexChange> diffSnapshots(Snapshot old, Snapshot updated) {
 
     if (oldDefs == null) {
       for (final def in newDefs!.keys) {
-        changes.add(LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defAdded));
+        changes.add(
+          LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defAdded),
+        );
       }
       continue;
     }
     if (newDefs == null) {
       for (final def in oldDefs.keys) {
-        changes.add(LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defRemoved));
+        changes.add(
+          LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defRemoved),
+        );
       }
       continue;
     }
@@ -34,11 +38,22 @@ List<LexChange> diffSnapshots(Snapshot old, Snapshot updated) {
       final oldDef = oldDefs[def];
       final newDef = newDefs[def];
       if (oldDef == null) {
-        changes.add(LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defAdded));
+        changes.add(
+          LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defAdded),
+        );
       } else if (newDef == null) {
-        changes.add(LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defRemoved));
+        changes.add(
+          LexChange(nsid: nsid, defName: def, kind: LexChangeKind.defRemoved),
+        );
       } else {
-        changes.addAll(_diffDef(nsid, def, oldDef as Map<String, dynamic>, newDef as Map<String, dynamic>));
+        changes.addAll(
+          _diffDef(
+            nsid,
+            def,
+            oldDef as Map<String, dynamic>,
+            newDef as Map<String, dynamic>,
+          ),
+        );
       }
     }
   }
@@ -60,44 +75,98 @@ Map<String, dynamic> _schemaOf(Map<String, dynamic> def) {
   return def;
 }
 
-List<LexChange> _diffDef(String nsid, String def, Map<String, dynamic> oldDef, Map<String, dynamic> newDef) {
+List<LexChange> _diffDef(
+  String nsid,
+  String def,
+  Map<String, dynamic> oldDef,
+  Map<String, dynamic> newDef,
+) {
   final changes = <LexChange>[];
   final oldSchema = _schemaOf(oldDef);
   final newSchema = _schemaOf(newDef);
 
-  final oldProps = (oldSchema['properties'] as Map<String, dynamic>?) ?? const {};
-  final newProps = (newSchema['properties'] as Map<String, dynamic>?) ?? const {};
-  final oldRequired = ((oldSchema['required'] as List?) ?? const []).cast<String>().toSet();
-  final newRequired = ((newSchema['required'] as List?) ?? const []).cast<String>().toSet();
+  final oldProps =
+      (oldSchema['properties'] as Map<String, dynamic>?) ?? const {};
+  final newProps =
+      (newSchema['properties'] as Map<String, dynamic>?) ?? const {};
+  final oldRequired = ((oldSchema['required'] as List?) ?? const [])
+      .cast<String>()
+      .toSet();
+  final newRequired = ((newSchema['required'] as List?) ?? const [])
+      .cast<String>()
+      .toSet();
 
   for (final prop in {...oldProps.keys, ...newProps.keys}) {
     final oldProp = oldProps[prop];
     final newProp = newProps[prop];
 
     if (oldProp == null) {
-      changes.add(LexChange(nsid: nsid, defName: def, field: prop, kind: LexChangeKind.propertyAdded));
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: prop,
+          kind: LexChangeKind.propertyAdded,
+        ),
+      );
       continue;
     }
     if (newProp == null) {
-      changes.add(LexChange(nsid: nsid, defName: def, field: prop, kind: LexChangeKind.propertyRemoved));
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: prop,
+          kind: LexChangeKind.propertyRemoved,
+        ),
+      );
       continue;
     }
 
     final oldType = _typeSig(oldProp);
     final newType = _typeSig(newProp);
     if (oldType != newType) {
-      changes.add(LexChange(nsid: nsid, defName: def, field: prop, kind: LexChangeKind.propertyTypeChanged, detail: '$oldType -> $newType'));
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: prop,
+          kind: LexChangeKind.propertyTypeChanged,
+          detail: '$oldType -> $newType',
+        ),
+      );
       continue;
     }
 
     final wasRequired = oldRequired.contains(prop);
     final isRequired = newRequired.contains(prop);
     if (!wasRequired && isRequired) {
-      changes.add(LexChange(nsid: nsid, defName: def, field: prop, kind: LexChangeKind.propertyBecameRequired));
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: prop,
+          kind: LexChangeKind.propertyBecameRequired,
+        ),
+      );
     } else if (wasRequired && !isRequired) {
-      changes.add(LexChange(nsid: nsid, defName: def, field: prop, kind: LexChangeKind.propertyBecameOptional));
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: prop,
+          kind: LexChangeKind.propertyBecameOptional,
+        ),
+      );
     } else if (jsonEncode(oldProp) != jsonEncode(newProp)) {
-      changes.add(LexChange(nsid: nsid, defName: def, field: prop, kind: LexChangeKind.metadataChanged));
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: prop,
+          kind: LexChangeKind.metadataChanged,
+        ),
+      );
     }
   }
   return changes;

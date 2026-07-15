@@ -65,21 +65,27 @@ Map<String, PackagePlan> planVersions({
         } else if (draft.depRangeUpdates[pkg] != producer.newVersion) {
           // Producer version rose during propagation; refresh the recorded range.
           draft.depRangeUpdates[pkg] = producer.newVersion;
-          final idx = draft.lines.indexWhere((l) => l.startsWith('chore: bump `$pkg` to '));
-          if (idx >= 0) draft.lines[idx] = 'chore: bump `$pkg` to `^${producer.newVersion}`';
+          final idx = draft.lines.indexWhere(
+            (l) => l.startsWith('chore: bump `$pkg` to '),
+          );
+          if (idx >= 0)
+            draft.lines[idx] =
+                'chore: bump `$pkg` to `^${producer.newVersion}`';
         }
       }
     }
   }
 
-  return drafts.map((pkg, d) => MapEntry(
-        pkg,
-        PackagePlan(
-          package: pkg,
-          oldVersion: d.oldVersion,
-          newVersion: d.newVersion,
-          changelogLines: d.lines,
-          depRangeUpdates: d.depRangeUpdates,
-        ),
-      ));
+  return drafts.map(
+    (pkg, d) => MapEntry(
+      pkg,
+      PackagePlan(
+        package: pkg,
+        oldVersion: d.oldVersion,
+        newVersion: d.newVersion,
+        changelogLines: d.lines,
+        depRangeUpdates: d.depRangeUpdates,
+      ),
+    ),
+  );
 }

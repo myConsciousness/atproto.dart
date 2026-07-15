@@ -63,10 +63,11 @@ final class HttpIdentityResolver implements IdentityResolver {
 
     if (handle != null) {
       final alsoKnownAs = didDocument['alsoKnownAs'];
-      final claimsHandle = alsoKnownAs is List &&
+      final claimsHandle =
+          alsoKnownAs is List &&
           alsoKnownAs.whereType<String>().any(
-                (final aka) => aka.toLowerCase() == 'at://$handle',
-              );
+            (final aka) => aka.toLowerCase() == 'at://$handle',
+          );
       if (!claimsHandle) {
         throw OAuthException(
           'Bidirectional handle verification failed: the DID document for '
@@ -83,10 +84,13 @@ final class HttpIdentityResolver implements IdentityResolver {
   }
 
   Future<String> _resolveHandle(final String handle) async {
-    final origin =
-        _normalizeHttpOrigin(handleResolver, what: 'handle resolver URL');
-    final uri = Uri.parse('$origin/xrpc/com.atproto.identity.resolveHandle')
-        .replace(queryParameters: {'handle': handle});
+    final origin = _normalizeHttpOrigin(
+      handleResolver,
+      what: 'handle resolver URL',
+    );
+    final uri = Uri.parse(
+      '$origin/xrpc/com.atproto.identity.resolveHandle',
+    ).replace(queryParameters: {'handle': handle});
     final response = await _get(uri);
     if (response.statusCode != 200) {
       throw OAuthException(
@@ -107,8 +111,10 @@ final class HttpIdentityResolver implements IdentityResolver {
   Future<Map<String, dynamic>> _resolveDidDocument(final String did) async {
     final Uri uri;
     if (did.startsWith('did:plc:')) {
-      final origin =
-          _normalizeHttpOrigin(plcDirectory, what: 'PLC directory URL');
+      final origin = _normalizeHttpOrigin(
+        plcDirectory,
+        what: 'PLC directory URL',
+      );
       uri = Uri.parse('$origin/$did');
     } else if (did.startsWith('did:web:')) {
       uri = _didWebDocumentUri(did);
@@ -186,10 +192,7 @@ String _extractPdsEndpoint(
 /// Normalizes a user-supplied host or URL to an `https`/`http` origin
 /// (`scheme://host[:port]`, no trailing slash). A bare hostname is treated as
 /// `https://<host>`.
-String _normalizeHttpOrigin(
-  final String input, {
-  required final String what,
-}) {
+String _normalizeHttpOrigin(final String input, {required final String what}) {
   var value = input.trim();
   if (value.isEmpty) {
     throw OAuthException('$what must not be empty');

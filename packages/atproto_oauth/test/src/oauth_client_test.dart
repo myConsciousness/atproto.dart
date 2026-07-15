@@ -104,7 +104,9 @@ http.Response? _identityRoute(final http.Request r) {
   }
   if (r.url.host == 'pds.example' &&
       r.url.path == '/.well-known/oauth-protected-resource') {
-    return _json({'authorization_servers': [_origin]});
+    return _json({
+      'authorization_servers': [_origin],
+    });
   }
   return null;
 }
@@ -650,35 +652,54 @@ void main() {
       final stateStore = InMemoryOAuthStateStore();
       final sessionStore = InMemoryOAuthSessionStore();
       const state = 'state-xyz';
-      await stateStore.set(state, const OAuthContext(
-        codeVerifier: 'verifier', state: state,
-        issuer: 'https://bsky.social',
-        tokenEndpoint: 'https://bsky.social/oauth/token',
-        dpopPublicKey: 'PUB', dpopPrivateKey: 'PRIV',
-        pds: 'https://pds.example',
-        expectedSub: 'did:plc:abcdefghijklmnopqrstuvwx',
-      ));
+      await stateStore.set(
+        state,
+        const OAuthContext(
+          codeVerifier: 'verifier',
+          state: state,
+          issuer: 'https://bsky.social',
+          tokenEndpoint: 'https://bsky.social/oauth/token',
+          dpopPublicKey: 'PUB',
+          dpopPrivateKey: 'PRIV',
+          pds: 'https://pds.example',
+          expectedSub: 'did:plc:abcdefghijklmnopqrstuvwx',
+        ),
+      );
       final client = MockClient((r) async {
         if (r.url.path == '/.well-known/oauth-authorization-server') {
-          return _json({'issuer': 'https://bsky.social',
-            'token_endpoint': 'https://bsky.social/oauth/token'});
+          return _json({
+            'issuer': 'https://bsky.social',
+            'token_endpoint': 'https://bsky.social/oauth/token',
+          });
         }
         if (r.url.path == '/oauth/token') {
-          return _json({'access_token': 'opaque~not~a~jwt', 'token_type': 'DPoP',
-            'refresh_token': 'refresh-1', 'scope': 'atproto', 'expires_in': 3600,
-            'sub': 'did:plc:abcdefghijklmnopqrstuvwx'});
+          return _json({
+            'access_token': 'opaque~not~a~jwt',
+            'token_type': 'DPoP',
+            'refresh_token': 'refresh-1',
+            'scope': 'atproto',
+            'expires_in': 3600,
+            'sub': 'did:plc:abcdefghijklmnopqrstuvwx',
+          });
         }
         return http.Response('nope', 404);
       });
-      final oauth = OAuthClient(_metadata(),
-          stateStore: stateStore, sessionStore: sessionStore,
-          signer: _StubSigner(), httpClient: client);
+      final oauth = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
+        httpClient: client,
+      );
       final session = await oauth.callback(
-        'https://client.example/callback?iss=https://bsky.social&state=$state&code=abc');
+        'https://client.example/callback?iss=https://bsky.social&state=$state&code=abc',
+      );
       expect(session.accessToken, 'opaque~not~a~jwt');
       expect(session.pds, 'https://pds.example');
-      expect(await sessionStore.find('did:plc:abcdefghijklmnopqrstuvwx'),
-          isNotNull);
+      expect(
+        await sessionStore.find('did:plc:abcdefghijklmnopqrstuvwx'),
+        isNotNull,
+      );
     });
   });
 
