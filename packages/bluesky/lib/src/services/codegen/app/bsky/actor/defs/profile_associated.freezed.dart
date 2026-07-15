@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profile_associated.dart';
@@ -9,6 +9,7 @@ part of 'profile_associated.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$ProfileAssociatedCopyWithImpl<$Res>
 /// Create a copy of ProfileAssociated
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? lists = freezed,Object? feedgens = freezed,Object? starterPacks = freezed,Object? labeler = freezed,Object? chat = freezed,Object? activitySubscription = freezed,Object? germ = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ProfileAssociated(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,lists: freezed == lists ? _self.lists : lists // ignore: cast_nullable_to_non_nullable
 as int?,feedgens: freezed == feedgens ? _self.feedgens : feedgens // ignore: cast_nullable_to_non_nullable
@@ -253,7 +254,7 @@ return $default(_that.$type,_that.lists,_that.feedgens,_that.starterPacks,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileAssociated implements ProfileAssociated {
-  const _ProfileAssociated({this.$type = 'app.bsky.actor.defs#profileAssociated', this.lists, this.feedgens, this.starterPacks, this.labeler, @ProfileAssociatedChatConverter() this.chat, @ProfileAssociatedActivitySubscriptionConverter() this.activitySubscription, @ProfileAssociatedGermConverter() this.germ, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociated({this.$type = 'app.bsky.actor.defs#profileAssociated', this.lists, this.feedgens, this.starterPacks, this.labeler, @ProfileAssociatedChatConverter() this.chat, @ProfileAssociatedActivitySubscriptionConverter() this.activitySubscription, @ProfileAssociatedGermConverter() this.germ,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedFromJson(json);
 
 @override@JsonKey() final  String $type;

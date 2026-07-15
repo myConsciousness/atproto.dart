@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$ReportRefreshStatsInputCopyWithImpl<$Res>
 /// Create a copy of ReportRefreshStatsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? startDate = null,Object? endDate = null,Object? queueIds = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ReportRefreshStatsInput(
 startDate: null == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
 as String,endDate: null == endDate ? _self.endDate : endDate // ignore: cast_nullable_to_non_nullable
 as String,queueIds: freezed == queueIds ? _self.queueIds : queueIds // ignore: cast_nullable_to_non_nullable
@@ -214,7 +215,7 @@ return $default(_that.startDate,_that.endDate,_that.queueIds,_that.$unknown);cas
 
 @JsonSerializable(includeIfNull: false)
 class _ReportRefreshStatsInput implements ReportRefreshStatsInput {
-  const _ReportRefreshStatsInput({required this.startDate, required this.endDate, final  List<int>? queueIds, final  Map<String, dynamic>? $unknown}): _queueIds = queueIds,_$unknown = $unknown;
+  const _ReportRefreshStatsInput({required this.startDate, required this.endDate,  List<int>? queueIds,  Map<String, dynamic>? $unknown}): _queueIds = queueIds,_$unknown = $unknown;
   factory _ReportRefreshStatsInput.fromJson(Map<String, dynamic> json) => _$ReportRefreshStatsInputFromJson(json);
 
 /// Start date for recomputation, inclusive (YYYY-MM-DD).

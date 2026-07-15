@@ -20078,7 +20078,7 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
               "description": "Subject types this queue accepts",
               "items": {
                 "type": "string",
-                "knownValues": ["account", "record", "message"],
+                "knownValues": ["account", "record", "message", "conversation"],
               },
             },
             "collection": {
@@ -20145,7 +20145,7 @@ const toolsOzoneQueueDefs = <String, dynamic>{
           "description": "Subject types this queue accepts.",
           "items": {
             "type": "string",
-            "knownValues": ["account", "record", "message"],
+            "knownValues": ["account", "record", "message", "conversation"],
           },
         },
         "collection": {
@@ -20367,7 +20367,7 @@ const toolsOzoneQueueListQueues = <String, dynamic>{
           "subjectType": {
             "type": "string",
             "description":
-                "Filter queues that handle this subject type ('account' or 'record').",
+                "Filter queues that handle this subject type ('account', 'record', 'message', or 'conversation').",
           },
           "collection": {
             "type": "string",
@@ -21663,8 +21663,8 @@ const toolsOzoneReportQueryReports = <String, dynamic>{
           "subjectType": {
             "type": "string",
             "description":
-                "If specified, reports of the given type (account or record) will be returned.",
-            "knownValues": ["account", "record"],
+                "If specified, reports of the given subject type will be returned.",
+            "knownValues": ["account", "record", "message", "conversation"],
           },
           "collections": {
             "type": "array",

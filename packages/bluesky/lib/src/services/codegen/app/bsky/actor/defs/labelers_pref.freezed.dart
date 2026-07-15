@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'labelers_pref.dart';
@@ -9,6 +9,7 @@ part of 'labelers_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$LabelersPrefCopyWithImpl<$Res>
 /// Create a copy of LabelersPref
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? labelers = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(LabelersPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,labelers: null == labelers ? _self.labelers : labelers // ignore: cast_nullable_to_non_nullable
 as List<LabelerPrefItem>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -211,7 +212,7 @@ return $default(_that.$type,_that.labelers,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _LabelersPref implements LabelersPref {
-  const _LabelersPref({this.$type = 'app.bsky.actor.defs#labelersPref', @LabelerPrefItemConverter() required final  List<LabelerPrefItem> labelers, final  Map<String, dynamic>? $unknown}): _labelers = labelers,_$unknown = $unknown;
+  const _LabelersPref({this.$type = 'app.bsky.actor.defs#labelersPref', @LabelerPrefItemConverter() required  List<LabelerPrefItem> labelers,  Map<String, dynamic>? $unknown}): _labelers = labelers,_$unknown = $unknown;
   factory _LabelersPref.fromJson(Map<String, dynamic> json) => _$LabelersPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

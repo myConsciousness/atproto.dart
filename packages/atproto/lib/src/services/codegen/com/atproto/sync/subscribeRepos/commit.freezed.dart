@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'commit.dart';
@@ -9,6 +9,7 @@ part of 'commit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -75,7 +76,7 @@ class _$CommitCopyWithImpl<$Res>
 /// Create a copy of Commit
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? seq = null,Object? repo = null,Object? commit = null,Object? rev = null,Object? since = freezed,Object? blocks = null,Object? ops = null,Object? prevData = freezed,Object? time = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Commit(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
 as int,repo: null == repo ? _self.repo : repo // ignore: cast_nullable_to_non_nullable
@@ -228,7 +229,7 @@ return $default(_that.$type,_that.seq,_that.repo,_that.commit,_that.rev,_that.si
 
 @JsonSerializable(includeIfNull: false)
 class _Commit implements Commit {
-  const _Commit({this.$type = 'com.atproto.sync.subscribeRepos#commit', required this.seq, required this.repo, required this.commit, required this.rev, @JsonKey(includeIfNull: true) required this.since, required final  Map<String, dynamic> blocks, @RepoOpConverter() required final  List<RepoOp> ops, this.prevData, @JsonKey(toJson: iso8601) required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_ops = ops,_$unknown = $unknown;
+  const _Commit({this.$type = 'com.atproto.sync.subscribeRepos#commit', required this.seq, required this.repo, required this.commit, required this.rev, @JsonKey(includeIfNull: true) required this.since, required  Map<String, dynamic> blocks, @RepoOpConverter() required  List<RepoOp> ops, this.prevData, @JsonKey(toJson: iso8601) required this.time,  Map<String, dynamic>? $unknown}): _blocks = blocks,_ops = ops,_$unknown = $unknown;
   factory _Commit.fromJson(Map<String, dynamic> json) => _$CommitFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'timeline_item_summary.dart';
@@ -9,6 +9,7 @@ part of 'timeline_item_summary.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$TimelineItemSummaryCopyWithImpl<$Res>
 /// Create a copy of TimelineItemSummary
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? eventSubjectType = null,Object? eventType = null,Object? count = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(TimelineItemSummary(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,eventSubjectType: null == eventSubjectType ? _self.eventSubjectType : eventSubjectType // ignore: cast_nullable_to_non_nullable
 as TimelineItemSummaryEventSubjectType,eventType: null == eventType ? _self.eventType : eventType // ignore: cast_nullable_to_non_nullable
@@ -231,7 +232,7 @@ return $default(_that.$type,_that.eventSubjectType,_that.eventType,_that.count,_
 
 @JsonSerializable(includeIfNull: false)
 class _TimelineItemSummary implements TimelineItemSummary {
-  const _TimelineItemSummary({this.$type = 'tools.ozone.moderation.getAccountTimeline#timelineItemSummary', @TimelineItemSummaryEventSubjectTypeConverter() required this.eventSubjectType, @TimelineItemSummaryEventTypeConverter() required this.eventType, required this.count, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _TimelineItemSummary({this.$type = 'tools.ozone.moderation.getAccountTimeline#timelineItemSummary', @TimelineItemSummaryEventSubjectTypeConverter() required this.eventSubjectType, @TimelineItemSummaryEventTypeConverter() required this.eventType, required this.count,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TimelineItemSummary.fromJson(Map<String, dynamic> json) => _$TimelineItemSummaryFromJson(json);
 
 @override@JsonKey() final  String $type;

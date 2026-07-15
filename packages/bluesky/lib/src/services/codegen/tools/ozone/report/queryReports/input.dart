@@ -58,7 +58,7 @@ abstract class ReportQueryReportsInput with _$ReportQueryReportsInput {
     /// Filter to reports where the subject is this DID or any record owned by this DID. Unlike `subject` (which scopes to a specific account or record), this returns all reports tied to the DID across both account-level and record-level subjects.
     String? did,
 
-    /// If specified, reports of the given type (account or record) will be returned.
+    /// If specified, reports of the given subject type will be returned.
     @ReportQueryReportsSubjectTypeConverter()
     ReportQueryReportsSubjectType? subjectType,
     List<String>? collections,

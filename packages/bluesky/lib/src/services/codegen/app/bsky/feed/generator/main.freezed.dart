@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,6 +9,7 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$FeedGeneratorRecordCopyWithImpl<$Res>
 /// Create a copy of FeedGeneratorRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? displayName = null,Object? description = freezed,Object? descriptionFacets = freezed,Object? avatar = freezed,Object? acceptsInteractions = freezed,Object? labels = freezed,Object? contentMode = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FeedGeneratorRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
@@ -256,7 +257,7 @@ return $default(_that.$type,_that.did,_that.displayName,_that.description,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGeneratorRecord implements FeedGeneratorRecord {
-  const _FeedGeneratorRecord({this.$type = 'app.bsky.feed.generator', required this.did, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, this.acceptsInteractions, @UFeedGeneratorLabelsConverter() this.labels, @FeedGeneratorContentModeConverter() this.contentMode, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
+  const _FeedGeneratorRecord({this.$type = 'app.bsky.feed.generator', required this.did, required this.displayName, this.description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, this.acceptsInteractions, @UFeedGeneratorLabelsConverter() this.labels, @FeedGeneratorContentModeConverter() this.contentMode, @JsonKey(toJson: iso8601) required this.createdAt,  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _FeedGeneratorRecord.fromJson(Map<String, dynamic> json) => _$FeedGeneratorRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

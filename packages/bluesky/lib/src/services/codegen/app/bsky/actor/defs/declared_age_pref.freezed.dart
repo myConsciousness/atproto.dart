@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'declared_age_pref.dart';
@@ -9,6 +9,7 @@ part of 'declared_age_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +70,7 @@ class _$DeclaredAgePrefCopyWithImpl<$Res>
 /// Create a copy of DeclaredAgePref
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? isOverAge13 = freezed,Object? isOverAge16 = freezed,Object? isOverAge18 = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(DeclaredAgePref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,isOverAge13: freezed == isOverAge13 ? _self.isOverAge13 : isOverAge13 // ignore: cast_nullable_to_non_nullable
 as bool?,isOverAge16: freezed == isOverAge16 ? _self.isOverAge16 : isOverAge16 // ignore: cast_nullable_to_non_nullable
@@ -216,7 +217,7 @@ return $default(_that.$type,_that.isOverAge13,_that.isOverAge16,_that.isOverAge1
 
 @JsonSerializable(includeIfNull: false)
 class _DeclaredAgePref implements DeclaredAgePref {
-  const _DeclaredAgePref({this.$type = 'app.bsky.actor.defs#declaredAgePref', this.isOverAge13, this.isOverAge16, this.isOverAge18, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _DeclaredAgePref({this.$type = 'app.bsky.actor.defs#declaredAgePref', this.isOverAge13, this.isOverAge16, this.isOverAge18,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DeclaredAgePref.fromJson(Map<String, dynamic> json) => _$DeclaredAgePrefFromJson(json);
 
 @override@JsonKey() final  String $type;

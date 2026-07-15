@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$LabelQueryLabelsInputCopyWithImpl<$Res>
 /// Create a copy of LabelQueryLabelsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? uriPatterns = null,Object? sources = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(LabelQueryLabelsInput(
 uriPatterns: null == uriPatterns ? _self.uriPatterns : uriPatterns // ignore: cast_nullable_to_non_nullable
 as List<String>,sources: freezed == sources ? _self.sources : sources // ignore: cast_nullable_to_non_nullable
 as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
@@ -213,7 +214,7 @@ return $default(_that.uriPatterns,_that.sources,_that.limit,_that.cursor,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _LabelQueryLabelsInput implements LabelQueryLabelsInput {
-  const _LabelQueryLabelsInput({required final  List<String> uriPatterns, final  List<String>? sources, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _uriPatterns = uriPatterns,_sources = sources,_$unknown = $unknown;
+  const _LabelQueryLabelsInput({required  List<String> uriPatterns,  List<String>? sources, this.limit = 50, this.cursor,  Map<String, dynamic>? $unknown}): _uriPatterns = uriPatterns,_sources = sources,_$unknown = $unknown;
   factory _LabelQueryLabelsInput.fromJson(Map<String, dynamic> json) => _$LabelQueryLabelsInputFromJson(json);
 
  final  List<String> _uriPatterns;

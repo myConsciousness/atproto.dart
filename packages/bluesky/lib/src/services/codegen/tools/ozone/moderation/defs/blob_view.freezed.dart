@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'blob_view.dart';
@@ -9,6 +9,7 @@ part of 'blob_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$BlobViewCopyWithImpl<$Res>
 /// Create a copy of BlobView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? cid = null,Object? mimeType = null,Object? size = null,Object? createdAt = null,Object? details = freezed,Object? moderation = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(BlobView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
 as String,mimeType: null == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
@@ -240,7 +241,7 @@ return $default(_that.$type,_that.cid,_that.mimeType,_that.size,_that.createdAt,
 
 @JsonSerializable(includeIfNull: false)
 class _BlobView implements BlobView {
-  const _BlobView({this.$type = 'tools.ozone.moderation.defs#blobView', required this.cid, required this.mimeType, required this.size, @JsonKey(toJson: iso8601) required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _BlobView({this.$type = 'tools.ozone.moderation.defs#blobView', required this.cid, required this.mimeType, required this.size, @JsonKey(toJson: iso8601) required this.createdAt, @UBlobViewDetailsConverter() this.details, @ModerationConverter() this.moderation,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _BlobView.fromJson(Map<String, dynamic> json) => _$BlobViewFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$GraphGetFollowersOutputCopyWithImpl<$Res>
 /// Create a copy of GraphGetFollowersOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? subject = null,Object? cursor = freezed,Object? followers = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(GraphGetFollowersOutput(
 subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as ProfileView,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,followers: null == followers ? _self.followers : followers // ignore: cast_nullable_to_non_nullable
@@ -221,7 +222,7 @@ return $default(_that.subject,_that.cursor,_that.followers,_that.$unknown);case 
 
 @JsonSerializable(includeIfNull: false)
 class _GraphGetFollowersOutput implements GraphGetFollowersOutput {
-  const _GraphGetFollowersOutput({@ProfileViewConverter() required this.subject, this.cursor, @ProfileViewConverter() required final  List<ProfileView> followers, final  Map<String, dynamic>? $unknown}): _followers = followers,_$unknown = $unknown;
+  const _GraphGetFollowersOutput({@ProfileViewConverter() required this.subject, this.cursor, @ProfileViewConverter() required  List<ProfileView> followers,  Map<String, dynamic>? $unknown}): _followers = followers,_$unknown = $unknown;
   factory _GraphGetFollowersOutput.fromJson(Map<String, dynamic> json) => _$GraphGetFollowersOutputFromJson(json);
 
 @override@ProfileViewConverter() final  ProfileView subject;

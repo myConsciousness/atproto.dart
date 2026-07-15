@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'log_mute_convo.dart';
@@ -9,6 +9,7 @@ part of 'log_mute_convo.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$LogMuteConvoCopyWithImpl<$Res>
 /// Create a copy of LogMuteConvo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? rev = null,Object? convoId = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(LogMuteConvo(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
 as String,convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.$type,_that.rev,_that.convoId,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _LogMuteConvo implements LogMuteConvo {
-  const _LogMuteConvo({this.$type = 'chat.bsky.convo.defs#logMuteConvo', required this.rev, required this.convoId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LogMuteConvo({this.$type = 'chat.bsky.convo.defs#logMuteConvo', required this.rev, required this.convoId,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LogMuteConvo.fromJson(Map<String, dynamic> json) => _$LogMuteConvoFromJson(json);
 
 @override@JsonKey() final  String $type;

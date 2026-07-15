@@ -25,7 +25,7 @@ final class ListQueuesCommand extends QueryCommand {
       ..addOption(
         "subjectType",
         help:
-            r"Filter queues that handle this subject type ('account' or 'record').",
+            r"Filter queues that handle this subject type ('account', 'record', 'message', or 'conversation').",
       )
       ..addOption(
         "collection",

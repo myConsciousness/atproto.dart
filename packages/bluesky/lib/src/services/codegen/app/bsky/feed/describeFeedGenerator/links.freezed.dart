@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'links.dart';
@@ -9,6 +9,7 @@ part of 'links.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$LinksCopyWithImpl<$Res>
 /// Create a copy of Links
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? privacyPolicy = freezed,Object? termsOfService = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Links(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,privacyPolicy: freezed == privacyPolicy ? _self.privacyPolicy : privacyPolicy // ignore: cast_nullable_to_non_nullable
 as String?,termsOfService: freezed == termsOfService ? _self.termsOfService : termsOfService // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.$type,_that.privacyPolicy,_that.termsOfService,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _Links implements Links {
-  const _Links({this.$type = 'app.bsky.feed.describeFeedGenerator#links', this.privacyPolicy, this.termsOfService, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Links({this.$type = 'app.bsky.feed.describeFeedGenerator#links', this.privacyPolicy, this.termsOfService,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'report_activity_view.dart';
@@ -9,6 +9,7 @@ part of 'report_activity_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -75,7 +76,7 @@ class _$ReportActivityViewCopyWithImpl<$Res>
 /// Create a copy of ReportActivityView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? reportId = null,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? meta = freezed,Object? isAutomated = null,Object? createdBy = null,Object? moderator = freezed,Object? report = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ReportActivityView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,reportId: null == reportId ? _self.reportId : reportId // ignore: cast_nullable_to_non_nullable
@@ -263,7 +264,7 @@ return $default(_that.$type,_that.id,_that.reportId,_that.activity,_that.interna
 
 @JsonSerializable(includeIfNull: false)
 class _ReportActivityView implements ReportActivityView {
-  const _ReportActivityView({this.$type = 'tools.ozone.report.defs#reportActivityView', required this.id, required this.reportId, @UReportActivityViewActivityConverter() required this.activity, this.internalNote, this.publicNote, final  Map<String, dynamic>? meta, required this.isAutomated, required this.createdBy, @MemberConverter() this.moderator, @ReportViewConverter() this.report, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
+  const _ReportActivityView({this.$type = 'tools.ozone.report.defs#reportActivityView', required this.id, required this.reportId, @UReportActivityViewActivityConverter() required this.activity, this.internalNote, this.publicNote,  Map<String, dynamic>? meta, required this.isAutomated, required this.createdBy, @MemberConverter() this.moderator, @ReportViewConverter() this.report, @JsonKey(toJson: iso8601) required this.createdAt,  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
   factory _ReportActivityView.fromJson(Map<String, dynamic> json) => _$ReportActivityViewFromJson(json);
 
 @override@JsonKey() final  String $type;

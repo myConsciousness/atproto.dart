@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'info.dart';
@@ -9,6 +9,7 @@ part of 'info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$InfoCopyWithImpl<$Res>
 /// Create a copy of Info
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? name = null,Object? message = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Info(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as InfoName,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
@@ -221,7 +222,7 @@ return $default(_that.$type,_that.name,_that.message,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _Info implements Info {
-  const _Info({this.$type = 'com.atproto.label.subscribeLabels#info', @InfoNameConverter() required this.name, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Info({this.$type = 'com.atproto.label.subscribeLabels#info', @InfoNameConverter() required this.name, this.message,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 
 @override@JsonKey() final  String $type;

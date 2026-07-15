@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$ModerationGetConvoMembersInputCopyWithImpl<$Res>
 /// Create a copy of ModerationGetConvoMembersInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? convoId = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ModerationGetConvoMembersInput(
 convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.convoId,_that.limit,_that.cursor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationGetConvoMembersInput implements ModerationGetConvoMembersInput {
-  const _ModerationGetConvoMembersInput({required this.convoId, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationGetConvoMembersInput({required this.convoId, this.limit = 50, this.cursor,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationGetConvoMembersInput.fromJson(Map<String, dynamic> json) => _$ModerationGetConvoMembersInputFromJson(json);
 
 @override final  String convoId;

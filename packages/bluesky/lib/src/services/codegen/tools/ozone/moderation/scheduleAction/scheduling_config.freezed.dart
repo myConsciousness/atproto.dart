@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'scheduling_config.dart';
@@ -9,6 +9,7 @@ part of 'scheduling_config.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +70,7 @@ class _$SchedulingConfigCopyWithImpl<$Res>
 /// Create a copy of SchedulingConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? executeAt = freezed,Object? executeAfter = freezed,Object? executeUntil = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SchedulingConfig(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,executeAt: freezed == executeAt ? _self.executeAt : executeAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,executeAfter: freezed == executeAfter ? _self.executeAfter : executeAfter // ignore: cast_nullable_to_non_nullable
@@ -216,7 +217,7 @@ return $default(_that.$type,_that.executeAt,_that.executeAfter,_that.executeUnti
 
 @JsonSerializable(includeIfNull: false)
 class _SchedulingConfig implements SchedulingConfig {
-  const _SchedulingConfig({this.$type = 'tools.ozone.moderation.scheduleAction#schedulingConfig', @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SchedulingConfig({this.$type = 'tools.ozone.moderation.scheduleAction#schedulingConfig', @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SchedulingConfig.fromJson(Map<String, dynamic> json) => _$SchedulingConfigFromJson(json);
 
 @override@JsonKey() final  String $type;

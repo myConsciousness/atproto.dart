@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$SyncListHostsOutputCopyWithImpl<$Res>
 /// Create a copy of SyncListHostsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? hosts = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SyncListHostsOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,hosts: null == hosts ? _self.hosts : hosts // ignore: cast_nullable_to_non_nullable
 as List<Host>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -211,7 +212,7 @@ return $default(_that.cursor,_that.hosts,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SyncListHostsOutput implements SyncListHostsOutput {
-  const _SyncListHostsOutput({this.cursor, @HostConverter() required final  List<Host> hosts, final  Map<String, dynamic>? $unknown}): _hosts = hosts,_$unknown = $unknown;
+  const _SyncListHostsOutput({this.cursor, @HostConverter() required  List<Host> hosts,  Map<String, dynamic>? $unknown}): _hosts = hosts,_$unknown = $unknown;
   factory _SyncListHostsOutput.fromJson(Map<String, dynamic> json) => _$SyncListHostsOutputFromJson(json);
 
 @override final  String? cursor;

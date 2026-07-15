@@ -18,7 +18,7 @@ View moderation reports. Reports are individual instances of content being repor
 | **status** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ✅ | Filter by report status. |
 | **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | Filter by subject DID or AT-URI. |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Filter to reports where the subject is this DID or any record owned by this DID. Unlike `subject` (which scopes to a specific account or record), this returns all reports tied to the DID across both account-level and record-level subjects. |
-| **subjectType** | string | account<br/>record | ❌ | If specified, reports of the given type (account or record) will be returned. |
+| **subjectType** | string | account<br/>record<br/>message<br/>conversation | ❌ | If specified, reports of the given subject type will be returned. |
 | **collections** | array of [nsid](https://atproto.com/specs/nsid) | - | ❌ | - |
 | **reportedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Retrieve reports created after a given timestamp |
 | **reportedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Retrieve reports created before a given timestamp |

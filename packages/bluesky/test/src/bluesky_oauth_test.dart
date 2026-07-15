@@ -3,9 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
+import 'package:test/test.dart';
+
+// Project imports:
 import 'package:bluesky/atproto_oauth.dart';
 import 'package:bluesky/bluesky.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('Bluesky.fromOAuth exposes the manager', () {

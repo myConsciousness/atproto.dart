@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +71,7 @@ class _$ServerDescribeServerOutputCopyWithImpl<$Res>
 /// Create a copy of ServerDescribeServerOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? inviteCodeRequired = freezed,Object? phoneVerificationRequired = freezed,Object? availableUserDomains = null,Object? links = freezed,Object? contact = freezed,Object? did = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ServerDescribeServerOutput(
 inviteCodeRequired: freezed == inviteCodeRequired ? _self.inviteCodeRequired : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
 as bool?,phoneVerificationRequired: freezed == phoneVerificationRequired ? _self.phoneVerificationRequired : phoneVerificationRequired // ignore: cast_nullable_to_non_nullable
 as bool?,availableUserDomains: null == availableUserDomains ? _self.availableUserDomains : availableUserDomains // ignore: cast_nullable_to_non_nullable
@@ -243,7 +244,7 @@ return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.a
 
 @JsonSerializable(includeIfNull: false)
 class _ServerDescribeServerOutput implements ServerDescribeServerOutput {
-  const _ServerDescribeServerOutput({this.inviteCodeRequired, this.phoneVerificationRequired, required final  List<String> availableUserDomains, @LinksConverter() this.links, @ContactConverter() this.contact, required this.did, final  Map<String, dynamic>? $unknown}): _availableUserDomains = availableUserDomains,_$unknown = $unknown;
+  const _ServerDescribeServerOutput({this.inviteCodeRequired, this.phoneVerificationRequired, required  List<String> availableUserDomains, @LinksConverter() this.links, @ContactConverter() this.contact, required this.did,  Map<String, dynamic>? $unknown}): _availableUserDomains = availableUserDomains,_$unknown = $unknown;
   factory _ServerDescribeServerOutput.fromJson(Map<String, dynamic> json) => _$ServerDescribeServerOutputFromJson(json);
 
 /// If true, an invite code must be supplied to create an account on this instance.

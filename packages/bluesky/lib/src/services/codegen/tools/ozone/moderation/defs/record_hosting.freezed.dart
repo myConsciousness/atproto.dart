@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'record_hosting.dart';
@@ -9,6 +9,7 @@ part of 'record_hosting.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$RecordHostingCopyWithImpl<$Res>
 /// Create a copy of RecordHosting
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? status = null,Object? updatedAt = freezed,Object? createdAt = freezed,Object? deletedAt = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(RecordHosting(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as RecordHostingStatus,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -223,7 +224,7 @@ return $default(_that.$type,_that.status,_that.updatedAt,_that.createdAt,_that.d
 
 @JsonSerializable(includeIfNull: false)
 class _RecordHosting implements RecordHosting {
-  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', @RecordHostingStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.deletedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordHosting({this.$type = 'tools.ozone.moderation.defs#recordHosting', @RecordHostingStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.deletedAt,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordHosting.fromJson(Map<String, dynamic> json) => _$RecordHostingFromJson(json);
 
 @override@JsonKey() final  String $type;

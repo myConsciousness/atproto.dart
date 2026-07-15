@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$UnspeccedGetPostThreadV2OutputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedGetPostThreadV2Output
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? thread = null,Object? threadgate = freezed,Object? hasOtherReplies = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnspeccedGetPostThreadV2Output(
 thread: null == thread ? _self.thread : thread // ignore: cast_nullable_to_non_nullable
 as List<ThreadItem>,threadgate: freezed == threadgate ? _self.threadgate : threadgate // ignore: cast_nullable_to_non_nullable
 as ThreadgateView?,hasOtherReplies: null == hasOtherReplies ? _self.hasOtherReplies : hasOtherReplies // ignore: cast_nullable_to_non_nullable
@@ -225,7 +226,7 @@ return $default(_that.thread,_that.threadgate,_that.hasOtherReplies,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadV2Output implements UnspeccedGetPostThreadV2Output {
-  const _UnspeccedGetPostThreadV2Output({@ThreadItemConverter() required final  List<ThreadItem> thread, @ThreadgateViewConverter() this.threadgate, required this.hasOtherReplies, final  Map<String, dynamic>? $unknown}): _thread = thread,_$unknown = $unknown;
+  const _UnspeccedGetPostThreadV2Output({@ThreadItemConverter() required  List<ThreadItem> thread, @ThreadgateViewConverter() this.threadgate, required this.hasOtherReplies,  Map<String, dynamic>? $unknown}): _thread = thread,_$unknown = $unknown;
   factory _UnspeccedGetPostThreadV2Output.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadV2OutputFromJson(json);
 
  final  List<ThreadItem> _thread;

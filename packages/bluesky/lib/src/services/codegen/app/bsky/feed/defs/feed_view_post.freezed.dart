@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'feed_view_post.dart';
@@ -9,6 +9,7 @@ part of 'feed_view_post.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$FeedViewPostCopyWithImpl<$Res>
 /// Create a copy of FeedViewPost
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? reply = freezed,Object? reason = freezed,Object? feedContext = freezed,Object? reqId = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FeedViewPost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as PostView,reply: freezed == reply ? _self.reply : reply // ignore: cast_nullable_to_non_nullable
@@ -250,7 +251,7 @@ return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContex
 
 @JsonSerializable(includeIfNull: false)
 class _FeedViewPost implements FeedViewPost {
-  const _FeedViewPost({this.$type = 'app.bsky.feed.defs#feedViewPost', @PostViewConverter() required this.post, @ReplyRefConverter() this.reply, @UFeedViewPostReasonConverter() this.reason, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedViewPost({this.$type = 'app.bsky.feed.defs#feedViewPost', @PostViewConverter() required this.post, @ReplyRefConverter() this.reply, @UFeedViewPostReasonConverter() this.reason, this.feedContext, this.reqId,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) => _$FeedViewPostFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mod_event_email.dart';
@@ -9,6 +9,7 @@ part of 'mod_event_email.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -73,7 +74,7 @@ class _$ModEventEmailCopyWithImpl<$Res>
 /// Create a copy of ModEventEmail
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? subjectLine = null,Object? content = freezed,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? isDelivered = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ModEventEmail(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,subjectLine: null == subjectLine ? _self.subjectLine : subjectLine // ignore: cast_nullable_to_non_nullable
 as String,content: freezed == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
@@ -225,7 +226,7 @@ return $default(_that.$type,_that.subjectLine,_that.content,_that.comment,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventEmail implements ModEventEmail {
-  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment, final  List<String>? policies, this.severityLevel, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, this.isDelivered, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _ModEventEmail({this.$type = 'tools.ozone.moderation.defs#modEventEmail', required this.subjectLine, this.content, this.comment,  List<String>? policies, this.severityLevel, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, this.isDelivered,  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _ModEventEmail.fromJson(Map<String, dynamic> json) => _$ModEventEmailFromJson(json);
 
 @override@JsonKey() final  String $type;

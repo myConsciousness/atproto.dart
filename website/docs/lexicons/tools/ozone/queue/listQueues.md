@@ -14,7 +14,7 @@ List all configured moderation queues with statistics.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **enabled** | boolean | - | ❌ | Filter by enabled status. If not specified, returns all queues. |
-| **subjectType** | string | - | ❌ | Filter queues that handle this subject type ('account' or 'record'). |
+| **subjectType** | string | - | ❌ | Filter queues that handle this subject type ('account', 'record', 'message', or 'conversation'). |
 | **collection** | string | - | ❌ | Filter queues by collection name (e.g. 'app.bsky.feed.post'). |
 | **reportTypes** | array | - | ❌ | - |
 | **limit** | integer | - | ❌ | - |

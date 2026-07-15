@@ -80,7 +80,9 @@ enum KnownQueueViewSubjectTypes implements Serializable {
   @JsonValue('record')
   record('record'),
   @JsonValue('message')
-  message('message');
+  message('message'),
+  @JsonValue('conversation')
+  conversation('conversation');
 
   @override
   final String value;

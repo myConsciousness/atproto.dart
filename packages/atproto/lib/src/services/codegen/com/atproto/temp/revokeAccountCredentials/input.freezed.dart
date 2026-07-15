@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$TempRevokeAccountCredentialsInputCopyWithImpl<$Res>
 /// Create a copy of TempRevokeAccountCredentialsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(TempRevokeAccountCredentialsInput(
 account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -210,7 +211,7 @@ return $default(_that.account,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _TempRevokeAccountCredentialsInput implements TempRevokeAccountCredentialsInput {
-  const _TempRevokeAccountCredentialsInput({required this.account, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _TempRevokeAccountCredentialsInput({required this.account,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _TempRevokeAccountCredentialsInput.fromJson(Map<String, dynamic> json) => _$TempRevokeAccountCredentialsInputFromJson(json);
 
 @override final  String account;

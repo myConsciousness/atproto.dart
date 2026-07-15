@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$ServerRequestEmailUpdateOutputCopyWithImpl<$Res>
 /// Create a copy of ServerRequestEmailUpdateOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tokenRequired = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ServerRequestEmailUpdateOutput(
 tokenRequired: null == tokenRequired ? _self.tokenRequired : tokenRequired // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -210,7 +211,7 @@ return $default(_that.tokenRequired,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ServerRequestEmailUpdateOutput implements ServerRequestEmailUpdateOutput {
-  const _ServerRequestEmailUpdateOutput({required this.tokenRequired, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ServerRequestEmailUpdateOutput({required this.tokenRequired,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerRequestEmailUpdateOutput.fromJson(Map<String, dynamic> json) => _$ServerRequestEmailUpdateOutputFromJson(json);
 
 @override final  bool tokenRequired;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'verification_state.dart';
@@ -9,6 +9,7 @@ part of 'verification_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$VerificationStateCopyWithImpl<$Res>
 /// Create a copy of VerificationState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? verifications = null,Object? verifiedStatus = null,Object? trustedVerifierStatus = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(VerificationState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,verifications: null == verifications ? _self.verifications : verifications // ignore: cast_nullable_to_non_nullable
 as List<VerificationView>,verifiedStatus: null == verifiedStatus ? _self.verifiedStatus : verifiedStatus // ignore: cast_nullable_to_non_nullable
@@ -233,7 +234,7 @@ return $default(_that.$type,_that.verifications,_that.verifiedStatus,_that.trust
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationState implements VerificationState {
-  const _VerificationState({this.$type = 'app.bsky.actor.defs#verificationState', @VerificationViewConverter() required final  List<VerificationView> verifications, @VerificationStateVerifiedStatusConverter() required this.verifiedStatus, @VerificationStateTrustedVerifierStatusConverter() required this.trustedVerifierStatus, final  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
+  const _VerificationState({this.$type = 'app.bsky.actor.defs#verificationState', @VerificationViewConverter() required  List<VerificationView> verifications, @VerificationStateVerifiedStatusConverter() required this.verifiedStatus, @VerificationStateTrustedVerifierStatusConverter() required this.trustedVerifierStatus,  Map<String, dynamic>? $unknown}): _verifications = verifications,_$unknown = $unknown;
   factory _VerificationState.fromJson(Map<String, dynamic> json) => _$VerificationStateFromJson(json);
 
 @override@JsonKey() final  String $type;

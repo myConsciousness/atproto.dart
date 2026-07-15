@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.0.1
+
+- chore: updated `tools.ozone.queue.defs#queueView.subjectTypes`
+- chore: regenerated from synced lexicons
+
 ## v2.0.0
 
 - feat!: `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`); `fromOAuthSession(session, {oauthClient})` wraps a shared manager; `oAuthSession` getter replaced by `oAuthSessionManager`.

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'generator_view.dart';
@@ -9,6 +9,7 @@ part of 'generator_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$GeneratorViewCopyWithImpl<$Res>
 /// Create a copy of GeneratorView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? did = null,Object? creator = null,Object? displayName = null,Object? description = freezed,Object? descriptionFacets = freezed,Object? avatar = freezed,Object? likeCount = freezed,Object? acceptsInteractions = freezed,Object? labels = freezed,Object? viewer = freezed,Object? contentMode = freezed,Object? indexedAt = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(GeneratorView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -257,7 +258,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.did,_that.creator,_that.di
 
 @JsonSerializable(includeIfNull: false)
 class _GeneratorView implements GeneratorView {
-  const _GeneratorView({this.$type = 'app.bsky.feed.defs#generatorView', @AtUriConverter() required this.uri, required this.cid, required this.did, @ProfileViewConverter() required this.creator, required this.displayName, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, this.avatar, this.likeCount, this.acceptsInteractions, @LabelConverter() final  List<Label>? labels, @GeneratorViewerStateConverter() this.viewer, @GeneratorViewContentModeConverter() this.contentMode, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
+  const _GeneratorView({this.$type = 'app.bsky.feed.defs#generatorView', @AtUriConverter() required this.uri, required this.cid, required this.did, @ProfileViewConverter() required this.creator, required this.displayName, this.description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, this.avatar, this.likeCount, this.acceptsInteractions, @LabelConverter()  List<Label>? labels, @GeneratorViewerStateConverter() this.viewer, @GeneratorViewContentModeConverter() this.contentMode, @JsonKey(toJson: iso8601) required this.indexedAt,  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_labels = labels,_$unknown = $unknown;
   factory _GeneratorView.fromJson(Map<String, dynamic> json) => _$GeneratorViewFromJson(json);
 
 @override@JsonKey() final  String $type;

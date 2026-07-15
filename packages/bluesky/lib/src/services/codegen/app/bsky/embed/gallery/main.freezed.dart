@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,6 +9,7 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$EmbedGalleryCopyWithImpl<$Res>
 /// Create a copy of EmbedGallery
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? items = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(EmbedGallery(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
 as List<UEmbedGalleryItems>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -211,7 +212,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedGallery implements EmbedGallery {
-  const _EmbedGallery({this.$type = 'app.bsky.embed.gallery', @UEmbedGalleryItemsConverter() required final  List<UEmbedGalleryItems> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
+  const _EmbedGallery({this.$type = 'app.bsky.embed.gallery', @UEmbedGalleryItemsConverter() required  List<UEmbedGalleryItems> items,  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _EmbedGallery.fromJson(Map<String, dynamic> json) => _$EmbedGalleryFromJson(json);
 
 @override@JsonKey() final  String $type;

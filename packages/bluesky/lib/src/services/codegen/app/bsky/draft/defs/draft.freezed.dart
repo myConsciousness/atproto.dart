@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'draft.dart';
@@ -9,6 +9,7 @@ part of 'draft.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$DraftCopyWithImpl<$Res>
 /// Create a copy of Draft
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? deviceId = freezed,Object? deviceName = freezed,Object? posts = null,Object? langs = freezed,Object? postgateEmbeddingRules = freezed,Object? threadgateAllow = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Draft(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,deviceId: freezed == deviceId ? _self.deviceId : deviceId // ignore: cast_nullable_to_non_nullable
 as String?,deviceName: freezed == deviceName ? _self.deviceName : deviceName // ignore: cast_nullable_to_non_nullable
@@ -218,7 +219,7 @@ return $default(_that.$type,_that.deviceId,_that.deviceName,_that.posts,_that.la
 
 @JsonSerializable(includeIfNull: false)
 class _Draft implements Draft {
-  const _Draft({this.$type = 'app.bsky.draft.defs#draft', this.deviceId, this.deviceName, @DraftPostConverter() required final  List<DraftPost> posts, final  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter() final  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter() final  List<UDraftThreadgateAllow>? threadgateAllow, final  Map<String, dynamic>? $unknown}): _posts = posts,_langs = langs,_postgateEmbeddingRules = postgateEmbeddingRules,_threadgateAllow = threadgateAllow,_$unknown = $unknown;
+  const _Draft({this.$type = 'app.bsky.draft.defs#draft', this.deviceId, this.deviceName, @DraftPostConverter() required  List<DraftPost> posts,  List<String>? langs, @UDraftPostgateEmbeddingRulesConverter()  List<UDraftPostgateEmbeddingRules>? postgateEmbeddingRules, @UDraftThreadgateAllowConverter()  List<UDraftThreadgateAllow>? threadgateAllow,  Map<String, dynamic>? $unknown}): _posts = posts,_langs = langs,_postgateEmbeddingRules = postgateEmbeddingRules,_threadgateAllow = threadgateAllow,_$unknown = $unknown;
   factory _Draft.fromJson(Map<String, dynamic> json) => _$DraftFromJson(json);
 
 @override@JsonKey() final  String $type;

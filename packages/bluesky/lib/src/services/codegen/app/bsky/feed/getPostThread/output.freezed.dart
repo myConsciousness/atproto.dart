@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$FeedGetPostThreadOutputCopyWithImpl<$Res>
 /// Create a copy of FeedGetPostThreadOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? thread = null,Object? threadgate = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FeedGetPostThreadOutput(
 thread: null == thread ? _self.thread : thread // ignore: cast_nullable_to_non_nullable
 as UFeedGetPostThreadThread,threadgate: freezed == threadgate ? _self.threadgate : threadgate // ignore: cast_nullable_to_non_nullable
 as ThreadgateView?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -232,7 +233,7 @@ return $default(_that.thread,_that.threadgate,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetPostThreadOutput implements FeedGetPostThreadOutput {
-  const _FeedGetPostThreadOutput({@UFeedGetPostThreadThreadConverter() required this.thread, @ThreadgateViewConverter() this.threadgate, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetPostThreadOutput({@UFeedGetPostThreadThreadConverter() required this.thread, @ThreadgateViewConverter() this.threadgate,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetPostThreadOutput.fromJson(Map<String, dynamic> json) => _$FeedGetPostThreadOutputFromJson(json);
 
 @override@UFeedGetPostThreadThreadConverter() final  UFeedGetPostThreadThread thread;

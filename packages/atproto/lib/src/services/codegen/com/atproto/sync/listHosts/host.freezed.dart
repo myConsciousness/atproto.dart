@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'host.dart';
@@ -9,6 +9,7 @@ part of 'host.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$HostCopyWithImpl<$Res>
 /// Create a copy of Host
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? hostname = null,Object? seq = freezed,Object? accountCount = freezed,Object? status = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Host(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,hostname: null == hostname ? _self.hostname : hostname // ignore: cast_nullable_to_non_nullable
 as String,seq: freezed == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
@@ -228,7 +229,7 @@ return $default(_that.$type,_that.hostname,_that.seq,_that.accountCount,_that.st
 
 @JsonSerializable(includeIfNull: false)
 class _Host implements Host {
-  const _Host({this.$type = 'com.atproto.sync.listHosts#host', required this.hostname, this.seq, this.accountCount, @HostStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Host({this.$type = 'com.atproto.sync.listHosts#host', required this.hostname, this.seq, this.accountCount, @HostStatusConverter() this.status,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Host.fromJson(Map<String, dynamic> json) => _$HostFromJson(json);
 
 @override@JsonKey() final  String $type;
