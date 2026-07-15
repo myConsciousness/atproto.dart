@@ -9,8 +9,12 @@ on:
       - "pubspec.yaml"
       - "pubspec.lock"
       - "analysis_options.yaml"
-      - ".github/workflows/test.yml"
-      - ".github/actions/setup-dart-cached/**"
+      # Any CI/infra change runs the suite too, so the required `ci-ok` check is
+      # always produced (otherwise a `.github`-only PR is blocked forever waiting
+      # for a check that never fires). When no package is affected the `changes`
+      # job yields an empty matrix, so only the cheap `format-analyze` + `ci-ok`
+      # jobs run.
+      - ".github/**"
 
 # Cancel superseded runs for the same ref (e.g. rapid pushes to a PR branch).
 concurrency:
