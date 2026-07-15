@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'join_request_view.dart';
@@ -9,6 +9,7 @@ part of 'join_request_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$JoinRequestViewCopyWithImpl<$Res>
 /// Create a copy of JoinRequestView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? convoId = null,Object? requestedBy = null,Object? requestedAt = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(JoinRequestView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,convoId: null == convoId ? _self.convoId : convoId // ignore: cast_nullable_to_non_nullable
 as String,requestedBy: null == requestedBy ? _self.requestedBy : requestedBy // ignore: cast_nullable_to_non_nullable
@@ -222,7 +223,7 @@ return $default(_that.$type,_that.convoId,_that.requestedBy,_that.requestedAt,_t
 
 @JsonSerializable(includeIfNull: false)
 class _JoinRequestView implements JoinRequestView {
-  const _JoinRequestView({this.$type = 'chat.bsky.group.defs#joinRequestView', required this.convoId, @ProfileViewBasicConverter() required this.requestedBy, @JsonKey(toJson: iso8601) required this.requestedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _JoinRequestView({this.$type = 'chat.bsky.group.defs#joinRequestView', required this.convoId, @ProfileViewBasicConverter() required this.requestedBy, @JsonKey(toJson: iso8601) required this.requestedAt,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JoinRequestView.fromJson(Map<String, dynamic> json) => _$JoinRequestViewFromJson(json);
 
 @override@JsonKey() final  String $type;

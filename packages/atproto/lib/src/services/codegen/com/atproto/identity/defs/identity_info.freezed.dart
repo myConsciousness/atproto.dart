@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'identity_info.dart';
@@ -9,6 +9,7 @@ part of 'identity_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$IdentityInfoCopyWithImpl<$Res>
 /// Create a copy of IdentityInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? didDoc = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(IdentityInfo(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
@@ -214,7 +215,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.didDoc,_that.$unknown);
 
 @JsonSerializable(includeIfNull: false)
 class _IdentityInfo implements IdentityInfo {
-  const _IdentityInfo({this.$type = 'com.atproto.identity.defs#identityInfo', required this.did, required this.handle, required final  Map<String, dynamic> didDoc, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
+  const _IdentityInfo({this.$type = 'com.atproto.identity.defs#identityInfo', required this.did, required this.handle, required  Map<String, dynamic> didDoc,  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_$unknown = $unknown;
   factory _IdentityInfo.fromJson(Map<String, dynamic> json) => _$IdentityInfoFromJson(json);
 
 @override@JsonKey() final  String $type;

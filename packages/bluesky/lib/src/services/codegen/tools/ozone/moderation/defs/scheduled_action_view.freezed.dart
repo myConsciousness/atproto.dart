@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'scheduled_action_view.dart';
@@ -9,6 +9,7 @@ part of 'scheduled_action_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -80,7 +81,7 @@ class _$ScheduledActionViewCopyWithImpl<$Res>
 /// Create a copy of ScheduledActionView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? action = null,Object? eventData = freezed,Object? did = null,Object? executeAt = freezed,Object? executeAfter = freezed,Object? executeUntil = freezed,Object? randomizeExecution = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = freezed,Object? status = null,Object? lastExecutedAt = freezed,Object? lastFailureReason = freezed,Object? executionEventId = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ScheduledActionView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
@@ -257,7 +258,7 @@ return $default(_that.$type,_that.id,_that.action,_that.eventData,_that.did,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _ScheduledActionView implements ScheduledActionView {
-  const _ScheduledActionView({this.$type = 'tools.ozone.moderation.defs#scheduledActionView', required this.id, @ScheduledActionViewActionConverter() required this.action, final  Map<String, dynamic>? eventData, required this.did, @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, this.randomizeExecution, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @ScheduledActionViewStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.lastExecutedAt, this.lastFailureReason, this.executionEventId, final  Map<String, dynamic>? $unknown}): _eventData = eventData,_$unknown = $unknown;
+  const _ScheduledActionView({this.$type = 'tools.ozone.moderation.defs#scheduledActionView', required this.id, @ScheduledActionViewActionConverter() required this.action,  Map<String, dynamic>? eventData, required this.did, @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, this.randomizeExecution, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @ScheduledActionViewStatusConverter() required this.status, @JsonKey(toJson: iso8601) this.lastExecutedAt, this.lastFailureReason, this.executionEventId,  Map<String, dynamic>? $unknown}): _eventData = eventData,_$unknown = $unknown;
   factory _ScheduledActionView.fromJson(Map<String, dynamic> json) => _$ScheduledActionViewFromJson(json);
 
 @override@JsonKey() final  String $type;

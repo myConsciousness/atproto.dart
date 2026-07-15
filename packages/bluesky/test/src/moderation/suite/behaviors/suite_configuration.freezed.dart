@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'suite_configuration.dart';
@@ -9,6 +9,7 @@ part of 'suite_configuration.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$ModerationTestSuiteConfigurationCopyWithImpl<$Res>
 /// Create a copy of ModerationTestSuiteConfiguration
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? authed = null,Object? adultContentEnabled = null,Object? settings = null,}) {
-  return _then(_self.copyWith(
+  return _then(ModerationTestSuiteConfiguration(
 authed: null == authed ? _self.authed : authed // ignore: cast_nullable_to_non_nullable
 as bool,adultContentEnabled: null == adultContentEnabled ? _self.adultContentEnabled : adultContentEnabled // ignore: cast_nullable_to_non_nullable
 as bool,settings: null == settings ? _self.settings : settings // ignore: cast_nullable_to_non_nullable
@@ -211,7 +212,7 @@ return $default(_that.authed,_that.adultContentEnabled,_that.settings);case _:
 @JsonSerializable()
 
 class _ModerationTestSuiteConfiguration implements ModerationTestSuiteConfiguration {
-  const _ModerationTestSuiteConfiguration({this.authed = true, this.adultContentEnabled = false, final  Map<String, LabelPreference> settings = const {}}): _settings = settings;
+  const _ModerationTestSuiteConfiguration({this.authed = true, this.adultContentEnabled = false,  Map<String, LabelPreference> settings = const {}}): _settings = settings;
   factory _ModerationTestSuiteConfiguration.fromJson(Map<String, dynamic> json) => _$ModerationTestSuiteConfigurationFromJson(json);
 
 @override@JsonKey() final  bool authed;

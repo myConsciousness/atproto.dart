@@ -36,7 +36,7 @@ final class QueryReportsCommand extends QueryCommand {
       ..addOption(
         "subjectType",
         help:
-            r"If specified, reports of the given type (account or record) will be returned.",
+            r"If specified, reports of the given subject type will be returned.",
       )
       ..addMultiOption(
         "collections",

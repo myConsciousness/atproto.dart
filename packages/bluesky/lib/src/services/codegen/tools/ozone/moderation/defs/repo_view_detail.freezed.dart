@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'repo_view_detail.dart';
@@ -9,6 +9,7 @@ part of 'repo_view_detail.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$RepoViewDetailCopyWithImpl<$Res>
 /// Create a copy of RepoViewDetail
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? email = freezed,Object? relatedRecords = null,Object? indexedAt = null,Object? moderation = null,Object? labels = freezed,Object? invitedBy = freezed,Object? invites = freezed,Object? invitesDisabled = freezed,Object? inviteNote = freezed,Object? emailConfirmedAt = freezed,Object? deactivatedAt = freezed,Object? threatSignatures = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(RepoViewDetail(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
@@ -245,7 +246,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.email,_that.relatedReco
 
 @JsonSerializable(includeIfNull: false)
 class _RepoViewDetail implements RepoViewDetail {
-  const _RepoViewDetail({this.$type = 'tools.ozone.moderation.defs#repoViewDetail', required this.did, required this.handle, this.email, required final  List<Map<String, dynamic>> relatedRecords, @JsonKey(toJson: iso8601) required this.indexedAt, @ModerationDetailConverter() required this.moderation, @LabelConverter() final  List<Label>? labels, @InviteCodeConverter() this.invitedBy, @InviteCodeConverter() final  List<InviteCode>? invites, this.invitesDisabled, this.inviteNote, @JsonKey(toJson: iso8601) this.emailConfirmedAt, @JsonKey(toJson: iso8601) this.deactivatedAt, @ThreatSignatureConverter() final  List<ThreatSignature>? threatSignatures, final  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_labels = labels,_invites = invites,_threatSignatures = threatSignatures,_$unknown = $unknown;
+  const _RepoViewDetail({this.$type = 'tools.ozone.moderation.defs#repoViewDetail', required this.did, required this.handle, this.email, required  List<Map<String, dynamic>> relatedRecords, @JsonKey(toJson: iso8601) required this.indexedAt, @ModerationDetailConverter() required this.moderation, @LabelConverter()  List<Label>? labels, @InviteCodeConverter() this.invitedBy, @InviteCodeConverter()  List<InviteCode>? invites, this.invitesDisabled, this.inviteNote, @JsonKey(toJson: iso8601) this.emailConfirmedAt, @JsonKey(toJson: iso8601) this.deactivatedAt, @ThreatSignatureConverter()  List<ThreatSignature>? threatSignatures,  Map<String, dynamic>? $unknown}): _relatedRecords = relatedRecords,_labels = labels,_invites = invites,_threatSignatures = threatSignatures,_$unknown = $unknown;
   factory _RepoViewDetail.fromJson(Map<String, dynamic> json) => _$RepoViewDetailFromJson(json);
 
 @override@JsonKey() final  String $type;

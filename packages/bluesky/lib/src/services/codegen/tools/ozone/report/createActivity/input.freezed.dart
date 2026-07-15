@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +71,7 @@ class _$ReportCreateActivityInputCopyWithImpl<$Res>
 /// Create a copy of ReportCreateActivityInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? reportId = null,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? isAutomated = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ReportCreateActivityInput(
 reportId: null == reportId ? _self.reportId : reportId // ignore: cast_nullable_to_non_nullable
 as int,activity: null == activity ? _self.activity : activity // ignore: cast_nullable_to_non_nullable
 as UReportCreateActivityActivity,internalNote: freezed == internalNote ? _self.internalNote : internalNote // ignore: cast_nullable_to_non_nullable
@@ -227,7 +228,7 @@ return $default(_that.reportId,_that.activity,_that.internalNote,_that.publicNot
 
 @JsonSerializable(includeIfNull: false)
 class _ReportCreateActivityInput implements ReportCreateActivityInput {
-  const _ReportCreateActivityInput({required this.reportId, @UReportCreateActivityActivityConverter() required this.activity, this.internalNote, this.publicNote, this.isAutomated = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReportCreateActivityInput({required this.reportId, @UReportCreateActivityActivityConverter() required this.activity, this.internalNote, this.publicNote, this.isAutomated = false,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ReportCreateActivityInput.fromJson(Map<String, dynamic> json) => _$ReportCreateActivityInputFromJson(json);
 
 /// ID of the report to record activity on

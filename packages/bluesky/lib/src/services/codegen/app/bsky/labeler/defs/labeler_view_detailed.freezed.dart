@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'labeler_view_detailed.dart';
@@ -9,6 +9,7 @@ part of 'labeler_view_detailed.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$LabelerViewDetailedCopyWithImpl<$Res>
 /// Create a copy of LabelerViewDetailed
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? creator = null,Object? policies = null,Object? likeCount = freezed,Object? viewer = freezed,Object? indexedAt = null,Object? labels = freezed,Object? reasonTypes = freezed,Object? subjectTypes = freezed,Object? subjectCollections = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(LabelerViewDetailed(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -251,7 +252,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.creator,_that.policies,_th
 
 @JsonSerializable(includeIfNull: false)
 class _LabelerViewDetailed implements LabelerViewDetailed {
-  const _LabelerViewDetailed({this.$type = 'app.bsky.labeler.defs#labelerViewDetailed', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, @LabelerPoliciesConverter() required this.policies, this.likeCount, @LabelerViewerStateConverter() this.viewer, @JsonKey(toJson: iso8601) required this.indexedAt, @LabelConverter() final  List<Label>? labels, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _labels = labels,_reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
+  const _LabelerViewDetailed({this.$type = 'app.bsky.labeler.defs#labelerViewDetailed', @AtUriConverter() required this.uri, required this.cid, @ProfileViewConverter() required this.creator, @LabelerPoliciesConverter() required this.policies, this.likeCount, @LabelerViewerStateConverter() this.viewer, @JsonKey(toJson: iso8601) required this.indexedAt, @LabelConverter()  List<Label>? labels, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown}): _labels = labels,_reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
   factory _LabelerViewDetailed.fromJson(Map<String, dynamic> json) => _$LabelerViewDetailedFromJson(json);
 
 @override@JsonKey() final  String $type;

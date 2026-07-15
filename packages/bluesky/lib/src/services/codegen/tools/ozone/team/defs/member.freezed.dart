@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'member.dart';
@@ -9,6 +9,7 @@ part of 'member.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$MemberCopyWithImpl<$Res>
 /// Create a copy of Member
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? disabled = freezed,Object? profile = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? lastUpdatedBy = freezed,Object? role = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Member(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,disabled: freezed == disabled ? _self.disabled : disabled // ignore: cast_nullable_to_non_nullable
@@ -238,7 +239,7 @@ return $default(_that.$type,_that.did,_that.disabled,_that.profile,_that.created
 
 @JsonSerializable(includeIfNull: false)
 class _Member implements Member {
-  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, this.lastUpdatedBy, @MemberRoleConverter() required this.role, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Member({this.$type = 'tools.ozone.team.defs#member', required this.did, this.disabled, @ProfileViewDetailedConverter() this.profile, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, this.lastUpdatedBy, @MemberRoleConverter() required this.role,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Member.fromJson(Map<String, dynamic> json) => _$MemberFromJson(json);
 
 @override@JsonKey() final  String $type;

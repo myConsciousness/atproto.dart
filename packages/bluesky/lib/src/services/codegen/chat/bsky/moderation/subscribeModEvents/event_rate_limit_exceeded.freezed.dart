@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'event_rate_limit_exceeded.dart';
@@ -9,6 +9,7 @@ part of 'event_rate_limit_exceeded.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$EventRateLimitExceededCopyWithImpl<$Res>
 /// Create a copy of EventRateLimitExceeded
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? actorDid = null,Object? createdAt = null,Object? endpoint = null,Object? rev = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(EventRateLimitExceeded(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,actorDid: null == actorDid ? _self.actorDid : actorDid // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -216,7 +217,7 @@ return $default(_that.$type,_that.actorDid,_that.createdAt,_that.endpoint,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _EventRateLimitExceeded implements EventRateLimitExceeded {
-  const _EventRateLimitExceeded({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded', required this.actorDid, @JsonKey(toJson: iso8601) required this.createdAt, required this.endpoint, required this.rev, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventRateLimitExceeded({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventRateLimitExceeded', required this.actorDid, @JsonKey(toJson: iso8601) required this.createdAt, required this.endpoint, required this.rev,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventRateLimitExceeded.fromJson(Map<String, dynamic> json) => _$EventRateLimitExceededFromJson(json);
 
 @override@JsonKey() final  String $type;

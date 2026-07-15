@@ -3,9 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
+import 'package:test/test.dart';
+
+// Project imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto/atproto_oauth.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('ATProto.fromOAuth exposes the manager and PDS service', () {

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'verification_prefs.dart';
@@ -9,6 +9,7 @@ part of 'verification_prefs.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$VerificationPrefsCopyWithImpl<$Res>
 /// Create a copy of VerificationPrefs
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? hideBadges = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(VerificationPrefs(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,hideBadges: null == hideBadges ? _self.hideBadges : hideBadges // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.$type,_that.hideBadges,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationPrefs implements VerificationPrefs {
-  const _VerificationPrefs({this.$type = 'app.bsky.actor.defs#verificationPrefs', this.hideBadges = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _VerificationPrefs({this.$type = 'app.bsky.actor.defs#verificationPrefs', this.hideBadges = false,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _VerificationPrefs.fromJson(Map<String, dynamic> json) => _$VerificationPrefsFromJson(json);
 
 @override@JsonKey() final  String $type;

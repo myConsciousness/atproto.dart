@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'option.dart';
@@ -9,6 +9,7 @@ part of 'option.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$OptionCopyWithImpl<$Res>
 /// Create a copy of Option
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? key = null,Object? did = null,Object? value = null,Object? description = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? managerRole = freezed,Object? scope = null,Object? createdBy = null,Object? lastUpdatedBy = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Option(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -241,7 +242,7 @@ return $default(_that.$type,_that.key,_that.did,_that.value,_that.description,_t
 
 @JsonSerializable(includeIfNull: false)
 class _Option implements Option {
-  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required final  Map<String, dynamic> value, this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @OptionManagerRoleConverter() this.managerRole, @OptionScopeConverter() required this.scope, required this.createdBy, required this.lastUpdatedBy, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Option({this.$type = 'tools.ozone.setting.defs#option', required this.key, required this.did, required  Map<String, dynamic> value, this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @OptionManagerRoleConverter() this.managerRole, @OptionScopeConverter() required this.scope, required this.createdBy, required this.lastUpdatedBy,  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
 
 @override@JsonKey() final  String $type;

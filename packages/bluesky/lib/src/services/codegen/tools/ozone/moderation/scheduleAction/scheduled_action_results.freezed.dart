@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'scheduled_action_results.dart';
@@ -9,6 +9,7 @@ part of 'scheduled_action_results.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$ScheduledActionResultsCopyWithImpl<$Res>
 /// Create a copy of ScheduledActionResults
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? succeeded = null,Object? failed = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ScheduledActionResults(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,succeeded: null == succeeded ? _self.succeeded : succeeded // ignore: cast_nullable_to_non_nullable
 as List<String>,failed: null == failed ? _self.failed : failed // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.$type,_that.succeeded,_that.failed,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ScheduledActionResults implements ScheduledActionResults {
-  const _ScheduledActionResults({this.$type = 'tools.ozone.moderation.scheduleAction#scheduledActionResults', required final  List<String> succeeded, @FailedSchedulingConverter() required final  List<FailedScheduling> failed, final  Map<String, dynamic>? $unknown}): _succeeded = succeeded,_failed = failed,_$unknown = $unknown;
+  const _ScheduledActionResults({this.$type = 'tools.ozone.moderation.scheduleAction#scheduledActionResults', required  List<String> succeeded, @FailedSchedulingConverter() required  List<FailedScheduling> failed,  Map<String, dynamic>? $unknown}): _succeeded = succeeded,_failed = failed,_$unknown = $unknown;
   factory _ScheduledActionResults.fromJson(Map<String, dynamic> json) => _$ScheduledActionResultsFromJson(json);
 
 @override@JsonKey() final  String $type;

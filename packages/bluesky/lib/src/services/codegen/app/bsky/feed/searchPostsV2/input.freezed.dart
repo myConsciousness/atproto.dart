@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -81,7 +82,7 @@ class _$FeedSearchPostsV2InputCopyWithImpl<$Res>
 /// Create a copy of FeedSearchPostsV2Input
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = null,Object? query = freezed,Object? sort = freezed,Object? authors = freezed,Object? mentions = freezed,Object? domains = freezed,Object? urls = freezed,Object? embeddedAtUris = freezed,Object? hashtags = freezed,Object? excludeAuthors = freezed,Object? excludeMentions = freezed,Object? excludeDomains = freezed,Object? excludeUrls = freezed,Object? excludeEmbeddedAtUris = freezed,Object? excludeHashtags = freezed,Object? since = freezed,Object? until = freezed,Object? allTime = freezed,Object? languages = freezed,Object? excludeLanguages = freezed,Object? hasMedia = freezed,Object? hasVideo = freezed,Object? replyParentUri = freezed,Object? threadRootUri = freezed,Object? excludeReplies = freezed,Object? repliesOnly = freezed,Object? following = freezed,Object? queryLanguage = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FeedSearchPostsV2Input(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,query: freezed == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
@@ -277,7 +278,7 @@ return $default(_that.cursor,_that.limit,_that.query,_that.sort,_that.authors,_t
 
 @JsonSerializable(includeIfNull: false)
 class _FeedSearchPostsV2Input implements FeedSearchPostsV2Input {
-  const _FeedSearchPostsV2Input({this.cursor, this.limit = 25, this.query, @FeedSearchPostsV2SortConverter() this.sort, final  List<String>? authors, final  List<String>? mentions, final  List<String>? domains, final  List<String>? urls, @AtUriConverter() final  List<AtUri>? embeddedAtUris, final  List<String>? hashtags, final  List<String>? excludeAuthors, final  List<String>? excludeMentions, final  List<String>? excludeDomains, final  List<String>? excludeUrls, @AtUriConverter() final  List<AtUri>? excludeEmbeddedAtUris, final  List<String>? excludeHashtags, this.since, this.until, this.allTime, final  List<String>? languages, final  List<String>? excludeLanguages, this.hasMedia, this.hasVideo, @AtUriConverter() this.replyParentUri, @AtUriConverter() this.threadRootUri, this.excludeReplies, this.repliesOnly, this.following, @FeedSearchPostsV2QueryLanguageConverter() this.queryLanguage, final  Map<String, dynamic>? $unknown}): _authors = authors,_mentions = mentions,_domains = domains,_urls = urls,_embeddedAtUris = embeddedAtUris,_hashtags = hashtags,_excludeAuthors = excludeAuthors,_excludeMentions = excludeMentions,_excludeDomains = excludeDomains,_excludeUrls = excludeUrls,_excludeEmbeddedAtUris = excludeEmbeddedAtUris,_excludeHashtags = excludeHashtags,_languages = languages,_excludeLanguages = excludeLanguages,_$unknown = $unknown;
+  const _FeedSearchPostsV2Input({this.cursor, this.limit = 25, this.query, @FeedSearchPostsV2SortConverter() this.sort,  List<String>? authors,  List<String>? mentions,  List<String>? domains,  List<String>? urls, @AtUriConverter()  List<AtUri>? embeddedAtUris,  List<String>? hashtags,  List<String>? excludeAuthors,  List<String>? excludeMentions,  List<String>? excludeDomains,  List<String>? excludeUrls, @AtUriConverter()  List<AtUri>? excludeEmbeddedAtUris,  List<String>? excludeHashtags, this.since, this.until, this.allTime,  List<String>? languages,  List<String>? excludeLanguages, this.hasMedia, this.hasVideo, @AtUriConverter() this.replyParentUri, @AtUriConverter() this.threadRootUri, this.excludeReplies, this.repliesOnly, this.following, @FeedSearchPostsV2QueryLanguageConverter() this.queryLanguage,  Map<String, dynamic>? $unknown}): _authors = authors,_mentions = mentions,_domains = domains,_urls = urls,_embeddedAtUris = embeddedAtUris,_hashtags = hashtags,_excludeAuthors = excludeAuthors,_excludeMentions = excludeMentions,_excludeDomains = excludeDomains,_excludeUrls = excludeUrls,_excludeEmbeddedAtUris = excludeEmbeddedAtUris,_excludeHashtags = excludeHashtags,_languages = languages,_excludeLanguages = excludeLanguages,_$unknown = $unknown;
   factory _FeedSearchPostsV2Input.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsV2InputFromJson(json);
 
 /// Optional pagination cursor.

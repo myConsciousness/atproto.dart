@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$SyncListBlobsOutputCopyWithImpl<$Res>
 /// Create a copy of SyncListBlobsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? cids = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SyncListBlobsOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,cids: null == cids ? _self.cids : cids // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -211,7 +212,7 @@ return $default(_that.cursor,_that.cids,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SyncListBlobsOutput implements SyncListBlobsOutput {
-  const _SyncListBlobsOutput({this.cursor, required final  List<String> cids, final  Map<String, dynamic>? $unknown}): _cids = cids,_$unknown = $unknown;
+  const _SyncListBlobsOutput({this.cursor, required  List<String> cids,  Map<String, dynamic>? $unknown}): _cids = cids,_$unknown = $unknown;
   factory _SyncListBlobsOutput.fromJson(Map<String, dynamic> json) => _$SyncListBlobsOutputFromJson(json);
 
 @override final  String? cursor;

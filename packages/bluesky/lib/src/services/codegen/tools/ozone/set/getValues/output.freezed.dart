@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$SetGetValuesOutputCopyWithImpl<$Res>
 /// Create a copy of SetGetValuesOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? set = null,Object? values = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SetGetValuesOutput(
 set: null == set ? _self.set : set // ignore: cast_nullable_to_non_nullable
 as SetView,values: null == values ? _self.values : values // ignore: cast_nullable_to_non_nullable
 as List<String>,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
@@ -221,7 +222,7 @@ return $default(_that.set,_that.values,_that.cursor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SetGetValuesOutput implements SetGetValuesOutput {
-  const _SetGetValuesOutput({@SetViewConverter() required this.set, required final  List<String> values, this.cursor, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
+  const _SetGetValuesOutput({@SetViewConverter() required this.set, required  List<String> values, this.cursor,  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
   factory _SetGetValuesOutput.fromJson(Map<String, dynamic> json) => _$SetGetValuesOutputFromJson(json);
 
 @override@SetViewConverter() final  SetView set;

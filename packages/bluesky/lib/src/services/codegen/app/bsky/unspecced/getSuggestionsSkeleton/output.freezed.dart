@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$UnspeccedGetSuggestionsSkeletonOutputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedGetSuggestionsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? actors = null,Object? relativeToDid = freezed,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnspeccedGetSuggestionsSkeletonOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,actors: null == actors ? _self.actors : actors // ignore: cast_nullable_to_non_nullable
 as List<SkeletonSearchActor>,relativeToDid: freezed == relativeToDid ? _self.relativeToDid : relativeToDid // ignore: cast_nullable_to_non_nullable
@@ -215,7 +216,7 @@ return $default(_that.cursor,_that.actors,_that.relativeToDid,_that.recIdStr,_th
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestionsSkeletonOutput implements UnspeccedGetSuggestionsSkeletonOutput {
-  const _UnspeccedGetSuggestionsSkeletonOutput({this.cursor, @SkeletonSearchActorConverter() required final  List<SkeletonSearchActor> actors, this.relativeToDid, this.recIdStr, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
+  const _UnspeccedGetSuggestionsSkeletonOutput({this.cursor, @SkeletonSearchActorConverter() required  List<SkeletonSearchActor> actors, this.relativeToDid, this.recIdStr,  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _UnspeccedGetSuggestionsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestionsSkeletonOutputFromJson(json);
 
 @override final  String? cursor;

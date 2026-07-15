@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$GraphGetListsWithMembershipInputCopyWithImpl<$Res>
 /// Create a copy of GraphGetListsWithMembershipInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? limit = null,Object? cursor = freezed,Object? purposes = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(GraphGetListsWithMembershipInput(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
@@ -214,7 +215,7 @@ return $default(_that.actor,_that.limit,_that.cursor,_that.purposes,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _GraphGetListsWithMembershipInput implements GraphGetListsWithMembershipInput {
-  const _GraphGetListsWithMembershipInput({required this.actor, this.limit = 50, this.cursor, @GraphGetListsWithMembershipPurposesConverter() final  List<GraphGetListsWithMembershipPurposes>? purposes, final  Map<String, dynamic>? $unknown}): _purposes = purposes,_$unknown = $unknown;
+  const _GraphGetListsWithMembershipInput({required this.actor, this.limit = 50, this.cursor, @GraphGetListsWithMembershipPurposesConverter()  List<GraphGetListsWithMembershipPurposes>? purposes,  Map<String, dynamic>? $unknown}): _purposes = purposes,_$unknown = $unknown;
   factory _GraphGetListsWithMembershipInput.fromJson(Map<String, dynamic> json) => _$GraphGetListsWithMembershipInputFromJson(json);
 
 /// The account (actor) to check for membership.

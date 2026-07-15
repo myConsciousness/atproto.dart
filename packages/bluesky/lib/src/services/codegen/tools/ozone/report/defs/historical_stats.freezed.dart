@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'historical_stats.dart';
@@ -9,6 +9,7 @@ part of 'historical_stats.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -74,7 +75,7 @@ class _$HistoricalStatsCopyWithImpl<$Res>
 /// Create a copy of HistoricalStats
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? date = null,Object? computedAt = freezed,Object? pendingCount = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(HistoricalStats(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,computedAt: freezed == computedAt ? _self.computedAt : computedAt // ignore: cast_nullable_to_non_nullable
@@ -226,7 +227,7 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 
 @JsonSerializable(includeIfNull: false)
 class _HistoricalStats implements HistoricalStats {
-  const _HistoricalStats({this.$type = 'tools.ozone.report.defs#historicalStats', required this.date, @JsonKey(toJson: iso8601) this.computedAt, this.pendingCount, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _HistoricalStats({this.$type = 'tools.ozone.report.defs#historicalStats', required this.date, @JsonKey(toJson: iso8601) this.computedAt, this.pendingCount, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _HistoricalStats.fromJson(Map<String, dynamic> json) => _$HistoricalStatsFromJson(json);
 
 @override@JsonKey() final  String $type;

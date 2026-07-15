@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,6 +9,7 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +70,7 @@ class _$EmbedVideoCopyWithImpl<$Res>
 /// Create a copy of EmbedVideo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? video = null,Object? captions = freezed,Object? alt = freezed,Object? aspectRatio = freezed,Object? presentation = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(EmbedVideo(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,video: null == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
 as Blob,captions: freezed == captions ? _self.captions : captions // ignore: cast_nullable_to_non_nullable
@@ -251,7 +252,7 @@ return $default(_that.$type,_that.video,_that.captions,_that.alt,_that.aspectRat
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedVideo implements EmbedVideo {
-  const _EmbedVideo({this.$type = 'app.bsky.embed.video', @BlobConverter() required this.video, @EmbedVideoCaptionConverter() final  List<EmbedVideoCaption>? captions, this.alt, @AspectRatioConverter() this.aspectRatio, @EmbedVideoPresentationConverter() this.presentation, final  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
+  const _EmbedVideo({this.$type = 'app.bsky.embed.video', @BlobConverter() required this.video, @EmbedVideoCaptionConverter()  List<EmbedVideoCaption>? captions, this.alt, @AspectRatioConverter() this.aspectRatio, @EmbedVideoPresentationConverter() this.presentation,  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
   factory _EmbedVideo.fromJson(Map<String, dynamic> json) => _$EmbedVideoFromJson(json);
 
 @override@JsonKey() final  String $type;

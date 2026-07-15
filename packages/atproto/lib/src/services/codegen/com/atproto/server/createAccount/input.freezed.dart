@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +71,7 @@ class _$ServerCreateAccountInputCopyWithImpl<$Res>
 /// Create a copy of ServerCreateAccountInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? email = freezed,Object? handle = null,Object? did = freezed,Object? inviteCode = freezed,Object? verificationCode = freezed,Object? verificationPhone = freezed,Object? password = freezed,Object? recoveryKey = freezed,Object? plcOp = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ServerCreateAccountInput(
 email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,did: freezed == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -222,7 +223,7 @@ return $default(_that.email,_that.handle,_that.did,_that.inviteCode,_that.verifi
 
 @JsonSerializable(includeIfNull: false)
 class _ServerCreateAccountInput implements ServerCreateAccountInput {
-  const _ServerCreateAccountInput({this.email, required this.handle, this.did, this.inviteCode, this.verificationCode, this.verificationPhone, this.password, this.recoveryKey, final  Map<String, dynamic>? plcOp, final  Map<String, dynamic>? $unknown}): _plcOp = plcOp,_$unknown = $unknown;
+  const _ServerCreateAccountInput({this.email, required this.handle, this.did, this.inviteCode, this.verificationCode, this.verificationPhone, this.password, this.recoveryKey,  Map<String, dynamic>? plcOp,  Map<String, dynamic>? $unknown}): _plcOp = plcOp,_$unknown = $unknown;
   factory _ServerCreateAccountInput.fromJson(Map<String, dynamic> json) => _$ServerCreateAccountInputFromJson(json);
 
 @override final  String? email;

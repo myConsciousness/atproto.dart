@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'event_group_chat_join_request.dart';
@@ -9,6 +9,7 @@ part of 'event_group_chat_join_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -72,7 +73,7 @@ class _$EventGroupChatJoinRequestCopyWithImpl<$Res>
 /// Create a copy of EventGroupChatJoinRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? actorDid = null,Object? convoCreatedAt = null,Object? convoId = null,Object? createdAt = null,Object? groupMemberCount = null,Object? groupName = null,Object? joinLinkCode = null,Object? ownerDid = null,Object? rev = null,Object? subjectFollowsOwner = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(EventGroupChatJoinRequest(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,actorDid: null == actorDid ? _self.actorDid : actorDid // ignore: cast_nullable_to_non_nullable
 as String,convoCreatedAt: null == convoCreatedAt ? _self.convoCreatedAt : convoCreatedAt // ignore: cast_nullable_to_non_nullable
@@ -226,7 +227,7 @@ return $default(_that.$type,_that.actorDid,_that.convoCreatedAt,_that.convoId,_t
 
 @JsonSerializable(includeIfNull: false)
 class _EventGroupChatJoinRequest implements EventGroupChatJoinRequest {
-  const _EventGroupChatJoinRequest({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequest', required this.actorDid, @JsonKey(toJson: iso8601) required this.convoCreatedAt, required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, required this.groupMemberCount, required this.groupName, required this.joinLinkCode, required this.ownerDid, required this.rev, required this.subjectFollowsOwner, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EventGroupChatJoinRequest({this.$type = 'chat.bsky.moderation.subscribeModEvents#eventGroupChatJoinRequest', required this.actorDid, @JsonKey(toJson: iso8601) required this.convoCreatedAt, required this.convoId, @JsonKey(toJson: iso8601) required this.createdAt, required this.groupMemberCount, required this.groupName, required this.joinLinkCode, required this.ownerDid, required this.rev, required this.subjectFollowsOwner,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EventGroupChatJoinRequest.fromJson(Map<String, dynamic> json) => _$EventGroupChatJoinRequestFromJson(json);
 
 @override@JsonKey() final  String $type;

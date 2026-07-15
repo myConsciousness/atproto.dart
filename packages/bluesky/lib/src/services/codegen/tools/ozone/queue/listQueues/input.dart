@@ -34,7 +34,7 @@ abstract class QueueListQueuesInput with _$QueueListQueuesInput {
     /// Filter by enabled status. If not specified, returns all queues.
     bool? enabled,
 
-    /// Filter queues that handle this subject type ('account' or 'record').
+    /// Filter queues that handle this subject type ('account', 'record', 'message', or 'conversation').
     String? subjectType,
 
     /// Filter queues by collection name (e.g. 'app.bsky.feed.post').

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$SafelinkQueryRulesOutputCopyWithImpl<$Res>
 /// Create a copy of SafelinkQueryRulesOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? rules = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SafelinkQueryRulesOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,rules: null == rules ? _self.rules : rules // ignore: cast_nullable_to_non_nullable
 as List<UrlRule>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.cursor,_that.rules,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SafelinkQueryRulesOutput implements SafelinkQueryRulesOutput {
-  const _SafelinkQueryRulesOutput({this.cursor, @UrlRuleConverter() required final  List<UrlRule> rules, final  Map<String, dynamic>? $unknown}): _rules = rules,_$unknown = $unknown;
+  const _SafelinkQueryRulesOutput({this.cursor, @UrlRuleConverter() required  List<UrlRule> rules,  Map<String, dynamic>? $unknown}): _rules = rules,_$unknown = $unknown;
   factory _SafelinkQueryRulesOutput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryRulesOutputFromJson(json);
 
 /// Next cursor for pagination. Only present if there are more results.

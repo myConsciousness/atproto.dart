@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'muted_words_pref.dart';
@@ -9,6 +9,7 @@ part of 'muted_words_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$MutedWordsPrefCopyWithImpl<$Res>
 /// Create a copy of MutedWordsPref
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? items = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(MutedWordsPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
 as List<MutedWord>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -211,7 +212,7 @@ return $default(_that.$type,_that.items,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _MutedWordsPref implements MutedWordsPref {
-  const _MutedWordsPref({this.$type = 'app.bsky.actor.defs#mutedWordsPref', @MutedWordConverter() required final  List<MutedWord> items, final  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
+  const _MutedWordsPref({this.$type = 'app.bsky.actor.defs#mutedWordsPref', @MutedWordConverter() required  List<MutedWord> items,  Map<String, dynamic>? $unknown}): _items = items,_$unknown = $unknown;
   factory _MutedWordsPref.fromJson(Map<String, dynamic> json) => _$MutedWordsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'grouped_notification.dart';
@@ -9,6 +9,7 @@ part of 'grouped_notification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -80,7 +81,7 @@ class _$GroupedNotificationCopyWithImpl<$Res>
 /// Create a copy of GroupedNotification
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? uris = null,Object? authors = null,Object? reason = null,Object? reasonSubject = freezed,Object? isRead = null,Object? labels = null,Object? record = freezed,Object? indexedAt = null,}) {
-  return _then(_self.copyWith(
+  return _then(GroupedNotification(
 uris: null == uris ? _self.uris : uris // ignore: cast_nullable_to_non_nullable
 as List<AtUri>,authors: null == authors ? _self.authors : authors // ignore: cast_nullable_to_non_nullable
 as List<ProfileView>,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
@@ -230,7 +231,7 @@ return $default(_that.uris,_that.authors,_that.reason,_that.reasonSubject,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _GroupedNotification implements GroupedNotification {
-  const _GroupedNotification({@AtUriConverter() required final  List<AtUri> uris, required final  List<ProfileView> authors, required this.reason, @AtUriConverter() this.reasonSubject, required this.isRead, required final  List<Label> labels, final  Map<String, dynamic>? record, required this.indexedAt}): _uris = uris,_authors = authors,_labels = labels,_record = record;
+  const _GroupedNotification({@AtUriConverter() required  List<AtUri> uris, required  List<ProfileView> authors, required this.reason, @AtUriConverter() this.reasonSubject, required this.isRead, required  List<Label> labels,  Map<String, dynamic>? record, required this.indexedAt}): _uris = uris,_authors = authors,_labels = labels,_record = record;
   factory _GroupedNotification.fromJson(Map<String, dynamic> json) => _$GroupedNotificationFromJson(json);
 
 /// The unique URI for the notification content.

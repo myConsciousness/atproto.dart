@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'moderation_cause_mute_word.dart';
@@ -9,6 +9,7 @@ part of 'moderation_cause_mute_word.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -64,7 +65,7 @@ class _$ModerationCauseMuteWordCopyWithImpl<$Res>
 /// Create a copy of ModerationCauseMuteWord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? priority = null,Object? downgraded = null,Object? matches = null,}) {
-  return _then(_self.copyWith(
+  return _then(ModerationCauseMuteWord(
 source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as ModerationCauseSource,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as int,downgraded: null == downgraded ? _self.downgraded : downgraded // ignore: cast_nullable_to_non_nullable
@@ -219,7 +220,7 @@ return $default(_that.source,_that.priority,_that.downgraded,_that.matches);case
 
 
 class _ModerationCauseMuteWord implements ModerationCauseMuteWord {
-  const _ModerationCauseMuteWord({required this.source, this.priority = 6, this.downgraded = false, final  List<MuteWordMatch> matches = const []}): _matches = matches;
+  const _ModerationCauseMuteWord({required this.source, this.priority = 6, this.downgraded = false,  List<MuteWordMatch> matches = const []}): _matches = matches;
   
 
 @override final  ModerationCauseSource source;

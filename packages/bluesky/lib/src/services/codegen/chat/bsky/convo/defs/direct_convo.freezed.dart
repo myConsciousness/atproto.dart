@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'direct_convo.dart';
@@ -9,6 +9,7 @@ part of 'direct_convo.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$DirectConvoCopyWithImpl<$Res>
 /// Create a copy of DirectConvo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(DirectConvo(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -210,7 +211,7 @@ return $default(_that.$type,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _DirectConvo implements DirectConvo {
-  const _DirectConvo({this.$type = 'chat.bsky.convo.defs#directConvo', final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _DirectConvo({this.$type = 'chat.bsky.convo.defs#directConvo',  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _DirectConvo.fromJson(Map<String, dynamic> json) => _$DirectConvoFromJson(json);
 
 @override@JsonKey() final  String $type;

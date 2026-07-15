@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'set.dart';
@@ -9,6 +9,7 @@ part of 'set.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$SetCopyWithImpl<$Res>
 /// Create a copy of Set
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? name = null,Object? description = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Set(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -212,7 +213,7 @@ return $default(_that.$type,_that.name,_that.description,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _Set implements Set {
-  const _Set({this.$type = 'tools.ozone.set.defs#set', required this.name, this.description, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Set({this.$type = 'tools.ozone.set.defs#set', required this.name, this.description,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Set.fromJson(Map<String, dynamic> json) => _$SetFromJson(json);
 
 @override@JsonKey() final  String $type;

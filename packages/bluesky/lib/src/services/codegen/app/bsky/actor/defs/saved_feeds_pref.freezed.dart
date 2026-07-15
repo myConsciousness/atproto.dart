@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'saved_feeds_pref.dart';
@@ -9,6 +9,7 @@ part of 'saved_feeds_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$SavedFeedsPrefCopyWithImpl<$Res>
 /// Create a copy of SavedFeedsPref
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? pinned = null,Object? saved = null,Object? timelineIndex = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SavedFeedsPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pinned: null == pinned ? _self.pinned : pinned // ignore: cast_nullable_to_non_nullable
 as List<AtUri>,saved: null == saved ? _self.saved : saved // ignore: cast_nullable_to_non_nullable
@@ -213,7 +214,7 @@ return $default(_that.$type,_that.pinned,_that.saved,_that.timelineIndex,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _SavedFeedsPref implements SavedFeedsPref {
-  const _SavedFeedsPref({this.$type = 'app.bsky.actor.defs#savedFeedsPref', @AtUriConverter() required final  List<AtUri> pinned, @AtUriConverter() required final  List<AtUri> saved, this.timelineIndex, final  Map<String, dynamic>? $unknown}): _pinned = pinned,_saved = saved,_$unknown = $unknown;
+  const _SavedFeedsPref({this.$type = 'app.bsky.actor.defs#savedFeedsPref', @AtUriConverter() required  List<AtUri> pinned, @AtUriConverter() required  List<AtUri> saved, this.timelineIndex,  Map<String, dynamic>? $unknown}): _pinned = pinned,_saved = saved,_$unknown = $unknown;
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) => _$SavedFeedsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

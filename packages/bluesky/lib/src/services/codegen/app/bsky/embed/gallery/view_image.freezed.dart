@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'view_image.dart';
@@ -9,6 +9,7 @@ part of 'view_image.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +70,7 @@ class _$EmbedGalleryViewImageCopyWithImpl<$Res>
 /// Create a copy of EmbedGalleryViewImage
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? thumbnail = null,Object? fullsize = null,Object? alt = null,Object? aspectRatio = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(EmbedGalleryViewImage(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,thumbnail: null == thumbnail ? _self.thumbnail : thumbnail // ignore: cast_nullable_to_non_nullable
 as String,fullsize: null == fullsize ? _self.fullsize : fullsize // ignore: cast_nullable_to_non_nullable
@@ -226,7 +227,7 @@ return $default(_that.$type,_that.thumbnail,_that.fullsize,_that.alt,_that.aspec
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedGalleryViewImage implements EmbedGalleryViewImage {
-  const _EmbedGalleryViewImage({this.$type = 'app.bsky.embed.gallery#viewImage', required this.thumbnail, required this.fullsize, required this.alt, @AspectRatioConverter() required this.aspectRatio, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedGalleryViewImage({this.$type = 'app.bsky.embed.gallery#viewImage', required this.thumbnail, required this.fullsize, required this.alt, @AspectRatioConverter() required this.aspectRatio,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedGalleryViewImage.fromJson(Map<String, dynamic> json) => _$EmbedGalleryViewImageFromJson(json);
 
 @override@JsonKey() final  String $type;

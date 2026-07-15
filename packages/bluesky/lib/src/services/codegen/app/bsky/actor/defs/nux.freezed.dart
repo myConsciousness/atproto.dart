@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'nux.dart';
@@ -9,6 +9,7 @@ part of 'nux.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$NuxCopyWithImpl<$Res>
 /// Create a copy of Nux
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? completed = null,Object? data = freezed,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(Nux(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,completed: null == completed ? _self.completed : completed // ignore: cast_nullable_to_non_nullable
@@ -216,7 +217,7 @@ return $default(_that.$type,_that.id,_that.completed,_that.data,_that.expiresAt,
 
 @JsonSerializable(includeIfNull: false)
 class _Nux implements Nux {
-  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, this.completed = false, this.data, @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Nux({this.$type = 'app.bsky.actor.defs#nux', required this.id, this.completed = false, this.data, @JsonKey(toJson: iso8601) this.expiresAt,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Nux.fromJson(Map<String, dynamic> json) => _$NuxFromJson(json);
 
 @override@JsonKey() final  String $type;

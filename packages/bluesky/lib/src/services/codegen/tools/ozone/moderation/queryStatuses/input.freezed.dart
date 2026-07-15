@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,6 +9,7 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -94,7 +95,7 @@ class _$ModerationQueryStatusesInputCopyWithImpl<$Res>
 /// Create a copy of ModerationQueryStatusesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? queueCount = freezed,Object? queueIndex = freezed,Object? queueSeed = freezed,Object? includeAllUserRecords = freezed,Object? subject = freezed,Object? comment = freezed,Object? reportedAfter = freezed,Object? reportedBefore = freezed,Object? reviewedAfter = freezed,Object? hostingDeletedAfter = freezed,Object? hostingDeletedBefore = freezed,Object? hostingUpdatedAfter = freezed,Object? hostingUpdatedBefore = freezed,Object? hostingStatuses = freezed,Object? reviewedBefore = freezed,Object? includeMuted = freezed,Object? onlyMuted = freezed,Object? reviewState = freezed,Object? ignoreSubjects = freezed,Object? lastReviewedBy = freezed,Object? sortField = null,Object? sortDirection = null,Object? takendown = freezed,Object? appealed = freezed,Object? limit = null,Object? tags = freezed,Object? excludeTags = freezed,Object? cursor = freezed,Object? collections = freezed,Object? subjectType = freezed,Object? minAccountSuspendCount = freezed,Object? minReportedRecordsCount = freezed,Object? minTakendownRecordsCount = freezed,Object? minPriorityScore = freezed,Object? minStrikeCount = freezed,Object? ageAssuranceState = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ModerationQueryStatusesInput(
 queueCount: freezed == queueCount ? _self.queueCount : queueCount // ignore: cast_nullable_to_non_nullable
 as int?,queueIndex: freezed == queueIndex ? _self.queueIndex : queueIndex // ignore: cast_nullable_to_non_nullable
 as int?,queueSeed: freezed == queueSeed ? _self.queueSeed : queueSeed // ignore: cast_nullable_to_non_nullable
@@ -309,7 +310,7 @@ return $default(_that.queueCount,_that.queueIndex,_that.queueSeed,_that.includeA
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationQueryStatusesInput implements ModerationQueryStatusesInput {
-  const _ModerationQueryStatusesInput({this.queueCount, this.queueIndex, this.queueSeed, this.includeAllUserRecords, this.subject, this.comment, @JsonKey(toJson: iso8601) this.reportedAfter, @JsonKey(toJson: iso8601) this.reportedBefore, @JsonKey(toJson: iso8601) this.reviewedAfter, @JsonKey(toJson: iso8601) this.hostingDeletedAfter, @JsonKey(toJson: iso8601) this.hostingDeletedBefore, @JsonKey(toJson: iso8601) this.hostingUpdatedAfter, @JsonKey(toJson: iso8601) this.hostingUpdatedBefore, final  List<String>? hostingStatuses, @JsonKey(toJson: iso8601) this.reviewedBefore, this.includeMuted, this.onlyMuted, @ModerationQueryStatusesReviewStateConverter() this.reviewState, final  List<String>? ignoreSubjects, this.lastReviewedBy, this.sortField = 'lastReportedAt', this.sortDirection = 'desc', this.takendown, this.appealed, this.limit = 50, final  List<String>? tags, final  List<String>? excludeTags, this.cursor, final  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter() this.subjectType, this.minAccountSuspendCount, this.minReportedRecordsCount, this.minTakendownRecordsCount, this.minPriorityScore, this.minStrikeCount, @ModerationQueryStatusesAgeAssuranceStateConverter() this.ageAssuranceState, final  Map<String, dynamic>? $unknown}): _hostingStatuses = hostingStatuses,_ignoreSubjects = ignoreSubjects,_tags = tags,_excludeTags = excludeTags,_collections = collections,_$unknown = $unknown;
+  const _ModerationQueryStatusesInput({this.queueCount, this.queueIndex, this.queueSeed, this.includeAllUserRecords, this.subject, this.comment, @JsonKey(toJson: iso8601) this.reportedAfter, @JsonKey(toJson: iso8601) this.reportedBefore, @JsonKey(toJson: iso8601) this.reviewedAfter, @JsonKey(toJson: iso8601) this.hostingDeletedAfter, @JsonKey(toJson: iso8601) this.hostingDeletedBefore, @JsonKey(toJson: iso8601) this.hostingUpdatedAfter, @JsonKey(toJson: iso8601) this.hostingUpdatedBefore,  List<String>? hostingStatuses, @JsonKey(toJson: iso8601) this.reviewedBefore, this.includeMuted, this.onlyMuted, @ModerationQueryStatusesReviewStateConverter() this.reviewState,  List<String>? ignoreSubjects, this.lastReviewedBy, this.sortField = 'lastReportedAt', this.sortDirection = 'desc', this.takendown, this.appealed, this.limit = 50,  List<String>? tags,  List<String>? excludeTags, this.cursor,  List<String>? collections, @ModerationQueryStatusesSubjectTypeConverter() this.subjectType, this.minAccountSuspendCount, this.minReportedRecordsCount, this.minTakendownRecordsCount, this.minPriorityScore, this.minStrikeCount, @ModerationQueryStatusesAgeAssuranceStateConverter() this.ageAssuranceState,  Map<String, dynamic>? $unknown}): _hostingStatuses = hostingStatuses,_ignoreSubjects = ignoreSubjects,_tags = tags,_excludeTags = excludeTags,_collections = collections,_$unknown = $unknown;
   factory _ModerationQueryStatusesInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryStatusesInputFromJson(json);
 
 /// Number of queues being used by moderators. Subjects will be split among all queues.

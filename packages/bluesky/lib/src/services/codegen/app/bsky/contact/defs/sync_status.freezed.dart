@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sync_status.dart';
@@ -9,6 +9,7 @@ part of 'sync_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$SyncStatusCopyWithImpl<$Res>
 /// Create a copy of SyncStatus
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? syncedAt = null,Object? matchesCount = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SyncStatus(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,syncedAt: null == syncedAt ? _self.syncedAt : syncedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,matchesCount: null == matchesCount ? _self.matchesCount : matchesCount // ignore: cast_nullable_to_non_nullable
@@ -214,7 +215,7 @@ return $default(_that.$type,_that.syncedAt,_that.matchesCount,_that.$unknown);ca
 
 @JsonSerializable(includeIfNull: false)
 class _SyncStatus implements SyncStatus {
-  const _SyncStatus({this.$type = 'app.bsky.contact.defs#syncStatus', @JsonKey(toJson: iso8601) required this.syncedAt, required this.matchesCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SyncStatus({this.$type = 'app.bsky.contact.defs#syncStatus', @JsonKey(toJson: iso8601) required this.syncedAt, required this.matchesCount,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SyncStatus.fromJson(Map<String, dynamic> json) => _$SyncStatusFromJson(json);
 
 @override@JsonKey() final  String $type;

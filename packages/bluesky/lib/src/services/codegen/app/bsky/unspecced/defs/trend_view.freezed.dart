@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'trend_view.dart';
@@ -9,6 +9,7 @@ part of 'trend_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$TrendViewCopyWithImpl<$Res>
 /// Create a copy of TrendView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? topic = null,Object? displayName = null,Object? link = null,Object? startedAt = null,Object? postCount = null,Object? status = freezed,Object? category = freezed,Object? actors = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(TrendView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,topic: null == topic ? _self.topic : topic // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
@@ -230,7 +231,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 
 @JsonSerializable(includeIfNull: false)
 class _TrendView implements TrendView {
-  const _TrendView({this.$type = 'app.bsky.unspecced.defs#trendView', required this.topic, required this.displayName, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @TrendViewStatusConverter() this.status, this.category, @ProfileViewBasicConverter() required final  List<ProfileViewBasic> actors, final  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
+  const _TrendView({this.$type = 'app.bsky.unspecced.defs#trendView', required this.topic, required this.displayName, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @TrendViewStatusConverter() this.status, this.category, @ProfileViewBasicConverter() required  List<ProfileViewBasic> actors,  Map<String, dynamic>? $unknown}): _actors = actors,_$unknown = $unknown;
   factory _TrendView.fromJson(Map<String, dynamic> json) => _$TrendViewFromJson(json);
 
 @override@JsonKey() final  String $type;

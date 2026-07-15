@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'viewer_state.dart';
@@ -9,6 +9,7 @@ part of 'viewer_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +69,7 @@ class _$ViewerStateCopyWithImpl<$Res>
 /// Create a copy of ViewerState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? muted = freezed,Object? mutedByList = freezed,Object? blockedBy = freezed,Object? blocking = freezed,Object? blockingByList = freezed,Object? following = freezed,Object? followedBy = freezed,Object? knownFollowers = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ViewerState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool?,mutedByList: freezed == mutedByList ? _self.mutedByList : mutedByList // ignore: cast_nullable_to_non_nullable
@@ -269,7 +270,7 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ViewerState implements ViewerState {
-  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, @AtUriConverter() this.blocking, @ListViewBasicConverter() this.blockingByList, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, @AtUriConverter() this.blocking, @ListViewBasicConverter() this.blockingByList, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerState.fromJson(Map<String, dynamic> json) => _$ViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;

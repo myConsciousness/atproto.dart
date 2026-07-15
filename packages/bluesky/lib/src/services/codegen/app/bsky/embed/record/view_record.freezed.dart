@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'view_record.dart';
@@ -9,6 +9,7 @@ part of 'view_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$EmbedRecordViewRecordCopyWithImpl<$Res>
 /// Create a copy of EmbedRecordViewRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? author = null,Object? value = null,Object? labels = freezed,Object? replyCount = freezed,Object? repostCount = freezed,Object? likeCount = freezed,Object? quoteCount = freezed,Object? embeds = freezed,Object? indexedAt = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(EmbedRecordViewRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -230,7 +231,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
-  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
+  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601) required this.indexedAt,  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
   factory _EmbedRecordViewRecord.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -66,7 +67,7 @@ class _$ServerCheckAccountStatusOutputCopyWithImpl<$Res>
 /// Create a copy of ServerCheckAccountStatusOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? activated = null,Object? validDid = null,Object? repoCommit = null,Object? repoRev = null,Object? repoBlocks = null,Object? indexedRecords = null,Object? privateStateValues = null,Object? expectedBlobs = null,Object? importedBlobs = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ServerCheckAccountStatusOutput(
 activated: null == activated ? _self.activated : activated // ignore: cast_nullable_to_non_nullable
 as bool,validDid: null == validDid ? _self.validDid : validDid // ignore: cast_nullable_to_non_nullable
 as bool,repoCommit: null == repoCommit ? _self.repoCommit : repoCommit // ignore: cast_nullable_to_non_nullable
@@ -218,7 +219,7 @@ return $default(_that.activated,_that.validDid,_that.repoCommit,_that.repoRev,_t
 
 @JsonSerializable(includeIfNull: false)
 class _ServerCheckAccountStatusOutput implements ServerCheckAccountStatusOutput {
-  const _ServerCheckAccountStatusOutput({required this.activated, required this.validDid, required this.repoCommit, required this.repoRev, required this.repoBlocks, required this.indexedRecords, required this.privateStateValues, required this.expectedBlobs, required this.importedBlobs, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ServerCheckAccountStatusOutput({required this.activated, required this.validDid, required this.repoCommit, required this.repoRev, required this.repoBlocks, required this.indexedRecords, required this.privateStateValues, required this.expectedBlobs, required this.importedBlobs,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ServerCheckAccountStatusOutput.fromJson(Map<String, dynamic> json) => _$ServerCheckAccountStatusOutputFromJson(json);
 
 @override final  bool activated;

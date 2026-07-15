@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,6 +9,7 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +68,7 @@ class _$UnspeccedSearchPostsSkeletonOutputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedSearchPostsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? hitsTotal = freezed,Object? posts = null,Object? $unknown = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(UnspeccedSearchPostsSkeletonOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,hitsTotal: freezed == hitsTotal ? _self.hitsTotal : hitsTotal // ignore: cast_nullable_to_non_nullable
 as int?,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
@@ -213,7 +214,7 @@ return $default(_that.cursor,_that.hitsTotal,_that.posts,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchPostsSkeletonOutput implements UnspeccedSearchPostsSkeletonOutput {
-  const _UnspeccedSearchPostsSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchPostConverter() required final  List<SkeletonSearchPost> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
+  const _UnspeccedSearchPostsSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchPostConverter() required  List<SkeletonSearchPost> posts,  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _UnspeccedSearchPostsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchPostsSkeletonOutputFromJson(json);
 
 @override final  String? cursor;
