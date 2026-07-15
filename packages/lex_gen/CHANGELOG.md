@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.4.3
+
+Replace the string-template emission mechanism with a small typed Dart intermediate representation (IR) + emitter. Generated output is **byte-for-byte identical** to v0.4.2 (verified end-to-end: `gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format` produces an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`), so no downstream regeneration is required.
+
+- refactor: add `lib/src/ir/{dart_ir,dart_emitter}.dart` — a purpose-built typed IR (`DartFile` / `DartImport` / `DartClass` / members) with explicit member-order and blank-line control, rendered by `emitDartFile`. Because the codegen pipeline runs `dart format`, the emitter only needs to control member order, blank-line presence, comments and tokens; `code_builder` was evaluated and rejected because it imposes its own member order and cannot express the intentional blank lines, so it cannot keep output byte-identical.
+- refactor: migrate every full-file emitter off its monolithic triple-quoted template onto the IR — the freezed data-class renderer (`object/{lex_object,lex_record,lex_input,lex_output}` via `renderFreezedDataClass`), `LexKnownValues`, `LexUnion`, `LexService`, `RepoCommitHandler`, `AtUriExtension`, and the command emitters (`LexCommand`'s query/procedure/blobProcedure/record kinds, `LexParentCommand`, `LexRootCommand`).
+- refactor: model `import` directives as structured `DartImport`s (uri + `show`/`hide`/`as`) instead of concatenated strings. This structurally eliminates the class of bug where an emitted `import '...';` inside a template string was mis-hoisted by `import_sorter` (the command emitters previously worked around this with a fragile concatenation and no longer need to).
+- test: add `srccheck` mode to `scripts/verify_gen_unchanged.sh` (asserts the lex_gen source itself stays import_sorter-stable), and make it non-destructive to any uncommitted working-tree changes.
+
 ## v0.4.2
 
 Internal structural/readability refactor (second pass, continuing v0.4.1). Generated output is **byte-for-byte identical** to v0.4.1, verified end-to-end by running the full pipeline (`gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format`) and asserting an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`, so no downstream regeneration is required.
