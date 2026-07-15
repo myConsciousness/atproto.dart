@@ -17,8 +17,7 @@ String _ref(LexChange c) {
 ClassifiedChange classify(LexChange change) {
   final ref = _ref(change);
   return switch (change.kind) {
-    LexChangeKind.defAdded ||
-    LexChangeKind.propertyAdded => ClassifiedChange(
+    LexChangeKind.defAdded || LexChangeKind.propertyAdded => ClassifiedChange(
       change: change,
       level: BumpLevel.patch,
       changelogLine: 'feat: added $ref',

@@ -44,8 +44,10 @@ Map<String, Version> readCurrentVersions() {
     final pubspec = File('${dir.path}/pubspec.yaml');
     if (!pubspec.existsSync()) continue;
     final name = dir.path.split(Platform.pathSeparator).last;
-    final match = RegExp(r'^version:\s*(\S+)', multiLine: true)
-        .firstMatch(pubspec.readAsStringSync());
+    final match = RegExp(
+      r'^version:\s*(\S+)',
+      multiLine: true,
+    ).firstMatch(pubspec.readAsStringSync());
     if (match != null) {
       try {
         versions[name] = Version.parse(match.group(1)!);
@@ -66,7 +68,8 @@ Set<String> directDependencyNames(String pubspecContent) {
   var inDeps = false;
   for (final raw in pubspecContent.split('\n')) {
     // A non-indented, non-blank line starts a new top-level section.
-    final isTopLevel = raw.isNotEmpty && !raw.startsWith(' ') && !raw.startsWith('#');
+    final isTopLevel =
+        raw.isNotEmpty && !raw.startsWith(' ') && !raw.startsWith('#');
     if (isTopLevel) {
       inDeps = raw.trimRight() == 'dependencies:';
       continue;
@@ -107,7 +110,8 @@ String? _argValue(List<String> args, String flag) {
 }
 
 void main(List<String> args) {
-  final base = _argValue(args, '--base') ??
+  final base =
+      _argValue(args, '--base') ??
       Platform.environment['CHANGELOG_BASE_REF'] ??
       'HEAD~1';
 

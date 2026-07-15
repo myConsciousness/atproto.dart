@@ -4,11 +4,7 @@
 
 /// The outcome of resolving a handle or DID to its atproto identity.
 final class ResolvedIdentity {
-  const ResolvedIdentity({
-    required this.did,
-    required this.pds,
-    this.handle,
-  });
+  const ResolvedIdentity({required this.did, required this.pds, this.handle});
 
   /// The account DID.
   final String did;

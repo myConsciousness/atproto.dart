@@ -32,8 +32,10 @@ void main() {
       },
     );
     expect(plans['bluesky']!.newVersion.toString(), '1.7.2');
-    expect(plans['bluesky']!.changelogLines,
-        contains('feat: added `app.bsky.feed.post.langs`'));
+    expect(
+      plans['bluesky']!.changelogLines,
+      contains('feat: added `app.bsky.feed.post.langs`'),
+    );
     expect(plans['bluesky_cli']!.newVersion.toString(), '0.6.1');
   });
 
@@ -47,8 +49,10 @@ void main() {
     expect(plans, isEmpty);
   });
 
-  test('directDependencyNames reads dependencies: only, not dev_dependencies:', () {
-    const pubspec = '''
+  test(
+    'directDependencyNames reads dependencies: only, not dev_dependencies:',
+    () {
+      const pubspec = '''
 name: bluesky_text
 version: 1.5.0
 
@@ -60,11 +64,12 @@ dev_dependencies:
   bluesky: ^1.7.0
   test: ^1.26.2
 ''';
-    final names = directDependencyNames(pubspec);
-    expect(names, containsAll(['xrpc', 'http']));
-    expect(names, isNot(contains('bluesky')));
-    expect(names, isNot(contains('test')));
-  });
+      final names = directDependencyNames(pubspec);
+      expect(names, containsAll(['xrpc', 'http']));
+      expect(names, isNot(contains('bluesky')));
+      expect(names, isNot(contains('test')));
+    },
+  );
 
   test('directDependencyNames skips path dependencies', () {
     const pubspec = '''
