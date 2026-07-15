@@ -60,10 +60,23 @@ void main() {
     await mgr.buildAuthHeaders(ep, 'GET');
     expect(signer.lastNonce, 'nonce-xyz');
   });
+
+  test('buildAuthHeaders strips query/fragment from the DPoP htu', () async {
+    final signer = _RecordingSigner();
+    final mgr = OAuthSessionManager.fromSession(_session(), signer: signer);
+    await mgr.buildAuthHeaders(
+      Uri.parse('https://pds.example/xrpc/app.bsky.actor.getProfile?actor=x#frag'),
+      'GET',
+    );
+    expect(signer.lastHtu, 'https://pds.example/xrpc/app.bsky.actor.getProfile');
+    expect(signer.lastHtu!.contains('?'), isFalse);
+    expect(signer.lastHtu!.contains('#'), isFalse);
+  });
 }
 
 class _RecordingSigner implements DPoPSigner {
   String? lastNonce;
+  String? lastHtu;
   @override
   Future<DPoPKeyPair> generateKeyPair() async =>
       const DPoPKeyPair(publicKey: 'PUB', privateKey: 'PRIV');
@@ -71,6 +84,7 @@ class _RecordingSigner implements DPoPSigner {
   Future<String> createProof({required String htm, required String htu,
       required DPoPKeyPair keyPair, String? nonce, String? accessToken}) async {
     lastNonce = nonce;
+    lastHtu = htu;
     return 'proof';
   }
 }

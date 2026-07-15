@@ -75,7 +75,7 @@ final class OAuthSessionManager {
     final session = await getSession();
     final proof = await _signer.createProof(
       htm: method,
-      htu: endpoint.replace(query: '', fragment: '').toString(),
+      htu: '${endpoint.origin}${endpoint.path}',
       keyPair: DPoPKeyPair(
         publicKey: session.dpopPublicKey,
         privateKey: session.dpopPrivateKey,
