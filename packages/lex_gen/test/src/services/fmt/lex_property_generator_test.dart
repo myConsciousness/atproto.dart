@@ -9,7 +9,6 @@ import 'package:test/test.dart';
 // Project imports:
 import 'package:lex_gen/src/services/fmt/lex_property_generator.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
-
 import '../../test_context.dart';
 
 /// Builds a `{name: LexObjectProperty}` map from raw fixture JSON, mirroring how

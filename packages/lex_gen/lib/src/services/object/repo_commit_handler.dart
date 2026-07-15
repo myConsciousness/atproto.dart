@@ -19,9 +19,9 @@ final class RepoCommitHandler {
     // below, instead of re-deriving it in each builder (was six passes).
     final typeNames = [for (final id in lexiconIds) getRecordTypeName(id)];
 
-    final fields = _getFields(typeNames);
-    final constructorArgs = _getConstructorArgs(typeNames);
-    final constructorArgsSetter = _getConstructorArgsSetter(typeNames);
+    final (:fields, :constructorArgs, :setters) = _getMemberDecls(typeNames);
+
+    final dtos = _getDtoClasses();
 
     final onCreateEvent = _getMutationEvent(
       typeNames,
@@ -69,7 +69,7 @@ final class RepoCommitHandler {
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeleteUnknown,
-  }) : $constructorArgsSetter
+  }) : $setters
       _onCreateUnknown = onCreateUnknown,
       _onUpdateUnknown = onUpdateUnknown,
       _onDeleteUnknown = onDeleteUnknown;
@@ -108,152 +108,7 @@ final class RepoCommitHandler {
   }
 }
 
-final class RepoCommitCreate<T> {
-  /// Returns the new instance of [RepoCommitCreate].
-  const RepoCommitCreate({
-    required this.record,
-    required this.uri,
-    required this.cid,
-    required this.author,
-    required this.cursor,
-  });
-
-  /// The created data.
-  final T record;
-
-  /// The AT URI of this [record].
-  final AtUri uri;
-
-  /// CID of this [record].
-  final String? cid;
-
-  /// The author of this event.
-  final String author;
-
-  /// The current cursor.
-  final int cursor;
-
-  @override
-  String toString() =>
-      'RepoCommitCreate(record: \$record, uri: \$uri, cid: \$cid, '
-      'author: \$author, cursor: \$cursor)';
-
-  @override
-  bool operator ==(covariant RepoCommitCreate<T> other) {
-    if (identical(this, other)) return true;
-
-    return other.record == record &&
-        other.uri == uri &&
-        other.cid == cid &&
-        other.author == author &&
-        other.cursor == cursor;
-  }
-
-  @override
-  int get hashCode =>
-      record.hashCode ^
-      uri.hashCode ^
-      cid.hashCode ^
-      author.hashCode ^
-      cursor.hashCode;
-}
-
-final class RepoCommitUpdate<T> {
-  /// Returns the new instance of [RepoCommitUpdate].
-  const RepoCommitUpdate({
-    required this.record,
-    required this.uri,
-    required this.cid,
-    required this.author,
-    required this.cursor,
-    required this.createdAt,
-  });
-
-  /// The created data.
-  final T record;
-
-  /// The AT URI of this [record].
-  final AtUri uri;
-
-  /// CID of this [record].
-  final String? cid;
-
-  /// The author of this event.
-  final String author;
-
-  /// The current cursor.
-  final int cursor;
-
-  /// The date and time this event was created.
-  final DateTime createdAt;
-
-  @override
-  String toString() =>
-      'RepoCommitUpdate(record: \$record, uri: \$uri, cid: \$cid, '
-      'author: \$author, cursor: \$cursor, createdAt: \$createdAt)';
-
-  @override
-  bool operator ==(covariant RepoCommitUpdate<T> other) {
-    if (identical(this, other)) return true;
-
-    return other.record == record &&
-        other.uri == uri &&
-        other.cid == cid &&
-        other.author == author &&
-        other.cursor == cursor &&
-        other.createdAt == createdAt;
-  }
-
-  @override
-  int get hashCode =>
-      record.hashCode ^
-      uri.hashCode ^
-      cid.hashCode ^
-      author.hashCode ^
-      cursor.hashCode ^
-      createdAt.hashCode;
-}
-
-final class RepoCommitDelete {
-  /// Returns the new instance of [RepoCommitDelete].
-  const RepoCommitDelete({
-    required this.uri,
-    required this.author,
-    required this.cursor,
-    required this.createdAt,
-  });
-
-  /// The AT URI of this event.
-  final AtUri uri;
-
-  /// The author of this event.
-  final String author;
-
-  /// The current cursor.
-  final int cursor;
-
-  /// The date and time this event was created.
-  final DateTime createdAt;
-
-  @override
-  String toString() =>
-      'RepoCommitDelete(uri: \$uri, author: \$author, cursor: \$cursor, '
-      'createdAt: \$createdAt)';
-
-  @override
-  bool operator ==(covariant RepoCommitDelete other) {
-    if (identical(this, other)) return true;
-
-    return other.uri == uri &&
-        other.author == author &&
-        other.cursor == cursor &&
-        other.createdAt == createdAt;
-  }
-
-  @override
-  int get hashCode =>
-      uri.hashCode ^ author.hashCode ^ cursor.hashCode ^ createdAt.hashCode;
-}
+$dtos
 ''';
   }
 
@@ -278,48 +133,123 @@ final class RepoCommitDelete {
     return imports.toString();
   }
 
-  String _getFields(final List<String> typeNames) {
-    final buffer = StringBuffer();
+  /// Builds the three per-record member sections in a single pass: the private
+  /// [fields], the [constructorArgs] parameters, and their initializer-list
+  /// [setters]. Each record contributes a create/update/delete triple to all
+  /// three sections.
+  ({String fields, String constructorArgs, String setters}) _getMemberDecls(
+    final List<String> typeNames,
+  ) {
+    final fields = StringBuffer();
+    final constructorArgs = StringBuffer();
+    final setters = StringBuffer();
 
     for (final typeName in typeNames) {
-      buffer.writeln(
+      fields.writeln(
         'final RepoCommitOnCreate<${typeName}Record>? _onCreate$typeName;',
       );
-      buffer.writeln(
+      fields.writeln(
         'final RepoCommitOnUpdate<${typeName}Record>? _onUpdate$typeName;',
       );
-      buffer.writeln('final RepoCommitOnDelete? _onDelete$typeName;');
-    }
+      fields.writeln('final RepoCommitOnDelete? _onDelete$typeName;');
 
-    return buffer.toString();
-  }
-
-  String _getConstructorArgs(final List<String> typeNames) {
-    final buffer = StringBuffer();
-
-    for (final typeName in typeNames) {
-      buffer.writeln(
+      constructorArgs.writeln(
         'final RepoCommitOnCreate<${typeName}Record>? onCreate$typeName,',
       );
-      buffer.writeln(
+      constructorArgs.writeln(
         'final RepoCommitOnUpdate<${typeName}Record>? onUpdate$typeName,',
       );
-      buffer.writeln('final RepoCommitOnDelete? onDelete$typeName,');
+      constructorArgs.writeln('final RepoCommitOnDelete? onDelete$typeName,');
+
+      setters.writeln('_onCreate$typeName = onCreate$typeName,');
+      setters.writeln('_onUpdate$typeName = onUpdate$typeName,');
+      setters.writeln('_onDelete$typeName = onDelete$typeName,');
     }
 
-    return buffer.toString();
+    return (
+      fields: fields.toString(),
+      constructorArgs: constructorArgs.toString(),
+      setters: setters.toString(),
+    );
   }
 
-  String _getConstructorArgsSetter(final List<String> typeNames) {
-    final buffer = StringBuffer();
+  /// Assembles the three DTO classes emitted alongside the handler: the
+  /// `RepoCommitCreate` / `RepoCommitUpdate` mutation pair (which differ only
+  /// by `Update`'s extra `createdAt`) plus the static `RepoCommitDelete`.
+  String _getDtoClasses() =>
+      '${_getMutationDto('Create', withCreatedAt: false)}\n\n'
+      '${_getMutationDto('Update', withCreatedAt: true)}\n\n'
+      '$_repoCommitDeleteDto';
 
-    for (final typeName in typeNames) {
-      buffer.writeln('_onCreate$typeName = onCreate$typeName,');
-      buffer.writeln('_onUpdate$typeName = onUpdate$typeName,');
-      buffer.writeln('_onDelete$typeName = onDelete$typeName,');
-    }
+  /// Emits the `RepoCommitCreate` / `RepoCommitUpdate` DTO for [verb]. They are
+  /// identical except that `Update` ([withCreatedAt]) also carries a
+  /// `createdAt` field.
+  String _getMutationDto(
+    final String verb, {
+    required final bool withCreatedAt,
+  }) {
+    final createdAtParam = withCreatedAt
+        ? '\n    required this.createdAt,'
+        : '';
+    final createdAtField = withCreatedAt
+        ? '\n\n  /// The date and time this event was created.'
+              '\n  final DateTime createdAt;'
+        : '';
+    final createdAtToString = withCreatedAt ? ', createdAt: \$createdAt' : '';
+    final createdAtEquals = withCreatedAt
+        ? ' &&\n        other.createdAt == createdAt'
+        : '';
+    final createdAtHash = withCreatedAt ? ' ^\n      createdAt.hashCode' : '';
 
-    return buffer.toString();
+    return '''final class RepoCommit$verb<T> {
+  /// Returns the new instance of [RepoCommit$verb].
+  const RepoCommit$verb({
+    required this.record,
+    required this.uri,
+    required this.cid,
+    required this.author,
+    required this.cursor,$createdAtParam
+  });
+
+  /// The created data.
+  final T record;
+
+  /// The AT URI of this [record].
+  final AtUri uri;
+
+  /// CID of this [record].
+  final String? cid;
+
+  /// The author of this event.
+  final String author;
+
+  /// The current cursor.
+  final int cursor;$createdAtField
+
+  @override
+  String toString() =>
+      'RepoCommit$verb(record: \$record, uri: \$uri, cid: \$cid, '
+      'author: \$author, cursor: \$cursor$createdAtToString)';
+
+  @override
+  bool operator ==(covariant RepoCommit$verb<T> other) {
+    if (identical(this, other)) return true;
+
+    return other.record == record &&
+        other.uri == uri &&
+        other.cid == cid &&
+        other.author == author &&
+        other.cursor == cursor$createdAtEquals;
+  }
+
+  @override
+  int get hashCode =>
+      record.hashCode ^
+      uri.hashCode ^
+      cid.hashCode ^
+      author.hashCode ^
+      cursor.hashCode$createdAtHash;
+}''';
   }
 
   /// Renders the `_onCreate` / `_onUpdate` firehose handler, which differ only
@@ -405,3 +335,46 @@ final class RepoCommitDelete {
 ''';
   }
 }
+
+/// The static `RepoCommitDelete` DTO. Unlike the create/update mutations it has
+/// no generic record payload, so it is emitted verbatim.
+const _repoCommitDeleteDto = r'''final class RepoCommitDelete {
+  /// Returns the new instance of [RepoCommitDelete].
+  const RepoCommitDelete({
+    required this.uri,
+    required this.author,
+    required this.cursor,
+    required this.createdAt,
+  });
+
+  /// The AT URI of this event.
+  final AtUri uri;
+
+  /// The author of this event.
+  final String author;
+
+  /// The current cursor.
+  final int cursor;
+
+  /// The date and time this event was created.
+  final DateTime createdAt;
+
+  @override
+  String toString() =>
+      'RepoCommitDelete(uri: $uri, author: $author, cursor: $cursor, '
+      'createdAt: $createdAt)';
+
+  @override
+  bool operator ==(covariant RepoCommitDelete other) {
+    if (identical(this, other)) return true;
+
+    return other.uri == uri &&
+        other.author == author &&
+        other.cursor == cursor &&
+        other.createdAt == createdAt;
+  }
+
+  @override
+  int get hashCode =>
+      uri.hashCode ^ author.hashCode ^ cursor.hashCode ^ createdAt.hashCode;
+}''';

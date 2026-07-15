@@ -9,7 +9,6 @@ import 'package:test/test.dart';
 import 'package:lex_gen/src/dart_type.dart';
 import 'package:lex_gen/src/services/object/lex_object.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
-
 import '../../test_context.dart';
 
 void main() {

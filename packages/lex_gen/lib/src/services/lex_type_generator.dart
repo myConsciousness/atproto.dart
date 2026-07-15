@@ -11,7 +11,6 @@ import 'package:lexicon/lexicon.dart' as lex;
 // Project imports:
 import '../model/nsid.dart';
 import 'fmt/lex_known_values_generator.dart';
-import 'gen_context.dart';
 import 'fmt/lex_object_generator.dart';
 import 'fmt/lex_packages_generator.dart';
 import 'fmt/lex_record_generator.dart';
@@ -19,8 +18,9 @@ import 'fmt/lex_union_generator.dart';
 import 'fmt/lex_xrpc_procedure_generator.dart';
 import 'fmt/lex_xrpc_query_generator.dart';
 import 'fmt/lex_xrpc_subscription_generator.dart';
-import 'object/lex_package.dart';
+import 'gen_context.dart';
 import 'object/lex_type.dart';
+import 'services_common.dart';
 
 List<GeneratableType> generateLexTypes(
   final GenContext ctx,
@@ -51,93 +51,79 @@ final class _LexTypeGenerator {
     for (final doc in filteredLexicons) {
       // Generate LexObjects for each definition in the lexicon
       for (final def in doc.defs.entries) {
-        if (def.value is lex.ULexUserTypeObject) {
-          _aggregateTypes(
-            types,
-            generateLexObject(
-              ctx,
-              doc.id,
-              def.key,
-              def.value.data as lex.LexObject,
-              mainVariants,
-            ),
-          );
-        } else if (def.value is lex.ULexUserTypeArray) {
-          final data = def.value.data as lex.LexArray;
+        final value = def.value;
+        switch (value) {
+          case lex.ULexUserTypeObject():
+            _aggregateTypes(
+              types,
+              generateLexObject(ctx, doc.id, def.key, value.data, mainVariants),
+            );
+          case lex.ULexUserTypeArray():
+            final data = value.data;
 
-          final refVariant = data.items.whenOrNull(refVariant: (data) => data);
-          if (refVariant == null) continue;
+            final refVariant = data.items.whenOrNull(
+              refVariant: (data) => data,
+            );
+            if (refVariant == null) continue;
 
-          final refUnion = refVariant.whenOrNull(refUnion: (data) => data);
-          if (refUnion == null) continue;
+            final refUnion = refVariant.whenOrNull(refUnion: (data) => data);
+            if (refUnion == null) continue;
 
-          _aggregateTypes(
-            types,
-            generateLexUnion(doc.id, def.key, '', refUnion, mainVariants),
-          );
-        } else if (def.value is lex.ULexUserTypeRecord) {
-          _aggregateTypes(
-            types,
-            generateLexRecord(
-              ctx,
-              doc.id,
-              def.key,
-              def.value.data as lex.LexRecord,
-              mainVariants,
-            ),
-          );
-        } else if (def.value is lex.ULexUserTypeString) {
-          final string = def.value.data as lex.LexString;
-          // A top-level string def without `knownValues` would generate an
-          // enum with no members, which does not compile. Such defs carry no
-          // closed value set to model, so skip them.
-          if (string.knownValues == null || string.knownValues!.isEmpty) {
-            continue;
-          }
+            _aggregateTypes(
+              types,
+              generateLexUnion(doc.id, def.key, '', refUnion, mainVariants),
+            );
+          case lex.ULexUserTypeRecord():
+            _aggregateTypes(
+              types,
+              generateLexRecord(ctx, doc.id, def.key, value.data, mainVariants),
+            );
+          case lex.ULexUserTypeString():
+            final string = value.data;
+            // A top-level string def without `knownValues` would generate an
+            // enum with no members, which does not compile. Such defs carry no
+            // closed value set to model, so skip them.
+            if (string.knownValues == null || string.knownValues!.isEmpty) {
+              continue;
+            }
 
-          _aggregateTypes(
-            types,
-            generateLexKnownValues(doc.id, def.key, string, mainVariants),
-          );
-        } else if (def.value is lex.ULexUserTypeXrpcQuery) {
-          final type = generateLexXrpcQuery(
-            ctx,
-            doc.id,
-            def.key,
-            def.value.data as lex.LexXrpcQuery,
-            mainVariants,
-          );
-
-          if (type == null) continue;
-
-          _aggregateTypes(types, type.$1);
-          _aggregateTypes(types, type.$2);
-        } else if (def.value is lex.ULexUserTypeXrpcProcedure) {
-          final type = generateLexXrpcProcedure(
-            ctx,
-            doc.id,
-            def.key,
-            def.value.data as lex.LexXrpcProcedure,
-            mainVariants,
-          );
-
-          if (type == null) continue;
-
-          _aggregateTypes(types, type.$1);
-          _aggregateTypes(types, type.$2);
-        } else if (def.value is lex.ULexUserTypeXrpcSubscription) {
-          final type = generateLexXrpcSubscription(
-            ctx,
-            doc.id,
-            def.key,
-            def.value.data as lex.LexXrpcSubscription,
-            mainVariants,
-          );
-
-          if (type == null) continue;
-
-          _aggregateTypes(types, type.$1);
-          _aggregateTypes(types, type.$2);
+            _aggregateTypes(
+              types,
+              generateLexKnownValues(doc.id, def.key, string, mainVariants),
+            );
+          case lex.ULexUserTypeXrpcQuery():
+            _aggregateApiPair(
+              types,
+              generateLexXrpcQuery(
+                ctx,
+                doc.id,
+                def.key,
+                value.data,
+                mainVariants,
+              ),
+            );
+          case lex.ULexUserTypeXrpcProcedure():
+            _aggregateApiPair(
+              types,
+              generateLexXrpcProcedure(
+                ctx,
+                doc.id,
+                def.key,
+                value.data,
+                mainVariants,
+              ),
+            );
+          case lex.ULexUserTypeXrpcSubscription():
+            _aggregateApiPair(
+              types,
+              generateLexXrpcSubscription(
+                ctx,
+                doc.id,
+                def.key,
+                value.data,
+                mainVariants,
+              ),
+            );
         }
       }
     }
@@ -150,7 +136,7 @@ final class _LexTypeGenerator {
         ..writeAsStringSync(type.format(ctx));
     }
 
-    _generateLexPackages(types);
+    writeLexPackages(generateLexPackages(ctx, types));
 
     return types;
   }
@@ -186,38 +172,6 @@ final class _LexTypeGenerator {
     }).toList();
   }
 
-  void _generateLexPackages(final List<GeneratableType> type) {
-    final packages = generateLexPackages(ctx, type);
-    final basePackages = _getBasePackages(packages);
-
-    for (final package in packages) {
-      File('packages/${package.root}/lib/${package.name}.dart')
-        ..createSync(recursive: true)
-        ..writeAsStringSync(package.exportableDependencies);
-
-      if (package.root != 'atproto') {
-        for (final base in basePackages) {
-          File('packages/${package.root}/lib/${base.name}.dart')
-            ..createSync(recursive: true)
-            ..writeAsStringSync(base.exportableDependencies);
-        }
-      }
-    }
-  }
-
-  List<LexPackage> _getBasePackages(final List<LexPackage> packages) {
-    if (packages.isEmpty) return const [];
-
-    final result = <LexPackage>[];
-    for (final package in packages) {
-      if (package.root == 'atproto') {
-        result.add(package);
-      }
-    }
-
-    return result;
-  }
-
   List<String> _checkMainVariants(final List<lex.LexiconDoc> lexicons) {
     final mainVariants = <String>{};
     for (final doc in lexicons) {
@@ -233,6 +187,18 @@ final class _LexTypeGenerator {
     }
 
     return mainVariants.toList();
+  }
+
+  /// Aggregates both members of an XRPC generator result (input/output or
+  /// input/message). A `null` [pair] means the def yields no type at all.
+  void _aggregateApiPair(
+    final List<GeneratableType> types,
+    final (LexType?, LexType?)? pair,
+  ) {
+    if (pair == null) return;
+
+    _aggregateTypes(types, pair.$1);
+    _aggregateTypes(types, pair.$2);
   }
 
   void _aggregateTypes(final List<GeneratableType> types, final LexType? type) {

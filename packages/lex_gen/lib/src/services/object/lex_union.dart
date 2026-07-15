@@ -3,6 +3,7 @@ import '../../utils.dart';
 import '../gen_context.dart';
 import '../rule.dart' as rule;
 import 'lex_type.dart';
+import 'utils.dart';
 
 final class LexUnion extends GeneratableType {
   @override
@@ -136,21 +137,21 @@ final class ${name}Converter implements JsonConverter<$name, Map<String, dynamic
     final buffer = StringBuffer();
 
     for (final objectName in objectNames) {
-      buffer.writeln('bool get is$objectName => isA<$name$objectName>(this);');
-      buffer.writeln('bool get isNot$objectName => !is$objectName;');
-
-      buffer.writeln(
-        '$objectName? get ${toFirstLowerCase(objectName)} => '
-        'is$objectName ? data as $objectName : null;',
+      writeIsAExtensionGetters(
+        buffer,
+        isName: objectName,
+        typeName: '$name$objectName',
+        castGetter: toFirstLowerCase(objectName),
+        castType: objectName,
       );
     }
 
-    buffer.writeln('bool get isUnknown => isA<${name}Unknown>(this);');
-    buffer.writeln('bool get isNotUnknown => !isUnknown;');
-
-    buffer.writeln(
-      'Map<String, dynamic>? get unknown => '
-      'isUnknown ? data as Map<String, dynamic> : null;',
+    writeIsAExtensionGetters(
+      buffer,
+      isName: 'Unknown',
+      typeName: '${name}Unknown',
+      castGetter: 'unknown',
+      castType: 'Map<String, dynamic>',
     );
 
     return buffer.toString();

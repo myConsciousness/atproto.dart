@@ -8,7 +8,6 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:lex_gen/src/services/fmt/lex_record_generator.dart';
-
 import '../test_context.dart';
 
 /// End-to-end golden: a fixture Lexicon document is parsed and run through the

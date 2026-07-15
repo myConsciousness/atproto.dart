@@ -4,20 +4,10 @@
 
 // Project imports:
 import '../gen_context.dart';
-import 'lex_property.dart';
 import 'lex_type.dart';
 import 'utils.dart';
 
-final class LexOutput extends GeneratableType {
-  @override
-  final String lexiconId;
-  @override
-  final String defName;
-
-  final String name;
-  final String? description;
-  final List<LexProperty> properties;
-
+final class LexOutput extends FreezedModel {
   final String? ref;
 
   final bool bytes;
@@ -26,11 +16,11 @@ final class LexOutput extends GeneratableType {
   LexTypeState get state => LexTypeState.output;
 
   const LexOutput({
-    required this.lexiconId,
-    required this.defName,
-    required this.name,
-    this.description,
-    required this.properties,
+    required super.lexiconId,
+    required super.defName,
+    required super.name,
+    super.description,
+    required super.properties,
     this.ref,
     this.bytes = false,
   });
@@ -62,11 +52,6 @@ final class LexOutput extends GeneratableType {
   @override
   bool isBytes() {
     return bytes;
-  }
-
-  @override
-  List<LexProperty> getProperties() {
-    return properties;
   }
 
   @override

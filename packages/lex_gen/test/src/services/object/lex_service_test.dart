@@ -11,7 +11,6 @@ import 'package:lex_gen/src/model/lex_def_kind.dart';
 import 'package:lex_gen/src/services/object/lex_property.dart';
 import 'package:lex_gen/src/services/object/lex_record.dart';
 import 'package:lex_gen/src/services/object/lex_service.dart';
-
 import '../../test_context.dart';
 
 void main() {

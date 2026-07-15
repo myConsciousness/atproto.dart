@@ -9,9 +9,9 @@ import 'package:test/test.dart';
 import 'package:lex_gen/src/commands/types/lex_parameter.dart';
 
 void main() {
-  group('LexParameter.getParam (L-15) — validated parsing', () {
+  group('LexCliParameter.getParam (L-15) — validated parsing', () {
     test('integer parses via int.tryParse and raises usageException', () {
-      final param = LexParameter('limit', null, true, null, type: 'integer');
+      final param = LexCliParameter('limit', null, true, null, type: 'integer');
 
       expect(
         param.getParam(),
@@ -21,13 +21,13 @@ void main() {
     });
 
     test('a JSON scalar decodes through the _decodeJson helper', () {
-      final param = LexParameter('reply', null, true, null, type: 'ref');
+      final param = LexCliParameter('reply', null, true, null, type: 'ref');
 
       expect(param.getParam(), '"reply": _decodeJson("reply"),');
     });
 
     test('a required JSON array validates non-emptiness and decodes items', () {
-      final param = LexParameter(
+      final param = LexCliParameter(
         'writes',
         null,
         true,
@@ -45,7 +45,7 @@ void main() {
     });
 
     test('a required integer array validates and parses each element', () {
-      final param = LexParameter(
+      final param = LexCliParameter(
         'nums',
         null,
         true,
@@ -67,7 +67,7 @@ void main() {
     test(
       'an optional array keeps the wasParsed guard (no empty array sent)',
       () {
-        final param = LexParameter(
+        final param = LexCliParameter(
           'langs',
           null,
           false,
