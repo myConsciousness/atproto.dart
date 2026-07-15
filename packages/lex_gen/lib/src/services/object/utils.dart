@@ -52,7 +52,7 @@ String renderFreezedDataClass({
       ],
       [for (final path in packagePaths) DartImport(path)],
     ],
-    parts: [partBaseName],
+    parts: ['$partBaseName.freezed.dart', '$partBaseName.g.dart'],
     banner: kHeader,
     decls: [
       DartClass(

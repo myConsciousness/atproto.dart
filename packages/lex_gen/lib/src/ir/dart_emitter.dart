@@ -21,15 +21,16 @@ String emitDartFile(final DartFile file) {
   for (final group in file.imports) {
     if (group.isEmpty) continue;
     for (final import in group) {
-      b.writeln("import '${import.uri}';");
+      final show = import.show.isEmpty ? '' : ' show ${import.show.join(', ')}';
+      final hide = import.hide.isEmpty ? '' : ' hide ${import.hide.join(', ')}';
+      b.writeln("import '${import.uri}'$show$hide;");
     }
     b.writeln();
   }
 
   if (file.parts.isNotEmpty) {
-    for (final base in file.parts) {
-      b.writeln("part '$base.freezed.dart';");
-      b.writeln("part '$base.g.dart';");
+    for (final path in file.parts) {
+      b.writeln("part '$path';");
     }
     b.writeln();
   }

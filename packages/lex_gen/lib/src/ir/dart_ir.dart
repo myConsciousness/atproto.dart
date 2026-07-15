@@ -35,7 +35,7 @@ class DartFile {
   /// Ordered import groups; a blank line is emitted between non-empty groups.
   final List<List<DartImport>> imports;
 
-  /// `part '<base>.freezed.dart'` base names (each expands to `.freezed`/`.g`).
+  /// Explicit `part '<path>';` targets (e.g. `foo.freezed.dart`, `foo.g.dart`).
   final List<String> parts;
 
   /// Verbatim banner emitted after the directives (e.g. the `LexGenerator` box).
@@ -46,8 +46,10 @@ class DartFile {
 }
 
 class DartImport {
-  const DartImport(this.uri);
+  const DartImport(this.uri, {this.show = const [], this.hide = const []});
   final String uri;
+  final List<String> show;
+  final List<String> hide;
 }
 
 /// A top-level declaration.
