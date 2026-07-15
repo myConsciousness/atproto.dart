@@ -28,6 +28,21 @@ updates:
       pub-dependencies:
         patterns:
           - "*"
+    ignore:
+      # Codegen toolchain: a MAJOR bump changes the generated `.freezed.dart` /
+      # `.g.dart` output, which requires regenerating and committing all sources
+      # (Verify Generated will fail otherwise). Keep these updates in human
+      # hands; minor/patch updates still flow through.
+      - dependency-name: "freezed"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "freezed_annotation"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "build_runner"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "json_serializable"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "json_annotation"
+        update-types: ["version-update:semver-major"]
 
   # --- Dart/Flutter pub (bluesky_text_flutter) ----------------------------
   # bluesky_text_flutter is a Flutter package that lives OUTSIDE the Dart pub
