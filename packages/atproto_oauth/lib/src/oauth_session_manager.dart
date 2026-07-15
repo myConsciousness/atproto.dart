@@ -21,9 +21,9 @@ final class OAuthSessionManager {
     required final String sub,
     final DPoPSigner? signer,
     final DPoPNonceCache? nonceCache,
-  })  : _sub = sub,
-        _signer = signer ?? const PointyCastleDPoPSigner(),
-        _nonceCache = nonceCache ?? InMemoryDPoPNonceCache();
+  }) : _sub = sub,
+       _signer = signer ?? const PointyCastleDPoPSigner(),
+       _nonceCache = nonceCache ?? InMemoryDPoPNonceCache();
 
   factory OAuthSessionManager.fromSession(
     final OAuthSession session, {
@@ -83,10 +83,7 @@ final class OAuthSessionManager {
       nonce: await _nonceCache.find(endpoint.origin),
       accessToken: session.accessToken,
     );
-    return {
-      'Authorization': 'DPoP ${session.accessToken}',
-      'DPoP': proof,
-    };
+    return {'Authorization': 'DPoP ${session.accessToken}', 'DPoP': proof};
   }
 
   Future<void> reportDpopNonce(final Uri endpoint, final String nonce) async =>
@@ -106,11 +103,14 @@ final class OAuthSessionManager {
   Future<OAuthSession> _refresh(final OAuthSession current) {
     if (_inflightRefresh != null) return _inflightRefresh!;
     final client = _client!;
-    _inflightRefresh = client.refresh(current).then((refreshed) {
-      _session = refreshed;
-      _updates.add(refreshed);
-      return refreshed;
-    }).whenComplete(() => _inflightRefresh = null);
+    _inflightRefresh = client
+        .refresh(current)
+        .then((refreshed) {
+          _session = refreshed;
+          _updates.add(refreshed);
+          return refreshed;
+        })
+        .whenComplete(() => _inflightRefresh = null);
     return _inflightRefresh!;
   }
 

@@ -219,8 +219,8 @@ base class ServiceContext {
   /// used as the DPoP `htu` and for per-endpoint nonce reporting.
   Uri _endpointFor(final String service, final NSID methodId) =>
       _protocol == xrpc.Protocol.http
-          ? Uri.http(service, '/xrpc/$methodId')
-          : Uri.https(service, '/xrpc/$methodId');
+      ? Uri.http(service, '/xrpc/$methodId')
+      : Uri.https(service, '/xrpc/$methodId');
 
   /// Returns the OAuth DPoP auth headers for [endpoint]/[method], or an empty
   /// map when this context is not OAuth-authenticated.
