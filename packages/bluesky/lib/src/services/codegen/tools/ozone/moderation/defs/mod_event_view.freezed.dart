@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mod_event_view.dart';
@@ -9,7 +9,6 @@ part of 'mod_event_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ModEventViewCopyWithImpl<$Res>
 /// Create a copy of ModEventView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? event = null,Object? subject = null,Object? subjectBlobCids = null,Object? createdBy = null,Object? createdAt = null,Object? creatorHandle = freezed,Object? subjectHandle = freezed,Object? modTool = freezed,Object? $unknown = freezed,}) {
-  return _then(ModEventView(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
@@ -250,7 +249,7 @@ return $default(_that.$type,_that.id,_that.event,_that.subject,_that.subjectBlob
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventView implements ModEventView {
-  const _ModEventView({this.$type = 'tools.ozone.moderation.defs#modEventView', required this.id, @UModEventViewEventConverter() required this.event, @UModEventViewSubjectConverter() required this.subject, required  List<String> subjectBlobCids, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, this.creatorHandle, this.subjectHandle, @ModToolConverter() this.modTool,  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_$unknown = $unknown;
+  const _ModEventView({this.$type = 'tools.ozone.moderation.defs#modEventView', required this.id, @UModEventViewEventConverter() required this.event, @UModEventViewSubjectConverter() required this.subject, required final  List<String> subjectBlobCids, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, this.creatorHandle, this.subjectHandle, @ModToolConverter() this.modTool, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_$unknown = $unknown;
   factory _ModEventView.fromJson(Map<String, dynamic> json) => _$ModEventViewFromJson(json);
 
 @override@JsonKey() final  String $type;

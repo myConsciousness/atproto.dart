@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'view_external.dart';
@@ -9,7 +9,6 @@ part of 'view_external.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$EmbedExternalViewExternalCopyWithImpl<$Res>
 /// Create a copy of EmbedExternalViewExternal
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? thumb = freezed,Object? createdAt = freezed,Object? updatedAt = freezed,Object? readingTime = freezed,Object? labels = freezed,Object? source = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? $unknown = freezed,}) {
-  return _then(EmbedExternalViewExternal(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -237,7 +236,7 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.thumb,
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
-  const _EmbedExternalViewExternal({this.$type = 'app.bsky.embed.external#viewExternal', required this.uri, required this.title, required this.description, this.thumb, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, this.readingTime, @LabelConverter()  List<Label>? labels, @EmbedExternalViewExternalSourceConverter() this.source, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_$unknown = $unknown;
+  const _EmbedExternalViewExternal({this.$type = 'app.bsky.embed.external#viewExternal', required this.uri, required this.title, required this.description, this.thumb, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, this.readingTime, @LabelConverter() final  List<Label>? labels, @EmbedExternalViewExternalSourceConverter() this.source, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_$unknown = $unknown;
   factory _EmbedExternalViewExternal.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewExternalFromJson(json);
 
 @override@JsonKey() final  String $type;

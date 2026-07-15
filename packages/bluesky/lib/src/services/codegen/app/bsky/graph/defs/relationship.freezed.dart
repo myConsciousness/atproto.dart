@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'relationship.dart';
@@ -9,7 +9,6 @@ part of 'relationship.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -73,7 +72,7 @@ class _$RelationshipCopyWithImpl<$Res>
 /// Create a copy of Relationship
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? following = freezed,Object? followedBy = freezed,Object? blocking = freezed,Object? blockedBy = freezed,Object? blockingByList = freezed,Object? blockedByList = freezed,Object? $unknown = freezed,}) {
-  return _then(Relationship(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,following: freezed == following ? _self.following : following // ignore: cast_nullable_to_non_nullable
@@ -224,7 +223,7 @@ return $default(_that.$type,_that.did,_that.following,_that.followedBy,_that.blo
 
 @JsonSerializable(includeIfNull: false)
 class _Relationship implements Relationship {
-  const _Relationship({this.$type = 'app.bsky.graph.defs#relationship', required this.did, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @AtUriConverter() this.blocking, @AtUriConverter() this.blockedBy, @AtUriConverter() this.blockingByList, @AtUriConverter() this.blockedByList,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Relationship({this.$type = 'app.bsky.graph.defs#relationship', required this.did, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @AtUriConverter() this.blocking, @AtUriConverter() this.blockedBy, @AtUriConverter() this.blockingByList, @AtUriConverter() this.blockedByList, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Relationship.fromJson(Map<String, dynamic> json) => _$RelationshipFromJson(json);
 
 @override@JsonKey() final  String $type;

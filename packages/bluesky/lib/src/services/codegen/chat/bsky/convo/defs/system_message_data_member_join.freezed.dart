@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'system_message_data_member_join.dart';
@@ -9,7 +9,6 @@ part of 'system_message_data_member_join.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$SystemMessageDataMemberJoinCopyWithImpl<$Res>
 /// Create a copy of SystemMessageDataMemberJoin
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? member = null,Object? role = null,Object? approvedBy = freezed,Object? $unknown = freezed,}) {
-  return _then(SystemMessageDataMemberJoin(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,member: null == member ? _self.member : member // ignore: cast_nullable_to_non_nullable
 as SystemMessageReferredUser,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
@@ -247,7 +246,7 @@ return $default(_that.$type,_that.member,_that.role,_that.approvedBy,_that.$unkn
 
 @JsonSerializable(includeIfNull: false)
 class _SystemMessageDataMemberJoin implements SystemMessageDataMemberJoin {
-  const _SystemMessageDataMemberJoin({this.$type = 'chat.bsky.convo.defs#systemMessageDataMemberJoin', @SystemMessageReferredUserConverter() required this.member, @MemberRoleConverter() required this.role, @SystemMessageReferredUserConverter() this.approvedBy,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SystemMessageDataMemberJoin({this.$type = 'chat.bsky.convo.defs#systemMessageDataMemberJoin', @SystemMessageReferredUserConverter() required this.member, @MemberRoleConverter() required this.role, @SystemMessageReferredUserConverter() this.approvedBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SystemMessageDataMemberJoin.fromJson(Map<String, dynamic> json) => _$SystemMessageDataMemberJoinFromJson(json);
 
 @override@JsonKey() final  String $type;

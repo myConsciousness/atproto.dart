@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$IdentityGetRecommendedDidCredentialsOutputCopyWithImpl<$Res>
 /// Create a copy of IdentityGetRecommendedDidCredentialsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? rotationKeys = freezed,Object? alsoKnownAs = freezed,Object? verificationMethods = freezed,Object? services = freezed,Object? $unknown = freezed,}) {
-  return _then(IdentityGetRecommendedDidCredentialsOutput(
+  return _then(_self.copyWith(
 rotationKeys: freezed == rotationKeys ? _self.rotationKeys : rotationKeys // ignore: cast_nullable_to_non_nullable
 as List<String>?,alsoKnownAs: freezed == alsoKnownAs ? _self.alsoKnownAs : alsoKnownAs // ignore: cast_nullable_to_non_nullable
 as List<String>?,verificationMethods: freezed == verificationMethods ? _self.verificationMethods : verificationMethods // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.rotationKeys,_that.alsoKnownAs,_that.verificationMethods,_
 
 @JsonSerializable(includeIfNull: false)
 class _IdentityGetRecommendedDidCredentialsOutput implements IdentityGetRecommendedDidCredentialsOutput {
-  const _IdentityGetRecommendedDidCredentialsOutput({ List<String>? rotationKeys,  List<String>? alsoKnownAs,  Map<String, dynamic>? verificationMethods,  Map<String, dynamic>? services,  Map<String, dynamic>? $unknown}): _rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_verificationMethods = verificationMethods,_services = services,_$unknown = $unknown;
+  const _IdentityGetRecommendedDidCredentialsOutput({final  List<String>? rotationKeys, final  List<String>? alsoKnownAs, final  Map<String, dynamic>? verificationMethods, final  Map<String, dynamic>? services, final  Map<String, dynamic>? $unknown}): _rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_verificationMethods = verificationMethods,_services = services,_$unknown = $unknown;
   factory _IdentityGetRecommendedDidCredentialsOutput.fromJson(Map<String, dynamic> json) => _$IdentityGetRecommendedDidCredentialsOutputFromJson(json);
 
  final  List<String>? _rotationKeys;

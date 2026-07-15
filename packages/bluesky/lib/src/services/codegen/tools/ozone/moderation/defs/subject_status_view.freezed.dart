@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'subject_status_view.dart';
@@ -9,7 +9,6 @@ part of 'subject_status_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -78,7 +77,7 @@ class _$SubjectStatusViewCopyWithImpl<$Res>
 /// Create a copy of SubjectStatusView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? subject = null,Object? hosting = freezed,Object? subjectBlobCids = freezed,Object? subjectRepoHandle = freezed,Object? updatedAt = null,Object? createdAt = null,Object? reviewState = null,Object? comment = freezed,Object? priorityScore = freezed,Object? muteUntil = freezed,Object? muteReportingUntil = freezed,Object? lastReviewedBy = freezed,Object? lastReviewedAt = freezed,Object? lastReportedAt = freezed,Object? lastAppealedAt = freezed,Object? takendown = freezed,Object? appealed = freezed,Object? suspendUntil = freezed,Object? tags = freezed,Object? accountStats = freezed,Object? recordsStats = freezed,Object? accountStrike = freezed,Object? ageAssuranceState = freezed,Object? ageAssuranceUpdatedBy = freezed,Object? $unknown = freezed,}) {
-  return _then(SubjectStatusView(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
@@ -337,7 +336,7 @@ return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBl
 
 @JsonSerializable(includeIfNull: false)
 class _SubjectStatusView implements SubjectStatusView {
-  const _SubjectStatusView({this.$type = 'tools.ozone.moderation.defs#subjectStatusView', required this.id, @USubjectStatusViewSubjectConverter() required this.subject, @USubjectStatusViewHostingConverter() this.hosting,  List<String>? subjectBlobCids, this.subjectRepoHandle, @JsonKey(toJson: iso8601) required this.updatedAt, @JsonKey(toJson: iso8601) required this.createdAt, @SubjectReviewStateConverter() required this.reviewState, this.comment, this.priorityScore, @JsonKey(toJson: iso8601) this.muteUntil, @JsonKey(toJson: iso8601) this.muteReportingUntil, this.lastReviewedBy, @JsonKey(toJson: iso8601) this.lastReviewedAt, @JsonKey(toJson: iso8601) this.lastReportedAt, @JsonKey(toJson: iso8601) this.lastAppealedAt, this.takendown, this.appealed, @JsonKey(toJson: iso8601) this.suspendUntil,  List<String>? tags, @AccountStatsConverter() this.accountStats, @RecordsStatsConverter() this.recordsStats, @AccountStrikeConverter() this.accountStrike, @SubjectStatusViewAgeAssuranceStateConverter() this.ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter() this.ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_tags = tags,_$unknown = $unknown;
+  const _SubjectStatusView({this.$type = 'tools.ozone.moderation.defs#subjectStatusView', required this.id, @USubjectStatusViewSubjectConverter() required this.subject, @USubjectStatusViewHostingConverter() this.hosting, final  List<String>? subjectBlobCids, this.subjectRepoHandle, @JsonKey(toJson: iso8601) required this.updatedAt, @JsonKey(toJson: iso8601) required this.createdAt, @SubjectReviewStateConverter() required this.reviewState, this.comment, this.priorityScore, @JsonKey(toJson: iso8601) this.muteUntil, @JsonKey(toJson: iso8601) this.muteReportingUntil, this.lastReviewedBy, @JsonKey(toJson: iso8601) this.lastReviewedAt, @JsonKey(toJson: iso8601) this.lastReportedAt, @JsonKey(toJson: iso8601) this.lastAppealedAt, this.takendown, this.appealed, @JsonKey(toJson: iso8601) this.suspendUntil, final  List<String>? tags, @AccountStatsConverter() this.accountStats, @RecordsStatsConverter() this.recordsStats, @AccountStrikeConverter() this.accountStrike, @SubjectStatusViewAgeAssuranceStateConverter() this.ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter() this.ageAssuranceUpdatedBy, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_tags = tags,_$unknown = $unknown;
   factory _SubjectStatusView.fromJson(Map<String, dynamic> json) => _$SubjectStatusViewFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$ContactImportContactsInputCopyWithImpl<$Res>
 /// Create a copy of ContactImportContactsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? token = null,Object? contacts = null,Object? $unknown = freezed,}) {
-  return _then(ContactImportContactsInput(
+  return _then(_self.copyWith(
 token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,contacts: null == contacts ? _self.contacts : contacts // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -213,7 +212,7 @@ return $default(_that.token,_that.contacts,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ContactImportContactsInput implements ContactImportContactsInput {
-  const _ContactImportContactsInput({required this.token, required  List<String> contacts,  Map<String, dynamic>? $unknown}): _contacts = contacts,_$unknown = $unknown;
+  const _ContactImportContactsInput({required this.token, required final  List<String> contacts, final  Map<String, dynamic>? $unknown}): _contacts = contacts,_$unknown = $unknown;
   factory _ContactImportContactsInput.fromJson(Map<String, dynamic> json) => _$ContactImportContactsInputFromJson(json);
 
 /// JWT to authenticate the call. Use the JWT received as a response to the call to `app.bsky.contact.verifyPhone`.

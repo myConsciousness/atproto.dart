@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$QueueCreateQueueInputCopyWithImpl<$Res>
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? $unknown = freezed,}) {
-  return _then(QueueCreateQueueInput(
+  return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,subjectTypes: freezed == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
 as List<QueueCreateQueueSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
@@ -218,7 +217,7 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 
 @JsonSerializable(includeIfNull: false)
 class _QueueCreateQueueInput implements QueueCreateQueueInput {
-  const _QueueCreateQueueInput({required this.name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes, this.collection,  List<String>? reportTypes, this.description,  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_$unknown = $unknown;
+  const _QueueCreateQueueInput({required this.name, @QueueCreateQueueSubjectTypesConverter() final  List<QueueCreateQueueSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, this.description, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_$unknown = $unknown;
   factory _QueueCreateQueueInput.fromJson(Map<String, dynamic> json) => _$QueueCreateQueueInputFromJson(json);
 
 /// Display name for the queue (must be unique)

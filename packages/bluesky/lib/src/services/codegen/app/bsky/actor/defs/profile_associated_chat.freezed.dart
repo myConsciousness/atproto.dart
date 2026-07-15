@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profile_associated_chat.dart';
@@ -9,7 +9,6 @@ part of 'profile_associated_chat.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res>
 /// Create a copy of ProfileAssociatedChat
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? allowIncoming = null,Object? allowGroupInvites = freezed,Object? $unknown = freezed,}) {
-  return _then(ProfileAssociatedChat(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,allowIncoming: null == allowIncoming ? _self.allowIncoming : allowIncoming // ignore: cast_nullable_to_non_nullable
 as ProfileAssociatedChatAllowIncoming,allowGroupInvites: freezed == allowGroupInvites ? _self.allowGroupInvites : allowGroupInvites // ignore: cast_nullable_to_non_nullable
@@ -234,7 +233,7 @@ return $default(_that.$type,_that.allowIncoming,_that.allowGroupInvites,_that.$u
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileAssociatedChat implements ProfileAssociatedChat {
-  const _ProfileAssociatedChat({this.$type = 'app.bsky.actor.defs#profileAssociatedChat', @ProfileAssociatedChatAllowIncomingConverter() required this.allowIncoming, @ProfileAssociatedChatAllowGroupInvitesConverter() this.allowGroupInvites,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileAssociatedChat({this.$type = 'app.bsky.actor.defs#profileAssociatedChat', @ProfileAssociatedChatAllowIncomingConverter() required this.allowIncoming, @ProfileAssociatedChatAllowGroupInvitesConverter() this.allowGroupInvites, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) => _$ProfileAssociatedChatFromJson(json);
 
 @override@JsonKey() final  String $type;

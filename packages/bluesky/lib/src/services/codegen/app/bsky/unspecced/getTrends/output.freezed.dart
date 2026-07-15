@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$UnspeccedGetTrendsOutputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedGetTrendsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? trends = null,Object? $unknown = freezed,}) {
-  return _then(UnspeccedGetTrendsOutput(
+  return _then(_self.copyWith(
 trends: null == trends ? _self.trends : trends // ignore: cast_nullable_to_non_nullable
 as List<TrendView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -211,7 +210,7 @@ return $default(_that.trends,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendsOutput implements UnspeccedGetTrendsOutput {
-  const _UnspeccedGetTrendsOutput({@TrendViewConverter() required  List<TrendView> trends,  Map<String, dynamic>? $unknown}): _trends = trends,_$unknown = $unknown;
+  const _UnspeccedGetTrendsOutput({@TrendViewConverter() required final  List<TrendView> trends, final  Map<String, dynamic>? $unknown}): _trends = trends,_$unknown = $unknown;
   factory _UnspeccedGetTrendsOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsOutputFromJson(json);
 
  final  List<TrendView> _trends;

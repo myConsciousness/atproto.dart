@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -77,7 +76,7 @@ class _$FeedSearchPostsInputCopyWithImpl<$Res>
 /// Create a copy of FeedSearchPostsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? q = null,Object? sort = null,Object? since = freezed,Object? until = freezed,Object? mentions = freezed,Object? author = freezed,Object? lang = freezed,Object? domain = freezed,Object? url = freezed,Object? tag = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(FeedSearchPostsInput(
+  return _then(_self.copyWith(
 q: null == q ? _self.q : q // ignore: cast_nullable_to_non_nullable
 as String,sort: null == sort ? _self.sort : sort // ignore: cast_nullable_to_non_nullable
 as FeedSearchPostsSort,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
@@ -241,7 +240,7 @@ return $default(_that.q,_that.sort,_that.since,_that.until,_that.mentions,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _FeedSearchPostsInput implements FeedSearchPostsInput {
-  const _FeedSearchPostsInput({required this.q, @FeedSearchPostsSortConverter() this.sort = const FeedSearchPostsSort.knownValue(data: KnownFeedSearchPostsSort.latest), this.since, this.until, this.mentions, this.author, this.lang, this.domain, this.url,  List<String>? tag, this.limit = 25, this.cursor,  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
+  const _FeedSearchPostsInput({required this.q, @FeedSearchPostsSortConverter() this.sort = const FeedSearchPostsSort.knownValue(data: KnownFeedSearchPostsSort.latest), this.since, this.until, this.mentions, this.author, this.lang, this.domain, this.url, final  List<String>? tag, this.limit = 25, this.cursor, final  Map<String, dynamic>? $unknown}): _tag = tag,_$unknown = $unknown;
   factory _FeedSearchPostsInput.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsInputFromJson(json);
 
 /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.

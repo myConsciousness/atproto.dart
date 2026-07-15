@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'moderation_prefs.dart';
@@ -9,7 +9,6 @@ part of 'moderation_prefs.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -64,7 +63,7 @@ class _$ModerationPrefsCopyWithImpl<$Res>
 /// Create a copy of ModerationPrefs
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? adultContentEnabled = null,Object? labels = null,Object? labelers = null,Object? mutedWords = null,Object? hiddenPosts = null,}) {
-  return _then(ModerationPrefs(
+  return _then(_self.copyWith(
 adultContentEnabled: null == adultContentEnabled ? _self.adultContentEnabled : adultContentEnabled // ignore: cast_nullable_to_non_nullable
 as bool,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as Map<String, LabelPreference>,labelers: null == labelers ? _self.labelers : labelers // ignore: cast_nullable_to_non_nullable
@@ -211,7 +210,7 @@ return $default(_that.adultContentEnabled,_that.labels,_that.labelers,_that.mute
 
 
 class _ModerationPrefs implements ModerationPrefs {
-  const _ModerationPrefs({this.adultContentEnabled = false, required  Map<String, LabelPreference> labels, required  List<ModerationPrefsLabeler> labelers, required  List<MutedWord> mutedWords, required  List<String> hiddenPosts}): _labels = labels,_labelers = labelers,_mutedWords = mutedWords,_hiddenPosts = hiddenPosts;
+  const _ModerationPrefs({this.adultContentEnabled = false, required final  Map<String, LabelPreference> labels, required final  List<ModerationPrefsLabeler> labelers, required final  List<MutedWord> mutedWords, required final  List<String> hiddenPosts}): _labels = labels,_labelers = labelers,_mutedWords = mutedWords,_hiddenPosts = hiddenPosts;
   
 
 @override@JsonKey() final  bool adultContentEnabled;

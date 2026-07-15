@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$QueueListQueuesInputCopyWithImpl<$Res>
 /// Create a copy of QueueListQueuesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? enabled = freezed,Object? subjectType = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(QueueListQueuesInput(
+  return _then(_self.copyWith(
 enabled: freezed == enabled ? _self.enabled : enabled // ignore: cast_nullable_to_non_nullable
 as bool?,subjectType: freezed == subjectType ? _self.subjectType : subjectType // ignore: cast_nullable_to_non_nullable
 as String?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
@@ -219,7 +218,7 @@ return $default(_that.enabled,_that.subjectType,_that.collection,_that.reportTyp
 
 @JsonSerializable(includeIfNull: false)
 class _QueueListQueuesInput implements QueueListQueuesInput {
-  const _QueueListQueuesInput({this.enabled, this.subjectType, this.collection,  List<String>? reportTypes, this.limit = 50, this.cursor,  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_$unknown = $unknown;
+  const _QueueListQueuesInput({this.enabled, this.subjectType, this.collection, final  List<String>? reportTypes, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_$unknown = $unknown;
   factory _QueueListQueuesInput.fromJson(Map<String, dynamic> json) => _$QueueListQueuesInputFromJson(json);
 
 /// Filter by enabled status. If not specified, returns all queues.

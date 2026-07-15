@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mod_event_mute.dart';
@@ -9,7 +9,6 @@ part of 'mod_event_mute.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$ModEventMuteCopyWithImpl<$Res>
 /// Create a copy of ModEventMute
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = null,Object? $unknown = freezed,}) {
-  return _then(ModEventMute(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,durationInHours: null == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.$unknown);
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventMute implements ModEventMute {
-  const _ModEventMute({this.$type = 'tools.ozone.moderation.defs#modEventMute', this.comment, required this.durationInHours,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventMute({this.$type = 'tools.ozone.moderation.defs#modEventMute', this.comment, required this.durationInHours, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventMute.fromJson(Map<String, dynamic> json) => _$ModEventMuteFromJson(json);
 
 @override@JsonKey() final  String $type;

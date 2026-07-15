@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -72,7 +71,7 @@ class _$UnspeccedGetPostThreadV2InputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedGetPostThreadV2Input
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? anchor = null,Object? above = null,Object? below = null,Object? branchingFactor = null,Object? sort = null,Object? $unknown = freezed,}) {
-  return _then(UnspeccedGetPostThreadV2Input(
+  return _then(_self.copyWith(
 anchor: null == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
 as AtUri,above: null == above ? _self.above : above // ignore: cast_nullable_to_non_nullable
 as bool,below: null == below ? _self.below : below // ignore: cast_nullable_to_non_nullable
@@ -229,7 +228,7 @@ return $default(_that.anchor,_that.above,_that.below,_that.branchingFactor,_that
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadV2Input implements UnspeccedGetPostThreadV2Input {
-  const _UnspeccedGetPostThreadV2Input({@AtUriConverter() required this.anchor, this.above = true, this.below = 6, this.branchingFactor = 10, @UnspeccedGetPostThreadV2SortConverter() this.sort = const UnspeccedGetPostThreadV2Sort.knownValue(data: KnownUnspeccedGetPostThreadV2Sort.oldest),  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UnspeccedGetPostThreadV2Input({@AtUriConverter() required this.anchor, this.above = true, this.below = 6, this.branchingFactor = 10, @UnspeccedGetPostThreadV2SortConverter() this.sort = const UnspeccedGetPostThreadV2Sort.knownValue(data: KnownUnspeccedGetPostThreadV2Sort.oldest), final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UnspeccedGetPostThreadV2Input.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadV2InputFromJson(json);
 
 /// Reference (AT-URI) to post record. This is the anchor post, and the thread will be built around it. It can be any post in the tree, not necessarily a root post.

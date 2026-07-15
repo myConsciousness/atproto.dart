@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$GraphGetStarterPacksWithMembershipOutputCopyWithImpl<$Res>
 /// Create a copy of GraphGetStarterPacksWithMembershipOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? starterPacksWithMembership = null,Object? $unknown = freezed,}) {
-  return _then(GraphGetStarterPacksWithMembershipOutput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,starterPacksWithMembership: null == starterPacksWithMembership ? _self.starterPacksWithMembership : starterPacksWithMembership // ignore: cast_nullable_to_non_nullable
 as List<StarterPackWithMembership>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +211,7 @@ return $default(_that.cursor,_that.starterPacksWithMembership,_that.$unknown);ca
 
 @JsonSerializable(includeIfNull: false)
 class _GraphGetStarterPacksWithMembershipOutput implements GraphGetStarterPacksWithMembershipOutput {
-  const _GraphGetStarterPacksWithMembershipOutput({this.cursor, @StarterPackWithMembershipConverter() required  List<StarterPackWithMembership> starterPacksWithMembership,  Map<String, dynamic>? $unknown}): _starterPacksWithMembership = starterPacksWithMembership,_$unknown = $unknown;
+  const _GraphGetStarterPacksWithMembershipOutput({this.cursor, @StarterPackWithMembershipConverter() required final  List<StarterPackWithMembership> starterPacksWithMembership, final  Map<String, dynamic>? $unknown}): _starterPacksWithMembership = starterPacksWithMembership,_$unknown = $unknown;
   factory _GraphGetStarterPacksWithMembershipOutput.fromJson(Map<String, dynamic> json) => _$GraphGetStarterPacksWithMembershipOutputFromJson(json);
 
 @override final  String? cursor;

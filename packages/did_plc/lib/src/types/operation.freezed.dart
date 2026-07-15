@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'operation.dart';
@@ -9,14 +9,17 @@ part of 'operation.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Operation {
 
- String get sig; String get type; Map<String, dynamic> get services; List<String> get alsoKnownAs; List<String> get rotationKeys; Map<String, dynamic> get verificationMethods;@JsonKey(includeIfNull: true) String? get prev;
+ String get sig; String get type; Map<String, dynamic> get services; List<String> get alsoKnownAs; List<String> get rotationKeys; Map<String, dynamic> get verificationMethods;// A genesis `plc_operation` carries an explicit `prev: null`, and that
+// key IS part of the signed DAG-CBOR bytes and the bytes hashed for
+// `did:plc` derivation. It must be serialized even when null, so this
+// field opts out of the class-level `includeIfNull: false`.
+@JsonKey(includeIfNull: true) String? get prev;
 /// Create a copy of Operation
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -67,7 +70,7 @@ class _$OperationCopyWithImpl<$Res>
 /// Create a copy of Operation
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? sig = null,Object? type = null,Object? services = null,Object? alsoKnownAs = null,Object? rotationKeys = null,Object? verificationMethods = null,Object? prev = freezed,}) {
-  return _then(Operation(
+  return _then(_self.copyWith(
 sig: null == sig ? _self.sig : sig // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,services: null == services ? _self.services : services // ignore: cast_nullable_to_non_nullable
@@ -216,7 +219,7 @@ return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rota
 
 @JsonSerializable(includeIfNull: false)
 class _Operation implements Operation {
-  const _Operation({required this.sig, this.type = 'plc_operation', required  Map<String, dynamic> services, required  List<String> alsoKnownAs, required  List<String> rotationKeys, required  Map<String, dynamic> verificationMethods, @JsonKey(includeIfNull: true) this.prev}): _services = services,_alsoKnownAs = alsoKnownAs,_rotationKeys = rotationKeys,_verificationMethods = verificationMethods;
+  const _Operation({required this.sig, this.type = 'plc_operation', required final  Map<String, dynamic> services, required final  List<String> alsoKnownAs, required final  List<String> rotationKeys, required final  Map<String, dynamic> verificationMethods, @JsonKey(includeIfNull: true) this.prev}): _services = services,_alsoKnownAs = alsoKnownAs,_rotationKeys = rotationKeys,_verificationMethods = verificationMethods;
   factory _Operation.fromJson(Map<String, dynamic> json) => _$OperationFromJson(json);
 
 @override final  String sig;
@@ -249,6 +252,10 @@ class _Operation implements Operation {
   return EqualUnmodifiableMapView(_verificationMethods);
 }
 
+// A genesis `plc_operation` carries an explicit `prev: null`, and that
+// key IS part of the signed DAG-CBOR bytes and the bytes hashed for
+// `did:plc` derivation. It must be serialized even when null, so this
+// field opts out of the class-level `includeIfNull: false`.
 @override@JsonKey(includeIfNull: true) final  String? prev;
 
 /// Create a copy of Operation

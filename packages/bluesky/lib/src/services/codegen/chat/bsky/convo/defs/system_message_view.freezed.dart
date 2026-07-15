@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'system_message_view.dart';
@@ -9,7 +9,6 @@ part of 'system_message_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$SystemMessageViewCopyWithImpl<$Res>
 /// Create a copy of SystemMessageView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? rev = null,Object? sentAt = null,Object? data = null,Object? $unknown = freezed,}) {
-  return _then(SystemMessageView(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
@@ -224,7 +223,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.sentAt,_that.data,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _SystemMessageView implements SystemMessageView {
-  const _SystemMessageView({this.$type = 'chat.bsky.convo.defs#systemMessageView', required this.id, required this.rev, @JsonKey(toJson: iso8601) required this.sentAt, @USystemMessageViewDataConverter() required this.data,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SystemMessageView({this.$type = 'chat.bsky.convo.defs#systemMessageView', required this.id, required this.rev, @JsonKey(toJson: iso8601) required this.sentAt, @USystemMessageViewDataConverter() required this.data, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SystemMessageView.fromJson(Map<String, dynamic> json) => _$SystemMessageViewFromJson(json);
 
 @override@JsonKey() final  String $type;

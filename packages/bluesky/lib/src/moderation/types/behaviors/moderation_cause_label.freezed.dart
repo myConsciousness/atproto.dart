@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'moderation_cause_label.dart';
@@ -9,7 +9,6 @@ part of 'moderation_cause_label.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -64,7 +63,7 @@ class _$ModerationCauseLabelCopyWithImpl<$Res>
 /// Create a copy of ModerationCauseLabel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? source = null,Object? label = null,Object? labelDef = null,Object? target = null,Object? setting = null,Object? behavior = null,Object? noOverride = null,Object? priority = null,Object? downgraded = null,}) {
-  return _then(ModerationCauseLabel(
+  return _then(_self.copyWith(
 source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as ModerationCauseSource,label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
 as Label,labelDef: null == labelDef ? _self.labelDef : labelDef // ignore: cast_nullable_to_non_nullable
@@ -242,7 +241,7 @@ return $default(_that.source,_that.label,_that.labelDef,_that.target,_that.setti
 
 
 class _ModerationCauseLabel implements ModerationCauseLabel {
-  const _ModerationCauseLabel({required this.source, required this.label, required this.labelDef, required this.target, required this.setting, required  Map<ModerationBehaviorContext, ModerationBehavior> behavior, this.noOverride = false, @Assert(_assertEvalPriority) this.priority = 0, this.downgraded = false}): _behavior = behavior;
+  const _ModerationCauseLabel({required this.source, required this.label, required this.labelDef, required this.target, required this.setting, required final  Map<ModerationBehaviorContext, ModerationBehavior> behavior, this.noOverride = false, @Assert(_assertEvalPriority) this.priority = 0, this.downgraded = false}): _behavior = behavior;
   
 
 @override final  ModerationCauseSource source;

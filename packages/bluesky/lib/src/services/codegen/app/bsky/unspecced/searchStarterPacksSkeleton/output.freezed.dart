@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$UnspeccedSearchStarterPacksSkeletonOutputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedSearchStarterPacksSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? hitsTotal = freezed,Object? starterPacks = null,Object? $unknown = freezed,}) {
-  return _then(UnspeccedSearchStarterPacksSkeletonOutput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,hitsTotal: freezed == hitsTotal ? _self.hitsTotal : hitsTotal // ignore: cast_nullable_to_non_nullable
 as int?,starterPacks: null == starterPacks ? _self.starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.cursor,_that.hitsTotal,_that.starterPacks,_that.$unknown);
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedSearchStarterPacksSkeletonOutput implements UnspeccedSearchStarterPacksSkeletonOutput {
-  const _UnspeccedSearchStarterPacksSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchStarterPackConverter() required  List<SkeletonSearchStarterPack> starterPacks,  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
+  const _UnspeccedSearchStarterPacksSkeletonOutput({this.cursor, this.hitsTotal, @SkeletonSearchStarterPackConverter() required final  List<SkeletonSearchStarterPack> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
   factory _UnspeccedSearchStarterPacksSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedSearchStarterPacksSkeletonOutputFromJson(json);
 
 @override final  String? cursor;

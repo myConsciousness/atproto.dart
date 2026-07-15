@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$FeedSearchPostsOutputCopyWithImpl<$Res>
 /// Create a copy of FeedSearchPostsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? hitsTotal = freezed,Object? posts = null,Object? $unknown = freezed,}) {
-  return _then(FeedSearchPostsOutput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,hitsTotal: freezed == hitsTotal ? _self.hitsTotal : hitsTotal // ignore: cast_nullable_to_non_nullable
 as int?,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.cursor,_that.hitsTotal,_that.posts,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedSearchPostsOutput implements FeedSearchPostsOutput {
-  const _FeedSearchPostsOutput({this.cursor, this.hitsTotal, @PostViewConverter() required  List<PostView> posts,  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
+  const _FeedSearchPostsOutput({this.cursor, this.hitsTotal, @PostViewConverter() required final  List<PostView> posts, final  Map<String, dynamic>? $unknown}): _posts = posts,_$unknown = $unknown;
   factory _FeedSearchPostsOutput.fromJson(Map<String, dynamic> json) => _$FeedSearchPostsOutputFromJson(json);
 
 @override final  String? cursor;

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$LabelQueryLabelsOutputCopyWithImpl<$Res>
 /// Create a copy of LabelQueryLabelsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? labels = null,Object? $unknown = freezed,}) {
-  return _then(LabelQueryLabelsOutput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as List<Label>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +211,7 @@ return $default(_that.cursor,_that.labels,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _LabelQueryLabelsOutput implements LabelQueryLabelsOutput {
-  const _LabelQueryLabelsOutput({this.cursor, @LabelConverter() required  List<Label> labels,  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
+  const _LabelQueryLabelsOutput({this.cursor, @LabelConverter() required final  List<Label> labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _LabelQueryLabelsOutput.fromJson(Map<String, dynamic> json) => _$LabelQueryLabelsOutputFromJson(json);
 
 @override final  String? cursor;

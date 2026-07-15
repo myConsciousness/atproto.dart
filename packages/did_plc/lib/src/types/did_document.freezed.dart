@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'did_document.dart';
@@ -9,7 +9,6 @@ part of 'did_document.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$DidDocumentCopyWithImpl<$Res>
 /// Create a copy of DidDocument
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? context = null,Object? id = null,Object? alsoKnownAs = null,Object? verificationMethod = null,Object? service = null,}) {
-  return _then(DidDocument(
+  return _then(_self.copyWith(
 context: null == context ? _self.context : context // ignore: cast_nullable_to_non_nullable
 as List<String>,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,alsoKnownAs: null == alsoKnownAs ? _self.alsoKnownAs : alsoKnownAs // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.context,_that.id,_that.alsoKnownAs,_that.verificationMetho
 
 @JsonSerializable(includeIfNull: false)
 class _DidDocument implements DidDocument {
-  const _DidDocument({@JsonKey(name: '@context') required  List<String> context, required this.id, required  List<String> alsoKnownAs, required  List<VerificationMethod> verificationMethod, required  List<Service> service}): _context = context,_alsoKnownAs = alsoKnownAs,_verificationMethod = verificationMethod,_service = service;
+  const _DidDocument({@JsonKey(name: '@context') required final  List<String> context, required this.id, required final  List<String> alsoKnownAs, required final  List<VerificationMethod> verificationMethod, required final  List<Service> service}): _context = context,_alsoKnownAs = alsoKnownAs,_verificationMethod = verificationMethod,_service = service;
   factory _DidDocument.fromJson(Map<String, dynamic> json) => _$DidDocumentFromJson(json);
 
  final  List<String> _context;

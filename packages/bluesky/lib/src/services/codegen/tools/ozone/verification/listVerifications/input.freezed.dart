@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -73,7 +72,7 @@ class _$VerificationListVerificationsInputCopyWithImpl<$Res>
 /// Create a copy of VerificationListVerificationsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = null,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? issuers = freezed,Object? subjects = freezed,Object? sortDirection = null,Object? isRevoked = freezed,Object? $unknown = freezed,}) {
-  return _then(VerificationListVerificationsInput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
@@ -224,7 +223,7 @@ return $default(_that.cursor,_that.limit,_that.createdAfter,_that.createdBefore,
 
 @JsonSerializable(includeIfNull: false)
 class _VerificationListVerificationsInput implements VerificationListVerificationsInput {
-  const _VerificationListVerificationsInput({this.cursor, this.limit = 50, @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore,  List<String>? issuers,  List<String>? subjects, this.sortDirection = 'desc', this.isRevoked,  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
+  const _VerificationListVerificationsInput({this.cursor, this.limit = 50, @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, final  List<String>? issuers, final  List<String>? subjects, this.sortDirection = 'desc', this.isRevoked, final  Map<String, dynamic>? $unknown}): _issuers = issuers,_subjects = subjects,_$unknown = $unknown;
   factory _VerificationListVerificationsInput.fromJson(Map<String, dynamic> json) => _$VerificationListVerificationsInputFromJson(json);
 
 /// Pagination cursor

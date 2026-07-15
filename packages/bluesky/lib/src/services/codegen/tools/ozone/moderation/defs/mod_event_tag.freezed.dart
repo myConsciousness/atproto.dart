@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mod_event_tag.dart';
@@ -9,7 +9,6 @@ part of 'mod_event_tag.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +68,7 @@ class _$ModEventTagCopyWithImpl<$Res>
 /// Create a copy of ModEventTag
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? add = null,Object? remove = null,Object? comment = freezed,Object? durationInHours = freezed,Object? $unknown = freezed,}) {
-  return _then(ModEventTag(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,add: null == add ? _self.add : add // ignore: cast_nullable_to_non_nullable
 as List<String>,remove: null == remove ? _self.remove : remove // ignore: cast_nullable_to_non_nullable
@@ -217,7 +216,7 @@ return $default(_that.$type,_that.add,_that.remove,_that.comment,_that.durationI
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventTag implements ModEventTag {
-  const _ModEventTag({this.$type = 'tools.ozone.moderation.defs#modEventTag', required  List<String> add, required  List<String> remove, this.comment, this.durationInHours,  Map<String, dynamic>? $unknown}): _add = add,_remove = remove,_$unknown = $unknown;
+  const _ModEventTag({this.$type = 'tools.ozone.moderation.defs#modEventTag', required final  List<String> add, required final  List<String> remove, this.comment, this.durationInHours, final  Map<String, dynamic>? $unknown}): _add = add,_remove = remove,_$unknown = $unknown;
   factory _ModEventTag.fromJson(Map<String, dynamic> json) => _$ModEventTagFromJson(json);
 
 @override@JsonKey() final  String $type;

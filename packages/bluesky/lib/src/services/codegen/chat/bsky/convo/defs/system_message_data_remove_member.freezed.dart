@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'system_message_data_remove_member.dart';
@@ -9,7 +9,6 @@ part of 'system_message_data_remove_member.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$SystemMessageDataRemoveMemberCopyWithImpl<$Res>
 /// Create a copy of SystemMessageDataRemoveMember
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? member = null,Object? removedBy = null,Object? $unknown = freezed,}) {
-  return _then(SystemMessageDataRemoveMember(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,member: null == member ? _self.member : member // ignore: cast_nullable_to_non_nullable
 as SystemMessageReferredUser,removedBy: null == removedBy ? _self.removedBy : removedBy // ignore: cast_nullable_to_non_nullable
@@ -232,7 +231,7 @@ return $default(_that.$type,_that.member,_that.removedBy,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SystemMessageDataRemoveMember implements SystemMessageDataRemoveMember {
-  const _SystemMessageDataRemoveMember({this.$type = 'chat.bsky.convo.defs#systemMessageDataRemoveMember', @SystemMessageReferredUserConverter() required this.member, @SystemMessageReferredUserConverter() required this.removedBy,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SystemMessageDataRemoveMember({this.$type = 'chat.bsky.convo.defs#systemMessageDataRemoveMember', @SystemMessageReferredUserConverter() required this.member, @SystemMessageReferredUserConverter() required this.removedBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SystemMessageDataRemoveMember.fromJson(Map<String, dynamic> json) => _$SystemMessageDataRemoveMemberFromJson(json);
 
 @override@JsonKey() final  String $type;

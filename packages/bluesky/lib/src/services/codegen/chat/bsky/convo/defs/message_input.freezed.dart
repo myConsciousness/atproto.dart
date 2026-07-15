@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'message_input.dart';
@@ -9,7 +9,6 @@ part of 'message_input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$MessageInputCopyWithImpl<$Res>
 /// Create a copy of MessageInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? text = null,Object? facets = freezed,Object? embed = freezed,Object? replyTo = freezed,Object? $unknown = freezed,}) {
-  return _then(MessageInput(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,facets: freezed == facets ? _self.facets : facets // ignore: cast_nullable_to_non_nullable
@@ -240,7 +239,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.embed,_that.replyTo,_t
 
 @JsonSerializable(includeIfNull: false)
 class _MessageInput implements MessageInput {
-  const _MessageInput({this.$type = 'chat.bsky.convo.defs#messageInput', required this.text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageInputEmbedConverter() this.embed, @ReplyRefConverter() this.replyTo,  Map<String, dynamic>? $unknown}): _facets = facets,_$unknown = $unknown;
+  const _MessageInput({this.$type = 'chat.bsky.convo.defs#messageInput', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageInputEmbedConverter() this.embed, @ReplyRefConverter() this.replyTo, final  Map<String, dynamic>? $unknown}): _facets = facets,_$unknown = $unknown;
   factory _MessageInput.fromJson(Map<String, dynamic> json) => _$MessageInputFromJson(json);
 
 @override@JsonKey() final  String $type;

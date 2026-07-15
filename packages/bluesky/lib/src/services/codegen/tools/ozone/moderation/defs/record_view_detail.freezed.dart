@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'record_view_detail.dart';
@@ -9,7 +9,6 @@ part of 'record_view_detail.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$RecordViewDetailCopyWithImpl<$Res>
 /// Create a copy of RecordViewDetail
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? value = null,Object? blobs = null,Object? labels = freezed,Object? indexedAt = null,Object? moderation = null,Object? repo = null,Object? $unknown = freezed,}) {
-  return _then(RecordViewDetail(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -237,7 +236,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.value,_that.blobs,_that.la
 
 @JsonSerializable(includeIfNull: false)
 class _RecordViewDetail implements RecordViewDetail {
-  const _RecordViewDetail({this.$type = 'tools.ozone.moderation.defs#recordViewDetail', @AtUriConverter() required this.uri, required this.cid, required  Map<String, dynamic> value, @BlobViewConverter() required  List<BlobView> blobs, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601) required this.indexedAt, @ModerationDetailConverter() required this.moderation, @RepoViewConverter() required this.repo,  Map<String, dynamic>? $unknown}): _value = value,_blobs = blobs,_labels = labels,_$unknown = $unknown;
+  const _RecordViewDetail({this.$type = 'tools.ozone.moderation.defs#recordViewDetail', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> value, @BlobViewConverter() required final  List<BlobView> blobs, @LabelConverter() final  List<Label>? labels, @JsonKey(toJson: iso8601) required this.indexedAt, @ModerationDetailConverter() required this.moderation, @RepoViewConverter() required this.repo, final  Map<String, dynamic>? $unknown}): _value = value,_blobs = blobs,_labels = labels,_$unknown = $unknown;
   factory _RecordViewDetail.fromJson(Map<String, dynamic> json) => _$RecordViewDetailFromJson(json);
 
 @override@JsonKey() final  String $type;

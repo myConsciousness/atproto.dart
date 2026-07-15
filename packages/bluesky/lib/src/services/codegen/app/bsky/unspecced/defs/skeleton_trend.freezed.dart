@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'skeleton_trend.dart';
@@ -9,7 +9,6 @@ part of 'skeleton_trend.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$SkeletonTrendCopyWithImpl<$Res>
 /// Create a copy of SkeletonTrend
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? topic = null,Object? displayName = null,Object? link = null,Object? startedAt = null,Object? postCount = null,Object? status = freezed,Object? category = freezed,Object? dids = null,Object? $unknown = freezed,}) {
-  return _then(SkeletonTrend(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,topic: null == topic ? _self.topic : topic // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
@@ -231,7 +230,7 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonTrend implements SkeletonTrend {
-  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required  List<String> dids,  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
+  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _SkeletonTrend.fromJson(Map<String, dynamic> json) => _$SkeletonTrendFromJson(json);
 
 @override@JsonKey() final  String $type;

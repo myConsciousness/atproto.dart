@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'moderation_ui.dart';
@@ -9,7 +9,6 @@ part of 'moderation_ui.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -64,7 +63,7 @@ class _$ModerationUICopyWithImpl<$Res>
 /// Create a copy of ModerationUI
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? noOverride = null,Object? filters = null,Object? blurs = null,Object? alerts = null,Object? informs = null,}) {
-  return _then(ModerationUI(
+  return _then(_self.copyWith(
 noOverride: null == noOverride ? _self.noOverride : noOverride // ignore: cast_nullable_to_non_nullable
 as bool,filters: null == filters ? _self.filters : filters // ignore: cast_nullable_to_non_nullable
 as List<ModerationCause>,blurs: null == blurs ? _self.blurs : blurs // ignore: cast_nullable_to_non_nullable
@@ -211,7 +210,7 @@ return $default(_that.noOverride,_that.filters,_that.blurs,_that.alerts,_that.in
 
 
 class _ModerationUI implements ModerationUI {
-  const _ModerationUI({this.noOverride = false,  List<ModerationCause> filters = const [],  List<ModerationCause> blurs = const [],  List<ModerationCause> alerts = const [],  List<ModerationCause> informs = const []}): _filters = filters,_blurs = blurs,_alerts = alerts,_informs = informs;
+  const _ModerationUI({this.noOverride = false, final  List<ModerationCause> filters = const [], final  List<ModerationCause> blurs = const [], final  List<ModerationCause> alerts = const [], final  List<ModerationCause> informs = const []}): _filters = filters,_blurs = blurs,_alerts = alerts,_informs = informs;
   
 
 @override@JsonKey() final  bool noOverride;

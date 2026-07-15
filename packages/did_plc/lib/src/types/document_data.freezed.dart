@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'document_data.dart';
@@ -9,7 +9,6 @@ part of 'document_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$DocumentDataCopyWithImpl<$Res>
 /// Create a copy of DocumentData
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? did = null,Object? verificationMethods = null,Object? rotationKeys = null,Object? alsoKnownAs = null,Object? services = null,}) {
-  return _then(DocumentData(
+  return _then(_self.copyWith(
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,verificationMethods: null == verificationMethods ? _self.verificationMethods : verificationMethods // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,rotationKeys: null == rotationKeys ? _self.rotationKeys : rotationKeys // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.did,_that.verificationMethods,_that.rotationKeys,_that.als
 
 @JsonSerializable(includeIfNull: false)
 class _DocumentData implements DocumentData {
-  const _DocumentData({required this.did, required  Map<String, dynamic> verificationMethods, required  List<String> rotationKeys, required  List<String> alsoKnownAs, required  Map<String, dynamic> services}): _verificationMethods = verificationMethods,_rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_services = services;
+  const _DocumentData({required this.did, required final  Map<String, dynamic> verificationMethods, required final  List<String> rotationKeys, required final  List<String> alsoKnownAs, required final  Map<String, dynamic> services}): _verificationMethods = verificationMethods,_rotationKeys = rotationKeys,_alsoKnownAs = alsoKnownAs,_services = services;
   factory _DocumentData.fromJson(Map<String, dynamic> json) => _$DocumentDataFromJson(json);
 
 @override final  String did;

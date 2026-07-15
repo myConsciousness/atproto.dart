@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_result.dart';
@@ -9,7 +9,6 @@ part of 'update_result.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$UpdateResultCopyWithImpl<$Res>
 /// Create a copy of UpdateResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? validationStatus = freezed,Object? $unknown = freezed,}) {
-  return _then(UpdateResult(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -226,7 +225,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.validationStatus,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _UpdateResult implements UpdateResult {
-  const _UpdateResult({this.$type = 'com.atproto.repo.applyWrites#updateResult', @AtUriConverter() required this.uri, required this.cid, @UpdateResultValidationStatusConverter() this.validationStatus,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UpdateResult({this.$type = 'com.atproto.repo.applyWrites#updateResult', @AtUriConverter() required this.uri, required this.cid, @UpdateResultValidationStatusConverter() this.validationStatus, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UpdateResult.fromJson(Map<String, dynamic> json) => _$UpdateResultFromJson(json);
 
 @override@JsonKey() final  String $type;

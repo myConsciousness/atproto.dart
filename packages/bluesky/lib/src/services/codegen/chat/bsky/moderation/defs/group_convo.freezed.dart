@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'group_convo.dart';
@@ -9,7 +9,6 @@ part of 'group_convo.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -72,7 +71,7 @@ class _$GroupConvoCopyWithImpl<$Res>
 /// Create a copy of GroupConvo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? createdAt = null,Object? joinLink = freezed,Object? joinRequestCount = null,Object? lockStatus = null,Object? memberCount = null,Object? memberLimit = null,Object? name = null,Object? $unknown = freezed,}) {
-  return _then(GroupConvo(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,joinLink: freezed == joinLink ? _self.joinLink : joinLink // ignore: cast_nullable_to_non_nullable
@@ -244,7 +243,7 @@ return $default(_that.$type,_that.createdAt,_that.joinLink,_that.joinRequestCoun
 
 @JsonSerializable(includeIfNull: false)
 class _GroupConvo implements GroupConvo {
-  const _GroupConvo({this.$type = 'chat.bsky.moderation.defs#groupConvo', @JsonKey(toJson: iso8601) required this.createdAt, @JoinLinkViewConverter() this.joinLink, required this.joinRequestCount, @ConvoLockStatusConverter() required this.lockStatus, required this.memberCount, required this.memberLimit, required this.name,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GroupConvo({this.$type = 'chat.bsky.moderation.defs#groupConvo', @JsonKey(toJson: iso8601) required this.createdAt, @JoinLinkViewConverter() this.joinLink, required this.joinRequestCount, @ConvoLockStatusConverter() required this.lockStatus, required this.memberCount, required this.memberLimit, required this.name, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GroupConvo.fromJson(Map<String, dynamic> json) => _$GroupConvoFromJson(json);
 
 @override@JsonKey() final  String $type;

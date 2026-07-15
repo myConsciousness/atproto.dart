@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ServerCreateInviteCodesInputCopyWithImpl<$Res>
 /// Create a copy of ServerCreateInviteCodesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? codeCount = null,Object? useCount = null,Object? forAccounts = freezed,Object? $unknown = freezed,}) {
-  return _then(ServerCreateInviteCodesInput(
+  return _then(_self.copyWith(
 codeCount: null == codeCount ? _self.codeCount : codeCount // ignore: cast_nullable_to_non_nullable
 as int,useCount: null == useCount ? _self.useCount : useCount // ignore: cast_nullable_to_non_nullable
 as int,forAccounts: freezed == forAccounts ? _self.forAccounts : forAccounts // ignore: cast_nullable_to_non_nullable
@@ -213,7 +212,7 @@ return $default(_that.codeCount,_that.useCount,_that.forAccounts,_that.$unknown)
 
 @JsonSerializable(includeIfNull: false)
 class _ServerCreateInviteCodesInput implements ServerCreateInviteCodesInput {
-  const _ServerCreateInviteCodesInput({this.codeCount = 1, required this.useCount,  List<String>? forAccounts,  Map<String, dynamic>? $unknown}): _forAccounts = forAccounts,_$unknown = $unknown;
+  const _ServerCreateInviteCodesInput({this.codeCount = 1, required this.useCount, final  List<String>? forAccounts, final  Map<String, dynamic>? $unknown}): _forAccounts = forAccounts,_$unknown = $unknown;
   factory _ServerCreateInviteCodesInput.fromJson(Map<String, dynamic> json) => _$ServerCreateInviteCodesInputFromJson(json);
 
 @override@JsonKey() final  int codeCount;

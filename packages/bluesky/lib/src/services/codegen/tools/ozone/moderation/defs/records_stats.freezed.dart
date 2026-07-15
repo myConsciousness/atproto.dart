@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'records_stats.dart';
@@ -9,7 +9,6 @@ part of 'records_stats.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -75,7 +74,7 @@ class _$RecordsStatsCopyWithImpl<$Res>
 /// Create a copy of RecordsStats
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? totalReports = freezed,Object? reportedCount = freezed,Object? escalatedCount = freezed,Object? appealedCount = freezed,Object? subjectCount = freezed,Object? pendingCount = freezed,Object? processedCount = freezed,Object? takendownCount = freezed,Object? $unknown = freezed,}) {
-  return _then(RecordsStats(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,totalReports: freezed == totalReports ? _self.totalReports : totalReports // ignore: cast_nullable_to_non_nullable
 as int?,reportedCount: freezed == reportedCount ? _self.reportedCount : reportedCount // ignore: cast_nullable_to_non_nullable
@@ -227,7 +226,7 @@ return $default(_that.$type,_that.totalReports,_that.reportedCount,_that.escalat
 
 @JsonSerializable(includeIfNull: false)
 class _RecordsStats implements RecordsStats {
-  const _RecordsStats({this.$type = 'tools.ozone.moderation.defs#recordsStats', this.totalReports, this.reportedCount, this.escalatedCount, this.appealedCount, this.subjectCount, this.pendingCount, this.processedCount, this.takendownCount,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _RecordsStats({this.$type = 'tools.ozone.moderation.defs#recordsStats', this.totalReports, this.reportedCount, this.escalatedCount, this.appealedCount, this.subjectCount, this.pendingCount, this.processedCount, this.takendownCount, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _RecordsStats.fromJson(Map<String, dynamic> json) => _$RecordsStatsFromJson(json);
 
 @override@JsonKey() final  String $type;

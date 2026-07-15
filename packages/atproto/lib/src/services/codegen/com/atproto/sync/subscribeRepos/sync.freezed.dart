@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sync.dart';
@@ -9,7 +9,6 @@ part of 'sync.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -72,7 +71,7 @@ class _$SyncCopyWithImpl<$Res>
 /// Create a copy of Sync
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? seq = null,Object? did = null,Object? blocks = null,Object? rev = null,Object? time = null,Object? $unknown = freezed,}) {
-  return _then(Sync(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
 as int,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -221,7 +220,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.blocks,_that.rev,_that.tim
 
 @JsonSerializable(includeIfNull: false)
 class _Sync implements Sync {
-  const _Sync({this.$type = 'com.atproto.sync.subscribeRepos#sync', required this.seq, required this.did, required  Map<String, dynamic> blocks, required this.rev, @JsonKey(toJson: iso8601) required this.time,  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
+  const _Sync({this.$type = 'com.atproto.sync.subscribeRepos#sync', required this.seq, required this.did, required final  Map<String, dynamic> blocks, required this.rev, @JsonKey(toJson: iso8601) required this.time, final  Map<String, dynamic>? $unknown}): _blocks = blocks,_$unknown = $unknown;
   factory _Sync.fromJson(Map<String, dynamic> json) => _$SyncFromJson(json);
 
 @override@JsonKey() final  String $type;

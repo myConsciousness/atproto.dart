@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'report_view.dart';
@@ -9,7 +9,6 @@ part of 'report_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -85,7 +84,7 @@ class _$ReportViewCopyWithImpl<$Res>
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? eventId = null,Object? status = null,Object? subject = null,Object? reportType = null,Object? reportedBy = null,Object? reporter = null,Object? comment = freezed,Object? createdAt = null,Object? updatedAt = freezed,Object? queuedAt = freezed,Object? actionEventIds = freezed,Object? actions = freezed,Object? actionNote = freezed,Object? subjectStatus = freezed,Object? relatedReportCount = freezed,Object? assignment = freezed,Object? queue = freezed,Object? isMuted = freezed,Object? isAutomated = null,Object? $unknown = freezed,}) {
-  return _then(ReportView(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,eventId: null == eventId ? _self.eventId : eventId // ignore: cast_nullable_to_non_nullable
@@ -321,7 +320,7 @@ return $default(_that.$type,_that.id,_that.eventId,_that.status,_that.subject,_t
 
 @JsonSerializable(includeIfNull: false)
 class _ReportView implements ReportView {
-  const _ReportView({this.$type = 'tools.ozone.report.defs#reportView', required this.id, required this.eventId, @ReportViewStatusConverter() required this.status, @SubjectViewConverter() required this.subject, @ReasonTypeConverter() required this.reportType, required this.reportedBy, @SubjectViewConverter() required this.reporter, this.comment, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.queuedAt,  List<int>? actionEventIds, @ModEventViewConverter()  List<ModEventView>? actions, this.actionNote, @SubjectStatusViewConverter() this.subjectStatus, this.relatedReportCount, @ReportAssignmentConverter() this.assignment, @QueueViewConverter() this.queue, this.isMuted, this.isAutomated = false,  Map<String, dynamic>? $unknown}): _actionEventIds = actionEventIds,_actions = actions,_$unknown = $unknown;
+  const _ReportView({this.$type = 'tools.ozone.report.defs#reportView', required this.id, required this.eventId, @ReportViewStatusConverter() required this.status, @SubjectViewConverter() required this.subject, @ReasonTypeConverter() required this.reportType, required this.reportedBy, @SubjectViewConverter() required this.reporter, this.comment, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @JsonKey(toJson: iso8601) this.queuedAt, final  List<int>? actionEventIds, @ModEventViewConverter() final  List<ModEventView>? actions, this.actionNote, @SubjectStatusViewConverter() this.subjectStatus, this.relatedReportCount, @ReportAssignmentConverter() this.assignment, @QueueViewConverter() this.queue, this.isMuted, this.isAutomated = false, final  Map<String, dynamic>? $unknown}): _actionEventIds = actionEventIds,_actions = actions,_$unknown = $unknown;
   factory _ReportView.fromJson(Map<String, dynamic> json) => _$ReportViewFromJson(json);
 
 @override@JsonKey() final  String $type;
