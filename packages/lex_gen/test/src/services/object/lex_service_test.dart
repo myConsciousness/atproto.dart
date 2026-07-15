@@ -66,4 +66,36 @@ void main() {
       expect(output, contains("'createdAt': iso8601(createdAt),"));
     });
   });
+
+  group('LexService multi-line api doc', () {
+    test('a multi-line api description prefixes every line with ///', () {
+      final record = LexRecord(
+        lexiconId: 'app.bsky.feed.post',
+        defName: 'main',
+        name: 'FeedPost',
+        properties: [
+          LexProperty(name: 'text', isRequired: true, type: DartType.string()),
+        ],
+      );
+
+      final service = LexService(
+        lexiconId: 'app.bsky.feed',
+        name: 'Feed',
+        apis: [
+          LexApi(
+            lexiconId: 'app.bsky.feed.post',
+            name: 'post',
+            description: 'A record declaring a post.\nSpans two lines.',
+            inputType: record,
+            kind: LexDefKind.record,
+          ),
+        ],
+      );
+
+      expect(
+        service.format(buildTestGenContext()),
+        contains('/// A record declaring a post.\n/// Spans two lines.'),
+      );
+    });
+  });
 }

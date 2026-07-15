@@ -4,6 +4,7 @@
 
 // Project imports:
 import '../../dart_type.dart';
+import '../../utils.dart';
 import 'lex_parameter.dart';
 
 final class LexProperty {
@@ -36,7 +37,7 @@ final class LexProperty {
     final buffer = StringBuffer();
 
     if (description != null) {
-      buffer.writeln('/// $description');
+      buffer.writeln(toDocComment(description!));
     }
 
     // A property that is both `required` and `nullable` must keep its key with
