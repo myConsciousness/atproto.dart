@@ -1,0 +1,134 @@
+# Tag-driven publishing to pub.dev via OIDC (no stored credentials).
+#
+# How it works:
+#   `melos version` (or `melos publish_live`) tags each released package as
+#   `<package>-v<x.y.z>` (melos' `--git-tag-version` format). Pushing such a tag
+#   fires this workflow. It parses the tag into a package name + version,
+#   verifies the package's pubspec `version:` matches the tag, then publishes
+#   from `packages/<name>`.
+#
+# Authentication is OIDC: with `id-token: write`, `dart pub` / `flutter pub`
+# automatically exchange a short-lived GitHub Actions token for a temporary
+# pub.dev credential. No secrets or long-lived tokens are stored. Each package
+# must have "Automated publishing" enabled in its pub.dev Admin tab pointing at
+# this repo with a matching tag pattern (see docs/RELEASING.md).
+
+name: Publish
+
+on:
+  push:
+    tags:
+      # melos tag format: `<package>-v<major>.<minor>.<patch>`.
+      - "*-v[0-9]+.[0-9]+.[0-9]+"
+  # Allow manual runs. Dispatch MUST target a matching tag ref (choose the tag
+  # under "Use workflow from"), otherwise tag parsing below fails fast.
+  workflow_dispatch:
+
+# OIDC token minting requires `id-token: write`. `contents: read` is all the
+# source access publishing needs. No pub.dev secrets are used.
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  # Parse the pushed tag ref once and expose the package name + version to the
+  # publish jobs. `is_flutter` routes the flutter-only package to its own job.
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.parse.outputs.name }}
+      version: ${{ steps.parse.outputs.version }}
+      is_flutter: ${{ steps.parse.outputs.is_flutter }}
+    steps:
+      - name: Parse tag into package name and version
+        id: parse
+        run: |
+          tag="${{ github.ref_name }}"
+          # Package name is everything before the final `-v`; version is the
+          # trailing semver. `.+` is greedy so multi-segment names are safe.
+          if [[ "$tag" =~ ^(.+)-v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            name="${BASH_REMATCH[1]}"
+            version="${BASH_REMATCH[2]}"
+          else
+            echo "::error::Ref '$tag' is not a '<package>-v<x.y.z>' tag. On workflow_dispatch, run against a release tag."
+            exit 1
+          fi
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if [[ "$name" == "bluesky_text_flutter" ]]; then
+            echo "is_flutter=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_flutter=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Parsed tag '$tag' -> package '$name' version '$version'."
+
+  # Publish a Dart-workspace package. Gated off for the flutter package, which
+  # cannot resolve against the Dart-only pub workspace.
+  publish-dart:
+    needs: prepare
+    if: needs.prepare.outputs.is_flutter == 'false'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/${{ needs.prepare.outputs.name }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      # Guard: refuse to publish if the pubspec version disagrees with the tag,
+      # so a stale/mismatched tag can never ship the wrong release.
+      - name: Verify pubspec version matches tag
+        env:
+          EXPECTED: ${{ needs.prepare.outputs.version }}
+        run: |
+          actual=$(grep -m1 '^version:' pubspec.yaml | awk '{print $2}')
+          if [[ "$actual" != "$EXPECTED" ]]; then
+            echo "::error::pubspec version '$actual' != tag version '$EXPECTED' for package '${{ needs.prepare.outputs.name }}'."
+            exit 1
+          fi
+          echo "pubspec version '$actual' matches tag."
+
+      - name: Install dependencies
+        run: dart pub get
+
+      # OIDC token is auto-exchanged because `id-token: write` is granted above.
+      # `--force` skips the interactive confirmation (non-TTY in CI).
+      - name: Publish to pub.dev
+        run: dart pub publish --force
+
+  # Publish the Flutter package. It lives outside the Dart pub workspace, so it
+  # needs the Flutter SDK and `flutter pub`.
+  publish-flutter:
+    needs: prepare
+    if: needs.prepare.outputs.is_flutter == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/bluesky_text_flutter
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Verify pubspec version matches tag
+        env:
+          EXPECTED: ${{ needs.prepare.outputs.version }}
+        run: |
+          actual=$(grep -m1 '^version:' pubspec.yaml | awk '{print $2}')
+          if [[ "$actual" != "$EXPECTED" ]]; then
+            echo "::error::pubspec version '$actual' != tag version '$EXPECTED' for package 'bluesky_text_flutter'."
+            exit 1
+          fi
+          echo "pubspec version '$actual' matches tag."
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # OIDC token is auto-exchanged because `id-token: write` is granted above.
+      - name: Publish to pub.dev
+        run: flutter pub publish --force

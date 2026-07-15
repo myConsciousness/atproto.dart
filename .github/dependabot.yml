@@ -1,25 +1,70 @@
-# See: https://docs.github.com/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-# See: https://docs.github.com/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
-# REF: https://dependabot.com/docs/config-file/validator/
+# See: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+# See: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 
-# See: https://docs.github.com/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
 updates:
+  # --- Dart pub (root workspace) ------------------------------------------
+  # This repo is a Dart pub workspace (melos 8). `dart pub get` resolves the
+  # whole workspace from the root, so a single "/" entry covers every member
+  # package listed under `workspace:` in the root pubspec.yaml.
+  #
+  # NOTE: Dependabot's `pub` support for pub *workspaces* is relatively new.
+  # If Dependabot ever fails to resolve the workspace from the root, the
+  # fallback is to switch dependency automation to Renovate, which has
+  # stronger monorepo/workspace support. (Comment only — no action here.)
   - package-ecosystem: "pub"
-    directories:
-      - "/"
-      - "/packages/*"
+    directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "monday"
       timezone: "Asia/Tokyo"
       time: "12:00"
-    labels: ["dependabot"]
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "dependencies"
+    groups:
+      pub-dependencies:
+        patterns:
+          - "*"
 
-  # Keep GitHub Actions used in workflows up to date.
+  # --- Dart/Flutter pub (bluesky_text_flutter) ----------------------------
+  # bluesky_text_flutter is a Flutter package that lives OUTSIDE the Dart pub
+  # workspace (it is not listed under `workspace:` in the root pubspec.yaml),
+  # so it resolves independently and needs its own Dependabot entry.
+  - package-ecosystem: "pub"
+    directory: "/packages/bluesky_text_flutter"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      timezone: "Asia/Tokyo"
+      time: "12:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "dependencies"
+    groups:
+      flutter-dependencies:
+        patterns:
+          - "*"
+
+  # --- GitHub Actions ------------------------------------------------------
+  # Keep `uses:` action versions in .github/workflows/* up to date.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
       timezone: "Asia/Tokyo"
       time: "12:00"
-    labels: ["GitHub Actions", "dependabot"]
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(ci)"
+    labels:
+      - "dependencies"
+    groups:
+      github-actions:
+        patterns:
+          - "*"

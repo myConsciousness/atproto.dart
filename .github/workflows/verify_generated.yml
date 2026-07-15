@@ -1,0 +1,62 @@
+name: Verify Generated
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "packages/*/lib/**"
+      - "lexicons/**"
+      - "packages/lex_gen/**"
+      - "scripts/gen_*.dart"
+
+concurrency:
+  group: verify-generated-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify-generated:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # Installs Dart, restores the pub-cache, and runs a single workspace-wide
+      # `dart pub get` at the repo root.
+      - uses: ./.github/actions/setup-dart-cached
+
+      - name: Regenerate codegen sources
+        # Reproduce the committed generated output: run gen_codes then format
+        # the three codegen dirs. This mirrors Tier A of
+        # scripts/verify_gen_unchanged.sh, but instead of comparing against a
+        # separately captured baseline, we assert `git diff` against the
+        # committed tree (HEAD) is empty. That avoids the two-step
+        # baseline/check dance in CI and is equivalent for a PR gate: the
+        # checked-out tree already IS the reference, so any drift, hand-edit,
+        # or non-deterministic generation surfaces as a diff.
+        run: |
+          dart run ./scripts/gen_codes.dart
+          dart format \
+            packages/atproto/lib/src/services/codegen \
+            packages/bluesky/lib/src/services/codegen \
+            packages/bluesky_cli/lib/src/commands/codegen
+
+      - name: Assert generated sources are unchanged
+        run: |
+          CODEGEN_DIRS=(
+            packages/atproto/lib/src/services/codegen
+            packages/bluesky/lib/src/services/codegen
+            packages/bluesky_cli/lib/src/commands/codegen
+          )
+          if git diff --quiet --exit-code -- "${CODEGEN_DIRS[@]}"; then
+            echo "Generated sources are byte-identical to the committed tree."
+          else
+            echo "::error::Generated sources drifted from the committed tree."
+            echo "The following codegen files differ:"
+            git diff --stat -- "${CODEGEN_DIRS[@]}"
+            echo ""
+            echo "Run 'melos gen' locally and commit the regenerated sources."
+            exit 1
+          fi

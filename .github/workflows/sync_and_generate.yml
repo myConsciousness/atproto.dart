@@ -1,0 +1,134 @@
+name: Sync and Generate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-and-generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # A PAT is required so that CI workflows (Test, Validate
+          # Dependencies, Verify Generated) run on the created pull request;
+          # PRs created with the default GITHUB_TOKEN do not trigger
+          # workflows.
+          token: ${{ secrets.PAT }}
+          # Full history so the changelog step can diff `lexicons/` against the
+          # pre-sync commit captured below.
+          fetch-depth: 0
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Install dependencies
+        # This repository is a pub workspace, so a single `pub get` at the
+        # root resolves every package.
+        run: dart pub get
+
+      - name: Capture pre-sync commit
+        # sync_lexicons.dart only edits the working tree (it does not commit),
+        # so HEAD before the sync is the base against which the changelog step
+        # diffs the refreshed `lexicons/`. Capture it explicitly so the
+        # single-run sync+generate flow keeps the original two-PR behaviour.
+        id: presync
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Sync Lexicons
+        run: dart run ./scripts/sync_lexicons.dart
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: Detect lexicon changes
+        # Exit the job cleanly as a no-op when the sync produced no changes to
+        # `lexicons/`; there is nothing to regenerate or open a PR for.
+        id: changes
+        run: |
+          if git diff --quiet -- lexicons/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No lexicon changes detected; skipping generation (no-op)."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Lexicon changes detected; running the generation pipeline."
+          fi
+
+      - name: Generate
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          dart run ./scripts/gen_lexicon_docs.dart
+          dart run ./scripts/gen_lexicon_ids.dart
+          dart run ./scripts/gen_lexicon_matrix.dart
+          dart run ./scripts/gen_supported_api_matrix.dart
+          dart run ./scripts/gen_codes.dart
+
+      - name: Build (atproto)
+        if: steps.changes.outputs.changed == 'true'
+        run: dart run build_runner build --delete-conflicting-outputs
+        working-directory: packages/atproto
+
+      - name: Build (bluesky)
+        if: steps.changes.outputs.changed == 'true'
+        run: dart run build_runner build --delete-conflicting-outputs
+        working-directory: packages/bluesky
+
+      - name: Format
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          for package in lexicon atproto bluesky bluesky_cli; do
+            (
+              cd "packages/$package"
+              dart fix --apply
+              dart run import_sorter:main
+              dart format .
+            )
+          done
+
+      - name: Update changelogs & versions
+        # Diff the synced lexicons against the pre-sync commit, then append
+        # per-package CHANGELOG entries and bump versions (patch for additions,
+        # minor for breaking changes), propagating patch bumps to dependents.
+        if: steps.changes.outputs.changed == 'true'
+        run: dart run ./scripts/gen_changelog.dart
+        env:
+          CHANGELOG_BASE_REF: ${{ steps.presync.outputs.sha }}
+
+      - name: Create Pull Request
+        id: cpr
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          # A PAT is required so that CI workflows (Test, Validate
+          # Dependencies, Verify Generated) run on the created pull request;
+          # PRs created with the default GITHUB_TOKEN do not trigger
+          # workflows. Those checks gate the auto-merge enabled below.
+          token: ${{ secrets.PAT }}
+          commit-message: "chore: Sync lexicons and regenerate sources"
+          title: "chore: Sync lexicons and regenerate sources"
+          branch: chore-sync-and-generate
+          base: main
+          delete-branch: true
+          labels: GitHub Actions
+          assignees: "${{ github.actor }}"
+
+      - name: Enable auto-merge
+        # Turn on GitHub auto-merge for the PR. The merge only completes once
+        # the required status checks (Test, Validate Dependencies, Verify
+        # Generated) pass -- this is enforced by branch protection on `main`,
+        # not by this workflow. If a check fails, the PR simply stays open for
+        # human review instead of merging.
+        if: >-
+          steps.changes.outputs.changed == 'true' &&
+          (steps.cpr.outputs.pull-request-operation == 'created' ||
+          steps.cpr.outputs.pull-request-operation == 'updated')
+        run: gh pr merge --auto --squash "$PR"
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+          PR: ${{ steps.cpr.outputs.pull-request-number }}

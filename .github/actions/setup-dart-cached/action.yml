@@ -1,0 +1,31 @@
+name: Setup Dart (cached)
+description: >-
+  Install the Dart SDK, restore the pub-cache from the actions cache, and run a
+  single workspace-wide `dart pub get` at the repo root. This repo is a Dart pub
+  workspace, so one root resolve installs dependencies for every package at once.
+
+inputs:
+  sdk:
+    description: Dart SDK version passed to dart-lang/setup-dart (e.g. stable, 3.8.0).
+    required: false
+    default: stable
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: ${{ inputs.sdk }}
+
+    - name: Cache pub-cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.pub-cache
+        key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock', '**/pubspec.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pub-
+
+    - name: Install dependencies (workspace-wide resolve)
+      shell: bash
+      run: dart pub get
