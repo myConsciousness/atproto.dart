@@ -84,3 +84,24 @@ String getRelativePathForParent(final String lexiconId) {
 String getRelativePathForRoot(final String lexiconId) {
   return Nsid(lexiconId).serviceDir;
 }
+
+/// Builds the shared `import '...';` block emitted by both the parent and
+/// root command generators.
+///
+/// Each import path is derived from a lexicon id via [relativePathOf], which
+/// differs between the two callers (parent vs. root relative paths).
+String getCommandImports(
+  final Iterable<String> lexiconIds,
+  final String Function(String lexiconId) relativePathOf,
+) {
+  final buffer = StringBuffer();
+
+  for (final lexiconId in lexiconIds) {
+    final relativePath = relativePathOf(lexiconId);
+    final fileName = getFileName(lexiconId);
+
+    buffer.writeln("import '$relativePath/$fileName.dart';");
+  }
+
+  return buffer.toString();
+}

@@ -4,6 +4,13 @@
 
 - feat!: `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`); `fromOAuthSession(session, {oauthClient})` wraps a shared manager; `oAuthSession` getter replaced by `oAuthSessionManager`.
 
+## v1.7.2
+
+- chore: `tools.ozone.queue.defs#queueView.reportTypes` is now optional
+- chore: `tools.ozone.queue.defs#queueView.subjectTypes` is now optional
+- feat: added `tools.ozone.report.defs#reportView.isAutomated`
+- chore: regenerated from synced lexicons
+
 ## v1.7.1
 
 - chore: bump `atproto` to `^1.7.0`, which exposes `bsky.atproto.sync.subscribeReposAsMessages()` — a Firehose subscription that yields already-decoded, typed messages instead of raw binary frames.

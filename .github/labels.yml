@@ -1,0 +1,74 @@
+# Color definitions for the labels applied by .github/labeler.yml.
+#
+# Synced to GitHub by .github/workflows/label-sync.yml. Labels not listed here are
+# left untouched (the sync runs with skip_delete: true), so this file only needs to
+# cover the labels referenced by labeler.yml.
+#
+# Convention: the layer determines the hue, the shade distinguishes packages within
+# a layer, and category labels use warm/neutral tones outside the package hue bands.
+
+# --- Foundation packages (purple) ---
+- name: at_primitives
+  color: "4A148C"
+  description: "A label indicating the package `at_primitives`."
+- name: multiformats
+  color: "6A1B9A"
+  description: "A label indicating the package `multiformats`."
+- name: did_plc
+  color: "7B1FA2"
+  description: "A label indicating the package `did_plc`."
+- name: lexicon
+  color: "8E24AA"
+  description: "A label indicating the package `lexicon`."
+- name: xrpc
+  color: "9C27B0"
+  description: "A label indicating the package `xrpc`."
+- name: atproto_core
+  color: "AB47BC"
+  description: "A label indicating the package `atproto_core`."
+
+# --- AT Protocol layer (teal) ---
+- name: atproto
+  color: "00897B"
+  description: "A label indicating the package `atproto`."
+- name: atproto_oauth
+  color: "00ACC1"
+  description: "A label indicating the package `atproto_oauth`."
+
+# --- Bluesky layer (blue) ---
+- name: bluesky
+  color: "1565C0"
+  description: "A label indicating the package `bluesky`."
+- name: bluesky_cli
+  color: "1976D2"
+  description: "A label indicating the package `bluesky_cli`."
+- name: bluesky_text
+  color: "1E88E5"
+  description: "A label indicating the package `bluesky_text`."
+- name: bluesky_text_flutter
+  color: "42A5F5"
+  description: "A label indicating the package `bluesky_text_flutter`."
+
+# --- Tooling (orange) ---
+- name: lex_gen
+  color: "EF6C00"
+  description: "A label indicating the package `lex_gen`."
+
+# --- Test infrastructure (gray) ---
+- name: atproto_test
+  color: "78909C"
+  description: "A label indicating the package `atproto_test`."
+
+# --- Categories (warm / neutral) ---
+- name: test
+  color: "9E9D24"
+  description: "Changes to tests."
+- name: documentation
+  color: "795548"
+  description: "Improvements or additions to documentation."
+- name: ci
+  color: "607D8B"
+  description: "Changes to CI/CD workflows and tooling."
+- name: build
+  color: "8D6E63"
+  description: "Changes to build and development tooling."

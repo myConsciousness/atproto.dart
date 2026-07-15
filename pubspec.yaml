@@ -42,14 +42,16 @@ melos:
       description: Set up the atproto.dart project when cloned. Run `dart pub get` and `dart run build_runner build` in all Dart packages.
 
     get:
-      run: melos exec -c 20 -- \
-            dart pub get
-      description: Run `dart pub get` command in all packages.
+      run: dart pub get
+      description: >-
+        Install dependencies for every package. This is a pub workspace
+        (`resolution: workspace`), so a single root `dart pub get` resolves all
+        packages at once instead of running it once per package.
 
     analyze:
       run: |
         melos exec -c 20 -- \
-          flutter analyze .
+          dart analyze .
       description: |
         Run `dart analyze` in all packages.
         - Note: you can also rely on your IDEs Dart Analysis / Issues window.
@@ -69,35 +71,59 @@ melos:
       description: Run `dart run build_runner build` in all packages.
 
     test:
-      run: melos exec --ignore="atproto_test,atproto_oauth,lex_gen" -- dart test
-      description: Run all Dart tests in this project.
+      run: melos exec -- dart test
+      description: >-
+        Run all Dart tests in this project, matching CI (which tests every
+        package). Packages without a `test/` dir are skipped via `dir-exists`.
       flutter: false
       dir-exists: test
 
-    publish_all:
-      run: |
-        melos publish
-        melos publish --no-dry-run --git-tag-version
-        git push origin --tags
-      description: Publish all packages, create git tags and push them to origin.
+    # Dart workspace release, split into three explicit steps (mirroring the
+    # flutter_* scripts) so each stage can be run and verified independently.
+    # Note: the step names deliberately avoid the bare name `publish`, which is
+    # a built-in melos command — a script named `publish` would shadow it and
+    # recurse when the script body calls `melos publish`.
+    publish_dry:
+      run: melos publish --yes
+      description: >-
+        Dry-run publish for all Dart workspace packages. `melos publish`
+        defaults to a dry run, so this only validates the release. `--yes` skips
+        the Y/n confirmation so it runs non-interactively — nested inside
+        `melos run` (or any non-TTY shell) there is no terminal to answer the
+        prompt, which otherwise fails with `CancelledException`. Run this first.
+
+    publish_live:
+      run: melos publish --no-dry-run --git-tag-version --yes
+      description: >-
+        Publish all Dart workspace packages to pub.dev and create the git
+        version tags locally (`--git-tag-version`). `--yes` skips the
+        confirmation prompt so it runs non-interactively; validate with
+        `publish_dry` first, then run `publish_tags` to push the tags.
+
+    publish_tags:
+      run: git push origin --tags
+      description: >-
+        Push the git version tags created by `publish_live` to origin.
 
     # Flutter packages live outside the Dart pub workspace, so `melos` (and
-    # therefore `publish_all`) does not manage them. Release them explicitly.
+    # therefore the publish scripts above) does not manage them. Release them
+    # explicitly.
     flutter_publish_dry:
       run: |
         cd packages/bluesky_text_flutter
         flutter pub publish --dry-run
       description: Dry-run publish the Flutter package (bluesky_text_flutter).
 
-    flutter_publish:
+    flutter_publish_live:
       run: |
         cd packages/bluesky_text_flutter
-        flutter pub publish
+        flutter pub publish --force
       description: >-
-        Publish the Flutter package (bluesky_text_flutter) to pub.dev. Run
-        `flutter_publish_dry` first; append `--force` to skip the prompt.
+        Publish the Flutter package (bluesky_text_flutter) to pub.dev. `--force`
+        skips the confirmation prompt so it runs non-interactively; validate
+        with `flutter_publish_dry` first.
 
-    flutter_tag:
+    flutter_publish_tags:
       run: |
         cd packages/bluesky_text_flutter
         version=$(grep '^version:' pubspec.yaml | awk '{print $2}')
@@ -124,4 +150,4 @@ melos:
         melos fmt
         dart run ./scripts/gen_lexicon_matrix.dart
         dart run ./scripts/gen_supported_api_matrix.dart
-      description: Generate code for atproto and blueksy based on lexicons.
+      description: Generate code for atproto and bluesky based on lexicons.

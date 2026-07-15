@@ -7,7 +7,6 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:lex_gen/src/services/object/lex_union.dart';
-
 import '../../test_context.dart';
 
 void main() {

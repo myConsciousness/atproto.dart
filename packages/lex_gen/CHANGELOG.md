@@ -1,5 +1,21 @@
 # Release Note
 
+## v0.4.2
+
+Internal structural/readability refactor (second pass, continuing v0.4.1). Generated output is **byte-for-byte identical** to v0.4.1, verified end-to-end by running the full pipeline (`gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format`) and asserting an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`, so no downstream regeneration is required.
+
+- refactor: collapse `LexService`'s ~100-`writeln` record-accessor block into per-method emitters, unify the near-identical `create`/`put` bodies and the query/procedure/subscription function↔method pairs, and split the import collector out of `_getPackagePaths`.
+- refactor: lift `RepoCommitHandler`'s constant DTO block out of `format()` and unify the `RepoCommitCreate` / `RepoCommitUpdate` DTOs (which differ only by `createdAt`) into one parameterized emitter with a single-pass member builder.
+- refactor: remove the four duplicated `DartType.array(...)` constructions in `lex_property_generator`'s array switch, and replace the two parallel triple-nested ternaries (encoding the union/record/plain decision twice) with one resolved ref-variant.
+- refactor: extract a shared `FreezedModel` base holding the common fields and a single parameterized validate emitter for `LexObject` / `LexRecord` / `LexInput` / `LexOutput`.
+- refactor: flatten `lex_type_generator`'s `is ULexUserType*` dispatch ladder into a `switch`, and extract the byte-identical package-barrel writer and the doc-type classifier duplicated across the services orchestrators into a new `services_common.dart`.
+- refactor: dedup the `*ForService` / absolute-path helper twins in `services/rule.dart` (internal only; public API unchanged).
+- refactor: extract the repeated name/header preamble in the command emitter, dedup the three procedure templates, flatten the command def-dispatch loop into a classifier, and share the parent/root command import emitter.
+- refactor: share the `isA`-extension-getter idiom across `utils` / `LexUnion` / `LexKnownValues` (5 call sites) and name `LexKnownValues`'s inline `@JsonValue` element builder.
+- refactor: rename the commands-world `LexParameter` to `LexCliParameter` to remove the collision with the services-world `LexParameter` (opposite meaning, zero shared code).
+- fix: make the record-command emitter import_sorter-safe. A source line reading `import '...';'''` (an import flush against a triple-quoted string's closing `'''`) was mis-hoisted by `import_sorter` during `melos fmt`, corrupting the file even though the emitted output was unchanged; split the trailing import into a concatenated literal (emitted content identical).
+- test: add `scripts/verify_gen_unchanged.sh` (output-invariance harness with `check` / `full` / `srccheck` modes), used to verify this refactor.
+
 ## v0.4.1
 
 Internal readability/standardization/optimization refactor. Generated output is **byte-for-byte identical** to v0.4.0 (verified by hashing the raw generator output across `atproto`/`bluesky`/`bluesky_cli`), so no downstream regeneration is required.

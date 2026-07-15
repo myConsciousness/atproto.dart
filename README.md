@@ -243,6 +243,17 @@ The `melos setup` command handles everything: installing dependencies, running c
 | `melos build` | Run code generation for all packages |
 | `melos gen` | Generate API clients from Lexicon schemas |
 
+**Release commands (maintainers):**
+
+| Command | Description |
+| ------- | ----------- |
+| `melos publish_dry` | Dry-run publish for all Dart workspace packages (validate only) - run this first |
+| `melos publish_live` | Publish all Dart packages to pub.dev and create git version tags |
+| `melos publish_tags` | Push the git version tags created by `melos publish_live` to origin |
+| `melos flutter_publish_dry` | Dry-run publish for the Flutter package (bluesky_text_flutter) |
+| `melos flutter_publish_live` | Publish the Flutter package (bluesky_text_flutter) to pub.dev |
+| `melos flutter_publish_tags` | Tag and push the Flutter package release |
+
 ### 4.4. Troubleshooting
 
 **Setup Issues:**

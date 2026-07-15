@@ -8,7 +8,9 @@ import 'package:lexicon/lexicon.dart' as lex;
 // Project imports:
 import '../../dart_type.dart';
 import '../gen_context.dart';
+import '../object/lex_known_values.dart';
 import '../object/lex_property.dart';
+import '../object/lex_union.dart';
 import '../rule.dart' as rule;
 import 'lex_known_values_generator.dart';
 import 'lex_union_generator.dart';
@@ -97,29 +99,7 @@ String? _getDefaultValue(
     case lex.ULexPrimitiveString string:
       final value = string.data.defaultValue;
       if (value == null) return null;
-
-      // A string with `knownValues` is generated as an enum-backed wrapper
-      // union with a converter (e.g. `LabelValueDefinitionDefaultSetting`).
-      // Emit a const wrapper value so a field with a spec `default` (e.g.
-      // labelValueDefinition's `default: "warn"`) keeps that default instead
-      // of degrading to a nullable field that reports `null` (G-18).
-      final knownValues = type.knownValues;
-      if (knownValues != null && !type.isArray) {
-        final wrapper = type.name;
-        // A `#`-prefixed known value is a token reference stored as
-        // `<lexiconId>#<token>`; a plain `default` cannot match it, so only
-        // treat non-token values as known members.
-        final isKnownMember =
-            !value.contains('#') && knownValues.values.contains(value);
-        if (isKnownMember) {
-          final member = rule.getLexKnownValuesElementName(value);
-          return '$wrapper.knownValue(data: Known$wrapper.$member)';
-        }
-
-        return "$wrapper.unknown(data: '${_escapeDartString(value)}')";
-      }
-
-      return "'${_escapeDartString(value)}'";
+      return _getStringDefaultValue(value, type);
     case lex.ULexPrimitiveInteger integer:
       final value = integer.data.defaultValue;
       return value != null ? '$value' : null;
@@ -129,6 +109,33 @@ String? _getDefaultValue(
     default:
       return null;
   }
+}
+
+/// Formats the Dart literal for a string primitive's `default` [value].
+///
+/// A string with `knownValues` is generated as an enum-backed wrapper union
+/// with a converter (e.g. `LabelValueDefinitionDefaultSetting`). Emit a const
+/// wrapper value so a field with a spec `default` (e.g. labelValueDefinition's
+/// `default: "warn"`) keeps that default instead of degrading to a nullable
+/// field that reports `null` (G-18). Plain strings become quoted literals.
+String _getStringDefaultValue(final String value, final DartType type) {
+  final knownValues = type.knownValues;
+  if (knownValues != null && !type.isArray) {
+    final wrapper = type.name;
+    // A `#`-prefixed known value is a token reference stored as
+    // `<lexiconId>#<token>`; a plain `default` cannot match it, so only
+    // treat non-token values as known members.
+    final isKnownMember =
+        !value.contains('#') && knownValues.values.contains(value);
+    if (isKnownMember) {
+      final member = rule.getLexKnownValuesElementName(value);
+      return '$wrapper.knownValue(data: Known$wrapper.$member)';
+    }
+
+    return "$wrapper.unknown(data: '${_escapeDartString(value)}')";
+  }
+
+  return "'${_escapeDartString(value)}'";
 }
 
 /// Escapes a raw string so it can be embedded inside single-quoted Dart source
@@ -179,16 +186,14 @@ DartType _getDartType(
             property.key,
             primitive.data,
           );
-          return DartType.array(
+          return _arrayOf(
+            type,
             lexiconId: type.lexiconId,
-            type: type.name,
-            packagePath: type.packagePath,
             // `iso8601` operates on a scalar `DateTime`, so it must not be
             // attached to a `List<DateTime>` field. The element-wise UTC
             // normalization for datetime arrays is intentionally left to the
             // default serializer (rare in practice).
             annotation: type.name == 'DateTime' ? null : type.annotation,
-            description: type.description,
             knownValues: type.knownValues,
           );
 
@@ -196,21 +201,14 @@ DartType _getDartType(
           // Arrays of blobs previously fell through to `List<Object>`. Map
           // them to `List<Blob>` with the blob converter applied per element.
           final type = DartType.blob(description: blob.data.description);
-          return DartType.array(
-            type: type.name,
-            packagePath: type.packagePath,
-            annotation: type.annotation,
-            description: type.description,
-          );
+          return _arrayOf(type, annotation: type.annotation);
 
         case lex.ULexArrayItemIpld ipld:
           final type = _getIpldType(ipld.data);
-          return DartType.array(
+          return _arrayOf(
+            type,
             lexiconId: type.lexiconId,
-            type: type.name,
-            packagePath: type.packagePath,
             annotation: type.annotation,
-            description: type.description,
           );
 
         case lex.ULexArrayRefVariant refVariant:
@@ -223,16 +221,13 @@ DartType _getDartType(
             mainVariants,
             isSingleProp,
           );
-
-          return DartType.array(
-            type: type.name,
+          return _arrayOf(
+            type,
             lexiconId: type.lexiconId,
             ref: type.ref,
             defName: type.defName,
             fieldName: type.fieldName,
-            packagePath: type.packagePath,
             annotation: type.annotation,
-            description: type.description,
             union: type.union,
           );
         default:
@@ -254,6 +249,34 @@ DartType _getDartType(
       return DartType.json();
   }
 }
+
+/// Wraps a resolved array-element [item] type into the matching `List<...>`
+/// `DartType`, copying the fields every element kind shares (element name,
+/// package path, description). The element [annotation] and any per-kind
+/// extras ([lexiconId], [ref], [defName], [fieldName], [union],
+/// [knownValues]) are supplied explicitly by the caller, since they differ
+/// between primitive, blob, IPLD and ref-variant elements.
+DartType _arrayOf(
+  final DartType item, {
+  final String? annotation,
+  final String? lexiconId,
+  final String? ref,
+  final String? defName,
+  final String? fieldName,
+  final LexUnion? union,
+  final LexKnownValues? knownValues,
+}) => DartType.array(
+  type: item.name,
+  packagePath: item.packagePath,
+  description: item.description,
+  annotation: annotation,
+  lexiconId: lexiconId,
+  ref: ref,
+  defName: defName,
+  fieldName: fieldName,
+  union: union,
+  knownValues: knownValues,
+);
 
 DartType _getLexPrimitiveType(
   final lex.NSID lexiconId,
@@ -370,12 +393,17 @@ DartType _getLexRefVariantType(
         mainVariants,
       );
 
+      // Resolve the union/record/plain distinction once so the wrapper type
+      // name and its converter annotation stay in sync (a union prefixes `U`,
+      // a record suffixes `Record`).
+      final (typeName, annotation) = isUnion
+          ? ('U$name', '@U${name}Converter()')
+          : isRecord
+          ? ('${name}Record', '@${name}RecordConverter()')
+          : (name, '@${name}Converter()');
+
       return DartType(
-        name: isUnion
-            ? 'U$name'
-            : isRecord
-            ? '${name}Record'
-            : name,
+        name: typeName,
         lexiconId: lexiconId.toString(),
         fieldName: isUnion ? fieldName : '',
         ref: ref.data.ref!,
@@ -385,11 +413,7 @@ DartType _getLexRefVariantType(
           ref.data.ref!,
           isUnion: isUnion,
         ),
-        annotation: isUnion
-            ? '@U${name}Converter()'
-            : isRecord
-            ? '@${name}RecordConverter()'
-            : '@${name}Converter()',
+        annotation: annotation,
         description: ref.data.description,
         isArray: isArray,
         isUnion: isUnion,

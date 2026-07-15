@@ -7,7 +7,7 @@ description: tools.ozone.queue.createQueue
 
 ## #main
 
-Create a new moderation queue. Will fail if the queue configuration conflicts with an existing queue.
+Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.
 
 ### Input
 
@@ -16,9 +16,9 @@ Create a new moderation queue. Will fail if the queue configuration conflicts wi
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **name** | string | - | ✅ | Display name for the queue (must be unique) |
-| **subjectTypes** | array of string | - | ✅ | Subject types this queue accepts |
+| **subjectTypes** | array of string | - | ❌ | Subject types this queue accepts |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects. Required if subjectTypes includes 'record'. |
-| **reportTypes** | array of string | - | ✅ | Report reason types (fully qualified NSIDs) |
+| **reportTypes** | array of string | - | ❌ | Report reason types (fully qualified NSIDs) |
 | **description** | string | - | ❌ | Optional description of the queue |
 
 ### Output
