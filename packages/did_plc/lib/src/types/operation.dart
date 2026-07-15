@@ -21,7 +21,11 @@ abstract class Operation with _$Operation {
     required List<String> alsoKnownAs,
     required List<String> rotationKeys,
     required Map<String, dynamic> verificationMethods,
-    String? prev,
+    // A genesis `plc_operation` carries an explicit `prev: null`, and that
+    // key IS part of the signed DAG-CBOR bytes and the bytes hashed for
+    // `did:plc` derivation. It must be serialized even when null, so this
+    // field opts out of the class-level `includeIfNull: false`.
+    @JsonKey(includeIfNull: true) String? prev,
   }) = _Operation;
 
   /// Creates an instance of [Operation] from a map of

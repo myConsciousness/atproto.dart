@@ -198,10 +198,11 @@ final class _OperationBuilderImpl implements OperationBuilder {
       'services': Map<String, dynamic>.from(_services),
     };
 
-    // Add prev only if it's not null
-    if (_prev != null) {
-      operation['prev'] = _prev;
-    }
+    // Always set `prev`, including a genesis `null`. A genesis
+    // `plc_operation` carries an explicit `prev: null`, and that key is part
+    // of the signed DAG-CBOR bytes and the bytes hashed for `did:plc`
+    // derivation, so it must never be omitted.
+    operation['prev'] = _prev;
 
     return operation;
   }

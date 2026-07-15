@@ -3,11 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Dart imports:
-import 'dart:io';
 import 'dart:math' as math;
 
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:universal_io/io.dart';
 
 // Project imports:
 import '../exceptions.dart';

@@ -5,10 +5,10 @@
 // Dart imports:
 import 'dart:async' as dart_async;
 import 'dart:convert';
-import 'dart:io';
 
 // Package imports:
 import 'package:http/http.dart' as http;
+import 'package:universal_io/io.dart';
 
 // Project imports:
 import '../exceptions.dart';
@@ -224,7 +224,7 @@ final class _HttpClientImpl implements HttpClient {
   /// Builds headers by merging default headers with additional ones.
   Map<String, String> _buildHeaders([Map<String, String>? additionalHeaders]) {
     final headers = <String, String>{
-      'User-Agent': 'did_plc/0.0.22 (Dart)',
+      'User-Agent': 'did_plc/1.1.0 (Dart)',
       ..._headers,
     };
 
