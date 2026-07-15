@@ -236,7 +236,9 @@ Future<void> main(List<String> args) async {
   final events = await ozone.moderation.queryEvents(limit: 50);
 
   // Get moderation subjects
-  final subjects = await ozone.moderation.getSubjects();
+  final subjects = await ozone.moderation.getSubjects(
+    subjects: ['did:plc:idxxfews5tsvi5tvyfjwlkn7'],
+  );
 
   // Access team management
   final teamMembers = await ozone.team.listMembers();

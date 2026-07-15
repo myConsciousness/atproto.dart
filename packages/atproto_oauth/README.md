@@ -170,7 +170,7 @@ Future<void> _makeAuthenticatedRequest() async {
   if (bsky == null) return;
 
   // Anyway you want it    !
-  final record = await bsky.feed.post(text: 'Nice DPoP proof');
+  final record = await bsky.feed.post.create(text: 'Nice DPoP proof');
 }
 ```
 
