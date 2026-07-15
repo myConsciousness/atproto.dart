@@ -33,10 +33,11 @@ OAuthSession _oAuthSession({required String sub}) {
     scope: 'atproto transition:generic',
     expiresAt: DateTime.utc(2030),
     sub: sub,
-    $clientId: 'https://example.com/oauth-client-metadata.json',
-    $dPoPNonce: 'nonce',
-    $publicKey: publicKey,
-    $privateKey: privateKey,
+    issuer: 'https://bsky.social',
+    pds: 'https://pds.example',
+    clientId: 'https://example.com/oauth-client-metadata.json',
+    dpopPublicKey: publicKey,
+    dpopPrivateKey: privateKey,
   );
 }
 
@@ -50,7 +51,9 @@ void main() {
 
       final service = VideoServiceImpl(
         core.ServiceContext(
-          oAuthSession: _oAuthSession(sub: sub),
+          oAuthSessionManager: OAuthSessionManager.fromSession(
+            _oAuthSession(sub: sub),
+          ),
           postClient: (url, {headers, body, encoding}) async {
             capturedUrl = url;
 

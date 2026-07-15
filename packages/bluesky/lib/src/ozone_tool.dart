@@ -57,9 +57,10 @@ sealed class OzoneTool {
     ),
   );
 
-  /// Returns the new instance of [OzoneTool].
-  factory OzoneTool.fromOAuthSession(
-    final oauth.OAuthSession session, {
+  /// Returns a new [OzoneTool] backed by an OAuth [manager], which owns DPoP
+  /// header building and transparent token refresh.
+  factory OzoneTool.fromOAuth(
+    final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
@@ -74,14 +75,14 @@ sealed class OzoneTool {
       protocol: protocol,
       service: service,
       relayService: relayService,
-      oAuthSession: session,
+      oAuthSessionManager: manager,
       timeout: timeout,
       retryConfig: retryConfig,
       getClient: getClient,
       postClient: postClient,
     ),
-    atp.ATProto.fromOAuthSession(
-      session,
+    atp.ATProto.fromOAuth(
+      manager,
       headers: headers,
       protocol: protocol,
       service: service,
@@ -93,6 +94,33 @@ sealed class OzoneTool {
     ),
   );
 
+  /// Returns the new instance of [OzoneTool].
+  ///
+  /// Pass [oauthClient] to enable transparent token refresh; without it the
+  /// session is used as-is and cannot be refreshed.
+  factory OzoneTool.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final oauth.OAuthClient? oauthClient,
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  }) => OzoneTool.fromOAuth(
+    oauth.OAuthSessionManager.fromSession(session, client: oauthClient),
+    headers: headers,
+    protocol: protocol,
+    service: service,
+    relayService: relayService,
+    timeout: timeout,
+    retryConfig: retryConfig,
+    getClient: getClient,
+    postClient: postClient,
+  );
+
   /// Returns the global headers without auth header.
   Map<String, String> get headers;
 
@@ -102,11 +130,11 @@ sealed class OzoneTool {
   /// [OzoneTool.fromSession], otherwise null.
   core.Session? get session;
 
-  /// Returns the current OAuth session.
+  /// Returns the current OAuth session manager.
   ///
-  /// Set only if an instance of this object was created in
+  /// Set only when this instance was created via [OzoneTool.fromOAuth] or
   /// [OzoneTool.fromOAuthSession], otherwise null.
-  oauth.OAuthSession? get oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager;
 
   /// Returns the current service.
   /// Defaults to `bsky.social`.
@@ -183,7 +211,7 @@ final class _OzoneTool implements OzoneTool {
   core.Session? get session => _ctx.session;
 
   @override
-  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager => _ctx.oAuthSessionManager;
 
   @override
   String get service => _ctx.service;
