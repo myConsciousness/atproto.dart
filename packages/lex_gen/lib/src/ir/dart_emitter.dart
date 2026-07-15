@@ -22,6 +22,20 @@ String emitDartFile(final DartFile file) {
     if (group.isEmpty) continue;
     for (final import in group) {
       final prefix = import.prefix == null ? '' : ' as ${import.prefix}';
+      // A multi-symbol `show` is wrapped one-symbol-per-line. `import_sorter`
+      // (which runs before `dart format`) treats a long single-line combinator
+      // import differently from a pre-wrapped one, so wrapping here is required
+      // to keep the final import_sorted output byte-identical — `dart format`
+      // alone would normalise both, hiding the difference.
+      if (import.show.length > 1 && import.hide.isEmpty) {
+        b.writeln("import '${import.uri}'$prefix");
+        b.writeln('    show');
+        for (var i = 0; i < import.show.length; i++) {
+          final end = i == import.show.length - 1 ? ';' : ',';
+          b.writeln('        ${import.show[i]}$end');
+        }
+        continue;
+      }
       final show = import.show.isEmpty ? '' : ' show ${import.show.join(', ')}';
       final hide = import.hide.isEmpty ? '' : ' hide ${import.hide.join(', ')}';
       b.writeln("import '${import.uri}'$prefix$show$hide;");
