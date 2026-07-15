@@ -4,6 +4,9 @@
 
 - feat!: OAuth processes are now fully pluggable — inject `OAuthStateStore`, `OAuthSessionStore`, `DPoPNonceCache`, `IdentityResolver`, `DPoPSigner` (in-memory/HTTP/pointycastle defaults provided). (#2060)
 - fix!: OAuth access/refresh tokens are treated as opaque — the library no longer decodes them as JWTs, fixing failures with PDS "light" access tokens that omit `aud`. (#1982)
+- fix: concurrent refreshes are coalesced (single-flight by `sub`) and an `invalid_grant` no longer deletes a newer stored session, preventing spurious logouts under refresh-token rotation.
+- fix: token values are never included in exception messages.
+- fix: the authorization `state` is consumed on every callback outcome (strict one-time use), and a malformed authorization context is rejected before the token exchange.
 - feat!: `OAuthSession` is now self-contained (`issuer`, `pds`, `clientId`, `dpopPublicKey`, `dpopPrivateKey`); DPoP nonces moved out of the session into a per-origin `DPoPNonceCache`. `fromJson`/`toJson`; `fromLegacyJson({required issuer, required pds})` restores <=0.4.x payloads.
 - feat: `OAuthSessionManager` builds DPoP auth headers per request and refreshes tokens (single-flight, proactive + on-401); `OAuthClient` gains `revoke`/`restore`; `callback` no longer needs an `OAuthContext` argument (stored via `OAuthStateStore`, so callbacks survive app restarts); new `OAuthSessionRevokedException`.
 - feat!: `OAuthClient.authorize(identity)` returns a `Uri` and resolves the authorization server internally; `resolveFromPds`/`resolveFromIdentity` removed.

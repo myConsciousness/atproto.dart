@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.2.0
+
+- feat: `CID.toAtprotoJson()` emits the atproto data-model `{$link: ...}` form (`toJson` continues to emit DAG-JSON `{/: ...}`; `fromJson` accepts both).
+- fix: the `bytes` getter returns an unmodifiable view, so external mutation can no longer corrupt a `CID` or desync its cached `hashCode`.
+- fix: `CID.parse` rejects uppercase base32 bodies, and invalid base32 characters raise `InvalidCidError` instead of a raw `FormatException`.
+
 ## v1.1.0
 
 - fix: the `dag-pb` multicodec was wrong (`0x55`, which is actually `raw`). Added correct `raw(0x55)`, `dagPb2(0x70)` and `dagCbor(0x71)` entries and fixed `isDagPb`/format checks so atproto blob CIDs are classified correctly and real `dag-pb` is no longer rejected.

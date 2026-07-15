@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.4.4
+
+- fix: lexicon descriptions and default values are escaped before interpolation, so text containing `"`, `$`, `\`, or newlines no longer produces uncompilable generated code.
+- fix: the generated repo-commit handler guards against a commit op whose block CID is absent from `blocks` (previously threw a `TypeError`, aborting the whole commit).
+- fix: a bare `ref` to a record lexicon now resolves to the correct `<Name>Record` type instead of an empty class name.
+
 ## v0.4.3
 
 Replace the string-template emission mechanism with a small typed Dart intermediate representation (IR) + emitter. Generated output is **byte-for-byte identical** to v0.4.2 (verified end-to-end: `gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format` produces an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`), so no downstream regeneration is required.

@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.5.1
+
+- fix: email addresses are no longer partially linkified (the domain of `mail@alice.bsky.social` is no longer turned into a link).
+- fix: URL paths containing non-ASCII characters are no longer truncated, so links such as `https://ja.wikipedia.org/wiki/日本語` resolve to the full URL.
+
 ## v1.5.0
 
 - **FEAT**: Added `BlueskyText.overflow`, which returns a `TextLengthOverflow`

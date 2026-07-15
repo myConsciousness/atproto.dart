@@ -3,6 +3,10 @@
 ## v2.0.0
 
 - feat!: OAuth requests are now driven by `OAuthSessionManager`; `ServiceContext` takes `oAuthSessionManager` instead of `oAuthSession`, enabling transparent OAuth token auto-refresh. OAuth tokens are never JWT-decoded. `restoreOAuthSession`/`OauthSessionExtension` removed (opaque tokens). Legacy password-auth `Session` is unaffected.
+- fix: OAuth requests target the session's PDS even when the `OAuthSessionManager` restores its session lazily — previously every request defaulted to `bsky.social`, causing spurious 401s.
+- fix: a caller-supplied `Authorization` header (e.g. a service-auth Bearer token) is preserved instead of being overwritten by the session/DPoP token, fixing service-auth flows such as video upload.
+- fix: concurrent expired requests now share a single legacy-session refresh instead of issuing a refresh stampede.
+- feat: `stream()` accepts a `service` override and a `channelFactory`, and honors the configured protocol; the `use_dpop_nonce` retry awaits the nonce write before retrying.
 
 ## v1.3.0
 

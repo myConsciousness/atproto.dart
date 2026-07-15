@@ -1,5 +1,12 @@
 # Release Note
 
+## v1.1.1
+
+- fix: procedure/record request bodies no longer drop legitimately empty collections (e.g. `threadgate.allow: []`); only `null` values are stripped. Query parameters are unchanged.
+- fix: `subscribe` propagates backpressure and cancellation to the underlying WebSocket, preventing unbounded buffering on slow consumers (firehose) and socket leaks.
+- fix: an empty `200` response body with a `to` converter now yields `EmptyData` instead of throwing a raw `FormatException`.
+- fix: blob uploads fall back to `application/octet-stream` (was `*/*`) when the content type cannot be sniffed.
+
 ## v1.1.0
 
 - fix: `subscribe()` now closes its `StreamController`, propagates WebSocket errors via `addError`, and always delivers `done`, so a server disconnect no longer hangs `await for` forever or leaks the controller.
