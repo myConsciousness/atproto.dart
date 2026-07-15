@@ -147,6 +147,16 @@ final class CID {
       throw InvalidCidError('CID v1 should be encoded in base32 format');
     }
 
+    // The multibase prefix `b` denotes *lowercase* base32; an uppercase body
+    // would use the prefix `B`. Reject a lowercase `b` followed by a
+    // non-lowercase base32 body rather than silently accepting it.
+    final body = cid.substring(1);
+    if (body != body.toLowerCase()) {
+      throw InvalidCidError(
+        'CID v1 base32 body must be lowercase for multibase prefix "b"',
+      );
+    }
+
     // Decode exactly once, then validate the decoded bytes.
     return CID(_ensureBytesFormat(_decode(cid)));
   }
@@ -197,17 +207,49 @@ final class CID {
       ? bytes
       : Uint8List.fromList([0, ...bytes]);
 
-  /// Returns the bytes representation of this CID.
-  Uint8List get bytes => _normalizedBytes;
+  /// Returns an unmodifiable view of the byte representation of this CID.
+  ///
+  /// The bytes are the CBOR tag-42 *payload* form: they include the leading
+  /// `0x00` identity-multibase prefix. This is correct as a DAG-CBOR tag-42
+  /// CID payload, but is NOT a raw CID -- for CAR block indexing / raw CID
+  /// bytes you must drop the leading `0x00`.
+  ///
+  /// The returned view is unmodifiable so that external mutation cannot corrupt
+  /// the CID or desync the lazily-cached [hashCode].
+  Uint8List get bytes => _unmodifiableBytes;
+
+  /// A cached unmodifiable view over [_normalizedBytes].
+  late final Uint8List _unmodifiableBytes =
+      _normalizedBytes.asUnmodifiableView();
 
   /// Returns the multicodec of this CID.
   Multicodec get codec => Multicodec.valueOf(_normalizedBytes[2]);
 
   /// Returns the JSON representation of this CID.
+  ///
+  /// Emits the IPLD DAG-JSON link shape `{"/": "<base32 cid>"}`. This is
+  /// intentionally asymmetric with [fromJson], which accepts both `{"/": ...}`
+  /// and the atproto `{"$link": ...}` shapes: [toJson] keeps emitting the
+  /// DAG-JSON `/` key for backward compatibility. For the atproto data model
+  /// link shape, use [toAtprotoJson].
   Map<String, dynamic> toJson() => {_defaultJsonKey: _format()};
 
+  /// Returns the atproto data model JSON representation of this CID.
+  ///
+  /// Emits `{"$link": "<base32 cid>"}` as required by the atproto data model
+  /// (https://atproto.com/specs/data-model).
+  ///
+  /// Note: atproto record bodies are normally serialized through the CBOR/CAR
+  /// path (which builds the `$link` map directly from the CID string), not via
+  /// this method. This method exists for callers that need the atproto link
+  /// shape from a [CID] in pure JSON.
+  Map<String, dynamic> toAtprotoJson() => {_atprotoJsonKey: _format()};
+
   /// Returns the base32 encoded string representation of this [bytes].
-  String _format() =>
+  String _format() => _formatted;
+
+  /// The base32 encoded string form of this CID, computed once on first use.
+  late final String _formatted =
       'b${_encode(_normalizedBytes).replaceAll('=', '').toLowerCase()}';
 
   /// Returns the multihash representation of [input].
@@ -232,9 +274,19 @@ final class CID {
       bytes.first == 0 ? base32.encode(bytes.sublist(1)) : base32.encode(bytes);
 
   /// Returns the base32 decoded bytes from [string].
-  static Uint8List _decode(final String string) => string.startsWith('b')
-      ? base32.decode(string.substring(1))
-      : base32.decode(string);
+  ///
+  /// Wraps decoding failures from `base_codecs` (which throw [FormatException]
+  /// on invalid base32 characters) as [InvalidCidError] so that callers see a
+  /// single, consistent exception type for structurally invalid CIDs.
+  static Uint8List _decode(final String string) {
+    try {
+      return string.startsWith('b')
+          ? base32.decode(string.substring(1))
+          : base32.decode(string);
+    } on FormatException catch (e) {
+      throw InvalidCidError('Invalid base32 CID: ${e.message}');
+    }
+  }
 
   static Uint8List _ensureBytesFormat(final Uint8List bytes) {
     if (bytes.isEmpty) {

@@ -99,6 +99,37 @@ void main() {
     });
   });
 
+  group('.toAtprotoJson', () {
+    test('emits the atproto {"\$link": ...} shape', () {
+      final cid = CID.parse(stringCid);
+
+      expect(cid.toAtprotoJson(), {r'$link': stringCid});
+    });
+
+    test('round-trips through fromJson', () {
+      final cid = CID.parse(stringCid);
+
+      expect(CID.fromJson(cid.toAtprotoJson()), cid);
+    });
+  });
+
+  group('.bytes (immutability)', () {
+    test('external mutation cannot change the CID', () {
+      final cid = CID.parse(stringCid);
+      final before = cid.hashCode;
+
+      expect(
+        () => cid.bytes[0] = 0xff,
+        throwsA(isA<UnsupportedError>()),
+      );
+
+      // The CID is unchanged: bytes, string form, and hashCode all stable.
+      expect(cid.bytes, [0, ...bytesCidDagPb]);
+      expect(cid.toString(), stringCid);
+      expect(cid.hashCode, before);
+    });
+  });
+
   group('==', () {
     test('case1', () {
       final cid1 = CID.fromList(bytesCidDagPb);
@@ -200,6 +231,27 @@ void main() {
       expect(
         () => CID.parse(
           'afkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5eaq',
+        ),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('rejects an uppercase base32 body after lowercase "b" prefix', () {
+      // Multibase `b` means lowercase base32; an uppercase body would be `B`.
+      expect(
+        () => CID.parse(
+          'bAFKREIFZJUT3TE2NHYEKKLSS27NH3K72YSCO7Y32KOAO5EEI66WOF36N5E',
+        ),
+        throwsA(isA<InvalidCidError>()),
+      );
+    });
+
+    test('rejects invalid base32 characters as InvalidCidError', () {
+      // '!' is not in the base32 alphabet; base_codecs throws a
+      // FormatException that must surface as InvalidCidError.
+      expect(
+        () => CID.parse(
+          'b!fkreifzjut3te2nhyekklss27nh3k72ysco7y32koao5eei66wof36n5e',
         ),
         throwsA(isA<InvalidCidError>()),
       );
