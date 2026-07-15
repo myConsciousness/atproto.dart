@@ -1,0 +1,25 @@
+# Keeps GitHub label colors/descriptions in sync with .github/labels.yml.
+#
+# Runs skip_delete so labels not listed in labels.yml are left untouched.
+name: Label Sync
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/labels.yml
+      - .github/workflows/label-sync.yml
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: crazy-max/ghaction-github-labeler@v5
+        with:
+          yaml_file: .github/labels.yml
+          skip_delete: true

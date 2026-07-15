@@ -8,20 +8,18 @@ import 'dart:convert';
 // Package imports:
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:pointycastle/pointycastle.dart';
 import 'package:test/test.dart';
 
 // Project imports:
 import 'package:atproto_oauth/atproto_oauth.dart';
-import 'package:atproto_oauth/src/helper/helper.dart';
-import 'package:atproto_oauth/src/helper/private_key.dart';
-import 'package:atproto_oauth/src/helper/public_key.dart';
 
-const _service = 'bsky.social';
+const _authority = 'bsky.social';
 const _origin = 'https://bsky.social';
 const _clientId = 'https://client.example/client-metadata.json';
 const _redirectUri = 'https://client.example/callback';
 const _sub = 'did:plc:abcdefghijklmnopqrstuvwx';
+const _pdsOrigin = 'https://pds.example';
+const _handle = 'shinyakato.dev';
 
 OAuthClientMetadata _metadata() => const OAuthClientMetadata(
   clientId: _clientId,
@@ -32,6 +30,23 @@ OAuthClientMetadata _metadata() => const OAuthClientMetadata(
   scope: 'atproto transition:generic',
   tokenEndpointAuthMethod: 'none',
 );
+
+/// A [DPoPSigner] returning fixed keys and a fixed proof so tests do not
+/// depend on real crypto.
+class _StubSigner implements DPoPSigner {
+  @override
+  Future<DPoPKeyPair> generateKeyPair() async =>
+      const DPoPKeyPair(publicKey: 'PUB', privateKey: 'PRIV');
+
+  @override
+  Future<String> createProof({
+    required String htm,
+    required String htu,
+    required DPoPKeyPair keyPair,
+    String? nonce,
+    String? accessToken,
+  }) async => 'stub.dpop.proof';
+}
 
 /// A recording mock HTTP client. Each request is routed to [handler]; all
 /// requests are captured in [requests] for assertions.
@@ -57,13 +72,42 @@ http.Response _json(
   headers: {'content-type': 'application/json', ...headers},
 );
 
-/// Well-known metadata document served by [_service].
+/// Well-known metadata document served by the authorization server.
 Map<String, dynamic> _serverMetadataDoc() => {
   'issuer': _origin,
   'pushed_authorization_request_endpoint': '$_origin/oauth/par',
   'authorization_endpoint': '$_origin/oauth/authorize',
   'token_endpoint': '$_origin/oauth/token',
 };
+
+Map<String, dynamic> _didDoc() => {
+  'id': _sub,
+  'alsoKnownAs': ['at://$_handle'],
+  'service': [
+    {
+      'id': '#atproto_pds',
+      'type': 'AtprotoPersonalDataServer',
+      'serviceEndpoint': _pdsOrigin,
+    },
+  ],
+};
+
+/// Routes the atproto identity-resolution requests (handle→DID, DID doc, and
+/// PDS protected-resource metadata). Returns `null` for anything else.
+http.Response? _identityRoute(final http.Request r) {
+  if (r.url.host == 'public.api.bsky.app' &&
+      r.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
+    return _json({'did': _sub});
+  }
+  if (r.url.host == 'plc.directory' && r.url.path == '/$_sub') {
+    return _json(_didDoc());
+  }
+  if (r.url.host == 'pds.example' &&
+      r.url.path == '/.well-known/oauth-protected-resource') {
+    return _json({'authorization_servers': [_origin]});
+  }
+  return null;
+}
 
 bool _isWellKnown(final http.Request r) =>
     r.url.path == '/.well-known/oauth-authorization-server';
@@ -75,8 +119,9 @@ Map<String, dynamic> _tokenBody({
   final int? expiresIn = 3600,
   final String? sub = _sub,
   final String? scope = 'atproto',
+  final String accessToken = 'access-token-1',
 }) => {
-  'access_token': 'access-token-1',
+  'access_token': accessToken,
   'token_type': 'DPoP',
   if (refreshToken != null) 'refresh_token': refreshToken,
   if (expiresIn != null) 'expires_in': expiresIn,
@@ -84,16 +129,59 @@ Map<String, dynamic> _tokenBody({
   if (scope != null) 'scope': scope,
 };
 
+/// Seeds an [OAuthContext] into [store] exactly as [OAuthClient.authorize]
+/// would, so [OAuthClient.callback] can recover it.
+Future<void> _seedState(
+  final OAuthStateStore store, {
+  final String state = 'the-state',
+  final String? issuer = _origin,
+  final String? expectedSub,
+}) => store.set(
+  state,
+  OAuthContext(
+    codeVerifier: 'the-code-verifier',
+    state: state,
+    issuer: issuer,
+    tokenEndpoint: '$_origin/oauth/token',
+    dpopPublicKey: 'PUB',
+    dpopPrivateKey: 'PRIV',
+    pds: _pdsOrigin,
+    expectedSub: expectedSub,
+  ),
+);
+
+OAuthSession _sessionWith({
+  final String? refreshToken = 'refresh-token-1',
+  final DateTime? expiresAt,
+  final String sub = _sub,
+  final String scope = 'atproto',
+}) => OAuthSession(
+  accessToken: 'old-access',
+  refreshToken: refreshToken,
+  scope: scope,
+  expiresAt: expiresAt,
+  sub: sub,
+  issuer: _origin,
+  pds: _pdsOrigin,
+  clientId: _clientId,
+  dpopPublicKey: 'PUB',
+  dpopPrivateKey: 'PRIV',
+);
+
 // ignore_for_file: use_null_aware_elements
 
 void main() {
   group('authorize', () {
-    test('performs PAR and returns authorize URL + context', () async {
+    test('resolves identity, performs PAR, returns authorize URL', () async {
       final recorder = _Recorder();
+      final stateStore = InMemoryOAuthStateStore();
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: recorder.build((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           if (_isPar(r)) {
             return _json(
@@ -106,7 +194,7 @@ void main() {
         }),
       );
 
-      final (url, context) = await client.authorize('shinyakato.dev');
+      final url = await client.authorize(_handle);
 
       expect(url.path, '/oauth/authorize');
       expect(url.queryParameters['client_id'], _clientId);
@@ -115,71 +203,59 @@ void main() {
         'urn:ietf:params:oauth:request_uri:xyz',
       );
 
-      expect(context.state, isNotEmpty);
-      expect(context.codeVerifier, hasLength(46));
-      expect(context.dpopNonce, 'nonce-from-par');
-      expect(context.issuer, _origin);
-      expect(context.tokenEndpoint, '$_origin/oauth/token');
-
       final parRequest = recorder.requests.firstWhere(_isPar);
       final fields = Uri.splitQueryString(parRequest.body);
       expect(fields['client_id'], _clientId);
       expect(fields['redirect_uri'], _redirectUri);
       expect(fields['code_challenge_method'], 'S256');
       expect(fields['response_type'], 'code');
-      expect(fields['login_hint'], 'shinyakato.dev');
+      expect(fields['login_hint'], _handle);
       expect(fields.containsKey('code_challenge'), isTrue);
+
+      // The per-authorization state was persisted keyed by `state`.
+      final state = fields['state']!;
+      final context = await stateStore.find(state);
+      expect(context, isNotNull);
+      expect(context!.issuer, _origin);
+      expect(context.tokenEndpoint, '$_origin/oauth/token');
+      expect(context.pds, _pdsOrigin);
+      expect(context.expectedSub, _sub);
+      expect(context.codeVerifier, hasLength(46));
     });
 
-    test('omits login_hint when identity is not provided', () async {
-      final recorder = _Recorder();
+    test('treats a missing dpop-nonce header as normal', () async {
       final client = OAuthClient(
         _metadata(),
-        service: _service,
-        httpClient: recorder.build((r) async {
-          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
-          return _json({'request_uri': 'urn:x'}, status: 201);
-        }),
-      );
-
-      await client.authorize();
-
-      final fields = Uri.splitQueryString(
-        recorder.requests.firstWhere(_isPar).body,
-      );
-      expect(fields.containsKey('login_hint'), isFalse);
-    });
-
-    test('treats a missing dpop-nonce header as normal (O-1)', () async {
-      final client = OAuthClient(
-        _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           // No dpop-nonce header at all.
           return _json({'request_uri': 'urn:x'}, status: 201);
         }),
       );
 
-      final (_, context) = await client.authorize();
-      expect(context.dpopNonce, isNull);
+      final url = await client.authorize(_handle);
+      expect(url.path, '/oauth/authorize');
     });
 
     test('falls back to conventional endpoints without discovery', () async {
-      final recorder = _Recorder();
       final client = OAuthClient(
         _metadata(),
-        service: _service,
-        httpClient: recorder.build((r) async {
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
           if (_isWellKnown(r)) return http.Response('not found', 404);
           if (_isPar(r)) return _json({'request_uri': 'urn:x'}, status: 201);
           return http.Response('unexpected', 500);
         }),
       );
 
-      final (url, context) = await client.authorize();
+      final url = await client.authorize(_handle);
       expect(url.path, '/oauth/authorize');
-      expect(context.tokenEndpoint, '$_origin/oauth/token');
+      expect(url.host, _authority);
     });
 
     test('throws when the client declares no redirect URI', () async {
@@ -192,60 +268,69 @@ void main() {
           scope: 'atproto',
           tokenEndpointAuthMethod: 'none',
         ),
-        service: _service,
-        httpClient: MockClient((r) async => _json(_serverMetadataDoc())),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async => http.Response('unexpected', 500)),
       );
 
-      expect(client.authorize, throwsA(isA<OAuthException>()));
+      await expectLater(
+        () => client.authorize(_handle),
+        throwsA(isA<OAuthException>()),
+      );
     });
 
     test('throws OAuthException on non-201 PAR response', () async {
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           return http.Response('bad request', 400);
         }),
       );
 
-      expect(client.authorize, throwsA(isA<OAuthException>()));
+      await expectLater(
+        () => client.authorize(_handle),
+        throwsA(isA<OAuthException>()),
+      );
     });
 
-    test('rejects an issuer that does not match the service', () async {
+    test('rejects an issuer that does not match the auth server', () async {
       final client = OAuthClient(
         _metadata(),
-        service: _service,
-        httpClient: MockClient(
-          (r) async => _json({
-            ..._serverMetadataDoc(),
-            'issuer': 'https://evil.example',
-          }),
-        ),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) {
+            return _json({
+              ..._serverMetadataDoc(),
+              'issuer': 'https://evil.example',
+            });
+          }
+          return http.Response('unexpected', 500);
+        }),
       );
 
-      expect(client.authorize, throwsA(isA<OAuthException>()));
+      await expectLater(
+        () => client.authorize(_handle),
+        throwsA(isA<OAuthException>()),
+      );
     });
   });
 
   group('callback', () {
-    OAuthContext contextWith({
-      final String state = 'the-state',
-      final String? dpopNonce = 'nonce-0',
-      final String? issuer = _origin,
-    }) => OAuthContext(
-      codeVerifier: 'the-code-verifier',
-      state: state,
-      dpopNonce: dpopNonce,
-      issuer: issuer,
-      tokenEndpoint: '$_origin/oauth/token',
-    );
-
-    test('exchanges the code and returns a session', () async {
+    test('exchanges the code, returns and stores a session', () async {
       final recorder = _Recorder();
+      final stateStore = InMemoryOAuthStateStore();
+      final sessionStore = InMemoryOAuthSessionStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
         httpClient: recorder.build((r) async {
           if (_isToken(r)) {
             return _json(_tokenBody(), headers: {'dpop-nonce': 'nonce-1'});
@@ -256,16 +341,20 @@ void main() {
 
       final session = await client.callback(
         '$_redirectUri?iss=$_origin&state=the-state&code=auth-code',
-        contextWith(),
       );
 
       expect(session.accessToken, 'access-token-1');
       expect(session.refreshToken, 'refresh-token-1');
       expect(session.tokenType, 'DPoP');
       expect(session.sub, _sub);
-      expect(session.$dPoPNonce, 'nonce-1');
-      expect(session.$clientId, _clientId);
-      expect(session.expiresAt.isAfter(DateTime.now().toUtc()), isTrue);
+      expect(session.clientId, _clientId);
+      expect(session.issuer, _origin);
+      expect(session.pds, _pdsOrigin);
+      expect(session.expiresAt!.isAfter(DateTime.now().toUtc()), isTrue);
+
+      // The session was persisted, and the consumed state removed.
+      expect(await sessionStore.find(_sub), isNotNull);
+      expect(await stateStore.find('the-state'), isNull);
 
       final tokenRequest = recorder.requests.firstWhere(_isToken);
       expect(tokenRequest.headers['DPoP'], isNotNull);
@@ -276,18 +365,18 @@ void main() {
       expect(fields['redirect_uri'], _redirectUri);
     });
 
-    test('rejects a state mismatch', () async {
+    test('rejects an unknown state (not in the store)', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async => _json(_tokenBody())),
       );
 
-      expect(
-        () => client.callback(
-          '$_redirectUri?iss=$_origin&state=WRONG&code=c',
-          contextWith(),
-        ),
+      await expectLater(
+        () => client.callback('$_redirectUri?iss=$_origin&state=WRONG&code=c'),
         throwsA(isA<OAuthException>()),
       );
     });
@@ -295,36 +384,57 @@ void main() {
     test('rejects a missing state parameter', () async {
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async => _json(_tokenBody())),
       );
 
-      expect(
-        () => client.callback('$_redirectUri?code=c', contextWith()),
+      await expectLater(
+        () => client.callback('$_redirectUri?code=c'),
         throwsA(isA<OAuthException>()),
       );
     });
 
-    test('rejects an iss mismatch (O-6, RFC 9207)', () async {
+    test('rejects an iss mismatch (RFC 9207)', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async => _json(_tokenBody())),
       );
 
-      expect(
+      await expectLater(
         () => client.callback(
           '$_redirectUri?iss=https://evil.example&state=the-state&code=c',
-          contextWith(),
         ),
         throwsA(isA<OAuthException>()),
       );
     });
 
-    test('accepts a matching iss with trailing-slash normalization', () async {
+    test('rejects a callback missing iss (RFC 9207)', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async => _json(_tokenBody())),
+      );
+
+      await expectLater(
+        () => client.callback('$_redirectUri?state=the-state&code=c'),
+        throwsA(isA<OAuthException>()),
+      );
+    });
+
+    test('accepts a matching iss with trailing-slash normalization', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isToken(r)) return _json(_tokenBody());
           return http.Response('unexpected', 500);
@@ -333,40 +443,24 @@ void main() {
 
       final session = await client.callback(
         '$_redirectUri?iss=$_origin/&state=the-state&code=c',
-        contextWith(),
       );
       expect(session.accessToken, 'access-token-1');
     });
 
-    test('requires iss when an explicit issuer is passed (O-6)', () async {
-      final client = OAuthClient(
-        _metadata(),
-        service: _service,
-        httpClient: MockClient((r) async => _json(_tokenBody())),
-      );
-
-      expect(
-        () => client.callback(
-          '$_redirectUri?state=the-state&code=c',
-          contextWith(),
-          issuer: _origin,
-        ),
-        throwsA(isA<OAuthException>()),
-      );
-    });
-
     test('surfaces an error parameter in the callback', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async => _json(_tokenBody())),
       );
 
-      expect(
+      await expectLater(
         () => client.callback(
           '$_redirectUri?iss=$_origin&state=the-state'
           '&error=access_denied&error_description=nope',
-          contextWith(),
         ),
         throwsA(
           isA<OAuthException>().having(
@@ -379,28 +473,32 @@ void main() {
     });
 
     test('rejects a missing code parameter', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async => _json(_tokenBody())),
       );
 
-      expect(
-        () => client.callback(
-          '$_redirectUri?iss=$_origin&state=the-state',
-          contextWith(),
-        ),
+      await expectLater(
+        () => client.callback('$_redirectUri?iss=$_origin&state=the-state'),
         throwsA(isA<OAuthException>()),
       );
     });
 
-    test('retries once with the server-provided dpop nonce (O-2)', () async {
-      final recorder = _Recorder();
+    test('retries once with the server-provided dpop nonce', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      final nonceCache = InMemoryDPoPNonceCache();
+      await _seedState(stateStore);
       var tokenCalls = 0;
       final client = OAuthClient(
         _metadata(),
-        service: _service,
-        httpClient: recorder.build((r) async {
+        stateStore: stateStore,
+        nonceCache: nonceCache,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
           if (_isToken(r)) {
             tokenCalls++;
             if (tokenCalls == 1) {
@@ -418,18 +516,22 @@ void main() {
 
       final session = await client.callback(
         '$_redirectUri?iss=$_origin&state=the-state&code=c',
-        contextWith(dpopNonce: null),
       );
 
       expect(tokenCalls, 2);
-      expect(session.$dPoPNonce, 'fresh-nonce');
+      expect(session.accessToken, 'access-token-1');
+      // The nonce is cached per origin, not on the session.
+      expect(await nonceCache.find(_origin), 'fresh-nonce');
     });
 
-    test('bounds use_dpop_nonce retries and then throws (O-2)', () async {
+    test('bounds use_dpop_nonce retries and then throws', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       var tokenCalls = 0;
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isToken(r)) {
             tokenCalls++;
@@ -447,7 +549,6 @@ void main() {
       await expectLater(
         () => client.callback(
           '$_redirectUri?iss=$_origin&state=the-state&code=c',
-          contextWith(),
         ),
         throwsA(isA<OAuthException>()),
       );
@@ -455,10 +556,13 @@ void main() {
       expect(tokenCalls, 3);
     });
 
-    test('does not FormatException on an HTML error body (O-4)', () async {
+    test('does not FormatException on an HTML error body', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isToken(r)) {
             return http.Response(
@@ -474,16 +578,18 @@ void main() {
       await expectLater(
         () => client.callback(
           '$_redirectUri?iss=$_origin&state=the-state&code=c',
-          contextWith(),
         ),
         throwsA(isA<OAuthException>()),
       );
     });
 
-    test('rejects a non-DID sub (O-8, atproto profile)', () async {
+    test('rejects a non-DID sub (atproto profile)', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isToken(r)) return _json(_tokenBody(sub: 'not-a-did'));
           return http.Response('unexpected', 500);
@@ -493,16 +599,41 @@ void main() {
       await expectLater(
         () => client.callback(
           '$_redirectUri?iss=$_origin&state=the-state&code=c',
-          contextWith(),
         ),
         throwsA(isA<OAuthException>()),
       );
     });
 
-    test('defaults expiry when expires_in is missing (O-3)', () async {
+    test('rejects a sub that mismatches the expected account', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore, expectedSub: _sub);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isToken(r)) {
+            return _json(_tokenBody(sub: 'did:plc:zzzzzzzzzzzzzzzzzzzzzzzz'));
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.callback(
+          '$_redirectUri?iss=$_origin&state=the-state&code=c',
+        ),
+        throwsA(isA<OAuthException>()),
+      );
+    });
+
+    test('defaults expiry when expires_in is missing', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isToken(r)) return _json(_tokenBody(expiresIn: null));
           return http.Response('unexpected', 500);
@@ -511,58 +642,67 @@ void main() {
 
       final session = await client.callback(
         '$_redirectUri?iss=$_origin&state=the-state&code=c',
-        contextWith(),
       );
-      expect(session.expiresAt.isAfter(DateTime.now().toUtc()), isTrue);
+      expect(session.expiresAt!.isAfter(DateTime.now().toUtc()), isTrue);
+    });
+
+    test('accepts an opaque (non-JWT) access token', () async {
+      final stateStore = InMemoryOAuthStateStore();
+      final sessionStore = InMemoryOAuthSessionStore();
+      const state = 'state-xyz';
+      await stateStore.set(state, const OAuthContext(
+        codeVerifier: 'verifier', state: state,
+        issuer: 'https://bsky.social',
+        tokenEndpoint: 'https://bsky.social/oauth/token',
+        dpopPublicKey: 'PUB', dpopPrivateKey: 'PRIV',
+        pds: 'https://pds.example',
+        expectedSub: 'did:plc:abcdefghijklmnopqrstuvwx',
+      ));
+      final client = MockClient((r) async {
+        if (r.url.path == '/.well-known/oauth-authorization-server') {
+          return _json({'issuer': 'https://bsky.social',
+            'token_endpoint': 'https://bsky.social/oauth/token'});
+        }
+        if (r.url.path == '/oauth/token') {
+          return _json({'access_token': 'opaque~not~a~jwt', 'token_type': 'DPoP',
+            'refresh_token': 'refresh-1', 'scope': 'atproto', 'expires_in': 3600,
+            'sub': 'did:plc:abcdefghijklmnopqrstuvwx'});
+        }
+        return http.Response('nope', 404);
+      });
+      final oauth = OAuthClient(_metadata(),
+          stateStore: stateStore, sessionStore: sessionStore,
+          signer: _StubSigner(), httpClient: client);
+      final session = await oauth.callback(
+        'https://client.example/callback?iss=https://bsky.social&state=$state&code=abc');
+      expect(session.accessToken, 'opaque~not~a~jwt');
+      expect(session.pds, 'https://pds.example');
+      expect(await sessionStore.find('did:plc:abcdefghijklmnopqrstuvwx'),
+          isNotNull);
     });
   });
 
   group('refresh', () {
-    late String publicKey;
-    late String privateKey;
-
-    setUp(() {
-      // refresh() signs a DPoP proof with the session's own key pair, so we
-      // must supply a real, encodable P-256 key.
-      final keyPair = getKeyPair();
-      publicKey = encodePublicKey(keyPair.publicKey as ECPublicKey);
-      privateKey = encodePrivateKey(keyPair.privateKey as ECPrivateKey);
-    });
-
-    OAuthSession sessionWith({
-      final String refreshToken = 'refresh-token-1',
-      final String? dpopNonce = 'nonce-0',
-    }) => OAuthSession(
-      accessToken: 'old-access',
-      refreshToken: refreshToken,
-      tokenType: 'DPoP',
-      scope: 'atproto',
-      expiresAt: DateTime.now().toUtc(),
-      sub: _sub,
-      $clientId: _clientId,
-      $dPoPNonce: dpopNonce,
-      $publicKey: publicKey,
-      $privateKey: privateKey,
-    );
-
     test('throws when the session has no refresh token', () async {
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async => _json(_tokenBody())),
       );
 
       await expectLater(
-        () => client.refresh(sessionWith(refreshToken: '')),
+        () => client.refresh(_sessionWith(refreshToken: '')),
         throwsA(isA<OAuthException>()),
       );
     });
 
-    test('returns a new session and never mutates the input (O-9)', () async {
+    test('returns a new stored session and never mutates the input', () async {
       final recorder = _Recorder();
+      final sessionStore = InMemoryOAuthSessionStore();
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
         httpClient: recorder.build((r) async {
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           if (_isToken(r)) {
@@ -575,16 +715,14 @@ void main() {
         }),
       );
 
-      final original = sessionWith();
+      final original = _sessionWith();
       final refreshed = await client.refresh(original);
 
-      // The input object must be untouched (no more in-place mutation).
-      expect(original.$dPoPNonce, 'nonce-0');
       expect(original.refreshToken, 'refresh-token-1');
       expect(identical(original, refreshed), isFalse);
       expect(refreshed.refreshToken, 'refresh-token-2');
-      expect(refreshed.$dPoPNonce, 'nonce-new');
       expect(refreshed.accessToken, 'access-token-1');
+      expect(await sessionStore.find(_sub), isNotNull);
 
       final fields = Uri.splitQueryString(
         recorder.requests.firstWhere(_isToken).body,
@@ -593,29 +731,26 @@ void main() {
       expect(fields['refresh_token'], 'refresh-token-1');
     });
 
-    test(
-      'non-rotating server keeps the existing refresh token (O-3)',
-      () async {
-        final client = OAuthClient(
-          _metadata(),
-          service: _service,
-          httpClient: MockClient((r) async {
-            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
-            if (_isToken(r)) return _json(_tokenBody(refreshToken: null));
-            return http.Response('unexpected', 500);
-          }),
-        );
+    test('non-rotating server keeps the existing refresh token', () async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isToken(r)) return _json(_tokenBody(refreshToken: null));
+          return http.Response('unexpected', 500);
+        }),
+      );
 
-        final refreshed = await client.refresh(sessionWith());
-        expect(refreshed.refreshToken, 'refresh-token-1');
-      },
-    );
+      final refreshed = await client.refresh(_sessionWith());
+      expect(refreshed.refreshToken, 'refresh-token-1');
+    });
 
-    test('refresh checks statusCode before retrying nonce (O-2)', () async {
+    test('checks statusCode before retrying nonce', () async {
       var tokenCalls = 0;
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           if (_isToken(r)) {
@@ -633,18 +768,16 @@ void main() {
         }),
       );
 
-      final refreshed = await client.refresh(sessionWith());
+      final refreshed = await client.refresh(_sessionWith());
       expect(tokenCalls, 2);
-      expect(refreshed.$dPoPNonce, 'fresh');
+      expect(refreshed.accessToken, 'access-token-1');
     });
 
     test('a 200 body carrying an error field is not retried forever', () async {
-      // A well-behaved success (200) must never be treated as a nonce retry
-      // even if it echoes an error-like field.
       var tokenCalls = 0;
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           if (_isToken(r)) {
@@ -655,37 +788,33 @@ void main() {
         }),
       );
 
-      await client.refresh(sessionWith());
+      await client.refresh(_sessionWith());
       expect(tokenCalls, 1);
     });
 
-    test(
-      'rejects a refreshed token whose sub differs (account swap)',
-      () async {
-        final client = OAuthClient(
-          _metadata(),
-          service: _service,
-          httpClient: MockClient((r) async {
-            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
-            // A different account DID than the session was minted for.
-            if (_isToken(r)) {
-              return _json(_tokenBody(sub: 'did:plc:zzzzzzzzzzzzzzzzzzzzzzzz'));
-            }
-            return http.Response('unexpected', 500);
-          }),
-        );
+    test('rejects a refreshed token whose sub differs', () async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isToken(r)) {
+            return _json(_tokenBody(sub: 'did:plc:zzzzzzzzzzzzzzzzzzzzzzzz'));
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
 
-        await expectLater(
-          () => client.refresh(sessionWith()),
-          throwsA(isA<OAuthException>()),
-        );
-      },
-    );
+      await expectLater(
+        () => client.refresh(_sessionWith()),
+        throwsA(isA<OAuthException>()),
+      );
+    });
 
     test('a refresh that omits scope keeps the session scope', () async {
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isWellKnown(r)) return _json(_serverMetadataDoc());
           if (_isToken(r)) return _json(_tokenBody(scope: null));
@@ -693,24 +822,45 @@ void main() {
         }),
       );
 
-      final refreshed = await client.refresh(sessionWith());
+      final refreshed = await client.refresh(_sessionWith());
       expect(refreshed.scope, 'atproto');
     });
+
+    test(
+      'invalid_grant deletes the session and throws OAuthSessionRevoked',
+      () async {
+        final sessionStore = InMemoryOAuthSessionStore();
+        await sessionStore.set(_sub, _sessionWith());
+        final client = OAuthClient(
+          _metadata(),
+          sessionStore: sessionStore,
+          signer: _StubSigner(),
+          httpClient: MockClient((r) async {
+            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+            if (_isToken(r)) {
+              return _json({'error': 'invalid_grant'}, status: 400);
+            }
+            return http.Response('unexpected', 500);
+          }),
+        );
+
+        await expectLater(
+          () => client.refresh(_sessionWith()),
+          throwsA(isA<OAuthSessionRevokedException>()),
+        );
+        expect(await sessionStore.find(_sub), isNull);
+      },
+    );
   });
 
   group('scope validation (atproto profile)', () {
-    OAuthContext contextWith() => const OAuthContext(
-      codeVerifier: 'the-code-verifier',
-      state: 'the-state',
-      dpopNonce: 'nonce-0',
-      issuer: _origin,
-      tokenEndpoint: '$_origin/oauth/token',
-    );
-
-    Future<OAuthSession> exchangeWithScope(final String? scope) {
+    Future<OAuthSession> exchangeWithScope(final String? scope) async {
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
       final client = OAuthClient(
         _metadata(),
-        service: _service,
+        stateStore: stateStore,
+        signer: _StubSigner(),
         httpClient: MockClient((r) async {
           if (_isToken(r)) return _json(_tokenBody(scope: scope));
           return http.Response('unexpected', 500);
@@ -719,7 +869,6 @@ void main() {
 
       return client.callback(
         '$_redirectUri?iss=$_origin&state=the-state&code=c',
-        contextWith(),
       );
     }
 
@@ -743,31 +892,70 @@ void main() {
     });
   });
 
-  group('iss enforcement by default (RFC 9207)', () {
-    test(
-      'rejects a callback missing iss even without an explicit issuer',
-      () async {
-        final client = OAuthClient(
-          _metadata(),
-          service: _service,
-          httpClient: MockClient((r) async => _json(_tokenBody())),
-        );
+  group('restore', () {
+    test('returns null for an unknown sub', () async {
+      final client = OAuthClient(_metadata(), signer: _StubSigner());
+      expect(await client.restore(_sub), isNull);
+    });
 
-        await expectLater(
-          () => client.callback(
-            '$_redirectUri?state=the-state&code=c',
-            const OAuthContext(
-              codeVerifier: 'the-code-verifier',
-              state: 'the-state',
-              dpopNonce: 'nonce-0',
-              issuer: _origin,
-              tokenEndpoint: '$_origin/oauth/token',
-            ),
-          ),
-          throwsA(isA<OAuthException>()),
-        );
-      },
-    );
+    test('returns the stored session when not expired', () async {
+      final sessionStore = InMemoryOAuthSessionStore();
+      final stored = _sessionWith(
+        expiresAt: DateTime.now().toUtc().add(const Duration(hours: 1)),
+      );
+      await sessionStore.set(_sub, stored);
+      final client = OAuthClient(
+        _metadata(),
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
+      );
+
+      final restored = await client.restore(_sub);
+      expect(restored, isNotNull);
+      expect(restored!.accessToken, 'old-access');
+    });
+
+    test('refreshes the stored session when expired', () async {
+      final sessionStore = InMemoryOAuthSessionStore();
+      await sessionStore.set(
+        _sub,
+        _sessionWith(
+          expiresAt: DateTime.now().toUtc().subtract(const Duration(hours: 1)),
+        ),
+      );
+      final client = OAuthClient(
+        _metadata(),
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isToken(r)) {
+            return _json(_tokenBody(refreshToken: 'refresh-token-2'));
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      final restored = await client.restore(_sub);
+      expect(restored, isNotNull);
+      expect(restored!.accessToken, 'access-token-1');
+      expect(restored.refreshToken, 'refresh-token-2');
+    });
+  });
+
+  group('revoke', () {
+    test('removes the session from the store', () async {
+      final sessionStore = InMemoryOAuthSessionStore();
+      await sessionStore.set(_sub, _sessionWith());
+      final client = OAuthClient(
+        _metadata(),
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
+      );
+
+      await client.revoke(_sessionWith());
+      expect(await sessionStore.find(_sub), isNull);
+    });
   });
 
   group('getClientMetadata client_id scheme', () {
@@ -792,133 +980,6 @@ void main() {
         client: MockClient((r) async => _json(_metadata().toJson())),
       );
       expect(metadata.clientId, _clientId);
-    });
-  });
-
-  group('authorization server / identity resolution', () {
-    const pdsOrigin = 'https://pds.example';
-    const did = 'did:plc:abcdefghijklmnopqrstuvwx';
-    const handle = 'alice.example';
-
-    bool isProtectedResource(final http.Request r) =>
-        r.url.host == 'pds.example' &&
-        r.url.path == '/.well-known/oauth-protected-resource';
-
-    Map<String, dynamic> didDoc({final List<String>? alsoKnownAs}) => {
-      'id': did,
-      if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
-      'service': [
-        {
-          'id': '#atproto_pds',
-          'type': 'AtprotoPersonalDataServer',
-          'serviceEndpoint': pdsOrigin,
-        },
-      ],
-    };
-
-    test('resolveFromPds discovers the authorization server', () async {
-      final client = await OAuthClient.resolveFromPds(
-        _metadata(),
-        pdsOrigin,
-        httpClient: MockClient((r) async {
-          if (isProtectedResource(r)) {
-            return _json({
-              'resource': pdsOrigin,
-              'authorization_servers': [_origin],
-            });
-          }
-          return http.Response('unexpected', 500);
-        }),
-      );
-
-      expect(client.service, _service);
-      expect(client.pds, pdsOrigin);
-    });
-
-    test(
-      'resolveFromPds throws when no authorization server is declared',
-      () async {
-        await expectLater(
-          () => OAuthClient.resolveFromPds(
-            _metadata(),
-            pdsOrigin,
-            httpClient: MockClient((r) async {
-              if (isProtectedResource(r)) {
-                return _json({'authorization_servers': <String>[]});
-              }
-              return http.Response('unexpected', 500);
-            }),
-          ),
-          throwsA(isA<OAuthException>()),
-        );
-      },
-    );
-
-    test(
-      'resolveFromIdentity resolves a did:plc and sets expectedSub',
-      () async {
-        final client = await OAuthClient.resolveFromIdentity(
-          _metadata(),
-          did,
-          plcDirectory: 'https://plc.example',
-          httpClient: MockClient((r) async {
-            if (r.url.host == 'plc.example' && r.url.path == '/$did') {
-              return _json(didDoc());
-            }
-            if (isProtectedResource(r)) {
-              return _json({
-                'authorization_servers': [_origin],
-              });
-            }
-            return http.Response('unexpected', 500);
-          }),
-        );
-
-        expect(client.service, _service);
-        expect(client.pds, pdsOrigin);
-        expect(client.expectedSub, did);
-      },
-    );
-
-    test('resolveFromIdentity verifies handle bidirectionally', () async {
-      MockClient buildClient(final List<String> alsoKnownAs) =>
-          MockClient((r) async {
-            if (r.url.host == 'resolver.example' &&
-                r.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
-              return _json({'did': did});
-            }
-            if (r.url.host == 'plc.example' && r.url.path == '/$did') {
-              return _json(didDoc(alsoKnownAs: alsoKnownAs));
-            }
-            if (isProtectedResource(r)) {
-              return _json({
-                'authorization_servers': [_origin],
-              });
-            }
-            return http.Response('unexpected', 500);
-          });
-
-      // Matching alsoKnownAs -> success.
-      final client = await OAuthClient.resolveFromIdentity(
-        _metadata(),
-        handle,
-        handleResolver: 'https://resolver.example',
-        plcDirectory: 'https://plc.example',
-        httpClient: buildClient(['at://$handle']),
-      );
-      expect(client.expectedSub, did);
-
-      // DID document does not claim the handle back -> rejected.
-      await expectLater(
-        () => OAuthClient.resolveFromIdentity(
-          _metadata(),
-          handle,
-          handleResolver: 'https://resolver.example',
-          plcDirectory: 'https://plc.example',
-          httpClient: buildClient(['at://someone.else']),
-        ),
-        throwsA(isA<OAuthException>()),
-      );
     });
   });
 }

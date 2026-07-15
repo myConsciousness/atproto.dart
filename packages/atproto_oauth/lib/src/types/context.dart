@@ -31,6 +31,12 @@ part 'context.g.dart';
 ///   used again for the token request in [callback]. These may be `null`
 ///   for contexts serialized by older versions of this library, in which
 ///   case [callback] generates a fresh key pair.
+/// - [pds]: The user's Personal Data Server (PDS) URL, carried from
+///   [authorize] so it can be used to populate the resulting session in
+///   [callback].
+/// - [expectedSub]: The expected subject (DID) of the authorized account,
+///   carried from [authorize] so the token response's `sub` can be verified
+///   in [callback].
 ///
 /// **Security warning**: when [dpopPrivateKey] is set, this object contains
 /// sensitive key material. Only persist it (e.g. via `toJson`) into
@@ -46,6 +52,8 @@ abstract class OAuthContext with _$OAuthContext {
     String? tokenEndpoint,
     String? dpopPublicKey,
     String? dpopPrivateKey,
+    String? pds,
+    String? expectedSub,
   }) = _OAuthContext;
 
   factory OAuthContext.fromJson(Map<String, Object?> json) =>

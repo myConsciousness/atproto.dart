@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.0.0
+
+- feat!: `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`); `fromOAuthSession(session, {oauthClient})` wraps a shared manager; `oAuthSession` getter replaced by `oAuthSessionManager`.
+
 ## v1.7.2
 
 - chore: `tools.ozone.queue.defs#queueView.reportTypes` is now optional

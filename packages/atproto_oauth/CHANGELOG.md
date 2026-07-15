@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.5.0
+
+- feat!: OAuth processes are now fully pluggable — inject `OAuthStateStore`, `OAuthSessionStore`, `DPoPNonceCache`, `IdentityResolver`, `DPoPSigner` (in-memory/HTTP/pointycastle defaults provided). (#2060)
+- fix!: OAuth access/refresh tokens are treated as opaque — the library no longer decodes them as JWTs, fixing failures with PDS "light" access tokens that omit `aud`. (#1982)
+- feat!: `OAuthSession` is now self-contained (`issuer`, `pds`, `clientId`, `dpopPublicKey`, `dpopPrivateKey`); DPoP nonces moved out of the session into a per-origin `DPoPNonceCache`. `fromJson`/`toJson`; `fromLegacyJson({required issuer, required pds})` restores <=0.4.x payloads.
+- feat: `OAuthSessionManager` builds DPoP auth headers per request and refreshes tokens (single-flight, proactive + on-401); `OAuthClient` gains `revoke`/`restore`; `callback` no longer needs an `OAuthContext` argument (stored via `OAuthStateStore`, so callbacks survive app restarts); new `OAuthSessionRevokedException`.
+- feat!: `OAuthClient.authorize(identity)` returns a `Uri` and resolves the authorization server internally; `resolveFromPds`/`resolveFromIdentity` removed.
+
 ## v0.4.0
 
 - fix!: the `dpop-nonce` response header is now treated as optional — a missing header (it is optional per RFC 9449) no longer crashes after a token has been successfully issued, which previously lost the token (O-1).

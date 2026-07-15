@@ -15,6 +15,8 @@ _OAuthContext _$OAuthContextFromJson(Map<String, dynamic> json) =>
       tokenEndpoint: json['tokenEndpoint'] as String?,
       dpopPublicKey: json['dpopPublicKey'] as String?,
       dpopPrivateKey: json['dpopPrivateKey'] as String?,
+      pds: json['pds'] as String?,
+      expectedSub: json['expectedSub'] as String?,
     );
 
 Map<String, dynamic> _$OAuthContextToJson(_OAuthContext instance) =>
@@ -26,4 +28,6 @@ Map<String, dynamic> _$OAuthContextToJson(_OAuthContext instance) =>
       'tokenEndpoint': ?instance.tokenEndpoint,
       'dpopPublicKey': ?instance.dpopPublicKey,
       'dpopPrivateKey': ?instance.dpopPrivateKey,
+      'pds': ?instance.pds,
+      'expectedSub': ?instance.expectedSub,
     };
