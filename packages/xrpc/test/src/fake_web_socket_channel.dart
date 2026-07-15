@@ -30,6 +30,16 @@ final class FakeWebSocketChannel extends StreamChannelMixin<dynamic>
   /// Closes the connection as if the server disconnected.
   Future<void> closeIncoming() => _incoming.close();
 
+  /// Whether the single subscription on the incoming stream is paused.
+  ///
+  /// Reflects whether consumer backpressure has propagated to the source.
+  bool get isPaused => _incoming.isPaused;
+
+  /// Whether the incoming stream still has an active listener.
+  ///
+  /// Becomes `false` once the underlying subscription is cancelled.
+  bool get hasListener => _incoming.hasListener;
+
   @override
   Stream<dynamic> get stream => _incoming.stream;
 

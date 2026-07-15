@@ -19,6 +19,18 @@ import 'types.dart' as type;
 type.UriFactory getUriFactory(final Protocol protocol) =>
     protocol == Protocol.https ? Uri.https : Uri.http;
 
+/// Recursively removes `null` values **and** empty collections from [object].
+///
+/// After a nested [Map] or [List] has had its `null` values removed, an
+/// empty result collapses to `null` so that it is pruned from its parent.
+///
+/// This behavior is desirable for **query parameters** (an empty collection
+/// carries no meaning on the wire), so this helper backs [toQueryParameters].
+///
+/// It MUST NOT be used to clean request **bodies**: an explicitly empty
+/// collection can be semantically significant there (for example, an
+/// `app.bsky.feed.threadgate` with `allow: []` means "nobody can reply").
+/// Use [removeNullValuesFromBody] for bodies instead.
 dynamic removeNullValues(final dynamic object) {
   if (object is Map) {
     final parameters = <String, dynamic>{};
@@ -44,6 +56,42 @@ dynamic removeNullValues(final dynamic object) {
     //! Consistent with the Map case above: empty collections are removed
     //! from their parent object.
     return parameters.isNotEmpty ? parameters : null;
+  }
+
+  //! Just return it as is if it's neither Map nor List.
+  return object;
+}
+
+/// Recursively removes only `null` values from a request [body] while
+/// KEEPING empty [List]s and [Map]s intact.
+///
+/// Unlike [removeNullValues], an empty collection is preserved rather than
+/// pruned. This matters for request bodies where an explicitly empty
+/// collection changes the meaning of the request — e.g. an
+/// `app.bsky.feed.threadgate` with `allow: []` ("nobody can reply") must not
+/// silently lose its `allow` key and invert to "anyone can reply".
+dynamic removeNullValuesFromBody(final dynamic object) {
+  if (object is Map) {
+    final result = <String, dynamic>{};
+    object.forEach((key, value) {
+      //! Drop the entry only when its value is literally `null`; keep
+      //! empty collections and everything else.
+      if (value == null) return;
+
+      result[key] = removeNullValuesFromBody(value);
+    });
+
+    return result;
+  } else if (object is List) {
+    final result = <dynamic>[];
+    for (final value in object) {
+      //! Drop `null` elements but never collapse the (possibly empty) list.
+      if (value == null) continue;
+
+      result.add(removeNullValuesFromBody(value));
+    }
+
+    return result;
   }
 
   //! Just return it as is if it's neither Map nor List.
@@ -184,6 +232,18 @@ T getData<T>(
 
 /// Returns the transformed data object.
 T _transformData<T>(final String body, final type.ResponseDataBuilder<T>? to) {
+  //! A 200 response can legitimately carry an empty body (many procedures
+  //! return no content). Decoding it with `jsonDecode` would throw a raw
+  //! `FormatException`, so treat an empty body as an empty JSON object
+  //! instead and let the caller's converter decide.
+  if (body.isEmpty) {
+    if (to != null) return to.call(const <String, dynamic>{});
+    if (T == String) return body as T;
+    if (T == Map<String, dynamic>) return const <String, dynamic>{} as T;
+
+    return const EmptyData() as T;
+  }
+
   if (to != null) return to.call(jsonDecode(body));
   if (T == String) return body as T;
   if (T == Map<String, dynamic>) return jsonDecode(body) as T;

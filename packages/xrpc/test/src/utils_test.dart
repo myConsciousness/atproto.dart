@@ -123,6 +123,56 @@ void main() {
     });
   });
 
+  group('.removeNullValuesFromBody', () {
+    test('removes only nulls and keeps other values', () {
+      final actual = removeNullValuesFromBody({'test': 'aaaa', 'test2': null});
+
+      expect(actual, {'test': 'aaaa'});
+    });
+
+    test('keeps an explicitly empty list (e.g. threadgate allow: [])', () {
+      final actual = removeNullValuesFromBody({
+        'allow': <dynamic>[],
+        'ignored': null,
+      });
+
+      //! The empty list MUST survive: dropping it would invert a
+      //! threadgate from "nobody can reply" to "anyone can reply".
+      expect(actual, {'allow': <dynamic>[]});
+    });
+
+    test('keeps a nested empty map', () {
+      final actual = removeNullValuesFromBody({
+        'meta': <String, dynamic>{},
+        'ignored': null,
+      });
+
+      expect(actual, {'meta': <String, dynamic>{}});
+    });
+
+    test('removes nulls in nested maps but keeps the map', () {
+      final actual = removeNullValuesFromBody({
+        'outer': {'kept': 1, 'dropped': null},
+      });
+
+      expect(actual, {
+        'outer': {'kept': 1},
+      });
+    });
+
+    test('drops null elements but keeps the (possibly empty) list', () {
+      final actual = removeNullValuesFromBody({
+        'nulls': [null, null],
+        'mixed': [null, 'a'],
+      });
+
+      expect(actual, {
+        'nulls': <dynamic>[],
+        'mixed': ['a'],
+      });
+    });
+  });
+
   group('.toQueryParameters', () {
     test('null parameters', () {
       expect(toQueryParameters(null), isNull);
