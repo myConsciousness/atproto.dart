@@ -21,9 +21,10 @@ String emitDartFile(final DartFile file) {
   for (final group in file.imports) {
     if (group.isEmpty) continue;
     for (final import in group) {
+      final prefix = import.prefix == null ? '' : ' as ${import.prefix}';
       final show = import.show.isEmpty ? '' : ' show ${import.show.join(', ')}';
       final hide = import.hide.isEmpty ? '' : ' hide ${import.hide.join(', ')}';
-      b.writeln("import '${import.uri}'$show$hide;");
+      b.writeln("import '${import.uri}'$prefix$show$hide;");
     }
     b.writeln();
   }

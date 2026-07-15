@@ -46,8 +46,14 @@ class DartFile {
 }
 
 class DartImport {
-  const DartImport(this.uri, {this.show = const [], this.hide = const []});
+  const DartImport(
+    this.uri, {
+    this.prefix,
+    this.show = const [],
+    this.hide = const [],
+  });
   final String uri;
+  final String? prefix; // `as <prefix>`
   final List<String> show;
   final List<String> hide;
 }
