@@ -215,35 +215,30 @@ void main() {
     });
 
     test(
-      'uses stored client id for DPoP headers when tokens omit client_id and iss',
+      'builds opaque-token DPoP auth headers via the OAuthSessionManager',
       () async {
         final keyPair = getKeyPair();
         final publicKey = encodePublicKey(keyPair.publicKey as dynamic);
         final privateKey = encodePrivateKey(keyPair.privateKey as dynamic);
         Map<String, String>? requestHeaders;
 
+        const accessToken = 'opaque-access-token';
+
         final context = ServiceContext(
-          oAuthSession: OAuthSession(
-            accessToken: _jwt({
-              'sub': 'did:plc:testaccount',
-              'scope': 'atproto transition:generic',
-              'aud': 'did:web:pds.sprk.so',
-              'exp': 1893456000,
-              'iat': 1893452400,
-            }),
-            refreshToken: _jwt({
-              'sub': 'did:plc:testaccount',
-              'exp': 1893542400,
-              'iat': 1893452400,
-            }),
-            tokenType: 'DPoP',
-            scope: 'atproto transition:generic',
-            expiresAt: DateTime.utc(2030),
-            sub: 'did:plc:testaccount',
-            $clientId: 'https://sprk.so/oauth-client-metadata.json',
-            $dPoPNonce: 'nonce',
-            $publicKey: publicKey,
-            $privateKey: privateKey,
+          oAuthSessionManager: OAuthSessionManager.fromSession(
+            OAuthSession(
+              accessToken: accessToken,
+              refreshToken: 'opaque-refresh-token',
+              tokenType: 'DPoP',
+              scope: 'atproto transition:generic',
+              expiresAt: DateTime.utc(2030),
+              sub: 'did:plc:testaccount',
+              issuer: 'https://bsky.social',
+              pds: 'https://pds.sprk.so',
+              clientId: 'https://sprk.so/oauth-client-metadata.json',
+              dpopPublicKey: publicKey,
+              dpopPrivateKey: privateKey,
+            ),
           ),
           getClient: (url, {headers}) async {
             requestHeaders = headers;
@@ -262,10 +257,7 @@ void main() {
           to: (json) => json,
         );
 
-        expect(
-          requestHeaders?['Authorization'],
-          'DPoP ${context.oAuthSession!.accessToken}',
-        );
+        expect(requestHeaders?['Authorization'], 'DPoP $accessToken');
         expect(requestHeaders?['DPoP'], isNotEmpty);
 
         final payload = _decodeJwtPayload(requestHeaders!['DPoP']!);

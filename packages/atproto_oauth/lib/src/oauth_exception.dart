@@ -11,3 +11,10 @@ final class OAuthException implements Exception {
   @override
   String toString() => 'OAuthException: $message';
 }
+
+/// Thrown when a refresh fails with `invalid_grant` or the session has been
+/// revoked. The session has been removed from the session store; callers
+/// should route the user back through `authorize`.
+final class OAuthSessionRevokedException extends OAuthException {
+  OAuthSessionRevokedException(super.message);
+}

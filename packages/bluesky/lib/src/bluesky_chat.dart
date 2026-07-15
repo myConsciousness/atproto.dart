@@ -54,9 +54,10 @@ sealed class BlueskyChat {
     ),
   );
 
-  /// Returns the new instance of [BlueskyChat].
-  factory BlueskyChat.fromOAuthSession(
-    final oauth.OAuthSession session, {
+  /// Returns a new [BlueskyChat] backed by an OAuth [manager], which owns
+  /// DPoP header building and transparent token refresh.
+  factory BlueskyChat.fromOAuth(
+    final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
@@ -71,15 +72,15 @@ sealed class BlueskyChat {
       protocol: protocol,
       service: service,
       relayService: relayService,
-      oAuthSession: session,
+      oAuthSessionManager: manager,
       timeout: timeout,
       retryConfig: retryConfig,
       getClient: getClient,
       postClient: postClient,
     ),
-    atp.ATProto.fromOAuthSession(
+    atp.ATProto.fromOAuth(
+      manager,
       headers: {...?headers, ..._kBskyChatProxyHeaders},
-      session,
       protocol: protocol,
       service: service,
       relayService: relayService,
@@ -88,6 +89,33 @@ sealed class BlueskyChat {
       getClient: getClient,
       postClient: postClient,
     ),
+  );
+
+  /// Returns the new instance of [BlueskyChat].
+  ///
+  /// Pass [oauthClient] to enable transparent token refresh; without it the
+  /// session is used as-is and cannot be refreshed.
+  factory BlueskyChat.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final oauth.OAuthClient? oauthClient,
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? getClient,
+    final core.PostClient? postClient,
+  }) => BlueskyChat.fromOAuth(
+    oauth.OAuthSessionManager.fromSession(session, client: oauthClient),
+    headers: headers,
+    protocol: protocol,
+    service: service,
+    relayService: relayService,
+    timeout: timeout,
+    retryConfig: retryConfig,
+    getClient: getClient,
+    postClient: postClient,
   );
 
   /// Returns the global headers without auth header.
@@ -99,11 +127,11 @@ sealed class BlueskyChat {
   /// [BlueskyChat.fromSession], otherwise null.
   core.Session? get session;
 
-  /// Returns the current OAuth session.
+  /// Returns the current OAuth session manager.
   ///
-  /// Set only if an instance of this object was created in
+  /// Set only when this instance was created via [BlueskyChat.fromOAuth] or
   /// [BlueskyChat.fromOAuthSession], otherwise null.
-  oauth.OAuthSession? get oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager;
 
   /// Returns atproto features.
   atp.ATProto get atproto;
@@ -145,7 +173,7 @@ final class _BlueskyChat implements BlueskyChat {
   core.Session? get session => _ctx.session;
 
   @override
-  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
+  oauth.OAuthSessionManager? get oAuthSessionManager => _ctx.oAuthSessionManager;
 
   @override
   String get service => _ctx.service;

@@ -32,4 +32,4 @@ dev_dependencies:
     git:
       url: https://github.com/myConsciousness/import_sorter.git
       ref: fix/monorepo-pub-workspaces
-  bluesky: ^1.7.0
+  bluesky: ^2.0.0
