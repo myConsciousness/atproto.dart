@@ -6,6 +6,11 @@ on:
     paths:
       - "packages/*/pubspec.yaml"
 
+# Cancel superseded runs for the same ref (e.g. rapid pushes to a PR branch).
+concurrency:
+  group: validate-dependencies-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -16,13 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
-        with:
-          sdk: stable
-
-      - name: Install dependencies
-        run: dart pub get
+      # Installs Dart, restores the pub-cache, and runs a single workspace-wide
+      # `dart pub get` at the repo root.
+      - uses: ./.github/actions/setup-dart-cached
 
       - name: Validate Dependencies
         run: dart run ./scripts/validate_dependencies.dart

@@ -4,12 +4,167 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - "packages/*/lib/**"
-      - "packages/*/test/**"
-      - "packages/*/pubspec.yaml"
+      - "packages/**"
+      - "lexicons/**"
+      - "pubspec.yaml"
+      - "pubspec.lock"
+      - "analysis_options.yaml"
+      - ".github/workflows/test.yml"
+      - ".github/actions/setup-dart-cached/**"
+
+# Cancel superseded runs for the same ref (e.g. rapid pushes to a PR branch).
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  tacos:
+  # ---------------------------------------------------------------------------
+  # Change detection.
+  #
+  # Strategy: a plain `git diff` against the PR base ref. Chosen over
+  # dorny/paths-filter because the "affects everything" fallback (lex_gen /
+  # lexicons / root config) and the JSON-array matrix output are far simpler to
+  # express in one bash step than as a dozen per-package filter definitions.
+  # `fetch-depth: 0` + an explicit fetch of the base ref guarantee the merge
+  # base is present so the three-dot diff is accurate.
+  # ---------------------------------------------------------------------------
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      # JSON array of affected Dart package paths, e.g. ["packages/atproto"].
+      # "[]" means no Dart package is affected (test job is skipped).
+      packages: ${{ steps.detect.outputs.packages }}
+      # "true" when the Flutter package changed (or on workflow_dispatch).
+      flutter: ${{ steps.detect.outputs.flutter }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Detect affected packages
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Full Dart package list in dependency order (13 packages). The
+          # Flutter package (bluesky_text_flutter) is handled by a separate job
+          # and is intentionally absent here.
+          PACKAGES=(at_primitives lexicon xrpc multiformats atproto_core \
+            atproto_oauth atproto_test did_plc atproto bluesky bluesky_text \
+            bluesky_cli lex_gen)
+
+          json_from_names() {
+            local first=1 out="["
+            for n in "$@"; do
+              if [ "$first" -eq 0 ]; then out+=","; fi
+              out+="\"packages/$n\""
+              first=0
+            done
+            out+="]"
+            printf '%s' "$out"
+          }
+
+          FULL_JSON="$(json_from_names "${PACKAGES[@]}")"
+
+          # ---- Flutter flag -------------------------------------------------
+          FLUTTER=false
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Event: workflow_dispatch -> full matrix, Flutter included."
+            {
+              echo "packages=$FULL_JSON"
+              echo "flutter=true"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          BASE_REF="${{ github.base_ref }}"
+          # Ensure the base ref (and enough history for the merge base) is
+          # available locally, then diff the PR-side changes only (three-dot).
+          git fetch --no-tags origin \
+            "+refs/heads/${BASE_REF}:refs/remotes/origin/${BASE_REF}"
+          CHANGED="$(git diff --name-only "origin/${BASE_REF}...HEAD")"
+
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          if echo "$CHANGED" | grep -q "^packages/bluesky_text_flutter/"; then
+            FLUTTER=true
+          fi
+
+          # ---- Global "affects everything" triggers -------------------------
+          # lex_gen drives code generation for atproto/bluesky/bluesky_cli, and
+          # lexicons/** is its input; root config affects every package. Any of
+          # these -> run the full matrix. Changes to this workflow or the setup
+          # action also force a full run so CI changes get fully exercised.
+          if echo "$CHANGED" | grep -Eq '^(packages/lex_gen/|lexicons/|pubspec\.yaml$|pubspec\.lock$|analysis_options\.yaml$|\.github/workflows/test\.yml$|\.github/actions/setup-dart-cached/)'; then
+            echo "Global trigger changed -> full matrix."
+            {
+              echo "packages=$FULL_JSON"
+              echo "flutter=$FLUTTER"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # ---- Per-package detection ----------------------------------------
+          AFFECTED=()
+          for pkg in "${PACKAGES[@]}"; do
+            if echo "$CHANGED" | grep -q "^packages/$pkg/"; then
+              AFFECTED+=("$pkg")
+            fi
+          done
+
+          if [ "${#AFFECTED[@]}" -eq 0 ]; then
+            PKG_JSON="[]"
+          else
+            PKG_JSON="$(json_from_names "${AFFECTED[@]}")"
+          fi
+
+          echo "Affected Dart packages: $PKG_JSON"
+          {
+            echo "packages=$PKG_JSON"
+            echo "flutter=$FLUTTER"
+          } >> "$GITHUB_OUTPUT"
+
+  # ---------------------------------------------------------------------------
+  # Format + analyze the whole Dart workspace in a single job. Because this is a
+  # Dart pub workspace, one root resolve covers every package. Both commands take
+  # an EXPLICIT list of the 13 Dart package dirs — never a bare `.` — because a
+  # root-level `dart format`/`dart analyze` would recurse into the Flutter
+  # package (bluesky_text_flutter), whose `flutter_lints` include cannot be
+  # resolved without the Flutter SDK. The Flutter package is checked in its own
+  # job below. A single stable job name (`format-analyze`) also makes this easy
+  # to require in branch protection.
+  # ---------------------------------------------------------------------------
+  format-analyze:
+    runs-on: ubuntu-latest
+    env:
+      # Dart-only packages (excludes bluesky_text_flutter).
+      DART_DIRS: >-
+        packages/at_primitives packages/lexicon packages/xrpc
+        packages/multiformats packages/atproto_core packages/atproto_oauth
+        packages/atproto_test packages/did_plc packages/atproto
+        packages/bluesky packages/bluesky_text packages/bluesky_cli
+        packages/lex_gen
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup-dart-cached
+
+      - name: Check format
+        run: dart format --output=none --set-exit-if-changed $DART_DIRS
+
+      - name: Analyze
+        run: dart analyze $DART_DIRS
+
+  # ---------------------------------------------------------------------------
+  # Test only the affected packages (dynamic matrix from the `changes` job).
+  # Skipped entirely when no Dart package is affected.
+  # ---------------------------------------------------------------------------
+  test:
+    needs: changes
+    if: needs.changes.outputs.packages != '[]'
     runs-on: ubuntu-latest
 
     defaults:
@@ -19,46 +174,30 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package_path:
-          - packages/at_primitives
-          - packages/lexicon
-          - packages/xrpc
-          - packages/multiformats
-          - packages/atproto_core
-          - packages/atproto_oauth
-          - packages/atproto_test
-          - packages/did_plc
-          - packages/atproto
-          - packages/bluesky
-          - packages/bluesky_text
-          - packages/bluesky_cli
-          - packages/lex_gen
+        package_path: ${{ fromJSON(needs.changes.outputs.packages) }}
 
     steps:
       - uses: actions/checkout@v7
 
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: stable
-
-      - name: Install dependencies
-        run: dart pub get
-
-      - name: Check format
-        run: dart format --set-exit-if-changed .
-
-      - name: Analyze
-        run: dart analyze
+      # Resolve the whole workspace from the repo root (not the package dir).
+      - uses: ./.github/actions/setup-dart-cached
 
       - name: Run tests
         run: |
           if test -d "test"; then
             dart test
+          else
+            echo "No test/ directory in ${{ matrix.package_path }}; skipping."
           fi
 
+  # ---------------------------------------------------------------------------
   # Flutter packages cannot use `dart pub get` / the Dart-only workspace, so
-  # they run in a separate job with the Flutter SDK installed.
+  # they run in a separate job with the Flutter SDK installed. Gated to run only
+  # when the Flutter package changed (or on workflow_dispatch).
+  # ---------------------------------------------------------------------------
   flutter:
+    needs: changes
+    if: needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
 
     defaults:
@@ -82,7 +221,7 @@ jobs:
         run: flutter pub get
 
       - name: Check format
-        run: dart format --set-exit-if-changed .
+        run: dart format --output=none --set-exit-if-changed .
 
       - name: Analyze
         run: flutter analyze
@@ -103,3 +242,23 @@ jobs:
               flutter test
             fi
           fi
+
+  # ---------------------------------------------------------------------------
+  # Single aggregation gate. `test` and `flutter` are conditional / matrix jobs
+  # whose individual check names vary, which makes them awkward to require in
+  # branch protection. Requiring this one job instead gives a stable required
+  # check that passes only when every upstream job succeeded or was
+  # legitimately skipped (a skipped job is not a failure).
+  # ---------------------------------------------------------------------------
+  ci-ok:
+    needs: [format-analyze, test, flutter]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assert no upstream job failed
+        run: |
+          if ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}; then
+            echo "A required job failed or was cancelled."
+            exit 1
+          fi
+          echo "All required jobs passed (or were skipped)."

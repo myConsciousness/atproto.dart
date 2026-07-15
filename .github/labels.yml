@@ -72,3 +72,6 @@
 - name: build
   color: "8D6E63"
   description: "Changes to build and development tooling."
+- name: dependencies
+  color: "2E7D32"
+  description: "Dependency updates (Dependabot)."
