@@ -38,13 +38,30 @@ sealed class ATProto {
       // Automatically refresh an expired access token using the refresh token
       // of the current session. The refreshed session is held by the
       // `ServiceContext`, so `atproto.session` reflects the new credentials.
-      onRefreshSession: (current) async => (await refreshSession(
-        refreshJwt: current.refreshJwt,
-        protocol: protocol,
-        service: service ?? current.atprotoPdsEndpoint,
-        retryConfig: retryConfig,
-        client: postClient,
-      )).data,
+      //
+      // The refreshSession response omits the email fields (`email`,
+      // `emailConfirmed`, `emailAuthFactor`), so the refreshed session is
+      // merged OVER the previous one: the rotated/server-owned fields
+      // (accessJwt/refreshJwt/didDoc/handle/active/status) are updated while
+      // the email fields are carried forward from `current`.
+      onRefreshSession: (current) async {
+        final refreshed = (await refreshSession(
+          refreshJwt: current.refreshJwt,
+          protocol: protocol,
+          service: service ?? current.atprotoPdsEndpoint,
+          retryConfig: retryConfig,
+          client: postClient,
+        )).data;
+
+        return current.copyWith(
+          accessJwt: refreshed.accessJwt,
+          refreshJwt: refreshed.refreshJwt,
+          didDoc: refreshed.didDoc,
+          handle: refreshed.handle,
+          active: refreshed.active,
+          status: refreshed.status,
+        );
+      },
     ),
   );
 

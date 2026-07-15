@@ -3,4 +3,5 @@
 // BSD-style license that can be found in the LICENSE file.
 
 export 'package:atproto/src/atproto.dart';
+export 'package:atproto/src/services/com/atproto/sync_service.dart';
 export 'package:atproto/src/services/session.dart';

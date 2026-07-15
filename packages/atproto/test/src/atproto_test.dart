@@ -77,6 +77,74 @@ void main() {
         expect(atproto.session?.refreshJwt, 'new-refresh');
       },
     );
+
+    test(
+      'carries email/emailConfirmed/emailAuthFactor forward across a refresh',
+      () async {
+        final atproto = ATProto.fromSession(
+          core.Session(
+            did: 'did:plc:testaccount',
+            handle: 'test.dev',
+            email: 'someone@example.com',
+            emailConfirmed: true,
+            emailAuthFactor: true,
+            //! Non-JWT token so the pre-flight refresh is skipped and the
+            //! reactive 401 path is exercised.
+            accessJwt: 'old-access',
+            refreshJwt: 'refresh-token',
+          ),
+          service: 'pds.test',
+          getClient: (url, {headers}) async {
+            if (headers?['Authorization'] == 'Bearer new-access') {
+              return http.Response(
+                '{}',
+                200,
+                headers: {'content-type': 'application/json'},
+                request: http.Request('GET', url),
+              );
+            }
+
+            return http.Response(
+              '{"error":"ExpiredToken"}',
+              401,
+              headers: {'content-type': 'application/json'},
+              request: http.Request('GET', url),
+            );
+          },
+          postClient: (url, {headers, body, encoding}) async {
+            //! The refreshSession response omits the email fields and flips
+            //! `active`/`status`, mirroring the real PDS behavior.
+            return http.Response(
+              '{"accessJwt":"new-access","refreshJwt":"new-refresh",'
+              '"handle":"renamed.dev","did":"did:plc:testaccount",'
+              '"active":false,"status":"takendown"}',
+              200,
+              headers: {'content-type': 'application/json'},
+              request: http.Request('POST', url),
+            );
+          },
+        );
+
+        final response = await atproto.get<Map<String, Object?>>(
+          core.NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+
+        expect(response.status.code, 200);
+        //! Rotated credentials come from the refresh response.
+        expect(atproto.session?.accessJwt, 'new-access');
+        expect(atproto.session?.refreshJwt, 'new-refresh');
+        //! Mutable server-owned fields are updated from the refresh response.
+        expect(atproto.session?.handle, 'renamed.dev');
+        expect(atproto.session?.active, isFalse);
+        expect(atproto.session?.status, 'takendown');
+        //! Email fields (absent from the refresh response) are carried forward
+        //! from the previous session instead of being reset to null/false.
+        expect(atproto.session?.email, 'someone@example.com');
+        expect(atproto.session?.emailConfirmed, isTrue);
+        expect(atproto.session?.emailAuthFactor, isTrue);
+      },
+    );
   });
 
   group('.session', () {
