@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import '../../ir/dart_emitter.dart';
+import '../../ir/dart_ir.dart';
 import '../../utils.dart';
 import '../rule.dart' as rule;
 import 'lex_property.dart';
@@ -27,58 +29,68 @@ String renderFreezedDataClass({
 }) {
   final className = '$name$suffix';
 
-  final propertyLines = StringBuffer();
-  for (final property in properties) {
-    if (rule.isDeprecated(property.description)) continue;
-    propertyLines.writeln(property.format());
-  }
+  final visibleProps = properties
+      .where((e) => !rule.isDeprecated(e.description))
+      .toList();
 
-  final packageImports = StringBuffer();
-  for (final packagePath
-      in properties
-          .where((e) => e.type.packagePath != null)
-          .map((e) => e.type.packagePath)
-          .toSet()) {
-    packageImports.writeln("import '$packagePath';");
-  }
+  // Deduplicated, order-preserving package imports derived from the properties.
+  final packagePaths = <String>{
+    for (final property in properties)
+      if (property.type.packagePath != null) property.type.packagePath!,
+  };
 
-  final descriptionDoc = description != null ? '/// $description' : '';
-  final typeLine = typeDefaultId != null
-      ? "@Default('$typeDefaultId') String \$type,\n    "
-      : '';
   final validateBlock = validateMethod.isEmpty ? '' : '\n\n  $validateMethod';
+  final extensions = getExtensions(name, properties, suffix: suffix);
 
-  return '''$kHeaderHint
+  final file = DartFile(
+    header: kHeaderHint,
+    imports: [
+      const [
+        DartImport('package:freezed_annotation/freezed_annotation.dart'),
+        DartImport('package:atproto_core/atproto_core.dart'),
+        DartImport('package:atproto_core/internals.dart'),
+      ],
+      [for (final path in packagePaths) DartImport(path)],
+    ],
+    parts: [partBaseName],
+    banner: kHeader,
+    decls: [
+      DartClass(
+        doc: description != null ? '/// $description' : null,
+        annotations: const ['@freezed'],
+        modifier: 'abstract',
+        name: className,
+        mixins: ['_\$$className'],
+        members: [
+          RawMember(getKnownProps(properties)),
+          DartConstructor(
+            className: className,
+            annotations: const ['@JsonSerializable(includeIfNull: false)'],
+            isConst: true,
+            isFactory: true,
+            blankBefore: true,
+            params: [
+              if (typeDefaultId != null)
+                "@Default('$typeDefaultId') String \$type,",
+              for (final property in visibleProps) property.format(),
+              '', // intentional blank line before `$unknown`
+              'Map<String, dynamic>? \$unknown,',
+            ],
+            redirect: '_$className',
+          ),
+          RawMember(
+            'factory $className.fromJson(Map<String, Object?> json) => '
+            '_\$${className}FromJson(json);$validateBlock',
+            blankBefore: true,
+          ),
+        ],
+      ),
+      if (extensions.isNotEmpty) RawDecl(extensions),
+      RawDecl(getObjectConverter(name, suffix: suffix)),
+    ],
+  );
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/internals.dart';
-
-${packageImports.toString()}
-
-part '$partBaseName.freezed.dart';
-part '$partBaseName.g.dart';
-
-$kHeader
-
-$descriptionDoc
-@freezed
-abstract class $className with _\$$className {
-  ${getKnownProps(properties)}
-
-  @JsonSerializable(includeIfNull: false)
-  const factory $className({
-    $typeLine${propertyLines.toString()}
-    Map<String, dynamic>? \$unknown,
-  }) = _$className;
-
-  factory $className.fromJson(Map<String, Object?> json) => _\$${className}FromJson(json);$validateBlock
-}
-
-${getExtensions(name, properties, suffix: suffix)}
-
-${getObjectConverter(name, suffix: suffix)}
-''';
+  return emitDartFile(file);
 }
 
 String getKnownProps(final List<LexProperty> properties) {
