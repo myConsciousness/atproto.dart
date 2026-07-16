@@ -84,6 +84,56 @@ void main() {
 
       expect(notified, {'dpop-nonce': 'abcd'});
     });
+
+    test(
+      'a throwing async onUpdateDpopNonce neither fails the request nor '
+      'escapes as an unhandled zone error',
+      () async {
+        final zoneErrors = <Object>[];
+
+        xrpc.XRPCResponse<String>? response;
+        await runZonedGuarded(() async {
+          final challenge = _challenge();
+
+          response = await challenge.execute(
+            () async => _okResponse(headers: {'dpop-nonce': 'abcd'}),
+            onUpdateDpopNonce: (_) async {
+              throw StateError('nonce cache write failed');
+            },
+          );
+        }, (error, _) => zoneErrors.add(error));
+
+        // Let the fire-and-forget nonce write settle before asserting.
+        await Future<void>.delayed(Duration.zero);
+
+        expect(response?.data, 'ok');
+        expect(zoneErrors, isEmpty);
+      },
+    );
+
+    test(
+      'a synchronously throwing onUpdateDpopNonce neither fails the request '
+      'nor escapes as an unhandled zone error',
+      () async {
+        final zoneErrors = <Object>[];
+
+        xrpc.XRPCResponse<String>? response;
+        await runZonedGuarded(() async {
+          final challenge = _challenge();
+
+          response = await challenge.execute(
+            () async => _okResponse(headers: {'dpop-nonce': 'abcd'}),
+            onUpdateDpopNonce: (_) => throw StateError('sync failure'),
+          );
+        }, (error, _) => zoneErrors.add(error));
+
+        // Let the fire-and-forget nonce write settle before asserting.
+        await Future<void>.delayed(Duration.zero);
+
+        expect(response?.data, 'ok');
+        expect(zoneErrors, isEmpty);
+      },
+    );
   });
 
   group('.execute (rate limit)', () {
