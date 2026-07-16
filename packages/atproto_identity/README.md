@@ -79,17 +79,23 @@ Future<String> authenticate(String authorizationHeader) async {
 }
 ```
 
-It validates the token's `aud`, `exp`, optional `lxm`, and `iss` claims,
-resolves the issuer's `#atproto` signing key, and checks the signature
-(ES256K / P-256) via `did_plc`. It **fails closed**:
+It validates the JOSE header, the token's `aud`, `exp`, `iat`, `nbf`, optional
+`lxm`, and `iss` claims, resolves the issuer's `#atproto` signing key, and checks
+the signature (ES256K / P-256) via `did_plc`. It **fails closed**:
 
-- the JWT `alg` header is never trusted;
+- the `alg` header must be `ES256K` or `ES256`, rejecting `none`, HMAC, and RSA
+  (the signing curve is still pinned from the DID document — this is defense in
+  depth), and `typ`, when present, must be a JWT media type;
 - the signature must be a 64-byte compact ECDSA signature;
-- an out-of-range `exp` is rejected up front instead of overflowing.
+- an out-of-range `exp` is rejected up front instead of overflowing;
+- the token lifetime is bounded by `maxTokenLifetime` (default 60 minutes; pass
+  `null` to opt out), and `iat` (not in the future) / `nbf` (not-before) are
+  enforced when present, with a 30-second clock-skew allowance.
 
-Any failure — malformed header/JWT, wrong audience, expired token, `lxm`
-mismatch, unresolvable issuer, missing signing key, or a signature that does not
-verify — throws an `IdentityException`.
+Any failure — malformed header/JWT, an untrusted `alg`, wrong audience,
+expired/not-yet-valid token, an `exp` beyond `maxTokenLifetime`, `lxm` mismatch,
+unresolvable issuer, missing signing key, or a signature that does not verify —
+throws an `IdentityException`.
 
 ## Contribution 🏆
 
