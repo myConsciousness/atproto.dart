@@ -15,7 +15,8 @@ runnable one:
   `atproto_identity`.
 - **`bin/publish_feed.dart`** — registers the feed on the network by writing an
   `app.bsky.feed.generator` record.
-- A firehose **indexer** (`lib/src/indexer/`) that ingests new posts.
+- A firehose **indexer** (`lib/src/indexer/`) that ingests new posts and
+  reconnects with exponential backoff when the relay drops the connection.
 - A **`FeedAlgorithm`** interface with a reverse-chronological sample
   (`whats_hot_algorithm.dart`) — replace its body with your ranking.
 - A **`FeedStore`** interface with an in-memory implementation — swap it for a
@@ -27,15 +28,15 @@ Configuration is read from environment variables (see
 `FeedGeneratorConfig.fromEnvironment`) so credentials never live in source
 control:
 
-| Variable                     | Required | Default      | Notes                                   |
-| ---------------------------- | -------- | ------------ | --------------------------------------- |
-| `FEEDGEN_HOSTNAME`           | yes      | —            | Public host, e.g. `feed.example.com`.   |
-| `FEEDGEN_PUBLISHER_HANDLE`   | yes      | —            | Account that publishes the feed record. |
-| `FEEDGEN_PUBLISHER_PASSWORD` | yes      | —            | An app password for that account.       |
-| `FEEDGEN_RECORD_KEY`         | no       | `whats-hot`  | Record key under `feed.generator`.      |
-| `FEEDGEN_DISPLAY_NAME`       | no       | `What's Hot` | Shown in the app.                       |
-| `FEEDGEN_DESCRIPTION`        | no       | —            | Optional feed description.              |
-| `FEEDGEN_PORT`               | no       | `3000`       | Port the server listens on.             |
+| Variable                     | Required     | Default      | Notes                                   |
+| ---------------------------- | ------------ | ------------ | --------------------------------------- |
+| `FEEDGEN_HOSTNAME`           | yes          | —            | Public host, e.g. `feed.example.com`.   |
+| `FEEDGEN_PUBLISHER_HANDLE`   | yes          | —            | Account that publishes the feed record. |
+| `FEEDGEN_PUBLISHER_PASSWORD` | publish only | —            | An app password for that account. Only `bin/publish_feed.dart` needs it — do not set it for the long-running server. |
+| `FEEDGEN_RECORD_KEY`         | no           | `whats-hot`  | Record key under `feed.generator`.      |
+| `FEEDGEN_DISPLAY_NAME`       | no           | `What's Hot` | Shown in the app.                       |
+| `FEEDGEN_DESCRIPTION`        | no           | —            | Optional feed description.              |
+| `FEEDGEN_PORT`               | no           | `3000`       | Port the server listens on.             |
 
 The `serviceDid` is derived from the hostname as `did:web:<hostname>`, and that
 host must serve the document at `/.well-known/did.json` over HTTPS.
@@ -45,6 +46,7 @@ TLS on 443) — a `did:web` built from a `host:port` is malformed.
 ```bash
 export FEEDGEN_HOSTNAME=feed.example.com
 export FEEDGEN_PUBLISHER_HANDLE=handle.bsky.social
+# Only when running bin/publish_feed.dart:
 export FEEDGEN_PUBLISHER_PASSWORD=xxxx-xxxx-xxxx-xxxx
 ```
 
@@ -69,9 +71,10 @@ dart run bin/publish_feed.dart
 
 ## Replacing the In-Memory Store
 
-By default this template keeps indexed posts in memory. For production,
-implement the `FeedStore` interface with a real database and construct it in
-`bin/server.dart`.
+By default this template keeps indexed posts in memory, capped at the 10,000
+most recent (oldest evicted first) so indexing the firehose cannot grow memory
+without bound. For production, implement the `FeedStore` interface with a real
+database and construct it in `bin/server.dart`.
 
 ## Standalone Usage
 

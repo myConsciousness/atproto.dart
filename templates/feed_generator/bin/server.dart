@@ -8,6 +8,7 @@ import 'dart:io';
 import 'package:atproto_identity/atproto_identity.dart';
 import 'package:feed_generator/src/algorithm/whats_hot_algorithm.dart';
 import 'package:feed_generator/src/config.dart';
+import 'package:feed_generator/src/identity/caching_identity_resolver.dart';
 import 'package:feed_generator/src/indexer/firehose_indexer.dart';
 import 'package:feed_generator/src/server/feed_generator_service.dart';
 import 'package:feed_generator/src/store/in_memory_feed_store.dart';
@@ -25,8 +26,9 @@ Future<void> main() async {
   final algorithm = WhatsHotAlgorithm(store);
 
   // Verifies the AppView's inbound service-auth JWT against the issuer's
-  // #atproto signing key resolved from its DID document.
-  final resolver = HttpIdentityResolver();
+  // #atproto signing key resolved from its DID document. The TTL cache keeps
+  // repeated viewers from costing one outbound DID resolution per request.
+  final resolver = CachingIdentityResolver(HttpIdentityResolver());
 
   // Best-effort: advertise the published feed's AT-URI in
   // describeFeedGenerator. Not fatal if the handle cannot be resolved yet.
@@ -42,12 +44,14 @@ Future<void> main() async {
     );
   }
 
-  // Start indexing the firehose in the background. If the initial connection
-  // fails, log it instead of leaving an unhandled async error; the server keeps
-  // serving (an empty feed until indexing recovers).
+  // Start indexing the firehose in the background. The indexer reconnects
+  // with exponential backoff when the relay drops the connection; the
+  // catchError guard only exists so an unexpected error escaping the loop is
+  // logged instead of becoming an unhandled async error — the server keeps
+  // serving whatever is already in the store either way.
   unawaited(
     FirehoseIndexer(store).start().catchError(
-      (Object e) => stderr.writeln('firehose indexer failed to start: $e'),
+      (Object e) => stderr.writeln('firehose indexer stopped unexpectedly: $e'),
     ),
   );
 
