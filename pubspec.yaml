@@ -8,6 +8,7 @@ workspace:
   - packages/at_primitives
   - packages/atproto
   - packages/atproto_core
+  - packages/atproto_identity
   - packages/atproto_oauth
   - packages/atproto_test
   - packages/bluesky
