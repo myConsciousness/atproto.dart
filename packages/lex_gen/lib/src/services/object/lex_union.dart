@@ -112,10 +112,10 @@ sealed class $name with _\$$name {
   }
 
   @override
-  Map<String, dynamic> toJson($name object) => object.when(
+  Map<String, dynamic> toJson($name object) => switch (object) {
         ${_getToJson(objectNames)}
-        unknown: (data) => data,
-      );
+        ${name}Unknown(:final data) => data,
+      };
 }''';
 
   List<DartImport> _getPackageImports(final GenContext ctx) => [
@@ -180,7 +180,7 @@ sealed class $name with _\$$name {
 
     for (final objectName in objectNames) {
       buffer.writeln(
-        '${toFirstLowerCase(objectName)}: (data) => '
+        '$name$objectName(:final data) => '
         'const ${objectName}Converter().toJson(data),',
       );
     }

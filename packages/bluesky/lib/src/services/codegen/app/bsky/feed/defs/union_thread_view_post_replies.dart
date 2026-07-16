@@ -92,11 +92,15 @@ final class UThreadViewPostRepliesConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UThreadViewPostReplies object) => object.when(
-    threadViewPost: (data) => const ThreadViewPostConverter().toJson(data),
-    notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
-    blockedPost: (data) => const BlockedPostConverter().toJson(data),
+  Map<String, dynamic> toJson(UThreadViewPostReplies object) =>
+      switch (object) {
+        UThreadViewPostRepliesThreadViewPost(:final data) =>
+          const ThreadViewPostConverter().toJson(data),
+        UThreadViewPostRepliesNotFoundPost(:final data) =>
+          const NotFoundPostConverter().toJson(data),
+        UThreadViewPostRepliesBlockedPost(:final data) =>
+          const BlockedPostConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        UThreadViewPostRepliesUnknown(:final data) => data,
+      };
 }

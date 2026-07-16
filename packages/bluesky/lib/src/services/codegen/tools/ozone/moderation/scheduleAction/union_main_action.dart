@@ -70,9 +70,10 @@ final class UModerationScheduleActionActionConverter
 
   @override
   Map<String, dynamic> toJson(UModerationScheduleActionAction object) =>
-      object.when(
-        takedown: (data) => const TakedownConverter().toJson(data),
+      switch (object) {
+        UModerationScheduleActionActionTakedown(:final data) =>
+          const TakedownConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UModerationScheduleActionActionUnknown(:final data) => data,
+      };
 }

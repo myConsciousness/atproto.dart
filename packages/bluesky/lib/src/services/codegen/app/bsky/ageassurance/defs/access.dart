@@ -19,7 +19,7 @@ part 'access.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class Access with _$Access {
+sealed class Access with _$Access {
   const Access._();
 
   const factory Access.knownValue({required KnownAccess data}) =
@@ -66,8 +66,10 @@ final class AccessConverter extends JsonConverter<Access, String> {
   }
 
   @override
-  String toJson(Access object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(Access object) => switch (object) {
+    AccessKnownValue(:final data) => data.value,
+    AccessUnknown(:final data) => data,
+  };
 }
 
 enum KnownAccess implements Serializable {

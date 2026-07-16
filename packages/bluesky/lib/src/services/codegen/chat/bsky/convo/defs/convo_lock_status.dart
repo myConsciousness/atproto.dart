@@ -19,7 +19,7 @@ part 'convo_lock_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ConvoLockStatus with _$ConvoLockStatus {
+sealed class ConvoLockStatus with _$ConvoLockStatus {
   const ConvoLockStatus._();
 
   const factory ConvoLockStatus.knownValue({
@@ -70,8 +70,10 @@ final class ConvoLockStatusConverter
   }
 
   @override
-  String toJson(ConvoLockStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoLockStatus object) => switch (object) {
+    ConvoLockStatusKnownValue(:final data) => data.value,
+    ConvoLockStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownConvoLockStatus implements Serializable {

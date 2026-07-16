@@ -19,7 +19,7 @@ part 'link_enabled_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class LinkEnabledStatus with _$LinkEnabledStatus {
+sealed class LinkEnabledStatus with _$LinkEnabledStatus {
   const LinkEnabledStatus._();
 
   const factory LinkEnabledStatus.knownValue({
@@ -70,8 +70,10 @@ final class LinkEnabledStatusConverter
   }
 
   @override
-  String toJson(LinkEnabledStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(LinkEnabledStatus object) => switch (object) {
+    LinkEnabledStatusKnownValue(:final data) => data.value,
+    LinkEnabledStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownLinkEnabledStatus implements Serializable {

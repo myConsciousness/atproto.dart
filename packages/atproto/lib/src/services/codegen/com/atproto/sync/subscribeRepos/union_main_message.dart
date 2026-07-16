@@ -109,13 +109,19 @@ final class USyncSubscribeReposMessageConverter
   }
 
   @override
-  Map<String, dynamic> toJson(USyncSubscribeReposMessage object) => object.when(
-    commit: (data) => const CommitConverter().toJson(data),
-    sync: (data) => const SyncConverter().toJson(data),
-    identity: (data) => const IdentityConverter().toJson(data),
-    account: (data) => const AccountConverter().toJson(data),
-    info: (data) => const InfoConverter().toJson(data),
+  Map<String, dynamic> toJson(USyncSubscribeReposMessage object) =>
+      switch (object) {
+        USyncSubscribeReposMessageCommit(:final data) =>
+          const CommitConverter().toJson(data),
+        USyncSubscribeReposMessageSync(:final data) =>
+          const SyncConverter().toJson(data),
+        USyncSubscribeReposMessageIdentity(:final data) =>
+          const IdentityConverter().toJson(data),
+        USyncSubscribeReposMessageAccount(:final data) =>
+          const AccountConverter().toJson(data),
+        USyncSubscribeReposMessageInfo(:final data) =>
+          const InfoConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        USyncSubscribeReposMessageUnknown(:final data) => data,
+      };
 }

@@ -89,7 +89,7 @@ final class LexKnownValues extends GeneratableType {
 
   String _unionClass() =>
       '''@freezed
-abstract class $name with _\$$name {
+sealed class $name with _\$$name {
   const $name._();
 
   const factory $name.knownValue({
@@ -134,10 +134,10 @@ abstract class $name with _\$$name {
   }
 
   @override
-  String toJson($name object) => object.when(
-        knownValue: (data) => data.value,
-        unknown: (data) => data,
-      );
+  String toJson($name object) => switch (object) {
+        ${name}KnownValue(:final data) => data.value,
+        ${name}Unknown(:final data) => data,
+      };
 }''';
 
   String _enumBlock() =>

@@ -85,12 +85,12 @@ final class UModerationGetRecordsRecordsConverter
 
   @override
   Map<String, dynamic> toJson(UModerationGetRecordsRecords object) =>
-      object.when(
-        recordViewDetail: (data) =>
-            const RecordViewDetailConverter().toJson(data),
-        recordViewNotFound: (data) =>
-            const RecordViewNotFoundConverter().toJson(data),
+      switch (object) {
+        UModerationGetRecordsRecordsRecordViewDetail(:final data) =>
+          const RecordViewDetailConverter().toJson(data),
+        UModerationGetRecordsRecordsRecordViewNotFound(:final data) =>
+          const RecordViewNotFoundConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UModerationGetRecordsRecordsUnknown(:final data) => data,
+      };
 }

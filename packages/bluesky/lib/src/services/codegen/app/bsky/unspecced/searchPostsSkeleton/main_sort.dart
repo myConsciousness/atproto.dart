@@ -19,7 +19,7 @@ part 'main_sort.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UnspeccedSearchPostsSkeletonSort
+sealed class UnspeccedSearchPostsSkeletonSort
     with _$UnspeccedSearchPostsSkeletonSort {
   const UnspeccedSearchPostsSkeletonSort._();
 
@@ -75,8 +75,10 @@ final class UnspeccedSearchPostsSkeletonSortConverter
   }
 
   @override
-  String toJson(UnspeccedSearchPostsSkeletonSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(UnspeccedSearchPostsSkeletonSort object) => switch (object) {
+    UnspeccedSearchPostsSkeletonSortKnownValue(:final data) => data.value,
+    UnspeccedSearchPostsSkeletonSortUnknown(:final data) => data,
+  };
 }
 
 enum KnownUnspeccedSearchPostsSkeletonSort implements Serializable {

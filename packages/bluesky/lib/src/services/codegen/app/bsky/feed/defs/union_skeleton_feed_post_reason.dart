@@ -82,12 +82,13 @@ final class USkeletonFeedPostReasonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(USkeletonFeedPostReason object) => object.when(
-    skeletonReasonRepost: (data) =>
-        const SkeletonReasonRepostConverter().toJson(data),
-    skeletonReasonPin: (data) =>
-        const SkeletonReasonPinConverter().toJson(data),
+  Map<String, dynamic> toJson(USkeletonFeedPostReason object) =>
+      switch (object) {
+        USkeletonFeedPostReasonSkeletonReasonRepost(:final data) =>
+          const SkeletonReasonRepostConverter().toJson(data),
+        USkeletonFeedPostReasonSkeletonReasonPin(:final data) =>
+          const SkeletonReasonPinConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        USkeletonFeedPostReasonUnknown(:final data) => data,
+      };
 }

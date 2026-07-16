@@ -19,7 +19,7 @@ part 'filterable_preference_include.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class FilterablePreferenceInclude with _$FilterablePreferenceInclude {
+sealed class FilterablePreferenceInclude with _$FilterablePreferenceInclude {
   const FilterablePreferenceInclude._();
 
   const factory FilterablePreferenceInclude.knownValue({
@@ -70,8 +70,10 @@ final class FilterablePreferenceIncludeConverter
   }
 
   @override
-  String toJson(FilterablePreferenceInclude object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FilterablePreferenceInclude object) => switch (object) {
+    FilterablePreferenceIncludeKnownValue(:final data) => data.value,
+    FilterablePreferenceIncludeUnknown(:final data) => data,
+  };
 }
 
 enum KnownFilterablePreferenceInclude implements Serializable {

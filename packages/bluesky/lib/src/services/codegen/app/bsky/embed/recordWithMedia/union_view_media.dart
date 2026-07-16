@@ -114,15 +114,16 @@ final class UEmbedRecordWithMediaViewMediaConverter
 
   @override
   Map<String, dynamic> toJson(UEmbedRecordWithMediaViewMedia object) =>
-      object.when(
-        embedImagesView: (data) =>
-            const EmbedImagesViewConverter().toJson(data),
-        embedVideoView: (data) => const EmbedVideoViewConverter().toJson(data),
-        embedGalleryView: (data) =>
-            const EmbedGalleryViewConverter().toJson(data),
-        embedExternalView: (data) =>
-            const EmbedExternalViewConverter().toJson(data),
+      switch (object) {
+        UEmbedRecordWithMediaViewMediaEmbedImagesView(:final data) =>
+          const EmbedImagesViewConverter().toJson(data),
+        UEmbedRecordWithMediaViewMediaEmbedVideoView(:final data) =>
+          const EmbedVideoViewConverter().toJson(data),
+        UEmbedRecordWithMediaViewMediaEmbedGalleryView(:final data) =>
+          const EmbedGalleryViewConverter().toJson(data),
+        UEmbedRecordWithMediaViewMediaEmbedExternalView(:final data) =>
+          const EmbedExternalViewConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UEmbedRecordWithMediaViewMediaUnknown(:final data) => data,
+      };
 }

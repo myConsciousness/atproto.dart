@@ -85,11 +85,12 @@ final class UVerificationViewSubjectRepoConverter
 
   @override
   Map<String, dynamic> toJson(UVerificationViewSubjectRepo object) =>
-      object.when(
-        repoViewDetail: (data) => const RepoViewDetailConverter().toJson(data),
-        repoViewNotFound: (data) =>
-            const RepoViewNotFoundConverter().toJson(data),
+      switch (object) {
+        UVerificationViewSubjectRepoRepoViewDetail(:final data) =>
+          const RepoViewDetailConverter().toJson(data),
+        UVerificationViewSubjectRepoRepoViewNotFound(:final data) =>
+          const RepoViewNotFoundConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UVerificationViewSubjectRepoUnknown(:final data) => data,
+      };
 }

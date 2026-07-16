@@ -19,7 +19,7 @@ part 'main_allow_subscriptions.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class NotificationDeclarationAllowSubscriptions
+sealed class NotificationDeclarationAllowSubscriptions
     with _$NotificationDeclarationAllowSubscriptions {
   const NotificationDeclarationAllowSubscriptions._();
 
@@ -86,7 +86,11 @@ final class NotificationDeclarationAllowSubscriptionsConverter
 
   @override
   String toJson(NotificationDeclarationAllowSubscriptions object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+      switch (object) {
+        NotificationDeclarationAllowSubscriptionsKnownValue(:final data) =>
+          data.value,
+        NotificationDeclarationAllowSubscriptionsUnknown(:final data) => data,
+      };
 }
 
 enum KnownNotificationDeclarationAllowSubscriptions implements Serializable {

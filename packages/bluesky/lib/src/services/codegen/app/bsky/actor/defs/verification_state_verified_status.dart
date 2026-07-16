@@ -19,7 +19,7 @@ part 'verification_state_verified_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class VerificationStateVerifiedStatus
+sealed class VerificationStateVerifiedStatus
     with _$VerificationStateVerifiedStatus {
   const VerificationStateVerifiedStatus._();
 
@@ -74,8 +74,10 @@ final class VerificationStateVerifiedStatusConverter
   }
 
   @override
-  String toJson(VerificationStateVerifiedStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(VerificationStateVerifiedStatus object) => switch (object) {
+    VerificationStateVerifiedStatusKnownValue(:final data) => data.value,
+    VerificationStateVerifiedStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownVerificationStateVerifiedStatus implements Serializable {

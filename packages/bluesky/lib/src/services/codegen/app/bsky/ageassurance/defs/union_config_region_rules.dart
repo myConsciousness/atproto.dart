@@ -176,22 +176,22 @@ final class UConfigRegionRulesConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConfigRegionRules object) => object.when(
-    configRegionRuleDefault: (data) =>
-        const ConfigRegionRuleDefaultConverter().toJson(data),
-    configRegionRuleIfDeclaredOverAge: (data) =>
-        const ConfigRegionRuleIfDeclaredOverAgeConverter().toJson(data),
-    configRegionRuleIfDeclaredUnderAge: (data) =>
-        const ConfigRegionRuleIfDeclaredUnderAgeConverter().toJson(data),
-    configRegionRuleIfAssuredOverAge: (data) =>
-        const ConfigRegionRuleIfAssuredOverAgeConverter().toJson(data),
-    configRegionRuleIfAssuredUnderAge: (data) =>
-        const ConfigRegionRuleIfAssuredUnderAgeConverter().toJson(data),
-    configRegionRuleIfAccountNewerThan: (data) =>
-        const ConfigRegionRuleIfAccountNewerThanConverter().toJson(data),
-    configRegionRuleIfAccountOlderThan: (data) =>
-        const ConfigRegionRuleIfAccountOlderThanConverter().toJson(data),
+  Map<String, dynamic> toJson(UConfigRegionRules object) => switch (object) {
+    UConfigRegionRulesConfigRegionRuleDefault(:final data) =>
+      const ConfigRegionRuleDefaultConverter().toJson(data),
+    UConfigRegionRulesConfigRegionRuleIfDeclaredOverAge(:final data) =>
+      const ConfigRegionRuleIfDeclaredOverAgeConverter().toJson(data),
+    UConfigRegionRulesConfigRegionRuleIfDeclaredUnderAge(:final data) =>
+      const ConfigRegionRuleIfDeclaredUnderAgeConverter().toJson(data),
+    UConfigRegionRulesConfigRegionRuleIfAssuredOverAge(:final data) =>
+      const ConfigRegionRuleIfAssuredOverAgeConverter().toJson(data),
+    UConfigRegionRulesConfigRegionRuleIfAssuredUnderAge(:final data) =>
+      const ConfigRegionRuleIfAssuredUnderAgeConverter().toJson(data),
+    UConfigRegionRulesConfigRegionRuleIfAccountNewerThan(:final data) =>
+      const ConfigRegionRuleIfAccountNewerThanConverter().toJson(data),
+    UConfigRegionRulesConfigRegionRuleIfAccountOlderThan(:final data) =>
+      const ConfigRegionRuleIfAccountOlderThanConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UConfigRegionRulesUnknown(:final data) => data,
+  };
 }

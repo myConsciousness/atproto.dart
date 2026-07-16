@@ -19,7 +19,7 @@ part 'main_role.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class TeamAddMemberRole with _$TeamAddMemberRole {
+sealed class TeamAddMemberRole with _$TeamAddMemberRole {
   const TeamAddMemberRole._();
 
   const factory TeamAddMemberRole.knownValue({
@@ -70,8 +70,10 @@ final class TeamAddMemberRoleConverter
   }
 
   @override
-  String toJson(TeamAddMemberRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(TeamAddMemberRole object) => switch (object) {
+    TeamAddMemberRoleKnownValue(:final data) => data.value,
+    TeamAddMemberRoleUnknown(:final data) => data,
+  };
 }
 
 enum KnownTeamAddMemberRole implements Serializable {

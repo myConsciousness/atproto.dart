@@ -19,7 +19,7 @@ part 'generator_view_content_mode.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class GeneratorViewContentMode with _$GeneratorViewContentMode {
+sealed class GeneratorViewContentMode with _$GeneratorViewContentMode {
   const GeneratorViewContentMode._();
 
   const factory GeneratorViewContentMode.knownValue({
@@ -70,8 +70,10 @@ final class GeneratorViewContentModeConverter
   }
 
   @override
-  String toJson(GeneratorViewContentMode object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(GeneratorViewContentMode object) => switch (object) {
+    GeneratorViewContentModeKnownValue(:final data) => data.value,
+    GeneratorViewContentModeUnknown(:final data) => data,
+  };
 }
 
 enum KnownGeneratorViewContentMode implements Serializable {

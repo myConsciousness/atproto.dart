@@ -19,7 +19,7 @@ part 'main_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ServerGetSessionStatus with _$ServerGetSessionStatus {
+sealed class ServerGetSessionStatus with _$ServerGetSessionStatus {
   const ServerGetSessionStatus._();
 
   const factory ServerGetSessionStatus.knownValue({
@@ -70,8 +70,10 @@ final class ServerGetSessionStatusConverter
   }
 
   @override
-  String toJson(ServerGetSessionStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ServerGetSessionStatus object) => switch (object) {
+    ServerGetSessionStatusKnownValue(:final data) => data.value,
+    ServerGetSessionStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownServerGetSessionStatus implements Serializable {

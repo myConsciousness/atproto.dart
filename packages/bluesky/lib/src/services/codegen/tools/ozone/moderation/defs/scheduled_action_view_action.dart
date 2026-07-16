@@ -19,7 +19,7 @@ part 'scheduled_action_view_action.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ScheduledActionViewAction with _$ScheduledActionViewAction {
+sealed class ScheduledActionViewAction with _$ScheduledActionViewAction {
   const ScheduledActionViewAction._();
 
   const factory ScheduledActionViewAction.knownValue({
@@ -70,8 +70,10 @@ final class ScheduledActionViewActionConverter
   }
 
   @override
-  String toJson(ScheduledActionViewAction object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ScheduledActionViewAction object) => switch (object) {
+    ScheduledActionViewActionKnownValue(:final data) => data.value,
+    ScheduledActionViewActionUnknown(:final data) => data,
+  };
 }
 
 enum KnownScheduledActionViewAction implements Serializable {

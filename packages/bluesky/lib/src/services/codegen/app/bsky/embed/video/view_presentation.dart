@@ -19,7 +19,7 @@ part 'view_presentation.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EmbedVideoViewPresentation with _$EmbedVideoViewPresentation {
+sealed class EmbedVideoViewPresentation with _$EmbedVideoViewPresentation {
   const EmbedVideoViewPresentation._();
 
   const factory EmbedVideoViewPresentation.knownValue({
@@ -70,8 +70,10 @@ final class EmbedVideoViewPresentationConverter
   }
 
   @override
-  String toJson(EmbedVideoViewPresentation object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EmbedVideoViewPresentation object) => switch (object) {
+    EmbedVideoViewPresentationKnownValue(:final data) => data.value,
+    EmbedVideoViewPresentationUnknown(:final data) => data,
+  };
 }
 
 enum KnownEmbedVideoViewPresentation implements Serializable {

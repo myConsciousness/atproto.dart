@@ -160,21 +160,25 @@ final class UEmbedRecordViewRecordConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbedRecordViewRecord object) => object.when(
-    embedRecordViewRecord: (data) =>
-        const EmbedRecordViewRecordConverter().toJson(data),
-    embedRecordViewNotFound: (data) =>
-        const EmbedRecordViewNotFoundConverter().toJson(data),
-    embedRecordViewBlocked: (data) =>
-        const EmbedRecordViewBlockedConverter().toJson(data),
-    embedRecordViewDetached: (data) =>
-        const EmbedRecordViewDetachedConverter().toJson(data),
-    generatorView: (data) => const GeneratorViewConverter().toJson(data),
-    listView: (data) => const ListViewConverter().toJson(data),
-    labelerView: (data) => const LabelerViewConverter().toJson(data),
-    starterPackViewBasic: (data) =>
-        const StarterPackViewBasicConverter().toJson(data),
+  Map<String, dynamic> toJson(UEmbedRecordViewRecord object) =>
+      switch (object) {
+        UEmbedRecordViewRecordEmbedRecordViewRecord(:final data) =>
+          const EmbedRecordViewRecordConverter().toJson(data),
+        UEmbedRecordViewRecordEmbedRecordViewNotFound(:final data) =>
+          const EmbedRecordViewNotFoundConverter().toJson(data),
+        UEmbedRecordViewRecordEmbedRecordViewBlocked(:final data) =>
+          const EmbedRecordViewBlockedConverter().toJson(data),
+        UEmbedRecordViewRecordEmbedRecordViewDetached(:final data) =>
+          const EmbedRecordViewDetachedConverter().toJson(data),
+        UEmbedRecordViewRecordGeneratorView(:final data) =>
+          const GeneratorViewConverter().toJson(data),
+        UEmbedRecordViewRecordListView(:final data) =>
+          const ListViewConverter().toJson(data),
+        UEmbedRecordViewRecordLabelerView(:final data) =>
+          const LabelerViewConverter().toJson(data),
+        UEmbedRecordViewRecordStarterPackViewBasic(:final data) =>
+          const StarterPackViewBasicConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        UEmbedRecordViewRecordUnknown(:final data) => data,
+      };
 }

@@ -19,7 +19,7 @@ part 'main_validation_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class RepoPutRecordValidationStatus
+sealed class RepoPutRecordValidationStatus
     with _$RepoPutRecordValidationStatus {
   const RepoPutRecordValidationStatus._();
 
@@ -73,8 +73,10 @@ final class RepoPutRecordValidationStatusConverter
   }
 
   @override
-  String toJson(RepoPutRecordValidationStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RepoPutRecordValidationStatus object) => switch (object) {
+    RepoPutRecordValidationStatusKnownValue(:final data) => data.value,
+    RepoPutRecordValidationStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownRepoPutRecordValidationStatus implements Serializable {

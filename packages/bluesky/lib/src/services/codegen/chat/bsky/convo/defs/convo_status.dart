@@ -19,7 +19,7 @@ part 'convo_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ConvoStatus with _$ConvoStatus {
+sealed class ConvoStatus with _$ConvoStatus {
   const ConvoStatus._();
 
   const factory ConvoStatus.knownValue({required KnownConvoStatus data}) =
@@ -68,8 +68,10 @@ final class ConvoStatusConverter extends JsonConverter<ConvoStatus, String> {
   }
 
   @override
-  String toJson(ConvoStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoStatus object) => switch (object) {
+    ConvoStatusKnownValue(:final data) => data.value,
+    ConvoStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownConvoStatus implements Serializable {

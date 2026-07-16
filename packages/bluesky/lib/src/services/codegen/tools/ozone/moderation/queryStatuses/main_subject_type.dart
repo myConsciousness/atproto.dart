@@ -19,7 +19,7 @@ part 'main_subject_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ModerationQueryStatusesSubjectType
+sealed class ModerationQueryStatusesSubjectType
     with _$ModerationQueryStatusesSubjectType {
   const ModerationQueryStatusesSubjectType._();
 
@@ -75,8 +75,10 @@ final class ModerationQueryStatusesSubjectTypeConverter
   }
 
   @override
-  String toJson(ModerationQueryStatusesSubjectType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ModerationQueryStatusesSubjectType object) => switch (object) {
+    ModerationQueryStatusesSubjectTypeKnownValue(:final data) => data.value,
+    ModerationQueryStatusesSubjectTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownModerationQueryStatusesSubjectType implements Serializable {

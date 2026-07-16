@@ -94,13 +94,15 @@ final class UConvoGetMessagesMessagesConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoGetMessagesMessages object) => object.when(
-    messageView: (data) => const MessageViewConverter().toJson(data),
-    deletedMessageView: (data) =>
-        const DeletedMessageViewConverter().toJson(data),
-    systemMessageView: (data) =>
-        const SystemMessageViewConverter().toJson(data),
+  Map<String, dynamic> toJson(UConvoGetMessagesMessages object) =>
+      switch (object) {
+        UConvoGetMessagesMessagesMessageView(:final data) =>
+          const MessageViewConverter().toJson(data),
+        UConvoGetMessagesMessagesDeletedMessageView(:final data) =>
+          const DeletedMessageViewConverter().toJson(data),
+        UConvoGetMessagesMessagesSystemMessageView(:final data) =>
+          const SystemMessageViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        UConvoGetMessagesMessagesUnknown(:final data) => data,
+      };
 }

@@ -68,9 +68,11 @@ final class UDraftEmbedGalleryItemsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UDraftEmbedGalleryItems object) => object.when(
-    draftEmbedImage: (data) => const DraftEmbedImageConverter().toJson(data),
+  Map<String, dynamic> toJson(UDraftEmbedGalleryItems object) =>
+      switch (object) {
+        UDraftEmbedGalleryItemsDraftEmbedImage(:final data) =>
+          const DraftEmbedImageConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        UDraftEmbedGalleryItemsUnknown(:final data) => data,
+      };
 }

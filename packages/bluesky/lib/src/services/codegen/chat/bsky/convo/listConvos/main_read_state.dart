@@ -19,7 +19,7 @@ part 'main_read_state.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ConvoListConvosReadState with _$ConvoListConvosReadState {
+sealed class ConvoListConvosReadState with _$ConvoListConvosReadState {
   const ConvoListConvosReadState._();
 
   const factory ConvoListConvosReadState.knownValue({
@@ -70,8 +70,10 @@ final class ConvoListConvosReadStateConverter
   }
 
   @override
-  String toJson(ConvoListConvosReadState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoListConvosReadState object) => switch (object) {
+    ConvoListConvosReadStateKnownValue(:final data) => data.value,
+    ConvoListConvosReadStateUnknown(:final data) => data,
+  };
 }
 
 enum KnownConvoListConvosReadState implements Serializable {

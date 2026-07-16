@@ -249,32 +249,35 @@ final class USystemMessageViewDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(USystemMessageViewData object) => object.when(
-    systemMessageDataAddMember: (data) =>
-        const SystemMessageDataAddMemberConverter().toJson(data),
-    systemMessageDataRemoveMember: (data) =>
-        const SystemMessageDataRemoveMemberConverter().toJson(data),
-    systemMessageDataMemberJoin: (data) =>
-        const SystemMessageDataMemberJoinConverter().toJson(data),
-    systemMessageDataMemberLeave: (data) =>
-        const SystemMessageDataMemberLeaveConverter().toJson(data),
-    systemMessageDataLockConvo: (data) =>
-        const SystemMessageDataLockConvoConverter().toJson(data),
-    systemMessageDataUnlockConvo: (data) =>
-        const SystemMessageDataUnlockConvoConverter().toJson(data),
-    systemMessageDataLockConvoPermanently: (data) =>
-        const SystemMessageDataLockConvoPermanentlyConverter().toJson(data),
-    systemMessageDataEditGroup: (data) =>
-        const SystemMessageDataEditGroupConverter().toJson(data),
-    systemMessageDataCreateJoinLink: (data) =>
-        const SystemMessageDataCreateJoinLinkConverter().toJson(data),
-    systemMessageDataEditJoinLink: (data) =>
-        const SystemMessageDataEditJoinLinkConverter().toJson(data),
-    systemMessageDataEnableJoinLink: (data) =>
-        const SystemMessageDataEnableJoinLinkConverter().toJson(data),
-    systemMessageDataDisableJoinLink: (data) =>
-        const SystemMessageDataDisableJoinLinkConverter().toJson(data),
+  Map<String, dynamic> toJson(USystemMessageViewData object) =>
+      switch (object) {
+        USystemMessageViewDataSystemMessageDataAddMember(:final data) =>
+          const SystemMessageDataAddMemberConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataRemoveMember(:final data) =>
+          const SystemMessageDataRemoveMemberConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataMemberJoin(:final data) =>
+          const SystemMessageDataMemberJoinConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataMemberLeave(:final data) =>
+          const SystemMessageDataMemberLeaveConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataLockConvo(:final data) =>
+          const SystemMessageDataLockConvoConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataUnlockConvo(:final data) =>
+          const SystemMessageDataUnlockConvoConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataLockConvoPermanently(
+          :final data,
+        ) =>
+          const SystemMessageDataLockConvoPermanentlyConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataEditGroup(:final data) =>
+          const SystemMessageDataEditGroupConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataCreateJoinLink(:final data) =>
+          const SystemMessageDataCreateJoinLinkConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataEditJoinLink(:final data) =>
+          const SystemMessageDataEditJoinLinkConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataEnableJoinLink(:final data) =>
+          const SystemMessageDataEnableJoinLinkConverter().toJson(data),
+        USystemMessageViewDataSystemMessageDataDisableJoinLink(:final data) =>
+          const SystemMessageDataDisableJoinLinkConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        USystemMessageViewDataUnknown(:final data) => data,
+      };
 }

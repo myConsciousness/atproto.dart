@@ -19,7 +19,7 @@ part 'event_group_chat_updated_update_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EventGroupChatUpdatedUpdateType
+sealed class EventGroupChatUpdatedUpdateType
     with _$EventGroupChatUpdatedUpdateType {
   const EventGroupChatUpdatedUpdateType._();
 
@@ -74,8 +74,10 @@ final class EventGroupChatUpdatedUpdateTypeConverter
   }
 
   @override
-  String toJson(EventGroupChatUpdatedUpdateType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EventGroupChatUpdatedUpdateType object) => switch (object) {
+    EventGroupChatUpdatedUpdateTypeKnownValue(:final data) => data.value,
+    EventGroupChatUpdatedUpdateTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownEventGroupChatUpdatedUpdateType implements Serializable {

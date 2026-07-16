@@ -89,10 +89,12 @@ final class UGraphGetRelationshipsRelationshipsConverter
 
   @override
   Map<String, dynamic> toJson(UGraphGetRelationshipsRelationships object) =>
-      object.when(
-        relationship: (data) => const RelationshipConverter().toJson(data),
-        notFoundActor: (data) => const NotFoundActorConverter().toJson(data),
+      switch (object) {
+        UGraphGetRelationshipsRelationshipsRelationship(:final data) =>
+          const RelationshipConverter().toJson(data),
+        UGraphGetRelationshipsRelationshipsNotFoundActor(:final data) =>
+          const NotFoundActorConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UGraphGetRelationshipsRelationshipsUnknown(:final data) => data,
+      };
 }
