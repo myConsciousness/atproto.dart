@@ -6,12 +6,12 @@
 import 'dart:convert';
 
 // Package imports:
+import 'package:atproto_identity/atproto_identity.dart';
 import 'package:http/http.dart' as http;
 
 // Project imports:
 import 'dpop/dpop_signer.dart';
 import 'helper/helper.dart';
-import 'identity/identity_resolver.dart';
 import 'oauth_exception.dart';
 import 'stores/dpop_nonce_cache.dart';
 import 'stores/oauth_session_store.dart';
@@ -212,7 +212,12 @@ final class OAuthClient {
       );
     }
 
-    final resolved = await _identityResolver.resolve(identity);
+    final ResolvedIdentity resolved;
+    try {
+      resolved = await _identityResolver.resolve(identity);
+    } on IdentityException catch (e) {
+      throw OAuthException(e.message);
+    }
     final pdsOrigin = _normalizeHttpOrigin(resolved.pds, what: 'PDS URL');
     final authServerUri = await _resolveAuthorizationServer(
       pdsOrigin,

@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025, Shinya Kato.
+// Copyright (c) 2023-2026, Shinya Kato.
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -9,7 +9,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 // Project imports:
-import '../oauth_exception.dart';
+import '../identity_exception.dart';
+import '../signing_key.dart';
 import '../types/resolved_identity.dart';
 
 /// Resolves a handle or DID to its atproto identity.
@@ -69,7 +70,7 @@ final class HttpIdentityResolver implements IdentityResolver {
             (final aka) => aka.toLowerCase() == 'at://$handle',
           );
       if (!claimsHandle) {
-        throw OAuthException(
+        throw IdentityException(
           'Bidirectional handle verification failed: the DID document for '
           '"$did" does not list "at://$handle" in "alsoKnownAs"',
         );
@@ -80,6 +81,7 @@ final class HttpIdentityResolver implements IdentityResolver {
       did: did,
       pds: _extractPdsEndpoint(didDocument, did),
       handle: handle,
+      signingKey: signingKeyOf(didDocument),
     );
   }
 
@@ -93,14 +95,14 @@ final class HttpIdentityResolver implements IdentityResolver {
     ).replace(queryParameters: {'handle': handle});
     final response = await _get(uri);
     if (response.statusCode != 200) {
-      throw OAuthException(
+      throw IdentityException(
         'Failed to resolve handle "$handle" (status ${response.statusCode}): '
         '${response.body}',
       );
     }
     final did = _tryDecodeJsonMap(response.body)?['did'];
     if (did is! String || !did.startsWith('did:')) {
-      throw OAuthException(
+      throw IdentityException(
         'Handle resolution for "$handle" returned an invalid DID: '
         '${response.body}',
       );
@@ -119,21 +121,21 @@ final class HttpIdentityResolver implements IdentityResolver {
     } else if (did.startsWith('did:web:')) {
       uri = _didWebDocumentUri(did);
     } else {
-      throw OAuthException(
+      throw IdentityException(
         'Unsupported DID method for "$did" '
         '(only did:plc and did:web are supported)',
       );
     }
     final response = await _get(uri);
     if (response.statusCode != 200) {
-      throw OAuthException(
+      throw IdentityException(
         'Failed to fetch DID document for "$did" from "$uri" '
         '(status ${response.statusCode})',
       );
     }
     final json = _tryDecodeJsonMap(response.body);
     if (json == null) {
-      throw OAuthException(
+      throw IdentityException(
         'DID document for "$did" at "$uri" is not a JSON object',
       );
     }
@@ -147,13 +149,13 @@ final class HttpIdentityResolver implements IdentityResolver {
 Uri _didWebDocumentUri(final String did) {
   final id = did.substring('did:web:'.length);
   if (id.isEmpty) {
-    throw OAuthException('Invalid did:web identifier: "$did"');
+    throw IdentityException('Invalid did:web identifier: "$did"');
   }
 
   final segments = id.split(':').map(Uri.decodeComponent).toList();
   final host = segments.first;
   if (host.isEmpty) {
-    throw OAuthException('Invalid did:web identifier: "$did"');
+    throw IdentityException('Invalid did:web identifier: "$did"');
   }
 
   if (segments.length == 1) {
@@ -184,7 +186,7 @@ String _extractPdsEndpoint(
     }
   }
 
-  throw OAuthException(
+  throw IdentityException(
     'DID document for "$did" declares no "#atproto_pds" service endpoint',
   );
 }
@@ -195,7 +197,7 @@ String _extractPdsEndpoint(
 String _normalizeHttpOrigin(final String input, {required final String what}) {
   var value = input.trim();
   if (value.isEmpty) {
-    throw OAuthException('$what must not be empty');
+    throw IdentityException('$what must not be empty');
   }
   if (!value.contains('://')) {
     value = 'https://$value';
@@ -206,7 +208,7 @@ String _normalizeHttpOrigin(final String input, {required final String what}) {
       !uri.hasScheme ||
       !(uri.isScheme('https') || uri.isScheme('http')) ||
       uri.host.isEmpty) {
-    throw OAuthException('Invalid $what: "$input"');
+    throw IdentityException('Invalid $what: "$input"');
   }
 
   return uri.origin;

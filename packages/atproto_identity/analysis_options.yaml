@@ -1,0 +1,58 @@
+# Analysis options for atproto.dart monorepo
+# Optimized for maintainability while keeping code quality high
+
+include: package:lints/recommended.yaml
+
+analyzer:
+  exclude:
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+  errors:
+    # Allow invalid annotation targets (common in generated code)
+    invalid_annotation_target: ignore
+    # Relax some rules that are too strict for this codebase
+    lines_longer_than_80_chars: info
+    prefer_relative_imports: info
+    # Keep important errors as errors
+    missing_return: error
+    dead_code: error
+
+linter:
+  rules:
+    # Core quality rules - keep these strict
+    - avoid_null_checks_in_equality_operators
+    - avoid_unused_constructor_parameters
+    - await_only_futures
+    - cancel_subscriptions
+    - control_flow_in_finally
+    - empty_statements
+    - hash_and_equals
+    - implementation_imports
+    - collection_methods_unrelated_type
+    - test_types_in_equals
+    - throw_in_finally
+    - unrelated_type_equality_checks
+    
+    # Naming conventions - important for API consistency
+    - camel_case_types
+    - constant_identifier_names
+    - library_names
+    - library_prefixes
+    - non_constant_identifier_names
+    - package_names
+    - package_prefixed_library_names
+    
+    # Code style - helpful but not overly strict
+    - prefer_final_fields
+    - prefer_generic_function_type_aliases
+    - prefer_typing_uninitialized_variables
+    - unnecessary_brace_in_string_interps
+    
+    # Documentation - important for public APIs
+    # package_api_docs (removed in Dart 3.7.0+)
+
+    # Import organization - relaxed to info level
+    - prefer_relative_imports
+    
+    # Line length - relaxed for generated code and long URLs/descriptions
+    # Note: This is handled at error level above as 'info'
