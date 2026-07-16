@@ -224,31 +224,42 @@ final class UModerationSubscribeModEventsMessageConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UModerationSubscribeModEventsMessage object) =>
-      object.when(
-        eventConvoFirstMessage: (data) =>
-            const EventConvoFirstMessageConverter().toJson(data),
-        eventGroupChatCreated: (data) =>
-            const EventGroupChatCreatedConverter().toJson(data),
-        eventGroupChatMemberAdded: (data) =>
-            const EventGroupChatMemberAddedConverter().toJson(data),
-        eventGroupChatMemberJoined: (data) =>
-            const EventGroupChatMemberJoinedConverter().toJson(data),
-        eventGroupChatJoinRequest: (data) =>
-            const EventGroupChatJoinRequestConverter().toJson(data),
-        eventGroupChatJoinRequestApproved: (data) =>
-            const EventGroupChatJoinRequestApprovedConverter().toJson(data),
-        eventGroupChatJoinRequestRejected: (data) =>
-            const EventGroupChatJoinRequestRejectedConverter().toJson(data),
-        eventChatAccepted: (data) =>
-            const EventChatAcceptedConverter().toJson(data),
-        eventGroupChatMemberLeft: (data) =>
-            const EventGroupChatMemberLeftConverter().toJson(data),
-        eventGroupChatUpdated: (data) =>
-            const EventGroupChatUpdatedConverter().toJson(data),
-        eventRateLimitExceeded: (data) =>
-            const EventRateLimitExceededConverter().toJson(data),
+  Map<String, dynamic> toJson(
+    UModerationSubscribeModEventsMessage object,
+  ) => switch (object) {
+    UModerationSubscribeModEventsMessageEventConvoFirstMessage(:final data) =>
+      const EventConvoFirstMessageConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatCreated(:final data) =>
+      const EventGroupChatCreatedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatMemberAdded(
+      :final data,
+    ) =>
+      const EventGroupChatMemberAddedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatMemberJoined(
+      :final data,
+    ) =>
+      const EventGroupChatMemberJoinedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatJoinRequest(
+      :final data,
+    ) =>
+      const EventGroupChatJoinRequestConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatJoinRequestApproved(
+      :final data,
+    ) =>
+      const EventGroupChatJoinRequestApprovedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatJoinRequestRejected(
+      :final data,
+    ) =>
+      const EventGroupChatJoinRequestRejectedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventChatAccepted(:final data) =>
+      const EventChatAcceptedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatMemberLeft(:final data) =>
+      const EventGroupChatMemberLeftConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventGroupChatUpdated(:final data) =>
+      const EventGroupChatUpdatedConverter().toJson(data),
+    UModerationSubscribeModEventsMessageEventRateLimitExceeded(:final data) =>
+      const EventRateLimitExceededConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+    UModerationSubscribeModEventsMessageUnknown(:final data) => data,
+  };
 }

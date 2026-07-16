@@ -19,7 +19,7 @@ part 'profile_associated_chat_allow_group_invites.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ProfileAssociatedChatAllowGroupInvites
+sealed class ProfileAssociatedChatAllowGroupInvites
     with _$ProfileAssociatedChatAllowGroupInvites {
   const ProfileAssociatedChatAllowGroupInvites._();
 
@@ -83,7 +83,11 @@ final class ProfileAssociatedChatAllowGroupInvitesConverter
 
   @override
   String toJson(ProfileAssociatedChatAllowGroupInvites object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+      switch (object) {
+        ProfileAssociatedChatAllowGroupInvitesKnownValue(:final data) =>
+          data.value,
+        ProfileAssociatedChatAllowGroupInvitesUnknown(:final data) => data,
+      };
 }
 
 enum KnownProfileAssociatedChatAllowGroupInvites implements Serializable {

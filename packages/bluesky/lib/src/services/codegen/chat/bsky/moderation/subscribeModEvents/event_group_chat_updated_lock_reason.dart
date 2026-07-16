@@ -19,7 +19,7 @@ part 'event_group_chat_updated_lock_reason.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EventGroupChatUpdatedLockReason
+sealed class EventGroupChatUpdatedLockReason
     with _$EventGroupChatUpdatedLockReason {
   const EventGroupChatUpdatedLockReason._();
 
@@ -74,8 +74,10 @@ final class EventGroupChatUpdatedLockReasonConverter
   }
 
   @override
-  String toJson(EventGroupChatUpdatedLockReason object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EventGroupChatUpdatedLockReason object) => switch (object) {
+    EventGroupChatUpdatedLockReasonKnownValue(:final data) => data.value,
+    EventGroupChatUpdatedLockReasonUnknown(:final data) => data,
+  };
 }
 
 enum KnownEventGroupChatUpdatedLockReason implements Serializable {

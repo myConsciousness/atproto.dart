@@ -19,7 +19,7 @@ part 'main_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ActorStatusStatus with _$ActorStatusStatus {
+sealed class ActorStatusStatus with _$ActorStatusStatus {
   const ActorStatusStatus._();
 
   const factory ActorStatusStatus.knownValue({
@@ -70,8 +70,10 @@ final class ActorStatusStatusConverter
   }
 
   @override
-  String toJson(ActorStatusStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ActorStatusStatus object) => switch (object) {
+    ActorStatusStatusKnownValue(:final data) => data.value,
+    ActorStatusStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownActorStatusStatus implements Serializable {

@@ -19,7 +19,7 @@ part 'repo_op_action.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class RepoOpAction with _$RepoOpAction {
+sealed class RepoOpAction with _$RepoOpAction {
   const RepoOpAction._();
 
   const factory RepoOpAction.knownValue({required KnownRepoOpAction data}) =
@@ -68,8 +68,10 @@ final class RepoOpActionConverter extends JsonConverter<RepoOpAction, String> {
   }
 
   @override
-  String toJson(RepoOpAction object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RepoOpAction object) => switch (object) {
+    RepoOpActionKnownValue(:final data) => data.value,
+    RepoOpActionUnknown(:final data) => data,
+  };
 }
 
 enum KnownRepoOpAction implements Serializable {

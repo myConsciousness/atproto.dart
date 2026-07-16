@@ -19,7 +19,7 @@ part 'saved_feed_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SavedFeedType with _$SavedFeedType {
+sealed class SavedFeedType with _$SavedFeedType {
   const SavedFeedType._();
 
   const factory SavedFeedType.knownValue({required KnownSavedFeedType data}) =
@@ -69,8 +69,10 @@ final class SavedFeedTypeConverter
   }
 
   @override
-  String toJson(SavedFeedType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SavedFeedType object) => switch (object) {
+    SavedFeedTypeKnownValue(:final data) => data.value,
+    SavedFeedTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownSavedFeedType implements Serializable {

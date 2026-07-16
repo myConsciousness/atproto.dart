@@ -19,7 +19,7 @@ part 'age_assurance_override_event_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class AgeAssuranceOverrideEventStatus
+sealed class AgeAssuranceOverrideEventStatus
     with _$AgeAssuranceOverrideEventStatus {
   const AgeAssuranceOverrideEventStatus._();
 
@@ -74,8 +74,10 @@ final class AgeAssuranceOverrideEventStatusConverter
   }
 
   @override
-  String toJson(AgeAssuranceOverrideEventStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AgeAssuranceOverrideEventStatus object) => switch (object) {
+    AgeAssuranceOverrideEventStatusKnownValue(:final data) => data.value,
+    AgeAssuranceOverrideEventStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownAgeAssuranceOverrideEventStatus implements Serializable {

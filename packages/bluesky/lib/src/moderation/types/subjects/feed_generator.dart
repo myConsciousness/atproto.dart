@@ -20,9 +20,9 @@ ModerationDecision decideFeedGenerator(
   final ModerationSubjectFeedGenerator subject,
   final ModerationOpts opts,
 ) {
-  final (creator, labels) = subject.when(
-    generatorView: (data) => (data.creator, data.labels),
-  );
+  final (creator, labels) = switch (subject) {
+    UModerationSubjectFeedGenerator(:final data) => (data.creator, data.labels),
+  };
 
   final decision = ModerationDecision.init(
     did: creator.did,

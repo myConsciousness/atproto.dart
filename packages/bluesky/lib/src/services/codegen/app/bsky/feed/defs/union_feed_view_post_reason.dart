@@ -77,10 +77,12 @@ final class UFeedViewPostReasonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UFeedViewPostReason object) => object.when(
-    reasonRepost: (data) => const ReasonRepostConverter().toJson(data),
-    reasonPin: (data) => const ReasonPinConverter().toJson(data),
+  Map<String, dynamic> toJson(UFeedViewPostReason object) => switch (object) {
+    UFeedViewPostReasonReasonRepost(:final data) =>
+      const ReasonRepostConverter().toJson(data),
+    UFeedViewPostReasonReasonPin(:final data) =>
+      const ReasonPinConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UFeedViewPostReasonUnknown(:final data) => data,
+  };
 }

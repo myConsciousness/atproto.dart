@@ -51,12 +51,13 @@ final class _LexServiceGenerator {
       final apis = <LexApi>[];
       for (final doc in entry.value) {
         final apiDef = firstApiDef(doc);
-        final api = apiDef.whenOrNull(
-          xrpcQuery: (data) => data,
-          xrpcProcedure: (data) => data,
-          xrpcSubscription: (data) => data,
-          record: (data) => data,
-        );
+        final api = switch (apiDef) {
+          ULexUserTypeXrpcQuery(:final data) => data,
+          ULexUserTypeXrpcProcedure(:final data) => data,
+          ULexUserTypeXrpcSubscription(:final data) => data,
+          ULexUserTypeRecord(:final data) => data,
+          _ => null,
+        };
         if (api == null) continue;
 
         final returnType = _getRelatedType(doc.id.toString(), const [

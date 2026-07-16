@@ -69,9 +69,10 @@ final class UDraftPostgateEmbeddingRulesConverter
 
   @override
   Map<String, dynamic> toJson(UDraftPostgateEmbeddingRules object) =>
-      object.when(
-        disableRule: (data) => const DisableRuleConverter().toJson(data),
+      switch (object) {
+        UDraftPostgateEmbeddingRulesDisableRule(:final data) =>
+          const DisableRuleConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UDraftPostgateEmbeddingRulesUnknown(:final data) => data,
+      };
 }

@@ -19,7 +19,7 @@ part 'suggestion_subject_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SuggestionSubjectType with _$SuggestionSubjectType {
+sealed class SuggestionSubjectType with _$SuggestionSubjectType {
   const SuggestionSubjectType._();
 
   const factory SuggestionSubjectType.knownValue({
@@ -70,8 +70,10 @@ final class SuggestionSubjectTypeConverter
   }
 
   @override
-  String toJson(SuggestionSubjectType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SuggestionSubjectType object) => switch (object) {
+    SuggestionSubjectTypeKnownValue(:final data) => data.value,
+    SuggestionSubjectTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownSuggestionSubjectType implements Serializable {

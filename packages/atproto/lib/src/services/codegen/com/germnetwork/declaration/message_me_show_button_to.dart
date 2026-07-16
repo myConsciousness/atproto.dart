@@ -19,7 +19,7 @@ part 'message_me_show_button_to.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class MessageMeShowButtonTo with _$MessageMeShowButtonTo {
+sealed class MessageMeShowButtonTo with _$MessageMeShowButtonTo {
   const MessageMeShowButtonTo._();
 
   const factory MessageMeShowButtonTo.knownValue({
@@ -70,8 +70,10 @@ final class MessageMeShowButtonToConverter
   }
 
   @override
-  String toJson(MessageMeShowButtonTo object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(MessageMeShowButtonTo object) => switch (object) {
+    MessageMeShowButtonToKnownValue(:final data) => data.value,
+    MessageMeShowButtonToUnknown(:final data) => data,
+  };
 }
 
 enum KnownMessageMeShowButtonTo implements Serializable {

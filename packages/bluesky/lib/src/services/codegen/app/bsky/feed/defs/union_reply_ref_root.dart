@@ -86,11 +86,15 @@ final class UReplyRefRootConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UReplyRefRoot object) => object.when(
-    postView: (data) => const PostViewConverter().toJson(data),
-    notFoundPost: (data) => const NotFoundPostConverter().toJson(data),
-    blockedPost: (data) => const BlockedPostConverter().toJson(data),
+  Map<String, dynamic> toJson(UReplyRefRoot object) => switch (object) {
+    UReplyRefRootPostView(:final data) => const PostViewConverter().toJson(
+      data,
+    ),
+    UReplyRefRootNotFoundPost(:final data) =>
+      const NotFoundPostConverter().toJson(data),
+    UReplyRefRootBlockedPost(:final data) =>
+      const BlockedPostConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UReplyRefRootUnknown(:final data) => data,
+  };
 }

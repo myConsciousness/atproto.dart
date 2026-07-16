@@ -390,45 +390,58 @@ final class UModEventViewEventConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UModEventViewEvent object) => object.when(
-    modEventTakedown: (data) => const ModEventTakedownConverter().toJson(data),
-    modEventReverseTakedown: (data) =>
-        const ModEventReverseTakedownConverter().toJson(data),
-    modEventComment: (data) => const ModEventCommentConverter().toJson(data),
-    modEventReport: (data) => const ModEventReportConverter().toJson(data),
-    modEventLabel: (data) => const ModEventLabelConverter().toJson(data),
-    modEventAcknowledge: (data) =>
-        const ModEventAcknowledgeConverter().toJson(data),
-    modEventEscalate: (data) => const ModEventEscalateConverter().toJson(data),
-    modEventMute: (data) => const ModEventMuteConverter().toJson(data),
-    modEventUnmute: (data) => const ModEventUnmuteConverter().toJson(data),
-    modEventMuteReporter: (data) =>
-        const ModEventMuteReporterConverter().toJson(data),
-    modEventUnmuteReporter: (data) =>
-        const ModEventUnmuteReporterConverter().toJson(data),
-    modEventEmail: (data) => const ModEventEmailConverter().toJson(data),
-    modEventResolveAppeal: (data) =>
-        const ModEventResolveAppealConverter().toJson(data),
-    modEventDivert: (data) => const ModEventDivertConverter().toJson(data),
-    modEventTag: (data) => const ModEventTagConverter().toJson(data),
-    accountEvent: (data) => const AccountEventConverter().toJson(data),
-    identityEvent: (data) => const IdentityEventConverter().toJson(data),
-    recordEvent: (data) => const RecordEventConverter().toJson(data),
-    modEventPriorityScore: (data) =>
-        const ModEventPriorityScoreConverter().toJson(data),
-    ageAssuranceEvent: (data) =>
-        const AgeAssuranceEventConverter().toJson(data),
-    ageAssuranceOverrideEvent: (data) =>
-        const AgeAssuranceOverrideEventConverter().toJson(data),
-    ageAssurancePurgeEvent: (data) =>
-        const AgeAssurancePurgeEventConverter().toJson(data),
-    revokeAccountCredentialsEvent: (data) =>
-        const RevokeAccountCredentialsEventConverter().toJson(data),
-    scheduleTakedownEvent: (data) =>
-        const ScheduleTakedownEventConverter().toJson(data),
-    cancelScheduledTakedownEvent: (data) =>
-        const CancelScheduledTakedownEventConverter().toJson(data),
+  Map<String, dynamic> toJson(UModEventViewEvent object) => switch (object) {
+    UModEventViewEventModEventTakedown(:final data) =>
+      const ModEventTakedownConverter().toJson(data),
+    UModEventViewEventModEventReverseTakedown(:final data) =>
+      const ModEventReverseTakedownConverter().toJson(data),
+    UModEventViewEventModEventComment(:final data) =>
+      const ModEventCommentConverter().toJson(data),
+    UModEventViewEventModEventReport(:final data) =>
+      const ModEventReportConverter().toJson(data),
+    UModEventViewEventModEventLabel(:final data) =>
+      const ModEventLabelConverter().toJson(data),
+    UModEventViewEventModEventAcknowledge(:final data) =>
+      const ModEventAcknowledgeConverter().toJson(data),
+    UModEventViewEventModEventEscalate(:final data) =>
+      const ModEventEscalateConverter().toJson(data),
+    UModEventViewEventModEventMute(:final data) =>
+      const ModEventMuteConverter().toJson(data),
+    UModEventViewEventModEventUnmute(:final data) =>
+      const ModEventUnmuteConverter().toJson(data),
+    UModEventViewEventModEventMuteReporter(:final data) =>
+      const ModEventMuteReporterConverter().toJson(data),
+    UModEventViewEventModEventUnmuteReporter(:final data) =>
+      const ModEventUnmuteReporterConverter().toJson(data),
+    UModEventViewEventModEventEmail(:final data) =>
+      const ModEventEmailConverter().toJson(data),
+    UModEventViewEventModEventResolveAppeal(:final data) =>
+      const ModEventResolveAppealConverter().toJson(data),
+    UModEventViewEventModEventDivert(:final data) =>
+      const ModEventDivertConverter().toJson(data),
+    UModEventViewEventModEventTag(:final data) =>
+      const ModEventTagConverter().toJson(data),
+    UModEventViewEventAccountEvent(:final data) =>
+      const AccountEventConverter().toJson(data),
+    UModEventViewEventIdentityEvent(:final data) =>
+      const IdentityEventConverter().toJson(data),
+    UModEventViewEventRecordEvent(:final data) =>
+      const RecordEventConverter().toJson(data),
+    UModEventViewEventModEventPriorityScore(:final data) =>
+      const ModEventPriorityScoreConverter().toJson(data),
+    UModEventViewEventAgeAssuranceEvent(:final data) =>
+      const AgeAssuranceEventConverter().toJson(data),
+    UModEventViewEventAgeAssuranceOverrideEvent(:final data) =>
+      const AgeAssuranceOverrideEventConverter().toJson(data),
+    UModEventViewEventAgeAssurancePurgeEvent(:final data) =>
+      const AgeAssurancePurgeEventConverter().toJson(data),
+    UModEventViewEventRevokeAccountCredentialsEvent(:final data) =>
+      const RevokeAccountCredentialsEventConverter().toJson(data),
+    UModEventViewEventScheduleTakedownEvent(:final data) =>
+      const ScheduleTakedownEventConverter().toJson(data),
+    UModEventViewEventCancelScheduledTakedownEvent(:final data) =>
+      const CancelScheduledTakedownEventConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UModEventViewEventUnknown(:final data) => data,
+  };
 }

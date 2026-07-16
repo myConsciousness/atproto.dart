@@ -19,7 +19,7 @@ part 'main_scope.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SettingRemoveOptionsScope with _$SettingRemoveOptionsScope {
+sealed class SettingRemoveOptionsScope with _$SettingRemoveOptionsScope {
   const SettingRemoveOptionsScope._();
 
   const factory SettingRemoveOptionsScope.knownValue({
@@ -70,8 +70,10 @@ final class SettingRemoveOptionsScopeConverter
   }
 
   @override
-  String toJson(SettingRemoveOptionsScope object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingRemoveOptionsScope object) => switch (object) {
+    SettingRemoveOptionsScopeKnownValue(:final data) => data.value,
+    SettingRemoveOptionsScopeUnknown(:final data) => data,
+  };
 }
 
 enum KnownSettingRemoveOptionsScope implements Serializable {

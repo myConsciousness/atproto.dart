@@ -19,7 +19,7 @@ part 'main_sort.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class AdminGetInviteCodesSort with _$AdminGetInviteCodesSort {
+sealed class AdminGetInviteCodesSort with _$AdminGetInviteCodesSort {
   const AdminGetInviteCodesSort._();
 
   const factory AdminGetInviteCodesSort.knownValue({
@@ -70,8 +70,10 @@ final class AdminGetInviteCodesSortConverter
   }
 
   @override
-  String toJson(AdminGetInviteCodesSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AdminGetInviteCodesSort object) => switch (object) {
+    AdminGetInviteCodesSortKnownValue(:final data) => data.value,
+    AdminGetInviteCodesSortUnknown(:final data) => data,
+  };
 }
 
 enum KnownAdminGetInviteCodesSort implements Serializable {

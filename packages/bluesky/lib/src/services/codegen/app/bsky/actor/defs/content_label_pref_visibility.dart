@@ -19,7 +19,7 @@ part 'content_label_pref_visibility.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ContentLabelPrefVisibility with _$ContentLabelPrefVisibility {
+sealed class ContentLabelPrefVisibility with _$ContentLabelPrefVisibility {
   const ContentLabelPrefVisibility._();
 
   const factory ContentLabelPrefVisibility.knownValue({
@@ -70,8 +70,10 @@ final class ContentLabelPrefVisibilityConverter
   }
 
   @override
-  String toJson(ContentLabelPrefVisibility object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ContentLabelPrefVisibility object) => switch (object) {
+    ContentLabelPrefVisibilityKnownValue(:final data) => data.value,
+    ContentLabelPrefVisibilityUnknown(:final data) => data,
+  };
 }
 
 enum KnownContentLabelPrefVisibility implements Serializable {

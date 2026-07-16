@@ -84,10 +84,12 @@ final class UModerationCreateReportSubjectConverter
 
   @override
   Map<String, dynamic> toJson(UModerationCreateReportSubject object) =>
-      object.when(
-        repoRef: (data) => const RepoRefConverter().toJson(data),
-        repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
+      switch (object) {
+        UModerationCreateReportSubjectRepoRef(:final data) =>
+          const RepoRefConverter().toJson(data),
+        UModerationCreateReportSubjectRepoStrongRef(:final data) =>
+          const RepoStrongRefConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UModerationCreateReportSubjectUnknown(:final data) => data,
+      };
 }

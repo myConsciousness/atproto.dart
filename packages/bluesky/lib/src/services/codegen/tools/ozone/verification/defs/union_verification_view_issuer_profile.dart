@@ -53,5 +53,7 @@ final class UVerificationViewIssuerProfileConverter
 
   @override
   Map<String, dynamic> toJson(UVerificationViewIssuerProfile object) =>
-      object.when(unknown: (data) => data);
+      switch (object) {
+        UVerificationViewIssuerProfileUnknown(:final data) => data,
+      };
 }

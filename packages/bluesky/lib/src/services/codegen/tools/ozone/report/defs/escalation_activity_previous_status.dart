@@ -19,7 +19,7 @@ part 'escalation_activity_previous_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EscalationActivityPreviousStatus
+sealed class EscalationActivityPreviousStatus
     with _$EscalationActivityPreviousStatus {
   const EscalationActivityPreviousStatus._();
 
@@ -75,8 +75,10 @@ final class EscalationActivityPreviousStatusConverter
   }
 
   @override
-  String toJson(EscalationActivityPreviousStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EscalationActivityPreviousStatus object) => switch (object) {
+    EscalationActivityPreviousStatusKnownValue(:final data) => data.value,
+    EscalationActivityPreviousStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownEscalationActivityPreviousStatus implements Serializable {

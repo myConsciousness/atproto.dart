@@ -19,7 +19,7 @@ part 'viewer_config_role.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ViewerConfigRole with _$ViewerConfigRole {
+sealed class ViewerConfigRole with _$ViewerConfigRole {
   const ViewerConfigRole._();
 
   const factory ViewerConfigRole.knownValue({
@@ -70,8 +70,10 @@ final class ViewerConfigRoleConverter
   }
 
   @override
-  String toJson(ViewerConfigRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ViewerConfigRole object) => switch (object) {
+    ViewerConfigRoleKnownValue(:final data) => data.value,
+    ViewerConfigRoleUnknown(:final data) => data,
+  };
 }
 
 enum KnownViewerConfigRole implements Serializable {

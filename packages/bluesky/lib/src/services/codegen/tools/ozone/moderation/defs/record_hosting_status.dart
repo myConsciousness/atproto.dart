@@ -19,7 +19,7 @@ part 'record_hosting_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class RecordHostingStatus with _$RecordHostingStatus {
+sealed class RecordHostingStatus with _$RecordHostingStatus {
   const RecordHostingStatus._();
 
   const factory RecordHostingStatus.knownValue({
@@ -70,8 +70,10 @@ final class RecordHostingStatusConverter
   }
 
   @override
-  String toJson(RecordHostingStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RecordHostingStatus object) => switch (object) {
+    RecordHostingStatusKnownValue(:final data) => data.value,
+    RecordHostingStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownRecordHostingStatus implements Serializable {

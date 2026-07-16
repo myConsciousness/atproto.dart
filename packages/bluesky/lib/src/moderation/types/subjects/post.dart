@@ -33,15 +33,15 @@ ModerationDecision decidePost(
   final ModerationSubjectPost subject,
   final ModerationOpts opts,
 ) {
-  final (author, labels, uri, record, embed) = subject.when(
-    postView: (data) => (
+  final (author, labels, uri, record, embed) = switch (subject) {
+    UModerationSubjectPostPostView(:final data) => (
       data.author,
       data.labels,
       data.uri.toString(),
       data.record,
       data.embed,
     ),
-  );
+  };
 
   final decision = ModerationDecision.init(
     did: author.did,
@@ -183,9 +183,11 @@ bool _hasHiddenPost(
   if (embed == null) return false;
 
   if (embed.isEmbedRecordView) {
-    final uri = embed.embedRecordView!.record.whenOrNull(
-      embedRecordViewRecord: (data) => data.uri.toString(),
-    );
+    final uri = switch (embed.embedRecordView!.record) {
+      UEmbedRecordViewRecordEmbedRecordViewRecord(:final data) =>
+        data.uri.toString(),
+      _ => null,
+    };
 
     if (hiddenPosts.contains(uri)) {
       return true;
@@ -193,9 +195,11 @@ bool _hasHiddenPost(
   }
 
   if (embed.isEmbedRecordWithMediaView) {
-    final uri = embed.embedRecordWithMediaView!.record.record.whenOrNull(
-      embedRecordViewRecord: (data) => data.uri.toString(),
-    );
+    final uri = switch (embed.embedRecordWithMediaView!.record.record) {
+      UEmbedRecordViewRecordEmbedRecordViewRecord(:final data) =>
+        data.uri.toString(),
+      _ => null,
+    };
 
     if (hiddenPosts.contains(uri)) {
       return true;
@@ -265,9 +269,10 @@ List<MuteWordMatch> _matchAllMuteWords(
 
   // quote post
   if (embed.isEmbedRecordView) {
-    final embeddedPostView = embed.embedRecordView!.record.whenOrNull(
-      embedRecordViewRecord: (data) => data,
-    );
+    final embeddedPostView = switch (embed.embedRecordView!.record) {
+      UEmbedRecordViewRecordEmbedRecordViewRecord(:final data) => data,
+      _ => null,
+    };
 
     if (embeddedPostView != null &&
         FeedPostRecord.validate(embeddedPostView.value)) {

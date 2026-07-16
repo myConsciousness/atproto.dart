@@ -19,7 +19,7 @@ part 'main_sort_direction.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SafelinkQueryEventsSortDirection
+sealed class SafelinkQueryEventsSortDirection
     with _$SafelinkQueryEventsSortDirection {
   const SafelinkQueryEventsSortDirection._();
 
@@ -75,8 +75,10 @@ final class SafelinkQueryEventsSortDirectionConverter
   }
 
   @override
-  String toJson(SafelinkQueryEventsSortDirection object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SafelinkQueryEventsSortDirection object) => switch (object) {
+    SafelinkQueryEventsSortDirectionKnownValue(:final data) => data.value,
+    SafelinkQueryEventsSortDirectionUnknown(:final data) => data,
+  };
 }
 
 enum KnownSafelinkQueryEventsSortDirection implements Serializable {

@@ -450,50 +450,68 @@ final class UConvoGetLogLogsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoGetLogLogs object) => object.when(
-    logBeginConvo: (data) => const LogBeginConvoConverter().toJson(data),
-    logAcceptConvo: (data) => const LogAcceptConvoConverter().toJson(data),
-    logLeaveConvo: (data) => const LogLeaveConvoConverter().toJson(data),
-    logMuteConvo: (data) => const LogMuteConvoConverter().toJson(data),
-    logUnmuteConvo: (data) => const LogUnmuteConvoConverter().toJson(data),
-    logCreateMessage: (data) => const LogCreateMessageConverter().toJson(data),
-    logDeleteMessage: (data) => const LogDeleteMessageConverter().toJson(data),
-    logReadMessage: (data) => const LogReadMessageConverter().toJson(data),
-    logAddReaction: (data) => const LogAddReactionConverter().toJson(data),
-    logRemoveReaction: (data) =>
-        const LogRemoveReactionConverter().toJson(data),
-    logReadConvo: (data) => const LogReadConvoConverter().toJson(data),
-    logAddMember: (data) => const LogAddMemberConverter().toJson(data),
-    logRemoveMember: (data) => const LogRemoveMemberConverter().toJson(data),
-    logMemberJoin: (data) => const LogMemberJoinConverter().toJson(data),
-    logMemberLeave: (data) => const LogMemberLeaveConverter().toJson(data),
-    logLockConvo: (data) => const LogLockConvoConverter().toJson(data),
-    logUnlockConvo: (data) => const LogUnlockConvoConverter().toJson(data),
-    logLockConvoPermanently: (data) =>
-        const LogLockConvoPermanentlyConverter().toJson(data),
-    logEditGroup: (data) => const LogEditGroupConverter().toJson(data),
-    logCreateJoinLink: (data) =>
-        const LogCreateJoinLinkConverter().toJson(data),
-    logEditJoinLink: (data) => const LogEditJoinLinkConverter().toJson(data),
-    logEnableJoinLink: (data) =>
-        const LogEnableJoinLinkConverter().toJson(data),
-    logDisableJoinLink: (data) =>
-        const LogDisableJoinLinkConverter().toJson(data),
-    logIncomingJoinRequest: (data) =>
-        const LogIncomingJoinRequestConverter().toJson(data),
-    logApproveJoinRequest: (data) =>
-        const LogApproveJoinRequestConverter().toJson(data),
-    logRejectJoinRequest: (data) =>
-        const LogRejectJoinRequestConverter().toJson(data),
-    logOutgoingJoinRequest: (data) =>
-        const LogOutgoingJoinRequestConverter().toJson(data),
-    logWithdrawIncomingJoinRequest: (data) =>
-        const LogWithdrawIncomingJoinRequestConverter().toJson(data),
-    logWithdrawOutgoingJoinRequest: (data) =>
-        const LogWithdrawOutgoingJoinRequestConverter().toJson(data),
-    logReadJoinRequests: (data) =>
-        const LogReadJoinRequestsConverter().toJson(data),
+  Map<String, dynamic> toJson(UConvoGetLogLogs object) => switch (object) {
+    UConvoGetLogLogsLogBeginConvo(:final data) =>
+      const LogBeginConvoConverter().toJson(data),
+    UConvoGetLogLogsLogAcceptConvo(:final data) =>
+      const LogAcceptConvoConverter().toJson(data),
+    UConvoGetLogLogsLogLeaveConvo(:final data) =>
+      const LogLeaveConvoConverter().toJson(data),
+    UConvoGetLogLogsLogMuteConvo(:final data) =>
+      const LogMuteConvoConverter().toJson(data),
+    UConvoGetLogLogsLogUnmuteConvo(:final data) =>
+      const LogUnmuteConvoConverter().toJson(data),
+    UConvoGetLogLogsLogCreateMessage(:final data) =>
+      const LogCreateMessageConverter().toJson(data),
+    UConvoGetLogLogsLogDeleteMessage(:final data) =>
+      const LogDeleteMessageConverter().toJson(data),
+    UConvoGetLogLogsLogReadMessage(:final data) =>
+      const LogReadMessageConverter().toJson(data),
+    UConvoGetLogLogsLogAddReaction(:final data) =>
+      const LogAddReactionConverter().toJson(data),
+    UConvoGetLogLogsLogRemoveReaction(:final data) =>
+      const LogRemoveReactionConverter().toJson(data),
+    UConvoGetLogLogsLogReadConvo(:final data) =>
+      const LogReadConvoConverter().toJson(data),
+    UConvoGetLogLogsLogAddMember(:final data) =>
+      const LogAddMemberConverter().toJson(data),
+    UConvoGetLogLogsLogRemoveMember(:final data) =>
+      const LogRemoveMemberConverter().toJson(data),
+    UConvoGetLogLogsLogMemberJoin(:final data) =>
+      const LogMemberJoinConverter().toJson(data),
+    UConvoGetLogLogsLogMemberLeave(:final data) =>
+      const LogMemberLeaveConverter().toJson(data),
+    UConvoGetLogLogsLogLockConvo(:final data) =>
+      const LogLockConvoConverter().toJson(data),
+    UConvoGetLogLogsLogUnlockConvo(:final data) =>
+      const LogUnlockConvoConverter().toJson(data),
+    UConvoGetLogLogsLogLockConvoPermanently(:final data) =>
+      const LogLockConvoPermanentlyConverter().toJson(data),
+    UConvoGetLogLogsLogEditGroup(:final data) =>
+      const LogEditGroupConverter().toJson(data),
+    UConvoGetLogLogsLogCreateJoinLink(:final data) =>
+      const LogCreateJoinLinkConverter().toJson(data),
+    UConvoGetLogLogsLogEditJoinLink(:final data) =>
+      const LogEditJoinLinkConverter().toJson(data),
+    UConvoGetLogLogsLogEnableJoinLink(:final data) =>
+      const LogEnableJoinLinkConverter().toJson(data),
+    UConvoGetLogLogsLogDisableJoinLink(:final data) =>
+      const LogDisableJoinLinkConverter().toJson(data),
+    UConvoGetLogLogsLogIncomingJoinRequest(:final data) =>
+      const LogIncomingJoinRequestConverter().toJson(data),
+    UConvoGetLogLogsLogApproveJoinRequest(:final data) =>
+      const LogApproveJoinRequestConverter().toJson(data),
+    UConvoGetLogLogsLogRejectJoinRequest(:final data) =>
+      const LogRejectJoinRequestConverter().toJson(data),
+    UConvoGetLogLogsLogOutgoingJoinRequest(:final data) =>
+      const LogOutgoingJoinRequestConverter().toJson(data),
+    UConvoGetLogLogsLogWithdrawIncomingJoinRequest(:final data) =>
+      const LogWithdrawIncomingJoinRequestConverter().toJson(data),
+    UConvoGetLogLogsLogWithdrawOutgoingJoinRequest(:final data) =>
+      const LogWithdrawOutgoingJoinRequestConverter().toJson(data),
+    UConvoGetLogLogsLogReadJoinRequests(:final data) =>
+      const LogReadJoinRequestsConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UConvoGetLogLogsUnknown(:final data) => data,
+  };
 }

@@ -19,7 +19,7 @@ part 'notification_reason.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class NotificationReason with _$NotificationReason {
+sealed class NotificationReason with _$NotificationReason {
   const NotificationReason._();
 
   const factory NotificationReason.knownValue({
@@ -70,8 +70,10 @@ final class NotificationReasonConverter
   }
 
   @override
-  String toJson(NotificationReason object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(NotificationReason object) => switch (object) {
+    NotificationReasonKnownValue(:final data) => data.value,
+    NotificationReasonUnknown(:final data) => data,
+  };
 }
 
 enum KnownNotificationReason implements Serializable {

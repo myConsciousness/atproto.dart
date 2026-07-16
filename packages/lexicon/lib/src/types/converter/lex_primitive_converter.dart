@@ -40,10 +40,10 @@ final class LexPrimitiveConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexPrimitive object) => object.when(
-    boolean: (data) => data.toJson(),
-    integer: (data) => data.toJson(),
-    string: (data) => data.toJson(),
-    unknown: (data) => data.toJson(),
-  );
+  Map<String, dynamic> toJson(LexPrimitive object) => switch (object) {
+    ULexPrimitiveBoolean(:final data) => data.toJson(),
+    ULexPrimitiveInteger(:final data) => data.toJson(),
+    ULexPrimitiveString(:final data) => data.toJson(),
+    ULexPrimitiveUnknown(:final data) => data.toJson(),
+  };
 }

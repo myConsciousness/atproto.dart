@@ -19,7 +19,7 @@ part 'subject_review_state.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SubjectReviewState with _$SubjectReviewState {
+sealed class SubjectReviewState with _$SubjectReviewState {
   const SubjectReviewState._();
 
   const factory SubjectReviewState.knownValue({
@@ -70,8 +70,10 @@ final class SubjectReviewStateConverter
   }
 
   @override
-  String toJson(SubjectReviewState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SubjectReviewState object) => switch (object) {
+    SubjectReviewStateKnownValue(:final data) => data.value,
+    SubjectReviewStateUnknown(:final data) => data,
+  };
 }
 
 enum KnownSubjectReviewState implements Serializable {

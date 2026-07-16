@@ -118,7 +118,10 @@ LexCommand _buildProcedureCommand(
     );
   }
 
-  final object = input.schema?.whenOrNull(object: (data) => data);
+  final object = switch (input.schema) {
+    ULexXrpcSchemaObject(:final data) => data,
+    _ => null,
+  };
   if (object == null) {
     // JSON procedures whose input schema is a ref or union,
     // e.g. tools.ozone.set.upsertSet.

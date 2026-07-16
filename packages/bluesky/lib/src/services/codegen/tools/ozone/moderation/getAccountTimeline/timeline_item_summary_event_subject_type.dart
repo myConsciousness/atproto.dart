@@ -19,7 +19,7 @@ part 'timeline_item_summary_event_subject_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class TimelineItemSummaryEventSubjectType
+sealed class TimelineItemSummaryEventSubjectType
     with _$TimelineItemSummaryEventSubjectType {
   const TimelineItemSummaryEventSubjectType._();
 
@@ -75,8 +75,10 @@ final class TimelineItemSummaryEventSubjectTypeConverter
   }
 
   @override
-  String toJson(TimelineItemSummaryEventSubjectType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(TimelineItemSummaryEventSubjectType object) => switch (object) {
+    TimelineItemSummaryEventSubjectTypeKnownValue(:final data) => data.value,
+    TimelineItemSummaryEventSubjectTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownTimelineItemSummaryEventSubjectType implements Serializable {

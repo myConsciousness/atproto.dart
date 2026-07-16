@@ -89,12 +89,12 @@ final class UTempCheckHandleAvailabilityResultConverter
 
   @override
   Map<String, dynamic> toJson(UTempCheckHandleAvailabilityResult object) =>
-      object.when(
-        resultAvailable: (data) =>
-            const ResultAvailableConverter().toJson(data),
-        resultUnavailable: (data) =>
-            const ResultUnavailableConverter().toJson(data),
+      switch (object) {
+        UTempCheckHandleAvailabilityResultResultAvailable(:final data) =>
+          const ResultAvailableConverter().toJson(data),
+        UTempCheckHandleAvailabilityResultResultUnavailable(:final data) =>
+          const ResultUnavailableConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UTempCheckHandleAvailabilityResultUnknown(:final data) => data,
+      };
 }

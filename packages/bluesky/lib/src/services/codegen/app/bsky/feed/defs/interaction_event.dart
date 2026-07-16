@@ -19,7 +19,7 @@ part 'interaction_event.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class InteractionEvent with _$InteractionEvent {
+sealed class InteractionEvent with _$InteractionEvent {
   const InteractionEvent._();
 
   const factory InteractionEvent.knownValue({
@@ -70,8 +70,10 @@ final class InteractionEventConverter
   }
 
   @override
-  String toJson(InteractionEvent object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(InteractionEvent object) => switch (object) {
+    InteractionEventKnownValue(:final data) => data.value,
+    InteractionEventUnknown(:final data) => data,
+  };
 }
 
 enum KnownInteractionEvent implements Serializable {

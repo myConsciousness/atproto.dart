@@ -19,7 +19,7 @@ part 'label_value_definition_default_setting.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class LabelValueDefinitionDefaultSetting
+sealed class LabelValueDefinitionDefaultSetting
     with _$LabelValueDefinitionDefaultSetting {
   const LabelValueDefinitionDefaultSetting._();
 
@@ -75,8 +75,10 @@ final class LabelValueDefinitionDefaultSettingConverter
   }
 
   @override
-  String toJson(LabelValueDefinitionDefaultSetting object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(LabelValueDefinitionDefaultSetting object) => switch (object) {
+    LabelValueDefinitionDefaultSettingKnownValue(:final data) => data.value,
+    LabelValueDefinitionDefaultSettingUnknown(:final data) => data,
+  };
 }
 
 enum KnownLabelValueDefinitionDefaultSetting implements Serializable {

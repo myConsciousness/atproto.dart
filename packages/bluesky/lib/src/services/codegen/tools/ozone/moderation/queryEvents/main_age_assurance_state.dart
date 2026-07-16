@@ -19,7 +19,7 @@ part 'main_age_assurance_state.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ModerationQueryEventsAgeAssuranceState
+sealed class ModerationQueryEventsAgeAssuranceState
     with _$ModerationQueryEventsAgeAssuranceState {
   const ModerationQueryEventsAgeAssuranceState._();
 
@@ -83,7 +83,11 @@ final class ModerationQueryEventsAgeAssuranceStateConverter
 
   @override
   String toJson(ModerationQueryEventsAgeAssuranceState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+      switch (object) {
+        ModerationQueryEventsAgeAssuranceStateKnownValue(:final data) =>
+          data.value,
+        ModerationQueryEventsAgeAssuranceStateUnknown(:final data) => data,
+      };
 }
 
 enum KnownModerationQueryEventsAgeAssuranceState implements Serializable {

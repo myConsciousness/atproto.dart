@@ -19,8 +19,7 @@ part 'create_result_validation_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class CreateResultValidationStatus
-    with _$CreateResultValidationStatus {
+sealed class CreateResultValidationStatus with _$CreateResultValidationStatus {
   const CreateResultValidationStatus._();
 
   const factory CreateResultValidationStatus.knownValue({
@@ -72,8 +71,10 @@ final class CreateResultValidationStatusConverter
   }
 
   @override
-  String toJson(CreateResultValidationStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(CreateResultValidationStatus object) => switch (object) {
+    CreateResultValidationStatusKnownValue(:final data) => data.value,
+    CreateResultValidationStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownCreateResultValidationStatus implements Serializable {

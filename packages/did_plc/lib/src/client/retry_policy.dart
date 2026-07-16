@@ -19,7 +19,7 @@ part 'retry_policy.freezed.dart';
 /// This class defines how failed HTTP requests should be retried,
 /// including backoff strategies and retry conditions.
 @freezed
-class RetryPolicy with _$RetryPolicy {
+sealed class RetryPolicy with _$RetryPolicy {
   /// Creates a retry policy configuration.
   ///
   /// [maxAttempts] - Maximum number of retry attempts (default: 3)
@@ -57,8 +57,17 @@ extension RetryPolicyExtension on RetryPolicy {
   Duration delayForAttempt(int attempt) {
     if (attempt < 0) return Duration.zero;
 
-    return when(
-      (maxAttempts, initialDelay, backoffMultiplier, maxDelay, _) {
+    switch (this) {
+      case _RetryPolicy(
+        :final initialDelay,
+        :final backoffMultiplier,
+        :final maxDelay,
+      ):
+      case _RetryPolicyAggressive(
+        :final initialDelay,
+        :final backoffMultiplier,
+        :final maxDelay,
+      ):
         final delay = Duration(
           milliseconds:
               (initialDelay.inMilliseconds *
@@ -66,42 +75,40 @@ extension RetryPolicyExtension on RetryPolicy {
                   .round(),
         );
         return delay > maxDelay ? maxDelay : delay;
-      },
-      none: () => Duration.zero,
-      aggressive: (_, initialDelay, backoffMultiplier, maxDelay) {
-        final delay = Duration(
-          milliseconds:
-              (initialDelay.inMilliseconds *
-                      math.pow(backoffMultiplier, attempt))
-                  .round(),
-        );
-        return delay > maxDelay ? maxDelay : delay;
-      },
-    );
+      case _RetryPolicyNone():
+        return Duration.zero;
+    }
   }
 
   /// Returns true if the given status code should trigger a retry.
   ///
   /// [statusCode] - HTTP status code to check
   bool shouldRetry(int statusCode) {
-    return when(
-      (_, _, _, _, retryableStatusCodes) =>
-          retryableStatusCodes.contains(statusCode),
-      none: () => false,
-      aggressive: (_, _, _, _) =>
-          [408, 429, 500, 502, 503, 504].contains(statusCode),
-    );
+    return switch (this) {
+      _RetryPolicy(:final retryableStatusCodes) =>
+        retryableStatusCodes.contains(statusCode),
+      _RetryPolicyNone() => false,
+      _RetryPolicyAggressive() => [
+        408,
+        429,
+        500,
+        502,
+        503,
+        504,
+      ].contains(statusCode),
+    };
   }
 
   /// Returns true if more retry attempts are available.
   ///
   /// [currentAttempt] - Current attempt number (0-based)
   bool hasMoreAttempts(int currentAttempt) {
-    return when(
-      (maxAttempts, _, _, _, _) => currentAttempt < maxAttempts,
-      none: () => false,
-      aggressive: (maxAttempts, _, _, _) => currentAttempt < maxAttempts,
-    );
+    return switch (this) {
+      _RetryPolicy(:final maxAttempts) => currentAttempt < maxAttempts,
+      _RetryPolicyNone() => false,
+      _RetryPolicyAggressive(:final maxAttempts) =>
+        currentAttempt < maxAttempts,
+    };
   }
 
   /// Calculates delay for rate limiting based on Retry-After header.
@@ -137,12 +144,12 @@ extension RetryPolicyExtension on RetryPolicy {
         final delay = rateLimitDelay > exponentialDelay
             ? rateLimitDelay
             : exponentialDelay;
-        return when(
-          (_, _, _, maxDelay, _) => delay > maxDelay ? maxDelay : delay,
-          none: () => Duration.zero,
-          aggressive: (_, _, _, maxDelay) =>
-              delay > maxDelay ? maxDelay : delay,
-        );
+        return switch (this) {
+          _RetryPolicy(:final maxDelay) => delay > maxDelay ? maxDelay : delay,
+          _RetryPolicyNone() => Duration.zero,
+          _RetryPolicyAggressive(:final maxDelay) =>
+            delay > maxDelay ? maxDelay : delay,
+        };
       }
     } catch (_) {
       // If parsing fails, fall back to exponential backoff
@@ -159,11 +166,11 @@ extension RetryPolicyExtension on RetryPolicy {
   /// [exception] - The exception to check
   bool shouldRetryException(Exception exception) {
     final retryable = _isRetryableException(exception);
-    return when(
-      (_, _, _, _, _) => retryable,
-      none: () => false,
-      aggressive: (_, _, _, _) => retryable,
-    );
+    return switch (this) {
+      _RetryPolicy() => retryable,
+      _RetryPolicyNone() => false,
+      _RetryPolicyAggressive() => retryable,
+    };
   }
 
   bool _isRetryableException(Exception exception) {

@@ -19,7 +19,7 @@ part 'chat_preference_include.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ChatPreferenceInclude with _$ChatPreferenceInclude {
+sealed class ChatPreferenceInclude with _$ChatPreferenceInclude {
   const ChatPreferenceInclude._();
 
   const factory ChatPreferenceInclude.knownValue({
@@ -70,8 +70,10 @@ final class ChatPreferenceIncludeConverter
   }
 
   @override
-  String toJson(ChatPreferenceInclude object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ChatPreferenceInclude object) => switch (object) {
+    ChatPreferenceIncludeKnownValue(:final data) => data.value,
+    ChatPreferenceIncludeUnknown(:final data) => data,
+  };
 }
 
 enum KnownChatPreferenceInclude implements Serializable {

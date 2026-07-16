@@ -87,7 +87,10 @@ final class _LexXrpcQueryGenerator {
       );
     }
 
-    final object = output?.schema?.whenOrNull(object: (e) => e);
+    final object = switch (output?.schema) {
+      lex.ULexXrpcSchemaObject(:final data) => data,
+      _ => null,
+    };
     if (object != null) {
       final properties = generateLexProperties(
         ctx,
@@ -113,10 +116,14 @@ final class _LexXrpcQueryGenerator {
       );
     }
 
-    final refVariant = query.output?.schema?.whenOrNull(
-      refVariant: (data) => data,
-    );
-    final ref = refVariant?.whenOrNull(ref: (data) => data);
+    final refVariant = switch (query.output?.schema) {
+      lex.ULexXrpcSchemaRefVariant(:final data) => data,
+      _ => null,
+    };
+    final ref = switch (refVariant) {
+      lex.ULexRefVariantRef(:final data) => data,
+      _ => null,
+    };
     if (ref == null) return null;
 
     return LexOutput(

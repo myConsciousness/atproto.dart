@@ -19,8 +19,7 @@ part 'main_sort.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UnspeccedGetPostThreadV2Sort
-    with _$UnspeccedGetPostThreadV2Sort {
+sealed class UnspeccedGetPostThreadV2Sort with _$UnspeccedGetPostThreadV2Sort {
   const UnspeccedGetPostThreadV2Sort._();
 
   const factory UnspeccedGetPostThreadV2Sort.knownValue({
@@ -72,8 +71,10 @@ final class UnspeccedGetPostThreadV2SortConverter
   }
 
   @override
-  String toJson(UnspeccedGetPostThreadV2Sort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(UnspeccedGetPostThreadV2Sort object) => switch (object) {
+    UnspeccedGetPostThreadV2SortKnownValue(:final data) => data.value,
+    UnspeccedGetPostThreadV2SortUnknown(:final data) => data,
+  };
 }
 
 enum KnownUnspeccedGetPostThreadV2Sort implements Serializable {

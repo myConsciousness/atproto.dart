@@ -19,7 +19,7 @@ part 'main_filter.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class FeedGetAuthorFeedFilter with _$FeedGetAuthorFeedFilter {
+sealed class FeedGetAuthorFeedFilter with _$FeedGetAuthorFeedFilter {
   const FeedGetAuthorFeedFilter._();
 
   const factory FeedGetAuthorFeedFilter.knownValue({
@@ -70,8 +70,10 @@ final class FeedGetAuthorFeedFilterConverter
   }
 
   @override
-  String toJson(FeedGetAuthorFeedFilter object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedGetAuthorFeedFilter object) => switch (object) {
+    FeedGetAuthorFeedFilterKnownValue(:final data) => data.value,
+    FeedGetAuthorFeedFilterUnknown(:final data) => data,
+  };
 }
 
 enum KnownFeedGetAuthorFeedFilter implements Serializable {

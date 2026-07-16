@@ -130,16 +130,20 @@ final class UPostViewEmbedConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UPostViewEmbed object) => object.when(
-    embedImagesView: (data) => const EmbedImagesViewConverter().toJson(data),
-    embedVideoView: (data) => const EmbedVideoViewConverter().toJson(data),
-    embedGalleryView: (data) => const EmbedGalleryViewConverter().toJson(data),
-    embedExternalView: (data) =>
-        const EmbedExternalViewConverter().toJson(data),
-    embedRecordView: (data) => const EmbedRecordViewConverter().toJson(data),
-    embedRecordWithMediaView: (data) =>
-        const EmbedRecordWithMediaViewConverter().toJson(data),
+  Map<String, dynamic> toJson(UPostViewEmbed object) => switch (object) {
+    UPostViewEmbedEmbedImagesView(:final data) =>
+      const EmbedImagesViewConverter().toJson(data),
+    UPostViewEmbedEmbedVideoView(:final data) =>
+      const EmbedVideoViewConverter().toJson(data),
+    UPostViewEmbedEmbedGalleryView(:final data) =>
+      const EmbedGalleryViewConverter().toJson(data),
+    UPostViewEmbedEmbedExternalView(:final data) =>
+      const EmbedExternalViewConverter().toJson(data),
+    UPostViewEmbedEmbedRecordView(:final data) =>
+      const EmbedRecordViewConverter().toJson(data),
+    UPostViewEmbedEmbedRecordWithMediaView(:final data) =>
+      const EmbedRecordWithMediaViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UPostViewEmbedUnknown(:final data) => data,
+  };
 }

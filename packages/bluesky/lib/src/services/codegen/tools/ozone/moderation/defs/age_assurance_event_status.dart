@@ -19,7 +19,7 @@ part 'age_assurance_event_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class AgeAssuranceEventStatus with _$AgeAssuranceEventStatus {
+sealed class AgeAssuranceEventStatus with _$AgeAssuranceEventStatus {
   const AgeAssuranceEventStatus._();
 
   const factory AgeAssuranceEventStatus.knownValue({
@@ -70,8 +70,10 @@ final class AgeAssuranceEventStatusConverter
   }
 
   @override
-  String toJson(AgeAssuranceEventStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(AgeAssuranceEventStatus object) => switch (object) {
+    AgeAssuranceEventStatusKnownValue(:final data) => data.value,
+    AgeAssuranceEventStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownAgeAssuranceEventStatus implements Serializable {
