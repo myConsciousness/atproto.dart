@@ -66,20 +66,40 @@ final class RateLimit {
   bool get _isExceeded =>
       remainingCount <= 0 && resetAt.isAfter(DateTime.now().toUtc());
 
+  /// The maximum time a single [waitUntilReset] call will ever block.
+  ///
+  /// [resetAt] is fully server-controlled (it can originate from a
+  /// `Retry-After` HTTP-date), so a hostile or misconfigured far-future value
+  /// would otherwise make the caller hang effectively forever. The delay is
+  /// capped here; a caller that still observes [isExceeded] afterwards can
+  /// simply call [waitUntilReset] again. Mirrors the 60s server-wait cap used
+  /// by `atproto_core`'s retry policy.
+  static const Duration _maxWait = Duration(seconds: 60);
+
   /// A utility function to wait until certain conditions related to rate
   /// limits are reset.
   ///
   /// If the current state is not exceeded, the function will return
   /// immediately with `false`. Otherwise, it will delay the execution until the
   /// specified reset time and will return `true`.
+  ///
+  /// The delay never exceeds [_maxWait]: a server-provided far-future
+  /// [resetAt] cannot make this hang indefinitely. Negative or zero deltas
+  /// (a reset time already in the past) resolve immediately.
   Future<bool> waitUntilReset() async {
     if (isNotExceeded) {
       //! No need to wait.
       return false;
     }
 
-    //! Wait until rate limits are reset.
-    await Future.delayed(resetAt.difference(DateTime.now().toUtc()));
+    //! Wait until rate limits are reset, but never longer than [_maxWait] so
+    //! a hostile/misconfigured far-future `resetAt` cannot hang the caller.
+    final remaining = resetAt.difference(DateTime.now().toUtc());
+    final wait = remaining.isNegative
+        ? Duration.zero
+        : (remaining > _maxWait ? _maxWait : remaining);
+
+    await Future.delayed(wait);
 
     return true;
   }

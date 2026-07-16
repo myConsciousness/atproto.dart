@@ -74,7 +74,13 @@ Future<Response<T>> post<T>(
           ),
       headers: {'Content-Type': 'application/json; charset=UTF-8'}
         ..addAll(headers ?? {}),
-      body: body != null ? jsonEncode(util.removeNullValues(body) ?? {}) : null,
+      //! Use the body-specific cleaner so that explicitly empty collections
+      //! (e.g. threadgate `allow: []`) survive; only `null` values are removed.
+      //! `removeNullValues` would prune empty `[]`/`{}`, silently changing the
+      //! meaning of a request body.
+      body: body != null
+          ? jsonEncode(util.removeNullValuesFromBody(body) ?? {})
+          : null,
       encoding: utf8,
       timeout: timeout,
       postClient: postClient,
