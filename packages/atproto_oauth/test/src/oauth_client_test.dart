@@ -6,6 +6,7 @@
 import 'dart:convert';
 
 // Package imports:
+import 'package:atproto_identity/atproto_identity.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:test/test.dart';
@@ -46,6 +47,16 @@ class _StubSigner implements DPoPSigner {
     String? nonce,
     String? accessToken,
   }) async => 'stub.dpop.proof';
+}
+
+/// An [IdentityResolver] that always fails with [IdentityException], used to
+/// verify that [OAuthClient.authorize] translates identity-resolution
+/// failures into the [OAuthException] its docstring promises.
+class _FailingIdentityResolver implements IdentityResolver {
+  @override
+  Future<ResolvedIdentity> resolve(final String identity) async {
+    throw const IdentityException('identity resolution failed');
+  }
 }
 
 /// A recording mock HTTP client. Each request is routed to [handler]; all
@@ -321,6 +332,31 @@ void main() {
       );
       expect(fields['login_hint'], _handle);
     });
+
+    test(
+      'wraps an IdentityException from the resolver as OAuthException',
+      () async {
+        final client = OAuthClient(
+          _metadata(),
+          identityResolver: _FailingIdentityResolver(),
+          signer: _StubSigner(),
+          httpClient: MockClient(
+            (r) async => http.Response('unexpected', 500),
+          ),
+        );
+
+        await expectLater(
+          () => client.authorize(_handle),
+          throwsA(
+            isA<OAuthException>().having(
+              (e) => e.message,
+              'message',
+              'identity resolution failed',
+            ),
+          ),
+        );
+      },
+    );
 
     test('rejects an issuer that does not match the auth server', () async {
       final client = OAuthClient(
