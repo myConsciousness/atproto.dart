@@ -15,6 +15,16 @@ import 'identity_exception.dart';
 
 const _bearerPrefix = 'Bearer ';
 
+/// Maximum accepted bearer token size in bytes. Service-auth JWTs are tiny
+/// (a few hundred bytes); anything larger is rejected before any base64 or
+/// JSON decoding to bound the work done on unauthenticated input.
+const _maxTokenLength = 8 * 1024;
+
+/// Strict DID grammar (per the DID Core `did:method:id` syntax): rejects
+/// fragments, queries, paths, whitespace, and a trailing `:`/`%` before the
+/// issuer is handed to the resolver.
+final _didPattern = RegExp(r'^did:[a-z]+:[a-zA-Z0-9._:%-]*[a-zA-Z0-9._-]$');
+
 /// Verifies an inbound AppView service-auth JWT from [authorizationHeader] and
 /// returns the issuer (viewer) DID.
 ///
@@ -37,6 +47,11 @@ Future<String> verifyServiceAuth(
     );
   }
   final token = authorizationHeader.substring(_bearerPrefix.length).trim();
+  if (token.length > _maxTokenLength) {
+    throw const IdentityException(
+      'Bearer token exceeds the maximum allowed size of 8 KiB',
+    );
+  }
   final segments = token.split('.');
   if (segments.length != 3) {
     throw const IdentityException('Malformed JWT: expected three segments');
@@ -74,6 +89,13 @@ Future<String> verifyServiceAuth(
   final iss = payload['iss'];
   if (iss is! String || !iss.startsWith('did:')) {
     throw IdentityException('JWT "iss" is not a DID: "$iss"');
+  }
+  // The issuer is attacker-controlled input that drives network resolution;
+  // enforce a strict DID grammar before handing it to the resolver.
+  if (!_didPattern.hasMatch(iss)) {
+    throw IdentityException(
+      'JWT "iss" is not a syntactically valid DID: "$iss"',
+    );
   }
 
   final resolved = await resolver.resolve(iss);
