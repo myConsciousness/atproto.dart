@@ -4,5 +4,6 @@
 
 export 'package:atproto_identity/src/identity/identity_resolver.dart';
 export 'package:atproto_identity/src/identity_exception.dart';
+export 'package:atproto_identity/src/service_auth.dart';
 export 'package:atproto_identity/src/signing_key.dart';
 export 'package:atproto_identity/src/types/resolved_identity.dart';
