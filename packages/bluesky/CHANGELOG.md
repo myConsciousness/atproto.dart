@@ -5,6 +5,7 @@
 - feat!: `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`); `fromOAuthSession(session, {oauthClient})` wraps a shared manager; `oAuthSession` getter replaced by `oAuthSessionManager`.
 - chore: updated `tools.ozone.queue.defs#queueView.subjectTypes`
 - chore: regenerated from synced lexicons
+- feat: the `retryConfig` parameter (on `Bluesky`/`BlueskyChat`/`OzoneTool`) now accepts any `RetryStrategy`, not only `RetryConfig`, so callers can fully customize backoff and which failures retry. `RetryStrategy`/`RetryContext`/`RetryReason` are re-exported. By default a procedure (`POST`) is no longer retried after an ambiguous failure the server may already have applied (see `atproto_core`).
 - fix: mute-word matching still scans quoted-post embeds when the top-level record fails validation.
 - fix: labeler-scoped content-label preferences (those carrying a `labelerDid`) are now applied only to the matching labeler and never leak into the global label defaults, and preferences scoped to an app labeler are honored instead of dropped — matching `@atproto/api`. Previously an orphaned scoped preference (e.g. for an unsubscribed labeler) could override the global defaults and, for example, unblur adult content.
 - fix: `LinkPreview` exposes cardyb's `error`/`likelyType` fields.

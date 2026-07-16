@@ -19,7 +19,7 @@ Future<core.XRPCResponse<core.Session>> createSession({
   String? authFactorToken,
   core.Protocol? protocol,
   String? service,
-  core.RetryConfig? retryConfig,
+  core.RetryStrategy? retryConfig,
   final core.PostClient? client,
 }) async => _toSessionResponse(
   await comAtprotoServerCreateSession(
@@ -40,7 +40,7 @@ Future<core.XRPCResponse<core.Session>> refreshSession({
   required String refreshJwt,
   core.Protocol? protocol,
   String? service,
-  core.RetryConfig? retryConfig,
+  core.RetryStrategy? retryConfig,
   final core.PostClient? client,
 }) async => _toSessionResponse(
   await comAtprotoServerRefreshSession(
@@ -59,7 +59,7 @@ Future<core.XRPCResponse<core.EmptyData>> deleteSession({
   core.Protocol? protocol,
   String? service,
   required String refreshJwt,
-  core.RetryConfig? retryConfig,
+  core.RetryStrategy? retryConfig,
   final core.PostClient? client,
 }) async => await comAtprotoServerDeleteSession(
   $headers: {'Authorization': 'Bearer $refreshJwt'},

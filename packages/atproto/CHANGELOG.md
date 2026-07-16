@@ -5,6 +5,7 @@
 - feat!: `ATProto.fromOAuth(OAuthSessionManager)`. `fromOAuthSession(session, {oauthClient})` now wraps a manager (pass `oauthClient` for auto-refresh); the `oAuthSession` getter is replaced by `oAuthSessionManager`.
 - fix: export `Subscription`, `SyncServiceImpl`, and `WebSocketChannelFactory` so subscription/sync return types are usable without a direct `atproto_core`/`xrpc` dependency.
 - fix: automatic session refresh preserves `email`/`emailConfirmed`/`emailAuthFactor`.
+- feat: the `retryConfig` parameter now accepts any `RetryStrategy`, not only `RetryConfig`, so callers can fully customize backoff and which failures retry. `RetryStrategy`/`RetryContext`/`RetryReason` are re-exported. By default a procedure (`POST`) is no longer retried after an ambiguous failure the server may already have applied (see `atproto_core`).
 
 ## v1.7.0
 

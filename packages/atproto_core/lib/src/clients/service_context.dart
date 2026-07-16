@@ -15,8 +15,7 @@ import '../const.dart';
 import '../types/oauth_session.dart';
 import '../types/session.dart';
 import 'challenge.dart';
-import 'retry_config.dart';
-import 'retry_policy.dart';
+import 'retry_strategy.dart';
 
 base class ServiceContext {
   ServiceContext({
@@ -27,7 +26,7 @@ base class ServiceContext {
     Session? session,
     this.oAuthSessionManager,
     Duration? timeout,
-    RetryConfig? retryConfig,
+    RetryStrategy? retryConfig,
     final xrpc.GetClient? getClient,
     final xrpc.PostClient? postClient,
     this.onRefreshSession,
@@ -36,7 +35,7 @@ base class ServiceContext {
        _currentSession = session,
        _explicitService = service,
        relayService = relayService ?? defaultRelayService,
-       _challenge = Challenge(RetryPolicy(retryConfig)),
+       _challenge = Challenge(retryConfig),
        _timeout = timeout ?? defaultTimeout,
        _getClient = getClient,
        _postClient = postClient;
@@ -195,6 +194,8 @@ base class ServiceContext {
           getClient: client ?? _getClient,
         );
       },
+      isProcedure: false,
+      nsid: methodId.toString(),
       onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
       onUnauthorized: _onUnauthorized,
     );
@@ -242,6 +243,8 @@ base class ServiceContext {
           postClient: client ?? _postClient,
         );
       },
+      isProcedure: true,
+      nsid: methodId.toString(),
       onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
       onUnauthorized: _onUnauthorized,
     );
@@ -264,6 +267,8 @@ base class ServiceContext {
       adaptor: adaptor,
       channelFactory: channelFactory,
     ),
+    isProcedure: false,
+    nsid: methodId.toString(),
   );
 
   Map<String, String> _buildAuthHeader(

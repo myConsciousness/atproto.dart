@@ -10,6 +10,8 @@
 - fix: a failing user-supplied DPoP nonce-cache write on the request success path is now contained instead of escaping as an uncaught asynchronous error, so a storage failure in `DPoPNonceCache.set` can no longer crash the app.
 - fix: the rate-limit retry wait now parses the HTTP-date form of `Retry-After` (previously only delta-seconds was honored; a date silently degraded to plain backoff and could retry too early).
 - perf: `ServiceContext.service` caches the resolved PDS endpoint per access JWT instead of base64/JSON-decoding the access token on every request when the did document has no `#atproto_pds` service.
+- feat: retries are now driven by a pluggable `RetryStrategy` (`FutureOr<Duration?> nextDelay(RetryContext)`). `RetryContext` exposes the attempt count, failure `RetryReason`, request kind (query vs procedure), NSID, status code, and the server-provided `Retry-After`. Implement `RetryStrategy` for full control over backoff and which failures retry; the default `RetryConfig` now implements it.
+- fix: by default a procedure (`POST`) is no longer retried after an *ambiguous* failure the server may already have applied (a timeout after the request was sent, a `5xx`, or an inconclusive connection reset), preventing duplicate writes. Queries (`GET`) and subscriptions still retry as before, and `429`/pre-connection network failures still retry for procedures. Set `RetryConfig(retryProcedureOnAmbiguousFailure: true)` to restore the previous unconditional behavior.
 
 ## v1.3.0
 
