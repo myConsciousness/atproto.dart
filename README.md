@@ -205,6 +205,32 @@ void main() async {
 - [AT Protocol Guide](https://atprotodart.com/docs/packages/atproto) - Repository operations, Firehose, authentication
 - [Firehose Processing](https://atprotodart.com/docs/packages/atproto#firehose) - Real-time data stream handling
 
+### 3.3. Building a Custom Feed Generator
+
+Want to publish your own algorithmic feed to Bluesky? A [custom feed generator](https://docs.bsky.app/docs/starter-templates/custom-feeds) is a small HTTP service the AppView calls to get an ordered list of post URIs.
+
+The **[`templates/feed_generator`](https://github.com/myConsciousness/atproto.dart/tree/main/templates/feed_generator)** template is a complete, runnable starting point — clone the directory, edit the algorithm, and deploy:
+
+- **`bin/server.dart`** serves the three endpoints the AppView needs (`/.well-known/did.json`, `app.bsky.feed.describeFeedGenerator`, `app.bsky.feed.getFeedSkeleton`) and verifies each inbound service-auth JWT with [`atproto_identity`](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_identity).
+- **`bin/publish_feed.dart`** registers the feed on the network (`app.bsky.feed.generator` record).
+- A **Firehose indexer**, a **`FeedAlgorithm`** interface with a reverse-chronological sample, and a swappable **`FeedStore`** are included — replace the algorithm and store with your own.
+
+```bash
+# From a clone of this repository:
+cd templates/feed_generator
+
+export FEEDGEN_HOSTNAME=feed.example.com
+export FEEDGEN_PUBLISHER_HANDLE=you.bsky.social
+export FEEDGEN_PUBLISHER_PASSWORD=xxxx-xxxx-xxxx-xxxx
+
+dart run bin/server.dart        # index the firehose and serve the feed
+dart run bin/publish_feed.dart  # register the feed on the network
+```
+
+**Next Steps:**
+- [Feed Generator template README](https://github.com/myConsciousness/atproto.dart/tree/main/templates/feed_generator/README.md) - Configuration, deployment, and customization
+- [Bluesky custom feeds overview](https://docs.bsky.app/docs/starter-templates/custom-feeds) - How feed generators fit into the network
+
 ## 4. Project Development Setup 🛠️
 
 Contributing to atproto.dart or setting up the development environment? This project uses [Melos](https://github.com/invertase/melos) for efficient monorepo management across all packages.
