@@ -63,13 +63,11 @@ final class OAuthServerMetadata {
   final List<String>? scopesSupported;
 
   Map<String, dynamic> toJson() => {
-    if (issuer != null) 'issuer': issuer,
-    if (pushedAuthorizationRequestEndpoint != null)
-      'pushed_authorization_request_endpoint':
-          pushedAuthorizationRequestEndpoint,
-    if (authorizationEndpoint != null)
-      'authorization_endpoint': authorizationEndpoint,
-    if (tokenEndpoint != null) 'token_endpoint': tokenEndpoint,
-    if (scopesSupported != null) 'scopes_supported': scopesSupported,
+    'issuer': ?issuer,
+    'pushed_authorization_request_endpoint':
+        ?pushedAuthorizationRequestEndpoint,
+    'authorization_endpoint': ?authorizationEndpoint,
+    'token_endpoint': ?tokenEndpoint,
+    'scopes_supported': ?scopesSupported,
   };
 }

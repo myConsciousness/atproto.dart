@@ -132,10 +132,10 @@ final class OAuthSession {
 
   Map<String, dynamic> toJson() => {
     'access_token': accessToken,
-    if (refreshToken != null) 'refresh_token': refreshToken,
+    'refresh_token': ?refreshToken,
     'token_type': tokenType,
     'scope': scope,
-    if (expiresAt != null) 'expires_at': expiresAt!.toUtc().toIso8601String(),
+    'expires_at': ?expiresAt?.toUtc().toIso8601String(),
     'sub': sub,
     'issuer': issuer,
     'pds': pds,
