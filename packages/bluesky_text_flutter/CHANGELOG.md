@@ -1,9 +1,5 @@
 # Release Note
 
-## v0.1.1
-
-- chore: bump `bluesky_text` to 1.5.1 (email/CJK-URL facet fixes).
-
 ## v0.1.0
 
 - **FEAT**: Initial release. Flutter companion for
