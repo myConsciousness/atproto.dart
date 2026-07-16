@@ -19,6 +19,7 @@ workspace:
   - packages/lexicon
   - packages/multiformats
   - packages/xrpc
+  - templates/feed_generator
 
 dependencies:
   github: ^9.12.0
