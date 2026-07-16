@@ -1,5 +1,12 @@
 # Release Note
 
+## v0.1.1
+
+- **CHORE**: Bumped the minimum `bluesky_text` dependency to `^1.5.1`, which
+  fixes email addresses being partially linkified and non-ASCII URL paths being
+  truncated. This improves entity rendering in `BlueskyRichText` and
+  `BlueskyTextEditingController`.
+
 ## v0.1.0
 
 - **FEAT**: Initial release. Flutter companion for
