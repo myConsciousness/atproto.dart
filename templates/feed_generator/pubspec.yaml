@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   bluesky: ^2.0.0
+  atproto_core: ^2.0.0
   atproto_identity: ^0.1.0
   did_plc: ^1.1.0
   shelf: ^1.4.0
