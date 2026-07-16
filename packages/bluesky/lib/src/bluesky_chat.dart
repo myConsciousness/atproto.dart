@@ -26,7 +26,7 @@ sealed class BlueskyChat {
     final String? service,
     final String? relayService,
     final Duration? timeout,
-    final core.RetryConfig? retryConfig,
+    final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   }) => _BlueskyChat(
@@ -63,7 +63,7 @@ sealed class BlueskyChat {
     final String? service,
     final String? relayService,
     final Duration? timeout,
-    final core.RetryConfig? retryConfig,
+    final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   }) => _BlueskyChat(
@@ -103,7 +103,7 @@ sealed class BlueskyChat {
     final String? service,
     final String? relayService,
     final Duration? timeout,
-    final core.RetryConfig? retryConfig,
+    final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   }) => BlueskyChat.fromOAuth(
