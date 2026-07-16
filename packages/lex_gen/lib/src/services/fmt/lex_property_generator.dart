@@ -230,8 +230,6 @@ DartType _getDartType(
             annotation: type.annotation,
             union: type.union,
           );
-        default:
-          return DartType.array();
       }
 
     case lex.ULexObjectPropertyRefVariant refVariant:
@@ -244,9 +242,6 @@ DartType _getDartType(
         mainVariants,
         isSingleProp,
       );
-
-    default:
-      return DartType.json();
   }
 }
 
@@ -324,8 +319,6 @@ DartType _getLexPrimitiveType(
       return DartType.boolean(description: boolean.data.description);
     case lex.ULexPrimitiveUnknown _:
       return DartType.json();
-    default:
-      return DartType.object();
   }
 }
 
@@ -348,8 +341,6 @@ DartType _getIpldType(final lex.LexIpld ipld) {
       return DartType.json(description: bytes.data.description);
     case lex.ULexIpldCidLink cidLink:
       return DartType.string(description: cidLink.data.description);
-    default:
-      return DartType.json();
   }
 }
 
@@ -452,7 +443,5 @@ DartType _getLexRefVariantType(
         ),
         union: union,
       );
-    default:
-      return DartType.json();
   }
 }
