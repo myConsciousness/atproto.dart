@@ -39,8 +39,17 @@ final class Challenge {
 
       if (onUpdateDpopNonce != null) {
         // Success path: fire-and-forget so a slow nonce cache does not delay
-        // the response.
-        unawaited(onUpdateDpopNonce(response.headers));
+        // the response. `unawaited` alone does NOT suppress errors, so a
+        // handler is attached: a failing user-supplied nonce write (e.g. a
+        // storage failure) must be swallowed here instead of reaching the
+        // root zone as an unhandled error and potentially crashing the app.
+        // `Future.sync` also contains callbacks that throw synchronously,
+        // which would otherwise fail the already-successful request.
+        unawaited(
+          Future<void>.sync(
+            () => onUpdateDpopNonce(response.headers),
+          ).catchError((_) {}),
+        );
       }
 
       return response;
