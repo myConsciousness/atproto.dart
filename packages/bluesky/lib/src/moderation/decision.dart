@@ -285,99 +285,104 @@ final class ModerationDecision {
     final informs = <ModerationCause>[];
 
     for (final cause in causes) {
-      if (cause is UModerationCauseBlocking ||
-          cause is UModerationCauseBlockedBy ||
-          cause is UModerationCauseBlockOther) {
-        if (me) continue;
+      switch (cause) {
+        case UModerationCauseBlocking() ||
+            UModerationCauseBlockedBy() ||
+            UModerationCauseBlockOther():
+          if (me) continue;
 
-        if (context.isProfileList || context.isContentList) {
-          filters.add(cause);
-        }
-
-        if (!cause.downgraded) {
-          if (behaviors.block[context] == ModerationBehavior.blur) {
-            noOverride = true;
-            blurs.add(cause);
-          } else if (behaviors.block[context] == ModerationBehavior.alert) {
-            alerts.add(cause);
-          } else if (behaviors.block[context] == ModerationBehavior.inform) {
-            informs.add(cause);
-          }
-        }
-      } else if (cause is UModerationCauseMuted) {
-        if (me) continue;
-
-        if (context.isProfileList || context.isContentList) {
-          filters.add(cause);
-        }
-
-        if (!cause.downgraded) {
-          if (behaviors.mute[context] == ModerationBehavior.blur) {
-            blurs.add(cause);
-          } else if (behaviors.mute[context] == ModerationBehavior.alert) {
-            alerts.add(cause);
-          } else if (behaviors.mute[context] == ModerationBehavior.inform) {
-            informs.add(cause);
-          }
-        }
-      } else if (cause is UModerationCauseMuteWord) {
-        if (me) continue;
-
-        if (context.isContentList) {
-          filters.add(cause);
-        }
-
-        if (!cause.downgraded) {
-          if (behaviors.muteWord[context] == ModerationBehavior.blur) {
-            blurs.add(cause);
-          } else if (behaviors.muteWord[context] == ModerationBehavior.alert) {
-            alerts.add(cause);
-          } else if (behaviors.muteWord[context] == ModerationBehavior.inform) {
-            informs.add(cause);
-          }
-        }
-      } else if (cause is UModerationCauseHidden) {
-        if (context.isProfileList || context.isContentList) {
-          filters.add(cause);
-        }
-
-        if (!cause.downgraded) {
-          if (behaviors.hide[context] == ModerationBehavior.blur) {
-            blurs.add(cause);
-          } else if (behaviors.hide[context] == ModerationBehavior.alert) {
-            alerts.add(cause);
-          } else if (behaviors.hide[context] == ModerationBehavior.inform) {
-            informs.add(cause);
-          }
-        }
-      } else if (cause is UModerationCauseLabel) {
-        final labelCause = cause.data;
-
-        if (context.isProfileList && labelCause.target == LabelTarget.account) {
-          if (labelCause.setting == LabelPreference.hide && !me) {
+          if (context.isProfileList || context.isContentList) {
             filters.add(cause);
           }
-        } else if (context.isContentList &&
-            (labelCause.target == LabelTarget.account ||
-                labelCause.target == LabelTarget.content)) {
-          if (labelCause.setting == LabelPreference.hide && !me) {
-            filters.add(cause);
-          }
-        }
 
-        if (!labelCause.downgraded) {
-          if (labelCause.behavior[context] == ModerationBehavior.blur) {
-            blurs.add(cause);
-            if (labelCause.noOverride && !me) {
+          if (!cause.downgraded) {
+            if (behaviors.block[context] == ModerationBehavior.blur) {
               noOverride = true;
+              blurs.add(cause);
+            } else if (behaviors.block[context] == ModerationBehavior.alert) {
+              alerts.add(cause);
+            } else if (behaviors.block[context] == ModerationBehavior.inform) {
+              informs.add(cause);
             }
-          } else if (labelCause.behavior[context] == ModerationBehavior.alert) {
-            alerts.add(cause);
-          } else if (labelCause.behavior[context] ==
-              ModerationBehavior.inform) {
-            informs.add(cause);
           }
-        }
+        case UModerationCauseMuted():
+          if (me) continue;
+
+          if (context.isProfileList || context.isContentList) {
+            filters.add(cause);
+          }
+
+          if (!cause.downgraded) {
+            if (behaviors.mute[context] == ModerationBehavior.blur) {
+              blurs.add(cause);
+            } else if (behaviors.mute[context] == ModerationBehavior.alert) {
+              alerts.add(cause);
+            } else if (behaviors.mute[context] == ModerationBehavior.inform) {
+              informs.add(cause);
+            }
+          }
+        case UModerationCauseMuteWord():
+          if (me) continue;
+
+          if (context.isContentList) {
+            filters.add(cause);
+          }
+
+          if (!cause.downgraded) {
+            if (behaviors.muteWord[context] == ModerationBehavior.blur) {
+              blurs.add(cause);
+            } else if (behaviors.muteWord[context] ==
+                ModerationBehavior.alert) {
+              alerts.add(cause);
+            } else if (behaviors.muteWord[context] ==
+                ModerationBehavior.inform) {
+              informs.add(cause);
+            }
+          }
+        case UModerationCauseHidden():
+          if (context.isProfileList || context.isContentList) {
+            filters.add(cause);
+          }
+
+          if (!cause.downgraded) {
+            if (behaviors.hide[context] == ModerationBehavior.blur) {
+              blurs.add(cause);
+            } else if (behaviors.hide[context] == ModerationBehavior.alert) {
+              alerts.add(cause);
+            } else if (behaviors.hide[context] == ModerationBehavior.inform) {
+              informs.add(cause);
+            }
+          }
+        case UModerationCauseLabel(:final data):
+          final labelCause = data;
+
+          if (context.isProfileList &&
+              labelCause.target == LabelTarget.account) {
+            if (labelCause.setting == LabelPreference.hide && !me) {
+              filters.add(cause);
+            }
+          } else if (context.isContentList &&
+              (labelCause.target == LabelTarget.account ||
+                  labelCause.target == LabelTarget.content)) {
+            if (labelCause.setting == LabelPreference.hide && !me) {
+              filters.add(cause);
+            }
+          }
+
+          if (!labelCause.downgraded) {
+            if (labelCause.behavior[context] == ModerationBehavior.blur) {
+              blurs.add(cause);
+              if (labelCause.noOverride && !me) {
+                noOverride = true;
+              }
+            } else if (labelCause.behavior[context] ==
+                ModerationBehavior.alert) {
+              alerts.add(cause);
+            } else if (labelCause.behavior[context] ==
+                ModerationBehavior.inform) {
+              informs.add(cause);
+            }
+          }
       }
     }
 

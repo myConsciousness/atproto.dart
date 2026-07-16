@@ -37,56 +37,61 @@ InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
       ? ModerationBehavior.inform
       : ModerationBehavior.none;
 
-  if (blurs == 'content') {
-    // target=account, blurs=content
-    accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.contentList] =
-        ModerationBehavior.blur;
-    accountBehavior[ModerationBehaviorContext.contentView] = adultOnly
-        ? ModerationBehavior.blur
-        : alertOrInform;
+  switch (blurs) {
+    case 'content':
+      // target=account, blurs=content
+      accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.contentList] =
+          ModerationBehavior.blur;
+      accountBehavior[ModerationBehaviorContext.contentView] = adultOnly
+          ? ModerationBehavior.blur
+          : alertOrInform;
 
-    // target=profile, blurs=content
-    profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
-    profileBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
+      // target=profile, blurs=content
+      profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
+      profileBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
 
-    // target=content, blurs=content
-    contentBehavior[ModerationBehaviorContext.contentList] =
-        ModerationBehavior.blur;
-    contentBehavior[ModerationBehaviorContext.contentView] = adultOnly
-        ? ModerationBehavior.blur
-        : alertOrInform;
-  } else if (blurs == 'media') {
-    // target=account, blurs=media
-    accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.avatar] = ModerationBehavior.blur;
-    accountBehavior[ModerationBehaviorContext.banner] = ModerationBehavior.blur;
+      // target=content, blurs=content
+      contentBehavior[ModerationBehaviorContext.contentList] =
+          ModerationBehavior.blur;
+      contentBehavior[ModerationBehaviorContext.contentView] = adultOnly
+          ? ModerationBehavior.blur
+          : alertOrInform;
+    case 'media':
+      // target=account, blurs=media
+      accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.avatar] =
+          ModerationBehavior.blur;
+      accountBehavior[ModerationBehaviorContext.banner] =
+          ModerationBehavior.blur;
 
-    // target=profile, blurs=media
-    profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
-    profileBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
-    profileBehavior[ModerationBehaviorContext.avatar] = ModerationBehavior.blur;
-    profileBehavior[ModerationBehaviorContext.banner] = ModerationBehavior.blur;
+      // target=profile, blurs=media
+      profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
+      profileBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
+      profileBehavior[ModerationBehaviorContext.avatar] =
+          ModerationBehavior.blur;
+      profileBehavior[ModerationBehaviorContext.banner] =
+          ModerationBehavior.blur;
 
-    // target=content, blurs=media
-    contentBehavior[ModerationBehaviorContext.contentMedia] =
-        ModerationBehavior.blur;
-  } else if (blurs == 'none') {
-    // target=account, blurs=none
-    accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.contentList] = alertOrInform;
-    accountBehavior[ModerationBehaviorContext.contentView] = alertOrInform;
+      // target=content, blurs=media
+      contentBehavior[ModerationBehaviorContext.contentMedia] =
+          ModerationBehavior.blur;
+    case 'none':
+      // target=account, blurs=none
+      accountBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.contentList] = alertOrInform;
+      accountBehavior[ModerationBehaviorContext.contentView] = alertOrInform;
 
-    // target=profile, blurs=none
-    profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
-    profileBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
+      // target=profile, blurs=none
+      profileBehavior[ModerationBehaviorContext.profileList] = alertOrInform;
+      profileBehavior[ModerationBehaviorContext.profileView] = alertOrInform;
 
-    // target=content, blurs=none
-    contentBehavior[ModerationBehaviorContext.contentList] = alertOrInform;
-    contentBehavior[ModerationBehaviorContext.contentView] = alertOrInform;
+      // target=content, blurs=none
+      contentBehavior[ModerationBehaviorContext.contentList] = alertOrInform;
+      contentBehavior[ModerationBehaviorContext.contentView] = alertOrInform;
   }
 
   return InterpretedLabelValueDefinition(
@@ -167,22 +172,23 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
     final labelers = <Map<String, dynamic>>[];
     final labelPrefs = <ContentLabelPref>[];
     for (final preference in preferences) {
-      if (preference.isAdultContentPref) {
-        adultContentEnabled = preference.adultContentPref!.enabled;
-      } else if (preference.isLabelersPref) {
-        labelers.addAll(
-          preference.labelersPref!.labelers.map(
-            (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-          ),
-        );
-      } else if (preference.isMutedWordsPref) {
-        mutedWords.addAll(preference.mutedWordsPref!.items);
-      } else if (preference.isHiddenPostsPref) {
-        hiddenPosts.addAll(
-          preference.hiddenPostsPref!.items.map((e) => e.toString()),
-        );
-      } else if (preference.isContentLabelPref) {
-        labelPrefs.add(preference.contentLabelPref!);
+      switch (preference) {
+        case UPreferencesAdultContentPref(:final data):
+          adultContentEnabled = data.enabled;
+        case UPreferencesLabelersPref(:final data):
+          labelers.addAll(
+            data.labelers.map(
+              (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+            ),
+          );
+        case UPreferencesMutedWordsPref(:final data):
+          mutedWords.addAll(data.items);
+        case UPreferencesHiddenPostsPref(:final data):
+          hiddenPosts.addAll(data.items.map((e) => e.toString()));
+        case UPreferencesContentLabelPref(:final data):
+          labelPrefs.add(data);
+        default:
+          break;
       }
     }
 
