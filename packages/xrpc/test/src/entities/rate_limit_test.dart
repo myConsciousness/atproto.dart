@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:fake_async/fake_async.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:test/test.dart';
 
@@ -315,6 +316,30 @@ void main() {
       final result = await rateLimit.waitUntilReset();
 
       expect(result, isFalse);
+    });
+
+    test('caps the wait for a hostile far-future resetAt', () {
+      fakeAsync((async) {
+        final farFuture = DateTime.now().toUtc().add(const Duration(days: 365));
+        final rateLimit = RateLimit.fromHeaders({
+          'retry-after': formatHttpDate(farFuture),
+        });
+
+        expect(rateLimit.isExceeded, isTrue);
+
+        var completed = false;
+        rateLimit.waitUntilReset().then((_) => completed = true);
+
+        //! Just under the 60s cap: still waiting.
+        async.elapse(const Duration(seconds: 59));
+        expect(completed, isFalse);
+
+        //! At the cap the wait completes even though `resetAt` is a year
+        //! away — a hostile/misconfigured far-future `Retry-After` HTTP-date
+        //! cannot hang the caller indefinitely.
+        async.elapse(const Duration(seconds: 1));
+        expect(completed, isTrue);
+      });
     });
   });
 }

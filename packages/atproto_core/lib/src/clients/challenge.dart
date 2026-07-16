@@ -7,6 +7,7 @@ import 'dart:async';
 
 // Package imports:
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
@@ -53,63 +54,55 @@ final class Challenge {
       }
 
       return response;
-    } on TimeoutException {
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(
-          action,
-          retryCount: ++retryCount,
-          dpopNonceRetryCount: dpopNonceRetryCount,
-          sessionRefreshed: sessionRefreshed,
-          onUpdateDpopNonce: onUpdateDpopNonce,
-          onUnauthorized: onUnauthorized,
-        );
-      }
-
-      rethrow;
-    } on xrpc.InternalServerErrorException {
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(
-          action,
-          retryCount: ++retryCount,
-          dpopNonceRetryCount: dpopNonceRetryCount,
-          sessionRefreshed: sessionRefreshed,
-          onUpdateDpopNonce: onUpdateDpopNonce,
-          onUnauthorized: onUnauthorized,
-        );
-      }
-
-      rethrow;
-    } on xrpc.RateLimitExceededException catch (e) {
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(
-          action,
-          retryCount: ++retryCount,
-          dpopNonceRetryCount: dpopNonceRetryCount,
-          sessionRefreshed: sessionRefreshed,
-          onUpdateDpopNonce: onUpdateDpopNonce,
-          onUnauthorized: onUnauthorized,
-          // Respect the reset time advertised by the server, if any.
-          atLeast: _getRateLimitWait(e.response.headers),
-        );
-      }
-
-      rethrow;
-    } on http.ClientException {
+    } on TimeoutException catch (e, stackTrace) {
+      return await _retryOrThrow(
+        action,
+        e,
+        stackTrace,
+        retryCount: retryCount,
+        dpopNonceRetryCount: dpopNonceRetryCount,
+        sessionRefreshed: sessionRefreshed,
+        onUpdateDpopNonce: onUpdateDpopNonce,
+        onUnauthorized: onUnauthorized,
+      );
+    } on xrpc.InternalServerErrorException catch (e, stackTrace) {
+      return await _retryOrThrow(
+        action,
+        e,
+        stackTrace,
+        retryCount: retryCount,
+        dpopNonceRetryCount: dpopNonceRetryCount,
+        sessionRefreshed: sessionRefreshed,
+        onUpdateDpopNonce: onUpdateDpopNonce,
+        onUnauthorized: onUnauthorized,
+      );
+    } on xrpc.RateLimitExceededException catch (e, stackTrace) {
+      return await _retryOrThrow(
+        action,
+        e,
+        stackTrace,
+        retryCount: retryCount,
+        dpopNonceRetryCount: dpopNonceRetryCount,
+        sessionRefreshed: sessionRefreshed,
+        onUpdateDpopNonce: onUpdateDpopNonce,
+        onUnauthorized: onUnauthorized,
+        // Respect the reset time advertised by the server, if any.
+        atLeast: _getRateLimitWait(e.response.headers),
+      );
+    } on http.ClientException catch (e, stackTrace) {
       // Transient network failures, e.g. connection reset or refused.
       // On the Dart VM, `SocketException`s thrown inside `package:http`
       // are also surfaced as `ClientException`s.
-      if (_retryPolicy.shouldRetry(retryCount)) {
-        return await _retry(
-          action,
-          retryCount: ++retryCount,
-          dpopNonceRetryCount: dpopNonceRetryCount,
-          sessionRefreshed: sessionRefreshed,
-          onUpdateDpopNonce: onUpdateDpopNonce,
-          onUnauthorized: onUnauthorized,
-        );
-      }
-
-      rethrow;
+      return await _retryOrThrow(
+        action,
+        e,
+        stackTrace,
+        retryCount: retryCount,
+        dpopNonceRetryCount: dpopNonceRetryCount,
+        sessionRefreshed: sessionRefreshed,
+        onUpdateDpopNonce: onUpdateDpopNonce,
+        onUnauthorized: onUnauthorized,
+      );
     } on xrpc.UnauthorizedException catch (e) {
       // Handle DPoP nonce errors (use_dpop_nonce).
       // This occurs when the PDS/resource server requires a different nonce
@@ -176,6 +169,40 @@ final class Challenge {
     }
   }
 
+  /// Retries [action] when the retry policy still permits it, otherwise
+  /// re-throws [error] preserving its original [stackTrace].
+  ///
+  /// Shared by the transient-failure catch clauses (timeout, `500`, `429`,
+  /// `ClientException`) which otherwise only differ by the optional
+  /// server-provided [atLeast] wait. `Error.throwWithStackTrace` reproduces
+  /// `rethrow`'s behavior from outside the catch clause, so the original
+  /// error type and stack trace surface unchanged when retries are exhausted.
+  Future<xrpc.XRPCResponse<T>> _retryOrThrow<T>(
+    final FutureOr<xrpc.XRPCResponse<T>> Function() action,
+    final Object error,
+    final StackTrace stackTrace, {
+    required int retryCount,
+    required int dpopNonceRetryCount,
+    required bool sessionRefreshed,
+    Future<void> Function(Map<String, String> headers)? onUpdateDpopNonce,
+    Future<bool> Function(xrpc.UnauthorizedException e)? onUnauthorized,
+    Duration? atLeast,
+  }) async {
+    if (_retryPolicy.shouldRetry(retryCount)) {
+      return await _retry(
+        action,
+        retryCount: retryCount + 1,
+        dpopNonceRetryCount: dpopNonceRetryCount,
+        sessionRefreshed: sessionRefreshed,
+        onUpdateDpopNonce: onUpdateDpopNonce,
+        onUnauthorized: onUnauthorized,
+        atLeast: atLeast,
+      );
+    }
+
+    Error.throwWithStackTrace(error, stackTrace);
+  }
+
   Future<xrpc.XRPCResponse<T>> _retry<T>(
     final FutureOr<xrpc.XRPCResponse<T>> Function() action, {
     int retryCount = 0,
@@ -199,8 +226,13 @@ final class Challenge {
 
   /// Returns how long the server asks us to wait before retrying a
   /// rate limited request, based on the `ratelimit-reset` (epoch seconds)
-  /// or `Retry-After` (delay seconds) headers. Returns null if neither
+  /// or `Retry-After` headers. `Retry-After` supports both the delta-seconds
+  /// and the HTTP-date forms defined by RFC 9110. Returns null if neither
   /// header holds a usable value.
+  ///
+  /// The returned wait is only a lower bound (`atLeast`); the retry policy
+  /// separately caps it, so a hostile far-future value cannot make a retry
+  /// wait for an unbounded amount of time.
   Duration? _getRateLimitWait(final Map<String, String> headers) {
     final reset = _getHeader(headers, 'ratelimit-reset');
     if (reset != null) {
@@ -219,9 +251,23 @@ final class Challenge {
 
     final retryAfter = _getHeader(headers, 'retry-after');
     if (retryAfter != null) {
-      final delayInSeconds = int.tryParse(retryAfter.trim());
+      final trimmed = retryAfter.trim();
+
+      final delayInSeconds = int.tryParse(trimmed);
       if (delayInSeconds != null) {
         return Duration(seconds: delayInSeconds < 0 ? 0 : delayInSeconds);
+      }
+
+      //! Fall back to the HTTP-date form (e.g. `Wed, 21 Oct 2026 07:28:00
+      //! GMT`); previously only the delta-seconds form was honored and a date
+      //! silently degraded to plain backoff, retrying too early.
+      try {
+        final resetAt = parseHttpDate(trimmed).toUtc();
+        final wait = resetAt.difference(DateTime.now().toUtc());
+
+        return wait.isNegative ? Duration.zero : wait;
+      } on FormatException {
+        //! Malformed header: fall through to plain backoff.
       }
     }
 

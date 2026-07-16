@@ -77,6 +77,15 @@ base class ServiceContext {
   String? _cachedAccessJwt;
   DateTime? _cachedAccessExp;
 
+  /// Caches the resolved PDS endpoint so the [service] getter does not
+  /// re-run the JWT base64/JSON decode (via `atprotoPdsEndpoint`) on every
+  /// authenticated request when the `didDoc` lacks a `#atproto_pds` service.
+  /// Keyed by the access JWT string, so it is implicitly invalidated whenever
+  /// the session (and therefore the access token) changes on refresh.
+  /// Mirrors [_cachedAccessExp].
+  String? _cachedPdsJwt;
+  String? _cachedPdsEndpoint;
+
   /// The clock skew margin used to refresh an access token slightly before it
   /// actually expires.
   static const Duration _refreshSkew = Duration(seconds: 30);
@@ -104,11 +113,25 @@ base class ServiceContext {
   /// context was built — is picked up on the next request instead of every
   /// call being pinned to `bsky.social`.
   /// Defaults to `bsky.social`.
-  String get service =>
-      _explicitService ??
-      session?.atprotoPdsEndpoint ??
-      oAuthSessionManager?.currentPdsHost ??
-      defaultService;
+  String get service {
+    final current = session;
+
+    return _explicitService ??
+        (current != null ? _sessionPdsEndpoint(current) : null) ??
+        oAuthSessionManager?.currentPdsHost ??
+        defaultService;
+  }
+
+  /// Returns the cached PDS endpoint for [current], recomputing (and thus
+  /// re-decoding the access JWT) only when the access token has changed since
+  /// the last call. Returns null when the session yields no PDS endpoint.
+  String? _sessionPdsEndpoint(final Session current) {
+    if (_cachedPdsJwt == current.accessJwt) return _cachedPdsEndpoint;
+
+    _cachedPdsJwt = current.accessJwt;
+
+    return _cachedPdsEndpoint = current.atprotoPdsEndpoint;
+  }
 
   /// The current relay service.
   /// Defaults to `bsky.network`.

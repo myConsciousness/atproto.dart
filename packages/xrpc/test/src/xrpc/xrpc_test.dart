@@ -1006,6 +1006,41 @@ void main() {
       await response.data.close();
     });
 
+    test('does not drain the socket before a consumer listens', () async {
+      final channel = FakeWebSocketChannel();
+      final response = subscribe<Map<String, dynamic>>(
+        NSID.create('sync.atproto.com', 'subscribeRepos'),
+        adaptor: (data) => {'value': data},
+        channelFactory: (uri) => channel,
+      );
+
+      await pumpEventQueue();
+
+      //! No consumer has listened on Subscription.stream yet, so the
+      //! underlying channel subscription must stay paused: frames are not
+      //! pulled off the socket and buffered unboundedly inside the controller
+      //! (the firehose OOM / socket-leak path).
+      expect(channel.isPaused, isTrue);
+
+      //! A frame pushed by the server while no consumer is attached is not
+      //! delivered; it stays unread behind the paused subscription.
+      channel.addIncoming('a');
+      await pumpEventQueue();
+
+      final received = <Map<String, dynamic>>[];
+      final subscription = response.data.stream.listen(received.add);
+      await pumpEventQueue();
+
+      //! Once a consumer listens, pulling resumes and the buffered frame flows.
+      expect(channel.isPaused, isFalse);
+      expect(received, [
+        {'value': 'a'},
+      ]);
+
+      await subscription.cancel();
+      await response.data.close();
+    });
+
     test('pausing the consumer pauses the underlying subscription', () async {
       final channel = FakeWebSocketChannel();
       final response = subscribe<Map<String, dynamic>>(
