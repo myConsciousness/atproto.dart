@@ -61,7 +61,10 @@ final class FeedGeneratorConfig {
     );
   }
 
-  /// The public hostname of this service (e.g. `feed.example.com`).
+  /// The public hostname of this service (e.g. `feed.example.com`). Must be a
+  /// bare hostname with no port or scheme: a `did:web` derived from a
+  /// host:port would treat the port as a path segment (the colon has to be
+  /// percent-encoded), which breaks resolution. Run behind TLS on 443.
   final String hostname;
 
   /// This service's DID (`did:web:<hostname>`).

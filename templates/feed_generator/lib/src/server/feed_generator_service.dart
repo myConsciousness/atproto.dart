@@ -18,7 +18,10 @@ import '../config.dart';
 typedef ServiceAuthVerifier =
     Future<String> Function(String authorizationHeader);
 
-const _skeletonLxm = 'app.bsky.feed.getFeedSkeleton';
+/// The lexicon-mandated `lxm` value a getFeedSkeleton service-auth JWT must
+/// carry; `bin/server.dart` passes this to `verifyServiceAuth`.
+const feedSkeletonLxm = 'app.bsky.feed.getFeedSkeleton';
+
 const _defaultLimit = 50;
 const _minLimit = 1;
 const _maxLimit = 100;
@@ -71,6 +74,10 @@ Handler createFeedGeneratorHandler({
       final params = request.url.queryParameters;
       final limit = _parseLimit(params['limit']);
       final cursor = params['cursor'];
+      // This template serves a single feed, so the `feed` AT-URI parameter is
+      // not inspected. A multi-feed service should read `params['feed']`,
+      // dispatch to the matching algorithm, and return an `UnknownFeed` error
+      // (HTTP 400) for an unrecognised feed.
 
       String? viewerDid;
       if (verifyAuth != null) {
@@ -96,10 +103,6 @@ Handler createFeedGeneratorHandler({
 
   return router.call;
 }
-
-/// The lexicon-mandated `lxm` value a getFeedSkeleton service-auth JWT must
-/// carry; `bin/server.dart` passes this to `verifyServiceAuth`.
-const feedSkeletonLxm = _skeletonLxm;
 
 int _parseLimit(final String? raw) {
   final parsed = raw == null ? null : int.tryParse(raw);

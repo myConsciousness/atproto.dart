@@ -42,13 +42,23 @@ Future<void> main() async {
     );
   }
 
-  // Start indexing the firehose in the background.
-  unawaited(FirehoseIndexer(store).start());
+  // Start indexing the firehose in the background. If the initial connection
+  // fails, log it instead of leaving an unhandled async error; the server keeps
+  // serving (an empty feed until indexing recovers).
+  unawaited(
+    FirehoseIndexer(store).start().catchError(
+      (Object e) => stderr.writeln('firehose indexer failed to start: $e'),
+    ),
+  );
 
   final handler = createFeedGeneratorHandler(
     config: config,
     algorithm: algorithm,
     feedUri: feedUri,
+    // Enforcing `lxm` binds each service-auth JWT to this one method, so a token
+    // minted for another endpoint cannot be replayed here. Current AppView
+    // always sends it; pass `expectedLxm: null` only if you must accept tokens
+    // that omit the claim.
     verifyAuth: (authorizationHeader) => verifyServiceAuth(
       authorizationHeader,
       serviceDid: config.serviceDid,

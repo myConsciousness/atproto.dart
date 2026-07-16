@@ -39,6 +39,8 @@ control:
 
 The `serviceDid` is derived from the hostname as `did:web:<hostname>`, and that
 host must serve the document at `/.well-known/did.json` over HTTPS.
+`FEEDGEN_HOSTNAME` must be a **bare hostname with no port or scheme** (run behind
+TLS on 443) — a `did:web` built from a `host:port` is malformed.
 
 ```bash
 export FEEDGEN_HOSTNAME=feed.example.com

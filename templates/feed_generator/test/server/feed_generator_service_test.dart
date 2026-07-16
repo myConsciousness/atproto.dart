@@ -43,9 +43,11 @@ Future<Response> _get(
   final Handler handler,
   final String path, {
   final Map<String, String>? headers,
-}) => Future.value(
-  handler(Request('GET', Uri.parse('http://localhost$path'), headers: headers)),
-).then((r) => r);
+}) => Future.sync(
+  () => handler(
+    Request('GET', Uri.parse('http://localhost$path'), headers: headers),
+  ),
+);
 
 void main() {
   group('did.json', () {
