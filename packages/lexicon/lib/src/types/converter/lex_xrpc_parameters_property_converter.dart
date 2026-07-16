@@ -58,8 +58,7 @@ final class LexXrpcParametersPropertyConverter
   @override
   Map<String, dynamic> toJson(LexXrpcParametersProperty object) =>
       switch (object) {
-        ULexXrpcParametersPropertyPrimitiveArray(:final data) =>
-          data.toJson(),
+        ULexXrpcParametersPropertyPrimitiveArray(:final data) => data.toJson(),
         ULexXrpcParametersPropertyPrimitive(:final data) => switch (data) {
           ULexPrimitiveBoolean(:final data) => data.toJson(),
           ULexPrimitiveInteger(:final data) => data.toJson(),
