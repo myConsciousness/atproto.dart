@@ -20,12 +20,12 @@ topics:
 
 dependencies:
   http: ^1.4.0
-  xrpc: ^1.1.0
+  xrpc: ^1.1.1
   at_primitives: ^1.1.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   cbor: ^6.3.7
-  multiformats: ^1.1.0
+  multiformats: ^1.2.0
   atproto_oauth: ^0.5.0
   nanoid: ^1.0.0
   meta: ^1.17.0
