@@ -37,7 +37,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  did_plc: ^1.0.0
+  did_plc: ^1.1.2
 ```
 
 Then run:
@@ -104,10 +104,12 @@ final health = await plc.health();
 // Custom configuration
 final plc = PLC(
   service: 'https://plc.directory',
-  cachePolicy: CachePolicy(
-    ttl: Duration(minutes: 10),
-    maxSize: 1000,
-    enableLru: true,
+  cacheManager: CacheManager(
+    CachePolicy(
+      ttl: Duration(minutes: 10),
+      maxSize: 1000,
+      enableLru: true,
+    ),
   ),
   retryPolicy: RetryPolicy(
     maxAttempts: 3,
@@ -130,12 +132,17 @@ Built-in intelligent caching reduces network requests and improves performance:
 
 ```dart
 final plc = PLC(
-  cachePolicy: CachePolicy(
-    ttl: Duration(minutes: 15),      // Cache for 15 minutes
-    maxSize: 2000,                   // Maximum 2000 entries
-    enableLru: true,                 // LRU eviction
+  cacheManager: CacheManager(
+    CachePolicy(
+      ttl: Duration(minutes: 15),    // Cache for 15 minutes
+      maxSize: 2000,                 // Maximum 2000 entries
+      enableLru: true,               // LRU eviction
+    ),
   ),
 );
+
+// Remember to call `plc.close()` when done — it also disposes the cache
+// manager and releases its resources.
 ```
 
 ### Batch Processing
@@ -181,6 +188,51 @@ try {
 }
 ```
 
+### Cryptography & Operation Building
+
+Since v1.1.0 the package ships real ECDSA cryptography (secp256k1 / P-256, with
+RFC 6979 deterministic `k`, low-S normalization, DAG-CBOR canonicalization, and
+correct `did:plc` derivation) together with fluent builders for constructing
+operations and DID documents. All of the following are exported from
+`package:did_plc/did_plc.dart`:
+
+- `OperationBuilder` — fluent builder for a PLC operation map
+  (`OperationBuilder.create()` / `.update()`, then `build()` / `buildUnsafe()`).
+- `DidBuilder` — fluent builder for a DID document.
+- `CryptoKey` / `KeyManager` — key material and `did:key` handling.
+  `KeyType.secp256k1` and `KeyType.p256` are supported.
+- `PlcSigner` — signs an operation (`signOperation`, `signRawOperation`).
+- `PlcVerifier` — verifies a signature or an operation chain
+  (`verifyOperation`, `verifyRawOperation`, `verifyOperationChain`,
+  `verifyAuditLog`).
+
+```dart
+// Generate a signing key and derive its did:key.
+final signingKey = CryptoKey.generate(KeyType.secp256k1);
+final signer = PlcSigner();
+final verifier = PlcVerifier();
+
+// Build an unsigned operation.
+final unsigned = OperationBuilder.create()
+    .rotationKeys([signingKey.toDidKey()])
+    .addVerificationMethod('atproto', signingKey.toDidKey())
+    .addAlsoKnownAs('at://alice.example.com')
+    .addService(
+      'atproto_pds',
+      {'type': 'AtprotoPersonalDataServer', 'endpoint': 'https://pds.example.com'},
+    )
+    .build();
+
+// Sign the raw operation map and verify it against the rotation keys.
+final signature = signer.signRawOperation(unsigned, signingKey);
+final signed = {...unsigned, 'sig': signature};
+final result = verifier.verifyRawOperation(signed, [signingKey.toDidKey()]);
+print('Valid: ${result.isValid}');
+```
+
+See [example/crypto_example.dart](example/crypto_example.dart) for a full
+walkthrough of analyzing keys and operations.
+
 ## 1.6. Performance Best Practices 🚄
 
 ### 1. Use Caching Effectively
@@ -188,9 +240,11 @@ try {
 ```dart
 // Configure appropriate cache settings
 final plc = PLC(
-  cachePolicy: CachePolicy(
-    ttl: Duration(minutes: 10),  // Adjust based on your use case
-    maxSize: 1000,               // Prevent memory bloat
+  cacheManager: CacheManager(
+    CachePolicy(
+      ttl: Duration(minutes: 10),  // Adjust based on your use case
+      maxSize: 1000,               // Prevent memory bloat
+    ),
   ),
 );
 ```

@@ -1,5 +1,12 @@
 # Release Note
 
+## v0.1.1
+
+- docs: documented the `HttpIdentityResolver` SSRF/DoS hardening parameters in the README (`allowedHosts`, `allowPrivateNetwork`, `timeout`, `maxResponseBytes`), explaining why `did:web` resolution needs them.
+- docs: documented the exported `signingKeyOf(didDocument, did)` helper and its exact-id matching.
+- docs: showed `verifyServiceAuth`'s `maxTokenLifetime` in the code sample.
+- chore: bump `did_plc` to `^1.1.2`.
+
 ## v0.1.0
 
 - Initial release.

@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.5.2
+
+- docs: added a runnable inline usage snippet to the README — instantiating `BlueskyText`, extracting entities (`.entities`/`.handles`/`.links`), and converting with `toPostData({service, resolver})` to `text`/`facets`/`unresolvedHandles`.
+- chore: bump `xrpc` to `^1.1.2`.
+
 ## v1.5.1
 
 - fix: email addresses are no longer partially linkified (the domain of `mail@alice.bsky.social` is no longer turned into a link).

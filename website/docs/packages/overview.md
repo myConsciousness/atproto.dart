@@ -40,7 +40,9 @@ These packages are automatically included as dependencies and typically don't ne
 | **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)** | [![pub package](https://img.shields.io/pub/v/multiformats.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/multiformats) | Content addressing and [CID](https://docs.ipfs.tech/concepts/content-addressing/) support for AT Protocol |
 | **[atproto_core](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core)** | [![pub package](https://img.shields.io/pub/v/atproto_core.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_core) | Core functionality and utilities for AT Protocol services |
 | **[did_plc](./did_plc.md)** | [![pub package](https://img.shields.io/pub/v/did_plc.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/did_plc) | Independent DID PLC Directory client with high-performance caching and streaming. **[→ Documentation](./did_plc.md)** |
-| **[atproto_oauth](https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_oauth)** | [![pub package](https://img.shields.io/pub/v/atproto_oauth.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_oauth) | OAuth 2.0 with DPoP authentication for AT Protocol services |
+| **[atproto_oauth](./atproto_oauth.md)** | [![pub package](https://img.shields.io/pub/v/atproto_oauth.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_oauth) | Pluggable OAuth 2.0 with DPoP authentication for AT Protocol services. **[→ Documentation](./atproto_oauth.md)** |
+| **[atproto_identity](./atproto_identity.md)** | [![pub package](https://img.shields.io/pub/v/atproto_identity.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/atproto_identity) | Handle/DID resolution and service-auth JWT verification. **[→ Documentation](./atproto_identity.md)** |
+| **[bluesky_text_flutter](./bluesky_text_flutter.md)** | [![pub package](https://img.shields.io/pub/v/bluesky_text_flutter.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/bluesky_text_flutter) | Flutter widgets for bluesky_text: a rich-text editing controller and a post viewer. **[→ Documentation](./bluesky_text_flutter.md)** |
 
 ## Tools
 
@@ -69,19 +71,21 @@ flowchart TD
     multiformats --> atproto_core;
 
     at_primitives --> xrpc;
-    atproto_oauth --> atproto_core;
     xrpc --> atproto_core;
 
     atproto_core --> atproto;
-    did_plc;
     atproto --> bluesky;
+
+    did_plc --> atproto_identity;
+    atproto_identity --> atproto_oauth;
 
     xrpc --> bluesky_text
     xrpc --> bluesky_cli
 
     bluesky_text -.-> bluesky
     bluesky_text --> bluesky_cli
-    
+    bluesky_text --> bluesky_text_flutter
+
     style did_plc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     end
 ```

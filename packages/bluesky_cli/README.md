@@ -18,7 +18,11 @@
     - [1.1.4. Records](#114-records)
     - [1.1.5. Authentication](#115-authentication)
       - [1.1.5.1. Global Options](#1151-global-options)
-      - [1.1.5.2. Environment Variables](#1152-environment-variables)
+      - [1.1.5.2. Auth Service vs. Service](#1152-auth-service-vs-service)
+      - [1.1.5.3. Public Endpoints](#1153-public-endpoints)
+      - [1.1.5.4. Secure Password Entry](#1154-secure-password-entry)
+      - [1.1.5.5. Session Cache](#1155-session-cache)
+      - [1.1.5.6. Environment Variables](#1156-environment-variables)
   - [1.2. Tips 🏄](#12-tips-)
     - [1.2.1. Prettify JSON](#121-prettify-json)
     - [1.2.2. Show Status and Request](#122-show-status-and-request)
@@ -51,14 +55,22 @@ A powerful and extensible CLI tool for interacting with Bluesky Social's APIs
 Usage: bsky <command> [arguments]
 
 Global options:
--h, --help          Print this usage information.
-    --identifier    Handle or email address for authentication.
-    --password      Password on Bluesky for authentication.
-    --service       Name of the service sending the request.
-    --pretty        Enable to output JSON in pretty format.
-    --status        Enable to output status code and reason phrase.
-    --request       Enable to output request method and URI.
-    --verbose       Enable verbose logging.
+-h, --help                    Print this usage information.
+    --identifier              Handle or email address for authentication.
+    --password                Password on Bluesky for authentication.
+    --password-stdin          Read the password for authentication from stdin.
+    --service                 Name of the service to send the request to.
+    --auth-service            Name of the service to authenticate against (createSession).
+    --[no-]auth               Whether to authenticate when credentials are available.
+                              (defaults to on)
+    --[no-]session-cache      Whether to cache the session at ~/.config/bsky/session.json.
+                              (defaults to on)
+    --timeout                 Request timeout in seconds.
+    --pretty                  Enable to output JSON in pretty format.
+    --status                  Enable to output status code and reason phrase.
+    --request                 Enable to output request method and URI.
+    --verbose                 Enable verbose logging.
+-v, --version                 Print the version of this CLI.
 
 Available commands:
   app-bsky-actor                Provides commands for app.bsky.actor.*
@@ -135,7 +147,71 @@ Authentication data can be specified for `identifier` and `password` in Global O
 bsky app-bsky-feed get-timeline --identifier=shinyakato.dev --password=xxxxxxxxx
 ```
 
-#### 1.1.5.2. Environment Variables
+#### 1.1.5.2. Auth Service vs. Service
+
+Since v0.6.0 the endpoint that receives your **raw credentials** is separated
+from the endpoint that serves the **request**. `--auth-service` is the service
+`createSession` authenticates against (your own PDS, `bsky.social` by default),
+while `--service` is where the actual XRPC request is sent.
+
+This separation exists so your handle and password are only ever sent to your
+own PDS — never to a third-party AppView or PDS you happen to query.
+
+```bash
+# Authenticate against your PDS, but read the timeline from the public AppView.
+bsky app-bsky-feed get-timeline \
+  --auth-service pds.example.com \
+  --service public.api.bsky.app
+```
+
+When `--auth-service` is omitted it defaults to `bsky.social`, so existing
+invocations keep working unchanged.
+
+#### 1.1.5.3. Public Endpoints
+
+Many `app.bsky.*` reads are available on the public AppView without a session.
+Pass `--no-auth` to send an unauthenticated request; no `createSession` call is
+made and no credentials are read, even if they are present in the environment.
+
+```bash
+bsky app-bsky-actor get-profile --actor bsky.app \
+  --service public.api.bsky.app --no-auth
+```
+
+`--auth` is the default and can be given explicitly to force authentication.
+
+#### 1.1.5.4. Secure Password Entry
+
+Passing `--password` on the command line leaves the secret in your shell
+history and process list. Use `--password-stdin` to read the password from
+stdin instead — piped from a secret manager, or typed interactively (terminal
+echo is disabled while it is read).
+
+```bash
+# From a secret manager (no password in argv or history).
+some-secret-tool get bluesky-password | \
+  bsky app-bsky-feed get-timeline --identifier shinyakato.dev --password-stdin
+
+# Typed interactively (input is not echoed).
+bsky app-bsky-feed get-timeline --identifier shinyakato.dev --password-stdin
+```
+
+#### 1.1.5.5. Session Cache
+
+By default the session returned by `createSession` is cached at
+`~/.config/bsky/session.json` (created with `0600` permissions) and reused
+across invocations, refreshing when the access token expires. This avoids a
+fresh password login on every call, which would otherwise trip `createSession`
+rate limits.
+
+Pass `--no-session-cache` to always create a fresh session and never write the
+cache file.
+
+```bash
+bsky app-bsky-feed get-timeline --no-session-cache
+```
+
+#### 1.1.5.6. Environment Variables
 
 By setting the authentication data in the environment variable,
 the specification of authentication data in Global Options can be omitted.

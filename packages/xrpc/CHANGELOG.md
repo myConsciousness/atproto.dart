@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.1.2
+
+- docs: rewrote the README example, which imported non-existent `atproto.Session`/`atproto.CurrentSession` and used fictional NSIDs; it now matches the working `example/example.dart` (`server.atproto.com`/`createSession`/`getSession`, no `atproto` import).
+- docs: documented the streaming API (`subscribe<T>` returning an `XRPCResponse<Subscription<T>>`) with a minimal usage snippet.
+- chore: bump `at_primitives` to `^1.1.1`.
+
 ## v1.1.1
 
 - fix: procedure/record request bodies no longer drop legitimately empty collections (e.g. `threadgate.allow: []`); only `null` values are stripped. Query parameters are unchanged. This now also covers the `http.post` body path (previously it still pruned empty `[]`/`{}`).

@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.0.1
+
+- docs: added an OAuth authentication section to the README — `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`), `OAuthSessionManager(oauth, sub:)` / `OAuthSessionManager.fromSession(restored)`, and the renamed `oAuthSessionManager` getter.
+- docs: added a short Firehose note pointing to `bsky.atproto.sync.subscribeReposAsMessages()` for typed messages.
+- chore: bump `atproto_core` to `^2.0.1` and `atproto` to `^2.0.1` (dev: `bluesky_text` `^1.5.2`, `atproto_oauth` `^0.5.1`).
+
 ## v2.0.0
 
 - feat!: `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`); `fromOAuthSession(session, {oauthClient})` wraps a shared manager; `oAuthSession` getter replaced by `oAuthSessionManager`.

@@ -138,11 +138,11 @@ Future<void> main() async {
 
 #### 2. OAuth Authentication
 
-For applications requiring OAuth 2.0 with DPoP:
+For applications requiring OAuth 2.0 with DPoP, use **[atproto_oauth](./atproto_oauth.md)**. Every stage of the flow is pluggable, and `authorize` persists the per-authorization state in an `OAuthStateStore` (in-memory by default), so `callback` takes only the redirect URL — you no longer thread a context object through by hand.
 
 ```dart title="OAuth Authentication"
 import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/atproto_oauth.dart' as oauth;
+import 'package:atproto/atproto_oauth.dart';
 
 Future<void> main() async {
   // Use your client metadata
@@ -150,43 +150,43 @@ Future<void> main() async {
     'https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json',
   );
 
-  final oauth = OAuthClient(metadata);
+  final client = OAuthClient(metadata);
 
-  final (authUrl, ctx) = await oauth.authorize('shinyakato.dev');
+  // Resolve the account and get the authorization URL. Returns a plain Uri;
+  // the per-authorization state is stored in the client's OAuthStateStore.
+  final authUrl = await client.authorize('shinyakato.dev');
   print(authUrl);
-  print(ctx);
 
-  // Make user visit url
+  // Make user visit authUrl
   // final callback = await FlutterWebAuth2.authenticate(
-  //   url: authorizationUrl,
+  //   url: authUrl.toString(),
   //   callbackUrlScheme: 'https',
   // );
 
-  final session = await oauth.callback(
-    // callback url
-    'https://atprotodart.com/oauth/bluesky/auth.html?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
-    ctx,
+  // Complete the exchange with only the callback URL. The `state` parameter in
+  // it is used to recover the stored context.
+  final session = await client.callback(
+    'https://atprotodart.com/oauth/bluesky/auth.html'
+    '?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
   );
   print(session.accessToken);
-  print(session.$dPoPNonce); // Updated with every request
-  print(session.$publicKey);
-  print(session.$privateKey);
+  print(session.pds);
 
-  // You can restore OAuthSession from stored keys
-  final restoredSession = restoreOAuthSession(
-    accessToken: session.accessToken,
-    refreshToken: session.refreshToken,
-    publicKey: session.$publicKey,
-    privateKey: session.$privateKey,
-  );
+  // Later, restore the stored session (refreshing it if it has expired), or
+  // refresh/revoke it explicitly.
+  final restored = await client.restore(session.sub);
+  // final refreshed = await client.refresh(session);
+  // await client.revoke(session);
 
-  // If you want to refresh session
-  // final refreshed = await oauth.refresh(bsky.oAuthSession!);
-
-  // Create ATProto instance from OAuth session
-  final atproto = atp.ATProto.fromOAuthSession(session);
+  // Create ATProto instance from OAuth session. Pass `oauthClient` so tokens
+  // refresh transparently.
+  final atproto = atp.ATProto.fromOAuthSession(restored!, oauthClient: client);
 }
 ```
+
+:::tip
+See the **[atproto_oauth](./atproto_oauth.md)** guide for the full pluggable flow, `OAuthSessionManager`, and session persistence.
+:::
 
 #### 3. Anonymous Access
 
