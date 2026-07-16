@@ -171,9 +171,16 @@ class CryptoKey {
     if (provided != null) {
       if (provided.length == 33) return provided;
 
-      // Compress an uncompressed public key.
+      // Compress an uncompressed public key. `decodePoint` throws an
+      // `ArgumentError` for an off-curve or malformed point; contain it as a
+      // `CryptoException` like the rest of this API.
       final domain = type.domainParameters;
-      final point = domain.curve.decodePoint(provided);
+      final ECPoint? point;
+      try {
+        point = domain.curve.decodePoint(provided);
+      } catch (e) {
+        throw CryptoException('Invalid public key point: $e');
+      }
       if (point == null) {
         throw CryptoException('Invalid public key point');
       }
@@ -336,7 +343,18 @@ class KeyManager {
   /// signature verification.
   ECPublicKey toEcPublicKey(ParsedDidKey key) {
     final domain = key.type.domainParameters;
-    final point = domain.curve.decodePoint(key.publicKey);
+    // pointycastle's `decodePoint`/`decompressPoint` throw `ArgumentError`
+    // (an `Error`, not our `CryptoException`) for a 33-byte compressed key
+    // whose x coordinate is off-curve or whose prefix byte is not
+    // 0x02/0x03. Contain it so callers only ever see a `CryptoException`
+    // and signature verification can fail closed rather than crashing a
+    // bulk-verification pipeline.
+    final ECPoint? point;
+    try {
+      point = domain.curve.decodePoint(key.publicKey);
+    } catch (e) {
+      throw CryptoException('Invalid public key point: $e');
+    }
     if (point == null) {
       throw CryptoException('Invalid public key point');
     }
