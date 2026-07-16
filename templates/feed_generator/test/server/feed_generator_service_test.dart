@@ -3,23 +3,27 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:atproto_core/atproto_core.dart' show AtUri;
 import 'package:atproto_identity/atproto_identity.dart' show IdentityException;
 import 'package:bluesky/app_bsky_feed_defs.dart';
 import 'package:bluesky/app_bsky_feed_getfeedskeleton.dart';
 import 'package:feed_generator/src/algorithm/feed_algorithm.dart';
+import 'package:feed_generator/src/algorithm/whats_hot_algorithm.dart';
 import 'package:feed_generator/src/config.dart';
 import 'package:feed_generator/src/server/feed_generator_service.dart';
+import 'package:feed_generator/src/store/in_memory_feed_store.dart';
 import 'package:shelf/shelf.dart';
 import 'package:test/test.dart';
 
+// No publisherPassword: the long-running server never needs the publisher's
+// app password (least privilege) - only `bin/publish_feed.dart` does.
 const _config = FeedGeneratorConfig(
   hostname: 'feed.example.com',
   feedRecordKey: 'whats-hot',
   feedDisplayName: "What's Hot",
   publisherHandle: 'alice.test',
-  publisherPassword: 'app-password',
 );
 
 /// Records the [FeedRequest] it last received and returns a fixed skeleton.
@@ -194,6 +198,65 @@ void main() {
       expect(res.statusCode, 401);
       final body = jsonDecode(await res.readAsString()) as Map<String, dynamic>;
       expect(body['error'], 'AuthRequired');
+    });
+
+    test('does not echo identity error details into the 401 body', () async {
+      final handler = createFeedGeneratorHandler(
+        config: _config,
+        algorithm: _FakeAlgorithm(),
+        verifyAuth: (header) async => throw const IdentityException(
+          'Failed to fetch DID document for "did:plc:secret-issuer" from '
+          '"https://internal-resolver.example/did:plc:secret-issuer"',
+        ),
+      );
+
+      final res = await _get(
+        handler,
+        '/xrpc/app.bsky.feed.getFeedSkeleton',
+        headers: {'authorization': 'Bearer bad'},
+      );
+      expect(res.statusCode, 401);
+      final raw = await res.readAsString();
+      expect(raw, isNot(contains('did:plc:secret-issuer')));
+      expect(raw, isNot(contains('internal-resolver.example')));
+      final body = jsonDecode(raw) as Map<String, dynamic>;
+      expect(body['error'], 'AuthRequired');
+    });
+
+    test('returns a controlled 502 when auth verification fails with a '
+        'network error instead of an uncaught 500', () async {
+      final handler = createFeedGeneratorHandler(
+        config: _config,
+        algorithm: _FakeAlgorithm(),
+        verifyAuth: (header) async =>
+            throw const SocketException('Connection refused (internal-pds)'),
+      );
+
+      final res = await _get(
+        handler,
+        '/xrpc/app.bsky.feed.getFeedSkeleton',
+        headers: {'authorization': 'Bearer token'},
+      );
+      expect(res.statusCode, 502);
+      final raw = await res.readAsString();
+      expect(raw, isNot(contains('internal-pds')));
+      final body = jsonDecode(raw) as Map<String, dynamic>;
+      expect(body['error'], 'UpstreamFailure');
+    });
+
+    test('returns 400 InvalidRequest for an unparseable cursor', () async {
+      final handler = createFeedGeneratorHandler(
+        config: _config,
+        algorithm: WhatsHotAlgorithm(InMemoryFeedStore()),
+      );
+
+      final res = await _get(
+        handler,
+        '/xrpc/app.bsky.feed.getFeedSkeleton?cursor=garbage',
+      );
+      expect(res.statusCode, 400);
+      final body = jsonDecode(await res.readAsString()) as Map<String, dynamic>;
+      expect(body['error'], 'InvalidRequest');
     });
 
     test(
