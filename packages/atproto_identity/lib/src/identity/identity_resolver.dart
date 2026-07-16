@@ -266,7 +266,7 @@ final class HttpIdentityResolver implements IdentityResolver {
       did: did,
       pds: _extractPdsEndpoint(didDocument, did),
       handle: handle,
-      signingKey: signingKeyOf(didDocument),
+      signingKey: signingKeyOf(didDocument, did),
     );
   }
 
@@ -325,6 +325,17 @@ final class HttpIdentityResolver implements IdentityResolver {
     if (json == null) {
       throw IdentityException(
         'DID document for "$did" at "$uri" is not a JSON object',
+      );
+    }
+    // Bind a did:web document to the DID that was requested. Unlike did:plc
+    // (which is content-addressed and served by the trusted PLC directory), a
+    // did:web document is fetched from an issuer-controlled host, so its `id`
+    // is attacker-influenced: reject any document that claims to describe a
+    // different DID than the one we resolved.
+    if (isDidWeb && json['id'] != did) {
+      throw IdentityException(
+        'did:web document at "$uri" declares id "${json['id']}", '
+        'which does not match the requested DID "$did"',
       );
     }
     return json;
