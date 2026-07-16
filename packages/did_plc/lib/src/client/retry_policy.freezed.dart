@@ -85,10 +85,7 @@ switch (_that) {
 case _RetryPolicy():
 return $default(_that);case _RetryPolicyNone():
 return none(_that);case _RetryPolicyAggressive():
-return aggressive(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return aggressive(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -153,10 +150,7 @@ switch (_that) {
 case _RetryPolicy():
 return $default(_that.maxAttempts,_that.initialDelay,_that.backoffMultiplier,_that.maxDelay,_that.retryableStatusCodes);case _RetryPolicyNone():
 return none();case _RetryPolicyAggressive():
-return aggressive(_that.maxAttempts,_that.initialDelay,_that.backoffMultiplier,_that.maxDelay);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return aggressive(_that.maxAttempts,_that.initialDelay,_that.backoffMultiplier,_that.maxDelay);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

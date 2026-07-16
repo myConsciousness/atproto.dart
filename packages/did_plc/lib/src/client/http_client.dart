@@ -324,20 +324,19 @@ final class _HttpClientImpl implements HttpClient {
         }
 
         // Handle error responses
-        final statusCode = response.when(
-          success: (statusCode, _, _) => statusCode,
-          error: (statusCode, _, _, _) => statusCode,
-        );
-
-        final headers = response.when(
-          success: (_, headers, _) => headers,
-          error: (_, headers, _, _) => headers,
-        );
-
-        final message = response.when(
-          success: (_, _, _) => 'Unexpected success in retry logic',
-          error: (_, _, message, _) => message,
-        );
+        final (statusCode, headers, message) = switch (response) {
+          HttpResponseSuccess(:final statusCode, :final headers) => (
+            statusCode,
+            headers,
+            'Unexpected success in retry logic',
+          ),
+          HttpResponseError(
+            :final statusCode,
+            :final headers,
+            :final message,
+          ) =>
+            (statusCode, headers, message),
+        };
 
         // Check if we should retry based on status code
         if (!_retryPolicy.shouldRetry(statusCode)) {

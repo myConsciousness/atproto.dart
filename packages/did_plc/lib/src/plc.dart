@@ -421,15 +421,16 @@ final class _PLCImpl implements PLC {
         fromJson: DidDocument.fromJson,
       );
 
-      return response.when(
-        success: (_, _, data) => data,
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Failed to find document for DID: $did',
-        ),
-      );
+      return switch (response) {
+        HttpResponseSuccess(:final data) => data,
+        HttpResponseError(:final statusCode, :final message, :final details) =>
+          throw _createException(
+            statusCode,
+            message,
+            details,
+            'Failed to find document for DID: $did',
+          ),
+      };
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error finding document: $e');
@@ -454,15 +455,16 @@ final class _PLCImpl implements PLC {
         fromJson: DocumentData.fromJson,
       );
 
-      return response.when(
-        success: (_, _, data) => data,
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Failed to find document data for DID: $did',
-        ),
-      );
+      return switch (response) {
+        HttpResponseSuccess(:final data) => data,
+        HttpResponseError(:final statusCode, :final message, :final details) =>
+          throw _createException(
+            statusCode,
+            message,
+            details,
+            'Failed to find document data for DID: $did',
+          ),
+      };
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error finding document data: $e');
@@ -487,18 +489,17 @@ final class _PLCImpl implements PLC {
         fromJson: (json) => json,
       );
 
-      return response.when(
-        success: (_, _, data) {
-          // The HTTP client already wrapped List responses in a 'log' key
-          return OperationLog.fromJson(data);
-        },
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Failed to find operation log for DID: $did',
-        ),
-      );
+      return switch (response) {
+        // The HTTP client already wrapped List responses in a 'log' key
+        HttpResponseSuccess(:final data) => OperationLog.fromJson(data),
+        HttpResponseError(:final statusCode, :final message, :final details) =>
+          throw _createException(
+            statusCode,
+            message,
+            details,
+            'Failed to find operation log for DID: $did',
+          ),
+      };
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error finding operation log: $e');
@@ -523,18 +524,17 @@ final class _PLCImpl implements PLC {
         fromJson: (json) => json,
       );
 
-      return response.when(
-        success: (_, _, data) {
-          // The HTTP client already wrapped List responses in a 'log' key
-          return AuditableLog.fromJson(data);
-        },
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Failed to find auditable log for DID: $did',
-        ),
-      );
+      return switch (response) {
+        // The HTTP client already wrapped List responses in a 'log' key
+        HttpResponseSuccess(:final data) => AuditableLog.fromJson(data),
+        HttpResponseError(:final statusCode, :final message, :final details) =>
+          throw _createException(
+            statusCode,
+            message,
+            details,
+            'Failed to find auditable log for DID: $did',
+          ),
+      };
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error finding auditable log: $e');
@@ -551,15 +551,16 @@ final class _PLCImpl implements PLC {
         fromJson: compatibleOpOrTombstoneConverter.fromJson,
       );
 
-      return response.when(
-        success: (_, _, data) => data,
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Failed to find last operation for DID: $did',
-        ),
-      );
+      return switch (response) {
+        HttpResponseSuccess(:final data) => data,
+        HttpResponseError(:final statusCode, :final message, :final details) =>
+          throw _createException(
+            statusCode,
+            message,
+            details,
+            'Failed to find last operation for DID: $did',
+          ),
+      };
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error finding last operation: $e');
@@ -599,15 +600,16 @@ final class _PLCImpl implements PLC {
       queryParameters: queryParams.isNotEmpty ? queryParams : null,
     );
 
-    return response.when(
-      success: (_, _, body) => _parseJsonl(body),
-      error: (statusCode, _, message, details) => throw _createException(
-        statusCode,
-        message,
-        details,
-        'Failed to export operations',
-      ),
-    );
+    return switch (response) {
+      HttpResponseSuccess(data: final body) => _parseJsonl(body),
+      HttpResponseError(:final statusCode, :final message, :final details) =>
+        throw _createException(
+          statusCode,
+          message,
+          details,
+          'Failed to export operations',
+        ),
+    };
   }
 
   /// Parses a JSONL body into a list of [ExportedOperation]s.
@@ -637,15 +639,16 @@ final class _PLCImpl implements PLC {
         fromJson: Instance.fromJson,
       );
 
-      return response.when(
-        success: (_, _, data) => data,
-        error: (statusCode, _, message, details) => throw _createException(
-          statusCode,
-          message,
-          details,
-          'Health check failed',
-        ),
-      );
+      return switch (response) {
+        HttpResponseSuccess(:final data) => data,
+        HttpResponseError(:final statusCode, :final message, :final details) =>
+          throw _createException(
+            statusCode,
+            message,
+            details,
+            'Health check failed',
+          ),
+      };
     } catch (e) {
       if (e is PlcException) rethrow;
       throw GenericPlcException('Unexpected error during health check: $e');
