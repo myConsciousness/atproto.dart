@@ -169,7 +169,12 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
     final mutedWords = <MutedWord>[];
     final hiddenPosts = <String>[];
 
-    final labelers = <Map<String, dynamic>>[];
+    // Seed with the app labelers so that label prefs scoped to an app
+    // labeler attach to its entry, following the official client behavior.
+    final labelers = <Map<String, dynamic>>[
+      for (final did in appLabelers)
+        {'did': did, 'labels': <String, LabelPreference>{}},
+    ];
     final labelPrefs = <ContentLabelPref>[];
     for (final preference in preferences) {
       switch (preference) {
@@ -195,14 +200,17 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
     for (final labelPref in labelPrefs) {
       final pref = _getModerationLabelPreference(labelPref.visibility.toJson());
 
-      if (labelPref.labelerDid != null && labelers.isNotEmpty) {
+      if (labelPref.labelerDid != null) {
         final labeler = labelers
             .where((e) => e['did'] == labelPref.labelerDid)
             .firstOrNull;
 
-        if (labeler != null && labeler.isNotEmpty) {
-          labeler['labels'][labelPref.label] = pref;
-        }
+        // A labeler-scoped pref only applies to the matching labeler; if the
+        // labeler is not subscribed, the pref is dropped and must never fall
+        // through to the global labels.
+        if (labeler == null) continue;
+
+        labeler['labels'][labelPref.label] = pref;
       } else {
         labels[_getModerationLabel(labelPref.label)] = pref;
       }
@@ -214,18 +222,11 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
         ...kDefaultLabelSettings.map((k, v) => MapEntry(k.value, v)),
         ...labels,
       },
-      labelers:
-          [
-                ...appLabelers.map(
-                  (e) => {'did': e, 'labels': <String, LabelPreference>{}},
-                ),
-                ...labelers,
-              ]
-              .map(
-                (e) =>
-                    ModerationPrefsLabeler(did: e['did'], labels: e['labels']),
-              )
-              .toList(),
+      labelers: labelers
+          .map(
+            (e) => ModerationPrefsLabeler(did: e['did'], labels: e['labels']),
+          )
+          .toList(),
       mutedWords: mutedWords,
       hiddenPosts: hiddenPosts,
     );
