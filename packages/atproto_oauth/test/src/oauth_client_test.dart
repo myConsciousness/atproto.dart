@@ -340,9 +340,7 @@ void main() {
           _metadata(),
           identityResolver: _FailingIdentityResolver(),
           signer: _StubSigner(),
-          httpClient: MockClient(
-            (r) async => http.Response('unexpected', 500),
-          ),
+          httpClient: MockClient((r) async => http.Response('unexpected', 500)),
         );
 
         await expectLater(
