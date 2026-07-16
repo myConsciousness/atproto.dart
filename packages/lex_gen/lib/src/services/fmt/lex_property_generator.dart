@@ -373,19 +373,31 @@ DartType _getLexRefVariantType(
         lexiconId: lexiconId.toString(),
       );
       if (isSingleProp && relatedDoc != null) {
-        final array = relatedDoc.whenOrNull(array: (data) => data);
+        final array = switch (relatedDoc) {
+          lex.ULexUserTypeArray(:final data) => data,
+          _ => null,
+        };
         if (array != null) {
           isArray = true;
 
-          final refvariant = array.items.whenOrNull(refVariant: (data) => data);
-          final refUnion = refvariant?.whenOrNull(refUnion: (data) => data);
+          final refvariant = switch (array.items) {
+            lex.ULexArrayRefVariant(:final data) => data,
+            _ => null,
+          };
+          final refUnion = switch (refvariant) {
+            lex.ULexRefVariantRefUnion(:final data) => data,
+            _ => null,
+          };
           if (refUnion != null) {
             isUnion = true;
           }
         }
       }
 
-      final isRecord = relatedDoc?.whenOrNull(record: (e) => e) != null;
+      final isRecord = switch (relatedDoc) {
+        lex.ULexUserTypeRecord() => true,
+        _ => false,
+      };
 
       final name = rule.getLexObjectNameFromRef(
         ctx,
