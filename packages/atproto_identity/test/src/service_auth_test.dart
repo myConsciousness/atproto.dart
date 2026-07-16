@@ -184,4 +184,51 @@ void main() {
       throwsA(isA<IdentityException>()),
     );
   });
+
+  test(
+    'throws IdentityException (not RangeError) on a huge exp claim',
+    () async {
+      final key = CryptoKey.generate(KeyType.secp256k1);
+      final jwt = _makeJwt(
+        key,
+        iss: _iss,
+        aud: _serviceDid,
+        expEpochSeconds: 9000000000000,
+      );
+
+      expect(
+        () => verifyServiceAuth(
+          jwt,
+          serviceDid: _serviceDid,
+          resolver: _FakeResolver(key.toMultibase()),
+        ),
+        throwsA(isA<IdentityException>()),
+      );
+    },
+  );
+
+  test(
+    'throws IdentityException (not ArgumentError) on a non-ASCII header '
+    'segment',
+    () async {
+      final key = CryptoKey.generate(KeyType.secp256k1);
+      final jwt = _makeJwt(
+        key,
+        iss: _iss,
+        aud: _serviceDid,
+        expEpochSeconds: _inOneHour(),
+      );
+      final parts = jwt.substring('Bearer '.length).split('.');
+      final malformed = 'Bearer é${parts[0]}.${parts[1]}.${parts[2]}';
+
+      expect(
+        () => verifyServiceAuth(
+          malformed,
+          serviceDid: _serviceDid,
+          resolver: _FakeResolver(key.toMultibase()),
+        ),
+        throwsA(isA<IdentityException>()),
+      );
+    },
+  );
 }

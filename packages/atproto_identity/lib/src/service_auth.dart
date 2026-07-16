@@ -54,11 +54,14 @@ Future<String> verifyServiceAuth(
   if (exp is! int) {
     throw const IdentityException('JWT has no integer "exp" claim');
   }
-  final expiresAt = DateTime.fromMillisecondsSinceEpoch(
-    exp * 1000,
-    isUtc: true,
-  );
-  if (DateTime.now().toUtc().isAfter(expiresAt)) {
+  // Dart's DateTime only represents epoch milliseconds within
+  // +/-8,640,000,000,000,000ms (+/-8,640,000,000,000s); an `exp` outside
+  // that range previously overflowed DateTime.fromMillisecondsSinceEpoch
+  // with a RangeError. Reject it as invalid up front (fail closed) using
+  // plain integer arithmetic, which can never overflow.
+  const maxEpochSeconds = 8640000000000;
+  final nowSeconds = DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000;
+  if (exp > maxEpochSeconds || nowSeconds > exp) {
     throw const IdentityException('JWT is expired');
   }
 
@@ -82,7 +85,7 @@ Future<String> verifyServiceAuth(
   }
 
   final signingInput = Uint8List.fromList(
-    ascii.encode('${segments[0]}.${segments[1]}'),
+    utf8.encode('${segments[0]}.${segments[1]}'),
   );
   final Uint8List signature;
   try {
