@@ -46,13 +46,13 @@ sealed class ModerationCause with _$ModerationCause {
   const factory ModerationCause.hidden({required ModerationCauseHidden data}) =
       UModerationCauseHidden;
 
-  bool get downgraded => when(
-    blocking: (data) => data.downgraded,
-    blockedBy: (data) => data.downgraded,
-    blockOther: (data) => data.downgraded,
-    label: (data) => data.downgraded,
-    muted: (data) => data.downgraded,
-    muteWord: (data) => data.downgraded,
-    hidden: (data) => data.downgraded,
-  );
+  bool get downgraded => switch (this) {
+    UModerationCauseBlocking(:final data) => data.downgraded,
+    UModerationCauseBlockedBy(:final data) => data.downgraded,
+    UModerationCauseBlockOther(:final data) => data.downgraded,
+    UModerationCauseLabel(:final data) => data.downgraded,
+    UModerationCauseMuted(:final data) => data.downgraded,
+    UModerationCauseMuteWord(:final data) => data.downgraded,
+    UModerationCauseHidden(:final data) => data.downgraded,
+  };
 }
