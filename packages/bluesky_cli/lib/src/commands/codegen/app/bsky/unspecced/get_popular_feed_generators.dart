@@ -27,7 +27,7 @@ final class GetPopularFeedGeneratorsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"An unspecced view of globally popular feed generators.";
+      "An unspecced view of globally popular feed generators.";
 
   @override
   final String invocation =

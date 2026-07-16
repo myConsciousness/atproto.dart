@@ -23,7 +23,7 @@ final class GetTrendsCommand extends QueryCommand {
   final String name = "get-trends";
 
   @override
-  final String description = r"Get the current trends on the network";
+  final String description = "Get the current trends on the network";
 
   @override
   final String invocation =

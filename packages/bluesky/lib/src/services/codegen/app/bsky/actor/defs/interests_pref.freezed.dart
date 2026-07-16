@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'interests_pref.dart';
@@ -9,7 +9,6 @@ part of 'interests_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$InterestsPrefCopyWithImpl<$Res>
 /// Create a copy of InterestsPref
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? tags = null,Object? $unknown = freezed,}) {
-  return _then(InterestsPref(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,tags: null == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +211,7 @@ return $default(_that.$type,_that.tags,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _InterestsPref implements InterestsPref {
-  const _InterestsPref({this.$type = 'app.bsky.actor.defs#interestsPref', required  List<String> tags,  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
+  const _InterestsPref({this.$type = 'app.bsky.actor.defs#interestsPref', required final  List<String> tags, final  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
   factory _InterestsPref.fromJson(Map<String, dynamic> json) => _$InterestsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;

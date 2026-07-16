@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 
 // Project imports:
 import 'package:bluesky/src/moderation.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/mute_words.dart';
@@ -48,6 +49,53 @@ void main() {
         ),
         returnsNormally,
       );
+    });
+  });
+
+  group('mute-word matching with malformed top-level record (audit LOW)', () {
+    test('scans quoted-post embed even when top-level record is invalid', () {
+      // A federated post can carry a malformed or foreign top-level record
+      // that fails `FeedPostRecord.validate`. Upstream @atproto/api still
+      // scans the embed (quoted post) for muted words in that case, so the
+      // muted word in the quoted post MUST still be caught.
+      final subject = ModerationSubjectPost.postView(
+        data: postView(
+          record: const {'not': 'a valid post record'},
+          author: profileViewBasic(handle: 'bob.test', displayName: 'Bob'),
+          embed: embedRecordView(
+            record: post(text: 'this quote mentions bannedword right here'),
+            author: profileViewBasic(
+              handle: 'carla.test',
+              displayName: 'Carla',
+            ),
+          ),
+        ),
+      );
+
+      final actual = moderatePost(
+        subject,
+        ModerationOpts(
+          userDid: 'did:web:alice.test',
+          prefs: ModerationPrefs(
+            adultContentEnabled: false,
+            labels: const {},
+            labelers: const [],
+            mutedWords: const [
+              MutedWord(
+                value: 'bannedword',
+                targets: [
+                  MutedWordTarget.knownValue(
+                    data: KnownMutedWordTarget.content,
+                  ),
+                ],
+              ),
+            ],
+            hiddenPosts: const [],
+          ),
+        ),
+      );
+
+      expect(actual.causes.whereType<UModerationCauseMuteWord>(), isNotEmpty);
     });
   });
 

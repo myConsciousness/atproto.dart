@@ -24,7 +24,7 @@ final class GetConvoCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Gets an existing conversation by its ID, for moderation purposes. Does not require the requester to be a member of the conversation.";
+      "Gets an existing conversation by its ID, for moderation purposes. Does not require the requester to be a member of the conversation.";
 
   @override
   final String invocation =

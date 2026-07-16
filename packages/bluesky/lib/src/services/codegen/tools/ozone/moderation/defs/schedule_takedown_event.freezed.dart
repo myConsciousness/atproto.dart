@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'schedule_takedown_event.dart';
@@ -9,7 +9,6 @@ part of 'schedule_takedown_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ScheduleTakedownEventCopyWithImpl<$Res>
 /// Create a copy of ScheduleTakedownEvent
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? executeAt = freezed,Object? executeAfter = freezed,Object? executeUntil = freezed,Object? $unknown = freezed,}) {
-  return _then(ScheduleTakedownEvent(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,executeAt: freezed == executeAt ? _self.executeAt : executeAt // ignore: cast_nullable_to_non_nullable
@@ -215,7 +214,7 @@ return $default(_that.$type,_that.comment,_that.executeAt,_that.executeAfter,_th
 
 @JsonSerializable(includeIfNull: false)
 class _ScheduleTakedownEvent implements ScheduleTakedownEvent {
-  const _ScheduleTakedownEvent({this.$type = 'tools.ozone.moderation.defs#scheduleTakedownEvent', this.comment, @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ScheduleTakedownEvent({this.$type = 'tools.ozone.moderation.defs#scheduleTakedownEvent', this.comment, @JsonKey(toJson: iso8601) this.executeAt, @JsonKey(toJson: iso8601) this.executeAfter, @JsonKey(toJson: iso8601) this.executeUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ScheduleTakedownEvent.fromJson(Map<String, dynamic> json) => _$ScheduleTakedownEventFromJson(json);
 
 @override@JsonKey() final  String $type;

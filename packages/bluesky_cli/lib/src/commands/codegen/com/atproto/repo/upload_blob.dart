@@ -22,7 +22,7 @@ final class UploadBlobCommand extends BlobCommand {
 
   @override
   final String description =
-      r"Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.";
+      "Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.";
 
   @override
   final String invocation = "bsky com-atproto-repo upload-blob --file=<path>";

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$RepoApplyWritesInputCopyWithImpl<$Res>
 /// Create a copy of RepoApplyWritesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? repo = null,Object? validate = freezed,Object? writes = null,Object? swapCommit = freezed,Object? $unknown = freezed,}) {
-  return _then(RepoApplyWritesInput(
+  return _then(_self.copyWith(
 repo: null == repo ? _self.repo : repo // ignore: cast_nullable_to_non_nullable
 as String,validate: freezed == validate ? _self.validate : validate // ignore: cast_nullable_to_non_nullable
 as bool?,writes: null == writes ? _self.writes : writes // ignore: cast_nullable_to_non_nullable
@@ -217,7 +216,7 @@ return $default(_that.repo,_that.validate,_that.writes,_that.swapCommit,_that.$u
 
 @JsonSerializable(includeIfNull: false)
 class _RepoApplyWritesInput implements RepoApplyWritesInput {
-  const _RepoApplyWritesInput({required this.repo, this.validate, @URepoApplyWritesWritesConverter() required  List<URepoApplyWritesWrites> writes, this.swapCommit,  Map<String, dynamic>? $unknown}): _writes = writes,_$unknown = $unknown;
+  const _RepoApplyWritesInput({required this.repo, this.validate, @URepoApplyWritesWritesConverter() required final  List<URepoApplyWritesWrites> writes, this.swapCommit, final  Map<String, dynamic>? $unknown}): _writes = writes,_$unknown = $unknown;
   factory _RepoApplyWritesInput.fromJson(Map<String, dynamic> json) => _$RepoApplyWritesInputFromJson(json);
 
 /// The handle or DID of the repo (aka, current account).

@@ -27,7 +27,7 @@ final class GetActorStarterPacksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of starter packs created by the actor.";
+      "Get a list of starter packs created by the actor.";
 
   @override
   final String invocation =

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,7 +9,6 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -71,7 +70,7 @@ class _$DeclarationRecordCopyWithImpl<$Res>
 /// Create a copy of DeclarationRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? version = null,Object? currentKey = null,Object? messageMe = freezed,Object? keyPackage = freezed,Object? continuityProofs = freezed,Object? $unknown = freezed,}) {
-  return _then(DeclarationRecord(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
 as String,currentKey: null == currentKey ? _self.currentKey : currentKey // ignore: cast_nullable_to_non_nullable
@@ -232,7 +231,7 @@ return $default(_that.$type,_that.version,_that.currentKey,_that.messageMe,_that
 
 @JsonSerializable(includeIfNull: false)
 class _DeclarationRecord implements DeclarationRecord {
-  const _DeclarationRecord({this.$type = 'com.germnetwork.declaration', required this.version, required  Map<String, dynamic> currentKey, @MessageMeConverter() this.messageMe,  Map<String, dynamic>? keyPackage,  List<Map<String, dynamic>>? continuityProofs,  Map<String, dynamic>? $unknown}): _currentKey = currentKey,_keyPackage = keyPackage,_continuityProofs = continuityProofs,_$unknown = $unknown;
+  const _DeclarationRecord({this.$type = 'com.germnetwork.declaration', required this.version, required final  Map<String, dynamic> currentKey, @MessageMeConverter() this.messageMe, final  Map<String, dynamic>? keyPackage, final  List<Map<String, dynamic>>? continuityProofs, final  Map<String, dynamic>? $unknown}): _currentKey = currentKey,_keyPackage = keyPackage,_continuityProofs = continuityProofs,_$unknown = $unknown;
   factory _DeclarationRecord.fromJson(Map<String, dynamic> json) => _$DeclarationRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

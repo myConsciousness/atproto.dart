@@ -27,7 +27,7 @@ final class AddReactionCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Adds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.";
+      "Adds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.";
 
   @override
   final String invocation =

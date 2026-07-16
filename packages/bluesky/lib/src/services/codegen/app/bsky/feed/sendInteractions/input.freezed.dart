@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$FeedSendInteractionsInputCopyWithImpl<$Res>
 /// Create a copy of FeedSendInteractionsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? feed = freezed,Object? interactions = null,Object? $unknown = freezed,}) {
-  return _then(FeedSendInteractionsInput(
+  return _then(_self.copyWith(
 feed: freezed == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
 as AtUri?,interactions: null == interactions ? _self.interactions : interactions // ignore: cast_nullable_to_non_nullable
 as List<Interaction>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +211,7 @@ return $default(_that.feed,_that.interactions,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedSendInteractionsInput implements FeedSendInteractionsInput {
-  const _FeedSendInteractionsInput({@AtUriConverter() this.feed, @InteractionConverter() required  List<Interaction> interactions,  Map<String, dynamic>? $unknown}): _interactions = interactions,_$unknown = $unknown;
+  const _FeedSendInteractionsInput({@AtUriConverter() this.feed, @InteractionConverter() required final  List<Interaction> interactions, final  Map<String, dynamic>? $unknown}): _interactions = interactions,_$unknown = $unknown;
   factory _FeedSendInteractionsInput.fromJson(Map<String, dynamic> json) => _$FeedSendInteractionsInputFromJson(json);
 
 @override@AtUriConverter() final  AtUri? feed;

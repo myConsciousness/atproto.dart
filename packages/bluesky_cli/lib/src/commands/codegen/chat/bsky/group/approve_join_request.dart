@@ -26,7 +26,7 @@ final class ApproveJoinRequestCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Approves a request to join a group (via join link) the user owns. Action taken by the group owner.";
+      "Approves a request to join a group (via join link) the user owns. Action taken by the group owner.";
 
   @override
   final String invocation =

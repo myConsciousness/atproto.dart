@@ -22,7 +22,7 @@ final class GetConfigCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns Age Assurance configuration for use on the client.";
+      "Returns Age Assurance configuration for use on the client.";
 
   @override
   final String invocation = "bsky app-bsky-ageassurance get-config";

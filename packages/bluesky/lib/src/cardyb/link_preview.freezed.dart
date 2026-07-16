@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'link_preview.dart';
@@ -9,7 +9,6 @@ part of 'link_preview.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -20,7 +19,14 @@ mixin _$LinkPreview {
  String? get url;/// The preview title of the link.
  String? get title;/// The preview description of the link.
  String? get description;/// The preview image of the link.
- String? get image;
+ String? get image;/// The error message returned by cardyb, if any.
+///
+/// cardyb's `/v1/extract` endpoint responds with HTTP 200 even when
+/// extraction fails, carrying a non-empty `error` field. Inspect this
+/// to distinguish a genuine failure from an empty preview.
+ String? get error;/// The likely type of the resource cardyb attempted to extract
+/// (e.g. `html`), mapped from the `likely_type` field.
+@JsonKey(name: 'likely_type') String? get likelyType;
 /// Create a copy of LinkPreview
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -33,16 +39,16 @@ $LinkPreviewCopyWith<LinkPreview> get copyWith => _$LinkPreviewCopyWithImpl<Link
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LinkPreview&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.image, image) || other.image == image));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LinkPreview&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.image, image) || other.image == image)&&(identical(other.error, error) || other.error == error)&&(identical(other.likelyType, likelyType) || other.likelyType == likelyType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,title,description,image);
+int get hashCode => Object.hash(runtimeType,url,title,description,image,error,likelyType);
 
 @override
 String toString() {
-  return 'LinkPreview(url: $url, title: $title, description: $description, image: $image)';
+  return 'LinkPreview(url: $url, title: $title, description: $description, image: $image, error: $error, likelyType: $likelyType)';
 }
 
 
@@ -53,7 +59,7 @@ abstract mixin class $LinkPreviewCopyWith<$Res>  {
   factory $LinkPreviewCopyWith(LinkPreview value, $Res Function(LinkPreview) _then) = _$LinkPreviewCopyWithImpl;
 @useResult
 $Res call({
- String? url, String? title, String? description, String? image
+ String? url, String? title, String? description, String? image, String? error,@JsonKey(name: 'likely_type') String? likelyType
 });
 
 
@@ -70,12 +76,14 @@ class _$LinkPreviewCopyWithImpl<$Res>
 
 /// Create a copy of LinkPreview
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? url = freezed,Object? title = freezed,Object? description = freezed,Object? image = freezed,}) {
-  return _then(LinkPreview(
+@pragma('vm:prefer-inline') @override $Res call({Object? url = freezed,Object? title = freezed,Object? description = freezed,Object? image = freezed,Object? error = freezed,Object? likelyType = freezed,}) {
+  return _then(_self.copyWith(
 url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as String?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String?,likelyType: freezed == likelyType ? _self.likelyType : likelyType // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -161,10 +169,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type')  String? likelyType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LinkPreview() when $default != null:
-return $default(_that.url,_that.title,_that.description,_that.image);case _:
+return $default(_that.url,_that.title,_that.description,_that.image,_that.error,_that.likelyType);case _:
   return orElse();
 
 }
@@ -182,10 +190,10 @@ return $default(_that.url,_that.title,_that.description,_that.image);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type')  String? likelyType)  $default,) {final _that = this;
 switch (_that) {
 case _LinkPreview():
-return $default(_that.url,_that.title,_that.description,_that.image);case _:
+return $default(_that.url,_that.title,_that.description,_that.image,_that.error,_that.likelyType);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +210,10 @@ return $default(_that.url,_that.title,_that.description,_that.image);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  String? title,  String? description,  String? image)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  String? title,  String? description,  String? image,  String? error, @JsonKey(name: 'likely_type')  String? likelyType)?  $default,) {final _that = this;
 switch (_that) {
 case _LinkPreview() when $default != null:
-return $default(_that.url,_that.title,_that.description,_that.image);case _:
+return $default(_that.url,_that.title,_that.description,_that.image,_that.error,_that.likelyType);case _:
   return null;
 
 }
@@ -217,7 +225,7 @@ return $default(_that.url,_that.title,_that.description,_that.image);case _:
 @JsonSerializable()
 
 class _LinkPreview implements LinkPreview {
-  const _LinkPreview({this.url, this.title, this.description, this.image});
+  const _LinkPreview({this.url, this.title, this.description, this.image, this.error, @JsonKey(name: 'likely_type') this.likelyType});
   factory _LinkPreview.fromJson(Map<String, dynamic> json) => _$LinkPreviewFromJson(json);
 
 /// The preview url if the link.
@@ -228,6 +236,15 @@ class _LinkPreview implements LinkPreview {
 @override final  String? description;
 /// The preview image of the link.
 @override final  String? image;
+/// The error message returned by cardyb, if any.
+///
+/// cardyb's `/v1/extract` endpoint responds with HTTP 200 even when
+/// extraction fails, carrying a non-empty `error` field. Inspect this
+/// to distinguish a genuine failure from an empty preview.
+@override final  String? error;
+/// The likely type of the resource cardyb attempted to extract
+/// (e.g. `html`), mapped from the `likely_type` field.
+@override@JsonKey(name: 'likely_type') final  String? likelyType;
 
 /// Create a copy of LinkPreview
 /// with the given fields replaced by the non-null parameter values.
@@ -242,16 +259,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LinkPreview&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.image, image) || other.image == image));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LinkPreview&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.image, image) || other.image == image)&&(identical(other.error, error) || other.error == error)&&(identical(other.likelyType, likelyType) || other.likelyType == likelyType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,title,description,image);
+int get hashCode => Object.hash(runtimeType,url,title,description,image,error,likelyType);
 
 @override
 String toString() {
-  return 'LinkPreview(url: $url, title: $title, description: $description, image: $image)';
+  return 'LinkPreview(url: $url, title: $title, description: $description, image: $image, error: $error, likelyType: $likelyType)';
 }
 
 
@@ -262,7 +279,7 @@ abstract mixin class _$LinkPreviewCopyWith<$Res> implements $LinkPreviewCopyWith
   factory _$LinkPreviewCopyWith(_LinkPreview value, $Res Function(_LinkPreview) _then) = __$LinkPreviewCopyWithImpl;
 @override @useResult
 $Res call({
- String? url, String? title, String? description, String? image
+ String? url, String? title, String? description, String? image, String? error,@JsonKey(name: 'likely_type') String? likelyType
 });
 
 
@@ -279,12 +296,14 @@ class __$LinkPreviewCopyWithImpl<$Res>
 
 /// Create a copy of LinkPreview
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? url = freezed,Object? title = freezed,Object? description = freezed,Object? image = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? url = freezed,Object? title = freezed,Object? description = freezed,Object? image = freezed,Object? error = freezed,Object? likelyType = freezed,}) {
   return _then(_LinkPreview(
 url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
+as String?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String?,likelyType: freezed == likelyType ? _self.likelyType : likelyType // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

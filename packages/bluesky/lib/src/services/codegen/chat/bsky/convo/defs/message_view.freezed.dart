@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'message_view.dart';
@@ -9,7 +9,6 @@ part of 'message_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$MessageViewCopyWithImpl<$Res>
 /// Create a copy of MessageView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? rev = null,Object? text = null,Object? facets = freezed,Object? embed = freezed,Object? reactions = freezed,Object? replyTo = freezed,Object? sender = null,Object? sentAt = null,Object? $unknown = freezed,}) {
-  return _then(MessageView(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,rev: null == rev ? _self.rev : rev // ignore: cast_nullable_to_non_nullable
@@ -253,7 +252,7 @@ return $default(_that.$type,_that.id,_that.rev,_that.text,_that.facets,_that.emb
 
 @JsonSerializable(includeIfNull: false)
 class _MessageView implements MessageView {
-  const _MessageView({this.$type = 'chat.bsky.convo.defs#messageView', required this.id, required this.rev, required this.text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @UMessageViewEmbedConverter() this.embed, @ReactionViewConverter()  List<ReactionView>? reactions, @UMessageViewReplyToConverter() this.replyTo, @MessageViewSenderConverter() required this.sender, @JsonKey(toJson: iso8601) required this.sentAt,  Map<String, dynamic>? $unknown}): _facets = facets,_reactions = reactions,_$unknown = $unknown;
+  const _MessageView({this.$type = 'chat.bsky.convo.defs#messageView', required this.id, required this.rev, required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @UMessageViewEmbedConverter() this.embed, @ReactionViewConverter() final  List<ReactionView>? reactions, @UMessageViewReplyToConverter() this.replyTo, @MessageViewSenderConverter() required this.sender, @JsonKey(toJson: iso8601) required this.sentAt, final  Map<String, dynamic>? $unknown}): _facets = facets,_reactions = reactions,_$unknown = $unknown;
   factory _MessageView.fromJson(Map<String, dynamic> json) => _$MessageViewFromJson(json);
 
 @override@JsonKey() final  String $type;

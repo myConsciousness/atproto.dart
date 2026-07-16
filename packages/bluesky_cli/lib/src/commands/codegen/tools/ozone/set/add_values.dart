@@ -33,7 +33,7 @@ final class AddValuesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.";
+      "Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.";
 
   @override
   final String invocation =

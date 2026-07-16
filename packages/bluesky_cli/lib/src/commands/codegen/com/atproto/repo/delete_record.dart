@@ -43,7 +43,7 @@ final class DeleteRecordCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.";
+      "Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.";
 
   @override
   final String invocation =

@@ -27,7 +27,7 @@ final class GetConvoMembersCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns a paginated list of members from a conversation.";
+      "Returns a paginated list of members from a conversation.";
 
   @override
   final String invocation =

@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.1
+
+- fix: unknown top-level lexicon def types (e.g. `permission-set`) now degrade to an `unknown` variant instead of throwing from `LexiconDoc.fromJson`; the same graceful fallback is applied to unknown XRPC schema types. Round-trip fidelity for known types is unchanged.
+
 ## v1.2.0
 
 - fix: nested inline `object` types no longer raise `UnsupportedError`; converters degrade gracefully so one such document no longer fails the whole load (G-12).

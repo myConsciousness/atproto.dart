@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$ReportQueryActivitiesInputCopyWithImpl<$Res>
 /// Create a copy of ReportQueryActivitiesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? activityTypes = freezed,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? sortDirection = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(ReportQueryActivitiesInput(
+  return _then(_self.copyWith(
 activityTypes: freezed == activityTypes ? _self.activityTypes : activityTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,createdAfter: freezed == createdAfter ? _self.createdAfter : createdAfter // ignore: cast_nullable_to_non_nullable
 as DateTime?,createdBefore: freezed == createdBefore ? _self.createdBefore : createdBefore // ignore: cast_nullable_to_non_nullable
@@ -219,7 +218,7 @@ return $default(_that.activityTypes,_that.createdAfter,_that.createdBefore,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ReportQueryActivitiesInput implements ReportQueryActivitiesInput {
-  const _ReportQueryActivitiesInput({ List<String>? activityTypes, @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, this.sortDirection = 'desc', this.limit = 50, this.cursor,  Map<String, dynamic>? $unknown}): _activityTypes = activityTypes,_$unknown = $unknown;
+  const _ReportQueryActivitiesInput({final  List<String>? activityTypes, @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, this.sortDirection = 'desc', this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _activityTypes = activityTypes,_$unknown = $unknown;
   factory _ReportQueryActivitiesInput.fromJson(Map<String, dynamic> json) => _$ReportQueryActivitiesInputFromJson(json);
 
  final  List<String>? _activityTypes;

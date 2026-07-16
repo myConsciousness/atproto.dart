@@ -30,7 +30,7 @@ final class UpdateEmailCommand extends ProcedureCommand {
   final String name = "update-email";
 
   @override
-  final String description = r"Update an account's email.";
+  final String description = "Update an account's email.";
 
   @override
   final String invocation =

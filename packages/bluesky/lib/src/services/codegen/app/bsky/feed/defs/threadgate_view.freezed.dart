@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'threadgate_view.dart';
@@ -9,7 +9,6 @@ part of 'threadgate_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ThreadgateViewCopyWithImpl<$Res>
 /// Create a copy of ThreadgateView
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = freezed,Object? cid = freezed,Object? record = freezed,Object? lists = freezed,Object? $unknown = freezed,}) {
-  return _then(ThreadgateView(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: freezed == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri?,cid: freezed == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -215,7 +214,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.lists,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _ThreadgateView implements ThreadgateView {
-  const _ThreadgateView({this.$type = 'app.bsky.feed.defs#threadgateView', @AtUriConverter() this.uri, this.cid,  Map<String, dynamic>? record, @ListViewBasicConverter()  List<ListViewBasic>? lists,  Map<String, dynamic>? $unknown}): _record = record,_lists = lists,_$unknown = $unknown;
+  const _ThreadgateView({this.$type = 'app.bsky.feed.defs#threadgateView', @AtUriConverter() this.uri, this.cid, final  Map<String, dynamic>? record, @ListViewBasicConverter() final  List<ListViewBasic>? lists, final  Map<String, dynamic>? $unknown}): _record = record,_lists = lists,_$unknown = $unknown;
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) => _$ThreadgateViewFromJson(json);
 
 @override@JsonKey() final  String $type;

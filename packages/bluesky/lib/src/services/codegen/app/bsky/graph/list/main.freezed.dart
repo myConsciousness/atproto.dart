@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,7 +9,6 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +68,7 @@ class _$GraphListRecordCopyWithImpl<$Res>
 /// Create a copy of GraphListRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? purpose = null,Object? name = null,Object? description = freezed,Object? descriptionFacets = freezed,Object? avatar = freezed,Object? labels = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
-  return _then(GraphListRecord(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,purpose: null == purpose ? _self.purpose : purpose // ignore: cast_nullable_to_non_nullable
 as ListPurpose,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -253,7 +252,7 @@ return $default(_that.$type,_that.purpose,_that.name,_that.description,_that.des
 
 @JsonSerializable(includeIfNull: false)
 class _GraphListRecord implements GraphListRecord {
-  const _GraphListRecord({this.$type = 'app.bsky.graph.list', @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter()  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, @JsonKey(toJson: iso8601) required this.createdAt,  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
+  const _GraphListRecord({this.$type = 'app.bsky.graph.list', @ListPurposeConverter() required this.purpose, required this.name, this.description, @RichtextFacetConverter() final  List<RichtextFacet>? descriptionFacets, @BlobConverter() this.avatar, @UGraphListLabelsConverter() this.labels, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _descriptionFacets = descriptionFacets,_$unknown = $unknown;
   factory _GraphListRecord.fromJson(Map<String, dynamic> json) => _$GraphListRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

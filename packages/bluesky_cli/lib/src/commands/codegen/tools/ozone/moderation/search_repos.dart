@@ -27,7 +27,7 @@ final class SearchReposCommand extends QueryCommand {
   final String name = "search-repos";
 
   @override
-  final String description = r"Find repositories based on a search term.";
+  final String description = "Find repositories based on a search term.";
 
   @override
   final String invocation =

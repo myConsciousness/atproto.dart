@@ -43,7 +43,7 @@ final class CreateQueueCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.";
+      "Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.";
 
   @override
   final String invocation =

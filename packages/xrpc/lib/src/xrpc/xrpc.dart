@@ -365,7 +365,28 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   //! so just prevent an unhandled async error here.
   unawaited(channel.ready.then((_) {}, onError: (_) {}));
 
-  final controller = StreamController<T>();
+  //! Assigned synchronously below, before any of the controller callbacks
+  //! (which only fire once a listener interacts with the stream) can run.
+  late final StreamSubscription<dynamic> subscription;
+
+  //! Tears down the underlying channel subscription and socket. Safe to
+  //! call multiple times: cancelling an already-cancelled subscription and
+  //! closing an already-closed sink are both no-ops.
+  Future<void> teardownChannel() async {
+    await subscription.cancel();
+    await Future.sync(channel.sink.close).then((_) {}, onError: (_) {});
+  }
+
+  final controller = StreamController<T>(
+    //! Propagate backpressure: when the consumer pauses, stop pulling from
+    //! the socket so events are not buffered unboundedly (firehose OOM
+    //! path); resume pulling when the consumer resumes.
+    onPause: () => subscription.pause(),
+    onResume: () => subscription.resume(),
+    //! A consumer that cancels its subscription (without calling
+    //! [Subscription.close]) must not leak the socket: tear it down here.
+    onCancel: teardownChannel,
+  );
 
   void closeController() {
     if (!controller.isClosed) {
@@ -379,7 +400,7 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   //! The subscription is owned by the returned [Subscription] and is
   //! cancelled by [Subscription.close].
   // ignore: cancel_subscriptions
-  final subscription = channel.stream.listen(
+  subscription = channel.stream.listen(
     (event) {
       if (controller.isClosed) return;
 
@@ -513,8 +534,12 @@ Map<String, String> _appendContentType(
   final dynamic body,
 ) {
   if (body is Uint8List) {
-    return {'Content-Type': lookupMimeType('', headerBytes: body) ?? '*/*'}
-      ..addAll(headers ?? {});
+    return {
+      //! Fall back to the conventional binary media type when magic-byte
+      //! sniffing cannot determine the content type, rather than `*/*`.
+      'Content-Type':
+          lookupMimeType('', headerBytes: body) ?? 'application/octet-stream',
+    }..addAll(headers ?? {});
   }
 
   return {'Content-Type': 'application/json; charset=UTF-8'}
@@ -525,5 +550,7 @@ dynamic _getProcedureBody(final dynamic body) {
   if (body == null) return null;
   if (body is Uint8List) return body;
 
-  return jsonEncode(util.removeNullValues(body) ?? {});
+  //! Use the body-specific cleaner so that explicitly empty collections
+  //! (e.g. threadgate `allow: []`) survive; only `null` values are removed.
+  return jsonEncode(util.removeNullValuesFromBody(body) ?? {});
 }

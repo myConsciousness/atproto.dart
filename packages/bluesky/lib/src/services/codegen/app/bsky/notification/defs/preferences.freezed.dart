@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'preferences.dart';
@@ -9,7 +9,6 @@ part of 'preferences.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$PreferencesCopyWithImpl<$Res>
 /// Create a copy of Preferences
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? follow = null,Object? like = null,Object? likeViaRepost = null,Object? mention = null,Object? quote = null,Object? reply = null,Object? repost = null,Object? repostViaRepost = null,Object? starterpackJoined = null,Object? subscribedPost = null,Object? unverified = null,Object? verified = null,Object? $unknown = freezed,}) {
-  return _then(Preferences(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,follow: null == follow ? _self.follow : follow // ignore: cast_nullable_to_non_nullable
 as FilterablePreference,like: null == like ? _self.like : like // ignore: cast_nullable_to_non_nullable
@@ -331,7 +330,7 @@ return $default(_that.$type,_that.follow,_that.like,_that.likeViaRepost,_that.me
 
 @JsonSerializable(includeIfNull: false)
 class _Preferences implements Preferences {
-  const _Preferences({this.$type = 'app.bsky.notification.defs#preferences', @FilterablePreferenceConverter() required this.follow, @FilterablePreferenceConverter() required this.like, @FilterablePreferenceConverter() required this.likeViaRepost, @FilterablePreferenceConverter() required this.mention, @FilterablePreferenceConverter() required this.quote, @FilterablePreferenceConverter() required this.reply, @FilterablePreferenceConverter() required this.repost, @FilterablePreferenceConverter() required this.repostViaRepost, @PreferenceConverter() required this.starterpackJoined, @PreferenceConverter() required this.subscribedPost, @PreferenceConverter() required this.unverified, @PreferenceConverter() required this.verified,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Preferences({this.$type = 'app.bsky.notification.defs#preferences', @FilterablePreferenceConverter() required this.follow, @FilterablePreferenceConverter() required this.like, @FilterablePreferenceConverter() required this.likeViaRepost, @FilterablePreferenceConverter() required this.mention, @FilterablePreferenceConverter() required this.quote, @FilterablePreferenceConverter() required this.reply, @FilterablePreferenceConverter() required this.repost, @FilterablePreferenceConverter() required this.repostViaRepost, @PreferenceConverter() required this.starterpackJoined, @PreferenceConverter() required this.subscribedPost, @PreferenceConverter() required this.unverified, @PreferenceConverter() required this.verified, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Preferences.fromJson(Map<String, dynamic> json) => _$PreferencesFromJson(json);
 
 @override@JsonKey() final  String $type;

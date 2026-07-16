@@ -22,7 +22,7 @@ final class GetPreferencesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get the requesting account's chat notification preferences. Defaults are returned for accounts that have not set any preferences. Requires auth.";
+      "Get the requesting account's chat notification preferences. Defaults are returned for accounts that have not set any preferences. Requires auth.";
 
   @override
   final String invocation = "bsky chat-bsky-notification get-preferences";

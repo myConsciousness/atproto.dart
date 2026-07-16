@@ -27,7 +27,7 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Search for accounts that match one or more threat signature values.";
+      "Search for accounts that match one or more threat signature values.";
 
   @override
   final String invocation =

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,7 +9,6 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$FeedThreadgateRecordCopyWithImpl<$Res>
 /// Create a copy of FeedThreadgateRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? allow = freezed,Object? createdAt = null,Object? hiddenReplies = freezed,Object? $unknown = freezed,}) {
-  return _then(FeedThreadgateRecord(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as AtUri,allow: freezed == allow ? _self.allow : allow // ignore: cast_nullable_to_non_nullable
@@ -216,7 +215,7 @@ return $default(_that.$type,_that.post,_that.allow,_that.createdAt,_that.hiddenR
 
 @JsonSerializable(includeIfNull: false)
 class _FeedThreadgateRecord implements FeedThreadgateRecord {
-  const _FeedThreadgateRecord({this.$type = 'app.bsky.feed.threadgate', @AtUriConverter() required this.post, @UFeedThreadgateAllowConverter()  List<UFeedThreadgateAllow>? allow, @JsonKey(toJson: iso8601) required this.createdAt, @AtUriConverter()  List<AtUri>? hiddenReplies,  Map<String, dynamic>? $unknown}): _allow = allow,_hiddenReplies = hiddenReplies,_$unknown = $unknown;
+  const _FeedThreadgateRecord({this.$type = 'app.bsky.feed.threadgate', @AtUriConverter() required this.post, @UFeedThreadgateAllowConverter() final  List<UFeedThreadgateAllow>? allow, @JsonKey(toJson: iso8601) required this.createdAt, @AtUriConverter() final  List<AtUri>? hiddenReplies, final  Map<String, dynamic>? $unknown}): _allow = allow,_hiddenReplies = hiddenReplies,_$unknown = $unknown;
   factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) => _$FeedThreadgateRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

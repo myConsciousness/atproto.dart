@@ -24,7 +24,7 @@ final class MuteActorListCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.";
+      "Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.";
 
   @override
   final String invocation =

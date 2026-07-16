@@ -26,7 +26,7 @@ final class GetSuggestedFeedsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of suggested feeds (feed generators) for the requesting account.";
+      "Get a list of suggested feeds (feed generators) for the requesting account.";
 
   @override
   final String invocation =

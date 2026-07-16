@@ -4,6 +4,9 @@
 
 - chore: updated `tools.ozone.queue.defs#queueView.subjectTypes`
 - chore: regenerated from synced lexicons
+- fix: mute-word matching still scans quoted-post embeds when the top-level record fails validation.
+- fix: `LinkPreview` exposes cardyb's `error`/`likelyType` fields.
+- fix: the video service percent-encodes the port when building a `did:web` audience.
 
 ## v2.0.0
 

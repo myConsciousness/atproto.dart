@@ -388,6 +388,7 @@ DartType _getLexRefVariantType(
       final isRecord = relatedDoc?.whenOrNull(record: (e) => e) != null;
 
       final name = rule.getLexObjectNameFromRef(
+        ctx,
         lexiconId.toString(),
         ref.data.ref!,
         mainVariants,

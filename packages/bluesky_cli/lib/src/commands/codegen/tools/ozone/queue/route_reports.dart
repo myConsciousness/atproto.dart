@@ -35,7 +35,7 @@ final class RouteReportsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Route reports within an ID range to matching queues based.";
+      "Route reports within an ID range to matching queues based.";
 
   @override
   final String invocation =

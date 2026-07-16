@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.1
+
+- fix: the session cache file is locked to `0600` before any token bytes are written, and caching is skipped (with a warning) if the permission change fails.
+
 ## v0.6.0
 
 - fix!: stop leaking `BLUESKY_PASSWORD` in `--help`/usage output — the env var is now resolved at use-time instead of being printed as an option `defaultsTo` (could end up in CI logs/recordings) (L-1).

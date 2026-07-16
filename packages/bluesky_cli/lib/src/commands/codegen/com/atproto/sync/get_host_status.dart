@@ -28,7 +28,7 @@ final class GetHostStatusCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns information about a specified upstream host, as consumed by the server. Implemented by relays.";
+      "Returns information about a specified upstream host, as consumed by the server. Implemented by relays.";
 
   @override
   final String invocation =

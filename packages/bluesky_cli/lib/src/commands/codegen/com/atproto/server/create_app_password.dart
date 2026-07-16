@@ -33,7 +33,7 @@ final class CreateAppPasswordCommand extends ProcedureCommand {
   final String name = "create-app-password";
 
   @override
-  final String description = r"Create an App Password.";
+  final String description = "Create an App Password.";
 
   @override
   final String invocation =

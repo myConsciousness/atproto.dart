@@ -15,7 +15,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Operation {
 
- String get sig; String get type; Map<String, dynamic> get services; List<String> get alsoKnownAs; List<String> get rotationKeys; Map<String, dynamic> get verificationMethods; String? get prev;
+ String get sig; String get type; Map<String, dynamic> get services; List<String> get alsoKnownAs; List<String> get rotationKeys; Map<String, dynamic> get verificationMethods;// A genesis `plc_operation` carries an explicit `prev: null`, and that
+// key IS part of the signed DAG-CBOR bytes and the bytes hashed for
+// `did:plc` derivation. It must be serialized even when null, so this
+// field opts out of the class-level `includeIfNull: false`.
+@JsonKey(includeIfNull: true) String? get prev;
 /// Create a copy of Operation
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +52,7 @@ abstract mixin class $OperationCopyWith<$Res>  {
   factory $OperationCopyWith(Operation value, $Res Function(Operation) _then) = _$OperationCopyWithImpl;
 @useResult
 $Res call({
- String sig, String type, Map<String, dynamic> services, List<String> alsoKnownAs, List<String> rotationKeys, Map<String, dynamic> verificationMethods, String? prev
+ String sig, String type, Map<String, dynamic> services, List<String> alsoKnownAs, List<String> rotationKeys, Map<String, dynamic> verificationMethods,@JsonKey(includeIfNull: true) String? prev
 });
 
 
@@ -159,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods,  String? prev)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods, @JsonKey(includeIfNull: true)  String? prev)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Operation() when $default != null:
 return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rotationKeys,_that.verificationMethods,_that.prev);case _:
@@ -180,7 +184,7 @@ return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rota
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods,  String? prev)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods, @JsonKey(includeIfNull: true)  String? prev)  $default,) {final _that = this;
 switch (_that) {
 case _Operation():
 return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rotationKeys,_that.verificationMethods,_that.prev);case _:
@@ -200,7 +204,7 @@ return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rota
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods,  String? prev)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sig,  String type,  Map<String, dynamic> services,  List<String> alsoKnownAs,  List<String> rotationKeys,  Map<String, dynamic> verificationMethods, @JsonKey(includeIfNull: true)  String? prev)?  $default,) {final _that = this;
 switch (_that) {
 case _Operation() when $default != null:
 return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rotationKeys,_that.verificationMethods,_that.prev);case _:
@@ -215,7 +219,7 @@ return $default(_that.sig,_that.type,_that.services,_that.alsoKnownAs,_that.rota
 
 @JsonSerializable(includeIfNull: false)
 class _Operation implements Operation {
-  const _Operation({required this.sig, this.type = 'plc_operation', required final  Map<String, dynamic> services, required final  List<String> alsoKnownAs, required final  List<String> rotationKeys, required final  Map<String, dynamic> verificationMethods, this.prev}): _services = services,_alsoKnownAs = alsoKnownAs,_rotationKeys = rotationKeys,_verificationMethods = verificationMethods;
+  const _Operation({required this.sig, this.type = 'plc_operation', required final  Map<String, dynamic> services, required final  List<String> alsoKnownAs, required final  List<String> rotationKeys, required final  Map<String, dynamic> verificationMethods, @JsonKey(includeIfNull: true) this.prev}): _services = services,_alsoKnownAs = alsoKnownAs,_rotationKeys = rotationKeys,_verificationMethods = verificationMethods;
   factory _Operation.fromJson(Map<String, dynamic> json) => _$OperationFromJson(json);
 
 @override final  String sig;
@@ -248,7 +252,11 @@ class _Operation implements Operation {
   return EqualUnmodifiableMapView(_verificationMethods);
 }
 
-@override final  String? prev;
+// A genesis `plc_operation` carries an explicit `prev: null`, and that
+// key IS part of the signed DAG-CBOR bytes and the bytes hashed for
+// `did:plc` derivation. It must be serialized even when null, so this
+// field opts out of the class-level `includeIfNull: false`.
+@override@JsonKey(includeIfNull: true) final  String? prev;
 
 /// Create a copy of Operation
 /// with the given fields replaced by the non-null parameter values.
@@ -283,7 +291,7 @@ abstract mixin class _$OperationCopyWith<$Res> implements $OperationCopyWith<$Re
   factory _$OperationCopyWith(_Operation value, $Res Function(_Operation) _then) = __$OperationCopyWithImpl;
 @override @useResult
 $Res call({
- String sig, String type, Map<String, dynamic> services, List<String> alsoKnownAs, List<String> rotationKeys, Map<String, dynamic> verificationMethods, String? prev
+ String sig, String type, Map<String, dynamic> services, List<String> alsoKnownAs, List<String> rotationKeys, Map<String, dynamic> verificationMethods,@JsonKey(includeIfNull: true) String? prev
 });
 
 

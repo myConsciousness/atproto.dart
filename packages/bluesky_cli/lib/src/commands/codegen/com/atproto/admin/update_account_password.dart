@@ -26,7 +26,7 @@ final class UpdateAccountPasswordCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Update the password for a user account as an administrator.";
+      "Update the password for a user account as an administrator.";
 
   @override
   final String invocation =

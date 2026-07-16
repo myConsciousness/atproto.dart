@@ -27,7 +27,7 @@ final class UpdateMemberCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Update a member in the ozone service. Requires admin role.";
+      "Update a member in the ozone service. Requires admin role.";
 
   @override
   final String invocation =

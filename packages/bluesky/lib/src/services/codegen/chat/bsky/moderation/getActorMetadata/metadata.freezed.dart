@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'metadata.dart';
@@ -9,7 +9,6 @@ part of 'metadata.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$MetadataCopyWithImpl<$Res>
 /// Create a copy of Metadata
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? messagesSent = null,Object? messagesReceived = null,Object? convos = null,Object? convosStarted = null,Object? $unknown = freezed,}) {
-  return _then(Metadata(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,messagesSent: null == messagesSent ? _self.messagesSent : messagesSent // ignore: cast_nullable_to_non_nullable
 as int,messagesReceived: null == messagesReceived ? _self.messagesReceived : messagesReceived // ignore: cast_nullable_to_non_nullable
@@ -215,7 +214,7 @@ return $default(_that.$type,_that.messagesSent,_that.messagesReceived,_that.conv
 
 @JsonSerializable(includeIfNull: false)
 class _Metadata implements Metadata {
-  const _Metadata({this.$type = 'chat.bsky.moderation.getActorMetadata#metadata', required this.messagesSent, required this.messagesReceived, required this.convos, required this.convosStarted,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Metadata({this.$type = 'chat.bsky.moderation.getActorMetadata#metadata', required this.messagesSent, required this.messagesReceived, required this.convos, required this.convosStarted, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Metadata.fromJson(Map<String, dynamic> json) => _$MetadataFromJson(json);
 
 @override@JsonKey() final  String $type;

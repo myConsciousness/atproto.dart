@@ -27,7 +27,7 @@ final class GetActorFeedsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a list of feeds (feed generator records) created by the actor (in the actor's repo).";
+      "Get a list of feeds (feed generator records) created by the actor (in the actor's repo).";
 
   @override
   final String invocation =

@@ -26,7 +26,7 @@ final class ListMissingBlobsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.";
+      "Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.";
 
   @override
   final String invocation =

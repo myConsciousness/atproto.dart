@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -78,7 +77,7 @@ class _$ModerationQueryEventsInputCopyWithImpl<$Res>
 /// Create a copy of ModerationQueryEventsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? types = freezed,Object? createdBy = freezed,Object? sortDirection = null,Object? createdAfter = freezed,Object? createdBefore = freezed,Object? subject = freezed,Object? collections = freezed,Object? subjectType = freezed,Object? includeAllUserRecords = null,Object? limit = null,Object? hasComment = freezed,Object? comment = freezed,Object? addedLabels = freezed,Object? removedLabels = freezed,Object? addedTags = freezed,Object? removedTags = freezed,Object? reportTypes = freezed,Object? policies = freezed,Object? modTool = freezed,Object? batchId = freezed,Object? ageAssuranceState = freezed,Object? withStrike = freezed,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(ModerationQueryEventsInput(
+  return _then(_self.copyWith(
 types: freezed == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
 as List<String>?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String?,sortDirection: null == sortDirection ? _self.sortDirection : sortDirection // ignore: cast_nullable_to_non_nullable
@@ -268,7 +267,7 @@ return $default(_that.types,_that.createdBy,_that.sortDirection,_that.createdAft
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationQueryEventsInput implements ModerationQueryEventsInput {
-  const _ModerationQueryEventsInput({ List<String>? types, this.createdBy, this.sortDirection = 'desc', @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, this.subject,  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter() this.subjectType, this.includeAllUserRecords = false, this.limit = 50, this.hasComment, this.comment,  List<String>? addedLabels,  List<String>? removedLabels,  List<String>? addedTags,  List<String>? removedTags,  List<String>? reportTypes,  List<String>? policies,  List<String>? modTool, this.batchId, @ModerationQueryEventsAgeAssuranceStateConverter() this.ageAssuranceState, this.withStrike, this.cursor,  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
+  const _ModerationQueryEventsInput({final  List<String>? types, this.createdBy, this.sortDirection = 'desc', @JsonKey(toJson: iso8601) this.createdAfter, @JsonKey(toJson: iso8601) this.createdBefore, this.subject, final  List<String>? collections, @ModerationQueryEventsSubjectTypeConverter() this.subjectType, this.includeAllUserRecords = false, this.limit = 50, this.hasComment, this.comment, final  List<String>? addedLabels, final  List<String>? removedLabels, final  List<String>? addedTags, final  List<String>? removedTags, final  List<String>? reportTypes, final  List<String>? policies, final  List<String>? modTool, this.batchId, @ModerationQueryEventsAgeAssuranceStateConverter() this.ageAssuranceState, this.withStrike, this.cursor, final  Map<String, dynamic>? $unknown}): _types = types,_collections = collections,_addedLabels = addedLabels,_removedLabels = removedLabels,_addedTags = addedTags,_removedTags = removedTags,_reportTypes = reportTypes,_policies = policies,_modTool = modTool,_$unknown = $unknown;
   factory _ModerationQueryEventsInput.fromJson(Map<String, dynamic> json) => _$ModerationQueryEventsInputFromJson(json);
 
  final  List<String>? _types;

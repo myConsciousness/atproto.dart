@@ -34,11 +34,7 @@ base class ServiceContext {
   }) : _headers = headers,
        _protocol = protocol ?? defaultProtocol,
        _currentSession = session,
-       service =
-           service ??
-           session?.atprotoPdsEndpoint ??
-           oAuthSessionManager?.currentPdsHost ??
-           defaultService,
+       _explicitService = service,
        relayService = relayService ?? defaultRelayService,
        _challenge = Challenge(RetryPolicy(retryConfig)),
        _timeout = timeout ?? defaultTimeout,
@@ -67,6 +63,20 @@ base class ServiceContext {
   /// tokens. When null, expired access tokens are not refreshed automatically.
   final Future<Session> Function(Session current)? onRefreshSession;
 
+  /// A single in-flight legacy session refresh, shared across concurrent
+  /// callers so that N simultaneous expired requests trigger exactly one
+  /// `refreshSession` call instead of a refresh stampede (last-writer-wins).
+  /// Cleared when the refresh completes. Mirrors
+  /// `OAuthSessionManager._inflightRefresh` for the OAuth path.
+  Future<Session>? _inflightRefresh;
+
+  /// Caches the decoded access-token expiry so the pre-flight refresh check
+  /// does not re-run `decodeJwt` on every authenticated request. Keyed by the
+  /// access JWT string, so it is implicitly invalidated whenever the session
+  /// (and therefore the access token) changes on refresh.
+  String? _cachedAccessJwt;
+  DateTime? _cachedAccessExp;
+
   /// The clock skew margin used to refresh an access token slightly before it
   /// actually expires.
   static const Duration _refreshSkew = Duration(seconds: 30);
@@ -79,9 +89,26 @@ base class ServiceContext {
   /// JWT-decoded here.
   final OAuthSessionManager? oAuthSessionManager;
 
-  /// The current service.
+  /// The explicitly-passed `service:` override, if any.
+  ///
+  /// When set it always wins over the session- or manager-derived host.
+  final String? _explicitService;
+
+  /// The current service host, resolved lazily on every access.
+  ///
+  /// Precedence: an explicit `service:` override, then the legacy session's
+  /// PDS endpoint, then the OAuth manager's current PDS host, then the
+  /// default service. Resolving lazily (rather than freezing the host at
+  /// construction) means an [OAuthSessionManager] that restores or refreshes
+  /// its session later — so its PDS materializes or changes after this
+  /// context was built — is picked up on the next request instead of every
+  /// call being pinned to `bsky.social`.
   /// Defaults to `bsky.social`.
-  final String service;
+  String get service =>
+      _explicitService ??
+      session?.atprotoPdsEndpoint ??
+      oAuthSessionManager?.currentPdsHost ??
+      defaultService;
 
   /// The current relay service.
   /// Defaults to `bsky.network`.
@@ -113,21 +140,27 @@ base class ServiceContext {
     final xrpc.GetClient? client,
   }) async {
     await _maybeRefreshBeforeSend();
+    await _ensureOAuthSessionResolved();
     final resolvedService = service ?? this.service;
     final endpoint = _endpointFor(resolvedService, methodId);
 
+    final callerHeaders = {..._headers ?? const {}, ...headers ?? const {}};
+    final callerHasAuth = _hasAuthorization(callerHeaders);
+
     return await _challenge.execute(
       () async {
-        final oauthHeaders = await _oauthAuthHeaders(endpoint, 'GET');
+        // When the caller already supplied an `Authorization` header (e.g. a
+        // service-auth Bearer token for the video service), leave it intact:
+        // do not attach the OAuth DPoP `Authorization`/proof that would
+        // clobber it.
+        final oauthHeaders = callerHasAuth
+            ? const <String, String>{}
+            : await _oauthAuthHeaders(endpoint, 'GET');
         return await xrpc.query(
           methodId,
           protocol: _protocol,
           service: resolvedService,
-          headers: {
-            ..._headers ?? const {},
-            ...headers ?? const {},
-            ...oauthHeaders,
-          },
+          headers: {...callerHeaders, ...oauthHeaders},
           parameters: parameters,
           to: to,
           adaptor: adaptor,
@@ -154,21 +187,27 @@ base class ServiceContext {
     final xrpc.PostClient? client,
   }) async {
     await _maybeRefreshBeforeSend();
+    await _ensureOAuthSessionResolved();
     final resolvedService = service ?? this.service;
     final endpoint = _endpointFor(resolvedService, methodId);
 
+    final callerHeaders = {..._headers ?? const {}, ...headers ?? const {}};
+    final callerHasAuth = _hasAuthorization(callerHeaders);
+
     return await _challenge.execute(
       () async {
-        final oauthHeaders = await _oauthAuthHeaders(endpoint, 'POST');
+        // When the caller already supplied an `Authorization` header (e.g. a
+        // service-auth Bearer token for the video service), leave it intact:
+        // do not attach the OAuth DPoP `Authorization`/proof that would
+        // clobber it.
+        final oauthHeaders = callerHasAuth
+            ? const <String, String>{}
+            : await _oauthAuthHeaders(endpoint, 'POST');
         return await xrpc.procedure(
           methodId,
           protocol: _protocol,
           service: resolvedService,
-          headers: {
-            ..._headers ?? const {},
-            ...headers ?? const {},
-            ...oauthHeaders,
-          },
+          headers: {...callerHeaders, ...oauthHeaders},
           parameters: parameters,
           body: body,
           to: to,
@@ -187,16 +226,20 @@ base class ServiceContext {
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final NSID methodId, {
+    final String? service,
     final Map<String, dynamic>? parameters,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
+    final xrpc.WebSocketChannelFactory? channelFactory,
   }) async => await _challenge.execute(
     () async => xrpc.subscribe(
       methodId,
-      service: relayService,
+      protocol: _protocol,
+      service: service ?? relayService,
       parameters: parameters,
       to: to,
       adaptor: adaptor,
+      channelFactory: channelFactory,
     ),
   );
 
@@ -205,6 +248,10 @@ base class ServiceContext {
     final Uri endpoint,
     final String method,
   ) {
+    // A caller-supplied `Authorization` header (e.g. a service-auth Bearer
+    // token) must survive; never overwrite it with the session token.
+    if (_hasAuthorization(header)) return header;
+
     final currentSession = _currentSession;
     if (currentSession != null) {
       return _mergeAuthHeaders(header, {
@@ -213,6 +260,29 @@ base class ServiceContext {
     }
 
     return header;
+  }
+
+  /// Whether [header] already carries an `Authorization` entry, matched
+  /// case-insensitively.
+  bool _hasAuthorization(final Map<String, String> header) =>
+      header.keys.any((k) => k.toLowerCase() == 'authorization');
+
+  /// Materializes the OAuth manager's session before the target [service] is
+  /// resolved, so a manager that restores (or refreshes to a different PDS)
+  /// lazily is reflected in the request host instead of defaulting to
+  /// `bsky.social`. Best-effort: if the session cannot be loaded the request
+  /// proceeds against the default host and the subsequent auth-header build
+  /// surfaces the real error.
+  Future<void> _ensureOAuthSessionResolved() async {
+    final manager = oAuthSessionManager;
+    if (manager == null || manager.currentSession != null) return;
+
+    try {
+      await manager.getSession();
+    } catch (_) {
+      //! Ignore; `service` falls back to the default and the header builder
+      //! reports the underlying failure.
+    }
   }
 
   /// Builds the query-free endpoint URI matching xrpc's own construction,
@@ -250,15 +320,21 @@ base class ServiceContext {
     };
   }
 
-  void _onUpdateDpopNonce(
+  /// Reports the server-issued `DPoP-Nonce` for [endpoint] to the OAuth
+  /// manager's nonce cache and returns the write future.
+  ///
+  /// On the success path the caller fire-and-forgets this; on the
+  /// `use_dpop_nonce` retry path the caller awaits it so a custom async nonce
+  /// cache has committed the nonce before the request is re-issued.
+  Future<void> _onUpdateDpopNonce(
     final Uri endpoint,
     final Map<String, String> headers,
-  ) {
+  ) async {
     final manager = oAuthSessionManager;
     if (manager == null) return;
     for (final entry in headers.entries) {
       if (entry.key.toLowerCase() == 'dpop-nonce') {
-        unawaited(manager.reportDpopNonce(endpoint, entry.value));
+        await manager.reportDpopNonce(endpoint, entry.value);
         return;
       }
     }
@@ -278,17 +354,40 @@ base class ServiceContext {
     }
 
     final current = _currentSession;
-    final refresh = onRefreshSession;
-    if (current == null || refresh == null) return false;
+    if (current == null || onRefreshSession == null) return false;
 
     try {
-      _currentSession = await refresh(current);
+      await _refreshSession(current);
 
       return true;
     } catch (_) {
       //! Swallow refresh errors so the original unauthorized error surfaces.
       return false;
     }
+  }
+
+  /// Refreshes the legacy [current] session, deduplicating concurrent
+  /// refreshes.
+  ///
+  /// The first caller starts the single `onRefreshSession` call and stores it
+  /// in [_inflightRefresh]; concurrent callers await that same future instead
+  /// of each firing their own `refreshSession` POST (a refresh stampede). The
+  /// in-flight future is cleared once it settles so a later expiry can refresh
+  /// again.
+  Future<Session> _refreshSession(final Session current) {
+    final existing = _inflightRefresh;
+    if (existing != null) return existing;
+
+    final refresh = onRefreshSession!;
+    final future = refresh(current)
+        .then((refreshed) {
+          _currentSession = refreshed;
+
+          return refreshed;
+        })
+        .whenComplete(() => _inflightRefresh = null);
+
+    return _inflightRefresh = future;
   }
 
   /// Proactively refreshes the session when the current access token is
@@ -299,13 +398,10 @@ base class ServiceContext {
   /// [_onUnauthorized] path handles any resulting `401`.
   Future<void> _maybeRefreshBeforeSend() async {
     final current = _currentSession;
-    final refresh = onRefreshSession;
-    if (current == null || refresh == null) return;
+    if (current == null || onRefreshSession == null) return;
 
-    final DateTime exp;
-    try {
-      exp = current.accessTokenJwt.exp;
-    } on FormatException {
+    final exp = _accessTokenExp(current);
+    if (exp == null) {
       //! Cannot determine expiry, e.g. a non-JWT access token. Send as-is.
       return;
     }
@@ -314,9 +410,23 @@ base class ServiceContext {
     if (threshold.isBefore(exp)) return;
 
     try {
-      _currentSession = await refresh(current);
+      await _refreshSession(current);
     } catch (_) {
       //! Ignore; the reactive 401 handler will retry if needed.
+    }
+  }
+
+  /// Returns the cached access-token expiry for [current], decoding the JWT
+  /// only when the access token has changed since the last call. Returns null
+  /// when the access token is not a decodable JWT.
+  DateTime? _accessTokenExp(final Session current) {
+    if (_cachedAccessJwt == current.accessJwt) return _cachedAccessExp;
+
+    _cachedAccessJwt = current.accessJwt;
+    try {
+      return _cachedAccessExp = current.accessTokenJwt.exp;
+    } on FormatException {
+      return _cachedAccessExp = null;
     }
   }
 }

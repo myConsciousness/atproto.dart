@@ -27,7 +27,7 @@ final class SearchAccountsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get list of accounts that matches your search query.";
+      "Get list of accounts that matches your search query.";
 
   @override
   final String invocation =

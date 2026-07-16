@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,7 +9,6 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$LabelerServiceRecordCopyWithImpl<$Res>
 /// Create a copy of LabelerServiceRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? policies = null,Object? labels = freezed,Object? createdAt = null,Object? reasonTypes = freezed,Object? subjectTypes = freezed,Object? subjectCollections = freezed,Object? $unknown = freezed,}) {
-  return _then(LabelerServiceRecord(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,policies: null == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
 as LabelerPolicies,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
@@ -238,7 +237,7 @@ return $default(_that.$type,_that.policies,_that.labels,_that.createdAt,_that.re
 
 @JsonSerializable(includeIfNull: false)
 class _LabelerServiceRecord implements LabelerServiceRecord {
-  const _LabelerServiceRecord({this.$type = 'app.bsky.labeler.service', @LabelerPoliciesConverter() required this.policies, @ULabelerServiceLabelsConverter() this.labels, @JsonKey(toJson: iso8601) required this.createdAt, @ReasonTypeConverter()  List<ReasonType>? reasonTypes, @SubjectTypeConverter()  List<SubjectType>? subjectTypes,  List<String>? subjectCollections,  Map<String, dynamic>? $unknown}): _reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
+  const _LabelerServiceRecord({this.$type = 'app.bsky.labeler.service', @LabelerPoliciesConverter() required this.policies, @ULabelerServiceLabelsConverter() this.labels, @JsonKey(toJson: iso8601) required this.createdAt, @ReasonTypeConverter() final  List<ReasonType>? reasonTypes, @SubjectTypeConverter() final  List<SubjectType>? subjectTypes, final  List<String>? subjectCollections, final  Map<String, dynamic>? $unknown}): _reasonTypes = reasonTypes,_subjectTypes = subjectTypes,_subjectCollections = subjectCollections,_$unknown = $unknown;
   factory _LabelerServiceRecord.fromJson(Map<String, dynamic> json) => _$LabelerServiceRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

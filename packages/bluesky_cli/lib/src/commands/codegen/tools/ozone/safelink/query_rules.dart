@@ -35,7 +35,7 @@ final class QueryRulesCommand extends ProcedureCommand {
   final String name = "query-rules";
 
   @override
-  final String description = r"Query URL safety rules";
+  final String description = "Query URL safety rules";
 
   @override
   final String invocation =

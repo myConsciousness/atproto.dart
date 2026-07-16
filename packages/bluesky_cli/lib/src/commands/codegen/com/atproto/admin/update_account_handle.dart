@@ -26,7 +26,7 @@ final class UpdateAccountHandleCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Administrative action to update an account's handle.";
+      "Administrative action to update an account's handle.";
 
   @override
   final String invocation =

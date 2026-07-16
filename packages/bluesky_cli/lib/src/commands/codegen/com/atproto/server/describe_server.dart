@@ -22,7 +22,7 @@ final class DescribeServerCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Describes the server's account creation requirements and capabilities. Implemented by PDS.";
+      "Describes the server's account creation requirements and capabilities. Implemented by PDS.";
 
   @override
   final String invocation = "bsky com-atproto-server describe-server";

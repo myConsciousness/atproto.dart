@@ -24,7 +24,7 @@ final class GetAccountTimelineCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get timeline of all available events of an account. This includes moderation events, account history and did history.";
+      "Get timeline of all available events of an account. This includes moderation events, account history and did history.";
 
   @override
   final String invocation =

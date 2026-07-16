@@ -23,7 +23,7 @@ final class GetJobStatusCommand extends QueryCommand {
   final String name = "get-job-status";
 
   @override
-  final String description = r"Get status details for a video processing job.";
+  final String description = "Get status details for a video processing job.";
 
   @override
   final String invocation =

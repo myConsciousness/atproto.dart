@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$NotificationListNotificationsOutputCopyWithImpl<$Res>
 /// Create a copy of NotificationListNotificationsOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? notifications = null,Object? priority = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
-  return _then(NotificationListNotificationsOutput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,notifications: null == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
 as List<Notification>,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_th
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationListNotificationsOutput implements NotificationListNotificationsOutput {
-  const _NotificationListNotificationsOutput({this.cursor, @NotificationConverter() required  List<Notification> notifications, this.priority, @JsonKey(toJson: iso8601) this.seenAt,  Map<String, dynamic>? $unknown}): _notifications = notifications,_$unknown = $unknown;
+  const _NotificationListNotificationsOutput({this.cursor, @NotificationConverter() required final  List<Notification> notifications, this.priority, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _notifications = notifications,_$unknown = $unknown;
   factory _NotificationListNotificationsOutput.fromJson(Map<String, dynamic> json) => _$NotificationListNotificationsOutputFromJson(json);
 
 @override final  String? cursor;

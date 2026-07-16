@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'report_action.dart';
@@ -9,7 +9,6 @@ part of 'report_action.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +68,7 @@ class _$ReportActionCopyWithImpl<$Res>
 /// Create a copy of ReportAction
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? ids = freezed,Object? types = freezed,Object? all = freezed,Object? note = freezed,Object? $unknown = freezed,}) {
-  return _then(ReportAction(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,ids: freezed == ids ? _self.ids : ids // ignore: cast_nullable_to_non_nullable
 as List<int>?,types: freezed == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
@@ -217,7 +216,7 @@ return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _ReportAction implements ReportAction {
-  const _ReportAction({this.$type = 'tools.ozone.moderation.emitEvent#reportAction',  List<int>? ids,  List<String>? types, this.all, this.note,  Map<String, dynamic>? $unknown}): _ids = ids,_types = types,_$unknown = $unknown;
+  const _ReportAction({this.$type = 'tools.ozone.moderation.emitEvent#reportAction', final  List<int>? ids, final  List<String>? types, this.all, this.note, final  Map<String, dynamic>? $unknown}): _ids = ids,_types = types,_$unknown = $unknown;
   factory _ReportAction.fromJson(Map<String, dynamic> json) => _$ReportActionFromJson(json);
 
 @override@JsonKey() final  String $type;

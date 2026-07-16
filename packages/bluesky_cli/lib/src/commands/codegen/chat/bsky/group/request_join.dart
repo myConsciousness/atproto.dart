@@ -24,7 +24,7 @@ final class RequestJoinCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Sends a request to join a group (via join link) to the group owner. Action taken by the prospective group member.";
+      "Sends a request to join a group (via join link) to the group owner. Action taken by the prospective group member.";
 
   @override
   final String invocation = "bsky chat-bsky-group request-join --code=<value>";

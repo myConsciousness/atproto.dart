@@ -26,7 +26,7 @@ final class AddMembersCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Adds members to a group. The members are added in 'request' status, so they have to accept it. This creates convo memberships.";
+      "Adds members to a group. The members are added in 'request' status, so they have to accept it. This creates convo memberships.";
 
   @override
   final String invocation =

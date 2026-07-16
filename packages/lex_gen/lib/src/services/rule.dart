@@ -179,6 +179,7 @@ String getFileDirForService(final String lexiconId) {
 }
 
 String getLexObjectNameFromRef(
+  final GenContext ctx,
   final String lexiconId,
   final String ref,
   final List<String> mainVariants,
@@ -194,8 +195,25 @@ String getLexObjectNameFromRef(
       defName,
       mainVariants,
     ),
-    BareRef(:final lexicon) => getLexObjectName(lexicon.raw, '', mainVariants),
+    // A bare ref (`app.bsky.actor.profile`) points at a whole doc's `main`
+    // def, which carries no fragment. Passing an empty def name here used to
+    // collapse to an empty (`''`) class name. Resolve `main` via the def index:
+    // a record doc names its generated class `<Prefix>Record` (the `record`
+    // arm), everything else uses the plain `main` name.
+    BareRef(:final lexicon) => getLexObjectName(
+      lexicon.raw,
+      _isRecordDoc(ctx, lexicon.raw) ? 'record' : 'main',
+      mainVariants,
+    ),
   };
+}
+
+/// Whether the `main` def of [lexiconId] is a record, resolved through the
+/// [ctx] def index. Drives record-vs-object naming for bare refs.
+bool _isRecordDoc(final GenContext ctx, final String lexiconId) {
+  final main = ctx.defByRef(lexiconId, 'main');
+
+  return main?.whenOrNull(record: (_) => true) ?? false;
 }
 
 String getLexObjectPackagePathFromRef(

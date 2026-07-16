@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$UnspeccedGetPostThreadOtherV2OutputCopyWithImpl<$Res>
 /// Create a copy of UnspeccedGetPostThreadOtherV2Output
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? thread = null,Object? $unknown = freezed,}) {
-  return _then(UnspeccedGetPostThreadOtherV2Output(
+  return _then(_self.copyWith(
 thread: null == thread ? _self.thread : thread // ignore: cast_nullable_to_non_nullable
 as List<ThreadItem>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -211,7 +210,7 @@ return $default(_that.thread,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetPostThreadOtherV2Output implements UnspeccedGetPostThreadOtherV2Output {
-  const _UnspeccedGetPostThreadOtherV2Output({@ThreadItemConverter() required  List<ThreadItem> thread,  Map<String, dynamic>? $unknown}): _thread = thread,_$unknown = $unknown;
+  const _UnspeccedGetPostThreadOtherV2Output({@ThreadItemConverter() required final  List<ThreadItem> thread, final  Map<String, dynamic>? $unknown}): _thread = thread,_$unknown = $unknown;
   factory _UnspeccedGetPostThreadOtherV2Output.fromJson(Map<String, dynamic> json) => _$UnspeccedGetPostThreadOtherV2OutputFromJson(json);
 
  final  List<ThreadItem> _thread;

@@ -64,6 +64,20 @@ void main() {
       );
     });
 
+    test('a string default with special chars is escaped in defaultsTo', () {
+      // `"` would terminate the literal, `$` would interpolate, `\` would
+      // start a stray escape; all must survive as a compilable default.
+      final param = LexCliParameter(
+        'status',
+        null,
+        false,
+        r'a"b$c',
+        type: 'string',
+      );
+
+      expect(param.getOpt(), contains(r'defaultsTo: "a\"b\$c"'));
+    });
+
     test(
       'an optional array keeps the wasParsed guard (no empty array sent)',
       () {

@@ -36,7 +36,7 @@ final class SignPlcOperationCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Signs a PLC operation to update some value(s) in the requesting DID's document.";
+      "Signs a PLC operation to update some value(s) in the requesting DID's document.";
 
   @override
   final String invocation =

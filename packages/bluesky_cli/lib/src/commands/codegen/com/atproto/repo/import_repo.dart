@@ -22,7 +22,7 @@ final class ImportRepoCommand extends BlobCommand {
 
   @override
   final String description =
-      r"Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.";
+      "Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.";
 
   @override
   final String invocation = "bsky com-atproto-repo import-repo --file=<path>";

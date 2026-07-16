@@ -73,7 +73,7 @@ final class QueryReportsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"View moderation reports. Reports are individual instances of content being reported, as opposed to subject statuses which aggregate reports at the subject level.";
+      "View moderation reports. Reports are individual instances of content being reported, as opposed to subject statuses which aggregate reports at the subject level.";
 
   @override
   final String invocation =

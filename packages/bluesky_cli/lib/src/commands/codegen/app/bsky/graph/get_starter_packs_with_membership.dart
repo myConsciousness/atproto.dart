@@ -31,7 +31,7 @@ final class GetStarterPacksWithMembershipCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.";
+      "Enumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.";
 
   @override
   final String invocation =

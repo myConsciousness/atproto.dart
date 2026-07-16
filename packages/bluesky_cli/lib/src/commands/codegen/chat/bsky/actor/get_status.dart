@@ -22,7 +22,7 @@ final class GetStatusCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get the authenticated viewer's chat status: whether their account is chat-disabled and whether their group-membership additions are restricted to accounts they follow.";
+      "Get the authenticated viewer's chat status: whether their account is chat-disabled and whether their group-membership additions are restricted to accounts they follow.";
 
   @override
   final String invocation = "bsky chat-bsky-actor get-status";

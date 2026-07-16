@@ -24,7 +24,7 @@ final class UnmuteActorListCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Unmutes the specified list of accounts. Requires auth.";
+      "Unmutes the specified list of accounts. Requires auth.";
 
   @override
   final String invocation =

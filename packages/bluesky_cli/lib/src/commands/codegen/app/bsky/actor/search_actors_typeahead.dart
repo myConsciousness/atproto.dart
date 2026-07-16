@@ -27,7 +27,7 @@ final class SearchActorsTypeaheadCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.";
+      "Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.";
 
   @override
   final String invocation =

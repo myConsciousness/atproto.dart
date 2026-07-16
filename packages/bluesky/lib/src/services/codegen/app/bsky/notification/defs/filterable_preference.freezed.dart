@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'filterable_preference.dart';
@@ -9,7 +9,6 @@ part of 'filterable_preference.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$FilterablePreferenceCopyWithImpl<$Res>
 /// Create a copy of FilterablePreference
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? include = null,Object? list = null,Object? push = null,Object? $unknown = freezed,}) {
-  return _then(FilterablePreference(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,include: null == include ? _self.include : include // ignore: cast_nullable_to_non_nullable
 as FilterablePreferenceInclude,list: null == list ? _self.list : list // ignore: cast_nullable_to_non_nullable
@@ -223,7 +222,7 @@ return $default(_that.$type,_that.include,_that.list,_that.push,_that.$unknown);
 
 @JsonSerializable(includeIfNull: false)
 class _FilterablePreference implements FilterablePreference {
-  const _FilterablePreference({this.$type = 'app.bsky.notification.defs#filterablePreference', @FilterablePreferenceIncludeConverter() required this.include, required this.list, required this.push,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FilterablePreference({this.$type = 'app.bsky.notification.defs#filterablePreference', @FilterablePreferenceIncludeConverter() required this.include, required this.list, required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FilterablePreference.fromJson(Map<String, dynamic> json) => _$FilterablePreferenceFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -22,7 +22,7 @@ final class GetAgeAssuranceStateCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.";
+      "Returns the current state of the age assurance process for an account. This is used to check if the user has completed age assurance or if further action is required.";
 
   @override
   final String invocation = "bsky app-bsky-unspecced get-age-assurance-state";

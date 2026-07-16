@@ -35,7 +35,7 @@ final class ImportContactsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.";
+      "Import contacts for securely matching with other users. This follows the protocol explained in https://docs.bsky.app/blog/contact-import-rfc. Requires authentication.";
 
   @override
   final String invocation =

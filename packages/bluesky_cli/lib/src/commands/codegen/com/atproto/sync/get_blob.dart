@@ -30,7 +30,7 @@ final class GetBlobCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.";
+      "Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.";
 
   @override
   final String invocation =

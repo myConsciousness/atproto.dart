@@ -32,7 +32,7 @@ final class SearchStarterPacksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Find starter packs matching search criteria. Does not require auth.";
+      "Find starter packs matching search criteria. Does not require auth.";
 
   @override
   final String invocation =

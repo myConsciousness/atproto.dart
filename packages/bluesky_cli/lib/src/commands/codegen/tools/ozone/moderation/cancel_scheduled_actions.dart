@@ -32,7 +32,7 @@ final class CancelScheduledActionsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Cancel all pending scheduled moderation actions for specified subjects";
+      "Cancel all pending scheduled moderation actions for specified subjects";
 
   @override
   final String invocation =

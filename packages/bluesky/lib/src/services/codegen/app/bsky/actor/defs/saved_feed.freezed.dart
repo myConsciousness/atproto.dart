@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'saved_feed.dart';
@@ -9,7 +9,6 @@ part of 'saved_feed.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$SavedFeedCopyWithImpl<$Res>
 /// Create a copy of SavedFeed
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? type = null,Object? value = null,Object? pinned = null,Object? $unknown = freezed,}) {
-  return _then(SavedFeed(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
@@ -224,7 +223,7 @@ return $default(_that.$type,_that.id,_that.type,_that.value,_that.pinned,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _SavedFeed implements SavedFeed {
-  const _SavedFeed({this.$type = 'app.bsky.actor.defs#savedFeed', required this.id, @SavedFeedTypeConverter() required this.type, required this.value, required this.pinned,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SavedFeed({this.$type = 'app.bsky.actor.defs#savedFeed', required this.id, @SavedFeedTypeConverter() required this.type, required this.value, required this.pinned, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SavedFeed.fromJson(Map<String, dynamic> json) => _$SavedFeedFromJson(json);
 
 @override@JsonKey() final  String $type;

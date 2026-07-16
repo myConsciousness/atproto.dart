@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$HostingGetAccountHistoryInputCopyWithImpl<$Res>
 /// Create a copy of HostingGetAccountHistoryInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? did = null,Object? events = freezed,Object? cursor = freezed,Object? limit = null,Object? $unknown = freezed,}) {
-  return _then(HostingGetAccountHistoryInput(
+  return _then(_self.copyWith(
 did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,events: freezed == events ? _self.events : events // ignore: cast_nullable_to_non_nullable
 as List<HostingGetAccountHistoryEvents>?,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.did,_that.events,_that.cursor,_that.limit,_that.$unknown);
 
 @JsonSerializable(includeIfNull: false)
 class _HostingGetAccountHistoryInput implements HostingGetAccountHistoryInput {
-  const _HostingGetAccountHistoryInput({required this.did, @HostingGetAccountHistoryEventsConverter()  List<HostingGetAccountHistoryEvents>? events, this.cursor, this.limit = 50,  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
+  const _HostingGetAccountHistoryInput({required this.did, @HostingGetAccountHistoryEventsConverter() final  List<HostingGetAccountHistoryEvents>? events, this.cursor, this.limit = 50, final  Map<String, dynamic>? $unknown}): _events = events,_$unknown = $unknown;
   factory _HostingGetAccountHistoryInput.fromJson(Map<String, dynamic> json) => _$HostingGetAccountHistoryInputFromJson(json);
 
 @override final  String did;

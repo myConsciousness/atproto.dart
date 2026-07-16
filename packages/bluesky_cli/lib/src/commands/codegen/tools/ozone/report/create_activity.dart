@@ -52,7 +52,7 @@ final class CreateActivityCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Register an activity on a report. For state-change activity types, validates the transition and updates report.status atomically.";
+      "Register an activity on a report. For state-change activity types, validates the transition and updates report.status atomically.";
 
   @override
   final String invocation =

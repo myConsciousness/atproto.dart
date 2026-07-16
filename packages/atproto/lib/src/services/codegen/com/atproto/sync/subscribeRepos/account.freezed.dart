@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'account.dart';
@@ -9,7 +9,6 @@ part of 'account.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +68,7 @@ class _$AccountCopyWithImpl<$Res>
 /// Create a copy of Account
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? seq = null,Object? did = null,Object? time = null,Object? active = null,Object? status = freezed,Object? $unknown = freezed,}) {
-  return _then(Account(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
 as int,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -230,7 +229,7 @@ return $default(_that.$type,_that.seq,_that.did,_that.time,_that.active,_that.st
 
 @JsonSerializable(includeIfNull: false)
 class _Account implements Account {
-  const _Account({this.$type = 'com.atproto.sync.subscribeRepos#account', required this.seq, required this.did, @JsonKey(toJson: iso8601) required this.time, required this.active, @AccountStatusConverter() this.status,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Account({this.$type = 'com.atproto.sync.subscribeRepos#account', required this.seq, required this.did, @JsonKey(toJson: iso8601) required this.time, required this.active, @AccountStatusConverter() this.status, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
 
 @override@JsonKey() final  String $type;

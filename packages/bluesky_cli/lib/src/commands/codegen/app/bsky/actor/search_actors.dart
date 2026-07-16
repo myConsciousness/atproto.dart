@@ -32,7 +32,7 @@ final class SearchActorsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Find actors (profiles) matching search criteria. Does not require auth.";
+      "Find actors (profiles) matching search criteria. Does not require auth.";
 
   @override
   final String invocation =

@@ -35,7 +35,7 @@ final class QueryLabelsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.";
+      "Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.";
 
   @override
   final String invocation =

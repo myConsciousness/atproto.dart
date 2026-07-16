@@ -85,7 +85,7 @@ final class SearchPostsSkeletonCommand extends QueryCommand {
   final String name = "search-posts-skeleton";
 
   @override
-  final String description = r"Backend Posts search, returns only skeleton";
+  final String description = "Backend Posts search, returns only skeleton";
 
   @override
   final String invocation =

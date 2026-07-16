@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Project imports:
+import 'cjk_letters_and_marks.dart';
 import 'cyrillic_letters_and_marks.dart';
 import 'latin_accent_chars.dart';
 import 'valid_url_balanced_parens.dart';
@@ -14,6 +15,9 @@ const validUrlPathEndingChars =
     '$cyrillicLettersAndMarks'
     r'0-9=_#/'
     '$latinAccentChars'
+    //* A CJK character is a valid last character of a path so a URL ending in
+    //* e.g. `/日本語` keeps its full path.
+    '$cjkLettersAndMarks'
     r']|(?:'
     '$validUrlBalancedParens'
     r')';

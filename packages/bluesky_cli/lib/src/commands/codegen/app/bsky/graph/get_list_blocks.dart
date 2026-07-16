@@ -26,7 +26,7 @@ final class GetListBlocksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get mod lists that the requesting account (actor) is blocking. Requires auth.";
+      "Get mod lists that the requesting account (actor) is blocking. Requires auth.";
 
   @override
   final String invocation =

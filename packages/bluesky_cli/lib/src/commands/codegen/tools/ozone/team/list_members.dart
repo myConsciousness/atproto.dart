@@ -29,7 +29,7 @@ final class ListMembersCommand extends QueryCommand {
 
   @override
   final String description =
-      r"List all members with access to the ozone service.";
+      "List all members with access to the ozone service.";
 
   @override
   final String invocation =

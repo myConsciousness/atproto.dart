@@ -2,7 +2,13 @@
 
 ## v0.4.3
 
-Replace the string-template emission mechanism with a small typed Dart intermediate representation (IR) + emitter. Generated output is **byte-for-byte identical** to v0.4.2 (verified end-to-end: `gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format` produces an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`), so no downstream regeneration is required.
+Replace the string-template emission mechanism with a small typed Dart intermediate representation (IR) + emitter. The IR migration itself produces output **byte-for-byte identical** to v0.4.2.
+
+Additional emitter fixes (these do change generated output, so downstream regeneration is required):
+
+- fix: lexicon descriptions and default values are escaped before interpolation, so text containing `"`, `$`, `\`, or newlines no longer produces uncompilable generated code.
+- fix: the generated repo-commit handler guards against a commit op whose block CID is absent from `blocks` (previously threw a `TypeError`, aborting the whole commit).
+- fix: a bare `ref` to a record lexicon now resolves to the correct `<Name>Record` type instead of an empty class name.
 
 - refactor: add `lib/src/ir/{dart_ir,dart_emitter}.dart` — a purpose-built typed IR (`DartFile` / `DartImport` / `DartClass` / members) with explicit member-order and blank-line control, rendered by `emitDartFile`. Because the codegen pipeline runs `dart format`, the emitter only needs to control member order, blank-line presence, comments and tokens; `code_builder` was evaluated and rejected because it imposes its own member order and cannot express the intentional blank lines, so it cannot keep output byte-identical.
 - refactor: migrate every full-file emitter off its monolithic triple-quoted template onto the IR — the freezed data-class renderer (`object/{lex_object,lex_record,lex_input,lex_output}` via `renderFreezedDataClass`), `LexKnownValues`, `LexUnion`, `LexService`, `RepoCommitHandler`, `AtUriExtension`, and the command emitters (`LexCommand`'s query/procedure/blobProcedure/record kinds, `LexParentCommand`, `LexRootCommand`).

@@ -123,6 +123,77 @@ void main() {
     });
   });
 
+  group('description escaping — hostile lexicon text', () {
+    // A `"` would terminate the emitted string literal; a `$` in a non-raw
+    // literal would become an undefined interpolation; a `\` would start a
+    // stray escape. Every command kind routes its description through
+    // `escapeDartString`, so all three survive as compilable Dart.
+
+    test('query command escapes an embedded double quote', () {
+      final command = LexCommand(
+        NSID('app.bsky.feed.getTimeline'),
+        'Filter by "request" status.',
+        const [],
+        kind: LexCommandKind.query,
+      );
+
+      expect(
+        command.format(),
+        contains(
+          r'final String description = "Filter by \"request\" status.";',
+        ),
+      );
+    });
+
+    test('procedure command escapes an embedded \$', () {
+      final command = LexCommand(
+        NSID('com.atproto.repo.createRecord'),
+        r'Record must contain a $type field.',
+        const [],
+        kind: LexCommandKind.procedure,
+      );
+
+      expect(
+        command.format(),
+        contains(
+          r'final String description = "Record must contain a \$type field.";',
+        ),
+      );
+    });
+
+    test('blob procedure command escapes a backslash', () {
+      final command = LexCommand(
+        NSID('com.atproto.repo.uploadBlob'),
+        r'Windows path C:\temp is allowed.',
+        const [],
+        kind: LexCommandKind.blobProcedure,
+      );
+
+      expect(
+        command.format(),
+        contains(
+          r'final String description = "Windows path C:\\temp is allowed.";',
+        ),
+      );
+    });
+
+    test('record command escapes the description getter', () {
+      final command = LexCommand(
+        NSID('app.bsky.feed.post'),
+        r'A "post" whose $type is fixed.',
+        const [],
+        kind: LexCommandKind.record,
+      );
+
+      expect(
+        command.format(),
+        contains(
+          r'String get description => "A \"post\" whose \$type is fixed.";',
+        ),
+      );
+    });
+  });
+
   group('raw JSON body procedure (L-15.1)', () {
     final command = LexCommand(
       NSID('tools.ozone.set.upsertSet'),

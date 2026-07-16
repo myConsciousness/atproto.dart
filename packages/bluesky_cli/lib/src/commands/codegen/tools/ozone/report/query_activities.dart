@@ -43,7 +43,7 @@ final class QueryActivitiesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Query report activities across all reports, ordered by createdAt. Used by downstream pollers; for per-report activity history use listActivities.";
+      "Query report activities across all reports, ordered by createdAt. Used by downstream pollers; for per-report activity history use listActivities.";
 
   @override
   final String invocation =

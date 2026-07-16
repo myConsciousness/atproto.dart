@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'interpreted_label_value_definition.dart';
@@ -9,7 +9,6 @@ part of 'interpreted_label_value_definition.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -64,7 +63,7 @@ class _$InterpretedLabelValueDefinitionCopyWithImpl<$Res>
 /// Create a copy of InterpretedLabelValueDefinition
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? identifier = null,Object? flags = null,Object? configurable = null,Object? defaultSetting = null,Object? severity = null,Object? blurs = null,Object? behaviors = null,Object? definedBy = freezed,}) {
-  return _then(InterpretedLabelValueDefinition(
+  return _then(_self.copyWith(
 identifier: null == identifier ? _self.identifier : identifier // ignore: cast_nullable_to_non_nullable
 as String,flags: null == flags ? _self.flags : flags // ignore: cast_nullable_to_non_nullable
 as List<LabelValueDefinitionFlag>,configurable: null == configurable ? _self.configurable : configurable // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.identifier,_that.flags,_that.configurable,_that.defaultSet
 
 
 class _InterpretedLabelValueDefinition implements InterpretedLabelValueDefinition {
-  const _InterpretedLabelValueDefinition({required this.identifier,  List<LabelValueDefinitionFlag> flags = const [], this.configurable = false, this.defaultSetting = LabelPreference.warn, required this.severity, required this.blurs,  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors = const {}, this.definedBy}): _flags = flags,_behaviors = behaviors;
+  const _InterpretedLabelValueDefinition({required this.identifier, final  List<LabelValueDefinitionFlag> flags = const [], this.configurable = false, this.defaultSetting = LabelPreference.warn, required this.severity, required this.blurs, final  Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>> behaviors = const {}, this.definedBy}): _flags = flags,_behaviors = behaviors;
   
 
 @override final  String identifier;

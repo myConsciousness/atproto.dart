@@ -408,6 +408,34 @@ void main() {
       expect(captured.query, contains('c%26d'));
     });
 
+    test('empty 200 body with a "to" converter returns EmptyData', () async {
+      //! An empty body must not throw a raw FormatException from jsonDecode.
+      final response = await query(
+        NSID.create('test.com', 'get'),
+        to: EmptyData.fromJson,
+        getClient: (url, {headers}) async => Response(
+          '',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response.data, isA<EmptyData>());
+    });
+
+    test('empty 200 body with T is Map returns an empty map', () async {
+      final response = await query<Map<String, dynamic>>(
+        NSID.create('test.com', 'get'),
+        getClient: (url, {headers}) async => Response(
+          '',
+          200,
+          request: Request('GET', Uri.https('bsky.social')),
+        ),
+      );
+
+      expect(response.data, <String, dynamic>{});
+    });
+
     test('with injected http.Client', () async {
       var used = false;
 
@@ -583,6 +611,58 @@ void main() {
       expect(hasEncoding, isFalse);
     });
 
+    test('explicitly empty collections in the body survive', () async {
+      Object? captured;
+
+      await procedure<String>(
+        NSID.create('feed.bsky.app', 'threadgate'),
+        body: {
+          'allow': <dynamic>[],
+          'meta': <String, dynamic>{},
+          'dropped': null,
+          'nested': {'kept': 1, 'gone': null},
+        },
+        postClient: (url, {body, encoding, headers}) async {
+          captured = body;
+
+          return Response('{}', 200, request: Request('POST', url));
+        },
+      );
+
+      final decoded = jsonDecode(captured! as String) as Map<String, dynamic>;
+
+      //! Empty list/map keys must not be silently pruned from the body.
+      expect(decoded.containsKey('allow'), isTrue);
+      expect(decoded['allow'], isEmpty);
+      expect(decoded.containsKey('meta'), isTrue);
+      expect(decoded['meta'], isEmpty);
+      //! null values are still stripped.
+      expect(decoded.containsKey('dropped'), isFalse);
+      expect(decoded['nested'], {'kept': 1});
+    });
+
+    test('empty collections are still dropped from query parameters', () async {
+      late Uri captured;
+
+      await procedure<String>(
+        NSID.create('test.com', 'post'),
+        parameters: {
+          'kept': 'x',
+          'emptyList': <dynamic>[],
+          'emptyMap': <String, dynamic>{},
+        },
+        postClient: (url, {body, encoding, headers}) async {
+          captured = url;
+
+          return Response('{}', 200, request: Request('POST', url));
+        },
+      );
+
+      expect(captured.queryParametersAll['kept'], ['x']);
+      expect(captured.queryParametersAll.containsKey('emptyList'), isFalse);
+      expect(captured.queryParametersAll.containsKey('emptyMap'), isFalse);
+    });
+
     test('with injected http.Client', () async {
       var used = false;
 
@@ -696,6 +776,25 @@ void main() {
       expect(rateLimit.remainingCount, 1000);
       expect(rateLimit.policy.limitCount, 100);
       expect(rateLimit.policy.window.inSeconds, 300);
+    });
+
+    test('unsniffable bytes fall back to application/octet-stream', () async {
+      Map<String, String>? captured;
+
+      //! Bytes with no recognizable magic number: mime sniffing returns null.
+      final unsniffable = Uint8List.fromList([0, 1, 2, 3, 4]);
+
+      await procedure<String>(
+        NSID.create('test.com', 'post'),
+        body: unsniffable,
+        postClient: (url, {body, encoding, headers}) async {
+          captured = headers;
+
+          return Response('{}', 200, request: Request('POST', url));
+        },
+      );
+
+      expect(captured!['Content-Type'], 'application/octet-stream');
     });
   });
 
@@ -905,6 +1004,67 @@ void main() {
       expect(captured!.scheme, 'ws');
 
       await response.data.close();
+    });
+
+    test('pausing the consumer pauses the underlying subscription', () async {
+      final channel = FakeWebSocketChannel();
+      final response = subscribe<Map<String, dynamic>>(
+        NSID.create('sync.atproto.com', 'subscribeRepos'),
+        adaptor: (data) => {'value': data},
+        channelFactory: (uri) => channel,
+      );
+
+      final received = <Map<String, dynamic>>[];
+      final subscription = response.data.stream.listen(received.add);
+
+      await pumpEventQueue();
+      expect(channel.isPaused, isFalse);
+
+      subscription.pause();
+      await pumpEventQueue();
+
+      //! Backpressure must reach the socket, not buffer in our controller.
+      expect(channel.isPaused, isTrue);
+
+      channel.addIncoming('a');
+      channel.addIncoming('b');
+      await pumpEventQueue();
+
+      //! Nothing is delivered while paused.
+      expect(received, isEmpty);
+
+      subscription.resume();
+      await pumpEventQueue();
+
+      expect(channel.isPaused, isFalse);
+      expect(received, [
+        {'value': 'a'},
+        {'value': 'b'},
+      ]);
+
+      await subscription.cancel();
+      await response.data.close();
+    });
+
+    test('cancelling the consumer tears down the channel', () async {
+      final channel = FakeWebSocketChannel();
+      final response = subscribe<String>(
+        NSID.create('sync.atproto.com', 'subscribeRepos'),
+        channelFactory: (uri) => channel,
+      );
+
+      final subscription = response.data.stream.listen((_) {});
+      await pumpEventQueue();
+
+      expect(channel.hasListener, isTrue);
+
+      //! A consumer that cancels without calling Subscription.close() must
+      //! still not leak the underlying socket/subscription.
+      await subscription.cancel();
+      await pumpEventQueue();
+
+      expect(channel.hasListener, isFalse);
+      expect(channel.fakeSink.isClosed, isTrue);
     });
 
     test('connection failure via ready is not an unhandled error', () async {

@@ -30,7 +30,7 @@ final class UpdateSubjectStatusCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Update the service-specific admin status of a subject (account, record, or blob).";
+      "Update the service-specific admin status of a subject (account, record, or blob).";
 
   @override
   final String invocation =

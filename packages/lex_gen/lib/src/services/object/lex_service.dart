@@ -434,7 +434,8 @@ final class LexApi {
 
   /// The leading `/// ...` doc comment line shared by every emitter, or an
   /// empty string when the api has no description.
-  String get _doc => description != null ? '/// $description\n' : '';
+  String get _doc =>
+      description != null ? '${toDocComment(description!)}\n' : '';
 
   /// Renders the parameter declaration lines for a `({...})` signature.
   String _paramDecls(final List<LexParameter> parameters) =>

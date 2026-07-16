@@ -38,7 +38,7 @@ final class GetAssignmentsCommand extends QueryCommand {
   final String name = "get-assignments";
 
   @override
-  final String description = r"Get assignments for reports.";
+  final String description = "Get assignments for reports.";
 
   @override
   final String invocation =

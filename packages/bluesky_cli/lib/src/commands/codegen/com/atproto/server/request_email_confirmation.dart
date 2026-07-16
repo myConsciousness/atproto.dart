@@ -22,7 +22,7 @@ final class RequestEmailConfirmationCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Request an email with a code to confirm ownership of email.";
+      "Request an email with a code to confirm ownership of email.";
 
   @override
   final String invocation =

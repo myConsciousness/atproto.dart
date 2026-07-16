@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$RepoDescribeRepoOutputCopyWithImpl<$Res>
 /// Create a copy of RepoDescribeRepoOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? handle = null,Object? did = null,Object? didDoc = null,Object? collections = null,Object? handleIsCorrect = null,Object? $unknown = freezed,}) {
-  return _then(RepoDescribeRepoOutput(
+  return _then(_self.copyWith(
 handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,didDoc: null == didDoc ? _self.didDoc : didDoc // ignore: cast_nullable_to_non_nullable
@@ -216,7 +215,7 @@ return $default(_that.handle,_that.did,_that.didDoc,_that.collections,_that.hand
 
 @JsonSerializable(includeIfNull: false)
 class _RepoDescribeRepoOutput implements RepoDescribeRepoOutput {
-  const _RepoDescribeRepoOutput({required this.handle, required this.did, required  Map<String, dynamic> didDoc, required  List<String> collections, required this.handleIsCorrect,  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_collections = collections,_$unknown = $unknown;
+  const _RepoDescribeRepoOutput({required this.handle, required this.did, required final  Map<String, dynamic> didDoc, required final  List<String> collections, required this.handleIsCorrect, final  Map<String, dynamic>? $unknown}): _didDoc = didDoc,_collections = collections,_$unknown = $unknown;
   factory _RepoDescribeRepoOutput.fromJson(Map<String, dynamic> json) => _$RepoDescribeRepoOutputFromJson(json);
 
 @override final  String handle;

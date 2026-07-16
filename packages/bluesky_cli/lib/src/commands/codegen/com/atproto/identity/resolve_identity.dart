@@ -28,7 +28,7 @@ final class ResolveIdentityCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).";
+      "Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).";
 
   @override
   final String invocation =

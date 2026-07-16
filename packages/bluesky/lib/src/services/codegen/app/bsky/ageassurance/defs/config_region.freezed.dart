@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'config_region.dart';
@@ -9,7 +9,6 @@ part of 'config_region.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -70,7 +69,7 @@ class _$ConfigRegionCopyWithImpl<$Res>
 /// Create a copy of ConfigRegion
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? countryCode = null,Object? regionCode = freezed,Object? minAccessAge = null,Object? additionalVerificationMethods = freezed,Object? rules = null,Object? $unknown = freezed,}) {
-  return _then(ConfigRegion(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,countryCode: null == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
 as String,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
@@ -219,7 +218,7 @@ return $default(_that.$type,_that.countryCode,_that.regionCode,_that.minAccessAg
 
 @JsonSerializable(includeIfNull: false)
 class _ConfigRegion implements ConfigRegion {
-  const _ConfigRegion({this.$type = 'app.bsky.ageassurance.defs#configRegion', required this.countryCode, this.regionCode, required this.minAccessAge, @ConfigRegionAdditionalVerificationMethodsConverter()  List<ConfigRegionAdditionalVerificationMethods>? additionalVerificationMethods, @UConfigRegionRulesConverter() required  List<UConfigRegionRules> rules,  Map<String, dynamic>? $unknown}): _additionalVerificationMethods = additionalVerificationMethods,_rules = rules,_$unknown = $unknown;
+  const _ConfigRegion({this.$type = 'app.bsky.ageassurance.defs#configRegion', required this.countryCode, this.regionCode, required this.minAccessAge, @ConfigRegionAdditionalVerificationMethodsConverter() final  List<ConfigRegionAdditionalVerificationMethods>? additionalVerificationMethods, @UConfigRegionRulesConverter() required final  List<UConfigRegionRules> rules, final  Map<String, dynamic>? $unknown}): _additionalVerificationMethods = additionalVerificationMethods,_rules = rules,_$unknown = $unknown;
   factory _ConfigRegion.fromJson(Map<String, dynamic> json) => _$ConfigRegionFromJson(json);
 
 @override@JsonKey() final  String $type;

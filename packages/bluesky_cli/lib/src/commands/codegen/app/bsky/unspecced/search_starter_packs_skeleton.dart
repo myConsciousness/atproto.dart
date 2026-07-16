@@ -41,7 +41,7 @@ final class SearchStarterPacksSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Backend Starter Pack search, returns only skeleton.";
+      "Backend Starter Pack search, returns only skeleton.";
 
   @override
   final String invocation =

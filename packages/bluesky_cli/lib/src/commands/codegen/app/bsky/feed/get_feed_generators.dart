@@ -23,8 +23,7 @@ final class GetFeedGeneratorsCommand extends QueryCommand {
   final String name = "get-feed-generators";
 
   @override
-  final String description =
-      r"Get information about a list of feed generators.";
+  final String description = "Get information about a list of feed generators.";
 
   @override
   final String invocation =

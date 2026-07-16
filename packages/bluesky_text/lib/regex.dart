@@ -8,6 +8,7 @@ export 'package:bluesky_text/src/regex/at_signs.dart';
 export 'package:bluesky_text/src/regex/bmp_letter_and_marks.dart';
 export 'package:bluesky_text/src/regex/bmp_numerals.dart';
 export 'package:bluesky_text/src/regex/cash_signs.dart';
+export 'package:bluesky_text/src/regex/cjk_letters_and_marks.dart';
 export 'package:bluesky_text/src/regex/code_point.dart';
 export 'package:bluesky_text/src/regex/cyrillic_letters_and_marks.dart';
 export 'package:bluesky_text/src/regex/directional_markers_group.dart';

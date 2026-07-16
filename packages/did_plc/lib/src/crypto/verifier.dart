@@ -330,6 +330,13 @@ class PlcVerifier {
   /// - the signature verifies against the authorized keys of the
   ///   referenced previous operation (or the operation's own keys for
   ///   the genesis operation).
+  ///
+  /// Note: this does NOT enforce the `nullified`/recovery-window semantics
+  /// of the PLC spec. Entries flagged `nullified` (operations that were
+  /// superseded by a higher-authority key within the 72-hour recovery
+  /// window) are verified cryptographically like any other entry; this
+  /// method does not reject a forked history or validate that a nullifying
+  /// operation was itself signed within the allowed recovery window.
   VerificationResult verifyAuditLog(List<Map<String, dynamic>> auditLog) {
     if (auditLog.isEmpty) {
       return VerificationResult.invalid('Audit log cannot be empty');

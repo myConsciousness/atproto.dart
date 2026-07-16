@@ -3203,7 +3203,10 @@ github.com/videah/SkyBridge
         'http://www.foo.com/foo/path-with-period./',
         'http://www.foo.org.za/foo/bar/688.1',
         'http://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
-        'http://foo.com/bar/123/foo_&_bar',
+        //* AUDIT MEDIUM fix: a CJK run in the path is now part of the URL, so
+        //* the trailing `テスト` is included (`２` is a full-width digit, which
+        //* is intentionally not a URL path char, so it still terminates it).
+        'http://foo.com/bar/123/foo_&_barテスト',
         'http://foo.com/bar(test)bar(test)bar(test)',
         'https://www.foo.com/foo/path-with-period./',
         'https://www.foo.org.za/foo/bar/688.1',
@@ -3234,7 +3237,10 @@ github.com/videah/SkyBridge
         'http://www.foo.com/foo/path-with-period./',
         'http://www.foo.org.za/foo/bar/688.1',
         'http://www.foo.com/bar-path/some.stm?param1=foo;param2=P1|0||P2|0',
-        'http://foo.com/bar/123/foo_&_bar',
+        //* AUDIT MEDIUM fix: a CJK run in the path is now part of the URL, so
+        //* the trailing `テスト` is included (`２` is a full-width digit, which
+        //* is intentionally not a URL path char, so it still terminates it).
+        'http://foo.com/bar/123/foo_&_barテスト',
         'http://foo.com/bar(test)bar(test)bar(test)',
         'https://www.foo.com/foo/path-with-period./',
         'https://www.foo.org.za/foo/bar/688.1',
@@ -3866,6 +3872,115 @@ github.com/videah/SkyBridge
         final text = BlueskyText('見て [サイト](https://日本語.jp) ね');
         expect(() => text.format(), returnsNormally);
         expect(() => text.entities, returnsNormally);
+      });
+    });
+
+    group('email addresses are not linkified (audit MEDIUM)', () {
+      test('email whose domain has multiple labels produces no link', () {
+        //* Previously `mail@alice.bsky.social` leaked a bare-domain link over
+        //* the email's `bsky.social` (bytes 11..22). The official @atproto/api
+        //* produces no facet here.
+        final text = BlueskyText('mail@alice.bsky.social');
+        expect(text.links, isEmpty);
+        expect(text.handles, isEmpty);
+        expect(text.entities, isEmpty);
+      });
+
+      test('email in a Japanese sentence produces no link', () {
+        final text = BlueskyText('メール mail@alice.bsky.social です');
+        expect(text.links, isEmpty);
+      });
+
+      test('email with a dotted local part produces no link', () {
+        expect(BlueskyText('first.last@alice.bsky.social').links, isEmpty);
+      });
+
+      test('a real bare domain is still linkified (byte range preserved)', () {
+        final text = BlueskyText('alice.bsky.social');
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://alice.bsky.social');
+        expect(links.first.indices.start, 0);
+        expect(links.first.indices.end, 17);
+      });
+
+      test('a bare domain after whitespace following an @ is linkified', () {
+        //* A space between the `@` local part and the domain breaks the email
+        //* boundary, so the domain becomes a normal link again.
+        final links = BlueskyText('contact@ visit alice.bsky.social').links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://alice.bsky.social');
+      });
+
+      test('bare domain glued to a preceding CJK char is still linkified', () {
+        //* DELIBERATELY UNCHANGED: the maintainer linkifies a bare domain glued
+        //* to Japanese text with no preceding space (Japanese-UX tradeoff). This
+        //* differs from the official parser, which requires a space/`(`/start.
+        final text = BlueskyText('日本語alice.bsky.social');
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://alice.bsky.social');
+        expect(links.first.indices.start, 9);
+        expect(links.first.indices.end, 26);
+      });
+
+      test('mention at a real boundary is unaffected', () {
+        final handles = BlueskyText('@alice.bsky.social').handles;
+        expect(handles.length, 1);
+        expect(handles.first.value, 'alice.bsky.social');
+        expect(BlueskyText('@alice.bsky.social').links, isEmpty);
+      });
+    });
+
+    group('URL paths keep CJK characters (audit MEDIUM)', () {
+      test('Japanese path is included in the link (correct byte range)', () {
+        const input = 'https://ja.wikipedia.org/wiki/日本語';
+        final text = BlueskyText(input);
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, input);
+        expect(links.first.indices.start, 0);
+        expect(links.first.indices.end, 39);
+
+        //* UTF-8 byte indices must still slice the exact URL out of the source.
+        final bytes = utf8.encode(input);
+        final slice = utf8.decode(
+          bytes.sublist(links.first.indices.start, links.first.indices.end),
+        );
+        expect(slice, input);
+      });
+
+      test('Japanese path in a sentence is included', () {
+        final text = BlueskyText('見て https://ja.wikipedia.org/wiki/日本語 だよ');
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://ja.wikipedia.org/wiki/日本語');
+      });
+
+      test('katakana path before an ASCII query is included', () {
+        const input = 'https://example.com/パス?q=1';
+        final text = BlueskyText(input);
+        final links = text.links;
+        expect(links.length, 1);
+        expect(links.first.value, input);
+
+        final bytes = utf8.encode(input);
+        final slice = utf8.decode(
+          bytes.sublist(links.first.indices.start, links.first.indices.end),
+        );
+        expect(slice, input);
+      });
+
+      test('trailing ASCII punctuation is still trimmed', () {
+        final links = BlueskyText('https://example.com/foo.').links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://example.com/foo');
+      });
+
+      test('balanced parens in the path are still preserved', () {
+        final links = BlueskyText('wikipedia.com/Primer_(film)').links;
+        expect(links.length, 1);
+        expect(links.first.value, 'https://wikipedia.com/Primer_(film)');
       });
     });
 

@@ -29,7 +29,7 @@ final class AssignModeratorCommand extends ProcedureCommand {
   final String name = "assign-moderator";
 
   @override
-  final String description = r"Assign a user to a queue.";
+  final String description = "Assign a user to a queue.";
 
   @override
   final String invocation =

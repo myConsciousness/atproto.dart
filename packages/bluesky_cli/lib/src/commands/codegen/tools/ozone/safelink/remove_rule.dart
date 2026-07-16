@@ -41,7 +41,7 @@ final class RemoveRuleCommand extends ProcedureCommand {
   final String name = "remove-rule";
 
   @override
-  final String description = r"Remove an existing URL safety rule";
+  final String description = "Remove an existing URL safety rule";
 
   @override
   final String invocation =

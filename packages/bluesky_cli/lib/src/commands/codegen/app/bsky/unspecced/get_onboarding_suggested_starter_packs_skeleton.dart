@@ -31,7 +31,7 @@ final class GetOnboardingSuggestedStarterPacksSkeletonCommand
 
   @override
   final String description =
-      r"Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks";
+      "Get a skeleton of suggested starterpacks for onboarding. Intended to be called and hydrated by app.bsky.unspecced.getOnboardingSuggestedStarterPacks";
 
   @override
   final String invocation =

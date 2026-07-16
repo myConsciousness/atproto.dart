@@ -21,7 +21,7 @@ final class ExportAccountDataCommand extends QueryCommand {
   final String name = "export-account-data";
 
   @override
-  final String description = r"";
+  final String description = "";
 
   @override
   final String invocation = "bsky chat-bsky-actor export-account-data";

@@ -22,7 +22,7 @@ final class RefreshSessionCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').";
+      "Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').";
 
   @override
   final String invocation = "bsky com-atproto-server refresh-session";

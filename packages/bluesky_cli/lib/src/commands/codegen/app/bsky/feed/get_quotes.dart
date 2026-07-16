@@ -35,7 +35,7 @@ final class GetQuotesCommand extends QueryCommand {
   final String name = "get-quotes";
 
   @override
-  final String description = r"Get a list of quotes for a given post.";
+  final String description = "Get a list of quotes for a given post.";
 
   @override
   final String invocation =

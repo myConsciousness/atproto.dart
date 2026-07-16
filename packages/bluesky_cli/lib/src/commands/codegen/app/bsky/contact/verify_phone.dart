@@ -36,7 +36,7 @@ final class VerifyPhoneCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.";
+      "Verifies control over a phone number with a code received via SMS and starts a contact import session. Requires authentication.";
 
   @override
   final String invocation =

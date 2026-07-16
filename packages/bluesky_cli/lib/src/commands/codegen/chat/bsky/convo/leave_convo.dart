@@ -24,7 +24,7 @@ final class LeaveConvoCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Leaves a conversation (direct or group). For group, this effectively removes membership. For direct, membership is never removed, only changed to remove from enumerations by the user who left.";
+      "Leaves a conversation (direct or group). For group, this effectively removes membership. For direct, membership is never removed, only changed to remove from enumerations by the user who left.";
 
   @override
   final String invocation =

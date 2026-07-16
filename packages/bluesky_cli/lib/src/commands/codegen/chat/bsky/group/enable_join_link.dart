@@ -24,7 +24,7 @@ final class EnableJoinLinkCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Re-enables a previously disabled join link for the group convo.";
+      "Re-enables a previously disabled join link for the group convo.";
 
   @override
   final String invocation =

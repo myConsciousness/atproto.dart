@@ -27,7 +27,7 @@ final class GetSubjectStatusCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get the service-specific admin status of a subject (account, record, or blob).";
+      "Get the service-specific admin status of a subject (account, record, or blob).";
 
   @override
   final String invocation =

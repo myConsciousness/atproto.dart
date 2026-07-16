@@ -39,7 +39,7 @@ final class ReassignQueueCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Manually reassign a report to a different queue (or unassign it). Records a queueActivity entry on the report.";
+      "Manually reassign a report to a different queue (or unassign it). Records a queueActivity entry on the report.";
 
   @override
   final String invocation =

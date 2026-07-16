@@ -817,7 +817,9 @@ final class _PLCImpl implements PLC {
       case 400:
         return ValidationException(
           '$context: $message',
-          details?.cast<String, String>() ?? {},
+          // Coerce each value to a String rather than `cast`, which would
+          // throw lazily on the first non-string value in a 400 body.
+          details?.map((k, v) => MapEntry(k, v.toString())) ?? {},
         );
       case 404:
         return NotFoundException('$context: $message');

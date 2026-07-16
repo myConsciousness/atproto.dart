@@ -3,6 +3,8 @@
 ## v2.0.0
 
 - feat!: `ATProto.fromOAuth(OAuthSessionManager)`. `fromOAuthSession(session, {oauthClient})` now wraps a manager (pass `oauthClient` for auto-refresh); the `oAuthSession` getter is replaced by `oAuthSessionManager`.
+- fix: export `Subscription`, `SyncServiceImpl`, and `WebSocketChannelFactory` so subscription/sync return types are usable without a direct `atproto_core`/`xrpc` dependency.
+- fix: automatic session refresh preserves `email`/`emailConfirmed`/`emailAuthFactor`.
 
 ## v1.7.0
 

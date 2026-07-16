@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$EmbedGetEmbedExternalViewInputCopyWithImpl<$Res>
 /// Create a copy of EmbedGetEmbedExternalViewInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? uris = null,Object? $unknown = freezed,}) {
-  return _then(EmbedGetEmbedExternalViewInput(
+  return _then(_self.copyWith(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,uris: null == uris ? _self.uris : uris // ignore: cast_nullable_to_non_nullable
 as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -213,7 +212,7 @@ return $default(_that.url,_that.uris,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedGetEmbedExternalViewInput implements EmbedGetEmbedExternalViewInput {
-  const _EmbedGetEmbedExternalViewInput({required this.url, @AtUriConverter() required  List<AtUri> uris,  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
+  const _EmbedGetEmbedExternalViewInput({required this.url, @AtUriConverter() required final  List<AtUri> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _EmbedGetEmbedExternalViewInput.fromJson(Map<String, dynamic> json) => _$EmbedGetEmbedExternalViewInputFromJson(json);
 
 /// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`. May be used for validation in the future.

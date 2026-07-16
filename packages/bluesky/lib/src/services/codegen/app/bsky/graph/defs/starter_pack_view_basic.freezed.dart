@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'starter_pack_view_basic.dart';
@@ -9,7 +9,6 @@ part of 'starter_pack_view_basic.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$StarterPackViewBasicCopyWithImpl<$Res>
 /// Create a copy of StarterPackViewBasic
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? record = null,Object? creator = null,Object? listItemCount = freezed,Object? joinedWeekCount = freezed,Object? joinedAllTimeCount = freezed,Object? labels = freezed,Object? indexedAt = null,Object? $unknown = freezed,}) {
-  return _then(StarterPackViewBasic(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_nullable
@@ -229,7 +228,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.record,_that.creator,_that
 
 @JsonSerializable(includeIfNull: false)
 class _StarterPackViewBasic implements StarterPackViewBasic {
-  const _StarterPackViewBasic({this.$type = 'app.bsky.graph.defs#starterPackViewBasic', @AtUriConverter() required this.uri, required this.cid, required  Map<String, dynamic> record, @ProfileViewBasicConverter() required this.creator, this.listItemCount, this.joinedWeekCount, this.joinedAllTimeCount, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601) required this.indexedAt,  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
+  const _StarterPackViewBasic({this.$type = 'app.bsky.graph.defs#starterPackViewBasic', @AtUriConverter() required this.uri, required this.cid, required final  Map<String, dynamic> record, @ProfileViewBasicConverter() required this.creator, this.listItemCount, this.joinedWeekCount, this.joinedAllTimeCount, @LabelConverter() final  List<Label>? labels, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _record = record,_labels = labels,_$unknown = $unknown;
   factory _StarterPackViewBasic.fromJson(Map<String, dynamic> json) => _$StarterPackViewBasicFromJson(json);
 
 @override@JsonKey() final  String $type;

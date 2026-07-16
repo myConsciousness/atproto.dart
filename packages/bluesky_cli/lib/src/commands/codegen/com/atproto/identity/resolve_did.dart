@@ -24,7 +24,7 @@ final class ResolveDidCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Resolves DID to DID document. Does not bi-directionally verify handle.";
+      "Resolves DID to DID document. Does not bi-directionally verify handle.";
 
   @override
   final String invocation =

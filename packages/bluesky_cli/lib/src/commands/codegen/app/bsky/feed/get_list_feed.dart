@@ -31,7 +31,7 @@ final class GetListFeedCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.";
+      "Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.";
 
   @override
   final String invocation =

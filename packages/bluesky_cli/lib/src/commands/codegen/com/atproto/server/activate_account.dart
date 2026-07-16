@@ -22,7 +22,7 @@ final class ActivateAccountCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.";
+      "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.";
 
   @override
   final String invocation = "bsky com-atproto-server activate-account";

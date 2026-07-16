@@ -23,7 +23,7 @@ final class GetActorMetadataCommand extends QueryCommand {
   final String name = "get-actor-metadata";
 
   @override
-  final String description = r"";
+  final String description = "";
 
   @override
   final String invocation =

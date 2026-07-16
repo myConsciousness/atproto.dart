@@ -31,7 +31,7 @@ final class GrantVerificationsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once.";
+      "Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once.";
 
   @override
   final String invocation =

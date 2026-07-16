@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -76,7 +75,7 @@ class _$ReportQueryReportsInputCopyWithImpl<$Res>
 /// Create a copy of ReportQueryReportsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? queueId = freezed,Object? reportTypes = freezed,Object? status = null,Object? subject = freezed,Object? did = freezed,Object? subjectType = freezed,Object? collections = freezed,Object? reportedAfter = freezed,Object? reportedBefore = freezed,Object? isMuted = null,Object? assignedTo = freezed,Object? sortField = null,Object? sortDirection = null,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
-  return _then(ReportQueryReportsInput(
+  return _then(_self.copyWith(
 queueId: freezed == queueId ? _self.queueId : queueId // ignore: cast_nullable_to_non_nullable
 as int?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -255,7 +254,7 @@ return $default(_that.queueId,_that.reportTypes,_that.status,_that.subject,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ReportQueryReportsInput implements ReportQueryReportsInput {
-  const _ReportQueryReportsInput({this.queueId,  List<String>? reportTypes, @ReportQueryReportsStatusConverter() required this.status, this.subject, this.did, @ReportQueryReportsSubjectTypeConverter() this.subjectType,  List<String>? collections, @JsonKey(toJson: iso8601) this.reportedAfter, @JsonKey(toJson: iso8601) this.reportedBefore, this.isMuted = false, this.assignedTo, this.sortField = 'createdAt', this.sortDirection = 'desc', this.limit = 50, this.cursor,  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_collections = collections,_$unknown = $unknown;
+  const _ReportQueryReportsInput({this.queueId, final  List<String>? reportTypes, @ReportQueryReportsStatusConverter() required this.status, this.subject, this.did, @ReportQueryReportsSubjectTypeConverter() this.subjectType, final  List<String>? collections, @JsonKey(toJson: iso8601) this.reportedAfter, @JsonKey(toJson: iso8601) this.reportedBefore, this.isMuted = false, this.assignedTo, this.sortField = 'createdAt', this.sortDirection = 'desc', this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_collections = collections,_$unknown = $unknown;
   factory _ReportQueryReportsInput.fromJson(Map<String, dynamic> json) => _$ReportQueryReportsInputFromJson(json);
 
 /// Filter by queue ID. Use -1 for unassigned reports.

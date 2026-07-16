@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'draft_embed_video.dart';
@@ -9,7 +9,6 @@ part of 'draft_embed_video.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$DraftEmbedVideoCopyWithImpl<$Res>
 /// Create a copy of DraftEmbedVideo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? localRef = null,Object? alt = freezed,Object? captions = freezed,Object? $unknown = freezed,}) {
-  return _then(DraftEmbedVideo(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,localRef: null == localRef ? _self.localRef : localRef // ignore: cast_nullable_to_non_nullable
 as DraftEmbedLocalRef,alt: freezed == alt ? _self.alt : alt // ignore: cast_nullable_to_non_nullable
@@ -223,7 +222,7 @@ return $default(_that.$type,_that.localRef,_that.alt,_that.captions,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _DraftEmbedVideo implements DraftEmbedVideo {
-  const _DraftEmbedVideo({this.$type = 'app.bsky.draft.defs#draftEmbedVideo', @DraftEmbedLocalRefConverter() required this.localRef, this.alt, @DraftEmbedCaptionConverter()  List<DraftEmbedCaption>? captions,  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
+  const _DraftEmbedVideo({this.$type = 'app.bsky.draft.defs#draftEmbedVideo', @DraftEmbedLocalRefConverter() required this.localRef, this.alt, @DraftEmbedCaptionConverter() final  List<DraftEmbedCaption>? captions, final  Map<String, dynamic>? $unknown}): _captions = captions,_$unknown = $unknown;
   factory _DraftEmbedVideo.fromJson(Map<String, dynamic> json) => _$DraftEmbedVideoFromJson(json);
 
 @override@JsonKey() final  String $type;

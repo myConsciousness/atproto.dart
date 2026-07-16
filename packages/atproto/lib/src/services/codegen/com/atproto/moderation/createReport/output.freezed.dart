@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ModerationCreateReportOutputCopyWithImpl<$Res>
 /// Create a copy of ModerationCreateReportOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? reasonType = null,Object? reason = freezed,Object? subject = null,Object? reportedBy = null,Object? createdAt = null,Object? $unknown = freezed,}) {
-  return _then(ModerationCreateReportOutput(
+  return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,reasonType: null == reasonType ? _self.reasonType : reasonType // ignore: cast_nullable_to_non_nullable
 as ReasonType,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
@@ -234,7 +233,7 @@ return $default(_that.id,_that.reasonType,_that.reason,_that.subject,_that.repor
 
 @JsonSerializable(includeIfNull: false)
 class _ModerationCreateReportOutput implements ModerationCreateReportOutput {
-  const _ModerationCreateReportOutput({required this.id, @ReasonTypeConverter() required this.reasonType, this.reason, @UModerationCreateReportSubjectConverter() required this.subject, required this.reportedBy, @JsonKey(toJson: iso8601) required this.createdAt,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModerationCreateReportOutput({required this.id, @ReasonTypeConverter() required this.reasonType, this.reason, @UModerationCreateReportSubjectConverter() required this.subject, required this.reportedBy, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModerationCreateReportOutput.fromJson(Map<String, dynamic> json) => _$ModerationCreateReportOutputFromJson(json);
 
 @override final  int id;

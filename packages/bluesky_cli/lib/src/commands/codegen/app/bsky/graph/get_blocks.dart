@@ -26,7 +26,7 @@ final class GetBlocksCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates which accounts the requesting account is currently blocking. Requires auth.";
+      "Enumerates which accounts the requesting account is currently blocking. Requires auth.";
 
   @override
   final String invocation =

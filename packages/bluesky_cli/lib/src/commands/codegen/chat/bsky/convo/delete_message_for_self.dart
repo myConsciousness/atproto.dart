@@ -26,7 +26,7 @@ final class DeleteMessageForSelfCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Marks a message as deleted for the viewer, so they won't see that message in future enumerations.";
+      "Marks a message as deleted for the viewer, so they won't see that message in future enumerations.";
 
   @override
   final String invocation =

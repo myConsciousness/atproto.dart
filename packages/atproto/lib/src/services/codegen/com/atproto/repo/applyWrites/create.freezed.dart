@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'create.dart';
@@ -9,7 +9,6 @@ part of 'create.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$CreateCopyWithImpl<$Res>
 /// Create a copy of Create
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? collection = null,Object? rkey = freezed,Object? value = null,Object? $unknown = freezed,}) {
-  return _then(Create(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,collection: null == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
 as String,rkey: freezed == rkey ? _self.rkey : rkey // ignore: cast_nullable_to_non_nullable
@@ -215,7 +214,7 @@ return $default(_that.$type,_that.collection,_that.rkey,_that.value,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _Create implements Create {
-  const _Create({this.$type = 'com.atproto.repo.applyWrites#create', required this.collection, this.rkey, required  Map<String, dynamic> value,  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _Create({this.$type = 'com.atproto.repo.applyWrites#create', required this.collection, this.rkey, required final  Map<String, dynamic> value, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _Create.fromJson(Map<String, dynamic> json) => _$CreateFromJson(json);
 
 @override@JsonKey() final  String $type;

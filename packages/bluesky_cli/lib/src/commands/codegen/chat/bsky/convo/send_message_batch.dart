@@ -26,7 +26,7 @@ final class SendMessageBatchCommand extends ProcedureCommand {
   final String name = "send-message-batch";
 
   @override
-  final String description = r"Sends a batch of messages to a conversation.";
+  final String description = "Sends a batch of messages to a conversation.";
 
   @override
   final String invocation =

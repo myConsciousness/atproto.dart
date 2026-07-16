@@ -36,7 +36,7 @@ final class GetListsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates the lists created by a specified account (actor).";
+      "Enumerates the lists created by a specified account (actor).";
 
   @override
   final String invocation =

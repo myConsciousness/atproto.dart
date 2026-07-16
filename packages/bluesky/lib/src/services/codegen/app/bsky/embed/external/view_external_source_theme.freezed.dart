@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'view_external_source_theme.dart';
@@ -9,7 +9,6 @@ part of 'view_external_source_theme.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$EmbedExternalViewExternalSourceThemeCopyWithImpl<$Res>
 /// Create a copy of EmbedExternalViewExternalSourceTheme
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? backgroundRGB = freezed,Object? foregroundRGB = freezed,Object? accentRGB = freezed,Object? accentForegroundRGB = freezed,Object? $unknown = freezed,}) {
-  return _then(EmbedExternalViewExternalSourceTheme(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,backgroundRGB: freezed == backgroundRGB ? _self.backgroundRGB : backgroundRGB // ignore: cast_nullable_to_non_nullable
 as EmbedExternalColorRGB?,foregroundRGB: freezed == foregroundRGB ? _self.foregroundRGB : foregroundRGB // ignore: cast_nullable_to_non_nullable
@@ -263,7 +262,7 @@ return $default(_that.$type,_that.backgroundRGB,_that.foregroundRGB,_that.accent
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewExternalSourceTheme implements EmbedExternalViewExternalSourceTheme {
-  const _EmbedExternalViewExternalSourceTheme({this.$type = 'app.bsky.embed.external#viewExternalSourceTheme', @EmbedExternalColorRGBConverter() this.backgroundRGB, @EmbedExternalColorRGBConverter() this.foregroundRGB, @EmbedExternalColorRGBConverter() this.accentRGB, @EmbedExternalColorRGBConverter() this.accentForegroundRGB,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedExternalViewExternalSourceTheme({this.$type = 'app.bsky.embed.external#viewExternalSourceTheme', @EmbedExternalColorRGBConverter() this.backgroundRGB, @EmbedExternalColorRGBConverter() this.foregroundRGB, @EmbedExternalColorRGBConverter() this.accentRGB, @EmbedExternalColorRGBConverter() this.accentForegroundRGB, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedExternalViewExternalSourceTheme.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewExternalSourceThemeFromJson(json);
 
 @override@JsonKey() final  String $type;

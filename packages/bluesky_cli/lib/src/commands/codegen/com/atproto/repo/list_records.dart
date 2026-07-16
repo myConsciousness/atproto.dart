@@ -44,7 +44,7 @@ final class ListRecordsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"List a range of records in a repository, matching a specific collection. Does not require auth.";
+      "List a range of records in a repository, matching a specific collection. Does not require auth.";
 
   @override
   final String invocation =

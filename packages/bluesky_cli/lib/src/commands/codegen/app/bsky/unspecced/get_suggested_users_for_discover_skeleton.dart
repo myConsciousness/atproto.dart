@@ -30,7 +30,7 @@ final class GetSuggestedUsersForDiscoverSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a skeleton of suggested users for the Discover page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForDiscover";
+      "Get a skeleton of suggested users for the Discover page. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsersForDiscover";
 
   @override
   final String invocation =

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$SetAddValuesInputCopyWithImpl<$Res>
 /// Create a copy of SetAddValuesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? values = null,Object? $unknown = freezed,}) {
-  return _then(SetAddValuesInput(
+  return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,values: null == values ? _self.values : values // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -213,7 +212,7 @@ return $default(_that.name,_that.values,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SetAddValuesInput implements SetAddValuesInput {
-  const _SetAddValuesInput({required this.name, required  List<String> values,  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
+  const _SetAddValuesInput({required this.name, required final  List<String> values, final  Map<String, dynamic>? $unknown}): _values = values,_$unknown = $unknown;
   factory _SetAddValuesInput.fromJson(Map<String, dynamic> json) => _$SetAddValuesInputFromJson(json);
 
 /// Name of the set to add values to

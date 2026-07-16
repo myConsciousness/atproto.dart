@@ -27,7 +27,7 @@ final class GetFollowsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates accounts which a specified account (actor) follows.";
+      "Enumerates accounts which a specified account (actor) follows.";
 
   @override
   final String invocation =

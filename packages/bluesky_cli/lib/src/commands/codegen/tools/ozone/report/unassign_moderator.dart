@@ -27,7 +27,7 @@ final class UnassignModeratorCommand extends ProcedureCommand {
   final String name = "unassign-moderator";
 
   @override
-  final String description = r"Remove report assignment.";
+  final String description = "Remove report assignment.";
 
   @override
   final String invocation =

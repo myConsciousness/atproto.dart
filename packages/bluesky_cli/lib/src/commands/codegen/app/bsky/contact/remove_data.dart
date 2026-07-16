@@ -22,7 +22,7 @@ final class RemoveDataCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.";
+      "Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.";
 
   @override
   final String invocation = "bsky app-bsky-contact remove-data";

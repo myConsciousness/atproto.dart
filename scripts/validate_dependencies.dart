@@ -11,7 +11,12 @@ import 'package:pubspec/pubspec.dart';
 import 'utils.dart';
 
 /// Packages to exclude from dependency validation.
-const _excludePackages = ['atproto_test', 'did_plc'];
+///
+/// `bluesky_text_flutter` lives outside the Dart pub workspace and resolves its
+/// dependencies from pub.dev, so it can only reference *published* workspace
+/// versions; it is bumped/republished after the workspace packages it depends
+/// on are published, not in lockstep.
+const _excludePackages = ['atproto_test', 'did_plc', 'bluesky_text_flutter'];
 
 void main() {
   final errors = <String>[];

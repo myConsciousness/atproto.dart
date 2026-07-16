@@ -28,7 +28,7 @@ final class GetFeedGeneratorCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get information about a feed generator. Implemented by AppView.";
+      "Get information about a feed generator. Implemented by AppView.";
 
   @override
   final String invocation =

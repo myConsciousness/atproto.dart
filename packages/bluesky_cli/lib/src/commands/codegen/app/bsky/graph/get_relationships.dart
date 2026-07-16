@@ -33,7 +33,7 @@ final class GetRelationshipsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates public relationships between one account, and a list of other accounts. Does not require auth.";
+      "Enumerates public relationships between one account, and a list of other accounts. Does not require auth.";
 
   @override
   final String invocation =

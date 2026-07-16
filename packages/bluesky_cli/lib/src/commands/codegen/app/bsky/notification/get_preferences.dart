@@ -22,7 +22,7 @@ final class GetPreferencesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get notification-related preferences for an account. Requires auth.";
+      "Get notification-related preferences for an account. Requires auth.";
 
   @override
   final String invocation = "bsky app-bsky-notification get-preferences";

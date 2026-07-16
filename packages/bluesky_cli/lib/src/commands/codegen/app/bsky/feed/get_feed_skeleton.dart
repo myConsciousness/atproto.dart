@@ -32,7 +32,7 @@ final class GetFeedSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.";
+      "Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.";
 
   @override
   final String invocation =

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -73,7 +72,7 @@ class _$SafelinkQueryRulesInputCopyWithImpl<$Res>
 /// Create a copy of SafelinkQueryRulesInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? limit = null,Object? urls = freezed,Object? patternType = freezed,Object? actions = freezed,Object? reason = freezed,Object? createdBy = freezed,Object? sortDirection = null,Object? $unknown = freezed,}) {
-  return _then(SafelinkQueryRulesInput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,urls: freezed == urls ? _self.urls : urls // ignore: cast_nullable_to_non_nullable
@@ -233,7 +232,7 @@ return $default(_that.cursor,_that.limit,_that.urls,_that.patternType,_that.acti
 
 @JsonSerializable(includeIfNull: false)
 class _SafelinkQueryRulesInput implements SafelinkQueryRulesInput {
-  const _SafelinkQueryRulesInput({this.cursor, this.limit = 50,  List<String>? urls, this.patternType,  List<String>? actions, this.reason, this.createdBy, @SafelinkQueryRulesSortDirectionConverter() this.sortDirection = const SafelinkQueryRulesSortDirection.knownValue(data: KnownSafelinkQueryRulesSortDirection.desc),  Map<String, dynamic>? $unknown}): _urls = urls,_actions = actions,_$unknown = $unknown;
+  const _SafelinkQueryRulesInput({this.cursor, this.limit = 50, final  List<String>? urls, this.patternType, final  List<String>? actions, this.reason, this.createdBy, @SafelinkQueryRulesSortDirectionConverter() this.sortDirection = const SafelinkQueryRulesSortDirection.knownValue(data: KnownSafelinkQueryRulesSortDirection.desc), final  Map<String, dynamic>? $unknown}): _urls = urls,_actions = actions,_$unknown = $unknown;
   factory _SafelinkQueryRulesInput.fromJson(Map<String, dynamic> json) => _$SafelinkQueryRulesInputFromJson(json);
 
 /// Cursor for pagination

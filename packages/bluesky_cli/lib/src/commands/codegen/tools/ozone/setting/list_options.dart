@@ -32,7 +32,7 @@ final class ListOptionsCommand extends QueryCommand {
   final String name = "list-options";
 
   @override
-  final String description = r"List settings with optional filtering";
+  final String description = "List settings with optional filtering";
 
   @override
   final String invocation =

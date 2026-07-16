@@ -41,7 +41,7 @@ final class CreateTemplateCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Administrative action to create a new, re-usable communication (email for now) template.";
+      "Administrative action to create a new, re-usable communication (email for now) template.";
 
   @override
   final String invocation =

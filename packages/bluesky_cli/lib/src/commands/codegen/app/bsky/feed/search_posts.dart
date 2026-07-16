@@ -81,7 +81,7 @@ final class SearchPostsCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.";
+      "Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.";
 
   @override
   final String invocation =

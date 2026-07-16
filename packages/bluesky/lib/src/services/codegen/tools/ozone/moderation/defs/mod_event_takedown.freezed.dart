@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mod_event_takedown.dart';
@@ -9,7 +9,6 @@ part of 'mod_event_takedown.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -72,7 +71,7 @@ class _$ModEventTakedownCopyWithImpl<$Res>
 /// Create a copy of ModEventTakedown
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? durationInHours = freezed,Object? acknowledgeAccountSubjects = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? targetServices = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
-  return _then(ModEventTakedown(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,durationInHours: freezed == durationInHours ? _self.durationInHours : durationInHours // ignore: cast_nullable_to_non_nullable
@@ -224,7 +223,7 @@ return $default(_that.$type,_that.comment,_that.durationInHours,_that.acknowledg
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventTakedown implements ModEventTakedown {
-  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects,  List<String>? policies, this.severityLevel, @ModEventTakedownTargetServicesConverter()  List<ModEventTakedownTargetServices>? targetServices, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt,  Map<String, dynamic>? $unknown}): _policies = policies,_targetServices = targetServices,_$unknown = $unknown;
+  const _ModEventTakedown({this.$type = 'tools.ozone.moderation.defs#modEventTakedown', this.comment, this.durationInHours, this.acknowledgeAccountSubjects, final  List<String>? policies, this.severityLevel, @ModEventTakedownTargetServicesConverter() final  List<ModEventTakedownTargetServices>? targetServices, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, final  Map<String, dynamic>? $unknown}): _policies = policies,_targetServices = targetServices,_$unknown = $unknown;
   factory _ModEventTakedown.fromJson(Map<String, dynamic> json) => _$ModEventTakedownFromJson(json);
 
 @override@JsonKey() final  String $type;

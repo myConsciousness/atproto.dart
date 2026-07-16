@@ -23,7 +23,7 @@ final class GetSubjectsCommand extends QueryCommand {
   final String name = "get-subjects";
 
   @override
-  final String description = r"Get details about subjects.";
+  final String description = "Get details about subjects.";
 
   @override
   final String invocation =

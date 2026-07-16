@@ -26,7 +26,7 @@ final class DisableAccountInvitesCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Disable an account from receiving new invite codes, but does not invalidate existing codes.";
+      "Disable an account from receiving new invite codes, but does not invalidate existing codes.";
 
   @override
   final String invocation =

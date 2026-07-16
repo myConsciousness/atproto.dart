@@ -24,7 +24,7 @@ final class RequestPasswordResetCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Initiate a user account password reset via email.";
+      "Initiate a user account password reset via email.";
 
   @override
   final String invocation =

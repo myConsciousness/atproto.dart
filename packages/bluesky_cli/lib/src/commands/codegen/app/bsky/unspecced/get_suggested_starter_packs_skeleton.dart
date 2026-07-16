@@ -30,7 +30,7 @@ final class GetSuggestedStarterPacksSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a skeleton of suggested starterpacks. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedStarterpacks";
+      "Get a skeleton of suggested starterpacks. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedStarterpacks";
 
   @override
   final String invocation =

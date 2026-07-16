@@ -23,7 +23,7 @@ final class GetAccountInfosCommand extends QueryCommand {
   final String name = "get-account-infos";
 
   @override
-  final String description = r"Get details about some accounts.";
+  final String description = "Get details about some accounts.";
 
   @override
   final String invocation =

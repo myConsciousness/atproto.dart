@@ -11,6 +11,7 @@ export 'package:atproto_core/atproto_core.dart'
         $XRPCErrorCopyWith,
         RateLimit,
         RateLimitPolicy,
+        Subscription,
         Protocol,
         EmptyData,
         HttpMethod,
@@ -47,3 +48,8 @@ export 'package:atproto_core/atproto_core.dart'
         JwtExtension,
         decodeJwt,
         isValidAppPassword;
+
+// `WebSocketChannelFactory` (the custom-channel hook for Firehose
+// subscriptions) lives in `package:xrpc` and is not re-exported by
+// `atproto_core`, so surface it here alongside `Subscription`.
+export 'package:xrpc/xrpc.dart' show WebSocketChannelFactory;

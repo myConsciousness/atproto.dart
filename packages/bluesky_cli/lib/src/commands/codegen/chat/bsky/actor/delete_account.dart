@@ -21,7 +21,7 @@ final class DeleteAccountCommand extends ProcedureCommand {
   final String name = "delete-account";
 
   @override
-  final String description = r"";
+  final String description = "";
 
   @override
   final String invocation = "bsky chat-bsky-actor delete-account";

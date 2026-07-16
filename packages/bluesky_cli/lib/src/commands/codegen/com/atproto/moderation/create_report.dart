@@ -38,7 +38,7 @@ final class CreateReportCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.";
+      "Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.";
 
   @override
   final String invocation =

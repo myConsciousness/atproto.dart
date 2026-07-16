@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +68,7 @@ class _$ReportGetLiveStatsInputCopyWithImpl<$Res>
 /// Create a copy of ReportGetLiveStatsInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? queueId = freezed,Object? moderatorDid = freezed,Object? reportTypes = freezed,Object? $unknown = freezed,}) {
-  return _then(ReportGetLiveStatsInput(
+  return _then(_self.copyWith(
 queueId: freezed == queueId ? _self.queueId : queueId // ignore: cast_nullable_to_non_nullable
 as int?,moderatorDid: freezed == moderatorDid ? _self.moderatorDid : moderatorDid // ignore: cast_nullable_to_non_nullable
 as String?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
@@ -215,7 +214,7 @@ return $default(_that.queueId,_that.moderatorDid,_that.reportTypes,_that.$unknow
 
 @JsonSerializable(includeIfNull: false)
 class _ReportGetLiveStatsInput implements ReportGetLiveStatsInput {
-  const _ReportGetLiveStatsInput({this.queueId, this.moderatorDid,  List<String>? reportTypes,  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_$unknown = $unknown;
+  const _ReportGetLiveStatsInput({this.queueId, this.moderatorDid, final  List<String>? reportTypes, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_$unknown = $unknown;
   factory _ReportGetLiveStatsInput.fromJson(Map<String, dynamic> json) => _$ReportGetLiveStatsInputFromJson(json);
 
 /// Filter stats by queue. Use -1 for unqueued reports.

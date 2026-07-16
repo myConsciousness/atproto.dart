@@ -2,6 +2,9 @@
 // All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Project imports:
+import '../../utils.dart';
+
 final class LexCliParameter {
   final String name;
   final String? description;
@@ -50,7 +53,7 @@ final class LexCliParameter {
       if (isBoolean) {
         buffer.write('defaultsTo: $defaultValue');
       } else {
-        buffer.write('defaultsTo: "$defaultValue"');
+        buffer.write('defaultsTo: "${escapeDartString(defaultValue!)}"');
       }
       buffer.write(',');
     }

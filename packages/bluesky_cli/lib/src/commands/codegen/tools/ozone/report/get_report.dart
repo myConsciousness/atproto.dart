@@ -28,7 +28,7 @@ final class GetReportCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get details about a single moderation report by ID.";
+      "Get details about a single moderation report by ID.";
 
   @override
   final String invocation = "bsky tools-ozone-report get-report --id=<value>";

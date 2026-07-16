@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'grouped_notifications.dart';
@@ -9,7 +9,6 @@ part of 'grouped_notifications.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$GroupedNotificationsCopyWithImpl<$Res>
 /// Create a copy of GroupedNotifications
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? notifications = null,Object? cursor = freezed,}) {
-  return _then(GroupedNotifications(
+  return _then(_self.copyWith(
 notifications: null == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
 as List<GroupedNotification>,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -211,7 +210,7 @@ return $default(_that.notifications,_that.cursor);case _:
 @JsonSerializable()
 
 class _GroupedNotifications implements GroupedNotifications {
-  const _GroupedNotifications({required  List<GroupedNotification> notifications, this.cursor}): _notifications = notifications;
+  const _GroupedNotifications({required final  List<GroupedNotification> notifications, this.cursor}): _notifications = notifications;
   factory _GroupedNotifications.fromJson(Map<String, dynamic> json) => _$GroupedNotificationsFromJson(json);
 
  final  List<GroupedNotification> _notifications;

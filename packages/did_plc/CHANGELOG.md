@@ -1,5 +1,12 @@
 # Release Note
 
+## v1.1.1
+
+- fix: the typed `Operation` now serializes an explicit `prev: null` for genesis operations, so typed signing/verification and `did:plc` derivation match the PLC directory's canonical bytes (previously only the raw-map API was correct).
+- fix: replaced `dart:io` (`SocketException`/`HttpException`) with `package:universal_io`, restoring Flutter web/WASM compatibility.
+- fix: 400-error detail maps with non-string values no longer throw a lazy cast error.
+- chore: corrected the client User-Agent version.
+
 ## v1.1.0
 
 **🔐 Real cryptography, working export & streaming**

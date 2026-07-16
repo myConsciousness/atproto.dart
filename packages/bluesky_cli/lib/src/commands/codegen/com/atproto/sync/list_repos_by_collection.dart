@@ -32,7 +32,7 @@ final class ListReposByCollectionCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates all the DIDs which have records with the given collection NSID.";
+      "Enumerates all the DIDs which have records with the given collection NSID.";
 
   @override
   final String invocation =

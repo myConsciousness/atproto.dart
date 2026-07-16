@@ -24,7 +24,7 @@ final class RevokeAccountCredentialsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Revoke sessions, password, and app passwords associated with account. May be resolved by a password reset.";
+      "Revoke sessions, password, and app passwords associated with account. May be resolved by a password reset.";
 
   @override
   final String invocation =

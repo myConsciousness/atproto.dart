@@ -45,7 +45,7 @@ final class SearchActorsSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Backend Actors (profile) search, returns only skeleton.";
+      "Backend Actors (profile) search, returns only skeleton.";
 
   @override
   final String invocation =

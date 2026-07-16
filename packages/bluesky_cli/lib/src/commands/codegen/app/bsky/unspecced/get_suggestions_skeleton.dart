@@ -36,7 +36,7 @@ final class GetSuggestionsSkeletonCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions";
+      "Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions";
 
   @override
   final String invocation =

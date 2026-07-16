@@ -26,7 +26,7 @@ final class GetValuesCommand extends QueryCommand {
   final String name = "get-values";
 
   @override
-  final String description = r"Get a specific set and its values";
+  final String description = "Get a specific set and its values";
 
   @override
   final String invocation =

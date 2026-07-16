@@ -36,7 +36,7 @@ final class CreateSessionCommand extends ProcedureCommand {
   final String name = "create-session";
 
   @override
-  final String description = r"Create an authentication session.";
+  final String description = "Create an authentication session.";
 
   @override
   final String invocation =

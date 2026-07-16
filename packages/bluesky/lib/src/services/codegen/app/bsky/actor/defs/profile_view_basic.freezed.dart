@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profile_view_basic.dart';
@@ -9,7 +9,6 @@ part of 'profile_view_basic.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ProfileViewBasicCopyWithImpl<$Res>
 /// Create a copy of ProfileViewBasic
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? did = null,Object? handle = null,Object? displayName = freezed,Object? pronouns = freezed,Object? avatar = freezed,Object? associated = freezed,Object? viewer = freezed,Object? labels = freezed,Object? createdAt = freezed,Object? verification = freezed,Object? status = freezed,Object? debug = freezed,Object? $unknown = freezed,}) {
-  return _then(ProfileViewBasic(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
@@ -271,7 +270,7 @@ return $default(_that.$type,_that.did,_that.handle,_that.displayName,_that.prono
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileViewBasic implements ProfileViewBasic {
-  const _ProfileViewBasic({this.$type = 'app.bsky.actor.defs#profileViewBasic', required this.did, required this.handle, this.displayName, this.pronouns, this.avatar, @ProfileAssociatedConverter() this.associated, @ViewerStateConverter() this.viewer, @LabelConverter()  List<Label>? labels, @JsonKey(toJson: iso8601) this.createdAt, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status,  Map<String, dynamic>? debug,  Map<String, dynamic>? $unknown}): _labels = labels,_debug = debug,_$unknown = $unknown;
+  const _ProfileViewBasic({this.$type = 'app.bsky.actor.defs#profileViewBasic', required this.did, required this.handle, this.displayName, this.pronouns, this.avatar, @ProfileAssociatedConverter() this.associated, @ViewerStateConverter() this.viewer, @LabelConverter() final  List<Label>? labels, @JsonKey(toJson: iso8601) this.createdAt, @VerificationStateConverter() this.verification, @StatusViewConverter() this.status, final  Map<String, dynamic>? debug, final  Map<String, dynamic>? $unknown}): _labels = labels,_debug = debug,_$unknown = $unknown;
   factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) => _$ProfileViewBasicFromJson(json);
 
 @override@JsonKey() final  String $type;

@@ -24,7 +24,7 @@ final class DeleteBookmarkCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.";
+      "Deletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.";
 
   @override
   final String invocation =

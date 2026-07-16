@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'suggestion.dart';
@@ -9,7 +9,6 @@ part of 'suggestion.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$SuggestionCopyWithImpl<$Res>
 /// Create a copy of Suggestion
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? handle = null,Object? method = null,Object? $unknown = freezed,}) {
-  return _then(Suggestion(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,handle: null == handle ? _self.handle : handle // ignore: cast_nullable_to_non_nullable
 as String,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
@@ -214,7 +213,7 @@ return $default(_that.$type,_that.handle,_that.method,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _Suggestion implements Suggestion {
-  const _Suggestion({this.$type = 'com.atproto.temp.checkHandleAvailability#suggestion', required this.handle, required this.method,  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Suggestion({this.$type = 'com.atproto.temp.checkHandleAvailability#suggestion', required this.handle, required this.method, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);
 
 @override@JsonKey() final  String $type;

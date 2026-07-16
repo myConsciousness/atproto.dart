@@ -77,6 +77,88 @@ void main() {
     });
   });
 
+  group('LexUserTypeConverter graceful degradation (G-12)', () {
+    test('permission-set primary def falls back to an unknown user type', () {
+      final result = const LexUserTypeConverter().fromJson({
+        'type': 'permission-set',
+        'description': 'Granular OAuth permission set.',
+      });
+
+      expect(result, isA<ULexUserTypeUnknown>());
+      expect(
+        (result as ULexUserTypeUnknown).data.description,
+        'Granular OAuth permission set.',
+      );
+    });
+
+    test('completely unknown top-level type falls back to unknown', () {
+      final result = const LexUserTypeConverter().fromJson({
+        'type': 'totally-made-up-future-type',
+      });
+
+      expect(result, isA<ULexUserTypeUnknown>());
+    });
+
+    test('a permission-set lexicon document parses without throwing', () {
+      late final LexiconDoc doc;
+      expect(
+        () => doc = LexiconDoc.fromJson({
+          'lexicon': 1,
+          'id': 'com.example.permissionSet',
+          'defs': {
+            'main': {
+              'type': 'permission-set',
+              'description': 'Granular OAuth permission set.',
+              'permissions': [
+                {
+                  'resource': 'rpc',
+                  'aud': '*',
+                  'lxm': ['com.example.doThing'],
+                },
+              ],
+            },
+          },
+        }),
+        returnsNormally,
+      );
+
+      expect(doc.defs['main'], isA<ULexUserTypeUnknown>());
+    });
+  });
+
+  group('LexXrpcSchemaConverter graceful degradation (G-12)', () {
+    test('unknown schema type falls back to an object schema', () {
+      final result = const LexXrpcSchemaConverter().fromJson({
+        'type': 'future-schema-kind',
+        'description': 'not yet known',
+      });
+
+      expect(result, isA<ULexXrpcSchemaObject>());
+    });
+
+    test('a query with an unknown output schema parses without throwing', () {
+      expect(
+        () => LexiconDoc.fromJson({
+          'lexicon': 1,
+          'id': 'com.example.futureQuery',
+          'defs': {
+            'main': {
+              'type': 'query',
+              'output': {
+                'encoding': 'application/json',
+                'schema': {
+                  'type': 'future-schema-kind',
+                  'description': 'not yet known',
+                },
+              },
+            },
+          },
+        }),
+        returnsNormally,
+      );
+    });
+  });
+
   group('LexString unknown format (G-13)', () {
     test('unknown format decodes to LexStringFormat.unknown', () {
       final result = LexString.fromJson({

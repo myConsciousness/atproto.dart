@@ -36,7 +36,7 @@ final class GetListsWithMembershipCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.";
+      "Enumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.";
 
   @override
   final String invocation =

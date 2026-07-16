@@ -22,7 +22,7 @@ final class DeleteSessionCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').";
+      "Delete the current session. Requires auth using the 'refreshJwt' (not the 'accessJwt').";
 
   @override
   final String invocation = "bsky com-atproto-server delete-session";

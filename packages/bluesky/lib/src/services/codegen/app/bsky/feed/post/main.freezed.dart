@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main.dart';
@@ -9,7 +9,6 @@ part of 'main.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -69,7 +68,7 @@ class _$FeedPostRecordCopyWithImpl<$Res>
 /// Create a copy of FeedPostRecord
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? text = null,Object? facets = freezed,Object? reply = freezed,Object? embed = freezed,Object? langs = freezed,Object? labels = freezed,Object? tags = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
-  return _then(FeedPostRecord(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,facets: freezed == facets ? _self.facets : facets // ignore: cast_nullable_to_non_nullable
@@ -257,7 +256,7 @@ return $default(_that.$type,_that.text,_that.facets,_that.reply,_that.embed,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _FeedPostRecord implements FeedPostRecord {
-  const _FeedPostRecord({this.$type = 'app.bsky.feed.post', required this.text, @RichtextFacetConverter()  List<RichtextFacet>? facets, @ReplyRefConverter() this.reply, @UFeedPostEmbedConverter() this.embed,  List<String>? langs, @UFeedPostLabelsConverter() this.labels,  List<String>? tags, @JsonKey(toJson: iso8601) required this.createdAt,  Map<String, dynamic>? $unknown}): _facets = facets,_langs = langs,_tags = tags,_$unknown = $unknown;
+  const _FeedPostRecord({this.$type = 'app.bsky.feed.post', required this.text, @RichtextFacetConverter() final  List<RichtextFacet>? facets, @ReplyRefConverter() this.reply, @UFeedPostEmbedConverter() this.embed, final  List<String>? langs, @UFeedPostLabelsConverter() this.labels, final  List<String>? tags, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _facets = facets,_langs = langs,_tags = tags,_$unknown = $unknown;
   factory _FeedPostRecord.fromJson(Map<String, dynamic> json) => _$FeedPostRecordFromJson(json);
 
 @override@JsonKey() final  String $type;

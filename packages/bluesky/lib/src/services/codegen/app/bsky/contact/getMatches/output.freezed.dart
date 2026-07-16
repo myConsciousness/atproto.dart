@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'output.dart';
@@ -9,7 +9,6 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$ContactGetMatchesOutputCopyWithImpl<$Res>
 /// Create a copy of ContactGetMatchesOutput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? matches = null,Object? $unknown = freezed,}) {
-  return _then(ContactGetMatchesOutput(
+  return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,matches: null == matches ? _self.matches : matches // ignore: cast_nullable_to_non_nullable
 as List<ProfileView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +211,7 @@ return $default(_that.cursor,_that.matches,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ContactGetMatchesOutput implements ContactGetMatchesOutput {
-  const _ContactGetMatchesOutput({this.cursor, @ProfileViewConverter() required  List<ProfileView> matches,  Map<String, dynamic>? $unknown}): _matches = matches,_$unknown = $unknown;
+  const _ContactGetMatchesOutput({this.cursor, @ProfileViewConverter() required final  List<ProfileView> matches, final  Map<String, dynamic>? $unknown}): _matches = matches,_$unknown = $unknown;
   factory _ContactGetMatchesOutput.fromJson(Map<String, dynamic> json) => _$ContactGetMatchesOutputFromJson(json);
 
 @override final  String? cursor;

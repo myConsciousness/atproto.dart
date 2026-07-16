@@ -29,7 +29,7 @@ final class GetTrendingTopicsCommand extends QueryCommand {
   final String name = "get-trending-topics";
 
   @override
-  final String description = r"Get a list of trending topics";
+  final String description = "Get a list of trending topics";
 
   @override
   final String invocation =

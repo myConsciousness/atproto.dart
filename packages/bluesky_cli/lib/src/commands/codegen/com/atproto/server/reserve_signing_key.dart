@@ -24,7 +24,7 @@ final class ReserveSigningKeyCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.";
+      "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.";
 
   @override
   final String invocation =

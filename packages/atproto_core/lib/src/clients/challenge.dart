@@ -31,14 +31,16 @@ final class Challenge {
     int retryCount = 0,
     int dpopNonceRetryCount = 0,
     bool sessionRefreshed = false,
-    void Function(Map<String, String> headers)? onUpdateDpopNonce,
+    Future<void> Function(Map<String, String> headers)? onUpdateDpopNonce,
     Future<bool> Function(xrpc.UnauthorizedException e)? onUnauthorized,
   }) async {
     try {
       final response = await action.call();
 
       if (onUpdateDpopNonce != null) {
-        onUpdateDpopNonce(response.headers);
+        // Success path: fire-and-forget so a slow nonce cache does not delay
+        // the response.
+        unawaited(onUpdateDpopNonce(response.headers));
       }
 
       return response;
@@ -108,8 +110,10 @@ final class Challenge {
           _getHeader(e.response.headers, 'dpop-nonce') != null &&
           onUpdateDpopNonce != null &&
           dpopNonceRetryCount < _maxDpopNonceRetries) {
-        // Update the nonce with the one provided by the server
-        onUpdateDpopNonce(e.response.headers);
+        // Update the nonce with the one provided by the server. Await the
+        // write so a custom async nonce cache has committed the new nonce
+        // before we re-issue the request with it.
+        await onUpdateDpopNonce(e.response.headers);
 
         // Retry immediately with the new nonce (no wait needed)
         return await execute(
@@ -168,7 +172,7 @@ final class Challenge {
     int retryCount = 0,
     int dpopNonceRetryCount = 0,
     bool sessionRefreshed = false,
-    void Function(Map<String, String> headers)? onUpdateDpopNonce,
+    Future<void> Function(Map<String, String> headers)? onUpdateDpopNonce,
     Future<bool> Function(xrpc.UnauthorizedException e)? onUnauthorized,
     Duration? atLeast,
   }) async {

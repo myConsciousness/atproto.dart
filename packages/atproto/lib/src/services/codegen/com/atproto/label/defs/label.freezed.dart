@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'label.dart';
@@ -9,7 +9,6 @@ part of 'label.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -76,7 +75,7 @@ class _$LabelCopyWithImpl<$Res>
 /// Create a copy of Label
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? ver = freezed,Object? src = null,Object? uri = null,Object? cid = freezed,Object? val = null,Object? neg = freezed,Object? cts = null,Object? exp = freezed,Object? sig = freezed,Object? $unknown = freezed,}) {
-  return _then(Label(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,ver: freezed == ver ? _self.ver : ver // ignore: cast_nullable_to_non_nullable
 as int?,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
@@ -229,7 +228,7 @@ return $default(_that.$type,_that.ver,_that.src,_that.uri,_that.cid,_that.val,_t
 
 @JsonSerializable(includeIfNull: false)
 class _Label implements Label {
-  const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, required this.uri, this.cid, required this.val, this.neg, @JsonKey(toJson: iso8601) required this.cts, @JsonKey(toJson: iso8601) this.exp,  Map<String, dynamic>? sig,  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
+  const _Label({this.$type = 'com.atproto.label.defs#label', this.ver, required this.src, required this.uri, this.cid, required this.val, this.neg, @JsonKey(toJson: iso8601) required this.cts, @JsonKey(toJson: iso8601) this.exp, final  Map<String, dynamic>? sig, final  Map<String, dynamic>? $unknown}): _sig = sig,_$unknown = $unknown;
   factory _Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);
 
 @override@JsonKey() final  String $type;

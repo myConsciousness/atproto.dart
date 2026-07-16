@@ -26,7 +26,7 @@ final class GetUnreadCountCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Count the number of unread notifications for the requesting account. Requires auth.";
+      "Count the number of unread notifications for the requesting account. Requires auth.";
 
   @override
   final String invocation =

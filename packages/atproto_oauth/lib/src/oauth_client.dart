@@ -162,6 +162,12 @@ final class OAuthClient {
   final DPoPNonceCache _nonceCache;
   final DPoPSigner _signer;
 
+  /// In-flight refresh operations keyed by account `sub`, so concurrent
+  /// refreshes of the same session share a single token request instead of
+  /// each POSTing the (rotating) refresh token — which would make all but the
+  /// first fail with `invalid_grant` and tear down the just-issued session.
+  final Map<String, Future<OAuthSession>> _inFlightRefreshes = {};
+
   /// Optional HTTP client, mainly for testing.
   ///
   /// When `null`, the default top-level `package:http` functions are used.
@@ -239,9 +245,11 @@ final class OAuthClient {
       'scope': metadata.scope,
     };
 
-    // The resolved identity doubles as the login_hint.
-    if (identity.isNotEmpty) {
-      bodyParams['login_hint'] = identity;
+    // Use the resolved, normalized handle/DID as the login_hint (never the raw
+    // input, which may carry `@`/`at://` prefixes or non-canonical casing).
+    final loginHint = resolved.handle ?? resolved.did;
+    if (loginHint.isNotEmpty) {
+      bodyParams['login_hint'] = loginHint;
     }
 
     // The DPoP key pair is generated up front so the PAR request can carry a
@@ -348,79 +356,94 @@ final class OAuthClient {
       throw OAuthException('Unknown authorization session "$stateParam"');
     }
 
-    // RFC 9207: validate the `iss` authorization response parameter to detect
-    // authorization server mix-up attacks. Required by the atproto OAuth
-    // profile.
-    final expectedIssuer = _normalizeIssuer(context.issuer ?? '');
-    final issParam = params['iss'];
-    if (issParam == null) {
-      throw OAuthException(
-        'Missing "iss" parameter (RFC 9207): expected "$expectedIssuer"',
+    // The authorization `state` is strictly one-time-use: consume it on every
+    // outcome (success or failure) so a leaked or replayed `state` cannot be
+    // re-exchanged and the stored PKCE verifier + DPoP key never linger.
+    try {
+      // Reject a malformed/incompatible context up front — before the token
+      // exchange and before the `iss` check. An empty `issuer` would otherwise
+      // turn the RFC 9207 issuer comparison into a no-op.
+      final contextIssuer = context.issuer;
+      if (contextIssuer == null || contextIssuer.isEmpty) {
+        throw OAuthException(
+          'Malformed authorization context for state "$stateParam": '
+          'missing "issuer" (was it created by an incompatible version?)',
+        );
+      }
+      final contextPds = context.pds;
+      if (contextPds == null || contextPds.isEmpty) {
+        throw OAuthException(
+          'Malformed authorization context for state "$stateParam": '
+          'missing "pds" (was it created by an incompatible version?)',
+        );
+      }
+
+      // RFC 9207: validate the `iss` authorization response parameter to
+      // detect authorization server mix-up attacks. Required by the atproto
+      // OAuth profile.
+      final expectedIssuer = _normalizeIssuer(contextIssuer);
+      final issParam = params['iss'];
+      if (issParam == null) {
+        throw OAuthException(
+          'Missing "iss" parameter (RFC 9207): expected "$expectedIssuer"',
+        );
+      }
+      if (_normalizeIssuer(issParam) != expectedIssuer) {
+        throw OAuthException(
+          'Issuer mismatch: expected "$expectedIssuer" but the callback '
+          'was issued by "$issParam"',
+        );
+      }
+
+      final errorParam = params['error'];
+      if (errorParam != null) {
+        final description = params['error_description'];
+        throw OAuthException(
+          description == null ? errorParam : '$errorParam: $description',
+        );
+      }
+
+      final codeParam = params['code'];
+      if (codeParam == null) throw OAuthException('Missing "code" query param');
+
+      final tokenEndpoint = context.tokenEndpoint;
+      final publicKey = context.dpopPublicKey;
+      final privateKey = context.dpopPrivateKey;
+      if (tokenEndpoint == null || publicKey == null || privateKey == null) {
+        throw OAuthException(
+          'Authorization session "$stateParam" is missing token endpoint or '
+          'DPoP key material',
+        );
+      }
+
+      final keyPair = DPoPKeyPair(publicKey: publicKey, privateKey: privateKey);
+
+      final result = await _postTokenRequest(
+        endpoint: Uri.parse(tokenEndpoint),
+        keyPair: keyPair,
+        bodyParams: {
+          'client_id': metadata.clientId,
+          'grant_type': 'authorization_code',
+          'code': codeParam,
+          'redirect_uri': metadata.redirectUris.first,
+          'code_verifier': context.codeVerifier,
+        },
       );
-    }
-    if (_normalizeIssuer(issParam) != expectedIssuer) {
-      throw OAuthException(
-        'Issuer mismatch: expected "$expectedIssuer" but the callback '
-        'was issued by "$issParam"',
+
+      final session = _buildSession(
+        result: result,
+        keyPair: keyPair,
+        issuer: contextIssuer,
+        pds: contextPds,
+        expectedSub: context.expectedSub,
       );
+
+      await _sessionStore.set(session.sub, session);
+
+      return session;
+    } finally {
+      await _stateStore.delete(stateParam);
     }
-
-    final errorParam = params['error'];
-    if (errorParam != null) {
-      final description = params['error_description'];
-      throw OAuthException(
-        description == null ? errorParam : '$errorParam: $description',
-      );
-    }
-
-    final codeParam = params['code'];
-    if (codeParam == null) throw OAuthException('Missing "code" query param');
-
-    final tokenEndpoint = context.tokenEndpoint;
-    final publicKey = context.dpopPublicKey;
-    final privateKey = context.dpopPrivateKey;
-    if (tokenEndpoint == null || publicKey == null || privateKey == null) {
-      throw OAuthException(
-        'Authorization session "$stateParam" is missing token endpoint or '
-        'DPoP key material',
-      );
-    }
-
-    final keyPair = DPoPKeyPair(publicKey: publicKey, privateKey: privateKey);
-
-    final result = await _postTokenRequest(
-      endpoint: Uri.parse(tokenEndpoint),
-      keyPair: keyPair,
-      bodyParams: {
-        'client_id': metadata.clientId,
-        'grant_type': 'authorization_code',
-        'code': codeParam,
-        'redirect_uri': metadata.redirectUris.first,
-        'code_verifier': context.codeVerifier,
-      },
-    );
-
-    final contextPds = context.pds;
-    final contextIssuer = context.issuer;
-    if (contextPds == null || contextIssuer == null) {
-      throw OAuthException(
-        'Malformed authorization context for state "$stateParam": '
-        'missing "pds"/"issuer" (was it created by an incompatible version?)',
-      );
-    }
-
-    final session = _buildSession(
-      result: result,
-      keyPair: keyPair,
-      issuer: contextIssuer,
-      pds: contextPds,
-      expectedSub: context.expectedSub,
-    );
-
-    await _stateStore.delete(stateParam);
-    await _sessionStore.set(session.sub, session);
-
-    return session;
   }
 
   /// Refreshes [session] using the DPoP-bound refresh token flow.
@@ -444,6 +467,24 @@ final class OAuthClient {
       throw OAuthException('No refresh token available');
     }
 
+    // Single-flight: coalesce concurrent refreshes of the same account onto
+    // one shared future so the rotating refresh token is POSTed exactly once.
+    final inFlight = _inFlightRefreshes[session.sub];
+    if (inFlight != null) return inFlight;
+
+    final future = _refresh(session, refreshToken);
+    _inFlightRefreshes[session.sub] = future;
+    try {
+      return await future;
+    } finally {
+      _inFlightRefreshes.remove(session.sub);
+    }
+  }
+
+  Future<OAuthSession> _refresh(
+    final OAuthSession session,
+    final String refreshToken,
+  ) async {
     final authority = Uri.parse(session.issuer).authority;
     final meta = await _discoverServerMetadata(authority);
     final endpoint = Uri.parse(
@@ -468,9 +509,15 @@ final class OAuthClient {
 
     if (response.statusCode != 200) {
       // A revoked or otherwise invalid refresh token: drop the dead session
-      // and signal the caller to re-authorize.
+      // and signal the caller to re-authorize. Only delete if the stored
+      // session still carries the exact refresh token we just tried; a
+      // concurrent refresh may have already replaced it with a newer, valid
+      // session that must not be clobbered by this stale failure.
       if (post.body?['error'] == 'invalid_grant') {
-        await _sessionStore.delete(session.sub);
+        final current = await _sessionStore.find(session.sub);
+        if (current != null && current.refreshToken == refreshToken) {
+          await _sessionStore.delete(session.sub);
+        }
         throw OAuthSessionRevokedException(
           'Refresh failed for "${session.sub}": the session has been revoked',
         );
@@ -790,8 +837,11 @@ final class OAuthClient {
 
     final accessToken = body['access_token'];
     if (accessToken is! String || accessToken.isEmpty) {
+      // Never serialize the token body: it may contain live credentials.
+      // Report only the set of keys present, never their values.
       throw OAuthException(
-        'Token response is missing "access_token": ${jsonEncode(body)}',
+        'Token response is missing "access_token" '
+        '(keys present: ${_presentKeys(body)})',
       );
     }
 
@@ -804,8 +854,10 @@ final class OAuthClient {
     }
     sub ??= fallbackSub;
     if (sub == null) {
+      // Never serialize the token body: it may contain live credentials.
       throw OAuthException(
-        'Token response is missing "sub": ${jsonEncode(body)}',
+        'Token response is missing "sub" '
+        '(keys present: ${_presentKeys(body)})',
       );
     }
     // atproto OAuth account-identity verification: when the account this flow
@@ -901,6 +953,12 @@ bool _isLoopbackHost(final String host) {
       normalized == '127.0.0.1' ||
       normalized == '::1';
 }
+
+/// Renders the member names present in a token response for diagnostics,
+/// deliberately excluding every value so live credentials (`access_token`,
+/// `refresh_token`, ...) can never leak into an exception message or log.
+String _presentKeys(final Map<String, dynamic> body) =>
+    body.keys.isEmpty ? '(none)' : body.keys.join(', ');
 
 /// Whether a space-delimited OAuth `scope` string contains the `atproto`
 /// scope required by the atproto OAuth profile.

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mod_event_label.dart';
@@ -9,7 +9,6 @@ part of 'mod_event_label.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -68,7 +67,7 @@ class _$ModEventLabelCopyWithImpl<$Res>
 /// Create a copy of ModEventLabel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? createLabelVals = null,Object? negateLabelVals = null,Object? durationInHours = freezed,Object? $unknown = freezed,}) {
-  return _then(ModEventLabel(
+  return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,createLabelVals: null == createLabelVals ? _self.createLabelVals : createLabelVals // ignore: cast_nullable_to_non_nullable
@@ -216,7 +215,7 @@ return $default(_that.$type,_that.comment,_that.createLabelVals,_that.negateLabe
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventLabel implements ModEventLabel {
-  const _ModEventLabel({this.$type = 'tools.ozone.moderation.defs#modEventLabel', this.comment, required  List<String> createLabelVals, required  List<String> negateLabelVals, this.durationInHours,  Map<String, dynamic>? $unknown}): _createLabelVals = createLabelVals,_negateLabelVals = negateLabelVals,_$unknown = $unknown;
+  const _ModEventLabel({this.$type = 'tools.ozone.moderation.defs#modEventLabel', this.comment, required final  List<String> createLabelVals, required final  List<String> negateLabelVals, this.durationInHours, final  Map<String, dynamic>? $unknown}): _createLabelVals = createLabelVals,_negateLabelVals = negateLabelVals,_$unknown = $unknown;
   factory _ModEventLabel.fromJson(Map<String, dynamic> json) => _$ModEventLabelFromJson(json);
 
 @override@JsonKey() final  String $type;

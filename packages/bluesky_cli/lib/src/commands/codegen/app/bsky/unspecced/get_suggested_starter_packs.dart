@@ -23,7 +23,7 @@ final class GetSuggestedStarterPacksCommand extends QueryCommand {
   final String name = "get-suggested-starter-packs";
 
   @override
-  final String description = r"Get a list of suggested starterpacks";
+  final String description = "Get a list of suggested starterpacks";
 
   @override
   final String invocation =

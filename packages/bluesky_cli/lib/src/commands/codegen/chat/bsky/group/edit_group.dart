@@ -25,7 +25,7 @@ final class EditGroupCommand extends ProcedureCommand {
   final String name = "edit-group";
 
   @override
-  final String description = r"Edits group settings.";
+  final String description = "Edits group settings.";
 
   @override
   final String invocation =

@@ -28,7 +28,7 @@ final class GetAccountHistoryCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get account history, e.g. log of updated email addresses or other identity information.";
+      "Get account history, e.g. log of updated email addresses or other identity information.";
 
   @override
   final String invocation =

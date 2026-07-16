@@ -153,7 +153,7 @@ final class QueryStatusesCommand extends QueryCommand {
 
   @override
   final String description =
-      r"View moderation statuses of subjects (record or repo).";
+      "View moderation statuses of subjects (record or repo).";
 
   @override
   final String invocation =

@@ -31,7 +31,7 @@ final class GetTimelineCommand extends QueryCommand {
 
   @override
   final String description =
-      r"Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.";
+      "Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.";
 
   @override
   final String invocation =

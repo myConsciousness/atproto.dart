@@ -29,7 +29,7 @@ final class PutActivitySubscriptionCommand extends ProcedureCommand {
 
   @override
   final String description =
-      r"Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.";
+      "Puts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.";
 
   @override
   final String invocation =

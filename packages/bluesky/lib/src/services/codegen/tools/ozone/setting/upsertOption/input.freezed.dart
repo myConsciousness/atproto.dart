@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'input.dart';
@@ -9,7 +9,6 @@ part of 'input.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -67,7 +66,7 @@ class _$SettingUpsertOptionInputCopyWithImpl<$Res>
 /// Create a copy of SettingUpsertOptionInput
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? key = null,Object? scope = null,Object? value = null,Object? description = freezed,Object? managerRole = freezed,Object? $unknown = freezed,}) {
-  return _then(SettingUpsertOptionInput(
+  return _then(_self.copyWith(
 key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,scope: null == scope ? _self.scope : scope // ignore: cast_nullable_to_non_nullable
 as SettingUpsertOptionScope,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
@@ -236,7 +235,7 @@ return $default(_that.key,_that.scope,_that.value,_that.description,_that.manage
 
 @JsonSerializable(includeIfNull: false)
 class _SettingUpsertOptionInput implements SettingUpsertOptionInput {
-  const _SettingUpsertOptionInput({required this.key, @SettingUpsertOptionScopeConverter() required this.scope, required  Map<String, dynamic> value, this.description, @SettingUpsertOptionManagerRoleConverter() this.managerRole,  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
+  const _SettingUpsertOptionInput({required this.key, @SettingUpsertOptionScopeConverter() required this.scope, required final  Map<String, dynamic> value, this.description, @SettingUpsertOptionManagerRoleConverter() this.managerRole, final  Map<String, dynamic>? $unknown}): _value = value,_$unknown = $unknown;
   factory _SettingUpsertOptionInput.fromJson(Map<String, dynamic> json) => _$SettingUpsertOptionInputFromJson(json);
 
 @override final  String key;
