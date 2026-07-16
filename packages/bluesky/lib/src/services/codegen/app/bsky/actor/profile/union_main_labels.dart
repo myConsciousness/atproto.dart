@@ -63,9 +63,10 @@ final class UActorProfileLabelsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UActorProfileLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+  Map<String, dynamic> toJson(UActorProfileLabels object) => switch (object) {
+    UActorProfileLabelsSelfLabels(:final data) =>
+      const SelfLabelsConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UActorProfileLabelsUnknown(:final data) => data,
+  };
 }

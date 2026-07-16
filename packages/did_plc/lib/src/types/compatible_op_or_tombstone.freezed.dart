@@ -87,10 +87,7 @@ case UCompatibleOpOrTombstoneOp():
 return op(_that);case UCompatibleOpOrTombstoneTombstone():
 return tombstone(_that);case UCompatibleOpOrTombstoneCreateOperationV1():
 return createOpV1(_that);case UCompatibleOpOrTombstoneUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case UCompatibleOpOrTombstoneOp():
 return op(_that.data);case UCompatibleOpOrTombstoneTombstone():
 return tombstone(_that.data);case UCompatibleOpOrTombstoneCreateOperationV1():
 return createOpV1(_that.data);case UCompatibleOpOrTombstoneUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

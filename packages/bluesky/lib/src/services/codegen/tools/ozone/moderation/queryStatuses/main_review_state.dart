@@ -19,7 +19,7 @@ part 'main_review_state.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ModerationQueryStatusesReviewState
+sealed class ModerationQueryStatusesReviewState
     with _$ModerationQueryStatusesReviewState {
   const ModerationQueryStatusesReviewState._();
 
@@ -75,8 +75,10 @@ final class ModerationQueryStatusesReviewStateConverter
   }
 
   @override
-  String toJson(ModerationQueryStatusesReviewState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ModerationQueryStatusesReviewState object) => switch (object) {
+    ModerationQueryStatusesReviewStateKnownValue(:final data) => data.value,
+    ModerationQueryStatusesReviewStateUnknown(:final data) => data,
+  };
 }
 
 enum KnownModerationQueryStatusesReviewState implements Serializable {

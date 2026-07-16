@@ -19,7 +19,7 @@ part 'main_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SyncGetRepoStatusStatus with _$SyncGetRepoStatusStatus {
+sealed class SyncGetRepoStatusStatus with _$SyncGetRepoStatusStatus {
   const SyncGetRepoStatusStatus._();
 
   const factory SyncGetRepoStatusStatus.knownValue({
@@ -70,8 +70,10 @@ final class SyncGetRepoStatusStatusConverter
   }
 
   @override
-  String toJson(SyncGetRepoStatusStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SyncGetRepoStatusStatus object) => switch (object) {
+    SyncGetRepoStatusStatusKnownValue(:final data) => data.value,
+    SyncGetRepoStatusStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownSyncGetRepoStatusStatus implements Serializable {

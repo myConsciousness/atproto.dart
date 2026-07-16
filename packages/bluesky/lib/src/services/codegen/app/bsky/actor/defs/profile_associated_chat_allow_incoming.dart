@@ -19,7 +19,7 @@ part 'profile_associated_chat_allow_incoming.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ProfileAssociatedChatAllowIncoming
+sealed class ProfileAssociatedChatAllowIncoming
     with _$ProfileAssociatedChatAllowIncoming {
   const ProfileAssociatedChatAllowIncoming._();
 
@@ -75,8 +75,10 @@ final class ProfileAssociatedChatAllowIncomingConverter
   }
 
   @override
-  String toJson(ProfileAssociatedChatAllowIncoming object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ProfileAssociatedChatAllowIncoming object) => switch (object) {
+    ProfileAssociatedChatAllowIncomingKnownValue(:final data) => data.value,
+    ProfileAssociatedChatAllowIncomingUnknown(:final data) => data,
+  };
 }
 
 enum KnownProfileAssociatedChatAllowIncoming implements Serializable {

@@ -19,7 +19,7 @@ part 'convo_kind.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ConvoKind with _$ConvoKind {
+sealed class ConvoKind with _$ConvoKind {
   const ConvoKind._();
 
   const factory ConvoKind.knownValue({required KnownConvoKind data}) =
@@ -67,8 +67,10 @@ final class ConvoKindConverter extends JsonConverter<ConvoKind, String> {
   }
 
   @override
-  String toJson(ConvoKind object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ConvoKind object) => switch (object) {
+    ConvoKindKnownValue(:final data) => data.value,
+    ConvoKindUnknown(:final data) => data,
+  };
 }
 
 enum KnownConvoKind implements Serializable {

@@ -19,7 +19,7 @@ part 'report_view_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ReportViewStatus with _$ReportViewStatus {
+sealed class ReportViewStatus with _$ReportViewStatus {
   const ReportViewStatus._();
 
   const factory ReportViewStatus.knownValue({
@@ -70,8 +70,10 @@ final class ReportViewStatusConverter
   }
 
   @override
-  String toJson(ReportViewStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ReportViewStatus object) => switch (object) {
+    ReportViewStatusKnownValue(:final data) => data.value,
+    ReportViewStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownReportViewStatus implements Serializable {

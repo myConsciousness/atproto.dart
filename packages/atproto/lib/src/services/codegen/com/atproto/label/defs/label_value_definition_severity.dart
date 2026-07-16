@@ -19,8 +19,7 @@ part 'label_value_definition_severity.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class LabelValueDefinitionSeverity
-    with _$LabelValueDefinitionSeverity {
+sealed class LabelValueDefinitionSeverity with _$LabelValueDefinitionSeverity {
   const LabelValueDefinitionSeverity._();
 
   const factory LabelValueDefinitionSeverity.knownValue({
@@ -72,8 +71,10 @@ final class LabelValueDefinitionSeverityConverter
   }
 
   @override
-  String toJson(LabelValueDefinitionSeverity object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(LabelValueDefinitionSeverity object) => switch (object) {
+    LabelValueDefinitionSeverityKnownValue(:final data) => data.value,
+    LabelValueDefinitionSeverityUnknown(:final data) => data,
+  };
 }
 
 enum KnownLabelValueDefinitionSeverity implements Serializable {

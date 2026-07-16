@@ -95,11 +95,14 @@ final class UAdminGetSubjectStatusSubjectConverter
 
   @override
   Map<String, dynamic> toJson(UAdminGetSubjectStatusSubject object) =>
-      object.when(
-        repoRef: (data) => const RepoRefConverter().toJson(data),
-        repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
-        repoBlobRef: (data) => const RepoBlobRefConverter().toJson(data),
+      switch (object) {
+        UAdminGetSubjectStatusSubjectRepoRef(:final data) =>
+          const RepoRefConverter().toJson(data),
+        UAdminGetSubjectStatusSubjectRepoStrongRef(:final data) =>
+          const RepoStrongRefConverter().toJson(data),
+        UAdminGetSubjectStatusSubjectRepoBlobRef(:final data) =>
+          const RepoBlobRefConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UAdminGetSubjectStatusSubjectUnknown(:final data) => data,
+      };
 }

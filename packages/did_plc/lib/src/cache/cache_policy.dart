@@ -12,7 +12,7 @@ part 'cache_policy.freezed.dart';
 /// This class defines how responses should be cached, including
 /// TTL (Time To Live) settings and cache size limits.
 @freezed
-class CachePolicy with _$CachePolicy {
+sealed class CachePolicy with _$CachePolicy {
   /// Creates a cache policy configuration.
   ///
   /// [enabled] - Whether caching is enabled (default: true)
@@ -45,34 +45,34 @@ class CachePolicy with _$CachePolicy {
 /// Extension methods for CachePolicy to provide utility functions.
 extension CachePolicyExtension on CachePolicy {
   /// Returns true if caching is effectively enabled.
-  bool get isEnabled => when(
-    (enabled, _, _, _) => enabled,
-    disabled: () => false,
-    aggressive: (_, _) => true,
-    minimal: (_, _) => true,
-  );
+  bool get isEnabled => switch (this) {
+    _CachePolicy(:final enabled) => enabled,
+    _CachePolicyDisabled() => false,
+    _CachePolicyAggressive() => true,
+    _CachePolicyMinimal() => true,
+  };
 
   /// Returns the effective TTL duration.
-  Duration get effectiveTtl => when(
-    (_, ttl, _, _) => ttl,
-    disabled: () => Duration.zero,
-    aggressive: (ttl, _) => ttl,
-    minimal: (ttl, _) => ttl,
-  );
+  Duration get effectiveTtl => switch (this) {
+    _CachePolicy(:final ttl) => ttl,
+    _CachePolicyDisabled() => Duration.zero,
+    _CachePolicyAggressive(:final ttl) => ttl,
+    _CachePolicyMinimal(:final ttl) => ttl,
+  };
 
   /// Returns the effective maximum cache size.
-  int get effectiveMaxSize => when(
-    (_, _, maxSize, _) => maxSize,
-    disabled: () => 0,
-    aggressive: (_, maxSize) => maxSize,
-    minimal: (_, maxSize) => maxSize,
-  );
+  int get effectiveMaxSize => switch (this) {
+    _CachePolicy(:final maxSize) => maxSize,
+    _CachePolicyDisabled() => 0,
+    _CachePolicyAggressive(:final maxSize) => maxSize,
+    _CachePolicyMinimal(:final maxSize) => maxSize,
+  };
 
   /// Returns true if LRU eviction should be used.
-  bool get shouldUseLru => when(
-    (_, _, _, enableLru) => enableLru,
-    disabled: () => false,
-    aggressive: (_, _) => true,
-    minimal: (_, _) => true,
-  );
+  bool get shouldUseLru => switch (this) {
+    _CachePolicy(:final enableLru) => enableLru,
+    _CachePolicyDisabled() => false,
+    _CachePolicyAggressive() => true,
+    _CachePolicyMinimal() => true,
+  };
 }

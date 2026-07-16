@@ -19,7 +19,7 @@ part 'main_subject_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ReportQueryReportsSubjectType
+sealed class ReportQueryReportsSubjectType
     with _$ReportQueryReportsSubjectType {
   const ReportQueryReportsSubjectType._();
 
@@ -73,8 +73,10 @@ final class ReportQueryReportsSubjectTypeConverter
   }
 
   @override
-  String toJson(ReportQueryReportsSubjectType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ReportQueryReportsSubjectType object) => switch (object) {
+    ReportQueryReportsSubjectTypeKnownValue(:final data) => data.value,
+    ReportQueryReportsSubjectTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownReportQueryReportsSubjectType implements Serializable {

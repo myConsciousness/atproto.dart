@@ -80,11 +80,13 @@ final class ULogRemoveReactionMessageConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ULogRemoveReactionMessage object) => object.when(
-    messageView: (data) => const MessageViewConverter().toJson(data),
-    deletedMessageView: (data) =>
-        const DeletedMessageViewConverter().toJson(data),
+  Map<String, dynamic> toJson(ULogRemoveReactionMessage object) =>
+      switch (object) {
+        ULogRemoveReactionMessageMessageView(:final data) =>
+          const MessageViewConverter().toJson(data),
+        ULogRemoveReactionMessageDeletedMessageView(:final data) =>
+          const DeletedMessageViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        ULogRemoveReactionMessageUnknown(:final data) => data,
+      };
 }

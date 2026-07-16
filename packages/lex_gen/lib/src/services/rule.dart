@@ -213,7 +213,10 @@ String getLexObjectNameFromRef(
 bool _isRecordDoc(final GenContext ctx, final String lexiconId) {
   final main = ctx.defByRef(lexiconId, 'main');
 
-  return main?.whenOrNull(record: (_) => true) ?? false;
+  return switch (main) {
+    ULexUserTypeRecord() => true,
+    _ => false,
+  };
 }
 
 String getLexObjectPackagePathFromRef(

@@ -19,7 +19,7 @@ part 'thread_view_pref_sort.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ThreadViewPrefSort with _$ThreadViewPrefSort {
+sealed class ThreadViewPrefSort with _$ThreadViewPrefSort {
   const ThreadViewPrefSort._();
 
   const factory ThreadViewPrefSort.knownValue({
@@ -70,8 +70,10 @@ final class ThreadViewPrefSortConverter
   }
 
   @override
-  String toJson(ThreadViewPrefSort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ThreadViewPrefSort object) => switch (object) {
+    ThreadViewPrefSortKnownValue(:final data) => data.value,
+    ThreadViewPrefSortUnknown(:final data) => data,
+  };
 }
 
 enum KnownThreadViewPrefSort implements Serializable {

@@ -101,15 +101,16 @@ final class UEmbedJoinLinkViewJoinLinkPreviewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbedJoinLinkViewJoinLinkPreview object) =>
-      object.when(
-        joinLinkPreviewView: (data) =>
-            const JoinLinkPreviewViewConverter().toJson(data),
-        disabledJoinLinkPreviewView: (data) =>
-            const DisabledJoinLinkPreviewViewConverter().toJson(data),
-        invalidJoinLinkPreviewView: (data) =>
-            const InvalidJoinLinkPreviewViewConverter().toJson(data),
+  Map<String, dynamic> toJson(
+    UEmbedJoinLinkViewJoinLinkPreview object,
+  ) => switch (object) {
+    UEmbedJoinLinkViewJoinLinkPreviewJoinLinkPreviewView(:final data) =>
+      const JoinLinkPreviewViewConverter().toJson(data),
+    UEmbedJoinLinkViewJoinLinkPreviewDisabledJoinLinkPreviewView(:final data) =>
+      const DisabledJoinLinkPreviewViewConverter().toJson(data),
+    UEmbedJoinLinkViewJoinLinkPreviewInvalidJoinLinkPreviewView(:final data) =>
+      const InvalidJoinLinkPreviewViewConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+    UEmbedJoinLinkViewJoinLinkPreviewUnknown(:final data) => data,
+  };
 }

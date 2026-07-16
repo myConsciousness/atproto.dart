@@ -19,7 +19,7 @@ part 'reason_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ReasonType with _$ReasonType {
+sealed class ReasonType with _$ReasonType {
   const ReasonType._();
 
   const factory ReasonType.knownValue({required KnownReasonType data}) =
@@ -67,8 +67,10 @@ final class ReasonTypeConverter extends JsonConverter<ReasonType, String> {
   }
 
   @override
-  String toJson(ReasonType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ReasonType object) => switch (object) {
+    ReasonTypeKnownValue(:final data) => data.value,
+    ReasonTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownReasonType implements Serializable {

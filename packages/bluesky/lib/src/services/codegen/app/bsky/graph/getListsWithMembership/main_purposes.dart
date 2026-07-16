@@ -19,7 +19,7 @@ part 'main_purposes.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class GraphGetListsWithMembershipPurposes
+sealed class GraphGetListsWithMembershipPurposes
     with _$GraphGetListsWithMembershipPurposes {
   const GraphGetListsWithMembershipPurposes._();
 
@@ -75,8 +75,10 @@ final class GraphGetListsWithMembershipPurposesConverter
   }
 
   @override
-  String toJson(GraphGetListsWithMembershipPurposes object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(GraphGetListsWithMembershipPurposes object) => switch (object) {
+    GraphGetListsWithMembershipPurposesKnownValue(:final data) => data.value,
+    GraphGetListsWithMembershipPurposesUnknown(:final data) => data,
+  };
 }
 
 enum KnownGraphGetListsWithMembershipPurposes implements Serializable {

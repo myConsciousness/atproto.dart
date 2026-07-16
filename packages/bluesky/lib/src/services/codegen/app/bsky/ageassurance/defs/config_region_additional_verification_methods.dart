@@ -19,7 +19,7 @@ part 'config_region_additional_verification_methods.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ConfigRegionAdditionalVerificationMethods
+sealed class ConfigRegionAdditionalVerificationMethods
     with _$ConfigRegionAdditionalVerificationMethods {
   const ConfigRegionAdditionalVerificationMethods._();
 
@@ -86,7 +86,11 @@ final class ConfigRegionAdditionalVerificationMethodsConverter
 
   @override
   String toJson(ConfigRegionAdditionalVerificationMethods object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+      switch (object) {
+        ConfigRegionAdditionalVerificationMethodsKnownValue(:final data) =>
+          data.value,
+        ConfigRegionAdditionalVerificationMethodsUnknown(:final data) => data,
+      };
 }
 
 enum KnownConfigRegionAdditionalVerificationMethods implements Serializable {

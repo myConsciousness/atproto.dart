@@ -66,9 +66,10 @@ final class UActorStatusEmbedConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UActorStatusEmbed object) => object.when(
-    embedExternal: (data) => const EmbedExternalConverter().toJson(data),
+  Map<String, dynamic> toJson(UActorStatusEmbed object) => switch (object) {
+    UActorStatusEmbedEmbedExternal(:final data) =>
+      const EmbedExternalConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UActorStatusEmbedUnknown(:final data) => data,
+  };
 }

@@ -19,7 +19,7 @@ part 'option_manager_role.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class OptionManagerRole with _$OptionManagerRole {
+sealed class OptionManagerRole with _$OptionManagerRole {
   const OptionManagerRole._();
 
   const factory OptionManagerRole.knownValue({
@@ -70,8 +70,10 @@ final class OptionManagerRoleConverter
   }
 
   @override
-  String toJson(OptionManagerRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(OptionManagerRole object) => switch (object) {
+    OptionManagerRoleKnownValue(:final data) => data.value,
+    OptionManagerRoleUnknown(:final data) => data,
+  };
 }
 
 enum KnownOptionManagerRole implements Serializable {

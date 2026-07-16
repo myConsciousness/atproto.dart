@@ -19,7 +19,7 @@ part 'event_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EventType with _$EventType {
+sealed class EventType with _$EventType {
   const EventType._();
 
   const factory EventType.knownValue({required KnownEventType data}) =
@@ -67,8 +67,10 @@ final class EventTypeConverter extends JsonConverter<EventType, String> {
   }
 
   @override
-  String toJson(EventType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EventType object) => switch (object) {
+    EventTypeKnownValue(:final data) => data.value,
+    EventTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownEventType implements Serializable {

@@ -84,11 +84,12 @@ final class UConvoListConvoRequestsRequestsConverter
 
   @override
   Map<String, dynamic> toJson(UConvoListConvoRequestsRequests object) =>
-      object.when(
-        convoView: (data) => const ConvoViewConverter().toJson(data),
-        joinRequestConvoView: (data) =>
-            const JoinRequestConvoViewConverter().toJson(data),
+      switch (object) {
+        UConvoListConvoRequestsRequestsConvoView(:final data) =>
+          const ConvoViewConverter().toJson(data),
+        UConvoListConvoRequestsRequestsJoinRequestConvoView(:final data) =>
+          const JoinRequestConvoViewConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UConvoListConvoRequestsRequestsUnknown(:final data) => data,
+      };
 }

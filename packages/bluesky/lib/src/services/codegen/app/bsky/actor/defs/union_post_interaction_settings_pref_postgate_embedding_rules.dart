@@ -81,9 +81,13 @@ final class UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter
   @override
   Map<String, dynamic> toJson(
     UPostInteractionSettingsPrefPostgateEmbeddingRules object,
-  ) => object.when(
-    disableRule: (data) => const DisableRuleConverter().toJson(data),
+  ) => switch (object) {
+    UPostInteractionSettingsPrefPostgateEmbeddingRulesDisableRule(
+      :final data,
+    ) =>
+      const DisableRuleConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UPostInteractionSettingsPrefPostgateEmbeddingRulesUnknown(:final data) =>
+      data,
+  };
 }

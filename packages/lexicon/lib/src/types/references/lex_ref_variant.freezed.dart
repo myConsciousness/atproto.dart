@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case ULexRefVariantRef():
 return ref(_that);case ULexRefVariantRefUnion():
-return refUnion(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return refUnion(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return refUnion(_that.data);case _:
 switch (_that) {
 case ULexRefVariantRef():
 return ref(_that.data);case ULexRefVariantRefUnion():
-return refUnion(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return refUnion(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

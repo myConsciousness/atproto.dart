@@ -102,12 +102,16 @@ final class UFeedThreadgateAllowConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UFeedThreadgateAllow object) => object.when(
-    mentionRule: (data) => const MentionRuleConverter().toJson(data),
-    followerRule: (data) => const FollowerRuleConverter().toJson(data),
-    followingRule: (data) => const FollowingRuleConverter().toJson(data),
-    listRule: (data) => const ListRuleConverter().toJson(data),
+  Map<String, dynamic> toJson(UFeedThreadgateAllow object) => switch (object) {
+    UFeedThreadgateAllowMentionRule(:final data) =>
+      const MentionRuleConverter().toJson(data),
+    UFeedThreadgateAllowFollowerRule(:final data) =>
+      const FollowerRuleConverter().toJson(data),
+    UFeedThreadgateAllowFollowingRule(:final data) =>
+      const FollowingRuleConverter().toJson(data),
+    UFeedThreadgateAllowListRule(:final data) =>
+      const ListRuleConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UFeedThreadgateAllowUnknown(:final data) => data,
+  };
 }

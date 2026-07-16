@@ -19,7 +19,7 @@ part 'repo_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class RepoStatus with _$RepoStatus {
+sealed class RepoStatus with _$RepoStatus {
   const RepoStatus._();
 
   const factory RepoStatus.knownValue({required KnownRepoStatus data}) =
@@ -67,8 +67,10 @@ final class RepoStatusConverter extends JsonConverter<RepoStatus, String> {
   }
 
   @override
-  String toJson(RepoStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RepoStatus object) => switch (object) {
+    RepoStatusKnownValue(:final data) => data.value,
+    RepoStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownRepoStatus implements Serializable {

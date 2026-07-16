@@ -19,7 +19,7 @@ part 'main_allow_incoming.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ActorDeclarationAllowIncoming
+sealed class ActorDeclarationAllowIncoming
     with _$ActorDeclarationAllowIncoming {
   const ActorDeclarationAllowIncoming._();
 
@@ -73,8 +73,10 @@ final class ActorDeclarationAllowIncomingConverter
   }
 
   @override
-  String toJson(ActorDeclarationAllowIncoming object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ActorDeclarationAllowIncoming object) => switch (object) {
+    ActorDeclarationAllowIncomingKnownValue(:final data) => data.value,
+    ActorDeclarationAllowIncomingUnknown(:final data) => data,
+  };
 }
 
 enum KnownActorDeclarationAllowIncoming implements Serializable {

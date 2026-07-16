@@ -19,7 +19,7 @@ part 'record_event_op.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class RecordEventOp with _$RecordEventOp {
+sealed class RecordEventOp with _$RecordEventOp {
   const RecordEventOp._();
 
   const factory RecordEventOp.knownValue({required KnownRecordEventOp data}) =
@@ -69,8 +69,10 @@ final class RecordEventOpConverter
   }
 
   @override
-  String toJson(RecordEventOp object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(RecordEventOp object) => switch (object) {
+    RecordEventOpKnownValue(:final data) => data.value,
+    RecordEventOpUnknown(:final data) => data,
+  };
 }
 
 enum KnownRecordEventOp implements Serializable {

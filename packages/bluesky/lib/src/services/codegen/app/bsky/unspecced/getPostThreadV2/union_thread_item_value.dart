@@ -109,15 +109,16 @@ final class UThreadItemValueConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UThreadItemValue object) => object.when(
-    threadItemPost: (data) => const ThreadItemPostConverter().toJson(data),
-    threadItemNoUnauthenticated: (data) =>
-        const ThreadItemNoUnauthenticatedConverter().toJson(data),
-    threadItemNotFound: (data) =>
-        const ThreadItemNotFoundConverter().toJson(data),
-    threadItemBlocked: (data) =>
-        const ThreadItemBlockedConverter().toJson(data),
+  Map<String, dynamic> toJson(UThreadItemValue object) => switch (object) {
+    UThreadItemValueThreadItemPost(:final data) =>
+      const ThreadItemPostConverter().toJson(data),
+    UThreadItemValueThreadItemNoUnauthenticated(:final data) =>
+      const ThreadItemNoUnauthenticatedConverter().toJson(data),
+    UThreadItemValueThreadItemNotFound(:final data) =>
+      const ThreadItemNotFoundConverter().toJson(data),
+    UThreadItemValueThreadItemBlocked(:final data) =>
+      const ThreadItemBlockedConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UThreadItemValueUnknown(:final data) => data,
+  };
 }

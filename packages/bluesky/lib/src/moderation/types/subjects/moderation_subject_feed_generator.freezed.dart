@@ -121,10 +121,7 @@ return generatorView(_that);case _:
 final _that = this;
 switch (_that) {
 case UModerationSubjectFeedGenerator():
-return generatorView(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return generatorView(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -183,10 +180,7 @@ return generatorView(_that.data);case _:
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( GeneratorView data)  generatorView,}) {final _that = this;
 switch (_that) {
 case UModerationSubjectFeedGenerator():
-return generatorView(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return generatorView(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -63,9 +63,10 @@ final class ULabelerServiceLabelsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ULabelerServiceLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+  Map<String, dynamic> toJson(ULabelerServiceLabels object) => switch (object) {
+    ULabelerServiceLabelsSelfLabels(:final data) =>
+      const SelfLabelsConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    ULabelerServiceLabelsUnknown(:final data) => data,
+  };
 }

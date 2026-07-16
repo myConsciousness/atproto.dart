@@ -12,7 +12,7 @@ import '../../../services/codegen/app/bsky/graph/defs/list_view_basic.dart';
 part 'moderation_subject_user_list.freezed.dart';
 
 @Freezed(fromJson: false, toJson: false)
-abstract class ModerationSubjectUserList with _$ModerationSubjectUserList {
+sealed class ModerationSubjectUserList with _$ModerationSubjectUserList {
   const factory ModerationSubjectUserList.listViewBasic({
     required ListViewBasic data,
   }) = UModerationSubjectUserListListViewBasic;

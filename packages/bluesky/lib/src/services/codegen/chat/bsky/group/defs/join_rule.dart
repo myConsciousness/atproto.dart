@@ -19,7 +19,7 @@ part 'join_rule.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class JoinRule with _$JoinRule {
+sealed class JoinRule with _$JoinRule {
   const JoinRule._();
 
   const factory JoinRule.knownValue({required KnownJoinRule data}) =
@@ -66,8 +66,10 @@ final class JoinRuleConverter extends JsonConverter<JoinRule, String> {
   }
 
   @override
-  String toJson(JoinRule object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(JoinRule object) => switch (object) {
+    JoinRuleKnownValue(:final data) => data.value,
+    JoinRuleUnknown(:final data) => data,
+  };
 }
 
 enum KnownJoinRule implements Serializable {

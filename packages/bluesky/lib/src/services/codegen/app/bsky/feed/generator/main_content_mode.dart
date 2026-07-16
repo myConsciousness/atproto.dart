@@ -19,7 +19,7 @@ part 'main_content_mode.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class FeedGeneratorContentMode with _$FeedGeneratorContentMode {
+sealed class FeedGeneratorContentMode with _$FeedGeneratorContentMode {
   const FeedGeneratorContentMode._();
 
   const factory FeedGeneratorContentMode.knownValue({
@@ -70,8 +70,10 @@ final class FeedGeneratorContentModeConverter
   }
 
   @override
-  String toJson(FeedGeneratorContentMode object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedGeneratorContentMode object) => switch (object) {
+    FeedGeneratorContentModeKnownValue(:final data) => data.value,
+    FeedGeneratorContentModeUnknown(:final data) => data,
+  };
 }
 
 enum KnownFeedGeneratorContentMode implements Serializable {

@@ -19,7 +19,7 @@ part 'muted_word_actor_target.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class MutedWordActorTarget with _$MutedWordActorTarget {
+sealed class MutedWordActorTarget with _$MutedWordActorTarget {
   const MutedWordActorTarget._();
 
   const factory MutedWordActorTarget.knownValue({
@@ -70,8 +70,10 @@ final class MutedWordActorTargetConverter
   }
 
   @override
-  String toJson(MutedWordActorTarget object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(MutedWordActorTarget object) => switch (object) {
+    MutedWordActorTargetKnownValue(:final data) => data.value,
+    MutedWordActorTargetUnknown(:final data) => data,
+  };
 }
 
 enum KnownMutedWordActorTarget implements Serializable {

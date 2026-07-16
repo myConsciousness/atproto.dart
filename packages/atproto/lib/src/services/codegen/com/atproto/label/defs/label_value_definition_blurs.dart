@@ -19,7 +19,7 @@ part 'label_value_definition_blurs.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class LabelValueDefinitionBlurs with _$LabelValueDefinitionBlurs {
+sealed class LabelValueDefinitionBlurs with _$LabelValueDefinitionBlurs {
   const LabelValueDefinitionBlurs._();
 
   const factory LabelValueDefinitionBlurs.knownValue({
@@ -70,8 +70,10 @@ final class LabelValueDefinitionBlursConverter
   }
 
   @override
-  String toJson(LabelValueDefinitionBlurs object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(LabelValueDefinitionBlurs object) => switch (object) {
+    LabelValueDefinitionBlursKnownValue(:final data) => data.value,
+    LabelValueDefinitionBlursUnknown(:final data) => data,
+  };
 }
 
 enum KnownLabelValueDefinitionBlurs implements Serializable {

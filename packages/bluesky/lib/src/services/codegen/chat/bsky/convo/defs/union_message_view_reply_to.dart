@@ -96,13 +96,14 @@ final class UMessageViewReplyToConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UMessageViewReplyTo object) => object.when(
-    messageView: (data) => const MessageViewConverter().toJson(data),
-    deletedMessageView: (data) =>
-        const DeletedMessageViewConverter().toJson(data),
-    messageBeforeUserJoinedGroupView: (data) =>
-        const MessageBeforeUserJoinedGroupViewConverter().toJson(data),
+  Map<String, dynamic> toJson(UMessageViewReplyTo object) => switch (object) {
+    UMessageViewReplyToMessageView(:final data) =>
+      const MessageViewConverter().toJson(data),
+    UMessageViewReplyToDeletedMessageView(:final data) =>
+      const DeletedMessageViewConverter().toJson(data),
+    UMessageViewReplyToMessageBeforeUserJoinedGroupView(:final data) =>
+      const MessageBeforeUserJoinedGroupViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UMessageViewReplyToUnknown(:final data) => data,
+  };
 }

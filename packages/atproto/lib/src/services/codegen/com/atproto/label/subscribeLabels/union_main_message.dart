@@ -79,10 +79,12 @@ final class ULabelSubscribeLabelsMessageConverter
 
   @override
   Map<String, dynamic> toJson(ULabelSubscribeLabelsMessage object) =>
-      object.when(
-        labels: (data) => const LabelsConverter().toJson(data),
-        info: (data) => const InfoConverter().toJson(data),
+      switch (object) {
+        ULabelSubscribeLabelsMessageLabels(:final data) =>
+          const LabelsConverter().toJson(data),
+        ULabelSubscribeLabelsMessageInfo(:final data) =>
+          const InfoConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        ULabelSubscribeLabelsMessageUnknown(:final data) => data,
+      };
 }

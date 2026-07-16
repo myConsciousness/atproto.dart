@@ -88,11 +88,12 @@ final class UModerationGetMessageContextMessagesConverter
 
   @override
   Map<String, dynamic> toJson(UModerationGetMessageContextMessages object) =>
-      object.when(
-        messageView: (data) => const MessageViewConverter().toJson(data),
-        systemMessageView: (data) =>
-            const SystemMessageViewConverter().toJson(data),
+      switch (object) {
+        UModerationGetMessageContextMessagesMessageView(:final data) =>
+          const MessageViewConverter().toJson(data),
+        UModerationGetMessageContextMessagesSystemMessageView(:final data) =>
+          const SystemMessageViewConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UModerationGetMessageContextMessagesUnknown(:final data) => data,
+      };
 }

@@ -81,10 +81,13 @@ final class USubjectStatusViewHostingConverter
   }
 
   @override
-  Map<String, dynamic> toJson(USubjectStatusViewHosting object) => object.when(
-    accountHosting: (data) => const AccountHostingConverter().toJson(data),
-    recordHosting: (data) => const RecordHostingConverter().toJson(data),
+  Map<String, dynamic> toJson(USubjectStatusViewHosting object) =>
+      switch (object) {
+        USubjectStatusViewHostingAccountHosting(:final data) =>
+          const AccountHostingConverter().toJson(data),
+        USubjectStatusViewHostingRecordHosting(:final data) =>
+          const RecordHostingConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        USubjectStatusViewHostingUnknown(:final data) => data,
+      };
 }

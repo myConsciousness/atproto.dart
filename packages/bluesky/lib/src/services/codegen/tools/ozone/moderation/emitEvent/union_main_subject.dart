@@ -79,10 +79,12 @@ final class UModerationEmitEventSubjectConverter
 
   @override
   Map<String, dynamic> toJson(UModerationEmitEventSubject object) =>
-      object.when(
-        repoRef: (data) => const RepoRefConverter().toJson(data),
-        repoStrongRef: (data) => const RepoStrongRefConverter().toJson(data),
+      switch (object) {
+        UModerationEmitEventSubjectRepoRef(:final data) =>
+          const RepoRefConverter().toJson(data),
+        UModerationEmitEventSubjectRepoStrongRef(:final data) =>
+          const RepoStrongRefConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UModerationEmitEventSubjectUnknown(:final data) => data,
+      };
 }
