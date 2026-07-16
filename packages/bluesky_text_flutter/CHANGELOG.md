@@ -4,7 +4,6 @@
 
 - docs: documented `BlueskyRichText`'s primary `onFeatureTap` callback (`FeatureTapCallback = void Function(FacetFeature feature)`) alongside the typed `onMentionTap`/`onLinkTap`/`onTagTap` conveniences, plus the `featureStyle`, `style`, `textAlign`, `maxLines`, and `overflow` styling parameters.
 - docs: bumped the README install snippet to `^0.1.2`.
-- chore: bump `bluesky_text` to `^1.5.2`.
 
 ## v0.1.1
 
