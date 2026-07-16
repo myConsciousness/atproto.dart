@@ -72,4 +72,30 @@ void main() {
       );
     },
   );
+
+  test('populates signingKey from the DID document #atproto method', () async {
+    final client = MockClient((request) async {
+      if (request.url.path == '/$_did') {
+        return _json({
+          'service': [
+            {
+              'id': '#atproto_pds',
+              'type': 'AtprotoPersonalDataServer',
+              'serviceEndpoint': _pds,
+            },
+          ],
+          'verificationMethod': [
+            {'id': '#atproto', 'publicKeyMultibase': 'zQ3shSIGNINGKEY'},
+          ],
+        });
+      }
+      return http.Response('not found', 404);
+    });
+
+    final resolver = HttpIdentityResolver(httpClient: client);
+    final id = await resolver.resolve(_did);
+
+    expect(id.did, _did);
+    expect(id.signingKey, 'zQ3shSIGNINGKEY');
+  });
 }

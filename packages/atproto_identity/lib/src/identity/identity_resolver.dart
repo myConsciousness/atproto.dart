@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 // Project imports:
 import '../identity_exception.dart';
+import '../signing_key.dart';
 import '../types/resolved_identity.dart';
 
 /// Resolves a handle or DID to its atproto identity.
@@ -80,6 +81,7 @@ final class HttpIdentityResolver implements IdentityResolver {
       did: did,
       pds: _extractPdsEndpoint(didDocument, did),
       handle: handle,
+      signingKey: signingKeyOf(didDocument),
     );
   }
 
