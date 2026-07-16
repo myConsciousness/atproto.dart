@@ -25,9 +25,8 @@ void _buildRetryConfig() {
     // Add a random 0-4s to each computed backoff to spread retry timing.
     jitter: Jitter(maxInSeconds: 4),
     // Observe each retry attempt.
-    onExecute: (event) => print(
-      'retry #${event.retryCount} in ${event.intervalInSeconds}s',
-    ),
+    onExecute: (event) =>
+        print('retry #${event.retryCount} in ${event.intervalInSeconds}s'),
     // Keep the idempotency-safe default: a POST is not retried after an
     // ambiguous failure the server may already have applied.
     retryProcedureOnAmbiguousFailure: false,
