@@ -201,8 +201,23 @@ final class _HttpClientImpl implements HttpClient {
     _client.close();
   }
 
+  /// Characters (and path-traversal sequences) that must never appear in a
+  /// request path; they would let a crafted value break out of the intended
+  /// path and reach a different endpoint or query.
+  static final _unsafePathChars = RegExp(r'[?#%\s\x00-\x1f\x7f]');
+
   /// Builds a URI from the base URL, path, and query parameters.
   Uri _buildUri(String path, [Map<String, dynamic>? queryParameters]) {
+    // Defense in depth: the path is interpolated verbatim into the request
+    // URL, so reject anything that could redirect the request to a different
+    // path or query. Legitimate paths here are DID-based (already validated
+    // upstream) or fixed endpoints like `export` / `_health`.
+    if (_unsafePathChars.hasMatch(path) || path.contains('..')) {
+      throw ValidationException('Unsafe characters in request path', {
+        'path': path,
+      });
+    }
+
     final fullPath = path.startsWith('/') ? path : '/$path';
     final url = '$_baseUrl$fullPath';
 
