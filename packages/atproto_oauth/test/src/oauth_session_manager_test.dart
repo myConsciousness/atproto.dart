@@ -77,64 +77,61 @@ void main() {
     },
   );
 
-  test(
-    'concurrent getSession() calls share a single restore and never surface '
-    'a spurious revoked error',
-    () async {
-      // A stored session that has already expired, so the restore path must
-      // refresh it — with a rotating refresh token, only ONE refresh may ever
-      // POST that token.
-      final stale = _session(
-        expiresAt: DateTime.now().toUtc().subtract(const Duration(minutes: 5)),
-      );
-      final store = _RacingSessionStore(stale);
+  test('concurrent getSession() calls share a single restore and never surface '
+      'a spurious revoked error', () async {
+    // A stored session that has already expired, so the restore path must
+    // refresh it — with a rotating refresh token, only ONE refresh may ever
+    // POST that token.
+    final stale = _session(
+      expiresAt: DateTime.now().toUtc().subtract(const Duration(minutes: 5)),
+    );
+    final store = _RacingSessionStore(stale);
 
-      var tokenPosts = 0;
-      final client = OAuthClient(
-        _clientMetadata(),
-        sessionStore: store,
-        signer: _RecordingSigner(),
-        httpClient: MockClient((r) async {
-          if (r.url.path == '/.well-known/oauth-authorization-server') {
+    var tokenPosts = 0;
+    final client = OAuthClient(
+      _clientMetadata(),
+      sessionStore: store,
+      signer: _RecordingSigner(),
+      httpClient: MockClient((r) async {
+        if (r.url.path == '/.well-known/oauth-authorization-server') {
+          return _json({
+            'issuer': 'https://bsky.social',
+            'token_endpoint': 'https://bsky.social/oauth/token',
+          });
+        }
+        if (r.url.path == '/oauth/token') {
+          tokenPosts++;
+          final fields = Uri.splitQueryString(r.body);
+          if (tokenPosts == 1 && fields['refresh_token'] == 'refresh-1') {
+            // The one legitimate refresh: rotate the refresh token.
             return _json({
-              'issuer': 'https://bsky.social',
-              'token_endpoint': 'https://bsky.social/oauth/token',
+              'access_token': 'access-2',
+              'token_type': 'DPoP',
+              'refresh_token': 'refresh-2',
+              'expires_in': 3600,
+              'sub': 'did:plc:abc',
+              'scope': 'atproto',
             });
           }
-          if (r.url.path == '/oauth/token') {
-            tokenPosts++;
-            final fields = Uri.splitQueryString(r.body);
-            if (tokenPosts == 1 && fields['refresh_token'] == 'refresh-1') {
-              // The one legitimate refresh: rotate the refresh token.
-              return _json({
-                'access_token': 'access-2',
-                'token_type': 'DPoP',
-                'refresh_token': 'refresh-2',
-                'expires_in': 3600,
-                'sub': 'did:plc:abc',
-                'scope': 'atproto',
-              });
-            }
-            // Any further POST replays an already-consumed refresh token.
-            return _json({'error': 'invalid_grant'}, status: 400);
-          }
-          return http.Response('unexpected', 500);
-        }),
-      );
+          // Any further POST replays an already-consumed refresh token.
+          return _json({'error': 'invalid_grant'}, status: 400);
+        }
+        return http.Response('unexpected', 500);
+      }),
+    );
 
-      final mgr = OAuthSessionManager(client, sub: 'did:plc:abc');
+    final mgr = OAuthSessionManager(client, sub: 'did:plc:abc');
 
-      // N concurrent first-requests: without single-flighting the restore,
-      // the loser reads the OLD refresh token, replays it after the winner
-      // already rotated it, and gets a spurious OAuthSessionRevokedException.
-      final results = await Future.wait([mgr.getSession(), mgr.getSession()]);
+    // N concurrent first-requests: without single-flighting the restore,
+    // the loser reads the OLD refresh token, replays it after the winner
+    // already rotated it, and gets a spurious OAuthSessionRevokedException.
+    final results = await Future.wait([mgr.getSession(), mgr.getSession()]);
 
-      expect(store.findCalls, 1);
-      expect(tokenPosts, 1);
-      expect(results[0].accessToken, 'access-2');
-      expect(results[1].accessToken, 'access-2');
-    },
-  );
+    expect(store.findCalls, 1);
+    expect(tokenPosts, 1);
+    expect(results[0].accessToken, 'access-2');
+    expect(results[1].accessToken, 'access-2');
+  });
 
   test('buildAuthHeaders strips query/fragment from the DPoP htu', () async {
     final signer = _RecordingSigner();
