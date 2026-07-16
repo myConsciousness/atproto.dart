@@ -643,6 +643,50 @@ void main() {
       );
     });
 
+    test('a 200 token response with an unparsable body never leaks the '
+        'body', () async {
+      // A SUCCESS-status token response whose body is truncated/mangled (e.g.
+      // by a proxy) but still carries live token material. The parse failure
+      // must not echo the raw body into the exception message.
+      const secret =
+          '{"access_token":"LIVE-SECRET-TOKEN-abc123",'
+          '"refresh_token":"LIVE-SECRET-REFRESH-xyz789",';
+      final stateStore = InMemoryOAuthStateStore();
+      await _seedState(stateStore);
+      final client = OAuthClient(
+        _metadata(),
+        stateStore: stateStore,
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isToken(r)) {
+            return http.Response(
+              secret,
+              200,
+              headers: {'content-type': 'application/json'},
+            );
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.callback(
+          '$_redirectUri?iss=$_origin&state=the-state&code=c',
+        ),
+        throwsA(
+          isA<OAuthException>().having(
+            (final e) => e.toString(),
+            'message',
+            allOf(
+              isNot(contains('LIVE-SECRET-TOKEN-abc123')),
+              isNot(contains('LIVE-SECRET-REFRESH-xyz789')),
+              isNot(contains(secret)),
+            ),
+          ),
+        ),
+      );
+    });
+
     test('rejects a non-DID sub (atproto profile)', () async {
       final stateStore = InMemoryOAuthStateStore();
       await _seedState(stateStore);
@@ -953,6 +997,43 @@ void main() {
       expect(refreshed.refreshToken, 'refresh-token-1');
     });
 
+    test('a 200 refresh response with an unparsable body never leaks the '
+        'body', () async {
+      const secret =
+          '{"access_token":"LIVE-SECRET-TOKEN-abc123",'
+          '"refresh_token":"LIVE-SECRET-REFRESH-xyz789",';
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isToken(r)) {
+            return http.Response(
+              secret,
+              200,
+              headers: {'content-type': 'application/json'},
+            );
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.refresh(_sessionWith()),
+        throwsA(
+          isA<OAuthException>().having(
+            (final e) => e.toString(),
+            'message',
+            allOf(
+              isNot(contains('LIVE-SECRET-TOKEN-abc123')),
+              isNot(contains('LIVE-SECRET-REFRESH-xyz789')),
+              isNot(contains(secret)),
+            ),
+          ),
+        ),
+      );
+    });
+
     test('checks statusCode before retrying nonce', () async {
       var tokenCalls = 0;
       final client = OAuthClient(
@@ -1130,6 +1211,105 @@ void main() {
         expect(await sessionStore.find(_sub), isNull);
       },
     );
+  });
+
+  group('AS metadata endpoint origin validation', () {
+    Future<Uri> authorizeWithMetadata(final Map<String, dynamic> doc) async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) return _json(doc);
+          if (_isPar(r)) {
+            return _json({
+              'request_uri': 'urn:ietf:params:oauth:request_uri:xyz',
+            }, status: 201);
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+      return client.authorize(_handle);
+    }
+
+    test('accepts conformant https same-origin metadata', () async {
+      final url = await authorizeWithMetadata(_serverMetadataDoc());
+      expect(url.toString(), startsWith('$_origin/oauth/authorize'));
+    });
+
+    // Paths are kept identical to the conformant document so that ONLY the
+    // scheme/origin change (not a routing miss in the mock) triggers rejection.
+    const endpoints = {
+      'pushed_authorization_request_endpoint': '/oauth/par',
+      'authorization_endpoint': '/oauth/authorize',
+      'token_endpoint': '/oauth/token',
+    };
+    endpoints.forEach((final entry, final path) {
+      test('rejects an http $entry (authorize path)', () async {
+        await expectLater(
+          () => authorizeWithMetadata({
+            ..._serverMetadataDoc(),
+            entry: 'http://bsky.social$path',
+          }),
+          throwsA(isA<OAuthException>()),
+        );
+      });
+
+      test('rejects a cross-origin $entry (authorize path)', () async {
+        await expectLater(
+          () => authorizeWithMetadata({
+            ..._serverMetadataDoc(),
+            entry: 'https://evil.example$path',
+          }),
+          throwsA(isA<OAuthException>()),
+        );
+      });
+    });
+
+    test('rejects an http token_endpoint (refresh path)', () async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) {
+            return _json({
+              ..._serverMetadataDoc(),
+              'token_endpoint': 'http://bsky.social/oauth/token',
+            });
+          }
+          if (_isToken(r)) return _json(_tokenBody());
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.refresh(_sessionWith()),
+        throwsA(isA<OAuthException>()),
+      );
+    });
+
+    test('rejects a cross-origin token_endpoint (refresh path)', () async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) {
+            return _json({
+              ..._serverMetadataDoc(),
+              'token_endpoint': 'https://evil.example/oauth/token',
+            });
+          }
+          if (_isToken(r)) return _json(_tokenBody());
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await expectLater(
+        () => client.refresh(_sessionWith()),
+        throwsA(isA<OAuthException>()),
+      );
+    });
   });
 
   group('scope validation (atproto profile)', () {

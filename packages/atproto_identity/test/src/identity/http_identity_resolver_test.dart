@@ -15,7 +15,8 @@ http.Response _json(final Object body) => http.Response(
   headers: {'content-type': 'application/json'},
 );
 
-Map<String, Object> _didDocumentWithPds() => {
+Map<String, Object> _didDocumentWithPds([final String? id]) => {
+  'id': ?id,
   'service': [
     {
       'id': '#atproto_pds',
@@ -171,7 +172,7 @@ void main() {
       final client = MockClient((request) async {
         if (request.url.host == 'feed.example.com' &&
             request.url.path == '/.well-known/did.json') {
-          return _json(_didDocumentWithPds());
+          return _json(_didDocumentWithPds('did:web:feed.example.com'));
         }
         return http.Response('not found', 404);
       });
@@ -187,7 +188,7 @@ void main() {
       final client = MockClient((request) async {
         if (request.url.host == 'example.com' &&
             request.url.path == '/u/alice/did.json') {
-          return _json(_didDocumentWithPds());
+          return _json(_didDocumentWithPds('did:web:example.com:u:alice'));
         }
         return http.Response('not found', 404);
       });
@@ -198,10 +199,29 @@ void main() {
       expect(id.pds, _pds);
     });
 
+    test('rejects a did:web document whose "id" does not match', () async {
+      var requested = false;
+      final client = MockClient((request) async {
+        if (request.url.host == 'feed.example.com') {
+          requested = true;
+          // The document claims to be a different DID than requested.
+          return _json(_didDocumentWithPds('did:web:evil.example.com'));
+        }
+        return http.Response('not found', 404);
+      });
+
+      final resolver = HttpIdentityResolver(httpClient: client);
+      await expectLater(
+        resolver.resolve('did:web:feed.example.com'),
+        throwsA(isA<IdentityException>()),
+      );
+      expect(requested, isTrue);
+    });
+
     test('allowPrivateNetwork: true permits private literals', () async {
       final client = MockClient((request) async {
         if (request.url.host == '127.0.0.1') {
-          return _json(_didDocumentWithPds());
+          return _json(_didDocumentWithPds('did:web:127.0.0.1'));
         }
         return http.Response('not found', 404);
       });
@@ -236,7 +256,7 @@ void main() {
     test('allowedHosts permits a listed did:web host', () async {
       final client = MockClient((request) async {
         if (request.url.host == 'feed.example.com') {
-          return _json(_didDocumentWithPds());
+          return _json(_didDocumentWithPds('did:web:feed.example.com'));
         }
         return http.Response('not found', 404);
       });
@@ -351,7 +371,7 @@ void main() {
         }
         if (request.url.host == 'cdn.example.com' &&
             request.url.path == '/did.json') {
-          return _json(_didDocumentWithPds());
+          return _json(_didDocumentWithPds('did:web:feed.example.com'));
         }
         return http.Response('not found', 404);
       });

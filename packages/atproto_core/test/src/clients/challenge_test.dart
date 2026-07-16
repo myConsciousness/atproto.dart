@@ -8,6 +8,7 @@ import 'dart:io';
 
 // Package imports:
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
@@ -209,6 +210,37 @@ void main() {
         expect(events.first.intervalInSeconds, 2);
       },
     );
+
+    test('respects Retry-After (HTTP-date) for the wait interval', () async {
+      final events = <RetryEvent>[];
+      final challenge = _challenge(maxAttempts: 1, onExecute: events.add);
+
+      final retryAt = DateTime.now().toUtc().add(const Duration(seconds: 3));
+
+      int calls = 0;
+      await challenge.execute(() async {
+        calls++;
+        if (calls == 1) {
+          throw xrpc.RateLimitExceededException(
+            _errorResponse(
+              statusCode: 429,
+              error: 'RateLimitExceeded',
+              headers: {'Retry-After': formatHttpDate(retryAt)},
+            ),
+          );
+        }
+
+        return _okResponse();
+      });
+
+      expect(calls, 2);
+      expect(events, hasLength(1));
+      // The plain backoff would be 2^0 = 1 second, so anything above that
+      // proves the HTTP-date form of Retry-After was parsed (previously it
+      // degraded to plain backoff and retried too early).
+      expect(events.first.intervalInSeconds, greaterThanOrEqualTo(2));
+      expect(events.first.intervalInSeconds, lessThanOrEqualTo(3));
+    });
 
     test('falls back to plain backoff without rate limit headers', () async {
       final events = <RetryEvent>[];

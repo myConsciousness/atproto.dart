@@ -6,8 +6,10 @@
 - chore: updated `tools.ozone.queue.defs#queueView.subjectTypes`
 - chore: regenerated from synced lexicons
 - fix: mute-word matching still scans quoted-post embeds when the top-level record fails validation.
+- fix: labeler-scoped content-label preferences (those carrying a `labelerDid`) are now applied only to the matching labeler and never leak into the global label defaults, and preferences scoped to an app labeler are honored instead of dropped — matching `@atproto/api`. Previously an orphaned scoped preference (e.g. for an unsubscribed labeler) could override the global defaults and, for example, unblur adult content.
 - fix: `LinkPreview` exposes cardyb's `error`/`likelyType` fields.
 - fix: the video service percent-encodes the port when building a `did:web` audience.
+- chore: removed duplicate imports in the `tools` extensions/utils.
 
 ## v1.7.2
 

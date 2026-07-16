@@ -3,6 +3,7 @@
 ## v0.6.1
 
 - fix: the session cache file is locked to `0600` before any token bytes are written, and caching is skipped (with a warning) if the permission change fails.
+- fix: `--password-stdin` disables terminal echo while reading an interactively-typed password, so it no longer appears on screen (piped/non-terminal input is unaffected).
 
 ## v0.6.0
 

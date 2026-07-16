@@ -13,9 +13,6 @@ import '../../services/codegen/app/bsky/embed/images/image.dart';
 import '../../services/codegen/app/bsky/embed/images/main.dart';
 import '../../services/codegen/app/bsky/feed/post/union_main_embed.dart';
 
-import '../../services/codegen/app/bsky/embed/images/image.dart'
-    show EmbedImagesImage;
-
 extension BlobExtension on Blob {
   /// Returns the [EmbedImagesImage] representation of this blob.
   EmbedImagesImage toImage({required String alt, AspectRatio? aspectRatio}) =>

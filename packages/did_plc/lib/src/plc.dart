@@ -780,7 +780,17 @@ final class _PLCImpl implements PLC {
     _cacheManager?.dispose();
   }
 
-  /// Validates that a DID is properly formatted.
+  /// A canonical `did:plc` identifier: `did:plc:` followed by 24 base32
+  /// (RFC 4648 lowercase, `[a-z2-7]`) characters.
+  static final _didPlcPattern = RegExp(r'^did:plc:[a-z2-7]{24}$');
+
+  /// Characters that would let a crafted DID alter the request path or
+  /// query once it is interpolated into a URL (path / query / fragment
+  /// injection), plus percent-encoding and control/whitespace.
+  static final _didUnsafeChars = RegExp(r'[/?#%\s\x00-\x1f\x7f]');
+
+  /// Validates that a DID is properly formatted and safe to place in a
+  /// request path.
   void _validateDid(String did) {
     if (did.isEmpty) {
       throw ValidationException('DID cannot be empty', {});
@@ -792,11 +802,31 @@ final class _PLCImpl implements PLC {
       });
     }
 
+    // Reject characters that could redirect the GET to a different path or
+    // query (e.g. `did:plc:abc/../export?count=1`, `did:plc:x#frag`) and be
+    // cached under the crafted key.
+    if (_didUnsafeChars.hasMatch(did)) {
+      throw ValidationException(
+        'Invalid DID: contains characters not permitted in a DID identifier',
+        {'did': did},
+      );
+    }
+
     // Basic DID format validation: did:method:identifier
     final parts = did.split(':');
     if (parts.length < 3) {
       throw ValidationException(
         'Invalid DID format: must have at least method and identifier',
+        {'did': did},
+      );
+    }
+
+    // For the `plc` method, enforce the canonical base32 grammar so only
+    // real `did:plc` identifiers reach the directory.
+    if (parts[1] == 'plc' && !_didPlcPattern.hasMatch(did)) {
+      throw ValidationException(
+        'Invalid did:plc identifier: expected "did:plc:" followed by 24 '
+        'base32 characters ([a-z2-7])',
         {'did': did},
       );
     }

@@ -378,6 +378,16 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   }
 
   final controller = StreamController<T>(
+    //! Nothing is pulled from the socket until a consumer actually listens:
+    //! the underlying channel subscription is created paused (see below) and
+    //! only resumed here on the first listen. Without this, `channel.stream`
+    //! would start draining the socket the moment `subscribe()` is called and
+    //! buffer every frame inside this controller while no listener drains it —
+    //! an unbounded firehose OOM / socket-leak path for a consumer that delays
+    //! or never listens. Backpressure (`onPause`) can only engage once a
+    //! listener exists, so deferring the pull to `onListen` is what actually
+    //! bounds the pre-listen buffer.
+    onListen: () => subscription.resume(),
     //! Propagate backpressure: when the consumer pauses, stop pulling from
     //! the socket so events are not buffered unboundedly (firehose OOM
     //! path); resume pulling when the consumer resumes.
@@ -427,6 +437,12 @@ XRPCResponse<Subscription<T>> subscribe<T>(
       unawaited(Future.sync(channel.sink.close).then((_) {}, onError: (_) {}));
     },
   );
+
+  //! Start paused so the socket is not drained before a consumer listens on
+  //! [Subscription.stream]; [StreamController.onListen] resumes it on the
+  //! first listen. This pause is balanced by that single `onListen` resume,
+  //! leaving the normal immediate-listen path unaffected.
+  subscription.pause();
 
   return XRPCResponse<Subscription<T>>(
     headers: const {},

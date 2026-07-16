@@ -31,7 +31,7 @@ void main() {
     group('Basic Operations', () {
       test('should retrieve DID document', () async {
         // Arrange
-        const did = 'did:plc:test123';
+        const did = 'did:plc:z72i7hdynmk6r22z27h6tvur';
         final document = dataGenerator.generateDidDocument(id: did);
         mockDirectory.addDocument(did, document);
 
@@ -46,7 +46,7 @@ void main() {
 
       test('should retrieve operation log', () async {
         // Arrange
-        const did = 'did:plc:test123';
+        const did = 'did:plc:z72i7hdynmk6r22z27h6tvur';
         final document = dataGenerator.generateDidDocument(id: did);
         final operations = dataGenerator.generateOperationSequence(
           did: did,
@@ -80,7 +80,7 @@ void main() {
 
       test('should retrieve auditable log', () async {
         // Arrange
-        const did = 'did:plc:test123';
+        const did = 'did:plc:z72i7hdynmk6r22z27h6tvur';
         final document = dataGenerator.generateDidDocument(id: did);
         final auditLog = dataGenerator.generateAuditableLog(
           did: did,
@@ -101,7 +101,11 @@ void main() {
     group('Batch Operations', () {
       test('should process multiple DIDs', () async {
         // Arrange
-        final dids = ['did:plc:test1', 'did:plc:test2', 'did:plc:test3'];
+        final dids = [
+          'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa',
+          'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb',
+          'did:plc:cccccccccccccccccccccccc',
+        ];
 
         for (final did in dids) {
           final document = dataGenerator.generateDidDocument(id: did);
@@ -121,7 +125,11 @@ void main() {
 
       test('should handle partial failures', () async {
         // Arrange
-        final dids = ['did:plc:test1', 'did:plc:test2', 'did:plc:invalid'];
+        final dids = [
+          'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa',
+          'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb',
+          'did:plc:dddddddddddddddddddddddd',
+        ];
 
         // Add only first two DIDs
         for (int i = 0; i < 2; i++) {
@@ -134,9 +142,9 @@ void main() {
 
         // Assert
         expect(results, hasLength(2));
-        expect(results['did:plc:test1'], isNotNull);
-        expect(results['did:plc:test2'], isNotNull);
-        expect(results['did:plc:invalid'], isNull);
+        expect(results['did:plc:aaaaaaaaaaaaaaaaaaaaaaaa'], isNotNull);
+        expect(results['did:plc:bbbbbbbbbbbbbbbbbbbbbbbb'], isNotNull);
+        expect(results['did:plc:dddddddddddddddddddddddd'], isNull);
       });
     });
 
@@ -144,7 +152,7 @@ void main() {
       test('should handle DID not found', () async {
         // Act & Assert
         await expectLater(
-          () => plc.getDocument('did:plc:nonexistent'),
+          () => plc.getDocument('did:plc:dddddddddddddddddddddddd'),
           throwsA(isA<NetworkException>()),
         );
       });
