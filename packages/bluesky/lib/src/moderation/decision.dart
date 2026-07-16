@@ -66,24 +66,29 @@ final class ModerationDecision {
   ModerationDecision downgrade() {
     final causes = <ModerationCause>[];
     for (final cause in this.causes) {
-      causes.add(
-        cause.when(
-          blocking: (data) =>
-              ModerationCause.blocking(data: data.copyWith(downgraded: true)),
-          blockedBy: (data) =>
-              ModerationCause.blockedBy(data: data.copyWith(downgraded: true)),
-          blockOther: (data) =>
-              ModerationCause.blockOther(data: data.copyWith(downgraded: true)),
-          label: (data) =>
-              ModerationCause.label(data: data.copyWith(downgraded: true)),
-          muted: (data) =>
-              ModerationCause.muted(data: data.copyWith(downgraded: true)),
-          muteWord: (data) =>
-              ModerationCause.muteWord(data: data.copyWith(downgraded: true)),
-          hidden: (data) =>
-              ModerationCause.hidden(data: data.copyWith(downgraded: true)),
+      causes.add(switch (cause) {
+        UModerationCauseBlocking(:final data) => ModerationCause.blocking(
+          data: data.copyWith(downgraded: true),
         ),
-      );
+        UModerationCauseBlockedBy(:final data) => ModerationCause.blockedBy(
+          data: data.copyWith(downgraded: true),
+        ),
+        UModerationCauseBlockOther(:final data) => ModerationCause.blockOther(
+          data: data.copyWith(downgraded: true),
+        ),
+        UModerationCauseLabel(:final data) => ModerationCause.label(
+          data: data.copyWith(downgraded: true),
+        ),
+        UModerationCauseMuted(:final data) => ModerationCause.muted(
+          data: data.copyWith(downgraded: true),
+        ),
+        UModerationCauseMuteWord(:final data) => ModerationCause.muteWord(
+          data: data.copyWith(downgraded: true),
+        ),
+        UModerationCauseHidden(:final data) => ModerationCause.hidden(
+          data: data.copyWith(downgraded: true),
+        ),
+      });
     }
 
     return ModerationDecision._(
@@ -346,7 +351,7 @@ final class ModerationDecision {
           }
         }
       } else if (cause is UModerationCauseLabel) {
-        final labelCause = cause.whenOrNull(label: (data) => data)!;
+        final labelCause = cause.data;
 
         if (context.isProfileList && labelCause.target == LabelTarget.account) {
           if (labelCause.setting == LabelPreference.hide && !me) {
@@ -413,7 +418,4 @@ int _getCausePriority(final ModerationCause cause) => switch (cause) {
   UModerationCauseMuted(:final data) => data.priority,
   UModerationCauseMuteWord(:final data) => data.priority,
   UModerationCauseHidden(:final data) => data.priority,
-  _ => throw UnsupportedError(
-    'Not supported cause: $cause',
-  ), //! Should not happen
 };

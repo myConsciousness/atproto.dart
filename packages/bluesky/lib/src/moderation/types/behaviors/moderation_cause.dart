@@ -17,7 +17,7 @@ import 'moderation_cause_muted.dart';
 part 'moderation_cause.freezed.dart';
 
 @Freezed(fromJson: false, toJson: false)
-abstract class ModerationCause with _$ModerationCause {
+sealed class ModerationCause with _$ModerationCause {
   // ignore: unused_element
   const ModerationCause._();
 

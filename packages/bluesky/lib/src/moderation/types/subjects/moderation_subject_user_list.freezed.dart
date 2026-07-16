@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case UModerationSubjectUserListListViewBasic():
 return listViewBasic(_that);case UModerationSubjectUserListListView():
-return listView(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return listView(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return listView(_that.data);case _:
 switch (_that) {
 case UModerationSubjectUserListListViewBasic():
 return listViewBasic(_that.data);case UModerationSubjectUserListListView():
-return listView(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return listView(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
