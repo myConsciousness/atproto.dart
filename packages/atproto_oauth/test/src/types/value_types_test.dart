@@ -1,5 +1,4 @@
-import 'package:atproto_oauth/src/types/resolved_identity.dart';
-import 'package:atproto_oauth/src/types/dpop_key_pair.dart';
+import 'package:atproto_oauth/atproto_oauth.dart';
 import 'package:test/test.dart';
 
 void main() {
