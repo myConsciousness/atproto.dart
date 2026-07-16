@@ -121,12 +121,19 @@ final class UPostInteractionSettingsPrefThreadgateAllowRulesConverter
   @override
   Map<String, dynamic> toJson(
     UPostInteractionSettingsPrefThreadgateAllowRules object,
-  ) => object.when(
-    mentionRule: (data) => const MentionRuleConverter().toJson(data),
-    followerRule: (data) => const FollowerRuleConverter().toJson(data),
-    followingRule: (data) => const FollowingRuleConverter().toJson(data),
-    listRule: (data) => const ListRuleConverter().toJson(data),
+  ) => switch (object) {
+    UPostInteractionSettingsPrefThreadgateAllowRulesMentionRule(:final data) =>
+      const MentionRuleConverter().toJson(data),
+    UPostInteractionSettingsPrefThreadgateAllowRulesFollowerRule(:final data) =>
+      const FollowerRuleConverter().toJson(data),
+    UPostInteractionSettingsPrefThreadgateAllowRulesFollowingRule(
+      :final data,
+    ) =>
+      const FollowingRuleConverter().toJson(data),
+    UPostInteractionSettingsPrefThreadgateAllowRulesListRule(:final data) =>
+      const ListRuleConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UPostInteractionSettingsPrefThreadgateAllowRulesUnknown(:final data) =>
+      data,
+  };
 }

@@ -19,7 +19,7 @@ part 'event_chat_accepted_method.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EventChatAcceptedMethod with _$EventChatAcceptedMethod {
+sealed class EventChatAcceptedMethod with _$EventChatAcceptedMethod {
   const EventChatAcceptedMethod._();
 
   const factory EventChatAcceptedMethod.knownValue({
@@ -70,8 +70,10 @@ final class EventChatAcceptedMethodConverter
   }
 
   @override
-  String toJson(EventChatAcceptedMethod object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EventChatAcceptedMethod object) => switch (object) {
+    EventChatAcceptedMethodKnownValue(:final data) => data.value,
+    EventChatAcceptedMethodUnknown(:final data) => data,
+  };
 }
 
 enum KnownEventChatAcceptedMethod implements Serializable {

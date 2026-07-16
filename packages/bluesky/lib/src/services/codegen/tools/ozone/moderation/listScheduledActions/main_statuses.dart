@@ -19,7 +19,7 @@ part 'main_statuses.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ModerationListScheduledActionsStatuses
+sealed class ModerationListScheduledActionsStatuses
     with _$ModerationListScheduledActionsStatuses {
   const ModerationListScheduledActionsStatuses._();
 
@@ -83,7 +83,11 @@ final class ModerationListScheduledActionsStatusesConverter
 
   @override
   String toJson(ModerationListScheduledActionsStatuses object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+      switch (object) {
+        ModerationListScheduledActionsStatusesKnownValue(:final data) =>
+          data.value,
+        ModerationListScheduledActionsStatusesUnknown(:final data) => data,
+      };
 }
 
 enum KnownModerationListScheduledActionsStatuses implements Serializable {

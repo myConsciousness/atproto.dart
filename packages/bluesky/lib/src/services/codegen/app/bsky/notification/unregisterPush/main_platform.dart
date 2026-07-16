@@ -19,7 +19,7 @@ part 'main_platform.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class NotificationUnregisterPushPlatform
+sealed class NotificationUnregisterPushPlatform
     with _$NotificationUnregisterPushPlatform {
   const NotificationUnregisterPushPlatform._();
 
@@ -75,8 +75,10 @@ final class NotificationUnregisterPushPlatformConverter
   }
 
   @override
-  String toJson(NotificationUnregisterPushPlatform object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(NotificationUnregisterPushPlatform object) => switch (object) {
+    NotificationUnregisterPushPlatformKnownValue(:final data) => data.value,
+    NotificationUnregisterPushPlatformUnknown(:final data) => data,
+  };
 }
 
 enum KnownNotificationUnregisterPushPlatform implements Serializable {

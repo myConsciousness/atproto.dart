@@ -74,12 +74,16 @@ final class _LexXrpcSubscriptionGenerator {
   }
 
   LexMessage? _getMessage() {
-    final refVariant = subscription.message?.schema?.whenOrNull(
-      refVariant: (data) => data,
-    );
+    final refVariant = switch (subscription.message?.schema) {
+      lex.ULexXrpcSchemaRefVariant(:final data) => data,
+      _ => null,
+    };
     if (refVariant == null) return null;
 
-    final refUnion = refVariant.whenOrNull(refUnion: (data) => data);
+    final refUnion = switch (refVariant) {
+      lex.ULexRefVariantRefUnion(:final data) => data,
+      _ => null,
+    };
     if (refUnion == null) return null;
 
     final union = generateLexUnion(

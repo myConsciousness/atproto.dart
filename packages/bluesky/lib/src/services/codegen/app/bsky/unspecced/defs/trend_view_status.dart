@@ -19,7 +19,7 @@ part 'trend_view_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class TrendViewStatus with _$TrendViewStatus {
+sealed class TrendViewStatus with _$TrendViewStatus {
   const TrendViewStatus._();
 
   const factory TrendViewStatus.knownValue({
@@ -70,8 +70,10 @@ final class TrendViewStatusConverter
   }
 
   @override
-  String toJson(TrendViewStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(TrendViewStatus object) => switch (object) {
+    TrendViewStatusKnownValue(:final data) => data.value,
+    TrendViewStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownTrendViewStatus implements Serializable {

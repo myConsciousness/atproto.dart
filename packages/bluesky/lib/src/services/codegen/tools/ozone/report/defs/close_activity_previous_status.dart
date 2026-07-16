@@ -19,7 +19,7 @@ part 'close_activity_previous_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class CloseActivityPreviousStatus with _$CloseActivityPreviousStatus {
+sealed class CloseActivityPreviousStatus with _$CloseActivityPreviousStatus {
   const CloseActivityPreviousStatus._();
 
   const factory CloseActivityPreviousStatus.knownValue({
@@ -70,8 +70,10 @@ final class CloseActivityPreviousStatusConverter
   }
 
   @override
-  String toJson(CloseActivityPreviousStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(CloseActivityPreviousStatus object) => switch (object) {
+    CloseActivityPreviousStatusKnownValue(:final data) => data.value,
+    CloseActivityPreviousStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownCloseActivityPreviousStatus implements Serializable {

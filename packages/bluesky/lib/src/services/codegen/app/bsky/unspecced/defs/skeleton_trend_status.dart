@@ -19,7 +19,7 @@ part 'skeleton_trend_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SkeletonTrendStatus with _$SkeletonTrendStatus {
+sealed class SkeletonTrendStatus with _$SkeletonTrendStatus {
   const SkeletonTrendStatus._();
 
   const factory SkeletonTrendStatus.knownValue({
@@ -70,8 +70,10 @@ final class SkeletonTrendStatusConverter
   }
 
   @override
-  String toJson(SkeletonTrendStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SkeletonTrendStatus object) => switch (object) {
+    SkeletonTrendStatusKnownValue(:final data) => data.value,
+    SkeletonTrendStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownSkeletonTrendStatus implements Serializable {

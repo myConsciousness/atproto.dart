@@ -19,7 +19,7 @@ part 'event_group_chat_member_left_leave_method.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EventGroupChatMemberLeftLeaveMethod
+sealed class EventGroupChatMemberLeftLeaveMethod
     with _$EventGroupChatMemberLeftLeaveMethod {
   const EventGroupChatMemberLeftLeaveMethod._();
 
@@ -75,8 +75,10 @@ final class EventGroupChatMemberLeftLeaveMethodConverter
   }
 
   @override
-  String toJson(EventGroupChatMemberLeftLeaveMethod object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EventGroupChatMemberLeftLeaveMethod object) => switch (object) {
+    EventGroupChatMemberLeftLeaveMethodKnownValue(:final data) => data.value,
+    EventGroupChatMemberLeftLeaveMethodUnknown(:final data) => data,
+  };
 }
 
 enum KnownEventGroupChatMemberLeftLeaveMethod implements Serializable {

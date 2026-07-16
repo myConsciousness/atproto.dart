@@ -19,7 +19,7 @@ part 'main_query_language.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class FeedSearchPostsV2QueryLanguage
+sealed class FeedSearchPostsV2QueryLanguage
     with _$FeedSearchPostsV2QueryLanguage {
   const FeedSearchPostsV2QueryLanguage._();
 
@@ -73,8 +73,10 @@ final class FeedSearchPostsV2QueryLanguageConverter
   }
 
   @override
-  String toJson(FeedSearchPostsV2QueryLanguage object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedSearchPostsV2QueryLanguage object) => switch (object) {
+    FeedSearchPostsV2QueryLanguageKnownValue(:final data) => data.value,
+    FeedSearchPostsV2QueryLanguageUnknown(:final data) => data,
+  };
 }
 
 enum KnownFeedSearchPostsV2QueryLanguage implements Serializable {

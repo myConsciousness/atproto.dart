@@ -96,13 +96,14 @@ final class UProfileViewBasicKindConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UProfileViewBasicKind object) => object.when(
-    directConvoMember: (data) =>
-        const DirectConvoMemberConverter().toJson(data),
-    groupConvoMember: (data) => const GroupConvoMemberConverter().toJson(data),
-    pastGroupConvoMember: (data) =>
-        const PastGroupConvoMemberConverter().toJson(data),
+  Map<String, dynamic> toJson(UProfileViewBasicKind object) => switch (object) {
+    UProfileViewBasicKindDirectConvoMember(:final data) =>
+      const DirectConvoMemberConverter().toJson(data),
+    UProfileViewBasicKindGroupConvoMember(:final data) =>
+      const GroupConvoMemberConverter().toJson(data),
+    UProfileViewBasicKindPastGroupConvoMember(:final data) =>
+      const PastGroupConvoMemberConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UProfileViewBasicKindUnknown(:final data) => data,
+  };
 }

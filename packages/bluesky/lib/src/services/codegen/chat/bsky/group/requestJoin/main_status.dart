@@ -19,7 +19,7 @@ part 'main_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class GroupRequestJoinStatus with _$GroupRequestJoinStatus {
+sealed class GroupRequestJoinStatus with _$GroupRequestJoinStatus {
   const GroupRequestJoinStatus._();
 
   const factory GroupRequestJoinStatus.knownValue({
@@ -70,8 +70,10 @@ final class GroupRequestJoinStatusConverter
   }
 
   @override
-  String toJson(GroupRequestJoinStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(GroupRequestJoinStatus object) => switch (object) {
+    GroupRequestJoinStatusKnownValue(:final data) => data.value,
+    GroupRequestJoinStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownGroupRequestJoinStatus implements Serializable {

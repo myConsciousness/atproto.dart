@@ -19,7 +19,7 @@ part 'profile_associated_activity_subscription_allow_subscriptions.freezed.dart'
 // **************************************************************************
 
 @freezed
-abstract class ProfileAssociatedActivitySubscriptionAllowSubscriptions
+sealed class ProfileAssociatedActivitySubscriptionAllowSubscriptions
     with _$ProfileAssociatedActivitySubscriptionAllowSubscriptions {
   const ProfileAssociatedActivitySubscriptionAllowSubscriptions._();
 
@@ -107,7 +107,16 @@ final class ProfileAssociatedActivitySubscriptionAllowSubscriptionsConverter
   @override
   String toJson(
     ProfileAssociatedActivitySubscriptionAllowSubscriptions object,
-  ) => object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  ) => switch (object) {
+    ProfileAssociatedActivitySubscriptionAllowSubscriptionsKnownValue(
+      :final data,
+    ) =>
+      data.value,
+    ProfileAssociatedActivitySubscriptionAllowSubscriptionsUnknown(
+      :final data,
+    ) =>
+      data,
+  };
 }
 
 enum KnownProfileAssociatedActivitySubscriptionAllowSubscriptions

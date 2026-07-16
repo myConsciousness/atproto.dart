@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case ULexXrpcSchemaRefVariant():
 return refVariant(_that);case ULexXrpcSchemaObject():
-return object(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return object(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return object(_that.data);case _:
 switch (_that) {
 case ULexXrpcSchemaRefVariant():
 return refVariant(_that.data);case ULexXrpcSchemaObject():
-return object(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return object(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

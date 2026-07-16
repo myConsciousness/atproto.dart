@@ -93,10 +93,7 @@ return blockOther(_that);case UModerationCauseLabel():
 return label(_that);case UModerationCauseMuted():
 return muted(_that);case UModerationCauseMuteWord():
 return muteWord(_that);case UModerationCauseHidden():
-return hidden(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return hidden(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -173,10 +170,7 @@ return blockOther(_that.data);case UModerationCauseLabel():
 return label(_that.data);case UModerationCauseMuted():
 return muted(_that.data);case UModerationCauseMuteWord():
 return muteWord(_that.data);case UModerationCauseHidden():
-return hidden(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return hidden(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

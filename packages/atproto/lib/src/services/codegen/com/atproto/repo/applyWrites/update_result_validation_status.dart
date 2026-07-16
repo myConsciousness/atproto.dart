@@ -19,8 +19,7 @@ part 'update_result_validation_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class UpdateResultValidationStatus
-    with _$UpdateResultValidationStatus {
+sealed class UpdateResultValidationStatus with _$UpdateResultValidationStatus {
   const UpdateResultValidationStatus._();
 
   const factory UpdateResultValidationStatus.knownValue({
@@ -72,8 +71,10 @@ final class UpdateResultValidationStatusConverter
   }
 
   @override
-  String toJson(UpdateResultValidationStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(UpdateResultValidationStatus object) => switch (object) {
+    UpdateResultValidationStatusKnownValue(:final data) => data.value,
+    UpdateResultValidationStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownUpdateResultValidationStatus implements Serializable {

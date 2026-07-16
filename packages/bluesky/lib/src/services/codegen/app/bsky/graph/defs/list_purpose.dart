@@ -19,7 +19,7 @@ part 'list_purpose.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ListPurpose with _$ListPurpose {
+sealed class ListPurpose with _$ListPurpose {
   const ListPurpose._();
 
   const factory ListPurpose.knownValue({required KnownListPurpose data}) =
@@ -68,8 +68,10 @@ final class ListPurposeConverter extends JsonConverter<ListPurpose, String> {
   }
 
   @override
-  String toJson(ListPurpose object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ListPurpose object) => switch (object) {
+    ListPurposeKnownValue(:final data) => data.value,
+    ListPurposeUnknown(:final data) => data,
+  };
 }
 
 enum KnownListPurpose implements Serializable {

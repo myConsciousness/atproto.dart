@@ -19,7 +19,7 @@ part 'main_sort.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class FeedSearchPostsV2Sort with _$FeedSearchPostsV2Sort {
+sealed class FeedSearchPostsV2Sort with _$FeedSearchPostsV2Sort {
   const FeedSearchPostsV2Sort._();
 
   const factory FeedSearchPostsV2Sort.knownValue({
@@ -70,8 +70,10 @@ final class FeedSearchPostsV2SortConverter
   }
 
   @override
-  String toJson(FeedSearchPostsV2Sort object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(FeedSearchPostsV2Sort object) => switch (object) {
+    FeedSearchPostsV2SortKnownValue(:final data) => data.value,
+    FeedSearchPostsV2SortUnknown(:final data) => data,
+  };
 }
 
 enum KnownFeedSearchPostsV2Sort implements Serializable {

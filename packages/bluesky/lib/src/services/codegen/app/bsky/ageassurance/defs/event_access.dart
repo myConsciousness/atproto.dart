@@ -19,7 +19,7 @@ part 'event_access.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class EventAccess with _$EventAccess {
+sealed class EventAccess with _$EventAccess {
   const EventAccess._();
 
   const factory EventAccess.knownValue({required KnownEventAccess data}) =
@@ -68,8 +68,10 @@ final class EventAccessConverter extends JsonConverter<EventAccess, String> {
   }
 
   @override
-  String toJson(EventAccess object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(EventAccess object) => switch (object) {
+    EventAccessKnownValue(:final data) => data.value,
+    EventAccessUnknown(:final data) => data,
+  };
 }
 
 enum KnownEventAccess implements Serializable {

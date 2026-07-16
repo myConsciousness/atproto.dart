@@ -87,10 +87,7 @@ case ULexPrimitiveBoolean():
 return boolean(_that);case ULexPrimitiveInteger():
 return integer(_that);case ULexPrimitiveString():
 return string(_that);case ULexPrimitiveUnknown():
-return unknown(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case ULexPrimitiveBoolean():
 return boolean(_that.data);case ULexPrimitiveInteger():
 return integer(_that.data);case ULexPrimitiveString():
 return string(_that.data);case ULexPrimitiveUnknown():
-return unknown(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

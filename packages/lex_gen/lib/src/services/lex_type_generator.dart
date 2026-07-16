@@ -61,12 +61,16 @@ final class _LexTypeGenerator {
           case lex.ULexUserTypeArray():
             final data = value.data;
 
-            final refVariant = data.items.whenOrNull(
-              refVariant: (data) => data,
-            );
+            final refVariant = switch (data.items) {
+              lex.ULexArrayRefVariant(:final data) => data,
+              _ => null,
+            };
             if (refVariant == null) continue;
 
-            final refUnion = refVariant.whenOrNull(refUnion: (data) => data);
+            final refUnion = switch (refVariant) {
+              lex.ULexRefVariantRefUnion(:final data) => data,
+              _ => null,
+            };
             if (refUnion == null) continue;
 
             _aggregateTypes(
@@ -124,6 +128,14 @@ final class _LexTypeGenerator {
                 mainVariants,
               ),
             );
+          case lex.ULexUserTypeBlob():
+          case lex.ULexUserTypeToken():
+          case lex.ULexUserTypeBoolean():
+          case lex.ULexUserTypeInteger():
+          case lex.ULexUserTypeBytes():
+          case lex.ULexUserTypeCidLink():
+          case lex.ULexUserTypeUnknown():
+          // These def kinds carry no top-level type to generate; skip them.
         }
       }
     }

@@ -19,7 +19,7 @@ part 'main_events.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class HostingGetAccountHistoryEvents
+sealed class HostingGetAccountHistoryEvents
     with _$HostingGetAccountHistoryEvents {
   const HostingGetAccountHistoryEvents._();
 
@@ -73,8 +73,10 @@ final class HostingGetAccountHistoryEventsConverter
   }
 
   @override
-  String toJson(HostingGetAccountHistoryEvents object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(HostingGetAccountHistoryEvents object) => switch (object) {
+    HostingGetAccountHistoryEventsKnownValue(:final data) => data.value,
+    HostingGetAccountHistoryEventsUnknown(:final data) => data,
+  };
 }
 
 enum KnownHostingGetAccountHistoryEvents implements Serializable {

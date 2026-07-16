@@ -11,7 +11,7 @@ import '../../../services/codegen/app/bsky/feed/defs/generator_view.dart';
 part 'moderation_subject_feed_generator.freezed.dart';
 
 @Freezed(fromJson: false, toJson: false)
-abstract class ModerationSubjectFeedGenerator
+sealed class ModerationSubjectFeedGenerator
     with _$ModerationSubjectFeedGenerator {
   const factory ModerationSubjectFeedGenerator.generatorView({
     required GeneratorView data,

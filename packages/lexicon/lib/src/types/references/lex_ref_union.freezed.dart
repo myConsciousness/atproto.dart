@@ -15,7 +15,13 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LexRefUnion {
 
- String get type; String? get description; List<String>? get refs; bool? get closed;
+ String get type; String? get description; List<String>? get refs;// Whether the union is closed (the set of `refs` is exhaustive). This is
+// parsed for spec completeness but intentionally not enforced by the code
+// generator: generated unions always keep an `.unknown` fallback variant
+// so that a value with an unrecognized `$type` decodes gracefully rather
+// than throwing, which is the forward-compatible behavior even for a
+// closed union (upstream may add variants).
+ bool? get closed;
 /// Create a copy of LexRefUnion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -226,6 +232,12 @@ class _LexRefUnion implements LexRefUnion {
   return EqualUnmodifiableListView(value);
 }
 
+// Whether the union is closed (the set of `refs` is exhaustive). This is
+// parsed for spec completeness but intentionally not enforced by the code
+// generator: generated unions always keep an `.unknown` fallback variant
+// so that a value with an unrecognized `$type` decodes gracefully rather
+// than throwing, which is the forward-compatible behavior even for a
+// closed union (upstream may add variants).
 @override final  bool? closed;
 
 /// Create a copy of LexRefUnion

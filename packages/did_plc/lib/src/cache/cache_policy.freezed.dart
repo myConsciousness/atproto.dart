@@ -87,10 +87,7 @@ case _CachePolicy():
 return $default(_that);case _CachePolicyDisabled():
 return disabled(_that);case _CachePolicyAggressive():
 return aggressive(_that);case _CachePolicyMinimal():
-return minimal(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return minimal(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case _CachePolicy():
 return $default(_that.enabled,_that.ttl,_that.maxSize,_that.enableLru);case _CachePolicyDisabled():
 return disabled();case _CachePolicyAggressive():
 return aggressive(_that.ttl,_that.maxSize);case _CachePolicyMinimal():
-return minimal(_that.ttl,_that.maxSize);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return minimal(_that.ttl,_that.maxSize);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -19,7 +19,7 @@ part 'job_status_state.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class JobStatusState with _$JobStatusState {
+sealed class JobStatusState with _$JobStatusState {
   const JobStatusState._();
 
   const factory JobStatusState.knownValue({required KnownJobStatusState data}) =
@@ -69,8 +69,10 @@ final class JobStatusStateConverter
   }
 
   @override
-  String toJson(JobStatusState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(JobStatusState object) => switch (object) {
+    JobStatusStateKnownValue(:final data) => data.value,
+    JobStatusStateUnknown(:final data) => data,
+  };
 }
 
 enum KnownJobStatusState implements Serializable {

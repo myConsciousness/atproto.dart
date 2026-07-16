@@ -63,7 +63,10 @@ final class _LexXrpcProcedureGenerator {
       );
     }
 
-    final object = procedure.input?.schema?.whenOrNull(object: (e) => e);
+    final object = switch (procedure.input?.schema) {
+      lex.ULexXrpcSchemaObject(:final data) => data,
+      _ => null,
+    };
     if (object != null) {
       final properties = generateLexProperties(
         ctx,
@@ -90,10 +93,14 @@ final class _LexXrpcProcedureGenerator {
       );
     }
 
-    final refVariant = procedure.input?.schema?.whenOrNull(
-      refVariant: (data) => data,
-    );
-    final ref = refVariant?.whenOrNull(ref: (data) => data);
+    final refVariant = switch (procedure.input?.schema) {
+      lex.ULexXrpcSchemaRefVariant(:final data) => data,
+      _ => null,
+    };
+    final ref = switch (refVariant) {
+      lex.ULexRefVariantRef(:final data) => data,
+      _ => null,
+    };
     if (ref == null) return null;
 
     return LexInput(
@@ -107,7 +114,10 @@ final class _LexXrpcProcedureGenerator {
   }
 
   LexOutput? _getOutput() {
-    final object = procedure.output?.schema?.whenOrNull(object: (e) => e);
+    final object = switch (procedure.output?.schema) {
+      lex.ULexXrpcSchemaObject(:final data) => data,
+      _ => null,
+    };
 
     if (object != null) {
       final properties = generateLexProperties(
@@ -134,10 +144,14 @@ final class _LexXrpcProcedureGenerator {
       );
     }
 
-    final refVariant = procedure.output?.schema?.whenOrNull(
-      refVariant: (data) => data,
-    );
-    final ref = refVariant?.whenOrNull(ref: (data) => data);
+    final refVariant = switch (procedure.output?.schema) {
+      lex.ULexXrpcSchemaRefVariant(:final data) => data,
+      _ => null,
+    };
+    final ref = switch (refVariant) {
+      lex.ULexRefVariantRef(:final data) => data,
+      _ => null,
+    };
     if (ref == null) return null;
 
     return LexOutput(

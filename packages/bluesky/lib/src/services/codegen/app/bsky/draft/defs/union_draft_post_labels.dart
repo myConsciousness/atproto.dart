@@ -62,9 +62,10 @@ final class UDraftPostLabelsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UDraftPostLabels object) => object.when(
-    selfLabels: (data) => const SelfLabelsConverter().toJson(data),
+  Map<String, dynamic> toJson(UDraftPostLabels object) => switch (object) {
+    UDraftPostLabelsSelfLabels(:final data) =>
+      const SelfLabelsConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UDraftPostLabelsUnknown(:final data) => data,
+  };
 }

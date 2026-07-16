@@ -19,7 +19,7 @@ part 'profile_associated_germ_show_button_to.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ProfileAssociatedGermShowButtonTo
+sealed class ProfileAssociatedGermShowButtonTo
     with _$ProfileAssociatedGermShowButtonTo {
   const ProfileAssociatedGermShowButtonTo._();
 
@@ -75,8 +75,10 @@ final class ProfileAssociatedGermShowButtonToConverter
   }
 
   @override
-  String toJson(ProfileAssociatedGermShowButtonTo object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ProfileAssociatedGermShowButtonTo object) => switch (object) {
+    ProfileAssociatedGermShowButtonToKnownValue(:final data) => data.value,
+    ProfileAssociatedGermShowButtonToUnknown(:final data) => data,
+  };
 }
 
 enum KnownProfileAssociatedGermShowButtonTo implements Serializable {

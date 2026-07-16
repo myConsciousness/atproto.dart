@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case ULexIpldBytes():
 return bytes(_that);case ULexIpldCidLink():
-return cidLink(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return cidLink(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return cidLink(_that.data);case _:
 switch (_that) {
 case ULexIpldBytes():
 return bytes(_that.data);case ULexIpldCidLink():
-return cidLink(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return cidLink(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

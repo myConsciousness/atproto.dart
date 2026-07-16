@@ -19,7 +19,7 @@ part 'pattern_type.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class PatternType with _$PatternType {
+sealed class PatternType with _$PatternType {
   const PatternType._();
 
   const factory PatternType.knownValue({required KnownPatternType data}) =
@@ -68,8 +68,10 @@ final class PatternTypeConverter extends JsonConverter<PatternType, String> {
   }
 
   @override
-  String toJson(PatternType object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(PatternType object) => switch (object) {
+    PatternTypeKnownValue(:final data) => data.value,
+    PatternTypeUnknown(:final data) => data,
+  };
 }
 
 enum KnownPatternType implements Serializable {

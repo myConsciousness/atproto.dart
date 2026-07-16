@@ -19,7 +19,7 @@ part 'subject_status_view_age_assurance_state.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SubjectStatusViewAgeAssuranceState
+sealed class SubjectStatusViewAgeAssuranceState
     with _$SubjectStatusViewAgeAssuranceState {
   const SubjectStatusViewAgeAssuranceState._();
 
@@ -75,8 +75,10 @@ final class SubjectStatusViewAgeAssuranceStateConverter
   }
 
   @override
-  String toJson(SubjectStatusViewAgeAssuranceState object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SubjectStatusViewAgeAssuranceState object) => switch (object) {
+    SubjectStatusViewAgeAssuranceStateKnownValue(:final data) => data.value,
+    SubjectStatusViewAgeAssuranceStateUnknown(:final data) => data,
+  };
 }
 
 enum KnownSubjectStatusViewAgeAssuranceState implements Serializable {

@@ -19,7 +19,7 @@ part 'queue_activity_previous_status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class QueueActivityPreviousStatus with _$QueueActivityPreviousStatus {
+sealed class QueueActivityPreviousStatus with _$QueueActivityPreviousStatus {
   const QueueActivityPreviousStatus._();
 
   const factory QueueActivityPreviousStatus.knownValue({
@@ -70,8 +70,10 @@ final class QueueActivityPreviousStatusConverter
   }
 
   @override
-  String toJson(QueueActivityPreviousStatus object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(QueueActivityPreviousStatus object) => switch (object) {
+    QueueActivityPreviousStatusKnownValue(:final data) => data.value,
+    QueueActivityPreviousStatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownQueueActivityPreviousStatus implements Serializable {

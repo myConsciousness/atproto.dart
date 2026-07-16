@@ -19,7 +19,7 @@ part 'main_allow_group_invites.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ActorDeclarationAllowGroupInvites
+sealed class ActorDeclarationAllowGroupInvites
     with _$ActorDeclarationAllowGroupInvites {
   const ActorDeclarationAllowGroupInvites._();
 
@@ -75,8 +75,10 @@ final class ActorDeclarationAllowGroupInvitesConverter
   }
 
   @override
-  String toJson(ActorDeclarationAllowGroupInvites object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ActorDeclarationAllowGroupInvites object) => switch (object) {
+    ActorDeclarationAllowGroupInvitesKnownValue(:final data) => data.value,
+    ActorDeclarationAllowGroupInvitesUnknown(:final data) => data,
+  };
 }
 
 enum KnownActorDeclarationAllowGroupInvites implements Serializable {

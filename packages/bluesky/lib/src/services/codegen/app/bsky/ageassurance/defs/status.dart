@@ -19,7 +19,7 @@ part 'status.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class Status with _$Status {
+sealed class Status with _$Status {
   const Status._();
 
   const factory Status.knownValue({required KnownStatus data}) =
@@ -66,8 +66,10 @@ final class StatusConverter extends JsonConverter<Status, String> {
   }
 
   @override
-  String toJson(Status object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(Status object) => switch (object) {
+    StatusKnownValue(:final data) => data.value,
+    StatusUnknown(:final data) => data,
+  };
 }
 
 enum KnownStatus implements Serializable {

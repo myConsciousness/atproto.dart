@@ -19,7 +19,7 @@ part 'main_manager_role.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SettingUpsertOptionManagerRole
+sealed class SettingUpsertOptionManagerRole
     with _$SettingUpsertOptionManagerRole {
   const SettingUpsertOptionManagerRole._();
 
@@ -73,8 +73,10 @@ final class SettingUpsertOptionManagerRoleConverter
   }
 
   @override
-  String toJson(SettingUpsertOptionManagerRole object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingUpsertOptionManagerRole object) => switch (object) {
+    SettingUpsertOptionManagerRoleKnownValue(:final data) => data.value,
+    SettingUpsertOptionManagerRoleUnknown(:final data) => data,
+  };
 }
 
 enum KnownSettingUpsertOptionManagerRole implements Serializable {

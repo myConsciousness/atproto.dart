@@ -113,14 +113,18 @@ final class UGroupGetJoinLinkPreviewsJoinLinkPreviewsConverter
   @override
   Map<String, dynamic> toJson(
     UGroupGetJoinLinkPreviewsJoinLinkPreviews object,
-  ) => object.when(
-    joinLinkPreviewView: (data) =>
-        const JoinLinkPreviewViewConverter().toJson(data),
-    disabledJoinLinkPreviewView: (data) =>
-        const DisabledJoinLinkPreviewViewConverter().toJson(data),
-    invalidJoinLinkPreviewView: (data) =>
-        const InvalidJoinLinkPreviewViewConverter().toJson(data),
+  ) => switch (object) {
+    UGroupGetJoinLinkPreviewsJoinLinkPreviewsJoinLinkPreviewView(:final data) =>
+      const JoinLinkPreviewViewConverter().toJson(data),
+    UGroupGetJoinLinkPreviewsJoinLinkPreviewsDisabledJoinLinkPreviewView(
+      :final data,
+    ) =>
+      const DisabledJoinLinkPreviewViewConverter().toJson(data),
+    UGroupGetJoinLinkPreviewsJoinLinkPreviewsInvalidJoinLinkPreviewView(
+      :final data,
+    ) =>
+      const InvalidJoinLinkPreviewViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UGroupGetJoinLinkPreviewsJoinLinkPreviewsUnknown(:final data) => data,
+  };
 }

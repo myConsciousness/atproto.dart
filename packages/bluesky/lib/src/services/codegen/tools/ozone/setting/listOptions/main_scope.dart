@@ -19,7 +19,7 @@ part 'main_scope.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class SettingListOptionsScope with _$SettingListOptionsScope {
+sealed class SettingListOptionsScope with _$SettingListOptionsScope {
   const SettingListOptionsScope._();
 
   const factory SettingListOptionsScope.knownValue({
@@ -70,8 +70,10 @@ final class SettingListOptionsScopeConverter
   }
 
   @override
-  String toJson(SettingListOptionsScope object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(SettingListOptionsScope object) => switch (object) {
+    SettingListOptionsScopeKnownValue(:final data) => data.value,
+    SettingListOptionsScopeUnknown(:final data) => data,
+  };
 }
 
 enum KnownSettingListOptionsScope implements Serializable {

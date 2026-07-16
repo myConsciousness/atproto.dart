@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case ULexXrpcParametersPropertyPrimitiveArray():
 return primitiveArray(_that);case ULexXrpcParametersPropertyPrimitive():
-return primitive(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return primitive(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return primitive(_that.data);case _:
 switch (_that) {
 case ULexXrpcParametersPropertyPrimitiveArray():
 return primitiveArray(_that.data);case ULexXrpcParametersPropertyPrimitive():
-return primitive(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return primitive(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -19,7 +19,7 @@ part 'info_name.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class InfoName with _$InfoName {
+sealed class InfoName with _$InfoName {
   const InfoName._();
 
   const factory InfoName.knownValue({required KnownInfoName data}) =
@@ -66,8 +66,10 @@ final class InfoNameConverter extends JsonConverter<InfoName, String> {
   }
 
   @override
-  String toJson(InfoName object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(InfoName object) => switch (object) {
+    InfoNameKnownValue(:final data) => data.value,
+    InfoNameUnknown(:final data) => data,
+  };
 }
 
 enum KnownInfoName implements Serializable {

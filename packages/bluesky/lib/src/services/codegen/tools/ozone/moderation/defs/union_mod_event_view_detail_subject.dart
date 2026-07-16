@@ -117,14 +117,19 @@ final class UModEventViewDetailSubjectConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UModEventViewDetailSubject object) => object.when(
-    repoView: (data) => const RepoViewConverter().toJson(data),
-    repoViewNotFound: (data) => const RepoViewNotFoundConverter().toJson(data),
-    recordView: (data) => const RecordViewConverter().toJson(data),
-    recordViewNotFound: (data) =>
-        const RecordViewNotFoundConverter().toJson(data),
-    convoView: (data) => const ConvoViewConverter().toJson(data),
+  Map<String, dynamic> toJson(UModEventViewDetailSubject object) =>
+      switch (object) {
+        UModEventViewDetailSubjectRepoView(:final data) =>
+          const RepoViewConverter().toJson(data),
+        UModEventViewDetailSubjectRepoViewNotFound(:final data) =>
+          const RepoViewNotFoundConverter().toJson(data),
+        UModEventViewDetailSubjectRecordView(:final data) =>
+          const RecordViewConverter().toJson(data),
+        UModEventViewDetailSubjectRecordViewNotFound(:final data) =>
+          const RecordViewNotFoundConverter().toJson(data),
+        UModEventViewDetailSubjectConvoView(:final data) =>
+          const ConvoViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        UModEventViewDetailSubjectUnknown(:final data) => data,
+      };
 }

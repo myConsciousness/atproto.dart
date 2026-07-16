@@ -142,16 +142,20 @@ final class UReportCreateActivityActivityConverter
 
   @override
   Map<String, dynamic> toJson(UReportCreateActivityActivity object) =>
-      object.when(
-        queueActivity: (data) => const QueueActivityConverter().toJson(data),
-        assignmentActivity: (data) =>
-            const AssignmentActivityConverter().toJson(data),
-        escalationActivity: (data) =>
-            const EscalationActivityConverter().toJson(data),
-        closeActivity: (data) => const CloseActivityConverter().toJson(data),
-        reopenActivity: (data) => const ReopenActivityConverter().toJson(data),
-        noteActivity: (data) => const NoteActivityConverter().toJson(data),
+      switch (object) {
+        UReportCreateActivityActivityQueueActivity(:final data) =>
+          const QueueActivityConverter().toJson(data),
+        UReportCreateActivityActivityAssignmentActivity(:final data) =>
+          const AssignmentActivityConverter().toJson(data),
+        UReportCreateActivityActivityEscalationActivity(:final data) =>
+          const EscalationActivityConverter().toJson(data),
+        UReportCreateActivityActivityCloseActivity(:final data) =>
+          const CloseActivityConverter().toJson(data),
+        UReportCreateActivityActivityReopenActivity(:final data) =>
+          const ReopenActivityConverter().toJson(data),
+        UReportCreateActivityActivityNoteActivity(:final data) =>
+          const NoteActivityConverter().toJson(data),
 
-        unknown: (data) => data,
-      );
+        UReportCreateActivityActivityUnknown(:final data) => data,
+      };
 }

@@ -19,7 +19,7 @@ part 'mod_event_takedown_target_services.freezed.dart';
 // **************************************************************************
 
 @freezed
-abstract class ModEventTakedownTargetServices
+sealed class ModEventTakedownTargetServices
     with _$ModEventTakedownTargetServices {
   const ModEventTakedownTargetServices._();
 
@@ -73,8 +73,10 @@ final class ModEventTakedownTargetServicesConverter
   }
 
   @override
-  String toJson(ModEventTakedownTargetServices object) =>
-      object.when(knownValue: (data) => data.value, unknown: (data) => data);
+  String toJson(ModEventTakedownTargetServices object) => switch (object) {
+    ModEventTakedownTargetServicesKnownValue(:final data) => data.value,
+    ModEventTakedownTargetServicesUnknown(:final data) => data,
+  };
 }
 
 enum KnownModEventTakedownTargetServices implements Serializable {

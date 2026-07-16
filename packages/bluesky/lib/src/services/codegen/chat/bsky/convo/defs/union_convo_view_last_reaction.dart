@@ -68,10 +68,11 @@ final class UConvoViewLastReactionConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoViewLastReaction object) => object.when(
-    messageAndReactionView: (data) =>
-        const MessageAndReactionViewConverter().toJson(data),
+  Map<String, dynamic> toJson(UConvoViewLastReaction object) =>
+      switch (object) {
+        UConvoViewLastReactionMessageAndReactionView(:final data) =>
+          const MessageAndReactionViewConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+        UConvoViewLastReactionUnknown(:final data) => data,
+      };
 }

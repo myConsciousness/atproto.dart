@@ -68,10 +68,10 @@ final class UEmbedGalleryItemsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbedGalleryItems object) => object.when(
-    embedGalleryImage: (data) =>
-        const EmbedGalleryImageConverter().toJson(data),
+  Map<String, dynamic> toJson(UEmbedGalleryItems object) => switch (object) {
+    UEmbedGalleryItemsEmbedGalleryImage(:final data) =>
+      const EmbedGalleryImageConverter().toJson(data),
 
-    unknown: (data) => data,
-  );
+    UEmbedGalleryItemsUnknown(:final data) => data,
+  };
 }
