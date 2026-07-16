@@ -249,16 +249,13 @@ final class _HttpClientImpl implements HttpClient {
         if (fromJson != null) {
           final jsonData = jsonDecode(response.body);
           // Handle both Map and List responses by wrapping Lists in a Map
-          final Map<String, dynamic> processedData;
-          if (jsonData is Map<String, dynamic>) {
-            processedData = jsonData;
-          } else if (jsonData is List) {
-            // For List responses (like operation logs), wrap in a map with 'log' key
-            processedData = {'log': jsonData};
-          } else {
+          final processedData = switch (jsonData) {
+            Map<String, dynamic> map => map,
+            // For List responses (like operation logs), wrap with a 'log' key
+            List() => {'log': jsonData},
             // For other types, wrap in a generic map
-            processedData = {'data': jsonData};
-          }
+            _ => {'data': jsonData},
+          };
           final data = fromJson(processedData);
           return HttpResponse.success(
             statusCode: statusCode,
@@ -356,18 +353,14 @@ final class _HttpClientImpl implements HttpClient {
         );
 
         // Calculate delay, considering rate limiting
-        Duration delay;
-        if (statusCode == 429) {
-          // Rate limiting - check for Retry-After header
-          final retryAfter = headers['retry-after'] ?? headers['Retry-After'];
-          delay = _retryPolicy.delayForRateLimit(retryAfter, attempt);
-        } else if (statusCode == 503) {
-          // Service unavailable - check for Retry-After header
-          final retryAfter = headers['retry-after'] ?? headers['Retry-After'];
-          delay = _retryPolicy.delayForRateLimit(retryAfter, attempt);
-        } else {
-          delay = _retryPolicy.delayForAttempt(attempt);
-        }
+        final delay = switch (statusCode) {
+          // 429 rate limiting / 503 service unavailable - honor Retry-After
+          429 || 503 => _retryPolicy.delayForRateLimit(
+            headers['retry-after'] ?? headers['Retry-After'],
+            attempt,
+          ),
+          _ => _retryPolicy.delayForAttempt(attempt),
+        };
 
         // Wait before retrying
         if (delay > Duration.zero) {
