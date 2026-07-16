@@ -4,7 +4,7 @@
 
 - fix: signature verification now contains invalid public keys. A crafted rotation `did:key` with an off-curve or malformed compressed point made `pointycastle` throw an uncaught `ArgumentError` out of the verification API (`verifyRawOperation`/`toEcPublicKey`); the point decode is now wrapped so verification fails closed with a `CryptoException`/invalid result instead of crashing a bulk-verification pipeline.
 - fix: DID inputs are validated against the canonical `did:plc` grammar (`did:plc:` + 24 base32 `[a-z2-7]` characters) and rejected if they contain path/query/fragment characters (`/ ? # %`, whitespace, control), closing a path/query-injection hole where a DID like `did:plc:abc/../export?count=1` could redirect a request to a different endpoint and be cached under the crafted key.
-- fix: the typed `Operation` now serializes an explicit `prev: null` for genesis operations, so typed signing/verification and `did:plc` derivation match the PLC directory's canonical bytes (previously only the raw-map API was correct).
+- fix: the typed `Operation` and the legacy `CreateOperationV1` now serialize an explicit `prev: null` for genesis operations, so typed signing/verification and `did:plc` derivation match the PLC directory's canonical bytes (previously only the raw-map API was correct, and legacy `create` genesis operations failed verification/derivation for every affected DID).
 - fix: replaced `dart:io` (`SocketException`/`HttpException`) with `package:universal_io`, restoring Flutter web/WASM compatibility.
 - fix: 400-error detail maps with non-string values no longer throw a lazy cast error.
 - chore: corrected the client User-Agent version.

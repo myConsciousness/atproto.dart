@@ -7,6 +7,7 @@
 - fix: a caller-supplied `Authorization` header (e.g. a service-auth Bearer token) is preserved instead of being overwritten by the session/DPoP token, fixing service-auth flows such as video upload.
 - fix: concurrent expired requests now share a single legacy-session refresh instead of issuing a refresh stampede.
 - feat: `stream()` accepts a `service` override and a `channelFactory`, and honors the configured protocol; the `use_dpop_nonce` retry awaits the nonce write before retrying.
+- fix: a failing user-supplied DPoP nonce-cache write on the request success path is now contained instead of escaping as an uncaught asynchronous error, so a storage failure in `DPoPNonceCache.set` can no longer crash the app.
 - fix: the rate-limit retry wait now parses the HTTP-date form of `Retry-After` (previously only delta-seconds was honored; a date silently degraded to plain backoff and could retry too early).
 - perf: `ServiceContext.service` caches the resolved PDS endpoint per access JWT instead of base64/JSON-decoding the access token on every request when the did document has no `#atproto_pds` service.
 
