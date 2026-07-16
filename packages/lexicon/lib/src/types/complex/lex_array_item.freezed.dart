@@ -87,10 +87,7 @@ case ULexArrayItemPrimitive():
 return primitive(_that);case ULexArrayItemIpld():
 return ipld(_that);case ULexArrayItemBlob():
 return blob(_that);case ULexArrayRefVariant():
-return refVariant(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return refVariant(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -158,10 +155,7 @@ case ULexArrayItemPrimitive():
 return primitive(_that.data);case ULexArrayItemIpld():
 return ipld(_that.data);case ULexArrayItemBlob():
 return blob(_that.data);case ULexArrayRefVariant():
-return refVariant(_that.data);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return refVariant(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

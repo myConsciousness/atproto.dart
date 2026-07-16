@@ -18,7 +18,7 @@ import 'lex_array.dart';
 part 'lex_object_property.freezed.dart';
 
 @freezed
-abstract class LexObjectProperty with _$LexObjectProperty {
+sealed class LexObjectProperty with _$LexObjectProperty {
   // ignore: unused_element
   const LexObjectProperty._();
 

@@ -17,7 +17,7 @@ import '../references/lex_ref_variant.dart';
 part 'lex_array_item.freezed.dart';
 
 @freezed
-abstract class LexArrayItem with _$LexArrayItem {
+sealed class LexArrayItem with _$LexArrayItem {
   // ignore: unused_element
   const LexArrayItem._();
 

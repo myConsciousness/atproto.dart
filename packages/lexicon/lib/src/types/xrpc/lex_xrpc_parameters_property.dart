@@ -15,7 +15,7 @@ import '../primitives/lex_primitive.dart';
 part 'lex_xrpc_parameters_property.freezed.dart';
 
 @freezed
-abstract class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
+sealed class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
   // ignore: unused_element
   const LexXrpcParametersProperty._();
 
