@@ -45,6 +45,7 @@ final class OAuthSessionManager {
   final DPoPSigner _signer;
   final DPoPNonceCache _nonceCache;
   OAuthSession? _session;
+  Future<OAuthSession>? _inflightLoad;
   Future<OAuthSession>? _inflightRefresh;
   final StreamController<OAuthSession> _updates =
       StreamController<OAuthSession>.broadcast();
@@ -58,7 +59,7 @@ final class OAuthSessionManager {
       _session == null ? null : Uri.parse(_session!.pds).authority;
 
   Future<OAuthSession> getSession() async {
-    var current = _session ??= await _loadFromClient();
+    var current = _session ?? await _load();
     final exp = current.expiresAt;
     if (exp != null &&
         exp.isBefore(DateTime.now().toUtc().add(_refreshSkew)) &&
@@ -112,6 +113,22 @@ final class OAuthSessionManager {
         })
         .whenComplete(() => _inflightRefresh = null);
     return _inflightRefresh!;
+  }
+
+  /// Single-flights the initial load: concurrent first-requests share one
+  /// `client.restore()` call. Without this, each caller reads the stored
+  /// session independently; with an expired session and a rotating refresh
+  /// token, the losers would replay the already-consumed refresh token and
+  /// surface a spurious [OAuthSessionRevokedException] (mirrors the
+  /// [_refresh] single-flight below).
+  Future<OAuthSession> _load() {
+    final existing = _session;
+    if (existing != null) return Future.value(existing);
+    if (_inflightLoad != null) return _inflightLoad!;
+    _inflightLoad = _loadFromClient()
+        .then((restored) => _session = restored)
+        .whenComplete(() => _inflightLoad = null);
+    return _inflightLoad!;
   }
 
   Future<OAuthSession> _loadFromClient() async {

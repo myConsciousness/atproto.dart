@@ -30,5 +30,5 @@ Map<String, dynamic> _$CreateOperationV1ToJson(_CreateOperationV1 instance) =>
       'recoveryKey': instance.recoveryKey,
       'handle': instance.handle,
       'service': instance.service,
-      'prev': ?instance.prev,
+      'prev': instance.prev,
     };

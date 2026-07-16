@@ -3,8 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:atproto_identity/atproto_identity.dart' show IdentityException;
+import 'package:bluesky/app_bsky_feed_getfeedskeleton.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
@@ -86,17 +88,42 @@ Handler createFeedGeneratorHandler({
           try {
             viewerDid = await verifyAuth(authHeader);
           } on IdentityException catch (e) {
+            // Log the detail server-side only: IdentityException.message can
+            // carry the issuer DID, resolver URLs and upstream response
+            // bodies, none of which belong in a response to the caller.
+            stderr.writeln('service auth verification failed: $e');
             return _json({
               'error': 'AuthRequired',
-              'message': e.message,
+              'message': 'Service auth verification failed',
             }, status: 401);
+          } on Exception catch (e) {
+            // Verification can also fail on infrastructure, not the token:
+            // resolving the issuer's DID document performs network I/O, so a
+            // SocketException/ClientException would otherwise escape as an
+            // uncaught 500. Answer 502: the upstream resolver, not the
+            // client, is at fault.
+            stderr.writeln('service auth verification errored: $e');
+            return _json({
+              'error': 'UpstreamFailure',
+              'message': 'Could not verify service auth',
+            }, status: 502);
           }
         }
       }
 
-      final output = await algorithm.getFeedSkeleton(
-        FeedRequest(limit: limit, cursor: cursor, viewerDid: viewerDid),
-      );
+      final FeedGetFeedSkeletonOutput output;
+      try {
+        output = await algorithm.getFeedSkeleton(
+          FeedRequest(limit: limit, cursor: cursor, viewerDid: viewerDid),
+        );
+      } on InvalidRequestException catch (e) {
+        // e.g. an unparseable cursor; per the getFeedSkeleton lexicon this
+        // is the `InvalidRequest` error.
+        return _json({
+          'error': 'InvalidRequest',
+          'message': e.message,
+        }, status: 400);
+      }
 
       return _json(output.toJson());
     });

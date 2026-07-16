@@ -21,7 +21,12 @@ abstract class CreateOperationV1 with _$CreateOperationV1 {
     required String recoveryKey,
     required String handle,
     required String service,
-    String? prev,
+    // A legacy `create` genesis operation carries an explicit `prev: null`,
+    // and that key IS part of the signed DAG-CBOR bytes and the bytes
+    // hashed for `did:plc` derivation. It must be serialized even when
+    // null, so this field opts out of the class-level
+    // `includeIfNull: false`.
+    @JsonKey(includeIfNull: true) String? prev,
   }) = _CreateOperationV1;
 
   /// Creates an instance of [CreateOperationV1] from a map of
