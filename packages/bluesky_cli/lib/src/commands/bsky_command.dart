@@ -77,10 +77,36 @@ abstract class BskyCommand extends Command<void> {
     }
 
     if (globalResults!['password-stdin'] as bool) {
-      return stdin.readLineSync();
+      return _readPasswordFromStdin();
     }
 
     return Platform.environment['BLUESKY_PASSWORD'];
+  }
+
+  /// Reads a password from stdin.
+  ///
+  /// When stdin is an interactive terminal, terminal echo is disabled
+  /// while the line is read so the typed password is not printed to the
+  /// screen, then the previous echo state is restored. Piped or otherwise
+  /// non-terminal stdin is read unchanged so scripted/piped input keeps
+  /// working.
+  String? _readPasswordFromStdin() {
+    if (!stdin.hasTerminal) {
+      return stdin.readLineSync();
+    }
+
+    final previousEchoMode = stdin.echoMode;
+    stdin.echoMode = false;
+    try {
+      final password = stdin.readLineSync();
+      // The user's trailing newline was not echoed while echo was
+      // disabled, so emit one to keep subsequent output on a fresh line.
+      stdout.writeln();
+
+      return password;
+    } finally {
+      stdin.echoMode = previousEchoMode;
+    }
   }
 
   /// The timeout used when `--timeout` is not specified. Commands

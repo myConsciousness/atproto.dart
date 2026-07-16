@@ -20,10 +20,6 @@ import 'grouped_notification.dart';
 import 'grouped_notification_reason.dart';
 import 'grouped_notifications.dart';
 
-// Project imports:
-import '../../services/codegen/app/bsky/notification/listNotifications/output.dart'
-    show NotificationListNotificationsOutput;
-
 const _groupableReasons = <KnownNotificationReason>{
   KnownNotificationReason.like,
   KnownNotificationReason.repost,
