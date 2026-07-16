@@ -47,31 +47,49 @@ import 'package:xrpc/xrpc.dart';
 ### 1.1.3. Implementation
 
 ```dart
-import 'package:atproto/atproto.dart' as atproto;
+import 'dart:convert';
+
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 Future<void> main() async {
-  final response = await xrpc.procedure(
-    xrpc.NSID.create(
-      'session.atproto.com',
-      'create',
-    ),
-    body: {
-      'handle': 'HANDLE',
-      'password': 'PASSWORD',
-    },
-    to: atproto.Session.fromJson,
+  final response = await xrpc.procedure<String>(
+    xrpc.NSID.create('server.atproto.com', 'createSession'),
+    body: {'identifier': 'HANDLE_OR_EMAIL', 'password': 'PASSWORD'},
   );
 
-  final session = await xrpc.query(
-    xrpc.NSID.create(
-      'session.atproto.com',
-      'get',
-    ),
-    headers: {'Authorization': 'Bearer ${response.data.accessJwt}'},
-    to: atproto.CurrentSession.fromJson,
+  final session = jsonDecode(response.data);
+
+  final currentSession = await xrpc.query<String>(
+    xrpc.NSID.create('server.atproto.com', 'getSession'),
+    headers: {'Authorization': 'Bearer ${session['accessJwt']}'},
   );
 
-  print(session);
+  print(currentSession);
+}
+```
+
+Pass a `to` converter to deserialize the response body into your own type
+instead of receiving it as a raw `String`.
+
+#### Streaming (Subscriptions)
+
+For event-stream endpoints (e.g. a firehose), use `subscribe<T>`. It returns an
+`XRPCResponse<Subscription<T>>` synchronously; the payload's `stream` emits
+frames until you `close()` it.
+
+```dart
+import 'package:xrpc/xrpc.dart' as xrpc;
+
+Future<void> main() async {
+  final response = xrpc.subscribe<String>(
+    xrpc.NSID.create('sync.atproto.com', 'subscribeRepos'),
+  );
+
+  final subscription = response.data;
+  final events = subscription.stream.listen(print);
+
+  // ... later, stop listening and close the underlying WebSocket.
+  await events.cancel();
+  await subscription.close();
 }
 ```

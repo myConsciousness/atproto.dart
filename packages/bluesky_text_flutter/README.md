@@ -41,6 +41,10 @@ error color; override with `entityStyle`, `overflowStyle`, or a full
 
 ## Viewer
 
+The simplest integration is `onFeatureTap`, a single callback invoked for any
+tapped feature with the resolved `FacetFeature` — a mention's DID, a link's URI,
+or a tag's value — and `switch` on `feature.type`:
+
 ```dart
 BlueskyRichText(
   text: post.record.text,
@@ -48,9 +52,52 @@ BlueskyRichText(
           ?.map((f) => PostFacet.fromJson(f.toJson()))
           .toList() ??
       const [],
+  onFeatureTap: (feature) {
+    switch (feature.type) {
+      case EntityType.handle:
+        context.go('/profile/${feature.value}'); // value is the DID
+      case EntityType.link:
+        launchUrlString(feature.value);
+      case EntityType.tag || EntityType.cashtag:
+        context.go('/tag/${feature.value}');
+      case EntityType.markdownLink:
+        break;
+    }
+  },
+);
+```
+
+`typedef FeatureTapCallback = void Function(FacetFeature feature);`
+
+If you prefer per-kind handlers, the typed conveniences `onMentionTap(String
+did)`, `onLinkTap(String uri)` and `onTagTap(String tag)` are dispatched by
+feature kind and take precedence over `onFeatureTap` for their kind:
+
+```dart
+BlueskyRichText(
+  text: post.record.text,
+  facets: facets,
   onMentionTap: (did) => context.go('/profile/$did'),
   onLinkTap: (uri) => launchUrlString(uri),
   onTagTap: (tag) => context.go('/tag/$tag'),
+);
+```
+
+Styling is controlled with `featureStyle` (applied to mention/link/tag slices,
+defaulting to the theme's primary color) and `style` (the base style for the
+whole text), plus the usual `Text` layout parameters `textAlign`, `maxLines`
+and `overflow`:
+
+```dart
+BlueskyRichText(
+  text: post.record.text,
+  facets: facets,
+  style: theme.textTheme.bodyMedium,
+  featureStyle: TextStyle(color: theme.colorScheme.primary),
+  textAlign: TextAlign.start,
+  maxLines: 4,
+  overflow: TextOverflow.ellipsis,
+  onFeatureTap: onFeatureTap,
 );
 ```
 
@@ -58,7 +105,7 @@ BlueskyRichText(
 
 ```yaml
 dependencies:
-  bluesky_text_flutter: ^0.1.0
+  bluesky_text_flutter: ^0.1.2
 ```
 
 See [`example/lib/main.dart`](example/lib/main.dart) for a runnable demo of both

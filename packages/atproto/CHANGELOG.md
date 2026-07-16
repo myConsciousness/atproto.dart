@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.0.1
+
+- docs: documented OAuth authentication in the README — `ATProto.fromOAuth(OAuthSessionManager)`, `ATProto.fromOAuthSession(session, {oauthClient})`, and the renamed `oAuthSessionManager` getter.
+- docs: the Firehose section now shows the recommended typed `atproto.sync.subscribeReposAsMessages()` API, keeping the raw `subscribeRepos()` + `SyncSubscribeReposAdaptor` path as the advanced alternative.
+- docs: noted that `retryConfig` accepts any `RetryStrategy`, with `RetryStrategy`/`RetryContext`/`RetryReason` re-exported from `core.dart`.
+- chore: bump `atproto_core` to `^2.0.1` and `xrpc` to `^1.1.2`.
+
 ## v2.0.0
 
 - feat!: `ATProto.fromOAuth(OAuthSessionManager)`. `fromOAuthSession(session, {oauthClient})` now wraps a manager (pass `oauthClient` for auto-refresh); the `oAuthSession` getter is replaced by `oAuthSessionManager`.

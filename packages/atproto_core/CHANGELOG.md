@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.0.1
+
+- docs: rewrite the README to document the actual public API — `Session`/`OAuthSession`, JWT decoding (`decodeJwt`/`Jwt`), the pluggable retry engine (`RetryStrategy`, `RetryConfig`, `RetryContext`, `RetryReason`, `RetryEvent`, `Jitter`), `BaseHttpService`/`ServiceContext`, `Blob`/`BlobRef`, `decodeCar`, `isValidAppPassword`, and the `xrpc`/`multiformats`/`cbor` re-exports — and frame the package as the shared core layer `atproto`/`bluesky` build on.
+- docs: replace the placeholder `example/example.md` with a runnable `example/example.dart` covering `RetryConfig`/custom `RetryStrategy`, JWT decoding, `Blob` serialization, and app-password validation.
+- chore: bump `xrpc` to `^1.1.2`, `at_primitives` to `^1.1.1`, and `atproto_oauth` to `^0.5.1`.
+
 ## v2.0.0
 
 - feat!: OAuth requests are now driven by `OAuthSessionManager`; `ServiceContext` takes `oAuthSessionManager` instead of `oAuthSession`, enabling transparent OAuth token auto-refresh. OAuth tokens are never JWT-decoded. `restoreOAuthSession`/`OauthSessionExtension` removed (opaque tokens). Legacy password-auth `Session` is unaffected.

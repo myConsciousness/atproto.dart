@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.4.3
+
+- docs: fix the logo `alt` text (`atproto_core` → `lex_gen`).
+- docs: add a real README documenting the programmatic API — the `Gen` interface with `ServiceGen`/`CommandGen` and `execute()`, the config types (`LexGenConfig`, `LexServiceRuleConfig`, `LexCommandRuleConfig`, `LexiconNamespaceRule`), and the `doc_loader` helpers — with a minimal configure-and-run snippet.
+- chore: bump `lexicon` to `^1.2.2`.
+
 ## v0.4.2
 
 Two-pass internal refactor of the code generator, plus emitter fixes. The net effect changes generated output (see the fixes below), so **downstream regeneration is required**. (Consolidates the previously-unreleased v0.4.2 and v0.4.3 entries.)

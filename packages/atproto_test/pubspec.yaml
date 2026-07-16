@@ -1,7 +1,7 @@
 name: atproto_test
 resolution: workspace
 description: This package provides core reusable and useful functionality for testing atproto based packages.
-version: 1.0.0
+version: 1.0.1
 publish_to: none
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
@@ -14,7 +14,7 @@ environment:
 
 dependencies:
   test: ^1.26.2
-  atproto_core: ^2.0.0
+  atproto_core: ^2.0.1
   http: ^1.4.0
   universal_io: ^2.2.2
   web_socket_channel: ^3.0.3

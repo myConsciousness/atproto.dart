@@ -77,7 +77,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bluesky: ^1.0.7  # Latest version will be added automatically
+  bluesky: ^2.0.0  # Latest version will be added automatically
 
 dev_dependencies:
   flutter_test:
@@ -125,4 +125,4 @@ With packages installed, you're ready to:
 
 **Import errors?** Ensure you're using the correct import statements from the package documentation.
 
-**Build issues?** Verify your Dart SDK version meets the minimum requirements (3.0+).
+**Build issues?** Verify your Dart SDK version meets the minimum requirements (3.8.0+).

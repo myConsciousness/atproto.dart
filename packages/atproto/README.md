@@ -91,6 +91,44 @@ Future<void> main() async {
 }
 ```
 
+> **Note:** `retryConfig` accepts any `RetryStrategy`, not only `RetryConfig`. Implement your own to fully control backoff and which failures retry. `RetryStrategy`, `RetryContext`, and `RetryReason` are re-exported from `package:atproto/core.dart`.
+
+#### OAuth Authentication
+
+The client wraps an `OAuthSessionManager`, which owns DPoP header building and transparent token refresh. Build a manager from a completed authorization and pass it to `ATProto.fromOAuth`:
+
+```dart
+import 'package:atproto/atproto.dart';
+import 'package:atproto/atproto_oauth.dart';
+
+Future<void> main() async {
+  // Complete the OAuth flow with your client metadata.
+  final oauth = OAuthClient(
+    await getClientMetadata('https://example.com/client-metadata.json'),
+  );
+
+  final authUrl = await oauth.authorize('your.handle.bsky.social');
+  // Send the user to `authUrl`, then hand the redirect back to `callback`:
+  final session = await oauth.callback('https://example.com/callback?...');
+
+  // The manager keeps the access token fresh across requests.
+  final manager = OAuthSessionManager(oauth, sub: session.sub);
+  final atproto = ATProto.fromOAuth(manager);
+
+  // The active manager is available via the `oAuthSessionManager` getter.
+  print(atproto.oAuthSessionManager);
+}
+```
+
+To restore a persisted session, rebuild the manager with `OAuthSessionManager.fromSession(restored)`. Alternatively, `ATProto.fromOAuthSession(session, {oauthClient})` wraps a manager for you — pass `oauthClient` to enable transparent refresh; without it the session is used as-is and cannot be refreshed.
+
+```dart
+final restored = OAuthSession.fromJson(jsonDecode(storedJson));
+final atproto = ATProto.fromOAuthSession(restored, oauthClient: oauth);
+```
+
+> **Note:** In v2.0.0 the old `oAuthSession` getter was replaced by `oAuthSessionManager`.
+
 #### Repository Operations
 
 ```dart
@@ -135,22 +173,44 @@ await atproto.identity.updateHandle(
 
 #### Real-time Data with Firehose
 
+The recommended way to consume the Firehose is `subscribeReposAsMessages()`, which decodes each frame for you (CBOR/CAR, with `blocks`, `ops`, and CID links normalized) and yields typed messages:
+
 ```dart
 import 'package:atproto/atproto.dart';
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
+
+Future<void> main() async {
+  // Initialize the AT Protocol client
+  final atproto = ATProto.anonymous();
+
+  // Subscribe to the repository stream as typed messages
+  final subscription = await atproto.sync.subscribeReposAsMessages();
+
+  subscription.data.stream.listen((message) {
+    if (message.isCommit) {
+      final commit = message.commit!;
+      print('${commit.repo}: ${commit.blocks.length} blocks');
+    }
+  });
+}
+```
+
+If you want the raw binary frames instead, use `subscribeRepos()` and decode them yourself with `SyncSubscribeReposAdaptor` (advanced):
+
+```dart
+import 'package:atproto/atproto.dart';
 import 'package:atproto/firehose.dart' as firehose;
 
 Future<void> main() async {
   // Initialize the AT Protocol client
   final atproto = ATProto.anonymous();
 
-  // Subscribe to the repository stream
+  // Subscribe to the raw repository stream
   final subscription = await atproto.sync.subscribeRepos();
 
   subscription.data.stream.listen((event) {
     final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
 
-    repos.whenOrNull(commit: print);
+    print(repos);
   });
 }
 ```

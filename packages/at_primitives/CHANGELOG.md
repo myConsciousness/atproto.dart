@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.1.1
+
+- docs: fixed the README, which imported the non-existent `package:at_primitives/at_primitives.dart` barrel throughout; every snippet now imports the correct sub-barrel (`at_identifier.dart`/`at_uri.dart`/`nsid.dart`/`tid.dart`/`record_key.dart`).
+- docs: corrected the `AtUri.collection` type note (`collection` returns an `NSID`, only `'com.example.post'` via `.toString()`) and documented the non-throwing `collectionOrNull`/`rkeyOrNull` getters.
+- docs: documented the previously undocumented TID (`isValidTid`/`ensureValidTid`/`InvalidTidError`) and Record Key (`isValidRecordKey`/`ensureValidRecordKey`/`InvalidRecordKeyError`) modules with runnable snippets.
+
 ## v1.1.0
 
 - fix!: `collection`/`rkey` on a path-less `AtUri` now throw `InvalidAtUriError` instead of a raw `StateError`/`RangeError`; added `collectionOrNull`/`rkeyOrNull` for the non-throwing path.

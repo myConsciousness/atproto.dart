@@ -1,5 +1,12 @@
 # Release Note
 
+## v1.1.2
+
+- docs: fixed the broken `Advanced Features` / `Caching` / `Performance Best Practices` examples in the README, which passed a non-existent `cachePolicy:` argument to the `PLC(...)` factory. They now inject a cache via the real `cacheManager: CacheManager(CachePolicy(...))` form, matching `example/cache_example.dart`.
+- docs: documented the v1.1.0 real-cryptography and operation-building surface in the README (`OperationBuilder`, `DidBuilder`, `CryptoKey`/`KeyManager`, `PlcSigner`, `PlcVerifier`), with a signing/verification example.
+- docs: bumped the README install snippet to `did_plc: ^1.1.2`.
+- chore: bump `multiformats` to `^1.2.0`.
+
 ## v1.1.1
 
 - fix: signature verification now contains invalid public keys. A crafted rotation `did:key` with an off-curve or malformed compressed point made `pointycastle` throw an uncaught `ArgumentError` out of the verification API (`verifyRawOperation`/`toEcPublicKey`); the point decode is now wrapped so verification fails closed with a `CryptoException`/invalid result instead of crashing a bulk-verification pipeline.

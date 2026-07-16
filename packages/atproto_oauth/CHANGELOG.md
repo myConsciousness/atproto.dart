@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.1
+
+- chore: bump `atproto_identity` to `^0.1.1`.
+
 ## v0.5.0
 
 - feat!: OAuth processes are now fully pluggable — inject `OAuthStateStore`, `OAuthSessionStore`, `DPoPNonceCache`, `IdentityResolver`, `DPoPSigner` (in-memory/HTTP/pointycastle defaults provided). (#2060)
