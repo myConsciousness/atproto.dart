@@ -101,7 +101,11 @@ void main() {
     group('Batch Operations', () {
       test('should process multiple DIDs', () async {
         // Arrange
-        final dids = ['did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb', 'did:plc:cccccccccccccccccccccccc'];
+        final dids = [
+          'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa',
+          'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb',
+          'did:plc:cccccccccccccccccccccccc',
+        ];
 
         for (final did in dids) {
           final document = dataGenerator.generateDidDocument(id: did);
@@ -121,7 +125,11 @@ void main() {
 
       test('should handle partial failures', () async {
         // Arrange
-        final dids = ['did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb', 'did:plc:dddddddddddddddddddddddd'];
+        final dids = [
+          'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa',
+          'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb',
+          'did:plc:dddddddddddddddddddddddd',
+        ];
 
         // Add only first two DIDs
         for (int i = 0; i < 2; i++) {
