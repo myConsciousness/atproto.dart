@@ -535,8 +535,12 @@ final class OAuthClient {
 
     final body = post.body;
     if (body == null) {
+      // A `200` body may carry live `access_token`/`refresh_token` material
+      // even when it fails JSON parsing (e.g. a truncated or proxy-mangled
+      // response). Never interpolate the raw body: report only its shape.
       throw OAuthException(
-        'Token response is not a valid JSON object: ${response.body}',
+        'Token response is not a valid JSON object '
+        '(${_describeBody(response)})',
       );
     }
 
@@ -629,6 +633,7 @@ final class OAuthClient {
 
     final serverMetadata = OAuthServerMetadata.fromJson(json);
     _validateIssuerOrigin(serverMetadata.issuer, origin);
+    _validateEndpointOrigins(serverMetadata, origin);
 
     return serverMetadata;
   }
@@ -648,6 +653,54 @@ final class OAuthClient {
       throw OAuthException(
         'Authorization server issuer mismatch: expected "$origin" '
         'but the server declared "$issuer"',
+      );
+    }
+  }
+
+  /// Validates that the security-sensitive AS endpoints advertised in the
+  /// metadata — where the code+verifier, PAR, and refresh-token POSTs are
+  /// sent — are each `https` and same-origin as the issuer [origin], as
+  /// required by the atproto OAuth profile.
+  ///
+  /// A misconfigured or partially-compromised metadata document could
+  /// otherwise redirect these POSTs to an `http://` or off-origin host and
+  /// leak credentials, so any deviation throws an [OAuthException].
+  void _validateEndpointOrigins(
+    final OAuthServerMetadata metadata,
+    final String origin,
+  ) {
+    _requireSameOriginHttps(
+      metadata.pushedAuthorizationRequestEndpoint,
+      origin,
+      'pushed_authorization_request_endpoint',
+    );
+    _requireSameOriginHttps(
+      metadata.authorizationEndpoint,
+      origin,
+      'authorization_endpoint',
+    );
+    _requireSameOriginHttps(metadata.tokenEndpoint, origin, 'token_endpoint');
+  }
+
+  /// Throws an [OAuthException] unless [endpoint] (when present) is an
+  /// absolute `https` URL whose origin equals [origin].
+  void _requireSameOriginHttps(
+    final String? endpoint,
+    final String origin,
+    final String name,
+  ) {
+    if (endpoint == null) return;
+
+    final uri = Uri.tryParse(endpoint);
+    // `uri.origin` throws for non-http(s) schemes, so the `https` guard must
+    // short-circuit before it is evaluated.
+    if (uri == null ||
+        !uri.isScheme('https') ||
+        uri.host.isEmpty ||
+        uri.origin != origin) {
+      throw OAuthException(
+        'Authorization server "$name" must be an https URL same-origin as the '
+        'issuer "$origin", but was "$endpoint"',
       );
     }
   }
@@ -733,8 +786,12 @@ final class OAuthClient {
 
     final body = result.body;
     if (body == null) {
+      // A `200` body may carry live `access_token`/`refresh_token` material
+      // even when it fails JSON parsing (e.g. a truncated or proxy-mangled
+      // response). Never interpolate the raw body: report only its shape.
       throw OAuthException(
-        'Token response is not a valid JSON object: ${response.body}',
+        'Token response is not a valid JSON object '
+        '(${_describeBody(response)})',
       );
     }
 
@@ -957,6 +1014,20 @@ bool _isLoopbackHost(final String host) {
   return normalized == 'localhost' ||
       normalized == '127.0.0.1' ||
       normalized == '::1';
+}
+
+/// Describes a token-endpoint [response] whose `200` body could not be parsed
+/// as JSON, using only its length and content-type. The raw body is
+/// deliberately excluded because on a success status it may carry live
+/// `access_token`/`refresh_token` material that must never reach logs or
+/// crash reporters.
+String _describeBody(final http.Response response) {
+  final contentType = response.headers['content-type'];
+  final length = response.bodyBytes.length;
+
+  return contentType == null
+      ? 'body length: $length'
+      : 'content-type: $contentType, body length: $length';
 }
 
 /// Renders the member names present in a token response for diagnostics,
