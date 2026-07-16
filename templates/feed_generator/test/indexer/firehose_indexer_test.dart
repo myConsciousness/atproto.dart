@@ -13,4 +13,21 @@ void main() {
     expect(indexed.uri, 'at://did:plc:x/app.bsky.feed.post/abc');
     expect(indexed.indexedAt, DateTime.utc(2026, 1, 1));
   });
+
+  test('defaults indexedAt to the current UTC time when now is omitted', () {
+    final at = AtUri('at://did:plc:x/app.bsky.feed.post/abc');
+    final before = DateTime.now().toUtc();
+    final indexed = indexedPostFrom(at);
+    final after = DateTime.now().toUtc();
+
+    expect(indexed.indexedAt.isUtc, isTrue);
+    expect(
+      indexed.indexedAt.isAfter(before.subtract(const Duration(seconds: 5))),
+      isTrue,
+    );
+    expect(
+      indexed.indexedAt.isBefore(after.add(const Duration(seconds: 5))),
+      isTrue,
+    );
+  });
 }

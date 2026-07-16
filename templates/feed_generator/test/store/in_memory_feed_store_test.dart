@@ -6,10 +6,12 @@ void main() {
   test('recent returns newest-first, honoring limit', () async {
     final store = InMemoryFeedStore();
     for (var i = 0; i < 5; i++) {
-      await store.index(IndexedPost(
-        uri: 'at://did:plc:x/app.bsky.feed.post/$i',
-        indexedAt: DateTime.utc(2026, 1, 1, 0, 0, i),
-      ));
+      await store.index(
+        IndexedPost(
+          uri: 'at://did:plc:x/app.bsky.feed.post/$i',
+          indexedAt: DateTime.utc(2026, 1, 1, 0, 0, i),
+        ),
+      );
     }
     final recent = await store.recent(limit: 3);
     expect(recent.map((p) => p.uri), [
@@ -22,12 +24,17 @@ void main() {
   test('before paginates strictly older than the cursor time', () async {
     final store = InMemoryFeedStore();
     for (var i = 0; i < 5; i++) {
-      await store.index(IndexedPost(
-        uri: 'at://did:plc:x/app.bsky.feed.post/$i',
-        indexedAt: DateTime.utc(2026, 1, 1, 0, 0, i),
-      ));
+      await store.index(
+        IndexedPost(
+          uri: 'at://did:plc:x/app.bsky.feed.post/$i',
+          indexedAt: DateTime.utc(2026, 1, 1, 0, 0, i),
+        ),
+      );
     }
-    final page = await store.recent(limit: 10, before: DateTime.utc(2026, 1, 1, 0, 0, 3));
+    final page = await store.recent(
+      limit: 10,
+      before: DateTime.utc(2026, 1, 1, 0, 0, 3),
+    );
     expect(page.map((p) => p.uri), [
       'at://did:plc:x/app.bsky.feed.post/2',
       'at://did:plc:x/app.bsky.feed.post/1',

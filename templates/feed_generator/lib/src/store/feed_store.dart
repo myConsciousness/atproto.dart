@@ -15,5 +15,8 @@ abstract interface class FeedStore {
   Future<void> index(final IndexedPost post);
 
   /// Returns posts newest-first, at most [limit], older than [before] if given.
-  Future<List<IndexedPost>> recent({required final int limit, final DateTime? before});
+  Future<List<IndexedPost>> recent({
+    required final int limit,
+    final DateTime? before,
+  });
 }
