@@ -1,0 +1,8 @@
+# bluesky_text 1.5.1 is not yet published. This Flutter package lives outside
+# the Dart pub workspace and normally resolves `bluesky_text` from pub.dev, so
+# CI (`flutter pub get`, no melos bootstrap) cannot see the unpublished 1.5.1.
+# Resolve it from the local path until 1.5.1 is published. `flutter pub publish`
+# ignores dependency_overrides, so the published constraint stays `^1.5.1`.
+dependency_overrides:
+  bluesky_text:
+    path: ../bluesky_text
