@@ -40,6 +40,9 @@ class _MutableGroup {
     required this.labels,
     required this.record,
     required this.indexedAt,
+    required this.windowAnchor,
+    required this.headAuthorDid,
+    this.sealed = false,
   });
 
   final List<AtUri> uris;
@@ -50,6 +53,9 @@ class _MutableGroup {
   final List<Label> labels;
   final Map<String, dynamic>? record;
   DateTime indexedAt;
+  final DateTime windowAnchor;
+  final String headAuthorDid;
+  bool sealed;
 
   GroupedNotification toGroupedNotification() => GroupedNotification(
     uris: uris,
@@ -120,19 +126,27 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         final reasonSubject = notification.reasonSubject?.toString();
         final reason = _getGroupedReason(notification, reasonSubject);
 
-        if (_isGroupable(notification.reason)) {
-          final key = (reason, reasonSubject);
-          final existing = groupable[key];
-
-          if (existing == null) {
-            final group = _buildGroup(notification, reason);
-            groupable[key] = group;
-            groups.add(group);
-          } else {
-            _mergeInto(existing, notification);
-          }
-        } else {
+        if (!_isGroupable(notification.reason)) {
           groups.add(_buildGroup(notification, reason));
+          continue;
+        }
+
+        // Follow-backs are pulled out into their own sealed group and do NOT
+        // replace the current merge target, so genuine follows keep grouping.
+        if (config.separateFollowBacks && _isFollowBack(notification)) {
+          groups.add(_buildGroup(notification, reason, sealed: true));
+          continue;
+        }
+
+        final key = (reason, reasonSubject);
+        final existing = groupable[key];
+
+        if (existing != null && _canMerge(existing, notification)) {
+          _mergeInto(existing, notification);
+        } else {
+          final group = _buildGroup(notification, reason);
+          groupable[key] = group;
+          groups.add(group);
         }
       }
     }
@@ -152,10 +166,36 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     return knownValue != null && config.groupableReasons.contains(knownValue);
   }
 
+  bool _isFollowBack(final Notification notification) =>
+      notification.reason.knownValue == KnownNotificationReason.follow &&
+      notification.author.viewer?.following != null;
+
+  bool _canMerge(final _MutableGroup group, final Notification notification) {
+    if (group.sealed) return false;
+
+    final window = config.window;
+    if (window != null) {
+      final delta = group.windowAnchor.difference(notification.indexedAt).abs();
+      if (delta >= window) return false;
+
+      // Official grouping keeps at most one entry per author within a group,
+      // except for subscribed-post where repeated posts from the same author
+      // are expected.
+      final sameAuthor = notification.author.did == group.headAuthorDid;
+      final isSubscribedPost =
+          notification.reason.knownValue ==
+          KnownNotificationReason.subscribedPost;
+      if (sameAuthor && !isSubscribedPost) return false;
+    }
+
+    return true;
+  }
+
   _MutableGroup _buildGroup(
     final Notification notification,
-    final GroupedNotificationReason reason,
-  ) => _MutableGroup(
+    final GroupedNotificationReason reason, {
+    final bool sealed = false,
+  }) => _MutableGroup(
     uris: [notification.uri],
     authors: [notification.author],
     reason: reason,
@@ -164,6 +204,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     labels: [...?notification.labels],
     record: notification.record,
     indexedAt: notification.indexedAt,
+    windowAnchor: notification.indexedAt,
+    headAuthorDid: notification.author.did,
+    sealed: sealed,
   );
 
   void _mergeInto(final _MutableGroup group, final Notification notification) {
@@ -181,9 +224,15 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
     _mergeLabels(group.labels, notification.labels);
 
+    if (config.unreadIfAny) {
+      group.isRead = group.isRead && notification.isRead;
+    }
+
     final incomingIsNewer = notification.indexedAt.isAfter(group.indexedAt);
     if (incomingIsNewer) {
-      group.isRead = notification.isRead;
+      if (!config.unreadIfAny) {
+        group.isRead = notification.isRead;
+      }
       group.indexedAt = notification.indexedAt;
     }
   }

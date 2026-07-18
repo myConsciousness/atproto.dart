@@ -800,8 +800,12 @@ void main() {
       final groupedBy2Hours = notifications.groupByHour(2);
 
       expect(groupedBy1Hour.notifications.length, 2);
-      expect(groupedBy2Hours.notifications.length, 1);
-      expect(notifications.group().notifications.length, 1);
+      // These calls go through the extension's default grouper (now
+      // `.official()`), so the same-author split rule applies: two `like`
+      // notifications from the same author on the same subject no longer
+      // merge, even within the same time bucket.
+      expect(groupedBy2Hours.notifications.length, 2);
+      expect(notifications.group().notifications.length, 2);
     });
 
     test('when hour is 0', () {
@@ -931,8 +935,12 @@ void main() {
 
       expect(groupedBy29Minutes.notifications.length, 2);
       expect(groupedBy30Minutes.notifications.length, 2);
-      expect(groupedBy31Minutes.notifications.length, 1);
-      expect(notifications.group().notifications.length, 1);
+      // These calls go through the extension's default grouper (now
+      // `.official()`), so the same-author split rule applies: two `like`
+      // notifications from the same author on the same subject no longer
+      // merge, even within the same time bucket.
+      expect(groupedBy31Minutes.notifications.length, 2);
+      expect(notifications.group().notifications.length, 2);
     });
 
     test('when minute is 0', () {
