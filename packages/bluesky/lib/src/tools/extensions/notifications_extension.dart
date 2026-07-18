@@ -13,27 +13,17 @@ import '../utils/notifications_grouper.dart';
 import '../utils/notifications_grouper_config.dart';
 
 extension NotificationsExtension on NotificationListNotificationsOutput {
-  /// Groups a list of notifications based on their `reason` and
-  /// `reasonSubject`.
+  /// Groups notifications the way the official Bluesky social-app does.
   ///
-  /// Takes a [NotificationListNotificationsOutput] object containing an array
-  /// of individual notification items, and groups them into related sets.
+  /// By default uses [NotificationsGrouperConfig.official] (six grouped
+  /// reasons, a 48h sliding window, follow-back separation, unread-if-any).
+  /// Pass [config] to customize grouping — for example
+  /// [NotificationsGrouperConfig.lenient] for the legacy behavior from
+  /// `bluesky` <= 2.x, or a fully custom [NotificationsGrouperConfig]. Pass
+  /// [by] to additionally pre-bucket notifications by wall-clock time before
+  /// grouping.
   ///
-  /// A set is considered "related" if they share the same `reason`
-  /// and `reasonSubject`.
-  ///
-  /// ## Notes
-  /// - Notifications with the same `reason` and `reasonSubject` are
-  ///   grouped together.
-  /// - Within each group, notifications are sorted by their `indexedAt` time.
-  /// - The `authors` field in each group is a list of authors who contributed
-  ///   to that reason.
-  /// - The `isRead` field in each group is determined by the most recent
-  ///   notification in that group.
-  /// - The `labels` field aggregates all labels from notifications in the same
-  ///   group.
-  /// - Returns a [GroupedNotifications] object containing the grouped
-  ///   notifications.
+  /// See [NotificationsGrouper.group] for the full grouping rules.
   GroupedNotifications group({
     final GroupBy? by,
     final NotificationsGrouperConfig? config,

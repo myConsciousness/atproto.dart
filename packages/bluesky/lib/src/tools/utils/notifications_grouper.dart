@@ -73,27 +73,34 @@ sealed class NotificationsGrouper {
   const factory NotificationsGrouper({NotificationsGrouperConfig config}) =
       _NotificationsGrouper;
 
-  /// Groups a list of notifications based on their `reason` and
-  /// `reasonSubject`.
+  /// Groups notifications the way the official Bluesky social-app does.
   ///
-  /// Takes a [NotificationListNotificationsOutput] object containing an array
-  /// of individual notification items, and groups them into related sets.
+  /// Takes a [NotificationListNotificationsOutput] and collapses related
+  /// notifications into [GroupedNotification] sets, controlled by the
+  /// [NotificationsGrouperConfig] this grouper was constructed with.
   ///
-  /// A set is considered "related" if they share the same `reason`
-  /// and `reasonSubject`.
+  /// With the default [NotificationsGrouperConfig.official]:
+  /// - The reasons `like`, `repost`, `follow`, `like-via-repost`,
+  ///   `repost-via-repost` and `subscribed-post` are grouped; any other
+  ///   reason yields a standalone group.
+  /// - Notifications are grouped by `reason` and `reasonSubject`, within a
+  ///   48h sliding window anchored on each group's newest notification.
+  /// - Follow-backs (follows from accounts you already follow) are separated
+  ///   into their own groups.
+  /// - A group is marked unread if any of its notifications is unread.
+  ///
+  /// Pass [NotificationsGrouperConfig.lenient] to keep the legacy behavior
+  /// from `bluesky` <= 2.x, or a custom [NotificationsGrouperConfig] to tune
+  /// the groupable reasons, time window, follow-back handling and unread
+  /// policy yourself.
+  ///
+  /// The optional [by] pre-buckets notifications by wall-clock time before
+  /// grouping (see [GroupBy]); this is independent of the sliding window.
   ///
   /// ## Notes
-  /// - Notifications with the same `reason` and `reasonSubject` are
-  ///   grouped together.
-  /// - Within each group, notifications are sorted by their `indexedAt` time.
-  /// - The `authors` field in each group is a list of authors who contributed
-  ///   to that reason.
-  /// - The `isRead` field in each group is determined by the most recent
-  ///   notification in that group.
-  /// - The `labels` field aggregates all labels from notifications in the same
-  ///   group.
-  /// - Returns a [GroupedNotifications] object containing the grouped
-  ///   notifications.
+  /// - `authors`, `uris` and `labels` in each group aggregate its members.
+  /// - Groups are returned ordered by `indexedAt`, newest first.
+  /// - Returns a [GroupedNotifications] wrapping the grouped list and cursor.
   GroupedNotifications group(
     final NotificationListNotificationsOutput notifications, {
     final GroupBy? by,
