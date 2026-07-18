@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.5.3
+
+- chore: bump dev dependency `bluesky` to `^2.1.0`.
+
 ## v1.5.2
 
 - docs: added a runnable inline usage snippet to the README — instantiating `BlueskyText`, extracting entities (`.entities`/`.handles`/`.links`), and converting with `toPostData({service, resolver})` to `text`/`facets`/`unresolvedHandles`.

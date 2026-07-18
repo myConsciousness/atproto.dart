@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.3
+
+- chore: bump `bluesky_text` to `^1.5.3`.
+
 ## v0.6.2
 
 - docs: documented the previously undocumented global options in the README — `--password-stdin`, `--auth-service`, `--[no-]auth`, `--[no-]session-cache`, `--timeout`, and `--version`/`-v`.

@@ -186,6 +186,44 @@ Future<void> main(List<String> args) async {
 }
 ```
 
+#### Notification Grouping
+
+The `bluesky` package can group notifications client-side the same way the official Bluesky app does. Grouping is fully customizable via `NotificationsGrouperConfig`.
+
+```dart
+// List notifications, then group them like the official app does.
+final notifications = await bsky.notification.listNotifications();
+
+// Default: official Bluesky social-app parity — groups like / repost /
+// follow / like-via-repost / repost-via-repost / subscribed-post within a
+// 48h window, separates follow-backs, and marks a group unread if any of
+// its notifications is unread.
+final grouped = notifications.data.group();
+
+for (final group in grouped.notifications) {
+  print('${group.reason}: ${group.authors.length} author(s)');
+}
+
+// Keep the legacy behavior from bluesky <= 2.x.
+final legacy = notifications.data.group(
+  config: const NotificationsGrouperConfig.lenient(),
+);
+
+// Or fully customize the grouping. `KnownNotificationReason` comes from
+// `package:bluesky/app_bsky_notification_listnotifications.dart`.
+final custom = notifications.data.group(
+  config: const NotificationsGrouperConfig(
+    groupableReasons: {
+      KnownNotificationReason.like,
+      KnownNotificationReason.repost,
+    },
+    window: Duration(hours: 24),
+    separateFollowBacks: true,
+    unreadIfAny: false,
+  ),
+);
+```
+
 #### User Profiles and Social Graph
 
 ```dart
