@@ -10,6 +10,7 @@ import '../../services/codegen/app/bsky/notification/listNotifications/output.da
 import '../utils/group_by.dart';
 import '../utils/grouped_notifications.dart';
 import '../utils/notifications_grouper.dart';
+import '../utils/notifications_grouper_config.dart';
 
 extension NotificationsExtension on NotificationListNotificationsOutput {
   /// Groups a list of notifications based on their `reason` and
@@ -33,7 +34,16 @@ extension NotificationsExtension on NotificationListNotificationsOutput {
   ///   group.
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
-  GroupedNotifications group() => const NotificationsGrouper().group(this);
+  GroupedNotifications group({
+    final GroupBy? by,
+    final NotificationsGrouperConfig? config,
+  }) {
+    final grouper = config == null
+        ? const NotificationsGrouper()
+        : NotificationsGrouper(config: config);
+
+    return grouper.group(this, by: by);
+  }
 
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject` and by [hour].

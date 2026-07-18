@@ -8,8 +8,10 @@ export 'package:bluesky/src/tools/utils/grouped_notification_reason.dart';
 
 export 'package:bluesky/src/tools/extensions/blob.dart';
 export 'package:bluesky/src/tools/extensions/grouped_notification.dart';
+export 'package:bluesky/src/tools/extensions/notifications_extension.dart';
 export 'package:bluesky/src/tools/extensions/strong_ref.dart';
 
+export 'package:bluesky/src/tools/utils/group_by.dart';
 export 'package:bluesky/src/tools/utils/grouped_notifications.dart';
 export 'package:bluesky/src/tools/utils/grouped_notification.dart';
 export 'package:bluesky/src/tools/utils/notifications_grouper.dart';
