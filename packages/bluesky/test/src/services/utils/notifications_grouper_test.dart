@@ -8,8 +8,11 @@ import 'package:bluesky/src/services/codegen/app/bsky/notification/listNotificat
 import 'package:bluesky/src/tools/extensions/notifications_extension.dart';
 import 'package:bluesky/src/tools/utils/grouped_notification_reason.dart';
 import 'package:bluesky/src/tools/utils/notifications_grouper.dart';
+import 'package:bluesky/src/tools/utils/notifications_grouper_config.dart';
 
-const _grouper = NotificationsGrouper();
+const _grouper = NotificationsGrouper(
+  config: NotificationsGrouperConfig.lenient(),
+);
 
 /// Builds a minimal notification map. Intentionally omits the optional
 /// `labels` key unless [labels] is provided, to exercise the missing-labels

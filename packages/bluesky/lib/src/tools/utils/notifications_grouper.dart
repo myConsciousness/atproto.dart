@@ -19,12 +19,7 @@ import 'group_by.dart';
 import 'grouped_notification.dart';
 import 'grouped_notification_reason.dart';
 import 'grouped_notifications.dart';
-
-const _groupableReasons = <KnownNotificationReason>{
-  KnownNotificationReason.like,
-  KnownNotificationReason.repost,
-  KnownNotificationReason.follow,
-};
+import 'notifications_grouper_config.dart';
 
 /// A key used to group related notifications together.
 ///
@@ -69,7 +64,8 @@ class _MutableGroup {
 }
 
 sealed class NotificationsGrouper {
-  const factory NotificationsGrouper() = _NotificationsGrouper;
+  const factory NotificationsGrouper({NotificationsGrouperConfig config}) =
+      _NotificationsGrouper;
 
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
@@ -99,7 +95,11 @@ sealed class NotificationsGrouper {
 }
 
 final class _NotificationsGrouper implements NotificationsGrouper {
-  const _NotificationsGrouper();
+  const _NotificationsGrouper({
+    this.config = const NotificationsGrouperConfig.official(),
+  });
+
+  final NotificationsGrouperConfig config;
 
   @override
   GroupedNotifications group(
@@ -149,7 +149,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   bool _isGroupable(final NotificationReason reason) {
     final knownValue = reason.knownValue;
 
-    return knownValue != null && _groupableReasons.contains(knownValue);
+    return knownValue != null && config.groupableReasons.contains(knownValue);
   }
 
   _MutableGroup _buildGroup(
