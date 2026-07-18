@@ -7,7 +7,7 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
-  bluesky: ^2.0.0
+  bluesky: ^3.0.0
   atproto_core: ^2.0.0
   atproto_identity: ^0.1.0
   shelf: ^1.4.0

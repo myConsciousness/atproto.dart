@@ -1,5 +1,12 @@
 # Release Note
 
+## v3.0.0
+
+- feat!: notification grouping now matches the official Bluesky social-app by default. `NotificationsGrouper` / `NotificationListNotificationsOutput.group()` now group six reasons (`like`, `repost`, `follow`, `like-via-repost`, `repost-via-repost`, `subscribed-post`), apply a 48h sliding window anchored on each group's newest item, separate follow-backs into their own groups, and mark a group unread if any of its notifications is unread. To keep the previous behavior, pass `NotificationsGrouperConfig.lenient()` (e.g. `output.group(config: const NotificationsGrouperConfig.lenient())`).
+- feat: new `NotificationsGrouperConfig` (`.official()` / `.lenient()` / fully custom) controls groupable reasons, time window, follow-back separation, and the unread policy.
+- feat: `NotificationsExtension.group()` now accepts an optional `config`, and `GroupBy` / `NotificationsExtension` are now exported from `package:bluesky/bluesky.dart`.
+- chore: bump dev dependency `bluesky_text` to `^1.5.3`.
+
 ## v2.0.1
 
 - docs: added an OAuth authentication section to the README — `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`), `OAuthSessionManager(oauth, sub:)` / `OAuthSessionManager.fromSession(restored)`, and the renamed `oAuthSessionManager` getter.
