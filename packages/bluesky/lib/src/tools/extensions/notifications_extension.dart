@@ -35,16 +35,24 @@ extension NotificationsExtension on NotificationListNotificationsOutput {
     return grouper.group(this, by: by);
   }
 
-  /// Groups a list of notifications based on their `reason` and
-  /// `reasonSubject` and by [hour].
+  /// Groups notifications by `reason` and `reasonSubject`, additionally
+  /// bucketed by [hour] of wall-clock time.
+  ///
+  /// Uses the official grouping default. For the legacy behavior with hourly
+  /// bucketing, call `group(by: GroupBy.hour(hour),
+  /// config: const NotificationsGrouperConfig.lenient())` instead.
   ///
   /// Available [hour] range is from 1 to 23 (include), otherwise
   /// it always throws [RangeError].
   GroupedNotifications groupByHour(final int hour) =>
       const NotificationsGrouper().group(this, by: GroupBy.hour(hour));
 
-  /// Groups a list of notifications based on their `reason` and
-  /// `reasonSubject` and by [minute].
+  /// Groups notifications by `reason` and `reasonSubject`, additionally
+  /// bucketed by [minute] of wall-clock time.
+  ///
+  /// Uses the official grouping default. For the legacy behavior with minute
+  /// bucketing, call `group(by: GroupBy.minute(minute),
+  /// config: const NotificationsGrouperConfig.lenient())` instead.
   ///
   /// Available [minute] range is from 1 to 59 (include), otherwise
   /// it always throws [RangeError].

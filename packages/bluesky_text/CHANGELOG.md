@@ -2,7 +2,7 @@
 
 ## v1.5.3
 
-- chore: bump dev dependency `bluesky` to `^3.0.0`.
+- chore: bump dev dependency `bluesky` to `^2.1.0`.
 
 ## v1.5.2
 
