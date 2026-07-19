@@ -15,7 +15,12 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateOperationV1 {
 
- String get sig; String get type; String get signingKey; String get recoveryKey; String get handle; String get service; String? get prev;
+ String get sig; String get type; String get signingKey; String get recoveryKey; String get handle; String get service;// A legacy `create` genesis operation carries an explicit `prev: null`,
+// and that key IS part of the signed DAG-CBOR bytes and the bytes
+// hashed for `did:plc` derivation. It must be serialized even when
+// null, so this field opts out of the class-level
+// `includeIfNull: false`.
+@JsonKey(includeIfNull: true) String? get prev;
 /// Create a copy of CreateOperationV1
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +53,7 @@ abstract mixin class $CreateOperationV1CopyWith<$Res>  {
   factory $CreateOperationV1CopyWith(CreateOperationV1 value, $Res Function(CreateOperationV1) _then) = _$CreateOperationV1CopyWithImpl;
 @useResult
 $Res call({
- String sig, String type, String signingKey, String recoveryKey, String handle, String service, String? prev
+ String sig, String type, String signingKey, String recoveryKey, String handle, String service,@JsonKey(includeIfNull: true) String? prev
 });
 
 
@@ -159,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sig,  String type,  String signingKey,  String recoveryKey,  String handle,  String service,  String? prev)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String sig,  String type,  String signingKey,  String recoveryKey,  String handle,  String service, @JsonKey(includeIfNull: true)  String? prev)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateOperationV1() when $default != null:
 return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.handle,_that.service,_that.prev);case _:
@@ -180,7 +185,7 @@ return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.ha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sig,  String type,  String signingKey,  String recoveryKey,  String handle,  String service,  String? prev)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String sig,  String type,  String signingKey,  String recoveryKey,  String handle,  String service, @JsonKey(includeIfNull: true)  String? prev)  $default,) {final _that = this;
 switch (_that) {
 case _CreateOperationV1():
 return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.handle,_that.service,_that.prev);case _:
@@ -200,7 +205,7 @@ return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.ha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sig,  String type,  String signingKey,  String recoveryKey,  String handle,  String service,  String? prev)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String sig,  String type,  String signingKey,  String recoveryKey,  String handle,  String service, @JsonKey(includeIfNull: true)  String? prev)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateOperationV1() when $default != null:
 return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.handle,_that.service,_that.prev);case _:
@@ -215,7 +220,7 @@ return $default(_that.sig,_that.type,_that.signingKey,_that.recoveryKey,_that.ha
 
 @JsonSerializable(includeIfNull: false)
 class _CreateOperationV1 implements CreateOperationV1 {
-  const _CreateOperationV1({required this.sig, this.type = 'create', required this.signingKey, required this.recoveryKey, required this.handle, required this.service, this.prev});
+  const _CreateOperationV1({required this.sig, this.type = 'create', required this.signingKey, required this.recoveryKey, required this.handle, required this.service, @JsonKey(includeIfNull: true) this.prev});
   factory _CreateOperationV1.fromJson(Map<String, dynamic> json) => _$CreateOperationV1FromJson(json);
 
 @override final  String sig;
@@ -224,7 +229,12 @@ class _CreateOperationV1 implements CreateOperationV1 {
 @override final  String recoveryKey;
 @override final  String handle;
 @override final  String service;
-@override final  String? prev;
+// A legacy `create` genesis operation carries an explicit `prev: null`,
+// and that key IS part of the signed DAG-CBOR bytes and the bytes
+// hashed for `did:plc` derivation. It must be serialized even when
+// null, so this field opts out of the class-level
+// `includeIfNull: false`.
+@override@JsonKey(includeIfNull: true) final  String? prev;
 
 /// Create a copy of CreateOperationV1
 /// with the given fields replaced by the non-null parameter values.
@@ -259,7 +269,7 @@ abstract mixin class _$CreateOperationV1CopyWith<$Res> implements $CreateOperati
   factory _$CreateOperationV1CopyWith(_CreateOperationV1 value, $Res Function(_CreateOperationV1) _then) = __$CreateOperationV1CopyWithImpl;
 @override @useResult
 $Res call({
- String sig, String type, String signingKey, String recoveryKey, String handle, String service, String? prev
+ String sig, String type, String signingKey, String recoveryKey, String handle, String service,@JsonKey(includeIfNull: true) String? prev
 });
 
 

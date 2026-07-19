@@ -172,6 +172,56 @@ void main() {
       expect(customLabeler.labels['spam'], LabelPreference.hide);
     });
 
+    test('drops labeler-scoped prefs for unsubscribed labelers', () {
+      final prefs = prefsOf([
+        {
+          r'$type': 'app.bsky.actor.defs#contentLabelPref',
+          'labelerDid': 'did:plc:unsubscribed',
+          'label': 'porn',
+          'visibility': 'show',
+        },
+      ]).getModerationPrefs();
+
+      // The orphaned scoped pref must be dropped, never applied globally:
+      // the global `porn` label keeps its default `hide` setting.
+      expect(prefs.labels['porn'], LabelPreference.hide);
+      expect(
+        prefs.labelers.map((e) => e.did),
+        isNot(contains('did:plc:unsubscribed')),
+      );
+    });
+
+    test('attaches app-labeler-scoped prefs to the app labeler entry', () {
+      final prefs = prefsOf([
+        {
+          r'$type': 'app.bsky.actor.defs#contentLabelPref',
+          'labelerDid': _kBskyLabelerDid,
+          'label': 'spam',
+          'visibility': 'hide',
+        },
+      ]).getModerationPrefs();
+
+      final appLabeler = prefs.labelers.firstWhere(
+        (e) => e.did == _kBskyLabelerDid,
+      );
+      expect(appLabeler.labels['spam'], LabelPreference.hide);
+
+      // The scoped preference must not leak into the global labels.
+      expect(prefs.labels.containsKey('spam'), isFalse);
+    });
+
+    test('applies prefs without labelerDid to the global labels', () {
+      final prefs = prefsOf([
+        {
+          r'$type': 'app.bsky.actor.defs#contentLabelPref',
+          'label': 'nudity',
+          'visibility': 'hide',
+        },
+      ]).getModerationPrefs();
+
+      expect(prefs.labels['nudity'], LabelPreference.hide);
+    });
+
     test('collects muted words and hidden posts', () {
       final prefs = prefsOf([
         {

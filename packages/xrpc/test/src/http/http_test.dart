@@ -292,6 +292,31 @@ void main() {
       expect(used, isTrue);
       expect(response.data, isEmpty);
     });
+
+    test('preserves an explicitly empty collection in the body', () async {
+      String? sentBody;
+
+      await post<EmptyData>(
+        'test.com',
+        body: {'allow': <dynamic>[], 'text': 'hi', 'skip': null},
+        postClient: (url, {body, encoding, headers}) async {
+          sentBody = body as String?;
+
+          return http.Response(
+            '{}',
+            200,
+            request: http.Request('POST', Uri.https('bsky.social')),
+          );
+        },
+      );
+
+      final decoded = jsonDecode(sentBody!) as Map<String, dynamic>;
+
+      //! An explicitly empty collection must survive (e.g. threadgate
+      //! `allow: []` means "nobody can reply"); only `null` values are
+      //! stripped. Previously `post` pruned empty `[]`/`{}`.
+      expect(decoded, {'allow': <dynamic>[], 'text': 'hi'});
+    });
   });
 
   group('http.Client injection for .get', () {

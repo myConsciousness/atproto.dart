@@ -1,9 +1,17 @@
 # Release Note
 
+## v1.1.2
+
+- docs: rewrote the README example, which imported non-existent `atproto.Session`/`atproto.CurrentSession` and used fictional NSIDs; it now matches the working `example/example.dart` (`server.atproto.com`/`createSession`/`getSession`, no `atproto` import).
+- docs: documented the streaming API (`subscribe<T>` returning an `XRPCResponse<Subscription<T>>`) with a minimal usage snippet.
+- chore: bump `at_primitives` to `^1.1.1`.
+
 ## v1.1.1
 
-- fix: procedure/record request bodies no longer drop legitimately empty collections (e.g. `threadgate.allow: []`); only `null` values are stripped. Query parameters are unchanged.
+- fix: procedure/record request bodies no longer drop legitimately empty collections (e.g. `threadgate.allow: []`); only `null` values are stripped. Query parameters are unchanged. This now also covers the `http.post` body path (previously it still pruned empty `[]`/`{}`).
 - fix: `subscribe` propagates backpressure and cancellation to the underlying WebSocket, preventing unbounded buffering on slow consumers (firehose) and socket leaks.
+- fix: `subscribe` no longer drains the WebSocket before a consumer listens — the underlying subscription starts paused and resumes on the first listen, so a consumer that delays or never listens cannot buffer firehose frames unboundedly.
+- fix: `RateLimit.waitUntilReset()` caps its delay at 60s, so a hostile or misconfigured far-future `Retry-After` HTTP-date can no longer hang the caller indefinitely.
 - fix: an empty `200` response body with a `to` converter now yields `EmptyData` instead of throwing a raw `FormatException`.
 - fix: blob uploads fall back to `application/octet-stream` (was `*/*`) when the content type cannot be sniffed.
 

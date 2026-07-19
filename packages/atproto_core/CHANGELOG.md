@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.0.1
+
+- docs: rewrite the README to document the actual public API — `Session`/`OAuthSession`, JWT decoding (`decodeJwt`/`Jwt`), the pluggable retry engine (`RetryStrategy`, `RetryConfig`, `RetryContext`, `RetryReason`, `RetryEvent`, `Jitter`), `BaseHttpService`/`ServiceContext`, `Blob`/`BlobRef`, `decodeCar`, `isValidAppPassword`, and the `xrpc`/`multiformats`/`cbor` re-exports — and frame the package as the shared core layer `atproto`/`bluesky` build on.
+- docs: replace the placeholder `example/example.md` with a runnable `example/example.dart` covering `RetryConfig`/custom `RetryStrategy`, JWT decoding, `Blob` serialization, and app-password validation.
+- chore: bump `xrpc` to `^1.1.2`, `at_primitives` to `^1.1.1`, and `atproto_oauth` to `^0.5.1`.
+
 ## v2.0.0
 
 - feat!: OAuth requests are now driven by `OAuthSessionManager`; `ServiceContext` takes `oAuthSessionManager` instead of `oAuthSession`, enabling transparent OAuth token auto-refresh. OAuth tokens are never JWT-decoded. `restoreOAuthSession`/`OauthSessionExtension` removed (opaque tokens). Legacy password-auth `Session` is unaffected.
@@ -7,6 +13,11 @@
 - fix: a caller-supplied `Authorization` header (e.g. a service-auth Bearer token) is preserved instead of being overwritten by the session/DPoP token, fixing service-auth flows such as video upload.
 - fix: concurrent expired requests now share a single legacy-session refresh instead of issuing a refresh stampede.
 - feat: `stream()` accepts a `service` override and a `channelFactory`, and honors the configured protocol; the `use_dpop_nonce` retry awaits the nonce write before retrying.
+- fix: a failing user-supplied DPoP nonce-cache write on the request success path is now contained instead of escaping as an uncaught asynchronous error, so a storage failure in `DPoPNonceCache.set` can no longer crash the app.
+- fix: the rate-limit retry wait now parses the HTTP-date form of `Retry-After` (previously only delta-seconds was honored; a date silently degraded to plain backoff and could retry too early).
+- perf: `ServiceContext.service` caches the resolved PDS endpoint per access JWT instead of base64/JSON-decoding the access token on every request when the did document has no `#atproto_pds` service.
+- feat: retries are now driven by a pluggable `RetryStrategy` (`FutureOr<Duration?> nextDelay(RetryContext)`). `RetryContext` exposes the attempt count, failure `RetryReason`, request kind (query vs procedure), NSID, status code, and the server-provided `Retry-After`. Implement `RetryStrategy` for full control over backoff and which failures retry; the default `RetryConfig` now implements it.
+- fix: by default a procedure (`POST`) is no longer retried after an *ambiguous* failure the server may already have applied (a timeout after the request was sent, a `5xx`, or an inconclusive connection reset), preventing duplicate writes. Queries (`GET`) and subscriptions still retry as before, and `429`/pre-connection network failures still retry for procedures. Set `RetryConfig(retryProcedureOnAmbiguousFailure: true)` to restore the previous unconditional behavior.
 
 ## v1.3.0
 

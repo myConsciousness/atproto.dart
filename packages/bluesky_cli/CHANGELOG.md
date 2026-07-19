@@ -1,8 +1,19 @@
 # Release Note
 
+## v0.6.3
+
+- chore: bump `bluesky_text` to `^1.5.3`.
+
+## v0.6.2
+
+- docs: documented the previously undocumented global options in the README — `--password-stdin`, `--auth-service`, `--[no-]auth`, `--[no-]session-cache`, `--timeout`, and `--version`/`-v`.
+- docs: expanded the Authentication section to describe the v0.6.0 security model — `--auth-service` vs `--service` separation (raw credentials only reach your own PDS), `--no-auth` for public endpoints, `--password-stdin` for secure entry, and the `~/.config/bsky/session.json` session cache and refresh.
+- chore: bump `xrpc` to `^1.1.2`, `at_primitives` to `^1.1.1`, and `bluesky_text` to `^1.5.2`.
+
 ## v0.6.1
 
 - fix: the session cache file is locked to `0600` before any token bytes are written, and caching is skipped (with a warning) if the permission change fails.
+- fix: `--password-stdin` disables terminal echo while reading an interactively-typed password, so it no longer appears on screen (piped/non-terminal input is unaffected).
 
 ## v0.6.0
 

@@ -19,7 +19,9 @@ Future<void> main() async {
   final session = await createSession(
     service: 'bsky.social',
     identifier: config.publisherHandle,
-    password: config.publisherPassword,
+    // Only this publish script needs the app password; the long-running
+    // server runs without it (least privilege).
+    password: config.requirePublisherPassword,
   );
   final bsky = Bluesky.fromSession(session.data);
 

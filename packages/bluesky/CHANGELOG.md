@@ -1,16 +1,30 @@
 # Release Note
 
+## v2.1.0
+
+- feat: notification grouping now matches the official Bluesky social-app by default. `NotificationsGrouper` / `NotificationListNotificationsOutput.group()` now group six reasons (`like`, `repost`, `follow`, `like-via-repost`, `repost-via-repost`, `subscribed-post`), apply a 48h sliding window anchored on each group's newest item, separate follow-backs into their own groups, and mark a group unread if any of its notifications is unread. This changes the default grouping output (a behavior change); to keep the previous behavior, pass `NotificationsGrouperConfig.lenient()` (e.g. `output.group(config: const NotificationsGrouperConfig.lenient())`).
+- feat: new `NotificationsGrouperConfig` (`.official()` / `.lenient()` / fully custom) controls groupable reasons, time window, follow-back separation, and the unread policy.
+- feat: `NotificationsExtension.group()` now accepts an optional `config`, and `GroupBy` / `NotificationsExtension` are now exported from `package:bluesky/bluesky.dart`.
+- feat: `groupByHour` / `groupByMinute` now use the official grouping default as well; for the legacy behavior with time bucketing, call `group(by: GroupBy.hour(n), config: const NotificationsGrouperConfig.lenient())`.
+- chore: bump dev dependency `bluesky_text` to `^1.5.3`.
+
 ## v2.0.1
 
-- chore: updated `tools.ozone.queue.defs#queueView.subjectTypes`
-- chore: regenerated from synced lexicons
-- fix: mute-word matching still scans quoted-post embeds when the top-level record fails validation.
-- fix: `LinkPreview` exposes cardyb's `error`/`likelyType` fields.
-- fix: the video service percent-encodes the port when building a `did:web` audience.
+- docs: added an OAuth authentication section to the README — `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`), `OAuthSessionManager(oauth, sub:)` / `OAuthSessionManager.fromSession(restored)`, and the renamed `oAuthSessionManager` getter.
+- docs: added a short Firehose note pointing to `bsky.atproto.sync.subscribeReposAsMessages()` for typed messages.
+- chore: bump `atproto_core` to `^2.0.1` and `atproto` to `^2.0.1` (dev: `bluesky_text` `^1.5.2`, `atproto_oauth` `^0.5.1`).
 
 ## v2.0.0
 
 - feat!: `Bluesky.fromOAuth(OAuthSessionManager)` (also on `BlueskyChat`/`OzoneTool`); `fromOAuthSession(session, {oauthClient})` wraps a shared manager; `oAuthSession` getter replaced by `oAuthSessionManager`.
+- chore: updated `tools.ozone.queue.defs#queueView.subjectTypes`
+- chore: regenerated from synced lexicons
+- feat: the `retryConfig` parameter (on `Bluesky`/`BlueskyChat`/`OzoneTool`) now accepts any `RetryStrategy`, not only `RetryConfig`, so callers can fully customize backoff and which failures retry. `RetryStrategy`/`RetryContext`/`RetryReason` are re-exported. By default a procedure (`POST`) is no longer retried after an ambiguous failure the server may already have applied (see `atproto_core`).
+- fix: mute-word matching still scans quoted-post embeds when the top-level record fails validation.
+- fix: labeler-scoped content-label preferences (those carrying a `labelerDid`) are now applied only to the matching labeler and never leak into the global label defaults, and preferences scoped to an app labeler are honored instead of dropped — matching `@atproto/api`. Previously an orphaned scoped preference (e.g. for an unsubscribed labeler) could override the global defaults and, for example, unblur adult content.
+- fix: `LinkPreview` exposes cardyb's `error`/`likelyType` fields.
+- fix: the video service percent-encodes the port when building a `did:web` audience.
+- chore: removed duplicate imports in the `tools` extensions/utils.
 
 ## v1.7.2
 

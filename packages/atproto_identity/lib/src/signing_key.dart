@@ -3,8 +3,16 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// Returns the `publicKeyMultibase` of the `#atproto` verification method in a
-/// DID document, or `null` when the document declares no such method.
-String? signingKeyOf(final Map<String, dynamic> didDocument) {
+/// DID document owned by [did], or `null` when the document declares no such
+/// method.
+///
+/// The verification-method `id` must match the canonical `#atproto` reference
+/// exactly: either the bare relative fragment `#atproto` or the fully-qualified
+/// `<did>#atproto`. A loose suffix match (e.g. `endsWith('#atproto')`) is
+/// deliberately avoided because it would also accept crafted ids such as
+/// `did:plc:x#foo#atproto` or a fragment belonging to another DID, letting a
+/// malicious DID document smuggle in an attacker-controlled signing key.
+String? signingKeyOf(final Map<String, dynamic> didDocument, final String did) {
   final methods = didDocument['verificationMethod'];
   if (methods is! List) return null;
 
@@ -12,7 +20,7 @@ String? signingKeyOf(final Map<String, dynamic> didDocument) {
     if (method is! Map) continue;
     final id = method['id'];
     if (id is! String) continue;
-    if (id == '#atproto' || id.endsWith('#atproto')) {
+    if (id == '#atproto' || id == '$did#atproto') {
       final multibase = method['publicKeyMultibase'];
       if (multibase is String && multibase.isNotEmpty) return multibase;
     }

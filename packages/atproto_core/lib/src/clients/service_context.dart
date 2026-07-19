@@ -15,8 +15,7 @@ import '../const.dart';
 import '../types/oauth_session.dart';
 import '../types/session.dart';
 import 'challenge.dart';
-import 'retry_config.dart';
-import 'retry_policy.dart';
+import 'retry_strategy.dart';
 
 base class ServiceContext {
   ServiceContext({
@@ -27,7 +26,7 @@ base class ServiceContext {
     Session? session,
     this.oAuthSessionManager,
     Duration? timeout,
-    RetryConfig? retryConfig,
+    RetryStrategy? retryConfig,
     final xrpc.GetClient? getClient,
     final xrpc.PostClient? postClient,
     this.onRefreshSession,
@@ -36,7 +35,7 @@ base class ServiceContext {
        _currentSession = session,
        _explicitService = service,
        relayService = relayService ?? defaultRelayService,
-       _challenge = Challenge(RetryPolicy(retryConfig)),
+       _challenge = Challenge(retryConfig),
        _timeout = timeout ?? defaultTimeout,
        _getClient = getClient,
        _postClient = postClient;
@@ -77,6 +76,15 @@ base class ServiceContext {
   String? _cachedAccessJwt;
   DateTime? _cachedAccessExp;
 
+  /// Caches the resolved PDS endpoint so the [service] getter does not
+  /// re-run the JWT base64/JSON decode (via `atprotoPdsEndpoint`) on every
+  /// authenticated request when the `didDoc` lacks a `#atproto_pds` service.
+  /// Keyed by the access JWT string, so it is implicitly invalidated whenever
+  /// the session (and therefore the access token) changes on refresh.
+  /// Mirrors [_cachedAccessExp].
+  String? _cachedPdsJwt;
+  String? _cachedPdsEndpoint;
+
   /// The clock skew margin used to refresh an access token slightly before it
   /// actually expires.
   static const Duration _refreshSkew = Duration(seconds: 30);
@@ -104,11 +112,25 @@ base class ServiceContext {
   /// context was built — is picked up on the next request instead of every
   /// call being pinned to `bsky.social`.
   /// Defaults to `bsky.social`.
-  String get service =>
-      _explicitService ??
-      session?.atprotoPdsEndpoint ??
-      oAuthSessionManager?.currentPdsHost ??
-      defaultService;
+  String get service {
+    final current = session;
+
+    return _explicitService ??
+        (current != null ? _sessionPdsEndpoint(current) : null) ??
+        oAuthSessionManager?.currentPdsHost ??
+        defaultService;
+  }
+
+  /// Returns the cached PDS endpoint for [current], recomputing (and thus
+  /// re-decoding the access JWT) only when the access token has changed since
+  /// the last call. Returns null when the session yields no PDS endpoint.
+  String? _sessionPdsEndpoint(final Session current) {
+    if (_cachedPdsJwt == current.accessJwt) return _cachedPdsEndpoint;
+
+    _cachedPdsJwt = current.accessJwt;
+
+    return _cachedPdsEndpoint = current.atprotoPdsEndpoint;
+  }
 
   /// The current relay service.
   /// Defaults to `bsky.network`.
@@ -172,6 +194,8 @@ base class ServiceContext {
           getClient: client ?? _getClient,
         );
       },
+      isProcedure: false,
+      nsid: methodId.toString(),
       onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
       onUnauthorized: _onUnauthorized,
     );
@@ -219,6 +243,8 @@ base class ServiceContext {
           postClient: client ?? _postClient,
         );
       },
+      isProcedure: true,
+      nsid: methodId.toString(),
       onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
       onUnauthorized: _onUnauthorized,
     );
@@ -241,6 +267,8 @@ base class ServiceContext {
       adaptor: adaptor,
       channelFactory: channelFactory,
     ),
+    isProcedure: false,
+    nsid: methodId.toString(),
   );
 
   Map<String, String> _buildAuthHeader(

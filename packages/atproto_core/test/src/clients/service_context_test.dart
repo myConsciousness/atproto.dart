@@ -2,6 +2,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 
 // Package imports:
@@ -166,6 +167,33 @@ void main() {
       );
 
       expect(context.service, 'bsky.app');
+    });
+
+    test('resolves the session PDS endpoint once across repeated reads', () {
+      //! A didDoc without an `#atproto_pds` service forces the JWT-decode
+      //! fallback inside `atprotoPdsEndpoint` (the per-request cost this cache
+      //! removes). `_CountingMap` records every read of the didDoc, which the
+      //! resolution performs exactly once, so the read count doubles as a
+      //! decode count.
+      final didDoc = _CountingMap({'service': <dynamic>[]});
+
+      final context = ServiceContext(
+        session: Session(
+          did: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          handle: 'shinyakato.dev',
+          accessJwt: '1234',
+          refreshJwt: '1234',
+          didDoc: didDoc,
+        ),
+      );
+
+      final first = context.service;
+      final second = context.service;
+
+      expect(first, second);
+      //! Two `service` reads, one resolution: the endpoint is memoized per
+      //! access JWT instead of being recomputed (and re-decoded) every call.
+      expect(didDoc.reads, 1);
     });
   });
 
@@ -841,4 +869,32 @@ Map<String, Object?> _decodeJwtPayload(String jwt) {
         utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
       )
       as Map<String, Object?>;
+}
+
+/// A `Map` that counts reads via `operator []`, used to observe how many
+/// times `ServiceContext` resolves the session PDS endpoint.
+final class _CountingMap extends MapBase<String, dynamic> {
+  _CountingMap(this._inner);
+
+  final Map<String, dynamic> _inner;
+
+  int reads = 0;
+
+  @override
+  dynamic operator [](Object? key) {
+    reads++;
+    return _inner[key];
+  }
+
+  @override
+  void operator []=(String key, dynamic value) => _inner[key] = value;
+
+  @override
+  void clear() => _inner.clear();
+
+  @override
+  Iterable<String> get keys => _inner.keys;
+
+  @override
+  dynamic remove(Object? key) => _inner.remove(key);
 }

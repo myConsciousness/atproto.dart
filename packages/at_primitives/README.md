@@ -41,15 +41,21 @@ This library provides the essential primitive types and utilities for [AT Protoc
 
 ### 1.1.2. Import
 
+This package exposes one sub-barrel per module. Import only what you need:
+
 ```dart
-import 'package:at_primitives/at_primitives.dart';
+import 'package:at_primitives/at_identifier.dart'; // handle/DID validation
+import 'package:at_primitives/at_uri.dart';        // AtUri
+import 'package:at_primitives/nsid.dart';          // NSID
+import 'package:at_primitives/tid.dart';           // TID validation
+import 'package:at_primitives/record_key.dart';    // Record Key validation
 ```
 
 ### 1.1.3. Implementation
 
 **AT Identifiers:**
 ```dart
-import 'package:at_primitives/at_primitives.dart' as primitives;
+import 'package:at_primitives/at_identifier.dart' as primitives;
 
 void main() {
   // Handle validation
@@ -67,7 +73,7 @@ void main() {
 
 **AT URIs:**
 ```dart
-import 'package:at_primitives/at_primitives.dart';
+import 'package:at_primitives/at_uri.dart';
 
 void main() {
   final uri = AtUri.parse('at://bob.com/com.example.post/1234');
@@ -75,8 +81,13 @@ void main() {
   uri.protocol; // => 'at:'
   uri.origin; // => 'at://bob.com'
   uri.hostname; // => 'bob.com'
-  uri.collection; // => 'com.example.post'
+  uri.collection; // => NSID('com.example.post'); uri.collection.toString() => 'com.example.post'
   uri.rkey; // => '1234'
+
+  // `collection`/`rkey` throw InvalidAtUriError on a path-less AtUri.
+  // Use the non-throwing getters when the segments may be absent:
+  uri.collectionOrNull; // => NSID? (null instead of throwing)
+  uri.rkeyOrNull; // => String? (null instead of throwing)
 
   ensureValidAtUri('at://user.bsky.social'); // => returns void
   ensureValidAtUri('at//did:plc:asdf123'); // => throws
@@ -85,7 +96,7 @@ void main() {
 
 **NSIDs:**
 ```dart
-import 'package:at_primitives/at_primitives.dart';
+import 'package:at_primitives/nsid.dart';
 
 void main() {
   final id1 = NSID.parse('com.example.foo');
@@ -102,6 +113,38 @@ void main() {
   id3.authority; // => 'example.com'
   id3.name; // => '*'
   id3.toString(); // => 'com.example.*'
+}
+```
+
+**TIDs:**
+
+A TID (Timestamp Identifier) is the sortable key used for records in a repository.
+
+```dart
+import 'package:at_primitives/tid.dart';
+
+void main() {
+  isValidTid('3jzfcijpj2z2a'); // returns true
+  isValidTid('not-a-tid'); // returns false
+
+  ensureValidTid('3jzfcijpj2z2a'); // returns void
+  ensureValidTid('not-a-tid'); // throws InvalidTidError
+}
+```
+
+**Record Keys:**
+
+A Record Key identifies a record within a collection.
+
+```dart
+import 'package:at_primitives/record_key.dart';
+
+void main() {
+  isValidRecordKey('3jzfcijpj2z2a'); // returns true
+  isValidRecordKey('.'); // returns false
+
+  ensureValidRecordKey('self'); // returns void
+  ensureValidRecordKey('.'); // throws InvalidRecordKeyError
 }
 ```
 

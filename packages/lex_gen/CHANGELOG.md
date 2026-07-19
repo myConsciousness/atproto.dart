@@ -2,22 +2,28 @@
 
 ## v0.4.3
 
-Replace the string-template emission mechanism with a small typed Dart intermediate representation (IR) + emitter. The IR migration itself produces output **byte-for-byte identical** to v0.4.2.
+- docs: fix the logo `alt` text (`atproto_core` → `lex_gen`).
+- docs: add a real README documenting the programmatic API — the `Gen` interface with `ServiceGen`/`CommandGen` and `execute()`, the config types (`LexGenConfig`, `LexServiceRuleConfig`, `LexCommandRuleConfig`, `LexiconNamespaceRule`), and the `doc_loader` helpers — with a minimal configure-and-run snippet.
+- chore: bump `lexicon` to `^1.2.2`.
 
-Additional emitter fixes (these do change generated output, so downstream regeneration is required):
+## v0.4.2
+
+Two-pass internal refactor of the code generator, plus emitter fixes. The net effect changes generated output (see the fixes below), so **downstream regeneration is required**. (Consolidates the previously-unreleased v0.4.2 and v0.4.3 entries.)
+
+Emitter fixes (these change generated output):
 
 - fix: lexicon descriptions and default values are escaped before interpolation, so text containing `"`, `$`, `\`, or newlines no longer produces uncompilable generated code.
 - fix: the generated repo-commit handler guards against a commit op whose block CID is absent from `blocks` (previously threw a `TypeError`, aborting the whole commit).
 - fix: a bare `ref` to a record lexicon now resolves to the correct `<Name>Record` type instead of an empty class name.
+
+IR migration (replaces the string-template emission mechanism with a small typed Dart intermediate representation (IR) + emitter; output byte-for-byte identical on its own):
 
 - refactor: add `lib/src/ir/{dart_ir,dart_emitter}.dart` — a purpose-built typed IR (`DartFile` / `DartImport` / `DartClass` / members) with explicit member-order and blank-line control, rendered by `emitDartFile`. Because the codegen pipeline runs `dart format`, the emitter only needs to control member order, blank-line presence, comments and tokens; `code_builder` was evaluated and rejected because it imposes its own member order and cannot express the intentional blank lines, so it cannot keep output byte-identical.
 - refactor: migrate every full-file emitter off its monolithic triple-quoted template onto the IR — the freezed data-class renderer (`object/{lex_object,lex_record,lex_input,lex_output}` via `renderFreezedDataClass`), `LexKnownValues`, `LexUnion`, `LexService`, `RepoCommitHandler`, `AtUriExtension`, and the command emitters (`LexCommand`'s query/procedure/blobProcedure/record kinds, `LexParentCommand`, `LexRootCommand`).
 - refactor: model `import` directives as structured `DartImport`s (uri + `show`/`hide`/`as`) instead of concatenated strings. This structurally eliminates the class of bug where an emitted `import '...';` inside a template string was mis-hoisted by `import_sorter` (the command emitters previously worked around this with a fragile concatenation and no longer need to).
 - test: add `srccheck` mode to `scripts/verify_gen_unchanged.sh` (asserts the lex_gen source itself stays import_sorter-stable), and make it non-destructive to any uncommitted working-tree changes.
 
-## v0.4.2
-
-Internal structural/readability refactor (second pass, continuing v0.4.1). Generated output is **byte-for-byte identical** to v0.4.1, verified end-to-end by running the full pipeline (`gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format`) and asserting an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`, so no downstream regeneration is required.
+Structural/readability refactor (output byte-for-byte identical to v0.4.1 on its own, verified end-to-end by running the full pipeline `gen_codes` → `build_runner` → `dart fix` → `import_sorter` → `dart format` and asserting an empty `git diff` across `atproto`/`bluesky`/`bluesky_cli`):
 
 - refactor: collapse `LexService`'s ~100-`writeln` record-accessor block into per-method emitters, unify the near-identical `create`/`put` bodies and the query/procedure/subscription function↔method pairs, and split the import collector out of `_getPackagePaths`.
 - refactor: lift `RepoCommitHandler`'s constant DTO block out of `format()` and unify the `RepoCommitCreate` / `RepoCommitUpdate` DTOs (which differ only by `createdAt`) into one parameterized emitter with a single-pass member builder.

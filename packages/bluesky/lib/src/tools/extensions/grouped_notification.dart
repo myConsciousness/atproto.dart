@@ -10,9 +10,6 @@ import '../../../bluesky.dart' show GroupedNotificationReason;
 import '../utils/grouped_notification.dart';
 import '../utils/grouped_notification_reason.dart';
 
-import '../utils/grouped_notification_reason.dart'
-    show GroupedNotificationReason;
-
 extension GroupedNotificationExtension on GroupedNotification {
   /// Returns the post url related to this notification.
   ///

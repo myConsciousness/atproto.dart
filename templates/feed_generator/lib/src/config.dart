@@ -15,7 +15,7 @@ final class FeedGeneratorConfig {
     this.feedDescription,
     this.port = 3000,
     required this.publisherHandle,
-    required this.publisherPassword,
+    this.publisherPassword,
   });
 
   /// Builds the config from environment variables so secrets never live in the
@@ -23,14 +23,17 @@ final class FeedGeneratorConfig {
   ///
   /// - `FEEDGEN_HOSTNAME`         (required) e.g. `feed.example.com`
   /// - `FEEDGEN_PUBLISHER_HANDLE` (required) e.g. `handle.bsky.social`
-  /// - `FEEDGEN_PUBLISHER_PASSWORD` (required) an app password
+  /// - `FEEDGEN_PUBLISHER_PASSWORD` (only for `bin/publish_feed.dart`) an app
+  ///   password. The long-running server never needs it — don't hand the
+  ///   publisher credential to the internet-facing process (least privilege).
   /// - `FEEDGEN_RECORD_KEY`       (default `whats-hot`)
   /// - `FEEDGEN_DISPLAY_NAME`     (default `What's Hot`)
   /// - `FEEDGEN_DESCRIPTION`      (optional)
   /// - `FEEDGEN_PORT`             (default `3000`)
   ///
-  /// Throws [StateError] when a required variable is missing or `FEEDGEN_PORT`
-  /// is not a valid port number.
+  /// Throws [StateError] when a required variable is missing, `FEEDGEN_PORT`
+  /// is not a valid port number (1-65535), or `FEEDGEN_HOSTNAME` is not a
+  /// bare hostname.
   factory FeedGeneratorConfig.fromEnvironment([
     final Map<String, String>? environment,
   ]) {
@@ -44,20 +47,32 @@ final class FeedGeneratorConfig {
       return value;
     }
 
+    final hostname = require('FEEDGEN_HOSTNAME');
+    if (hostname.contains(':') || hostname.contains('/')) {
+      throw StateError(
+        'FEEDGEN_HOSTNAME must be a bare hostname (no scheme, port or '
+        'path) for a valid did:web, got: "$hostname"',
+      );
+    }
+
     final portRaw = env['FEEDGEN_PORT'];
     final port = portRaw == null ? 3000 : int.tryParse(portRaw);
-    if (port == null || port < 0 || port > 65535) {
+    if (port == null || port < 1 || port > 65535) {
       throw StateError('FEEDGEN_PORT is not a valid port number: "$portRaw"');
     }
 
+    final password = env['FEEDGEN_PUBLISHER_PASSWORD'];
+
     return FeedGeneratorConfig(
-      hostname: require('FEEDGEN_HOSTNAME'),
+      hostname: hostname,
       feedRecordKey: env['FEEDGEN_RECORD_KEY'] ?? 'whats-hot',
       feedDisplayName: env['FEEDGEN_DISPLAY_NAME'] ?? "What's Hot",
       feedDescription: env['FEEDGEN_DESCRIPTION'],
       port: port,
       publisherHandle: require('FEEDGEN_PUBLISHER_HANDLE'),
-      publisherPassword: require('FEEDGEN_PUBLISHER_PASSWORD'),
+      publisherPassword: (password == null || password.isEmpty)
+          ? null
+          : password,
     );
   }
 
@@ -77,7 +92,25 @@ final class FeedGeneratorConfig {
   final String? feedDescription;
   final int port;
 
-  /// Credentials of the account that publishes the feed generator record.
+  /// The handle of the account that publishes the feed generator record.
   final String publisherHandle;
-  final String publisherPassword;
+
+  /// The publisher's app password. Only `bin/publish_feed.dart` needs it;
+  /// leave it unset for the long-running server so the internet-facing
+  /// process never holds a write-capable credential.
+  final String? publisherPassword;
+
+  /// [publisherPassword], or a [StateError] telling the operator to set
+  /// `FEEDGEN_PUBLISHER_PASSWORD`. Call this only from the publish path.
+  String get requirePublisherPassword {
+    final password = publisherPassword;
+    if (password == null) {
+      throw StateError(
+        'FEEDGEN_PUBLISHER_PASSWORD is required to publish the feed '
+        'generator record; set it for bin/publish_feed.dart (the server '
+        'does not need it)',
+      );
+    }
+    return password;
+  }
 }

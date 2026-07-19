@@ -99,6 +99,45 @@ Future<void> main(List<String> args) async {
 }
 ```
 
+#### OAuth Authentication
+
+The client wraps an `OAuthSessionManager`, which owns DPoP header building and transparent token refresh. Build a manager from a completed authorization and pass it to `Bluesky.fromOAuth`:
+
+```dart
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/atproto_oauth.dart';
+
+Future<void> main() async {
+  // Complete the OAuth flow with your client metadata.
+  final oauth = OAuthClient(
+    await getClientMetadata('https://example.com/client-metadata.json'),
+  );
+
+  final authUrl = await oauth.authorize('your.handle.bsky.social');
+  // Send the user to `authUrl`, then hand the redirect back to `callback`:
+  final session = await oauth.callback('https://example.com/callback?...');
+
+  // The manager keeps the access token fresh across requests.
+  final manager = OAuthSessionManager(oauth, sub: session.sub);
+  final bsky = Bluesky.fromOAuth(manager);
+
+  // The active manager is available via the `oAuthSessionManager` getter.
+  print(bsky.oAuthSessionManager);
+}
+```
+
+`BlueskyChat` and `OzoneTool` expose the same `fromOAuth(manager)` constructor, so a single manager can back every client.
+
+To restore a persisted session, rebuild the manager with `OAuthSessionManager.fromSession(restored)`:
+
+```dart
+final restored = OAuthSession.fromJson(jsonDecode(storedJson));
+final manager = OAuthSessionManager.fromSession(restored);
+final bsky = Bluesky.fromOAuth(manager);
+```
+
+> **Note:** In v2.0.0 the old `oAuthSession` getter was replaced by `oAuthSessionManager`.
+
 #### Social Feed Operations
 
 ```dart
@@ -145,6 +184,44 @@ Future<void> main(List<String> args) async {
     subject: RepoStrongRef(uri: post.data.uri, cid: post.data.cid),
   );
 }
+```
+
+#### Notification Grouping
+
+The `bluesky` package can group notifications client-side the same way the official Bluesky app does. Grouping is fully customizable via `NotificationsGrouperConfig`.
+
+```dart
+// List notifications, then group them like the official app does.
+final notifications = await bsky.notification.listNotifications();
+
+// Default: official Bluesky social-app parity — groups like / repost /
+// follow / like-via-repost / repost-via-repost / subscribed-post within a
+// 48h window, separates follow-backs, and marks a group unread if any of
+// its notifications is unread.
+final grouped = notifications.data.group();
+
+for (final group in grouped.notifications) {
+  print('${group.reason}: ${group.authors.length} author(s)');
+}
+
+// Keep the legacy behavior from bluesky <= 2.x.
+final legacy = notifications.data.group(
+  config: const NotificationsGrouperConfig.lenient(),
+);
+
+// Or fully customize the grouping. `KnownNotificationReason` comes from
+// `package:bluesky/app_bsky_notification_listnotifications.dart`.
+final custom = notifications.data.group(
+  config: const NotificationsGrouperConfig(
+    groupableReasons: {
+      KnownNotificationReason.like,
+      KnownNotificationReason.repost,
+    },
+    window: Duration(hours: 24),
+    separateFollowBacks: true,
+    unreadIfAny: false,
+  ),
+);
 ```
 
 #### User Profiles and Social Graph
@@ -247,6 +324,10 @@ Future<void> main(List<String> args) async {
   final serverConfig = await ozone.server.getConfig();
 }
 ```
+
+#### Real-time Data with Firehose
+
+Bluesky inherits the full AT Protocol Firehose. Use `bsky.atproto.sync.subscribeReposAsMessages()` for already-decoded, typed messages (`message.isCommit`, `message.commit!.repo`, `.blocks.length`), or `bsky.atproto.sync.subscribeRepos()` for raw binary frames. See the [`atproto` README](https://pub.dev/packages/atproto) for details.
 
 ## 1.3. Supported Endpoints 👀
 

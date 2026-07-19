@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:bluesky/app_bsky_embed_video.dart';
 import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/app_bsky_notification_listnotifications.dart';
 import 'package:bluesky/chat_bsky_convo_defs.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
@@ -83,6 +84,28 @@ Future<void> main() async {
     }
 
     print(feeds);
+
+    //! Group notifications like the official Bluesky app does.
+    final notifications = await bsky.notification.listNotifications();
+
+    //! Default is official social-app parity. Pass a config to customize:
+    //! `NotificationsGrouperConfig.lenient()` for the legacy behavior, or a
+    //! fully custom `NotificationsGrouperConfig(...)`.
+    final grouped = notifications.data.group(
+      config: const NotificationsGrouperConfig(
+        groupableReasons: {
+          KnownNotificationReason.like,
+          KnownNotificationReason.repost,
+        },
+        window: Duration(hours: 24),
+        separateFollowBacks: true,
+        unreadIfAny: false,
+      ),
+    );
+
+    for (final group in grouped.notifications) {
+      print('${group.reason}: ${group.authors.length} author(s)');
+    }
 
     //! Upload video
     final uploadedVideo = await bsky.video.uploadVideo(

@@ -3,7 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Dart imports:
+import 'dart:async';
 import 'dart:convert';
+import 'dart:typed_data';
 
 // Package imports:
 import 'package:http/http.dart' as http;
@@ -30,14 +32,197 @@ final class HttpIdentityResolver implements IdentityResolver {
     this.handleResolver = 'https://public.api.bsky.app',
     this.plcDirectory = 'https://plc.directory',
     final http.Client? httpClient,
+    this.allowedHosts,
+    this.allowPrivateNetwork = false,
+    this.timeout = const Duration(seconds: 10),
+    this.maxResponseBytes = 512 * 1024,
   }) : _httpClient = httpClient;
 
   final String handleResolver;
   final String plcDirectory;
   final http.Client? _httpClient;
 
-  Future<http.Response> _get(final Uri url) async =>
-      _httpClient == null ? await http.get(url) : await _httpClient.get(url);
+  /// Optional allowlist of `did:web` hostnames (lowercase, no port). When
+  /// non-null, only these hosts may be contacted for did:web resolution;
+  /// any other did:web issuer is rejected with an [IdentityException]
+  /// before a request is issued.
+  final Set<String>? allowedHosts;
+
+  /// Whether did:web resolution may target private-network hosts.
+  ///
+  /// Defaults to `false`: `localhost` and IP literals in loopback, private,
+  /// link-local, carrier-grade NAT, unique-local, multicast, unspecified,
+  /// or otherwise reserved ranges are rejected before any request is issued,
+  /// because a `did:web` issuer is attacker-controlled input (blind SSRF).
+  ///
+  /// **Limitation:** only IP *literals* are checked. This package targets
+  /// web/WASM as well as native platforms, so no DNS resolution is performed;
+  /// a public hostname whose DNS record points at a private address is not
+  /// detected here. Pair this check with operator-level egress controls
+  /// (or [allowedHosts]) for defense in depth.
+  final bool allowPrivateNetwork;
+
+  /// Per-request timeout applied to every fetch (connection and body read).
+  final Duration timeout;
+
+  /// Maximum response body size in bytes; larger responses are rejected
+  /// with an [IdentityException] before JSON decoding.
+  final int maxResponseBytes;
+
+  static const _maxRedirects = 5;
+  static const _redirectStatusCodes = {301, 302, 303, 307, 308};
+
+  /// Fetches [url] with [timeout], a [maxResponseBytes] body cap, and manual
+  /// redirect handling (at most [_maxRedirects]). When [enforceHostPolicy] is
+  /// set (did:web fetches), every redirect target must be `https` and pass
+  /// the same host policy as the original did:web host.
+  ///
+  /// Note: on the web platform the browser follows redirects transparently,
+  /// so the manual redirect validation only takes effect on platforms whose
+  /// HTTP client honors `followRedirects = false` (all `dart:io` clients).
+  Future<http.Response> _get(
+    final Uri url, {
+    final bool enforceHostPolicy = false,
+  }) async {
+    final client = _httpClient ?? http.Client();
+    try {
+      var current = url;
+      for (var redirects = 0; ; redirects++) {
+        final request = http.Request('GET', current)..followRedirects = false;
+        final http.StreamedResponse streamed;
+        try {
+          streamed = await client.send(request).timeout(timeout);
+        } on TimeoutException {
+          throw IdentityException(
+            'Request to "$current" timed out after '
+            '${timeout.inMilliseconds}ms',
+          );
+        }
+        final body = await _readBodyCapped(streamed.stream, current);
+
+        if (_redirectStatusCodes.contains(streamed.statusCode)) {
+          if (redirects >= _maxRedirects) {
+            throw IdentityException(
+              'Too many redirects (>$_maxRedirects) while fetching "$url"',
+            );
+          }
+          final location = streamed.headers['location'];
+          if (location == null || location.isEmpty) {
+            throw IdentityException(
+              'Redirect from "$current" has no Location header',
+            );
+          }
+          final next = current.resolve(location);
+          if (enforceHostPolicy) {
+            if (!next.isScheme('https')) {
+              throw IdentityException(
+                'Redirect from "$current" to non-https target "$next" '
+                'is not allowed for did:web resolution',
+              );
+            }
+            _checkDidWebHostname(next.host);
+          }
+          current = next;
+          continue;
+        }
+
+        return http.Response.bytes(
+          body,
+          streamed.statusCode,
+          headers: streamed.headers,
+          isRedirect: streamed.isRedirect,
+          persistentConnection: streamed.persistentConnection,
+          reasonPhrase: streamed.reasonPhrase,
+        );
+      }
+    } finally {
+      if (_httpClient == null) client.close();
+    }
+  }
+
+  /// Reads the response body enforcing [maxResponseBytes] and [timeout].
+  Future<Uint8List> _readBodyCapped(
+    final http.ByteStream stream,
+    final Uri url,
+  ) async {
+    final builder = BytesBuilder(copy: false);
+    try {
+      await stream
+          .forEach((final chunk) {
+            builder.add(chunk);
+            if (builder.length > maxResponseBytes) {
+              throw IdentityException(
+                'Response body from "$url" exceeds the maximum allowed size of '
+                '$maxResponseBytes bytes',
+              );
+            }
+          })
+          .timeout(timeout);
+    } on TimeoutException {
+      throw IdentityException(
+        'Reading the response body from "$url" timed out after '
+        '${timeout.inMilliseconds}ms',
+      );
+    }
+    return builder.takeBytes();
+  }
+
+  /// Validates a did:web `host[:port]` string (already percent-decoded)
+  /// against [allowedHosts] and [allowPrivateNetwork].
+  void _checkDidWebHostPort(final String hostPort) {
+    final normalized = hostPort.toLowerCase();
+    final String hostname;
+    if (normalized.startsWith('[')) {
+      final end = normalized.indexOf(']');
+      if (end < 0) {
+        throw IdentityException('Invalid did:web host: "$hostPort"');
+      }
+      hostname = normalized.substring(1, end);
+    } else {
+      final lastColon = normalized.lastIndexOf(':');
+      hostname =
+          lastColon >= 0 && !normalized.substring(0, lastColon).contains(':')
+          // Exactly one colon: `host:port`.
+          ? normalized.substring(0, lastColon)
+          // No colon (plain host) or 2+ colons (bare IPv6 literal).
+          : normalized;
+    }
+    _checkDidWebHostname(hostname);
+  }
+
+  /// Validates a bare lowercase hostname (no port, no brackets) against
+  /// [allowedHosts] and [allowPrivateNetwork]. See [allowPrivateNetwork]
+  /// for the IP-literal-only limitation of this check.
+  void _checkDidWebHostname(final String hostname) {
+    final host = hostname.toLowerCase();
+    if (host.isEmpty) {
+      throw const IdentityException('did:web host must not be empty');
+    }
+
+    final allowed = allowedHosts;
+    if (allowed != null &&
+        !allowed.any((final entry) => entry.toLowerCase() == host)) {
+      throw IdentityException(
+        'did:web host "$host" is not in the configured allowlist',
+      );
+    }
+
+    if (allowPrivateNetwork) return;
+
+    if (host == 'localhost' || host.endsWith('.localhost')) {
+      throw IdentityException(
+        'did:web host "$host" resolves to the local host and is rejected '
+        '(set allowPrivateNetwork: true to permit private-network hosts)',
+      );
+    }
+    if (_isProhibitedIpLiteral(host)) {
+      throw IdentityException(
+        'did:web host "$host" is a private, loopback, link-local, multicast, '
+        'or otherwise reserved IP literal and is rejected '
+        '(set allowPrivateNetwork: true to permit private-network hosts)',
+      );
+    }
+  }
 
   @override
   Future<ResolvedIdentity> resolve(final String identity) async {
@@ -81,7 +266,7 @@ final class HttpIdentityResolver implements IdentityResolver {
       did: did,
       pds: _extractPdsEndpoint(didDocument, did),
       handle: handle,
-      signingKey: signingKeyOf(didDocument),
+      signingKey: signingKeyOf(didDocument, did),
     );
   }
 
@@ -112,21 +297,24 @@ final class HttpIdentityResolver implements IdentityResolver {
 
   Future<Map<String, dynamic>> _resolveDidDocument(final String did) async {
     final Uri uri;
+    final bool isDidWeb;
     if (did.startsWith('did:plc:')) {
       final origin = _normalizeHttpOrigin(
         plcDirectory,
         what: 'PLC directory URL',
       );
       uri = Uri.parse('$origin/$did');
+      isDidWeb = false;
     } else if (did.startsWith('did:web:')) {
       uri = _didWebDocumentUri(did);
+      isDidWeb = true;
     } else {
       throw IdentityException(
         'Unsupported DID method for "$did" '
         '(only did:plc and did:web are supported)',
       );
     }
-    final response = await _get(uri);
+    final response = await _get(uri, enforceHostPolicy: isDidWeb);
     if (response.statusCode != 200) {
       throw IdentityException(
         'Failed to fetch DID document for "$did" from "$uri" '
@@ -139,31 +327,94 @@ final class HttpIdentityResolver implements IdentityResolver {
         'DID document for "$did" at "$uri" is not a JSON object',
       );
     }
+    // Bind a did:web document to the DID that was requested. Unlike did:plc
+    // (which is content-addressed and served by the trusted PLC directory), a
+    // did:web document is fetched from an issuer-controlled host, so its `id`
+    // is attacker-influenced: reject any document that claims to describe a
+    // different DID than the one we resolved.
+    if (isDidWeb && json['id'] != did) {
+      throw IdentityException(
+        'did:web document at "$uri" declares id "${json['id']}", '
+        'which does not match the requested DID "$did"',
+      );
+    }
     return json;
+  }
+
+  /// Maps a `did:web` identifier to the URL of its DID document
+  /// (`did:web:example.com` -> `https://example.com/.well-known/did.json`;
+  /// `did:web:example.com:u:alice` -> `https://example.com/u/alice/did.json`),
+  /// validating the host against [allowedHosts] and [allowPrivateNetwork].
+  Uri _didWebDocumentUri(final String did) {
+    final id = did.substring('did:web:'.length);
+    if (id.isEmpty) {
+      throw IdentityException('Invalid did:web identifier: "$did"');
+    }
+
+    final List<String> segments;
+    try {
+      segments = id.split(':').map(Uri.decodeComponent).toList();
+    } on ArgumentError {
+      throw IdentityException('Invalid did:web identifier: "$did"');
+    }
+    final host = segments.first;
+    if (host.isEmpty) {
+      throw IdentityException('Invalid did:web identifier: "$did"');
+    }
+
+    _checkDidWebHostPort(host);
+
+    if (segments.length == 1) {
+      return Uri.parse('https://$host/.well-known/did.json');
+    }
+
+    final path = segments.sublist(1).join('/');
+    return Uri.parse('https://$host/$path/did.json');
   }
 }
 
-/// Maps a `did:web` identifier to the URL of its DID document
-/// (`did:web:example.com` -> `https://example.com/.well-known/did.json`;
-/// `did:web:example.com:u:alice` -> `https://example.com/u/alice/did.json`).
-Uri _didWebDocumentUri(final String did) {
-  final id = did.substring('did:web:'.length);
-  if (id.isEmpty) {
-    throw IdentityException('Invalid did:web identifier: "$did"');
+/// Whether [hostname] (lowercase, no brackets/port) is an IP literal in a
+/// range that must never be reached from attacker-controlled input:
+/// loopback, private, link-local, carrier-grade NAT, unique-local,
+/// multicast, unspecified, or otherwise reserved.
+bool _isProhibitedIpLiteral(final String hostname) {
+  try {
+    return _isProhibitedIpv4(Uri.parseIPv4Address(hostname));
+  } on FormatException {
+    // Not an IPv4 literal.
+  }
+  try {
+    return _isProhibitedIpv6(Uri.parseIPv6Address(hostname));
+  } on FormatException {
+    // Not an IP literal at all.
+    return false;
+  }
+}
+
+bool _isProhibitedIpv4(final List<int> b) =>
+    b[0] == 0 || // 0.0.0.0/8 ("this network", incl. unspecified)
+    b[0] == 10 || // 10.0.0.0/8 private
+    (b[0] == 100 && b[1] >= 64 && b[1] <= 127) || // 100.64.0.0/10 CGNAT
+    b[0] == 127 || // 127.0.0.0/8 loopback
+    (b[0] == 169 && b[1] == 254) || // 169.254.0.0/16 link-local
+    (b[0] == 172 && b[1] >= 16 && b[1] <= 31) || // 172.16.0.0/12 private
+    (b[0] == 192 && b[1] == 168) || // 192.168.0.0/16 private
+    b[0] >= 224; // 224.0.0.0/4 multicast + 240.0.0.0/4 reserved + broadcast
+
+bool _isProhibitedIpv6(final List<int> b) {
+  // ::ffff:a.b.c.d (IPv4-mapped) and ::a.b.c.d (IPv4-compatible): apply the
+  // IPv4 rules to the embedded address.
+  final firstTenZero = b.take(10).every((final byte) => byte == 0);
+  if (firstTenZero &&
+      ((b[10] == 0xff && b[11] == 0xff) || (b[10] == 0 && b[11] == 0))) {
+    // Also covers `::` (unspecified) and `::1` (loopback), whose embedded
+    // IPv4 forms 0.0.0.0 and 0.0.0.1 fall in 0.0.0.0/8.
+    return _isProhibitedIpv4(b.sublist(12));
   }
 
-  final segments = id.split(':').map(Uri.decodeComponent).toList();
-  final host = segments.first;
-  if (host.isEmpty) {
-    throw IdentityException('Invalid did:web identifier: "$did"');
-  }
-
-  if (segments.length == 1) {
-    return Uri.parse('https://$host/.well-known/did.json');
-  }
-
-  final path = segments.sublist(1).join('/');
-  return Uri.parse('https://$host/$path/did.json');
+  return (b[0] == 0xfe && (b[1] & 0xc0) == 0x80) || // fe80::/10 link-local
+      (b[0] & 0xfe) == 0xfc || // fc00::/7 unique-local
+      b[0] == 0xff; // ff00::/8 multicast
 }
 
 /// Extracts the `#atproto_pds` service endpoint origin from a DID document,

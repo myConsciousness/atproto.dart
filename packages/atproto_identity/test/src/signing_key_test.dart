@@ -1,6 +1,8 @@
 import 'package:atproto_identity/atproto_identity.dart';
 import 'package:test/test.dart';
 
+const _did = 'did:plc:abc';
+
 void main() {
   test('extracts the #atproto publicKeyMultibase (bare fragment id)', () {
     final doc = {
@@ -13,7 +15,7 @@ void main() {
         },
       ],
     };
-    expect(signingKeyOf(doc), 'zQ3shSIGNINGKEY');
+    expect(signingKeyOf(doc, _did), 'zQ3shSIGNINGKEY');
   });
 
   test('extracts when id is the fully-qualified did#atproto', () {
@@ -25,7 +27,7 @@ void main() {
         },
       ],
     };
-    expect(signingKeyOf(doc), 'zDnSIGNINGKEY');
+    expect(signingKeyOf(doc, _did), 'zDnSIGNINGKEY');
   });
 
   test('returns null when there is no #atproto method', () {
@@ -34,11 +36,39 @@ void main() {
         {'id': '#somethingElse', 'publicKeyMultibase': 'zX'},
       ],
     };
-    expect(signingKeyOf(doc), isNull);
+    expect(signingKeyOf(doc, _did), isNull);
   });
 
   test('returns null when verificationMethod is absent or malformed', () {
-    expect(signingKeyOf({}), isNull);
-    expect(signingKeyOf({'verificationMethod': 'nope'}), isNull);
+    expect(signingKeyOf({}, _did), isNull);
+    expect(signingKeyOf({'verificationMethod': 'nope'}, _did), isNull);
+  });
+
+  test('does NOT select an id that merely ends with #atproto', () {
+    // `did:plc:abc#foo#atproto` ends with `#atproto` but is not the
+    // canonical `#atproto` method; a suffix match would let a crafted DID
+    // document smuggle in an attacker-controlled key. Require an exact match.
+    final doc = {
+      'verificationMethod': [
+        {
+          'id': 'did:plc:abc#foo#atproto',
+          'publicKeyMultibase': 'zSPOOFED',
+        },
+      ],
+    };
+    expect(signingKeyOf(doc, _did), isNull);
+  });
+
+  test('does NOT select a fully-qualified id belonging to another DID', () {
+    // The fragment is `#atproto` but the DID prefix is someone else's.
+    final doc = {
+      'verificationMethod': [
+        {
+          'id': 'did:plc:other#atproto',
+          'publicKeyMultibase': 'zWRONGDID',
+        },
+      ],
+    };
+    expect(signingKeyOf(doc, _did), isNull);
   });
 }
