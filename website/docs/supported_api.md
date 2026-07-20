@@ -266,6 +266,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.graph.muteActorList](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/muteActorList.html)** | [Reference](lexicons/app/bsky/graph/muteActorList.md) | ❌ |
 | **[app.bsky.graph.muteThread](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/muteThread.html)** | [Reference](lexicons/app/bsky/graph/muteThread.md) | ❌ |
 | **[app.bsky.graph.searchStarterPacks](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/searchStarterPacks.html)** | [Reference](lexicons/app/bsky/graph/searchStarterPacks.md) | ✅ |
+| **[app.bsky.graph.searchStarterPacksV2](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/searchStarterPacksV2.html)** | [Reference](lexicons/app/bsky/graph/searchStarterPacksV2.md) | ✅ |
 | **[app.bsky.graph.starterpack](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/starterpack.html)** | [Reference](lexicons/app/bsky/graph/starterpack.md) | ❌ |
 | **[app.bsky.graph.unmuteActor](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/unmuteActor.html)** | [Reference](lexicons/app/bsky/graph/unmuteActor.md) | ❌ |
 | **[app.bsky.graph.unmuteActorList](https://pub.dev/documentation/bluesky/latest/app_bsky_services/GraphService/unmuteActorList.html)** | [Reference](lexicons/app/bsky/graph/unmuteActorList.md) | ❌ |

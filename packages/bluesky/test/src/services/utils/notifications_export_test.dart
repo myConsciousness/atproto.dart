@@ -1,9 +1,11 @@
 // Package imports:
 import 'package:test/test.dart';
 
-// Project imports (public barrels only):
+// Project imports:
 import 'package:bluesky/app_bsky_notification_listnotifications.dart';
 import 'package:bluesky/bluesky.dart';
+
+// Project imports (public barrels only):
 
 void main() {
   test('grouping API is reachable from the public export', () {

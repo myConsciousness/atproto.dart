@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetTrendsSkeletonOutput {
 
-@SkeletonTrendConverter() List<SkeletonTrend> get trends; Map<String, dynamic>? get $unknown;
+@SkeletonTrendConverter() List<SkeletonTrend> get trends;/// Snowflake for this recommendation, use when submitting recommendation events.
+ String? get recIdStr; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetTrendsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $UnspeccedGetTrendsSkeletonOutputCopyWith<UnspeccedGetTrendsSkeletonOutput> get 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetTrendsSkeletonOutput&&const DeepCollectionEquality().equals(other.trends, trends)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetTrendsSkeletonOutput&&const DeepCollectionEquality().equals(other.trends, trends)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(trends),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(trends),recIdStr,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetTrendsSkeletonOutput(trends: $trends, \$unknown: ${$unknown})';
+  return 'UnspeccedGetTrendsSkeletonOutput(trends: $trends, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $UnspeccedGetTrendsSkeletonOutputCopyWith<$Res>  {
   factory $UnspeccedGetTrendsSkeletonOutputCopyWith(UnspeccedGetTrendsSkeletonOutput value, $Res Function(UnspeccedGetTrendsSkeletonOutput) _then) = _$UnspeccedGetTrendsSkeletonOutputCopyWithImpl;
 @useResult
 $Res call({
-@SkeletonTrendConverter() List<SkeletonTrend> trends, Map<String, dynamic>? $unknown
+@SkeletonTrendConverter() List<SkeletonTrend> trends, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +66,11 @@ class _$UnspeccedGetTrendsSkeletonOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetTrendsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? trends = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? trends = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 trends: null == trends ? _self.trends : trends // ignore: cast_nullable_to_non_nullable
-as List<SkeletonTrend>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<SkeletonTrend>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@SkeletonTrendConverter()  List<SkeletonTrend> trends,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@SkeletonTrendConverter()  List<SkeletonTrend> trends,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetTrendsSkeletonOutput() when $default != null:
-return $default(_that.trends,_that.$unknown);case _:
+return $default(_that.trends,_that.recIdStr,_that.$unknown);case _:
   return orElse();
 
 }
@@ -175,10 +177,10 @@ return $default(_that.trends,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@SkeletonTrendConverter()  List<SkeletonTrend> trends,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@SkeletonTrendConverter()  List<SkeletonTrend> trends,  String? recIdStr,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetTrendsSkeletonOutput():
-return $default(_that.trends,_that.$unknown);case _:
+return $default(_that.trends,_that.recIdStr,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +197,10 @@ return $default(_that.trends,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@SkeletonTrendConverter()  List<SkeletonTrend> trends,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@SkeletonTrendConverter()  List<SkeletonTrend> trends,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetTrendsSkeletonOutput() when $default != null:
-return $default(_that.trends,_that.$unknown);case _:
+return $default(_that.trends,_that.recIdStr,_that.$unknown);case _:
   return null;
 
 }
@@ -210,7 +212,7 @@ return $default(_that.trends,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetTrendsSkeletonOutput implements UnspeccedGetTrendsSkeletonOutput {
-  const _UnspeccedGetTrendsSkeletonOutput({@SkeletonTrendConverter() required final  List<SkeletonTrend> trends, final  Map<String, dynamic>? $unknown}): _trends = trends,_$unknown = $unknown;
+  const _UnspeccedGetTrendsSkeletonOutput({@SkeletonTrendConverter() required final  List<SkeletonTrend> trends, this.recIdStr, final  Map<String, dynamic>? $unknown}): _trends = trends,_$unknown = $unknown;
   factory _UnspeccedGetTrendsSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetTrendsSkeletonOutputFromJson(json);
 
  final  List<SkeletonTrend> _trends;
@@ -220,6 +222,8 @@ class _UnspeccedGetTrendsSkeletonOutput implements UnspeccedGetTrendsSkeletonOut
   return EqualUnmodifiableListView(_trends);
 }
 
+/// Snowflake for this recommendation, use when submitting recommendation events.
+@override final  String? recIdStr;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetTrendsSkeletonOutput&&const DeepCollectionEquality().equals(other._trends, _trends)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetTrendsSkeletonOutput&&const DeepCollectionEquality().equals(other._trends, _trends)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_trends),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_trends),recIdStr,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetTrendsSkeletonOutput(trends: $trends, \$unknown: ${$unknown})';
+  return 'UnspeccedGetTrendsSkeletonOutput(trends: $trends, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +267,7 @@ abstract mixin class _$UnspeccedGetTrendsSkeletonOutputCopyWith<$Res> implements
   factory _$UnspeccedGetTrendsSkeletonOutputCopyWith(_UnspeccedGetTrendsSkeletonOutput value, $Res Function(_UnspeccedGetTrendsSkeletonOutput) _then) = __$UnspeccedGetTrendsSkeletonOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@SkeletonTrendConverter() List<SkeletonTrend> trends, Map<String, dynamic>? $unknown
+@SkeletonTrendConverter() List<SkeletonTrend> trends, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,10 +284,11 @@ class __$UnspeccedGetTrendsSkeletonOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetTrendsSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? trends = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? trends = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetTrendsSkeletonOutput(
 trends: null == trends ? _self._trends : trends // ignore: cast_nullable_to_non_nullable
-as List<SkeletonTrend>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<SkeletonTrend>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

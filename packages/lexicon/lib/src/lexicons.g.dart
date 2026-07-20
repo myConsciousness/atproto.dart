@@ -5934,6 +5934,59 @@ const appBskyGraphSearchStarterPacks = <String, dynamic>{
   },
 };
 
+/// `app.bsky.graph.searchStarterPacksV2`
+const appBskyGraphSearchStarterPacksV2 = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.searchStarterPacksV2",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Find starter packs matching search criteria. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["q"],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "hitsTotal": {
+              "type": "integer",
+              "description":
+                  "Estimated total number of matching hits. May be rounded or truncated.",
+            },
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.graph.starterpack`
 const appBskyGraphStarterpack = <String, dynamic>{
   "lexicon": 1,
@@ -8300,6 +8353,11 @@ const appBskyUnspeccedGetTrends = <String, dynamic>{
                 "ref": "app.bsky.unspecced.defs#trendView",
               },
             },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
           },
         },
       },
@@ -8345,6 +8403,11 @@ const appBskyUnspeccedGetTrendsSkeleton = <String, dynamic>{
                 "type": "ref",
                 "ref": "app.bsky.unspecced.defs#skeletonTrend",
               },
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -23581,6 +23644,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphMuteActorList,
   appBskyGraphMuteThread,
   appBskyGraphSearchStarterPacks,
+  appBskyGraphSearchStarterPacksV2,
   appBskyGraphStarterpack,
   appBskyGraphUnmuteActor,
   appBskyGraphUnmuteActorList,

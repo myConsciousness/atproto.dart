@@ -23,3 +23,4 @@ Get the skeleton of trends on the network. Intended to be called and then hydrat
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **trends** | array of [app.bsky.unspecced.defs#skeletonTrend](../../../../lexicons/app/bsky/unspecced/defs.md#skeletontrend) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

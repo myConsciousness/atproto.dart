@@ -762,6 +762,9 @@ const appBskyGraphMuteThread = 'app.bsky.graph.muteThread';
 /// `app.bsky.graph.searchStarterPacks`
 const appBskyGraphSearchStarterPacks = 'app.bsky.graph.searchStarterPacks';
 
+/// `app.bsky.graph.searchStarterPacksV2`
+const appBskyGraphSearchStarterPacksV2 = 'app.bsky.graph.searchStarterPacksV2';
+
 /// `app.bsky.graph.starterpack`
 const appBskyGraphStarterpack = 'app.bsky.graph.starterpack';
 

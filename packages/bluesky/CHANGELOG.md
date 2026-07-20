@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.1.1
+
+- feat: added `app.bsky.graph.searchStarterPacksV2`
+- chore: regenerated from synced lexicons
+
 ## v2.1.0
 
 - feat: notification grouping now matches the official Bluesky social-app by default. `NotificationsGrouper` / `NotificationListNotificationsOutput.group()` now group six reasons (`like`, `repost`, `follow`, `like-via-repost`, `repost-via-repost`, `subscribed-post`), apply a 48h sliding window anchored on each group's newest item, separate follow-backs into their own groups, and mark a group unread if any of its notifications is unread. This changes the default grouping output (a behavior change); to keep the previous behavior, pass `NotificationsGrouperConfig.lenient()` (e.g. `output.group(config: const NotificationsGrouperConfig.lenient())`).
