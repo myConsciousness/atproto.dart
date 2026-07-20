@@ -22,3 +22,4 @@ Get the current trends on the network
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **trends** | array of [app.bsky.unspecced.defs#trendView](../../../../lexicons/app/bsky/unspecced/defs.md#trendview) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

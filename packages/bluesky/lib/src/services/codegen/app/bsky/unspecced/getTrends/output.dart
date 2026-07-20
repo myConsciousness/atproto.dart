@@ -23,17 +23,25 @@ part 'output.g.dart';
 
 @freezed
 abstract class UnspeccedGetTrendsOutput with _$UnspeccedGetTrendsOutput {
-  static const knownProps = <String>['trends'];
+  static const knownProps = <String>['trends', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetTrendsOutput({
     @TrendViewConverter() required List<TrendView> trends,
+
+    /// Snowflake for this recommendation, use when submitting recommendation events.
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetTrendsOutput;
 
   factory UnspeccedGetTrendsOutput.fromJson(Map<String, Object?> json) =>
       _$UnspeccedGetTrendsOutputFromJson(json);
+}
+
+extension UnspeccedGetTrendsOutputExtension on UnspeccedGetTrendsOutput {
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class UnspeccedGetTrendsOutputConverter

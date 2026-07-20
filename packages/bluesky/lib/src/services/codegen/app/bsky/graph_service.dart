@@ -42,6 +42,7 @@ import 'graph/getStarterPacksWithMembership/output.dart';
 import 'graph/getSuggestedFollowsByActor/output.dart';
 import 'graph/list/union_main_labels.dart';
 import 'graph/searchStarterPacks/output.dart';
+import 'graph/searchStarterPacksV2/output.dart';
 import 'graph/starterpack/feed_item.dart';
 import 'richtext/facet/main.dart';
 
@@ -452,6 +453,29 @@ appBskyGraphSearchStarterPacks({
   to: const GraphSearchStarterPacksOutputConverter().fromJson,
 );
 
+/// Find starter packs matching search criteria. Does not require auth.
+Future<XRPCResponse<GraphSearchStarterPacksV2Output>>
+appBskyGraphSearchStarterPacksV2({
+  required String q,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyGraphSearchStarterPacksV2,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'q': q,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const GraphSearchStarterPacksV2OutputConverter().fromJson,
+);
+
 /// Unmutes the specified account. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphUnmuteActor({
   required String actor,
@@ -855,6 +879,24 @@ base class GraphService {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphSearchStarterPacks(
+    q: q,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Find starter packs matching search criteria. Does not require auth.
+  Future<XRPCResponse<GraphSearchStarterPacksV2Output>> searchStarterPacksV2({
+    required String q,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyGraphSearchStarterPacksV2(
     q: q,
     limit: limit,
     cursor: cursor,

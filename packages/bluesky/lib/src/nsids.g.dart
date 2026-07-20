@@ -404,6 +404,11 @@ const appBskyGraphMuteThread = NSID(ids.appBskyGraphMuteThread);
 /// `app.bsky.graph.searchStarterPacks`
 const appBskyGraphSearchStarterPacks = NSID(ids.appBskyGraphSearchStarterPacks);
 
+/// `app.bsky.graph.searchStarterPacksV2`
+const appBskyGraphSearchStarterPacksV2 = NSID(
+  ids.appBskyGraphSearchStarterPacksV2,
+);
+
 /// `app.bsky.graph.starterpack`
 const appBskyGraphStarterpack = NSID(ids.appBskyGraphStarterpack);
 
