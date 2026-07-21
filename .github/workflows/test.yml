@@ -157,6 +157,29 @@ jobs:
       - name: Analyze
         run: dart analyze $DART_DIRS
 
+      # `website` is not a workspace member -- it pins the packages by path and
+      # resolves on its own -- so it needs a separate resolve before analysis.
+      # Its snippets are the source of every code example in the docs, so this
+      # step is what stops the docs from describing APIs that no longer exist.
+      - name: Analyze documentation snippets
+        working-directory: website
+        run: |
+          dart pub get
+          dart format --output=none --set-exit-if-changed static/snippets
+          dart analyze
+
+      # Analysis above proves the snippets compile; this proves the docs still
+      # show them. Without it a snippet could be fixed while the markdown kept
+      # rendering the stale copy. Lives here rather than in verify_generated so
+      # a docs-only PR does not pay for the full codegen pipeline.
+      - name: Assert documentation snippets are injected
+        run: |
+          dart run ./scripts/gen_doc_snippets.dart
+          if ! git diff --exit-code -- website/docs; then
+            echo "::error::Documentation snippets are stale. Run 'dart run ./scripts/gen_doc_snippets.dart' and commit the result."
+            exit 1
+          fi
+
   # ---------------------------------------------------------------------------
   # Test only the affected packages (dynamic matrix from the `changes` job).
   # Skipped entirely when no Dart package is affected.
