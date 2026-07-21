@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SkeletonTrend {
 
- String get $type; String get topic; String get displayName; String get link;@JsonKey(toJson: iso8601) DateTime get startedAt; int get postCount;@SkeletonTrendStatusConverter() SkeletonTrendStatus? get status; String? get category; List<String> get dids; Map<String, dynamic>? get $unknown;
+ String get $type; String get topic; String get displayName; String? get description; String get link;@JsonKey(toJson: iso8601) DateTime get startedAt; int get postCount;@SkeletonTrendStatusConverter() SkeletonTrendStatus? get status; String? get category; List<String> get dids; Map<String, dynamic>? get $unknown;
 /// Create a copy of SkeletonTrend
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SkeletonTrendCopyWith<SkeletonTrend> get copyWith => _$SkeletonTrendCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SkeletonTrend&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.topic, topic) || other.topic == topic)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.link, link) || other.link == link)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.postCount, postCount) || other.postCount == postCount)&&(identical(other.status, status) || other.status == status)&&(identical(other.category, category) || other.category == category)&&const DeepCollectionEquality().equals(other.dids, dids)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SkeletonTrend&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.topic, topic) || other.topic == topic)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.link, link) || other.link == link)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.postCount, postCount) || other.postCount == postCount)&&(identical(other.status, status) || other.status == status)&&(identical(other.category, category) || other.category == category)&&const DeepCollectionEquality().equals(other.dids, dids)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,topic,displayName,link,startedAt,postCount,status,category,const DeepCollectionEquality().hash(dids),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,topic,displayName,description,link,startedAt,postCount,status,category,const DeepCollectionEquality().hash(dids),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'SkeletonTrend(\$type: ${$type}, topic: $topic, displayName: $displayName, link: $link, startedAt: $startedAt, postCount: $postCount, status: $status, category: $category, dids: $dids, \$unknown: ${$unknown})';
+  return 'SkeletonTrend(\$type: ${$type}, topic: $topic, displayName: $displayName, description: $description, link: $link, startedAt: $startedAt, postCount: $postCount, status: $status, category: $category, dids: $dids, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $SkeletonTrendCopyWith<$Res>  {
   factory $SkeletonTrendCopyWith(SkeletonTrend value, $Res Function(SkeletonTrend) _then) = _$SkeletonTrendCopyWithImpl;
 @useResult
 $Res call({
- String $type, String topic, String displayName, String link,@JsonKey(toJson: iso8601) DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String? description, String link,@JsonKey(toJson: iso8601) DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +65,13 @@ class _$SkeletonTrendCopyWithImpl<$Res>
 
 /// Create a copy of SkeletonTrend
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? topic = null,Object? displayName = null,Object? link = null,Object? startedAt = null,Object? postCount = null,Object? status = freezed,Object? category = freezed,Object? dids = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? topic = null,Object? displayName = null,Object? description = freezed,Object? link = null,Object? startedAt = null,Object? postCount = null,Object? status = freezed,Object? category = freezed,Object? dids = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,topic: null == topic ? _self.topic : topic // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String,link: null == link ? _self.link : link // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,link: null == link ? _self.link : link // ignore: cast_nullable_to_non_nullable
 as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,postCount: null == postCount ? _self.postCount : postCount // ignore: cast_nullable_to_non_nullable
 as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -174,10 +175,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String? description,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SkeletonTrend() when $default != null:
-return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
+return $default(_that.$type,_that.topic,_that.displayName,_that.description,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
   return orElse();
 
 }
@@ -195,10 +196,10 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String topic,  String displayName,  String? description,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonTrend():
-return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
+return $default(_that.$type,_that.topic,_that.displayName,_that.description,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -215,10 +216,10 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String topic,  String displayName,  String? description,  String link, @JsonKey(toJson: iso8601)  DateTime startedAt,  int postCount, @SkeletonTrendStatusConverter()  SkeletonTrendStatus? status,  String? category,  List<String> dids,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SkeletonTrend() when $default != null:
-return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
+return $default(_that.$type,_that.topic,_that.displayName,_that.description,_that.link,_that.startedAt,_that.postCount,_that.status,_that.category,_that.dids,_that.$unknown);case _:
   return null;
 
 }
@@ -230,12 +231,13 @@ return $default(_that.$type,_that.topic,_that.displayName,_that.link,_that.start
 
 @JsonSerializable(includeIfNull: false)
 class _SkeletonTrend implements SkeletonTrend {
-  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
+  const _SkeletonTrend({this.$type = 'app.bsky.unspecced.defs#skeletonTrend', required this.topic, required this.displayName, this.description, required this.link, @JsonKey(toJson: iso8601) required this.startedAt, required this.postCount, @SkeletonTrendStatusConverter() this.status, this.category, required final  List<String> dids, final  Map<String, dynamic>? $unknown}): _dids = dids,_$unknown = $unknown;
   factory _SkeletonTrend.fromJson(Map<String, dynamic> json) => _$SkeletonTrendFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String topic;
 @override final  String displayName;
+@override final  String? description;
 @override final  String link;
 @override@JsonKey(toJson: iso8601) final  DateTime startedAt;
 @override final  int postCount;
@@ -271,16 +273,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SkeletonTrend&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.topic, topic) || other.topic == topic)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.link, link) || other.link == link)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.postCount, postCount) || other.postCount == postCount)&&(identical(other.status, status) || other.status == status)&&(identical(other.category, category) || other.category == category)&&const DeepCollectionEquality().equals(other._dids, _dids)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SkeletonTrend&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.topic, topic) || other.topic == topic)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.link, link) || other.link == link)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.postCount, postCount) || other.postCount == postCount)&&(identical(other.status, status) || other.status == status)&&(identical(other.category, category) || other.category == category)&&const DeepCollectionEquality().equals(other._dids, _dids)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,topic,displayName,link,startedAt,postCount,status,category,const DeepCollectionEquality().hash(_dids),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,topic,displayName,description,link,startedAt,postCount,status,category,const DeepCollectionEquality().hash(_dids),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'SkeletonTrend(\$type: ${$type}, topic: $topic, displayName: $displayName, link: $link, startedAt: $startedAt, postCount: $postCount, status: $status, category: $category, dids: $dids, \$unknown: ${$unknown})';
+  return 'SkeletonTrend(\$type: ${$type}, topic: $topic, displayName: $displayName, description: $description, link: $link, startedAt: $startedAt, postCount: $postCount, status: $status, category: $category, dids: $dids, \$unknown: ${$unknown})';
 }
 
 
@@ -291,7 +293,7 @@ abstract mixin class _$SkeletonTrendCopyWith<$Res> implements $SkeletonTrendCopy
   factory _$SkeletonTrendCopyWith(_SkeletonTrend value, $Res Function(_SkeletonTrend) _then) = __$SkeletonTrendCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String topic, String displayName, String link,@JsonKey(toJson: iso8601) DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
+ String $type, String topic, String displayName, String? description, String link,@JsonKey(toJson: iso8601) DateTime startedAt, int postCount,@SkeletonTrendStatusConverter() SkeletonTrendStatus? status, String? category, List<String> dids, Map<String, dynamic>? $unknown
 });
 
 
@@ -308,12 +310,13 @@ class __$SkeletonTrendCopyWithImpl<$Res>
 
 /// Create a copy of SkeletonTrend
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? topic = null,Object? displayName = null,Object? link = null,Object? startedAt = null,Object? postCount = null,Object? status = freezed,Object? category = freezed,Object? dids = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? topic = null,Object? displayName = null,Object? description = freezed,Object? link = null,Object? startedAt = null,Object? postCount = null,Object? status = freezed,Object? category = freezed,Object? dids = null,Object? $unknown = freezed,}) {
   return _then(_SkeletonTrend(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,topic: null == topic ? _self.topic : topic // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String,link: null == link ? _self.link : link // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,link: null == link ? _self.link : link // ignore: cast_nullable_to_non_nullable
 as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,postCount: null == postCount ? _self.postCount : postCount // ignore: cast_nullable_to_non_nullable
 as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable

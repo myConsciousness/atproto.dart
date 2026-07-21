@@ -17,6 +17,7 @@ _SkeletonTrend _$SkeletonTrendFromJson(Map json) =>
         ),
         topic: $checkedConvert('topic', (v) => v as String),
         displayName: $checkedConvert('displayName', (v) => v as String),
+        description: $checkedConvert('description', (v) => v as String?),
         link: $checkedConvert('link', (v) => v as String),
         startedAt: $checkedConvert(
           'startedAt',
@@ -48,6 +49,7 @@ Map<String, dynamic> _$SkeletonTrendToJson(_SkeletonTrend instance) =>
       r'$type': instance.$type,
       'topic': instance.topic,
       'displayName': instance.displayName,
+      'description': ?instance.description,
       'link': instance.link,
       'startedAt': iso8601(instance.startedAt),
       'postCount': instance.postCount,
