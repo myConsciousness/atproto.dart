@@ -24,18 +24,7 @@ sealed class Bluesky {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _Bluesky(
-    core.ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      session: session,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _Bluesky.fromAtproto(
     atp.ATProto.fromSession(
       headers: headers,
       session,
@@ -61,18 +50,7 @@ sealed class Bluesky {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _Bluesky(
-    core.ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      oAuthSessionManager: manager,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _Bluesky.fromAtproto(
     atp.ATProto.fromOAuth(
       manager,
       headers: headers,
@@ -123,17 +101,7 @@ sealed class Bluesky {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _Bluesky(
-    core.ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _Bluesky.fromAtproto(
     atp.ATProto.anonymous(
       headers: headers,
       protocol: protocol,
@@ -218,7 +186,14 @@ sealed class Bluesky {
 }
 
 final class _Bluesky implements Bluesky {
-  _Bluesky(final core.ServiceContext ctx, this.atproto)
+  /// Drives every `app.bsky.*` service from [atproto]'s own context.
+  ///
+  /// A second context would carry a second copy of the session, and only one
+  /// of the two would ever be refreshed — see [atp.ATProto.ctx].
+  factory _Bluesky.fromAtproto(final atp.ATProto atproto) =>
+      _Bluesky._(atproto.ctx, atproto);
+
+  _Bluesky._(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),
       ageassurance = AgeassuranceService(ctx),
       feed = FeedService(ctx),

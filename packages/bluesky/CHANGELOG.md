@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.1.2
+
+- fix: `app.bsky.*` and `chat.bsky.*` calls now refresh an expired access token instead of throwing `UnauthorizedException`. `Bluesky.fromSession` built a second `ServiceContext` for those services and never gave it the refresh hook, so only calls made through `bsky.atproto` recovered from an expired token. Every factory now shares the context owned by the nested `ATProto`, which also makes `bsky.session` reflect a refresh — previously it kept returning the spent credentials, so persisting it signed the user out on next launch. The OAuth factories were unaffected, since both contexts already shared one `OAuthSessionManager`.
+- chore: bump `atproto` to `^2.1.0`.
+
 ## v2.1.1
 
 - feat: added `app.bsky.graph.searchStarterPacksV2`
