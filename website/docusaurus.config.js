@@ -14,6 +14,34 @@ const config = {
   plugins: [
     "docusaurus-plugin-sass",
     [
+      // The package docs moved under /docs/products/ when Tools became a
+      // sibling of Packages. pub.dev READMEs and external posts still point at
+      // the old paths, so keep them alive rather than 404ing.
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          { from: "/docs/packages/overview", to: "/docs/products/overview" },
+          {
+            from: "/docs/packages/bluesky_cli",
+            to: "/docs/products/tools/bluesky_cli",
+          },
+          ...[
+            "atproto",
+            "atproto_identity",
+            "atproto_oauth",
+            "at_primitives",
+            "bluesky",
+            "bluesky_text",
+            "bluesky_text_flutter",
+            "did_plc",
+          ].map((name) => ({
+            from: `/docs/packages/${name}`,
+            to: `/docs/products/packages/${name}`,
+          })),
+        ],
+      },
+    ],
+    [
       "@docusaurus/plugin-ideal-image",
       {
         quality: 100,
@@ -90,7 +118,7 @@ const config = {
             position: "left",
           },
           {
-            to: "/docs/packages/overview",
+            to: "/docs/products/overview",
             label: "Packages",
             position: "left",
           },

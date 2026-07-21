@@ -4,14 +4,26 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
+  at_primitives:
+    path: ../packages/at_primitives
   atproto:
     path: ../packages/atproto
+  # `decodeCar` is not re-exported by `package:atproto/core.dart`, so the
+  # atproto_core snippets name the package directly.
+  atproto_core:
+    path: ../packages/atproto_core
   did_plc:
     path: ../packages/did_plc
   bluesky:
     path: ../packages/bluesky
   bluesky_text:
     path: ../packages/bluesky_text
+  lexicon:
+    path: ../packages/lexicon
+  multiformats:
+    path: ../packages/multiformats
+  xrpc:
+    path: ../packages/xrpc
   # Named directly by the `GetClient` / `PostClient` injection snippets, which
   # must return an `http.Response`.
   http: ^1.4.0

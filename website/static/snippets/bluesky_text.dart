@@ -19,12 +19,13 @@ Future<void> main(List<String> args) async {
     'Hello, I am @shinyakato.dev! '
     'wdyt about [this link](https://atprotodart.com)?',
     linkConfig: const LinkConfig(excludeProtocol: true, enableShortening: true),
-  ).format();
+  );
 
-  final facets = await text.entities.toFacets();
+  // Formats the text and resolves its facets in one call.
+  final post = await text.toPostData();
 
   final strongRef = await bsky.feed.post.create(
-    text: text.value,
-    facets: facets.map(RichtextFacet.fromJson).toList(),
+    text: post.text,
+    facets: post.facets.map(RichtextFacet.fromJson).toList(),
   );
 }

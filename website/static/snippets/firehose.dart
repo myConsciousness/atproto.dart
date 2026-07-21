@@ -7,17 +7,17 @@ Future<void> main(List<String> args) async {
   /* SNIPPET START */
 
   final bsky = Bluesky.anonymous();
-  final subscription = await bsky.atproto.sync.subscribeRepos();
 
-  await for (final event in subscription.data.stream) {
-    final repos = const firehose.SyncSubscribeReposAdaptor().execute(event);
+  // Yields decoded, typed messages -- no adaptor needed.
+  final subscription = await bsky.atproto.sync.subscribeReposAsMessages();
 
-    if (repos.isCommit) {
+  await for (final message in subscription.data.stream) {
+    if (message case USyncSubscribeReposMessageCommit()) {
       const firehose.RepoCommitHandler(
         onCreateFeedPost: print,
         onUpdateActorProfile: print,
         onDeleteGraphFollow: print,
-      ).execute(repos.commit!);
+      ).execute(message.data);
     }
   }
 }
