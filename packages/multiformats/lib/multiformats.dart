@@ -3,3 +3,4 @@
 // BSD-style license that can be found in the LICENSE file.
 
 export 'package:multiformats/src/cid.dart';
+export 'package:multiformats/src/dag_cbor.dart';
