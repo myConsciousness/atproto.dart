@@ -2,22 +2,14 @@ name: Test
 
 on:
   workflow_dispatch:
+  # Deliberately unfiltered by `paths`. `ci-ok` is the only required status
+  # check on `main`, so a PR whose files match no filter never produces it and
+  # stays blocked forever — enumerating paths made that a recurring trap
+  # (`website/**`, `scripts/**`, `LICENSE`, ... were all missing). Running
+  # always is cheap: the `changes` job diffs against the base ref and yields an
+  # empty matrix when no Dart package is affected, so such a PR only pays for
+  # `format-analyze` + `ci-ok`.
   pull_request:
-    paths:
-      - "packages/**"
-      - "lexicons/**"
-      - "pubspec.yaml"
-      - "pubspec.lock"
-      - "analysis_options.yaml"
-      # Any CI/infra or root-docs change runs the suite too, so the required
-      # `ci-ok` check is always produced (otherwise a PR touching only these
-      # files is blocked forever waiting for a check that never fires). When no
-      # package is affected the `changes` job yields an empty matrix, so only
-      # the cheap `format-analyze` + `ci-ok` jobs run.
-      - ".github/**"
-      # Root-level docs (e.g. README.md); package docs are covered by
-      # `packages/**` above.
-      - "*.md"
 
 # Cancel superseded runs for the same ref (e.g. rapid pushes to a PR branch).
 concurrency:
