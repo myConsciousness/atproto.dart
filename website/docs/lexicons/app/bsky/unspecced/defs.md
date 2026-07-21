@@ -38,6 +38,7 @@ description: app.bsky.unspecced.defs
 | --- | --- | --- | :---: | --- |
 | **topic** | string | - | ✅ | - |
 | **displayName** | string | - | ✅ | - |
+| **description** | string | - | ❌ | - |
 | **link** | string | - | ✅ | - |
 | **startedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **postCount** | integer | - | ✅ | - |
@@ -51,6 +52,7 @@ description: app.bsky.unspecced.defs
 | --- | --- | --- | :---: | --- |
 | **topic** | string | - | ✅ | - |
 | **displayName** | string | - | ✅ | - |
+| **description** | string | - | ❌ | - |
 | **link** | string | - | ✅ | - |
 | **startedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **postCount** | integer | - | ✅ | - |

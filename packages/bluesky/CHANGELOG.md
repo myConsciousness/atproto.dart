@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.2.1
+
+- feat: added `app.bsky.unspecced.defs#skeletonTrend.description`
+- feat: added `app.bsky.unspecced.defs#trendView.description`
+- chore: regenerated from synced lexicons
+
 ## v2.2.0
 
 - fix: `chat.bsky.*` and `tools.ozone.*` calls now refresh an expired access token instead of throwing `UnauthorizedException`. v2.1.2 described this as covering `chat.bsky.*`, but only `Bluesky` was changed: `BlueskyChat.fromSession` and `OzoneTool.fromSession` each still built a standalone `ServiceContext` with no refresh hook, so every call through `chat.convo` / `chat.actor` / the ozone services surfaced an expired token as an error. Both now drive their services from the context owned by their nested `ATProto`, as `Bluesky` already did — the proxy headers that route those calls are preserved, since the nested client is built with them.

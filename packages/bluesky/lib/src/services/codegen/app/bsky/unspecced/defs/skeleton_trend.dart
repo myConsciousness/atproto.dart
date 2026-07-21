@@ -26,6 +26,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
   static const knownProps = <String>[
     'topic',
     'displayName',
+    'description',
     'link',
     'startedAt',
     'postCount',
@@ -39,6 +40,7 @@ abstract class SkeletonTrend with _$SkeletonTrend {
     @Default('app.bsky.unspecced.defs#skeletonTrend') String $type,
     required String topic,
     required String displayName,
+    String? description,
     required String link,
     @JsonKey(toJson: iso8601) required DateTime startedAt,
     required int postCount,
@@ -59,6 +61,8 @@ abstract class SkeletonTrend with _$SkeletonTrend {
 }
 
 extension SkeletonTrendExtension on SkeletonTrend {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
   bool get hasCategory => category != null;

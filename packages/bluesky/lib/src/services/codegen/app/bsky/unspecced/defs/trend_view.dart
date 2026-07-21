@@ -27,6 +27,7 @@ abstract class TrendView with _$TrendView {
   static const knownProps = <String>[
     'topic',
     'displayName',
+    'description',
     'link',
     'startedAt',
     'postCount',
@@ -40,6 +41,7 @@ abstract class TrendView with _$TrendView {
     @Default('app.bsky.unspecced.defs#trendView') String $type,
     required String topic,
     required String displayName,
+    String? description,
     required String link,
     @JsonKey(toJson: iso8601) required DateTime startedAt,
     required int postCount,
@@ -60,6 +62,8 @@ abstract class TrendView with _$TrendView {
 }
 
 extension TrendViewExtension on TrendView {
+  bool get hasDescription => description != null;
+  bool get hasNotDescription => !hasDescription;
   bool get hasStatus => status != null;
   bool get hasNotStatus => !hasStatus;
   bool get hasCategory => category != null;

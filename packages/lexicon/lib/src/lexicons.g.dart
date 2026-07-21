@@ -7003,6 +7003,7 @@ const appBskyUnspeccedDefs = <String, dynamic>{
       "properties": {
         "topic": {"type": "string"},
         "displayName": {"type": "string"},
+        "description": {"type": "string"},
         "link": {"type": "string"},
         "startedAt": {"type": "string", "format": "datetime"},
         "postCount": {"type": "integer"},
@@ -7030,6 +7031,7 @@ const appBskyUnspeccedDefs = <String, dynamic>{
       "properties": {
         "topic": {"type": "string"},
         "displayName": {"type": "string"},
+        "description": {"type": "string"},
         "link": {"type": "string"},
         "startedAt": {"type": "string", "format": "datetime"},
         "postCount": {"type": "integer"},
