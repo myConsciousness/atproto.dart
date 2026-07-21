@@ -10,8 +10,8 @@ atproto.dart ships two kinds of product, and the difference decides where a thin
 belongs in your project:
 
 - A **[Package](./packages/bluesky.md)** is a Dart library. You name it in your
-  `pubspec.yaml` and import it. Fifteen of these exist, though you interact with
-  only a handful directly.
+  `pubspec.yaml` and import it. Twelve of these are published, though you
+  interact with only a handful directly.
 - A **[Tool](./tools/bluesky_cli.md)** is something you run. A terminal
   executable, a GitHub Action, a code generator, a template you clone. You never
   add one to your dependencies.
@@ -70,7 +70,6 @@ Things you run rather than depend on.
 | **[Feed Generator](./tools/feed_generator.md)** | Clone-and-edit template | Building a Bluesky custom feed: a service that ranks posts and serves the skeleton the AppView asks for. |
 | **[bluesky-post](./tools/bluesky_post.md)** | GitHub Action | Posting to Bluesky from a workflow — release announcements, CI notifications, scheduled posts. |
 | **[lex_gen](./tools/lex_gen.md)** | Code generator | Regenerating this repo's Dart sources from Lexicon schemas. Effectively internal to the monorepo. |
-| **[atproto_test](./tools/atproto_test.md)** | Test harness | Contributing to this repo. Not published to pub.dev, so it is unavailable to your project. |
 
 ## Architecture
 
@@ -112,11 +111,8 @@ flowchart TD
     bluesky_text --> bluesky_cli;
     bluesky_text --> bluesky_text_flutter;
 
-    atproto_core --> atproto_test;
-
     style did_plc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     style lex_gen fill:#eceff1,stroke:#546e7a,stroke-dasharray: 4 3
-    style atproto_test fill:#eceff1,stroke:#546e7a,stroke-dasharray: 4 3
     style bluesky_cli fill:#eceff1,stroke:#546e7a,stroke-dasharray: 4 3
     end
 ```
