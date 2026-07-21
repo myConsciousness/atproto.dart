@@ -32,16 +32,17 @@ This package focuses on core AT Protocol functionality, making it ideal for buil
 
 ## Features ⭐
 
-- ✅ **Zero External Dependencies** - Pure Dart implementation with minimal footprint
-- ✅ **Advanced Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** algorithm
+- ✅ **Small Dependency Footprint** - Only `atproto_core`, `xrpc`, and the two codegen annotation packages
+- ✅ **Pluggable Retry** - An opt-in **[Exponential BackOff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** policy that is idempotency-safe, plus a `RetryStrategy` interface to replace it wholesale
 - ✅ **Comprehensive API Coverage** - Supports **[All Major Endpoints](../supported_api.md#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
-- ✅ **Multiple Authentication Methods** - Session-based auth, OAuth 2.0 with DPoP, and anonymous access
-- ✅ **Real-time Firehose API** - Stream live events from AT Protocol services
+- ✅ **Multiple Authentication Methods** - Session-based auth with transparent refresh, OAuth 2.0 with DPoP, and anonymous access
+- ✅ **Real-time Firehose API** - Stream live events from AT Protocol services, already decoded and typed
 - ✅ **Production Ready** - Well documented, thoroughly tested, and actively maintained
 - ✅ **Type Safe** - 100% null safety with comprehensive error handling
 - ✅ **Service Agnostic** - Works with any AT Protocol service, not just Bluesky
 - ✅ **Rate Limit Handling** - Built-in rate limit detection and management
 - ✅ **Union Type Support** - Handles complex AT Protocol data structures safely
+- ✅ **Injectable Transport** - Supply your own HTTP client for tests, proxies, or tracing
 
 :::tip
 See **[API Supported Matrix](../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
@@ -114,20 +115,22 @@ See **[API Supported Matrix](../supported_api.md#atproto)** for whether authenti
 
 For most applications, use session-based authentication with your handle/email and password:
 
+<!-- snippet: atproto/session.dart -->
 ```dart title="Session Authentication"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
-  // Create session with your credentials
+  // Create session with your credentials.
   final session = await atp.createSession(
     identifier: 'your.handle.com', // Your handle or email
-    password: 'your-app-password',  // App password recommended
+    password: 'your-app-password', // App password recommended
   );
 
-  // Create ATProto instance from session
+  // Create ATProto instance from session. An expired access token is
+  // refreshed transparently using the session's refresh token.
   final atproto = atp.ATProto.fromSession(session.data);
-  
-  // Now you can use authenticated endpoints
+
+  // Now you can use authenticated endpoints.
   final profile = await atproto.repo.getRecord(
     repo: session.data.did,
     collection: 'app.bsky.actor.profile',
@@ -135,17 +138,23 @@ Future<void> main() async {
   );
 }
 ```
+<!-- /snippet -->
+
+An instance built this way keeps its own session alive: when a request comes back `401` because the access token has expired, the refresh token is spent, the session is replaced, and the request is retried once. See **[Session Refresh](#session-refresh)**.
 
 #### 2. OAuth Authentication
 
 For applications requiring OAuth 2.0 with DPoP, use **[atproto_oauth](./atproto_oauth.md)**. Every stage of the flow is pluggable, and `authorize` persists the per-authorization state in an `OAuthStateStore` (in-memory by default), so `callback` takes only the redirect URL — you no longer thread a context object through by hand.
 
+The primary constructor is **[`ATProto.fromOAuth`](https://pub.dev/documentation/atproto/latest/atproto/ATProto/ATProto.fromOAuth.html)**, which takes an `OAuthSessionManager`. The manager owns DPoP header building and transparent token refresh, so it is what you want whenever you hold on to a client for more than one request. **[`ATProto.fromOAuthSession`](https://pub.dev/documentation/atproto/latest/atproto/ATProto/ATProto.fromOAuthSession.html)** is a convenience wrapper that builds the manager for you from a session.
+
+<!-- snippet: atproto/oauth.dart -->
 ```dart title="OAuth Authentication"
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto/atproto_oauth.dart';
 
 Future<void> main() async {
-  // Use your client metadata
+  // Use your client metadata.
   final metadata = await getClientMetadata(
     'https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json',
   );
@@ -178,11 +187,21 @@ Future<void> main() async {
   // final refreshed = await client.refresh(session);
   // await client.revoke(session);
 
-  // Create ATProto instance from OAuth session. Pass `oauthClient` so tokens
-  // refresh transparently.
-  final atproto = atp.ATProto.fromOAuthSession(restored!, oauthClient: client);
+  // The primary constructor takes an OAuthSessionManager, which owns DPoP
+  // header building and transparent token refresh.
+  final atproto = atp.ATProto.fromOAuth(
+    OAuthSessionManager.fromSession(restored!, client: client),
+  );
+
+  // `fromOAuthSession` is a thin wrapper over the above.
+  final same = atp.ATProto.fromOAuthSession(restored, oauthClient: client);
 }
 ```
+<!-- /snippet -->
+
+:::caution
+`fromOAuthSession` without an `oauthClient` uses the session as-is and **cannot refresh it**. Once the access token expires, every request fails with `401`.
+:::
 
 :::tip
 See the **[atproto_oauth](./atproto_oauth.md)** guide for the full pluggable flow, `OAuthSessionManager`, and session persistence.
@@ -192,19 +211,20 @@ See the **[atproto_oauth](./atproto_oauth.md)** guide for the full pluggable flo
 
 For public endpoints that don't require authentication:
 
+<!-- snippet: atproto/anonymous.dart -->
 ```dart title="Anonymous Access"
 import 'package:atproto/atproto.dart';
 
 Future<void> main() async {
-  // Create anonymous instance
+  // Create anonymous instance.
   final atproto = ATProto.anonymous();
-  
-  // Use public endpoints
-  final did = await atproto.identity.resolveHandle(
-    handle: 'bsky.app',
-  );
+
+  // Use public endpoints.
+  final did = await atproto.identity.resolveHandle(handle: 'bsky.app');
+  print(did.data.did);
 }
 ```
+<!-- /snippet -->
 
 :::info
 See **[Session Management](#session-management)** for more details about authentication.
@@ -216,45 +236,52 @@ See **[Session Management](#session-management)** for more details about authent
 
 | Property | Class | Lexicon | Description |
 | -------- | ----- | ------- | ----------- |
+| **[admin](https://pub.dev/documentation/atproto/latest/atproto/ATProto/admin.html)** | [AdminService](https://pub.dev/documentation/atproto/latest/atproto/AdminService-class.html) | [`com.atproto.admin.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/admin) | Server administration, account and subject status |
 | **[server](https://pub.dev/documentation/atproto/latest/atproto/ATProto/server.html)** | [ServerService](https://pub.dev/documentation/atproto/latest/atproto/ServerService-class.html) | [`com.atproto.server.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/server) | Account management, sessions, app passwords |
 | **[identity](https://pub.dev/documentation/atproto/latest/atproto/ATProto/identity.html)** | [IdentityService](https://pub.dev/documentation/atproto/latest/atproto/IdentityService-class.html) | [`com.atproto.identity.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/identity) | Handle resolution, DID operations |
 | **[repo](https://pub.dev/documentation/atproto/latest/atproto/ATProto/repo.html)** | [RepoService](https://pub.dev/documentation/atproto/latest/atproto/RepoService-class.html) | [`com.atproto.repo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/repo) | Record CRUD operations, blob uploads |
 | **[moderation](https://pub.dev/documentation/atproto/latest/atproto/ATProto/moderation.html)** | [ModerationService](https://pub.dev/documentation/atproto/latest/atproto/ModerationService-class.html) | [`com.atproto.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/moderation) | Content reporting and moderation |
-| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)** | [SyncService](https://pub.dev/documentation/atproto/latest/atproto/SyncService-class.html) | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync) | Repository synchronization, Firehose API |
+| **[sync](https://pub.dev/documentation/atproto/latest/atproto/ATProto/sync.html)** | [SyncServiceImpl](https://pub.dev/documentation/atproto/latest/atproto/SyncServiceImpl-class.html) | [`com.atproto.sync.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/sync) | Repository synchronization, Firehose API |
 | **[label](https://pub.dev/documentation/atproto/latest/atproto/ATProto/label.html)** | [LabelService](https://pub.dev/documentation/atproto/latest/atproto/LabelService-class.html) | [`com.atproto.label.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/label) | Content labeling and queries |
+| **[lexicon](https://pub.dev/documentation/atproto/latest/atproto/ATProto/lexicon.html)** | [LexiconService](https://pub.dev/documentation/atproto/latest/atproto/LexiconService-class.html) | [`com.atproto.lexicon.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/lexicon) | Lexicon schema resolution |
 | **[temp](https://pub.dev/documentation/atproto/latest/atproto/ATProto/temp.html)** | [TempService](https://pub.dev/documentation/atproto/latest/atproto/TempService-class.html) | [`com.atproto.temp.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/temp) | Temporary/experimental endpoints |
+
+:::note
+`sync` is typed as `SyncServiceImpl` rather than the generated `SyncService`. It adds **[`subscribeReposAsMessages`](#firehose-api)**, which yields decoded, typed Firehose messages, on top of every generated `com.atproto.sync.*` method.
+:::
 
 #### Service Usage Examples
 
 Once you have an ATProto instance, access endpoints through their corresponding service properties:
 
-```dart
+<!-- snippet: atproto/services_public.dart -->
+```dart title="services_public.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
 
-  // Identity Service - Resolve handles to DIDs
-  final didResult = await atproto.identity.resolveHandle(
-    handle: 'bsky.app',
-  );
+  // Identity Service - Resolve handles to DIDs.
+  final didResult = await atproto.identity.resolveHandle(handle: 'bsky.app');
   print('DID: ${didResult.data.did}');
 
-  // Server Service - Get server information
+  // Server Service - Get server information.
   final serverInfo = await atproto.server.describeServer();
   print('Server: ${serverInfo.data.availableUserDomains}');
 
-  // Label Service - Query content labels
+  // Label Service - Query content labels.
   final labels = await atproto.label.queryLabels(
     uriPatterns: ['at://did:plc:example'],
   );
   print('Labels found: ${labels.data.labels.length}');
 }
 ```
+<!-- /snippet -->
 
 For authenticated operations:
 
-```dart
+<!-- snippet: atproto/services_authenticated.dart -->
+```dart title="services_authenticated.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
@@ -262,10 +289,10 @@ Future<void> main() async {
     identifier: 'your.handle.com',
     password: 'your-app-password',
   );
-  
+
   final atproto = atp.ATProto.fromSession(session.data);
 
-  // Repo Service - Create a record
+  // Repo Service - Create a record.
   final record = await atproto.repo.createRecord(
     repo: session.data.did,
     collection: 'app.bsky.feed.post',
@@ -274,17 +301,18 @@ Future<void> main() async {
       'createdAt': DateTime.now().toUtc().toIso8601String(),
     },
   );
-  
-  // Repo Service - List your records
+
+  // Repo Service - List your records.
   final records = await atproto.repo.listRecords(
     repo: session.data.did,
     collection: 'app.bsky.feed.post',
   );
-  
+
   print('Created record: ${record.data.uri}');
   print('Total posts: ${records.data.records.length}');
 }
 ```
+<!-- /snippet -->
 
 :::tip
 See **[API Supported Matrix](../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
@@ -296,7 +324,8 @@ Okay then, let's try some endpoints!
 
 The following example first authenticates the user against `bsky.social`, sends the post to Bluesky, and then deletes it using a reference to the created record.
 
-```dart
+<!-- snippet: atproto/create_and_delete_record.dart -->
+```dart title="create_and_delete_record.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
@@ -313,12 +342,13 @@ Future<void> main() async {
     collection: 'app.bsky.feed.post',
     record: {
       'text': 'Hello, Bluesky!',
-      "createdAt": DateTime.now().toUtc().toIso8601String(),
+      'createdAt': DateTime.now().toUtc().toIso8601String(),
     },
   );
 
-  // And delete it.
-  final uri = AtUri(strongRef.data.uri);
+  // And delete it. `uri` is already an `AtUri`, so it can be destructured
+  // directly.
+  final uri = strongRef.data.uri;
   await atproto.repo.deleteRecord(
     repo: uri.hostname,
     collection: uri.collection.toString(),
@@ -326,6 +356,7 @@ Future<void> main() async {
   );
 }
 ```
+<!-- /snippet -->
 
 :::tip
 See **[API Support Matrix](../supported_api.md#atproto)** for all supported endpoints.
@@ -341,31 +372,62 @@ AT Protocol uses session-based authentication for secure API access. A **[`Sessi
 
 Use the `createSession` function to authenticate with your credentials:
 
-```dart
+<!-- snippet: atproto/create_session.dart -->
+```dart title="create_session.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
   try {
     final session = await atp.createSession(
       identifier: 'your.handle.com', // Handle or email
-      password: 'your-app-password',  // App password recommended
-      service: 'bsky.social',         // Optional: specify service
+      password: 'your-app-password', // App password recommended
+      service: 'bsky.social', // Optional: specify service
     );
 
     print('Authenticated as: ${session.data.handle}');
     print('DID: ${session.data.did}');
-    
   } catch (e) {
     print('Authentication failed: $e');
   }
 }
 ```
+<!-- /snippet -->
 
 #### Using Sessions
 
 Once you have a session, create an ATProto instance to make authenticated requests:
 
-```dart
+<!-- snippet: atproto/session.dart -->
+```dart title="session.dart"
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  // Create session with your credentials.
+  final session = await atp.createSession(
+    identifier: 'your.handle.com', // Your handle or email
+    password: 'your-app-password', // App password recommended
+  );
+
+  // Create ATProto instance from session. An expired access token is
+  // refreshed transparently using the session's refresh token.
+  final atproto = atp.ATProto.fromSession(session.data);
+
+  // Now you can use authenticated endpoints.
+  final profile = await atproto.repo.getRecord(
+    repo: session.data.did,
+    collection: 'app.bsky.actor.profile',
+    rkey: 'self',
+  );
+}
+```
+<!-- /snippet -->
+
+#### Session Refresh
+
+Access tokens expire, but **you do not have to refresh them yourself**. `ATProto.fromSession` installs a refresh hook: when a request is rejected with `401`, the instance spends the refresh token, merges the new credentials over the current session, and replays the request once. The rotated fields (`accessJwt`, `refreshJwt`, `didDoc`, `handle`, `active`, `status`) are updated while the email fields — which `refreshSession` does not return — are carried forward.
+
+<!-- snippet: atproto/auto_session_refresh.dart -->
+```dart title="auto_session_refresh.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
@@ -374,39 +436,59 @@ Future<void> main() async {
     password: 'your-app-password',
   );
 
-  // Create authenticated ATProto instance
   final atproto = atp.ATProto.fromSession(session.data);
 
-  // Now you can use authenticated endpoints
-  final profile = await atproto.repo.getRecord(
+  // If the access token has expired, this call transparently refreshes the
+  // session and retries once. Nothing extra to write.
+  await atproto.repo.listRecords(
     repo: session.data.did,
-    collection: 'app.bsky.actor.profile',
-    rkey: 'self',
+    collection: 'app.bsky.feed.post',
+  );
+
+  // `atproto.session` always reflects the *current* credentials, so persist
+  // from here rather than from the session you passed in.
+  print(atproto.session?.accessJwt);
+  print(atproto.session?.refreshJwt);
+}
+```
+<!-- /snippet -->
+
+:::tip
+Read the current credentials from `atproto.session`, not from the `Session` you constructed the instance with. After a transparent refresh the latter is stale, so persisting it will log your user out at the next launch.
+:::
+
+The standalone **[`refreshSession`](https://pub.dev/documentation/atproto/latest/atproto/refreshSession.html)** function is still there for the cases the hook cannot cover — refreshing tokens you hold outside any `ATProto` instance, or refreshing ahead of expiry on a schedule.
+
+<!-- snippet: atproto/session_refresh.dart -->
+```dart title="session_refresh.dart"
+import 'package:atproto/atproto.dart' as atp;
+
+Future<void> main() async {
+  final session = await atp.createSession(
+    identifier: 'your.handle.com',
+    password: 'your-app-password',
+  );
+
+  // Refresh explicitly. `ATProto.fromSession` already does this for you when a
+  // request fails with 401, so reach for it only when you manage the tokens
+  // yourself, e.g. to persist them before the instance is created.
+  final refreshed = await atp.refreshSession(
+    refreshJwt: session.data.refreshJwt,
+  );
+
+  final atproto = atp.ATProto.fromSession(refreshed.data);
+
+  final result = await atproto.repo.listRecords(
+    repo: refreshed.data.did,
+    collection: 'app.bsky.feed.post',
   );
 }
 ```
+<!-- /snippet -->
 
-#### Session Refresh
-
-Sessions have expiration times. You can refresh sessions manually:
-
-```dart
-final session = await atp.createSession(
-  identifier: 'your.handle.com',
-  password: 'your-app-password',
-);
-
-final refreshedSession = await refreshSession(
-  refreshJwt: session.data.refreshJwt,
-);
-
-final atproto = atp.ATProto.fromSession(refreshedSession.data);
-
-final result = await atproto.repo.listRecords(
-  repo: session.data.did,
-  collection: 'app.bsky.feed.post',
-);
-```
+:::note
+OAuth sessions refresh through a different path: the `OAuthSessionManager` behind `ATProto.fromOAuth` handles it, provided the manager was given an `OAuthClient`.
+:::
 
 ### App Passwords
 
@@ -433,28 +515,31 @@ App passwords:
 
 You can validate if a password follows the app password format:
 
-```dart
+<!-- snippet: atproto/app_password.dart -->
+```dart title="app_password.dart"
 import 'package:atproto/core.dart' as core;
 
-Future<void> main() async {
-  // Valid app password format
+void main() {
+  // Valid app password format.
   print(core.isValidAppPassword('abcd-efgh-ijkl-mnop')); // => true
-  
-  // Invalid formats
-  print(core.isValidAppPassword('regular-password'));     // => false
-  print(core.isValidAppPassword('abcd-efgh-ijkl'));      // => false (too short)
-  print(core.isValidAppPassword('abcdefghijklmnop'));     // => false (no dashes)
+
+  // Invalid formats.
+  print(core.isValidAppPassword('regular-password')); // => false
+  print(core.isValidAppPassword('abcd-efgh-ijkl')); // => false (too short)
+  print(core.isValidAppPassword('abcdefghijklmnop')); // => false (no dashes)
 }
 ```
+<!-- /snippet -->
 
 #### Best Practices
 
-```dart
+<!-- snippet: atproto/app_password_best_practice.dart -->
+```dart title="app_password_best_practice.dart"
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto/core.dart' as core;
 
 Future<void> authenticateUser(String identifier, String password) async {
-  // Check if user provided an app password
+  // Check if user provided an app password.
   if (!core.isValidAppPassword(password)) {
     print('Warning: Consider using an app password for better security');
   }
@@ -464,22 +549,30 @@ Future<void> authenticateUser(String identifier, String password) async {
       identifier: identifier,
       password: password,
     );
-    
-    print('Successfully authenticated with ${core.isValidAppPassword(password) ? 'app password' : 'main password'}');
-    
+
+    print('Successfully authenticated as ${session.data.handle}');
   } catch (e) {
     print('Authentication failed: $e');
   }
 }
 ```
+<!-- /snippet -->
 
 ### Other Than `bsky.social`
 
 The endpoints provided by **[atproto](https://pub.dev/packages/atproto)** always access `bsky.social` by default. But as you know, certain services such as Bluesky, built on the AT Protocol, are **distributed services**. In other words, there must be a way to access services other than `bsky.social` as needed.
 
-You can specify any `service` as follows.
+Every factory takes **two** host parameters, because AT Protocol splits the roles:
 
-```dart
+| Parameter | Default | Used by |
+| --------- | ------- | ------- |
+| `service` | `bsky.social` | Ordinary XRPC queries and procedures — your PDS |
+| `relayService` | `bsky.network` | Subscriptions, notably the **[Firehose](#firehose-api)** — the relay |
+
+Overriding `service` alone leaves the Firehose pointed at `bsky.network`. If you run your own relay, set `relayService` too.
+
+<!-- snippet: atproto/custom_service.dart -->
+```dart title="custom_service.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
@@ -496,42 +589,48 @@ Future<void> main() async {
 
     // Add this, or resolve dynamically based on session.
     service: 'boobee.blue',
+
+    // Firehose and other relay-backed endpoints use this instead of `service`.
+    // Defaults to `bsky.network`.
+    relayService: 'relay.example.com',
   );
+
+  print(atproto.service); // => boobee.blue
+  print(atproto.relayService); // => relay.example.com
 }
 ```
+<!-- /snippet -->
 
 ### De/Serialize
 
 All objects representing JSON objects returned from the API provided by **[atproto](https://pub.dev/packages/atproto)** are generated using [freezed](https://pub.dev/packages/freezed) and [json_serializable](https://pub.dev/packages/json_serializable). So, it allows for easy JSON-based de/serialize of these model objects based on the common contract between the `fromJson` and `toJson` methods.
 
-For example, if you have the following code:
+Every endpoint returns an **[`XRPCResponse`](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCResponse-class.html)**, which carries transport metadata such as `status` and `rateLimit`. The model is the `data` property, and that is what round-trips through `fromJson`/`toJson`.
 
-```dart
+Models are named after the lexicon method that produced them: `com.atproto.identity.resolveHandle` yields an **`IdentityResolveHandleOutput`**. Each one is exported from its own library, e.g. `package:atproto/com_atproto_identity_resolvehandle.dart`.
+
+<!-- snippet: atproto/serialize.dart -->
+```dart title="serialize.dart"
 import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_identity_resolvehandle.dart';
 
 Future<void> main() async {
   final atproto = ATProto.anonymous();
 
-  // Just find the DID of `shinyakato.dev`
-  final did = await atproto.identity.resolveHandle(
-    handle: 'shinyakato.dev',
-  );
+  // Just find the DID of `shinyakato.dev`.
+  final did = await atproto.identity.resolveHandle(handle: 'shinyakato.dev');
+
+  // Serialize the model to JSON. `did` is an `XRPCResponse`, and the model
+  // itself lives in `.data`.
+  final json = did.data.toJson();
+  print(json); // => {did: did:plc:iijrtk7ocored6zuziwmqq3c}
+
+  // And back again.
+  final decoded = IdentityResolveHandleOutput.fromJson(json);
+  print(decoded.did);
 }
 ```
-
-Then you can deserialize `DID` object as JSON with `toJson` as follows:
-
-```dart
-print(did.toJson()); // => {did: did:plc:iijrtk7ocored6zuziwmqq3c}
-```
-
-And you can serialize JSON as `DID` object with `fromJson` as follows:
-
-```dart
-final json = did.toJson();
-
-final serializedDID = DID.fromJson(json);
-```
+<!-- /snippet -->
 
 ### Thrown Exceptions
 
@@ -543,7 +642,7 @@ The following exceptions may be thrown as AT Protocol-related errors when using 
 | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | :-------: |
 | **[XRPCException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCException-class.html)**                               | Parent class of all the following exception classes.                                                                   |     ❌     |
 | **[UnauthorizedException](https://pub.dev/documentation/xrpc/latest/xrpc/UnauthorizedException-class.html)**               | Thrown when a status code of **`401`** is returned from the ATP server. Indicating **authentication failure**.         |     ❌     |
-| **[RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html)**     | Thrown when a status code of **`429`** is returned from the ATP server. Indicating **rate limits exceeded**.           |     ❌     |
+| **[RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html)**     | Thrown when a status code of **`429`** is returned from the ATP server. Indicating **rate limits exceeded**.           |     ✅     |
 | **[XRPCNotSupportedException](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCNotSupportedException-class.html)**       | Thrown when a status code of **`1xx`** or **`3xx`** is returned from the ATP server. Indicating **unsupported error**. |     ❌     |
 | **[InvalidRequestException](https://pub.dev/documentation/xrpc/latest/xrpc/InvalidRequestException-class.html)**           | Thrown when a status code of **`4xx`** is returned from the ATP server. Indicating **client error**.                   |     ❌     |
 | **[InternalServerErrorException](https://pub.dev/documentation/xrpc/latest/xrpc/InternalServerErrorException-class.html)** | Thrown when a status code of **`5xx`** is returned from the ATP server. Indicating **server error**.                   |     ✅     |
@@ -552,11 +651,16 @@ Also, the following exceptions may be thrown due to temporary network failures.
 
 | Exception                                                                                        | Description                                                                | Retriable |
 | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- | :-------: |
-| **[SocketException](https://api.dart.dev/stable/3.0.2/dart-io/SocketException-class.html)**      | Thrown when a socket operation fails.                                      |      ❌     |
+| **[SocketException](https://api.dart.dev/stable/3.0.2/dart-io/SocketException-class.html)**      | Thrown when a socket operation fails. On the Dart VM these usually surface through `package:http` as a `ClientException`; both are classified alike. |     ✅     |
 | **[TimeoutException](https://api.dart.dev/stable/3.0.2/dart-async/TimeoutException-class.html)** | Thrown when a scheduled timeout happens while waiting for an async result. |     ✅     |
 
 :::info
-Exceptions with `Retriable` set to ✅ are subject to **[automatic retry](#advanced-built-in-retry)**. Exceptions with ❌ cannot be retried.
+Exceptions with `Retriable` set to ✅ are *candidates* for **[retry](#pluggable-retry)**; the rest always propagate.
+
+"Candidate" is doing real work in that sentence. A retriable failure is only retried when both of the following hold:
+
+1. You passed a `retryConfig`. Retries are **opt-in** — the parameter defaults to `null`, and then every failure propagates on the first attempt.
+2. The policy agrees to retry *this* request. With the default `RetryConfig`, a **procedure (`POST`)** that fails *ambiguously* — a `5xx`, or a timeout after the request was sent — is **not** retried, because the server may already have applied it. See **[Retries and Idempotency](#retries-and-idempotency)**.
 :::
 
 ### Rate Limits
@@ -566,7 +670,8 @@ The main purpose of setting a rate limit for the API is to prevent excessive req
 
 Rate limits in the AT Protocol are defined in a common specification for the protocol and are set and you can easily access this information as follows.
 
-```dart
+<!-- snippet: atproto/rate_limit.dart -->
+```dart title="rate_limit.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
@@ -604,6 +709,7 @@ Future<void> main() async {
   await rateLimit.waitUntilReset();
 }
 ```
+<!-- /snippet -->
 
 As in the example above, the rate limits when using **[atproto](https://pub.dev/packages/atproto)** are **_always_** accessible from **[XRPCResponse](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCResponse-class.html)**.
 In more detail, rate limit information is read from the HTTP response headers returned by the ATP server and can be accessed via the `rateLimit` property of the **[XRPCResponse](https://pub.dev/documentation/xrpc/latest/xrpc/XRPCResponse-class.html)** as a **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-class.html)** object.
@@ -635,7 +741,11 @@ if (rateLimit.isExceeded) {
 ```
 
 :::caution
-Rate limits per endpoint must be properly handled. If the request is sent again while the rate limit is exceeded, the HTTP status will always be `429 Too Many Requests` and a [RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html) will be thrown.
+Rate limits per endpoint must be properly handled. If the request is sent again while the rate limit is exceeded, the HTTP status will always be `429 Too Many Requests`.
+
+If you configured a **[retry strategy](#pluggable-retry)**, a `429` **is** retried — the request was rejected before the server processed it, so retrying is safe even for a procedure, and the retry waits at least as long as the server's `Retry-After` or `ratelimit-reset` header asks (capped at 60 seconds). A [RateLimitExceededException](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimitExceededException-class.html) then surfaces only once the attempts are exhausted; without a retry strategy it is thrown immediately.
+
+Either way, checking `rateLimit` proactively is worth doing — it avoids burning attempts on a request that cannot succeed yet.
 :::
 
 :::tip
@@ -653,82 +763,74 @@ That is, **[RateLimit](https://pub.dev/documentation/xrpc/latest/xrpc/RateLimit-
 
 AT Protocol's Lexicon supports Union types, allowing endpoints to return different JSON structures based on context. Since Dart doesn't natively support Union types, **[atproto](https://pub.dev/packages/atproto)** uses **[freezed](https://pub.dev/packages/freezed)** to provide type-safe Union type handling.
 
-#### Using .when() Method
+Union classes are prefixed with `U`, and each variant is a subclass named after it — `USyncSubscribeReposMessage` has `USyncSubscribeReposMessageCommit`, `…Identity`, and so on. Every variant holds its payload in a `data` field.
 
-All Union types provide a `.when()` method for exhaustive pattern matching:
+#### Using Pattern Matching
 
-```dart
+Union types are declared `sealed`, so a `switch` that covers every variant is checked for exhaustiveness by the compiler. Add a variant to a lexicon and your switch fails to compile instead of silently falling through.
+
+<!-- snippet: atproto/union_pattern.dart -->
+```dart title="union_pattern.dart"
 import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 import 'package:atproto/firehose.dart';
 
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
-  final subscription = await atproto.sync.subscribeRepos();
+  final subscription = await atproto.sync.subscribeReposAsMessages();
 
-  await for (final event in subscription.data.stream) {
-    final repos = const SyncSubscribeReposAdaptor().execute(event);
-
-    repos.when(
-      commit: (data) => print('Commit: ${data.ops.length} operations'),
-      identity: (data) => print('Identity: ${data.did}'),
-      account: (data) => print('Account: ${data.did}'),
-      sync: (data) => print('Sync: ${data.did}'),
-      info: (data) => print('Info: ${data.name}'),
-      unknown: (data) => print('Unknown event: $data'),
-    );
-  }
-}
-```
-
-#### Using Pattern Matching (Dart 3.0+)
-
-For modern Dart applications, use pattern matching with Union classes prefixed with `U`:
-
-```dart
-import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
-import 'package:atproto/firehose.dart';
-
-Future<void> main() async {
-  final atproto = atp.ATProto.anonymous();
-  final subscription = await atproto.sync.subscribeRepos();
-
-  await for (final event in subscription.data.stream) {
-    final repos = const SyncSubscribeReposAdaptor().execute(event);
-
-    switch (repos) {
-      case USyncSubscribeReposMessageCommit():
-        print('Commit with ${repos.data.ops.length} operations');
-
-        // Handle specific operations
-        for (final op in repos.data.ops) {
-          switch (op.action.knownValue) {
-            case KnownRepoOpAction.create:
-              print('Created: ${op.cid}');
-            case KnownRepoOpAction.update:
-              print('Updated: ${op.cid}');
-            case KnownRepoOpAction.delete:
-              print('Deleted: ${op.cid}');
-            default:
-              print('unknown op');
-          }
-        }
-
-      case USyncSubscribeReposMessageIdentity():
-        print('Identity changed: ${repos.data.handle} -> ${repos.data.did}');
-
-      default:
-        print('Other event type');
+  await for (final message in subscription.data.stream) {
+    // The union is a `sealed` class, so the compiler checks the switch for you
+    // once every variant is listed.
+    switch (message) {
+      case USyncSubscribeReposMessageCommit(:final data):
+        print('Commit: ${data.ops.length} operations');
+      case USyncSubscribeReposMessageIdentity(:final data):
+        print('Identity: ${data.did}');
+      case USyncSubscribeReposMessageAccount(:final data):
+        print('Account: ${data.did}');
+      case USyncSubscribeReposMessageSync(:final data):
+        print('Sync: ${data.did}');
+      case USyncSubscribeReposMessageInfo(:final data):
+        print('Info: ${data.name}');
+      case USyncSubscribeReposMessageUnknown(:final data):
+        print('Unknown event: $data');
     }
   }
 }
 ```
+<!-- /snippet -->
+
+#### Using the Generated Helpers
+
+When you care about one variant, the generated `isX` / `isNotX` predicates and the nullable `x` accessor are shorter than a switch.
+
+<!-- snippet: atproto/union_helpers.dart -->
+```dart title="union_helpers.dart"
+import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/firehose.dart';
+
+Future<void> main() async {
+  final atproto = atp.ATProto.anonymous();
+  final subscription = await atproto.sync.subscribeReposAsMessages();
+
+  await for (final message in subscription.data.stream) {
+    // Every union exposes `isX` / `isNotX` predicates and a nullable `x`
+    // accessor, which read well when you care about a single variant.
+    if (message.isNotCommit) continue;
+
+    final commit = message.commit!;
+    print('Commit from ${commit.repo} at seq ${commit.seq}');
+  }
+}
+```
+<!-- /snippet -->
 
 :::info
 **Unknown Event Handling**
 
 All Union types include an `unknown` case for forward compatibility. When AT Protocol introduces new event types, they'll be captured as `unknown` events with raw JSON data, ensuring your application continues to work without updates.
+
+A payload whose `$type` *does* match a known variant but fails to convert is deliberately left to throw, so malformed data surfaces rather than degrading quietly to `unknown`.
 :::
 
 ## Related Packages
@@ -755,184 +857,207 @@ See the **[Package Overview](./overview.md)** for a complete list of all availab
 
 The **Firehose API** provides real-time access to all repository events across AT Protocol services. This powerful streaming API enables applications to monitor content creation, updates, deletions, and account changes as they happen.
 
+It streams from the **relay** (`relayService`, `bsky.network` by default), not from your PDS, and needs no authentication.
+
 #### Basic Firehose Usage
 
-Access the Firehose through the `sync.subscribeRepos()` method. No authentication is required:
+Reach for **[`sync.subscribeReposAsMessages()`](https://pub.dev/documentation/atproto/latest/atproto/SyncServiceImpl/subscribeReposAsMessages.html)**. It wires the CBOR/CAR decoding into the subscription for you, so the stream yields typed `USyncSubscribeReposMessage`s: `blocks` are expanded into a `CID -> record` map, and the `ops`, `commit`, and `prevData` CID links are normalized per the atproto data model.
 
-```dart
+<!-- snippet: atproto/firehose_basic.dart -->
+```dart title="firehose_basic.dart"
 import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 import 'package:atproto/firehose.dart';
 
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
 
-  // Subscribe to the firehose
-  final subscription = await atproto.sync.subscribeRepos();
+  // Frames arrive already CBOR/CAR-decoded and typed.
+  final subscription = await atproto.sync.subscribeReposAsMessages();
 
   print('Firehose connected! Listening for events...');
 
-  await for (final event in subscription.data.stream) {
-    final repos = const SyncSubscribeReposAdaptor().execute(event);
-
-    repos.whenOrNull(
-      commit: (data) {
-        print('Commit from ${data.repo}');
-        print('Operations: ${data.ops.length}');
+  await for (final message in subscription.data.stream) {
+    switch (message) {
+      case USyncSubscribeReposMessageCommit(:final data):
+        print('Commit from ${data.repo} with ${data.ops.length} operations');
 
         for (final op in data.ops) {
-          if (op.action.isUnknown) continue;
-
-          switch (op.action.knownValue!) {
+          switch (op.action.knownValue) {
             case KnownRepoOpAction.create:
-              print(' Created: $op');
+              print('  Created: ${op.path}');
             case KnownRepoOpAction.update:
-              print(' Updated: $op');
+              print('  Updated: ${op.path}');
             case KnownRepoOpAction.delete:
-              print(' Deleted: $op');
+              print('  Deleted: ${op.path}');
+            case null:
+              print('  Unknown action: ${op.action}');
           }
         }
-      },
 
-      info: (data) {
-        print(' Info message: ${data.name}');
-      },
+      case USyncSubscribeReposMessageIdentity(:final data):
+        print('Identity: ${data.handle} -> ${data.did}');
 
-      unknown: (data) {
-        print(' Unknown event: $data');
-      },
-    );
+      case USyncSubscribeReposMessageInfo(:final data):
+        print('Info: ${data.name}');
+
+      default:
+        print('Other event: $message');
+    }
   }
 }
 ```
+<!-- /snippet -->
+
+A frame that fails to decode is delivered as a stream *error* and does not terminate the subscription, so one malformed commit never tears down your consumer.
+
+#### Decoding Frames Yourself
+
+`subscribeRepos()` is the lower-level path: it yields the raw `Uint8List` frames and leaves decoding to you. Use it when you need to inspect, buffer, or forward the bytes before they are parsed; otherwise prefer `subscribeReposAsMessages`.
+
+<!-- snippet: atproto/firehose_manual.dart -->
+```dart title="firehose_manual.dart"
+import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/firehose.dart';
+
+Future<void> main() async {
+  final atproto = atp.ATProto.anonymous();
+
+  // Yields the raw binary frames; decoding is yours to drive.
+  final subscription = await atproto.sync.subscribeRepos();
+
+  await for (final event in subscription.data.stream) {
+    final message = const SyncSubscribeReposAdaptor().execute(event);
+
+    if (message case USyncSubscribeReposMessageCommit(:final data)) {
+      print('Commit from ${data.repo}');
+    }
+  }
+}
+```
+<!-- /snippet -->
 
 #### Filtering Firehose Events
 
 You can filter events by collection type or specific repositories:
 
-```dart
+<!-- snippet: atproto/firehose_filter.dart -->
+```dart title="firehose_filter.dart"
 import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 import 'package:atproto/core.dart';
 import 'package:atproto/firehose.dart';
 
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
 
-  // Subscribe to the firehose
-  final subscription = await atproto.sync.subscribeRepos();
+  final subscription = await atproto.sync.subscribeReposAsMessages();
 
-  print('Firehose connected! Listening for events...');
+  await for (final message in subscription.data.stream) {
+    if (message case USyncSubscribeReposMessageCommit(:final data)) {
+      for (final op in data.ops) {
+        if (op.action.knownValue != KnownRepoOpAction.create) continue;
 
-  await for (final event in subscription.data.stream) {
-    final repos = const SyncSubscribeReposAdaptor().execute(event);
-
-    repos.whenOrNull(
-      commit: (data) {
-        print('Commit from ${data.repo}');
-        print('Operations: ${data.ops.length}');
-
-        for (final op in data.ops) {
-          if (op.action.isUnknown) continue;
-
-          switch (op.action.knownValue!) {
-            case KnownRepoOpAction.create:
-              final uri = _getUri(data, op);
-
-              switch (uri.collection.toString()) {
-                case 'app.bsky.feed.post':
-                  print('📄 New post: $op');
-                case 'app.bsky.actor.profile':
-                  print('📄 New profile: $op');
-              }
-            case KnownRepoOpAction.update:
-              print(' Updated: $op');
-            case KnownRepoOpAction.delete:
-              print(' Deleted: $op');
-          }
+        // Filtering early keeps the per-event work small, which matters at
+        // firehose volume.
+        switch (_getUri(data, op).collection.toString()) {
+          case 'app.bsky.feed.post':
+            print('New post: ${op.path}');
+          case 'app.bsky.actor.profile':
+            print('New profile: ${op.path}');
         }
-      },
-
-      info: (data) {
-        print(' Info message: ${data.name}');
-      },
-
-      unknown: (data) {
-        print(' Unknown event: $data');
-      },
-    );
-  }
-}
-
-AtUri _getUri(final Commit commit, final RepoOp op) {
-  return AtUri('at://${commit.repo}/${op.path}');
-}
-```
-
-#### Advanced Firehose Features
-
-For production applications, consider implementing error handling and reconnection logic:
-
-```dart
-import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/com_atproto_sync_subscriberepos.dart';
-import 'package:atproto/firehose.dart';
-
-Future<void> robustFirehose() async {
-  while (true) {
-    try {
-      final atproto = atp.ATProto.anonymous();
-      final subscription = await atproto.sync.subscribeRepos();
-
-      print('🔥 Firehose connected');
-
-      await for (final event in subscription.data.stream) {
-        final repos = const SyncSubscribeReposAdaptor().execute(event);
-
-        // Process events...
-        await processEvent(repos);
       }
-    } catch (e) {
-      print('❌ Firehose error: $e');
-      print('🔄 Reconnecting in 5 seconds...');
-      await Future.delayed(Duration(seconds: 5));
     }
   }
 }
 
-Future<void> processEvent(USyncSubscribeReposMessage event) async {
-  // Your event processing logic here
-  event.whenOrNull(
-    commit: (data) async {
-      // Process commits
-      for (final op in data.ops) {
-        // Handle operations
+AtUri _getUri(final Commit commit, final RepoOp op) =>
+    AtUri('at://${commit.repo}/${op.path}');
+```
+<!-- /snippet -->
+
+#### Firehose Errors
+
+Two exception types are specific to the Firehose, both exported from `package:atproto/firehose.dart`:
+
+| Exception | Meaning | What to do |
+| --------- | ------- | ---------- |
+| **[FirehoseErrorException](https://pub.dev/documentation/atproto/latest/firehose/FirehoseErrorException-class.html)** | The relay sent an error frame (`op == -1`), such as `FutureCursor` or `ConsumerTooSlow`. Carries `error` and an optional `message`. | Inspect `error`. A `FutureCursor` never becomes valid — drop the cursor before reconnecting. A `ConsumerTooSlow` means you are not draining the stream fast enough. |
+| **[FirehoseFrameException](https://pub.dev/documentation/atproto/latest/firehose/FirehoseFrameException-class.html)** | A single frame was malformed or arrived in an unexpected shape, e.g. a text frame where a binary one was required. | Log and skip. The subscription survives. |
+
+#### Advanced Firehose Features
+
+For production applications, track the cursor and reconnect deliberately:
+
+<!-- snippet: atproto/firehose_robust.dart -->
+```dart title="firehose_robust.dart"
+import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/firehose.dart';
+
+Future<void> robustFirehose() async {
+  // Resume from where the last run stopped instead of replaying everything.
+  int? cursor;
+
+  while (true) {
+    try {
+      final atproto = atp.ATProto.anonymous();
+      final subscription = await atproto.sync.subscribeReposAsMessages(
+        cursor: cursor,
+      );
+
+      print('Firehose connected');
+
+      await for (final message in subscription.data.stream) {
+        if (message case USyncSubscribeReposMessageCommit(:final data)) {
+          cursor = data.seq;
+        }
+
+        await processEvent(message);
       }
-    },
-    identity: (data) async {
-      // Process identity changes
-    },
-    account: (data) async {
-      // Process account changes
-    },
-    sync: (data) async {
-      // Process sync events
-    },
-    info: (data) async {
-      // Process info messages
-    },
-    unknown: (data) async {
-      // Handle unknown events
-    },
-  );
+    } on FirehoseErrorException catch (e) {
+      // The relay rejected the stream itself, e.g. `FutureCursor` or
+      // `ConsumerTooSlow`. A cursor from the future never becomes valid, so
+      // drop it and reconnect from the live tip.
+      print('Relay error: ${e.error}');
+      if (e.error == 'FutureCursor') cursor = null;
+    } on FirehoseFrameException catch (e) {
+      // A single malformed frame. Decoding errors are delivered as stream
+      // errors and do not tear down the subscription.
+      print('Malformed frame: ${e.message}');
+    } catch (e) {
+      print('Firehose error: $e');
+    }
+
+    print('Reconnecting in 5 seconds...');
+    await Future<void>.delayed(const Duration(seconds: 5));
+  }
+}
+
+Future<void> processEvent(final USyncSubscribeReposMessage message) async {
+  switch (message) {
+    case USyncSubscribeReposMessageCommit(:final data):
+      for (final op in data.ops) {
+        // Handle operations.
+      }
+    case USyncSubscribeReposMessageIdentity(:final data):
+    // Process identity changes.
+    case USyncSubscribeReposMessageAccount(:final data):
+    // Process account changes.
+    case USyncSubscribeReposMessageSync(:final data):
+    // Process sync events.
+    case USyncSubscribeReposMessageInfo(:final data):
+    // Process info messages.
+    case USyncSubscribeReposMessageUnknown(:final data):
+    // Handle forward-compatible unknown events.
+  }
 }
 ```
+<!-- /snippet -->
 
 :::info
 **Performance Considerations**
 
 The Firehose can generate high volumes of events. For production applications:
 - Implement proper error handling and reconnection logic
+- Persist the cursor so a restart resumes instead of replaying from the tip
 - Consider using a message queue for event processing
 - Filter events early to reduce processing overhead
 - Monitor memory usage and implement backpressure handling
@@ -946,7 +1071,8 @@ However, depending on system requirements, it may be necessary to set a time sho
 
 In that case, when creating an instance of the **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** object, the timeout period can be specified as follows.
 
-```dart
+<!-- snippet: atproto/timeout.dart -->
+```dart title="timeout.dart"
 import 'package:atproto/atproto.dart';
 
 Future<void> main() async {
@@ -956,10 +1082,15 @@ Future<void> main() async {
   );
 }
 ```
+<!-- /snippet -->
 
-### Advanced Built-In Retry
+### Pluggable Retry
 
-**[atproto](https://pub.dev/packages/atproto)** includes sophisticated retry logic using **[Exponential Backoff with Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** to handle temporary network failures gracefully.
+**[atproto](https://pub.dev/packages/atproto)** can retry transient failures for you. Pass a `retryConfig` and you get **[Exponential Backoff with Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** with an idempotency-safe retry decision; implement `RetryStrategy` and you replace that policy entirely.
+
+:::caution
+Retries are **opt-in**. `retryConfig` defaults to `null` on every factory, and a client built without one fails on the first attempt.
+:::
 
 #### Why Retry Logic Matters
 
@@ -967,15 +1098,24 @@ Network communication is inherently unreliable. Temporary failures like network 
 
 #### Exponential Backoff with Jitter
 
-Simple retry mechanisms that wait fixed intervals can create "thundering herd" problems where multiple clients retry simultaneously, overwhelming recovering servers. **[atproto](https://pub.dev/packages/atproto)** uses exponential backoff with jitter (randomization) to:
+Simple retry mechanisms that wait fixed intervals can create "thundering herd" problems where multiple clients retry simultaneously, overwhelming recovering servers. The default policy uses exponential backoff with jitter (randomization) to:
 
 - Gradually increase wait times between retries
 - Add randomness to prevent synchronized retry storms
 - Distribute load more evenly across time
 
+The interval for each attempt is:
+
+> **(2 ^ (attempt - 1)) + jitter**
+
+A wait the server asked for via `Retry-After` or `ratelimit-reset` is honored as a *lower bound*, capped at 60 seconds so a hostile value cannot stall a retry indefinitely.
+
 #### Configuring Retry Behavior
 
-```dart
+**[`RetryConfig`](https://pub.dev/documentation/atproto_core/latest/atproto_core/RetryConfig-class.html)** is the built-in policy. Pass it as `retryConfig` to any factory or to a top-level function such as `createSession`. Its jitter defaults to `Jitter(maxInSeconds: 4)`; `maxAttempts` is required and must not be negative.
+
+<!-- snippet: atproto/retry.dart -->
+```dart title="retry.dart"
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto/core.dart' as core;
 
@@ -984,19 +1124,19 @@ Future<void> main() async {
 
   final atproto = atp.ATProto.anonymous(
     retryConfig: core.RetryConfig(
-      // Maximum number of retry attempts
+      // Maximum number of retry attempts.
       maxAttempts: maxAttempts,
 
-      // Jitter configuration for randomized delays
+      // Jitter configuration for randomized delays.
       jitter: core.Jitter(
         minInSeconds: 1, // Minimum delay
         maxInSeconds: 5, // Maximum delay
       ),
 
-      // Optional: Monitor retry events
+      // Optional: Monitor retry events.
       onExecute: (event) {
         print(
-          '🔄 Retry ${event.retryCount}/$maxAttempts '
+          'Retry ${event.retryCount}/$maxAttempts '
           'after ${event.intervalInSeconds}s delay',
         );
       },
@@ -1004,62 +1144,235 @@ Future<void> main() async {
   );
 
   try {
-    // This request will automatically retry on temporary failures
+    // This request will automatically retry on temporary failures.
     final result = await atproto.identity.resolveHandle(handle: 'bsky.app');
-    print('✅ Success: ${result.data.did}');
+    print('Success: ${result.data.did}');
   } catch (e) {
-    print('❌ Failed after all retries: $e');
+    print('Failed after all retries: $e');
   }
 }
 ```
+<!-- /snippet -->
 
 #### Automatic Retry Conditions
 
-The library automatically retries requests when encountering:
+A failure is a retry *candidate* when it is transient:
 
-| Condition | Description | Retriable |
-|-----------|-------------|-----------|
-| **5xx Server Errors** | Internal server errors, service unavailable | ✅ |
-| **SocketException** | Network connectivity issues |❌ |
-| **TimeoutException** | Request timeout exceeded | ✅ |
-| **4xx Client Errors** | Bad request, unauthorized, not found | ❌ |
-| **Rate Limit Exceeded** | 429 Too Many Requests | ❌* |
+| Condition | Description | Candidate | `RetryReason` |
+|-----------|-------------|:---------:|---------------|
+| **5xx Server Errors** | Internal server errors, service unavailable | ✅ | `serverError` |
+| **TimeoutException** | Request timeout exceeded | ✅ | `timeout` |
+| **SocketException / ClientException** | Connection refused, reset, DNS failure | ✅ | `network` |
+| **Rate Limit Exceeded** | 429 Too Many Requests; the server's `Retry-After` is honored | ✅ | `rateLimited` |
+| **4xx Client Errors** | Bad request, not found | ❌ | — |
+| **401 Unauthorized** | Handled by session refresh and the DPoP nonce handshake, not by retry | ❌ | — |
 
-*Rate limit errors are not retried automatically, but you can handle them using the [rate limit management](#rate-limits) features.
+#### Retries and Idempotency
+
+Being a candidate is not enough. **This is the behavior most likely to surprise you, and it changed in 2.0.0.**
+
+A retry is only safe if repeating the request cannot repeat its effect. So the default policy also asks two questions about the failed request:
+
+- **Is it a procedure?** An XRPC procedure is a `POST` with side effects, like `createRecord`. Queries (`GET`) and subscriptions are not procedures.
+- **Was the failure ambiguous?** A `5xx` and a timeout *after the request was sent* leave it unknown whether the server applied the request. A `429`, and a connection that provably never reached the server (connection refused, DNS failure), do not.
+
+**By default, an ambiguous failure of a procedure is not retried.** Retrying could duplicate the write.
+
+| Request | 5xx / post-send timeout | 429 | Connection refused |
+|---------|:-----------------------:|:---:|:------------------:|
+| Query (`GET`), subscription | ✅ retried | ✅ retried | ✅ retried |
+| Procedure (`POST`) | ❌ **not** retried | ✅ retried | ✅ retried |
+
+:::caution
+`createRecord` that fails with a `500` will **not** be retried under the default configuration, even with `maxAttempts: 5`. The exception propagates to you on the first failure. This is deliberate: the alternative is silently posting twice.
+:::
+
+If duplicate writes are acceptable — or your records carry an idempotency key of their own — set `retryProcedureOnAmbiguousFailure: true` to restore unconditional retries.
+
+<!-- snippet: atproto/retry_idempotency.dart -->
+```dart title="retry_idempotency.dart"
+import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/core.dart' as core;
+
+Future<void> main() async {
+  final session = await atp.createSession(
+    identifier: 'YOUR_HANDLE_OR_EMAIL',
+    password: 'YOUR_PASSWORD',
+  );
+
+  // Default: a `createRecord` that fails with a 500 or a post-send timeout is
+  // NOT retried, because the server may already have created the record.
+  final safe = atp.ATProto.fromSession(
+    session.data,
+    retryConfig: core.RetryConfig(maxAttempts: 3),
+  );
+
+  // Opt out when duplicate writes are acceptable or your records carry an
+  // idempotency key of their own. This restores pre-2.0.0 behavior.
+  final atMostOnceIsFine = atp.ATProto.fromSession(
+    session.data,
+    retryConfig: core.RetryConfig(
+      maxAttempts: 3,
+      retryProcedureOnAmbiguousFailure: true,
+    ),
+  );
+}
+```
+<!-- /snippet -->
+
+#### Custom Retry Strategies
+
+`retryConfig` is typed **[`RetryStrategy`](https://pub.dev/documentation/atproto_core/latest/atproto_core/RetryStrategy-class.html)**, not `RetryConfig`. `RetryConfig` is simply the implementation shipped in the box; implement the interface yourself and you own the entire decision — backoff shape, which failures are retryable, and idempotency handling.
+
+The interface is one method:
+
+```dart
+abstract interface class RetryStrategy {
+  /// Returns the delay to wait before the next attempt, or `null` to stop
+  /// retrying and let the original error propagate.
+  FutureOr<Duration?> nextDelay(final RetryContext context);
+}
+```
+
+Every failed attempt hands it a fresh **[`RetryContext`](https://pub.dev/documentation/atproto_core/latest/atproto_core/RetryContext-class.html)**:
+
+| Property | Description |
+| -------- | ----------- |
+| `attempt` | Attempts that have already failed, starting at `1`. |
+| `reason` | The **[`RetryReason`](https://pub.dev/documentation/atproto_core/latest/atproto_core/RetryReason.html)**: `timeout`, `serverError`, `rateLimited`, or `network`. |
+| `isProcedure` | Whether the request was a `POST` with side effects. `isQuery` is its inverse. |
+| `isAmbiguous` | Whether the server may already have applied the request. |
+| `nsid` | The lexicon method id, when known — useful for per-endpoint policies. |
+| `statusCode` | The HTTP status, when the failure carried one. |
+| `error` | The thrown error. |
+| `retryAfter` | The wait the server asked for, already resolved to a `Duration`. |
+
+<!-- snippet: atproto/retry_strategy.dart -->
+```dart title="retry_strategy.dart"
+import 'dart:async';
+
+import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/core.dart' as core;
+
+/// Waits a constant second between attempts, never retries a write that may
+/// already have been applied, and gives up on anything but a network blip.
+final class ConstantBackoff implements core.RetryStrategy {
+  const ConstantBackoff({this.maxAttempts = 3});
+
+  final int maxAttempts;
+
+  @override
+  FutureOr<Duration?> nextDelay(final core.RetryContext context) {
+    // Returning null stops retrying and lets the original error propagate.
+    if (context.attempt > maxAttempts) return null;
+    if (context.isProcedure && context.isAmbiguous) return null;
+
+    // Everything the decision needs is on the context.
+    print('${context.nsid} failed: ${context.reason} (${context.statusCode})');
+
+    return switch (context.reason) {
+      // Honor the server's own wait when it sent one.
+      core.RetryReason.rateLimited =>
+        context.retryAfter ?? const Duration(seconds: 5),
+      core.RetryReason.network ||
+      core.RetryReason.timeout => const Duration(seconds: 1),
+      core.RetryReason.serverError => const Duration(seconds: 2),
+    };
+  }
+}
+
+Future<void> main() async {
+  final atproto = atp.ATProto.anonymous(
+    // Any RetryStrategy is accepted here, not just RetryConfig.
+    retryConfig: const ConstantBackoff(maxAttempts: 5),
+  );
+}
+```
+<!-- /snippet -->
 
 #### Production Retry Configuration
 
 For production applications, consider these retry configurations:
 
-```dart
+<!-- snippet: atproto/retry_production.dart -->
+```dart title="retry_production.dart"
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto/core.dart' as core;
 
-// Conservative retry for user-facing operations
-final userFacingClient = atp.ATProto.fromSession(
-  session,
-  retryConfig: core.RetryConfig(
-    maxAttempts: 2,
-    jitter: core.Jitter(minInSeconds: 1, maxInSeconds: 3),
-  ),
-);
+void configure(final core.Session session) {
+  // Conservative retry for user-facing operations.
+  final userFacingClient = atp.ATProto.fromSession(
+    session,
+    retryConfig: core.RetryConfig(
+      maxAttempts: 2,
+      jitter: core.Jitter(minInSeconds: 1, maxInSeconds: 3),
+    ),
+  );
 
-// Aggressive retry for background operations
-final backgroundClient = atp.ATProto.fromSession(
-  session,
-  retryConfig: core.RetryConfig(
-    maxAttempts: 5,
-    jitter: core.Jitter(minInSeconds: 2, maxInSeconds: 10),
-    onExecute: (event) => logger.info('Retrying background operation'),
-  ),
-);
+  // Aggressive retry for background operations.
+  final backgroundClient = atp.ATProto.fromSession(
+    session,
+    retryConfig: core.RetryConfig(
+      maxAttempts: 5,
+      jitter: core.Jitter(minInSeconds: 2, maxInSeconds: 10),
+      onExecute: (event) => print('Retrying background operation'),
+    ),
+  );
 
-// No retry for time-sensitive operations
-final realTimeClient = atp.ATProto.fromSession(
-  session,
-  retryConfig: core.RetryConfig(maxAttempts: 1),
-);
+  // No retry at all for time-sensitive operations.
+  final realTimeClient = atp.ATProto.fromSession(session, retryConfig: null);
+}
 ```
+<!-- /snippet -->
+
+:::tip
+To disable retries entirely, pass `retryConfig: null` — which is also the default. `RetryConfig(maxAttempts: 0)` has the same effect but allocates a policy that always declines.
+:::
+
+### Injecting an HTTP Client
+
+Every factory accepts `getClient` and `postClient`, typed **[`GetClient`](https://pub.dev/documentation/xrpc/latest/xrpc/GetClient.html)** and **[`PostClient`](https://pub.dev/documentation/xrpc/latest/xrpc/PostClient.html)**. They stand in for `http.get` and `http.post`, which makes them the seam for tests, proxies, tracing, and custom connection pooling.
+
+<!-- snippet: atproto/http_client_injection.dart -->
+```dart title="http_client_injection.dart"
+import 'package:atproto/atproto.dart' as atp;
+import 'package:http/http.dart' as http;
+
+Future<void> main() async {
+  final atproto = atp.ATProto.anonymous(
+    // Swap in your own transport: a mock in tests, a proxy, a client that
+    // adds tracing headers, or one backed by a connection pool.
+    getClient: (url, {headers}) async {
+      print('GET $url');
+      return await http.get(url, headers: headers);
+    },
+    postClient: (url, {headers, body, encoding}) async {
+      print('POST $url');
+      return await http.post(
+        url,
+        headers: headers,
+        body: body,
+        encoding: encoding,
+      );
+    },
+  );
+
+  // The same hooks are typed as `core.GetClient` / `core.PostClient`, so a
+  // shared fake can be declared once and reused across tests.
+  final offline = atp.ATProto.anonymous(getClient: _alwaysEmpty);
+}
+
+/// A stand-in transport for tests: every GET resolves to an empty JSON body.
+Future<http.Response> _alwaysEmpty(
+  final Uri url, {
+  final Map<String, String>? headers,
+}) async => http.Response('{}', 200);
+```
+<!-- /snippet -->
+
+:::note
+Subscriptions do not go through these hooks — they are WebSockets, not HTTP requests. The matching seam is **[`WebSocketChannelFactory`](https://pub.dev/documentation/xrpc/latest/xrpc/WebSocketChannelFactory.html)**, re-exported from `package:atproto/core.dart`.
+:::
 
 ### Lexicon/Object IDs
 
@@ -1067,16 +1380,20 @@ Some objects returned from AT Protocol's API are identified by IDs defined in Le
 
 **[atproto](https://pub.dev/packages/atproto)** provides all the IDs defined in Lexicon for `com.atproto.*` as constants, and it can be easily used from `package:atproto/ids.dart` as follows.
 
-```dart
+Constants are named by lower-camel-casing the ID, so `com.atproto.repo.strongRef` becomes `comAtprotoRepoStrongRef` and a definition reference like `com.atproto.sync.subscribeRepos#commit` becomes `comAtprotoSyncSubscribeReposCommit`.
+
+<!-- snippet: atproto/ids.dart -->
+```dart title="ids.dart"
 import 'package:atproto/ids.dart' as ids;
 
 void main() {
-  // `blob`
-  ids.blob;
+  // `com.atproto.repo.strongRef`
+  print(ids.comAtprotoRepoStrongRef);
   // `com.atproto.sync.subscribeRepos#commit`
-  ids.comAtprotoSyncSubscribeReposCommit;
+  print(ids.comAtprotoSyncSubscribeReposCommit);
 }
 ```
+<!-- /snippet -->
 
 :::note
 These ID constants are automatically maintained when a new Lexicon is officially added. [See script](https://github.com/myConsciousness/atproto.dart/blob/main/scripts/gen_lexicon_ids.dart).
@@ -1092,11 +1409,12 @@ For more details about design of pagination and `cursor` in the AT Protocol, [se
 
 **[atproto](https://pub.dev/packages/atproto)** also follows the common design of AT Protocol and allows paging by using `cursor`. It can be easily implemented as in the following example.
 
-```dart
+<!-- snippet: atproto/pagination.dart -->
+```dart title="pagination.dart"
 import 'package:atproto/atproto.dart' as atp;
 
 Future<void> main() async {
-  final atproto = atp.ATProto.fromSession(await _session);
+  final atproto = atp.ATProto.anonymous();
 
   // Pagination is performed on a per-cursor basis.
   String? nextCursor;
@@ -1117,6 +1435,7 @@ Future<void> main() async {
   } while (nextCursor != null); // If there is no next page, it ends.
 }
 ```
+<!-- /snippet -->
 
 :::tip
 Endpoints that can be paged can be seen in **[this matrix](../supported_api.md#atproto)**.

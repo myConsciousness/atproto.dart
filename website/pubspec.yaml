@@ -4,12 +4,17 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
+  atproto:
+    path: ../packages/atproto
   did_plc:
     path: ../packages/did_plc
   bluesky:
     path: ../packages/bluesky
   bluesky_text:
     path: ../packages/bluesky_text
+  # Named directly by the `GetClient` / `PostClient` injection snippets, which
+  # must return an `http.Response`.
+  http: ^1.4.0
 
 dev_dependencies:
   lints: ^6.0.0
