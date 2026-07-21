@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.2.0
+
+- feat: added `ATProto.onSessionUpdated`, surfacing `ServiceContext.onSessionUpdated` so callers can re-persist credentials rotated by an automatic refresh. Without it an app that persists the session it constructed the client with ends up storing a spent refresh token, since refresh tokens are single-use.
+- chore: bump `atproto_core` to `^2.1.0`.
+
 ## v2.1.0
 
 - feat: added `ATProto.ctx`, exposing the `ServiceContext` that backs every service. A wrapping client can now drive its own services from the same context instead of constructing a second one, which is required for correct session refresh because refresh tokens are single-use.

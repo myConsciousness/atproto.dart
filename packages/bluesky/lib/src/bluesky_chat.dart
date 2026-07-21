@@ -29,18 +29,7 @@ sealed class BlueskyChat {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _BlueskyChat(
-    core.ServiceContext(
-      headers: {...?headers, ..._kBskyChatProxyHeaders},
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      session: session,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _BlueskyChat.fromAtproto(
     atp.ATProto.fromSession(
       headers: {...?headers, ..._kBskyChatProxyHeaders},
       session,
@@ -66,18 +55,7 @@ sealed class BlueskyChat {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _BlueskyChat(
-    core.ServiceContext(
-      headers: {...?headers, ..._kBskyChatProxyHeaders},
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      oAuthSessionManager: manager,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _BlueskyChat.fromAtproto(
     atp.ATProto.fromOAuth(
       manager,
       headers: {...?headers, ..._kBskyChatProxyHeaders},
@@ -127,6 +105,19 @@ sealed class BlueskyChat {
   /// [BlueskyChat.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Emits the refreshed session every time an expired access token is
+  /// renewed, so the owner of the credentials can re-persist them.
+  ///
+  /// A `fromSession` instance refreshes automatically, and [session] then
+  /// holds the new credentials — but nothing otherwise tells the caller to
+  /// read it back. Because refresh tokens are single-use, persisting the
+  /// session originally passed in would store a spent refresh token, and the
+  /// next run would restore a session that can no longer be refreshed.
+  ///
+  /// Silent on OAuth-backed instances; use
+  /// `oAuthSessionManager.onSessionUpdated` for those.
+  Stream<core.Session> get onSessionUpdated;
+
   /// Returns the current OAuth session manager.
   ///
   /// Set only when this instance was created via [BlueskyChat.fromOAuth] or
@@ -158,7 +149,17 @@ sealed class BlueskyChat {
 }
 
 final class _BlueskyChat implements BlueskyChat {
-  _BlueskyChat(final core.ServiceContext ctx, this.atproto)
+  /// Drives every `chat.bsky.*` service from [atproto]'s own context.
+  ///
+  /// A second context would carry a second copy of the session, and only one
+  /// of the two would ever be refreshed — see [atp.ATProto.ctx]. It is safe to
+  /// adopt this one wholesale: every factory above builds [atproto] with the
+  /// same arguments the discarded context received, `_kBskyChatProxyHeaders`
+  /// included.
+  factory _BlueskyChat.fromAtproto(final atp.ATProto atproto) =>
+      _BlueskyChat._(atproto.ctx, atproto);
+
+  _BlueskyChat._(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),
       convo = ConvoService(ctx),
       moderation = ModerationService(ctx),
@@ -171,6 +172,9 @@ final class _BlueskyChat implements BlueskyChat {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  Stream<core.Session> get onSessionUpdated => _ctx.onSessionUpdated;
 
   @override
   oauth.OAuthSessionManager? get oAuthSessionManager =>

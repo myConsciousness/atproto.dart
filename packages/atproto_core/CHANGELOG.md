@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.1.0
+
+- feat: added `ServiceContext.onSessionUpdated`, a broadcast stream that emits the refreshed `Session` each time an expired access token is renewed. `session` already reflected the new credentials, but nothing told the caller to read it back — and because refresh tokens are single-use, a caller that kept persisting the session it originally passed in stored a spent refresh token, so the next run restored a session that could no longer be refreshed. Mirrors `OAuthSessionManager.onSessionUpdated` for the legacy (app-password) path; it stays silent on OAuth-backed contexts. Concurrent requests that share one deduplicated refresh emit exactly one event.
+
 ## v2.0.1
 
 - docs: rewrite the README to document the actual public API — `Session`/`OAuthSession`, JWT decoding (`decodeJwt`/`Jwt`), the pluggable retry engine (`RetryStrategy`, `RetryConfig`, `RetryContext`, `RetryReason`, `RetryEvent`, `Jitter`), `BaseHttpService`/`ServiceContext`, `Blob`/`BlobRef`, `decodeCar`, `isValidAppPassword`, and the `xrpc`/`multiformats`/`cbor` re-exports — and frame the package as the shared core layer `atproto`/`bluesky` build on.

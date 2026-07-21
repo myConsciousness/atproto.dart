@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.2.0
+
+- fix: `chat.bsky.*` and `tools.ozone.*` calls now refresh an expired access token instead of throwing `UnauthorizedException`. v2.1.2 described this as covering `chat.bsky.*`, but only `Bluesky` was changed: `BlueskyChat.fromSession` and `OzoneTool.fromSession` each still built a standalone `ServiceContext` with no refresh hook, so every call through `chat.convo` / `chat.actor` / the ozone services surfaced an expired token as an error. Both now drive their services from the context owned by their nested `ATProto`, as `Bluesky` already did — the proxy headers that route those calls are preserved, since the nested client is built with them.
+- feat: added `onSessionUpdated` to `Bluesky`, `BlueskyChat` and `OzoneTool`, surfacing the refreshed session so callers can re-persist it. Refresh tokens are single-use, so an app that keeps persisting the session it built the client with stores a spent token and is signed out on next launch.
+- chore: bump `atproto` to `^2.2.0` and `atproto_core` to `^2.1.0`.
+
 ## v2.1.2
 
 - fix: `app.bsky.*` and `chat.bsky.*` calls now refresh an expired access token instead of throwing `UnauthorizedException`. `Bluesky.fromSession` built a second `ServiceContext` for those services and never gave it the refresh hook, so only calls made through `bsky.atproto` recovered from an expired token. Every factory now shares the context owned by the nested `ATProto`, which also makes `bsky.session` reflect a refresh — previously it kept returning the spent credentials, so persisting it signed the user out on next launch. The OAuth factories were unaffected, since both contexts already shared one `OAuthSessionManager`.

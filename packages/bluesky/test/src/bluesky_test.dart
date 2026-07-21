@@ -105,6 +105,44 @@ void main() {
         expect(bsky.atproto.session?.refreshJwt, 'new-refresh');
       },
     );
+
+    test('announces the refreshed session on onSessionUpdated', () async {
+      final bsky = Bluesky.fromSession(
+        core.Session(
+          did: 'did:plc:testaccount',
+          handle: 'test.dev',
+          accessJwt: 'old-access',
+          refreshJwt: 'refresh-token',
+        ),
+        service: 'pds.test',
+        getClient: (url, {headers}) async => http.Response(
+          headers?['Authorization'] == 'Bearer new-access'
+              ? '{"feed":[]}'
+              : '{"error":"ExpiredToken"}',
+          headers?['Authorization'] == 'Bearer new-access' ? 200 : 401,
+          headers: {'content-type': 'application/json'},
+          request: http.Request('GET', url),
+        ),
+        postClient: (url, {headers, body, encoding}) async => http.Response(
+          '{"accessJwt":"new-access","refreshJwt":"new-refresh",'
+          '"handle":"test.dev","did":"did:plc:testaccount"}',
+          200,
+          headers: {'content-type': 'application/json'},
+          request: http.Request('POST', url),
+        ),
+      );
+
+      final updates = <core.Session>[];
+      bsky.onSessionUpdated.listen(updates.add);
+
+      await bsky.feed.getTimeline();
+      await Future<void>.delayed(Duration.zero);
+
+      //! Reading `bsky.session` back requires knowing a refresh happened;
+      //! this is how a caller learns to re-persist before the stored refresh
+      //! token goes stale.
+      expect(updates.single.refreshJwt, 'new-refresh');
+    });
   });
 
   group('.session', () {
