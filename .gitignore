@@ -139,4 +139,7 @@ coverage.lcov
 # Kiro IDE
 .kiro
 .lex_gen_baseline/
-docs
+# Anchored to the repository root on purpose. A bare `docs` also matches
+# website/docs, which silently dropped newly generated lexicon documents from
+# commits and left dangling links in the site.
+/docs/
