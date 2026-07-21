@@ -116,7 +116,14 @@ String _generateMatrixContent(String nsid, Map<String, LexUserType> defs) {
     _writeDefinition(matrix, def, id);
   }
 
-  return matrix.toString();
+  // This file is written to <root>/<segments except last>/<last>.md, which sits
+  // segments.length directories below the docs root, so that many '..' hops lead
+  // back to it. This used to be hardcoded to four, which happened to be right
+  // only for four-segment NSIDs and broke shorter ones such as
+  // com.germnetwork.declaration and site.standard.document.
+  final refRoot = List.filled(segments.length, '..').join('/');
+
+  return matrix.toString().replaceAll(_refRootToken, refRoot);
 }
 
 /// Writes a definition to the matrix buffer.
@@ -647,6 +654,14 @@ String _toSpecReference(final String type) => switch (type) {
   _ => type,
 };
 
+/// Placeholder for the relative hop back to the docs root.
+///
+/// Ref links are relative to the file being written, but [_toRefLink] receives
+/// only the target ref and so cannot know how deep the source file sits.
+/// [_generateMatrixContent] substitutes this token once the source NSID, and
+/// therefore the depth, is known.
+const _refRootToken = '{{REF_ROOT}}';
+
 /// Converts a reference to a markdown link.
 String _toRefLink(final String ref) {
   if (ref.startsWith('#')) return '[$ref](${ref.toLowerCase()})';
@@ -659,13 +674,13 @@ String _toRefLink(final String ref) {
     final fileName = segments.last;
     final objectId = pathAndObjectId.last.toLowerCase();
 
-    return '[$ref](../../../../lexicons/$path/$fileName.md#$objectId)';
+    return '[$ref]($_refRootToken/lexicons/$path/$fileName.md#$objectId)';
   }
 
   final segments = ref.split('.');
   final path = segments.sublist(0, segments.length - 1).join('/');
 
-  return '[$ref](../../../../lexicons/$path/${segments.last}.md#main)';
+  return '[$ref]($_refRootToken/lexicons/$path/${segments.last}.md#main)';
 }
 
 /// Escapes special characters in markdown.

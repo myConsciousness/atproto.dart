@@ -1,27 +1,60 @@
 version: 0.2
 
+# Deploys website/ to the S3 origin behind CloudFront (atprotodart.com).
+#
+# The webhook that drives this project filters on PUSH + refs/heads/main only.
+# It deliberately does NOT use a FILE_PATH filter: AWS evaluates FILE_PATH against
+# only the first 100 changed files of a push, and this repo routinely lands codegen
+# pushes of 800-1600 files in which website/ sorts last. Those deploys would be
+# silently skipped. Diffing the real push range here cannot miss them.
+
 phases:
   install:
     runtime-versions:
       nodejs: 24
     commands:
-      - cd website
-      - npm install
+      # Decide whether this push actually touched website/. An unknown commit range
+      # (manual build, first build) deploys rather than skips, so ambiguity fails safe.
+      - |
+        DEPLOY=1
+        if [ -n "$CODEBUILD_WEBHOOK_PREV_COMMIT" ] && [ -n "$CODEBUILD_RESOLVED_SOURCE_VERSION" ]; then
+          if git diff --quiet "$CODEBUILD_WEBHOOK_PREV_COMMIT" "$CODEBUILD_RESOLVED_SOURCE_VERSION" -- website/; then
+            DEPLOY=0
+          fi
+        fi
+        echo "$DEPLOY" > /tmp/deploy
+        echo "website/ changed: $DEPLOY"
+      - |
+        [ "$(cat /tmp/deploy)" = "1" ] || exit 0
+        cd "$CODEBUILD_SRC_DIR/website"
+        npm ci
 
   build:
     commands:
-      - npm run build
+      - |
+        [ "$(cat /tmp/deploy)" = "1" ] || exit 0
+        cd "$CODEBUILD_SRC_DIR/website"
+        npm run build
 
   post_build:
     commands:
-      - aws s3 sync ./build s3://$S3_ORIGIN_BUCKET/ --delete
-      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"
-
-artifacts:
-  files:
-    - 'build/**/*'
-  name: BuildArtifact
+      # CodeBuild runs post_build even when build fails, so publishing must be
+      # gated on CODEBUILD_BUILD_SUCCEEDING. Without this a failed build still
+      # reaches the sync below, and because that sync runs with --delete, a
+      # failure that leaves build/ empty or partial would wipe the live site.
+      - |
+        [ "$(cat /tmp/deploy)" = "1" ] || exit 0
+        if [ "$CODEBUILD_BUILD_SUCCEEDING" != "1" ]; then
+          echo "build failed - refusing to publish"
+          exit 1
+        fi
+        cd "$CODEBUILD_SRC_DIR/website"
+        test -f ./build/index.html || { echo "build/index.html missing - refusing to publish"; exit 1; }
+        aws s3 sync ./build "s3://$S3_ORIGIN_BUCKET/" --delete
+        aws cloudfront create-invalidation \
+          --distribution-id "$CLOUDFRONT_DIST_ID" \
+          --paths "/*"
 
 cache:
   paths:
-    - 'node_modules/**/*'
+    - 'website/node_modules/**/*'
