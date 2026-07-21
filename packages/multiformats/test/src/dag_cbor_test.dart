@@ -268,13 +268,23 @@ void main() {
   });
 
   group('rejected values', () {
-    test('a double throws', () {
+    test('a fractional double throws', () {
       // The atproto lexicon has no float type, and DAG-CBOR float handling
       // is a common source of cross-implementation CID mismatches. Failing
-      // loudly beats emitting a valid-looking but wrong CID.
+      // loudly beats emitting a valid-looking but wrong CID. A fractional
+      // value never satisfies `is int` on any platform, so this holds
+      // everywhere.
       expect(() => dagCborEncode(1.5), throwsA(isA<ArgumentError>()));
-      expect(() => dagCborEncode(1.0), throwsA(isA<ArgumentError>()));
     });
+
+    // A whole-number double (`1.0`) only reaches the double branch on the VM.
+    // On dart2js `1.0 is int` is true (int and double are one runtime type),
+    // so it encodes as the integer 1 -- which is byte-identical to what an
+    // `int` 1 produces, so no CID is ever wrong; the input is simply not
+    // rejected there. This assertion pins the VM's stricter behaviour.
+    test('a whole-number double throws', () {
+      expect(() => dagCborEncode(1.0), throwsA(isA<ArgumentError>()));
+    }, testOn: 'vm');
 
     test('an unsupported type throws', () {
       expect(
