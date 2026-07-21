@@ -4,6 +4,8 @@ environment:
   sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
+  at_primitives:
+    path: ../packages/at_primitives
   atproto:
     path: ../packages/atproto
   did_plc:

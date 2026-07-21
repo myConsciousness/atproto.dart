@@ -15,7 +15,7 @@ description: Build AT Protocol and Bluesky apps with production-ready Dart packa
 - **📚 Well Documented**: Extensive documentation with real-world examples and best practices
 - **🎯 Type Safe**: Sound null safety and compile-time checking throughout
 
-## Quick Start: Post to Bluesky in 5 Minutes ⏱️
+## Quick Start: Post to Bluesky in 5 Minutes ⏱️ {#quick-start}
 
 Let's build a simple Bluesky posting app to see how straightforward atproto.dart makes AT Protocol development.
 
@@ -84,10 +84,16 @@ Designed to support any AT Protocol service, not just Bluesky.
 - **Service Agnostic**: Core AT Protocol support works with any compliant service
 - **Custom Lexicons**: Easy integration of new AT Protocol schemas and endpoints
 
-### 📦 **Essential Protocol Packages**
-- **[at_primitives](https://pub.dev/packages/at_primitives)**: AT Protocol primitive types (URIs, identifiers, NSIDs)
-- **[xrpc](https://pub.dev/packages/xrpc)**: HTTP-based RPC protocol implementation
-- **[multiformats](https://pub.dev/packages/multiformats)**: Content addressing and cryptographic hashing
+### 📦 **Packages You'll Actually Reach For**
+- **[bluesky](./packages/bluesky.md)**: The full Bluesky toolkit — posts, feeds, chat, moderation. Start here.
+- **[atproto](./packages/atproto.md)**: AT Protocol itself, for services beyond Bluesky.
+- **[atproto_oauth](./packages/atproto_oauth.md)**: OAuth 2.0 with DPoP — the recommended way to sign users in.
+- **[bluesky_text](./packages/bluesky_text.md)**: Facet detection and correct post-length counting.
+- **[bluesky_cli](./packages/bluesky_cli.md)**: Try the APIs from your terminal in under a minute — `dart pub global activate bluesky_cli`.
+
+Lower-level packages like `at_primitives`, `xrpc`, and `multiformats` come along
+automatically. See the **[package overview](./packages/overview.md)** for the full
+list of 15 packages and how they fit together.
 
 ## Design Principles 🎨
 

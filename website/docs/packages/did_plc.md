@@ -27,7 +27,7 @@ It does not depend on the `atproto` or `bluesky` packages, so you can resolve id
 - Resolving a handle *or* DID to a full identity (DID + PDS + signing key) — use **[atproto_identity](./atproto_identity.md)**, which builds on this package
 - Talking to a PDS — use **[atproto](./atproto.md)** or **[bluesky](./bluesky.md)**
 
-Note that `atproto` and `bluesky` do **not** bundle `did_plc`. If you need PLC directory access alongside them, add this package explicitly.
+Note that `atproto` and `bluesky` already pull `did_plc` in transitively, through `atproto_core → atproto_oauth → atproto_identity`. They do not re-export it, though, so add it to your own `pubspec.yaml` before importing it directly.
 :::
 
 ## Features ⭐

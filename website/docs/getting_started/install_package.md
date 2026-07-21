@@ -116,7 +116,7 @@ Choose packages based on your use case:
 ## Next Steps
 
 With packages installed, you're ready to:
-1. [Build your first Bluesky post](../intro.md#quick-start-post-to-bluesky-in-5-minutes-️)
+1. [Build your first Bluesky post](../intro.md#quick-start)
 2. Explore the [package documentation](../packages/overview.md)
 
 ## Troubleshooting
