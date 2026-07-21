@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.1.0
+
+- feat: added `ATProto.ctx`, exposing the `ServiceContext` that backs every service. A wrapping client can now drive its own services from the same context instead of constructing a second one, which is required for correct session refresh because refresh tokens are single-use.
+
 ## v2.0.1
 
 - docs: documented OAuth authentication in the README — `ATProto.fromOAuth(OAuthSessionManager)`, `ATProto.fromOAuthSession(session, {oauthClient})`, and the renamed `oAuthSessionManager` getter.
