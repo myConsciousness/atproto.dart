@@ -164,6 +164,16 @@ sealed class ATProto {
   /// Defaults to `bsky.network`.
   String get relayService;
 
+  /// Returns the context backing every service on this instance.
+  ///
+  /// Exposed so a wrapping client — `bluesky` in particular — can drive its
+  /// own services from this same context instead of building a second one.
+  /// That matters for [ATProto.fromSession]: the context owns the current
+  /// session and the `refreshSession` call that rotates it, and refresh
+  /// tokens are single-use. Two contexts would each hold their own copy of
+  /// the session, so whichever refreshed second would present a spent token.
+  core.ServiceContext get ctx;
+
   /// Returns the admin service.
   /// This service represents `com.atproto.admin.*`.
   AdminService get admin;
@@ -301,6 +311,9 @@ final class _ATProto implements ATProto {
   final TempService temp;
 
   final core.ServiceContext _ctx;
+
+  @override
+  core.ServiceContext get ctx => _ctx;
 
   @override
   Future<core.XRPCResponse<T>> get<T>(
