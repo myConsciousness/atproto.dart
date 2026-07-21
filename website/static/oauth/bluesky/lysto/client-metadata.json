@@ -1,0 +1,12 @@
+{
+  "client_id": "https://atprotodart.com/oauth/bluesky/lysto/client-metadata.json",
+  "client_name": "Lysto",
+  "client_uri": "https://atprotodart.com",
+  "application_type": "native",
+  "dpop_bound_access_tokens": true,
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "redirect_uris": ["com.atprotodart:/lysto", "https://atprotodart.com/oauth/bluesky/auth.html"],
+  "scope": "atproto transition:generic transition:chat.bsky",
+  "token_endpoint_auth_method": "none"
+}
