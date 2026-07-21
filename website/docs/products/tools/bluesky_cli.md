@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 1
 title: bluesky_cli
 description: Call Bluesky and AT Protocol APIs from your terminal with the bsky command.
 ---
@@ -22,7 +22,7 @@ It is a global executable, not a library. Do not add it to your `pubspec.yaml`.
 
 **Look elsewhere for:**
 
-- Anything you build into an application — use **[bluesky](./bluesky.md)**
+- Anything you build into an application — use **[bluesky](../packages/bluesky.md)**
 - Posting from a GitHub Actions workflow — the **[bluesky-post action](https://github.com/myConsciousness/bluesky-post/)** is purpose-built for it
 :::
 
@@ -155,5 +155,5 @@ Pass `--no-session-cache` to always create a fresh session and never write the f
 
 | Package | Use it for |
 | --- | --- |
-| **[bluesky](./bluesky.md)** | The same APIs from Dart, for applications |
-| **[atproto](./atproto.md)** | Core AT Protocol (`com.atproto.*`) endpoints from Dart |
+| **[bluesky](../packages/bluesky.md)** | The same APIs from Dart, for applications |
+| **[atproto](../packages/atproto.md)** | Core AT Protocol (`com.atproto.*`) endpoints from Dart |

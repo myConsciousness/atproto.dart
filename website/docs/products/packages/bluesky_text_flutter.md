@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 title: bluesky_text_flutter
 description: Flutter widgets for bluesky_text — a rich-text editing controller and a post viewer.
 ---
@@ -30,7 +30,7 @@ This package re-exports **[bluesky_text](./bluesky_text.md)**, so a single impor
 ### Install
 
 :::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
+See the **[Install Package](../../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
 :::
 
 ```bash

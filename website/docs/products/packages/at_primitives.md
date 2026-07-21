@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 title: at_primitives
 description: AT Protocol primitive types for Dart - handles, DIDs, AT URIs, NSIDs, TIDs and Record Keys.
 ---

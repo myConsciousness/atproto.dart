@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: atproto
 description: API wrapper for AT Protocol things.
 ---
@@ -34,7 +34,7 @@ This package focuses on core AT Protocol functionality, making it ideal for buil
 
 - ✅ **Small Dependency Footprint** - Only `atproto_core`, `xrpc`, and the two codegen annotation packages
 - ✅ **Pluggable Retry** - An opt-in **[Exponential BackOff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)** policy that is idempotency-safe, plus a `RetryStrategy` interface to replace it wholesale
-- ✅ **Comprehensive API Coverage** - Supports **[All Major Endpoints](../supported_api.md#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
+- ✅ **Comprehensive API Coverage** - Supports **[All Major Endpoints](../../supported_api.md#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
 - ✅ **Multiple Authentication Methods** - Session-based auth with transparent refresh, OAuth 2.0 with DPoP, and anonymous access
 - ✅ **Real-time Firehose API** - Stream live events from AT Protocol services, already decoded and typed
 - ✅ **Production Ready** - Well documented, thoroughly tested, and actively maintained
@@ -45,7 +45,7 @@ This package focuses on core AT Protocol functionality, making it ideal for buil
 - ✅ **Injectable Transport** - Supply your own HTTP client for tests, proxies, or tracing
 
 :::tip
-See **[API Supported Matrix](../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
+See **[API Supported Matrix](../../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
 :::
 
 :::info **Need Bluesky-Specific Features?**
@@ -66,7 +66,7 @@ The **[bluesky](./bluesky.md)** package includes all **atproto** functionality p
 ### Install
 
 :::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
+See the **[Install Package](../../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
 :::
 
 **With Dart:**
@@ -108,7 +108,7 @@ import 'package:atproto/firehose.dart';
 The **[ATProto](https://pub.dev/documentation/atproto/latest/atproto/ATProto-class.html)** class is your main entry point for accessing AT Protocol services. There are three ways to create an instance depending on your authentication needs:
 
 :::tip
-See **[API Supported Matrix](../supported_api.md#atproto)** for whether authentication is required for each endpoint.
+See **[API Supported Matrix](../../supported_api.md#atproto)** for whether authentication is required for each endpoint.
 :::
 
 #### 1. Session-based Authentication (Recommended)
@@ -140,7 +140,7 @@ Future<void> main() async {
 ```
 <!-- /snippet -->
 
-An instance built this way keeps its own session alive: when a request comes back `401` because the access token has expired, the refresh token is spent, the session is replaced, and the request is retried once. See **[Authentication](../guides/authentication.md)**.
+An instance built this way keeps its own session alive: when a request comes back `401` because the access token has expired, the refresh token is spent, the session is replaced, and the request is retried once. See **[Authentication](../../guides/authentication.md)**.
 
 #### 2. OAuth Authentication
 
@@ -227,7 +227,7 @@ Future<void> main() async {
 <!-- /snippet -->
 
 :::info
-See **[Authentication](../guides/authentication.md)** for more details about authentication.
+See **[Authentication](../../guides/authentication.md)** for more details about authentication.
 :::
 
 ### Supported Services
@@ -247,7 +247,7 @@ See **[Authentication](../guides/authentication.md)** for more details about aut
 | **[temp](https://pub.dev/documentation/atproto/latest/atproto/ATProto/temp.html)** | [TempService](https://pub.dev/documentation/atproto/latest/atproto/TempService-class.html) | [`com.atproto.temp.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto/temp) | Temporary/experimental endpoints |
 
 :::note
-`sync` is typed as `SyncServiceImpl` rather than the generated `SyncService`. It adds **[`subscribeReposAsMessages`](../guides/firehose.md)**, which yields decoded, typed Firehose messages, on top of every generated `com.atproto.sync.*` method.
+`sync` is typed as `SyncServiceImpl` rather than the generated `SyncService`. It adds **[`subscribeReposAsMessages`](../../guides/firehose.md)**, which yields decoded, typed Firehose messages, on top of every generated `com.atproto.sync.*` method.
 :::
 
 #### Service Usage Examples
@@ -315,7 +315,7 @@ Future<void> main() async {
 <!-- /snippet -->
 
 :::tip
-See **[API Supported Matrix](../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
+See **[API Supported Matrix](../../supported_api.md#atproto)** for a list of endpoints supported by **[atproto](https://pub.dev/packages/atproto)**.
 :::
 
 ### Let's Implement
@@ -359,26 +359,26 @@ Future<void> main() async {
 <!-- /snippet -->
 
 :::tip
-See **[API Support Matrix](../supported_api.md#atproto)** for all supported endpoints.
+See **[API Support Matrix](../../supported_api.md#atproto)** for all supported endpoints.
 :::
 
 ## More Tips 🏄
 
 These topics behave identically whether you drive them through `atproto` or
-`bluesky`, so they are documented once in the **[Guides](../guides/authentication.md)**
+`bluesky`, so they are documented once in the **[Guides](../../guides/authentication.md)**
 section rather than twice here:
 
 | Guide | What it covers |
 | --- | --- |
-| **[Authentication](../guides/authentication.md)** | Creating, persisting and refreshing sessions; app passwords; two-factor sign-in |
-| **[Custom Services](../guides/custom_services.md)** | Pointing the client at your own PDS, a relay, or the public AppView |
-| **[Error Handling](../guides/error_handling.md)** | The exception hierarchy, and what rate limiting actually does |
-| **[Retries and Timeouts](../guides/retries_and_timeouts.md)** | Retry strategies, backoff, and the idempotency guard that protects procedures |
-| **[Pagination](../guides/pagination.md)** | Cursor loops, and the condition that actually ends one |
-| **[Working with Data](../guides/working_with_data.md)** | Serialization, sealed union types, and unknown fields |
-| **[Lexicon IDs](../guides/lexicon_ids.md)** | The generated constants for every Lexicon and object ID |
-| **[Firehose](../guides/firehose.md)** | Streaming repository events, and staying connected |
-| **[HTTP Client](../guides/http_client.md)** | Injecting a shared, proxied, instrumented or fake transport |
+| **[Authentication](../../guides/authentication.md)** | Creating, persisting and refreshing sessions; app passwords; two-factor sign-in |
+| **[Custom Services](../../guides/custom_services.md)** | Pointing the client at your own PDS, a relay, or the public AppView |
+| **[Error Handling](../../guides/error_handling.md)** | The exception hierarchy, and what rate limiting actually does |
+| **[Retries and Timeouts](../../guides/retries_and_timeouts.md)** | Retry strategies, backoff, and the idempotency guard that protects procedures |
+| **[Pagination](../../guides/pagination.md)** | Cursor loops, and the condition that actually ends one |
+| **[Working with Data](../../guides/working_with_data.md)** | Serialization, sealed union types, and unknown fields |
+| **[Lexicon IDs](../../guides/lexicon_ids.md)** | The generated constants for every Lexicon and object ID |
+| **[Firehose](../../guides/firehose.md)** | Streaming repository events, and staying connected |
+| **[HTTP Client](../../guides/http_client.md)** | Injecting a shared, proxied, instrumented or fake transport |
 
 ## Related Packages
 
@@ -398,4 +398,4 @@ For advanced text processing in Bluesky posts:
 
 ### Package Overview
 
-See the **[Package Overview](./overview.md)** for a complete list of all available packages and their relationships.
+See the **[Package Overview](../overview.md)** for a complete list of all available packages and their relationships.

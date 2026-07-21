@@ -236,5 +236,5 @@ Namespace anything you invent. If you write a bare `via` field and Bluesky later
 ## Related Reading 📚 {#related-reading}
 
 - **[Error Handling](./error_handling.md)** — what `CheckedFromJsonException` and `InvalidRequestException` mean at the call site
-- **[atproto](../packages/atproto.md)** — the Firehose, where the `unknown` union variant earns its keep
-- **[bluesky](../packages/bluesky.md)** — the Bluesky-specific models these rules apply to
+- **[atproto](../products/packages/atproto.md)** — the Firehose, where the `unknown` union variant earns its keep
+- **[bluesky](../products/packages/bluesky.md)** — the Bluesky-specific models these rules apply to

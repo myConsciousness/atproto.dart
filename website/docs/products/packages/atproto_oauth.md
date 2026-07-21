@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 title: atproto_oauth
 description: Pluggable OAuth 2.0 with DPoP client for AT Protocol.
 ---
@@ -26,7 +26,7 @@ description: Pluggable OAuth 2.0 with DPoP client for AT Protocol.
 ### Install
 
 :::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
+See the **[Install Package](../../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
 :::
 
 **With Dart:**

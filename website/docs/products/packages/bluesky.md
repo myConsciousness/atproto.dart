@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: bluesky
 description: API wrapper for Bluesky things.
 ---
@@ -50,7 +50,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 - ✅ **Built In [atproto](./atproto.md) Features**
 
 :::tip
-See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+See **[API Supported Matrix](../../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
 :::
 
 :::info **Building for Multiple AT Protocol Services?**
@@ -69,7 +69,7 @@ However, if you're building specifically for Bluesky, this package provides ever
 ### Install
 
 :::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
+See the **[Install Package](../../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
 :::
 
 **With Dart:**
@@ -138,7 +138,7 @@ You need to use **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky
 As shown in the following example, the key point in instantiating **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object is **whether the endpoint you wish to use requires authentication**.
 
 :::tip
-See **[API Supported Matrix](../supported_api.md#bluesky)** for whether or not authentication is required for each endpoint.
+See **[API Supported Matrix](../../supported_api.md#bluesky)** for whether or not authentication is required for each endpoint.
 :::
 
 If authentication is required, first create a session with the ATP server using your credentials with the `.createSession` function.
@@ -183,7 +183,7 @@ Future<void> main() async {
 <!-- /snippet -->
 
 :::info
-See **[Authentication](../guides/authentication.md)** for more details about authentication.
+See **[Authentication](../../guides/authentication.md)** for more details about authentication.
 :::
 
 :::note
@@ -374,7 +374,7 @@ Future<void> main() async {
 <!-- /snippet -->
 
 :::tip
-See **[API Supported Matrix](../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
+See **[API Supported Matrix](../../supported_api.md#bluesky)** for a list of endpoints supported by **[bluesky](https://pub.dev/packages/bluesky)**.
 :::
 
 ### Let's Implement
@@ -407,7 +407,7 @@ Future<void> main() async {
 <!-- /snippet -->
 
 :::tip
-See **[API Support Matrix](../supported_api.md#bluesky)** for all supported endpoints.
+See **[API Support Matrix](../../supported_api.md#bluesky)** for all supported endpoints.
 :::
 
 ### Feed Operations
@@ -777,20 +777,20 @@ Future<void> main() async {
 ## More Tips 🏄
 
 These topics behave identically whether you drive them through `atproto` or
-`bluesky`, so they are documented once in the **[Guides](../guides/authentication.md)**
+`bluesky`, so they are documented once in the **[Guides](../../guides/authentication.md)**
 section rather than twice here:
 
 | Guide | What it covers |
 | --- | --- |
-| **[Authentication](../guides/authentication.md)** | Creating, persisting and refreshing sessions; app passwords; two-factor sign-in |
-| **[Custom Services](../guides/custom_services.md)** | Pointing the client at your own PDS, a relay, or the public AppView |
-| **[Error Handling](../guides/error_handling.md)** | The exception hierarchy, and what rate limiting actually does |
-| **[Retries and Timeouts](../guides/retries_and_timeouts.md)** | Retry strategies, backoff, and the idempotency guard that protects procedures |
-| **[Pagination](../guides/pagination.md)** | Cursor loops, and the condition that actually ends one |
-| **[Working with Data](../guides/working_with_data.md)** | Serialization, sealed union types, and unknown fields |
-| **[Lexicon IDs](../guides/lexicon_ids.md)** | The generated constants for every Lexicon and object ID |
-| **[Firehose](../guides/firehose.md)** | Streaming repository events, and staying connected |
-| **[HTTP Client](../guides/http_client.md)** | Injecting a shared, proxied, instrumented or fake transport |
+| **[Authentication](../../guides/authentication.md)** | Creating, persisting and refreshing sessions; app passwords; two-factor sign-in |
+| **[Custom Services](../../guides/custom_services.md)** | Pointing the client at your own PDS, a relay, or the public AppView |
+| **[Error Handling](../../guides/error_handling.md)** | The exception hierarchy, and what rate limiting actually does |
+| **[Retries and Timeouts](../../guides/retries_and_timeouts.md)** | Retry strategies, backoff, and the idempotency guard that protects procedures |
+| **[Pagination](../../guides/pagination.md)** | Cursor loops, and the condition that actually ends one |
+| **[Working with Data](../../guides/working_with_data.md)** | Serialization, sealed union types, and unknown fields |
+| **[Lexicon IDs](../../guides/lexicon_ids.md)** | The generated constants for every Lexicon and object ID |
+| **[Firehose](../../guides/firehose.md)** | Streaming repository events, and staying connected |
+| **[HTTP Client](../../guides/http_client.md)** | Injecting a shared, proxied, instrumented or fake transport |
 
 ### Moderation API
 
@@ -1115,4 +1115,4 @@ For advanced text processing and rich text features:
 
 ### Package Overview
 
-See the **[Package Overview](./overview.md)** for a complete list of all available packages and their relationships.
+See the **[Package Overview](../overview.md)** for a complete list of all available packages and their relationships.

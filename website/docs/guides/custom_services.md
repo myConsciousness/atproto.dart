@@ -19,7 +19,7 @@ Every constructor — `fromSession`, `fromOAuth`, `fromOAuthSession`, and `anony
 | Parameter | Default | Used by |
 | --- | --- | --- |
 | `service` | `bsky.social` | Queries and procedures — the PDS or AppView |
-| `relayService` | `bsky.network` | Subscriptions, notably the [Firehose](../packages/atproto.md) — the relay |
+| `relayService` | `bsky.network` | Subscriptions, notably the [Firehose](../products/packages/atproto.md) — the relay |
 
 They are independent. Overriding `service` alone leaves subscriptions pointed at `bsky.network`, which is usually what you want when you run your own PDS but consume the public relay. Set `relayService` only when you run or proxy a relay yourself.
 

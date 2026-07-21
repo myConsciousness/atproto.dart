@@ -29,7 +29,7 @@ export const features: IFeatureProps[] = [
           safely: <strong>confidently</strong>,
           do_not_need: <strong>don't need</strong>,
           type_secured: <strong>fully type-safe</strong>,
-          moderation_api: <a href={"https://atprotodart.com/docs/packages/bluesky/#moderation-api"}><strong>comprehensive moderation API</strong></a>
+          moderation_api: <a href={"https://atprotodart.com/docs/products/packages/bluesky/#moderation-api"}><strong>comprehensive moderation API</strong></a>
         }}
       >
         {`Build AT Protocol and Bluesky applications with our comprehensive SDK featuring {atproto} and {bluesky} packages.

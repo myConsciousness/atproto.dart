@@ -8,7 +8,7 @@ description: Create, use, refresh and revoke AT Protocol sessions with atproto a
 
 AT Protocol has two ways to authenticate against a PDS. **OAuth** is the modern one, and the one a public third-party client should prefer. **Sessions** — `com.atproto.server.createSession`, where you hand the server an identifier and a password and get a token pair back — are the older mechanism, and still the simplest thing to reach for in a script, a bot, or a backend that owns the credentials.
 
-This guide covers the session path. Everything here applies equally to **[atproto](../packages/atproto.md)** and **[bluesky](../packages/bluesky.md)**, because `Bluesky` is built on the same session machinery as `ATProto`; the examples use `bluesky` and call out the places where the two differ.
+This guide covers the session path. Everything here applies equally to **[atproto](../products/packages/atproto.md)** and **[bluesky](../products/packages/bluesky.md)**, because `Bluesky` is built on the same session machinery as `ATProto`; the examples use `bluesky` and call out the places where the two differ.
 
 :::info
 `package:bluesky/atproto.dart` re-exports exactly three symbols — `createSession`, `refreshSession` and `deleteSession` — so a `bluesky`-only app never needs a direct dependency on `atproto` just to sign in. It does **not** re-export the `ATProto` class; reach that through `bsky.atproto`.

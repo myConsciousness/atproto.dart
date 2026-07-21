@@ -88,7 +88,7 @@ void _generatePackageSection(
 ) {
   matrix
     ..writeln()
-    ..writeln('## [$packageName](packages/$packageName)')
+    ..writeln('## [$packageName](products/packages/$packageName)')
     ..writeln()
     ..write(_generatePackageBadges(packageName));
 

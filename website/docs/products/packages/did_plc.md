@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 title: did_plc
 description: Independent DID PLC Directory client for Dart with caching, streaming, and cryptographic utilities.
 ---

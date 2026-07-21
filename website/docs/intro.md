@@ -60,7 +60,7 @@ dart run post_to_bluesky.dart
 That's it! You've just created a working Bluesky client in a handful of lines. The same simplicity extends to building feeds, managing follows, handling media uploads, and every other AT Protocol feature.
 
 :::tip
-You can see a list of available packages in **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** in the **[Packages/Tools](./packages/overview.md)** section.
+You can see a list of available packages in **[atproto.dart](https://github.com/myConsciousness/atproto.dart)** in the **[Packages/Tools](./products/overview.md)** section.
 :::
 
 ## Key Features ✨
@@ -85,14 +85,14 @@ Designed to support any AT Protocol service, not just Bluesky.
 - **Custom Lexicons**: Easy integration of new AT Protocol schemas and endpoints
 
 ### 📦 **Packages You'll Actually Reach For**
-- **[bluesky](./packages/bluesky.md)**: The full Bluesky toolkit — posts, feeds, chat, moderation. Start here.
-- **[atproto](./packages/atproto.md)**: AT Protocol itself, for services beyond Bluesky.
-- **[atproto_oauth](./packages/atproto_oauth.md)**: OAuth 2.0 with DPoP — the recommended way to sign users in.
-- **[bluesky_text](./packages/bluesky_text.md)**: Facet detection and correct post-length counting.
-- **[bluesky_cli](./packages/bluesky_cli.md)**: Try the APIs from your terminal in under a minute — `dart pub global activate bluesky_cli`.
+- **[bluesky](./products/packages/bluesky.md)**: The full Bluesky toolkit — posts, feeds, chat, moderation. Start here.
+- **[atproto](./products/packages/atproto.md)**: AT Protocol itself, for services beyond Bluesky.
+- **[atproto_oauth](./products/packages/atproto_oauth.md)**: OAuth 2.0 with DPoP — the recommended way to sign users in.
+- **[bluesky_text](./products/packages/bluesky_text.md)**: Facet detection and correct post-length counting.
+- **[bluesky_cli](./products/tools/bluesky_cli.md)**: Try the APIs from your terminal in under a minute — `dart pub global activate bluesky_cli`.
 
 Lower-level packages like `at_primitives`, `xrpc`, and `multiformats` come along
-automatically. See the **[package overview](./packages/overview.md)** for the full
+automatically. See the **[package overview](./products/overview.md)** for the full
 list of 15 packages and how they fit together.
 
 ## Design Principles 🎨

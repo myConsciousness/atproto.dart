@@ -1,10 +1,10 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 # Supported API
 
-## [atproto](packages/atproto)
+## [atproto](products/packages/atproto)
 
 [![pub package](https://img.shields.io/pub/v/atproto.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/atproto) [![Dart SDK Version](https://badgen.net/pub/sdk-version/atproto)](https://pub.dev/packages/atproto/)
 
@@ -140,7 +140,7 @@ sidebar_position: 5
 | **[com.atproto.temp.requestPhoneVerification](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/requestPhoneVerification.html)** | [Reference](lexicons/com/atproto/temp/requestPhoneVerification.md) | ❌ |
 | **[com.atproto.temp.revokeAccountCredentials](https://pub.dev/documentation/atproto/latest/com_atproto_services/TempService/revokeAccountCredentials.html)** | [Reference](lexicons/com/atproto/temp/revokeAccountCredentials.md) | ❌ |
 
-## [bluesky](packages/bluesky)
+## [bluesky](products/packages/bluesky)
 
 [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky) [![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
 

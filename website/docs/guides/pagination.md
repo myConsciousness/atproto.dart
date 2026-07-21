@@ -14,7 +14,7 @@ The cursor is opaque on purpose. It is not an offset and not a page number, and 
 For the protocol-level definition of cursors, [see the XRPC specification](https://atproto.com/specs/xrpc#cursors-and-pagination).
 :::
 
-This behaviour is identical in **[atproto](../packages/atproto.md)** and **[bluesky](../packages/bluesky.md)**, since `Bluesky` builds on the same XRPC layer. The examples below use `bluesky`; the `atproto`-only form is [shown at the end](#with-atproto).
+This behaviour is identical in **[atproto](../products/packages/atproto.md)** and **[bluesky](../products/packages/bluesky.md)**, since `Bluesky` builds on the same XRPC layer. The examples below use `bluesky`; the `atproto`-only form is [shown at the end](#with-atproto).
 
 ## The basic loop 🔁
 

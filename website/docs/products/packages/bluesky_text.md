@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 title: bluesky_text
 description: Utility for Bluesky's RichText.
 ---
@@ -36,7 +36,7 @@ For complete Bluesky API integration, see **[bluesky](./bluesky.md)**.
 ### Install
 
 :::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
+See the **[Install Package](../../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
 :::
 
 **With Dart:**

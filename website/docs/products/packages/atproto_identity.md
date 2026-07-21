@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: atproto_identity
 description: Handle/DID resolution and service-auth JWT verification for AT Protocol.
 ---
@@ -37,7 +37,7 @@ description: Handle/DID resolution and service-auth JWT verification for AT Prot
 ### Install
 
 :::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
+See the **[Install Package](../../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
 :::
 
 **With Dart:**
