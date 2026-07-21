@@ -1,443 +1,347 @@
 ---
 sidebar_position: 6
 title: did_plc
-description: Independent DID PLC Directory client for Dart with high-performance caching, streaming, and cryptographic utilities.
+description: Independent DID PLC Directory client for Dart with caching, streaming, and cryptographic utilities.
 ---
 
 # did_plc [![pub package](https://img.shields.io/pub/v/did_plc.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/did_plc) [![Dart SDK Version](https://badgen.net/pub/sdk-version/did_plc)](https://pub.dev/packages/did_plc/)
 
-**did_plc** is a high-performance, independent Dart/Flutter library for interacting with [DID PLC Directory](https://web.plc.directory) services. This library provides a complete implementation of the DID PLC specification with zero external dependencies on atproto packages.
+**did_plc** is a Dart/Flutter client for [DID PLC Directory](https://web.plc.directory) services. It covers DID document resolution, operation-log retrieval, caching, streaming export, and the cryptography needed to sign PLC operations.
 
-This package focuses on DID (Decentralized Identifier) operations and PLC (Public Ledger of Credentials) directory interactions, making it ideal for identity resolution, DID document management, and cryptographic operations in AT Protocol applications.
+It does not depend on the `atproto` or `bluesky` packages, so you can resolve identities without pulling in a full AT Protocol client.
 
 - **[GitHub Repository](https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc)**
 - **[API Documentation](https://pub.dev/documentation/did_plc/latest/)**
-- **[Package Homepage](https://atprotodart.com)**
+- **[Runnable Examples](https://github.com/myConsciousness/atproto.dart/tree/main/packages/did_plc/example)**
 
 :::info **Package Selection Guide**
 **Use did_plc for:**
-- Independent DID PLC directory operations
-- High-performance identity resolution
-- Cryptographic operations and key management
-- Streaming large datasets from PLC directory
-- Applications requiring zero atproto dependencies
 
-**Use [atproto](./atproto.md) or [bluesky](./bluesky.md) for:**
-- Full AT Protocol functionality
-- Social features and content management
-- Integrated DID operations within larger applications
+- Resolving DIDs to DID documents without an AT Protocol client
+- Reading operation logs and auditable logs
+- Streaming the PLC directory export
+- Signing PLC operations
 
-💡 **Note:** The atproto and bluesky packages include did_plc functionality—you don't need both unless you specifically need the independent implementation.
+**Look elsewhere for:**
+
+- Resolving a handle *or* DID to a full identity (DID + PDS + signing key) — use **[atproto_identity](./atproto_identity.md)**, which builds on this package
+- Talking to a PDS — use **[atproto](./atproto.md)** or **[bluesky](./bluesky.md)**
+
+Note that `atproto` and `bluesky` do **not** bundle `did_plc`. If you need PLC directory access alongside them, add this package explicitly.
 :::
 
 ## Features ⭐
 
-- ✅ **Zero atproto Dependencies** - Completely independent implementation
-- ✅ **High Performance** - Built-in caching, batching, and streaming support
-- ✅ **Type Safe** - Full type safety with freezed data classes
-- ✅ **Comprehensive** - Complete DID PLC specification support
-- ✅ **Well Tested** - 100% test coverage with comprehensive test suite
-- ✅ **Modern Dart** - Uses latest Dart features and null safety
-- ✅ **Cryptographic Support** - Built-in signing and verification utilities
-- ✅ **Developer Friendly** - Rich error handling and debugging support
-- ✅ **Memory Efficient** - Intelligent memory management with configurable limits
-- ✅ **Concurrent Processing** - Optimized for high-throughput concurrent operations
-- ✅ **JSONL Streaming** - Efficient parsing of large JSONL datasets
-- ✅ **Backpressure Control** - Smart flow control for streaming operations
+- ✅ Resolve DIDs to **DID documents**
+- ✅ Read **operation logs** and **auditable logs**
+- ✅ **Batch resolution** with per-DID success and failure reporting
+- ✅ **Streaming export** for large datasets
+- ✅ Optional **caching** with TTL and LRU eviction
+- ✅ Configurable **retry policy** with exponential backoff
+- ✅ **Cryptographic utilities** for building and signing operations
+- ✅ Type safe via **freezed** data classes
+- ✅ Runs on **Dart and Flutter**, including web, via `universal_io`
 
 ## Getting Started 💪
 
 ### Install
 
-:::tip
-See the **[Install Package](../getting_started/install_package.md)** section for more details on how to install a package in your [Dart](https://dart.dev) and [Flutter](https://flutter.dev) app.
-:::
-
-**With Dart:**
-
 ```bash
 dart pub add did_plc
 ```
 
-```bash
-dart pub get
-```
-
-**With Flutter:**
+Or for Flutter:
 
 ```bash
 flutter pub add did_plc
 ```
 
-```bash
-flutter pub get
-```
-
 ### Import
 
-Just by writing following one-line import, you can use all functionality provided by **[did_plc](https://pub.dev/packages/did_plc)**.
-
 ```dart
 import 'package:did_plc/did_plc.dart';
 ```
 
-### Instantiate **PLC**
+### Resolve a DID
 
-You need to use **[PLC](https://pub.dev/documentation/did_plc/latest/did_plc/PLC-class.html)** object to access most of the features supported by **[did_plc](https://pub.dev/packages/did_plc)**. Since DID PLC Directory is a public service, no authentication is required.
+`PLC()` targets `https://plc.directory` by default. Always `close()` the client when you are done, so its HTTP connections and cache are released.
 
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> main() async {
-  // Create a PLC client - no authentication required
-  final plc = PLC();
-
-  try {
-    // Fetch a DID document
-    final document = await plc.findDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
-    print('DID Document: ${document.id}');
-    
-    // Get operation log
-    final operationLog = await plc.findOperationLog('did:plc:iijrtk7ocored6zuziwmqq3c');
-    print('Operations: ${operationLog.operations.length}');
-    
-  } on NetworkException catch (e) {
-    print('Network error: ${e.message}');
-  } on PlcException catch (e) {
-    print('PLC error: ${e.message}');
-  } finally {
-    // Always close the client
-    plc.close();
-  }
-}
-```
-
-### Let's Implement
-
-Okay then, let's try some endpoints!
-
-The following example demonstrates basic DID PLC operations including document retrieval, operation logs, and batch processing.
-
-```dart
+<!-- snippet: did_plc/basic.dart -->
+```dart title="basic.dart"
 import 'package:did_plc/did_plc.dart';
 
 Future<void> main() async {
   final plc = PLC();
 
   try {
-    // Fetch a DID document
-    final document = await plc.findDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
-    print('DID Document: ${document.id}');
-    
-    // Get operation log
-    final operationLog = await plc.findOperationLog('did:plc:iijrtk7ocored6zuziwmqq3c');
-    print('Operations: ${operationLog.operations.length}');
-    
-    // Batch process multiple DIDs
-    final dids = ['did:plc:abc123', 'did:plc:def456', 'did:plc:ghi789'];
-    final documents = await plc.findDocuments(dids);
-    
-    for (final entry in documents.entries) {
-      print('${entry.key}: ${entry.value.id}');
-    }
-    
+    final document = await plc.getDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
+
+    print('DID: ${document.id}');
+    print('Handles: ${document.alsoKnownAs}');
+    print('Services: ${document.service.length}');
   } finally {
     plc.close();
   }
 }
 ```
+<!-- /snippet -->
 
 ## More Tips 🏄
 
-### Basic DID Operations
+### Document data and operation logs
 
-The PLC client provides comprehensive DID document and operation management:
+Beyond the resolved document, the directory exposes the underlying document data and the full history of operations applied to a DID.
 
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> basicOperations() async {
-  final plc = PLC();
-
-  try {
-    // Document operations
-    final document = await plc.findDocument('did:plc:example');
-    final documentData = await plc.findDocumentData('did:plc:example');
-
-    // Operation log operations
-    final operationLog = await plc.findOperationLog('did:plc:example');
-    final auditLog = await plc.findAuditLog('did:plc:example');
-    final lastOperation = await plc.findLastOperation('did:plc:example');
-
-    // Health check
-    final health = await plc.health();
-    
-    print('Document ID: ${document.id}');
-    print('Operations: ${operationLog.operations.length}');
-    print('Service healthy: ${health.version}');
-    
-  } finally {
-    plc.close();
-  }
-}
-```
-
-### Batch Processing
-
-Efficiently process multiple DIDs in parallel:
-
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> batchProcessing() async {
-  final plc = PLC();
-
-  try {
-    final dids = [
-      'did:plc:abc123',
-      'did:plc:def456', 
-      'did:plc:ghi789'
-    ];
-    
-    // Instead of multiple individual requests
-    // final doc1 = await plc.findDocument(dids[0]);
-    // final doc2 = await plc.findDocument(dids[1]);
-    // final doc3 = await plc.findDocument(dids[2]);
-
-    // Use batch processing for better performance
-    final documents = await plc.findDocuments(dids);
-
-    // Process results
-    for (final entry in documents.entries) {
-      print('${entry.key}: ${entry.value.id}');
-    }
-    
-  } finally {
-    plc.close();
-  }
-}
-```
-
-### Streaming Large Datasets
-
-Handle large datasets efficiently with streaming:
-
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> streamingExample() async {
-  final plc = PLC();
-
-  try {
-    // Stream export data with backpressure control
-    await for (final entry in plc.exportStream(
-      after: DateTime.now().subtract(Duration(days: 1)),
-      count: 1000,
-      bufferSize: 100,
-      maxConcurrency: 5,
-    )) {
-      // Process each entry as it arrives
-      print('Processing: ${entry.did}');
-      await processAuditLogEntry(entry);
-    }
-    
-  } finally {
-    plc.close();
-  }
-}
-
-Future<void> processAuditLogEntry(dynamic entry) async {
-  // Your processing logic here
-  await Future.delayed(Duration(milliseconds: 10));
-}
-```
-
-### Custom Configuration
-
-Configure the PLC client for optimal performance:
-
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> advancedConfiguration() async {
-  final plc = PLC(
-    service: 'https://plc.directory',
-    cachePolicy: CachePolicy(
-      ttl: Duration(minutes: 15),           // Cache for 15 minutes
-      maxSize: 2000,                        // Maximum 2000 entries
-      evictionPolicy: EvictionPolicy.lru,   // LRU eviction
-    ),
-    retryPolicy: RetryPolicy(
-      maxAttempts: 3,
-      initialDelay: Duration(seconds: 1),
-      backoffMultiplier: 2.0,
-    ),
-    httpTimeout: Duration(seconds: 30),
-    maxConcurrentRequests: 10,
-  );
-
-  try {
-    final document = await plc.findDocument('did:plc:example');
-    print('Document: ${document.id}');
-  } finally {
-    plc.close();
-  }
-}
-```
-
-### Caching
-
-Built-in intelligent caching reduces network requests and improves performance:
-
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> cachingExample() async {
-  final plc = PLC(
-    cachePolicy: CachePolicy(
-      ttl: Duration(minutes: 10),      // Cache for 10 minutes
-      maxSize: 1000,                   // Maximum 1000 entries
-      evictionPolicy: EvictionPolicy.lru, // LRU eviction
-    ),
-  );
-
-  try {
-    // First call - fetches from network
-    final doc1 = await plc.findDocument('did:plc:example');
-    
-    // Second call - served from cache
-    final doc2 = await plc.findDocument('did:plc:example');
-    
-    // Monitor cache performance
-    final stats = plc.cacheStats;
-    print('Cache hit rate: ${stats.hitRate}%');
-    print('Memory usage: ${stats.memoryUsage}MB');
-    
-  } finally {
-    plc.close();
-  }
-}
-```
-
-### Cryptographic Operations
-
-Create and verify PLC operations with built-in cryptographic utilities:
-
-```dart
-import 'package:did_plc/did_plc.dart';
-
-Future<void> cryptographicOperations() async {
-  final plc = PLC();
-
-  try {
-    // Create operation builder
-    final builder = OperationBuilder()
-      ..type = 'plc_operation'
-      ..rotationKeys = ['did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK']
-      ..verificationMethods = {
-        'atproto': 'did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK'
-      };
-
-    // Sign and submit operation
-    final operation = await plc.createOperation(builder);
-    final cid = await plc.submitOperation(operation);
-    
-    print('Operation submitted: $cid');
-    
-  } finally {
-    plc.close();
-  }
-}
-```
-
-### De/Serialize
-
-All objects representing JSON objects returned from the API provided by **[did_plc](https://pub.dev/packages/did_plc)** are generated using [freezed](https://pub.dev/packages/freezed) and [json_serializable](https://pub.dev/packages/json_serializable). So, it allows for easy JSON-based de/serialize of these model objects based on the common contract between the `fromJson` and `toJson` methods.
-
-For example, if you have the following code:
-
-```dart
+<!-- snippet: did_plc/document_data.dart -->
+```dart title="document_data.dart"
 import 'package:did_plc/did_plc.dart';
 
 Future<void> main() async {
   final plc = PLC();
 
   try {
-    // Find a DID document
-    final document = await plc.findDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
-    
-    // Serialize to JSON
-    print(document.toJson());
-    
-    // Deserialize from JSON
-    final json = document.toJson();
-    final serializedDocument = DidDocument.fromJson(json);
-    
+    const did = 'did:plc:iijrtk7ocored6zuziwmqq3c';
+
+    // The document data behind the DID document.
+    final data = await plc.getDocumentData(did);
+    print('Rotation keys: ${data.rotationKeys}');
+
+    // Every operation ever applied to this DID.
+    final log = await plc.getOperationLog(did);
+    print('Operations: ${log.log.length}');
+
+    // The most recent operation only.
+    final last = await plc.getLastOp(did);
+
+    // The audit log includes nullified operations.
+    final auditable = await plc.getAuditableLog(did);
   } finally {
     plc.close();
   }
 }
 ```
+<!-- /snippet -->
 
-### Thrown Exceptions
+`OperationLog` exposes its entries as `log`, and `getAuditableLog` additionally includes operations that were later nullified.
 
-The following exceptions may be thrown when using **[did_plc](https://pub.dev/packages/did_plc)**:
+### Batch resolution
 
-| Exception | Description | Retriable |
-| --------- | ----------- | :-------: |
-| **NetworkException** | Thrown when network connectivity issues occur. | ✅ |
-| **PlcException** | Thrown when PLC-specific errors occur (e.g., DID not found). | ❌ |
-| **ValidationException** | Thrown when input validation fails. | ❌ |
-| **CacheException** | Thrown when cache-related errors occur. | ❌ |
-| **TimeoutException** | Thrown when operations timeout. | ✅ |
+`getDocuments` resolves several DIDs at once but fails as a whole if any lookup fails. `getDocumentsBatch` reports each DID separately, which is usually what you want when the input is user-supplied.
 
-:::info
-Exceptions with `Retriable` set to ✅ are subject to **automatic retry** with exponential backoff. Exceptions with ❌ cannot be retried.
-:::
-
-### Resource Management
-
-Proper resource management with automatic cleanup:
-
-```dart
+<!-- snippet: did_plc/batch.dart -->
+```dart title="batch.dart"
 import 'package:did_plc/did_plc.dart';
 
-// Manual resource management
-Future<void> manualResourceManagement() async {
+Future<void> main() async {
   final plc = PLC();
+
+  const dids = [
+    'did:plc:iijrtk7ocored6zuziwmqq3c',
+    'did:plc:z72i7hdynmk6r22z27h6tvur',
+  ];
+
   try {
-    final document = await plc.findDocument('did:plc:example');
-    print('Document: ${document.id}');
+    // Fails as a whole if any lookup fails.
+    final documents = await plc.getDocuments(dids);
+    for (final entry in documents.entries) {
+      print('${entry.key} -> ${entry.value.alsoKnownAs}');
+    }
+
+    // Reports per-DID outcomes instead, so one bad DID cannot sink the batch.
+    final result = await plc.getDocumentsBatch(
+      dids,
+      config: const BatchProcessorConfig(batchSize: 10, maxConcurrency: 5),
+    );
+
+    print('Succeeded: ${result.successes.length}');
+    for (final failure in result.failures.entries) {
+      print('Failed ${failure.key}: ${failure.value}');
+    }
   } finally {
-    // Always close to free resources
     plc.close();
   }
 }
+```
+<!-- /snippet -->
 
-// Automatic resource management
-Future<void> automaticResourceManagement() async {
-  final result = await PLC.withClient((plc) async {
-    return await plc.findDocument('did:plc:example');
-  });
-  
-  print('Document: ${result.id}');
-  // Client automatically closed
+### Streaming large exports
+
+`exportOpsStream` yields operations lazily, so a large export never has to fit in memory.
+
+<!-- snippet: did_plc/streaming.dart -->
+```dart title="streaming.dart"
+import 'package:did_plc/did_plc.dart';
+
+Future<void> main() async {
+  final plc = PLC();
+
+  try {
+    // Streams operations lazily, so a large export never has to fit in memory.
+    final operations = plc.exportOpsStream(
+      after: DateTime.now().subtract(const Duration(hours: 1)),
+      count: 100,
+    );
+
+    await for (final operation in operations) {
+      if (operation.isNullified) continue;
+
+      print('${operation.createdAt} ${operation.did} (${operation.cid})');
+    }
+  } finally {
+    plc.close();
+  }
 }
+```
+<!-- /snippet -->
+
+### Caching
+
+Pass a `CacheManager` to cache read operations. Eviction is controlled by `enableLru` on the policy.
+
+<!-- snippet: did_plc/cache.dart -->
+```dart title="cache.dart"
+import 'package:did_plc/did_plc.dart';
+
+Future<void> main() async {
+  // `enableLru` controls eviction; there is no separate eviction policy type.
+  final cacheManager = CacheManager(
+    const CachePolicy(
+      ttl: Duration(minutes: 10),
+      maxSize: 500,
+      enableLru: true,
+    ),
+  );
+
+  final plc = PLC(cacheManager: cacheManager);
+
+  try {
+    const did = 'did:plc:iijrtk7ocored6zuziwmqq3c';
+
+    await plc.getDocument(did); // Fetched over the network.
+    await plc.getDocument(did); // Served from the cache.
+
+    final stats = cacheManager.stats;
+    print('Cached entries: ${stats.totalSize}');
+    print('DID document hit rate: ${stats.didDocuments.hitRate}');
+    print('Utilization: ${stats.overallUtilization}');
+  } finally {
+    // Closing the client also releases the cache it was given.
+    plc.close();
+  }
+}
+```
+<!-- /snippet -->
+
+`CachePolicy` also ships `.aggressive()`, `.minimal()`, and `.disabled()` presets.
+
+### Retries and error handling
+
+Retries use exponential backoff and are configured per client. Every exception in this package extends `PlcException`, and the network-related ones extend `NetworkException`.
+
+<!-- snippet: did_plc/retry_and_errors.dart -->
+```dart title="retry_and_errors.dart"
+import 'package:did_plc/did_plc.dart';
+
+Future<void> main() async {
+  final plc = PLC(
+    retryPolicy: const RetryPolicy(
+      maxAttempts: 5,
+      initialDelay: Duration(seconds: 1),
+      backoffMultiplier: 2.0,
+      maxDelay: Duration(seconds: 30),
+    ),
+  );
+
+  try {
+    final document = await plc.getDocument('did:plc:iijrtk7ocored6zuziwmqq3c');
+    print(document.id);
+  } on NotFoundException catch (e) {
+    print('No such DID: ${e.message}');
+  } on RateLimitException catch (e) {
+    print('Rate limited: ${e.message}');
+  } on ValidationException catch (e) {
+    print('Malformed DID: ${e.message}');
+  } on RetryExhaustedException catch (e) {
+    print('Gave up after retries: ${e.message}');
+  } on NetworkException catch (e) {
+    // TimeoutException, ServiceUnavailableException and ConnectionException
+    // all extend NetworkException, so this catches them too.
+    print('Network failure: ${e.message} (${e.statusCode})');
+  } on PlcException catch (e) {
+    print('PLC error: ${e.message}');
+  } finally {
+    plc.close();
+  }
+}
+```
+<!-- /snippet -->
+
+| Exception | Raised when |
+| --- | --- |
+| `NotFoundException` | The DID is not registered |
+| `ValidationException` | The DID or operation is malformed |
+| `RateLimitException` | The directory returned `429` |
+| `TimeoutException` | The request exceeded its deadline |
+| `ServiceUnavailableException` | The directory returned `5xx` |
+| `ConnectionException` | The connection could not be established |
+| `RetryExhaustedException` | Every retry attempt failed |
+| `CryptoException` | Signing or key parsing failed |
+| `GenericPlcException` | Anything else the directory reported |
+
+`TimeoutException`, `RateLimitException`, `ServiceUnavailableException`, `ConnectionException`, and `NotFoundException` all extend `NetworkException`, so a single `on NetworkException` clause catches them.
+
+### Signing operations
+
+`PLC` is a **read-only** client: it resolves documents and logs but never submits operations. Build an operation with `OperationBuilder`, sign it with `PlcSigner`, then submit it to the directory yourself.
+
+<!-- snippet: did_plc/crypto.dart -->
+```dart title="crypto.dart"
+import 'dart:typed_data';
+
+import 'package:did_plc/did_plc.dart';
+
+void main() {
+  // Your 32-byte private key, however you obtained it.
+  final privateKeyBytes = Uint8List(32);
+  final key = CryptoKey.secp256k1(privateKeyBytes);
+
+  // Build the operation payload.
+  final operation = OperationBuilder()
+      .type('plc_operation')
+      .rotationKeys(['did:key:zQ3sh...'])
+      .verificationMethods({'atproto': 'did:key:zQ3sh...'})
+      .alsoKnownAs(['at://alice.bsky.social'])
+      .services({
+        'atproto_pds': {
+          'type': 'AtprotoPersonalDataServer',
+          'endpoint': 'https://example.com',
+        },
+      })
+      .build();
+
+  // Sign it. `PLC` itself is read-only; submitting is out of scope for this
+  // package, so hand the signed operation to the PLC directory yourself.
+  final signature = PlcSigner().signRawOperation(operation, key);
+  print('Signature: $signature');
+}
+```
+<!-- /snippet -->
+
+`OperationBuilder` uses fluent methods that each return the builder, terminated by `build()`.
+
+### De/Serialize
+
+Every type is JSON-serializable.
+
+```dart
+final json = document.toJson();
+final restored = DidDocument.fromJson(json);
 ```
 
 ## Related Packages
 
-### Need Full AT Protocol Features?
-
-If you need comprehensive AT Protocol functionality beyond DID operations, consider these packages:
-
-- **[atproto](./atproto.md)** - Core AT Protocol functionality for any AT Protocol service
-- **[bluesky](./bluesky.md)** - Complete Bluesky development toolkit with social features
-
-### Utility Packages
-
-These packages work well with did_plc:
-
-- **[at_primitives](https://github.com/myConsciousness/atproto.dart/tree/main/packages/at_primitives)** - AT Protocol primitive types
-- **[multiformats](https://github.com/myConsciousness/atproto.dart/tree/main/packages/multiformats)** - Content addressing and CID support
-- **[xrpc](https://github.com/myConsciousness/atproto.dart/tree/main/packages/xrpc)** - HTTP client for XRPC communication
+| Package | Use it for |
+| --- | --- |
+| **[atproto_identity](./atproto_identity.md)** | Resolving handles and DIDs to a full identity; builds on this package |
+| **[atproto](./atproto.md)** | Core AT Protocol (`com.atproto.*`) endpoints |
+| **[bluesky](./bluesky.md)** | Bluesky (`app.bsky.*`, `chat.bsky.*`) endpoints |
