@@ -90,9 +90,7 @@ Concurrent requests that all hit an expired token share a single in-flight refre
 
 `refreshSession` does not return the email fields, so the refreshed session is merged *over* the current one: `accessJwt`, `refreshJwt`, `didDoc`, `handle`, `active` and `status` are replaced, while `email`, `emailConfirmed` and `emailAuthFactor` are carried forward.
 
-:::caution
-`Bluesky.fromSession` wires this hook onto the nested `bsky.atproto` client only. `app.bsky.*` calls made through `bsky.feed`, `bsky.actor` and friends run on a separate context that has no refresh hook, so an expired access token surfaces to you as `UnauthorizedException` instead of being rotated. Until that is unified, a long-lived `bluesky` client should either refresh on a schedule (below) or catch `UnauthorizedException`, refresh, and rebuild the client.
-:::
+`Bluesky` shares this one context with the `bsky.atproto` client nested inside it, so a refresh triggered by any call — `bsky.feed.getTimeline()` or `bsky.atproto.repo.uploadBlob()` — rotates the credentials both of them see. Read the current tokens back from `bsky.session`, which reflects the refresh.
 
 ### Persisting Credentials
 
