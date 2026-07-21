@@ -38,9 +38,18 @@ phases:
 
   post_build:
     commands:
+      # CodeBuild runs post_build even when build fails, so publishing must be
+      # gated on CODEBUILD_BUILD_SUCCEEDING. Without this a failed build still
+      # reaches the sync below, and because that sync runs with --delete, a
+      # failure that leaves build/ empty or partial would wipe the live site.
       - |
         [ "$(cat /tmp/deploy)" = "1" ] || exit 0
+        if [ "$CODEBUILD_BUILD_SUCCEEDING" != "1" ]; then
+          echo "build failed - refusing to publish"
+          exit 1
+        fi
         cd "$CODEBUILD_SRC_DIR/website"
+        test -f ./build/index.html || { echo "build/index.html missing - refusing to publish"; exit 1; }
         aws s3 sync ./build "s3://$S3_ORIGIN_BUCKET/" --delete
         aws cloudfront create-invalidation \
           --distribution-id "$CLOUDFRONT_DIST_ID" \
