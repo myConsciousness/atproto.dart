@@ -69,6 +69,22 @@ base class ServiceContext {
   /// `OAuthSessionManager._inflightRefresh` for the OAuth path.
   Future<Session>? _inflightRefresh;
 
+  final StreamController<Session> _sessionUpdates =
+      StreamController<Session>.broadcast();
+
+  /// Emits the refreshed [Session] every time an expired access token is
+  /// renewed, so the owner of the credentials can re-persist them.
+  ///
+  /// Without this, an automatic refresh is invisible outside the client:
+  /// [session] holds the new credentials, but nothing tells the caller to read
+  /// it. Because refresh tokens are single-use, a caller that keeps persisting
+  /// the session it originally passed in ends up storing a spent refresh
+  /// token, and the next run restores a session that can no longer be
+  /// refreshed. Mirrors `OAuthSessionManager.onSessionUpdated`, which covers
+  /// the same need for the OAuth path — this stream is the legacy
+  /// (app-password) counterpart and stays silent on OAuth-backed contexts.
+  Stream<Session> get onSessionUpdated => _sessionUpdates.stream;
+
   /// Caches the decoded access-token expiry so the pre-flight refresh check
   /// does not re-run `decodeJwt` on every authenticated request. Keyed by the
   /// access JWT string, so it is implicitly invalidated whenever the session
@@ -410,6 +426,11 @@ base class ServiceContext {
     final future = refresh(current)
         .then((refreshed) {
           _currentSession = refreshed;
+          //! Broadcast after adopting it, so a listener that reads `session`
+          //! sees the credentials it was just handed. Never awaited: a slow or
+          //! throwing listener must not delay or fail the request that
+          //! triggered the refresh.
+          _sessionUpdates.add(refreshed);
 
           return refreshed;
         })

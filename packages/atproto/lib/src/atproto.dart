@@ -150,6 +150,23 @@ sealed class ATProto {
   /// [ATProto.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Emits the refreshed session every time an expired access token is
+  /// renewed, so the owner of the credentials can re-persist them.
+  ///
+  /// [ATProto.fromSession] refreshes automatically, and [session] then holds
+  /// the new credentials — but nothing otherwise tells the caller to read it
+  /// back. Because refresh tokens are single-use, persisting the session
+  /// originally passed in would store a spent refresh token, and the next run
+  /// would restore a session that can no longer be refreshed.
+  ///
+  /// ```dart
+  /// atproto.onSessionUpdated.listen(store.save);
+  /// ```
+  ///
+  /// Silent on OAuth-backed instances; use
+  /// `oAuthSessionManager.onSessionUpdated` for those.
+  Stream<core.Session> get onSessionUpdated;
+
   /// Returns the current OAuth session manager.
   ///
   /// Set only when this instance was created via [ATProto.fromOAuth] or
@@ -272,6 +289,9 @@ final class _ATProto implements ATProto {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  Stream<core.Session> get onSessionUpdated => _ctx.onSessionUpdated;
 
   @override
   oauth.OAuthSessionManager? get oAuthSessionManager =>

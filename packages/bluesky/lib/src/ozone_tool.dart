@@ -32,18 +32,7 @@ sealed class OzoneTool {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _OzoneTool(
-    core.ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      session: session,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _OzoneTool.fromAtproto(
     atp.ATProto.fromSession(
       session,
       headers: headers,
@@ -69,18 +58,7 @@ sealed class OzoneTool {
     final core.RetryStrategy? retryConfig,
     final core.GetClient? getClient,
     final core.PostClient? postClient,
-  }) => _OzoneTool(
-    core.ServiceContext(
-      headers: headers,
-      protocol: protocol,
-      service: service,
-      relayService: relayService,
-      oAuthSessionManager: manager,
-      timeout: timeout,
-      retryConfig: retryConfig,
-      getClient: getClient,
-      postClient: postClient,
-    ),
+  }) => _OzoneTool.fromAtproto(
     atp.ATProto.fromOAuth(
       manager,
       headers: headers,
@@ -129,6 +107,19 @@ sealed class OzoneTool {
   /// Set only if an instance of this object was created in
   /// [OzoneTool.fromSession], otherwise null.
   core.Session? get session;
+
+  /// Emits the refreshed session every time an expired access token is
+  /// renewed, so the owner of the credentials can re-persist them.
+  ///
+  /// A `fromSession` instance refreshes automatically, and [session] then
+  /// holds the new credentials — but nothing otherwise tells the caller to
+  /// read it back. Because refresh tokens are single-use, persisting the
+  /// session originally passed in would store a spent refresh token, and the
+  /// next run would restore a session that can no longer be refreshed.
+  ///
+  /// Silent on OAuth-backed instances; use
+  /// `oAuthSessionManager.onSessionUpdated` for those.
+  Stream<core.Session> get onSessionUpdated;
 
   /// Returns the current OAuth session manager.
   ///
@@ -189,7 +180,16 @@ sealed class OzoneTool {
 }
 
 final class _OzoneTool implements OzoneTool {
-  _OzoneTool(final core.ServiceContext ctx, this.atproto)
+  /// Drives every `tools.ozone.*` service from [atproto]'s own context.
+  ///
+  /// A second context would carry a second copy of the session, and only one
+  /// of the two would ever be refreshed — see [atp.ATProto.ctx]. It is safe to
+  /// adopt this one wholesale: every factory above builds [atproto] with the
+  /// same arguments the discarded context received.
+  factory _OzoneTool.fromAtproto(final atp.ATProto atproto) =>
+      _OzoneTool._(atproto.ctx, atproto);
+
+  _OzoneTool._(final core.ServiceContext ctx, this.atproto)
     : communication = CommunicationService(ctx),
       hosting = HostingService(ctx),
       moderation = ModerationService(ctx),
@@ -209,6 +209,9 @@ final class _OzoneTool implements OzoneTool {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  Stream<core.Session> get onSessionUpdated => _ctx.onSessionUpdated;
 
   @override
   oauth.OAuthSessionManager? get oAuthSessionManager =>

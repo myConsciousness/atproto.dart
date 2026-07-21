@@ -351,6 +351,65 @@ void main() {
       },
     );
 
+    test('emits the refreshed session on onSessionUpdated', () async {
+      final context = ServiceContext(
+        session: session(),
+        onRefreshSession: (current) async =>
+            current.copyWith(accessJwt: 'new-token', refreshJwt: 'new-refresh'),
+        getClient: (url, {headers}) async =>
+            headers?['Authorization'] == 'Bearer new-token'
+            ? json(url, 200, '{}')
+            : json(url, 401, '{"error":"ExpiredToken"}'),
+      );
+
+      final updates = <Session>[];
+      context.onSessionUpdated.listen(updates.add);
+
+      await context.get<Map<String, Object?>>(
+        NSID.create('server.atproto.com', 'getSession'),
+        to: (json) => json,
+      );
+      //! The stream is async; give the broadcast a turn to be delivered.
+      await Future<void>.delayed(Duration.zero);
+
+      //! Without this a caller cannot know the rotation happened, and would go
+      //! on persisting a refresh token the server has already spent.
+      expect(updates, hasLength(1));
+      expect(updates.single.accessJwt, 'new-token');
+      expect(updates.single.refreshJwt, 'new-refresh');
+    });
+
+    test('emits once when concurrent requests share one refresh', () async {
+      final context = ServiceContext(
+        session: session(),
+        onRefreshSession: (current) async {
+          await Future<void>.delayed(const Duration(milliseconds: 10));
+
+          return current.copyWith(accessJwt: 'new-token');
+        },
+        getClient: (url, {headers}) async =>
+            headers?['Authorization'] == 'Bearer new-token'
+            ? json(url, 200, '{}')
+            : json(url, 401, '{"error":"ExpiredToken"}'),
+      );
+
+      final updates = <Session>[];
+      context.onSessionUpdated.listen(updates.add);
+
+      await Future.wait([
+        for (var i = 0; i < 3; i++)
+          context.get<Map<String, Object?>>(
+            NSID.create('server.atproto.com', 'getSession'),
+            to: (json) => json,
+          ),
+      ]);
+      await Future<void>.delayed(Duration.zero);
+
+      //! One refresh (deduplicated by `_inflightRefresh`) means exactly one
+      //! notification — a listener that persists must not be handed three.
+      expect(updates, hasLength(1));
+    });
+
     test('rethrows and refreshes only once when still unauthorized', () async {
       int refreshCalls = 0;
       int calls = 0;
