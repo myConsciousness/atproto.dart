@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.3.0
+
+- feat: added `dagCborEncode`, a canonical DAG-CBOR encoder (length-first map-key ordering, minimal-length integers, tag-42 CID links, and the atproto `$link`/`$bytes` map forms). Its output is exact on both the Dart VM and the web, so a record's bytes — and therefore its CID — can be computed locally.
+
 ## v1.2.0
 
 - feat: `CID.toAtprotoJson()` emits the atproto data-model `{$link: ...}` form (`toJson` continues to emit DAG-JSON `{/: ...}`; `fromJson` accepts both).

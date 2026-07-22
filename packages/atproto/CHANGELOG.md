@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.2.1
+
+- chore: widen `atproto_core` to `^2.2.0` and `xrpc` to `^1.1.3`.
+
 ## v2.2.0
 
 - feat: added `ATProto.onSessionUpdated`, surfacing `ServiceContext.onSessionUpdated` so callers can re-persist credentials rotated by an automatic refresh. Without it an app that persists the session it constructed the client with ends up storing a spent refresh token, since refresh tokens are single-use.

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.4
+
+- chore: widen `at_primitives` to `^1.2.0`, `xrpc` to `^1.1.3`, and `bluesky_text` to `^1.5.4`.
+
 ## v0.6.3
 
 - chore: bump `bluesky_text` to `^1.5.3`.

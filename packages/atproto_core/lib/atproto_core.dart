@@ -7,6 +7,7 @@ export 'package:at_primitives/nsid.dart' show NSID;
 
 export 'package:atproto_core/src/clients/base_http_service.dart';
 export 'package:atproto_core/src/car_decoder.dart';
+export 'package:atproto_core/src/record_cid.dart';
 export 'package:atproto_core/src/utils.dart' show isValidAppPassword;
 export 'package:atproto_core/src/clients/challenge.dart';
 export 'package:atproto_core/src/clients/service_context.dart';

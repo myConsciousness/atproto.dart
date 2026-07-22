@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.4
+
+- chore: bump `lexicon` to `^1.2.3`.
+
 ## v0.4.3
 
 - docs: fix the logo `alt` text (`atproto_core` → `lex_gen`).

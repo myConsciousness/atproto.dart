@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.5.4
+
+- chore: bump `xrpc` to `^1.1.3`.
+
 ## v1.5.3
 
 - chore: bump dev dependency `bluesky` to `^2.1.0`.
