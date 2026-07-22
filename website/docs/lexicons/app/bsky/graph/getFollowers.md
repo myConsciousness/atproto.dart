@@ -16,6 +16,7 @@ Enumerates accounts which follow a specified account (actor).
 | **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
+| **sort** | string | latest<br/>top | ❌ | - |
 
 ### Output
 

@@ -24,7 +24,9 @@ import '../../../../nsids.g.dart' as ns;
 import 'graph/defs/list_purpose.dart';
 import 'graph/getActorStarterPacks/output.dart';
 import 'graph/getBlocks/output.dart';
+import 'graph/getFollowers/main_sort.dart';
 import 'graph/getFollowers/output.dart';
+import 'graph/getFollows/main_sort.dart';
 import 'graph/getFollows/output.dart';
 import 'graph/getKnownFollowers/output.dart';
 import 'graph/getList/output.dart';
@@ -106,6 +108,7 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
   required String actor,
   int? limit,
   String? cursor,
+  GraphGetFollowersSort? sort,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -119,6 +122,7 @@ Future<XRPCResponse<GraphGetFollowersOutput>> appBskyGraphGetFollowers({
     'actor': actor,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
+    if (sort != null) 'sort': sort.toJson(),
   },
   to: const GraphGetFollowersOutputConverter().fromJson,
 );
@@ -128,6 +132,7 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
   required String actor,
   int? limit,
   String? cursor,
+  GraphGetFollowsSort? sort,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -141,6 +146,7 @@ Future<XRPCResponse<GraphGetFollowsOutput>> appBskyGraphGetFollows({
     'actor': actor,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
+    if (sort != null) 'sort': sort.toJson(),
   },
   to: const GraphGetFollowsOutputConverter().fromJson,
 );
@@ -585,6 +591,7 @@ base class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    GraphGetFollowersSort? sort,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -592,6 +599,7 @@ base class GraphService {
     actor: actor,
     limit: limit,
     cursor: cursor,
+    sort: sort,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -603,6 +611,7 @@ base class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    GraphGetFollowsSort? sort,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -610,6 +619,7 @@ base class GraphService {
     actor: actor,
     limit: limit,
     cursor: cursor,
+    sort: sort,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

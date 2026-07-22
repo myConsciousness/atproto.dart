@@ -19,7 +19,8 @@ final class GetFollowersCommand extends QueryCommand {
     argParser
       ..addOption("actor", mandatory: true)
       ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption("cursor")
+      ..addOption("sort");
   }
 
   @override
@@ -31,7 +32,7 @@ final class GetFollowersCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-graph get-followers --actor=<value> [--limit=<value>] [--cursor=<value>]";
+      "bsky app-bsky-graph get-followers --actor=<value> [--limit=<value>] [--cursor=<value>] [--sort=<value>]";
 
   @override
   String get methodId => "app.bsky.graph.getFollowers";
@@ -43,5 +44,6 @@ final class GetFollowersCommand extends QueryCommand {
         int.tryParse(argResults!["limit"]) ??
         usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("sort")) "sort": argResults!["sort"],
   };
 }
