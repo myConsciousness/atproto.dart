@@ -5056,6 +5056,10 @@ const appBskyGraphGetFollowers = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "sort": {
+            "type": "string",
+            "knownValues": ["latest", "top"],
+          },
         },
       },
       "output": {
@@ -5104,6 +5108,10 @@ const appBskyGraphGetFollows = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "sort": {
+            "type": "string",
+            "knownValues": ["latest", "top"],
+          },
         },
       },
       "output": {

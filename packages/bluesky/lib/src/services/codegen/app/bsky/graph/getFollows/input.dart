@@ -11,6 +11,9 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './main_sort.dart';
+
 part 'input.freezed.dart';
 part 'input.g.dart';
 
@@ -20,13 +23,14 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphGetFollowsInput with _$GraphGetFollowsInput {
-  static const knownProps = <String>['actor', 'limit', 'cursor'];
+  static const knownProps = <String>['actor', 'limit', 'cursor', 'sort'];
 
   @JsonSerializable(includeIfNull: false)
   const factory GraphGetFollowsInput({
     required String actor,
     @Default(50) int limit,
     String? cursor,
+    @GraphGetFollowsSortConverter() GraphGetFollowsSort? sort,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphGetFollowsInput;
@@ -38,6 +42,8 @@ abstract class GraphGetFollowsInput with _$GraphGetFollowsInput {
 extension GraphGetFollowsInputExtension on GraphGetFollowsInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
+  bool get hasSort => sort != null;
+  bool get hasNotSort => !hasSort;
 }
 
 final class GraphGetFollowsInputConverter

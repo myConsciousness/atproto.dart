@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/codegen/app/bsky/graph/getFollowers/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/graph/getFollowers/main_sort.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/graph/getFollowers/output.dart';
