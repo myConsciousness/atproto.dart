@@ -1,5 +1,10 @@
 # Release Note
 
+## v1.1.3
+
+- refactor: `encodeDagCbor` now delegates to `multiformats`' canonical `dagCborEncode` instead of a second hand-written encoder, removing the duplicate implementation. The `CryptoException` contract and the encoded bytes for every PLC operation are unchanged.
+- chore: bump `multiformats` to `^1.3.0`.
+
 ## v1.1.2
 
 - docs: fixed the broken `Advanced Features` / `Caching` / `Performance Best Practices` examples in the README, which passed a non-existent `cachePolicy:` argument to the `PLC(...)` factory. They now inject a cache via the real `cacheManager: CacheManager(CachePolicy(...))` form, matching `example/cache_example.dart`.

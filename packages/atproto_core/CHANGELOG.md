@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.2.0
+
+- feat: added `computeRecordCid`, which returns the CID a PDS will assign to a record by canonically DAG-CBOR-encoding it and hashing to a CIDv1. This lets a caller reference a record before it is written — for example to chain reply references across records submitted in one `com.atproto.repo.applyWrites` batch.
+- chore: widen `at_primitives` to `^1.2.0`, `multiformats` to `^1.3.0`, and `xrpc` to `^1.1.3`.
+
 ## v2.1.0
 
 - feat: added `ServiceContext.onSessionUpdated`, a broadcast stream that emits the refreshed `Session` each time an expired access token is renewed. `session` already reflected the new credentials, but nothing told the caller to read it back — and because refresh tokens are single-use, a caller that kept persisting the session it originally passed in stored a spent refresh token, so the next run restored a session that could no longer be refreshed. Mirrors `OAuthSessionManager.onSessionUpdated` for the legacy (app-password) path; it stays silent on OAuth-backed contexts. Concurrent requests that share one deduplicated refresh emit exactly one event.

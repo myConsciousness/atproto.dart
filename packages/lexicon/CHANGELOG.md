@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.3
+
+- chore: bump `at_primitives` to `^1.2.0`.
+
 ## v1.2.2
 
 - chore: bump `at_primitives` to `^1.1.1`.

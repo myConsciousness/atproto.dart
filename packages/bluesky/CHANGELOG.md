@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.2.2
+
+- chore: widen `atproto` to `^2.2.1` and `atproto_core` to `^2.2.0`.
+
 ## v2.2.1
 
 - feat: added `app.bsky.unspecced.defs#skeletonTrend.description`

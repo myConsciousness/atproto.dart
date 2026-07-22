@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.0
+
+- feat: added `TidGenerator`, a stateful, strictly-monotonic TID generator for record keys. `next()` never repeats or regresses, even when the system clock is coarse or steps backwards, and the encoding is exact on both the VM and the web.
+
 ## v1.1.1
 
 - docs: fixed the README, which imported the non-existent `package:at_primitives/at_primitives.dart` barrel throughout; every snippet now imports the correct sub-barrel (`at_identifier.dart`/`at_uri.dart`/`nsid.dart`/`tid.dart`/`record_key.dart`).

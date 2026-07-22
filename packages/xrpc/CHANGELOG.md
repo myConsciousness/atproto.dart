@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.1.3
+
+- chore: bump `at_primitives` to `^1.2.0`.
+
 ## v1.1.2
 
 - docs: rewrote the README example, which imported non-existent `atproto.Session`/`atproto.CurrentSession` and used fictional NSIDs; it now matches the working `example/example.dart` (`server.atproto.com`/`createSession`/`getSession`, no `atproto` import).
