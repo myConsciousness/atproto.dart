@@ -49,6 +49,7 @@ The Age Assurance configuration for a specific region.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **platforms** | array of string | - | ❌ | The platforms this configuration applies to. If omitted, the configuration applies to all platforms. |
 | **countryCode** | string | - | ✅ | The ISO 3166-1 alpha-2 country code this configuration applies to. |
 | **regionCode** | string | - | ❌ | The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country. |
 | **minAccessAge** | integer | - | ✅ | The minimum age (as a whole integer) required to use Bluesky in this region. |

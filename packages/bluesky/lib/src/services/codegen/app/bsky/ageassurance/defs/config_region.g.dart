@@ -17,6 +17,15 @@ _ConfigRegion _$ConfigRegionFromJson(Map json) => $checkedCreate(
         r'$type',
         (v) => v as String? ?? 'app.bsky.ageassurance.defs#configRegion',
       ),
+      platforms: $checkedConvert(
+        'platforms',
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) =>
+                  const ConfigRegionPlatformsConverter().fromJson(e as String),
+            )
+            .toList(),
+      ),
       countryCode: $checkedConvert('countryCode', (v) => v as String),
       regionCode: $checkedConvert('regionCode', (v) => v as String?),
       minAccessAge: $checkedConvert('minAccessAge', (v) => (v as num).toInt()),
@@ -52,6 +61,9 @@ Map<String, dynamic> _$ConfigRegionToJson(
   _ConfigRegion instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
+  'platforms': ?instance.platforms
+      ?.map(const ConfigRegionPlatformsConverter().toJson)
+      .toList(),
   'countryCode': instance.countryCode,
   'regionCode': ?instance.regionCode,
   'minAccessAge': instance.minAccessAge,
