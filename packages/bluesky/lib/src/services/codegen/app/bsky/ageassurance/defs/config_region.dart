@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './config_region_additional_verification_methods.dart';
+import './config_region_platforms.dart';
 import './union_config_region_rules.dart';
 
 part 'config_region.freezed.dart';
@@ -26,6 +27,7 @@ part 'config_region.g.dart';
 @freezed
 abstract class ConfigRegion with _$ConfigRegion {
   static const knownProps = <String>[
+    'platforms',
     'countryCode',
     'regionCode',
     'minAccessAge',
@@ -36,6 +38,7 @@ abstract class ConfigRegion with _$ConfigRegion {
   @JsonSerializable(includeIfNull: false)
   const factory ConfigRegion({
     @Default('app.bsky.ageassurance.defs#configRegion') String $type,
+    @ConfigRegionPlatformsConverter() List<ConfigRegionPlatforms>? platforms,
 
     /// The ISO 3166-1 alpha-2 country code this configuration applies to.
     required String countryCode,

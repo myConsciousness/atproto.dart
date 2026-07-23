@@ -1174,6 +1174,15 @@ const appBskyAgeassuranceDefs = <String, dynamic>{
       "description": "The Age Assurance configuration for a specific region.",
       "required": ["countryCode", "minAccessAge", "rules"],
       "properties": {
+        "platforms": {
+          "type": "array",
+          "description":
+              "The platforms this configuration applies to. If omitted, the configuration applies to all platforms.",
+          "items": {
+            "type": "string",
+            "knownValues": ["web", "ios", "android"],
+          },
+        },
         "countryCode": {
           "type": "string",
           "description":

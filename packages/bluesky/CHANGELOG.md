@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.2.3
+
+- feat: added `app.bsky.ageassurance.defs#configRegion.platforms`
+- chore: regenerated from synced lexicons
+
 ## v2.2.2
 
 - chore: widen `atproto` to `^2.2.1` and `atproto_core` to `^2.2.0`.
