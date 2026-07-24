@@ -6663,6 +6663,12 @@ const appBskyNotificationListNotifications = <String, dynamic>{
         },
         "reasonSubject": {"type": "string", "format": "at-uri"},
         "record": {"type": "unknown"},
+        "starterPack": {
+          "type": "ref",
+          "description":
+              "The starter pack associated with this notification. Present when the notification is for a follow originating from a starter pack.",
+          "ref": "app.bsky.graph.defs#starterPackViewBasic",
+        },
         "isRead": {"type": "boolean"},
         "indexedAt": {"type": "string", "format": "datetime"},
         "labels": {

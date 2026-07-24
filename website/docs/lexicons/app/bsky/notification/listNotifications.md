@@ -40,6 +40,7 @@ Enumerate notifications for the requesting account. Requires auth.
 | **reason** | string | like<br/>repost<br/>follow<br/>mention<br/>reply<br/>quote<br/>starterpack-joined<br/>verified<br/>unverified<br/>like-via-repost<br/>repost-via-repost<br/>subscribed-post<br/>contact-match | ✅ | The reason why this notification was delivered - e.g. your post was liked, or you received a new follower. |
 | **reasonSubject** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **record** | unknown | - | ✅ | - |
+| **starterPack** | [app.bsky.graph.defs#starterPackViewBasic](../../../../lexicons/app/bsky/graph/defs.md#starterpackviewbasic) | - | ❌ | - |
 | **isRead** | boolean | - | ✅ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
