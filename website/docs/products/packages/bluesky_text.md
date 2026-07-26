@@ -472,11 +472,19 @@ print(isLinkFacade(displayText: 'click here', uri: link)); // false
 final staging = Uri.parse('https://staging.bsky.app');
 print(isLinkFacade(displayText: 'bsky.app', uri: staging)); // false
 
+// An email address carries a host too, and is compared on its domain.
+print(isLinkFacade(displayText: 'support@bsky.app', uri: link)); // true
+
+// A handle mention names a person, not a site, so it is never flagged.
+print(isLinkFacade(displayText: '@alice.bsky.social', uri: link)); // false
+
 // Shows what a punycode host actually says.
 print(toDisplayHost('xn--80ak6aa92e.com')); // аррӏе.com
 ```
 
-Display text counts as a URL only when it carries an explicit `http`/`https` scheme or is a domain this package would linkify on its own, so ordinary link text such as `click here`, `Node.js` or `main.dart` is never flagged. Two hosts match when they are equal or one is a subdomain of the other, ignoring case, `www.`, a trailing root dot, the port and the path — and an `xn--` host is the same host as its decoded Unicode form. `toDisplayHost` decodes that form, so a warning can show the reader what the host says.
+Display text counts as a host-bearing when it carries an explicit `http`/`https` scheme, is a domain this package would linkify on its own, or is an email address — whose domain is then compared like any other host. Ordinary link text such as `click here`, `Node.js` or `main.dart` is never flagged, and neither is a handle mention such as `@alice.bsky.social`, nor prose that merely contains an `@` such as `Meet me @ bsky.app`. Two hosts match when they are equal or one is a subdomain of the other, ignoring case, `www.`, a trailing root dot, the port and the path — and an `xn--` host is the same host as its decoded Unicode form. `toDisplayHost` decodes that form, so a warning can show the reader what the host says.
+
+The email rule only ever matters when rendering a post from the network, where the facet's byte range was chosen by that post's author and can be laid over any text at all. It is inert on the composition side, because this package produces no facet of any kind over an email address, so text you just ran through `BlueskyText` can never present one.
 
 :::caution
 This compares a display text against a link host, and nothing more. It does not detect homographs (a host spelled in Cyrillic that renders like Latin), redirects and link shorteners, or deceptive display text that is not a URL at all. It is a check for one specific shape, not a general phishing filter.

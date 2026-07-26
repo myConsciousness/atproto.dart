@@ -20,6 +20,16 @@ final _authorityEndRegex = RegExp(r'[/?#]');
 
 final _digitsRegex = RegExp(r'^[0-9]+$');
 
+/// The local part of an email address, as loosely as it can be defined: at
+/// least one character, none of them a space or a second `@`.
+///
+/// This is deliberately far looser than RFC 5322, because the local part is
+/// discarded either way. All it decides is whether the text reads as a single
+/// address rather than prose that happens to contain an `@` — `Meet me @
+/// bsky.app` and `3 @ $5` fail it, and so does `@alice.bsky.social`, whose
+/// local part is empty.
+final _emailLocalPartRegex = RegExp(r'^[^\s@]+$');
+
 /// Zero-width and directional formatting characters. They are invisible, so
 /// they change nothing about how a display text reads to a human, but they
 /// would break the domain match and let a facade slip through unflagged.
@@ -61,15 +71,39 @@ const _wwwPrefix = 'www.';
 /// `run.sh`) does read as a host — to this function and to every other link
 /// detector on the network alike.
 ///
-/// A display text with no scheme containing `@` before the path is read as an
-/// email address and is never flagged, matching the linkifier, which produces
-/// no facet for an email. With an explicit scheme the `@` is userinfo, and a
-/// userinfo that itself reads as a domain is the host a reader believes they
-/// are seeing: `https://bsky.app@evil.example.com` is compared as `bsky.app`,
-/// so pointing it at `evil.example.com` is flagged even though that host is
-/// the one the URL really resolves to. A userinfo that is an ordinary
-/// user name (`https://alice@example.com`) is ignored and the real host is
-/// compared.
+/// ## Display text with an `@`
+///
+/// An email address carries a host and reads as one: `support@paypal.com` is
+/// at least as reassuring to a reader as `paypal.com` is. So a schemeless
+/// display text that is email-shaped is compared on the domain after its last
+/// `@`, under the same rules as any other host — the `validDomain` gate,
+/// `www.` stripping, punycode decoding, case and trailing-dot normalization,
+/// and the subdomain relation. `support@paypal.com` linking to
+/// `evil.example.com` is flagged; `alice@example.com` linking to
+/// `evil.example.com` is not, because that host sits under the domain the
+/// address names, and whoever owns a domain owns what is beneath it.
+///
+/// This matters only when rendering: the byte range of a facet on a post from
+/// the network was chosen by that post's author, so a link facet can be laid
+/// over any text at all, including an address. On the composition side it
+/// changes nothing, because this package produces no facet of any kind over an
+/// email — a caller checking facets it just built from `BlueskyText` can never
+/// hand this function one.
+///
+/// Text is email-shaped only when the part before the last `@` is a single
+/// token: at least one character, no whitespace and no second `@`. Prose that
+/// merely contains an `@` (`Meet me @ bsky.app`, `3 @ $5`) is not, and neither
+/// is a handle mention (`@alice.bsky.social`), whose local part is empty. That
+/// last one is the important exclusion: a handle is a domain and would sail
+/// through `validDomain`, so reading mentions as addresses would fire a
+/// warning on text that names a person rather than a site.
+///
+/// With an explicit scheme the `@` is userinfo instead, and a userinfo that
+/// itself reads as a domain is the host a reader believes they are seeing:
+/// `https://bsky.app@evil.example.com` is compared as `bsky.app`, so pointing
+/// it at `evil.example.com` is flagged even though that host is the one the
+/// URL really resolves to. A userinfo that is an ordinary user name
+/// (`https://alice@example.com`) is ignored and the real host is compared.
 ///
 /// ## When two hosts match
 ///
@@ -148,22 +182,25 @@ String? _resolveDisplayHost(final String displayText) {
   }
   if (authority.isEmpty) return null;
 
-  final userInfoEnd = authority.lastIndexOf('@');
-  if (userInfoEnd >= 0) {
-    //* Without a scheme this is an email address, which this package never
-    //* linkifies, so it is not a URL-looking display text.
-    if (!hasScheme) return null;
+  final atSignEnd = authority.lastIndexOf('@');
+  if (atSignEnd >= 0) {
+    final beforeAtSign = authority.substring(0, atSignEnd);
 
-    //* `https://bsky.app@evil.example.com` is a URL whose host is
-    //* `evil.example.com`, but a reader sees a host right after the scheme.
-    //* When the userinfo itself reads as a domain it is the host the display
-    //* text claims, so it is the one that has to match the link.
-    final decoy = _normalizeHost(
-      authority.substring(0, userInfoEnd).split(':').first,
-    );
-    if (_domainRegex.hasMatch(decoy)) return _stripWww(decoy);
+    if (hasScheme) {
+      //* `https://bsky.app@evil.example.com` is a URL whose host is
+      //* `evil.example.com`, but a reader sees a host right after the scheme.
+      //* When the userinfo itself reads as a domain it is the host the display
+      //* text claims, so it is the one that has to match the link.
+      final decoy = _normalizeHost(beforeAtSign.split(':').first);
+      if (_domainRegex.hasMatch(decoy)) return _stripWww(decoy);
+    } else if (!_emailLocalPartRegex.hasMatch(beforeAtSign)) {
+      //* Not an email address, just some text with an `@` in it. A handle
+      //* mention lands here, and must: `@alice.bsky.social` names a person,
+      //* not a site, and its empty local part is what says so.
+      return null;
+    }
 
-    authority = authority.substring(userInfoEnd + 1);
+    authority = authority.substring(atSignEnd + 1);
   }
 
   final host = _normalizeHost(_stripPort(authority));
