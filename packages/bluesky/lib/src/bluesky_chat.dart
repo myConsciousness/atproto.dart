@@ -19,6 +19,25 @@ const _kBskyChatProxyHeaders = <String, String>{
 /// Provides `chat.bsky.*` services.
 sealed class BlueskyChat {
   /// Returns the new instance of [BlueskyChat].
+  ///
+  /// This builds a fresh [atp.ATProto], and therefore a fresh
+  /// [core.ServiceContext] carrying its own copy of [session].
+  ///
+  /// A `chat.bsky.*` client cannot share that context with another client, as
+  /// `Bluesky.fromAtproto` and `OzoneTool.fromAtproto` allow. Routing these
+  /// calls to the chat service takes an `atproto-proxy` header, headers belong
+  /// to the context rather than to the client reading from it, and a shared
+  /// context would therefore proxy the other client's `app.bsky.*` and
+  /// `com.atproto.*` calls to the chat service as well.
+  ///
+  /// That is worth knowing, because refresh tokens are single-use: a
+  /// [BlueskyChat] and any other client for the same account hold two copies
+  /// of one session, and whichever context first notices an expired access
+  /// token spends the refresh token the other one still holds. The other
+  /// client's own refresh is then rejected, and its next call fails with an
+  /// `UnauthorizedException`. Both directions are equally affected, so an app
+  /// that runs both keeps them in step by rebuilding one from the session the
+  /// other's [onSessionUpdated] emits.
   factory BlueskyChat.fromSession(
     final core.Session session, {
     final Map<String, String>? headers,
