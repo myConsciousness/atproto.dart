@@ -74,12 +74,30 @@ Handler createFeedGeneratorHandler({
     })
     ..get('/xrpc/app.bsky.feed.getFeedSkeleton', (final Request request) async {
       final params = request.url.queryParameters;
-      final limit = _parseLimit(params['limit']);
+
+      // Serve only the feed this service publishes. Answering every AT-URI
+      // with the same skeleton makes the service a willing stand-in for feeds
+      // it does not own. A multi-feed service dispatches here instead.
+      final requestedFeed = params['feed'];
+      if (feedUri != null &&
+          requestedFeed != null &&
+          requestedFeed != feedUri) {
+        return _json({
+          'error': 'UnknownFeed',
+          'message': 'This service does not serve the requested feed',
+        }, status: 400);
+      }
+
+      final int limit;
+      try {
+        limit = _parseLimit(params['limit']);
+      } on InvalidRequestException catch (e) {
+        return _json({
+          'error': 'InvalidRequest',
+          'message': e.message,
+        }, status: 400);
+      }
       final cursor = params['cursor'];
-      // This template serves a single feed, so the `feed` AT-URI parameter is
-      // not inspected. A multi-feed service should read `params['feed']`,
-      // dispatch to the matching algorithm, and return an `UnknownFeed` error
-      // (HTTP 400) for an unrecognised feed.
 
       String? viewerDid;
       if (verifyAuth != null) {
@@ -96,12 +114,16 @@ Handler createFeedGeneratorHandler({
               'error': 'AuthRequired',
               'message': 'Service auth verification failed',
             }, status: 401);
-          } on Exception catch (e) {
+          } on Object catch (e) {
             // Verification can also fail on infrastructure, not the token:
             // resolving the issuer's DID document performs network I/O, so a
             // SocketException/ClientException would otherwise escape as an
             // uncaught 500. Answer 502: the upstream resolver, not the
             // client, is at fault.
+            //
+            // `Object`, not `Exception`: a resolver that answers a hostile
+            // DID document with a RangeError or a FormatError throws an
+            // `Error`, which is exactly the input an attacker controls.
             stderr.writeln('service auth verification errored: $e');
             return _json({
               'error': 'UpstreamFailure',
@@ -123,6 +145,19 @@ Handler createFeedGeneratorHandler({
           'error': 'InvalidRequest',
           'message': e.message,
         }, status: 400);
+      } on Object catch (e, stackTrace) {
+        // The algorithm is user-supplied: a bug in it (a RangeError on an
+        // empty page, say) is an `Error`, not an `Exception`, so catching
+        // `Exception` alone would let it escape into shelf's default 500 —
+        // a non-JSON body the AppView cannot parse, with the stack trace
+        // logged wherever shelf points. Answer the lexicon's shape and keep
+        // the detail server-side.
+        stderr.writeln('getFeedSkeleton failed: $e\n$stackTrace');
+
+        return _json({
+          'error': 'InternalServerError',
+          'message': 'Could not build the feed skeleton',
+        }, status: 500);
       }
 
       return _json(output.toJson());
@@ -131,10 +166,20 @@ Handler createFeedGeneratorHandler({
   return router.call;
 }
 
+/// The lexicon caps `limit` at `1..100` with a default of 50. An out-of-range
+/// or non-numeric value is a client bug: clamping it silently serves a page
+/// the client did not ask for, so answer `InvalidRequest` instead.
 int _parseLimit(final String? raw) {
-  final parsed = raw == null ? null : int.tryParse(raw);
-  if (parsed == null) return _defaultLimit;
-  return parsed.clamp(_minLimit, _maxLimit);
+  if (raw == null) return _defaultLimit;
+
+  final parsed = int.tryParse(raw);
+  if (parsed == null || parsed < _minLimit || parsed > _maxLimit) {
+    throw InvalidRequestException(
+      'limit must be an integer within $_minLimit..$_maxLimit',
+    );
+  }
+
+  return parsed;
 }
 
 Response _json(final Object body, {final int status = 200}) => Response(

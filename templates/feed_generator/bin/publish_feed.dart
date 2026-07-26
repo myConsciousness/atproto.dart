@@ -14,7 +14,9 @@ import 'package:feed_generator/src/config.dart';
 /// description. Configure it via the same `FEEDGEN_*` environment variables as
 /// the server.
 Future<void> main() async {
-  final config = FeedGeneratorConfig.fromEnvironment();
+  // The publisher factory — unlike the server's — reads
+  // FEEDGEN_PUBLISHER_PASSWORD.
+  final config = FeedGeneratorConfig.fromPublisherEnvironment();
 
   final session = await createSession(
     service: 'bsky.social',
