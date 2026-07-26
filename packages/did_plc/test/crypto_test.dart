@@ -64,6 +64,34 @@ void main() {
       expect(() => base58BtcDecode('0OIl'), throwsA(isA<CryptoException>()));
     });
 
+    test('base58btc rejects an over-length input (quadratic-CPU DoS)', () {
+      // The decoder is O(n^2) in the input length. Without a bound, a
+      // 512,000-character string (which fits inside a 512 KiB DID document)
+      // pins a single-threaded isolate for minutes. It must be rejected
+      // outright, and cheaply.
+      final stopwatch = Stopwatch()..start();
+      expect(
+        () => base58BtcDecode('Q' * 512000),
+        throwsA(isA<CryptoException>()),
+      );
+      stopwatch.stop();
+      expect(
+        stopwatch.elapsedMilliseconds,
+        lessThan(1000),
+        reason: 'the length check must happen before any decoding work',
+      );
+    });
+
+    test('base58btc still decodes a real multibase key payload', () {
+      // `z` + base58btc(multicodec prefix + 33-byte compressed key) is ~49
+      // characters; the payload handed to the decoder is ~48.
+      final key = base58BtcEncode(
+        Uint8List.fromList(List<int>.generate(35, (final i) => i + 1)),
+      );
+      expect(key.length, lessThan(64));
+      expect(base58BtcDecode(key).length, 35);
+    });
+
     test('base32 encodes without padding (lowercase rfc4648)', () {
       // "foobar" -> mzxw6ytboi
       expect(base32Encode(utf8.encode('foobar')), equals('mzxw6ytboi'));
