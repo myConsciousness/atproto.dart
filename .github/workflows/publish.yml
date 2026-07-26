@@ -12,6 +12,24 @@
 # pub.dev credential. No secrets or long-lived tokens are stored. Each package
 # must have "Automated publishing" enabled in its pub.dev Admin tab pointing at
 # this repo with a matching tag pattern.
+#
+# Two failure modes seen in production shaped the guards below:
+#
+#   1. Hanging on interactive auth. When pub cannot authenticate via OIDC (most
+#      often because "Automated publishing" was never enabled for that package)
+#      it falls back to the browser OAuth flow and waits on a localhost redirect
+#      that never arrives. The `bluesky_text_flutter-v0.1.1` / `v0.1.2` runs sat
+#      at "Waiting for your authorization..." for 6h and 2h50m before being
+#      cancelled. Guards: an OIDC preflight check, a `timeout` around the
+#      publish command, and `timeout-minutes` on the job as a backstop.
+#
+#   2. Re-publishing an existing version. Releasing locally with
+#      `melos publish_live` uploads to pub.dev *and* creates the tags; pushing
+#      those tags then asked this workflow to upload the same version again,
+#      which pub.dev rejects ("Version 2.1.0 of package bluesky already
+#      exists") — three red runs on 2026-07-18. Guard: `prepare` asks pub.dev
+#      whether the version is already there and skips the publish job if so, so
+#      the release is idempotent no matter which side did the upload.
 
 name: Publish
 
@@ -32,13 +50,16 @@ permissions:
 
 jobs:
   # Parse the pushed tag ref once and expose the package name + version to the
-  # publish jobs. `is_flutter` routes the flutter-only package to its own job.
+  # publish jobs. `is_flutter` routes the flutter-only package to its own job,
+  # and `already_published` short-circuits a re-run of a finished release.
   prepare:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       name: ${{ steps.parse.outputs.name }}
       version: ${{ steps.parse.outputs.version }}
       is_flutter: ${{ steps.parse.outputs.is_flutter }}
+      already_published: ${{ steps.published.outputs.already_published }}
     steps:
       - name: Parse tag into package name and version
         id: parse
@@ -62,12 +83,61 @@ jobs:
           fi
           echo "Parsed tag '$tag' -> package '$name' version '$version'."
 
+      # Idempotency gate. pub.dev is the authority on what has shipped, so ask
+      # it directly instead of assuming this workflow is the only publisher:
+      # `melos publish_live` uploads from a maintainer's machine before the tags
+      # are pushed, and a re-run/re-push of a tag is otherwise guaranteed to
+      # fail on "version already exists".
+      #
+      # 200 = this exact version exists, 404 = neither the version nor the
+      # package is on pub.dev yet (a first release hits 404 too). Anything else
+      # is inconclusive, so we fall through to publishing and let pub.dev
+      # decide — skipping a real release would be far worse than a duplicate
+      # upload attempt.
+      - name: Check whether the version is already on pub.dev
+        id: published
+        env:
+          NAME: ${{ steps.parse.outputs.name }}
+          VERSION: ${{ steps.parse.outputs.version }}
+        run: |
+          url="https://pub.dev/api/packages/$NAME/versions/$VERSION"
+          status=""
+          for attempt in 1 2 3; do
+            status=$(curl -sS -o /dev/null -w '%{http_code}' \
+              -H 'Accept: application/json' \
+              --max-time 30 "$url" || echo "000")
+            case "$status" in
+              200|404) break ;;
+              *) echo "pub.dev returned HTTP $status (attempt $attempt/3); retrying."; sleep 5 ;;
+            esac
+          done
+
+          case "$status" in
+            200)
+              echo "already_published=true" >> "$GITHUB_OUTPUT"
+              echo "::notice::$NAME $VERSION is already on pub.dev — skipping the publish job (nothing to do)."
+              echo "\`$NAME $VERSION\` was already on pub.dev; publish skipped." >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            404)
+              echo "already_published=false" >> "$GITHUB_OUTPUT"
+              echo "$NAME $VERSION is not on pub.dev yet — publishing."
+              ;;
+            *)
+              echo "already_published=false" >> "$GITHUB_OUTPUT"
+              echo "::warning::Could not determine whether $NAME $VERSION exists (last HTTP status: $status). Attempting to publish; pub.dev will reject a duplicate."
+              ;;
+          esac
+
   # Publish a Dart-workspace package. Gated off for the flutter package, which
   # cannot resolve against the Dart-only pub workspace.
   publish-dart:
     needs: prepare
-    if: needs.prepare.outputs.is_flutter == 'false'
+    if: needs.prepare.outputs.is_flutter == 'false' && needs.prepare.outputs.already_published != 'true'
     runs-on: ubuntu-latest
+    # Backstop for anything that stalls outside the `timeout` below (SDK setup,
+    # `pub get`, a wedged runner). A healthy Dart publish finishes in under a
+    # minute, so this only ever fires on a hang.
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: packages/${{ needs.prepare.outputs.name }}
@@ -77,6 +147,17 @@ jobs:
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
+
+      # Fail before uploading anything if the OIDC token this job needs is not
+      # present: without it `pub publish` would silently switch to the browser
+      # OAuth flow and hang instead of erroring.
+      - name: Verify an OIDC token is available
+        run: |
+          if [[ -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" || -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]]; then
+            echo "::error::No GitHub OIDC token in this job, so pub cannot authenticate to pub.dev. Check that this workflow still grants 'id-token: write'."
+            exit 1
+          fi
+          echo "OIDC token endpoint is available."
 
       # Guard: refuse to publish if the pubspec version disagrees with the tag,
       # so a stale/mismatched tag can never ship the wrong release.
@@ -97,14 +178,38 @@ jobs:
       # OIDC token is auto-exchanged because `id-token: write` is granted above.
       # `--force` skips the interactive confirmation (non-TTY in CI).
       - name: Publish to pub.dev
-        run: dart pub publish --force
+        env:
+          PACKAGE: ${{ needs.prepare.outputs.name }}
+        run: |
+          set -o pipefail
+          log="$RUNNER_TEMP/publish.log"
+          status=0
+          # `timeout` bounds the interactive-OAuth fallback, which waits on a
+          # localhost redirect that can never arrive on a runner. Capture the
+          # status with `||` rather than an `if`: a failing `if` condition with
+          # no `else` leaves `$?` at 0, which would report the failure as a
+          # successful publish.
+          timeout 10m dart pub publish --force 2>&1 | tee "$log" || status=$?
+          if [[ "$status" -eq 0 ]]; then
+            exit 0
+          fi
+
+          if grep -q 'Pub needs your authorization' "$log"; then
+            echo "::error::pub fell back to interactive OAuth, so OIDC publishing was rejected. Enable 'Automated publishing' for '$PACKAGE' on pub.dev (Admin tab -> repository myConsciousness/atproto.dart, tag pattern {{package}}-v{{version}})."
+          elif [[ "$status" -eq 124 ]]; then
+            echo "::error::'dart pub publish' did not finish within 10 minutes and was killed."
+          fi
+          exit "$status"
 
   # Publish the Flutter package. It lives outside the Dart pub workspace, so it
   # needs the Flutter SDK and `flutter pub`.
   publish-flutter:
     needs: prepare
-    if: needs.prepare.outputs.is_flutter == 'true'
+    if: needs.prepare.outputs.is_flutter == 'true' && needs.prepare.outputs.already_published != 'true'
     runs-on: ubuntu-latest
+    # Flutter SDK setup is slower than Dart's, hence the larger backstop. Both
+    # of this package's releases hung for hours before these guards existed.
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: packages/bluesky_text_flutter
@@ -114,6 +219,14 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+
+      - name: Verify an OIDC token is available
+        run: |
+          if [[ -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" || -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]]; then
+            echo "::error::No GitHub OIDC token in this job, so pub cannot authenticate to pub.dev. Check that this workflow still grants 'id-token: write'."
+            exit 1
+          fi
+          echo "OIDC token endpoint is available."
 
       - name: Verify pubspec version matches tag
         env:
@@ -131,4 +244,18 @@ jobs:
 
       # OIDC token is auto-exchanged because `id-token: write` is granted above.
       - name: Publish to pub.dev
-        run: flutter pub publish --force
+        run: |
+          set -o pipefail
+          log="$RUNNER_TEMP/publish.log"
+          status=0
+          timeout 10m flutter pub publish --force 2>&1 | tee "$log" || status=$?
+          if [[ "$status" -eq 0 ]]; then
+            exit 0
+          fi
+
+          if grep -q 'Pub needs your authorization' "$log"; then
+            echo "::error::pub fell back to interactive OAuth, so OIDC publishing was rejected. Enable 'Automated publishing' for 'bluesky_text_flutter' on pub.dev (Admin tab -> repository myConsciousness/atproto.dart, tag pattern {{package}}-v{{version}})."
+          elif [[ "$status" -eq 124 ]]; then
+            echo "::error::'flutter pub publish' did not finish within 10 minutes and was killed."
+          fi
+          exit "$status"

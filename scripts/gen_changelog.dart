@@ -25,15 +25,27 @@ Map<String, PackagePlan> run({
   required Map<String, List<String>> dependents,
 }) {
   final changesByPackage = <String, List<ClassifiedChange>>{};
+  var hasAnyChange = false;
   for (final change in diffSnapshots(oldSnap, newSnap)) {
+    hasAnyChange = true;
     final pkg = packageForNsid(change.nsid);
     if (pkg == null) continue; // unmapped namespace (e.g. site.standard.*)
     changesByPackage.putIfAbsent(pkg, () => []).add(classify(change));
   }
+
+  // Packages that only carry generated output. `lexicon` embeds every lexicon
+  // document, so any change reaches it; `bluesky_cli` generates commands from
+  // the owned namespaces, so it follows the owner packages.
+  final regenerated = <String>{
+    if (hasAnyChange) ...allLexiconConsumers,
+    if (changesByPackage.isNotEmpty) ...mappedLexiconConsumers,
+  };
+
   return planVersions(
     changesByPackage: changesByPackage,
     currentVersions: currentVersions,
     dependents: dependents,
+    regeneratedPackages: regenerated,
   );
 }
 

@@ -39,11 +39,58 @@ void main() {
     expect(plans['bluesky_cli']!.newVersion.toString(), '0.6.1');
   });
 
-  test('run drops changes for unmapped namespaces', () {
+  test('run bumps the generated-code consumers alongside the owner', () {
+    // bluesky_cli depends on neither atproto nor bluesky, so only the
+    // regenerated-consumer path can release its regenerated commands.
+    final plans = run(
+      oldSnap: _snap({
+        'app.bsky.graph.getFollows':
+            '{"main":{"type":"query","parameters":{"type":"params","properties":{"actor":{"type":"string"}}}}}',
+      }),
+      newSnap: _snap({
+        'app.bsky.graph.getFollows':
+            '{"main":{"type":"query","parameters":{"type":"params","properties":{"actor":{"type":"string"},"sort":{"type":"string"}}}}}',
+      }),
+      currentVersions: {
+        'bluesky': Version.parse('2.2.2'),
+        'bluesky_cli': Version.parse('0.6.4'),
+        'lexicon': Version.parse('1.2.3'),
+      },
+      dependents: {},
+    );
+    expect(plans['bluesky']!.newVersion.toString(), '2.2.3');
+    expect(
+      plans['bluesky']!.changelogLines,
+      contains('feat: added `app.bsky.graph.getFollows.parameters.sort`'),
+    );
+    expect(plans['bluesky_cli']!.newVersion.toString(), '0.6.5');
+    expect(plans['lexicon']!.newVersion.toString(), '1.2.4');
+  });
+
+  test('run bumps only lexicon for an unmapped namespace', () {
+    // `site.standard.*` belongs to no package, but `lexicons.g.dart` embeds it.
     final plans = run(
       oldSnap: {},
       newSnap: _snap({'site.standard.document': '{"main":{"type":"record"}}'}),
-      currentVersions: {'atproto': Version.parse('1.7.0')},
+      currentVersions: {
+        'atproto': Version.parse('1.7.0'),
+        'bluesky_cli': Version.parse('0.6.4'),
+        'lexicon': Version.parse('1.2.3'),
+      },
+      dependents: {},
+    );
+    expect(plans.keys, ['lexicon']);
+    expect(plans['lexicon']!.newVersion.toString(), '1.2.4');
+  });
+
+  test('run yields no plans when nothing changed', () {
+    final snap = _snap({
+      'site.standard.document': '{"main":{"type":"record"}}',
+    });
+    final plans = run(
+      oldSnap: snap,
+      newSnap: snap,
+      currentVersions: {'lexicon': Version.parse('1.2.3')},
       dependents: {},
     );
     expect(plans, isEmpty);
