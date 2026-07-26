@@ -1,10 +1,13 @@
 # Release Note
 
-## v1.3.0
+## Unreleased
 
 - fix: `dagCborEncode` keeps its documented `ArgumentError`/`InvalidCidError` contract for a sole-`$bytes` map whose value is not valid base64, which previously leaked a raw `FormatException` — reachable from user-supplied `$unknown` data.
 - fix: a sole-`$link` or sole-`$bytes` map whose value is not a `String` now throws `ArgumentError` instead of being silently encoded as an ordinary one-entry map, which turned a typo into a valid-looking but wrong CID.
 - fix: encoding a value nested deeper than 1024 containers throws `ArgumentError` instead of blowing the stack with a `StackOverflowError` that callers do not catch.
+
+## v1.3.0
+
 - feat: added `dagCborEncode`, a canonical DAG-CBOR encoder (length-first map-key ordering, minimal-length integers, tag-42 CID links, and the atproto `$link`/`$bytes` map forms). Its output is exact on both the Dart VM and the web, so a record's bytes — and therefore its CID — can be computed locally.
 
 ## v1.2.0

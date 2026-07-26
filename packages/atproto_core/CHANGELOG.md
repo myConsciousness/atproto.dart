@@ -1,9 +1,12 @@
 # Release Note
 
-## v2.3.0
+## Unreleased
 
 - fix: `decodeCar` validates the CAR header length instead of trusting it. A truncated archive whose header varint claimed more bytes than exist pushed the cursor past the end and decoded to an EMPTY map — a truncated repository export looked like an empty repository, silently losing every block. It now throws `CarException`, the same contract the block-length check already honored.
 - fix: a varint whose payload reaches the 64th bit no longer wraps to a negative length and escapes as a raw `RangeError` from deep inside the decoder; it is rejected as a `CarException` in the varint reader itself, so every caller of it is covered. Length checks are also written as subtractions so a near-maximum length cannot overflow the cursor past its own bounds check.
+
+## v2.3.0
+
 - feat: added `ServiceContext.actorDid`, the DID of the authenticated actor regardless of how the context was authenticated. `session` is set only for the legacy (app-password) path and `oAuthSessionManager` only for the OAuth one, so neither answers that on its own and callers were left composing the two by hand. `repo` is now defined in terms of it, so the two cannot drift.
 - feat: added `isAmbiguousFailure`, a pure predicate reporting whether a caught error leaves it uncertain that the request reached the server. The retry engine already drew this distinction but only exposed it to a `RetryStrategy`; once retries were exhausted the original error was rethrown unchanged — a `TimeoutException` or an `http.ClientException` cannot carry an extra field — so a caller writing records could not tell a safe retry from one risking a duplicate. The retry layer now consumes the same predicate, so the classification callers see cannot drift from the behavior they observe.
 - feat: `atproto_core.dart` now re-exports `TidGenerator` from `at_primitives`, alongside the existing `AtUri` and `NSID` re-exports, so a caller allocating record keys ahead of a write does not need a direct dependency on `at_primitives`.
