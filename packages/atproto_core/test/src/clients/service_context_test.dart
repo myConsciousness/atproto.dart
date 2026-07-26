@@ -15,6 +15,8 @@ import 'package:test/test.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
+import 'package:atproto_core/src/clients/retry_context.dart';
+import 'package:atproto_core/src/clients/retry_strategy.dart';
 import 'package:atproto_core/src/clients/service_context.dart';
 import 'package:atproto_core/src/types/session.dart';
 
@@ -915,12 +917,382 @@ void main() {
       expect(dialed.single.path, '/xrpc/com.atproto.sync.subscribeRepos');
     });
   });
+
+  group('.withHeaders', () {
+    Session session({
+      String accessJwt = 'old-token',
+      String refreshJwt = 'refresh-token',
+    }) => Session(
+      did: 'did:plc:testaccount',
+      handle: 'test.dev',
+      accessJwt: accessJwt,
+      refreshJwt: refreshJwt,
+    );
+
+    http.Response json(Uri url, int status, String body) => http.Response(
+      body,
+      status,
+      headers: {'content-type': 'application/json'},
+      request: http.Request('GET', url),
+    );
+
+    test('sends its own headers and leaves the origin context alone', () async {
+      final sent = <Map<String, String>?>[];
+
+      final origin = ServiceContext(
+        headers: const {'x-origin': 'yes'},
+        getClient: (url, {headers}) async {
+          sent.add(headers);
+
+          return json(url, 200, '{}');
+        },
+      );
+      final derived = origin.withHeaders({
+        ...origin.headers,
+        'atproto-proxy': 'did:web:example.com#service',
+      });
+
+      await derived.get(NSID.create('server.atproto.com', 'describeServer'));
+      await origin.get(NSID.create('server.atproto.com', 'describeServer'));
+
+      //! The whole point: one session below, two different sets of headers
+      //! above it.
+      expect(derived.headers, {
+        'x-origin': 'yes',
+        'atproto-proxy': 'did:web:example.com#service',
+      });
+      expect(origin.headers, const {'x-origin': 'yes'});
+      expect(sent.first?['atproto-proxy'], 'did:web:example.com#service');
+      expect(sent.last?.containsKey('atproto-proxy'), isFalse);
+    });
+
+    test('replaces the origin headers rather than extending them', () {
+      final origin = ServiceContext(headers: const {'x-origin': 'yes'});
+
+      //! Documented semantics: callers who want the origin's headers spread
+      //! them in themselves.
+      expect(origin.withHeaders(const {'x-only': 'mine'}).headers, const {
+        'x-only': 'mine',
+      });
+    });
+
+    test(
+      'a refresh driven by the derived context reaches the origin',
+      () async {
+        int refreshCalls = 0;
+
+        final origin = ServiceContext(
+          session: session(),
+          onRefreshSession: (current) async {
+            refreshCalls++;
+
+            return current.copyWith(
+              accessJwt: 'new-token',
+              refreshJwt: 'new-refresh',
+            );
+          },
+          getClient: (url, {headers}) async =>
+              headers?['Authorization'] == 'Bearer new-token'
+              ? json(url, 200, '{}')
+              : json(url, 401, '{"error":"ExpiredToken"}'),
+        );
+        final derived = origin.withHeaders(const {'x-derived': 'yes'});
+
+        final fromOrigin = <Session>[];
+        final fromDerived = <Session>[];
+        origin.onSessionUpdated.listen(fromOrigin.add);
+        derived.onSessionUpdated.listen(fromDerived.add);
+
+        await derived.get(NSID.create('server.atproto.com', 'getSession'));
+        await Future<void>.delayed(Duration.zero);
+
+        expect(refreshCalls, 1);
+        //! One session: the context that never made the call still reads the
+        //! credentials the call obtained.
+        expect(origin.session?.refreshJwt, 'new-refresh');
+        expect(derived.session?.refreshJwt, 'new-refresh');
+        expect(identical(origin.session, derived.session), isTrue);
+        //! One stream: a listener attached to either sees every rotation.
+        expect(fromOrigin.single.refreshJwt, 'new-refresh');
+        expect(fromDerived.single.refreshJwt, 'new-refresh');
+        expect(identical(fromOrigin.single, fromDerived.single), isTrue);
+      },
+    );
+
+    test(
+      'a refresh driven by the origin reaches the derived context',
+      () async {
+        final origin = ServiceContext(
+          session: session(),
+          onRefreshSession: (current) async => current.copyWith(
+            accessJwt: 'new-token',
+            refreshJwt: 'new-refresh',
+          ),
+          getClient: (url, {headers}) async =>
+              headers?['Authorization'] == 'Bearer new-token'
+              ? json(url, 200, '{}')
+              : json(url, 401, '{"error":"ExpiredToken"}'),
+        );
+        final derived = origin.withHeaders(const {'x-derived': 'yes'});
+
+        final fromDerived = <Session>[];
+        derived.onSessionUpdated.listen(fromDerived.add);
+
+        await origin.get(NSID.create('server.atproto.com', 'getSession'));
+        await Future<void>.delayed(Duration.zero);
+
+        //! Sharing is symmetric; neither context is the owner.
+        expect(derived.session?.refreshJwt, 'new-refresh');
+        expect(fromDerived.single.refreshJwt, 'new-refresh');
+      },
+    );
+
+    test('the derived context sends the refreshed access token', () async {
+      final authHeaders = <String?>[];
+
+      final origin = ServiceContext(
+        session: session(),
+        onRefreshSession: (current) async =>
+            current.copyWith(accessJwt: 'new-token'),
+        getClient: (url, {headers}) async {
+          authHeaders.add(headers?['Authorization']);
+
+          return headers?['Authorization'] == 'Bearer new-token'
+              ? json(url, 200, '{}')
+              : json(url, 401, '{"error":"ExpiredToken"}');
+        },
+      );
+      final derived = origin.withHeaders(const {'x-derived': 'yes'});
+
+      await origin.get(NSID.create('server.atproto.com', 'getSession'));
+      await derived.get(NSID.create('server.atproto.com', 'getSession'));
+
+      //! The auth header is built from the shared session, so the derived
+      //! context never presents the token the origin's refresh replaced.
+      expect(authHeaders, [
+        'Bearer old-token',
+        'Bearer new-token',
+        'Bearer new-token',
+      ]);
+    });
+
+    test(
+      'concurrent expiries across both contexts issue exactly one refresh',
+      () async {
+        int refreshCalls = 0;
+        final gate = Completer<void>();
+
+        final origin = ServiceContext(
+          session: session(),
+          onRefreshSession: (current) async {
+            refreshCalls++;
+            //! Hold the refresh open so both contexts attach to the same
+            //! in-flight future before it completes.
+            await gate.future;
+
+            return current.copyWith(accessJwt: 'new-token');
+          },
+          getClient: (url, {headers}) async =>
+              headers?['Authorization'] == 'Bearer new-token'
+              ? json(url, 200, '{}')
+              : json(url, 401, '{"error":"ExpiredToken"}'),
+        );
+        final derived = origin.withHeaders(const {'x-derived': 'yes'});
+
+        final responses = Future.wait([
+          origin.get(NSID.create('server.atproto.com', 'getSession')),
+          derived.get(NSID.create('server.atproto.com', 'getSession')),
+        ]);
+
+        await Future<void>.delayed(const Duration(milliseconds: 20));
+        gate.complete();
+
+        expect((await responses).every((r) => r.status.code == 200), isTrue);
+        //! The in-flight refresh is shared, not merely the session: a single
+        //! `refreshSession` POST covers both contexts, so the single-use
+        //! refresh token is spent exactly once.
+        expect(refreshCalls, 1);
+      },
+    );
+
+    test('the pre-flight expiry refresh is shared as well', () async {
+      int refreshCalls = 0;
+      final authHeaders = <String?>[];
+
+      final expiredAt = DateTime.now().toUtc().subtract(
+        const Duration(seconds: 5),
+      );
+      final expSeconds = expiredAt.millisecondsSinceEpoch ~/ 1000;
+
+      final origin = ServiceContext(
+        session: session(
+          accessJwt: _jwt({
+            'sub': 'did:plc:testaccount',
+            'exp': expSeconds,
+            'iat': expSeconds - 100,
+          }),
+        ),
+        onRefreshSession: (current) async {
+          refreshCalls++;
+
+          return current.copyWith(accessJwt: 'new-token');
+        },
+        getClient: (url, {headers}) async {
+          authHeaders.add(headers?['Authorization']);
+
+          return json(url, 200, '{}');
+        },
+      );
+      final derived = origin.withHeaders(const {'x-derived': 'yes'});
+
+      await derived.get(NSID.create('server.atproto.com', 'getSession'));
+      await origin.get(NSID.create('server.atproto.com', 'getSession'));
+
+      //! The derived context ran the pre-flight refresh; the origin then found
+      //! a token that is no longer expiring and sent it without refreshing
+      //! again. Nothing 401s here, so this is the pre-flight path alone.
+      expect(refreshCalls, 1);
+      expect(authHeaders, ['Bearer new-token', 'Bearer new-token']);
+    });
+
+    test('carries the OAuth session manager across', () {
+      final manager = OAuthSessionManager.fromSession(
+        OAuthSession(
+          accessToken: 'access-1',
+          scope: 'atproto',
+          sub: 'did:plc:abc',
+          issuer: 'https://bsky.social',
+          pds: 'https://pds.example',
+          clientId: 'cid',
+          dpopPublicKey: 'PUB',
+          dpopPrivateKey: 'PRIV',
+        ),
+      );
+
+      final derived = ServiceContext(
+        oAuthSessionManager: manager,
+      ).withHeaders(const {'x-derived': 'yes'});
+
+      //! On the OAuth path the manager already owns the session, so carrying
+      //! the reference over is all sharing takes.
+      expect(identical(derived.oAuthSessionManager, manager), isTrue);
+      expect(derived.service, 'pds.example');
+      expect(derived.repo, 'did:plc:abc');
+    });
+
+    test(
+      'carries protocol, service, relay service and clients across',
+      () async {
+        final gotUrls = <Uri>[];
+        final postedUrls = <Uri>[];
+
+        final origin = ServiceContext(
+          protocol: xrpc.Protocol.http,
+          service: 'pds.test',
+          relayService: 'relay.test',
+          getClient: (url, {headers}) async {
+            gotUrls.add(url);
+
+            return http.Response(
+              '{}',
+              200,
+              headers: {'content-type': 'application/json'},
+              request: http.Request('GET', url),
+            );
+          },
+          postClient: (url, {headers, body, encoding}) async {
+            postedUrls.add(url);
+
+            return http.Response(
+              '{}',
+              200,
+              headers: {'content-type': 'application/json'},
+              request: http.Request('POST', url),
+            );
+          },
+        );
+        final derived = origin.withHeaders(const {'x-derived': 'yes'});
+
+        await derived.get(NSID.create('server.atproto.com', 'describeServer'));
+        await derived.post(NSID.create('server.atproto.com', 'createSession'));
+
+        expect(derived.service, 'pds.test');
+        expect(derived.relayService, 'relay.test');
+        //! `http` rather than `https` proves the protocol came across, the host
+        //! proves the service did, and reaching these recorders at all proves
+        //! both HTTP clients did.
+        expect(gotUrls.single.scheme, 'http');
+        expect(gotUrls.single.host, 'pds.test');
+        expect(postedUrls.single.scheme, 'http');
+        expect(postedUrls.single.host, 'pds.test');
+      },
+    );
+
+    test('carries the timeout across', () async {
+      final derived = ServiceContext(
+        timeout: const Duration(milliseconds: 1),
+        getClient: (url, {headers}) async {
+          await Future<void>.delayed(const Duration(milliseconds: 200));
+
+          return http.Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+            request: http.Request('GET', url),
+          );
+        },
+      ).withHeaders(const {'x-derived': 'yes'});
+
+      await expectLater(
+        derived.get(NSID.create('server.atproto.com', 'describeServer')),
+        throwsA(isA<TimeoutException>()),
+      );
+    });
+
+    test('carries the retry strategy across', () async {
+      int calls = 0;
+
+      final derived = ServiceContext(
+        retryConfig: const _RetryOnce(),
+        getClient: (url, {headers}) async {
+          calls++;
+
+          return http.Response(
+            '{}',
+            500,
+            headers: {'content-type': 'application/json'},
+            request: http.Request('GET', url),
+          );
+        },
+      ).withHeaders(const {'x-derived': 'yes'});
+
+      await expectLater(
+        derived.get(NSID.create('server.atproto.com', 'describeServer')),
+        throwsA(isA<xrpc.InternalServerErrorException>()),
+      );
+
+      //! Initial attempt plus the one retry the strategy allows: the derived
+      //! context inherited the retry policy, it did not fall back to none.
+      expect(calls, 2);
+    });
+  });
 }
 
 /// Sentinel thrown by the capturing channel factory in the `.stream` tests to
 /// abort the subscription after the dial URI has been recorded.
 class _StopDial {
   const _StopDial();
+}
+
+/// Allows exactly one immediate retry, so a context that inherited a retry
+/// strategy is distinguishable from one that lost it without waiting out a
+/// real backoff.
+class _RetryOnce implements RetryStrategy {
+  const _RetryOnce();
+
+  @override
+  FutureOr<Duration?> nextDelay(RetryContext context) =>
+      context.attempt > 1 ? null : Duration.zero;
 }
 
 /// A [DPoPSigner] returning a fixed proof so tests do not depend on real

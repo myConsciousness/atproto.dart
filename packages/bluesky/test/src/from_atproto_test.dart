@@ -29,6 +29,10 @@ final class _FakePds {
   /// How many times `com.atproto.server.refreshSession` was called.
   int refreshCalls = 0;
 
+  /// The `atproto-proxy` header seen on every `GET`, keyed by the NSID the
+  /// request was addressed to. Null where the request carried no such header.
+  final Map<String, String?> proxyHeaderByNsid = {};
+
   /// The session handed to the client, holding the tokens this PDS starts
   /// with.
   ///
@@ -45,16 +49,25 @@ final class _FakePds {
     final Uri url, {
     final Map<String, String>? headers,
   }) async {
+    proxyHeaderByNsid[url.path.replaceFirst('/xrpc/', '')] =
+        headers?['atproto-proxy'];
+
     if (headers?['Authorization'] != 'Bearer $_access') {
       return _response(url, 'GET', 401, '{"error":"ExpiredToken"}');
     }
 
-    return _response(
-      url,
-      'GET',
-      200,
-      url.path.contains('tools.ozone.server.getConfig') ? '{}' : '{"feed":[]}',
-    );
+    return _response(url, 'GET', 200, _body(url.path));
+  }
+
+  /// The minimal valid body for each endpoint these tests call.
+  static String _body(final String path) {
+    if (path.contains('chat.bsky.convo.listConvos')) return '{"convos":[]}';
+    if (path.contains('com.atproto.server.getSession')) {
+      return '{"handle":"test.dev","did":"did:plc:testaccount"}';
+    }
+    if (path.contains('tools.ozone.server.getConfig')) return '{}';
+
+    return '{"feed":[]}';
   }
 
   Future<http.Response> post(
@@ -207,6 +220,175 @@ void main() {
         ozone.server.getConfig(),
         throwsA(isA<core.UnauthorizedException>()),
       );
+    });
+  });
+
+  group('BlueskyChat.fromAtproto', () {
+    atp.ATProto atproto(final _FakePds pds) => atp.ATProto.fromSession(
+      pds.initialSession,
+      service: 'pds.test',
+      getClient: pds.get,
+      postClient: pds.post,
+    );
+
+    test('shares the session while keeping the headers apart', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final bsky = Bluesky.fromAtproto(atp);
+      final chat = BlueskyChat.fromAtproto(atp);
+
+      await bsky.feed.getTimeline();
+      final response = await chat.convo.listConvos();
+
+      //! One refresh: the timeline call spent the refresh token, and the chat
+      //! call went out on the access token that refresh produced rather than
+      //! presenting the spent one for a second time.
+      expect(response.status.code, 200);
+      expect(pds.refreshCalls, 1);
+      expect(chat.session?.accessJwt, 'access-1');
+      expect(bsky.session?.accessJwt, 'access-1');
+      expect(identical(chat.session, bsky.session), isTrue);
+
+      //! And the headers stayed apart, which is the whole reason the chat
+      //! client needs a context of its own: the proxy header routes
+      //! `chat.bsky.*` to the chat service and must not follow `app.bsky.*`
+      //! there.
+      expect(
+        pds.proxyHeaderByNsid['chat.bsky.convo.listConvos'],
+        'did:web:api.bsky.chat#bsky_chat',
+      );
+      expect(pds.proxyHeaderByNsid['app.bsky.feed.getTimeline'], isNull);
+    });
+
+    test('the chat client can drive the refresh instead', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final chat = BlueskyChat.fromAtproto(atp);
+      final bsky = Bluesky.fromAtproto(atp);
+
+      //! The reverse order: neither client owns the session.
+      await chat.convo.listConvos();
+      final response = await bsky.feed.getTimeline();
+
+      expect(response.status.code, 200);
+      expect(pds.refreshCalls, 1);
+      expect(bsky.session?.accessJwt, 'access-1');
+    });
+
+    test('concurrent expiries across both clients refresh once', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final bsky = Bluesky.fromAtproto(atp);
+      final chat = BlueskyChat.fromAtproto(atp);
+
+      final responses = await Future.wait([
+        bsky.feed.getTimeline(),
+        chat.convo.listConvos(),
+      ]);
+
+      //! Both clients hit the expired token at once and joined one in-flight
+      //! `refreshSession`. A second POST would have replayed the single-use
+      //! refresh token and been rejected.
+      expect(responses.every((r) => r.status.code == 200), isTrue);
+      expect(pds.refreshCalls, 1);
+    });
+
+    test('announces one refresh on every client listening', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final bsky = Bluesky.fromAtproto(atp);
+      final chat = BlueskyChat.fromAtproto(atp);
+
+      final fromBsky = <core.Session>[];
+      final fromChat = <core.Session>[];
+      bsky.onSessionUpdated.listen(fromBsky.add);
+      chat.onSessionUpdated.listen(fromChat.add);
+
+      await chat.convo.listConvos();
+      await Future<void>.delayed(Duration.zero);
+
+      //! One stream source: a listener on either client is handed the only
+      //! session worth persisting.
+      expect(fromChat.single.refreshJwt, 'refresh-1');
+      expect(fromBsky.single.refreshJwt, 'refresh-1');
+      expect(identical(fromBsky.single, fromChat.single), isTrue);
+    });
+
+    test('leaves the ATProto it was built from unproxied', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final chat = BlueskyChat.fromAtproto(atp);
+
+      await chat.convo.listConvos();
+      await chat.atproto.server.getSession();
+
+      //! `chat.atproto` is the caller's own `ATProto`. Its `com.atproto.*`
+      //! calls must reach the PDS, not the chat service.
+      expect(
+        pds.proxyHeaderByNsid['chat.bsky.convo.listConvos'],
+        'did:web:api.bsky.chat#bsky_chat',
+      );
+      expect(pds.proxyHeaderByNsid['com.atproto.server.getSession'], isNull);
+      expect(identical(chat.atproto, atp), isTrue);
+    });
+
+    test('two independent contexts race for the single-use token', () async {
+      final pds = _FakePds();
+      final session = pds.initialSession;
+
+      //! What a caller writes without `fromAtproto`: a `Bluesky` and a
+      //! `BlueskyChat` built separately own a context each, and each of those
+      //! a copy of `session`.
+      final bsky = Bluesky.fromSession(
+        session,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+      );
+      final chat = BlueskyChat.fromSession(
+        session,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+      );
+
+      await bsky.feed.getTimeline();
+
+      expect(chat.session?.refreshJwt, 'refresh-0');
+      await expectLater(
+        chat.convo.listConvos(),
+        throwsA(isA<core.UnauthorizedException>()),
+      );
+    });
+  });
+
+  group('BlueskyChat.fromSession (proxy header placement)', () {
+    test('sends the proxy header on chat.bsky.* and nowhere else', () async {
+      final pds = _FakePds();
+
+      final chat = BlueskyChat.fromSession(
+        pds.initialSession,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+      );
+
+      await chat.convo.listConvos();
+      await chat.atproto.server.getSession();
+
+      expect(
+        pds.proxyHeaderByNsid['chat.bsky.convo.listConvos'],
+        'did:web:api.bsky.chat#bsky_chat',
+      );
+      //! The header belongs to the chat context alone; the nested `ATProto`
+      //! the caller can read back is an ordinary PDS client.
+      expect(pds.proxyHeaderByNsid['com.atproto.server.getSession'], isNull);
+      expect(chat.atproto.headers.containsKey('atproto-proxy'), isFalse);
     });
   });
 
