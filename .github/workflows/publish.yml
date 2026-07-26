@@ -254,7 +254,7 @@ jobs:
           fi
 
           if grep -q 'Pub needs your authorization' "$log"; then
-            echo "::error::pub fell back to interactive OAuth, so OIDC publishing was rejected. Enable 'Automated publishing' for 'bluesky_text_flutter' on pub.dev (Admin tab -> repository myConsciousness/atproto.dart, tag pattern {{package}}-v{{version}})."
+            echo "::error::pub fell back to interactive OAuth, so OIDC publishing was rejected. Check 'Automated publishing' for 'bluesky_text_flutter' on pub.dev (Admin tab -> repository myConsciousness/atproto.dart, tag pattern bluesky_text_flutter-v{{version}})."
           elif [[ "$status" -eq 124 ]]; then
             echo "::error::'flutter pub publish' did not finish within 10 minutes and was killed."
           fi
