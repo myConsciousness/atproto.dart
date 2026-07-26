@@ -119,9 +119,35 @@ jobs:
             exit 0
           fi
 
-          # One atomic push: either every tag lands or none does, so a partial
-          # release cannot leave half the workspace published.
-          git push --atomic origin "${tags[@]}"
+          # One tag per push, deliberately NOT `git push --atomic` with the
+          # whole list.
+          #
+          # GitHub does not create a `push` event for every tag when several
+          # arrive in a single push -- the documented limit is three -- and
+          # `publish.yml` is triggered by exactly that event. A five-tag atomic
+          # push on 2026-07-26 landed all five tags and started zero publish
+          # runs, while a three-tag push earlier the same day started three.
+          # The atomicity was real; it just guaranteed that nothing shipped.
+          #
+          # Pushing one at a time trades that atomicity for tags that actually
+          # trigger a release. A failure mid-loop can now leave the workspace
+          # half-tagged, so the loop keeps going, reports every failure, and
+          # exits non-zero -- a rerun re-pushes only what is still missing,
+          # since an existing tag is skipped above.
+          failed=()
+          for tag in "${tags[@]}"; do
+            if git push origin "$tag"; then
+              echo "Pushed $tag."
+            else
+              echo "::error::Failed to push $tag."
+              failed+=("$tag")
+            fi
+          done
+
+          if [[ ${#failed[@]} -gt 0 ]]; then
+            echo "::error::${#failed[@]} tag(s) failed to push: ${failed[*]}"
+            exit 1
+          fi
 
           echo "::notice::Pushed ${#tags[@]} release tag(s): ${tags[*]}"
           {

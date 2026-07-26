@@ -33,6 +33,7 @@ Have you ever had trouble parsing mentions or links in the text you post when us
 - ✅ Supports **Automatic Conversion** to **Facet**
 - ✅ **100% Compatible with [bluesky](https://atprotodart.com/docs/packages/bluesky)**
 - ✅ Supports **Unicode Grapheme Clusters**
+- ✅ Flags **Link Facades**, where display text and link host disagree
 - ✅ Supports **Safe Text Splitting**
 - ✅ **Works in All Languages**
 - ✅ Supports **Markdown Style Links**
@@ -92,3 +93,4 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 - **[Unicode Grapheme Clusters](https://atprotodart.com/docs/packages/bluesky_text#unicode-grapheme-clusters)**
 - **[Use with `bluesky`](https://atprotodart.com/docs/packages/bluesky_text#use-with-bluesky)**
 - **[Split Text](https://atprotodart.com/docs/packages/bluesky_text#split-text)**
+- **[Warn About Link Facades](https://atprotodart.com/docs/packages/bluesky_text#warn-about-link-facades)**

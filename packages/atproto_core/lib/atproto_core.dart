@@ -4,6 +4,7 @@
 
 export 'package:at_primitives/at_uri.dart' show AtUri;
 export 'package:at_primitives/nsid.dart' show NSID;
+export 'package:at_primitives/tid.dart' show TidGenerator;
 
 export 'package:atproto_core/src/clients/base_http_service.dart';
 export 'package:atproto_core/src/car_decoder.dart';

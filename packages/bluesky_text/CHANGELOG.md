@@ -1,5 +1,11 @@
 # Release Note
 
+## v1.6.0
+
+- feat: added `isLinkFacade`, which reports when a facet's display text reads as a URL or host that does not match the host its link points at — the link-facade phishing shape. Display text that is not URL-looking is never flagged: a bare host is flagged only when this package would itself have linkified that same text. Hosts match on equality or a subdomain relation, ignoring `www.`, trailing root dots, case, ports, paths and punycode encoding. It does not detect homographs, redirects or deceptive non-URL text, and says so.
+- feat: added `toDisplayHost`, which decodes a punycode (`xn--`) host into the Unicode it stands for, so a link warning can show what the host actually says.
+- fix: the facet maps returned by `Entity.toFacet`, `Entities.toFacets`, `Entities.toFacetsResult` and `BlueskyText.toPostData` are now wire-complete. The facet carries `"$type": "app.bsky.richtext.facet"` and its `index` carries `"$type": "app.bsky.richtext.facet#byteSlice"`, matching what the lexicon models serialize to — previously only the individual features were typed, and the returned map did not even pass `RichtextFacet.validate`. Callers going through `feed.post.create` never noticed, since the generated converter fills them in; callers assembling a record map themselves, for `com.atproto.repo.applyWrites` or to compute a record CID locally, silently produced a record that differed from the converter's output. The "no facet" results (an unresolvable handle, a raw markdown link) are still an empty map.
+
 ## v1.5.4
 
 - chore: bump `xrpc` to `^1.1.3`.

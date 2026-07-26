@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.3.0
+
+- feat: added `ServiceContext.actorDid`, the DID of the authenticated actor regardless of how the context was authenticated. `session` is set only for the legacy (app-password) path and `oAuthSessionManager` only for the OAuth one, so neither answers that on its own and callers were left composing the two by hand. `repo` is now defined in terms of it, so the two cannot drift.
+- feat: added `isAmbiguousFailure`, a pure predicate reporting whether a caught error leaves it uncertain that the request reached the server. The retry engine already drew this distinction but only exposed it to a `RetryStrategy`; once retries were exhausted the original error was rethrown unchanged — a `TimeoutException` or an `http.ClientException` cannot carry an extra field — so a caller writing records could not tell a safe retry from one risking a duplicate. The retry layer now consumes the same predicate, so the classification callers see cannot drift from the behavior they observe.
+- feat: `atproto_core.dart` now re-exports `TidGenerator` from `at_primitives`, alongside the existing `AtUri` and `NSID` re-exports, so a caller allocating record keys ahead of a write does not need a direct dependency on `at_primitives`.
+- feat: added `ServiceContext.withHeaders`, deriving a context that shares this one's session while carrying its own request headers. Mutable session state now lives in a holder the derived contexts share, so a refresh — including the deduplicated in-flight one — is seen by all of them. Headers belong to the client; the session belongs to the account.
+
 ## v2.2.0
 
 - feat: added `computeRecordCid`, which returns the CID a PDS will assign to a record by canonically DAG-CBOR-encoding it and hashing to a CIDv1. This lets a caller reference a record before it is written — for example to chain reply references across records submitted in one `com.atproto.repo.applyWrites` batch.
