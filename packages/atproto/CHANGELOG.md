@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.3.0
+
+- feat: added `ATProto.actorDid`, surfacing `ServiceContext.actorDid` so callers can ask which actor a client is authenticated as without branching on the auth kind. Named `actorDid` rather than `repo`, which is already the `com.atproto.repo.*` service on this class.
+- docs: `fromOAuth` now records that one shared `OAuthSessionManager` is what makes several clients share a session, and `fromOAuthSession` that it mints a fresh manager per call. Two managers restored from one `OAuthSession` do not merely fail to share: because a rotating refresh token is only honoured once, they revoke each other, surfacing `OAuthSessionRevokedException` from a session that was valid.
+- chore: bump `atproto_core` to `^2.3.0`.
+
 ## v2.2.1
 
 - chore: widen `atproto_core` to `^2.2.0` and `xrpc` to `^1.1.3`.
