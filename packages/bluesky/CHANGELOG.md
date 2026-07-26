@@ -1,13 +1,9 @@
 # Release Note
 
-## v2.2.4
-
-- feat: added `app.bsky.notification.listNotifications#notification.starterPack`
-- chore: regenerated from synced lexicons
-
 ## v2.2.3
 
 - feat: added `app.bsky.ageassurance.defs#configRegion.platforms`
+- feat: added `app.bsky.notification.listNotifications#notification.starterPack`
 - chore: regenerated from synced lexicons
 
 ## v2.2.2
