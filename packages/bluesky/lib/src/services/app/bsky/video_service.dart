@@ -19,8 +19,36 @@ import '../../../ids.g.dart' as bsky_id;
 import '../../codegen/app/bsky/video/getJobStatus/output.dart';
 import '../../codegen/app/bsky/video/getUploadLimits/output.dart';
 import '../../codegen/app/bsky/video_service.dart';
+import 'video_upload_exception.dart';
 
 const _videoService = 'video.bsky.app';
+
+/// The default interval between two `getJobStatus` polls.
+const _defaultPollInterval = Duration(seconds: 3);
+
+/// The default budget for an entire upload-and-wait operation.
+const _defaultTimeout = Duration(minutes: 5);
+
+/// Returns the video blob of a terminal [status], or null while the job is
+/// still in process.
+///
+/// The terminal set is exactly what `app.bsky.video.defs#jobStatus` declares as
+/// known values for `state`, because that lexicon also says: "All values not
+/// listed as a known value indicate that the job is in process." So an
+/// unrecognized state is a job still running, not an error — the generated
+/// [JobStatusState] union already draws the line in the right place, and the
+/// exhaustive switch below turns any newly generated known value into a
+/// compile error rather than a silently mishandled state.
+Blob? _terminalBlobOf(final JobStatus status) => switch (status.state) {
+  JobStatusStateKnownValue(data: KnownJobStatusState.jOB_STATE_COMPLETED) =>
+    //! A completed job with no blob is a failure. The blob is the whole
+    //! point of the upload, so returning null here would hand the caller a
+    //! "success" it cannot post.
+    status.blob ?? (throw VideoJobMissingBlobException(status)),
+  JobStatusStateKnownValue(data: KnownJobStatusState.jOB_STATE_FAILED) =>
+    throw VideoJobFailedException(status),
+  JobStatusStateUnknown() => null,
+};
 
 final class VideoServiceImpl extends VideoService {
   VideoServiceImpl(super.ctx);
@@ -67,6 +95,135 @@ final class VideoServiceImpl extends VideoService {
     $headers: $headers,
     $unknown: $unknown,
   );
+
+  /// Uploads [bytes] and waits for the video service to finish processing it,
+  /// returning the blob to embed in a post.
+  ///
+  /// [uploadVideo] only *starts* a job; the blob does not exist until that job
+  /// terminates. This drives the whole ceremony — upload, then poll
+  /// [getJobStatus] every [pollInterval] until the job reaches a terminal state
+  /// — and resolves only once there is a real blob to hand back.
+  ///
+  /// ## Parameters
+  ///
+  /// * [bytes] - Video file data as bytes
+  /// * [pollInterval] - Wait between two [getJobStatus] calls. Defaults to 3
+  ///   seconds
+  /// * [timeout] - Budget for the whole operation, upload included. Defaults to
+  ///   5 minutes
+  /// * [onProgress] - Called with every job status observed, the terminal one
+  ///   included, so a UI can render [JobStatus.progress]
+  /// * [$service] - Optional service endpoint (defaults to video.bsky.app),
+  ///   used for both the upload and the polling
+  /// * [$headers], [$parameters] - Applied to the upload request only; the
+  ///   polling requests are sent with the context's own authentication
+  ///
+  /// ## Throws
+  ///
+  /// Every failure mode is a [VideoUploadException], and the subtype says which
+  /// one it was:
+  ///
+  /// * [VideoJobFailedException] - the service rejected the video. Carries the
+  ///   final status, so the server's own reason can be shown
+  /// * [VideoJobMissingBlobException] - the job completed but carried no blob,
+  ///   which is a failure rather than a success
+  /// * [VideoUploadTimeoutException] - [timeout] expired while the job was
+  ///   still running. Distinct from the two above so "the server rejected this
+  ///   video" is never confused with "we gave up waiting"
+  ///
+  /// [timeout] releases the caller; it does not necessarily stop the work.
+  /// Polling does stop, so an abandoned job costs no further requests, but an
+  /// upload request already in flight when the budget expires cannot be
+  /// cancelled and runs to its own completion in the background — bounded by
+  /// the service context's per-request timeout, not by this one. A caller
+  /// accounting for memory or sockets should expect [bytes] to stay reachable
+  /// for a little longer than this method takes to throw. The job itself also
+  /// keeps running server-side, which is why the exception carries the last
+  /// status: its [JobStatus.jobId] can be handed to [getJobStatus] later.
+  ///
+  /// Anything [onProgress] throws is caught and discarded: it exists to drive a
+  /// UI, and a broken progress indicator must not fail an upload the server
+  /// accepted. Being `void`, an `async` [onProgress] is not awaited either, so
+  /// its errors are equally invisible here.
+  ///
+  /// ## Example
+  ///
+  /// ```dart
+  /// final blob = await bsky.video.uploadVideoAndAwait(
+  ///   bytes: videoBytes,
+  ///   onProgress: (status) => print('${status.progress ?? 0}%'),
+  /// );
+  ///
+  /// await bsky.feed.post(
+  ///   text: 'Look at this',
+  ///   embed: UFeedPostEmbed.embedVideo(data: EmbedVideo(video: blob)),
+  /// );
+  /// ```
+  Future<Blob> uploadVideoAndAwait({
+    required Uint8List bytes,
+    Duration pollInterval = _defaultPollInterval,
+    Duration timeout = _defaultTimeout,
+    void Function(JobStatus status)? onProgress,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $parameters,
+  }) async {
+    JobStatus? lastStatus;
+    var expired = false;
+
+    void report(final JobStatus status) {
+      lastStatus = status;
+      if (onProgress == null) return;
+
+      try {
+        onProgress(status);
+      } catch (_) {
+        //! Best-effort by contract: a throwing progress callback is the
+        //! caller's UI problem, never a reason to fail an upload the video
+        //! service is handling perfectly well.
+      }
+    }
+
+    Future<Blob> pollUntilTerminal() async {
+      final uploaded = await uploadVideo(
+        bytes: bytes,
+        $service: $service,
+        $headers: $headers,
+        $parameters: $parameters,
+      );
+
+      var status = uploaded.data;
+      while (true) {
+        report(status);
+
+        final blob = _terminalBlobOf(status);
+        if (blob != null) return blob;
+
+        await Future<void>.delayed(pollInterval);
+
+        //! `timeout` below completes the future the caller is awaiting, but it
+        //! cannot stop this loop. Without this check a job that never
+        //! terminates would keep polling the service forever, long after
+        //! everyone stopped listening. The thrown exception is discarded by
+        //! the already-completed `timeout`.
+        if (expired) throw VideoUploadTimeoutException(timeout, lastStatus);
+
+        status = (await getJobStatus(
+          jobId: status.jobId,
+          $service: $service,
+        )).data.jobStatus;
+      }
+    }
+
+    return await pollUntilTerminal().timeout(
+      timeout,
+      onTimeout: () {
+        expired = true;
+
+        throw VideoUploadTimeoutException(timeout, lastStatus);
+      },
+    );
+  }
 
   /// Uploads a video using a service authentication token.
   ///
