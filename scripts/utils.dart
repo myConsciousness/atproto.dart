@@ -7,6 +7,7 @@ import 'dart:io';
 
 // Package imports:
 import 'package:lexicon/lexicon.dart';
+import 'package:pubspec/pubspec.dart';
 
 /// Root directory containing the synced lexicon definitions.
 const lexiconsPath = 'lexicons';
@@ -14,19 +15,53 @@ const lexiconsPath = 'lexicons';
 /// Root directory containing the workspace packages.
 const packagesPath = 'packages';
 
-/// Returns the names of all workspace packages, sorted alphabetically.
-List<String> get packageNames =>
-    Directory(packagesPath)
-        .listSync()
-        .whereType<Directory>()
-        .map((e) => e.path.split('/').last)
-        .where((name) => !name.startsWith('.'))
-        .toList()
-      ..sort();
+/// Path of the root pubspec, which owns the `workspace:` member list.
+const rootPubspecPath = 'pubspec.yaml';
 
-/// Returns the pubspec file of the given package.
-File getPackagePubspec(String packageName) =>
-    File('$packagesPath/$packageName/pubspec.yaml');
+/// Returns the repo-relative directory of every Dart pub workspace member,
+/// sorted, as declared by the root pubspec's `workspace:` list.
+///
+/// The Dart-side counterpart of `scripts/dart_workspace_dirs.sh`: the
+/// `workspace:` list is the single source of truth for "which packages does
+/// this repo build", and deriving from it is what stops a second, hand-kept
+/// copy from silently dropping a member. Entries are full repo-relative paths,
+/// not bare names, because not every member lives under [packagesPath]
+/// (`templates/feed_generator` does not).
+///
+/// The Flutter package (`packages/bluesky_text_flutter`) is deliberately not a
+/// workspace member, so it never appears here.
+List<String> get workspacePackageDirs {
+  final workspace = loadPubspec(
+    File(rootPubspecPath),
+  ).unParsedYaml?['workspace'];
+
+  if (workspace is! List || workspace.isEmpty) {
+    // A silently empty list would make every workspace-derived check pass by
+    // checking nothing, which is worse than not having the check at all.
+    throw StateError(
+      "Parsed an empty 'workspace:' list from $rootPubspecPath. "
+      'The pubspec layout changed; refusing to continue.',
+    );
+  }
+
+  return workspace.map((e) => e.toString()).toList()..sort();
+}
+
+/// Returns the pubspec file of the workspace member at [packageDir].
+File getWorkspacePubspec(String packageDir) => File('$packageDir/pubspec.yaml');
+
+/// Parses [file] as a pubspec, failing with the offending path in the message.
+PubSpec loadPubspec(File file) {
+  if (!file.existsSync()) {
+    throw StateError('Pubspec file not found: ${file.path}');
+  }
+
+  try {
+    return PubSpec.fromYamlString(file.readAsStringSync());
+  } catch (e) {
+    throw StateError('Failed to parse ${file.path}: $e');
+  }
+}
 
 /// Loads every vendored lexicon document under [lexiconsPath] in
 /// deterministic (lexicon-id-sorted) order. Which lexicons are vendored is

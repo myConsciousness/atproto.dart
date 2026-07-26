@@ -6,6 +6,14 @@
 # `format-analyze` down with it, so keep this list complete: `atproto_core`
 # reaches `atproto_oauth`, which reaches `atproto_identity`, which reaches
 # `did_plc`.
+#
+# `scripts/validate_website_overrides.dart` computes that closure from the
+# packages' own pubspecs and fails when this list drifts from it, so run it
+# rather than tracing the graph by hand. Two things that look like fixes and are
+# not: `dependency_overrides:` in `website/pubspec.yaml` is silently ignored
+# while this file exists, and adding a transitive package to `dependencies:` as
+# a path dep only produces a path-vs-hosted source conflict. Entries belong
+# here.
 dependency_overrides:
   at_primitives:
     path: ../packages/at_primitives

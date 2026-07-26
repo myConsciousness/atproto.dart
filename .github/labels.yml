@@ -31,6 +31,9 @@
 - name: atproto
   color: "00897B"
   description: "A label indicating the package `atproto`."
+- name: atproto_identity
+  color: "26A69A"
+  description: "A label indicating the package `atproto_identity`."
 - name: atproto_oauth
   color: "00ACC1"
   description: "A label indicating the package `atproto_oauth`."
@@ -53,6 +56,11 @@
 - name: lex_gen
   color: "EF6C00"
   description: "A label indicating the package `lex_gen`."
+
+# --- Templates (amber) ---
+- name: feed_generator
+  color: "FFB300"
+  description: "A label indicating the template `templates/feed_generator`."
 
 # --- Test infrastructure (gray) ---
 - name: atproto_test
