@@ -67,6 +67,14 @@ sealed class ATProto {
 
   /// Returns a new [ATProto] backed by an OAuth [manager], which owns DPoP
   /// header building and transparent token refresh.
+  ///
+  /// The [oauth.OAuthSessionManager] is what gets shared on this path: it
+  /// holds the session, the single in-flight refresh, and its own
+  /// `onSessionUpdated`, none of which live on the context. So passing one
+  /// manager to several clients gives them one session and one refresh even
+  /// though each keeps a context of its own. Build the manager once and pass
+  /// it around; [ATProto.fromOAuthSession] builds a new one on every call and
+  /// does not share.
   factory ATProto.fromOAuth(
     final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
@@ -95,6 +103,16 @@ sealed class ATProto {
   ///
   /// Pass [oauthClient] to enable transparent token refresh; without it the
   /// session is used as-is and cannot be refreshed.
+  ///
+  /// This builds a fresh [oauth.OAuthSessionManager] on every call, so calling
+  /// it twice for one account does not give you two views of a shared session
+  /// — and what it gives you instead is worse than two independent clients.
+  /// Each manager holds its own copy of [session], and a rotating refresh
+  /// token is only honoured once: whichever manager refreshes first spends it,
+  /// and the other's refresh comes back as an `OAuthSessionRevokedException`
+  /// — the signal to send the user back through authorization — for a session
+  /// that was working moments earlier. Build the manager yourself and pass it
+  /// to [ATProto.fromOAuth] when more than one client shares an account.
   factory ATProto.fromOAuthSession(
     final oauth.OAuthSession session, {
     final oauth.OAuthClient? oauthClient,

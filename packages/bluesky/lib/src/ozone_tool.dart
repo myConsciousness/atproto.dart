@@ -89,6 +89,15 @@ sealed class OzoneTool {
 
   /// Returns a new [OzoneTool] backed by an OAuth [manager], which owns DPoP
   /// header building and transparent token refresh.
+  ///
+  /// [OzoneTool.fromAtproto] is not the way to share a session here — on the
+  /// OAuth path the [oauth.OAuthSessionManager] is already the shared thing.
+  /// It holds the session, the single in-flight refresh, and its own
+  /// `onSessionUpdated`, none of which live on the context, so passing one
+  /// manager to several clients gives them one session and one refresh even
+  /// though each keeps a context of its own with its own headers. Build the
+  /// manager once and pass it around; [OzoneTool.fromOAuthSession] builds a
+  /// new one on every call and does not share.
   factory OzoneTool.fromOAuth(
     final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
@@ -117,6 +126,16 @@ sealed class OzoneTool {
   ///
   /// Pass [oauthClient] to enable transparent token refresh; without it the
   /// session is used as-is and cannot be refreshed.
+  ///
+  /// This builds a fresh [oauth.OAuthSessionManager] on every call, so a
+  /// second client built this way for the same account does not share the
+  /// session — and what it gets instead is worse than an independent client.
+  /// Each manager holds its own copy of [session], and a rotating refresh
+  /// token is only honoured once: whichever manager refreshes first spends it,
+  /// and the other's refresh comes back as an `OAuthSessionRevokedException`
+  /// — the signal to send the user back through authorization — for a session
+  /// that was working moments earlier. Build the manager yourself and pass it
+  /// to [OzoneTool.fromOAuth] when more than one client shares an account.
   factory OzoneTool.fromOAuthSession(
     final oauth.OAuthSession session, {
     final oauth.OAuthClient? oauthClient,
