@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.4
+
+- chore: regenerated from synced lexicons
+
 ## v1.2.3
 
 - chore: bump `at_primitives` to `^1.2.0`.
