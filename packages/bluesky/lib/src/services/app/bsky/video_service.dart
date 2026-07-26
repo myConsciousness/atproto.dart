@@ -53,24 +53,44 @@ Blob? _terminalBlobOf(final JobStatus status) => switch (status.state) {
 final class VideoServiceImpl extends VideoService {
   VideoServiceImpl(super.ctx);
 
+  /// Throws a [StateError] when the upload has no DID to name, which is what
+  /// an unauthenticated client would otherwise send.
   @override
   Future<XRPCResponse<JobStatus>> uploadVideo({
     required Uint8List bytes,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
-  }) async => await super.uploadVideo(
-    bytes: bytes,
-    $parameters: {
-      // Use `ctx.repo` so this also resolves the DID for OAuth sessions
-      // (where `ctx.session` is null and `ctx.session!.did` would crash).
-      'did': ctx.repo,
-      'name': '${nanoid(12)}.mp4',
-      ...?$parameters,
-    },
-    $service: $service ?? _videoService,
-    $headers: {'Content-Length': bytes.lengthInBytes.toString(), ...?$headers},
-  );
+  }) async {
+    // `ctx.repo` collapses to the empty string for a client with no session,
+    // and `did=` is not a request the video service can make sense of -- it
+    // comes back as an opaque server-side rejection, long after the whole
+    // video has been sent. A caller may still name the account itself, which
+    // the parameters below already let it override.
+    if (($parameters?['did'] ?? ctx.actorDid ?? '').isEmpty) {
+      throw StateError(
+        'uploadVideo uploads on behalf of an account and needs a session; '
+        'pass a `did` in `\$parameters` when driving the upload with '
+        'credentials obtained elsewhere',
+      );
+    }
+
+    return await super.uploadVideo(
+      bytes: bytes,
+      $parameters: {
+        // Use `ctx.repo` so this also resolves the DID for OAuth sessions
+        // (where `ctx.session` is null and `ctx.session!.did` would crash).
+        'did': ctx.repo,
+        'name': '${nanoid(12)}.mp4',
+        ...?$parameters,
+      },
+      $service: $service ?? _videoService,
+      $headers: {
+        'Content-Length': bytes.lengthInBytes.toString(),
+        ...?$headers,
+      },
+    );
+  }
 
   @override
   Future<XRPCResponse<VideoGetJobStatusOutput>> getJobStatus({
@@ -112,11 +132,18 @@ final class VideoServiceImpl extends VideoService {
   /// * [timeout] - Budget for the whole operation, upload included. Defaults to
   ///   5 minutes
   /// * [onProgress] - Called with every job status observed, the terminal one
-  ///   included, so a UI can render [JobStatus.progress]
+  ///   included, so a UI can render [JobStatus.progress]. Never called once
+  ///   [timeout] has expired, so the last thing a caller hears is the
+  ///   exception
   /// * [$service] - Optional service endpoint (defaults to video.bsky.app),
   ///   used for both the upload and the polling
   /// * [$headers], [$parameters] - Applied to the upload request only; the
   ///   polling requests are sent with the context's own authentication
+  ///
+  /// Both the upload and the polls are sent with the context's own
+  /// authentication, exactly as [uploadVideo] and [getJobStatus] are on their
+  /// own. Use [getUploadVideoAuth] with [uploadVideoWithAuthToken] to drive the
+  /// upload with an explicit service auth token instead.
   ///
   /// ## Throws
   ///
@@ -130,6 +157,10 @@ final class VideoServiceImpl extends VideoService {
   /// * [VideoUploadTimeoutException] - [timeout] expired while the job was
   ///   still running. Distinct from the two above so "the server rejected this
   ///   video" is never confused with "we gave up waiting"
+  ///
+  /// Before any of those, and before anything is sent: an [ArgumentError] when
+  /// [pollInterval] or [timeout] is zero or negative, and a [StateError] when
+  /// this client has no authenticated account.
   ///
   /// [timeout] releases the caller; it does not necessarily stop the work.
   /// Polling does stop, so an abandoned job costs no further requests, but an
@@ -168,6 +199,25 @@ final class VideoServiceImpl extends VideoService {
     Map<String, String>? $headers,
     Map<String, String>? $parameters,
   }) async {
+    //! A non-positive interval turns the loop below into a busy-poll that
+    //! hammers the video service as fast as the network answers, for as long
+    //! as the job runs. It is caller error either way, and one check here is
+    //! all it takes to keep it from reaching the service.
+    if (pollInterval <= Duration.zero) {
+      throw ArgumentError.value(
+        pollInterval,
+        'pollInterval',
+        'must be positive: polling without waiting floods the video service',
+      );
+    }
+    if (timeout <= Duration.zero) {
+      throw ArgumentError.value(
+        timeout,
+        'timeout',
+        'must be positive: a budget that is already spent can only time out',
+      );
+    }
+
     JobStatus? lastStatus;
     var expired = false;
 
@@ -194,6 +244,16 @@ final class VideoServiceImpl extends VideoService {
 
       var status = uploaded.data;
       while (true) {
+        //! `timeout` below completes the future the caller is awaiting, but it
+        //! cannot stop this loop, so it has to stop itself. Checked here, ahead
+        //! of `report`, because a status that arrives while the budget expires
+        //! belongs to an operation the caller has already been told timed out,
+        //! and announcing it as progress afterwards is a live update for a dead
+        //! upload. Checked again below because that is where the next request
+        //! would be issued. The thrown exception is discarded by the
+        //! already-completed `timeout`.
+        if (expired) throw VideoUploadTimeoutException(timeout, lastStatus);
+
         report(status);
 
         final blob = _terminalBlobOf(status);
@@ -201,11 +261,8 @@ final class VideoServiceImpl extends VideoService {
 
         await Future<void>.delayed(pollInterval);
 
-        //! `timeout` below completes the future the caller is awaiting, but it
-        //! cannot stop this loop. Without this check a job that never
-        //! terminates would keep polling the service forever, long after
-        //! everyone stopped listening. The thrown exception is discarded by
-        //! the already-completed `timeout`.
+        //! Without this a job that never terminates would keep polling the
+        //! service forever, long after everyone stopped listening.
         if (expired) throw VideoUploadTimeoutException(timeout, lastStatus);
 
         status = (await getJobStatus(
