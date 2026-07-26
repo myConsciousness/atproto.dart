@@ -1,6 +1,6 @@
 # Release Note
 
-## Unreleased
+## v1.7.0
 
 - **security**: `isLinkFacade` no longer passes a display text it cannot parse. It used to return `false` — "not a facade" — both when the text named no host and when it named one that could not be read, so every shape the parser did not recognize went through unflagged.
   - Display text is now folded the way IDNA (UTS-46) folds it before comparison: the three full-stop variants (`。` U+3002, `．` U+FF0E, `｡` U+FF61) become `.`, and the fullwidth ASCII block (U+FF01–U+FF5E) becomes plain ASCII. `bsky。app` and `ｂｓｋｙ．ａｐｐ` are hosts a browser really resolves to `bsky.app` — the reader sees a domain they trust and the link works — and they were not flagged when pointed at another host. The host of the target is folded the same way, so a link written with a fullwidth host still matches an ASCII display text. This is not homograph detection, which stays out of scope: only the characters IDNA *maps* onto ASCII are folded, and a Cyrillic look-alike is still a genuinely different host.

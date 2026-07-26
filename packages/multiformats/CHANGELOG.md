@@ -1,6 +1,6 @@
 # Release Note
 
-## Unreleased
+## v1.4.0
 
 - fix: `dagCborEncode` keeps its documented `ArgumentError`/`InvalidCidError` contract for a sole-`$bytes` map whose value is not valid base64, which previously leaked a raw `FormatException` — reachable from user-supplied `$unknown` data.
 - fix: a sole-`$link` or sole-`$bytes` map whose value is not a `String` now throws `ArgumentError` instead of being silently encoded as an ordinary one-entry map, which turned a typo into a valid-looking but wrong CID.

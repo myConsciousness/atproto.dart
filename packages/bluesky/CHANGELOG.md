@@ -1,6 +1,6 @@
 # Release Note
 
-## Unreleased
+## v2.4.0
 
 - feat: `ThreadVerificationException` now carries the thread's `rkeys` and `uris`, and reports a response without the optional `results` array as `inconclusive` rather than as a plain failure. `applyWrites` is atomic, so the exception is only ever raised after the thread is committed, and `createThreadAtomic` builds the batch internally — the record keys that make the posts findable used to die with it, leaving a published thread reported as a hard failure nothing could act on. A server that omits `results` has contradicted nothing, and `inconclusive` says so: the thread is there, and a `feed.post.get` on the first of `uris` confirms it.
 - fix: `bluesky.video.uploadVideo` now throws a `StateError` when the client has no authenticated account, instead of sending `did=` and surfacing whatever the video service makes of it — after the whole video has been uploaded. A caller supplying its own `did` in `$parameters` is unaffected.

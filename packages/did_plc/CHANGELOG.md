@@ -1,6 +1,6 @@
 # Release Note
 
-## Unreleased
+## v1.2.0
 
 - security: `base58BtcDecode` now rejects inputs longer than `maxBase58InputLength` (512 characters) with a `CryptoException` before decoding. The decoder is inherently O(n^2), so an unbounded input was a denial-of-service vector for any caller decoding attacker-supplied text: a ~512,000-character `publicKeyMultibase` hidden in a DID document froze a single-threaded isolate for over two minutes. Every legitimate input this package handles (a Multikey is ~48 characters, a base58btc CID similar) is an order of magnitude below the new bound.
 

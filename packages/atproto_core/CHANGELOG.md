@@ -1,6 +1,6 @@
 # Release Note
 
-## Unreleased
+## v2.4.0
 
 - fix: `decodeCar` validates the CAR header length instead of trusting it. A truncated archive whose header varint claimed more bytes than exist pushed the cursor past the end and decoded to an EMPTY map — a truncated repository export looked like an empty repository, silently losing every block. It now throws `CarException`, the same contract the block-length check already honored.
 - fix: a varint whose payload reaches the 64th bit no longer wraps to a negative length and escapes as a raw `RangeError` from deep inside the decoder; it is rejected as a `CarException` in the varint reader itself, so every caller of it is covered. Length checks are also written as subtractions so a near-maximum length cannot overflow the cursor past its own bounds check.
