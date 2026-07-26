@@ -33,15 +33,20 @@ final class Hour implements GroupBy {
   @override
   List<List<Notification>> execute(NotificationListNotificationsOutput data) {
     return _buildChunks(
-      _groupBy(
-        data.notifications,
-        (n) => DateTime(
-          n.indexedAt.year,
-          n.indexedAt.month,
-          n.indexedAt.day,
-          (n.indexedAt.hour ~/ hour) * hour,
-        ),
-      ),
+      _groupBy(data.notifications, (n) {
+        // Bucket on UTC components with a UTC key: a local `DateTime` shifts
+        // the bucket with the runtime's zone, and a local wall-clock time that
+        // does not exist (a DST spring-forward hour) normalizes upward and
+        // silently collapses two distinct hours into one bucket.
+        final indexedAt = n.indexedAt.toUtc();
+
+        return DateTime.utc(
+          indexedAt.year,
+          indexedAt.month,
+          indexedAt.day,
+          (indexedAt.hour ~/ hour) * hour,
+        );
+      }),
     );
   }
 }
@@ -61,16 +66,20 @@ final class Minute implements GroupBy {
   @override
   List<List<Notification>> execute(NotificationListNotificationsOutput data) {
     return _buildChunks(
-      _groupBy(
-        data.notifications,
-        (n) => DateTime(
-          n.indexedAt.year,
-          n.indexedAt.month,
-          n.indexedAt.day,
-          n.indexedAt.hour,
-          (n.indexedAt.minute ~/ minute) * minute,
-        ),
-      ),
+      _groupBy(data.notifications, (n) {
+        // See [Hour.execute]: the bucket key must not depend on the runtime's
+        // time zone, and zones with a 30 or 45 minute offset shift the minute
+        // component too.
+        final indexedAt = n.indexedAt.toUtc();
+
+        return DateTime.utc(
+          indexedAt.year,
+          indexedAt.month,
+          indexedAt.day,
+          indexedAt.hour,
+          (indexedAt.minute ~/ minute) * minute,
+        );
+      }),
     );
   }
 }

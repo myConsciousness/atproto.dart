@@ -703,7 +703,7 @@ Future<void> main() async {
 
 A raw notification list is unusable in a UI: fifty separate "X liked your post" rows should read as one. **[bluesky](https://pub.dev/packages/bluesky)** groups notifications client-side the same way the official Bluesky app does, through the `group()` extension on the `listNotifications` output.
 
-Since **v2.1.0** the default is official social-app parity: it groups `like`, `repost`, `follow`, `like-via-repost`, `repost-via-repost`, and `subscribed-post`; applies a 48-hour sliding window anchored on each group's newest item; separates follow-backs into their own groups; and marks a group unread if *any* of its notifications is unread.
+Since **v2.1.0** the default is official social-app parity: it groups `like`, `repost`, `follow`, `like-via-repost`, `repost-via-repost`, and `subscribed-post`; applies a 48-hour window anchored on the notification that opened each group (fixed, not sliding — since notifications arrive newest first it is normally the group's newest item); separates follow-backs into their own groups; and marks a group unread if *any* of its notifications is unread.
 
 <!-- snippet: bluesky/notification_grouping.dart -->
 ```dart title="notification_grouping.dart"
@@ -717,7 +717,7 @@ Future<void> main() async {
 
   // Default: official Bluesky social-app parity — groups like / repost /
   // follow / like-via-repost / repost-via-repost / subscribed-post within a
-  // 48h sliding window, separates follow-backs, and marks a group unread if
+  // 48h window, separates follow-backs, and marks a group unread if
   // any of its notifications is unread.
   final grouped = notifications.data.group();
 
@@ -766,7 +766,7 @@ Future<void> main() async {
 
 | Config | Grouped reasons | Window | Follow-backs | Unread |
 | --- | --- | --- | --- | --- |
-| `NotificationsGrouperConfig.official()` (default) | 6 reasons | 48h sliding | Separated | If any unread |
+| `NotificationsGrouperConfig.official()` (default) | 6 reasons | 48h from the group's first item | Separated | If any unread |
 | `NotificationsGrouperConfig.lenient()` | like / repost / follow | none | Merged | Newest item's `isRead` |
 | `NotificationsGrouperConfig(...)` | yours | yours | yours | yours |
 
