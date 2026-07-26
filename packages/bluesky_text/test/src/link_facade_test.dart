@@ -25,10 +25,23 @@ void expectFacade(final String displayText, final String uri) => expect(
   reason: '"$displayText" -> $uri must be flagged',
 );
 
+/// Asserts the exact [LinkFacadeVerdict] of [displayText] over [uri].
+void expectVerdict(
+  final String displayText,
+  final String uri,
+  final LinkFacadeVerdict expected,
+) => expect(
+  checkLinkFacade(displayText: displayText, uri: Uri.parse(uri)),
+  expected,
+  reason: '"$displayText" -> $uri must be $expected',
+);
+
 void main() {
   group('isLinkFacade flags', () {
     test('a bare host displayed over a link to another host', () {
       expectFacade('bsky.app', 'https://evil.example.com/login');
+      //* The trusted host moved into the path is the oldest trick of the lot.
+      expectFacade('bsky.app', 'https://evil.example.com/bsky.app');
       expectFacade('bsky.app', 'https://bsky.app.evil.example.com/login');
       expectFacade('example.com', 'https://example.org');
     });
@@ -199,8 +212,6 @@ void main() {
       expectHonest('bsky.app', '');
       expectHonest('%%%.app', 'https://evil.example.com');
       expectHonest('...app', 'https://evil.example.com');
-      expectHonest('bsky.app)', 'https://evil.example.com');
-      expectHonest('bsky.app,', 'https://evil.example.com');
     });
 
     test('a display text whose punycode is undecodable', () {
@@ -240,6 +251,207 @@ void main() {
       //* `app` must not be treated as the parent of `bsky.app`.
       expectFacade('bsky.app', 'https://app');
       expectFacade('https://app', 'https://bsky.app');
+    });
+  });
+
+  group('isLinkFacade flags a host IDNA maps onto the trusted one', () {
+    //* These are not confusables. UTS-46 *maps* every one of these characters
+    //* onto the ASCII form, so a browser resolves the link to the real
+    //* `bsky.app` and the reader sees a domain they trust.
+    test('the three full stops that IDNA maps to `.`', () {
+      expectFacade('bsky。app', 'https://evil.example.com');
+      expectFacade('bsky．app', 'https://evil.example.com');
+      expectFacade('bsky｡app', 'https://evil.example.com');
+    });
+
+    test('fullwidth ASCII letters', () {
+      expectFacade('ｂｓｋｙ.ａｐｐ', 'https://evil.example.com');
+      expectFacade('ｂｓｋｙ．ａｐｐ', 'https://evil.example.com');
+      expectFacade('ｈｔｔｐｓ：／／ｂｓｋｙ．ａｐｐ', 'https://evil.example.com');
+    });
+
+    test('and stays honest when the link really goes there', () {
+      expectHonest('bsky。app', 'https://bsky.app');
+      expectHonest('ｂｓｋｙ．ａｐｐ', 'https://bsky.app');
+      expectHonest('bsky.app', 'https://bsky。app');
+    });
+  });
+
+  group('isLinkFacade flags a wrapped or punctuated host', () {
+    test('surrounding quotes and brackets', () {
+      expectFacade('"bsky.app"', 'https://evil.example.com');
+      expectFacade("'bsky.app'", 'https://evil.example.com');
+      expectFacade('“bsky.app”', 'https://evil.example.com');
+      expectFacade('<bsky.app>', 'https://evil.example.com');
+      expectFacade('(bsky.app)', 'https://evil.example.com');
+      expectFacade('«bsky.app»', 'https://evil.example.com');
+    });
+
+    test('a protocol-relative reference', () {
+      expectFacade('//bsky.app', 'https://evil.example.com');
+      expectFacade('//bsky.app/profile/alice', 'https://evil.example.com');
+      expectHonest('//bsky.app', 'https://bsky.app');
+    });
+
+    test('trailing sentence punctuation', () {
+      expectFacade('bsky.app,', 'https://evil.example.com');
+      expectFacade('bsky.app!', 'https://evil.example.com');
+      expectFacade('bsky.app)', 'https://evil.example.com');
+      expectFacade('bsky.app…', 'https://evil.example.com');
+      expectFacade('bsky.app;', 'https://evil.example.com');
+    });
+
+    test('the controls that already worked keep working', () {
+      expectFacade('bsky.app/', 'https://evil.example.com');
+      expectFacade('[bsky.app]', 'https://evil.example.com');
+    });
+
+    test('and none of it turns ordinary text into a host', () {
+      expectHonest('"click here"', 'https://evil.example.com');
+      expectHonest('(read the docs)', 'https://evil.example.com');
+      expectHonest('"Node.js"', 'https://evil.example.com');
+      expectHonest('e.g.,', 'https://evil.example.com');
+    });
+  });
+
+  group('isLinkFacade ends the authority at a backslash', () {
+    test('a backslash hides the real host, exactly as a slash does', () {
+      //* Per the WHATWG URL Standard a `\` terminates the authority of a
+      //* special scheme, so a browser reads the host as `bsky.app`.
+      expectFacade(
+        'https://bsky.app\\@evil.example.com',
+        'https://evil.example.com',
+      );
+      expectFacade(
+        'https://bsky.app\\evil.example.com',
+        'https://evil.example.com',
+      );
+      expectFacade(
+        'https://bsky.app\\/evil.example.com',
+        'https://evil.example.com',
+      );
+    });
+
+    test('and stays honest when the link goes to the visible host', () {
+      expectHonest('https://bsky.app\\@evil.example.com', 'https://bsky.app');
+      expectHonest('https://bsky.app\\evil.example.com', 'https://bsky.app');
+    });
+  });
+
+  group('checkLinkFacade', () {
+    test('separates a facade from a genuine match', () {
+      expectVerdict(
+        'bsky.app',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+      expectVerdict('bsky.app', 'https://bsky.app', LinkFacadeVerdict.honest);
+      expectVerdict(
+        'bsky.app',
+        'https://staging.bsky.app',
+        LinkFacadeVerdict.honest,
+      );
+    });
+
+    test('reports notAUrl for display text that claims no host', () {
+      expectVerdict(
+        'click here',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+      expectVerdict(
+        'Node.js',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+      expectVerdict(
+        'v1.2.3',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+      expectVerdict('', 'https://evil.example.com', LinkFacadeVerdict.notAUrl);
+      expectVerdict(
+        'support@example.com',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+    });
+
+    test('reports undetermined when the text reads as a URL with no host', () {
+      expectVerdict(
+        'https://',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict(
+        'http:///',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+    });
+
+    test('reports undetermined when the link has no comparable host', () {
+      expectVerdict(
+        'bsky.app',
+        'mailto:alice@example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict(
+        'bsky.app',
+        'tel:+81-3-0000-0000',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict('bsky.app', '', LinkFacadeVerdict.undetermined);
+    });
+
+    test('reports undetermined for a TLD this package cannot evaluate', () {
+      //* A host under a Unicode TLD is a host claim, and the package carries
+      //* no data to resolve this one. Saying so is the honest answer; saying
+      //* "not a facade" is not.
+      expectVerdict(
+        'ハンドル.テスト',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict(
+        'приклад.чоготось',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+    });
+
+    test('but an internationalized TLD it does carry is compared', () {
+      //* `рф` and `みんな` are in the package's own ccTLD/gTLD lists, so these
+      //* are ordinary host comparisons, not guesses.
+      expectVerdict(
+        'бскай.рф',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+      expectVerdict('бскай.рф', 'https://бскай.рф', LinkFacadeVerdict.honest);
+      expectVerdict(
+        'ハンドル.みんな',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+    });
+
+    test('isLinkFacade is true for the facade verdict alone', () {
+      for (final probe in const [
+        ['click here', 'https://evil.example.com'],
+        ['https://', 'https://evil.example.com'],
+        ['bsky.app', 'mailto:alice@example.com'],
+        ['бскай.рф', 'https://evil.example.com'],
+        ['bsky.app', 'https://bsky.app'],
+      ]) {
+        final uri = Uri.parse(probe[1]);
+        expect(
+          isLinkFacade(displayText: probe[0], uri: uri),
+          checkLinkFacade(displayText: probe[0], uri: uri) ==
+              LinkFacadeVerdict.facade,
+          reason: '"${probe[0]}" -> ${probe[1]}',
+        );
+      }
     });
   });
 
