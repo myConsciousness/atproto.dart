@@ -113,15 +113,12 @@ final class HttpIdentityResolver implements IdentityResolver {
             );
           }
           final next = current.resolve(location);
-          if (enforceHostPolicy) {
-            if (!next.isScheme('https')) {
-              throw IdentityException(
-                'Redirect from "$current" to non-https target "$next" '
-                'is not allowed for did:web resolution',
-              );
-            }
-            _checkDidWebHostname(next.host);
-          }
+          _checkRedirectTarget(
+            next,
+            from: current,
+            origin: url,
+            enforceHostPolicy: enforceHostPolicy,
+          );
           current = next;
           continue;
         }
@@ -167,61 +164,220 @@ final class HttpIdentityResolver implements IdentityResolver {
     return builder.takeBytes();
   }
 
-  /// Validates a did:web `host[:port]` string (already percent-decoded)
-  /// against [allowedHosts] and [allowPrivateNetwork].
-  void _checkDidWebHostPort(final String hostPort) {
-    final normalized = hostPort.toLowerCase();
-    final String hostname;
-    if (normalized.startsWith('[')) {
-      final end = normalized.indexOf(']');
-      if (end < 0) {
-        throw IdentityException('Invalid did:web host: "$hostPort"');
-      }
-      hostname = normalized.substring(1, end);
-    } else {
-      final lastColon = normalized.lastIndexOf(':');
-      hostname =
-          lastColon >= 0 && !normalized.substring(0, lastColon).contains(':')
-          // Exactly one colon: `host:port`.
-          ? normalized.substring(0, lastColon)
-          // No colon (plain host) or 2+ colons (bare IPv6 literal).
-          : normalized;
-    }
-    _checkDidWebHostname(hostname);
-  }
-
-  /// Validates a bare lowercase hostname (no port, no brackets) against
-  /// [allowedHosts] and [allowPrivateNetwork]. See [allowPrivateNetwork]
-  /// for the IP-literal-only limitation of this check.
-  void _checkDidWebHostname(final String hostname) {
-    final host = hostname.toLowerCase();
-    if (host.isEmpty) {
+  /// Splits a did:web authority (`host`, `host:port`, `[v6]`, or `[v6]:port`,
+  /// already percent-decoded) into a validated host and optional port.
+  ///
+  /// This deliberately parses the authority itself rather than deferring to
+  /// [Uri.parse] and inspecting the result afterwards: the two disagree on
+  /// inputs like `evil.example.com@127.0.0.1`, where the string a naive
+  /// validator sees is not the host the request would reach.
+  ({String host, int? port}) _parseDidWebAuthority(final String authority) {
+    final value = authority.toLowerCase();
+    if (value.isEmpty) {
       throw const IdentityException('did:web host must not be empty');
     }
+    // An authority is ASCII (IDNs are punycode-encoded). Rejecting everything
+    // else up front removes whole classes of confusables and control
+    // characters before any structural parsing happens.
+    for (final unit in value.codeUnits) {
+      if (unit <= 0x20 || unit >= 0x7f) {
+        throw IdentityException(
+          'did:web authority "$authority" contains a non-ASCII or control '
+          'character',
+        );
+      }
+    }
+
+    String host;
+    String? port;
+    if (value.startsWith('[')) {
+      final end = value.indexOf(']');
+      if (end < 0) {
+        throw IdentityException('Invalid did:web authority: "$authority"');
+      }
+      host = value.substring(1, end);
+      final rest = value.substring(end + 1);
+      if (rest.isNotEmpty) {
+        if (!rest.startsWith(':')) {
+          throw IdentityException('Invalid did:web authority: "$authority"');
+        }
+        port = rest.substring(1);
+      }
+      try {
+        Uri.parseIPv6Address(host);
+      } on FormatException {
+        throw IdentityException(
+          'did:web authority "$authority" is not a valid IPv6 literal',
+        );
+      }
+    } else {
+      final colon = value.indexOf(':');
+      if (colon >= 0) {
+        if (value.indexOf(':', colon + 1) >= 0) {
+          // Two or more colons: a bare IPv6 literal. That is not a valid
+          // authority (RFC 3986 requires brackets) and used to escape as a
+          // raw FormatException out of Uri.parse.
+          throw IdentityException(
+            'did:web authority "$authority" looks like an unbracketed IPv6 '
+            'literal; bracket it as "[...]" (percent-encoded) instead',
+          );
+        }
+        host = value.substring(0, colon);
+        port = value.substring(colon + 1);
+      } else {
+        host = value;
+      }
+    }
+
+    if (port != null) {
+      final parsed = _parsePort(port);
+      if (parsed == null) {
+        throw IdentityException(
+          'did:web authority "$authority" has an invalid port "$port"',
+        );
+      }
+      return (host: _checkHost(host, what: 'did:web host'), port: parsed);
+    }
+
+    return (host: _checkHost(host, what: 'did:web host'), port: null);
+  }
+
+  /// Validates [hostname] and returns it normalized (lowercase, brackets and a
+  /// trailing FQDN dot stripped), applying [allowedHosts] when
+  /// [applyAllowlist] is set and [allowPrivateNetwork] always.
+  ///
+  /// See [allowPrivateNetwork] for the IP-literal-only limitation of the
+  /// private-network part of this check.
+  String _checkHost(
+    final String hostname, {
+    required final String what,
+    final bool applyAllowlist = true,
+  }) {
+    final host = _normalizeHostname(hostname, what: what);
 
     final allowed = allowedHosts;
-    if (allowed != null &&
+    if (applyAllowlist &&
+        allowed != null &&
         !allowed.any((final entry) => entry.toLowerCase() == host)) {
       throw IdentityException(
-        'did:web host "$host" is not in the configured allowlist',
+        '$what "$host" is not in the configured allowlist',
       );
     }
 
-    if (allowPrivateNetwork) return;
+    if (allowPrivateNetwork) return host;
 
     if (host == 'localhost' || host.endsWith('.localhost')) {
       throw IdentityException(
-        'did:web host "$host" resolves to the local host and is rejected '
+        '$what "$host" resolves to the local host and is rejected '
         '(set allowPrivateNetwork: true to permit private-network hosts)',
       );
     }
     if (_isProhibitedIpLiteral(host)) {
       throw IdentityException(
-        'did:web host "$host" is a private, loopback, link-local, multicast, '
+        '$what "$host" is a private, loopback, link-local, multicast, '
         'or otherwise reserved IP literal and is rejected '
         '(set allowPrivateNetwork: true to permit private-network hosts)',
       );
     }
+
+    return host;
+  }
+
+  /// Applies the host policy to a redirect target.
+  ///
+  /// did:web fetches ([enforceHostPolicy]) keep the full policy: https only,
+  /// plus the allowlist and private-network checks. Other fetches start from an
+  /// operator-configured origin ([handleResolver] / [plcDirectory]) that may
+  /// legitimately be a local service, so a redirect back to the *same* host is
+  /// always allowed; anything else must still pass the private-network check
+  /// and may not downgrade the scheme. Without this, an attacker who controls
+  /// (or can poison a response from) either service could pivot the client onto
+  /// an internal address.
+  void _checkRedirectTarget(
+    final Uri next, {
+    required final Uri from,
+    required final Uri origin,
+    required final bool enforceHostPolicy,
+  }) {
+    if (next.userInfo.isNotEmpty) {
+      throw IdentityException(
+        'Redirect from "$from" to "$next" carries credentials in the '
+        'authority and is rejected',
+      );
+    }
+
+    if (enforceHostPolicy) {
+      if (!next.isScheme('https')) {
+        throw IdentityException(
+          'Redirect from "$from" to non-https target "$next" '
+          'is not allowed for did:web resolution',
+        );
+      }
+      _checkHost(next.host, what: 'did:web redirect host');
+      return;
+    }
+
+    if (!next.isScheme('https') && !next.isScheme('http')) {
+      throw IdentityException(
+        'Redirect from "$from" to non-http(s) target "$next" is rejected',
+      );
+    }
+    if (origin.isScheme('https') && !next.isScheme('https')) {
+      throw IdentityException(
+        'Redirect from "$from" to "$next" downgrades https to http '
+        'and is rejected',
+      );
+    }
+    if (next.host.toLowerCase() != origin.host.toLowerCase()) {
+      _checkHost(next.host, what: 'redirect host', applyAllowlist: false);
+    }
+  }
+
+  /// Extracts the `#atproto_pds` service endpoint origin from a DID document,
+  /// per the atproto identity spec.
+  ///
+  /// `serviceEndpoint` is attacker-controlled for any DID (anyone can register
+  /// a `did:plc`), and the value returned here becomes `ResolvedIdentity.pds`,
+  /// which callers connect to — so it gets the same host policy as a did:web
+  /// host, minus [allowedHosts] (which scopes did:web issuers, not the PDS a
+  /// legitimate account may live on).
+  String _extractPdsEndpoint(
+    final Map<String, dynamic> didDocument,
+    final String did,
+  ) {
+    final services = didDocument['service'];
+    if (services is List) {
+      for (final service in services) {
+        if (service is! Map) continue;
+        final id = service['id'];
+        if (id != '#atproto_pds' && id != '$did#atproto_pds') continue;
+        if (service['type'] != 'AtprotoPersonalDataServer') continue;
+        final endpoint = service['serviceEndpoint'];
+        if (endpoint is String && endpoint.isNotEmpty) {
+          const what = 'PDS serviceEndpoint';
+          final uri = _parseHttpOrigin(endpoint, what: what);
+          if (uri.userInfo.isNotEmpty || uri.hasQuery || uri.hasFragment) {
+            throw IdentityException(
+              'Invalid $what: "$endpoint" must be a bare origin, without '
+              'credentials, a query, or a fragment',
+            );
+          }
+          if (!uri.isScheme('https') && !allowPrivateNetwork) {
+            throw IdentityException(
+              'Invalid $what: "$endpoint" must use https '
+              '(set allowPrivateNetwork: true to permit plain http)',
+            );
+          }
+          _checkHost(uri.host, what: '$what host', applyAllowlist: false);
+
+          return uri.origin;
+        }
+      }
+    }
+
+    throw IdentityException(
+      'DID document for "$did" declares no "#atproto_pds" service endpoint',
+    );
   }
 
   @override
@@ -345,6 +501,13 @@ final class HttpIdentityResolver implements IdentityResolver {
   /// (`did:web:example.com` -> `https://example.com/.well-known/did.json`;
   /// `did:web:example.com:u:alice` -> `https://example.com/u/alice/did.json`),
   /// validating the host against [allowedHosts] and [allowPrivateNetwork].
+  ///
+  /// The URL is assembled from validated components rather than interpolated
+  /// into a string that is then parsed. String interpolation let the authority
+  /// smuggle in delimiters — `did:web:example.com%23` produced
+  /// `https://example.com#/.well-known/did.json`, quietly fetching the site
+  /// root — and, worse, let the validated string differ from the host the
+  /// request actually reached.
   Uri _didWebDocumentUri(final String did) {
     final id = did.substring('did:web:'.length);
     if (id.isEmpty) {
@@ -357,20 +520,129 @@ final class HttpIdentityResolver implements IdentityResolver {
     } on ArgumentError {
       throw IdentityException('Invalid did:web identifier: "$did"');
     }
-    final host = segments.first;
-    if (host.isEmpty) {
-      throw IdentityException('Invalid did:web identifier: "$did"');
+
+    final authority = _parseDidWebAuthority(segments.first);
+
+    final path = segments.sublist(1);
+    for (final segment in path) {
+      if (segment.isEmpty || segment == '.' || segment == '..') {
+        throw IdentityException('Invalid did:web identifier: "$did"');
+      }
     }
 
-    _checkDidWebHostPort(host);
-
-    if (segments.length == 1) {
-      return Uri.parse('https://$host/.well-known/did.json');
-    }
-
-    final path = segments.sublist(1).join('/');
-    return Uri.parse('https://$host/$path/did.json');
+    return Uri(
+      scheme: 'https',
+      host: authority.host,
+      port: authority.port,
+      pathSegments: path.isEmpty
+          ? const ['.well-known', 'did.json']
+          : [...path, 'did.json'],
+    );
   }
+}
+
+/// Parses a port string, returning `null` when it is not a plain decimal
+/// number in the valid range. Hand-rolled because `int.tryParse` also accepts
+/// signs and would let `+80` through.
+int? _parsePort(final String value) {
+  if (value.isEmpty || value.length > 5) return null;
+  for (final unit in value.codeUnits) {
+    if (unit < 0x30 || unit > 0x39) return null;
+  }
+  final port = int.parse(value);
+
+  return port >= 1 && port <= 65535 ? port : null;
+}
+
+/// Normalizes and syntactically validates a hostname: lowercases it, strips
+/// surrounding brackets and a single trailing FQDN dot, and requires it to be
+/// either an IP literal or a well-formed LDH domain name.
+///
+/// The trailing dot matters because resolvers ignore it, so `localhost.` and
+/// `localhost` reach the same machine while comparing unequal as strings.
+String _normalizeHostname(final String hostname, {required final String what}) {
+  var host = hostname.toLowerCase();
+  if (host.startsWith('[') && host.endsWith(']')) {
+    host = host.substring(1, host.length - 1);
+  }
+  if (host.endsWith('.')) host = host.substring(0, host.length - 1);
+
+  if (host.isEmpty) {
+    throw IdentityException('$what must not be empty');
+  }
+  if (host.length > 253) {
+    throw IdentityException('$what "$hostname" is longer than 253 characters');
+  }
+
+  // IP literals are legitimate authorities; the *range* check happens later.
+  if (_tryParseStrictIpv4(host) != null) return host;
+  if (host.contains(':')) {
+    try {
+      Uri.parseIPv6Address(host);
+      return host;
+    } on FormatException {
+      throw IdentityException('$what "$hostname" is not a valid host');
+    }
+  }
+
+  final labels = host.split('.');
+  for (final label in labels) {
+    if (label.isEmpty || label.length > 63) {
+      throw IdentityException('$what "$hostname" has an invalid DNS label');
+    }
+    if (label.startsWith('-') || label.endsWith('-')) {
+      throw IdentityException('$what "$hostname" has an invalid DNS label');
+    }
+    for (final unit in label.codeUnits) {
+      final isLetter = unit >= 0x61 && unit <= 0x7a;
+      final isDigit = unit >= 0x30 && unit <= 0x39;
+      if (!isLetter && !isDigit && unit != 0x2d) {
+        throw IdentityException(
+          '$what "$hostname" contains a character that is not allowed in a '
+          'hostname',
+        );
+      }
+    }
+  }
+  // The rightmost label of a real domain always starts with a letter (every
+  // IANA TLD is alphabetic or an `xn--` punycode label). Requiring that is
+  // what closes the inet_aton family of loopback spellings, none of which are
+  // dotted quads and so all of which slipped past the IP-literal check while
+  // getaddrinfo happily resolved them to 127.0.0.1: `2130706433`, `127.1`,
+  // `0x7f.0x0.0x0.0x1`, `0177.0.0.1`.
+  final unit = labels.last.codeUnitAt(0);
+  if (unit < 0x61 || unit > 0x7a) {
+    throw IdentityException(
+      '$what "$hostname" is not a domain name and not a valid IP literal '
+      '(its last label does not begin with a letter)',
+    );
+  }
+
+  return host;
+}
+
+/// Parses a strict dotted-quad IPv4 literal, or returns `null`.
+///
+/// Stricter than [Uri.parseIPv4Address], which accepts zero-padded parts:
+/// `0177.0.0.1` would parse there as `177.0.0.1` (public) while `inet_aton`
+/// reads the octal `0177` and resolves it to `127.0.0.1` (loopback).
+List<int>? _tryParseStrictIpv4(final String host) {
+  final parts = host.split('.');
+  if (parts.length != 4) return null;
+
+  final bytes = <int>[];
+  for (final part in parts) {
+    if (part.isEmpty || part.length > 3) return null;
+    if (part.length > 1 && part.startsWith('0')) return null;
+    for (final unit in part.codeUnits) {
+      if (unit < 0x30 || unit > 0x39) return null;
+    }
+    final value = int.parse(part);
+    if (value > 255) return null;
+    bytes.add(value);
+  }
+
+  return bytes;
 }
 
 /// Whether [hostname] (lowercase, no brackets/port) is an IP literal in a
@@ -378,11 +650,8 @@ final class HttpIdentityResolver implements IdentityResolver {
 /// loopback, private, link-local, carrier-grade NAT, unique-local,
 /// multicast, unspecified, or otherwise reserved.
 bool _isProhibitedIpLiteral(final String hostname) {
-  try {
-    return _isProhibitedIpv4(Uri.parseIPv4Address(hostname));
-  } on FormatException {
-    // Not an IPv4 literal.
-  }
+  final ipv4 = _tryParseStrictIpv4(hostname);
+  if (ipv4 != null) return _isProhibitedIpv4(ipv4);
   try {
     return _isProhibitedIpv6(Uri.parseIPv6Address(hostname));
   } on FormatException {
@@ -417,35 +686,9 @@ bool _isProhibitedIpv6(final List<int> b) {
       b[0] == 0xff; // ff00::/8 multicast
 }
 
-/// Extracts the `#atproto_pds` service endpoint origin from a DID document,
-/// per the atproto identity spec.
-String _extractPdsEndpoint(
-  final Map<String, dynamic> didDocument,
-  final String did,
-) {
-  final services = didDocument['service'];
-  if (services is List) {
-    for (final service in services) {
-      if (service is! Map) continue;
-      final id = service['id'];
-      if (id != '#atproto_pds' && id != '$did#atproto_pds') continue;
-      if (service['type'] != 'AtprotoPersonalDataServer') continue;
-      final endpoint = service['serviceEndpoint'];
-      if (endpoint is String && endpoint.isNotEmpty) {
-        return _normalizeHttpOrigin(endpoint, what: 'PDS serviceEndpoint');
-      }
-    }
-  }
-
-  throw IdentityException(
-    'DID document for "$did" declares no "#atproto_pds" service endpoint',
-  );
-}
-
-/// Normalizes a user-supplied host or URL to an `https`/`http` origin
-/// (`scheme://host[:port]`, no trailing slash). A bare hostname is treated as
-/// `https://<host>`.
-String _normalizeHttpOrigin(final String input, {required final String what}) {
+/// Parses a user-supplied host or URL into an `https`/`http` [Uri]. A bare
+/// hostname is treated as `https://<host>`.
+Uri _parseHttpOrigin(final String input, {required final String what}) {
   var value = input.trim();
   if (value.isEmpty) {
     throw IdentityException('$what must not be empty');
@@ -462,8 +705,19 @@ String _normalizeHttpOrigin(final String input, {required final String what}) {
     throw IdentityException('Invalid $what: "$input"');
   }
 
-  return uri.origin;
+  return uri;
 }
+
+/// Normalizes a user-supplied host or URL to an `https`/`http` origin
+/// (`scheme://host[:port]`, no trailing slash).
+///
+/// No host policy is applied: this is only used for the operator-configured
+/// [HttpIdentityResolver.handleResolver] and
+/// [HttpIdentityResolver.plcDirectory], which are trusted by construction and
+/// may legitimately point at a local service. Attacker-supplied endpoints go
+/// through [HttpIdentityResolver._extractPdsEndpoint] instead.
+String _normalizeHttpOrigin(final String input, {required final String what}) =>
+    _parseHttpOrigin(input, what: what).origin;
 
 /// Decodes [body] as a JSON object, returning `null` when it is not valid JSON
 /// or not an object.
