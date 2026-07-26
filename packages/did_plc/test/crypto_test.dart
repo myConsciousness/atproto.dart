@@ -8,6 +8,7 @@ import 'dart:typed_data';
 
 // Package imports:
 import 'package:crypto/crypto.dart' show sha256;
+import 'package:multiformats/multiformats.dart' as multiformats;
 import 'package:test/test.dart';
 
 // Project imports:
@@ -225,6 +226,47 @@ void main() {
         verifier.deriveDid(op),
         equals('did:plc:z72i7hdynmk6r22z27h6tvur'),
       );
+    });
+
+    test('operationCid emits exactly [0x01, 0x71, 0x12, 0x20, ...sha256]', () {
+      // Pins the byte layout of the CID this package produces, independently
+      // of how it is assembled: CIDv1 + dag-cbor + sha2-256 + 32-byte
+      // digest. Any change to the CID construction must keep these bytes
+      // identical, since they are hashed into `prev` chains and audit logs.
+      final operations = <Map<String, dynamic>>[
+        {'type': 'x'},
+        {'type': 'plc_operation', 'prev': null, 'alsoKnownAs': <String>[]},
+        {
+          'sig': 'abc',
+          'prev': 'bafyreigp6shzy6dlcxuowwoxz7u5nemdrkad2my5zwzpwilcnhih7bw6zm',
+          'type': 'plc_operation',
+          'services': {
+            'atproto_pds': {
+              'type': 'AtprotoPersonalDataServer',
+              'endpoint': 'https://bsky.social',
+            },
+          },
+        },
+      ];
+
+      const verifier = PlcVerifier();
+      for (final op in operations) {
+        final digest = sha256.convert(encodeDagCbor(op)).bytes;
+        final expected = multiformats.CID.fromList([
+          0x01, // CIDv1
+          0x71, // dag-cbor
+          0x12, // sha2-256
+          0x20, // 32 byte digest
+          ...digest,
+        ]);
+
+        expect(verifier.operationCid(op), equals(expected.toString()));
+        // Byte-level, not just the base32 string.
+        expect(
+          multiformats.CID.parse(verifier.operationCid(op)).bytes,
+          equals(expected.bytes),
+        );
+      }
     });
 
     test('deriveDid is base32(sha256(dag-cbor))[:24]', () {

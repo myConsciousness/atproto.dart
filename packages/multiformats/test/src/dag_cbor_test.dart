@@ -300,5 +300,56 @@ void main() {
         throwsA(isA<ArgumentError>()),
       );
     });
+
+    test(r'a sole-$bytes map whose value is not valid base64 throws '
+        'ArgumentError, not FormatException', () {
+      // '!' is outside the base64 alphabet. The documented contract of this
+      // encoder is ArgumentError / InvalidCidError, and this data can come
+      // straight from a user-supplied `$unknown` blob, so a raw
+      // FormatException would escape the contract callers code against.
+      expect(
+        () => dagCborEncode({r'$bytes': 'not!base64'}),
+        throwsA(isA<ArgumentError>()),
+      );
+    });
+
+    test(r'a sole-$link map with a non-String value throws', () {
+      // Silently encoding this as an ordinary map would turn a typo into a
+      // wrong-but-valid CID.
+      expect(
+        () => dagCborEncode({r'$link': 123}),
+        throwsA(isA<ArgumentError>()),
+      );
+      expect(
+        () => dagCborEncode(<String, dynamic>{r'$link': null}),
+        throwsA(isA<ArgumentError>()),
+      );
+    });
+
+    test(r'a sole-$bytes map with a non-String value throws', () {
+      expect(
+        () => dagCborEncode({r'$bytes': 123}),
+        throwsA(isA<ArgumentError>()),
+      );
+    });
+
+    test('nesting deeper than the depth limit throws ArgumentError, not '
+        'StackOverflowError', () {
+      Object? value = 1;
+      for (var i = 0; i < 2000; i++) {
+        value = [value];
+      }
+
+      expect(() => dagCborEncode(value), throwsA(isA<ArgumentError>()));
+    });
+
+    test('nesting within the depth limit still encodes', () {
+      Object? value = 1;
+      for (var i = 0; i < 500; i++) {
+        value = <String, dynamic>{'a': value};
+      }
+
+      expect(() => dagCborEncode(value), returnsNormally);
+    });
   });
 }

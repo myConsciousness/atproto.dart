@@ -2,6 +2,8 @@
 
 ## v1.1.3
 
+- refactor: `PlcVerifier.operationCid` builds its CID with `multiformats`' `CID.createFromBytes` instead of hand-assembling the `[0x01, 0x71, 0x12, 0x20, ...]` prefix, removing the last independent CID-construction site in this package. The emitted bytes are unchanged.
+- perf: hoisted the per-call `RegExp` literals in `OperationValidator` and `CryptoKey.fromHex` to `static final` fields, so streaming an audit log no longer recompiles the same patterns once per operation.
 - refactor: `encodeDagCbor` now delegates to `multiformats`' canonical `dagCborEncode` instead of a second hand-written encoder, removing the duplicate implementation. The `CryptoException` contract and the encoded bytes for every PLC operation are unchanged.
 - chore: bump `multiformats` to `^1.3.0`.
 
