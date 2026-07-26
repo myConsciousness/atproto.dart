@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.6
+
+- chore: widen `bluesky_text` to `^1.6.0`.
+
 ## v0.6.5
 
 - chore: regenerated from synced lexicons
