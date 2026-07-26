@@ -306,8 +306,14 @@ Future<void> main(List<String> args) async {
     password: 'your-app-password',
   );
 
-  // Initialize Ozone client for moderation tools
-  final ozone = OzoneTool.fromSession(session.data);
+  // Initialize Ozone client for moderation tools. `ozoneDid` is the DID of
+  // the Ozone instance; it routes `tools.ozone.*` there via `atproto-proxy`
+  // and leaves every other call going to the PDS. Omit it when the service
+  // you authenticated against is the Ozone instance itself.
+  final ozone = OzoneTool.fromSession(
+    session.data,
+    ozoneDid: 'did:plc:your-ozone-instance',
+  );
 
   // Query moderation events
   final events = await ozone.moderation.queryEvents(limit: 50);
