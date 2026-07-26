@@ -187,6 +187,16 @@ jobs:
       - name: Analyze
         run: dart analyze $DART_DIRS
 
+      # Runs BEFORE the resolve below, because it is what makes that resolve's
+      # failure legible. `website` is not a workspace member, so any workspace
+      # package it reaches without a path override is fetched from pub.dev --
+      # fine until a release bumps that package to a version that does not exist
+      # there yet, at which point `dart pub get` fails with a version-solving
+      # error that names the symptom and not the cause (#2519). This asserts the
+      # override list still covers the full transitive closure.
+      - name: Validate website dependency overrides
+        run: dart run ./scripts/validate_website_overrides.dart
+
       # `website` is not a workspace member -- it pins the packages by path and
       # resolves on its own -- so it needs a separate resolve before analysis.
       # Its snippets are the source of every code example in the docs, so this

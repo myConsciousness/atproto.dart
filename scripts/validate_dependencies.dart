@@ -12,11 +12,11 @@ import 'utils.dart';
 
 /// Packages to exclude from dependency validation.
 ///
-/// `bluesky_text_flutter` lives outside the Dart pub workspace and resolves its
-/// dependencies from pub.dev, so it can only reference *published* workspace
-/// versions; it is bumped/republished after the workspace packages it depends
-/// on are published, not in lockstep.
-const _excludePackages = ['atproto_test', 'did_plc', 'bluesky_text_flutter'];
+/// Note `bluesky_text_flutter` needs no entry here: the package list is derived
+/// from the root pubspec's `workspace:` members, and the Flutter package is not
+/// one. It resolves from pub.dev, so it can only reference *published*
+/// workspace versions and is republished after them, not in lockstep.
+const _excludePackages = ['atproto_test', 'did_plc'];
 
 void main() {
   final errors = <String>[];
@@ -41,13 +41,18 @@ void main() {
 }
 
 /// Loads and parses the pubspec of every package under validation.
+///
+/// The list comes from the root pubspec's `workspace:` members rather than a
+/// listing of `packages/`, so every member is covered wherever it lives.
+/// `templates/feed_generator` used to fall outside a `packages/`-only scan: its
+/// constraints on workspace packages went unchecked and could go stale, and
+/// because a workspace member's constraints must be satisfied by the local
+/// versions, a stale one breaks the root `dart pub get` for the whole repo.
 Map<String, _Package> _loadPackages(List<String> errors) {
   final packages = <String, _Package>{};
 
-  for (final packageName in packageNames) {
-    if (_excludePackages.contains(packageName)) continue;
-
-    final pubspecFile = getPackagePubspec(packageName);
+  for (final packageDir in workspacePackageDirs) {
+    final pubspecFile = getWorkspacePubspec(packageDir);
     if (!pubspecFile.existsSync()) {
       errors.add('Pubspec file not found: ${pubspecFile.path}');
       continue;
@@ -60,6 +65,7 @@ Map<String, _Package> _loadPackages(List<String> errors) {
         errors.add('Package name is null in ${pubspecFile.path}');
         continue;
       }
+      if (_excludePackages.contains(name)) continue;
 
       final dependencies = <String, String>{};
       pubspec.dependencies.forEach((dependency, version) {
@@ -71,7 +77,9 @@ Map<String, _Package> _loadPackages(List<String> errors) {
 
       packages[name] = _Package(
         name: name,
-        version: pubspec.version.toString(),
+        // Null for `publish_to: none` members such as `templates/feed_generator`,
+        // which carry no version because nothing can depend on them.
+        version: pubspec.version?.toString(),
         dependencies: dependencies,
         pubspecPath: pubspecFile.path,
       );
@@ -91,6 +99,7 @@ void _validateDevelopingPackages(
   for (final package in packages.values) {
     package.dependencies.forEach((name, version) {
       final dependencyPackage = packages[name];
+      if (dependencyPackage?.version == null) return;
 
       if (dependencyPackage != null && version != dependencyPackage.version) {
         errors.add(
@@ -139,7 +148,7 @@ class _Package {
   });
 
   final String name;
-  final String version;
+  final String? version;
   final Map<String, String> dependencies;
   final String pubspecPath;
 }

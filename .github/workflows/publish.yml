@@ -199,7 +199,7 @@ jobs:
           # status with `||` rather than an `if`: a failing `if` condition with
           # no `else` leaves `$?` at 0, which would report the failure as a
           # successful publish.
-          timeout 10m dart pub publish --force 2>&1 | tee "$log" || status=$?
+          timeout 10m flutter pub publish --force 2>&1 | tee "$log" || status=$?
           if [[ "$status" -eq 0 ]]; then
             exit 0
           fi
@@ -207,7 +207,7 @@ jobs:
           if grep -q 'Pub needs your authorization' "$log"; then
             echo "::error::pub fell back to interactive OAuth, so OIDC publishing was rejected. Enable 'Automated publishing' for '$PACKAGE' on pub.dev (Admin tab -> repository myConsciousness/atproto.dart, tag pattern {{package}}-v{{version}})."
           elif [[ "$status" -eq 124 ]]; then
-            echo "::error::'dart pub publish' did not finish within 10 minutes and was killed."
+            echo "::error::'flutter pub publish' did not finish within 10 minutes and was killed."
           fi
           exit "$status"
 
@@ -229,6 +229,19 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+
+      # This is what authenticates the publish, and it is easy to mistake for
+      # redundant SDK setup. `subosito/flutter-action` installs Flutter and
+      # nothing else; `dart-lang/setup-dart` additionally runs its
+      # `createPubOIDCToken()`, which mints a GitHub OIDC token for audience
+      # `https://pub.dev`, exports it as `PUB_TOKEN`, and registers it with
+      # `dart pub token add https://pub.dev --env-var PUB_TOKEN`. Without that
+      # step pub holds no pub.dev credential at all, so it falls through to the
+      # browser OAuth flow and waits on a `http://localhost:<port>` redirect
+      # that can never arrive on a runner -- which is how 0.1.3 and 0.1.4 burned
+      # three ten-minute timeouts. The credential lands in the shared pub
+      # config, so the `flutter pub` call below picks it up.
+      - uses: dart-lang/setup-dart@v1
 
       - name: Verify an OIDC token is available
         run: |
@@ -252,24 +265,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      # Publishes with `dart pub`, not `flutter pub`, even though this is a
-      # Flutter package. `flutter pub publish` does not reach pub.dev's OIDC
-      # exchange: both 0.1.3 and 0.1.4 got as far as "Publishing ... to
-      # https://pub.dev:" and then printed "Pub needs your authorization",
-      # i.e. it fell straight through to the browser OAuth flow and sat on a
-      # localhost redirect until the timeout killed it. The same workflow,
-      # same `id-token: write`, same `--force` and the same confirmed-present
-      # OIDC token endpoint publishes every Dart package here without a
-      # prompt, so the wrapper — not the credentials and not pub.dev — is what
-      # differs. `flutter pub get` above still does the resolving, which is the
-      # part that genuinely needs the Flutter SDK; `dart pub publish` only has
-      # to package and upload, and validates this package cleanly.
+      # Credentials come from the `dart-lang/setup-dart` step above, not from
+      # `id-token: write` alone: that permission only makes an OIDC token
+      # mintable, and something still has to mint it and hand it to pub.
       - name: Publish to pub.dev
         run: |
           set -o pipefail
           log="$RUNNER_TEMP/publish.log"
           status=0
-          timeout 10m dart pub publish --force 2>&1 | tee "$log" || status=$?
+          timeout 10m flutter pub publish --force 2>&1 | tee "$log" || status=$?
           if [[ "$status" -eq 0 ]]; then
             exit 0
           fi
@@ -277,6 +281,6 @@ jobs:
           if grep -q 'Pub needs your authorization' "$log"; then
             echo "::error::pub fell back to interactive OAuth, so OIDC publishing was rejected. Either 'Automated publishing' for 'bluesky_text_flutter' does not match this push (pub.dev Admin tab -> repository myConsciousness/atproto.dart, tag pattern bluesky_text_flutter-v{{version}}, 'Require GitHub Actions environment' left unchecked because no job here declares one), or the publishing command stopped reaching the OIDC exchange."
           elif [[ "$status" -eq 124 ]]; then
-            echo "::error::'dart pub publish' did not finish within 10 minutes and was killed."
+            echo "::error::'flutter pub publish' did not finish within 10 minutes and was killed."
           fi
           exit "$status"
