@@ -127,6 +127,55 @@ void main() {
         const Duration(seconds: 60),
       );
     });
+
+    test('caps the exponential term at 60 seconds', () async {
+      final config = RetryConfig(
+        maxAttempts: 2000,
+        jitter: Jitter(maxInSeconds: 0),
+      );
+
+      //! 2^5 = 32 is still under the ceiling.
+      expect(
+        await config.nextDelay(_ctx(attempt: 6)),
+        const Duration(seconds: 32),
+      );
+      //! 2^6 = 64 would exceed it; the backoff is "capped exponential".
+      expect(
+        await config.nextDelay(_ctx(attempt: 7)),
+        const Duration(seconds: 60),
+      );
+      //! Uncapped, attempt 20 would wait roughly six days.
+      expect(
+        await config.nextDelay(_ctx(attempt: 20)),
+        const Duration(seconds: 60),
+      );
+      //! `math.pow` overflows to infinity here and `toInt()` on an infinite
+      //! double throws, so the ceiling must short-circuit before computing it.
+      expect(
+        await config.nextDelay(_ctx(attempt: 2000)),
+        const Duration(seconds: 60),
+      );
+    });
+
+    test('a retryAfter never shortens the wait below plain backoff', () async {
+      final config = RetryConfig(
+        maxAttempts: 100,
+        //! Pinned so the jitter contributes a known, non-zero amount.
+        jitter: Jitter(minInSeconds: 4, maxInSeconds: 4),
+      );
+
+      //! The capped exponential at attempt 10 is 60s, plus 4s of jitter. A
+      //! server asking for 1000s is clamped to the 60s ceiling, which is
+      //! shorter — so it must be ignored rather than applied. Previously the
+      //! clamp was inside the comparison, so a LARGER server-requested delay
+      //! produced a SHORTER wait than plain backoff.
+      expect(
+        await config.nextDelay(
+          _ctx(attempt: 10, retryAfter: const Duration(seconds: 1000)),
+        ),
+        const Duration(seconds: 64),
+      );
+    });
   });
 
   group('.nextDelay idempotency', () {
