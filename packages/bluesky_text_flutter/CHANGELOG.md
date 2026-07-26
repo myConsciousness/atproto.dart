@@ -1,9 +1,8 @@
 # Release Note
 
-## v0.1.4
+## v0.1.3
 
 - chore: bump `bluesky_text` to `^1.7.0`, picking up `checkLinkFacade`/`LinkFacadeVerdict` and the `isLinkFacade` hardening against display text that IDNA maps onto a trusted host, plus entity extraction that is linear rather than quadratic in the length of the text.
-- note: v0.1.3 was tagged but never reached pub.dev — its publish run failed — so this release also carries that version's `bluesky_text` `^1.6.0` bump. Nothing was published as 0.1.3, so upgrading goes straight from 0.1.2.
 
 ## v0.1.2
 
