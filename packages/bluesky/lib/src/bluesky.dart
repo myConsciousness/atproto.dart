@@ -13,7 +13,47 @@ import 'services/app/bsky/video_service.dart';
 
 /// Provides `app.bsky.*` services.
 sealed class Bluesky {
+  /// Returns a new [Bluesky] that drives every `app.bsky.*` service from the
+  /// context [atproto] already owns — see [atp.ATProto.ctx].
+  ///
+  /// Reach for this whenever one account needs more than one client. Every
+  /// other factory builds its own [atp.ATProto], and each of those owns a
+  /// separate [core.ServiceContext] holding a separate copy of the session.
+  /// Refresh tokens are single-use, so the moment the access token expires
+  /// those copies race: whichever context notices first spends the refresh
+  /// token, the other one's refresh is rejected by the server, and the losing
+  /// client fails with an `UnauthorizedException` the caller did nothing to
+  /// provoke.
+  ///
+  /// One shared context removes the race by construction:
+  ///
+  /// - **One session.** [session] reads the context's own field, so a refresh
+  ///   performed for one client is immediately visible to every other.
+  /// - **One refresh.** Concurrent expired requests join the single in-flight
+  ///   `refreshSession` call instead of each firing their own.
+  /// - **One [onSessionUpdated].** The stream belongs to the context, so a
+  ///   listener attached to any client observes every refresh — and what it
+  ///   emits is the only session worth persisting.
+  ///
+  /// ```dart
+  /// final atproto = atp.ATProto.fromSession(session);
+  /// final bluesky = Bluesky.fromAtproto(atproto);
+  ///
+  /// // `bluesky.session` and `atproto.session` are the same session.
+  /// ```
+  ///
+  /// Note that headers belong to the context too, so an [atproto] carrying a
+  /// service proxy header (`atproto-proxy`) sends every `app.bsky.*` call to
+  /// that service as well. Pass a client built for `app.bsky.*` traffic.
+  factory Bluesky.fromAtproto(final atp.ATProto atproto) = _Bluesky.fromAtproto;
+
   /// Returns the new instance of [Bluesky].
+  ///
+  /// This builds a fresh [atp.ATProto], and therefore a fresh
+  /// [core.ServiceContext] carrying its own copy of [session]. When the same
+  /// account also needs another client, build the [atp.ATProto] once and pass
+  /// it to [Bluesky.fromAtproto] instead — two contexts each holding a copy of
+  /// one session race to spend a single-use refresh token.
   factory Bluesky.fromSession(
     final core.Session session, {
     final Map<String, String>? headers,
@@ -142,6 +182,16 @@ sealed class Bluesky {
   /// [Bluesky.fromOAuthSession], otherwise null.
   oauth.OAuthSessionManager? get oAuthSessionManager;
 
+  /// Returns the DID of the authenticated actor, regardless of how this
+  /// instance was authenticated. Null when this instance is anonymous.
+  ///
+  /// [session] is set only for [Bluesky.fromSession] and
+  /// [oAuthSessionManager] only for [Bluesky.fromOAuth] /
+  /// [Bluesky.fromOAuthSession], so answering "which actor is this client
+  /// authenticated as?" through them means branching on the auth kind. This
+  /// getter answers it for both.
+  String? get actorDid;
+
   /// Returns the current service.
   /// Defaults to `bsky.social`.
   String get service;
@@ -234,6 +284,9 @@ final class _Bluesky implements Bluesky {
   @override
   oauth.OAuthSessionManager? get oAuthSessionManager =>
       _ctx.oAuthSessionManager;
+
+  @override
+  String? get actorDid => _ctx.actorDid;
 
   @override
   String get service => _ctx.service;

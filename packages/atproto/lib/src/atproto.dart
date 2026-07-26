@@ -173,6 +173,15 @@ sealed class ATProto {
   /// [ATProto.fromOAuthSession], otherwise null.
   oauth.OAuthSessionManager? get oAuthSessionManager;
 
+  /// Returns the DID of the authenticated actor, regardless of how this
+  /// instance was authenticated. Null when this instance is anonymous.
+  ///
+  /// [session] is set only for [ATProto.fromSession] and [oAuthSessionManager]
+  /// only for [ATProto.fromOAuth] / [ATProto.fromOAuthSession], so answering
+  /// "which actor is this client authenticated as?" through them means
+  /// branching on the auth kind. This getter answers it for both.
+  String? get actorDid;
+
   /// Returns the current service.
   /// Defaults to `bsky.social`.
   String get service;
@@ -296,6 +305,9 @@ final class _ATProto implements ATProto {
   @override
   oauth.OAuthSessionManager? get oAuthSessionManager =>
       _ctx.oAuthSessionManager;
+
+  @override
+  String? get actorDid => _ctx.actorDid;
 
   @override
   String get service => _ctx.service;

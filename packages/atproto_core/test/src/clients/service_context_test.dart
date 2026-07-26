@@ -197,6 +197,69 @@ void main() {
     });
   });
 
+  group('.actorDid', () {
+    test('returns the legacy session DID', () {
+      final context = ServiceContext(
+        session: Session(
+          did: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+          handle: 'shinyakato.dev',
+          accessJwt: '1234',
+          refreshJwt: '1234',
+        ),
+      );
+
+      expect(context.actorDid, 'did:plc:iijrtk7ocored6zuziwmqq3c');
+      expect(context.repo, 'did:plc:iijrtk7ocored6zuziwmqq3c');
+    });
+
+    test('is null when unauthenticated', () {
+      final context = ServiceContext();
+
+      expect(context.actorDid, isNull);
+      //! `repo` keeps collapsing "no actor" to the empty string, which is what
+      //! the `repo` request parameter has always been filled with. Redefining
+      //! it in terms of `actorDid` must not turn that into a null.
+      expect(context.repo, '');
+    });
+
+    test('follows the session adopted by a refresh', () async {
+      //! A real `refreshSession` never changes the DID; changing it here is
+      //! what makes it observable that `actorDid` reads the current session on
+      //! every access instead of snapshotting the one passed to the
+      //! constructor.
+      final context = ServiceContext(
+        session: Session(
+          did: 'did:plc:before',
+          handle: 'test.dev',
+          accessJwt: 'old-token',
+          refreshJwt: 'refresh-token',
+        ),
+        onRefreshSession: (current) async =>
+            current.copyWith(did: 'did:plc:after', accessJwt: 'new-token'),
+        getClient: (url, {headers}) async {
+          final refreshed = headers?['Authorization'] == 'Bearer new-token';
+
+          return http.Response(
+            refreshed ? '{}' : '{"error":"ExpiredToken"}',
+            refreshed ? 200 : 401,
+            headers: {'content-type': 'application/json'},
+            request: http.Request('GET', url),
+          );
+        },
+      );
+
+      expect(context.actorDid, 'did:plc:before');
+
+      await context.get<Map<String, Object?>>(
+        NSID.create('server.atproto.com', 'getSession'),
+        to: (json) => json,
+      );
+
+      expect(context.actorDid, 'did:plc:after');
+      expect(context.repo, 'did:plc:after');
+    });
+  });
+
   group('.get', () {
     test('generates JOSE-compatible DPoP proofs', () {
       final keyPair = getKeyPair();
