@@ -11,6 +11,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
+import 'ambiguous_failure.dart';
 import 'retry_context.dart';
 import 'retry_reason.dart';
 import 'retry_strategy.dart';
@@ -63,10 +64,8 @@ final class Challenge {
         action,
         e,
         stackTrace,
-        // A timeout is raised after the request was sent, so the server may
-        // already have processed it.
         reason: RetryReason.timeout,
-        isAmbiguous: true,
+        isAmbiguous: isAmbiguousFailure(e),
         isProcedure: isProcedure,
         nsid: nsid,
         attempt: attempt,
@@ -80,10 +79,8 @@ final class Challenge {
         action,
         e,
         stackTrace,
-        // The server received the request; a `5xx` may follow a partially
-        // applied side effect.
         reason: RetryReason.serverError,
-        isAmbiguous: true,
+        isAmbiguous: isAmbiguousFailure(e),
         statusCode: 500,
         isProcedure: isProcedure,
         nsid: nsid,
@@ -98,10 +95,8 @@ final class Challenge {
         action,
         e,
         stackTrace,
-        // The request was rejected before it was processed, so retrying is
-        // safe even for a procedure.
         reason: RetryReason.rateLimited,
-        isAmbiguous: false,
+        isAmbiguous: isAmbiguousFailure(e),
         statusCode: 429,
         isProcedure: isProcedure,
         nsid: nsid,
@@ -122,8 +117,7 @@ final class Challenge {
         e,
         stackTrace,
         reason: RetryReason.network,
-        // Safe only when the request provably never reached the server.
-        isAmbiguous: !_isUnreachedNetworkError(e),
+        isAmbiguous: isAmbiguousFailure(e),
         isProcedure: isProcedure,
         nsid: nsid,
         attempt: attempt,
@@ -193,7 +187,7 @@ final class Challenge {
           e,
           stackTrace,
           reason: RetryReason.network,
-          isAmbiguous: !_isUnreachedNetworkError(e),
+          isAmbiguous: isAmbiguousFailure(e),
           isProcedure: isProcedure,
           nsid: nsid,
           attempt: attempt,
@@ -268,22 +262,6 @@ final class Challenge {
     }
 
     Error.throwWithStackTrace(error, stackTrace);
-  }
-
-  /// Whether [error] indicates the request provably never reached the server
-  /// (so retrying a non-idempotent request cannot duplicate a side effect).
-  ///
-  /// Errors that leave the outcome uncertain (e.g. a connection reset while
-  /// waiting for a response) are deliberately treated as ambiguous.
-  bool _isUnreachedNetworkError(final Object error) {
-    final message = error.toString().toLowerCase();
-
-    return message.contains('connection refused') ||
-        message.contains('failed host lookup') ||
-        message.contains('no route to host') ||
-        message.contains('network is unreachable') ||
-        message.contains('nodename nor servname') ||
-        message.contains('name or service not known');
   }
 
   /// Returns how long the server asks us to wait before retrying a
