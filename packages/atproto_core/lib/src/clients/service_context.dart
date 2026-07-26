@@ -303,14 +303,17 @@ base class ServiceContext {
   /// an `UnauthorizedException` the caller did nothing to provoke.
   ///
   /// ```dart
-  /// final proxied = ctx.withHeaders({
-  ///   ...ctx.headers,
+  /// final bare = ctx.withHeaders(const {
   ///   'atproto-proxy': 'did:web:example.com#service',
   /// });
   /// ```
   ///
-  /// [headers] replaces this context's headers rather than extending them;
-  /// spread [headers] of the origin context, as above, to keep them.
+  /// [headers] replaces this context's headers rather than extending them, so
+  /// `bare` above sends the proxy header and nothing else. To keep the origin's
+  /// headers, use [withAdditionalHeaders] rather than spreading [headers] of
+  /// the origin context by hand: a spread is key-exact, and header names are
+  /// not, so an origin sending `Atproto-Proxy` would keep it alongside the
+  /// added `atproto-proxy` and the request would carry the header twice.
   ServiceContext withHeaders(final Map<String, String> headers) =>
       ServiceContext._shared(
         _state,

@@ -1,13 +1,16 @@
 # Release Note
 
+## Unreleased
+
+- feat: added `ServiceContext.withAdditionalHeaders`, which derives a context from this one's headers plus the given ones instead of replacing them. `withHeaders` replaces, so every caller adding a single header spread the origin's headers back in by hand — and a spread is key-exact, which leaves a caller's `Atproto-Proxy` sitting next to the added `atproto-proxy`. Header names are case-insensitive, so this merges case-insensitively and the added header wins.
+- fix: `ServiceContext.headers` no longer hands out the context's live internal map. Any holder could write to it, and because a context derived via `withHeaders` and the clients built on it read the same field, one `headers['atproto-proxy'] = ...` retargeted every request every one of them made — while `headers.remove(...)` silently dropped a header a client needs for the rest of its life. The map is now copied at construction and exposed unmodifiable, consistently: previously the same write threw `UnsupportedError` when no headers had been supplied and succeeded when they had.
+
 ## v2.3.0
 
 - feat: added `ServiceContext.actorDid`, the DID of the authenticated actor regardless of how the context was authenticated. `session` is set only for the legacy (app-password) path and `oAuthSessionManager` only for the OAuth one, so neither answers that on its own and callers were left composing the two by hand. `repo` is now defined in terms of it, so the two cannot drift.
 - feat: added `isAmbiguousFailure`, a pure predicate reporting whether a caught error leaves it uncertain that the request reached the server. The retry engine already drew this distinction but only exposed it to a `RetryStrategy`; once retries were exhausted the original error was rethrown unchanged — a `TimeoutException` or an `http.ClientException` cannot carry an extra field — so a caller writing records could not tell a safe retry from one risking a duplicate. The retry layer now consumes the same predicate, so the classification callers see cannot drift from the behavior they observe.
 - feat: `atproto_core.dart` now re-exports `TidGenerator` from `at_primitives`, alongside the existing `AtUri` and `NSID` re-exports, so a caller allocating record keys ahead of a write does not need a direct dependency on `at_primitives`.
 - feat: added `ServiceContext.withHeaders`, deriving a context that shares this one's session while carrying its own request headers. Mutable session state now lives in a holder the derived contexts share, so a refresh — including the deduplicated in-flight one — is seen by all of them. Headers belong to the client; the session belongs to the account.
-- feat: added `ServiceContext.withAdditionalHeaders`, which derives a context from this one's headers plus the given ones instead of replacing them. `withHeaders` replaces, so every caller adding a single header spread the origin's headers back in by hand — and a spread is key-exact, which leaves a caller's `Atproto-Proxy` sitting next to the added `atproto-proxy`. Header names are case-insensitive, so this merges case-insensitively and the added header wins.
-- fix: `ServiceContext.headers` no longer hands out the context's live internal map. Any holder could write to it, and because a context derived via `withHeaders` and the clients built on it read the same field, one `headers['atproto-proxy'] = ...` retargeted every request every one of them made — while `headers.remove(...)` silently dropped a header a client needs for the rest of its life. The map is now copied at construction and exposed unmodifiable, consistently: previously the same write threw `UnsupportedError` when no headers had been supplied and succeeded when they had.
 
 ## v2.2.0
 
