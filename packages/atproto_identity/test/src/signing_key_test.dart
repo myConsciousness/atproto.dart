@@ -53,6 +53,29 @@ void main() {
     expect(signingKeyOf(doc, _did), isNull);
   });
 
+  test('rejects an implausibly long publicKeyMultibase', () {
+    // base58btc decoding is O(n^2), and this value is decoded *before* any
+    // signature is verified, so an unauthenticated caller could otherwise
+    // pin the isolate for minutes with a single DID document.
+    final doc = {
+      'verificationMethod': [
+        {'id': '#atproto', 'publicKeyMultibase': 'z${'Q' * 512000}'},
+      ],
+    };
+    expect(() => signingKeyOf(doc, _did), throwsA(isA<IdentityException>()));
+  });
+
+  test('accepts a realistically sized multibase key', () {
+    // A real secp256k1 / P-256 Multikey is 49 characters.
+    final key = 'z${'Q' * 48}';
+    final doc = {
+      'verificationMethod': [
+        {'id': '#atproto', 'publicKeyMultibase': key},
+      ],
+    };
+    expect(signingKeyOf(doc, _did), key);
+  });
+
   test('does NOT select a fully-qualified id belonging to another DID', () {
     // The fragment is `#atproto` but the DID prefix is someone else's.
     final doc = {

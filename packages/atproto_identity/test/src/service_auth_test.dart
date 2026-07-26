@@ -197,6 +197,36 @@ void main() {
     );
   });
 
+  test('rejects an over-length signing key before decoding it', () async {
+    // A custom IdentityResolver can hand back any string, so the length bound
+    // must also be enforced here and not only in `signingKeyOf`. base58btc
+    // decoding is quadratic and runs *before* the signature is checked, so an
+    // unauthenticated request could otherwise freeze the isolate for minutes.
+    final key = CryptoKey.generate(KeyType.secp256k1);
+    final jwt = _makeJwt(
+      key,
+      iss: _iss,
+      aud: _serviceDid,
+      expEpochSeconds: _inOneHour(),
+    );
+
+    final stopwatch = Stopwatch()..start();
+    await expectLater(
+      verifyServiceAuth(
+        jwt,
+        serviceDid: _serviceDid,
+        resolver: _FakeResolver('z${'Q' * 512000}'),
+      ),
+      throwsA(isA<IdentityException>()),
+    );
+    stopwatch.stop();
+    expect(
+      stopwatch.elapsedMilliseconds,
+      lessThan(1000),
+      reason: 'the key must be rejected before any base58 decoding',
+    );
+  });
+
   test('throws on a malformed authorization header', () async {
     expect(
       () => verifyServiceAuth(

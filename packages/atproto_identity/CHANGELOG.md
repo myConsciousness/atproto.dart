@@ -1,5 +1,9 @@
 # Release Note
 
+## Unreleased
+
+- security: bounded the accepted `publicKeyMultibase` length, closing an unauthenticated quadratic-CPU denial of service. `verifyServiceAuth` decodes the issuer's signing key *before* it verifies the signature, and base58btc decoding is O(n^2), so a DID document declaring a ~512,000-character key (small enough to fit under the resolver's 512 KiB response cap) froze the isolate for minutes on a single unauthenticated request. `signingKeyOf` now throws an `IdentityException` above the new `maxPublicKeyMultibaseLength` (256 characters; a real secp256k1 / P-256 Multikey is 49), and `verifyServiceAuth` re-checks the bound on whatever the `IdentityResolver` returns, since that interface is caller-implementable.
+
 ## v0.1.1
 
 - docs: documented the `HttpIdentityResolver` SSRF/DoS hardening parameters in the README (`allowedHosts`, `allowPrivateNetwork`, `timeout`, `maxResponseBytes`), explaining why `did:web` resolution needs them.
