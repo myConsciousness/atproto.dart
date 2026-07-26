@@ -124,6 +124,16 @@ sealed class BlueskyChat {
   /// [BlueskyChat.fromOAuthSession], otherwise null.
   oauth.OAuthSessionManager? get oAuthSessionManager;
 
+  /// Returns the DID of the authenticated actor, regardless of how this
+  /// instance was authenticated. Null when this instance is anonymous.
+  ///
+  /// [session] is set only for [BlueskyChat.fromSession] and
+  /// [oAuthSessionManager] only for [BlueskyChat.fromOAuth] /
+  /// [BlueskyChat.fromOAuthSession], so answering "which actor is this client
+  /// authenticated as?" through them means branching on the auth kind. This
+  /// getter answers it for both.
+  String? get actorDid;
+
   /// Returns atproto features.
   atp.ATProto get atproto;
 
@@ -179,6 +189,9 @@ final class _BlueskyChat implements BlueskyChat {
   @override
   oauth.OAuthSessionManager? get oAuthSessionManager =>
       _ctx.oAuthSessionManager;
+
+  @override
+  String? get actorDid => _ctx.actorDid;
 
   @override
   String get service => _ctx.service;

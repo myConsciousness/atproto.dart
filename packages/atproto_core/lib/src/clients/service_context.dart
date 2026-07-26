@@ -166,7 +166,28 @@ base class ServiceContext {
 
   Map<String, String> get headers => _headers ?? const {};
 
-  String get repo => session?.did ?? oAuthSessionManager?.currentSub ?? '';
+  /// The DID of the authenticated actor, regardless of how this context was
+  /// authenticated. Null when this context is unauthenticated.
+  ///
+  /// Resolves the legacy (app-password) [session] first and falls back to the
+  /// OAuth subject held by [oAuthSessionManager]. Neither field alone answers
+  /// the question: on an OAuth-authenticated context [session] is permanently
+  /// null, and on a legacy one there is no manager. Without this getter every
+  /// caller that supports both kinds has to re-derive the composition and
+  /// therefore has to know which kind it is holding.
+  ///
+  /// No state is introduced. The value is computed on every read from the two
+  /// fields this context already owns, so it needs no invalidation: a legacy
+  /// session refresh replaces the session in place and is observed here on the
+  /// next read, and an OAuth rotation is applied by the manager to the session
+  /// it owns, which this getter reads through rather than copies.
+  ///
+  /// [repo] is this value with "unauthenticated" collapsed to the empty
+  /// string, because that is what the `repo` request parameter is filled with.
+  /// Prefer [actorDid] whenever that distinction matters.
+  String? get actorDid => session?.did ?? oAuthSessionManager?.currentSub;
+
+  String get repo => actorDid ?? '';
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final NSID methodId, {
