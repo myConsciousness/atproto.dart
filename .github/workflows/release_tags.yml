@@ -1,0 +1,130 @@
+# The missing link between the automated version bumps and pub.dev.
+#
+# `sync_and_generate.yml` syncs lexicons, regenerates sources, and runs
+# `scripts/gen_changelog.dart`, which appends CHANGELOG entries and bumps the
+# affected packages (patch/minor, propagated to dependents). That PR auto-merges
+# into `main` -- and then nothing happened: `publish.yml` is tag-driven, and no
+# job ever created the tags. Releases therefore stalled on `main` until someone
+# ran `melos publish_live` by hand. `bluesky` sat at 2.2.4 on `main` while
+# pub.dev still served 2.2.2 (two unreleased bumps).
+#
+# This workflow closes that gap: on every push to `main` that touches a package
+# pubspec, it compares each package's `version:` against the existing tags and
+# pushes `<package>-v<x.y.z>` for whatever is missing. Those tag pushes fire
+# `publish.yml`, which publishes to pub.dev via OIDC.
+#
+# Two things make this safe to run on every push:
+#   * It only ever *adds* tags that do not exist yet, so re-runs are no-ops.
+#   * `publish.yml` asks pub.dev whether the version is already there and skips
+#     the upload if so, so a tag for an already-published version is harmless.
+#
+# The push MUST use `secrets.PAT`: tags pushed with the default `GITHUB_TOKEN`
+# do not trigger workflows, which would leave `publish.yml` just as dormant as
+# it was before.
+
+name: Release Tags
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/*/pubspec.yaml"
+  # Manual safety valve: run against `main` to tag any release that was missed
+  # (for example a bump merged while this workflow was failing).
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Serialise runs so two pushes in quick succession cannot race on tag creation.
+# Never cancel: a cancelled run would silently drop a release.
+concurrency:
+  group: release-tags
+  cancel-in-progress: false
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # A PAT is required so the tag push triggers `publish.yml`; pushes made
+          # with the default GITHUB_TOKEN do not start workflows.
+          token: ${{ secrets.PAT }}
+          # Tags are needed to tell a new version from an already-tagged one.
+          fetch-depth: 0
+
+      - name: Create and push missing release tags
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          set -o pipefail
+
+          # Tags already on the remote. `git tag` alone would miss a tag pushed
+          # by a maintainer after this checkout started.
+          remote_tags="$(git ls-remote --tags origin | sed 's#.*refs/tags/##' | sed 's#\^{}$##' | sort -u)"
+
+          tags=()
+          skipped=()
+
+          for pubspec in packages/*/pubspec.yaml; do
+            dir="$(dirname "$pubspec")"
+            name="$(grep -m1 '^name:' "$pubspec" | awk '{print $2}')"
+            version="$(grep -m1 '^version:' "$pubspec" | awk '{print $2}')"
+
+            # `publish_to: none` packages (atproto_test) are never released.
+            if grep -qE '^publish_to:[[:space:]]*none' "$pubspec"; then
+              skipped+=("$name (publish_to: none)")
+              continue
+            fi
+
+            if [[ -z "$name" || -z "$version" ]]; then
+              echo "::warning::Could not read name/version from $pubspec; skipping."
+              skipped+=("$dir (unreadable pubspec)")
+              continue
+            fi
+
+            # Only plain `x.y.z` versions match `publish.yml`'s tag filter. A
+            # pre-release version would produce a tag that never publishes, so
+            # flag it instead of creating a dead tag.
+            if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "::warning::$name version '$version' is not a plain x.y.z release; not tagging."
+              skipped+=("$name $version (not a plain release version)")
+              continue
+            fi
+
+            tag="$name-v$version"
+            if grep -qxF "$tag" <<<"$remote_tags"; then
+              echo "$tag already exists; nothing to release for $name."
+              continue
+            fi
+
+            echo "$name $version has no tag yet; creating $tag."
+            git tag "$tag"
+            tags+=("$tag")
+          done
+
+          if [[ ${#skipped[@]} -gt 0 ]]; then
+            printf 'Skipped: %s\n' "${skipped[@]}"
+          fi
+
+          if [[ ${#tags[@]} -eq 0 ]]; then
+            echo "No new release tags. (Every package pubspec version is already tagged.)"
+            echo 'No new release tags — every package version is already tagged.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # One atomic push: either every tag lands or none does, so a partial
+          # release cannot leave half the workspace published.
+          git push --atomic origin "${tags[@]}"
+
+          echo "::notice::Pushed ${#tags[@]} release tag(s): ${tags[*]}"
+          {
+            echo "Pushed release tags (each one triggers **Publish**):"
+            printf -- '- `%s`\n' "${tags[@]}"
+          } >> "$GITHUB_STEP_SUMMARY"
