@@ -9,6 +9,8 @@ export 'package:bluesky_text/src/entities/entities.dart';
 export 'package:bluesky_text/src/entities/entity.dart';
 export 'package:bluesky_text/src/facet.dart';
 export 'package:bluesky_text/src/facet_segmenter.dart' show renderFacets;
+export 'package:bluesky_text/src/link_facade.dart'
+    show isLinkFacade, toDisplayHost;
 export 'package:bluesky_text/src/text_length_overflow.dart';
 export 'package:bluesky_text/src/text_segment.dart';
 export 'package:bluesky_text/src/unicode_string.dart'
