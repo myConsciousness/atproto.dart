@@ -13,6 +13,16 @@ import 'feed_algorithm.dart';
 /// ISO-8601 timestamp nor an AT-URI ever contains two consecutive colons.
 const _cursorSeparator = '::';
 
+/// The longest cursor this algorithm will look at. A cursor it produced is an
+/// ISO-8601 timestamp plus an AT-URI — comfortably under this — so anything
+/// longer is not one of ours and is rejected without being parsed.
+const _maxCursorLength = 512;
+
+/// How much of a rejected cursor is quoted back to the caller. Echoing the
+/// whole thing turns a 200KB query string into a 200KB error body: an
+/// amplifier the caller controls.
+const _maxEchoedCursorLength = 64;
+
 /// A minimal reverse-chronological sample feed. Replace the body of
 /// [getFeedSkeleton] with your own ranking to build a real feed.
 ///
@@ -47,17 +57,29 @@ final class WhatsHotAlgorithm implements FeedAlgorithm {
   /// anything else: silently resetting to page 1 would make a client with a
   /// corrupted cursor re-fetch the whole feed forever.
   static FeedPosition _parseCursor(final String cursor) {
-    final separator = cursor.indexOf(_cursorSeparator);
-    if (separator <= 0) {
-      throw InvalidRequestException('Malformed cursor: "$cursor"');
+    if (cursor.length > _maxCursorLength) {
+      throw InvalidRequestException(
+        'Cursor is longer than $_maxCursorLength characters',
+      );
     }
+
+    final separator = cursor.indexOf(_cursorSeparator);
+    if (separator <= 0) throw _malformed(cursor);
 
     final indexedAt = DateTime.tryParse(cursor.substring(0, separator));
     final uri = cursor.substring(separator + _cursorSeparator.length);
-    if (indexedAt == null || uri.isEmpty) {
-      throw InvalidRequestException('Malformed cursor: "$cursor"');
-    }
+    if (indexedAt == null || uri.isEmpty) throw _malformed(cursor);
 
     return FeedPosition(indexedAt: indexedAt.toUtc(), uri: uri);
+  }
+
+  /// Quotes at most [_maxEchoedCursorLength] characters of the offending
+  /// cursor, so the error body stays a fixed size no matter what was sent.
+  static InvalidRequestException _malformed(final String cursor) {
+    final echoed = cursor.length <= _maxEchoedCursorLength
+        ? cursor
+        : '${cursor.substring(0, _maxEchoedCursorLength)}...';
+
+    return InvalidRequestException('Malformed cursor: "$echoed"');
   }
 }
