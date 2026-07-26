@@ -26,6 +26,7 @@ For complete Bluesky API integration, see **[bluesky](./bluesky.md)**.
 - ✅ Supports **Safe Text Splitting** against both post limits
 - ✅ Reports the **overflowing range** and a ready-to-render **segmentation**
 - ✅ Renders **server-provided facets** for display
+- ✅ Flags **link facades**, where display text and link host disagree
 - ✅ **Works in All Languages**
 - ✅ Supports **Markdown Style Links**
 - ✅ **Well Documented** and **Well Tested**
@@ -453,6 +454,33 @@ void main() {
 <!-- /snippet -->
 
 `renderFacets` returns the same `TextSegment` type as `segments`, but each styled segment carries a `feature` (the resolved DID, URI or tag) rather than a re-detected `entity`. `TextSegment.type` works for both paths, so one `TextSpan` builder can serve your composer and your timeline.
+
+### Warn about link facades
+
+A facet's display text and its link are independent, so a post can render `bsky.app` as the visible text while the link points somewhere else. `isLinkFacade` answers one question: does this display text read as a URL or host that does not match the host it links to?
+
+```dart
+final link = Uri.parse('https://evil.example.com/login');
+
+// The visible text names one host; the link points at another.
+print(isLinkFacade(displayText: 'bsky.app', uri: link)); // true
+
+// Display text that does not read as a URL is never flagged.
+print(isLinkFacade(displayText: 'click here', uri: link)); // false
+
+// Nor is a subdomain of the host the display text names.
+final staging = Uri.parse('https://staging.bsky.app');
+print(isLinkFacade(displayText: 'bsky.app', uri: staging)); // false
+
+// Shows what a punycode host actually says.
+print(toDisplayHost('xn--80ak6aa92e.com')); // аррӏе.com
+```
+
+Display text counts as a URL only when it carries an explicit `http`/`https` scheme or is a domain this package would linkify on its own, so ordinary link text such as `click here`, `Node.js` or `main.dart` is never flagged. Two hosts match when they are equal or one is a subdomain of the other, ignoring case, `www.`, a trailing root dot, the port and the path — and an `xn--` host is the same host as its decoded Unicode form. `toDisplayHost` decodes that form, so a warning can show the reader what the host says.
+
+:::caution
+This compares a display text against a link host, and nothing more. It does not detect homographs (a host spelled in Cyrillic that renders like Latin), redirects and link shorteners, or deceptive display text that is not a URL at all. It is a check for one specific shape, not a general phishing filter.
+:::
 
 ## Related Packages
 
