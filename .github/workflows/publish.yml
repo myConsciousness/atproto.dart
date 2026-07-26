@@ -38,8 +38,18 @@ on:
     tags:
       # melos tag format: `<package>-v<major>.<minor>.<patch>`.
       - "*-v[0-9]+.[0-9]+.[0-9]+"
-  # Allow manual runs. Dispatch MUST target a matching tag ref (choose the tag
-  # under "Use workflow from"), otherwise tag parsing below fails fast.
+  # Manual runs reach the publish step but CANNOT publish: pub.dev refuses
+  # OIDC from a dispatch, with "publishing is not allowed from
+  # 'workflow_dispath' events" (its typo, not ours). Verified on 2026-07-26
+  # against `atproto_core-v2.3.0` and `bluesky_text-v1.6.0`.
+  #
+  # So this is a dry run, not a safety valve: useful to confirm the tag parses
+  # and the package builds, never to ship. To actually release a tag whose
+  # push event was lost, delete the tag and push it again -- a real tag push
+  # is the only event pub.dev accepts.
+  #
+  # Dispatch MUST still target a matching tag ref (choose the tag under "Use
+  # workflow from"), otherwise tag parsing below fails fast.
   workflow_dispatch:
 
 # OIDC token minting requires `id-token: write`. `contents: read` is all the
