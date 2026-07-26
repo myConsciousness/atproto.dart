@@ -511,24 +511,27 @@ void main() {
       );
     });
 
-    test('a far-future exp passes when maxTokenLifetime is opted out', () async {
-      final key = CryptoKey.generate(KeyType.secp256k1);
-      final jwt = _makeJwt(
-        key,
-        iss: _iss,
-        aud: _serviceDid,
-        expEpochSeconds: _nowSeconds() + 5 * 3600,
-      );
+    test(
+      'a far-future exp passes when maxTokenLifetime is opted out',
+      () async {
+        final key = CryptoKey.generate(KeyType.secp256k1);
+        final jwt = _makeJwt(
+          key,
+          iss: _iss,
+          aud: _serviceDid,
+          expEpochSeconds: _nowSeconds() + 5 * 3600,
+        );
 
-      final viewer = await verifyServiceAuth(
-        jwt,
-        serviceDid: _serviceDid,
-        resolver: _FakeResolver(key.toMultibase()),
-        maxTokenLifetime: null,
-      );
+        final viewer = await verifyServiceAuth(
+          jwt,
+          serviceDid: _serviceDid,
+          resolver: _FakeResolver(key.toMultibase()),
+          maxTokenLifetime: null,
+        );
 
-      expect(viewer, _iss);
-    });
+        expect(viewer, _iss);
+      },
+    );
 
     test('rejects a token whose iat is in the future', () async {
       final key = CryptoKey.generate(KeyType.secp256k1);
