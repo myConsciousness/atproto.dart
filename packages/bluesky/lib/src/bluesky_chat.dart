@@ -18,26 +18,51 @@ const _kBskyChatProxyHeaders = <String, String>{
 
 /// Provides `chat.bsky.*` services.
 sealed class BlueskyChat {
+  /// Returns a new [BlueskyChat] that shares [atproto]'s session — see
+  /// [atp.ATProto.ctx] — while still routing `chat.bsky.*` calls to the chat
+  /// service.
+  ///
+  /// Reach for this whenever one account needs more than one client. Every
+  /// other factory builds its own [atp.ATProto], and each of those owns a
+  /// separate [core.ServiceContext] holding a separate copy of the session.
+  /// Refresh tokens are single-use, so the moment the access token expires
+  /// those copies race: whichever context notices first spends the refresh
+  /// token, the other one's refresh is rejected by the server, and the losing
+  /// client fails with an `UnauthorizedException` the caller did nothing to
+  /// provoke.
+  ///
+  /// Unlike `Bluesky.fromAtproto` and `OzoneTool.fromAtproto`, this does not
+  /// adopt [atproto]'s context as-is. `chat.bsky.*` is reached through an
+  /// `atproto-proxy` header that the other clients must not send, and headers
+  /// belong to the context, so a context shared verbatim would proxy their
+  /// `app.bsky.*` and `com.atproto.*` calls to the chat service too. This
+  /// derives a context — [core.ServiceContext.withHeaders] — that adds the
+  /// header and shares the session underneath, so one account keeps one
+  /// session, one refresh, and one [onSessionUpdated] no matter how many
+  /// clients read from it.
+  ///
+  /// ```dart
+  /// final atproto = atp.ATProto.fromSession(session);
+  /// final bluesky = Bluesky.fromAtproto(atproto);
+  /// final chat = BlueskyChat.fromAtproto(atproto);
+  ///
+  /// // `bluesky.session` and `chat.session` are the same session, and only
+  /// // `chat` sends the chat proxy header.
+  /// ```
+  factory BlueskyChat.fromAtproto(final atp.ATProto atproto) =
+      _BlueskyChat.fromAtproto;
+
   /// Returns the new instance of [BlueskyChat].
   ///
   /// This builds a fresh [atp.ATProto], and therefore a fresh
-  /// [core.ServiceContext] carrying its own copy of [session].
+  /// [core.ServiceContext] carrying its own copy of [session]. When the same
+  /// account also needs another client, build the [atp.ATProto] once and pass
+  /// it to [BlueskyChat.fromAtproto] instead — two contexts each holding a
+  /// copy of one session race to spend a single-use refresh token.
   ///
-  /// A `chat.bsky.*` client cannot share that context with another client, as
-  /// `Bluesky.fromAtproto` and `OzoneTool.fromAtproto` allow. Routing these
-  /// calls to the chat service takes an `atproto-proxy` header, headers belong
-  /// to the context rather than to the client reading from it, and a shared
-  /// context would therefore proxy the other client's `app.bsky.*` and
-  /// `com.atproto.*` calls to the chat service as well.
-  ///
-  /// That is worth knowing, because refresh tokens are single-use: a
-  /// [BlueskyChat] and any other client for the same account hold two copies
-  /// of one session, and whichever context first notices an expired access
-  /// token spends the refresh token the other one still holds. The other
-  /// client's own refresh is then rejected, and its next call fails with an
-  /// `UnauthorizedException`. Both directions are equally affected, so an app
-  /// that runs both keeps them in step by rebuilding one from the session the
-  /// other's [onSessionUpdated] emits.
+  /// The chat proxy header is added to the context this [BlueskyChat] sends
+  /// through, not to the one [atproto] exposes: `com.atproto.*` calls made
+  /// through [atproto] are not proxied to the chat service.
   factory BlueskyChat.fromSession(
     final core.Session session, {
     final Map<String, String>? headers,
@@ -50,7 +75,7 @@ sealed class BlueskyChat {
     final core.PostClient? postClient,
   }) => _BlueskyChat.fromAtproto(
     atp.ATProto.fromSession(
-      headers: {...?headers, ..._kBskyChatProxyHeaders},
+      headers: headers,
       session,
       protocol: protocol,
       service: service,
@@ -64,6 +89,22 @@ sealed class BlueskyChat {
 
   /// Returns a new [BlueskyChat] backed by an OAuth [manager], which owns
   /// DPoP header building and transparent token refresh.
+  ///
+  /// The [oauth.OAuthSessionManager] is itself the shared thing: it owns the
+  /// session, the single in-flight refresh, and its own `onSessionUpdated`,
+  /// none of which live on the context. Passing one manager to several
+  /// clients therefore gives them one session, one refresh, and one rotation
+  /// stream, even though each keeps a context of its own with its own
+  /// headers. Build the manager once and pass it around.
+  ///
+  /// ```dart
+  /// final manager = oauth.OAuthSessionManager(client, sub: did);
+  /// final bluesky = Bluesky.fromOAuth(manager);
+  /// final chat = BlueskyChat.fromOAuth(manager);
+  /// ```
+  ///
+  /// The session race that [BlueskyChat.fromSession] warns about is specific
+  /// to the app-password path, where the session lives on the context.
   factory BlueskyChat.fromOAuth(
     final oauth.OAuthSessionManager manager, {
     final Map<String, String>? headers,
@@ -77,7 +118,7 @@ sealed class BlueskyChat {
   }) => _BlueskyChat.fromAtproto(
     atp.ATProto.fromOAuth(
       manager,
-      headers: {...?headers, ..._kBskyChatProxyHeaders},
+      headers: headers,
       protocol: protocol,
       service: service,
       relayService: relayService,
@@ -92,6 +133,17 @@ sealed class BlueskyChat {
   ///
   /// Pass [oauthClient] to enable transparent token refresh; without it the
   /// session is used as-is and cannot be refreshed.
+  ///
+  /// This builds a fresh [oauth.OAuthSessionManager] on every call, so it does
+  /// **not** share a session between clients the way passing one manager to
+  /// [BlueskyChat.fromOAuth] does — and what it gives you instead is worse
+  /// than two independent clients. Two managers restored from one
+  /// [oauth.OAuthSession] each hold their own copy of it, and a rotating
+  /// refresh token is only honoured once: whichever refreshes first spends it,
+  /// and the other's refresh comes back as an `OAuthSessionRevokedException`
+  /// — the signal to send the user back through authorization — for a session
+  /// that was working moments earlier. Build the manager yourself and pass it
+  /// to [BlueskyChat.fromOAuth] when more than one client shares an account.
   factory BlueskyChat.fromOAuthSession(
     final oauth.OAuthSession session, {
     final oauth.OAuthClient? oauthClient,
@@ -178,15 +230,22 @@ sealed class BlueskyChat {
 }
 
 final class _BlueskyChat implements BlueskyChat {
-  /// Drives every `chat.bsky.*` service from [atproto]'s own context.
+  /// Drives every `chat.bsky.*` service from a context derived from
+  /// [atproto]'s: the same session state underneath — see [atp.ATProto.ctx] —
+  /// plus the `atproto-proxy` header that routes these calls to the chat
+  /// service.
   ///
-  /// A second context would carry a second copy of the session, and only one
-  /// of the two would ever be refreshed — see [atp.ATProto.ctx]. It is safe to
-  /// adopt this one wholesale: every factory above builds [atproto] with the
-  /// same arguments the discarded context received, `_kBskyChatProxyHeaders`
-  /// included.
-  factory _BlueskyChat.fromAtproto(final atp.ATProto atproto) =>
-      _BlueskyChat._(atproto.ctx, atproto);
+  /// Only the headers differ. A context copied instead of derived would carry
+  /// a second copy of the session, and only one of the two would ever be
+  /// refreshed; a context adopted verbatim would send the proxy header on
+  /// [atproto]'s own `com.atproto.*` calls.
+  factory _BlueskyChat.fromAtproto(final atp.ATProto atproto) => _BlueskyChat._(
+    atproto.ctx.withHeaders({
+      ...atproto.ctx.headers,
+      ..._kBskyChatProxyHeaders,
+    }),
+    atproto,
+  );
 
   _BlueskyChat._(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),

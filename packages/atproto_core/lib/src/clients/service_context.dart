@@ -17,44 +17,34 @@ import '../types/session.dart';
 import 'challenge.dart';
 import 'retry_strategy.dart';
 
-base class ServiceContext {
-  ServiceContext({
-    Map<String, String>? headers,
-    xrpc.Protocol? protocol,
-    String? service,
-    String? relayService,
-    Session? session,
-    this.oAuthSessionManager,
-    Duration? timeout,
-    RetryStrategy? retryConfig,
-    final xrpc.GetClient? getClient,
-    final xrpc.PostClient? postClient,
-    this.onRefreshSession,
-  }) : _headers = headers,
-       _protocol = protocol ?? defaultProtocol,
-       _currentSession = session,
-       _explicitService = service,
-       relayService = relayService ?? defaultRelayService,
-       _challenge = Challenge(retryConfig),
-       _timeout = timeout ?? defaultTimeout,
-       _getClient = getClient,
-       _postClient = postClient;
-
-  /// The global headers without auth header.
-  final Map<String, String>? _headers;
+/// Owns everything about one account's legacy (app-password) session that
+/// changes over time: the current credentials, the single in-flight refresh,
+/// the stream announcing rotations, and the caches derived from the access
+/// token.
+///
+/// This is deliberately separate from [ServiceContext] so that contexts
+/// differing only in the headers they send can share one of these instead of
+/// each holding a copy. Headers belong to the client that sends them; the
+/// session belongs to the account, and refresh tokens are single-use, so a
+/// second copy of the session is a race waiting for the access token to
+/// expire.
+///
+/// Kept private: unlike [OAuthSessionManager], which the caller builds and
+/// hands over along with its DPoP signer, nonce cache, and OAuth client, there
+/// is nothing here for a caller to choose. Both fields are assembled by the
+/// factory that builds the context.
+///
+/// Left empty and unused on OAuth-backed contexts, where [OAuthSessionManager]
+/// plays exactly this role.
+final class _SessionState {
+  _SessionState(this.session, this.onRefreshSession);
 
   /// The current session.
   ///
   /// This is mutable internally so that an expired access token can be
   /// transparently refreshed via [onRefreshSession] without recreating the
   /// context.
-  Session? _currentSession;
-
-  /// Returns the current session.
-  ///
-  /// After an automatic refresh this reflects the latest credentials, so
-  /// callers can persist the up-to-date session.
-  Session? get session => _currentSession;
+  Session? session;
 
   /// Optional callback used to refresh an expired [session].
   ///
@@ -69,8 +59,200 @@ base class ServiceContext {
   /// `OAuthSessionManager._inflightRefresh` for the OAuth path.
   Future<Session>? _inflightRefresh;
 
-  final StreamController<Session> _sessionUpdates =
+  final StreamController<Session> _updates =
       StreamController<Session>.broadcast();
+
+  Stream<Session> get updates => _updates.stream;
+
+  /// Caches the decoded access-token expiry so the pre-flight refresh check
+  /// does not re-run `decodeJwt` on every authenticated request. Keyed by the
+  /// access JWT string, so it is implicitly invalidated whenever the session
+  /// (and therefore the access token) changes on refresh.
+  String? _cachedAccessJwt;
+  DateTime? _cachedAccessExp;
+
+  /// Caches the resolved PDS endpoint so the `service` getter does not
+  /// re-run the JWT base64/JSON decode (via `atprotoPdsEndpoint`) on every
+  /// authenticated request when the `didDoc` lacks a `#atproto_pds` service.
+  /// Keyed by the access JWT string, so it is implicitly invalidated whenever
+  /// the session (and therefore the access token) changes on refresh.
+  /// Mirrors [_cachedAccessExp].
+  String? _cachedPdsJwt;
+  String? _cachedPdsEndpoint;
+
+  /// The clock skew margin used to refresh an access token slightly before it
+  /// actually expires.
+  static const Duration _refreshSkew = Duration(seconds: 30);
+
+  /// Returns the cached PDS endpoint for [current], recomputing (and thus
+  /// re-decoding the access JWT) only when the access token has changed since
+  /// the last call. Returns null when the session yields no PDS endpoint.
+  String? pdsEndpoint(final Session current) {
+    if (_cachedPdsJwt == current.accessJwt) return _cachedPdsEndpoint;
+
+    _cachedPdsJwt = current.accessJwt;
+
+    return _cachedPdsEndpoint = current.atprotoPdsEndpoint;
+  }
+
+  /// Refreshes the legacy [current] session, deduplicating concurrent
+  /// refreshes.
+  ///
+  /// The first caller starts the single `onRefreshSession` call and stores it
+  /// in [_inflightRefresh]; concurrent callers await that same future instead
+  /// of each firing their own `refreshSession` POST (a refresh stampede). The
+  /// in-flight future is cleared once it settles so a later expiry can refresh
+  /// again.
+  Future<Session> refresh(final Session current) {
+    final existing = _inflightRefresh;
+    if (existing != null) return existing;
+
+    final refresh = onRefreshSession!;
+    final future = refresh(current)
+        .then((refreshed) {
+          session = refreshed;
+          //! Broadcast after adopting it, so a listener that reads `session`
+          //! sees the credentials it was just handed. Never awaited: a slow or
+          //! throwing listener must not delay or fail the request that
+          //! triggered the refresh.
+          _updates.add(refreshed);
+
+          return refreshed;
+        })
+        .whenComplete(() => _inflightRefresh = null);
+
+    return _inflightRefresh = future;
+  }
+
+  /// Attempts to refresh an expired access token in response to a genuine
+  /// `401 Unauthorized`.
+  ///
+  /// Returns true when the session was refreshed and the request should be
+  /// retried, or false when no refresh is possible (no session, no callback)
+  /// or the refresh itself failed. On failure the original `401` is surfaced
+  /// by the caller.
+  Future<bool> refreshOnUnauthorized() async {
+    final current = session;
+    if (current == null || onRefreshSession == null) return false;
+
+    try {
+      await refresh(current);
+
+      return true;
+    } catch (_) {
+      //! Swallow refresh errors so the original unauthorized error surfaces.
+      return false;
+    }
+  }
+
+  /// Proactively refreshes the session when the current access token is
+  /// expired or about to expire within [_refreshSkew].
+  ///
+  /// This is best-effort: if the access token cannot be decoded, or the
+  /// refresh fails, the request proceeds unchanged and the reactive
+  /// [refreshOnUnauthorized] path handles any resulting `401`.
+  Future<void> refreshIfExpiring() async {
+    final current = session;
+    if (current == null || onRefreshSession == null) return;
+
+    final exp = _accessTokenExp(current);
+    if (exp == null) {
+      //! Cannot determine expiry, e.g. a non-JWT access token. Send as-is.
+      return;
+    }
+
+    final threshold = DateTime.now().toUtc().add(_refreshSkew);
+    if (threshold.isBefore(exp)) return;
+
+    try {
+      await refresh(current);
+    } catch (_) {
+      //! Ignore; the reactive 401 handler will retry if needed.
+    }
+  }
+
+  /// Returns the cached access-token expiry for [current], decoding the JWT
+  /// only when the access token has changed since the last call. Returns null
+  /// when the access token is not a decodable JWT.
+  DateTime? _accessTokenExp(final Session current) {
+    if (_cachedAccessJwt == current.accessJwt) return _cachedAccessExp;
+
+    _cachedAccessJwt = current.accessJwt;
+    try {
+      return _cachedAccessExp = current.accessTokenJwt.exp;
+    } on FormatException {
+      return _cachedAccessExp = null;
+    }
+  }
+}
+
+base class ServiceContext {
+  ServiceContext({
+    Map<String, String>? headers,
+    xrpc.Protocol? protocol,
+    String? service,
+    String? relayService,
+    Session? session,
+    this.oAuthSessionManager,
+    Duration? timeout,
+    RetryStrategy? retryConfig,
+    final xrpc.GetClient? getClient,
+    final xrpc.PostClient? postClient,
+    final Future<Session> Function(Session current)? onRefreshSession,
+  }) : _headers = headers,
+       _protocol = protocol ?? defaultProtocol,
+       _state = _SessionState(session, onRefreshSession),
+       _explicitService = service,
+       relayService = relayService ?? defaultRelayService,
+       _challenge = Challenge(retryConfig),
+       _timeout = timeout ?? defaultTimeout,
+       _getClient = getClient,
+       _postClient = postClient;
+
+  /// Builds a context around session state that already belongs to another
+  /// context, carrying every immutable setting across unchanged and replacing
+  /// only the headers. See [withHeaders], the only caller.
+  ServiceContext._shared(
+    this._state, {
+    required final Map<String, String>? headers,
+    required final xrpc.Protocol protocol,
+    required final String? explicitService,
+    required this.relayService,
+    required this.oAuthSessionManager,
+    required final Challenge challenge,
+    required final Duration timeout,
+    required final xrpc.GetClient? getClient,
+    required final xrpc.PostClient? postClient,
+  }) : _headers = headers,
+       _protocol = protocol,
+       _explicitService = explicitService,
+       _challenge = challenge,
+       _timeout = timeout,
+       _getClient = getClient,
+       _postClient = postClient;
+
+  /// The global headers without auth header.
+  final Map<String, String>? _headers;
+
+  /// Everything about the current account's session that changes over time.
+  ///
+  /// Held by reference rather than by value: [withHeaders] hands the same
+  /// instance to the context it derives, so both send different headers over
+  /// one session.
+  final _SessionState _state;
+
+  /// Returns the current session.
+  ///
+  /// After an automatic refresh this reflects the latest credentials, so
+  /// callers can persist the up-to-date session.
+  Session? get session => _state.session;
+
+  /// Optional callback used to refresh an expired [session].
+  ///
+  /// Given the current session it must return a new session with fresh
+  /// tokens. When null, expired access tokens are not refreshed automatically.
+  Future<Session> Function(Session current)? get onRefreshSession =>
+      _state.onRefreshSession;
 
   /// Emits the refreshed [Session] every time an expired access token is
   /// renewed, so the owner of the credentials can re-persist them.
@@ -83,27 +265,54 @@ base class ServiceContext {
   /// refreshed. Mirrors `OAuthSessionManager.onSessionUpdated`, which covers
   /// the same need for the OAuth path — this stream is the legacy
   /// (app-password) counterpart and stays silent on OAuth-backed contexts.
-  Stream<Session> get onSessionUpdated => _sessionUpdates.stream;
+  ///
+  /// Contexts derived through [withHeaders] share one stream, so a refresh
+  /// driven by any of them reaches a listener attached to any other.
+  Stream<Session> get onSessionUpdated => _state.updates;
 
-  /// Caches the decoded access-token expiry so the pre-flight refresh check
-  /// does not re-run `decodeJwt` on every authenticated request. Keyed by the
-  /// access JWT string, so it is implicitly invalidated whenever the session
-  /// (and therefore the access token) changes on refresh.
-  String? _cachedAccessJwt;
-  DateTime? _cachedAccessExp;
-
-  /// Caches the resolved PDS endpoint so the [service] getter does not
-  /// re-run the JWT base64/JSON decode (via `atprotoPdsEndpoint`) on every
-  /// authenticated request when the `didDoc` lacks a `#atproto_pds` service.
-  /// Keyed by the access JWT string, so it is implicitly invalidated whenever
-  /// the session (and therefore the access token) changes on refresh.
-  /// Mirrors [_cachedAccessExp].
-  String? _cachedPdsJwt;
-  String? _cachedPdsEndpoint;
-
-  /// The clock skew margin used to refresh an access token slightly before it
-  /// actually expires.
-  static const Duration _refreshSkew = Duration(seconds: 30);
+  /// Returns a context that shares this one's session state but sends
+  /// [headers] in place of this context's own.
+  ///
+  /// The current session, the single in-flight refresh, and
+  /// [onSessionUpdated] are one thing shared by both contexts: a refresh
+  /// started through either is seen by both, and the refresh token — which is
+  /// single-use — is spent exactly once. Everything else is carried over
+  /// unchanged: protocol, service, relay service, timeout, retry strategy,
+  /// HTTP clients, and the OAuth session manager when there is one.
+  ///
+  /// This exists because request headers belong to the client that sends
+  /// them, while the session belongs to the account. A client that must send
+  /// a header the others must not — an `atproto-proxy` routing its calls to a
+  /// different service, say — would otherwise need a context of its own, and
+  /// a second context used to mean a second copy of the session. Two copies
+  /// race the moment the access token expires: whichever refreshes first
+  /// spends the token, and the other's refresh is rejected by the server as
+  /// an `UnauthorizedException` the caller did nothing to provoke.
+  ///
+  /// ```dart
+  /// final proxied = ctx.withHeaders({
+  ///   ...ctx.headers,
+  ///   'atproto-proxy': 'did:web:example.com#service',
+  /// });
+  /// ```
+  ///
+  /// [headers] replaces this context's headers rather than extending them;
+  /// spread [headers] of the origin context, as above, to keep them.
+  ServiceContext withHeaders(final Map<String, String> headers) =>
+      ServiceContext._shared(
+        _state,
+        headers: headers,
+        protocol: _protocol,
+        explicitService: _explicitService,
+        relayService: relayService,
+        oAuthSessionManager: oAuthSessionManager,
+        //! Stateless and immutable, so sharing the instance is equivalent to
+        //! rebuilding one from the same retry strategy.
+        challenge: _challenge,
+        timeout: _timeout,
+        getClient: _getClient,
+        postClient: _postClient,
+      );
 
   /// The current OAuth session manager.
   ///
@@ -132,20 +341,9 @@ base class ServiceContext {
     final current = session;
 
     return _explicitService ??
-        (current != null ? _sessionPdsEndpoint(current) : null) ??
+        (current != null ? _state.pdsEndpoint(current) : null) ??
         oAuthSessionManager?.currentPdsHost ??
         defaultService;
-  }
-
-  /// Returns the cached PDS endpoint for [current], recomputing (and thus
-  /// re-decoding the access JWT) only when the access token has changed since
-  /// the last call. Returns null when the session yields no PDS endpoint.
-  String? _sessionPdsEndpoint(final Session current) {
-    if (_cachedPdsJwt == current.accessJwt) return _cachedPdsEndpoint;
-
-    _cachedPdsJwt = current.accessJwt;
-
-    return _cachedPdsEndpoint = current.atprotoPdsEndpoint;
   }
 
   /// The current relay service.
@@ -198,7 +396,7 @@ base class ServiceContext {
     final xrpc.ResponseDataAdaptor? adaptor,
     final xrpc.GetClient? client,
   }) async {
-    await _maybeRefreshBeforeSend();
+    await _state.refreshIfExpiring();
     await _ensureOAuthSessionResolved();
     final resolvedService = service ?? this.service;
     final endpoint = _endpointFor(resolvedService, methodId);
@@ -247,7 +445,7 @@ base class ServiceContext {
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.PostClient? client,
   }) async {
-    await _maybeRefreshBeforeSend();
+    await _state.refreshIfExpiring();
     await _ensureOAuthSessionResolved();
     final resolvedService = service ?? this.service;
     final endpoint = _endpointFor(resolvedService, methodId);
@@ -317,7 +515,7 @@ base class ServiceContext {
     // token) must survive; never overwrite it with the session token.
     if (_hasAuthorization(header)) return header;
 
-    final currentSession = _currentSession;
+    final currentSession = _state.session;
     if (currentSession != null) {
       return _mergeAuthHeaders(header, {
         'Authorization': 'Bearer ${currentSession.accessJwt}',
@@ -418,85 +616,6 @@ base class ServiceContext {
       return await manager.refreshOnUnauthorized();
     }
 
-    final current = _currentSession;
-    if (current == null || onRefreshSession == null) return false;
-
-    try {
-      await _refreshSession(current);
-
-      return true;
-    } catch (_) {
-      //! Swallow refresh errors so the original unauthorized error surfaces.
-      return false;
-    }
-  }
-
-  /// Refreshes the legacy [current] session, deduplicating concurrent
-  /// refreshes.
-  ///
-  /// The first caller starts the single `onRefreshSession` call and stores it
-  /// in [_inflightRefresh]; concurrent callers await that same future instead
-  /// of each firing their own `refreshSession` POST (a refresh stampede). The
-  /// in-flight future is cleared once it settles so a later expiry can refresh
-  /// again.
-  Future<Session> _refreshSession(final Session current) {
-    final existing = _inflightRefresh;
-    if (existing != null) return existing;
-
-    final refresh = onRefreshSession!;
-    final future = refresh(current)
-        .then((refreshed) {
-          _currentSession = refreshed;
-          //! Broadcast after adopting it, so a listener that reads `session`
-          //! sees the credentials it was just handed. Never awaited: a slow or
-          //! throwing listener must not delay or fail the request that
-          //! triggered the refresh.
-          _sessionUpdates.add(refreshed);
-
-          return refreshed;
-        })
-        .whenComplete(() => _inflightRefresh = null);
-
-    return _inflightRefresh = future;
-  }
-
-  /// Proactively refreshes the session when the current access token is
-  /// expired or about to expire within [_refreshSkew].
-  ///
-  /// This is best-effort: if the access token cannot be decoded, or the
-  /// refresh fails, the request proceeds unchanged and the reactive
-  /// [_onUnauthorized] path handles any resulting `401`.
-  Future<void> _maybeRefreshBeforeSend() async {
-    final current = _currentSession;
-    if (current == null || onRefreshSession == null) return;
-
-    final exp = _accessTokenExp(current);
-    if (exp == null) {
-      //! Cannot determine expiry, e.g. a non-JWT access token. Send as-is.
-      return;
-    }
-
-    final threshold = DateTime.now().toUtc().add(_refreshSkew);
-    if (threshold.isBefore(exp)) return;
-
-    try {
-      await _refreshSession(current);
-    } catch (_) {
-      //! Ignore; the reactive 401 handler will retry if needed.
-    }
-  }
-
-  /// Returns the cached access-token expiry for [current], decoding the JWT
-  /// only when the access token has changed since the last call. Returns null
-  /// when the access token is not a decodable JWT.
-  DateTime? _accessTokenExp(final Session current) {
-    if (_cachedAccessJwt == current.accessJwt) return _cachedAccessExp;
-
-    _cachedAccessJwt = current.accessJwt;
-    try {
-      return _cachedAccessExp = current.accessTokenJwt.exp;
-    } on FormatException {
-      return _cachedAccessExp = null;
-    }
+    return await _state.refreshOnUnauthorized();
   }
 }
