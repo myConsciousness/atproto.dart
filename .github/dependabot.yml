@@ -33,8 +33,41 @@ updates:
       # `.g.dart` output, which requires regenerating and committing all sources
       # (Verify Generated will fail otherwise). Keep these updates in human
       # hands; minor/patch updates still flow through.
+      #
+      # `update-types` alone proved insufficient: PR #2508 proposed
+      # `freezed: ^4.0.0-dev.3` from ^3.2.0 despite the semver-major ignore
+      # below, because that release is a PRERELEASE and Dependabot does not
+      # classify it the same way as a stable major. freezed 4.0.0-dev.3 is
+      # the exact version that previously broke union codegen and left `main`
+      # unbuildable, so it is pinned out explicitly by version range as well.
+      # `>=4.0.0-0` sorts below every 4.x prerelease, so it covers -dev/-beta
+      # builds that a plain `>=4.0.0` would let through.
+      #
+      # This single pin also holds back build_runner and `test`, and that is
+      # intended rather than collateral damage. The whole codegen toolchain is
+      # coupled through `analyzer`:
+      #
+      #   freezed 3.x          -> analyzer <11.0.0
+      #   build_runner 2.15.2+ -> analyzer >=13.3.0
+      #   test 1.31.0+         -> analyzer >=13.0.0
+      #
+      # So neither build_runner nor `test` can move while freezed is on 3.x -
+      # verified by `dart pub get`, which fails version solving on either bump
+      # alone. That is exactly why Dependabot bundled the freezed prerelease
+      # into #2508: it is the only resolvable combination, not an oversight on
+      # its part. With freezed pinned, Dependabot finds no resolvable set and
+      # simply stops proposing the group, instead of opening PRs every week
+      # that cannot resolve.
+      #
+      # Lifting this is a deliberate migration, not a version bump: move to
+      # freezed 4 once it is stable, regenerate all sources, and confirm union
+      # codegen survives. build_runner and `test` then unblock on their own.
+      - dependency-name: "freezed"
+        versions: [">=4.0.0-0"]
       - dependency-name: "freezed"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "freezed_annotation"
+        versions: [">=4.0.0-0"]
       - dependency-name: "freezed_annotation"
         update-types: ["version-update:semver-major"]
       - dependency-name: "build_runner"
