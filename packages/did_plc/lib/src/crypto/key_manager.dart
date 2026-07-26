@@ -73,6 +73,12 @@ class CryptoKey {
   /// from [keyBytes].
   final Uint8List? publicKey;
 
+  /// A hex string of any (even) length.
+  ///
+  /// Hoisted to a `static final` so the pattern is compiled once instead of
+  /// on every [CryptoKey.fromHex] call.
+  static final _hexPattern = RegExp(r'^[0-9a-fA-F]*$');
+
   /// Creates a secp256k1 key from raw bytes.
   factory CryptoKey.secp256k1(Uint8List keyBytes, {Uint8List? publicKey}) {
     _validatePrivateKeyLength(keyBytes);
@@ -109,8 +115,7 @@ class CryptoKey {
 
   /// Creates a key from a hex string.
   factory CryptoKey.fromHex(String hexString, KeyType type) {
-    if (hexString.length.isOdd ||
-        !RegExp(r'^[0-9a-fA-F]*$').hasMatch(hexString)) {
+    if (hexString.length.isOdd || !_hexPattern.hasMatch(hexString)) {
       throw CryptoException('Invalid hex string for key');
     }
 

@@ -193,18 +193,17 @@ class PlcVerifier {
 
   /// Computes the CIDv1 (dag-cbor, sha2-256, base32) string of a raw
   /// operation, as used by the `prev` field and directory audit logs.
-  String operationCid(Map<String, dynamic> operation) {
-    final bytes = encodeDagCbor(operation);
-    final digest = sha256.convert(bytes).bytes;
-
-    return multiformats.CID.fromList([
-      0x01, // CIDv1
-      0x71, // dag-cbor
-      0x12, // sha2-256
-      0x20, // 32 byte digest
-      ...digest,
-    ]).toString();
-  }
+  ///
+  /// The CID is assembled by `multiformats` rather than by hand here:
+  /// [multiformats.CID.createFromBytes] hashes the input with SHA-256 and
+  /// wraps it as `[0x01, <codec>, 0x12, 0x20, ...digest]`, which is exactly
+  /// the layout this method used to build itself.
+  String operationCid(Map<String, dynamic> operation) => multiformats.CID
+      .createFromBytes(
+        encodeDagCbor(operation),
+        multiformats.Multicodec.dagCbor,
+      )
+      .toString();
 
   /// Derives the `did:plc` identifier from a genesis operation
   /// (including its signature):

@@ -20,6 +20,18 @@ const _cidLinkKey = r'$link';
 /// (https://atproto.com/specs/data-model).
 const _bytesKey = r'$bytes';
 
+/// The maximum number of nested containers (lists and maps) this encoder
+/// will descend into before giving up.
+///
+/// The encoder is recursive, so without a bound a pathologically nested
+/// value blows the stack and throws a [StackOverflowError] -- an `Error`,
+/// not the [ArgumentError] this encoder contracts for bad input, and one
+/// that most callers do not catch. The bound is far above anything the
+/// atproto data model produces (records nest single-digit levels deep, and
+/// the deepest structure in practice is a repository commit), so it can
+/// only be reached by input that was never going to be a valid record.
+const _maxDepth = 1024;
+
 /// Encodes [value] as canonical DAG-CBOR
 /// (https://ipld.io/specs/codecs/dag-cbor/spec/).
 ///
@@ -46,12 +58,15 @@ const _bytesKey = r'$bytes';
 /// silently give an array of small integers the same bytes as a byte string.
 ///
 /// Throws an [ArgumentError] for a fractional [double], a non-[String] map
-/// key, a map with duplicate keys once encoded (see below), or any other
-/// unsupported type. The atproto lexicon has no float type, and DAG-CBOR
-/// float handling is a frequent source of cross-implementation CID
-/// mismatches -- emitting one would produce a valid-looking but incorrect
-/// CID, so this fails loudly instead. Also throws [InvalidCidError] if a
-/// sole-`$link` map's string value is not a parseable CID.
+/// key, a map with duplicate keys once encoded (see below), a sole-`$link`
+/// or sole-`$bytes` map whose value is not a [String], a sole-`$bytes` map
+/// whose string is not valid base64, a value nested deeper than 1024
+/// containers, or any other unsupported type. The atproto lexicon has no
+/// float type, and DAG-CBOR float handling is a frequent source of
+/// cross-implementation CID mismatches -- emitting one would produce a
+/// valid-looking but incorrect CID, so this fails loudly instead. Also
+/// throws [InvalidCidError] if a sole-`$link` map's string value is not a
+/// parseable CID.
 ///
 /// An integral (whole-number) `double` such as `1.0` also throws on the
 /// Dart VM, where it is a genuinely distinct type from [int]. This cannot
@@ -70,12 +85,12 @@ const _bytesKey = r'$bytes';
 /// invalid, non-reproducible encoding.
 Uint8List dagCborEncode(final Object? value) {
   final buffer = BytesBuilder(copy: false);
-  _encode(buffer, value);
+  _encode(buffer, value, 0);
 
   return buffer.toBytes();
 }
 
-void _encode(final BytesBuilder buffer, final Object? value) {
+void _encode(final BytesBuilder buffer, final Object? value, final int depth) {
   if (value == null) {
     // Major 7, simple value 22 (null).
     buffer.addByte(0xf6);
@@ -138,14 +153,16 @@ void _encode(final BytesBuilder buffer, final Object? value) {
     return;
   }
   if (value is List) {
+    _ensureDepth(value, depth);
     _encodeHead(buffer, 4, value.length);
     for (final element in value) {
-      _encode(buffer, element);
+      _encode(buffer, element, depth + 1);
     }
     return;
   }
   if (value is Map) {
-    _encodeMap(buffer, value);
+    _ensureDepth(value, depth);
+    _encodeMap(buffer, value, depth);
     return;
   }
 
@@ -176,15 +193,42 @@ void _encodeCidLink(final BytesBuilder buffer, final Uint8List cidBytes) {
   buffer.add(cidBytes);
 }
 
-void _encodeMap(final BytesBuilder buffer, final Map<dynamic, dynamic> value) {
+/// Throws an [ArgumentError] when [depth] has reached [_maxDepth].
+void _ensureDepth(final Object value, final int depth) {
+  if (depth >= _maxDepth) {
+    throw ArgumentError.value(
+      value,
+      'value',
+      'DAG-CBOR encoding exceeded the maximum nesting depth of $_maxDepth',
+    );
+  }
+}
+
+void _encodeMap(
+  final BytesBuilder buffer,
+  final Map<dynamic, dynamic> value,
+  final int depth,
+) {
   // A map whose SOLE key is `$link` is a CID link, not a map. A map that
   // merely contains `$link` alongside other keys is an ordinary map.
+  //
+  // A sole `$link` whose value is not a String is an error, NOT an ordinary
+  // map: falling through would quietly encode e.g. `{'$link': 123}` as a
+  // one-entry map and hand back a valid-looking but wrong CID, which is the
+  // opposite of the "invalid input fails loudly" stance this encoder takes
+  // for floats and duplicate keys.
   if (value.length == 1 && value.containsKey(_cidLinkKey)) {
     final link = value[_cidLinkKey];
-    if (link is String) {
-      _encodeCidLink(buffer, CID.parse(link).bytes);
-      return;
+    if (link is! String) {
+      throw ArgumentError.value(
+        link,
+        _cidLinkKey,
+        'a sole-$_cidLinkKey map must hold a CID string',
+      );
     }
+
+    _encodeCidLink(buffer, CID.parse(link).bytes);
+    return;
   }
 
   // Likewise, a map whose SOLE key is `$bytes` is a byte string, mirroring
@@ -193,12 +237,32 @@ void _encodeMap(final BytesBuilder buffer, final Map<dynamic, dynamic> value) {
   // unpadded. `base64.normalize` restores the padding before decoding.
   if (value.length == 1 && value.containsKey(_bytesKey)) {
     final encoded = value[_bytesKey];
-    if (encoded is String) {
-      final bytes = base64.decode(base64.normalize(encoded));
-      _encodeHead(buffer, 2, bytes.length);
-      buffer.add(bytes);
-      return;
+    if (encoded is! String) {
+      throw ArgumentError.value(
+        encoded,
+        _bytesKey,
+        'a sole-$_bytesKey map must hold a base64 string',
+      );
     }
+
+    // `base64.decode` throws a `FormatException`, which is outside this
+    // encoder's documented ArgumentError/InvalidCidError contract -- and
+    // this value can be user-supplied (`$unknown` data reaches here), so it
+    // is ordinary bad input, not an internal failure.
+    final Uint8List bytes;
+    try {
+      bytes = base64.decode(base64.normalize(encoded));
+    } on FormatException catch (e) {
+      throw ArgumentError.value(
+        encoded,
+        _bytesKey,
+        'a sole-$_bytesKey map must hold valid base64: ${e.message}',
+      );
+    }
+
+    _encodeHead(buffer, 2, bytes.length);
+    buffer.add(bytes);
+    return;
   }
 
   final keys = <String>[];
@@ -250,7 +314,7 @@ void _encodeMap(final BytesBuilder buffer, final Map<dynamic, dynamic> value) {
     final bytes = encodedKeys[key]!;
     _encodeHead(buffer, 3, bytes.length);
     buffer.add(bytes);
-    _encode(buffer, value[key]);
+    _encode(buffer, value[key], depth + 1);
   }
 }
 
