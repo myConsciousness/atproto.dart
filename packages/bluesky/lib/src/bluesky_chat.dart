@@ -136,13 +136,14 @@ sealed class BlueskyChat {
   ///
   /// This builds a fresh [oauth.OAuthSessionManager] on every call, so it does
   /// **not** share a session between clients the way passing one manager to
-  /// [BlueskyChat.fromOAuth] does. Two managers restored from one
+  /// [BlueskyChat.fromOAuth] does — and what it gives you instead is worse
+  /// than two independent clients. Two managers restored from one
   /// [oauth.OAuthSession] each hold their own copy of it, and a rotating
   /// refresh token is only honoured once: whichever refreshes first spends it,
-  /// and the other's refresh comes back as an
-  /// `OAuthSessionRevokedException`. When the same account needs more than one
-  /// client, build the manager yourself and pass it to
-  /// [BlueskyChat.fromOAuth].
+  /// and the other's refresh comes back as an `OAuthSessionRevokedException`
+  /// — the signal to send the user back through authorization — for a session
+  /// that was working moments earlier. Build the manager yourself and pass it
+  /// to [BlueskyChat.fromOAuth] when more than one client shares an account.
   factory BlueskyChat.fromOAuthSession(
     final oauth.OAuthSession session, {
     final oauth.OAuthClient? oauthClient,
