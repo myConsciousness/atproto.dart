@@ -14,6 +14,16 @@ class OperationValidator {
   /// Creates a new operation validator.
   const OperationValidator();
 
+  /// A bare multibase (base58btc) public key value.
+  ///
+  /// Hoisted to a `static final` because validation runs once per operation
+  /// while streaming an audit log, and a literal inside the method body
+  /// recompiles the pattern on every call.
+  static final _multibaseKeyPattern = RegExp(r'^z[A-Za-z0-9]+$');
+
+  /// A base64url signature, with or without padding.
+  static final _signaturePattern = RegExp(r'^[A-Za-z0-9_=-]+$');
+
   /// Validates a PLC operation.
   ///
   /// Throws [ValidationException] if the operation is invalid.
@@ -410,7 +420,7 @@ class OperationValidator {
     // occasionally provided as a bare multibase value (z...).
     if (key.startsWith('did:key:z')) return true;
     if (key.startsWith('z')) {
-      return RegExp(r'^z[A-Za-z0-9]+$').hasMatch(key);
+      return _multibaseKeyPattern.hasMatch(key);
     }
 
     return false;
@@ -418,7 +428,7 @@ class OperationValidator {
 
   bool _isValidSignature(String sig) {
     // Signatures are base64url encoded, with or without padding.
-    return sig.isNotEmpty && RegExp(r'^[A-Za-z0-9_=-]+$').hasMatch(sig);
+    return sig.isNotEmpty && _signaturePattern.hasMatch(sig);
   }
 
   bool _isValidIdentifier(String identifier) {

@@ -133,6 +133,58 @@ void main() {
     expect(results[1].accessToken, 'access-2');
   });
 
+  test('a 401 from a superseded access token does not spend another '
+      'refresh token', () async {
+    var tokenPosts = 0;
+    final client = OAuthClient(
+      _clientMetadata(),
+      signer: _RecordingSigner(),
+      httpClient: MockClient((r) async {
+        if (r.url.path == '/.well-known/oauth-authorization-server') {
+          return _json({
+            'issuer': 'https://bsky.social',
+            'token_endpoint': 'https://bsky.social/oauth/token',
+          });
+        }
+        if (r.url.path == '/oauth/token') {
+          tokenPosts++;
+
+          return _json({
+            'access_token': 'access-${tokenPosts + 1}',
+            'token_type': 'DPoP',
+            'refresh_token': 'refresh-${tokenPosts + 1}',
+            'expires_in': 3600,
+            'sub': 'did:plc:abc',
+            'scope': 'atproto',
+          });
+        }
+
+        return http.Response('unexpected', 500);
+      }),
+    );
+
+    final mgr = OAuthSessionManager.fromSession(_session(), client: client);
+
+    // A request that was already on the wire with a token the manager has
+    // since rotated past. Its 401 says nothing about the current session, so
+    // it must retry rather than trigger another rotation — N stale in-flight
+    // requests would otherwise chain N refreshes and N persistence writes.
+    expect(
+      await mgr.refreshOnUnauthorized(usedAccessToken: 'access-0'),
+      isTrue,
+    );
+    expect(tokenPosts, 0);
+    expect(mgr.currentSession?.accessToken, 'access-1');
+
+    // A 401 provoked by the current token still refreshes.
+    expect(
+      await mgr.refreshOnUnauthorized(usedAccessToken: 'access-1'),
+      isTrue,
+    );
+    expect(tokenPosts, 1);
+    expect(mgr.currentSession?.accessToken, 'access-2');
+  });
+
   test('buildAuthHeaders strips query/fragment from the DPoP htu', () async {
     final signer = _RecordingSigner();
     final mgr = OAuthSessionManager.fromSession(_session(), signer: signer);

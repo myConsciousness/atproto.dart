@@ -33,6 +33,14 @@ final class _FakePds {
   /// request was addressed to. Null where the request carried no such header.
   final Map<String, String?> proxyHeaderByNsid = {};
 
+  /// Every header name spelled `atproto-proxy` in any casing, keyed by the
+  /// NSID the request was addressed to.
+  ///
+  /// `package:http` collapses case-variant duplicates on its way out, so the
+  /// raw map is the only place a duplicate is still visible — and the raw map
+  /// is exactly what a custom [core.GetClient] forwards to `dart:io` or Dio.
+  final Map<String, List<String>> proxyHeaderNamesByNsid = {};
+
   /// The session handed to the client, holding the tokens this PDS starts
   /// with.
   ///
@@ -49,8 +57,11 @@ final class _FakePds {
     final Uri url, {
     final Map<String, String>? headers,
   }) async {
-    proxyHeaderByNsid[url.path.replaceFirst('/xrpc/', '')] =
-        headers?['atproto-proxy'];
+    final nsid = url.path.replaceFirst('/xrpc/', '');
+    proxyHeaderByNsid[nsid] = headers?['atproto-proxy'];
+    proxyHeaderNamesByNsid[nsid] = [
+      ...?headers?.keys.where((e) => e.toLowerCase() == 'atproto-proxy'),
+    ];
 
     if (headers?['Authorization'] != 'Bearer $_access') {
       return _response(url, 'GET', 401, '{"error":"ExpiredToken"}');
@@ -367,6 +378,160 @@ void main() {
     });
   });
 
+  group('OzoneTool proxy header placement', () {
+    test('proxies tools.ozone.* and nothing else', () async {
+      final pds = _FakePds();
+      final atproto = atp.ATProto.fromSession(
+        pds.initialSession,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+      );
+
+      final bsky = Bluesky.fromAtproto(atproto);
+      final ozone = OzoneTool.fromAtproto(
+        atproto,
+        ozoneDid: 'did:web:ozone.example',
+      );
+
+      await ozone.server.getConfig();
+      await bsky.feed.getTimeline();
+      await atproto.server.getSession();
+
+      //! Sharing the session must not mean sharing the routing: only the
+      //! ozone client's own calls carry the labeler proxy.
+      expect(
+        pds.proxyHeaderByNsid['tools.ozone.server.getConfig'],
+        'did:web:ozone.example#atproto_labeler',
+      );
+      expect(pds.proxyHeaderByNsid['app.bsky.feed.getTimeline'], isNull);
+      expect(pds.proxyHeaderByNsid['com.atproto.server.getSession'], isNull);
+      //! And the session underneath is still the one shared thing.
+      expect(identical(ozone.atproto, atproto), isTrue);
+      expect(identical(ozone.session, bsky.session), isTrue);
+      expect(pds.refreshCalls, 1);
+    });
+
+    test('takes a service DID with its own fragment verbatim', () async {
+      final pds = _FakePds();
+
+      final ozone = OzoneTool.fromSession(
+        pds.initialSession,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+        ozoneDid: 'did:web:ozone.example#atproto_labeler',
+      );
+
+      await ozone.server.getConfig();
+
+      expect(
+        pds.proxyHeaderByNsid['tools.ozone.server.getConfig'],
+        'did:web:ozone.example#atproto_labeler',
+      );
+    });
+
+    test('fromSession leaves the nested ATProto unproxied', () async {
+      final pds = _FakePds();
+
+      final ozone = OzoneTool.fromSession(
+        pds.initialSession,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+        ozoneDid: 'did:web:ozone.example',
+      );
+
+      await ozone.server.getConfig();
+      await ozone.atproto.server.getSession();
+
+      expect(
+        pds.proxyHeaderByNsid['tools.ozone.server.getConfig'],
+        'did:web:ozone.example#atproto_labeler',
+      );
+      expect(pds.proxyHeaderByNsid['com.atproto.server.getSession'], isNull);
+      expect(ozone.atproto.headers.containsKey('atproto-proxy'), isFalse);
+    });
+
+    test('sends nothing when no ozone DID was given', () async {
+      final pds = _FakePds();
+
+      final ozone = OzoneTool.fromSession(
+        pds.initialSession,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+      );
+
+      await ozone.server.getConfig();
+
+      expect(pds.proxyHeaderByNsid['tools.ozone.server.getConfig'], isNull);
+      expect(ozone.headers, isEmpty);
+    });
+  });
+
+  group('header isolation between clients', () {
+    test('mutating one client headers does not reach the others', () {
+      final pds = _FakePds();
+      final atproto = atp.ATProto.fromSession(
+        pds.initialSession,
+        headers: const {'x-origin': 'yes'},
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+      );
+
+      final bsky = Bluesky.fromAtproto(atproto);
+      final chat = BlueskyChat.fromAtproto(atproto);
+      final ozone = OzoneTool.fromAtproto(
+        atproto,
+        ozoneDid: 'did:web:ozone.example',
+      );
+
+      //! `headers` is a read-only view, so there is no way to retarget one
+      //! client's traffic — let alone every client sharing the context.
+      expect(
+        () => bsky.headers['atproto-proxy'] = 'did:web:evil.example#svc',
+        throwsUnsupportedError,
+      );
+      expect(
+        () => chat.headers.remove('atproto-proxy'),
+        throwsUnsupportedError,
+      );
+      expect(
+        () => ozone.headers['atproto-proxy'] = 'did:web:evil.example#svc',
+        throwsUnsupportedError,
+      );
+      expect(
+        () => atproto.headers['atproto-proxy'] = 'did:web:evil.example#svc',
+        throwsUnsupportedError,
+      );
+
+      //! `Bluesky.fromAtproto` deliberately adopts the very same context, so
+      //! it shares that context's map — which is precisely why the map must be
+      //! read-only rather than the live internal one.
+      expect(identical(bsky.headers, atproto.headers), isTrue);
+      //! The clients that derive a context of their own hold a map of their
+      //! own, so their proxy header cannot leak into the shared one.
+      expect(identical(chat.headers, atproto.headers), isFalse);
+      expect(identical(ozone.headers, atproto.headers), isFalse);
+
+      expect(chat.headers['atproto-proxy'], 'did:web:api.bsky.chat#bsky_chat');
+      expect(
+        ozone.headers['atproto-proxy'],
+        'did:web:ozone.example#atproto_labeler',
+      );
+      expect(bsky.headers.containsKey('atproto-proxy'), isFalse);
+    });
+
+    test('an anonymous client still hands out a read-only view', () {
+      expect(
+        () => Bluesky.anonymous().headers['atproto-proxy'] = 'did:web:x#svc',
+        throwsUnsupportedError,
+      );
+    });
+  });
+
   group('BlueskyChat.fromSession (proxy header placement)', () {
     test('sends the proxy header on chat.bsky.* and nowhere else', () async {
       final pds = _FakePds();
@@ -389,6 +554,40 @@ void main() {
       //! the caller can read back is an ordinary PDS client.
       expect(pds.proxyHeaderByNsid['com.atproto.server.getSession'], isNull);
       expect(chat.atproto.headers.containsKey('atproto-proxy'), isFalse);
+    });
+
+    test('a caller proxy header in another casing does not survive', () async {
+      final pds = _FakePds();
+
+      final chat = BlueskyChat.fromSession(
+        pds.initialSession,
+        service: 'pds.test',
+        getClient: pds.get,
+        postClient: pds.post,
+        //! Header names are case-insensitive on the wire, so this is the same
+        //! header the chat client must own — spelled differently.
+        headers: const {
+          'Atproto-Proxy': 'did:web:ozone.example#atproto_labeler',
+        },
+      );
+
+      await chat.convo.listConvos();
+
+      //! Exactly one proxy header reaches the client, and it is the chat one.
+      //! A key-exact merge leaves both, and a PDS reading the first sends the
+      //! caller's DMs to whatever service the caller named.
+      expect(
+        pds.proxyHeaderNamesByNsid['chat.bsky.convo.listConvos'],
+        hasLength(1),
+      );
+      expect(
+        pds.proxyHeaderByNsid['chat.bsky.convo.listConvos'],
+        'did:web:api.bsky.chat#bsky_chat',
+      );
+      expect(
+        chat.headers.keys.where((e) => e.toLowerCase() == 'atproto-proxy'),
+        hasLength(1),
+      );
     });
   });
 

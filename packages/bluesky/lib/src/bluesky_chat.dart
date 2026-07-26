@@ -31,15 +31,16 @@ sealed class BlueskyChat {
   /// client fails with an `UnauthorizedException` the caller did nothing to
   /// provoke.
   ///
-  /// Unlike `Bluesky.fromAtproto` and `OzoneTool.fromAtproto`, this does not
-  /// adopt [atproto]'s context as-is. `chat.bsky.*` is reached through an
-  /// `atproto-proxy` header that the other clients must not send, and headers
-  /// belong to the context, so a context shared verbatim would proxy their
-  /// `app.bsky.*` and `com.atproto.*` calls to the chat service too. This
-  /// derives a context — [core.ServiceContext.withHeaders] — that adds the
-  /// header and shares the session underneath, so one account keeps one
-  /// session, one refresh, and one [onSessionUpdated] no matter how many
-  /// clients read from it.
+  /// Unlike `Bluesky.fromAtproto`, this does not adopt [atproto]'s context
+  /// as-is. `chat.bsky.*` is reached through an `atproto-proxy` header that
+  /// the other clients must not send, and headers belong to the context, so a
+  /// context shared verbatim would proxy their `app.bsky.*` and `com.atproto.*`
+  /// calls to the chat service too. This derives a context —
+  /// [core.ServiceContext.withAdditionalHeaders] — that adds the header and
+  /// shares the session underneath, so one account keeps one session, one
+  /// refresh, and one [onSessionUpdated] no matter how many clients read from
+  /// it. `OzoneTool.fromAtproto` does the same for its own proxy header when
+  /// told which ozone instance to route to.
   ///
   /// ```dart
   /// final atproto = atp.ATProto.fromSession(session);
@@ -239,11 +240,13 @@ final class _BlueskyChat implements BlueskyChat {
   /// a second copy of the session, and only one of the two would ever be
   /// refreshed; a context adopted verbatim would send the proxy header on
   /// [atproto]'s own `com.atproto.*` calls.
+  ///
+  /// Merged through [core.ServiceContext.withAdditionalHeaders] rather than a
+  /// spread, because a spread is key-exact: a caller who wrote the same header
+  /// as `Atproto-Proxy` would keep it alongside the chat one, and a custom
+  /// [core.GetClient] forwarding the raw map emits both.
   factory _BlueskyChat.fromAtproto(final atp.ATProto atproto) => _BlueskyChat._(
-    atproto.ctx.withHeaders({
-      ...atproto.ctx.headers,
-      ..._kBskyChatProxyHeaders,
-    }),
+    atproto.ctx.withAdditionalHeaders(_kBskyChatProxyHeaders),
     atproto,
   );
 

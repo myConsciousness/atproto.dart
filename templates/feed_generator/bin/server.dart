@@ -11,18 +11,24 @@ import 'package:feed_generator/src/config.dart';
 import 'package:feed_generator/src/identity/caching_identity_resolver.dart';
 import 'package:feed_generator/src/indexer/firehose_indexer.dart';
 import 'package:feed_generator/src/server/feed_generator_service.dart';
+import 'package:feed_generator/src/server/middleware.dart';
 import 'package:feed_generator/src/store/in_memory_feed_store.dart';
+import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as shelf_io;
 
 /// Runs the feed generator: starts the firehose indexer and serves the three
 /// AppView-facing endpoints. Configure it via the `FEEDGEN_*` environment
 /// variables consumed by [FeedGeneratorConfig.fromEnvironment].
 Future<void> main() async {
+  // The server's factory never reads FEEDGEN_PUBLISHER_PASSWORD, so this
+  // internet-facing process cannot hold the write-capable credential even if
+  // the operator exported it. `bin/publish_feed.dart` uses the factory that
+  // does.
   final config = FeedGeneratorConfig.fromEnvironment();
 
   // The store the indexer writes to and the algorithm reads from. Swap
   // InMemoryFeedStore for a database-backed FeedStore in production.
-  final store = InMemoryFeedStore();
+  final store = InMemoryFeedStore(capacity: config.storeCapacity);
   final algorithm = WhatsHotAlgorithm(store);
 
   // Verifies the AppView's inbound service-auth JWT against the issuer's
@@ -49,8 +55,9 @@ Future<void> main() async {
   // catchError guard only exists so an unexpected error escaping the loop is
   // logged instead of becoming an unhandled async error — the server keeps
   // serving whatever is already in the store either way.
+  final indexer = FirehoseIndexer(store);
   unawaited(
-    FirehoseIndexer(store).start().catchError(
+    indexer.start().catchError(
       (Object e) => stderr.writeln('firehose indexer stopped unexpectedly: $e'),
     ),
   );
@@ -71,8 +78,19 @@ Future<void> main() async {
     ),
   );
 
+  // Even a read-only, public endpoint needs a floor of protection: a backstop
+  // that turns an unexpected error into a JSON XRPC error instead of shelf's
+  // plain-text 500, a per-request timeout so a stuck upstream cannot pin
+  // connections open, and a coarse per-IP rate limit. Tune the limits, and put
+  // your CDN or reverse proxy in front for anything beyond one instance.
+  final pipeline = const Pipeline()
+      .addMiddleware(handleErrors())
+      .addMiddleware(timeoutRequests(const Duration(seconds: 15)))
+      .addMiddleware(rateLimit())
+      .addHandler(handler);
+
   final server = await shelf_io.serve(
-    handler,
+    pipeline,
     InternetAddress.anyIPv4,
     config.port,
   );
@@ -80,4 +98,17 @@ Future<void> main() async {
     'feed generator (${config.serviceDid}) listening on '
     'http://${server.address.host}:${server.port}',
   );
+
+  // Shut down on SIGINT/SIGTERM instead of being killed mid-request: the
+  // firehose stream never ends on its own, so the indexer has to be told to
+  // let go of its socket.
+  for (final signal in [ProcessSignal.sigint, ProcessSignal.sigterm]) {
+    unawaited(
+      signal.watch().first.then((final _) async {
+        stdout.writeln('shutting down');
+        await indexer.stop();
+        await server.close();
+      }),
+    );
+  }
 }

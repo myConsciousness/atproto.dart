@@ -357,6 +357,52 @@ void main() {
       expect(calls, 2);
       expect(response.data, 'ok');
     });
+
+    test('reports the real 5xx status code to the strategy', () async {
+      //! `checkStatus` funnels 500, 502, 503 and 504 into one
+      //! `InternalServerErrorException`, so the code handed to a custom
+      //! strategy has to come from the response instead of being hardcoded —
+      //! otherwise a strategy branching on `statusCode == 503` can never
+      //! match.
+      for (final statusCode in [500, 502, 503, 504]) {
+        final strategy = _FakeStrategy([null]);
+        final challenge = Challenge(strategy);
+
+        await expectLater(
+          challenge.execute(() async {
+            throw xrpc.InternalServerErrorException(
+              _errorResponse(statusCode: statusCode, error: 'ServerError'),
+            );
+          }, isProcedure: false),
+          throwsA(isA<xrpc.InternalServerErrorException>()),
+        );
+
+        expect(strategy.contexts.single.reason, RetryReason.serverError);
+        expect(strategy.contexts.single.statusCode, statusCode);
+      }
+    });
+
+    test('reports Retry-After on a server error to the strategy', () async {
+      final strategy = _FakeStrategy([null]);
+      final challenge = Challenge(strategy);
+
+      await expectLater(
+        challenge.execute(() async {
+          throw xrpc.InternalServerErrorException(
+            _errorResponse(
+              statusCode: 503,
+              error: 'ServiceUnavailable',
+              headers: {'Retry-After': '7'},
+            ),
+          );
+        }, isProcedure: false),
+        throwsA(isA<xrpc.InternalServerErrorException>()),
+      );
+
+      //! A `503` routinely advertises `Retry-After`; it was previously read
+      //! only on the `429` path and silently dropped here.
+      expect(strategy.contexts.single.retryAfter, const Duration(seconds: 7));
+    });
   });
 
   group('.execute (network errors)', () {

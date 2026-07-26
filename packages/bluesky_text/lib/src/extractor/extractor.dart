@@ -181,6 +181,9 @@ final class _LinksExtractor implements Extractor {
 
     if (text.isEmpty) return const [];
     if (!text.value.contains('.')) return const [];
+    //* Every link this package recognizes carries a `.` followed by a known
+    //* TLD, so text without one cannot hold a link and never needs the scan.
+    if (!hasLinkableTld(text.value)) return const [];
 
     final entities = <Entity>[];
     final utf8Index = Utf8IndexConverter(text.value);
@@ -189,7 +192,7 @@ final class _LinksExtractor implements Extractor {
         ? (config?.markdownLinks ?? markdownLinksExtractor.execute(text))
         : const <MarkdownLinkEntity>[];
 
-    for (final match in validUrlRegex.allMatches(text.value)) {
+    for (final match in urlRegexFor(text.value).allMatches(text.value)) {
       final url = match.url;
       final protocol = match.protocol;
       final domain = match.domain;

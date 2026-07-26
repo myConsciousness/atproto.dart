@@ -15,6 +15,7 @@ import 'package:test/test.dart';
 import 'package:bluesky/atproto_oauth.dart';
 import 'package:bluesky/src/bluesky.dart';
 import 'package:bluesky/src/bluesky_chat.dart';
+import 'package:bluesky/src/ozone_tool.dart';
 
 /// A fake authorization server that enforces the one rule these tests are
 /// about: a rotating refresh token is single-use.
@@ -88,13 +89,19 @@ final class _FakeAuthServer {
     }
 
     return http.Response(
-      url.path.contains('chat.bsky.convo.listConvos')
-          ? '{"convos":[]}'
-          : '{"feed":[]}',
+      _body(url.path),
       200,
       headers: {'content-type': 'application/json'},
       request: http.Request('GET', url),
     );
+  }
+
+  /// The minimal valid body for each endpoint these tests call.
+  static String _body(final String path) {
+    if (path.contains('chat.bsky.convo.listConvos')) return '{"convos":[]}';
+    if (path.contains('tools.ozone.server.getConfig')) return '{}';
+
+    return '{"feed":[]}';
   }
 
   static http.Response _json(
@@ -279,6 +286,38 @@ void main() {
       );
       expect(server.proxyHeaderByNsid['app.bsky.feed.getTimeline'], isNull);
       expect(chat.atproto.headers.containsKey('atproto-proxy'), isFalse);
+    });
+
+    test('sends the ozone proxy header on tools.ozone.* alone', () async {
+      final server = _FakeAuthServer();
+      final manager = OAuthSessionManager.fromSession(
+        session(expiresAt: _expired()),
+        client: OAuthClient(_clientMetadata(), httpClient: server.client),
+      );
+
+      final bsky = Bluesky.fromOAuth(
+        manager,
+        service: 'pds.test',
+        getClient: server.get,
+      );
+      final ozone = OzoneTool.fromOAuth(
+        manager,
+        ozoneDid: 'did:web:ozone.example',
+        service: 'pds.test',
+        getClient: server.get,
+      );
+
+      await bsky.feed.getTimeline();
+      await ozone.server.getConfig();
+
+      //! The labeler proxy is the ozone client's alone; the manager they share
+      //! carries the session, not the routing.
+      expect(
+        server.proxyHeaderByNsid['tools.ozone.server.getConfig'],
+        'did:web:ozone.example#atproto_labeler',
+      );
+      expect(server.proxyHeaderByNsid['app.bsky.feed.getTimeline'], isNull);
+      expect(ozone.atproto.headers.containsKey('atproto-proxy'), isFalse);
     });
   });
 

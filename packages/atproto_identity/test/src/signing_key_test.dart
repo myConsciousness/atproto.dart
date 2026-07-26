@@ -21,10 +21,7 @@ void main() {
   test('extracts when id is the fully-qualified did#atproto', () {
     final doc = {
       'verificationMethod': [
-        {
-          'id': 'did:plc:abc#atproto',
-          'publicKeyMultibase': 'zDnSIGNINGKEY',
-        },
+        {'id': 'did:plc:abc#atproto', 'publicKeyMultibase': 'zDnSIGNINGKEY'},
       ],
     };
     expect(signingKeyOf(doc, _did), 'zDnSIGNINGKEY');
@@ -50,23 +47,40 @@ void main() {
     // document smuggle in an attacker-controlled key. Require an exact match.
     final doc = {
       'verificationMethod': [
-        {
-          'id': 'did:plc:abc#foo#atproto',
-          'publicKeyMultibase': 'zSPOOFED',
-        },
+        {'id': 'did:plc:abc#foo#atproto', 'publicKeyMultibase': 'zSPOOFED'},
       ],
     };
     expect(signingKeyOf(doc, _did), isNull);
+  });
+
+  test('rejects an implausibly long publicKeyMultibase', () {
+    // base58btc decoding is O(n^2), and this value is decoded *before* any
+    // signature is verified, so an unauthenticated caller could otherwise
+    // pin the isolate for minutes with a single DID document.
+    final doc = {
+      'verificationMethod': [
+        {'id': '#atproto', 'publicKeyMultibase': 'z${'Q' * 512000}'},
+      ],
+    };
+    expect(() => signingKeyOf(doc, _did), throwsA(isA<IdentityException>()));
+  });
+
+  test('accepts a realistically sized multibase key', () {
+    // A real secp256k1 / P-256 Multikey is 49 characters.
+    final key = 'z${'Q' * 48}';
+    final doc = {
+      'verificationMethod': [
+        {'id': '#atproto', 'publicKeyMultibase': key},
+      ],
+    };
+    expect(signingKeyOf(doc, _did), key);
   });
 
   test('does NOT select a fully-qualified id belonging to another DID', () {
     // The fragment is `#atproto` but the DID prefix is someone else's.
     final doc = {
       'verificationMethod': [
-        {
-          'id': 'did:plc:other#atproto',
-          'publicKeyMultibase': 'zWRONGDID',
-        },
+        {'id': 'did:plc:other#atproto', 'publicKeyMultibase': 'zWRONGDID'},
       ],
     };
     expect(signingKeyOf(doc, _did), isNull);

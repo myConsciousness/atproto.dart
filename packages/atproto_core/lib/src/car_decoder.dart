@@ -54,16 +54,27 @@ Map<String, Map<String, dynamic>> decodeCar(final Uint8List bytes) {
   final blocks = <String, Map<String, dynamic>>{};
 
   final header = _readVarint(bytes, 0);
+  // The header length must be validated exactly like a block length: an
+  // unchecked header varint that promises more bytes than exist pushes the
+  // cursor past the end, the loop below never runs, and a truncated archive
+  // silently decodes to ZERO blocks -- i.e. looks like an empty repository.
+  // The subtraction (rather than `header.length + header.value > length`)
+  // avoids overflowing the sum for a near-maximum length.
+  if (header.value > bytes.length - header.length) {
+    throw const CarException('Truncated CAR header: length exceeds input');
+  }
+
   int cursor = header.length + header.value;
 
   while (cursor < bytes.length) {
     final body = _readVarint(bytes, cursor);
     cursor += body.length;
 
-    final blockEnd = cursor + body.value;
-    if (body.value < 0 || blockEnd > bytes.length) {
+    if (body.value > bytes.length - cursor) {
       throw const CarException('Truncated CAR block: length exceeds input');
     }
+
+    final blockEnd = cursor + body.value;
 
     final cidLength = _cidByteLength(bytes, cursor, blockEnd);
     final cid = CID
@@ -121,10 +132,13 @@ int _cidByteLength(final Uint8List bytes, final int offset, final int limit) {
   final digestSize = _readVarint(bytes, cursor, limit);
   cursor += digestSize.length;
 
-  cursor += digestSize.value;
-  if (digestSize.value < 0 || cursor > limit) {
+  // Compared by subtraction so that a near-maximum digest size cannot
+  // overflow the cursor into a negative value that passes an upper-bound
+  // check and then indexes out of range.
+  if (digestSize.value > limit - cursor) {
     throw const CarException('Truncated CID multihash digest');
   }
+  cursor += digestSize.value;
 
   return cursor - offset;
 }
@@ -198,6 +212,13 @@ String _normalizeKey(final CborValue key) =>
 ///
 /// When [limit] is provided, reading past it throws [CarException] instead of a
 /// raw [RangeError].
+///
+/// The returned value is always non-negative: a varint whose payload reaches
+/// the 64th bit would land on the sign bit of a Dart [int] and come back
+/// negative, which every caller would then have to defend against
+/// individually (a negative length silently rewinds the cursor and produces
+/// a raw [RangeError] deep inside the decoder). Such a varint is rejected
+/// here instead, once, for every caller.
 _Varint _readVarint(final Uint8List bytes, final int offset, [int? limit]) {
   final end = limit ?? bytes.length;
 
@@ -211,7 +232,16 @@ _Varint _readVarint(final Uint8List bytes, final int offset, [int? limit]) {
     }
 
     final b = bytes[offset + i];
-    result |= (b & 0x7F) << shift;
+    final payload = b & 0x7F;
+
+    // At shift 63 every payload bit is either the sign bit or shifted out
+    // entirely, so any non-zero payload means the value does not fit in a
+    // non-negative Dart `int`.
+    if (shift == 63 && payload != 0) {
+      throw const CarException('Varint exceeds the 63-bit range');
+    }
+
+    result |= payload << shift;
     i++;
 
     if ((b & 0x80) == 0) {

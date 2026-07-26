@@ -80,4 +80,26 @@ void main() {
       );
     }
   });
+
+  test('rejects an oversized cursor without parsing it', () async {
+    final algo = WhatsHotAlgorithm(InMemoryFeedStore());
+
+    await expectLater(
+      algo.getFeedSkeleton(FeedRequest(limit: 10, cursor: 'x' * 200000)),
+      throwsA(isA<InvalidRequestException>()),
+    );
+  });
+
+  test('does not echo a hostile cursor back at full length', () async {
+    // A 200,000-character cursor must not produce a 200,000-character error
+    // body: the caller would be choosing the size of our response.
+    final algo = WhatsHotAlgorithm(InMemoryFeedStore());
+
+    final error = await algo
+        .getFeedSkeleton(FeedRequest(limit: 10, cursor: '${'x' * 400}::'))
+        .then<Object?>((_) => null, onError: (Object e) => e);
+
+    expect(error, isA<InvalidRequestException>());
+    expect((error! as InvalidRequestException).message.length, lessThan(200));
+  });
 }

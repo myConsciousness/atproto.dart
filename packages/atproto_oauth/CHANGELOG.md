@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.0
+
+- fix: `OAuthSessionManager.refreshOnUnauthorized` accepts the access token the failed request actually carried, and skips the refresh when it has already been rotated past. The single flight only coalesces requests that overlap an in-progress refresh; a request already on the wire with the superseded token 401s afterwards, and each such response used to chain another rotation — spending an unused refresh token and emitting an `onSessionUpdated` the owner has to persist. A stale `401` is now simply retried with the current session.
+
 ## v0.5.1
 
 - chore: bump `atproto_identity` to `^0.1.1`.

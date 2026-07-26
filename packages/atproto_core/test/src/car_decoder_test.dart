@@ -160,5 +160,72 @@ void main() {
 
       expect(() => decodeCar(builder.toBytes()), throwsA(isA<CarException>()));
     });
+
+    test('throws CarException when the header claims a length beyond the '
+        'input instead of decoding to zero blocks', () {
+      // A header varint promising 16383 bytes, followed by 8 bytes only.
+      final truncated = Uint8List.fromList([
+        0xFF,
+        0x7F,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+      ]);
+
+      expect(() => decodeCar(truncated), throwsA(isA<CarException>()));
+    });
+
+    test('throws CarException on a header varint that overflows into the '
+        'sign bit instead of RangeError', () {
+      // Ten continuation-free bytes: the tenth payload bit lands on the
+      // sign bit of a 64-bit int, making the length negative.
+      final overflowing = Uint8List.fromList([
+        0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x01, //
+        1, 2, 3, 4, 5, 6, 7, 8,
+      ]);
+
+      expect(() => decodeCar(overflowing), throwsA(isA<CarException>()));
+    });
+
+    test('throws CarException on a block varint that overflows into the '
+        'sign bit instead of RangeError', () {
+      final builder = BytesBuilder();
+      builder.add(_varint(headerCbor.length));
+      builder.add(headerCbor);
+      builder.add(
+        Uint8List.fromList([
+          0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x01, //
+        ]),
+      );
+      builder.add(Uint8List.fromList([1, 2, 3, 4]));
+
+      expect(() => decodeCar(builder.toBytes()), throwsA(isA<CarException>()));
+    });
+
+    test('throws CarException when a block length is near the 63-bit maximum '
+        'and would overflow the cursor', () {
+      final builder = BytesBuilder();
+      builder.add(_varint(headerCbor.length));
+      builder.add(headerCbor);
+      // 2^62: `cursor + body.value` stays positive but is far past the end.
+      builder.add(_varint(1 << 62));
+      builder.add(Uint8List.fromList([1, 2, 3, 4]));
+
+      expect(() => decodeCar(builder.toBytes()), throwsA(isA<CarException>()));
+    });
+
+    test('throws CarException when the header length is near the 63-bit '
+        'maximum', () {
+      final builder = BytesBuilder();
+      builder.add(_varint(1 << 62));
+      builder.add(Uint8List.fromList([1, 2, 3, 4, 5, 6, 7, 8]));
+
+      expect(() => decodeCar(builder.toBytes()), throwsA(isA<CarException>()));
+    });
   });
 }
