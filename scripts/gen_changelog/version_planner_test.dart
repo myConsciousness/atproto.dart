@@ -88,6 +88,56 @@ void main() {
     );
   });
 
+  test('regenerated-only packages get a patch bump and the generic line', () {
+    final plans = planVersions(
+      changesByPackage: {
+        'bluesky': [_c(BumpLevel.patch, 'feat: added `app.bsky.a`')],
+      },
+      currentVersions: {
+        'bluesky': Version.parse('2.2.2'),
+        'bluesky_cli': Version.parse('0.6.4'),
+        'lexicon': Version.parse('1.2.3'),
+      },
+      dependents: {},
+      regeneratedPackages: {'bluesky_cli', 'lexicon'},
+    );
+    expect(plans['bluesky_cli']!.newVersion.toString(), '0.6.5');
+    expect(plans['bluesky_cli']!.changelogLines, [
+      'chore: regenerated from synced lexicons',
+    ]);
+    expect(plans['lexicon']!.newVersion.toString(), '1.2.4');
+  });
+
+  test('a regenerated package that owns changes keeps its own entries', () {
+    final plans = planVersions(
+      changesByPackage: {
+        'lexicon': [_c(BumpLevel.minor, 'fix!: removed `x.y.z` (BREAKING)')],
+      },
+      currentVersions: {'lexicon': Version.parse('1.2.3')},
+      dependents: {},
+      regeneratedPackages: {'lexicon'},
+    );
+    // The minor bump wins over the regenerated patch, and the generic line is
+    // recorded once.
+    expect(plans['lexicon']!.newVersion.toString(), '1.3.0');
+    expect(
+      plans['lexicon']!.changelogLines
+          .where((l) => l == 'chore: regenerated from synced lexicons')
+          .length,
+      1,
+    );
+  });
+
+  test('regenerated packages with no known version are skipped', () {
+    final plans = planVersions(
+      changesByPackage: {},
+      currentVersions: {'lexicon': Version.parse('1.2.3')},
+      dependents: {},
+      regeneratedPackages: {'lexicon', 'not_a_package'},
+    );
+    expect(plans.keys, ['lexicon']);
+  });
+
   test('deduplicates identical changelog lines', () {
     final plans = planVersions(
       changesByPackage: {

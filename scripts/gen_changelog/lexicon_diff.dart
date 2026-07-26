@@ -8,6 +8,23 @@ import 'dart:convert';
 // Project imports:
 import 'models.dart';
 
+/// Label of the def's own schema, as opposed to a nested one (`parameters`,
+/// `input`, ...). Empty so it never collides with a real lexicon key.
+const _ownSchema = '';
+
+/// Def keys that a dedicated diff already covers. They are excluded from the
+/// signature comparison so a nested change is never reported twice.
+const _structuralKeys = {
+  'properties',
+  'required',
+  'record',
+  'parameters',
+  'input',
+  'output',
+  'message',
+  'errors',
+};
+
 /// Computes the semantic difference between two lexicon snapshots.
 List<LexChange> diffSnapshots(Snapshot old, Snapshot updated) {
   final changes = <LexChange>[];
@@ -75,6 +92,60 @@ Map<String, dynamic> _schemaOf(Map<String, dynamic> def) {
   return def;
 }
 
+/// Every schema of [def] that carries public API surface, keyed by label.
+///
+/// `object` and `record` defs hold their fields directly, but `query`,
+/// `procedure` and `subscription` defs nest theirs under `parameters` and the
+/// `input` / `output` / `message` bodies. Walking only the def's own
+/// `properties` — as this differ originally did — therefore made every change
+/// to an endpoint invisible: the `sort` parameter added to
+/// `app.bsky.graph.getFollowers` and `getFollows` regenerated both `bluesky`
+/// and `bluesky_cli` sources yet produced no changelog entry and no version
+/// bump.
+Map<String, Map<String, dynamic>> _schemasOf(Map<String, dynamic> def) {
+  final schemas = <String, Map<String, dynamic>>{_ownSchema: _schemaOf(def)};
+
+  // `parameters` is a `params` object holding the query string fields.
+  final parameters = def['parameters'];
+  if (parameters is Map<String, dynamic>) {
+    schemas['parameters'] = parameters;
+  }
+
+  // Request/response bodies wrap their schema in an encoding envelope.
+  for (final body in const ['input', 'output', 'message']) {
+    final envelope = def[body];
+    if (envelope is! Map<String, dynamic>) continue;
+    final schema = envelope['schema'];
+    if (schema is Map<String, dynamic>) schemas[body] = schema;
+  }
+
+  return schemas;
+}
+
+/// Compares everything but the fields, so a `knownValues`, `description` or
+/// `type` edit on the schema itself is still reported. Generated sources embed
+/// all three, so a release is warranted.
+String _signatureOf(Map<String, dynamic> schema) => jsonEncode(
+  Map<String, dynamic>.of(schema)
+    ..removeWhere((key, _) => _structuralKeys.contains(key)),
+);
+
+/// `errors` entries keyed by name, for the error list of a query/procedure.
+Map<String, dynamic> _errorsOf(Map<String, dynamic> def) {
+  final errors = def['errors'];
+  if (errors is! List) return const {};
+  return {
+    for (final error in errors)
+      if (error is Map<String, dynamic> && error['name'] is String)
+        error['name'] as String: error,
+  };
+}
+
+/// Qualifies [field] with its schema [label] so `parameters.sort` cannot be
+/// confused with a body field of the same name.
+String _qualify(String label, String field) =>
+    label == _ownSchema ? field : '$label.$field';
+
 List<LexChange> _diffDef(
   String nsid,
   String def,
@@ -82,8 +153,88 @@ List<LexChange> _diffDef(
   Map<String, dynamic> newDef,
 ) {
   final changes = <LexChange>[];
-  final oldSchema = _schemaOf(oldDef);
-  final newSchema = _schemaOf(newDef);
+  final oldSchemas = _schemasOf(oldDef);
+  final newSchemas = _schemasOf(newDef);
+
+  for (final label in {...oldSchemas.keys, ...newSchemas.keys}) {
+    final oldSchema = oldSchemas[label];
+    final newSchema = newSchemas[label];
+
+    // A whole body appearing or disappearing (e.g. a query that gained an
+    // `output` schema) is reported against the label itself.
+    if (oldSchema == null || newSchema == null) {
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: label,
+          kind: oldSchema == null
+              ? LexChangeKind.propertyAdded
+              : LexChangeKind.propertyRemoved,
+        ),
+      );
+      continue;
+    }
+
+    changes.addAll(_diffSchema(nsid, def, label, oldSchema, newSchema));
+  }
+
+  // The def's own non-field keys. For a record these live outside the schema
+  // walked above (`key`, `description`), so compare them separately.
+  if (!identical(oldSchemas[_ownSchema], oldDef) &&
+      _signatureOf(oldDef) != _signatureOf(newDef)) {
+    changes.add(
+      LexChange(nsid: nsid, defName: def, kind: LexChangeKind.metadataChanged),
+    );
+  }
+
+  final oldErrors = _errorsOf(oldDef);
+  final newErrors = _errorsOf(newDef);
+  for (final name in {...oldErrors.keys, ...newErrors.keys}) {
+    final oldError = oldErrors[name];
+    final newError = newErrors[name];
+    final field = _qualify('errors', name);
+    if (oldError == null) {
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: field,
+          kind: LexChangeKind.propertyAdded,
+        ),
+      );
+    } else if (newError == null) {
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: field,
+          kind: LexChangeKind.propertyRemoved,
+        ),
+      );
+    } else if (jsonEncode(oldError) != jsonEncode(newError)) {
+      changes.add(
+        LexChange(
+          nsid: nsid,
+          defName: def,
+          field: field,
+          kind: LexChangeKind.metadataChanged,
+        ),
+      );
+    }
+  }
+
+  return changes;
+}
+
+List<LexChange> _diffSchema(
+  String nsid,
+  String def,
+  String label,
+  Map<String, dynamic> oldSchema,
+  Map<String, dynamic> newSchema,
+) {
+  final changes = <LexChange>[];
 
   final oldProps =
       (oldSchema['properties'] as Map<String, dynamic>?) ?? const {};
@@ -99,13 +250,14 @@ List<LexChange> _diffDef(
   for (final prop in {...oldProps.keys, ...newProps.keys}) {
     final oldProp = oldProps[prop];
     final newProp = newProps[prop];
+    final field = _qualify(label, prop);
 
     if (oldProp == null) {
       changes.add(
         LexChange(
           nsid: nsid,
           defName: def,
-          field: prop,
+          field: field,
           kind: LexChangeKind.propertyAdded,
         ),
       );
@@ -116,7 +268,7 @@ List<LexChange> _diffDef(
         LexChange(
           nsid: nsid,
           defName: def,
-          field: prop,
+          field: field,
           kind: LexChangeKind.propertyRemoved,
         ),
       );
@@ -130,7 +282,7 @@ List<LexChange> _diffDef(
         LexChange(
           nsid: nsid,
           defName: def,
-          field: prop,
+          field: field,
           kind: LexChangeKind.propertyTypeChanged,
           detail: '$oldType -> $newType',
         ),
@@ -145,7 +297,7 @@ List<LexChange> _diffDef(
         LexChange(
           nsid: nsid,
           defName: def,
-          field: prop,
+          field: field,
           kind: LexChangeKind.propertyBecameRequired,
         ),
       );
@@ -154,7 +306,7 @@ List<LexChange> _diffDef(
         LexChange(
           nsid: nsid,
           defName: def,
-          field: prop,
+          field: field,
           kind: LexChangeKind.propertyBecameOptional,
         ),
       );
@@ -163,12 +315,26 @@ List<LexChange> _diffDef(
         LexChange(
           nsid: nsid,
           defName: def,
-          field: prop,
+          field: field,
           kind: LexChangeKind.metadataChanged,
         ),
       );
     }
   }
+
+  // Schema-level edits that no field covers: `knownValues` on a string def, a
+  // union's `refs`, a changed `type`, a reworded `description`.
+  if (_signatureOf(oldSchema) != _signatureOf(newSchema)) {
+    changes.add(
+      LexChange(
+        nsid: nsid,
+        defName: def,
+        field: label == _ownSchema ? null : label,
+        kind: LexChangeKind.metadataChanged,
+      ),
+    );
+  }
+
   return changes;
 }
 
