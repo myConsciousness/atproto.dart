@@ -59,7 +59,12 @@ final class FeedServiceImpl extends FeedService {
   /// Throws a [ThreadVerificationException] when the created records do not
   /// match what was computed for them. That check runs after the commit, so it
   /// reports a published thread whose replies point at nothing rather than
-  /// preventing one.
+  /// preventing one. The exception carries the thread's record keys and
+  /// AT-URIs, so the posts can be looked up even though the batch that named
+  /// them was built inside this call; a server that answers without the
+  /// optional `results` array raises it with
+  /// [ThreadVerificationException.inconclusive] set, meaning the thread was
+  /// committed and simply not confirmed.
   ///
   /// A failure that leaves it unknown whether the batch was applied
   /// ([isAmbiguousFailure] answers this for the caught error) is all-or-

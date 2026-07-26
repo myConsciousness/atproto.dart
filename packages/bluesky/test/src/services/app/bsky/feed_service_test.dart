@@ -20,7 +20,11 @@ const _did = 'did:plc:author';
 
 /// Captures the body of the single `applyWrites` call a test makes.
 final class _Pds {
-  _Pds({this.cidOf, this.results});
+  _Pds({this.cidOf, this.results, this.omitResults = false});
+
+  /// Answers without a `results` array at all, as a server that treats the
+  /// optional field as optional does.
+  final bool omitResults;
 
   /// Overrides the CID reported for the record at a given index. Defaults to
   /// the CID of the record actually sent, which is what a repository storing
@@ -59,18 +63,19 @@ final class _Pds {
           'cid': 'bafycommit',
           'rev': '3lrev',
         },
-        'results':
-            results ??
-            [
-              for (var i = 0; i < writes.length; i++)
-                {
-                  r'$type': 'com.atproto.repo.applyWrites#createResult',
-                  'uri': 'at://$_did/app.bsky.feed.post/${writes[i]['rkey']}',
-                  'cid':
-                      cidOf?.call(i, valueAt(i)) ??
-                      core.computeRecordCid(valueAt(i)),
-                },
-            ],
+        if (!omitResults)
+          'results':
+              results ??
+              [
+                for (var i = 0; i < writes.length; i++)
+                  {
+                    r'$type': 'com.atproto.repo.applyWrites#createResult',
+                    'uri': 'at://$_did/app.bsky.feed.post/${writes[i]['rkey']}',
+                    'cid':
+                        cidOf?.call(i, valueAt(i)) ??
+                        core.computeRecordCid(valueAt(i)),
+                  },
+              ],
       }),
       200,
       headers: {'content-type': 'application/json; charset=utf-8'},
@@ -293,5 +298,47 @@ void main() {
         throwsA(isA<ThreadVerificationException>()),
       );
     });
+
+    test(
+      'a server that omits results still leaves the thread recoverable',
+      () async {
+        //* `results` is optional in the lexicon, so a server may simply not
+        //* send it. The commit succeeded either way, and the batch that was
+        //* built inside this call is the caller's only handle on the posts --
+        //* the exception has to carry it, or a committed thread is reported
+        //* as a hard failure nobody can act on.
+        final pds = _Pds(omitResults: true);
+
+        Object? error;
+        try {
+          await _service(pds).createThreadAtomic(
+            posts: const [
+              ThreadPost(text: 'post 0'),
+              ThreadPost(text: 'post 1'),
+            ],
+          );
+        } catch (e) {
+          error = e;
+        }
+
+        expect(pds.calls, 1);
+        expect(error, isA<ThreadVerificationException>());
+
+        final failure = error! as ThreadVerificationException;
+        expect(failure.inconclusive, isTrue);
+        expect(failure.rkeys, hasLength(2));
+        expect(failure.uris, hasLength(2));
+
+        for (var i = 0; i < 2; i++) {
+          //* Exactly the records that were written, so `feed.post.get` on any
+          //* of them settles whether the thread is there.
+          expect(failure.rkeys[i], pds.writes[i]['rkey']);
+          expect(
+            failure.uris[i].toString(),
+            'at://$_did/app.bsky.feed.post/${pds.writes[i]['rkey']}',
+          );
+        }
+      },
+    );
   });
 }
