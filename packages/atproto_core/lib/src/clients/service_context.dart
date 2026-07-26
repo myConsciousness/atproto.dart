@@ -199,7 +199,7 @@ base class ServiceContext {
     final xrpc.GetClient? getClient,
     final xrpc.PostClient? postClient,
     final Future<Session> Function(Session current)? onRefreshSession,
-  }) : _headers = headers,
+  }) : _headers = _freeze(headers),
        _protocol = protocol ?? defaultProtocol,
        _state = _SessionState(session, onRefreshSession),
        _explicitService = service,
@@ -223,7 +223,7 @@ base class ServiceContext {
     required final Duration timeout,
     required final xrpc.GetClient? getClient,
     required final xrpc.PostClient? postClient,
-  }) : _headers = headers,
+  }) : _headers = _freeze(headers),
        _protocol = protocol,
        _explicitService = explicitService,
        _challenge = challenge,
@@ -232,7 +232,20 @@ base class ServiceContext {
        _postClient = postClient;
 
   /// The global headers without auth header.
+  ///
+  /// An unmodifiable copy of what the caller passed, never the caller's own
+  /// map: [headers] is public, so the live map would otherwise be reachable —
+  /// and writable — through every client built on this context, and through
+  /// every context [withHeaders] derived from it.
   final Map<String, String>? _headers;
+
+  /// Returns an unmodifiable copy of [headers], or null when there are none.
+  ///
+  /// Copying is the point, not merely wrapping: a view over the caller's map
+  /// would still change under this context whenever the caller writes to the
+  /// map it kept.
+  static Map<String, String>? _freeze(final Map<String, String>? headers) =>
+      headers == null ? null : Map.unmodifiable(headers);
 
   /// Everything about the current account's session that changes over time.
   ///
@@ -290,14 +303,17 @@ base class ServiceContext {
   /// an `UnauthorizedException` the caller did nothing to provoke.
   ///
   /// ```dart
-  /// final proxied = ctx.withHeaders({
-  ///   ...ctx.headers,
+  /// final bare = ctx.withHeaders(const {
   ///   'atproto-proxy': 'did:web:example.com#service',
   /// });
   /// ```
   ///
-  /// [headers] replaces this context's headers rather than extending them;
-  /// spread [headers] of the origin context, as above, to keep them.
+  /// [headers] replaces this context's headers rather than extending them, so
+  /// `bare` above sends the proxy header and nothing else. To keep the origin's
+  /// headers, use [withAdditionalHeaders] rather than spreading [headers] of
+  /// the origin context by hand: a spread is key-exact, and header names are
+  /// not, so an origin sending `Atproto-Proxy` would keep it alongside the
+  /// added `atproto-proxy` and the request would carry the header twice.
   ServiceContext withHeaders(final Map<String, String> headers) =>
       ServiceContext._shared(
         _state,
@@ -313,6 +329,31 @@ base class ServiceContext {
         getClient: _getClient,
         postClient: _postClient,
       );
+
+  /// Returns a context that shares this one's session state and sends this
+  /// context's [headers] with [headers] merged in on top.
+  ///
+  /// This is [withHeaders] for the case every real caller has: adding a header
+  /// — an `atproto-proxy` routing one client's calls to a different service,
+  /// say — without discarding the ones the origin context already sends. See
+  /// [withHeaders] for what "shares this one's session state" buys and why a
+  /// second context would otherwise race for the single-use refresh token.
+  ///
+  /// [headers] wins on conflict, and the comparison is case-insensitive
+  /// because header names are: a context already sending `Atproto-Proxy` and
+  /// an [headers] carrying `atproto-proxy` name one header, not two. Merging
+  /// key-exactly would keep both, which `package:http` happens to collapse but
+  /// a custom [xrpc.GetClient] forwarding the raw map to `dart:io` or Dio
+  /// emits verbatim — two `atproto-proxy` headers, with the server free to
+  /// honour whichever it reads first.
+  ///
+  /// ```dart
+  /// final proxied = ctx.withAdditionalHeaders(const {
+  ///   'atproto-proxy': 'did:web:example.com#service',
+  /// });
+  /// ```
+  ServiceContext withAdditionalHeaders(final Map<String, String> headers) =>
+      withHeaders(_mergeHeaders(_headers ?? const {}, headers));
 
   /// The current OAuth session manager.
   ///
@@ -362,6 +403,15 @@ base class ServiceContext {
   final xrpc.GetClient? _getClient;
   final xrpc.PostClient? _postClient;
 
+  /// The global headers this context sends, without the auth header.
+  ///
+  /// Read-only, and unmodifiable whether or not any headers were supplied:
+  /// writing through it throws an [UnsupportedError] either way. It is a copy
+  /// of what the caller passed, and no two contexts hand out the same
+  /// instance, so a client that reached this map could not retarget its own
+  /// requests, let alone those of every other client sharing the session
+  /// underneath. Build a new context with [withHeaders] or
+  /// [withAdditionalHeaders] to send something different.
   Map<String, String> get headers => _headers ?? const {};
 
   /// The DID of the authenticated actor, regardless of how this context was
@@ -517,7 +567,7 @@ base class ServiceContext {
 
     final currentSession = _state.session;
     if (currentSession != null) {
-      return _mergeAuthHeaders(header, {
+      return _mergeHeaders(header, {
         'Authorization': 'Bearer ${currentSession.accessJwt}',
       });
     }
@@ -566,20 +616,24 @@ base class ServiceContext {
     return await manager.buildAuthHeaders(endpoint, method);
   }
 
-  /// Merges [authHeaders] into [header] so that authentication headers
-  /// always win, no matter what casing the caller used for conflicting
-  /// header names.
-  Map<String, String> _mergeAuthHeaders(
+  /// Merges [overrides] into [header] so that [overrides] always wins, no
+  /// matter what casing the caller used for conflicting header names.
+  ///
+  /// Header names are case-insensitive, so a key-exact merge would leave both
+  /// spellings in the map and emit the header twice. Used for the auth headers
+  /// this context builds and for [withAdditionalHeaders], which face the same
+  /// problem.
+  static Map<String, String> _mergeHeaders(
     final Map<String, String> header,
-    final Map<String, String> authHeaders,
+    final Map<String, String> overrides,
   ) {
-    final reservedNames = authHeaders.keys.map((e) => e.toLowerCase()).toSet();
+    final reservedNames = overrides.keys.map((e) => e.toLowerCase()).toSet();
 
     return {
       for (final entry in header.entries)
         if (!reservedNames.contains(entry.key.toLowerCase()))
           entry.key: entry.value,
-      ...authHeaders,
+      ...overrides,
     };
   }
 
