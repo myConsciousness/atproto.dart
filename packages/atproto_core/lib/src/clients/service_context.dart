@@ -37,7 +37,7 @@ import 'retry_strategy.dart';
 /// Left empty and unused on OAuth-backed contexts, where [OAuthSessionManager]
 /// plays exactly this role.
 final class _SessionState {
-  _SessionState(this.session, this.onRefreshSession);
+  _SessionState(this.session, this.onRefreshSession, this.timeout);
 
   /// The current session.
   ///
@@ -51,6 +51,14 @@ final class _SessionState {
   /// Given the current session it must return a new session with fresh
   /// tokens. When null, expired access tokens are not refreshed automatically.
   final Future<Session> Function(Session current)? onRefreshSession;
+
+  /// The bound placed on a single [onRefreshSession] call.
+  ///
+  /// [onRefreshSession] is user-supplied and is awaited at the head of every
+  /// request behind a single flight, so one that never completes would
+  /// otherwise stall every request on this context forever. The context's
+  /// `timeout` covers only the xrpc call, so it is applied here as well.
+  final Duration timeout;
 
   /// A single in-flight legacy session refresh, shared across concurrent
   /// callers so that N simultaneous expired requests trigger exactly one
@@ -103,12 +111,17 @@ final class _SessionState {
   /// of each firing their own `refreshSession` POST (a refresh stampede). The
   /// in-flight future is cleared once it settles so a later expiry can refresh
   /// again.
+  ///
+  /// Bounded by [timeout]: a user-supplied callback that hangs must not hold
+  /// every request on this context behind the single flight indefinitely. Both
+  /// callers treat a failed refresh as best-effort.
   Future<Session> refresh(final Session current) {
     final existing = _inflightRefresh;
     if (existing != null) return existing;
 
     final refresh = onRefreshSession!;
     final future = refresh(current)
+        .timeout(timeout)
         .then((refreshed) {
           session = refreshed;
           //! Broadcast after adopting it, so a listener that reads `session`
@@ -127,13 +140,27 @@ final class _SessionState {
   /// Attempts to refresh an expired access token in response to a genuine
   /// `401 Unauthorized`.
   ///
-  /// Returns true when the session was refreshed and the request should be
-  /// retried, or false when no refresh is possible (no session, no callback)
-  /// or the refresh itself failed. On failure the original `401` is surfaced
-  /// by the caller.
-  Future<bool> refreshOnUnauthorized() async {
+  /// [usedAccessJwt] is the access token the failed request actually carried,
+  /// when known. A `401` provoked by a token the session has already rotated
+  /// past says nothing about the current credentials, so it is retried
+  /// as-is instead of triggering another rotation: the single flight only
+  /// coalesces requests that overlap an in-progress refresh, and without this
+  /// check N stale in-flight requests chain up to N rotations — each spending
+  /// an unused refresh token and emitting an `onSessionUpdated` the owner has
+  /// to persist.
+  ///
+  /// Returns true when the request should be retried — either because the
+  /// session was refreshed or because it had already moved on — and false when
+  /// no refresh is possible (no session, no callback) or the refresh itself
+  /// failed. On failure the original `401` is surfaced by the caller.
+  Future<bool> refreshOnUnauthorized({final String? usedAccessJwt}) async {
     final current = session;
     if (current == null || onRefreshSession == null) return false;
+
+    if (usedAccessJwt != null && usedAccessJwt != current.accessJwt) {
+      //! Already superseded: retry with the credentials we now hold.
+      return true;
+    }
 
     try {
       await refresh(current);
@@ -201,7 +228,11 @@ base class ServiceContext {
     final Future<Session> Function(Session current)? onRefreshSession,
   }) : _headers = headers,
        _protocol = protocol ?? defaultProtocol,
-       _state = _SessionState(session, onRefreshSession),
+       _state = _SessionState(
+         session,
+         onRefreshSession,
+         timeout ?? defaultTimeout,
+       ),
        _explicitService = service,
        relayService = relayService ?? defaultRelayService,
        _challenge = Challenge(retryConfig),
@@ -404,8 +435,14 @@ base class ServiceContext {
     final callerHeaders = {..._headers ?? const {}, ...headers ?? const {}};
     final callerHasAuth = _hasAuthorization(callerHeaders);
 
+    // The access token the most recent attempt actually went out with, so a
+    // `401` can be matched against the session that provoked it. Local to
+    // this request: concurrent requests must not overwrite each other's.
+    String? usedAccessToken;
+
     return await _challenge.execute(
       () async {
+        usedAccessToken = null;
         // When the caller already supplied an `Authorization` header (e.g. a
         // service-auth Bearer token for the video service), leave it intact:
         // do not attach the OAuth DPoP `Authorization`/proof that would
@@ -413,6 +450,7 @@ base class ServiceContext {
         final oauthHeaders = callerHasAuth
             ? const <String, String>{}
             : await _oauthAuthHeaders(endpoint, 'GET');
+        usedAccessToken = _credentialOf(oauthHeaders);
         return await xrpc.query(
           methodId,
           protocol: _protocol,
@@ -425,14 +463,14 @@ base class ServiceContext {
           // Legacy Bearer path still uses the sync header builder; OAuth
           // headers are already merged above, so only attach the builder
           // when there is no OAuth manager.
-          headerBuilder: oAuthSessionManager == null ? _buildAuthHeader : null,
+          headerBuilder: _buildAuthHeaderRecording((t) => usedAccessToken = t),
           getClient: client ?? _getClient,
         );
       },
       isProcedure: false,
       nsid: methodId.toString(),
       onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
-      onUnauthorized: _onUnauthorized,
+      onUnauthorized: (e) => _onUnauthorized(e, usedAccessToken),
     );
   }
 
@@ -453,8 +491,12 @@ base class ServiceContext {
     final callerHeaders = {..._headers ?? const {}, ...headers ?? const {}};
     final callerHasAuth = _hasAuthorization(callerHeaders);
 
+    // See the identically-named local in [get].
+    String? usedAccessToken;
+
     return await _challenge.execute(
       () async {
+        usedAccessToken = null;
         // When the caller already supplied an `Authorization` header (e.g. a
         // service-auth Bearer token for the video service), leave it intact:
         // do not attach the OAuth DPoP `Authorization`/proof that would
@@ -462,6 +504,7 @@ base class ServiceContext {
         final oauthHeaders = callerHasAuth
             ? const <String, String>{}
             : await _oauthAuthHeaders(endpoint, 'POST');
+        usedAccessToken = _credentialOf(oauthHeaders);
         return await xrpc.procedure(
           methodId,
           protocol: _protocol,
@@ -474,14 +517,14 @@ base class ServiceContext {
           // Legacy Bearer path still uses the sync header builder; OAuth
           // headers are already merged above, so only attach the builder
           // when there is no OAuth manager.
-          headerBuilder: oAuthSessionManager == null ? _buildAuthHeader : null,
+          headerBuilder: _buildAuthHeaderRecording((t) => usedAccessToken = t),
           postClient: client ?? _postClient,
         );
       },
       isProcedure: true,
       nsid: methodId.toString(),
       onUpdateDpopNonce: (h) => _onUpdateDpopNonce(endpoint, h),
-      onUnauthorized: _onUnauthorized,
+      onUnauthorized: (e) => _onUnauthorized(e, usedAccessToken),
     );
   }
 
@@ -506,23 +549,50 @@ base class ServiceContext {
     nsid: methodId.toString(),
   );
 
-  Map<String, String> _buildAuthHeader(
-    final Map<String, String> header,
-    final Uri endpoint,
-    final String method,
+  /// Builds the legacy Bearer `headerBuilder` for one request, or null when
+  /// this context is OAuth-authenticated (its headers are merged upstream).
+  ///
+  /// The returned builder reports the access token it attached through
+  /// [onTokenUsed], because that — not whatever the session holds by the time
+  /// the response comes back — is the credential the response is a verdict on.
+  /// It runs immediately before the request is sent, so nothing can rotate the
+  /// session in between.
+  xrpc.HeaderBuilder? _buildAuthHeaderRecording(
+    final void Function(String accessJwt) onTokenUsed,
   ) {
-    // A caller-supplied `Authorization` header (e.g. a service-auth Bearer
-    // token) must survive; never overwrite it with the session token.
-    if (_hasAuthorization(header)) return header;
+    if (oAuthSessionManager != null) return null;
 
-    final currentSession = _state.session;
-    if (currentSession != null) {
+    return (header, endpoint, method) {
+      // A caller-supplied `Authorization` header (e.g. a service-auth Bearer
+      // token) must survive; never overwrite it with the session token.
+      if (_hasAuthorization(header)) return header;
+
+      final currentSession = _state.session;
+      if (currentSession == null) return header;
+
+      onTokenUsed(currentSession.accessJwt);
+
       return _mergeAuthHeaders(header, {
         'Authorization': 'Bearer ${currentSession.accessJwt}',
       });
+    };
+  }
+
+  /// Returns the credential carried by [headers]' `Authorization` entry — the
+  /// part after the auth scheme — or null when there is none.
+  ///
+  /// Used to recover the OAuth access token from the DPoP headers the manager
+  /// just built, without asking it a second time for what it already returned.
+  String? _credentialOf(final Map<String, String> headers) {
+    for (final entry in headers.entries) {
+      if (entry.key.toLowerCase() != 'authorization') continue;
+
+      final separator = entry.value.indexOf(' ');
+
+      return separator < 0 ? entry.value : entry.value.substring(separator + 1);
     }
 
-    return header;
+    return null;
   }
 
   /// Whether [header] already carries an `Authorization` entry, matched
@@ -606,16 +676,24 @@ base class ServiceContext {
   /// Attempts to refresh an expired access token in response to a genuine
   /// `401 Unauthorized`.
   ///
-  /// Returns true when the session was refreshed and the request should be
-  /// retried, or false when no refresh is possible (no session, no callback)
-  /// or the refresh itself failed. On failure the original `401` is surfaced
-  /// by the caller.
-  Future<bool> _onUnauthorized(final xrpc.UnauthorizedException _) async {
+  /// [usedAccessToken] is the credential the failed request went out with, so
+  /// that a late-arriving `401` from a request the session has already rotated
+  /// past is retried rather than chaining a further rotation.
+  ///
+  /// Returns true when the request should be retried, or false when no refresh
+  /// is possible (no session, no callback) or the refresh itself failed. On
+  /// failure the original `401` is surfaced by the caller.
+  Future<bool> _onUnauthorized(
+    final xrpc.UnauthorizedException _,
+    final String? usedAccessToken,
+  ) async {
     final manager = oAuthSessionManager;
     if (manager != null) {
-      return await manager.refreshOnUnauthorized();
+      return await manager.refreshOnUnauthorized(
+        usedAccessToken: usedAccessToken,
+      );
     }
 
-    return await _state.refreshOnUnauthorized();
+    return await _state.refreshOnUnauthorized(usedAccessJwt: usedAccessToken);
   }
 }

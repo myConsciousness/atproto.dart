@@ -1,5 +1,16 @@
 # Release Note
 
+## Unreleased
+
+- fix: a `5xx` now reaches a custom `RetryStrategy` with its true status code. `checkStatus` funnels `500`, `502`, `503` and `504` into a single `InternalServerErrorException`, and the retry layer hardcoded `statusCode: 500` when building the `RetryContext`, so a strategy branching on `context.statusCode == 503` could never match.
+- fix: a `Retry-After` / `ratelimit-reset` sent with a server error is now honored. It was read only on the `429` path, so the wait a `503` asked for was silently dropped.
+- fix: a `401` provoked by an access token the session has already rotated past no longer triggers a further refresh. Single-flighting only coalesces requests that overlap an *in-progress* refresh; a request already on the wire with the superseded token 401s after the rotation lands, and each such response used to chain another rotation — spending an unused refresh token and emitting an `onSessionUpdated` the owner has to persist. The token the failed request actually carried is now compared against the current session, and a stale one is simply retried.
+- fix: the exponential backoff in `RetryConfig` is now capped at 60 seconds, matching the "capped exponential backoff" it documents. Uncapped, `2 ^ (attempt - 1)` reaches roughly six days by attempt 20.
+- fix: a server-requested wait can no longer *shorten* a retry. The 60-second clamp was applied after the comparison, so a server asking for 1000s while the backoff stood at 512s collapsed the wait to 60s — a larger requested delay produced a shorter wait than plain backoff.
+- fix: a user-supplied `onRefreshSession` is now bounded by the context's `timeout`. It is awaited at the head of every request behind a single flight, so one that never completed stalled every request on the context forever; `timeout` previously covered only the xrpc call.
+- fix: `Challenge.execute` no longer exposes its recursion state (`attempt`, `dpopNonceRetryCount`, `sessionRefreshed`) on the public signature, where a caller passing e.g. `attempt: 5` corrupted the retry accounting. `Challenge` is publicly exported; the loop state moved to a private `_execute`.
+- docs: `RetryConfig` documented its jitter as `0 ~ 3` while the implementation drew `0 ~ 4` inclusive.
+
 ## v2.3.0
 
 - feat: added `ServiceContext.actorDid`, the DID of the authenticated actor regardless of how the context was authenticated. `session` is set only for the legacy (app-password) path and `oAuthSessionManager` only for the OAuth one, so neither answers that on its own and callers were left composing the two by hand. `repo` is now defined in terms of it, so the two cannot drift.

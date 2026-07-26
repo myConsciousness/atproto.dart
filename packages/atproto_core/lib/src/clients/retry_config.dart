@@ -1,3 +1,7 @@
+// Copyright (c) 2023-2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 // Dart imports:
 import 'dart:async';
 import 'dart:math' as math;
@@ -36,11 +40,16 @@ import 'retry_strategy.dart';
 /// The interval, which increases with the number of retries, is then
 /// calculated as follows.
 ///
-/// > **(2 ^ (attempt - 1)) + jitter(Random Number between 0 ~ 3)**
+/// > **min(2 ^ (attempt - 1), 60) + jitter(Random Number between 0 ~ 4)**
+///
+/// The exponential term is capped at 60 seconds: doubling without a ceiling
+/// reaches roughly six days by attempt 20, which is a hang rather than a
+/// backoff for any [maxAttempts] high enough to reach it.
 ///
 /// A server-provided wait (`Retry-After` / `ratelimit-reset`) is honored as a
-/// lower bound, capped at 60 seconds so a hostile value cannot stall a retry
-/// indefinitely.
+/// lower bound, itself capped at 60 seconds so a hostile value cannot stall a
+/// retry indefinitely. Being a lower bound, it can only ever lengthen the
+/// wait — never shorten it below the backoff above.
 ///
 /// ## Idempotency
 ///
@@ -93,6 +102,19 @@ final class RetryConfig implements RetryStrategy {
   /// a misbehaving server cannot make clients hang for an unbounded time.
   static const int _maxServerWaitInSeconds = 60;
 
+  /// The ceiling (seconds) on the exponential term, so that a high
+  /// [maxAttempts] cannot produce an absurd wait — uncapped, attempt 20 is
+  /// roughly six days.
+  static const int _maxBackOffInSeconds = 60;
+
+  /// The largest exponent for which `math.pow(2, exponent)` still fits an
+  /// `int`. Past it the result is a double outside the 64-bit range, and
+  /// `toInt()` on such a value is unrepresentable (it throws outright once the
+  /// double reaches infinity). The ceiling already applies from exponent 6
+  /// onward, so beyond this bound it is returned without computing the power
+  /// at all.
+  static const int _maxSafeExponent = 62;
+
   @override
   FutureOr<Duration?> nextDelay(final RetryContext context) async {
     if (context.attempt > maxAttempts) {
@@ -113,9 +135,17 @@ final class RetryConfig implements RetryStrategy {
 
     final retryAfter = context.retryAfter;
     if (retryAfter != null) {
-      final atLeastInSeconds = (retryAfter.inMilliseconds / 1000).ceil();
+      //! Cap first, compare second. Clamping inside the branch inverted the
+      //! bound: a server asking for 1000s while the backoff stood at 512s
+      //! collapsed the wait to 60s, so a LARGER request produced a SHORTER
+      //! wait than plain backoff would have.
+      final atLeastInSeconds = math.min(
+        (retryAfter.inMilliseconds / 1000).ceil(),
+        _maxServerWaitInSeconds,
+      );
+
       if (atLeastInSeconds > intervalInSeconds) {
-        intervalInSeconds = math.min(atLeastInSeconds, _maxServerWaitInSeconds);
+        intervalInSeconds = atLeastInSeconds;
       }
     }
 
@@ -129,8 +159,12 @@ final class RetryConfig implements RetryStrategy {
     return Duration(seconds: intervalInSeconds);
   }
 
-  int _computeExponentialBackOff(final int attempt) =>
-      math.pow(2, attempt - 1).toInt();
+  int _computeExponentialBackOff(final int attempt) {
+    final exponent = attempt - 1;
+    if (exponent >= _maxSafeExponent) return _maxBackOffInSeconds;
+
+    return math.min(math.pow(2, exponent).toInt(), _maxBackOffInSeconds);
+  }
 
   int get _jitter {
     // Inclusive [min, max]; also safe when max == min (including 0), which

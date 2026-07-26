@@ -647,6 +647,110 @@ void main() {
         expect(refreshCalls, 1);
       },
     );
+
+    test(
+      'a 401 produced by a superseded token retries without a second refresh',
+      () async {
+        int refreshCalls = 0;
+        int staleSends = 0;
+        final staleGate = Completer<void>();
+
+        final context = ServiceContext(
+          session: session(),
+          onRefreshSession: (current) async {
+            refreshCalls++;
+
+            return current.copyWith(
+              accessJwt: 'new-token-$refreshCalls',
+              refreshJwt: 'new-refresh-$refreshCalls',
+            );
+          },
+          getClient: (url, {headers}) async {
+            if (headers?['Authorization'] != 'Bearer old-token') {
+              return json(url, 200, '{}');
+            }
+
+            if (++staleSends == 1) {
+              //! The stale request is already on the wire carrying the token
+              //! the session is about to rotate past. Hold its `401` until
+              //! the rotation has landed.
+              await staleGate.future;
+            }
+
+            return json(url, 401, '{"error":"ExpiredToken"}');
+          },
+        );
+
+        final updates = <Session>[];
+        context.onSessionUpdated.listen(updates.add);
+
+        final stale = context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+        //! Let the stale request reach the client with the current token.
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+
+        //! A second request 401s, refreshes, and retries successfully.
+        final fresh = await context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+
+        expect(fresh.status.code, 200);
+        expect(refreshCalls, 1);
+
+        staleGate.complete();
+        final staleResponse = await stale;
+        await Future<void>.delayed(Duration.zero);
+
+        //! The stale `401` was provoked by credentials that are already
+        //! superseded, so it must retry with the current session rather than
+        //! chain another rotation — each of which spends an unused refresh
+        //! token and churns persisted state.
+        expect(staleResponse.status.code, 200);
+        expect(refreshCalls, 1);
+        expect(updates, hasLength(1));
+      },
+    );
+
+    test(
+      'a hanging onRefreshSession does not stall the request past the timeout',
+      () async {
+        //! Never completed: a user-supplied refresh that hangs forever.
+        final hang = Completer<Session>();
+        addTearDown(() => hang.complete(session()));
+
+        final expiredAt = DateTime.now().toUtc().subtract(
+          const Duration(seconds: 5),
+        );
+        final expSeconds = expiredAt.millisecondsSinceEpoch ~/ 1000;
+        final expiredAccessJwt = _jwt({
+          'sub': 'did:plc:testaccount',
+          'exp': expSeconds,
+          'iat': expSeconds - 100,
+        });
+
+        final context = ServiceContext(
+          session: session(accessJwt: expiredAccessJwt),
+          timeout: const Duration(milliseconds: 100),
+          onRefreshSession: (current) => hang.future,
+          getClient: (url, {headers}) async => json(url, 200, '{}'),
+        );
+
+        //! `refreshIfExpiring` is awaited at the head of every request and is
+        //! single-flighted, so an unbounded refresh stalls every request
+        //! indefinitely. The pre-flight refresh is best-effort: once it times
+        //! out the request proceeds with the credentials it has.
+        final response = await context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+
+        expect(response.status.code, 200);
+      },
+      timeout: const Timeout(Duration(seconds: 10)),
+    );
   });
 
   group('.get (caller-supplied Authorization)', () {
