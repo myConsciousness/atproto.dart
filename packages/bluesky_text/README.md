@@ -75,7 +75,9 @@ Future<void> main() async {
 against `bsky.social` by default; pass a `service` to target another PDS, or a
 `resolver` to serve DIDs from your own cache instead of a per-handle network
 call. The returned `facets` map straight onto `RichtextFacet.fromJson` when
-posting with [bluesky](https://pub.dev/packages/bluesky).
+posting with [bluesky](https://pub.dev/packages/bluesky), and they are
+wire-complete — the facet, its `index` and every feature all carry their
+`$type` — so they can equally be embedded in a record map you assemble by hand.
 
 See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packages/bluesky_text/example/example.dart)** or **[official documents](https://atprotodart.com/docs/packages/bluesky_text)** from following links.
 

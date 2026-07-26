@@ -202,6 +202,10 @@ sealed class BlueskyText {
   ///   facets: post.facets.map(RichtextFacet.fromJson).toList(),
   /// );
   /// ```
+  ///
+  /// `facets` is already wire-complete (see `Entity.toFacet`), so it can also
+  /// be dropped straight into a record map you assemble yourself — no
+  /// round-trip through a lexicon model needed to fill in the `$type`s.
   Future<
     ({
       String text,

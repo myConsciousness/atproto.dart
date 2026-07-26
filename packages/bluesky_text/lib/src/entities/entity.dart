@@ -33,6 +33,14 @@ final class Entity implements Facetable {
 
   /// Returns the facet representation of this entity as JSON.
   ///
+  /// The map is wire-complete: the facet carries `$type`
+  /// `app.bsky.richtext.facet`, its `index` carries `$type`
+  /// `app.bsky.richtext.facet#byteSlice`, and every feature carries its own
+  /// `$type`. It is therefore byte-for-byte what a lexicon-generated facet
+  /// serializes to, so it can be embedded in a hand-assembled record (for
+  /// `com.atproto.repo.applyWrites`, or to compute a record CID locally)
+  /// without a round-trip through a lexicon model first.
+  ///
   /// For a handle, [resolver] (when given) is used to look up the DID instead of
   /// the built-in network call, so callers can inject a cache of known DIDs.
   /// When the handle does not resolve, an empty map is returned; use
@@ -43,7 +51,12 @@ final class Entity implements Facetable {
     HandleResolver? resolver,
   }) async {
     final facet = <String, dynamic>{
-      'index': {'byteStart': indices.start, 'byteEnd': indices.end},
+      '\$type': 'app.bsky.richtext.facet',
+      'index': {
+        '\$type': 'app.bsky.richtext.facet#byteSlice',
+        'byteStart': indices.start,
+        'byteEnd': indices.end,
+      },
       'features': [],
     };
 
