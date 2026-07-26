@@ -21,10 +21,7 @@ void main() {
   test('extracts when id is the fully-qualified did#atproto', () {
     final doc = {
       'verificationMethod': [
-        {
-          'id': 'did:plc:abc#atproto',
-          'publicKeyMultibase': 'zDnSIGNINGKEY',
-        },
+        {'id': 'did:plc:abc#atproto', 'publicKeyMultibase': 'zDnSIGNINGKEY'},
       ],
     };
     expect(signingKeyOf(doc, _did), 'zDnSIGNINGKEY');
@@ -50,10 +47,7 @@ void main() {
     // document smuggle in an attacker-controlled key. Require an exact match.
     final doc = {
       'verificationMethod': [
-        {
-          'id': 'did:plc:abc#foo#atproto',
-          'publicKeyMultibase': 'zSPOOFED',
-        },
+        {'id': 'did:plc:abc#foo#atproto', 'publicKeyMultibase': 'zSPOOFED'},
       ],
     };
     expect(signingKeyOf(doc, _did), isNull);
@@ -63,10 +57,7 @@ void main() {
     // The fragment is `#atproto` but the DID prefix is someone else's.
     final doc = {
       'verificationMethod': [
-        {
-          'id': 'did:plc:other#atproto',
-          'publicKeyMultibase': 'zWRONGDID',
-        },
+        {'id': 'did:plc:other#atproto', 'publicKeyMultibase': 'zWRONGDID'},
       ],
     };
     expect(signingKeyOf(doc, _did), isNull);
