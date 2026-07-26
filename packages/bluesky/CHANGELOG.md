@@ -1,5 +1,15 @@
 # Release Note
 
+## Unreleased
+
+- fix: a label preference scoped to a labeler is now remapped from its legacy identifier before it is stored. `nsfw`, `gore` and `suggestive` were remapped only on unscoped preferences, so the same preference with a `labelerDid` was filed under a key nothing ever reads — a labeler-scoped "hide nsfw" was silently a no-op while the unscoped one worked.
+- fix: `ActorGetPreferencesOutput.getModerationPrefs` no longer lists an app labeler twice when the user also subscribes to it. The app labelers are seeded first so that prefs scoped to them attach, and a `labelersPref` entry for one of them now reuses that seeded entry instead of appending a duplicate to `ModerationPrefs.labelers`.
+- fix: `GroupBy.hour` and `GroupBy.minute` bucket on UTC components with a UTC key. The bucket key was built from a local `DateTime`, so on a DST spring-forward date a local wall-clock time that does not exist normalized upward and collapsed two distinct UTC hours into one bucket.
+- fix: groups sharing an `indexedAt` are returned in the order they were created. `List.sort` is not stable, so beyond a handful of groups the ties came back in an arbitrary order.
+- feat: added `NotificationsGrouperConfig.uniqueAuthors`, which controls whether a group keeps at most one entry per author. The check used to be nested inside the time-window branch, so a custom config with `window: null` silently collapsed repeated notifications from one author. It now stands on its own and `window` governs the time window and nothing else. Defaults to `true` for custom configs; both shipped presets keep their current behavior (`official` on, `lenient` off).
+- perf: merging a large group is now linear rather than quadratic. Each group deduplicates its uris, authors and labels through hashed collections instead of rescanning the accumulated lists per member; grouping 8000 notifications into one group drops from ~16.8s to ~4ms. Output is unchanged, except that a single notification carrying the same label twice now contributes it once.
+- docs: `NotificationsGrouper`, `NotificationsExtension.group` and `NotificationsGrouperConfig.window` no longer describe the time window as sliding. The anchor is the notification that opened the group and is fixed for the group's lifetime; since notifications arrive newest first it is normally the group's newest.
+
 ## v2.3.0
 
 - feat: added `Bluesky.fromAtproto`, `BlueskyChat.fromAtproto` and `OzoneTool.fromAtproto`, which drive their services from an `ATProto` the caller already owns instead of building a new one. Every factory used to build its own, and each of those owned a context holding its own copy of the session — so an app needing more than one client for the same account held two copies of one session. Refresh tokens are single-use, so those copies raced the moment the access token expired: the context that noticed first spent the token, and the other's refresh was rejected, surfacing as an `UnauthorizedException` the caller did nothing to provoke. Passing one `ATProto` to each client gives them one session, one deduplicated refresh, and one `onSessionUpdated` stream.

@@ -16,11 +16,13 @@ extension NotificationsExtension on NotificationListNotificationsOutput {
   /// Groups notifications the way the official Bluesky social-app does.
   ///
   /// By default uses [NotificationsGrouperConfig.official] (six grouped
-  /// reasons, a 48h sliding window, follow-back separation, unread-if-any).
+  /// reasons, a 48h window, one entry per author, follow-back separation,
+  /// unread-if-any).
   /// Pass [config] to customize grouping — for example
   /// [NotificationsGrouperConfig.lenient] for the legacy behavior from
   /// `bluesky` <= 2.x, or a fully custom [NotificationsGrouperConfig]. Pass
-  /// [by] to additionally pre-bucket notifications by wall-clock time before
+  /// [by] to additionally pre-bucket notifications by UTC wall-clock time
+  /// before
   /// grouping.
   ///
   /// See [NotificationsGrouper.group] for the full grouping rules.
