@@ -23,6 +23,7 @@ export 'package:atproto_core/src/clients/retry_config.dart';
 export 'package:atproto_core/src/clients/retry_strategy.dart';
 export 'package:atproto_core/src/clients/retry_context.dart';
 export 'package:atproto_core/src/clients/retry_reason.dart';
+export 'package:atproto_core/src/clients/ambiguous_failure.dart';
 export 'package:atproto_core/src/utils/blob_converter.dart';
 export 'package:atproto_core/src/types/blob.dart';
 export 'package:atproto_core/src/types/blob_ref.dart';
