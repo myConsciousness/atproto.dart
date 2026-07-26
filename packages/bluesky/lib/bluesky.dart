@@ -6,6 +6,7 @@ export 'package:bluesky/src/bluesky.dart';
 
 export 'package:bluesky/src/services/app/bsky/feed_service.dart';
 export 'package:bluesky/src/services/app/bsky/feed/thread.dart';
+export 'package:bluesky/src/services/app/bsky/video_upload_exception.dart';
 
 export 'package:bluesky/src/tools/utils/grouped_notification_reason.dart';
 
