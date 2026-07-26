@@ -21,7 +21,12 @@ void main() {
 
       expect(facets, [
         {
-          'index': {'byteStart': 0, 'byteEnd': 0},
+          '\$type': 'app.bsky.richtext.facet',
+          'index': {
+            '\$type': 'app.bsky.richtext.facet#byteSlice',
+            'byteStart': 0,
+            'byteEnd': 0,
+          },
           'features': [
             {
               '\$type': 'app.bsky.richtext.facet#mention',

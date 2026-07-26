@@ -248,7 +248,12 @@ The generated facets are plain JSON matching the Bluesky API shape:
 ```json
 [
   {
-    "index": { "byteStart": 35, "byteEnd": 50 },
+    "$type": "app.bsky.richtext.facet",
+    "index": {
+      "$type": "app.bsky.richtext.facet#byteSlice",
+      "byteStart": 35,
+      "byteEnd": 50
+    },
     "features": [
       {
         "$type": "app.bsky.richtext.facet#mention",
@@ -257,7 +262,12 @@ The generated facets are plain JSON matching the Bluesky API shape:
     ]
   },
   {
-    "index": { "byteStart": 91, "byteEnd": 113 },
+    "$type": "app.bsky.richtext.facet",
+    "index": {
+      "$type": "app.bsky.richtext.facet#byteSlice",
+      "byteStart": 91,
+      "byteEnd": 113
+    },
     "features": [
       {
         "$type": "app.bsky.richtext.facet#link",
@@ -267,6 +277,12 @@ The generated facets are plain JSON matching the Bluesky API shape:
   }
 ]
 ```
+
+Every object carries its `$type`, so the maps are identical to what the lexicon
+models serialize to. That matters when you build a record yourself — for
+`com.atproto.repo.applyWrites`, or to compute a record CID locally — because the
+facets can be embedded as-is, without first round-tripping them through
+`RichtextFacet.fromJson(...).toJson()` to fill the `$type`s in.
 
 ## More Tips 🏄
 

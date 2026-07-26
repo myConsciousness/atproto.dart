@@ -15,6 +15,9 @@ class Entities extends UnmodifiableListView<Entity> {
   /// Returns the facets for these entities, together with the handles that
   /// failed to resolve to a DID (and were therefore dropped from `facets`).
   ///
+  /// Each facet is wire-complete — see [Entity.toFacet] — so the maps can be
+  /// embedded directly in a hand-assembled record.
+  ///
   /// Pass a [resolver] to control mention resolution — e.g. to serve cached
   /// DIDs or batch lookups — instead of the built-in per-handle network call.
   /// `unresolvedHandles` lets the caller warn the user (or retry) rather than
