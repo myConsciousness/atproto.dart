@@ -50,6 +50,34 @@
     "jest-environment-jsdom": "^30.2.0",
     "raw-loader": "^4.0.2"
   },
+  "//overrides": [
+    "Security patches for TRANSITIVE dependencies flagged by Dependabot.",
+    "None of these are direct dependencies, so the only way to pull in the",
+    "patched versions is to force them here. `npm audit fix` is NOT a",
+    "substitute: it proposes downgrading @docusaurus/* from 3.9.x to 3.5.2,",
+    "which is a large functional regression to fix transitive CVEs.",
+    "Version-keyed entries (`pkg@range`) are used where the tree contains",
+    "several majors of the same package and only one of them is vulnerable.",
+    "Drop an entry once Docusaurus ships a release that already resolves to",
+    "the patched version - `npm ls <pkg>` will then show it with no override."
+  ],
+  "overrides": {
+    "brace-expansion@<1.1.16": "^1.1.16",
+    "postcss": "^8.5.18",
+    "fast-uri": "^3.1.4",
+    "sharp": "^0.35.0",
+    "svgo@3.x": "^3.3.4",
+    "dompurify": "^3.4.12",
+    "immutable": "^4.3.9",
+    "js-yaml@3.x": "^3.15.0",
+    "js-yaml@4.x": "^4.3.0",
+    "websocket-driver": "^0.7.5",
+    "http-proxy-middleware@2.x": "^2.0.10",
+    "@babel/core": "^7.29.6",
+    "joi": "^17.13.4",
+    "serialize-javascript": "^7.0.5",
+    "uuid": "^11.1.1"
+  },
   "browserslist": {
     "production": [
       ">0.5%",

@@ -65,6 +65,43 @@ updates:
         patterns:
           - "*"
 
+  # --- npm (Docusaurus website) -------------------------------------------
+  # website/ is a Docusaurus site with its own package-lock.json. It had no
+  # entry here until now, so its lockfile went un-updated long enough to
+  # accumulate 23 open Dependabot security alerts, every one of them in a
+  # TRANSITIVE dependency.
+  #
+  # Because the vulnerabilities are transitive, version updates alone cannot
+  # always clear them - some are pinned through `overrides` in
+  # website/package.json. When Dependabot bumps @docusaurus/* here, re-check
+  # whether any override has become redundant (see the "//overrides" note in
+  # website/package.json).
+  - package-ecosystem: "npm"
+    directory: "/website"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      timezone: "Asia/Tokyo"
+      time: "12:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "dependencies"
+    groups:
+      # Docusaurus packages are released in lockstep and must move together;
+      # splitting them across PRs produces unresolvable peer-dependency sets.
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
+          - "docusaurus-plugin-*"
+      npm-dependencies:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@docusaurus/*"
+          - "docusaurus-plugin-*"
+
   # --- GitHub Actions ------------------------------------------------------
   # Keep `uses:` action versions in .github/workflows/* up to date.
   - package-ecosystem: "github-actions"
