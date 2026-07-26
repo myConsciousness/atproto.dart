@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
 import '../app_bsky_services.dart';
+import 'services/app/bsky/feed_service.dart';
 import 'services/app/bsky/video_service.dart';
 
 /// Provides `app.bsky.*` services.
@@ -232,7 +233,7 @@ sealed class Bluesky {
 
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
-  FeedService get feed;
+  FeedServiceImpl get feed;
 
   /// Returns the notification service.
   /// This service represents `app.bsky.notification.*`.
@@ -278,7 +279,7 @@ final class _Bluesky implements Bluesky {
   _Bluesky._(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),
       ageassurance = AgeassuranceService(ctx),
-      feed = FeedService(ctx),
+      feed = FeedServiceImpl(ctx),
       notification = NotificationService(ctx),
       graph = GraphService(ctx),
       unspecced = UnspeccedService(ctx),
@@ -323,7 +324,7 @@ final class _Bluesky implements Bluesky {
   final AgeassuranceService ageassurance;
 
   @override
-  final FeedService feed;
+  final FeedServiceImpl feed;
 
   @override
   final NotificationService notification;
