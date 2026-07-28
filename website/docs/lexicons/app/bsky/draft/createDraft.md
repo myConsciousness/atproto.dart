@@ -23,4 +23,4 @@ Inserts a draft using private storage (stash). An upper limit of drafts might be
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **id** | string | - | ✅ | The ID of the created draft. |
+| **id** | string (tid) | - | ✅ | The ID of the created draft. |

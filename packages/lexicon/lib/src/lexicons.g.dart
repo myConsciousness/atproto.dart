@@ -1989,6 +1989,7 @@ const appBskyDraftCreateDraft = <String, dynamic>{
           "properties": {
             "id": {
               "type": "string",
+              "format": "tid",
               "description": "The ID of the created draft.",
             },
           },
