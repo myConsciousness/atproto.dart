@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.4.1
+
+- chore: updated `app.bsky.draft.createDraft.output.id`
+- chore: regenerated from synced lexicons
+
 ## v2.4.0
 
 - feat: `ThreadVerificationException` now carries the thread's `rkeys` and `uris`, and reports a response without the optional `results` array as `inconclusive` rather than as a plain failure. `applyWrites` is atomic, so the exception is only ever raised after the thread is committed, and `createThreadAtomic` builds the batch internally — the record keys that make the posts findable used to die with it, leaving a published thread reported as a hard failure nothing could act on. A server that omits `results` has contradicted nothing, and `inconclusive` says so: the thread is there, and a `feed.post.get` on the first of `uris` confirms it.
