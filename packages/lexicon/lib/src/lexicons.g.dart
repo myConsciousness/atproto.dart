@@ -15409,6 +15409,11 @@ const comAtprotoServerDescribeServer = <String, dynamic>{
               "description":
                   "If true, a phone verification token must be supplied to create an account on this instance.",
             },
+            "blobUploadLimit": {
+              "type": "integer",
+              "description":
+                  "Maximum size of a blob that can be uploaded via com.atproto.repo.uploadBlob, in bytes.",
+            },
             "availableUserDomains": {
               "type": "array",
               "description":
@@ -20699,6 +20704,70 @@ const toolsOzoneReportAssignModerator = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.report.closeReports`
+const toolsOzoneReportCloseReports = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.closeReports",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "subject": {
+              "type": "string",
+              "format": "uri",
+              "description":
+                  "Subject DID (account-level reports) or AT-URI (record-level reports) whose reports should be closed.",
+            },
+            "reportTypes": {
+              "type": "array",
+              "description":
+                  "If specified, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted, all non-closed reports on the subject are targeted.",
+              "items": {"type": "string"},
+            },
+            "internalNote": {
+              "type": "string",
+              "description":
+                  "Optional moderator-only note recorded on each close activity. Not visible to reporters.",
+            },
+            "isAutomated": {
+              "type": "boolean",
+              "description":
+                  "Set true when this action is triggered by an automated process. Defaults to false.",
+              "default": false,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["closedCount", "reportIds"],
+          "properties": {
+            "closedCount": {
+              "type": "integer",
+              "description":
+                  "Number of reports that were transitioned to closed.",
+            },
+            "reportIds": {
+              "type": "array",
+              "description": "IDs of the reports that were closed.",
+              "items": {"type": "integer"},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.report.createActivity`
 const toolsOzoneReportCreateActivity = <String, dynamic>{
   "lexicon": 1,
@@ -20712,11 +20781,17 @@ const toolsOzoneReportCreateActivity = <String, dynamic>{
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["reportId", "activity"],
+          "required": ["activity"],
           "properties": {
             "reportId": {
               "type": "integer",
-              "description": "ID of the report to record activity on",
+              "description":
+                  "ID of the report to record activity on. Exactly one of reportId or eventId must be provided.",
+            },
+            "eventId": {
+              "type": "integer",
+              "description":
+                  "ID of the report moderation event. Resolves to the report created from that event. Exactly one of reportId or eventId must be provided.",
             },
             "activity": {
               "type": "union",
@@ -20765,7 +20840,7 @@ const toolsOzoneReportCreateActivity = <String, dynamic>{
       "errors": [
         {
           "name": "ReportNotFound",
-          "description": "No report exists with the given reportId",
+          "description": "No report exists with the given reportId or eventId",
         },
         {
           "name": "InvalidStateTransition",
@@ -23918,6 +23993,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneQueueUnassignModerator,
   toolsOzoneQueueUpdateQueue,
   toolsOzoneReportAssignModerator,
+  toolsOzoneReportCloseReports,
   toolsOzoneReportCreateActivity,
   toolsOzoneReportDefs,
   toolsOzoneReportGetAssignments,

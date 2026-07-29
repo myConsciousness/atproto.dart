@@ -14,6 +14,7 @@ import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
+import 'report/closeReports/output.dart';
 import 'report/createActivity/output.dart';
 import 'report/createActivity/union_main_activity.dart';
 import 'report/defs/assignment_view.dart';
@@ -57,10 +58,35 @@ Future<XRPCResponse<AssignmentView>> toolsOzoneReportAssignModerator({
   to: const AssignmentViewConverter().fromJson,
 );
 
+/// Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
+Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
+  required String subject,
+  List<String>? reportTypes,
+  String? internalNote,
+  bool? isAutomated,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneReportCloseReports,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'subject': subject,
+    if (reportTypes != null) 'reportTypes': reportTypes,
+    if (internalNote != null) 'internalNote': internalNote,
+    if (isAutomated != null) 'isAutomated': isAutomated,
+  },
+  to: const ReportCloseReportsOutputConverter().fromJson,
+);
+
 /// Register an activity on a report. For state-change activity types, validates the transition and updates report.status atomically.
 Future<XRPCResponse<ReportCreateActivityOutput>>
 toolsOzoneReportCreateActivity({
-  required int reportId,
+  int? reportId,
+  int? eventId,
   required UReportCreateActivityActivity activity,
   String? internalNote,
   String? publicNote,
@@ -75,7 +101,8 @@ toolsOzoneReportCreateActivity({
   headers: {'Content-type': 'application/json', ...?$headers},
   body: {
     ...?$unknown,
-    'reportId': reportId,
+    if (reportId != null) 'reportId': reportId,
+    if (eventId != null) 'eventId': eventId,
     'activity': activity.toJson(),
     if (internalNote != null) 'internalNote': internalNote,
     if (publicNote != null) 'publicNote': publicNote,
@@ -377,9 +404,30 @@ base class ReportService {
     $unknown: $unknown,
   );
 
+  /// Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
+  Future<XRPCResponse<ReportCloseReportsOutput>> closeReports({
+    required String subject,
+    List<String>? reportTypes,
+    String? internalNote,
+    bool? isAutomated,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneReportCloseReports(
+    subject: subject,
+    reportTypes: reportTypes,
+    internalNote: internalNote,
+    isAutomated: isAutomated,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Register an activity on a report. For state-change activity types, validates the transition and updates report.status atomically.
   Future<XRPCResponse<ReportCreateActivityOutput>> createActivity({
-    required int reportId,
+    int? reportId,
+    int? eventId,
     required UReportCreateActivityActivity activity,
     String? internalNote,
     String? publicNote,
@@ -389,6 +437,7 @@ base class ReportService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneReportCreateActivity(
     reportId: reportId,
+    eventId: eventId,
     activity: activity,
     internalNote: internalNote,
     publicNote: publicNote,

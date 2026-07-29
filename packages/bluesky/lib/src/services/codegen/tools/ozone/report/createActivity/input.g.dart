@@ -11,7 +11,8 @@ part of 'input.dart';
 _ReportCreateActivityInput _$ReportCreateActivityInputFromJson(Map json) =>
     $checkedCreate('_ReportCreateActivityInput', json, ($checkedConvert) {
       final val = _ReportCreateActivityInput(
-        reportId: $checkedConvert('reportId', (v) => (v as num).toInt()),
+        reportId: $checkedConvert('reportId', (v) => (v as num?)?.toInt()),
+        eventId: $checkedConvert('eventId', (v) => (v as num?)?.toInt()),
         activity: $checkedConvert(
           'activity',
           (v) => const UReportCreateActivityActivityConverter().fromJson(
@@ -32,7 +33,8 @@ _ReportCreateActivityInput _$ReportCreateActivityInputFromJson(Map json) =>
 Map<String, dynamic> _$ReportCreateActivityInputToJson(
   _ReportCreateActivityInput instance,
 ) => <String, dynamic>{
-  'reportId': instance.reportId,
+  'reportId': ?instance.reportId,
+  'eventId': ?instance.eventId,
   'activity': const UReportCreateActivityActivityConverter().toJson(
     instance.activity,
   ),

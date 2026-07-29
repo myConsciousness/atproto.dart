@@ -22,8 +22,13 @@ final class CreateActivityCommand extends ProcedureCommand {
     argParser
       ..addOption(
         "reportId",
-        help: r"ID of the report to record activity on",
-        mandatory: true,
+        help:
+            r"ID of the report to record activity on. Exactly one of reportId or eventId must be provided.",
+      )
+      ..addOption(
+        "eventId",
+        help:
+            r"ID of the report moderation event. Resolves to the report created from that event. Exactly one of reportId or eventId must be provided.",
       )
       ..addOption(
         "activity",
@@ -56,16 +61,21 @@ final class CreateActivityCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report create-activity --reportId=<value> --activity=<value> [--internalNote=<value>] [--publicNote=<value>] [--isAutomated]";
+      "bsky tools-ozone-report create-activity [--reportId=<value>] [--eventId=<value>] --activity=<value> [--internalNote=<value>] [--publicNote=<value>] [--isAutomated]";
 
   @override
   String get methodId => "tools.ozone.report.createActivity";
 
   @override
   Map<String, dynamic>? get body => {
-    "reportId":
-        int.tryParse(argResults!["reportId"]) ??
-        usageException('Invalid integer value for option "reportId".'),
+    if (argResults!.wasParsed("reportId"))
+      "reportId":
+          int.tryParse(argResults!["reportId"]) ??
+          usageException('Invalid integer value for option "reportId".'),
+    if (argResults!.wasParsed("eventId"))
+      "eventId":
+          int.tryParse(argResults!["eventId"]) ??
+          usageException('Invalid integer value for option "eventId".'),
     "activity": _decodeJson("activity"),
     if (argResults!.wasParsed("internalNote"))
       "internalNote": argResults!["internalNote"],
