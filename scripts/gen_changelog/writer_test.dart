@@ -28,6 +28,25 @@ void main() {
     expect(out, contains('  http: ^1.4.0'));
   });
 
+  test('syncDependencyRanges rewrites only the named workspace deps', () {
+    const pubspec =
+        'name: feed_generator\npublish_to: none\ndependencies:\n  bluesky: ^2.4.1\n  atproto_core: ^2.4.0\n  shelf: ^1.4.0\n';
+    final out = syncDependencyRanges(pubspec, {
+      'bluesky': Version.parse('2.4.2'),
+    });
+    expect(out, contains('  bluesky: ^2.4.2'));
+    expect(out, contains('  atproto_core: ^2.4.0'));
+    expect(out, contains('  shelf: ^1.4.0'));
+    // A member with `publish_to: none` carries no `version:` to rewrite, and
+    // this must not invent one.
+    expect(out, isNot(contains('version:')));
+  });
+
+  test('syncDependencyRanges leaves content untouched with no updates', () {
+    const pubspec = 'name: feed_generator\ndependencies:\n  bluesky: ^2.4.1\n';
+    expect(syncDependencyRanges(pubspec, const {}), pubspec);
+  });
+
   test('insertChangelog adds a new section after the header', () {
     const changelog = '# Release Note\n\n## v1.7.1\n\n- old entry\n';
     final out = insertChangelog(changelog, _plan());
