@@ -468,6 +468,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[tools.ozone.report.assignModerator](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/assignModerator.html)** | [Reference](lexicons/tools/ozone/report/assignModerator.md) | ❌ |
+| **[tools.ozone.report.closeReports](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/closeReports.html)** | [Reference](lexicons/tools/ozone/report/closeReports.md) | ❌ |
 | **[tools.ozone.report.createActivity](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/createActivity.html)** | [Reference](lexicons/tools/ozone/report/createActivity.md) | ❌ |
 | **[tools.ozone.report.getAssignments](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/getAssignments.html)** | [Reference](lexicons/tools/ozone/report/getAssignments.md) | ✅ |
 | **[tools.ozone.report.getHistoricalStats](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/getHistoricalStats.html)** | [Reference](lexicons/tools/ozone/report/getHistoricalStats.md) | ✅ |

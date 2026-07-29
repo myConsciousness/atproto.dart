@@ -1,5 +1,14 @@
 # Release Note
 
+## v2.4.2
+
+- feat: added `tools.ozone.report.closeReports`
+- chore: updated `tools.ozone.report.createActivity.errors.ReportNotFound`
+- feat: added `tools.ozone.report.createActivity.input.eventId`
+- chore: `tools.ozone.report.createActivity.input.reportId` is now optional
+- chore: regenerated from synced lexicons
+- chore: bump `atproto` to `^2.4.1`
+
 ## v2.4.1
 
 - chore: updated `app.bsky.draft.createDraft.output.id`
