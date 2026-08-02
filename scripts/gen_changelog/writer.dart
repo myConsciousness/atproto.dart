@@ -7,6 +7,7 @@ import 'dart:io';
 
 // Project imports:
 import 'models.dart';
+import 'semver.dart';
 
 /// Rewrites each `^`-ranged dependency named in [updates] to `^<version>`.
 ///
