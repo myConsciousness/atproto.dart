@@ -99,9 +99,10 @@ Map<String, PackagePlan> planVersions({
           final idx = draft.lines.indexWhere(
             (l) => l.startsWith('chore: bump `$pkg` to '),
           );
-          if (idx >= 0)
+          if (idx >= 0) {
             draft.lines[idx] =
                 'chore: bump `$pkg` to `^${producer.newVersion}`';
+          }
         }
       }
     }
