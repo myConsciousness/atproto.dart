@@ -15,7 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GraphMuteActorInput {
 
- String get actor; Map<String, dynamic>? get $unknown;
+ String get actor;/// Restrict the mute to the account's reposts. When any 'only' scope is set, just the scoped content is muted; when none are set, the account is fully muted. Repeat calls replace the stored scope rather than adding to it.
+ bool? get onlyReposts;/// Restrict the mute to the account's quote posts. See onlyReposts.
+ bool? get onlyQuoteposts; Map<String, dynamic>? get $unknown;
 /// Create a copy of GraphMuteActorInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +30,16 @@ $GraphMuteActorInputCopyWith<GraphMuteActorInput> get copyWith => _$GraphMuteAct
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GraphMuteActorInput&&(identical(other.actor, actor) || other.actor == actor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GraphMuteActorInput&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.onlyReposts, onlyReposts) || other.onlyReposts == onlyReposts)&&(identical(other.onlyQuoteposts, onlyQuoteposts) || other.onlyQuoteposts == onlyQuoteposts)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,actor,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,actor,onlyReposts,onlyQuoteposts,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'GraphMuteActorInput(actor: $actor, \$unknown: ${$unknown})';
+  return 'GraphMuteActorInput(actor: $actor, onlyReposts: $onlyReposts, onlyQuoteposts: $onlyQuoteposts, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +50,7 @@ abstract mixin class $GraphMuteActorInputCopyWith<$Res>  {
   factory $GraphMuteActorInputCopyWith(GraphMuteActorInput value, $Res Function(GraphMuteActorInput) _then) = _$GraphMuteActorInputCopyWithImpl;
 @useResult
 $Res call({
- String actor, Map<String, dynamic>? $unknown
+ String actor, bool? onlyReposts, bool? onlyQuoteposts, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +67,12 @@ class _$GraphMuteActorInputCopyWithImpl<$Res>
 
 /// Create a copy of GraphMuteActorInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? actor = null,Object? onlyReposts = freezed,Object? onlyQuoteposts = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,onlyReposts: freezed == onlyReposts ? _self.onlyReposts : onlyReposts // ignore: cast_nullable_to_non_nullable
+as bool?,onlyQuoteposts: freezed == onlyQuoteposts ? _self.onlyQuoteposts : onlyQuoteposts // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String actor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String actor,  bool? onlyReposts,  bool? onlyQuoteposts,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GraphMuteActorInput() when $default != null:
-return $default(_that.actor,_that.$unknown);case _:
+return $default(_that.actor,_that.onlyReposts,_that.onlyQuoteposts,_that.$unknown);case _:
   return orElse();
 
 }
@@ -175,10 +179,10 @@ return $default(_that.actor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String actor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String actor,  bool? onlyReposts,  bool? onlyQuoteposts,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GraphMuteActorInput():
-return $default(_that.actor,_that.$unknown);case _:
+return $default(_that.actor,_that.onlyReposts,_that.onlyQuoteposts,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +199,10 @@ return $default(_that.actor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String actor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String actor,  bool? onlyReposts,  bool? onlyQuoteposts,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GraphMuteActorInput() when $default != null:
-return $default(_that.actor,_that.$unknown);case _:
+return $default(_that.actor,_that.onlyReposts,_that.onlyQuoteposts,_that.$unknown);case _:
   return null;
 
 }
@@ -210,10 +214,14 @@ return $default(_that.actor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GraphMuteActorInput implements GraphMuteActorInput {
-  const _GraphMuteActorInput({required this.actor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GraphMuteActorInput({required this.actor, this.onlyReposts, this.onlyQuoteposts, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GraphMuteActorInput.fromJson(Map<String, dynamic> json) => _$GraphMuteActorInputFromJson(json);
 
 @override final  String actor;
+/// Restrict the mute to the account's reposts. When any 'only' scope is set, just the scoped content is muted; when none are set, the account is fully muted. Repeat calls replace the stored scope rather than adding to it.
+@override final  bool? onlyReposts;
+/// Restrict the mute to the account's quote posts. See onlyReposts.
+@override final  bool? onlyQuoteposts;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -237,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GraphMuteActorInput&&(identical(other.actor, actor) || other.actor == actor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GraphMuteActorInput&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.onlyReposts, onlyReposts) || other.onlyReposts == onlyReposts)&&(identical(other.onlyQuoteposts, onlyQuoteposts) || other.onlyQuoteposts == onlyQuoteposts)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,actor,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,actor,onlyReposts,onlyQuoteposts,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'GraphMuteActorInput(actor: $actor, \$unknown: ${$unknown})';
+  return 'GraphMuteActorInput(actor: $actor, onlyReposts: $onlyReposts, onlyQuoteposts: $onlyQuoteposts, \$unknown: ${$unknown})';
 }
 
 
@@ -257,7 +265,7 @@ abstract mixin class _$GraphMuteActorInputCopyWith<$Res> implements $GraphMuteAc
   factory _$GraphMuteActorInputCopyWith(_GraphMuteActorInput value, $Res Function(_GraphMuteActorInput) _then) = __$GraphMuteActorInputCopyWithImpl;
 @override @useResult
 $Res call({
- String actor, Map<String, dynamic>? $unknown
+ String actor, bool? onlyReposts, bool? onlyQuoteposts, Map<String, dynamic>? $unknown
 });
 
 
@@ -274,10 +282,12 @@ class __$GraphMuteActorInputCopyWithImpl<$Res>
 
 /// Create a copy of GraphMuteActorInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? actor = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? actor = null,Object? onlyReposts = freezed,Object? onlyQuoteposts = freezed,Object? $unknown = freezed,}) {
   return _then(_GraphMuteActorInput(
 actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
-as String,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,onlyReposts: freezed == onlyReposts ? _self.onlyReposts : onlyReposts // ignore: cast_nullable_to_non_nullable
+as bool?,onlyQuoteposts: freezed == onlyQuoteposts ? _self.onlyQuoteposts : onlyQuoteposts // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

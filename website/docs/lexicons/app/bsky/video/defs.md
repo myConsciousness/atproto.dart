@@ -15,4 +15,5 @@ description: app.bsky.video.defs
 | **progress** | integer | - | ❌ | Progress within the current processing state. |
 | **blob** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
 | **error** | string | - | ❌ | - |
+| **failureCode** | string | validation_failure<br/>encoding_failure<br/>pds_upload_failure<br/>pds_upload_unsupported_blob_size<br/>generic_failure | ❌ | A machine-readable code for why the video processing job failed. |
 | **message** | string | - | ❌ | - |

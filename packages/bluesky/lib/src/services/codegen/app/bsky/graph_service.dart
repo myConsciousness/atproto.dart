@@ -285,7 +285,7 @@ appBskyGraphGetListsWithMembership({
   to: const GraphGetListsWithMembershipOutputConverter().fromJson,
 );
 
-/// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
+/// Enumerates accounts that the requesting account (actor) currently has fully muted. Mutes scoped to specific kinds of content (only reposts, only quote posts) are not included. Responses may contain more items than the requested limit. Requires auth.
 Future<XRPCResponse<GraphGetMutesOutput>> appBskyGraphGetMutes({
   int? limit,
   String? cursor,
@@ -394,9 +394,11 @@ appBskyGraphGetSuggestedFollowsByActor({
   to: const GraphGetSuggestedFollowsByActorOutputConverter().fromJson,
 );
 
-/// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+/// Creates a mute relationship for the specified account. If a mute already exists for the account, it is updated in place: the stored scope is replaced with the scope in this request. Mutes are private in Bluesky. Requires auth.
 Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
   required String actor,
+  bool? onlyReposts,
+  bool? onlyQuoteposts,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -405,7 +407,12 @@ Future<XRPCResponse<EmptyData>> appBskyGraphMuteActor({
   ns.appBskyGraphMuteActor,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'actor': actor},
+  body: {
+    ...?$unknown,
+    'actor': actor,
+    if (onlyReposts != null) 'onlyReposts': onlyReposts,
+    if (onlyQuoteposts != null) 'onlyQuoteposts': onlyQuoteposts,
+  },
 );
 
 /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
@@ -735,7 +742,7 @@ base class GraphService {
     $unknown: $unknown,
   );
 
-  /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
+  /// Enumerates accounts that the requesting account (actor) currently has fully muted. Mutes scoped to specific kinds of content (only reposts, only quote posts) are not included. Responses may contain more items than the requested limit. Requires auth.
   Future<XRPCResponse<GraphGetMutesOutput>> getMutes({
     int? limit,
     String? cursor,
@@ -838,14 +845,18 @@ base class GraphService {
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
   GraphListitemRecordAccessor get listitem => _listitem;
 
-  /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+  /// Creates a mute relationship for the specified account. If a mute already exists for the account, it is updated in place: the stored scope is replaced with the scope in this request. Mutes are private in Bluesky. Requires auth.
   Future<XRPCResponse<EmptyData>> muteActor({
     required String actor,
+    bool? onlyReposts,
+    bool? onlyQuoteposts,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyGraphMuteActor(
     actor: actor,
+    onlyReposts: onlyReposts,
+    onlyQuoteposts: onlyQuoteposts,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

@@ -28,6 +28,8 @@ abstract class ThreadItemPost with _$ThreadItemPost {
     'moreParents',
     'moreReplies',
     'opThread',
+    'opThreadPostIndex',
+    'opThreadPostCount',
     'hiddenByThreadgate',
     'mutedByViewer',
   ];
@@ -43,8 +45,14 @@ abstract class ThreadItemPost with _$ThreadItemPost {
     /// This post has more replies that were not present in the response. This is a numeric value, which is best-effort and might not be accurate.
     required int moreReplies,
 
-    /// This post is part of a contiguous thread by the OP from the thread root. Many different OP threads can happen in the same thread.
+    /// This post is part of a contiguous thread by the OP from the thread root. Sub-threads by OP deeper in the tree are not considered an OP thread.
     required bool opThread,
+
+    /// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread (see `opThread`).
+    int? opThreadPostIndex,
+
+    /// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread (see `opThread`).
+    int? opThreadPostCount,
 
     /// The threadgate created by the author indicates this post as a reply to be hidden for everyone consuming the thread.
     required bool hiddenByThreadgate,
@@ -69,6 +77,10 @@ extension ThreadItemPostExtension on ThreadItemPost {
   bool get isNotMoreParents => !isMoreParents;
   bool get isOpThread => opThread;
   bool get isNotOpThread => !isOpThread;
+  bool get hasOpThreadPostIndex => opThreadPostIndex != null;
+  bool get hasNotOpThreadPostIndex => !hasOpThreadPostIndex;
+  bool get hasOpThreadPostCount => opThreadPostCount != null;
+  bool get hasNotOpThreadPostCount => !hasOpThreadPostCount;
   bool get isHiddenByThreadgate => hiddenByThreadgate;
   bool get isNotHiddenByThreadgate => !isHiddenByThreadgate;
   bool get isMutedByViewer => mutedByViewer;

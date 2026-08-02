@@ -13,6 +13,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './job_status_failure_code.dart';
 import './job_status_state.dart';
 
 part 'job_status.freezed.dart';
@@ -31,6 +32,7 @@ abstract class JobStatus with _$JobStatus {
     'progress',
     'blob',
     'error',
+    'failureCode',
     'message',
   ];
 
@@ -47,6 +49,9 @@ abstract class JobStatus with _$JobStatus {
     int? progress,
     @BlobConverter() Blob? blob,
     String? error,
+
+    /// A machine-readable code for why the video processing job failed.
+    @JobStatusFailureCodeConverter() JobStatusFailureCode? failureCode,
     String? message,
 
     Map<String, dynamic>? $unknown,
@@ -68,6 +73,8 @@ extension JobStatusExtension on JobStatus {
   bool get hasNotBlob => !hasBlob;
   bool get hasError => error != null;
   bool get hasNotError => !hasError;
+  bool get hasFailureCode => failureCode != null;
+  bool get hasNotFailureCode => !hasFailureCode;
   bool get hasMessage => message != null;
   bool get hasNotMessage => !hasMessage;
 }

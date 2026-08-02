@@ -13,3 +13,4 @@
 
 export 'package:bluesky/src/services/codegen/app/bsky/video/defs/job_status.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/video/defs/job_status_state.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/video/defs/job_status_failure_code.dart';
