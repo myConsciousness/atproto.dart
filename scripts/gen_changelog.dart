@@ -69,10 +69,9 @@ Map<String, String> readPackageDirs() {
 
   for (final dir in [
     ...workspacePackageDirs,
-    ...Directory(_packagesDir)
-        .listSync()
-        .whereType<Directory>()
-        .map((d) => d.path),
+    ...Directory(
+      _packagesDir,
+    ).listSync().whereType<Directory>().map((d) => d.path),
   ]) {
     final pubspec = getWorkspacePubspec(dir);
     if (!pubspec.existsSync()) continue;

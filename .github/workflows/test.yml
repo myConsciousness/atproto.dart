@@ -306,6 +306,49 @@ jobs:
           fi
 
   # ---------------------------------------------------------------------------
+  # The release tooling under `scripts/` -- version planning, changelog
+  # generation, dependency validation, lexicon sync -- is not a Dart pub
+  # workspace member, so every Dart-only job above skips it by construction:
+  # `format-analyze` takes the workspace dir list, and the `test` matrix is
+  # built from that same list. The nine `*_test.dart` files under `scripts/`
+  # had therefore never run, and nothing compiled the tooling at all.
+  #
+  # What that cost: a plain `Type 'Version' not found` in
+  # `scripts/gen_changelog/writer.dart` reached main and broke the nightly
+  # Sync and Generate job for three nights (#2532). `verify-generated` had gone
+  # green on the pull request that introduced it -- its path filter matches
+  # `scripts/gen_*.dart`, but the job runs `melos gen` and never invokes the
+  # changelog tooling, so that check attested to nothing about the change.
+  #
+  # Deliberately ungated: the suite is small and fast, and a path filter would
+  # rebuild the same "changed but unchecked" hole this job exists to close.
+  # ---------------------------------------------------------------------------
+  tooling:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup-dart-cached
+
+      # Asserts the `workspace:` list, the pubspec and the packages on disk
+      # still agree. The callers above run these same assertions as a side
+      # effect of asking for the list; running `--check` here gives a drift a
+      # check name of its own instead of surfacing it as an unrelated failure.
+      - name: Check the workspace package list
+        run: ./scripts/dart_workspace_dirs.sh --check
+
+      # `scripts/` resolves against the root pubspec, which already declares
+      # `test` and `pubspec`, so no extra dependency wiring is needed here.
+      - name: Check format
+        run: dart format --output=none --set-exit-if-changed scripts
+
+      - name: Analyze
+        run: dart analyze scripts
+
+      - name: Run the release tooling tests
+        run: dart test scripts
+
+  # ---------------------------------------------------------------------------
   # Single aggregation gate. `test` and `flutter` are conditional / matrix jobs
   # whose individual check names vary, which makes them awkward to require in
   # branch protection. Requiring this one job instead gives a stable required
@@ -313,7 +356,7 @@ jobs:
   # legitimately skipped (a skipped job is not a failure).
   # ---------------------------------------------------------------------------
   ci-ok:
-    needs: [format-analyze, test, flutter]
+    needs: [format-analyze, tooling, test, flutter]
     if: always()
     runs-on: ubuntu-latest
     steps:

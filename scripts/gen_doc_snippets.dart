@@ -44,12 +44,13 @@ final _openMarker = RegExp(
 void main() {
   final stopwatch = Stopwatch()..start();
 
-  final docs = Directory(_docsRoot)
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((file) => file.path.endsWith('.md'))
-      .toList()
-    ..sort((a, b) => a.path.compareTo(b.path));
+  final docs =
+      Directory(_docsRoot)
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((file) => file.path.endsWith('.md'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
 
   final missing = <String>[];
   var injectedCount = 0;
