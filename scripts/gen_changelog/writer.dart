@@ -34,10 +34,7 @@ String syncDependencyRanges(String content, Map<String, Version> updates) {
 
 /// Rewrites the `version:` line and any bumped dependency ranges.
 String bumpPubspec(String content, PackagePlan plan) {
-  final lines = syncDependencyRanges(
-    content,
-    plan.depRangeUpdates,
-  ).split('\n');
+  final lines = syncDependencyRanges(content, plan.depRangeUpdates).split('\n');
 
   for (var i = 0; i < lines.length; i++) {
     if (RegExp(r'^version:\s').hasMatch(lines[i])) {
