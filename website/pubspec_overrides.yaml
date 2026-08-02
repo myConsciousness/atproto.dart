@@ -1,3 +1,19 @@
+# This package is NOT a pub workspace member: it resolves on its own, so every
+# workspace package it reaches has to be overridden to the local path. That
+# means the TRANSITIVE closure, not just what the snippets import — pub resolves
+# anything missing here from pub.dev, which works only while that exact version
+# is already published. A release that bumps one breaks resolution and takes
+# `format-analyze` down with it, so keep this list complete: `atproto_core`
+# reaches `atproto_oauth`, which reaches `atproto_identity`, which reaches
+# `did_plc`.
+#
+# `scripts/validate_website_overrides.dart` computes that closure from the
+# packages' own pubspecs and fails when this list drifts from it, so run it
+# rather than tracing the graph by hand. Two things that look like fixes and are
+# not: `dependency_overrides:` in `website/pubspec.yaml` is silently ignored
+# while this file exists, and adding a transitive package to `dependencies:` as
+# a path dep only produces a path-vs-hosted source conflict. Entries belong
+# here.
 dependency_overrides:
   at_primitives:
     path: ../packages/at_primitives
@@ -7,6 +23,10 @@ dependency_overrides:
     path: ../packages/multiformats
   did_plc:
     path: ../packages/did_plc
+  atproto_identity:
+    path: ../packages/atproto_identity
+  atproto_oauth:
+    path: ../packages/atproto_oauth
   atproto_core:
     path: ../packages/atproto_core
   atproto:
@@ -15,3 +35,5 @@ dependency_overrides:
     path: ../packages/bluesky
   bluesky_text:
     path: ../packages/bluesky_text
+  lexicon:
+    path: ../packages/lexicon

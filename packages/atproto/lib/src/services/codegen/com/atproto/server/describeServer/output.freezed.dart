@@ -17,7 +17,8 @@ mixin _$ServerDescribeServerOutput {
 
 /// If true, an invite code must be supplied to create an account on this instance.
  bool? get inviteCodeRequired;/// If true, a phone verification token must be supplied to create an account on this instance.
- bool? get phoneVerificationRequired; List<String> get availableUserDomains;/// URLs of service policy documents.
+ bool? get phoneVerificationRequired;/// Maximum size of a blob that can be uploaded via com.atproto.repo.uploadBlob, in bytes.
+ int? get blobUploadLimit; List<String> get availableUserDomains;/// URLs of service policy documents.
 @LinksConverter() Links? get links;/// Contact information
 @ContactConverter() Contact? get contact; String get did; Map<String, dynamic>? get $unknown;
 /// Create a copy of ServerDescribeServerOutput
@@ -32,16 +33,16 @@ $ServerDescribeServerOutputCopyWith<ServerDescribeServerOutput> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerDescribeServerOutput&&(identical(other.inviteCodeRequired, inviteCodeRequired) || other.inviteCodeRequired == inviteCodeRequired)&&(identical(other.phoneVerificationRequired, phoneVerificationRequired) || other.phoneVerificationRequired == phoneVerificationRequired)&&const DeepCollectionEquality().equals(other.availableUserDomains, availableUserDomains)&&(identical(other.links, links) || other.links == links)&&(identical(other.contact, contact) || other.contact == contact)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerDescribeServerOutput&&(identical(other.inviteCodeRequired, inviteCodeRequired) || other.inviteCodeRequired == inviteCodeRequired)&&(identical(other.phoneVerificationRequired, phoneVerificationRequired) || other.phoneVerificationRequired == phoneVerificationRequired)&&(identical(other.blobUploadLimit, blobUploadLimit) || other.blobUploadLimit == blobUploadLimit)&&const DeepCollectionEquality().equals(other.availableUserDomains, availableUserDomains)&&(identical(other.links, links) || other.links == links)&&(identical(other.contact, contact) || other.contact == contact)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,inviteCodeRequired,phoneVerificationRequired,const DeepCollectionEquality().hash(availableUserDomains),links,contact,did,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,inviteCodeRequired,phoneVerificationRequired,blobUploadLimit,const DeepCollectionEquality().hash(availableUserDomains),links,contact,did,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ServerDescribeServerOutput(inviteCodeRequired: $inviteCodeRequired, phoneVerificationRequired: $phoneVerificationRequired, availableUserDomains: $availableUserDomains, links: $links, contact: $contact, did: $did, \$unknown: ${$unknown})';
+  return 'ServerDescribeServerOutput(inviteCodeRequired: $inviteCodeRequired, phoneVerificationRequired: $phoneVerificationRequired, blobUploadLimit: $blobUploadLimit, availableUserDomains: $availableUserDomains, links: $links, contact: $contact, did: $did, \$unknown: ${$unknown})';
 }
 
 
@@ -52,7 +53,7 @@ abstract mixin class $ServerDescribeServerOutputCopyWith<$Res>  {
   factory $ServerDescribeServerOutputCopyWith(ServerDescribeServerOutput value, $Res Function(ServerDescribeServerOutput) _then) = _$ServerDescribeServerOutputCopyWithImpl;
 @useResult
 $Res call({
- bool? inviteCodeRequired, bool? phoneVerificationRequired, List<String> availableUserDomains,@LinksConverter() Links? links,@ContactConverter() Contact? contact, String did, Map<String, dynamic>? $unknown
+ bool? inviteCodeRequired, bool? phoneVerificationRequired, int? blobUploadLimit, List<String> availableUserDomains,@LinksConverter() Links? links,@ContactConverter() Contact? contact, String did, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,11 +70,12 @@ class _$ServerDescribeServerOutputCopyWithImpl<$Res>
 
 /// Create a copy of ServerDescribeServerOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? inviteCodeRequired = freezed,Object? phoneVerificationRequired = freezed,Object? availableUserDomains = null,Object? links = freezed,Object? contact = freezed,Object? did = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? inviteCodeRequired = freezed,Object? phoneVerificationRequired = freezed,Object? blobUploadLimit = freezed,Object? availableUserDomains = null,Object? links = freezed,Object? contact = freezed,Object? did = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 inviteCodeRequired: freezed == inviteCodeRequired ? _self.inviteCodeRequired : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
 as bool?,phoneVerificationRequired: freezed == phoneVerificationRequired ? _self.phoneVerificationRequired : phoneVerificationRequired // ignore: cast_nullable_to_non_nullable
-as bool?,availableUserDomains: null == availableUserDomains ? _self.availableUserDomains : availableUserDomains // ignore: cast_nullable_to_non_nullable
+as bool?,blobUploadLimit: freezed == blobUploadLimit ? _self.blobUploadLimit : blobUploadLimit // ignore: cast_nullable_to_non_nullable
+as int?,availableUserDomains: null == availableUserDomains ? _self.availableUserDomains : availableUserDomains // ignore: cast_nullable_to_non_nullable
 as List<String>,links: freezed == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
 as Links?,contact: freezed == contact ? _self.contact : contact // ignore: cast_nullable_to_non_nullable
 as Contact?,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable
@@ -187,10 +189,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? inviteCodeRequired,  bool? phoneVerificationRequired,  List<String> availableUserDomains, @LinksConverter()  Links? links, @ContactConverter()  Contact? contact,  String did,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? inviteCodeRequired,  bool? phoneVerificationRequired,  int? blobUploadLimit,  List<String> availableUserDomains, @LinksConverter()  Links? links, @ContactConverter()  Contact? contact,  String did,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ServerDescribeServerOutput() when $default != null:
-return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.availableUserDomains,_that.links,_that.contact,_that.did,_that.$unknown);case _:
+return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.blobUploadLimit,_that.availableUserDomains,_that.links,_that.contact,_that.did,_that.$unknown);case _:
   return orElse();
 
 }
@@ -208,10 +210,10 @@ return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.a
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? inviteCodeRequired,  bool? phoneVerificationRequired,  List<String> availableUserDomains, @LinksConverter()  Links? links, @ContactConverter()  Contact? contact,  String did,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? inviteCodeRequired,  bool? phoneVerificationRequired,  int? blobUploadLimit,  List<String> availableUserDomains, @LinksConverter()  Links? links, @ContactConverter()  Contact? contact,  String did,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ServerDescribeServerOutput():
-return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.availableUserDomains,_that.links,_that.contact,_that.did,_that.$unknown);case _:
+return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.blobUploadLimit,_that.availableUserDomains,_that.links,_that.contact,_that.did,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -228,10 +230,10 @@ return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.a
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? inviteCodeRequired,  bool? phoneVerificationRequired,  List<String> availableUserDomains, @LinksConverter()  Links? links, @ContactConverter()  Contact? contact,  String did,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? inviteCodeRequired,  bool? phoneVerificationRequired,  int? blobUploadLimit,  List<String> availableUserDomains, @LinksConverter()  Links? links, @ContactConverter()  Contact? contact,  String did,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ServerDescribeServerOutput() when $default != null:
-return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.availableUserDomains,_that.links,_that.contact,_that.did,_that.$unknown);case _:
+return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.blobUploadLimit,_that.availableUserDomains,_that.links,_that.contact,_that.did,_that.$unknown);case _:
   return null;
 
 }
@@ -243,13 +245,15 @@ return $default(_that.inviteCodeRequired,_that.phoneVerificationRequired,_that.a
 
 @JsonSerializable(includeIfNull: false)
 class _ServerDescribeServerOutput implements ServerDescribeServerOutput {
-  const _ServerDescribeServerOutput({this.inviteCodeRequired, this.phoneVerificationRequired, required final  List<String> availableUserDomains, @LinksConverter() this.links, @ContactConverter() this.contact, required this.did, final  Map<String, dynamic>? $unknown}): _availableUserDomains = availableUserDomains,_$unknown = $unknown;
+  const _ServerDescribeServerOutput({this.inviteCodeRequired, this.phoneVerificationRequired, this.blobUploadLimit, required final  List<String> availableUserDomains, @LinksConverter() this.links, @ContactConverter() this.contact, required this.did, final  Map<String, dynamic>? $unknown}): _availableUserDomains = availableUserDomains,_$unknown = $unknown;
   factory _ServerDescribeServerOutput.fromJson(Map<String, dynamic> json) => _$ServerDescribeServerOutputFromJson(json);
 
 /// If true, an invite code must be supplied to create an account on this instance.
 @override final  bool? inviteCodeRequired;
 /// If true, a phone verification token must be supplied to create an account on this instance.
 @override final  bool? phoneVerificationRequired;
+/// Maximum size of a blob that can be uploaded via com.atproto.repo.uploadBlob, in bytes.
+@override final  int? blobUploadLimit;
  final  List<String> _availableUserDomains;
 @override List<String> get availableUserDomains {
   if (_availableUserDomains is EqualUnmodifiableListView) return _availableUserDomains;
@@ -285,16 +289,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerDescribeServerOutput&&(identical(other.inviteCodeRequired, inviteCodeRequired) || other.inviteCodeRequired == inviteCodeRequired)&&(identical(other.phoneVerificationRequired, phoneVerificationRequired) || other.phoneVerificationRequired == phoneVerificationRequired)&&const DeepCollectionEquality().equals(other._availableUserDomains, _availableUserDomains)&&(identical(other.links, links) || other.links == links)&&(identical(other.contact, contact) || other.contact == contact)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerDescribeServerOutput&&(identical(other.inviteCodeRequired, inviteCodeRequired) || other.inviteCodeRequired == inviteCodeRequired)&&(identical(other.phoneVerificationRequired, phoneVerificationRequired) || other.phoneVerificationRequired == phoneVerificationRequired)&&(identical(other.blobUploadLimit, blobUploadLimit) || other.blobUploadLimit == blobUploadLimit)&&const DeepCollectionEquality().equals(other._availableUserDomains, _availableUserDomains)&&(identical(other.links, links) || other.links == links)&&(identical(other.contact, contact) || other.contact == contact)&&(identical(other.did, did) || other.did == did)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,inviteCodeRequired,phoneVerificationRequired,const DeepCollectionEquality().hash(_availableUserDomains),links,contact,did,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,inviteCodeRequired,phoneVerificationRequired,blobUploadLimit,const DeepCollectionEquality().hash(_availableUserDomains),links,contact,did,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ServerDescribeServerOutput(inviteCodeRequired: $inviteCodeRequired, phoneVerificationRequired: $phoneVerificationRequired, availableUserDomains: $availableUserDomains, links: $links, contact: $contact, did: $did, \$unknown: ${$unknown})';
+  return 'ServerDescribeServerOutput(inviteCodeRequired: $inviteCodeRequired, phoneVerificationRequired: $phoneVerificationRequired, blobUploadLimit: $blobUploadLimit, availableUserDomains: $availableUserDomains, links: $links, contact: $contact, did: $did, \$unknown: ${$unknown})';
 }
 
 
@@ -305,7 +309,7 @@ abstract mixin class _$ServerDescribeServerOutputCopyWith<$Res> implements $Serv
   factory _$ServerDescribeServerOutputCopyWith(_ServerDescribeServerOutput value, $Res Function(_ServerDescribeServerOutput) _then) = __$ServerDescribeServerOutputCopyWithImpl;
 @override @useResult
 $Res call({
- bool? inviteCodeRequired, bool? phoneVerificationRequired, List<String> availableUserDomains,@LinksConverter() Links? links,@ContactConverter() Contact? contact, String did, Map<String, dynamic>? $unknown
+ bool? inviteCodeRequired, bool? phoneVerificationRequired, int? blobUploadLimit, List<String> availableUserDomains,@LinksConverter() Links? links,@ContactConverter() Contact? contact, String did, Map<String, dynamic>? $unknown
 });
 
 
@@ -322,11 +326,12 @@ class __$ServerDescribeServerOutputCopyWithImpl<$Res>
 
 /// Create a copy of ServerDescribeServerOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? inviteCodeRequired = freezed,Object? phoneVerificationRequired = freezed,Object? availableUserDomains = null,Object? links = freezed,Object? contact = freezed,Object? did = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? inviteCodeRequired = freezed,Object? phoneVerificationRequired = freezed,Object? blobUploadLimit = freezed,Object? availableUserDomains = null,Object? links = freezed,Object? contact = freezed,Object? did = null,Object? $unknown = freezed,}) {
   return _then(_ServerDescribeServerOutput(
 inviteCodeRequired: freezed == inviteCodeRequired ? _self.inviteCodeRequired : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
 as bool?,phoneVerificationRequired: freezed == phoneVerificationRequired ? _self.phoneVerificationRequired : phoneVerificationRequired // ignore: cast_nullable_to_non_nullable
-as bool?,availableUserDomains: null == availableUserDomains ? _self._availableUserDomains : availableUserDomains // ignore: cast_nullable_to_non_nullable
+as bool?,blobUploadLimit: freezed == blobUploadLimit ? _self.blobUploadLimit : blobUploadLimit // ignore: cast_nullable_to_non_nullable
+as int?,availableUserDomains: null == availableUserDomains ? _self._availableUserDomains : availableUserDomains // ignore: cast_nullable_to_non_nullable
 as List<String>,links: freezed == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
 as Links?,contact: freezed == contact ? _self.contact : contact // ignore: cast_nullable_to_non_nullable
 as Contact?,did: null == did ? _self.did : did // ignore: cast_nullable_to_non_nullable

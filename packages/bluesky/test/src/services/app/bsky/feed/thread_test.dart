@@ -337,10 +337,53 @@ void main() {
       expect(
         () => batch.verify(null),
         throwsA(
+          isA<ThreadVerificationException>()
+              .having((final e) => e.message, 'message', contains('no results'))
+              //* Nothing was checked, so nothing was found wrong: the thread
+              //* is committed and its records are most likely exactly right.
+              .having((final e) => e.inconclusive, 'inconclusive', isTrue),
+        ),
+      );
+    });
+
+    test('every failure carries the record keys and URIs to check', () {
+      final batch = _batch(3);
+
+      final mismatched = _results(batch);
+      mismatched[1] = URepoApplyWritesResults.createResult(
+        data: CreateResult(uri: batch.uris[1], cid: 'bafysomethingelse'),
+      );
+
+      for (final results in [null, mismatched]) {
+        //* The thread is already committed by the time `verify` runs, so the
+        //* only thing that makes this recoverable is knowing where the posts
+        //* are: without them the caller cannot check whether the records
+        //* exist, which is the recovery the docs promise.
+        expect(
+          () => batch.verify(results),
+          throwsA(
+            isA<ThreadVerificationException>()
+                .having((final e) => e.rkeys, 'rkeys', batch.rkeys)
+                .having((final e) => e.uris, 'uris', batch.uris),
+          ),
+        );
+      }
+    });
+
+    test('a checked-and-wrong result is not inconclusive', () {
+      final batch = _batch(2);
+      final results = _results(batch);
+      results[0] = URepoApplyWritesResults.createResult(
+        data: CreateResult(uri: batch.uris[0], cid: 'bafysomethingelse'),
+      );
+
+      expect(
+        () => batch.verify(results),
+        throwsA(
           isA<ThreadVerificationException>().having(
-            (final e) => e.message,
-            'message',
-            contains('no results'),
+            (final e) => e.inconclusive,
+            'inconclusive',
+            isFalse,
           ),
         ),
       );

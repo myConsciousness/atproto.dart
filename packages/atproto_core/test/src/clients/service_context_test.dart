@@ -39,6 +39,73 @@ void main() {
       expect(context.headers, expected);
     });
 
+    test('is unmodifiable when headers were supplied', () {
+      final context = ServiceContext(
+        headers: <String, String>{'atproto-test': '1234'},
+      );
+
+      //! Handing out the live internal map lets any holder retarget every
+      //! request the context makes — and every context derived from it.
+      expect(
+        () => context.headers['atproto-proxy'] = 'did:web:example.com#service',
+        throwsUnsupportedError,
+      );
+      expect(
+        () => context.headers.remove('atproto-test'),
+        throwsUnsupportedError,
+      );
+      expect(() => context.headers.clear(), throwsUnsupportedError);
+    });
+
+    test('is unmodifiable when no headers were supplied', () {
+      final context = ServiceContext();
+
+      //! The same contract in both cases: without this the no-headers context
+      //! throws and the with-headers one silently mutates.
+      expect(
+        () => context.headers['atproto-proxy'] = 'did:web:example.com#service',
+        throwsUnsupportedError,
+      );
+    });
+
+    test('does not alias the map the caller passed in', () async {
+      final sent = <Map<String, String>?>[];
+      final supplied = <String, String>{'x-origin': 'yes'};
+
+      final context = ServiceContext(
+        headers: supplied,
+        getClient: (url, {headers}) async {
+          sent.add(headers);
+
+          return http.Response(
+            '{}',
+            200,
+            headers: {'content-type': 'application/json'},
+            request: http.Request('GET', url),
+          );
+        },
+      );
+
+      //! The caller still owns its own map; writing to it afterwards must not
+      //! reach into the context.
+      supplied['atproto-proxy'] = 'did:web:example.com#service';
+
+      await context.get(NSID.create('server.atproto.com', 'describeServer'));
+
+      expect(context.headers, const {'x-origin': 'yes'});
+      expect(sent.single?.containsKey('atproto-proxy'), isFalse);
+    });
+
+    test('derived contexts do not share one map with the origin', () {
+      final origin = ServiceContext(headers: const {'x-origin': 'yes'});
+      final derived = origin.withHeaders(const {'x-origin': 'yes'});
+
+      //! Equal, but never the same instance: a mutation found through one
+      //! client must not retarget the others.
+      expect(origin.headers, derived.headers);
+      expect(identical(origin.headers, derived.headers), isFalse);
+    });
+
     test('case3', () {
       final headers = const <String, String>{'atproto-test': '1234'};
 
@@ -646,6 +713,110 @@ void main() {
         //! Two concurrent 401s collapse into exactly one refresh POST.
         expect(refreshCalls, 1);
       },
+    );
+
+    test(
+      'a 401 produced by a superseded token retries without a second refresh',
+      () async {
+        int refreshCalls = 0;
+        int staleSends = 0;
+        final staleGate = Completer<void>();
+
+        final context = ServiceContext(
+          session: session(),
+          onRefreshSession: (current) async {
+            refreshCalls++;
+
+            return current.copyWith(
+              accessJwt: 'new-token-$refreshCalls',
+              refreshJwt: 'new-refresh-$refreshCalls',
+            );
+          },
+          getClient: (url, {headers}) async {
+            if (headers?['Authorization'] != 'Bearer old-token') {
+              return json(url, 200, '{}');
+            }
+
+            if (++staleSends == 1) {
+              //! The stale request is already on the wire carrying the token
+              //! the session is about to rotate past. Hold its `401` until
+              //! the rotation has landed.
+              await staleGate.future;
+            }
+
+            return json(url, 401, '{"error":"ExpiredToken"}');
+          },
+        );
+
+        final updates = <Session>[];
+        context.onSessionUpdated.listen(updates.add);
+
+        final stale = context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+        //! Let the stale request reach the client with the current token.
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+
+        //! A second request 401s, refreshes, and retries successfully.
+        final fresh = await context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+
+        expect(fresh.status.code, 200);
+        expect(refreshCalls, 1);
+
+        staleGate.complete();
+        final staleResponse = await stale;
+        await Future<void>.delayed(Duration.zero);
+
+        //! The stale `401` was provoked by credentials that are already
+        //! superseded, so it must retry with the current session rather than
+        //! chain another rotation — each of which spends an unused refresh
+        //! token and churns persisted state.
+        expect(staleResponse.status.code, 200);
+        expect(refreshCalls, 1);
+        expect(updates, hasLength(1));
+      },
+    );
+
+    test(
+      'a hanging onRefreshSession does not stall the request past the timeout',
+      () async {
+        //! Never completed: a user-supplied refresh that hangs forever.
+        final hang = Completer<Session>();
+        addTearDown(() => hang.complete(session()));
+
+        final expiredAt = DateTime.now().toUtc().subtract(
+          const Duration(seconds: 5),
+        );
+        final expSeconds = expiredAt.millisecondsSinceEpoch ~/ 1000;
+        final expiredAccessJwt = _jwt({
+          'sub': 'did:plc:testaccount',
+          'exp': expSeconds,
+          'iat': expSeconds - 100,
+        });
+
+        final context = ServiceContext(
+          session: session(accessJwt: expiredAccessJwt),
+          timeout: const Duration(milliseconds: 100),
+          onRefreshSession: (current) => hang.future,
+          getClient: (url, {headers}) async => json(url, 200, '{}'),
+        );
+
+        //! `refreshIfExpiring` is awaited at the head of every request and is
+        //! single-flighted, so an unbounded refresh stalls every request
+        //! indefinitely. The pre-flight refresh is best-effort: once it times
+        //! out the request proceeds with the credentials it has.
+        final response = await context.get<Map<String, Object?>>(
+          NSID.create('server.atproto.com', 'getSession'),
+          to: (json) => json,
+        );
+
+        expect(response.status.code, 200);
+      },
+      timeout: const Timeout(Duration(seconds: 10)),
     );
   });
 
@@ -1274,6 +1445,103 @@ void main() {
       //! Initial attempt plus the one retry the strategy allows: the derived
       //! context inherited the retry policy, it did not fall back to none.
       expect(calls, 2);
+    });
+  });
+
+  group('.withAdditionalHeaders', () {
+    http.Response json(Uri url, int status, String body) => http.Response(
+      body,
+      status,
+      headers: {'content-type': 'application/json'},
+      request: http.Request('GET', url),
+    );
+
+    test('keeps this context headers and adds the given ones', () {
+      final origin = ServiceContext(headers: const {'x-origin': 'yes'});
+
+      expect(
+        origin.withAdditionalHeaders(const {
+          'atproto-proxy': 'did:web:example.com#service',
+        }).headers,
+        const {
+          'x-origin': 'yes',
+          'atproto-proxy': 'did:web:example.com#service',
+        },
+      );
+      expect(origin.headers, const {'x-origin': 'yes'});
+    });
+
+    test('works on a context that was given no headers at all', () {
+      final derived = ServiceContext().withAdditionalHeaders(const {
+        'atproto-proxy': 'did:web:example.com#service',
+      });
+
+      expect(derived.headers, const {
+        'atproto-proxy': 'did:web:example.com#service',
+      });
+    });
+
+    test('overrides a case-variant header instead of duplicating it', () async {
+      final sent = <Map<String, String>?>[];
+
+      final origin = ServiceContext(
+        headers: const {
+          'Atproto-Proxy': 'did:web:caller.example#atproto_labeler',
+        },
+        getClient: (url, {headers}) async {
+          sent.add(headers);
+
+          return json(url, 200, '{}');
+        },
+      );
+      final derived = origin.withAdditionalHeaders(const {
+        'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat',
+      });
+
+      await derived.get(NSID.create('convo.bsky.chat', 'listConvos'));
+
+      //! A key-exact merge would leave both spellings in place. `package:http`
+      //! happens to collapse them, but a custom client forwarding the raw map
+      //! emits two `atproto-proxy` headers and the server picks whichever it
+      //! likes.
+      final proxies = sent.single!.keys.where(
+        (e) => e.toLowerCase() == 'atproto-proxy',
+      );
+      expect(proxies, hasLength(1));
+      expect(sent.single![proxies.single], 'did:web:api.bsky.chat#bsky_chat');
+      expect(derived.headers.length, 1);
+    });
+
+    test('shares the session state the same way withHeaders does', () async {
+      int refreshCalls = 0;
+
+      final origin = ServiceContext(
+        session: Session(
+          did: 'did:plc:testaccount',
+          handle: 'test.dev',
+          accessJwt: 'old-token',
+          refreshJwt: 'refresh-token',
+        ),
+        onRefreshSession: (current) async {
+          refreshCalls++;
+
+          return current.copyWith(
+            accessJwt: 'new-token',
+            refreshJwt: 'new-refresh',
+          );
+        },
+        getClient: (url, {headers}) async =>
+            headers?['Authorization'] == 'Bearer new-token'
+            ? json(url, 200, '{}')
+            : json(url, 401, '{"error":"ExpiredToken"}'),
+      );
+      final derived = origin.withAdditionalHeaders(const {'x-derived': 'yes'});
+
+      await derived.get(NSID.create('server.atproto.com', 'getSession'));
+
+      expect(refreshCalls, 1);
+      expect(identical(origin.session, derived.session), isTrue);
+      expect(origin.session?.refreshJwt, 'new-refresh');
     });
   });
 }

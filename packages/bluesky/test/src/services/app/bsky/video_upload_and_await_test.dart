@@ -52,25 +52,44 @@ http.Response _ok(final Uri url, final String method, final Object body) =>
       request: http.Request(method, url),
     );
 
+const _session = core.Session(
+  did: 'did:plc:testaccount',
+  handle: 'author.test',
+  accessJwt: 'access',
+  refreshJwt: 'refresh',
+);
+
 /// Builds a service whose upload returns [upload] and whose Nth `getJobStatus`
 /// returns `polls[N]`, the last entry repeating forever once exhausted.
 ///
-/// [onPoll] is invoked for every poll, letting a test record when it happened.
+/// [onPoll] is invoked for every poll, letting a test record when it happened,
+/// and [pollDelay] holds each poll's response back for that long, standing in
+/// for a request still in flight.
 VideoServiceImpl _service({
   required final Map<String, dynamic> upload,
   final List<Map<String, dynamic>> polls = const [],
   final void Function()? onPoll,
+  final void Function()? onUpload,
+  final Duration? pollDelay,
+  final core.Session? session = _session,
 }) {
   var index = 0;
 
   return VideoServiceImpl(
     core.ServiceContext(
-      postClient: (url, {headers, body, encoding}) async =>
-          _ok(url, 'POST', upload),
+      service: 'pds.example',
+      session: session,
+      postClient: (url, {headers, body, encoding}) async {
+        onUpload?.call();
+
+        return _ok(url, 'POST', upload);
+      },
       getClient: (url, {headers}) async {
         onPoll?.call();
         final status = polls[index < polls.length ? index : polls.length - 1];
         index++;
+
+        if (pollDelay != null) await Future<void>.delayed(pollDelay);
 
         return _ok(url, 'GET', {'jobStatus': status});
       },
@@ -379,6 +398,128 @@ void main() {
         expect(blob, isNotNull);
         expect(blob!.ref.link, 'bafyreivideoblob');
       });
+    });
+
+    test('never reports progress after the caller has been timed out', () {
+      fakeAsync((async) {
+        final seen = <JobStatus>[];
+        Object? error;
+        Duration? erroredAt;
+
+        final service = _service(
+          upload: _jobStatus('JOB_STATE_CREATED'),
+          polls: [_jobStatus('JOB_STATE_ENCODING', progress: 10)],
+          // The poll issued at 3s does not answer until 8s, so the 5s budget
+          // expires while the request is still in flight.
+          pollDelay: const Duration(seconds: 5),
+        );
+
+        service
+            .uploadVideoAndAwait(
+              bytes: _bytes,
+              pollInterval: const Duration(seconds: 3),
+              timeout: const Duration(seconds: 5),
+              onProgress: seen.add,
+            )
+            .then<void>(
+              (_) {},
+              onError: (Object e) {
+                error = e;
+                erroredAt = async.elapsed;
+              },
+            );
+
+        async.elapse(const Duration(minutes: 1));
+
+        expect(error, isA<VideoUploadTimeoutException>());
+        expect(erroredAt, const Duration(seconds: 5));
+
+        // Only the upload's own status. The status that arrived at 8s belongs
+        // to an operation the caller was already told had timed out, and
+        // reporting it hands a live progress event to a dead upload.
+        expect(seen.map((e) => e.state.toJson()).toList(), [
+          'JOB_STATE_CREATED',
+        ]);
+      });
+    });
+
+    test('rejects a pollInterval that would not wait at all', () async {
+      var uploads = 0;
+      final service = _service(
+        upload: _jobStatus('JOB_STATE_CREATED'),
+        onUpload: () => uploads++,
+      );
+
+      for (final interval in const [Duration.zero, Duration(seconds: -1)]) {
+        await expectLater(
+          service.uploadVideoAndAwait(bytes: _bytes, pollInterval: interval),
+          throwsA(isA<ArgumentError>()),
+        );
+      }
+
+      // A busy-poll is caller error, and it must cost the video service
+      // nothing at all -- not even the upload.
+      expect(uploads, isZero);
+    });
+
+    test('rejects a timeout that cannot be met', () async {
+      var uploads = 0;
+      final service = _service(
+        upload: _jobStatus('JOB_STATE_CREATED'),
+        onUpload: () => uploads++,
+      );
+
+      for (final timeout in const [Duration.zero, Duration(seconds: -1)]) {
+        await expectLater(
+          service.uploadVideoAndAwait(bytes: _bytes, timeout: timeout),
+          throwsA(isA<ArgumentError>()),
+        );
+      }
+
+      expect(uploads, isZero);
+    });
+  });
+
+  group('VideoServiceImpl.uploadVideo', () {
+    test(
+      'rejects an unauthenticated client without sending anything',
+      () async {
+        var uploads = 0;
+        final service = _service(
+          upload: _jobStatus('JOB_STATE_CREATED'),
+          onUpload: () => uploads++,
+          session: null,
+        );
+
+        // `ctx.repo` is the empty string here, and `did=` reaches the video
+        // service as an obscure server-side rejection.
+        await expectLater(
+          service.uploadVideo(bytes: _bytes),
+          throwsA(isA<StateError>()),
+        );
+        await expectLater(
+          service.uploadVideoAndAwait(bytes: _bytes),
+          throwsA(isA<StateError>()),
+        );
+
+        expect(uploads, isZero);
+      },
+    );
+
+    test('an explicit did lets an unauthenticated client upload', () async {
+      final service = _service(
+        upload: _jobStatus('JOB_STATE_CREATED'),
+        session: null,
+      );
+
+      // A caller driving the upload with credentials of its own already
+      // overrides `did`, and that must keep working.
+      final response = await service.uploadVideo(
+        bytes: _bytes,
+        $parameters: const {'did': 'did:plc:elsewhere'},
+      );
+
+      expect(response.data.jobId, 'job-123');
     });
   });
 }

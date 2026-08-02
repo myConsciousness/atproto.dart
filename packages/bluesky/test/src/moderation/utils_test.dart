@@ -222,6 +222,72 @@ void main() {
       expect(prefs.labels['nudity'], LabelPreference.hide);
     });
 
+    test('remaps legacy label identifiers on labeler-scoped prefs too', () {
+      final prefs = prefsOf([
+        {
+          r'$type': 'app.bsky.actor.defs#labelersPref',
+          'labelers': [
+            {'did': 'did:plc:custom'},
+          ],
+        },
+        {
+          r'$type': 'app.bsky.actor.defs#contentLabelPref',
+          'labelerDid': 'did:plc:custom',
+          'label': 'nsfw',
+          'visibility': 'warn',
+        },
+      ]).getModerationPrefs();
+
+      final customLabeler = prefs.labelers.firstWhere(
+        (e) => e.did == 'did:plc:custom',
+      );
+
+      // Keyed under the legacy name the preference is dead: every lookup goes
+      // through the remapped identifier.
+      expect(customLabeler.labels['porn'], LabelPreference.warn);
+      expect(customLabeler.labels.containsKey('nsfw'), isFalse);
+    });
+
+    test('does not duplicate an app labeler the user also subscribes to', () {
+      final prefs = prefsOf([
+        {
+          r'$type': 'app.bsky.actor.defs#labelersPref',
+          'labelers': [
+            {'did': _kBskyLabelerDid},
+            {'did': 'did:plc:custom'},
+          ],
+        },
+      ]).getModerationPrefs();
+
+      expect(prefs.labelers.where((e) => e.did == _kBskyLabelerDid).length, 1);
+      expect(prefs.labelers.map((e) => e.did), [
+        _kBskyLabelerDid,
+        'did:plc:custom',
+      ]);
+    });
+
+    test('keeps app-labeler-scoped prefs when the user also subscribes', () {
+      final prefs = prefsOf([
+        {
+          r'$type': 'app.bsky.actor.defs#labelersPref',
+          'labelers': [
+            {'did': _kBskyLabelerDid},
+          ],
+        },
+        {
+          r'$type': 'app.bsky.actor.defs#contentLabelPref',
+          'labelerDid': _kBskyLabelerDid,
+          'label': 'spam',
+          'visibility': 'hide',
+        },
+      ]).getModerationPrefs();
+
+      final appLabeler = prefs.labelers.singleWhere(
+        (e) => e.did == _kBskyLabelerDid,
+      );
+      expect(appLabeler.labels['spam'], LabelPreference.hide);
+    });
+
     test('collects muted words and hidden posts', () {
       final prefs = prefsOf([
         {

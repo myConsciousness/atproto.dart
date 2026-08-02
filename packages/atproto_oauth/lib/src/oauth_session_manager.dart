@@ -90,9 +90,26 @@ final class OAuthSessionManager {
   Future<void> reportDpopNonce(final Uri endpoint, final String nonce) async =>
       _nonceCache.set(endpoint.origin, nonce);
 
-  Future<bool> refreshOnUnauthorized() async {
+  /// Attempts to refresh the session in response to a `401 Unauthorized`.
+  ///
+  /// [usedAccessToken] is the access token the failed request actually
+  /// carried, when known. A `401` provoked by a token this manager has already
+  /// rotated past says nothing about the current session, so the request is
+  /// retried as-is instead of triggering another rotation: the single flight
+  /// in [_refresh] only coalesces requests that overlap an in-progress
+  /// refresh, and without this check N stale in-flight requests chain up to N
+  /// rotations — each spending an unused refresh token and emitting an
+  /// [onSessionUpdated] the owner has to persist.
+  ///
+  /// Returns true when the request should be retried — either because the
+  /// session was refreshed or because it had already moved on.
+  Future<bool> refreshOnUnauthorized({final String? usedAccessToken}) async {
     final current = _session;
     if (_client == null || current == null) return false;
+    if (usedAccessToken != null && usedAccessToken != current.accessToken) {
+      // Already superseded: retry with the token we now hold.
+      return true;
+    }
     try {
       await _refresh(current);
       return true;

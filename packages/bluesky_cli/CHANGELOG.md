@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.6.9
+
+- chore: regenerated from synced lexicons
+
+## v0.6.8
+
+- chore: regenerated from synced lexicons
+
+## v0.6.7
+
+- chore: bump `bluesky_text` to `^1.7.0`, picking up the `isLinkFacade` hardening against display text that IDNA maps onto a trusted host, and the linear-time entity extraction.
+
 ## v0.6.6
 
 - chore: widen `bluesky_text` to `^1.6.0`.

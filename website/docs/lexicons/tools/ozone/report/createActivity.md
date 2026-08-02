@@ -15,7 +15,8 @@ Register an activity on a report. For state-change activity types, validates the
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **reportId** | integer | - | ✅ | ID of the report to record activity on |
+| **reportId** | integer | - | ❌ | ID of the report to record activity on. Exactly one of reportId or eventId must be provided. |
+| **eventId** | integer | - | ❌ | ID of the report moderation event. Resolves to the report created from that event. Exactly one of reportId or eventId must be provided. |
 | **activity** | union of <br/>[tools.ozone.report.defs#queueActivity](../../../../lexicons/tools/ozone/report/defs.md#queueactivity)<br/>[tools.ozone.report.defs#assignmentActivity](../../../../lexicons/tools/ozone/report/defs.md#assignmentactivity)<br/>[tools.ozone.report.defs#escalationActivity](../../../../lexicons/tools/ozone/report/defs.md#escalationactivity)<br/>[tools.ozone.report.defs#closeActivity](../../../../lexicons/tools/ozone/report/defs.md#closeactivity)<br/>[tools.ozone.report.defs#reopenActivity](../../../../lexicons/tools/ozone/report/defs.md#reopenactivity)<br/>[tools.ozone.report.defs#noteActivity](../../../../lexicons/tools/ozone/report/defs.md#noteactivity) | - | ✅ | - |
 | **internalNote** | string | - | ❌ | Optional moderator-only note. Not visible to reporters. |
 | **publicNote** | string | - | ❌ | Optional public-facing note, potentially visible to the reporter. |

@@ -171,21 +171,25 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
 
     // Seed with the app labelers so that label prefs scoped to an app
     // labeler attach to its entry, following the official client behavior.
-    final labelers = <Map<String, dynamic>>[
-      for (final did in appLabelers)
-        {'did': did, 'labels': <String, LabelPreference>{}},
-    ];
+    // Keyed by DID and insertion ordered, so a labeler the user subscribes to
+    // on top of the seeded app labelers is never listed twice.
+    final labelers = <String, Map<String, LabelPreference>>{
+      for (final did in appLabelers) did: <String, LabelPreference>{},
+    };
     final labelPrefs = <ContentLabelPref>[];
     for (final preference in preferences) {
       switch (preference) {
         case UPreferencesAdultContentPref(:final data):
           adultContentEnabled = data.enabled;
         case UPreferencesLabelersPref(:final data):
-          labelers.addAll(
-            data.labelers.map(
-              (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-            ),
-          );
+          for (final labeler in data.labelers) {
+            // Keep the already seeded entry instead of appending a duplicate;
+            // dropping it would also discard the prefs scoped to it.
+            labelers.putIfAbsent(
+              labeler.did,
+              () => <String, LabelPreference>{},
+            );
+          }
         case UPreferencesMutedWordsPref(:final data):
           mutedWords.addAll(data.items);
         case UPreferencesHiddenPostsPref(:final data):
@@ -201,16 +205,16 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
       final pref = _getModerationLabelPreference(labelPref.visibility.toJson());
 
       if (labelPref.labelerDid != null) {
-        final labeler = labelers
-            .where((e) => e['did'] == labelPref.labelerDid)
-            .firstOrNull;
+        final labelerLabels = labelers[labelPref.labelerDid];
 
         // A labeler-scoped pref only applies to the matching labeler; if the
         // labeler is not subscribed, the pref is dropped and must never fall
         // through to the global labels.
-        if (labeler == null) continue;
+        if (labelerLabels == null) continue;
 
-        labeler['labels'][labelPref.label] = pref;
+        // The legacy remap applies here exactly as it does globally: keyed
+        // under the legacy identifier the preference would never be read.
+        labelerLabels[_getModerationLabel(labelPref.label)] = pref;
       } else {
         labels[_getModerationLabel(labelPref.label)] = pref;
       }
@@ -222,10 +226,8 @@ extension PreferencesExtension on ActorGetPreferencesOutput {
         ...kDefaultLabelSettings.map((k, v) => MapEntry(k.value, v)),
         ...labels,
       },
-      labelers: labelers
-          .map(
-            (e) => ModerationPrefsLabeler(did: e['did'], labels: e['labels']),
-          )
+      labelers: labelers.entries
+          .map((e) => ModerationPrefsLabeler(did: e.key, labels: e.value))
           .toList(),
       mutedWords: mutedWords,
       hiddenPosts: hiddenPosts,

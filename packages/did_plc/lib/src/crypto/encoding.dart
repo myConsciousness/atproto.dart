@@ -54,12 +54,35 @@ String base58BtcEncode(List<int> bytes) {
   return buffer.toString();
 }
 
+/// Maximum accepted [base58BtcDecode] input length, in characters.
+///
+/// Base58 decoding is inherently O(n^2): every input character walks the whole
+/// accumulator. Left unbounded, a ~512,000-character string (small enough to
+/// hide inside a DID document) pins a single-threaded isolate for minutes,
+/// which is a denial-of-service vector for any caller that decodes
+/// attacker-supplied text.
+///
+/// Everything this package decodes is tiny: a multibase public key is a 2-byte
+/// multicodec prefix plus a 33-byte compressed point (~48 characters), and a
+/// base58btc CID is of the same order. 512 characters decodes ~375 bytes —
+/// roughly ten times the largest legitimate input — while bounding the
+/// worst-case decode to well under a millisecond.
+const maxBase58InputLength = 512;
+
 /// Decodes a base58btc [input] string into bytes.
 ///
 /// Throws a [CryptoException] if the string contains characters outside
-/// the base58 alphabet.
+/// the base58 alphabet, or if it is longer than [maxBase58InputLength].
 Uint8List base58BtcDecode(String input) {
   if (input.isEmpty) return Uint8List(0);
+  // Checked before any decoding work: the loop below is quadratic, so the
+  // bound has to be applied up front to be worth anything.
+  if (input.length > maxBase58InputLength) {
+    throw CryptoException(
+      'Base58 input is ${input.length} characters, exceeding the maximum '
+      'accepted length of $maxBase58InputLength',
+    );
+  }
 
   // Count leading '1' characters: they map to zero bytes.
   var zeros = 0;

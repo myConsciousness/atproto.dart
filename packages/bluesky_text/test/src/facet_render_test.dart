@@ -161,4 +161,121 @@ void main() {
       expect(facet.features.single.value, 'did:plc:x');
     });
   });
+
+  group('PostFacet.fromJson on hostile input', () {
+    //* Every one of these used to leak a `_TypeError` out of the render path.
+    //* A post is attacker-controlled data; a malformed facet must be a
+    //* refusal this package documents, not a crash a caller cannot name.
+    const malformed = <String, Map<String, dynamic>>{
+      'no index': {'features': []},
+      'index is an int': {'index': 1, 'features': []},
+      'index is a list': {
+        'index': [1, 2],
+        'features': [],
+      },
+      'index is null': {'index': null, 'features': []},
+      'byteStart is a String': {
+        'index': {'byteStart': '0', 'byteEnd': 5},
+      },
+      'byteStart is a fractional double': {
+        'index': {'byteStart': 0.5, 'byteEnd': 5},
+      },
+      'byteEnd is missing': {
+        'index': {'byteStart': 0},
+      },
+      'byteEnd is null': {
+        'index': {'byteStart': 0, 'byteEnd': null},
+      },
+      'features is an int': {
+        'index': {'byteStart': 0, 'byteEnd': 5},
+        'features': 1,
+      },
+      'features is a Map': {
+        'index': {'byteStart': 0, 'byteEnd': 5},
+        'features': {'a': 'b'},
+      },
+    };
+
+    malformed.forEach((description, json) {
+      test('throws a FormatException when the $description', () {
+        expect(
+          () => PostFacet.fromJson(json),
+          throwsA(isA<FormatException>()),
+          reason: '$json must be refused, not crash',
+        );
+        expect(PostFacet.tryFromJson(json), isNull);
+      });
+    });
+
+    test('a feature that is not an object is skipped, not fatal', () {
+      //* The byte range is the load-bearing part of a facet; an unreadable
+      //* feature is dropped exactly as an unknown `$type` already is.
+      final facet = PostFacet.fromJson({
+        'index': {'byteStart': 0, 'byteEnd': 5},
+        'features': [
+          'x',
+          42,
+          null,
+          {'\$type': 'app.bsky.richtext.facet#link', 'uri': 'https://a.com'},
+        ],
+      });
+
+      expect(facet.features, hasLength(1));
+      expect(facet.features.single.value, 'https://a.com');
+    });
+
+    test('an integral double byte offset is accepted', () {
+      //* A JSON encoder that emits `2.0` for `2` is not hostile, just lossy.
+      final facet = PostFacet.fromJson({
+        'index': {'byteStart': 2.0, 'byteEnd': 10.0},
+        'features': [],
+      });
+
+      expect(facet.byteStart, 2);
+      expect(facet.byteEnd, 10);
+    });
+
+    test('missing features are an empty list, not a failure', () {
+      final facet = PostFacet.fromJson({
+        'index': {'byteStart': 0, 'byteEnd': 5},
+      });
+
+      expect(facet.features, isEmpty);
+    });
+
+    test('tryFromJson returns the facet when the JSON is well formed', () {
+      final facet = PostFacet.tryFromJson({
+        'index': {'byteStart': 2, 'byteEnd': 10},
+        'features': [
+          {'\$type': 'app.bsky.richtext.facet#tag', 'tag': 'dart'},
+        ],
+      });
+
+      expect(facet, isNotNull);
+      expect(facet!.byteStart, 2);
+      expect(facet.features.single.value, 'dart');
+    });
+
+    test('a whole feed of facets survives one poisoned entry', () {
+      final facets = [
+        {
+          'index': {'byteStart': 0, 'byteEnd': 5},
+          'features': [
+            {'\$type': 'app.bsky.richtext.facet#tag', 'tag': 'a'},
+          ],
+        },
+        {'features': []},
+        {
+          'index': {'byteStart': 6, 'byteEnd': 9},
+          'features': [
+            {'\$type': 'app.bsky.richtext.facet#tag', 'tag': 'b'},
+          ],
+        },
+      ].map(PostFacet.tryFromJson).nonNulls.toList();
+
+      expect(facets, hasLength(2));
+      expect(facets.first.byteStart, 0);
+      expect(facets.last.byteStart, 6);
+    });
+  });
 }

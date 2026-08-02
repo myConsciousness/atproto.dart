@@ -1,7 +1,13 @@
 # Release Note
 
+## v1.2.0
+
+- security: `base58BtcDecode` now rejects inputs longer than `maxBase58InputLength` (512 characters) with a `CryptoException` before decoding. The decoder is inherently O(n^2), so an unbounded input was a denial-of-service vector for any caller decoding attacker-supplied text: a ~512,000-character `publicKeyMultibase` hidden in a DID document froze a single-threaded isolate for over two minutes. Every legitimate input this package handles (a Multikey is ~48 characters, a base58btc CID similar) is an order of magnitude below the new bound.
+
 ## v1.1.3
 
+- refactor: `PlcVerifier.operationCid` builds its CID with `multiformats`' `CID.createFromBytes` instead of hand-assembling the `[0x01, 0x71, 0x12, 0x20, ...]` prefix, removing the last independent CID-construction site in this package. The emitted bytes are unchanged.
+- perf: hoisted the per-call `RegExp` literals in `OperationValidator` and `CryptoKey.fromHex` to `static final` fields, so streaming an audit log no longer recompiles the same patterns once per operation.
 - refactor: `encodeDagCbor` now delegates to `multiformats`' canonical `dagCborEncode` instead of a second hand-written encoder, removing the duplicate implementation. The `CryptoException` contract and the encoded bytes for every PLC operation are unchanged.
 - chore: bump `multiformats` to `^1.3.0`.
 

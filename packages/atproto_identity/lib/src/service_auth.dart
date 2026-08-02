@@ -12,6 +12,7 @@ import 'package:did_plc/did_plc.dart';
 // Project imports:
 import 'identity/identity_resolver.dart';
 import 'identity_exception.dart';
+import 'signing_key.dart';
 
 const _bearerPrefix = 'Bearer ';
 
@@ -160,6 +161,17 @@ Future<String> verifyServiceAuth(
   if (multibase == null) {
     throw IdentityException(
       'DID document for "$iss" declares no #atproto signing key',
+    );
+  }
+  // Re-check the bound here, not just in `signingKeyOf`: [resolver] is an
+  // interface any caller may implement, so the key reaching the (quadratic)
+  // base58 decoder below has not necessarily passed through that helper. This
+  // runs before signature verification, on unauthenticated input.
+  if (multibase.length > maxPublicKeyMultibaseLength) {
+    throw IdentityException(
+      'The #atproto signing key resolved for "$iss" is ${multibase.length} '
+      'characters, exceeding the maximum accepted length of '
+      '$maxPublicKeyMultibaseLength',
     );
   }
 

@@ -17,6 +17,7 @@ Describes the server's account creation requirements and capabilities. Implement
 | --- | --- | --- | :---: | --- |
 | **inviteCodeRequired** | boolean | - | ❌ | If true, an invite code must be supplied to create an account on this instance. |
 | **phoneVerificationRequired** | boolean | - | ❌ | If true, a phone verification token must be supplied to create an account on this instance. |
+| **blobUploadLimit** | integer | - | ❌ | Maximum size of a blob that can be uploaded via com.atproto.repo.uploadBlob, in bytes. |
 | **availableUserDomains** | array of string | - | ✅ | List of domain suffixes that can be used in account handles. |
 | **links** | [#links](#links) | - | ❌ | - |
 | **contact** | [#contact](#contact) | - | ❌ | - |

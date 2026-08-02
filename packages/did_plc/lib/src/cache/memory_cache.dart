@@ -11,8 +11,6 @@ class _CacheEntry<T> {
 
   final T data;
   final DateTime expiresAt;
-
-  bool get isExpired => DateTime.now().isAfter(expiresAt);
 }
 
 /// A memory-based cache implementation with TTL and LRU eviction support.
@@ -26,9 +24,15 @@ class MemoryCache<T> {
   /// This cache does not start any background timers. Expired entries are
   /// purged lazily on read and when new entries are inserted, so it never
   /// keeps the isolate alive and is safe to leave un-disposed.
-  MemoryCache(this._policy);
+  ///
+  /// [now] supplies the current time for TTL and LRU bookkeeping. It defaults
+  /// to [DateTime.now]; pass a controllable clock to make expiry deterministic
+  /// instead of dependent on wall-clock delays.
+  MemoryCache(this._policy, {final DateTime Function()? now})
+    : _now = now ?? DateTime.now;
 
   final CachePolicy _policy;
+  final DateTime Function() _now;
   final Map<String, _CacheEntry<T>> _cache = {};
   final Map<String, DateTime> _accessTimes = {};
 
@@ -48,7 +52,7 @@ class MemoryCache<T> {
       return null;
     }
 
-    if (entry.isExpired) {
+    if (_isExpired(entry)) {
       _remove(key);
       _recordMiss();
       return null;
@@ -56,7 +60,7 @@ class MemoryCache<T> {
 
     // Update access time for LRU tracking
     if (_policy.shouldUseLru) {
-      _accessTimes[key] = DateTime.now();
+      _accessTimes[key] = _now();
     }
 
     _recordHit();
@@ -70,7 +74,7 @@ class MemoryCache<T> {
   void put(String key, T value) {
     if (!_policy.isEnabled) return;
 
-    final expiresAt = DateTime.now().add(_policy.effectiveTtl);
+    final expiresAt = _now().add(_policy.effectiveTtl);
     final entry = _CacheEntry(value, expiresAt);
 
     // Check if we need to evict entries. Purge expired entries first so we
@@ -84,7 +88,7 @@ class MemoryCache<T> {
 
     _cache[key] = entry;
     if (_policy.shouldUseLru) {
-      _accessTimes[key] = DateTime.now();
+      _accessTimes[key] = _now();
     }
   }
 
@@ -110,7 +114,7 @@ class MemoryCache<T> {
     final entry = _cache[key];
     if (entry == null) return false;
 
-    if (entry.isExpired) {
+    if (_isExpired(entry)) {
       _remove(key);
       return false;
     }
@@ -145,6 +149,8 @@ class MemoryCache<T> {
 
   // Private methods
 
+  bool _isExpired(_CacheEntry<T> entry) => _now().isAfter(entry.expiresAt);
+
   void _remove(String key) {
     _cache.remove(key);
     _accessTimes.remove(key);
@@ -177,7 +183,7 @@ class MemoryCache<T> {
   }
 
   void _cleanupExpired() {
-    final now = DateTime.now();
+    final now = _now();
     final expiredKeys = <String>[];
 
     for (final entry in _cache.entries) {

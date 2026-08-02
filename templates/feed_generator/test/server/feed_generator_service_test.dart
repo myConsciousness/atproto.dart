@@ -43,6 +43,17 @@ final class _FakeAlgorithm implements FeedAlgorithm {
   }
 }
 
+/// Fails every request with whatever [_throw] raises.
+final class _ThrowingAlgorithm implements FeedAlgorithm {
+  const _ThrowingAlgorithm(this._throw);
+  final Never Function() _throw;
+
+  @override
+  Future<FeedGetFeedSkeletonOutput> getFeedSkeleton(
+    final FeedRequest request,
+  ) async => _throw();
+}
+
 Future<Response> _get(
   final Handler handler,
   final String path, {
@@ -145,21 +156,67 @@ void main() {
       expect(algo.lastRequest!.cursor, 'abc');
     });
 
-    test('clamps out-of-range or invalid limits', () async {
+    test('rejects a lexicon-invalid limit instead of clamping it', () async {
       final algo = _FakeAlgorithm();
       final handler = createFeedGeneratorHandler(
         config: _config,
         algorithm: algo,
       );
 
-      await _get(handler, '/xrpc/app.bsky.feed.getFeedSkeleton?limit=999');
-      expect(algo.lastRequest!.limit, 100);
+      for (final limit in ['999', '0', '-1', 'abc', '1.5', '']) {
+        final res = await _get(
+          handler,
+          '/xrpc/app.bsky.feed.getFeedSkeleton?limit=$limit',
+        );
+        expect(res.statusCode, 400, reason: 'limit=$limit should be rejected');
+        final body =
+            jsonDecode(await res.readAsString()) as Map<String, dynamic>;
+        expect(body['error'], 'InvalidRequest');
+      }
+      // The algorithm was never asked to build a page for a bad request.
+      expect(algo.lastRequest, isNull);
+    });
 
-      await _get(handler, '/xrpc/app.bsky.feed.getFeedSkeleton?limit=0');
-      expect(algo.lastRequest!.limit, 1);
+    test('serves only the feed this service publishes', () async {
+      const feedUri = 'at://did:plc:pub/app.bsky.feed.generator/whats-hot';
+      final algo = _FakeAlgorithm();
+      final handler = createFeedGeneratorHandler(
+        config: _config,
+        algorithm: algo,
+        feedUri: feedUri,
+      );
 
-      await _get(handler, '/xrpc/app.bsky.feed.getFeedSkeleton?limit=abc');
-      expect(algo.lastRequest!.limit, 50);
+      final mine = await _get(
+        handler,
+        '/xrpc/app.bsky.feed.getFeedSkeleton?feed=$feedUri',
+      );
+      expect(mine.statusCode, 200);
+
+      final other = await _get(
+        handler,
+        '/xrpc/app.bsky.feed.getFeedSkeleton'
+        '?feed=at://did:plc:someone/app.bsky.feed.generator/theirs',
+      );
+      expect(other.statusCode, 400);
+      final body =
+          jsonDecode(await other.readAsString()) as Map<String, dynamic>;
+      expect(body['error'], 'UnknownFeed');
+    });
+
+    test('returns a JSON 500 when the algorithm throws an Error', () async {
+      final handler = createFeedGeneratorHandler(
+        config: _config,
+        algorithm: _ThrowingAlgorithm(
+          () => throw RangeError('index 5 out of range for did:plc:secret'),
+        ),
+      );
+
+      final res = await _get(handler, '/xrpc/app.bsky.feed.getFeedSkeleton');
+      expect(res.statusCode, 500);
+      final raw = await res.readAsString();
+      expect(raw, isNot(contains('did:plc:secret')));
+      final body = jsonDecode(raw) as Map<String, dynamic>;
+      expect(body['error'], 'InternalServerError');
     });
 
     test(
@@ -242,6 +299,30 @@ void main() {
       expect(raw, isNot(contains('internal-pds')));
       final body = jsonDecode(raw) as Map<String, dynamic>;
       expect(body['error'], 'UpstreamFailure');
+    });
+
+    test('returns 502 when auth verification throws an Error', () async {
+      // A resolver fed a hostile DID document can throw an `Error`, not an
+      // `Exception`; catching only `Exception` would 500 with a stack trace.
+      final handler = createFeedGeneratorHandler(
+        config: _config,
+        algorithm: _FakeAlgorithm(),
+        verifyAuth: (header) async =>
+            throw RangeError('bad index in did:plc:secret-issuer document'),
+      );
+
+      final res = await _get(
+        handler,
+        '/xrpc/app.bsky.feed.getFeedSkeleton',
+        headers: {'authorization': 'Bearer token'},
+      );
+      expect(res.statusCode, 502);
+      final raw = await res.readAsString();
+      expect(raw, isNot(contains('did:plc:secret-issuer')));
+      expect(
+        (jsonDecode(raw) as Map<String, dynamic>)['error'],
+        'UpstreamFailure',
+      );
     });
 
     test('returns 400 InvalidRequest for an unparseable cursor', () async {

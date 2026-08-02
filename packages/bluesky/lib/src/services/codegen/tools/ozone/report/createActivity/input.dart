@@ -25,6 +25,7 @@ part 'input.g.dart';
 abstract class ReportCreateActivityInput with _$ReportCreateActivityInput {
   static const knownProps = <String>[
     'reportId',
+    'eventId',
     'activity',
     'internalNote',
     'publicNote',
@@ -33,8 +34,11 @@ abstract class ReportCreateActivityInput with _$ReportCreateActivityInput {
 
   @JsonSerializable(includeIfNull: false)
   const factory ReportCreateActivityInput({
-    /// ID of the report to record activity on
-    required int reportId,
+    /// ID of the report to record activity on. Exactly one of reportId or eventId must be provided.
+    int? reportId,
+
+    /// ID of the report moderation event. Resolves to the report created from that event. Exactly one of reportId or eventId must be provided.
+    int? eventId,
     @UReportCreateActivityActivityConverter()
     required UReportCreateActivityActivity activity,
 
@@ -55,6 +59,10 @@ abstract class ReportCreateActivityInput with _$ReportCreateActivityInput {
 }
 
 extension ReportCreateActivityInputExtension on ReportCreateActivityInput {
+  bool get hasReportId => reportId != null;
+  bool get hasNotReportId => !hasReportId;
+  bool get hasEventId => eventId != null;
+  bool get hasNotEventId => !hasEventId;
   bool get hasInternalNote => internalNote != null;
   bool get hasNotInternalNote => !hasInternalNote;
   bool get hasPublicNote => publicNote != null;

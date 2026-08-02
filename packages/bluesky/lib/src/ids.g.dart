@@ -2023,6 +2023,9 @@ const toolsOzoneQueueUpdateQueue = 'tools.ozone.queue.updateQueue';
 /// `tools.ozone.report.assignModerator`
 const toolsOzoneReportAssignModerator = 'tools.ozone.report.assignModerator';
 
+/// `tools.ozone.report.closeReports`
+const toolsOzoneReportCloseReports = 'tools.ozone.report.closeReports';
+
 /// `tools.ozone.report.createActivity`
 const toolsOzoneReportCreateActivity = 'tools.ozone.report.createActivity';
 

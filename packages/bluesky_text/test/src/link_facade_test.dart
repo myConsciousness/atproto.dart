@@ -25,10 +25,23 @@ void expectFacade(final String displayText, final String uri) => expect(
   reason: '"$displayText" -> $uri must be flagged',
 );
 
+/// Asserts the exact [LinkFacadeVerdict] of [displayText] over [uri].
+void expectVerdict(
+  final String displayText,
+  final String uri,
+  final LinkFacadeVerdict expected,
+) => expect(
+  checkLinkFacade(displayText: displayText, uri: Uri.parse(uri)),
+  expected,
+  reason: '"$displayText" -> $uri must be $expected',
+);
+
 void main() {
   group('isLinkFacade flags', () {
     test('a bare host displayed over a link to another host', () {
       expectFacade('bsky.app', 'https://evil.example.com/login');
+      //* The trusted host moved into the path is the oldest trick of the lot.
+      expectFacade('bsky.app', 'https://evil.example.com/bsky.app');
       expectFacade('bsky.app', 'https://bsky.app.evil.example.com/login');
       expectFacade('example.com', 'https://example.org');
     });
@@ -73,6 +86,28 @@ void main() {
       );
     });
 
+    test('an email address whose domain is not the linked host', () {
+      //* An address reads as a host and reassures exactly as much as the bare
+      //* domain does, so it has to be held to the same rule.
+      expectFacade('support@paypal.com', 'https://evil.example.com');
+      expectFacade('alice.smith@paypal.com', 'https://evil.example.com');
+      expectFacade('support@paypal.com', 'https://paypal.com.evil.example.com');
+      expectFacade('SUPPORT@PayPal.COM', 'https://evil.example.com');
+      expectFacade('  support@paypal.com  ', 'https://evil.example.com');
+      expectFacade('support@www.paypal.com', 'https://evil.example.com');
+      expectFacade('support@paypal.com.', 'https://evil.example.com');
+      expectFacade('support@pay\u200Bpal.com', 'https://evil.example.com');
+      //* Two addresses under a shared public suffix are still a mismatch.
+      expectFacade('alice@foo.github.io', 'https://bar.github.io');
+      //* A `mailto:` in the text is not a scheme this package reads, so the
+      //* rest still reads as an address.
+      expectFacade('mailto:support@paypal.com', 'https://evil.example.com');
+    });
+
+    test('an email address whose domain is punycode of the linked host', () {
+      expectFacade('info@apple.com', 'https://xn--80ak6aa92e.com');
+    });
+
     test('a display text disguised with invisible characters', () {
       //* A zero-width space and a bidi mark change nothing about how the text
       //* reads, so they must not buy an attacker a pass.
@@ -111,9 +146,55 @@ void main() {
       expectHonest('the docs. read them', 'https://evil.example.com');
     });
 
-    test('an email address, which this package never linkifies', () {
+    test('an email address whose domain covers the linked host', () {
+      //* The domain of an address is compared exactly like a bare host, so
+      //* every rule that spares a bare host spares an address too.
+      expectHonest('support@bsky.app', 'https://bsky.app');
+      expectHonest('support@bsky.app', 'https://bsky.app/help?ref=x#top');
+      expectHonest('SUPPORT@BSKY.APP', 'https://bsky.app');
+      expectHonest('support@www.bsky.app', 'https://bsky.app');
+      expectHonest('support@bsky.app.', 'https://bsky.app');
+      expectHonest('info@bücher.de', 'https://xn--bcher-kva.de');
+      //* Whoever owns the domain owns what is beneath it, so a link into a
+      //* subdomain of the address's domain is not a facade. These two were
+      //* the cases the old "an email is never flagged" test pinned, and they
+      //* still hold — now because of the subdomain rule, not an exemption.
+      expectHonest('alice@example.com', 'https://evil.example.com');
       expectHonest('support@example.com', 'https://evil.example.com');
       expectHonest('alice.smith@example.com', 'https://evil.example.com');
+      expectHonest('support@bsky.app', 'https://staging.bsky.app');
+      //* And the reverse: the linked host is fully visible in the address.
+      expectHonest('alice@staging.bsky.app', 'https://bsky.app');
+    });
+
+    test('a handle mention, which names a person and not a site', () {
+      //* This is the exclusion that matters most. A handle is a domain and
+      //* would sail through `validDomain`, so reading a mention as an address
+      //* would fire a warning on every mention a renderer passed in. The empty
+      //* local part before the `@` is what tells the two apart.
+      expectHonest('@alice.bsky.social', 'https://evil.example.com');
+      expectHonest(
+        '@alice.bsky.social',
+        'https://bsky.app/profile/alice.bsky.social',
+      );
+      expectHonest('@bsky.app', 'https://evil.example.com');
+      expectHonest('@alice.bsky.social', 'https://alice.bsky.social');
+    });
+
+    test('text with an @ that is not an email address', () {
+      //* The local part has to be a single token. Prose that merely contains
+      //* an `@` is prose, exactly as it is without one.
+      expectHonest('Meet me @ bsky.app', 'https://evil.example.com');
+      expectHonest('3 @ \$5', 'https://evil.example.com');
+      expectHonest('email me @ support@bsky.app', 'https://evil.example.com');
+      expectHonest('a@b@bsky.app', 'https://evil.example.com');
+      //* A domain the linkifier would not recognize is not a host here
+      //* either, address-shaped or not.
+      expectHonest('user@localhost', 'https://evil.example.com');
+      expectHonest('root@192.168.0.1', 'https://evil.example.com');
+      expectHonest('alice@example', 'https://evil.example.com');
+      expectHonest('support@', 'https://evil.example.com');
+      expectHonest('@', 'https://evil.example.com');
     });
 
     test('an exact host match', () {
@@ -199,8 +280,6 @@ void main() {
       expectHonest('bsky.app', '');
       expectHonest('%%%.app', 'https://evil.example.com');
       expectHonest('...app', 'https://evil.example.com');
-      expectHonest('bsky.app)', 'https://evil.example.com');
-      expectHonest('bsky.app,', 'https://evil.example.com');
     });
 
     test('a display text whose punycode is undecodable', () {
@@ -240,6 +319,256 @@ void main() {
       //* `app` must not be treated as the parent of `bsky.app`.
       expectFacade('bsky.app', 'https://app');
       expectFacade('https://app', 'https://bsky.app');
+    });
+  });
+
+  group('isLinkFacade flags a host IDNA maps onto the trusted one', () {
+    //* These are not confusables. UTS-46 *maps* every one of these characters
+    //* onto the ASCII form, so a browser resolves the link to the real
+    //* `bsky.app` and the reader sees a domain they trust.
+    test('the three full stops that IDNA maps to `.`', () {
+      expectFacade('bsky。app', 'https://evil.example.com');
+      expectFacade('bsky．app', 'https://evil.example.com');
+      expectFacade('bsky｡app', 'https://evil.example.com');
+    });
+
+    test('fullwidth ASCII letters', () {
+      expectFacade('ｂｓｋｙ.ａｐｐ', 'https://evil.example.com');
+      expectFacade('ｂｓｋｙ．ａｐｐ', 'https://evil.example.com');
+      expectFacade('ｈｔｔｐｓ：／／ｂｓｋｙ．ａｐｐ', 'https://evil.example.com');
+    });
+
+    test('and stays honest when the link really goes there', () {
+      expectHonest('bsky。app', 'https://bsky.app');
+      expectHonest('ｂｓｋｙ．ａｐｐ', 'https://bsky.app');
+      expectHonest('bsky.app', 'https://bsky。app');
+    });
+  });
+
+  group('isLinkFacade flags a wrapped or punctuated host', () {
+    test('surrounding quotes and brackets', () {
+      expectFacade('"bsky.app"', 'https://evil.example.com');
+      expectFacade("'bsky.app'", 'https://evil.example.com');
+      expectFacade('“bsky.app”', 'https://evil.example.com');
+      expectFacade('<bsky.app>', 'https://evil.example.com');
+      expectFacade('(bsky.app)', 'https://evil.example.com');
+      expectFacade('«bsky.app»', 'https://evil.example.com');
+    });
+
+    test('a protocol-relative reference', () {
+      expectFacade('//bsky.app', 'https://evil.example.com');
+      expectFacade('//bsky.app/profile/alice', 'https://evil.example.com');
+      expectHonest('//bsky.app', 'https://bsky.app');
+    });
+
+    test('trailing sentence punctuation', () {
+      expectFacade('bsky.app,', 'https://evil.example.com');
+      expectFacade('bsky.app!', 'https://evil.example.com');
+      expectFacade('bsky.app)', 'https://evil.example.com');
+      expectFacade('bsky.app…', 'https://evil.example.com');
+      expectFacade('bsky.app;', 'https://evil.example.com');
+    });
+
+    test('the controls that already worked keep working', () {
+      expectFacade('bsky.app/', 'https://evil.example.com');
+      expectFacade('[bsky.app]', 'https://evil.example.com');
+    });
+
+    test('and none of it turns ordinary text into a host', () {
+      expectHonest('"click here"', 'https://evil.example.com');
+      expectHonest('(read the docs)', 'https://evil.example.com');
+      expectHonest('"Node.js"', 'https://evil.example.com');
+      expectHonest('e.g.,', 'https://evil.example.com');
+    });
+  });
+
+  group('isLinkFacade ends the authority at a backslash', () {
+    test('a backslash hides the real host, exactly as a slash does', () {
+      //* Per the WHATWG URL Standard a `\` terminates the authority of a
+      //* special scheme, so a browser reads the host as `bsky.app`.
+      expectFacade(
+        'https://bsky.app\\@evil.example.com',
+        'https://evil.example.com',
+      );
+      expectFacade(
+        'https://bsky.app\\evil.example.com',
+        'https://evil.example.com',
+      );
+      expectFacade(
+        'https://bsky.app\\/evil.example.com',
+        'https://evil.example.com',
+      );
+    });
+
+    test('and stays honest when the link goes to the visible host', () {
+      expectHonest('https://bsky.app\\@evil.example.com', 'https://bsky.app');
+      expectHonest('https://bsky.app\\evil.example.com', 'https://bsky.app');
+    });
+  });
+
+  group('checkLinkFacade', () {
+    test('separates a facade from a genuine match', () {
+      expectVerdict(
+        'bsky.app',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+      expectVerdict('bsky.app', 'https://bsky.app', LinkFacadeVerdict.honest);
+      expectVerdict(
+        'bsky.app',
+        'https://staging.bsky.app',
+        LinkFacadeVerdict.honest,
+      );
+    });
+
+    test('reports notAUrl for display text that claims no host', () {
+      expectVerdict(
+        'click here',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+      expectVerdict(
+        'Node.js',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+      expectVerdict(
+        'v1.2.3',
+        'https://evil.example.com',
+        LinkFacadeVerdict.notAUrl,
+      );
+      expectVerdict('', 'https://evil.example.com', LinkFacadeVerdict.notAUrl);
+    });
+
+    test('reads an email address as the host its domain names', () {
+      //* An address is not "no host": the domain after the last `@` reads to
+      //* a person exactly as reassuringly as a bare domain does, and a link
+      //* facet can be laid over any text at all when rendering someone else's
+      //* post. So it goes through the same comparison as every other host.
+      expectVerdict(
+        'support@example.com',
+        'https://evil.example.com',
+        LinkFacadeVerdict.honest,
+      );
+      expectVerdict(
+        'support@paypal.com',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+    });
+
+    test('reports undetermined when the text reads as a URL with no host', () {
+      expectVerdict(
+        'https://',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict(
+        'http:///',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+    });
+
+    test('reports undetermined when the link has no comparable host', () {
+      expectVerdict(
+        'bsky.app',
+        'mailto:alice@example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict(
+        'bsky.app',
+        'tel:+81-3-0000-0000',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict('bsky.app', '', LinkFacadeVerdict.undetermined);
+    });
+
+    test('reports undetermined for a TLD this package cannot evaluate', () {
+      //* A host under a Unicode TLD is a host claim, and the package carries
+      //* no data to resolve this one. Saying so is the honest answer; saying
+      //* "not a facade" is not.
+      expectVerdict(
+        'ハンドル.テスト',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+      expectVerdict(
+        'приклад.чоготось',
+        'https://evil.example.com',
+        LinkFacadeVerdict.undetermined,
+      );
+    });
+
+    test('but an internationalized TLD it does carry is compared', () {
+      //* `рф` and `みんな` are in the package's own ccTLD/gTLD lists, so these
+      //* are ordinary host comparisons, not guesses.
+      expectVerdict(
+        'бскай.рф',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+      expectVerdict('бскай.рф', 'https://бскай.рф', LinkFacadeVerdict.honest);
+      expectVerdict(
+        'ハンドル.みんな',
+        'https://evil.example.com',
+        LinkFacadeVerdict.facade,
+      );
+    });
+
+    test('isLinkFacade is true for the facade verdict alone', () {
+      for (final probe in const [
+        ['click here', 'https://evil.example.com'],
+        ['https://', 'https://evil.example.com'],
+        ['bsky.app', 'mailto:alice@example.com'],
+        ['бскай.рф', 'https://evil.example.com'],
+        ['bsky.app', 'https://bsky.app'],
+      ]) {
+        final uri = Uri.parse(probe[1]);
+        expect(
+          isLinkFacade(displayText: probe[0], uri: uri),
+          checkLinkFacade(displayText: probe[0], uri: uri) ==
+              LinkFacadeVerdict.facade,
+          reason: '"${probe[0]}" -> ${probe[1]}',
+        );
+      }
+    });
+  });
+
+  group('isLinkFacade on the composition side', () {
+    test('this package produces no entity over an email address', () {
+      //* This is why the email rule cannot invent a warning for a caller
+      //* checking text it is about to post: there is no facet over an address
+      //* for such a caller to pass in. Only a post from the network, whose
+      //* facet ranges its author chose, can put a link over one.
+      for (final text in [
+        'support@paypal.com',
+        'Contact support@paypal.com now',
+        'alice.smith@example.com',
+      ]) {
+        expect(
+          BlueskyText(text).entities,
+          isEmpty,
+          reason: '"$text" must not produce an entity',
+        );
+      }
+    });
+
+    test('a handle entity covers the leading @ of the mention', () {
+      //* The mention exclusion reads the empty local part before the `@`, so
+      //* it only holds if the `@` is really inside the facet range.
+      const text = 'Hi @alice.bsky.social';
+      final entities = BlueskyText(text).entities;
+
+      expect(entities, hasLength(1));
+      expect(entities.first.type, EntityType.handle);
+      expect(
+        text.substring(
+          entities.first.indices.start,
+          entities.first.indices.end,
+        ),
+        '@alice.bsky.social',
+      );
     });
   });
 

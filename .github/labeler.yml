@@ -1,4 +1,11 @@
-# Package-specific labels
+# Package-specific labels.
+#
+# The list below must cover every member of the root `pubspec.yaml` `workspace:`
+# list, plus `packages/bluesky_text_flutter` (a Flutter package that is not a
+# workspace member). This file is read by actions/labeler, so unlike the test
+# workflow it cannot derive the list at runtime -- adding a workspace member
+# means adding a rule here and a color in `.github/labels.yml`. It drifted once
+# already and left `atproto_identity` and `templates/feed_generator` unlabelled.
 at_primitives:
 - changed-files:
   - any-glob-to-any-file: packages/at_primitives/**
@@ -29,6 +36,9 @@ did_plc:
 atproto:
 - changed-files:
   - any-glob-to-any-file: packages/atproto/**
+atproto_identity:
+- changed-files:
+  - any-glob-to-any-file: packages/atproto_identity/**
 bluesky_text:
 - changed-files:
   - any-glob-to-any-file: packages/bluesky_text/**
@@ -42,10 +52,17 @@ bluesky_cli:
 - changed-files:
   - any-glob-to-any-file: packages/bluesky_cli/**
 
+# Workspace members outside `packages/`.
+feed_generator:
+- changed-files:
+  - any-glob-to-any-file: templates/feed_generator/**
+
 # Test-related changes
 test:
 - changed-files:
-  - any-glob-to-any-file: packages/*/test/**/*.dart
+  - any-glob-to-any-file:
+    - packages/*/test/**/*.dart
+    - templates/*/test/**/*.dart
 
 # Documentation changes
 documentation:
@@ -53,6 +70,8 @@ documentation:
   - any-glob-to-any-file:
     - packages/*/CHANGELOG.md
     - packages/*/README.md
+    - templates/*/CHANGELOG.md
+    - templates/*/README.md
     - CODE_OF_CONDUCT.md
     - CONTRIBUTING.md
     - README.md
@@ -63,6 +82,7 @@ ci:
   - any-glob-to-any-file:
     - .github/workflows/**
     - .github/labeler.yml
+    - .github/labels.yml
     - .github/dependabot.yml
     - melos.yaml
     - pubspec.yaml
@@ -76,3 +96,5 @@ build:
     - scripts/**
     - packages/*/pubspec.yaml
     - packages/*/analysis_options.yaml
+    - templates/*/pubspec.yaml
+    - templates/*/analysis_options.yaml

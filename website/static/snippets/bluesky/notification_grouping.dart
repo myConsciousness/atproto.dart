@@ -16,7 +16,7 @@ Future<void> main() async {
 
   // Default: official Bluesky social-app parity — groups like / repost /
   // follow / like-via-repost / repost-via-repost / subscribed-post within a
-  // 48h sliding window, separates follow-backs, and marks a group unread if
+  // 48h window, separates follow-backs, and marks a group unread if
   // any of its notifications is unread.
   final grouped = notifications.data.group();
 

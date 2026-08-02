@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'report/assign_moderator.dart';
+import 'report/close_reports.dart';
 import 'report/create_activity.dart';
 import 'report/get_assignments.dart';
 import 'report/get_historical_stats.dart';
@@ -32,6 +33,7 @@ import 'report/unassign_moderator.dart';
 final class ToolsOzoneReportCommand extends Command<void> {
   ToolsOzoneReportCommand() {
     addSubcommand(AssignModeratorCommand());
+    addSubcommand(CloseReportsCommand());
     addSubcommand(CreateActivityCommand());
     addSubcommand(GetAssignmentsCommand());
     addSubcommand(GetHistoricalStatsCommand());

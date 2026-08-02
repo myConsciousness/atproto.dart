@@ -5,6 +5,15 @@ on:
   pull_request:
     paths:
       - "packages/*/pubspec.yaml"
+      # Not every workspace member lives under `packages/`:
+      # `templates/feed_generator` is one, and its constraints on workspace
+      # packages must stay in lockstep too -- a stale one breaks the root
+      # `dart pub get` for the whole repo.
+      - "templates/*/pubspec.yaml"
+      # The `workspace:` list decides which packages get validated at all.
+      - "pubspec.yaml"
+      - "scripts/validate_dependencies.dart"
+      - "scripts/utils.dart"
 
 # Cancel superseded runs for the same ref (e.g. rapid pushes to a PR branch).
 concurrency:

@@ -42,28 +42,47 @@ class _MutableGroup {
     required this.indexedAt,
     required this.windowAnchor,
     required this.headAuthorDid,
+    required this.ordinal,
     this.sealed = false,
   });
 
-  final List<AtUri> uris;
-  final List<ProfileView> authors;
+  /// Members are deduplicated through hashed collections rather than by
+  /// scanning the accumulated lists, so a group of `m` members costs O(m)
+  /// instead of O(m^2). Insertion order is what [toGroupedNotification]
+  /// materializes, so it must match what the previous list scans produced.
+  final LinkedHashSet<AtUri> uris;
+
+  /// Keyed by author DID, since an author is deduplicated on its DID while
+  /// the newest [ProfileView] for that DID is the one kept.
+  final LinkedHashMap<String, ProfileView> authors;
   final GroupedNotificationReason reason;
   final AtUri? reasonSubject;
   bool isRead;
-  final List<Label> labels;
+  final LinkedHashSet<Label> labels;
   final Map<String, dynamic>? record;
   DateTime indexedAt;
+
+  /// The `indexedAt` of the notification that opened this group. Fixed for
+  /// the group's lifetime: it does not follow [indexedAt] when a newer
+  /// notification joins, so the time window never slides forward.
   final DateTime windowAnchor;
+
+  /// The DID of the notification that opened this group, against which
+  /// [NotificationsGrouperConfig.uniqueAuthors] is checked.
   final String headAuthorDid;
+
+  /// The position this group was created at, used to break ties in the final
+  /// ordering so that equal `indexedAt` values keep their input order.
+  final int ordinal;
   bool sealed;
 
   GroupedNotification toGroupedNotification() => GroupedNotification(
-    uris: uris,
-    authors: authors,
+    uris: uris.toList(),
+    authors: authors.values.toList(),
     reason: reason,
     reasonSubject: reasonSubject,
     isRead: isRead,
-    labels: labels,
+    labels: labels.toList(),
     record: record,
     indexedAt: indexedAt,
   );
@@ -84,7 +103,11 @@ sealed class NotificationsGrouper {
   ///   `repost-via-repost` and `subscribed-post` are grouped; any other
   ///   reason yields a standalone group.
   /// - Notifications are grouped by `reason` and `reasonSubject`, within a
-  ///   48h sliding window anchored on each group's newest notification.
+  ///   48h window anchored on the notification that opened each group. The
+  ///   anchor is fixed, not sliding; since notifications arrive newest first,
+  ///   it is normally the group's newest notification.
+  /// - A group keeps at most one entry per author, except for
+  ///   `subscribed-post`.
   /// - Follow-backs (follows from accounts you already follow) are separated
   ///   into their own groups.
   /// - A group is marked unread if any of its notifications is unread.
@@ -94,12 +117,13 @@ sealed class NotificationsGrouper {
   /// the groupable reasons, time window, follow-back handling and unread
   /// policy yourself.
   ///
-  /// The optional [by] pre-buckets notifications by wall-clock time before
-  /// grouping (see [GroupBy]); this is independent of the sliding window.
+  /// The optional [by] pre-buckets notifications by UTC wall-clock time before
+  /// grouping (see [GroupBy]); this is independent of the time window.
   ///
   /// ## Notes
   /// - `authors`, `uris` and `labels` in each group aggregate its members.
-  /// - Groups are returned ordered by `indexedAt`, newest first.
+  /// - Groups are returned ordered by `indexedAt`, newest first; groups
+  ///   sharing an `indexedAt` keep the order they were created in.
   /// - Returns a [GroupedNotifications] wrapping the grouped list and cursor.
   GroupedNotifications group(
     final NotificationListNotificationsOutput notifications, {
@@ -119,6 +143,21 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final NotificationListNotificationsOutput data, {
     final GroupBy? by,
   }) {
+    // [NotificationsGrouperConfig] is `const` constructible, so it cannot
+    // validate itself: neither `Set.isNotEmpty` nor `Duration >` is a
+    // constant expression. Both misconfigurations silently disable grouping
+    // rather than failing, so they are caught here instead.
+    assert(
+      config.groupableReasons.isNotEmpty,
+      'groupableReasons must not be empty; an empty set disables grouping '
+      'entirely.',
+    );
+    assert(
+      config.window == null || config.window! > Duration.zero,
+      'window must be positive when set; a zero or negative window rejects '
+      'every candidate and disables grouping entirely.',
+    );
+
     if (data.notifications.isEmpty) {
       return emptyGroupedNotifications;
     }
@@ -134,14 +173,21 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         final reason = _getGroupedReason(notification, reasonSubject);
 
         if (!_isGroupable(notification.reason)) {
-          groups.add(_buildGroup(notification, reason));
+          groups.add(_buildGroup(notification, reason, ordinal: groups.length));
           continue;
         }
 
         // Follow-backs are pulled out into their own sealed group and do NOT
         // replace the current merge target, so genuine follows keep grouping.
         if (config.separateFollowBacks && _isFollowBack(notification)) {
-          groups.add(_buildGroup(notification, reason, sealed: true));
+          groups.add(
+            _buildGroup(
+              notification,
+              reason,
+              ordinal: groups.length,
+              sealed: true,
+            ),
+          );
           continue;
         }
 
@@ -151,15 +197,26 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         if (existing != null && _canMerge(existing, notification)) {
           _mergeInto(existing, notification);
         } else {
-          final group = _buildGroup(notification, reason);
+          final group = _buildGroup(
+            notification,
+            reason,
+            ordinal: groups.length,
+          );
           groupable[key] = group;
           groups.add(group);
         }
       }
     }
 
-    // Order by indexedAt desc.
-    groups.sort((a, b) => b.indexedAt.compareTo(a.indexedAt));
+    // Order by indexedAt desc, breaking ties on the order the groups were
+    // created in. `List.sort` is not stable, so without the tiebreak groups
+    // sharing an `indexedAt` come back in an arbitrary order.
+    groups.sort((a, b) {
+      final byIndexedAt = b.indexedAt.compareTo(a.indexedAt);
+      if (byIndexedAt != 0) return byIndexedAt;
+
+      return a.ordinal.compareTo(b.ordinal);
+    });
 
     return GroupedNotifications(
       notifications: groups.map((e) => e.toGroupedNotification()).toList(),
@@ -184,10 +241,13 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     if (window != null) {
       final delta = group.windowAnchor.difference(notification.indexedAt).abs();
       if (delta >= window) return false;
+    }
 
-      // Official grouping keeps at most one entry per author within a group,
-      // except for subscribed-post where repeated posts from the same author
-      // are expected.
+    // Author uniqueness is its own policy: `window` governs the time window
+    // and nothing else. Official grouping keeps at most one entry per author
+    // within a group, except for subscribed-post where repeated posts from
+    // the same author are expected.
+    if (config.uniqueAuthors) {
       final sameAuthor = notification.author.did == group.headAuthorDid;
       final isSubscribedPost =
           notification.reason.knownValue ==
@@ -201,33 +261,37 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   _MutableGroup _buildGroup(
     final Notification notification,
     final GroupedNotificationReason reason, {
+    required final int ordinal,
     final bool sealed = false,
   }) => _MutableGroup(
-    uris: [notification.uri],
-    authors: [notification.author],
+    uris: LinkedHashSet.of([notification.uri]),
+    authors: LinkedHashMap.of({notification.author.did: notification.author}),
     reason: reason,
     reasonSubject: notification.reasonSubject,
     isRead: notification.isRead,
-    labels: [...?notification.labels],
+    labels: LinkedHashSet.of([...?notification.labels]),
     record: notification.record,
     indexedAt: notification.indexedAt,
     windowAnchor: notification.indexedAt,
     headAuthorDid: notification.author.did,
+    ordinal: ordinal,
     sealed: sealed,
   );
 
   void _mergeInto(final _MutableGroup group, final Notification notification) {
     //! Technically the same uri could not appear on the same
-    //! notification, but just in case.
+    //! notification, but just in case. Removing before adding keeps the
+    //! repeated entry at the end, as the previous list scan did.
     group.uris
-      ..removeWhere((element) => element == notification.uri)
+      ..remove(notification.uri)
       ..add(notification.uri);
 
     //! Technically the same person could not appear on the same
-    //! notification, but just in case.
+    //! notification, but just in case. The newest profile for a DID wins and
+    //! moves to the end, again matching the previous list scan.
     group.authors
-      ..removeWhere((element) => element.did == notification.author.did)
-      ..add(notification.author);
+      ..remove(notification.author.did)
+      ..[notification.author.did] = notification.author;
 
     _mergeLabels(group.labels, notification.labels);
 
@@ -244,21 +308,15 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     }
   }
 
-  void _mergeLabels(
-    final List<Label> relatedLabels,
-    final List<Label>? labels,
-  ) {
+  void _mergeLabels(final Set<Label> relatedLabels, final List<Label>? labels) {
     if (labels == null || labels.isEmpty) {
       return;
     }
 
-    for (final label in labels) {
-      // Deduplicate on value equality (Label overrides == / hashCode),
-      // instead of the previous Map identity comparison which never matched.
-      if (!relatedLabels.contains(label)) {
-        relatedLabels.add(label);
-      }
-    }
+    // Deduplicate on value equality (Label overrides == / hashCode) in O(1)
+    // per label; the set is insertion ordered, so the first occurrence keeps
+    // its position exactly as the previous linear scan left it.
+    relatedLabels.addAll(labels);
   }
 
   GroupedNotifications get emptyGroupedNotifications =>

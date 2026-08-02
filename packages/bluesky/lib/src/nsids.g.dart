@@ -1129,6 +1129,9 @@ const toolsOzoneReportAssignModerator = NSID(
   ids.toolsOzoneReportAssignModerator,
 );
 
+/// `tools.ozone.report.closeReports`
+const toolsOzoneReportCloseReports = NSID(ids.toolsOzoneReportCloseReports);
+
 /// `tools.ozone.report.createActivity`
 const toolsOzoneReportCreateActivity = NSID(ids.toolsOzoneReportCreateActivity);
 

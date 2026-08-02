@@ -27,6 +27,7 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
   static const knownProps = <String>[
     'inviteCodeRequired',
     'phoneVerificationRequired',
+    'blobUploadLimit',
     'availableUserDomains',
     'links',
     'contact',
@@ -40,6 +41,9 @@ abstract class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
 
     /// If true, a phone verification token must be supplied to create an account on this instance.
     bool? phoneVerificationRequired,
+
+    /// Maximum size of a blob that can be uploaded via com.atproto.repo.uploadBlob, in bytes.
+    int? blobUploadLimit,
     required List<String> availableUserDomains,
 
     /// URLs of service policy documents.
@@ -61,6 +65,8 @@ extension ServerDescribeServerOutputExtension on ServerDescribeServerOutput {
   bool get isNotInviteCodeRequired => !isInviteCodeRequired;
   bool get isPhoneVerificationRequired => phoneVerificationRequired ?? false;
   bool get isNotPhoneVerificationRequired => !isPhoneVerificationRequired;
+  bool get hasBlobUploadLimit => blobUploadLimit != null;
+  bool get hasNotBlobUploadLimit => !hasBlobUploadLimit;
   bool get hasLinks => links != null;
   bool get hasNotLinks => !hasLinks;
   bool get hasContact => contact != null;

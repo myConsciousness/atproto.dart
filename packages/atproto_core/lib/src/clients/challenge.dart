@@ -30,7 +30,30 @@ final class Challenge {
   /// Maximum number of DPoP nonce retry attempts to prevent infinite loops.
   static const int _maxDpopNonceRetries = 3;
 
+  /// Executes [action], retrying transient failures according to the
+  /// configured [RetryStrategy], re-issuing on a `use_dpop_nonce` challenge,
+  /// and delegating a genuine `401` to [onUnauthorized].
   Future<xrpc.XRPCResponse<T>> execute<T>(
+    final FutureOr<xrpc.XRPCResponse<T>> Function() action, {
+    required bool isProcedure,
+    String? nsid,
+    Future<void> Function(Map<String, String> headers)? onUpdateDpopNonce,
+    Future<bool> Function(xrpc.UnauthorizedException e)? onUnauthorized,
+  }) async => await _execute(
+    action,
+    isProcedure: isProcedure,
+    nsid: nsid,
+    onUpdateDpopNonce: onUpdateDpopNonce,
+    onUnauthorized: onUnauthorized,
+  );
+
+  /// The recursive body of [execute].
+  ///
+  /// [attempt], [dpopNonceRetryCount] and [sessionRefreshed] carry the state
+  /// of the in-progress retry loop between recursions. They are deliberately
+  /// kept off [execute]: [Challenge] is publicly exported, and a caller
+  /// passing e.g. `attempt: 5` would silently corrupt the retry accounting.
+  Future<xrpc.XRPCResponse<T>> _execute<T>(
     final FutureOr<xrpc.XRPCResponse<T>> Function() action, {
     required bool isProcedure,
     String? nsid,
@@ -81,7 +104,11 @@ final class Challenge {
         stackTrace,
         reason: RetryReason.serverError,
         isAmbiguous: isAmbiguousFailure(e),
-        statusCode: 500,
+        //! `checkStatus` funnels 500, 502, 503 and 504 into this one
+        //! exception, so the code has to be read back off the response.
+        //! Hardcoding 500 here made a strategy branching on `503`
+        //! unmatchable.
+        statusCode: e.response.status.code,
         isProcedure: isProcedure,
         nsid: nsid,
         attempt: attempt,
@@ -89,6 +116,9 @@ final class Challenge {
         sessionRefreshed: sessionRefreshed,
         onUpdateDpopNonce: onUpdateDpopNonce,
         onUnauthorized: onUnauthorized,
+        //! A `503` routinely advertises how long to wait; honor it here as
+        //! well as on the rate limited path.
+        retryAfter: _getServerRequestedWait(e.response.headers),
       );
     } on xrpc.RateLimitExceededException catch (e, stackTrace) {
       return await _retryOrThrow(
@@ -106,7 +136,7 @@ final class Challenge {
         onUpdateDpopNonce: onUpdateDpopNonce,
         onUnauthorized: onUnauthorized,
         // Respect the reset time advertised by the server, if any.
-        retryAfter: _getRateLimitWait(e.response.headers),
+        retryAfter: _getServerRequestedWait(e.response.headers),
       );
     } on http.ClientException catch (e, stackTrace) {
       // Transient network failures, e.g. connection reset or refused.
@@ -141,7 +171,7 @@ final class Challenge {
         await onUpdateDpopNonce(e.response.headers);
 
         // Retry immediately with the new nonce (no wait needed)
-        return await execute(
+        return await _execute(
           action,
           isProcedure: isProcedure,
           nsid: nsid,
@@ -164,7 +194,7 @@ final class Challenge {
 
         if (refreshed) {
           // Retry once with the refreshed credentials.
-          return await execute(
+          return await _execute(
             action,
             isProcedure: isProcedure,
             nsid: nsid,
@@ -248,7 +278,7 @@ final class Challenge {
           await Future<void>.delayed(delay);
         }
 
-        return await execute(
+        return await _execute(
           action,
           isProcedure: isProcedure,
           nsid: nsid,
@@ -264,16 +294,18 @@ final class Challenge {
     Error.throwWithStackTrace(error, stackTrace);
   }
 
-  /// Returns how long the server asks us to wait before retrying a
-  /// rate limited request, based on the `ratelimit-reset` (epoch seconds)
-  /// or `Retry-After` headers. `Retry-After` supports both the delta-seconds
-  /// and the HTTP-date forms defined by RFC 9110. Returns null if neither
-  /// header holds a usable value.
+  /// Returns how long the server asks us to wait before retrying, based on
+  /// the `ratelimit-reset` (epoch seconds) or `Retry-After` headers.
+  /// `Retry-After` supports both the delta-seconds and the HTTP-date forms
+  /// defined by RFC 9110. Returns null if neither header holds a usable value.
+  ///
+  /// Read on both the rate limited (`429`) and the server error (`5xx`)
+  /// paths; a `503` advertises `Retry-After` just as routinely as a `429`.
   ///
   /// The returned wait is only a lower bound; the retry strategy separately
   /// caps it, so a hostile far-future value cannot make a retry wait for an
   /// unbounded amount of time.
-  Duration? _getRateLimitWait(final Map<String, String> headers) {
+  Duration? _getServerRequestedWait(final Map<String, String> headers) {
     final reset = _getHeader(headers, 'ratelimit-reset');
     if (reset != null) {
       final epochInSeconds = int.tryParse(reset.trim());

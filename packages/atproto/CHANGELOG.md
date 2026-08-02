@@ -1,5 +1,14 @@
 # Release Note
 
+## v2.4.1
+
+- feat: added `com.atproto.server.describeServer.output.blobUploadLimit`
+- chore: regenerated from synced lexicons
+
+## v2.4.0
+
+- chore: bump `atproto_core` to `^2.4.0`, picking up the `decodeCar` CAR-header validation, the true 5xx status code on `RetryContext`, the stale-401 refresh short-circuit and `ServiceContext.withAdditionalHeaders`.
+
 ## v2.3.0
 
 - feat: added `ATProto.actorDid`, surfacing `ServiceContext.actorDid` so callers can ask which actor a client is authenticated as without branching on the auth kind. Named `actorDid` rather than `repo`, which is already the `com.atproto.repo.*` service on this class.

@@ -22,14 +22,21 @@ void main() {
   );
 
   group('MemoryCache TTL', () {
-    test('expires entries after the TTL elapses', () async {
+    test('expires entries after the TTL elapses', () {
+      // Driven by an injected clock rather than a real delay: a wall-clock
+      // margin is only as reliable as the machine's spare capacity.
+      var now = DateTime.utc(2026, 1, 1, 12);
       final cache = MemoryCache<String>(
-        const CachePolicy(ttl: Duration(milliseconds: 50)),
+        const CachePolicy(ttl: Duration(minutes: 5)),
+        now: () => now,
       );
       cache.put('k', 'v');
       expect(cache.get('k'), equals('v'));
 
-      await Future<void>.delayed(const Duration(milliseconds: 80));
+      now = now.add(const Duration(minutes: 4));
+      expect(cache.get('k'), equals('v'), reason: 'still within the TTL');
+
+      now = now.add(const Duration(minutes: 2));
       expect(cache.get('k'), isNull);
       expect(cache.containsKey('k'), isFalse);
     });
@@ -57,16 +64,19 @@ void main() {
       expect(cache.size, equals(2));
     });
 
-    test('purges expired entries before evicting a live one', () async {
+    test('purges expired entries before evicting a live one', () {
+      var now = DateTime.utc(2026, 1, 1, 12);
       final cache = MemoryCache<String>(
-        const CachePolicy(maxSize: 2, ttl: Duration(milliseconds: 40)),
+        const CachePolicy(maxSize: 2, ttl: Duration(minutes: 5)),
+        now: () => now,
       );
       cache.put('a', '1');
-      await Future<void>.delayed(const Duration(milliseconds: 60));
+      now = now.add(const Duration(minutes: 6));
       // 'a' is now expired; inserting two more should reclaim its slot
       // rather than evict a live entry.
       cache.put('b', '2');
       cache.put('c', '3');
+      expect(cache.containsKey('a'), isFalse);
       expect(cache.containsKey('b'), isTrue);
       expect(cache.containsKey('c'), isTrue);
     });

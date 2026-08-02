@@ -291,16 +291,29 @@ final class ThreadBatch {
   /// this runs the thread is already committed. Failing loudly is the point --
   /// a caller can tell someone, whereas a broken reply chain looks like a
   /// published thread until a reader opens it.
+  ///
+  /// Every such exception carries [rkeys] and [uris], so a caller holding
+  /// nothing but the exception can still find the records. Missing results are
+  /// reported as [ThreadVerificationException.inconclusive]: `results` is
+  /// optional in the lexicon, and a server that omits it has not contradicted
+  /// anything -- the thread it committed is most likely exactly the one that
+  /// was built, and a `feed.post.get` on the first of [rkeys] settles it.
   List<RepoStrongRef> verify(final List<URepoApplyWritesResults>? results) {
     if (results == null) {
       throw ThreadVerificationException(
-        'applyWrites returned no results for ${writes.length} writes',
+        'applyWrites returned no results for ${writes.length} writes, so the '
+        'committed thread could not be checked against the one that was built',
+        rkeys: rkeys,
+        uris: uris,
+        inconclusive: true,
       );
     }
     if (results.length != writes.length) {
       throw ThreadVerificationException(
         'applyWrites returned ${results.length} results for '
         '${writes.length} writes',
+        rkeys: rkeys,
+        uris: uris,
       );
     }
 
@@ -311,6 +324,8 @@ final class ThreadBatch {
         throw ThreadVerificationException(
           'applyWrites result $i is not a create result',
           index: i,
+          rkeys: rkeys,
+          uris: uris,
         );
       }
 
@@ -320,6 +335,8 @@ final class ThreadBatch {
           'post $i was created at ${created.uri} instead of $uri; replies in '
           'this thread point at the record key this client chose',
           index: i,
+          rkeys: rkeys,
+          uris: uris,
         );
       }
 
@@ -331,6 +348,8 @@ final class ThreadBatch {
           index: i,
           localCid: local,
           serverCid: created.cid,
+          rkeys: rkeys,
+          uris: uris,
         );
       }
 
@@ -368,7 +387,24 @@ final class CreatedThread {
 ///
 /// Raised only after the batch has been committed, so it never means "the
 /// thread was not published" -- it means the published thread does not match
-/// the reply chain that was computed for it.
+/// the reply chain that was computed for it, or, when [inconclusive], that
+/// nothing came back to compare it against.
+///
+/// [rkeys] and [uris] are the records the batch wrote, so the thread stays
+/// reachable from the exception alone -- which is the whole difference between
+/// a recoverable failure and a lost one, given that the commit has already
+/// happened:
+///
+/// ```dart
+/// try {
+///   await bluesky.feed.createThreadAtomic(posts: posts);
+/// } on ThreadVerificationException catch (e) {
+///   if (e.inconclusive) {
+///     // The thread is committed; ask the repository what it stored.
+///     final post = await bluesky.feed.post.get(uri: e.uris.first);
+///   }
+/// }
+/// ```
 final class ThreadVerificationException implements Exception {
   /// Returns a new [ThreadVerificationException].
   const ThreadVerificationException(
@@ -376,6 +412,9 @@ final class ThreadVerificationException implements Exception {
     this.index,
     this.localCid,
     this.serverCid,
+    this.rkeys = const [],
+    this.uris = const [],
+    this.inconclusive = false,
   });
 
   /// The human readable error message.
@@ -389,6 +428,25 @@ final class ThreadVerificationException implements Exception {
 
   /// The CID the repository reports for the post at [index].
   final String? serverCid;
+
+  /// The record key of each post the batch wrote, in post order.
+  ///
+  /// Decided before the batch was sent, so they name the records regardless of
+  /// what came back.
+  final List<String> rkeys;
+
+  /// The AT-URI of each post the batch wrote, in post order.
+  final List<AtUri> uris;
+
+  /// Whether the thread could not be checked at all, rather than checked and
+  /// found wrong.
+  ///
+  /// True when `applyWrites` answered without a `results` array. That field is
+  /// optional in the lexicon, so a server omitting it has contradicted nothing:
+  /// the committed thread is most likely exactly the one that was built, and
+  /// [uris] is what settles it. False for every other failure, where the
+  /// repository did answer and its answer disagrees with the batch.
+  final bool inconclusive;
 
   @override
   String toString() => 'ThreadVerificationException: $message';
