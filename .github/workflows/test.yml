@@ -306,22 +306,29 @@ jobs:
           fi
 
   # ---------------------------------------------------------------------------
-  # The release tooling under `scripts/` -- version planning, changelog
-  # generation, dependency validation, lexicon sync -- is not a Dart pub
-  # workspace member, so every Dart-only job above skips it by construction:
-  # `format-analyze` takes the workspace dir list, and the `test` matrix is
-  # built from that same list. The nine `*_test.dart` files under `scripts/`
-  # had therefore never run, and nothing compiled the tooling at all.
+  # Guards the list every other Dart job is derived from.
   #
-  # What that cost: a plain `Type 'Version' not found` in
-  # `scripts/gen_changelog/writer.dart` reached main and broke the nightly
-  # Sync and Generate job for three nights (#2532). `verify-generated` had gone
-  # green on the pull request that introduced it -- its path filter matches
-  # `scripts/gen_*.dart`, but the job runs `melos gen` and never invokes the
-  # changelog tooling, so that check attested to nothing about the change.
+  # The release tooling under `scripts/` used to be checked here explicitly,
+  # because it was not a workspace member and so was skipped by construction:
+  # `format-analyze` takes the workspace dir list and the `test` matrix is built
+  # from that same list. That is what let a plain `Type 'Version' not found`
+  # reach main and break Sync and Generate for three nights (#2532).
   #
-  # Deliberately ungated: the suite is small and fast, and a path filter would
-  # rebuild the same "changed but unchecked" hole this job exists to close.
+  # `scripts/` is now a workspace member, so `format-analyze` reaches it the
+  # same way it reaches every other package. Naming it there again would be the
+  # second hardcoded copy `dart_workspace_dirs.sh` exists to prevent, so the
+  # format and analyze steps are gone from here.
+  #
+  # The test step is NOT redundant and must stay. The matrix job runs
+  # `dart test` only `if test -d "test"`, and this package keeps its tests
+  # beside the sources (`gen_changelog/writer_test.dart`, not
+  # `test/writer_test.dart`), so `test (scripts)` skips and all 44 of them
+  # would go unrun again.
+  #
+  # Also keeps the drift assertion. `dart_workspace_dirs.sh` runs it as a side
+  # effect whenever a caller asks for the list; running `--check` on its own
+  # gives a drift its own check name instead of surfacing it inside an
+  # unrelated job.
   # ---------------------------------------------------------------------------
   tooling:
     runs-on: ubuntu-latest
@@ -330,20 +337,8 @@ jobs:
 
       - uses: ./.github/actions/setup-dart-cached
 
-      # Asserts the `workspace:` list, the pubspec and the packages on disk
-      # still agree. The callers above run these same assertions as a side
-      # effect of asking for the list; running `--check` here gives a drift a
-      # check name of its own instead of surfacing it as an unrelated failure.
       - name: Check the workspace package list
         run: ./scripts/dart_workspace_dirs.sh --check
-
-      # `scripts/` resolves against the root pubspec, which already declares
-      # `test` and `pubspec`, so no extra dependency wiring is needed here.
-      - name: Check format
-        run: dart format --output=none --set-exit-if-changed scripts
-
-      - name: Analyze
-        run: dart analyze scripts
 
       - name: Run the release tooling tests
         run: dart test scripts
