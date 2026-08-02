@@ -17,8 +17,10 @@ mixin _$ThreadItemPost {
 
  String get $type;@PostViewConverter() PostView get post;/// This post has more parents that were not present in the response. This is just a boolean, without the number of parents.
  bool get moreParents;/// This post has more replies that were not present in the response. This is a numeric value, which is best-effort and might not be accurate.
- int get moreReplies;/// This post is part of a contiguous thread by the OP from the thread root. Many different OP threads can happen in the same thread.
- bool get opThread;/// The threadgate created by the author indicates this post as a reply to be hidden for everyone consuming the thread.
+ int get moreReplies;/// This post is part of a contiguous thread by the OP from the thread root. Sub-threads by OP deeper in the tree are not considered an OP thread.
+ bool get opThread;/// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread (see `opThread`).
+ int? get opThreadPostIndex;/// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread (see `opThread`).
+ int? get opThreadPostCount;/// The threadgate created by the author indicates this post as a reply to be hidden for everyone consuming the thread.
  bool get hiddenByThreadgate;/// This is by an account muted by the viewer requesting it.
  bool get mutedByViewer; Map<String, dynamic>? get $unknown;
 /// Create a copy of ThreadItemPost
@@ -33,16 +35,16 @@ $ThreadItemPostCopyWith<ThreadItemPost> get copyWith => _$ThreadItemPostCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThreadItemPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.moreParents, moreParents) || other.moreParents == moreParents)&&(identical(other.moreReplies, moreReplies) || other.moreReplies == moreReplies)&&(identical(other.opThread, opThread) || other.opThread == opThread)&&(identical(other.hiddenByThreadgate, hiddenByThreadgate) || other.hiddenByThreadgate == hiddenByThreadgate)&&(identical(other.mutedByViewer, mutedByViewer) || other.mutedByViewer == mutedByViewer)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThreadItemPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.moreParents, moreParents) || other.moreParents == moreParents)&&(identical(other.moreReplies, moreReplies) || other.moreReplies == moreReplies)&&(identical(other.opThread, opThread) || other.opThread == opThread)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&(identical(other.hiddenByThreadgate, hiddenByThreadgate) || other.hiddenByThreadgate == hiddenByThreadgate)&&(identical(other.mutedByViewer, mutedByViewer) || other.mutedByViewer == mutedByViewer)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,post,moreParents,moreReplies,opThread,hiddenByThreadgate,mutedByViewer,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,post,moreParents,moreReplies,opThread,opThreadPostIndex,opThreadPostCount,hiddenByThreadgate,mutedByViewer,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ThreadItemPost(\$type: ${$type}, post: $post, moreParents: $moreParents, moreReplies: $moreReplies, opThread: $opThread, hiddenByThreadgate: $hiddenByThreadgate, mutedByViewer: $mutedByViewer, \$unknown: ${$unknown})';
+  return 'ThreadItemPost(\$type: ${$type}, post: $post, moreParents: $moreParents, moreReplies: $moreReplies, opThread: $opThread, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, hiddenByThreadgate: $hiddenByThreadgate, mutedByViewer: $mutedByViewer, \$unknown: ${$unknown})';
 }
 
 
@@ -53,7 +55,7 @@ abstract mixin class $ThreadItemPostCopyWith<$Res>  {
   factory $ThreadItemPostCopyWith(ThreadItemPost value, $Res Function(ThreadItemPost) _then) = _$ThreadItemPostCopyWithImpl;
 @useResult
 $Res call({
- String $type,@PostViewConverter() PostView post, bool moreParents, int moreReplies, bool opThread, bool hiddenByThreadgate, bool mutedByViewer, Map<String, dynamic>? $unknown
+ String $type,@PostViewConverter() PostView post, bool moreParents, int moreReplies, bool opThread, int? opThreadPostIndex, int? opThreadPostCount, bool hiddenByThreadgate, bool mutedByViewer, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,14 +72,16 @@ class _$ThreadItemPostCopyWithImpl<$Res>
 
 /// Create a copy of ThreadItemPost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? moreParents = null,Object? moreReplies = null,Object? opThread = null,Object? hiddenByThreadgate = null,Object? mutedByViewer = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? moreParents = null,Object? moreReplies = null,Object? opThread = null,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? hiddenByThreadgate = null,Object? mutedByViewer = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as PostView,moreParents: null == moreParents ? _self.moreParents : moreParents // ignore: cast_nullable_to_non_nullable
 as bool,moreReplies: null == moreReplies ? _self.moreReplies : moreReplies // ignore: cast_nullable_to_non_nullable
 as int,opThread: null == opThread ? _self.opThread : opThread // ignore: cast_nullable_to_non_nullable
-as bool,hiddenByThreadgate: null == hiddenByThreadgate ? _self.hiddenByThreadgate : hiddenByThreadgate // ignore: cast_nullable_to_non_nullable
+as bool,opThreadPostIndex: freezed == opThreadPostIndex ? _self.opThreadPostIndex : opThreadPostIndex // ignore: cast_nullable_to_non_nullable
+as int?,opThreadPostCount: freezed == opThreadPostCount ? _self.opThreadPostCount : opThreadPostCount // ignore: cast_nullable_to_non_nullable
+as int?,hiddenByThreadgate: null == hiddenByThreadgate ? _self.hiddenByThreadgate : hiddenByThreadgate // ignore: cast_nullable_to_non_nullable
 as bool,mutedByViewer: null == mutedByViewer ? _self.mutedByViewer : mutedByViewer // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -174,10 +178,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post,  bool moreParents,  int moreReplies,  bool opThread,  bool hiddenByThreadgate,  bool mutedByViewer,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post,  bool moreParents,  int moreReplies,  bool opThread,  int? opThreadPostIndex,  int? opThreadPostCount,  bool hiddenByThreadgate,  bool mutedByViewer,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThreadItemPost() when $default != null:
-return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that.opThread,_that.hiddenByThreadgate,_that.mutedByViewer,_that.$unknown);case _:
+return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that.opThread,_that.opThreadPostIndex,_that.opThreadPostCount,_that.hiddenByThreadgate,_that.mutedByViewer,_that.$unknown);case _:
   return orElse();
 
 }
@@ -195,10 +199,10 @@ return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post,  bool moreParents,  int moreReplies,  bool opThread,  bool hiddenByThreadgate,  bool mutedByViewer,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post,  bool moreParents,  int moreReplies,  bool opThread,  int? opThreadPostIndex,  int? opThreadPostCount,  bool hiddenByThreadgate,  bool mutedByViewer,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ThreadItemPost():
-return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that.opThread,_that.hiddenByThreadgate,_that.mutedByViewer,_that.$unknown);case _:
+return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that.opThread,_that.opThreadPostIndex,_that.opThreadPostCount,_that.hiddenByThreadgate,_that.mutedByViewer,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -215,10 +219,10 @@ return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @PostViewConverter()  PostView post,  bool moreParents,  int moreReplies,  bool opThread,  bool hiddenByThreadgate,  bool mutedByViewer,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @PostViewConverter()  PostView post,  bool moreParents,  int moreReplies,  bool opThread,  int? opThreadPostIndex,  int? opThreadPostCount,  bool hiddenByThreadgate,  bool mutedByViewer,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ThreadItemPost() when $default != null:
-return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that.opThread,_that.hiddenByThreadgate,_that.mutedByViewer,_that.$unknown);case _:
+return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that.opThread,_that.opThreadPostIndex,_that.opThreadPostCount,_that.hiddenByThreadgate,_that.mutedByViewer,_that.$unknown);case _:
   return null;
 
 }
@@ -230,7 +234,7 @@ return $default(_that.$type,_that.post,_that.moreParents,_that.moreReplies,_that
 
 @JsonSerializable(includeIfNull: false)
 class _ThreadItemPost implements ThreadItemPost {
-  const _ThreadItemPost({this.$type = 'app.bsky.unspecced.defs#threadItemPost', @PostViewConverter() required this.post, required this.moreParents, required this.moreReplies, required this.opThread, required this.hiddenByThreadgate, required this.mutedByViewer, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ThreadItemPost({this.$type = 'app.bsky.unspecced.defs#threadItemPost', @PostViewConverter() required this.post, required this.moreParents, required this.moreReplies, required this.opThread, this.opThreadPostIndex, this.opThreadPostCount, required this.hiddenByThreadgate, required this.mutedByViewer, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ThreadItemPost.fromJson(Map<String, dynamic> json) => _$ThreadItemPostFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -239,8 +243,12 @@ class _ThreadItemPost implements ThreadItemPost {
 @override final  bool moreParents;
 /// This post has more replies that were not present in the response. This is a numeric value, which is best-effort and might not be accurate.
 @override final  int moreReplies;
-/// This post is part of a contiguous thread by the OP from the thread root. Many different OP threads can happen in the same thread.
+/// This post is part of a contiguous thread by the OP from the thread root. Sub-threads by OP deeper in the tree are not considered an OP thread.
 @override final  bool opThread;
+/// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread (see `opThread`).
+@override final  int? opThreadPostIndex;
+/// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread (see `opThread`).
+@override final  int? opThreadPostCount;
 /// The threadgate created by the author indicates this post as a reply to be hidden for everyone consuming the thread.
 @override final  bool hiddenByThreadgate;
 /// This is by an account muted by the viewer requesting it.
@@ -268,16 +276,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ThreadItemPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.moreParents, moreParents) || other.moreParents == moreParents)&&(identical(other.moreReplies, moreReplies) || other.moreReplies == moreReplies)&&(identical(other.opThread, opThread) || other.opThread == opThread)&&(identical(other.hiddenByThreadgate, hiddenByThreadgate) || other.hiddenByThreadgate == hiddenByThreadgate)&&(identical(other.mutedByViewer, mutedByViewer) || other.mutedByViewer == mutedByViewer)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ThreadItemPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.moreParents, moreParents) || other.moreParents == moreParents)&&(identical(other.moreReplies, moreReplies) || other.moreReplies == moreReplies)&&(identical(other.opThread, opThread) || other.opThread == opThread)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&(identical(other.hiddenByThreadgate, hiddenByThreadgate) || other.hiddenByThreadgate == hiddenByThreadgate)&&(identical(other.mutedByViewer, mutedByViewer) || other.mutedByViewer == mutedByViewer)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,post,moreParents,moreReplies,opThread,hiddenByThreadgate,mutedByViewer,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,post,moreParents,moreReplies,opThread,opThreadPostIndex,opThreadPostCount,hiddenByThreadgate,mutedByViewer,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ThreadItemPost(\$type: ${$type}, post: $post, moreParents: $moreParents, moreReplies: $moreReplies, opThread: $opThread, hiddenByThreadgate: $hiddenByThreadgate, mutedByViewer: $mutedByViewer, \$unknown: ${$unknown})';
+  return 'ThreadItemPost(\$type: ${$type}, post: $post, moreParents: $moreParents, moreReplies: $moreReplies, opThread: $opThread, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, hiddenByThreadgate: $hiddenByThreadgate, mutedByViewer: $mutedByViewer, \$unknown: ${$unknown})';
 }
 
 
@@ -288,7 +296,7 @@ abstract mixin class _$ThreadItemPostCopyWith<$Res> implements $ThreadItemPostCo
   factory _$ThreadItemPostCopyWith(_ThreadItemPost value, $Res Function(_ThreadItemPost) _then) = __$ThreadItemPostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@PostViewConverter() PostView post, bool moreParents, int moreReplies, bool opThread, bool hiddenByThreadgate, bool mutedByViewer, Map<String, dynamic>? $unknown
+ String $type,@PostViewConverter() PostView post, bool moreParents, int moreReplies, bool opThread, int? opThreadPostIndex, int? opThreadPostCount, bool hiddenByThreadgate, bool mutedByViewer, Map<String, dynamic>? $unknown
 });
 
 
@@ -305,14 +313,16 @@ class __$ThreadItemPostCopyWithImpl<$Res>
 
 /// Create a copy of ThreadItemPost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? post = null,Object? moreParents = null,Object? moreReplies = null,Object? opThread = null,Object? hiddenByThreadgate = null,Object? mutedByViewer = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? post = null,Object? moreParents = null,Object? moreReplies = null,Object? opThread = null,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? hiddenByThreadgate = null,Object? mutedByViewer = null,Object? $unknown = freezed,}) {
   return _then(_ThreadItemPost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as PostView,moreParents: null == moreParents ? _self.moreParents : moreParents // ignore: cast_nullable_to_non_nullable
 as bool,moreReplies: null == moreReplies ? _self.moreReplies : moreReplies // ignore: cast_nullable_to_non_nullable
 as int,opThread: null == opThread ? _self.opThread : opThread // ignore: cast_nullable_to_non_nullable
-as bool,hiddenByThreadgate: null == hiddenByThreadgate ? _self.hiddenByThreadgate : hiddenByThreadgate // ignore: cast_nullable_to_non_nullable
+as bool,opThreadPostIndex: freezed == opThreadPostIndex ? _self.opThreadPostIndex : opThreadPostIndex // ignore: cast_nullable_to_non_nullable
+as int?,opThreadPostCount: freezed == opThreadPostCount ? _self.opThreadPostCount : opThreadPostCount // ignore: cast_nullable_to_non_nullable
+as int?,hiddenByThreadgate: null == hiddenByThreadgate ? _self.hiddenByThreadgate : hiddenByThreadgate // ignore: cast_nullable_to_non_nullable
 as bool,mutedByViewer: null == mutedByViewer ? _self.mutedByViewer : mutedByViewer // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

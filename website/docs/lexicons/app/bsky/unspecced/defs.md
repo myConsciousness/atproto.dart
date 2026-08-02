@@ -67,7 +67,9 @@ description: app.bsky.unspecced.defs
 | **post** | [app.bsky.feed.defs#postView](../../../../lexicons/app/bsky/feed/defs.md#postview) | - | ✅ | - |
 | **moreParents** | boolean | - | ✅ | This post has more parents that were not present in the response. This is just a boolean, without the number of parents. |
 | **moreReplies** | integer | - | ✅ | This post has more replies that were not present in the response. This is a numeric value, which is best-effort and might not be accurate. |
-| **opThread** | boolean | - | ✅ | This post is part of a contiguous thread by the OP from the thread root. Many different OP threads can happen in the same thread. |
+| **opThread** | boolean | - | ✅ | This post is part of a contiguous thread by the OP from the thread root. Sub-threads by OP deeper in the tree are not considered an OP thread. |
+| **opThreadPostIndex** | integer | - | ❌ | The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread (see `opThread`). |
+| **opThreadPostCount** | integer | - | ❌ | The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread (see `opThread`). |
 | **hiddenByThreadgate** | boolean | - | ✅ | The threadgate created by the author indicates this post as a reply to be hidden for everyone consuming the thread. |
 | **mutedByViewer** | boolean | - | ✅ | This is by an account muted by the viewer requesting it. |
 
