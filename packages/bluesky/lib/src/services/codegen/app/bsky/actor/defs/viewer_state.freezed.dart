@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ViewerState {
 
- String get $type; bool? get muted;@ListViewBasicConverter() ListViewBasic? get mutedByList; bool? get blockedBy;@AtUriConverter() AtUri? get blocking;@ListViewBasicConverter() ListViewBasic? get blockingByList;@AtUriConverter() AtUri? get following;@AtUriConverter() AtUri? get followedBy;/// This property is present only in selected cases, as an optimization.
+ String get $type;/// Whether the account is fully muted, directly or via a mutelist. False when the mute is scoped to specific kinds; see mutedOnlyReposts and mutedOnlyQuoteposts.
+ bool? get muted;/// Whether the account's reposts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.
+ bool? get mutedOnlyReposts;/// Whether the account's quote posts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.
+ bool? get mutedOnlyQuoteposts;@ListViewBasicConverter() ListViewBasic? get mutedByList; bool? get blockedBy;@AtUriConverter() AtUri? get blocking;@ListViewBasicConverter() ListViewBasic? get blockingByList;@AtUriConverter() AtUri? get following;@AtUriConverter() AtUri? get followedBy;/// This property is present only in selected cases, as an optimization.
 @KnownFollowersConverter() KnownFollowers? get knownFollowers;/// This property is present only in selected cases, as an optimization.
 @ActivitySubscriptionConverter() ActivitySubscription? get activitySubscription; Map<String, dynamic>? get $unknown;
 /// Create a copy of ViewerState
@@ -30,16 +33,16 @@ $ViewerStateCopyWith<ViewerState> get copyWith => _$ViewerStateCopyWithImpl<View
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.mutedByList, mutedByList) || other.mutedByList == mutedByList)&&(identical(other.blockedBy, blockedBy) || other.blockedBy == blockedBy)&&(identical(other.blocking, blocking) || other.blocking == blocking)&&(identical(other.blockingByList, blockingByList) || other.blockingByList == blockingByList)&&(identical(other.following, following) || other.following == following)&&(identical(other.followedBy, followedBy) || other.followedBy == followedBy)&&(identical(other.knownFollowers, knownFollowers) || other.knownFollowers == knownFollowers)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.mutedOnlyReposts, mutedOnlyReposts) || other.mutedOnlyReposts == mutedOnlyReposts)&&(identical(other.mutedOnlyQuoteposts, mutedOnlyQuoteposts) || other.mutedOnlyQuoteposts == mutedOnlyQuoteposts)&&(identical(other.mutedByList, mutedByList) || other.mutedByList == mutedByList)&&(identical(other.blockedBy, blockedBy) || other.blockedBy == blockedBy)&&(identical(other.blocking, blocking) || other.blocking == blocking)&&(identical(other.blockingByList, blockingByList) || other.blockingByList == blockingByList)&&(identical(other.following, following) || other.following == following)&&(identical(other.followedBy, followedBy) || other.followedBy == followedBy)&&(identical(other.knownFollowers, knownFollowers) || other.knownFollowers == knownFollowers)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,muted,mutedByList,blockedBy,blocking,blockingByList,following,followedBy,knownFollowers,activitySubscription,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,muted,mutedOnlyReposts,mutedOnlyQuoteposts,mutedByList,blockedBy,blocking,blockingByList,following,followedBy,knownFollowers,activitySubscription,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, knownFollowers: $knownFollowers, activitySubscription: $activitySubscription, \$unknown: ${$unknown})';
+  return 'ViewerState(\$type: ${$type}, muted: $muted, mutedOnlyReposts: $mutedOnlyReposts, mutedOnlyQuoteposts: $mutedOnlyQuoteposts, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, knownFollowers: $knownFollowers, activitySubscription: $activitySubscription, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +53,7 @@ abstract mixin class $ViewerStateCopyWith<$Res>  {
   factory $ViewerStateCopyWith(ViewerState value, $Res Function(ViewerState) _then) = _$ViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool? muted,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy,@AtUriConverter() AtUri? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
+ String $type, bool? muted, bool? mutedOnlyReposts, bool? mutedOnlyQuoteposts,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy,@AtUriConverter() AtUri? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,10 +70,12 @@ class _$ViewerStateCopyWithImpl<$Res>
 
 /// Create a copy of ViewerState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? muted = freezed,Object? mutedByList = freezed,Object? blockedBy = freezed,Object? blocking = freezed,Object? blockingByList = freezed,Object? following = freezed,Object? followedBy = freezed,Object? knownFollowers = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? muted = freezed,Object? mutedOnlyReposts = freezed,Object? mutedOnlyQuoteposts = freezed,Object? mutedByList = freezed,Object? blockedBy = freezed,Object? blocking = freezed,Object? blockingByList = freezed,Object? following = freezed,Object? followedBy = freezed,Object? knownFollowers = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
+as bool?,mutedOnlyReposts: freezed == mutedOnlyReposts ? _self.mutedOnlyReposts : mutedOnlyReposts // ignore: cast_nullable_to_non_nullable
+as bool?,mutedOnlyQuoteposts: freezed == mutedOnlyQuoteposts ? _self.mutedOnlyQuoteposts : mutedOnlyQuoteposts // ignore: cast_nullable_to_non_nullable
 as bool?,mutedByList: freezed == mutedByList ? _self.mutedByList : mutedByList // ignore: cast_nullable_to_non_nullable
 as ListViewBasic?,blockedBy: freezed == blockedBy ? _self.blockedBy : blockedBy // ignore: cast_nullable_to_non_nullable
 as bool?,blocking: freezed == blocking ? _self.blocking : blocking // ignore: cast_nullable_to_non_nullable
@@ -213,10 +218,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted,  bool? mutedOnlyReposts,  bool? mutedOnlyQuoteposts, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ViewerState() when $default != null:
-return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
+return $default(_that.$type,_that.muted,_that.mutedOnlyReposts,_that.mutedOnlyQuoteposts,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
   return orElse();
 
 }
@@ -234,10 +239,10 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted,  bool? mutedOnlyReposts,  bool? mutedOnlyQuoteposts, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ViewerState():
-return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
+return $default(_that.$type,_that.muted,_that.mutedOnlyReposts,_that.mutedOnlyQuoteposts,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -254,10 +259,10 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted,  bool? mutedOnlyReposts,  bool? mutedOnlyQuoteposts, @ListViewBasicConverter()  ListViewBasic? mutedByList,  bool? blockedBy, @AtUriConverter()  AtUri? blocking, @ListViewBasicConverter()  ListViewBasic? blockingByList, @AtUriConverter()  AtUri? following, @AtUriConverter()  AtUri? followedBy, @KnownFollowersConverter()  KnownFollowers? knownFollowers, @ActivitySubscriptionConverter()  ActivitySubscription? activitySubscription,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ViewerState() when $default != null:
-return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
+return $default(_that.$type,_that.muted,_that.mutedOnlyReposts,_that.mutedOnlyQuoteposts,_that.mutedByList,_that.blockedBy,_that.blocking,_that.blockingByList,_that.following,_that.followedBy,_that.knownFollowers,_that.activitySubscription,_that.$unknown);case _:
   return null;
 
 }
@@ -269,11 +274,16 @@ return $default(_that.$type,_that.muted,_that.mutedByList,_that.blockedBy,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _ViewerState implements ViewerState {
-  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, @ListViewBasicConverter() this.mutedByList, this.blockedBy, @AtUriConverter() this.blocking, @ListViewBasicConverter() this.blockingByList, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ViewerState({this.$type = 'app.bsky.actor.defs#viewerState', this.muted, this.mutedOnlyReposts, this.mutedOnlyQuoteposts, @ListViewBasicConverter() this.mutedByList, this.blockedBy, @AtUriConverter() this.blocking, @ListViewBasicConverter() this.blockingByList, @AtUriConverter() this.following, @AtUriConverter() this.followedBy, @KnownFollowersConverter() this.knownFollowers, @ActivitySubscriptionConverter() this.activitySubscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ViewerState.fromJson(Map<String, dynamic> json) => _$ViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// Whether the account is fully muted, directly or via a mutelist. False when the mute is scoped to specific kinds; see mutedOnlyReposts and mutedOnlyQuoteposts.
 @override final  bool? muted;
+/// Whether the account's reposts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.
+@override final  bool? mutedOnlyReposts;
+/// Whether the account's quote posts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.
+@override final  bool? mutedOnlyQuoteposts;
 @override@ListViewBasicConverter() final  ListViewBasic? mutedByList;
 @override final  bool? blockedBy;
 @override@AtUriConverter() final  AtUri? blocking;
@@ -307,16 +317,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.mutedByList, mutedByList) || other.mutedByList == mutedByList)&&(identical(other.blockedBy, blockedBy) || other.blockedBy == blockedBy)&&(identical(other.blocking, blocking) || other.blocking == blocking)&&(identical(other.blockingByList, blockingByList) || other.blockingByList == blockingByList)&&(identical(other.following, following) || other.following == following)&&(identical(other.followedBy, followedBy) || other.followedBy == followedBy)&&(identical(other.knownFollowers, knownFollowers) || other.knownFollowers == knownFollowers)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.mutedOnlyReposts, mutedOnlyReposts) || other.mutedOnlyReposts == mutedOnlyReposts)&&(identical(other.mutedOnlyQuoteposts, mutedOnlyQuoteposts) || other.mutedOnlyQuoteposts == mutedOnlyQuoteposts)&&(identical(other.mutedByList, mutedByList) || other.mutedByList == mutedByList)&&(identical(other.blockedBy, blockedBy) || other.blockedBy == blockedBy)&&(identical(other.blocking, blocking) || other.blocking == blocking)&&(identical(other.blockingByList, blockingByList) || other.blockingByList == blockingByList)&&(identical(other.following, following) || other.following == following)&&(identical(other.followedBy, followedBy) || other.followedBy == followedBy)&&(identical(other.knownFollowers, knownFollowers) || other.knownFollowers == knownFollowers)&&(identical(other.activitySubscription, activitySubscription) || other.activitySubscription == activitySubscription)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,muted,mutedByList,blockedBy,blocking,blockingByList,following,followedBy,knownFollowers,activitySubscription,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,muted,mutedOnlyReposts,mutedOnlyQuoteposts,mutedByList,blockedBy,blocking,blockingByList,following,followedBy,knownFollowers,activitySubscription,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, knownFollowers: $knownFollowers, activitySubscription: $activitySubscription, \$unknown: ${$unknown})';
+  return 'ViewerState(\$type: ${$type}, muted: $muted, mutedOnlyReposts: $mutedOnlyReposts, mutedOnlyQuoteposts: $mutedOnlyQuoteposts, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, knownFollowers: $knownFollowers, activitySubscription: $activitySubscription, \$unknown: ${$unknown})';
 }
 
 
@@ -327,7 +337,7 @@ abstract mixin class _$ViewerStateCopyWith<$Res> implements $ViewerStateCopyWith
   factory _$ViewerStateCopyWith(_ViewerState value, $Res Function(_ViewerState) _then) = __$ViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool? muted,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy,@AtUriConverter() AtUri? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
+ String $type, bool? muted, bool? mutedOnlyReposts, bool? mutedOnlyQuoteposts,@ListViewBasicConverter() ListViewBasic? mutedByList, bool? blockedBy,@AtUriConverter() AtUri? blocking,@ListViewBasicConverter() ListViewBasic? blockingByList,@AtUriConverter() AtUri? following,@AtUriConverter() AtUri? followedBy,@KnownFollowersConverter() KnownFollowers? knownFollowers,@ActivitySubscriptionConverter() ActivitySubscription? activitySubscription, Map<String, dynamic>? $unknown
 });
 
 
@@ -344,10 +354,12 @@ class __$ViewerStateCopyWithImpl<$Res>
 
 /// Create a copy of ViewerState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? muted = freezed,Object? mutedByList = freezed,Object? blockedBy = freezed,Object? blocking = freezed,Object? blockingByList = freezed,Object? following = freezed,Object? followedBy = freezed,Object? knownFollowers = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? muted = freezed,Object? mutedOnlyReposts = freezed,Object? mutedOnlyQuoteposts = freezed,Object? mutedByList = freezed,Object? blockedBy = freezed,Object? blocking = freezed,Object? blockingByList = freezed,Object? following = freezed,Object? followedBy = freezed,Object? knownFollowers = freezed,Object? activitySubscription = freezed,Object? $unknown = freezed,}) {
   return _then(_ViewerState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
+as bool?,mutedOnlyReposts: freezed == mutedOnlyReposts ? _self.mutedOnlyReposts : mutedOnlyReposts // ignore: cast_nullable_to_non_nullable
+as bool?,mutedOnlyQuoteposts: freezed == mutedOnlyQuoteposts ? _self.mutedOnlyQuoteposts : mutedOnlyQuoteposts // ignore: cast_nullable_to_non_nullable
 as bool?,mutedByList: freezed == mutedByList ? _self.mutedByList : mutedByList // ignore: cast_nullable_to_non_nullable
 as ListViewBasic?,blockedBy: freezed == blockedBy ? _self.blockedBy : blockedBy // ignore: cast_nullable_to_non_nullable
 as bool?,blocking: freezed == blocking ? _self.blocking : blocking // ignore: cast_nullable_to_non_nullable

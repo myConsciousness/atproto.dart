@@ -160,7 +160,21 @@ const appBskyActorDefs = <String, dynamic>{
       "description":
           "Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.",
       "properties": {
-        "muted": {"type": "boolean"},
+        "muted": {
+          "type": "boolean",
+          "description":
+              "Whether the account is fully muted, directly or via a mutelist. False when the mute is scoped to specific kinds; see mutedOnlyReposts and mutedOnlyQuoteposts.",
+        },
+        "mutedOnlyReposts": {
+          "type": "boolean",
+          "description":
+              "Whether the account's reposts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.",
+        },
+        "mutedOnlyQuoteposts": {
+          "type": "boolean",
+          "description":
+              "Whether the account's quote posts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.",
+        },
         "mutedByList": {
           "type": "ref",
           "ref": "app.bsky.graph.defs#listViewBasic",
@@ -5450,7 +5464,7 @@ const appBskyGraphGetMutes = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.",
+          "Enumerates accounts that the requesting account (actor) currently has fully muted. Mutes scoped to specific kinds of content (only reposts, only quote posts) are not included. Responses may contain more items than the requested limit. Requires auth.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -5843,7 +5857,7 @@ const appBskyGraphMuteActor = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.",
+          "Creates a mute relationship for the specified account. If a mute already exists for the account, it is updated in place: the stored scope is replaced with the scope in this request. Mutes are private in Bluesky. Requires auth.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -5851,6 +5865,16 @@ const appBskyGraphMuteActor = <String, dynamic>{
           "required": ["actor"],
           "properties": {
             "actor": {"type": "string", "format": "at-identifier"},
+            "onlyReposts": {
+              "type": "boolean",
+              "description":
+                  "Restrict the mute to the account's reposts. When any 'only' scope is set, just the scoped content is muted; when none are set, the account is fully muted. Repeat calls replace the stored scope rather than adding to it.",
+            },
+            "onlyQuoteposts": {
+              "type": "boolean",
+              "description":
+                  "Restrict the mute to the account's quote posts. See onlyReposts.",
+            },
           },
         },
       },
@@ -7098,7 +7122,17 @@ const appBskyUnspeccedDefs = <String, dynamic>{
         "opThread": {
           "type": "boolean",
           "description":
-              "This post is part of a contiguous thread by the OP from the thread root. Many different OP threads can happen in the same thread.",
+              "This post is part of a contiguous thread by the OP from the thread root. Sub-threads by OP deeper in the tree are not considered an OP thread.",
+        },
+        "opThreadPostIndex": {
+          "type": "integer",
+          "description":
+              "The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread (see `opThread`).",
+        },
+        "opThreadPostCount": {
+          "type": "integer",
+          "description":
+              "The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread (see `opThread`).",
         },
         "hiddenByThreadgate": {
           "type": "boolean",
@@ -8766,6 +8800,18 @@ const appBskyVideoDefs = <String, dynamic>{
         },
         "blob": {"type": "blob"},
         "error": {"type": "string"},
+        "failureCode": {
+          "type": "string",
+          "description":
+              "A machine-readable code for why the video processing job failed.",
+          "knownValues": [
+            "validation_failure",
+            "encoding_failure",
+            "pds_upload_failure",
+            "pds_upload_unsupported_blob_size",
+            "generic_failure",
+          ],
+        },
         "message": {"type": "string"},
       },
     },

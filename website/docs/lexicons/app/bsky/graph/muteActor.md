@@ -7,7 +7,7 @@ description: app.bsky.graph.muteActor
 
 ## #main
 
-Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+Creates a mute relationship for the specified account. If a mute already exists for the account, it is updated in place: the stored scope is replaced with the scope in this request. Mutes are private in Bluesky. Requires auth.
 
 ### Input
 
@@ -16,3 +16,5 @@ Creates a mute relationship for the specified account. Mutes are private in Blue
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
+| **onlyReposts** | boolean | - | ❌ | Restrict the mute to the account's reposts. When any 'only' scope is set, just the scoped content is muted; when none are set, the account is fully muted. Repeat calls replace the stored scope rather than adding to it. |
+| **onlyQuoteposts** | boolean | - | ❌ | Restrict the mute to the account's quote posts. See onlyReposts. |

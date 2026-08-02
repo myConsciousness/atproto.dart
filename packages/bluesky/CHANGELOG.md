@@ -1,5 +1,20 @@
 # Release Note
 
+## v2.4.3
+
+- chore: updated `app.bsky.actor.defs#viewerState.muted`
+- feat: added `app.bsky.actor.defs#viewerState.mutedOnlyQuoteposts`
+- feat: added `app.bsky.actor.defs#viewerState.mutedOnlyReposts`
+- chore: updated `app.bsky.graph.getMutes`
+- chore: updated `app.bsky.graph.muteActor`
+- feat: added `app.bsky.graph.muteActor.input.onlyQuoteposts`
+- feat: added `app.bsky.graph.muteActor.input.onlyReposts`
+- chore: updated `app.bsky.unspecced.defs#threadItemPost.opThread`
+- feat: added `app.bsky.unspecced.defs#threadItemPost.opThreadPostCount`
+- feat: added `app.bsky.unspecced.defs#threadItemPost.opThreadPostIndex`
+- feat: added `app.bsky.video.defs#jobStatus.failureCode`
+- chore: regenerated from synced lexicons
+
 ## v2.4.2
 
 - feat: added `tools.ozone.report.closeReports`

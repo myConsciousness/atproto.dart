@@ -30,6 +30,13 @@ _JobStatus _$JobStatusFromJson(Map json) =>
           ),
         ),
         error: $checkedConvert('error', (v) => v as String?),
+        failureCode: $checkedConvert(
+          'failureCode',
+          (v) => _$JsonConverterFromJson<String, JobStatusFailureCode>(
+            v,
+            const JobStatusFailureCodeConverter().fromJson,
+          ),
+        ),
         message: $checkedConvert('message', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
@@ -51,6 +58,10 @@ Map<String, dynamic> _$JobStatusToJson(_JobStatus instance) =>
         const BlobConverter().toJson,
       ),
       'error': ?instance.error,
+      'failureCode': ?_$JsonConverterToJson<String, JobStatusFailureCode>(
+        instance.failureCode,
+        const JobStatusFailureCodeConverter().toJson,
+      ),
       'message': ?instance.message,
       r'$unknown': ?instance.$unknown,
     };

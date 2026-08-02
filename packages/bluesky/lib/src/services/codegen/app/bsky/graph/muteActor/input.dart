@@ -20,17 +20,30 @@ part 'input.g.dart';
 
 @freezed
 abstract class GraphMuteActorInput with _$GraphMuteActorInput {
-  static const knownProps = <String>['actor'];
+  static const knownProps = <String>['actor', 'onlyReposts', 'onlyQuoteposts'];
 
   @JsonSerializable(includeIfNull: false)
   const factory GraphMuteActorInput({
     required String actor,
+
+    /// Restrict the mute to the account's reposts. When any 'only' scope is set, just the scoped content is muted; when none are set, the account is fully muted. Repeat calls replace the stored scope rather than adding to it.
+    bool? onlyReposts,
+
+    /// Restrict the mute to the account's quote posts. See onlyReposts.
+    bool? onlyQuoteposts,
 
     Map<String, dynamic>? $unknown,
   }) = _GraphMuteActorInput;
 
   factory GraphMuteActorInput.fromJson(Map<String, Object?> json) =>
       _$GraphMuteActorInputFromJson(json);
+}
+
+extension GraphMuteActorInputExtension on GraphMuteActorInput {
+  bool get isOnlyReposts => onlyReposts ?? false;
+  bool get isNotOnlyReposts => !isOnlyReposts;
+  bool get isOnlyQuoteposts => onlyQuoteposts ?? false;
+  bool get isNotOnlyQuoteposts => !isOnlyQuoteposts;
 }
 
 final class GraphMuteActorInputConverter

@@ -22,6 +22,14 @@ _ThreadItemPost _$ThreadItemPostFromJson(Map json) =>
         moreParents: $checkedConvert('moreParents', (v) => v as bool),
         moreReplies: $checkedConvert('moreReplies', (v) => (v as num).toInt()),
         opThread: $checkedConvert('opThread', (v) => v as bool),
+        opThreadPostIndex: $checkedConvert(
+          'opThreadPostIndex',
+          (v) => (v as num?)?.toInt(),
+        ),
+        opThreadPostCount: $checkedConvert(
+          'opThreadPostCount',
+          (v) => (v as num?)?.toInt(),
+        ),
         hiddenByThreadgate: $checkedConvert(
           'hiddenByThreadgate',
           (v) => v as bool,
@@ -42,6 +50,8 @@ Map<String, dynamic> _$ThreadItemPostToJson(_ThreadItemPost instance) =>
       'moreParents': instance.moreParents,
       'moreReplies': instance.moreReplies,
       'opThread': instance.opThread,
+      'opThreadPostIndex': ?instance.opThreadPostIndex,
+      'opThreadPostCount': ?instance.opThreadPostCount,
       'hiddenByThreadgate': instance.hiddenByThreadgate,
       'mutedByViewer': instance.mutedByViewer,
       r'$unknown': ?instance.$unknown,

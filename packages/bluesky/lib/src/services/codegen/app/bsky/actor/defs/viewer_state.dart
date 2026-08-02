@@ -29,6 +29,8 @@ part 'viewer_state.g.dart';
 abstract class ViewerState with _$ViewerState {
   static const knownProps = <String>[
     'muted',
+    'mutedOnlyReposts',
+    'mutedOnlyQuoteposts',
     'mutedByList',
     'blockedBy',
     'blocking',
@@ -42,7 +44,15 @@ abstract class ViewerState with _$ViewerState {
   @JsonSerializable(includeIfNull: false)
   const factory ViewerState({
     @Default('app.bsky.actor.defs#viewerState') String $type,
+
+    /// Whether the account is fully muted, directly or via a mutelist. False when the mute is scoped to specific kinds; see mutedOnlyReposts and mutedOnlyQuoteposts.
     bool? muted,
+
+    /// Whether the account's reposts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.
+    bool? mutedOnlyReposts,
+
+    /// Whether the account's quote posts are muted. Scoped mutes are exclusive with muted: this can be true while muted is false. If muted is true, this will be false.
+    bool? mutedOnlyQuoteposts,
     @ListViewBasicConverter() ListViewBasic? mutedByList,
     bool? blockedBy,
     @AtUriConverter() AtUri? blocking,
@@ -71,6 +81,10 @@ abstract class ViewerState with _$ViewerState {
 extension ViewerStateExtension on ViewerState {
   bool get isMuted => muted ?? false;
   bool get isNotMuted => !isMuted;
+  bool get isMutedOnlyReposts => mutedOnlyReposts ?? false;
+  bool get isNotMutedOnlyReposts => !isMutedOnlyReposts;
+  bool get isMutedOnlyQuoteposts => mutedOnlyQuoteposts ?? false;
+  bool get isNotMutedOnlyQuoteposts => !isMutedOnlyQuoteposts;
   bool get hasMutedByList => mutedByList != null;
   bool get hasNotMutedByList => !hasMutedByList;
   bool get isBlockedBy => blockedBy ?? false;

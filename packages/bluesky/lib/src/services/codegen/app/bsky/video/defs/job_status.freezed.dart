@@ -17,7 +17,8 @@ mixin _$JobStatus {
 
  String get $type; String get jobId; String get did;/// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
 @JobStatusStateConverter() JobStatusState get state;/// Progress within the current processing state.
- int? get progress;@BlobConverter() Blob? get blob; String? get error; String? get message; Map<String, dynamic>? get $unknown;
+ int? get progress;@BlobConverter() Blob? get blob; String? get error;/// A machine-readable code for why the video processing job failed.
+@JobStatusFailureCodeConverter() JobStatusFailureCode? get failureCode; String? get message; Map<String, dynamic>? get $unknown;
 /// Create a copy of JobStatus
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +31,16 @@ $JobStatusCopyWith<JobStatus> get copyWith => _$JobStatusCopyWithImpl<JobStatus>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStatus&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.did, did) || other.did == did)&&(identical(other.state, state) || other.state == state)&&(identical(other.progress, progress) || other.progress == progress)&&(identical(other.blob, blob) || other.blob == blob)&&(identical(other.error, error) || other.error == error)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStatus&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.did, did) || other.did == did)&&(identical(other.state, state) || other.state == state)&&(identical(other.progress, progress) || other.progress == progress)&&(identical(other.blob, blob) || other.blob == blob)&&(identical(other.error, error) || other.error == error)&&(identical(other.failureCode, failureCode) || other.failureCode == failureCode)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,jobId,did,state,progress,blob,error,message,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,jobId,did,state,progress,blob,error,failureCode,message,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'JobStatus(\$type: ${$type}, jobId: $jobId, did: $did, state: $state, progress: $progress, blob: $blob, error: $error, message: $message, \$unknown: ${$unknown})';
+  return 'JobStatus(\$type: ${$type}, jobId: $jobId, did: $did, state: $state, progress: $progress, blob: $blob, error: $error, failureCode: $failureCode, message: $message, \$unknown: ${$unknown})';
 }
 
 
@@ -50,11 +51,11 @@ abstract mixin class $JobStatusCopyWith<$Res>  {
   factory $JobStatusCopyWith(JobStatus value, $Res Function(JobStatus) _then) = _$JobStatusCopyWithImpl;
 @useResult
 $Res call({
- String $type, String jobId, String did,@JobStatusStateConverter() JobStatusState state, int? progress,@BlobConverter() Blob? blob, String? error, String? message, Map<String, dynamic>? $unknown
+ String $type, String jobId, String did,@JobStatusStateConverter() JobStatusState state, int? progress,@BlobConverter() Blob? blob, String? error,@JobStatusFailureCodeConverter() JobStatusFailureCode? failureCode, String? message, Map<String, dynamic>? $unknown
 });
 
 
-$JobStatusStateCopyWith<$Res> get state;$BlobCopyWith<$Res>? get blob;
+$JobStatusStateCopyWith<$Res> get state;$BlobCopyWith<$Res>? get blob;$JobStatusFailureCodeCopyWith<$Res>? get failureCode;
 
 }
 /// @nodoc
@@ -67,7 +68,7 @@ class _$JobStatusCopyWithImpl<$Res>
 
 /// Create a copy of JobStatus
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? jobId = null,Object? did = null,Object? state = null,Object? progress = freezed,Object? blob = freezed,Object? error = freezed,Object? message = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? jobId = null,Object? did = null,Object? state = null,Object? progress = freezed,Object? blob = freezed,Object? error = freezed,Object? failureCode = freezed,Object? message = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,jobId: null == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
@@ -76,7 +77,8 @@ as String,state: null == state ? _self.state : state // ignore: cast_nullable_to
 as JobStatusState,progress: freezed == progress ? _self.progress : progress // ignore: cast_nullable_to_non_nullable
 as int?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
 as Blob?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as String?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,failureCode: freezed == failureCode ? _self.failureCode : failureCode // ignore: cast_nullable_to_non_nullable
+as JobStatusFailureCode?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -101,6 +103,18 @@ $BlobCopyWith<$Res>? get blob {
 
   return $BlobCopyWith<$Res>(_self.blob!, (value) {
     return _then(_self.copyWith(blob: value));
+  });
+}/// Create a copy of JobStatus
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JobStatusFailureCodeCopyWith<$Res>? get failureCode {
+    if (_self.failureCode == null) {
+    return null;
+  }
+
+  return $JobStatusFailureCodeCopyWith<$Res>(_self.failureCode!, (value) {
+    return _then(_self.copyWith(failureCode: value));
   });
 }
 }
@@ -184,10 +198,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error, @JobStatusFailureCodeConverter()  JobStatusFailureCode? failureCode,  String? message,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JobStatus() when $default != null:
-return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.message,_that.$unknown);case _:
+return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.failureCode,_that.message,_that.$unknown);case _:
   return orElse();
 
 }
@@ -205,10 +219,10 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error, @JobStatusFailureCodeConverter()  JobStatusFailureCode? failureCode,  String? message,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _JobStatus():
-return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.message,_that.$unknown);case _:
+return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.failureCode,_that.message,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -225,10 +239,10 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error,  String? message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String jobId,  String did, @JobStatusStateConverter()  JobStatusState state,  int? progress, @BlobConverter()  Blob? blob,  String? error, @JobStatusFailureCodeConverter()  JobStatusFailureCode? failureCode,  String? message,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _JobStatus() when $default != null:
-return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.message,_that.$unknown);case _:
+return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_that.blob,_that.error,_that.failureCode,_that.message,_that.$unknown);case _:
   return null;
 
 }
@@ -240,7 +254,7 @@ return $default(_that.$type,_that.jobId,_that.did,_that.state,_that.progress,_th
 
 @JsonSerializable(includeIfNull: false)
 class _JobStatus implements JobStatus {
-  const _JobStatus({this.$type = 'app.bsky.video.defs#jobStatus', required this.jobId, required this.did, @JobStatusStateConverter() required this.state, this.progress, @BlobConverter() this.blob, this.error, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _JobStatus({this.$type = 'app.bsky.video.defs#jobStatus', required this.jobId, required this.did, @JobStatusStateConverter() required this.state, this.progress, @BlobConverter() this.blob, this.error, @JobStatusFailureCodeConverter() this.failureCode, this.message, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _JobStatus.fromJson(Map<String, dynamic> json) => _$JobStatusFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -252,6 +266,8 @@ class _JobStatus implements JobStatus {
 @override final  int? progress;
 @override@BlobConverter() final  Blob? blob;
 @override final  String? error;
+/// A machine-readable code for why the video processing job failed.
+@override@JobStatusFailureCodeConverter() final  JobStatusFailureCode? failureCode;
 @override final  String? message;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -276,16 +292,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobStatus&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.did, did) || other.did == did)&&(identical(other.state, state) || other.state == state)&&(identical(other.progress, progress) || other.progress == progress)&&(identical(other.blob, blob) || other.blob == blob)&&(identical(other.error, error) || other.error == error)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobStatus&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.did, did) || other.did == did)&&(identical(other.state, state) || other.state == state)&&(identical(other.progress, progress) || other.progress == progress)&&(identical(other.blob, blob) || other.blob == blob)&&(identical(other.error, error) || other.error == error)&&(identical(other.failureCode, failureCode) || other.failureCode == failureCode)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,jobId,did,state,progress,blob,error,message,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,jobId,did,state,progress,blob,error,failureCode,message,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'JobStatus(\$type: ${$type}, jobId: $jobId, did: $did, state: $state, progress: $progress, blob: $blob, error: $error, message: $message, \$unknown: ${$unknown})';
+  return 'JobStatus(\$type: ${$type}, jobId: $jobId, did: $did, state: $state, progress: $progress, blob: $blob, error: $error, failureCode: $failureCode, message: $message, \$unknown: ${$unknown})';
 }
 
 
@@ -296,11 +312,11 @@ abstract mixin class _$JobStatusCopyWith<$Res> implements $JobStatusCopyWith<$Re
   factory _$JobStatusCopyWith(_JobStatus value, $Res Function(_JobStatus) _then) = __$JobStatusCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String jobId, String did,@JobStatusStateConverter() JobStatusState state, int? progress,@BlobConverter() Blob? blob, String? error, String? message, Map<String, dynamic>? $unknown
+ String $type, String jobId, String did,@JobStatusStateConverter() JobStatusState state, int? progress,@BlobConverter() Blob? blob, String? error,@JobStatusFailureCodeConverter() JobStatusFailureCode? failureCode, String? message, Map<String, dynamic>? $unknown
 });
 
 
-@override $JobStatusStateCopyWith<$Res> get state;@override $BlobCopyWith<$Res>? get blob;
+@override $JobStatusStateCopyWith<$Res> get state;@override $BlobCopyWith<$Res>? get blob;@override $JobStatusFailureCodeCopyWith<$Res>? get failureCode;
 
 }
 /// @nodoc
@@ -313,7 +329,7 @@ class __$JobStatusCopyWithImpl<$Res>
 
 /// Create a copy of JobStatus
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? jobId = null,Object? did = null,Object? state = null,Object? progress = freezed,Object? blob = freezed,Object? error = freezed,Object? message = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? jobId = null,Object? did = null,Object? state = null,Object? progress = freezed,Object? blob = freezed,Object? error = freezed,Object? failureCode = freezed,Object? message = freezed,Object? $unknown = freezed,}) {
   return _then(_JobStatus(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,jobId: null == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
@@ -322,7 +338,8 @@ as String,state: null == state ? _self.state : state // ignore: cast_nullable_to
 as JobStatusState,progress: freezed == progress ? _self.progress : progress // ignore: cast_nullable_to_non_nullable
 as int?,blob: freezed == blob ? _self.blob : blob // ignore: cast_nullable_to_non_nullable
 as Blob?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as String?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,failureCode: freezed == failureCode ? _self.failureCode : failureCode // ignore: cast_nullable_to_non_nullable
+as JobStatusFailureCode?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -348,6 +365,18 @@ $BlobCopyWith<$Res>? get blob {
 
   return $BlobCopyWith<$Res>(_self.blob!, (value) {
     return _then(_self.copyWith(blob: value));
+  });
+}/// Create a copy of JobStatus
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JobStatusFailureCodeCopyWith<$Res>? get failureCode {
+    if (_self.failureCode == null) {
+    return null;
+  }
+
+  return $JobStatusFailureCodeCopyWith<$Res>(_self.failureCode!, (value) {
+    return _then(_self.copyWith(failureCode: value));
   });
 }
 }

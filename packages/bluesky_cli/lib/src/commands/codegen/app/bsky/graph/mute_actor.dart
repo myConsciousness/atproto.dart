@@ -16,7 +16,18 @@ import '../../../../procedure_command.dart';
 
 final class MuteActorCommand extends ProcedureCommand {
   MuteActorCommand() {
-    argParser..addOption("actor", mandatory: true);
+    argParser
+      ..addOption("actor", mandatory: true)
+      ..addFlag(
+        "onlyReposts",
+        help:
+            r"Restrict the mute to the account's reposts. When any 'only' scope is set, just the scoped content is muted; when none are set, the account is fully muted. Repeat calls replace the stored scope rather than adding to it.",
+      )
+      ..addFlag(
+        "onlyQuoteposts",
+        help:
+            r"Restrict the mute to the account's quote posts. See onlyReposts.",
+      );
   }
 
   @override
@@ -24,14 +35,21 @@ final class MuteActorCommand extends ProcedureCommand {
 
   @override
   final String description =
-      "Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.";
+      "Creates a mute relationship for the specified account. If a mute already exists for the account, it is updated in place: the stored scope is replaced with the scope in this request. Mutes are private in Bluesky. Requires auth.";
 
   @override
-  final String invocation = "bsky app-bsky-graph mute-actor --actor=<value>";
+  final String invocation =
+      "bsky app-bsky-graph mute-actor --actor=<value> [--onlyReposts] [--onlyQuoteposts]";
 
   @override
   String get methodId => "app.bsky.graph.muteActor";
 
   @override
-  Map<String, dynamic>? get body => {"actor": argResults!["actor"]};
+  Map<String, dynamic>? get body => {
+    "actor": argResults!["actor"],
+    if (argResults!.wasParsed("onlyReposts"))
+      "onlyReposts": argResults!["onlyReposts"],
+    if (argResults!.wasParsed("onlyQuoteposts"))
+      "onlyQuoteposts": argResults!["onlyQuoteposts"],
+  };
 }
