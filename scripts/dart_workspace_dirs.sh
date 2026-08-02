@@ -15,7 +15,8 @@
 # drift impossible rather than merely detectable.
 #
 # Note the entries are FULL repo-relative paths, not bare package names: not every
-# workspace member lives under `packages/` (`templates/feed_generator` does not).
+# workspace member lives under `packages/` (`templates/feed_generator` and `scripts`
+# do not).
 #
 # The Flutter package (`packages/bluesky_text_flutter`) is deliberately NOT a
 # workspace member — it needs the Flutter SDK and has its own CI job — so it never
@@ -85,7 +86,8 @@ while IFS= read -r candidate; do
 done < <(
   cd "$REPO_ROOT"
   grep -l '^resolution:[[:space:]]*workspace[[:space:]]*$' \
-    packages/*/pubspec.yaml templates/*/pubspec.yaml 2>/dev/null |
+    packages/*/pubspec.yaml templates/*/pubspec.yaml scripts/pubspec.yaml \
+    2>/dev/null |
     sed 's:/pubspec\.yaml$::' | sort
 )
 
