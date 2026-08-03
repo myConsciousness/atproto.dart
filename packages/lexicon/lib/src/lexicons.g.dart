@@ -11127,8 +11127,10 @@ const chatBskyGroupCreateGroup = <String, dynamic>{
           "properties": {
             "members": {
               "type": "array",
+              "description":
+                  "The members to add to the group. The owner is automatically added. Implementations may enforce a lower maximum than the 10,000-item schema limit; Bluesky currently supports up to 100 total members. If the owner is included in this list, the list may contain up to the implementation's total member limit. Otherwise, it may contain one fewer.",
               "items": {"type": "string", "format": "did"},
-              "maxLength": 49,
+              "maxLength": 10000,
             },
             "name": {
               "type": "string",
