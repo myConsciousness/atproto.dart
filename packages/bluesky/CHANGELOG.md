@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.4.4
+
+- chore: updated `chat.bsky.group.createGroup.input.members`
+- chore: regenerated from synced lexicons
+
 ## v2.4.3
 
 - chore: updated `app.bsky.actor.defs#viewerState.muted`
