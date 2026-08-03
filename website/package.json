@@ -33,14 +33,14 @@
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
     "prism-react-renderer": "^2.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-popper": "^2.3.0",
     "sass": "^1.102.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.23.0",
-    "@babel/preset-react": "^7.23.0",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-react": "^8.0.1",
     "@docusaurus/module-type-aliases": "^3.0.0",
     "@docusaurus/types": "^3.0.0",
     "@testing-library/jest-dom": "^7.0.0",
