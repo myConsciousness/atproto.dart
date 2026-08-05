@@ -62,14 +62,22 @@ updates:
       # Lifting this is a deliberate migration, not a version bump: move to
       # freezed 4 once it is stable, regenerate all sources, and confirm union
       # codegen survives. build_runner and `test` then unblock on their own.
+      #
+      # ONE entry per dependency name, deliberately. The pin above first landed
+      # as two entries for `freezed` -- a `versions` one and an `update-types`
+      # one -- and Dependabot went on proposing `^4.0.0-dev.3` afterwards
+      # (#2541, opened a day after that merged). Two ignore conditions for the
+      # same `dependency-name` are ambiguous about which applies, so they are
+      # merged here rather than left to chance.
+      #
+      # `versions` alone is enough: `>=4.0.0-0` is an open-ended lower bound, so
+      # it already covers every 4.x prerelease AND every stable major above it.
+      # The `update-types: semver-major` entries it replaces were a strict
+      # subset of that range.
       - dependency-name: "freezed"
         versions: [">=4.0.0-0"]
-      - dependency-name: "freezed"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "freezed_annotation"
         versions: [">=4.0.0-0"]
-      - dependency-name: "freezed_annotation"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "build_runner"
         update-types: ["version-update:semver-major"]
       - dependency-name: "json_serializable"
@@ -134,6 +142,36 @@ updates:
         exclude-patterns:
           - "@docusaurus/*"
           - "docusaurus-plugin-*"
+    ignore:
+      # Two blockers that a version bump cannot clear on its own. Both were
+      # proposed and rejected twice (#2509 / #2526, then #2540 the week after
+      # #2539 took the eight updates that did resolve), so they are pinned out
+      # rather than re-triaged every Monday.
+      #
+      # react / react-dom 19: `react-popper@2.3.0` is a DIRECT dependency with
+      # no release since 2021, and peer-depends on react 16-18. `npm ci` fails
+      # outright:
+      #
+      #   peer react@"^16.8.0 || ^17 || ^18" from react-popper@2.3.0
+      #   Conflicting peer dependency: react@18.3.1
+      #
+      # CodeBuild runs `npm ci`, and no GitHub Actions job installs the
+      # website's npm dependencies, so this breaks the deploy with nothing
+      # upstream of it to catch the failure. Lift after replacing or dropping
+      # react-popper -- that is a migration, not a bump.
+      - dependency-name: "react"
+        versions: [">=19.0.0-0"]
+      - dependency-name: "react-dom"
+        versions: [">=19.0.0-0"]
+      # @babel/preset-* 8 requires `@babel/core` ^8, and `@babel/core` is held
+      # at ^7.29.6 by the security override below (arbitrary file read via
+      # `sourceMappingURL`, #2505). Taking preset 8 means unpinning that fix.
+      # Lift once a patched `@babel/core` 8 exists and the override can move
+      # with it.
+      - dependency-name: "@babel/preset-env"
+        versions: [">=8.0.0-0"]
+      - dependency-name: "@babel/preset-react"
+        versions: [">=8.0.0-0"]
 
   # --- GitHub Actions ------------------------------------------------------
   # Keep `uses:` action versions in .github/workflows/* up to date.
