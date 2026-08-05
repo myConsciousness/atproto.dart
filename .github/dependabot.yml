@@ -143,26 +143,11 @@ updates:
           - "@docusaurus/*"
           - "docusaurus-plugin-*"
     ignore:
-      # Two blockers that a version bump cannot clear on its own. Both were
-      # proposed and rejected twice (#2509 / #2526, then #2540 the week after
-      # #2539 took the eight updates that did resolve), so they are pinned out
-      # rather than re-triaged every Monday.
+      # The react/react-dom pin that lived here is gone: the site is on React 19
+      # as of the Floating UI port, which removed `react-popper` -- the direct
+      # dependency stuck on react 16-18 that made `npm ci` fail. Docusaurus
+      # itself accepts `^18.0.0 || ^19.0.0` and never needed pinning.
       #
-      # react / react-dom 19: `react-popper@2.3.0` is a DIRECT dependency with
-      # no release since 2021, and peer-depends on react 16-18. `npm ci` fails
-      # outright:
-      #
-      #   peer react@"^16.8.0 || ^17 || ^18" from react-popper@2.3.0
-      #   Conflicting peer dependency: react@18.3.1
-      #
-      # CodeBuild runs `npm ci`, and no GitHub Actions job installs the
-      # website's npm dependencies, so this breaks the deploy with nothing
-      # upstream of it to catch the failure. Lift after replacing or dropping
-      # react-popper -- that is a migration, not a bump.
-      - dependency-name: "react"
-        versions: [">=19.0.0-0"]
-      - dependency-name: "react-dom"
-        versions: [">=19.0.0-0"]
       # @babel/preset-* 8 requires `@babel/core` ^8, and `@babel/core` is held
       # at ^7.29.6 by the security override below (arbitrary file read via
       # `sourceMappingURL`, #2505). Taking preset 8 means unpinning that fix.
