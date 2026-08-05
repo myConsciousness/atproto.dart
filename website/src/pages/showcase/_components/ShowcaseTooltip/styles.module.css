@@ -36,10 +36,10 @@
   transform: rotate(45deg);
 }
 
-.tooltip[data-popper-placement^='top'] > .tooltipArrow {
+.tooltip[data-placement^='top'] > .tooltipArrow {
   bottom: -4px;
 }
 
-.tooltip[data-popper-placement^='bottom'] > .tooltipArrow {
+.tooltip[data-placement^='bottom'] > .tooltipArrow {
   top: -4px;
 }
