@@ -5,9 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import ReactDOM from 'react-dom';
-import {usePopper} from 'react-popper';
+import {
+  arrow,
+  autoUpdate,
+  flip,
+  offset,
+  shift,
+  useFloating,
+} from '@floating-ui/react';
 import styles from './styles.module.css';
 
 interface Props {
@@ -22,34 +29,29 @@ export default function Tooltip({
   id,
   anchorEl,
   text,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const [open, setOpen] = useState(false);
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null,
   );
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
   const [container, setContainer] = useState<Element | null>(null);
-  const {styles: popperStyles, attributes} = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: 'arrow',
-          options: {
-            element: arrowElement,
-          },
-        },
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 8],
-          },
-        },
-      ],
-    },
-  );
+  const arrowRef = useRef<HTMLSpanElement | null>(null);
+
+  // `whileElementsMounted: autoUpdate` is what Popper did on its own: keep the
+  // tooltip anchored while both elements are in the DOM. The floating element
+  // only mounts while `open`, so this starts and stops with it.
+  //
+  // `flip` and `shift` are NOT optional extras here. Popper enabled its `flip`
+  // and `preventOverflow` modifiers by default, so the old `modifiers` list
+  // only had to name what it added on top. Floating UI applies no middleware
+  // unless asked, and without these the first filter tag renders its 300px
+  // tooltip centred on a button near the left edge and it overflows the
+  // viewport at x = -2px -- verified in a browser before adding them.
+  const {refs, floatingStyles, placement, middlewareData} = useFloating({
+    elements: {reference: referenceElement},
+    whileElementsMounted: autoUpdate,
+    middleware: [offset(8), flip(), shift({padding: 8}), arrow({element: arrowRef})],
+  });
 
   const timeout = useRef<number | null>(null);
   const tooltipId = `${id}_tooltip`;
@@ -113,27 +115,36 @@ export default function Tooltip({
     };
   }, [referenceElement, text]);
 
+  // Popper wrote the arrow offset into an inline style for us; with Floating UI
+  // the coordinates come back through middleware data instead. The static side
+  // (`bottom: -4px` / `top: -4px`) stays in the stylesheet, keyed off the
+  // `data-placement` attribute set below.
+  const {x: arrowX, y: arrowY} = middlewareData.arrow ?? {};
+
   return (
     <>
       {React.cloneElement(children, {
         ref: setReferenceElement,
         'aria-describedby': open ? tooltipId : undefined,
-      })}
+      } as Partial<unknown>)}
       {container
         ? ReactDOM.createPortal(
             open && (
               <div
                 id={tooltipId}
                 role="tooltip"
-                ref={setPopperElement}
+                ref={refs.setFloating}
                 className={styles.tooltip}
-                style={popperStyles.popper}
-                {...attributes.popper}>
+                style={floatingStyles}
+                data-placement={placement}>
                 {text}
                 <span
-                  ref={setArrowElement}
+                  ref={arrowRef}
                   className={styles.tooltipArrow}
-                  style={popperStyles.arrow}
+                  style={{
+                    left: arrowX != null ? `${arrowX}px` : undefined,
+                    top: arrowY != null ? `${arrowY}px` : undefined,
+                  }}
                 />
               </div>
             ),
