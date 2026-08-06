@@ -31,6 +31,7 @@ abstract class QueueView with _$QueueView {
     'collection',
     'reportTypes',
     'description',
+    'recommendedPolicies',
     'createdBy',
     'createdAt',
     'updatedAt',
@@ -56,6 +57,7 @@ abstract class QueueView with _$QueueView {
 
     /// Optional description of the queue
     String? description,
+    List<String>? recommendedPolicies,
 
     /// DID of moderator who created this queue
     required String createdBy,

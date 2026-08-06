@@ -35,7 +35,11 @@ final class CreateQueueCommand extends ProcedureCommand {
         "reportTypes",
         help: r"Report reason types (fully qualified NSIDs)",
       )
-      ..addOption("description", help: r"Optional description of the queue");
+      ..addOption("description", help: r"Optional description of the queue")
+      ..addMultiOption(
+        "recommendedPolicies",
+        help: r"Policy keys to recommend when actioning reports in this queue",
+      );
   }
 
   @override
@@ -47,7 +51,7 @@ final class CreateQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--description=<value>]";
+      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--description=<value>] [--recommendedPolicies=<value>...]";
 
   @override
   String get methodId => "tools.ozone.queue.createQueue";
@@ -63,5 +67,7 @@ final class CreateQueueCommand extends ProcedureCommand {
       "reportTypes": argResults!["reportTypes"],
     if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
+    if (argResults!.wasParsed("recommendedPolicies"))
+      "recommendedPolicies": argResults!["recommendedPolicies"],
   };
 }

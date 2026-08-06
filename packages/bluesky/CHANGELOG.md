@@ -1,5 +1,15 @@
 # Release Note
 
+## v2.4.5
+
+- feat: added `tools.ozone.queue.createQueue.errors.InvalidRecommendedPolicies`
+- feat: added `tools.ozone.queue.createQueue.input.recommendedPolicies`
+- feat: added `tools.ozone.queue.defs#queueView.recommendedPolicies`
+- chore: updated `tools.ozone.queue.updateQueue`
+- feat: added `tools.ozone.queue.updateQueue.errors.InvalidRecommendedPolicies`
+- feat: added `tools.ozone.queue.updateQueue.input.recommendedPolicies`
+- chore: regenerated from synced lexicons
+
 ## v2.4.4
 
 - chore: updated `chat.bsky.group.createGroup.input.members`

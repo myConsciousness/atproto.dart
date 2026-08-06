@@ -20,6 +20,7 @@ Create a new moderation queue. A queue can have optional matching criteria that 
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects. Required if subjectTypes includes 'record'. |
 | **reportTypes** | array of string | - | ❌ | Report reason types (fully qualified NSIDs) |
 | **description** | string | - | ❌ | Optional description of the queue |
+| **recommendedPolicies** | array of string | - | ❌ | Policy keys to recommend when actioning reports in this queue |
 
 ### Output
 
