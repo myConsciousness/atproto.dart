@@ -25,6 +25,7 @@ abstract class QueueUpdateQueueInput with _$QueueUpdateQueueInput {
     'name',
     'enabled',
     'description',
+    'recommendedPolicies',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -40,6 +41,7 @@ abstract class QueueUpdateQueueInput with _$QueueUpdateQueueInput {
 
     /// Optional description of the queue
     String? description,
+    List<String>? recommendedPolicies,
 
     Map<String, dynamic>? $unknown,
   }) = _QueueUpdateQueueInput;

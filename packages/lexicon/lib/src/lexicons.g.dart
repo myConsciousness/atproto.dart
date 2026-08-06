@@ -20239,6 +20239,12 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
               "type": "string",
               "description": "Optional description of the queue",
             },
+            "recommendedPolicies": {
+              "type": "array",
+              "description":
+                  "Policy keys to recommend when actioning reports in this queue",
+              "items": {"type": "string"},
+            },
           },
         },
       },
@@ -20253,6 +20259,11 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
         },
       },
       "errors": [
+        {
+          "name": "InvalidRecommendedPolicies",
+          "description":
+              "One or more recommended policy keys do not exist in the configured policy list",
+        },
         {
           "name": "ConflictingQueue",
           "description":
@@ -20305,6 +20316,12 @@ const toolsOzoneQueueDefs = <String, dynamic>{
         "description": {
           "type": "string",
           "description": "Optional description of the queue",
+        },
+        "recommendedPolicies": {
+          "type": "array",
+          "description":
+              "Policy keys recommended when actioning reports in this queue",
+          "items": {"type": "string"},
         },
         "createdBy": {
           "type": "string",
@@ -20652,8 +20669,7 @@ const toolsOzoneQueueUpdateQueue = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description":
-          "Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.",
+      "description": "Update queue properties.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -20676,6 +20692,12 @@ const toolsOzoneQueueUpdateQueue = <String, dynamic>{
               "type": "string",
               "description": "Optional description of the queue",
             },
+            "recommendedPolicies": {
+              "type": "array",
+              "description":
+                  "Policy keys to recommend when actioning reports in this queue",
+              "items": {"type": "string"},
+            },
           },
         },
       },
@@ -20689,6 +20711,13 @@ const toolsOzoneQueueUpdateQueue = <String, dynamic>{
           },
         },
       },
+      "errors": [
+        {
+          "name": "InvalidRecommendedPolicies",
+          "description":
+              "One or more recommended policy keys do not exist in the configured policy list",
+        },
+      ],
     },
   },
 };

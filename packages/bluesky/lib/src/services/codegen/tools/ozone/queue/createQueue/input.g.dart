@@ -28,6 +28,10 @@ _QueueCreateQueueInput _$QueueCreateQueueInputFromJson(Map json) =>
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
         ),
         description: $checkedConvert('description', (v) => v as String?),
+        recommendedPolicies: $checkedConvert(
+          'recommendedPolicies',
+          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -46,5 +50,6 @@ Map<String, dynamic> _$QueueCreateQueueInputToJson(
   'collection': ?instance.collection,
   'reportTypes': ?instance.reportTypes,
   'description': ?instance.description,
+  'recommendedPolicies': ?instance.recommendedPolicies,
   r'$unknown': ?instance.$unknown,
 };

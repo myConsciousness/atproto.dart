@@ -49,6 +49,7 @@ Future<XRPCResponse<QueueCreateQueueOutput>> toolsOzoneQueueCreateQueue({
   String? collection,
   List<String>? reportTypes,
   String? description,
+  List<String>? recommendedPolicies,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -65,6 +66,7 @@ Future<XRPCResponse<QueueCreateQueueOutput>> toolsOzoneQueueCreateQueue({
     if (collection != null) 'collection': collection,
     if (reportTypes != null) 'reportTypes': reportTypes,
     if (description != null) 'description': description,
+    if (recommendedPolicies != null) 'recommendedPolicies': recommendedPolicies,
   },
   to: const QueueCreateQueueOutputConverter().fromJson,
 );
@@ -178,12 +180,13 @@ Future<XRPCResponse<EmptyData>> toolsOzoneQueueUnassignModerator({
   body: {...?$unknown, 'queueId': queueId, 'did': did},
 );
 
-/// Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.
+/// Update queue properties.
 Future<XRPCResponse<QueueUpdateQueueOutput>> toolsOzoneQueueUpdateQueue({
   required int queueId,
   String? name,
   bool? enabled,
   String? description,
+  List<String>? recommendedPolicies,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -198,6 +201,7 @@ Future<XRPCResponse<QueueUpdateQueueOutput>> toolsOzoneQueueUpdateQueue({
     if (name != null) 'name': name,
     if (enabled != null) 'enabled': enabled,
     if (description != null) 'description': description,
+    if (recommendedPolicies != null) 'recommendedPolicies': recommendedPolicies,
   },
   to: const QueueUpdateQueueOutputConverter().fromJson,
 );
@@ -232,6 +236,7 @@ base class QueueService {
     String? collection,
     List<String>? reportTypes,
     String? description,
+    List<String>? recommendedPolicies,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -241,6 +246,7 @@ base class QueueService {
     collection: collection,
     reportTypes: reportTypes,
     description: description,
+    recommendedPolicies: recommendedPolicies,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -341,12 +347,13 @@ base class QueueService {
     $unknown: $unknown,
   );
 
-  /// Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.
+  /// Update queue properties.
   Future<XRPCResponse<QueueUpdateQueueOutput>> updateQueue({
     required int queueId,
     String? name,
     bool? enabled,
     String? description,
+    List<String>? recommendedPolicies,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -355,6 +362,7 @@ base class QueueService {
     name: name,
     enabled: enabled,
     description: description,
+    recommendedPolicies: recommendedPolicies,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

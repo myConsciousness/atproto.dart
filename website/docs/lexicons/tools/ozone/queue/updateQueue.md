@@ -7,7 +7,7 @@ description: tools.ozone.queue.updateQueue
 
 ## #main
 
-Update queue properties. Currently only supports updating the name and enabled status to prevent configuration conflicts.
+Update queue properties.
 
 ### Input
 
@@ -19,6 +19,7 @@ Update queue properties. Currently only supports updating the name and enabled s
 | **name** | string | - | ❌ | New display name for the queue |
 | **enabled** | boolean | - | ❌ | Enable or disable the queue |
 | **description** | string | - | ❌ | Optional description of the queue |
+| **recommendedPolicies** | array of string | - | ❌ | Policy keys to recommend when actioning reports in this queue |
 
 ### Output
 

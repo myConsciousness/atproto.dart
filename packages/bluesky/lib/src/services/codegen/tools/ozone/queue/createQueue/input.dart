@@ -29,6 +29,7 @@ abstract class QueueCreateQueueInput with _$QueueCreateQueueInput {
     'collection',
     'reportTypes',
     'description',
+    'recommendedPolicies',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -44,6 +45,7 @@ abstract class QueueCreateQueueInput with _$QueueCreateQueueInput {
 
     /// Optional description of the queue
     String? description,
+    List<String>? recommendedPolicies,
 
     Map<String, dynamic>? $unknown,
   }) = _QueueCreateQueueInput;

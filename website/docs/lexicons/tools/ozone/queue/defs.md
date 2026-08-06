@@ -15,6 +15,7 @@ description: tools.ozone.queue.defs
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects (e.g., 'app.bsky.feed.post') |
 | **reportTypes** | array of string | - | ❌ | Report reason types this queue accepts (fully qualified NSIDs) |
 | **description** | string | - | ❌ | Optional description of the queue |
+| **recommendedPolicies** | array of string | - | ❌ | Policy keys recommended when actioning reports in this queue |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of moderator who created this queue |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
