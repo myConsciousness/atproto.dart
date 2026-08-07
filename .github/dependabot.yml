@@ -63,21 +63,34 @@ updates:
       # freezed 4 once it is stable, regenerate all sources, and confirm union
       # codegen survives. build_runner and `test` then unblock on their own.
       #
-      # ONE entry per dependency name, deliberately. The pin above first landed
-      # as two entries for `freezed` -- a `versions` one and an `update-types`
-      # one -- and Dependabot went on proposing `^4.0.0-dev.3` afterwards
-      # (#2541, opened a day after that merged). Two ignore conditions for the
-      # same `dependency-name` are ambiguous about which applies, so they are
-      # merged here rather than left to chance.
+      # These two are ignored UNCONDITIONALLY -- no `versions`, no
+      # `update-types` -- after three attempts at a narrower rule all failed to
+      # take effect:
       #
-      # `versions` alone is enough: `>=4.0.0-0` is an open-ended lower bound, so
-      # it already covers every 4.x prerelease AND every stable major above it.
-      # The `update-types: semver-major` entries it replaces were a strict
-      # subset of that range.
+      #   #2510  versions + update-types, two entries    -> #2534, #2541 followed
+      #   #2543  the two entries merged into one         -> #2547 followed
+      #
+      # #2547 was opened an hour after #2543 merged and still proposed
+      # `^4.0.0-dev.3`. Whatever the reason -- Dependabot's `versions` matching
+      # for the pub ecosystem is not observable from here -- the narrow forms
+      # demonstrably do not hold, and re-triaging the same pull request every
+      # week has cost more than the rule is worth.
+      #
+      # The cost of the blunt form is close to nil. Dependabot only proposes
+      # changes to the CONSTRAINT in pubspec.yaml; `freezed: ^3.2.0` already
+      # floats to the newest 3.x at `dart pub get` time, so patch and minor
+      # releases still reach the build. What is suppressed is the constraint
+      # rewrite, which is exactly what was unwanted.
+      #
+      # Removing these is part of the freezed 4 migration, not a maintenance
+      # step: freezed 4 has no stable release (only 4.0.0-dev.1/2/3), it raises
+      # the SDK floor from 3.8.0 to 3.12.0 across every published package, and
+      # 4.0.0-dev.3 miscompiles single-variant sealed unions -- `copyWith`
+      # instantiates the abstract base class and drops its own argument.
+      # Reproduced against this repo: 3 of 263 unions fail to compile, and
+      # `dart analyze` does not report it -- only `dart test` does.
       - dependency-name: "freezed"
-        versions: [">=4.0.0-0"]
       - dependency-name: "freezed_annotation"
-        versions: [">=4.0.0-0"]
       - dependency-name: "build_runner"
         update-types: ["version-update:semver-major"]
       - dependency-name: "json_serializable"
