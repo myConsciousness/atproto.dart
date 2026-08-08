@@ -1312,6 +1312,107 @@ void main() {
     });
   });
 
+  group('authorization-server host SSRF policy', () {
+    // The PDS is host-checked by the resolver, but its `authorization_servers`
+    // entry is attacker-influenced. Point it at hosts a browser would never let
+    // a page reach and assert `authorize` refuses before issuing any AS request.
+    Future<Uri> authorizeWithAsOrigin(
+      final String asOrigin, {
+      final bool allowPrivateNetwork = false,
+    }) async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        allowPrivateNetwork: allowPrivateNetwork,
+        httpClient: MockClient((r) async {
+          // Same identity routing as _identityRoute, but the protected-resource
+          // metadata advertises the injected AS origin instead of _origin.
+          if (r.url.host == 'public.api.bsky.app' &&
+              r.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
+            return _json({'did': _sub});
+          }
+          if (r.url.host == 'plc.directory' && r.url.path == '/$_sub') {
+            return _json(_didDoc());
+          }
+          if (r.url.host == 'pds.example' &&
+              r.url.path == '/.well-known/oauth-protected-resource') {
+            return _json({
+              'authorization_servers': [asOrigin],
+            });
+          }
+          // Anything reaching the AS host at all is a policy failure: the guard
+          // must fire before a request leaves for it.
+          return http.Response('unexpected', 500);
+        }),
+      );
+      return client.authorize(_handle);
+    }
+
+    for (final host in const [
+      'http://127.0.0.1', // loopback
+      'https://127.0.0.1', // loopback, https
+      'https://10.0.0.5:9200', // private, the audit's example
+      'https://169.254.169.254', // link-local (cloud metadata)
+      'https://[::1]', // IPv6 loopback
+      'https://[::ffff:10.0.0.5]', // IPv4-mapped private
+      'https://2130706433', // inet_aton loopback spelling
+      'https://localhost:9200', // localhost by name
+    ]) {
+      test('rejects an authorization server at $host', () async {
+        await expectLater(
+          () => authorizeWithAsOrigin(host),
+          throwsA(isA<OAuthException>()),
+        );
+      });
+    }
+
+    test('rejects a non-bare-origin authorization server', () async {
+      await expectLater(
+        () => authorizeWithAsOrigin('https://as.example/path?q=1'),
+        throwsA(isA<OAuthException>()),
+      );
+    });
+
+    test('still accepts a public https authorization server', () async {
+      // Control: a legitimate public AS resolves and reaches PAR.
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isPar(r)) {
+            return _json({
+              'request_uri': 'urn:ietf:params:oauth:request_uri:xyz',
+            }, status: 201);
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+      final url = await client.authorize(_handle);
+      expect(url.path, '/oauth/authorize');
+    });
+
+    test('allowPrivateNetwork: true opts a private AS back in', () async {
+      // With the escape hatch on, a private AS is permitted; it then fails only
+      // because the mock serves no metadata for it, not on the host policy.
+      await expectLater(
+        () => authorizeWithAsOrigin(
+          'https://10.0.0.5:9200',
+          allowPrivateNetwork: true,
+        ),
+        throwsA(
+          isA<OAuthException>().having(
+            (e) => e.message,
+            'message',
+            isNot(contains('rejected host')),
+          ),
+        ),
+      );
+    });
+  });
+
   group('scope validation (atproto profile)', () {
     Future<OAuthSession> exchangeWithScope(final String? scope) async {
       final stateStore = InMemoryOAuthStateStore();

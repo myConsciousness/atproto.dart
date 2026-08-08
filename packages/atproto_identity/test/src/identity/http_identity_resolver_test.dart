@@ -786,4 +786,51 @@ void main() {
       expect(requests, lessThan(10));
     });
   });
+  group('ensureNonReservedHost (shared SSRF host policy)', () {
+    for (final host in const [
+      'localhost',
+      'sub.localhost',
+      '127.0.0.1',
+      '10.0.0.5',
+      '169.254.169.254',
+      '172.16.0.1',
+      '192.168.1.1',
+      '::1',
+      '[::1]',
+      '::ffff:10.0.0.5',
+      '2130706433',
+      '0177.0.0.1',
+      '127.1',
+    ]) {
+      test('rejects $host', () {
+        expect(
+          () => ensureNonReservedHost(host, what: 'test host'),
+          throwsA(isA<IdentityException>()),
+        );
+      });
+    }
+
+    for (final host in const [
+      'bsky.social',
+      'as.example.com',
+      'public.api.bsky.app',
+      '8.8.8.8',
+      '1.1.1.1',
+    ]) {
+      test('accepts $host', () {
+        expect(ensureNonReservedHost(host), isNotEmpty);
+      });
+    }
+
+    test('normalizes case and a trailing FQDN dot', () {
+      expect(ensureNonReservedHost('AS.Example.COM.'), 'as.example.com');
+    });
+
+    test('allowPrivateNetwork: true permits a private literal', () {
+      expect(
+        ensureNonReservedHost('10.0.0.5', allowPrivateNetwork: true),
+        '10.0.0.5',
+      );
+    });
+  });
 }
