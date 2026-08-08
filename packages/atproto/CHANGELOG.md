@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.4.2
+
+- fix: `ATProto.fromOAuthSession` passes its `timeout` through to the `OAuthSessionManager` it builds, so a hung restore or refresh is bounded by the timeout the caller asked for instead of running unbounded.
+
 ## v2.4.1
 
 - feat: added `com.atproto.server.describeServer.output.blobUploadLimit`

@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.4.6
+
+- fix: `Bluesky.fromOAuthSession`, `BlueskyChat.fromOAuthSession` and `OzoneTool.fromOAuthSession` pass their `timeout` through to the `OAuthSessionManager` they build, so a hung restore or refresh is bounded by the timeout the caller asked for instead of running unbounded.
+
 ## v2.4.5
 
 - feat: added `tools.ozone.queue.createQueue.errors.InvalidRecommendedPolicies`

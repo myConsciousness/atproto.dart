@@ -322,7 +322,8 @@ void main() {
   });
 
   group('fromOAuthSession does not share', () {
-    test('the second manager replays the spent refresh token', () async {
+    test('the second manager replays the spent refresh token but recovers '
+        'from the shared session store', () async {
       final server = _FakeAuthServer();
       final client = OAuthClient(_clientMetadata(), httpClient: server.client);
       final stale = session(expiresAt: _expired());
@@ -350,13 +351,23 @@ void main() {
       await bsky.feed.getTimeline();
 
       //! The chat manager never saw the rotation, so it presents the refresh
-      //! token the timeline call already spent and the server revokes it. This
-      //! is why `fromOAuth` with a manager the caller owns is the way to share.
-      await expectLater(
-        chat.convo.listConvos(),
-        throwsA(isA<OAuthSessionRevokedException>()),
-      );
+      //! token the timeline call already spent and the server rejects it. That
+      //! `invalid_grant` only means "that token is gone", not "the account is
+      //! gone": both managers share one `OAuthClient`, so its session store
+      //! already holds the rotated session and the call recovers from there
+      //! instead of logging the user out.
+      await chat.convo.listConvos();
       expect(server.tokenPosts, 2);
+
+      //! Recovering is not the same as sharing. The rotation still cost a
+      //! wasted token POST, and the two managers still hold their own copies
+      //! of the session — this one only caught up because it happened to be
+      //! reading the same store. Pass a manager you own to `fromOAuth` when
+      //! more than one client backs the same account.
+      expect(
+        identical(bsky.oAuthSessionManager, chat.oAuthSessionManager),
+        isFalse,
+      );
     });
   });
 }

@@ -12,6 +12,10 @@ import 'stores/dpop_nonce_cache.dart';
 import 'types/dpop_key_pair.dart';
 import 'types/session.dart';
 
+/// Default upper bound on a single restore or refresh round trip performed by
+/// an [OAuthSessionManager], matching `atproto_core`'s `defaultTimeout`.
+const defaultOAuthSessionTimeout = Duration(seconds: 30);
+
 /// Owns an OAuth session's lifecycle for API use: builds DPoP `Authorization`
 /// headers per request (nonce cached per origin) and refreshes the access
 /// token before it expires or on a 401. `atproto_core` delegates to this.
@@ -21,21 +25,25 @@ final class OAuthSessionManager {
     required final String sub,
     final DPoPSigner? signer,
     final DPoPNonceCache? nonceCache,
+    final Duration? timeout,
   }) : _sub = sub,
        _signer = signer ?? const PointyCastleDPoPSigner(),
-       _nonceCache = nonceCache ?? InMemoryDPoPNonceCache();
+       _nonceCache = nonceCache ?? InMemoryDPoPNonceCache(),
+       _timeout = timeout ?? defaultOAuthSessionTimeout;
 
   factory OAuthSessionManager.fromSession(
     final OAuthSession session, {
     final OAuthClient? client,
     final DPoPSigner? signer,
     final DPoPNonceCache? nonceCache,
+    final Duration? timeout,
   }) {
     final mgr = OAuthSessionManager(
       client,
       sub: session.sub,
       signer: signer,
       nonceCache: nonceCache,
+      timeout: timeout,
     ).._session = session;
     return mgr;
   }
@@ -44,6 +52,15 @@ final class OAuthSessionManager {
   final String _sub;
   final DPoPSigner _signer;
   final DPoPNonceCache _nonceCache;
+
+  /// Upper bound on a single restore or refresh round trip. Every request on
+  /// this manager queues behind the [_load] / [_refresh] single flight, so an
+  /// unbounded token call — a hung server, a stalled connection, or an
+  /// injected [OAuthClient] whose I/O never completes — would hold *all* of
+  /// them forever. Bounding it turns that into a failure the caller can see
+  /// and retry, and mirrors the bound `atproto_core` applies to the legacy
+  /// (non-OAuth) refresh callback.
+  final Duration _timeout;
   OAuthSession? _session;
   Future<OAuthSession>? _inflightLoad;
   Future<OAuthSession>? _inflightRefresh;
@@ -123,6 +140,7 @@ final class OAuthSessionManager {
     final client = _client!;
     _inflightRefresh = client
         .refresh(current)
+        .timeout(_timeout)
         .then((refreshed) {
           _session = refreshed;
           _updates.add(refreshed);
@@ -143,6 +161,7 @@ final class OAuthSessionManager {
     if (existing != null) return Future.value(existing);
     if (_inflightLoad != null) return _inflightLoad!;
     _inflightLoad = _loadFromClient()
+        .timeout(_timeout)
         .then((restored) => _session = restored)
         .whenComplete(() => _inflightLoad = null);
     return _inflightLoad!;
