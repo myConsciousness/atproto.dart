@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Package imports:
+import 'package:http/http.dart' as http;
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // Project imports:
@@ -46,9 +47,14 @@ final class Entity implements Facetable {
   /// When the handle does not resolve, an empty map is returned; use
   /// `Entities.toFacetsResult` to learn which handles were dropped rather than
   /// silently posting without their mentions.
+  ///
+  /// [client] is forwarded to the built-in resolution call and only used when
+  /// no [resolver] is given; it exists so the default network path can be
+  /// exercised against a mock transport in tests.
   Future<Map<String, dynamic>> toFacet({
     String? service,
     HandleResolver? resolver,
+    http.Client? client,
   }) async {
     final facet = <String, dynamic>{
       '\$type': 'app.bsky.richtext.facet',
@@ -68,7 +74,11 @@ final class Entity implements Facetable {
         } else {
           try {
             did =
-                (await api.findDID(handle: value, service: service)).data['did']
+                (await api.findDID(
+                      handle: value,
+                      service: service,
+                      client: client,
+                    )).data['did']
                     as String?;
           } on xrpc.InvalidRequestException {
             //* The handle could not be resolved to a DID (e.g. it does not
