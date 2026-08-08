@@ -1,5 +1,12 @@
 # Release Note
 
+## v0.8.0
+
+- **feat**: `revoke` now actually revokes at the authorization server. It was local-only — the session was dropped from the `OAuthSessionStore` and nothing was sent — so after a "log out" the refresh token stayed live at the server for its full lifetime, and anyone holding a copy (a leaked backup, a shared device, a compromised store) could keep minting access tokens. When the server publishes an RFC 7009 `revocation_endpoint`, the refresh token is now POSTed to it with a DPoP proof before the local delete (the refresh token in preference to the access token, since revoking it takes the whole grant down). The call is best-effort: a server that publishes no endpoint is skipped, and a network or server failure never blocks the logout.
+- **feat**: `OAuthServerMetadata` parses `revocation_endpoint`, and it is held to the same `https` + same-origin-as-issuer check already applied to the PAR, authorization and token endpoints.
+- **feat**: `OAuthSessionManager` accepts a `timeout` (default 30s, `defaultOAuthSessionTimeout`) bounding a single restore or refresh round trip. Every request on a manager queues behind the restore/refresh single flight, so an unbounded token call — a hung server, a stalled connection, an injected client whose I/O never completes — held *all* of them indefinitely with no way out. `atproto_core` applies the same bound to the legacy (non-OAuth) refresh callback; the OAuth path now matches. `ATProto.fromOAuthSession`, `Bluesky.fromOAuthSession`, `BlueskyChat.fromOAuthSession` and `OzoneTool.fromOAuthSession` pass their own `timeout` through.
+- **fix**: a refresh that gets `invalid_grant` for a token the store has already rotated past now returns the current stored session instead of throwing `OAuthSessionRevokedException`. v0.5.0 stopped such a stale failure from *deleting* the newer session, but still reported it as revoked — so the caller logged the user out of an account that held a perfectly valid session, undoing the very thing the delete-guard protected. The exception is now raised only when the session that actually failed is the one still stored.
+
 ## v0.7.1
 
 - **security**: the metadata, PAR and token requests no longer follow HTTP redirects. v0.7.0 host-checks the authorization-server origin, but a `3xx` from it would let the server pivot the follow-up (a DPoP-signed PAR/token POST) onto another host, re-opening that SSRF. A `3xx` now surfaces as a response the caller rejects, or — for metadata discovery — falls back from, rather than being chased.

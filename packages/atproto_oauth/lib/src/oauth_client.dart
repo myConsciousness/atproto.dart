@@ -471,7 +471,9 @@ final class OAuthClient {
   /// If the server rejects the refresh token with `invalid_grant`, the
   /// session is deleted from the [OAuthSessionStore] and an
   /// [OAuthSessionRevokedException] is thrown so callers can route the user
-  /// back through [authorize].
+  /// back through [authorize] — unless the store has already rotated past the
+  /// token this call tried, in which case the rejection says only that the
+  /// tried token was spent and the current stored session is returned instead.
   ///
   /// Throws:
   /// - [OAuthException] when no refresh token is available or the request
@@ -531,7 +533,16 @@ final class OAuthClient {
       // session that must not be clobbered by this stale failure.
       if (post.body?['error'] == 'invalid_grant') {
         final current = await _sessionStore.find(session.sub);
-        if (current != null && current.refreshToken == refreshToken) {
+        if (current != null && current.refreshToken != refreshToken) {
+          // The store has already moved past the token this call tried, so
+          // the `invalid_grant` only says "that one was already spent" — it
+          // says nothing about the session that is stored now. Reporting it
+          // as revoked would log out an account that holds a valid session
+          // (the same rotation race the delete-guard above protects against,
+          // which the throw would then undo). Hand back the current session.
+          return current;
+        }
+        if (current != null) {
           await _sessionStore.delete(session.sub);
         }
         throw OAuthSessionRevokedException(
@@ -576,15 +587,62 @@ final class OAuthClient {
     return refreshed;
   }
 
-  /// Best-effort revocation of [session].
+  /// Revokes [session] at the authorization server and removes it locally.
   ///
-  /// The [OAuthServerMetadata] this client parses does not expose a
-  /// revocation endpoint, so no network call is made; the session is always
-  /// removed from the [OAuthSessionStore]. When a revocation endpoint becomes
-  /// available, a token revocation POST would be attempted here (ignoring any
-  /// failure) before the local delete.
+  /// When the server publishes an RFC 7009 `revocation_endpoint`, the refresh
+  /// token is POSTed to it with a DPoP proof so the grant actually dies at the
+  /// server; the refresh token is used in preference to the access token
+  /// because revoking it takes the whole grant down with it, whereas revoking
+  /// an access token leaves the refresh token able to mint new ones. A server
+  /// that publishes no such endpoint (the common case for atproto entryways
+  /// today) is simply skipped.
+  ///
+  /// The network call is **best-effort**: RFC 7009 Section 2.2 already
+  /// requires a `200` for an unknown token, and a logout must not be blocked
+  /// by an unreachable or misbehaving server. Any failure is swallowed and the
+  /// local delete still happens, so this method never throws for a network or
+  /// server-side reason.
   Future<void> revoke(final OAuthSession session) async {
+    try {
+      await _revokeAtServer(session);
+    } on Exception {
+      // Best-effort: a failed server-side revocation must not strand the
+      // session in the local store.
+    }
+
     await _sessionStore.delete(session.sub);
+  }
+
+  /// POSTs an RFC 7009 revocation request for [session], if the authorization
+  /// server publishes a `revocation_endpoint`.
+  Future<void> _revokeAtServer(final OAuthSession session) async {
+    final authority = Uri.parse(session.issuer).authority;
+    if (authority.isEmpty) return;
+
+    final meta = await _discoverServerMetadata(authority);
+    // Unlike the token endpoint, there is no conventional atproto fallback
+    // path for revocation: POSTing to a guessed URL would just 404. Only an
+    // advertised endpoint (already validated https + same-origin by
+    // [_validateEndpointOrigins]) is used.
+    final revocationEndpoint = meta.revocationEndpoint;
+    if (revocationEndpoint == null) return;
+
+    final refreshToken = session.refreshToken;
+
+    await _postWithDPoPProof(
+      endpoint: Uri.parse(revocationEndpoint),
+      keyPair: DPoPKeyPair(
+        publicKey: session.dpopPublicKey,
+        privateKey: session.dpopPrivateKey,
+      ),
+      bodyParams: {
+        'client_id': session.clientId,
+        'token': refreshToken ?? session.accessToken,
+        'token_type_hint': refreshToken == null
+            ? 'access_token'
+            : 'refresh_token',
+      },
+    );
   }
 
   /// Restores a stored session for [sub], refreshing it if it has expired.
@@ -714,6 +772,11 @@ final class OAuthClient {
       'authorization_endpoint',
     );
     _requireSameOriginHttps(metadata.tokenEndpoint, origin, 'token_endpoint');
+    _requireSameOriginHttps(
+      metadata.revocationEndpoint,
+      origin,
+      'revocation_endpoint',
+    );
   }
 
   /// Throws an [OAuthException] unless [endpoint] (when present) is an

@@ -18,6 +18,7 @@ final class OAuthServerMetadata {
     this.pushedAuthorizationRequestEndpoint,
     this.authorizationEndpoint,
     this.tokenEndpoint,
+    this.revocationEndpoint,
     this.scopesSupported,
   });
 
@@ -41,6 +42,7 @@ final class OAuthServerMetadata {
       ),
       authorizationEndpoint: asString('authorization_endpoint'),
       tokenEndpoint: asString('token_endpoint'),
+      revocationEndpoint: asString('revocation_endpoint'),
       scopesSupported: scopes is List
           ? scopes.whereType<String>().toList()
           : null,
@@ -59,6 +61,9 @@ final class OAuthServerMetadata {
   /// The URL of the token endpoint.
   final String? tokenEndpoint;
 
+  /// The URL of the token revocation endpoint (RFC 7009), if published.
+  final String? revocationEndpoint;
+
   /// The OAuth scopes supported by this server, if published.
   final List<String>? scopesSupported;
 
@@ -68,6 +73,7 @@ final class OAuthServerMetadata {
         ?pushedAuthorizationRequestEndpoint,
     'authorization_endpoint': ?authorizationEndpoint,
     'token_endpoint': ?tokenEndpoint,
+    'revocation_endpoint': ?revocationEndpoint,
     'scopes_supported': ?scopesSupported,
   };
 }

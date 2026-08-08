@@ -185,6 +185,61 @@ void main() {
     expect(mgr.currentSession?.accessToken, 'access-2');
   });
 
+  group('timeout', () {
+    test('a hung refresh does not hold every caller forever', () async {
+      final client = OAuthClient(
+        _clientMetadata(),
+        signer: _RecordingSigner(),
+        // The token endpoint never answers. Without a bound, the single
+        // flight in _refresh holds every request on this manager behind it
+        // for as long as the server stays silent.
+        httpClient: MockClient((r) async {
+          if (r.url.path == '/.well-known/oauth-authorization-server') {
+            return _json({
+              'issuer': 'https://bsky.social',
+              'token_endpoint': 'https://bsky.social/oauth/token',
+            });
+          }
+          await Completer<void>().future;
+          throw StateError('unreachable');
+        }),
+      );
+
+      final mgr = OAuthSessionManager.fromSession(
+        // Already expired, so getSession() must go through _refresh.
+        _session(
+          expiresAt: DateTime.now().toUtc().subtract(
+            const Duration(minutes: 5),
+          ),
+        ),
+        client: client,
+        timeout: const Duration(milliseconds: 50),
+      );
+
+      await expectLater(mgr.getSession(), throwsA(isA<TimeoutException>()));
+    });
+
+    test('a hung restore does not hold every caller forever', () async {
+      final client = OAuthClient(
+        _clientMetadata(),
+        sessionStore: _HangingSessionStore(),
+        signer: _RecordingSigner(),
+      );
+
+      final mgr = OAuthSessionManager(
+        client,
+        sub: 'did:plc:abc',
+        timeout: const Duration(milliseconds: 50),
+      );
+
+      await expectLater(mgr.getSession(), throwsA(isA<TimeoutException>()));
+    });
+
+    test('defaults to 30s, matching the legacy refresh bound', () {
+      expect(defaultOAuthSessionTimeout, const Duration(seconds: 30));
+    });
+  });
+
   test('buildAuthHeaders strips query/fragment from the DPoP htu', () async {
     final signer = _RecordingSigner();
     final mgr = OAuthSessionManager.fromSession(_session(), signer: signer);
@@ -256,6 +311,20 @@ class _RacingSessionStore implements OAuthSessionStore {
 
   @override
   Future<void> delete(final String sub) async => _store.remove(sub);
+}
+
+/// An [OAuthSessionStore] whose reads never complete, standing in for durable
+/// storage that has wedged (a locked keychain, a stalled platform channel).
+class _HangingSessionStore implements OAuthSessionStore {
+  @override
+  Future<OAuthSession?> find(final String sub) =>
+      Completer<OAuthSession?>().future;
+
+  @override
+  Future<void> set(final String sub, final OAuthSession session) async {}
+
+  @override
+  Future<void> delete(final String sub) async {}
 }
 
 class _RecordingSigner implements DPoPSigner {

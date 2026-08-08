@@ -17,6 +17,7 @@ void main() {
             'https://bsky.social/oauth/par',
         'authorization_endpoint': 'https://bsky.social/oauth/authorize',
         'token_endpoint': 'https://bsky.social/oauth/token',
+        'revocation_endpoint': 'https://bsky.social/oauth/revoke',
         'scopes_supported': ['atproto', 'transition:generic'],
       });
 
@@ -30,6 +31,7 @@ void main() {
         'https://bsky.social/oauth/authorize',
       );
       expect(metadata.tokenEndpoint, 'https://bsky.social/oauth/token');
+      expect(metadata.revocationEndpoint, 'https://bsky.social/oauth/revoke');
       expect(metadata.scopesSupported, ['atproto', 'transition:generic']);
     });
 
@@ -42,6 +44,7 @@ void main() {
       expect(metadata.pushedAuthorizationRequestEndpoint, isNull);
       expect(metadata.authorizationEndpoint, isNull);
       expect(metadata.tokenEndpoint, isNull);
+      expect(metadata.revocationEndpoint, isNull);
       expect(metadata.scopesSupported, isNull);
     });
 

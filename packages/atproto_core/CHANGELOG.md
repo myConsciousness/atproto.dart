@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.4.1
+
+- chore: bump `atproto_oauth` to `^0.8.0`.
+
 ## v2.4.0
 
 - fix: `decodeCar` validates the CAR header length instead of trusting it. A truncated archive whose header varint claimed more bytes than exist pushed the cursor past the end and decoded to an EMPTY map — a truncated repository export looked like an empty repository, silently losing every block. It now throws `CarException`, the same contract the block-length check already honored.

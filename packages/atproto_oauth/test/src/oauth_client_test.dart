@@ -126,6 +126,7 @@ bool _isWellKnown(final http.Request r) =>
     r.url.path == '/.well-known/oauth-authorization-server';
 bool _isPar(final http.Request r) => r.url.path == '/oauth/par';
 bool _isToken(final http.Request r) => r.url.path == '/oauth/token';
+bool _isRevoke(final http.Request r) => r.url.path == '/oauth/revoke';
 
 Map<String, dynamic> _tokenBody({
   final String? refreshToken = 'refresh-token-1',
@@ -1153,38 +1154,44 @@ void main() {
       },
     );
 
-    test('invalid_grant does not clobber a newer stored session', () async {
-      final sessionStore = InMemoryOAuthSessionStore();
-      // A newer session (rotated refresh token) is already in the store, e.g.
-      // because a concurrent refresh already rotated it.
-      await sessionStore.set(
-        _sub,
-        _sessionWith(refreshToken: 'refresh-token-2'),
-      );
-      final client = OAuthClient(
-        _metadata(),
-        sessionStore: sessionStore,
-        signer: _StubSigner(),
-        httpClient: MockClient((r) async {
-          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
-          if (_isToken(r)) {
-            return _json({'error': 'invalid_grant'}, status: 400);
-          }
-          return http.Response('unexpected', 500);
-        }),
-      );
+    test(
+      'invalid_grant on a stale token returns the newer stored session',
+      () async {
+        final sessionStore = InMemoryOAuthSessionStore();
+        // A newer session (rotated refresh token) is already in the store, e.g.
+        // because a concurrent refresh already rotated it.
+        await sessionStore.set(
+          _sub,
+          _sessionWith(refreshToken: 'refresh-token-2'),
+        );
+        final client = OAuthClient(
+          _metadata(),
+          sessionStore: sessionStore,
+          signer: _StubSigner(),
+          httpClient: MockClient((r) async {
+            if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+            if (_isToken(r)) {
+              return _json({'error': 'invalid_grant'}, status: 400);
+            }
+            return http.Response('unexpected', 500);
+          }),
+        );
 
-      // Refreshing a STALE session (old refresh token) gets invalid_grant, but
-      // the newer stored session must survive.
-      await expectLater(
-        () => client.refresh(_sessionWith(refreshToken: 'refresh-token-1')),
-        throwsA(isA<OAuthSessionRevokedException>()),
-      );
+        // Refreshing a STALE session (old refresh token) gets invalid_grant.
+        // That only says the token this call tried was already spent; it says
+        // nothing about the session now in the store, so the caller must get
+        // that valid session back rather than a revoked-session error that
+        // would log the account out.
+        final result = await client.refresh(
+          _sessionWith(refreshToken: 'refresh-token-1'),
+        );
+        expect(result.refreshToken, 'refresh-token-2');
 
-      final stored = await sessionStore.find(_sub);
-      expect(stored, isNotNull);
-      expect(stored!.refreshToken, 'refresh-token-2');
-    });
+        final stored = await sessionStore.find(_sub);
+        expect(stored, isNotNull);
+        expect(stored!.refreshToken, 'refresh-token-2');
+      },
+    );
 
     test(
       'invalid_grant deletes the session and throws OAuthSessionRevoked',
@@ -1573,10 +1580,140 @@ void main() {
         _metadata(),
         sessionStore: sessionStore,
         signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          return http.Response('unexpected', 500);
+        }),
       );
 
       await client.revoke(_sessionWith());
       expect(await sessionStore.find(_sub), isNull);
+    });
+
+    test('POSTs an RFC 7009 revocation for the refresh token', () async {
+      final recorder = _Recorder();
+      final sessionStore = InMemoryOAuthSessionStore();
+      await sessionStore.set(_sub, _sessionWith());
+      final client = OAuthClient(
+        _metadata(),
+        sessionStore: sessionStore,
+        signer: _StubSigner(),
+        httpClient: recorder.build((r) async {
+          if (_isWellKnown(r)) {
+            return _json({
+              ..._serverMetadataDoc(),
+              'revocation_endpoint': '$_origin/oauth/revoke',
+            });
+          }
+          if (_isRevoke(r)) return http.Response('', 200);
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await client.revoke(_sessionWith());
+
+      final revocation = recorder.requests.firstWhere(_isRevoke);
+      final body = Uri.splitQueryString(revocation.body);
+      // The refresh token is revoked in preference to the access token: it
+      // takes the whole grant down, whereas revoking an access token leaves
+      // the refresh token able to mint new ones.
+      expect(body['token'], 'refresh-token-1');
+      expect(body['token_type_hint'], 'refresh_token');
+      expect(body['client_id'], _clientId);
+      expect(revocation.headers['DPoP'], isNotNull);
+
+      expect(await sessionStore.find(_sub), isNull);
+    });
+
+    test(
+      'falls back to the access token when no refresh token is held',
+      () async {
+        final recorder = _Recorder();
+        final client = OAuthClient(
+          _metadata(),
+          signer: _StubSigner(),
+          httpClient: recorder.build((r) async {
+            if (_isWellKnown(r)) {
+              return _json({
+                ..._serverMetadataDoc(),
+                'revocation_endpoint': '$_origin/oauth/revoke',
+              });
+            }
+            if (_isRevoke(r)) return http.Response('', 200);
+            return http.Response('unexpected', 500);
+          }),
+        );
+
+        await client.revoke(_sessionWith(refreshToken: null));
+
+        final body = Uri.splitQueryString(
+          recorder.requests.firstWhere(_isRevoke).body,
+        );
+        expect(body['token'], 'old-access');
+        expect(body['token_type_hint'], 'access_token');
+      },
+    );
+
+    test('skips the network when the server publishes no endpoint', () async {
+      final recorder = _Recorder();
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: recorder.build((r) async {
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await client.revoke(_sessionWith());
+
+      // There is no conventional atproto path to guess at, so nothing beyond
+      // discovery is sent.
+      expect(recorder.requests.where(_isRevoke), isEmpty);
+    });
+
+    test(
+      'still deletes locally when the server-side revocation fails',
+      () async {
+        final sessionStore = InMemoryOAuthSessionStore();
+        await sessionStore.set(_sub, _sessionWith());
+        final client = OAuthClient(
+          _metadata(),
+          sessionStore: sessionStore,
+          signer: _StubSigner(),
+          // Every request blows up: a logout must not be blocked by an
+          // unreachable authorization server.
+          httpClient: MockClient(
+            (r) async => throw http.ClientException('down'),
+          ),
+        );
+
+        await client.revoke(_sessionWith());
+        expect(await sessionStore.find(_sub), isNull);
+      },
+    );
+
+    test('rejects an off-origin revocation_endpoint', () async {
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: MockClient((r) async {
+          if (_isWellKnown(r)) {
+            return _json({
+              ..._serverMetadataDoc(),
+              'revocation_endpoint': 'https://evil.example/oauth/revoke',
+            });
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      // `revoke` swallows it (best-effort), but the same metadata must be
+      // rejected outright on the paths that carry credentials.
+      await expectLater(
+        () => client.refresh(_sessionWith()),
+        throwsA(isA<OAuthException>()),
+      );
     });
   });
 

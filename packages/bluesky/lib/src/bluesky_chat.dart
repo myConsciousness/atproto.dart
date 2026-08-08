@@ -141,9 +141,11 @@ sealed class BlueskyChat {
   /// than two independent clients. Two managers restored from one
   /// [oauth.OAuthSession] each hold their own copy of it, and a rotating
   /// refresh token is only honoured once: whichever refreshes first spends it,
-  /// and the other's refresh comes back as an `OAuthSessionRevokedException`
-  /// — the signal to send the user back through authorization — for a session
-  /// that was working moments earlier. Build the manager yourself and pass it
+  /// and the other then spends a wasted token request discovering that. It
+  /// recovers — the rejected refresh falls back to whatever the shared
+  /// [oauth.OAuthClient]'s session store now holds — but only because both
+  /// managers happen to read the same store, and each still keeps its own
+  /// in-memory copy in the meantime. Build the manager yourself and pass it
   /// to [BlueskyChat.fromOAuth] when more than one client shares an account.
   factory BlueskyChat.fromOAuthSession(
     final oauth.OAuthSession session, {
@@ -157,7 +159,11 @@ sealed class BlueskyChat {
     final core.GetClient? getClient,
     final core.PostClient? postClient,
   }) => BlueskyChat.fromOAuth(
-    oauth.OAuthSessionManager.fromSession(session, client: oauthClient),
+    oauth.OAuthSessionManager.fromSession(
+      session,
+      client: oauthClient,
+      timeout: timeout,
+    ),
     headers: headers,
     protocol: protocol,
     service: service,
