@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.1
+
+- **security**: the metadata, PAR and token requests no longer follow HTTP redirects. v0.7.0 host-checks the authorization-server origin, but a `3xx` from it would let the server pivot the follow-up (a DPoP-signed PAR/token POST) onto another host, re-opening that SSRF. A `3xx` now surfaces as a response the caller rejects, or — for metadata discovery — falls back from, rather than being chased.
+
 ## v0.7.0
 
 - **security**: the authorization server discovered from a PDS's `oauth-protected-resource` metadata (RFC 9728) is now held to the same SSRF host policy the identity resolver applies to the PDS itself. The PDS host was validated, but the `authorization_servers` entry — attacker-influenced, since it comes from a PDS reached via an attacker-supplied handle — was taken verbatim (only `isAbsolute` was checked). An entry such as `https://10.0.0.5:9200` or `https://169.254.169.254` would direct the client's DPoP-signed PAR/token requests at an internal host: a blind SSRF. The AS host is now rejected unless it is an https bare origin on a non-reserved host, mirroring the PDS check.

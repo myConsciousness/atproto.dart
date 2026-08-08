@@ -9,7 +9,7 @@ environment:
 dependencies:
   github: ^9.12.0
   http: ^1.4.0
-  lex_gen: ^0.4.10
+  lex_gen: ^0.4.11
   lexicon: ^1.2.9
   pubspec: ^2.3.0
   test: ^1.26.2
