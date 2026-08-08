@@ -602,16 +602,39 @@ final class OAuthClient {
     return session;
   }
 
-  Future<http.Response> _get(final Uri url) async =>
-      _httpClient == null ? await http.get(url) : await _httpClient.get(url);
+  /// Sends [request] with redirect-following disabled.
+  ///
+  /// The metadata, PAR and token endpoints are exact URLs, not resources that
+  /// should redirect. The AS origin is host-checked once (see
+  /// `_resolveAuthorizationServer`), but a `3xx` from it would let the server
+  /// pivot the follow-up — a DPoP-signed PAR/token POST — onto another host,
+  /// re-opening the SSRF the host check closes. Following is off, so a `3xx`
+  /// surfaces as a response the caller rejects (or, for metadata discovery,
+  /// falls back from) instead of being chased.
+  Future<http.Response> _send(final http.Request request) async {
+    request.followRedirects = false;
+    final client = _httpClient ?? http.Client();
+    try {
+      return await http.Response.fromStream(await client.send(request));
+    } finally {
+      if (_httpClient == null) client.close();
+    }
+  }
+
+  Future<http.Response> _get(final Uri url) => _send(http.Request('GET', url));
 
   Future<http.Response> _post(
     final Uri url, {
     final Map<String, String>? headers,
-    final Object? body,
-  }) async => _httpClient == null
-      ? await http.post(url, headers: headers, body: body)
-      : await _httpClient.post(url, headers: headers, body: body);
+    final Map<String, String>? body,
+  }) {
+    final request = http.Request('POST', url);
+    if (headers != null) request.headers.addAll(headers);
+    // A map body is `application/x-www-form-urlencoded`, matching what
+    // `http.post` did with a `Map` body (which every caller passes).
+    if (body != null) request.bodyFields = body;
+    return _send(request);
+  }
 
   /// Fetches RFC 8414 metadata from
   /// `https://<authority>/.well-known/oauth-authorization-server`, validating

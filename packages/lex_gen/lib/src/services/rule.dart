@@ -379,8 +379,55 @@ String getLexKnownValuesElementName(
 
   val = toFirstLowerCase(val);
 
-  return val == 'default' ? 'defaultValue' : val;
+  // A knownValue whose camelCased form lands on a Dart reserved word cannot be
+  // emitted as a bare enum member — `default` was special-cased, but `new`,
+  // `in`, `class`, `is`, … would each produce uncompilable output. Suffix any
+  // reserved word with `Value` (which is exactly what `default` already got),
+  // so the whole class is handled instead of the one member that happened to
+  // appear in the corpus. No current knownValue other than `default` hits this,
+  // so generated output is unchanged.
+  return _dartReservedWords.contains(val) ? '${val}Value' : val;
 }
+
+/// Dart reserved words — those that may never be used as a plain identifier, so
+/// a generated enum member named after one would not compile. (Built-in
+/// identifiers like `abstract`/`static`/`dynamic` are legal as enum members and
+/// are deliberately excluded.)
+const _dartReservedWords = <String>{
+  'assert',
+  'break',
+  'case',
+  'catch',
+  'class',
+  'const',
+  'continue',
+  'default',
+  'do',
+  'else',
+  'enum',
+  'extends',
+  'false',
+  'final',
+  'finally',
+  'for',
+  'if',
+  'in',
+  'is',
+  'new',
+  'null',
+  'rethrow',
+  'return',
+  'super',
+  'switch',
+  'this',
+  'throw',
+  'true',
+  'try',
+  'var',
+  'void',
+  'while',
+  'with',
+};
 
 String getNamespaceIdForApi(final String lexiconId) {
   return toFirstLowerCase(Nsid(lexiconId).pascalCase());

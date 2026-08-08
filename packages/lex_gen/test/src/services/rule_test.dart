@@ -144,5 +144,44 @@ void main() {
     test('escapes the reserved "default" identifier', () {
       expect(rule.getLexKnownValuesElementName('default'), 'defaultValue');
     });
+
+    test('escapes every Dart reserved word, not just "default"', () {
+      for (final word in const [
+        'new',
+        'in',
+        'is',
+        'class',
+        'for',
+        'while',
+        'if',
+        'else',
+        'enum',
+        'true',
+        'false',
+        'null',
+        'void',
+        'this',
+        'switch',
+        'return',
+        'const',
+        'final',
+        'with',
+      ]) {
+        expect(
+          rule.getLexKnownValuesElementName(word),
+          '${word}Value',
+          reason: 'reserved word "$word" must be escaped',
+        );
+      }
+    });
+
+    test('leaves a non-reserved identifier untouched', () {
+      // Built-in identifiers (legal as enum members) and ordinary words must
+      // NOT be suffixed.
+      expect(rule.getLexKnownValuesElementName('static'), 'static');
+      expect(rule.getLexKnownValuesElementName('dynamic'), 'dynamic');
+      expect(rule.getLexKnownValuesElementName('spam'), 'spam');
+      expect(rule.getLexKnownValuesElementName('nsfw'), 'nsfw');
+    });
   });
 }

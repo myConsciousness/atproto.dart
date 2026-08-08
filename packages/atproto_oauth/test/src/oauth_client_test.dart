@@ -1413,6 +1413,68 @@ void main() {
     });
   });
 
+  group('authorization-server redirects are not followed', () {
+    test('a 3xx from the AS metadata endpoint is not chased off-host', () async {
+      // The metadata endpoint 302s toward an internal host. Following it would
+      // pivot the DPoP-signed follow-ups there; instead the non-200 must make
+      // discovery fall back to the default endpoint layout on the SAME origin,
+      // and nothing must ever reach the redirect target.
+      final recorder = _Recorder();
+      final client = OAuthClient(
+        _metadata(),
+        signer: _StubSigner(),
+        httpClient: recorder.build((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) {
+            return http.Response(
+              '',
+              302,
+              headers: {
+                'location':
+                    'https://169.254.169.254/.well-known/'
+                    'oauth-authorization-server',
+              },
+            );
+          }
+          if (_isPar(r)) {
+            return _json({
+              'request_uri': 'urn:ietf:params:oauth:request_uri:xyz',
+            }, status: 201);
+          }
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      final url = await client.authorize(_handle);
+
+      // Fell back to the same-origin default layout, and PAR still went to the
+      // validated origin — never to the redirect target.
+      expect(url.toString(), startsWith('$_origin/oauth/authorize'));
+      expect(
+        recorder.requests.any((r) => r.url.host == '169.254.169.254'),
+        isFalse,
+        reason: 'no request may reach the redirect target host',
+      );
+
+      // MockClient never follows redirects on its own, so assert the fix
+      // directly: every request the client issues to the AS carries
+      // followRedirects=false, which is what makes a real IOClient surface a
+      // 3xx instead of chasing it.
+      final asRequests = recorder.requests.where(
+        (r) => _isWellKnown(r) || _isPar(r),
+      );
+      expect(asRequests, isNotEmpty);
+      for (final r in asRequests) {
+        expect(
+          r.followRedirects,
+          isFalse,
+          reason: '${r.url} must be sent with followRedirects=false',
+        );
+      }
+    });
+  });
+
   group('scope validation (atproto profile)', () {
     Future<OAuthSession> exchangeWithScope(final String? scope) async {
       final stateStore = InMemoryOAuthStateStore();
