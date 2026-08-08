@@ -145,13 +145,19 @@ final class OAuthClient {
     final DPoPNonceCache? nonceCache,
     final DPoPSigner? signer,
     final http.Client? httpClient,
+    final bool allowPrivateNetwork = false,
   }) : _identityResolver =
-           identityResolver ?? HttpIdentityResolver(httpClient: httpClient),
+           identityResolver ??
+           HttpIdentityResolver(
+             httpClient: httpClient,
+             allowPrivateNetwork: allowPrivateNetwork,
+           ),
        _stateStore = stateStore ?? InMemoryOAuthStateStore(),
        _sessionStore = sessionStore ?? InMemoryOAuthSessionStore(),
        _nonceCache = nonceCache ?? InMemoryDPoPNonceCache(),
        _signer = signer ?? const PointyCastleDPoPSigner(),
-       _httpClient = httpClient;
+       _httpClient = httpClient,
+       _allowPrivateNetwork = allowPrivateNetwork;
 
   /// Client metadata to be used during authentication.
   final OAuthClientMetadata metadata;
@@ -172,6 +178,11 @@ final class OAuthClient {
   ///
   /// When `null`, the default top-level `package:http` functions are used.
   final http.Client? _httpClient;
+
+  /// Whether the client may reach private-network hosts. Applied both to the
+  /// default identity resolver and to the authorization-server host derived
+  /// from PDS metadata; defaults to `false` (blind SSRF protection).
+  final bool _allowPrivateNetwork;
 
   /// Maximum number of `use_dpop_nonce` retries per request (RFC 9449
   /// Section 8). A well-behaved server needs at most one retry; the hard cap
@@ -802,7 +813,7 @@ final class OAuthClient {
   /// (RFC 9728), reads the first entry of `authorization_servers`, and
   /// returns it as an absolute [Uri]. Used by [authorize] to discover the
   /// authorization server (entryway) for a given PDS.
-  static Future<Uri> _resolveAuthorizationServer(
+  Future<Uri> _resolveAuthorizationServer(
     final String pdsOrigin,
     final http.Client? httpClient,
   ) async {
@@ -841,6 +852,39 @@ final class OAuthClient {
       throw OAuthException(
         'Protected resource metadata at "$metadataUri" declares an invalid '
         'authorization server: "$first"',
+      );
+    }
+
+    //* The PDS this metadata came from was host-checked by the identity
+    //* resolver, but its `authorization_servers` entry is attacker-influenced
+    //* and, unchecked, would point the client's DPoP-signed PAR/token requests
+    //* at whatever host it names — a blind SSRF into internal services. Hold
+    //* the AS to the same policy the resolver applies to a PDS: an https bare
+    //* origin whose host is not private/loopback/reserved.
+    if (!serverUri.isScheme('https') && !_allowPrivateNetwork) {
+      throw OAuthException(
+        'Protected resource metadata at "$metadataUri" declares a non-https '
+        'authorization server: "$first"',
+      );
+    }
+    if (serverUri.userInfo.isNotEmpty ||
+        serverUri.hasQuery ||
+        serverUri.hasFragment) {
+      throw OAuthException(
+        'Protected resource metadata at "$metadataUri" declares an '
+        'authorization server that is not a bare origin: "$first"',
+      );
+    }
+    try {
+      ensureNonReservedHost(
+        serverUri.host,
+        allowPrivateNetwork: _allowPrivateNetwork,
+        what: 'authorization server host',
+      );
+    } on IdentityException catch (e) {
+      throw OAuthException(
+        'Protected resource metadata at "$metadataUri" declares an '
+        'authorization server on a rejected host: ${e.message}',
       );
     }
 

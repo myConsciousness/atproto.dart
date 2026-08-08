@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.7.0
+
+- **security**: the authorization server discovered from a PDS's `oauth-protected-resource` metadata (RFC 9728) is now held to the same SSRF host policy the identity resolver applies to the PDS itself. The PDS host was validated, but the `authorization_servers` entry — attacker-influenced, since it comes from a PDS reached via an attacker-supplied handle — was taken verbatim (only `isAbsolute` was checked). An entry such as `https://10.0.0.5:9200` or `https://169.254.169.254` would direct the client's DPoP-signed PAR/token requests at an internal host: a blind SSRF. The AS host is now rejected unless it is an https bare origin on a non-reserved host, mirroring the PDS check.
+- **feat**: `OAuthClient` accepts `allowPrivateNetwork` (default `false`), applied to both the default identity resolver and the authorization-server host check, so a development deployment can opt private-network hosts back in.
+
 ## v0.6.0
 
 - fix: `OAuthSessionManager.refreshOnUnauthorized` accepts the access token the failed request actually carried, and skips the refresh when it has already been rotated past. The single flight only coalesces requests that overlap an in-progress refresh; a request already on the wire with the superseded token 401s afterwards, and each such response used to chain another rotation — spending an unused refresh token and emitting an `onSessionUpdated` the owner has to persist. A stale `401` is now simply retried with the current session.

@@ -686,6 +686,50 @@ bool _isProhibitedIpv6(final List<int> b) {
       b[0] == 0xff; // ff00::/8 multicast
 }
 
+/// Holds [host] to the same SSRF policy [HttpIdentityResolver] applies to a PDS
+/// endpoint, returning the normalized host on success and throwing an
+/// [IdentityException] otherwise.
+///
+/// Exposed so a caller that derives a *further* network target from resolver
+/// output can hold it to the same bar. The motivating case is OAuth: the PDS a
+/// handle resolves to is host-checked by the resolver, but the authorization
+/// server taken from that PDS's `oauth-protected-resource` metadata (RFC 9728)
+/// is attacker-influenced too, and without this check points the client's
+/// DPoP-signed requests at whatever host the metadata names — a blind SSRF into
+/// internal services.
+///
+/// Rejects `localhost` and IP literals in loopback, private, link-local,
+/// carrier-grade NAT, unique-local, multicast, unspecified, or otherwise
+/// reserved ranges, unless [allowPrivateNetwork] is set. Like the resolver,
+/// only IP *literals* are range-checked — no DNS is resolved (web/WASM
+/// limitation), so pair this with egress controls for defense in depth. [what]
+/// names the host in error messages.
+String ensureNonReservedHost(
+  final String host, {
+  final bool allowPrivateNetwork = false,
+  final String what = 'host',
+}) {
+  final normalized = _normalizeHostname(host, what: what);
+
+  if (allowPrivateNetwork) return normalized;
+
+  if (normalized == 'localhost' || normalized.endsWith('.localhost')) {
+    throw IdentityException(
+      '$what "$normalized" resolves to the local host and is rejected '
+      '(set allowPrivateNetwork: true to permit private-network hosts)',
+    );
+  }
+  if (_isProhibitedIpLiteral(normalized)) {
+    throw IdentityException(
+      '$what "$normalized" is a private, loopback, link-local, multicast, '
+      'or otherwise reserved IP literal and is rejected '
+      '(set allowPrivateNetwork: true to permit private-network hosts)',
+    );
+  }
+
+  return normalized;
+}
+
 /// Parses a user-supplied host or URL into an `https`/`http` [Uri]. A bare
 /// hostname is treated as `https://<host>`.
 Uri _parseHttpOrigin(final String input, {required final String what}) {
