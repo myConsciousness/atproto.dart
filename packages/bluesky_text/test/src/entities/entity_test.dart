@@ -4,6 +4,7 @@ import 'package:test/test.dart';
 // Project imports:
 import 'package:bluesky_text/src/entities/byte_indices.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
+import '_mock_resolve_handle.dart';
 
 void main() {
   group('.toFacet', () {
@@ -14,7 +15,11 @@ void main() {
         indices: ByteIndices(start: 0, end: 0),
       );
 
-      final facet = await entity.toFacet();
+      final facet = await entity.toFacet(
+        client: mockResolveHandle(const {
+          'shinyakato.dev': 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        }),
+      );
 
       expect(facet, {
         '\$type': 'app.bsky.richtext.facet',
@@ -39,7 +44,8 @@ void main() {
         indices: ByteIndices(start: 0, end: 0),
       );
 
-      final facet = await entity.toFacet();
+      //* Unknown to the mock -> 400 InvalidRequest -> swallowed to `{}`.
+      final facet = await entity.toFacet(client: mockResolveHandle(const {}));
 
       expect(facet, {});
     });
@@ -51,7 +57,7 @@ void main() {
         indices: ByteIndices(start: 0, end: 0),
       );
 
-      final facet = await entity.toFacet();
+      final facet = await entity.toFacet(client: mockResolveHandle(const {}));
 
       expect(facet, {});
     });
@@ -81,15 +87,24 @@ void main() {
       });
     });
 
-    test('case5', () async {
+    test('case5 service is forwarded to the resolution request', () async {
       final entity = Entity(
         type: EntityType.handle,
         value: 'shinyakato.dev',
         indices: ByteIndices(start: 0, end: 0),
       );
 
-      final facet = await entity.toFacet(service: 'bsky.social');
+      //* Assert the `service` reaches the request host, not just that a DID
+      //* comes back: a mock that ignored `service` would pass regardless.
+      Uri? seen;
+      final facet = await entity.toFacet(
+        service: 'bsky.social',
+        client: mockResolveHandle(const {
+          'shinyakato.dev': 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        }, onRequest: (uri) => seen = uri),
+      );
 
+      expect(seen?.host, 'bsky.social');
       expect(facet, {
         '\$type': 'app.bsky.richtext.facet',
         'index': {
@@ -106,18 +121,21 @@ void main() {
       });
     });
 
-    test('case6 network failure is surfaced, not silently swallowed', () async {
+    test('case6 a server error is surfaced, not silently swallowed', () async {
       final entity = Entity(
         type: EntityType.handle,
         value: 'shinyakato.dev',
         indices: ByteIndices(start: 0, end: 0),
       );
 
-      //* A DNS/connection failure (here, the unresolvable `test` host) must
-      //* propagate so the caller can detect a transient outage, instead of
-      //* silently dropping the mention by returning `{}` (audit T-17). Only a
-      //* genuine "handle not found" (`InvalidRequestException`) yields `{}`.
-      await expectLater(entity.toFacet(service: 'test'), throwsA(anything));
+      //* A 5xx (transient outage) must propagate so the caller can detect it,
+      //* instead of silently dropping the mention by returning `{}` (audit
+      //* T-17). Only a genuine "handle not found" (4xx
+      //* `InvalidRequestException`) yields `{}`, which case2/case3 cover.
+      await expectLater(
+        entity.toFacet(client: mockResolveHandle(const {}, status: 500)),
+        throwsA(anything),
+      );
     });
 
     test('case7', () async {

@@ -5,6 +5,9 @@
 // Dart imports:
 import 'dart:collection';
 
+// Package imports:
+import 'package:http/http.dart' as http;
+
 // Project imports:
 import 'entity.dart';
 
@@ -23,9 +26,19 @@ class Entities extends UnmodifiableListView<Entity> {
   /// `unresolvedHandles` lets the caller warn the user (or retry) rather than
   /// silently posting a mention-less message.
   Future<({List<Map<String, dynamic>> facets, List<String> unresolvedHandles})>
-  toFacetsResult({String? service, HandleResolver? resolver}) async {
+  toFacetsResult({
+    String? service,
+    HandleResolver? resolver,
+    http.Client? client,
+  }) async {
     final results = await Future.wait(
-      map((entity) => entity.toFacet(service: service, resolver: resolver)),
+      map(
+        (entity) => entity.toFacet(
+          service: service,
+          resolver: resolver,
+          client: client,
+        ),
+      ),
     );
 
     final facets = <Map<String, dynamic>>[];
@@ -53,6 +66,10 @@ class Entities extends UnmodifiableListView<Entity> {
   Future<List<Map<String, dynamic>>> toFacets({
     String? service,
     HandleResolver? resolver,
-  }) async =>
-      (await toFacetsResult(service: service, resolver: resolver)).facets;
+    http.Client? client,
+  }) async => (await toFacetsResult(
+    service: service,
+    resolver: resolver,
+    client: client,
+  )).facets;
 }

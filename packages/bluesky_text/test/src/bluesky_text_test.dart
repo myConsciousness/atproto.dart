@@ -11,6 +11,7 @@ import 'package:bluesky_text/src/bluesky_text.dart';
 import 'package:bluesky_text/src/config/link_config.dart';
 import 'package:bluesky_text/src/entities/entity.dart';
 import 'package:bluesky_text/src/unicode_string.dart';
+import 'entities/_mock_resolve_handle.dart';
 
 void main() {
   test('.value', () {
@@ -538,17 +539,28 @@ void main() {
         final text = BlueskyText('@alice.dev @bob.org @charlie.net');
         final handles = text.handles;
 
-        // Note: Facet generation may require actual DID resolution
-        // For now, just test that the method doesn't throw
-        expect(() async => await handles.toFacets(), returnsNormally);
+        //* Resolution is stubbed so this asserts the real facet output rather
+        //* than merely "does not throw" — and never touches the network.
+        final facets = await handles.toFacets(
+          client: mockResolveHandle(const {
+            'alice.dev': 'did:plc:alice',
+            'bob.org': 'did:plc:bob',
+            'charlie.net': 'did:plc:charlie',
+          }),
+        );
 
-        // Test basic structure if facets are generated
-        try {
-          final facets = await handles.toFacets();
-          expect(facets, isA<List>(), reason: 'Should return a list');
-        } catch (e) {
-          // Facet generation might fail without proper DID resolution
-          // This is acceptable for unit tests
+        expect(facets, hasLength(3));
+        expect(facets.map((f) => (f['features'] as List).single['did']), [
+          'did:plc:alice',
+          'did:plc:bob',
+          'did:plc:charlie',
+        ]);
+        for (final facet in facets) {
+          expect(facet[r'$type'], 'app.bsky.richtext.facet');
+          expect(
+            (facet['features'] as List).single[r'$type'],
+            'app.bsky.richtext.facet#mention',
+          );
         }
       });
 

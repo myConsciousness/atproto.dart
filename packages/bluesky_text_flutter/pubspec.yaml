@@ -20,7 +20,7 @@ topics:
 dependencies:
   flutter:
     sdk: flutter
-  bluesky_text: ^1.7.0
+  bluesky_text: ^1.8.0
 
 dev_dependencies:
   flutter_test:
