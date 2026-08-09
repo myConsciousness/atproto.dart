@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.6.0
+
+- feat: added `feed.buildPostText` and `feed.postText`, which turn plain text into a faceted `app.bsky.feed.post` in one call. Getting this right by hand took three steps the docs had to spell out — format first (markdown links only become link facets after formatting), post the *formatted* text rather than the input (facet ranges are byte offsets into it, so the original string points every link at the wrong characters), and convert `bluesky_text`'s facet maps into `RichtextFacet` models. `buildPostText` returns a `PostText` holding the formatted text and its facets together so the two cannot be separated by accident, and `postText` builds and publishes in one call.
+- fix: mentions are now resolved with `com.atproto.identity.resolveHandle` over this client's transport. `bluesky_text` on its own opens its own HTTP connection to a default host, so an account on a self-hosted PDS resolved its mentions against the wrong server, and none of the client's configuration — service, timeout, retry policy, custom `getClient`, proxy headers — applied to that call.
+- feat: a mention whose handle does not resolve is reported in `PostText.unresolvedHandles` (or through `postText`'s `onUnresolvedHandles`) instead of being silently dropped. It is not an error — the mention just stays plain text — but throwing from the callback aborts before the record is created, for an author who would rather fix a typo than publish a mention that renders as plain text.
+- chore: `bluesky_text` moves from a dev dependency to a runtime dependency. It brings no new transitive packages (`xrpc`, `http` and `characters` are already dependencies) and there is no cycle: `bluesky_text` does not depend on `bluesky`.
+
 ## v2.5.0
 
 - chore: bump `atproto` to `^2.5.0`, which adds `Firehose` and `CursorStore` to `package:bluesky/firehose.dart`.

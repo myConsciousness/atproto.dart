@@ -24,19 +24,17 @@ import '../../../codegen/app/bsky/richtext/facet/main.dart';
 /// freshly generated TID. Letting a caller set any of those would let it
 /// contradict the chain the batch is built to guarantee.
 ///
-/// [facets] are lexicon models, as in `feed.post.create`. `bluesky_text`
-/// emits facet maps, so convert them first:
+/// [facets] are lexicon models, as in `feed.post.create`. Use
+/// `bluesky.feed.buildPostText` to produce both fields from plain text:
 ///
 /// ```dart
-/// final data = await BlueskyText(text).toPostData();
-/// final post = ThreadPost(
-///   text: data.text,
-///   facets: data.facets.map(RichtextFacet.fromJson).toList(),
-/// );
+/// final built = await bluesky.feed.buildPostText(text);
+/// final post = ThreadPost(text: built.text, facets: built.facets);
 /// ```
 ///
-/// Note that `data.text` -- not the original string -- is what must be
-/// posted: facet indices are byte offsets into the formatted text.
+/// Note that `built.text` -- not the original string -- is what must be
+/// posted: facet indices are byte offsets into the formatted text, which is
+/// why [PostText] carries the two together.
 final class ThreadPost {
   /// Returns a new [ThreadPost].
   const ThreadPost({
