@@ -108,6 +108,29 @@ void main() {
       }
     });
 
+    test('defaults FEEDGEN_CURSOR_PATH and honours an override', () {
+      expect(
+        FeedGeneratorConfig.fromEnvironment(_baseEnv).cursorPath,
+        'firehose.cursor',
+      );
+      expect(
+        FeedGeneratorConfig.fromEnvironment({
+          ..._baseEnv,
+          'FEEDGEN_CURSOR_PATH': '/var/lib/feedgen/cursor',
+        }).cursorPath,
+        '/var/lib/feedgen/cursor',
+      );
+      // An empty value is the same as not setting it at all, so a blank
+      // variable cannot silently point the cursor file at the CWD root.
+      expect(
+        FeedGeneratorConfig.fromEnvironment({
+          ..._baseEnv,
+          'FEEDGEN_CURSOR_PATH': '',
+        }).cursorPath,
+        'firehose.cursor',
+      );
+    });
+
     test('defaults and validates FEEDGEN_STORE_CAPACITY', () {
       expect(
         FeedGeneratorConfig.fromEnvironment(_baseEnv).storeCapacity,

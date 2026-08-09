@@ -9,6 +9,7 @@ import 'package:atproto_identity/atproto_identity.dart';
 import 'package:feed_generator/src/algorithm/whats_hot_algorithm.dart';
 import 'package:feed_generator/src/config.dart';
 import 'package:feed_generator/src/identity/caching_identity_resolver.dart';
+import 'package:feed_generator/src/indexer/file_cursor_store.dart';
 import 'package:feed_generator/src/indexer/firehose_indexer.dart';
 import 'package:feed_generator/src/server/feed_generator_service.dart';
 import 'package:feed_generator/src/server/middleware.dart';
@@ -55,7 +56,15 @@ Future<void> main() async {
   // catchError guard only exists so an unexpected error escaping the loop is
   // logged instead of becoming an unhandled async error — the server keeps
   // serving whatever is already in the store either way.
-  final indexer = FirehoseIndexer(store);
+  //
+  // The cursor is persisted so a restart resumes where this process stopped
+  // rather than skipping to the live edge and losing everything that happened
+  // while it was down. A file is the simplest durable store; put the cursor in
+  // your database alongside the indexed data if you have one.
+  final indexer = FirehoseIndexer(
+    store,
+    cursorStore: FileCursorStore.at(config.cursorPath),
+  );
   unawaited(
     indexer.start().catchError(
       (Object e) => stderr.writeln('firehose indexer stopped unexpectedly: $e'),

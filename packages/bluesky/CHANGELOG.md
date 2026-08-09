@@ -1,5 +1,9 @@
 # Release Note
 
+## v2.5.0
+
+- chore: bump `atproto` to `^2.5.0`, which adds `Firehose` and `CursorStore` to `package:bluesky/firehose.dart`.
+
 ## v2.4.6
 
 - fix: `Bluesky.fromOAuthSession`, `BlueskyChat.fromOAuthSession` and `OzoneTool.fromOAuthSession` pass their `timeout` through to the `OAuthSessionManager` they build, so a hung restore or refresh is bounded by the timeout the caller asked for instead of running unbounded.
