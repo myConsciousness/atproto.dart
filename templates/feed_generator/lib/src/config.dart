@@ -15,6 +15,7 @@ final class FeedGeneratorConfig {
     this.feedDescription,
     this.port = 3000,
     this.storeCapacity = 10000,
+    this.cursorPath = 'firehose.cursor',
     required this.publisherHandle,
     this.publisherPassword,
   });
@@ -28,6 +29,7 @@ final class FeedGeneratorConfig {
   /// - `FEEDGEN_DISPLAY_NAME`     (default `What's Hot`)
   /// - `FEEDGEN_DESCRIPTION`      (optional)
   /// - `FEEDGEN_PORT`             (default `3000`)
+  /// - `FEEDGEN_CURSOR_PATH`      (default `firehose.cursor`)
   /// - `FEEDGEN_STORE_CAPACITY`   (default `10000`)
   ///
   /// `FEEDGEN_PUBLISHER_PASSWORD` is deliberately **not** read here: only
@@ -78,6 +80,11 @@ final class FeedGeneratorConfig {
       );
     }
 
+    final cursorPathRaw = env['FEEDGEN_CURSOR_PATH'];
+    final cursorPath = (cursorPathRaw == null || cursorPathRaw.isEmpty)
+        ? 'firehose.cursor'
+        : cursorPathRaw;
+
     final password = withPassword ? env['FEEDGEN_PUBLISHER_PASSWORD'] : null;
 
     return FeedGeneratorConfig(
@@ -87,6 +94,7 @@ final class FeedGeneratorConfig {
       feedDescription: env['FEEDGEN_DESCRIPTION'],
       port: port,
       storeCapacity: capacity,
+      cursorPath: cursorPath,
       publisherHandle: require('FEEDGEN_PUBLISHER_HANDLE'),
       publisherPassword: (password == null || password.isEmpty)
           ? null
@@ -151,6 +159,11 @@ final class FeedGeneratorConfig {
   /// [DateTime] per post) but not indexing throughput — the store evicts in
   /// O(1).
   final int storeCapacity;
+
+  /// Where the firehose cursor is persisted, so a restart resumes instead of
+  /// skipping to the live edge. Must survive the process — a path inside a
+  /// container's writable layer is lost on redeploy.
+  final String cursorPath;
 
   /// The handle of the account that publishes the feed generator record.
   final String publisherHandle;

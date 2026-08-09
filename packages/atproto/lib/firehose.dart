@@ -3,5 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 export 'package:atproto/com_atproto_sync_subscriberepos.dart';
+export 'package:atproto/src/firehose/cursor_store.dart';
+export 'package:atproto/src/firehose/firehose.dart';
 export 'package:atproto/src/firehose/firehose_adaptor.dart';
 export 'package:atproto/src/firehose/sync_subscribe_repos_adaptor.dart';

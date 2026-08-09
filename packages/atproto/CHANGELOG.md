@@ -1,5 +1,13 @@
 # Release Note
 
+## v2.5.0
+
+- feat: added `Firehose`, a durable `com.atproto.sync.subscribeRepos` consumer. It connects, hands each decoded message to a handler, reconnects with exponential backoff and jitter when the relay drops the connection, and — the part that was missing — persists how far it got so a restart resumes instead of skipping to the live edge. `subscribeReposAsMessages` is unchanged; `Firehose` is a layer on top of it, not a replacement.
+- feat: added `CursorStore` (with an `InMemoryCursorStore` default), the injection point for durable cursor storage, matching the `OAuthStateStore` / `OAuthSessionStore` / `DPoPNonceCache` pattern. `delete()` is part of the interface because a relay answers a cursor that is ahead of its own stream with `FutureCursor` on every reconnect: without a way to discard the cursor, a consumer that has read past its relay never recovers.
+- feat: `Firehose` takes a handler rather than exposing a `Stream`. A stream can only report when a message was *delivered*, never when the consumer finished with it, so advancing the cursor on delivery would lose everything in flight when a process dies — the exact loss a persisted cursor exists to prevent. The completion of the handler's future is the only evidence a message was handled, so delivery is at-least-once and handlers should be idempotent.
+- feat: cursor writes are batched (`flushEveryEvents`, default 100; `flushEveryInterval`, default 5s) because the full-network firehose runs at hundreds to thousands of events per second and a write per message would put the store on the hot path. The replay window after a crash is bounded by those same settings, and a flush is forced before every reconnect and on `stop()`.
+- feat: an `#info` `OutdatedCursor` is surfaced through `onError` as `FirehoseOutdatedCursorException` instead of passing silently. It means the relay no longer holds the requested cursor and resumed from the oldest event it does hold, so events have already been lost — without the signal the caller has no way to notice the gap.
+
 ## v2.4.2
 
 - fix: `ATProto.fromOAuthSession` passes its `timeout` through to the `OAuthSessionManager` it builds, so a hung restore or refresh is bounded by the timeout the caller asked for instead of running unbounded.
