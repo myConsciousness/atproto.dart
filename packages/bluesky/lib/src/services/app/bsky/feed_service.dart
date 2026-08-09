@@ -7,16 +7,152 @@ import 'dart:async';
 
 // Package imports:
 import 'package:atproto/com_atproto_repo_applywrites.dart';
+import 'package:atproto/com_atproto_repo_createrecord.dart';
 import 'package:atproto/com_atproto_services.dart';
 import 'package:atproto_core/atproto_core.dart';
+import 'package:bluesky_text/bluesky_text.dart' as text_api;
 
 // Project imports:
 import '../../codegen/app/bsky/feed/post/reply_ref.dart';
+import '../../codegen/app/bsky/feed/post/union_main_embed.dart';
+import '../../codegen/app/bsky/feed/post/union_main_labels.dart';
 import '../../codegen/app/bsky/feed_service.dart';
+import '../../codegen/app/bsky/richtext/facet/main.dart';
+import 'feed/post_text.dart';
 import 'feed/thread.dart';
 
 final class FeedServiceImpl extends FeedService {
   FeedServiceImpl(super.ctx);
+
+  /// Formats [text] and resolves its facets — mentions, links, hashtags —
+  /// returning both in the types `post.create` and [ThreadPost] take.
+  ///
+  /// Getting a faceted post right by hand takes three steps that are easy to
+  /// get subtly wrong, and this does all three:
+  ///
+  /// 1. **Format first, then resolve.** Markdown links only become link facets
+  ///    after formatting, so resolving before formatting silently loses them.
+  /// 2. **Post the formatted text, not the original.** Facet ranges are byte
+  ///    offsets into the formatted string; pairing them with the string that
+  ///    was passed in points every link at the wrong characters. [PostText]
+  ///    keeps the two together so they cannot be separated by accident.
+  /// 3. **Resolve mentions through this client.** Left to itself
+  ///    `bluesky_text` opens its own HTTP connection to a default host, so an
+  ///    account on a self-hosted PDS resolved its mentions against the wrong
+  ///    server — and none of the client's configuration (service, timeout,
+  ///    retry policy, custom `getClient`, proxy headers) applied to that call.
+  ///    Mentions are resolved with `com.atproto.identity.resolveHandle` on
+  ///    this client instead, so they travel the same path as every other
+  ///    request.
+  ///
+  /// A mention whose handle does not resolve carries no facet and is reported
+  /// in [PostText.unresolvedHandles] rather than dropped silently.
+  ///
+  /// Pass [handleResolver] to answer mention DIDs from a cache of your own
+  /// instead of one request per mention.
+  ///
+  /// ```dart
+  /// final built = await bluesky.feed.buildPostText(
+  ///   'hello @alice.bsky.social, see https://atprotodart.com #dart',
+  /// );
+  /// if (built.hasUnresolvedHandles) {
+  ///   print('could not resolve: ${built.unresolvedHandles}');
+  /// }
+  ///
+  /// // Ready for either call, with no conversion at the call site.
+  /// await bluesky.feed.post.create(text: built.text, facets: built.facets);
+  /// final threadPost = ThreadPost(text: built.text, facets: built.facets);
+  /// ```
+  ///
+  /// See [postText] to build and publish in one call.
+  Future<PostText> buildPostText(
+    final String text, {
+    final text_api.HandleResolver? handleResolver,
+  }) async {
+    final data = await text_api.BlueskyText(
+      text,
+    ).toPostData(resolver: handleResolver ?? _resolveHandle);
+
+    return PostText(
+      text: data.text,
+      facets: data.facets.map(RichtextFacet.fromJson).toList(),
+      unresolvedHandles: data.unresolvedHandles,
+    );
+  }
+
+  /// Resolves a mention's handle to a DID over this client's transport.
+  ///
+  /// Returns `null` when the handle does not resolve, which is how
+  /// `bluesky_text` reports it in `unresolvedHandles`. A failure here is not
+  /// fatal to the post: the mention simply stays plain text.
+  Future<String?> _resolveHandle(final String handle) async {
+    try {
+      final response = await comAtprotoIdentityResolveHandle(
+        handle: handle,
+        $ctx: ctx,
+      );
+
+      return response.data.did;
+    } on Exception {
+      return null;
+    }
+  }
+
+  /// Builds [text] with [buildPostText] and publishes it as an
+  /// `app.bsky.feed.post` in one call.
+  ///
+  /// Every other parameter is passed straight through to `post.create`.
+  ///
+  /// ```dart
+  /// await bluesky.feed.postText(
+  ///   'hello @alice.bsky.social, see https://atprotodart.com #dart',
+  /// );
+  /// ```
+  ///
+  /// [onUnresolvedHandles] is invoked, before the post is created, when a
+  /// mention could not be resolved. Throwing from it aborts the post; that is
+  /// the hook for an author who would rather fix a typo than publish a mention
+  /// that renders as plain text. Without it an unresolved mention is not an
+  /// error — the post is still valid — so use [buildPostText] when the
+  /// decision needs to be made somewhere other than a callback.
+  Future<XRPCResponse<RepoCreateRecordOutput>> postText(
+    final String text, {
+    final ReplyRef? reply,
+    final UFeedPostEmbed? embed,
+    final List<String>? langs,
+    final UFeedPostLabels? labels,
+    final List<String>? tags,
+    final DateTime? createdAt,
+    final String? rkey,
+    final bool? validate,
+    final String? swapCommit,
+    final text_api.HandleResolver? handleResolver,
+    final void Function(List<String> handles)? onUnresolvedHandles,
+    final Map<String, String>? $headers,
+    final Map<String, String>? $unknown,
+  }) async {
+    final built = await buildPostText(text, handleResolver: handleResolver);
+
+    if (built.hasUnresolvedHandles) {
+      onUnresolvedHandles?.call(built.unresolvedHandles);
+    }
+
+    return await post.create(
+      text: built.text,
+      facets: built.facets,
+      reply: reply,
+      embed: embed,
+      langs: langs,
+      labels: labels,
+      tags: tags,
+      createdAt: createdAt,
+      rkey: rkey,
+      validate: validate,
+      swapCommit: swapCommit,
+      $headers: $headers,
+      $unknown: $unknown,
+    );
+  }
 
   /// Publishes [posts] as one thread, in a single atomic commit, and returns
   /// each created post's strong ref in order.
