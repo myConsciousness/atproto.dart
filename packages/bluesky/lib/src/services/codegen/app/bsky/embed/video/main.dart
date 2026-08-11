@@ -38,7 +38,7 @@ abstract class EmbedVideo with _$EmbedVideo {
   const factory EmbedVideo({
     @Default('app.bsky.embed.video') String $type,
 
-    /// The mp4 video file. May be up to 100mb, formerly limited to 50mb.
+    /// The mp4 video file. May be up to 300mb, formerly limited to 100mb.
     @BlobConverter() required Blob video,
     @EmbedVideoCaptionConverter() List<EmbedVideoCaption>? captions,
 

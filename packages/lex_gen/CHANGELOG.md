@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.12
+
+- chore: bump `lexicon` to `^1.2.10`
+
 ## v0.4.11
 
 - **fix**: a `knownValues` entry whose camelCased form is a Dart reserved word (`new`, `in`, `is`, `class`, …) is now suffixed with `Value`, the same escape `default` already received, instead of emitting an uncompilable enum member. Generated output for the current lexicon corpus is unchanged — no value other than `default` triggers it.
