@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedVideo {
 
- String get $type;/// The mp4 video file. May be up to 100mb, formerly limited to 50mb.
+ String get $type;/// The mp4 video file. May be up to 300mb, formerly limited to 100mb.
 @BlobConverter() Blob get video;@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? get captions;/// Alt text description of the video, for accessibility.
  String? get alt;@AspectRatioConverter() AspectRatio? get aspectRatio;/// A hint to the client about how to present the video.
 @EmbedVideoPresentationConverter() EmbedVideoPresentation? get presentation; Map<String, dynamic>? get $unknown;
@@ -255,7 +255,7 @@ class _EmbedVideo implements EmbedVideo {
   factory _EmbedVideo.fromJson(Map<String, dynamic> json) => _$EmbedVideoFromJson(json);
 
 @override@JsonKey() final  String $type;
-/// The mp4 video file. May be up to 100mb, formerly limited to 50mb.
+/// The mp4 video file. May be up to 300mb, formerly limited to 100mb.
 @override@BlobConverter() final  Blob video;
  final  List<EmbedVideoCaption>? _captions;
 @override@EmbedVideoCaptionConverter() List<EmbedVideoCaption>? get captions {

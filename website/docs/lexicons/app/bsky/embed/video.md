@@ -9,7 +9,7 @@ description: app.bsky.embed.video
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **video** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | The mp4 video file. May be up to 100mb, formerly limited to 50mb. |
+| **video** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | The mp4 video file. May be up to 300mb, formerly limited to 100mb. |
 | **captions** | array of [#caption](#caption) | - | ❌ | - |
 | **alt** | string | - | ❌ | Alt text description of the video, for accessibility. |
 | **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
