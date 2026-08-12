@@ -1080,17 +1080,32 @@ const appBskyUnspeccedSearchPostsSkeleton =
 const appBskyUnspeccedSearchStarterPacksSkeleton =
     'app.bsky.unspecced.searchStarterPacksSkeleton';
 
+/// `app.bsky.video.abortUpload`
+const appBskyVideoAbortUpload = 'app.bsky.video.abortUpload';
+
 /// `app.bsky.video.defs`
 const appBskyVideoDefs = 'app.bsky.video.defs';
 
 /// `app.bsky.video.defs#jobStatus`
 const appBskyVideoDefsJobStatus = 'app.bsky.video.defs#jobStatus';
 
+/// `app.bsky.video.finishUpload`
+const appBskyVideoFinishUpload = 'app.bsky.video.finishUpload';
+
 /// `app.bsky.video.getJobStatus`
 const appBskyVideoGetJobStatus = 'app.bsky.video.getJobStatus';
 
 /// `app.bsky.video.getUploadLimits`
 const appBskyVideoGetUploadLimits = 'app.bsky.video.getUploadLimits';
+
+/// `app.bsky.video.getUploadStatus`
+const appBskyVideoGetUploadStatus = 'app.bsky.video.getUploadStatus';
+
+/// `app.bsky.video.startUpload`
+const appBskyVideoStartUpload = 'app.bsky.video.startUpload';
+
+/// `app.bsky.video.uploadPart`
+const appBskyVideoUploadPart = 'app.bsky.video.uploadPart';
 
 /// `app.bsky.video.uploadVideo`
 const appBskyVideoUploadVideo = 'app.bsky.video.uploadVideo';

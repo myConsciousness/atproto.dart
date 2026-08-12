@@ -335,8 +335,13 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[app.bsky.video.abortUpload](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/abortUpload.html)** | [Reference](lexicons/app/bsky/video/abortUpload.md) | ❌ |
+| **[app.bsky.video.finishUpload](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/finishUpload.html)** | [Reference](lexicons/app/bsky/video/finishUpload.md) | ❌ |
 | **[app.bsky.video.getJobStatus](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/getJobStatus.html)** | [Reference](lexicons/app/bsky/video/getJobStatus.md) | ❌ |
 | **[app.bsky.video.getUploadLimits](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/getUploadLimits.html)** | [Reference](lexicons/app/bsky/video/getUploadLimits.md) | ❌ |
+| **[app.bsky.video.getUploadStatus](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/getUploadStatus.html)** | [Reference](lexicons/app/bsky/video/getUploadStatus.md) | ❌ |
+| **[app.bsky.video.startUpload](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/startUpload.html)** | [Reference](lexicons/app/bsky/video/startUpload.md) | ❌ |
+| **[app.bsky.video.uploadPart](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/uploadPart.html)** | [Reference](lexicons/app/bsky/video/uploadPart.md) | ❌ |
 | **[app.bsky.video.uploadVideo](https://pub.dev/documentation/bluesky/latest/app_bsky_services/VideoService/uploadVideo.html)** | [Reference](lexicons/app/bsky/video/uploadVideo.md) | ❌ |
 
 ### chat.bsky.actor

@@ -672,11 +672,26 @@ const appBskyUnspeccedSearchStarterPacksSkeleton = NSID(
   ids.appBskyUnspeccedSearchStarterPacksSkeleton,
 );
 
+/// `app.bsky.video.abortUpload`
+const appBskyVideoAbortUpload = NSID(ids.appBskyVideoAbortUpload);
+
+/// `app.bsky.video.finishUpload`
+const appBskyVideoFinishUpload = NSID(ids.appBskyVideoFinishUpload);
+
 /// `app.bsky.video.getJobStatus`
 const appBskyVideoGetJobStatus = NSID(ids.appBskyVideoGetJobStatus);
 
 /// `app.bsky.video.getUploadLimits`
 const appBskyVideoGetUploadLimits = NSID(ids.appBskyVideoGetUploadLimits);
+
+/// `app.bsky.video.getUploadStatus`
+const appBskyVideoGetUploadStatus = NSID(ids.appBskyVideoGetUploadStatus);
+
+/// `app.bsky.video.startUpload`
+const appBskyVideoStartUpload = NSID(ids.appBskyVideoStartUpload);
+
+/// `app.bsky.video.uploadPart`
+const appBskyVideoUploadPart = NSID(ids.appBskyVideoUploadPart);
 
 /// `app.bsky.video.uploadVideo`
 const appBskyVideoUploadVideo = NSID(ids.appBskyVideoUploadVideo);

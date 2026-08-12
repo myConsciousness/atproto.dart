@@ -11,8 +11,13 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'video/abort_upload.dart';
+import 'video/finish_upload.dart';
 import 'video/get_job_status.dart';
 import 'video/get_upload_limits.dart';
+import 'video/get_upload_status.dart';
+import 'video/start_upload.dart';
+import 'video/upload_part.dart';
 import 'video/upload_video.dart';
 
 // **************************************************************************
@@ -21,8 +26,13 @@ import 'video/upload_video.dart';
 
 final class AppBskyVideoCommand extends Command<void> {
   AppBskyVideoCommand() {
+    addSubcommand(AbortUploadCommand());
+    addSubcommand(FinishUploadCommand());
     addSubcommand(GetJobStatusCommand());
     addSubcommand(GetUploadLimitsCommand());
+    addSubcommand(GetUploadStatusCommand());
+    addSubcommand(StartUploadCommand());
+    addSubcommand(UploadPartCommand());
     addSubcommand(UploadVideoCommand());
   }
 

@@ -1,5 +1,15 @@
 # Release Note
 
+## v2.6.2
+
+- feat: added `app.bsky.video.abortUpload`
+- chore: updated `app.bsky.video.defs#jobStatus.state`
+- feat: added `app.bsky.video.finishUpload`
+- feat: added `app.bsky.video.getUploadStatus`
+- feat: added `app.bsky.video.startUpload`
+- feat: added `app.bsky.video.uploadPart`
+- chore: regenerated from synced lexicons
+
 ## v2.6.1
 
 - chore: updated `app.bsky.embed.video.video`
