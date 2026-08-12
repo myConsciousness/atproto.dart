@@ -13,28 +13,24 @@ import 'package:lex_gen/src/model/lex_def_kind.dart';
 
 void main() {
   group('record command (L-15.3) — shared mixin', () {
-    final command = LexCommand(
-      NSID('app.bsky.feed.post'),
-      'A declaration of a post.',
-      [
-        LexCliParameter(
-          'text',
-          'The primary text.',
-          true,
-          null,
-          type: 'string',
-        ),
-        LexCliParameter(
-          'facets',
-          null,
-          false,
-          null,
-          type: 'array',
-          itemsType: 'union',
-        ),
-      ],
-      kind: LexCommandKind.record,
-    );
+    final command =
+        LexCommand(NSID('app.bsky.feed.post'), 'A declaration of a post.', [
+          LexCliParameter(
+            'text',
+            'The primary text.',
+            true,
+            null,
+            type: 'string',
+          ),
+          LexCliParameter(
+            'facets',
+            null,
+            false,
+            null,
+            type: 'array',
+            itemsType: 'union',
+          ),
+        ], kind: LexCommandKind.record);
 
     final output = command.format();
 
