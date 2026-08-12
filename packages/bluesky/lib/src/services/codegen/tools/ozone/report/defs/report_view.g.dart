@@ -8,92 +8,98 @@ part of 'report_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ReportView _$ReportViewFromJson(
-  Map json,
-) => $checkedCreate('_ReportView', json, ($checkedConvert) {
-  final val = _ReportView(
-    $type: $checkedConvert(
-      r'$type',
-      (v) => v as String? ?? 'tools.ozone.report.defs#reportView',
-    ),
-    id: $checkedConvert('id', (v) => (v as num).toInt()),
-    eventId: $checkedConvert('eventId', (v) => (v as num).toInt()),
-    status: $checkedConvert(
-      'status',
-      (v) => const ReportViewStatusConverter().fromJson(v as String),
-    ),
-    subject: $checkedConvert(
-      'subject',
-      (v) => const SubjectViewConverter().fromJson(v as Map<String, dynamic>),
-    ),
-    reportType: $checkedConvert(
-      'reportType',
-      (v) => const ReasonTypeConverter().fromJson(v as String),
-    ),
-    reportedBy: $checkedConvert('reportedBy', (v) => v as String),
-    reporter: $checkedConvert(
-      'reporter',
-      (v) => const SubjectViewConverter().fromJson(v as Map<String, dynamic>),
-    ),
-    comment: $checkedConvert('comment', (v) => v as String?),
-    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-    updatedAt: $checkedConvert(
-      'updatedAt',
-      (v) => v == null ? null : DateTime.parse(v as String),
-    ),
-    queuedAt: $checkedConvert(
-      'queuedAt',
-      (v) => v == null ? null : DateTime.parse(v as String),
-    ),
-    actionEventIds: $checkedConvert(
-      'actionEventIds',
-      (v) => (v as List<dynamic>?)?.map((e) => (e as num).toInt()).toList(),
-    ),
-    actions: $checkedConvert(
-      'actions',
-      (v) => (v as List<dynamic>?)
-          ?.map(
-            (e) => const ModEventViewConverter().fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList(),
-    ),
-    actionNote: $checkedConvert('actionNote', (v) => v as String?),
-    subjectStatus: $checkedConvert(
-      'subjectStatus',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, SubjectStatusView>(
-        v,
-        const SubjectStatusViewConverter().fromJson,
-      ),
-    ),
-    relatedReportCount: $checkedConvert(
-      'relatedReportCount',
-      (v) => (v as num?)?.toInt(),
-    ),
-    assignment: $checkedConvert(
-      'assignment',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, ReportAssignment>(
-        v,
-        const ReportAssignmentConverter().fromJson,
-      ),
-    ),
-    queue: $checkedConvert(
-      'queue',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, QueueView>(
-        v,
-        const QueueViewConverter().fromJson,
-      ),
-    ),
-    isMuted: $checkedConvert('isMuted', (v) => v as bool?),
-    isAutomated: $checkedConvert('isAutomated', (v) => v as bool? ?? false),
-    $unknown: $checkedConvert(
-      r'$unknown',
-      (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-    ),
-  );
-  return val;
-});
+_ReportView _$ReportViewFromJson(Map json) =>
+    $checkedCreate('_ReportView', json, ($checkedConvert) {
+      final val = _ReportView(
+        $type: $checkedConvert(
+          r'$type',
+          (v) => v as String? ?? 'tools.ozone.report.defs#reportView',
+        ),
+        id: $checkedConvert('id', (v) => (v as num).toInt()),
+        eventId: $checkedConvert('eventId', (v) => (v as num).toInt()),
+        status: $checkedConvert(
+          'status',
+          (v) => const ReportViewStatusConverter().fromJson(v as String),
+        ),
+        subject: $checkedConvert(
+          'subject',
+          (v) =>
+              const SubjectViewConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        reportType: $checkedConvert(
+          'reportType',
+          (v) => const ReasonTypeConverter().fromJson(v as String),
+        ),
+        reportedBy: $checkedConvert('reportedBy', (v) => v as String),
+        reporter: $checkedConvert(
+          'reporter',
+          (v) =>
+              const SubjectViewConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        comment: $checkedConvert('comment', (v) => v as String?),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => DateTime.parse(v as String),
+        ),
+        updatedAt: $checkedConvert(
+          'updatedAt',
+          (v) => v == null ? null : DateTime.parse(v as String),
+        ),
+        queuedAt: $checkedConvert(
+          'queuedAt',
+          (v) => v == null ? null : DateTime.parse(v as String),
+        ),
+        actionEventIds: $checkedConvert(
+          'actionEventIds',
+          (v) => (v as List<dynamic>?)?.map((e) => (e as num).toInt()).toList(),
+        ),
+        actions: $checkedConvert(
+          'actions',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const ModEventViewConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        actionNote: $checkedConvert('actionNote', (v) => v as String?),
+        subjectStatus: $checkedConvert(
+          'subjectStatus',
+          (v) =>
+              _$JsonConverterFromJson<Map<String, dynamic>, SubjectStatusView>(
+                v,
+                const SubjectStatusViewConverter().fromJson,
+              ),
+        ),
+        relatedReportCount: $checkedConvert(
+          'relatedReportCount',
+          (v) => (v as num?)?.toInt(),
+        ),
+        assignment: $checkedConvert(
+          'assignment',
+          (v) =>
+              _$JsonConverterFromJson<Map<String, dynamic>, ReportAssignment>(
+                v,
+                const ReportAssignmentConverter().fromJson,
+              ),
+        ),
+        queue: $checkedConvert(
+          'queue',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, QueueView>(
+            v,
+            const QueueViewConverter().fromJson,
+          ),
+        ),
+        isMuted: $checkedConvert('isMuted', (v) => v as bool?),
+        isAutomated: $checkedConvert('isAutomated', (v) => v as bool? ?? false),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$ReportViewToJson(
   _ReportView instance,

@@ -11,7 +11,7 @@ description: app.bsky.video.defs
 | --- | --- | --- | :---: | --- |
 | **jobId** | string | - | ✅ | - |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
-| **state** | string | JOB_STATE_COMPLETED<br/>JOB_STATE_FAILED | ✅ | The state of the video processing job. All values not listed as a known value indicate that the job is in process. |
+| **state** | string | JOB_STATE_CREATED<br/>JOB_STATE_ENCODING<br/>JOB_STATE_ENCODED<br/>JOB_STATE_SCANNING<br/>JOB_STATE_SCANNED<br/>JOB_STATE_UPLOADING<br/>JOB_STATE_UPLOADED<br/>JOB_STATE_COMPLETED<br/>JOB_STATE_FAILED | ✅ | The state of the video processing job. All values not listed as a known value indicate that the job is in process. |
 | **progress** | integer | - | ❌ | Progress within the current processing state. |
 | **blob** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
 | **error** | string | - | ❌ | - |

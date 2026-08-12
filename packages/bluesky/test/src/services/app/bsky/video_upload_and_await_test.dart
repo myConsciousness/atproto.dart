@@ -107,10 +107,10 @@ void main() {
         final service = _service(
           upload: _jobStatus('JOB_STATE_CREATED'),
           polls: [
-            // Neither of these is a known value in `app.bsky.video.defs`, and
-            // that lexicon says every unknown value means the job is still in
-            // process. So they must be polled through, not treated as
-            // terminal.
+            // Both of these are pipeline stages that `app.bsky.video.defs`
+            // lists as known values. Known does not mean terminal: only
+            // COMPLETED and FAILED end the job, so these must be polled
+            // through.
             _jobStatus('JOB_STATE_ENCODING', progress: 40),
             _jobStatus('JOB_STATE_SCANNING', progress: 80),
             _jobStatus('JOB_STATE_COMPLETED', progress: 100, blob: _blobJson),
@@ -178,6 +178,55 @@ void main() {
         expect(blob, isNotNull);
         expect(polls, isZero);
       });
+    });
+
+    test('every pipeline stage is in process, not terminal', () {
+      // `app.bsky.video.defs#jobStatus` grew from two known values to nine:
+      // COMPLETED and FAILED end the job, and the seven below are stages it
+      // passes through on the way. Classifying any of them as terminal would
+      // hand the caller a blob-less "success", so each one is pinned here
+      // rather than relying on the exhaustiveness check alone to have been
+      // resolved correctly.
+      const inProcess = [
+        'JOB_STATE_CREATED',
+        'JOB_STATE_ENCODING',
+        'JOB_STATE_ENCODED',
+        'JOB_STATE_SCANNING',
+        'JOB_STATE_SCANNED',
+        'JOB_STATE_UPLOADING',
+        'JOB_STATE_UPLOADED',
+      ];
+
+      for (final state in inProcess) {
+        fakeAsync((async) {
+          var polls = 0;
+          final service = _service(
+            upload: _jobStatus(state),
+            polls: [
+              // The stage repeats once, then the job finishes. A state wrongly
+              // treated as terminal would resolve before either poll.
+              _jobStatus(state),
+              _jobStatus('JOB_STATE_COMPLETED', blob: _blobJson),
+            ],
+            onPoll: () => polls++,
+          );
+
+          core.Blob? blob;
+          service
+              .uploadVideoAndAwait(
+                bytes: _bytes,
+                pollInterval: const Duration(seconds: 1),
+              )
+              .then<void>((value) {
+                blob = value;
+              });
+
+          async.elapse(const Duration(seconds: 30));
+
+          expect(blob, isNotNull, reason: '$state should not end the job');
+          expect(polls, 2, reason: '$state should have been polled through');
+        });
+      }
     });
 
     test('waits pollInterval between polls instead of spinning', () {

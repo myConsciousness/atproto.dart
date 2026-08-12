@@ -8,34 +8,31 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_GraphGetListOutput _$GraphGetListOutputFromJson(Map json) => $checkedCreate(
-  '_GraphGetListOutput',
-  json,
-  ($checkedConvert) {
-    final val = _GraphGetListOutput(
-      cursor: $checkedConvert('cursor', (v) => v as String?),
-      list: $checkedConvert(
-        'list',
-        (v) => const ListViewConverter().fromJson(v as Map<String, dynamic>),
-      ),
-      items: $checkedConvert(
-        'items',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const ListItemViewConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
-      ),
-      $unknown: $checkedConvert(
-        r'$unknown',
-        (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
-      ),
-    );
-    return val;
-  },
-);
+_GraphGetListOutput _$GraphGetListOutputFromJson(Map json) =>
+    $checkedCreate('_GraphGetListOutput', json, ($checkedConvert) {
+      final val = _GraphGetListOutput(
+        cursor: $checkedConvert('cursor', (v) => v as String?),
+        list: $checkedConvert(
+          'list',
+          (v) => const ListViewConverter().fromJson(v as Map<String, dynamic>),
+        ),
+        items: $checkedConvert(
+          'items',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const ListItemViewConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        $unknown: $checkedConvert(
+          r'$unknown',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$GraphGetListOutputToJson(
   _GraphGetListOutput instance,
