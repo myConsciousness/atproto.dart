@@ -82,6 +82,16 @@ updates:
       # releases still reach the build. What is suppressed is the constraint
       # rewrite, which is exactly what was unwanted.
       #
+      # An ignore rule only suppresses NEW pull requests. Dependabot keeps
+      # rebasing the ones already open and never re-evaluates them against a
+      # rule added later, so a pull request opened before the rule landed goes
+      # on proposing the ignored bump indefinitely and looks exactly like the
+      # rule having failed again. #2551 was opened 14 minutes after the
+      # unconditional form merged, and was still carrying
+      # `freezed: ^4.0.0-dev.3` five days later. Close such a pull request by
+      # hand; only the absence of a NEW one after the next scheduled run tells
+      # you whether the rule holds.
+      #
       # Removing these is part of the freezed 4 migration, not a maintenance
       # step: freezed 4 has no stable release (only 4.0.0-dev.1/2/3), it raises
       # the SDK floor from 3.8.0 to 3.12.0 across every published package, and
