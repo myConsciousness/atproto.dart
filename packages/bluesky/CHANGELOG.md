@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.6.3
+
+- feat: added `app.bsky.actor.contentVisibilityDeclaration`
+- chore: updated `app.bsky.embed.video.alt`
+- chore: updated `app.bsky.embed.video#view.alt`
+- chore: regenerated from synced lexicons
+
 ## v2.6.2
 
 - feat: added `app.bsky.video.abortUpload`

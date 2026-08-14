@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'actor/content_visibility_declaration.dart';
 import 'actor/get_preferences.dart';
 import 'actor/get_profile.dart';
 import 'actor/get_profiles.dart';
@@ -27,6 +28,7 @@ import 'actor/status.dart';
 
 final class AppBskyActorCommand extends Command<void> {
   AppBskyActorCommand() {
+    addSubcommand(ContentVisibilityDeclarationCommand());
     addSubcommand(GetPreferencesCommand());
     addSubcommand(GetProfileCommand());
     addSubcommand(GetProfilesCommand());

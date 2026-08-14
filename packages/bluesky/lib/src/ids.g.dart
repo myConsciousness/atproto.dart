@@ -6,6 +6,10 @@
 // Lexicon IDs Generator
 // **************************************************************************
 
+/// `app.bsky.actor.contentVisibilityDeclaration`
+const appBskyActorContentVisibilityDeclaration =
+    'app.bsky.actor.contentVisibilityDeclaration';
+
 /// `app.bsky.actor.defs`
 const appBskyActorDefs = 'app.bsky.actor.defs';
 
