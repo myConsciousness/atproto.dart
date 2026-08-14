@@ -153,6 +153,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[app.bsky.actor.contentVisibilityDeclaration](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/contentVisibilityDeclaration.html)** | [Reference](lexicons/app/bsky/actor/contentVisibilityDeclaration.md) | ❌ |
 | **[app.bsky.actor.getPreferences](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/getPreferences.html)** | [Reference](lexicons/app/bsky/actor/getPreferences.md) | ❌ |
 | **[app.bsky.actor.getProfile](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/getProfile.html)** | [Reference](lexicons/app/bsky/actor/getProfile.md) | ❌ |
 | **[app.bsky.actor.getProfiles](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/getProfiles.html)** | [Reference](lexicons/app/bsky/actor/getProfiles.md) | ❌ |

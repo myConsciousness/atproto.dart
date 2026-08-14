@@ -177,12 +177,20 @@ base class ActorService {
   @protected
   final ServiceContext ctx;
 
+  final ActorContentVisibilityDeclarationRecordAccessor
+  _contentVisibilityDeclaration;
   final ActorProfileRecordAccessor _profile;
   final ActorStatusRecordAccessor _status;
 
   ActorService(this.ctx)
-    : _profile = ActorProfileRecordAccessor(ctx),
+    : _contentVisibilityDeclaration =
+          ActorContentVisibilityDeclarationRecordAccessor(ctx),
+      _profile = ActorProfileRecordAccessor(ctx),
       _status = ActorStatusRecordAccessor(ctx);
+
+  /// A declaration of an account's preferences for appearing in content discovery surfaces.
+  ActorContentVisibilityDeclarationRecordAccessor
+  get contentVisibilityDeclaration => _contentVisibilityDeclaration;
 
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
   Future<XRPCResponse<ActorGetPreferencesOutput>> getPreferences({
@@ -297,6 +305,108 @@ base class ActorService {
 
   /// A declaration of a Bluesky account status.
   ActorStatusRecordAccessor get status => _status;
+}
+
+final class ActorContentVisibilityDeclarationRecordAccessor {
+  final ServiceContext ctx;
+
+  const ActorContentVisibilityDeclarationRecordAccessor(this.ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    String rkey = 'self',
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyActorContentVisibilityDeclaration,
+    rkey: rkey,
+    cid: cid,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyActorContentVisibilityDeclaration,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required bool hideFromAlgorithmicRecommendations,
+    String rkey = 'self',
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyActorContentVisibilityDeclaration,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      r'$type': 'app.bsky.actor.contentVisibilityDeclaration',
+      ...?$unknown,
+      'hideFromAlgorithmicRecommendations': hideFromAlgorithmicRecommendations,
+    },
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required bool hideFromAlgorithmicRecommendations,
+    String rkey = 'self',
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyActorContentVisibilityDeclaration,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      r'$type': 'app.bsky.actor.contentVisibilityDeclaration',
+      ...?$unknown,
+      'hideFromAlgorithmicRecommendations': hideFromAlgorithmicRecommendations,
+    },
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    String rkey = 'self',
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyActorContentVisibilityDeclaration,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
 }
 
 final class ActorProfileRecordAccessor {

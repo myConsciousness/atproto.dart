@@ -12,6 +12,11 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import 'ids.g.dart' as ids;
 
+/// `app.bsky.actor.contentVisibilityDeclaration`
+const appBskyActorContentVisibilityDeclaration = NSID(
+  ids.appBskyActorContentVisibilityDeclaration,
+);
+
 /// `app.bsky.actor.getPreferences`
 const appBskyActorGetPreferences = NSID(ids.appBskyActorGetPreferences);
 

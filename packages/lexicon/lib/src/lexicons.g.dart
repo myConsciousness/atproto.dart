@@ -6,6 +6,31 @@
 // Lexicon Docs Generator
 // **************************************************************************
 
+/// `app.bsky.actor.contentVisibilityDeclaration`
+const appBskyActorContentVisibilityDeclaration = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.contentVisibilityDeclaration",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "A declaration of an account's preferences for appearing in content discovery surfaces.",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": ["hideFromAlgorithmicRecommendations"],
+        "properties": {
+          "hideFromAlgorithmicRecommendations": {
+            "type": "boolean",
+            "description":
+                "Whether the account requests that its posts be hidden from algorithmic recommendations. Consumers must treat a missing record as false.",
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.actor.defs`
 const appBskyActorDefs = <String, dynamic>{
   "lexicon": 1,
@@ -2866,8 +2891,6 @@ const appBskyEmbedVideo = <String, dynamic>{
           "type": "string",
           "description":
               "Alt text description of the video, for accessibility.",
-          "maxLength": 10000,
-          "maxGraphemes": 1000,
         },
         "aspectRatio": {
           "type": "ref",
@@ -2899,7 +2922,7 @@ const appBskyEmbedVideo = <String, dynamic>{
         "cid": {"type": "string", "format": "cid"},
         "playlist": {"type": "string", "format": "uri"},
         "thumbnail": {"type": "string", "format": "uri"},
-        "alt": {"type": "string", "maxLength": 10000, "maxGraphemes": 1000},
+        "alt": {"type": "string"},
         "aspectRatio": {
           "type": "ref",
           "ref": "app.bsky.embed.defs#aspectRatio",
@@ -24147,6 +24170,7 @@ const toolsOzoneVerificationRevokeVerifications = <String, dynamic>{
 
 /// The collection of official lexicons.
 const lexicons = <Map<String, dynamic>>[
+  appBskyActorContentVisibilityDeclaration,
   appBskyActorDefs,
   appBskyActorGetPreferences,
   appBskyActorGetProfile,
