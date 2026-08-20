@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.6.4
+
+- feat: added `app.bsky.feed.defs#knownLikers`
+- feat: added `app.bsky.feed.defs#viewerState.knownLikers`
+- chore: regenerated from synced lexicons
+
 ## v2.6.3
 
 - feat: added `app.bsky.actor.contentVisibilityDeclaration`
