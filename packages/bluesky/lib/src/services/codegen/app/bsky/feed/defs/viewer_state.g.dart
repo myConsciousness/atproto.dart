@@ -37,6 +37,13 @@ _ViewerState _$ViewerStateFromJson(Map json) =>
           (v) => v as bool?,
         ),
         pinned: $checkedConvert('pinned', (v) => v as bool?),
+        knownLikers: $checkedConvert(
+          'knownLikers',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, KnownLikers>(
+            v,
+            const KnownLikersConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -61,6 +68,10 @@ Map<String, dynamic> _$ViewerStateToJson(_ViewerState instance) =>
       'replyDisabled': ?instance.replyDisabled,
       'embeddingDisabled': ?instance.embeddingDisabled,
       'pinned': ?instance.pinned,
+      'knownLikers': ?_$JsonConverterToJson<Map<String, dynamic>, KnownLikers>(
+        instance.knownLikers,
+        const KnownLikersConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
 

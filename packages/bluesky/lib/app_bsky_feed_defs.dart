@@ -14,6 +14,7 @@
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/post_view.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/union_post_view_embed.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/viewer_state.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/known_likers.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/thread_context.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/feed_view_post.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/union_feed_view_post_reason.dart';

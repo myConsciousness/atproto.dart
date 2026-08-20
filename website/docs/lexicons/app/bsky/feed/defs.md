@@ -38,6 +38,16 @@ Metadata about the requesting account's relationship with the subject content. O
 | **replyDisabled** | boolean | - | ❌ | - |
 | **embeddingDisabled** | boolean | - | ❌ | - |
 | **pinned** | boolean | - | ❌ | - |
+| **knownLikers** | [#knownLikers](#knownlikers) | - | ❌ | - |
+
+## #knownLikers
+
+The post's likers whom you also follow
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **count** | integer | - | ✅ | - |
+| **actors** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 
 ## #threadContext
 

@@ -485,6 +485,9 @@ const appBskyFeedDefsInteractionSeen = 'app.bsky.feed.defs#interactionSeen';
 /// `app.bsky.feed.defs#interactionShare`
 const appBskyFeedDefsInteractionShare = 'app.bsky.feed.defs#interactionShare';
 
+/// `app.bsky.feed.defs#knownLikers`
+const appBskyFeedDefsKnownLikers = 'app.bsky.feed.defs#knownLikers';
+
 /// `app.bsky.feed.defs#notFoundPost`
 const appBskyFeedDefsNotFoundPost = 'app.bsky.feed.defs#notFoundPost';
 

@@ -2994,6 +2994,29 @@ const appBskyFeedDefs = <String, dynamic>{
         "replyDisabled": {"type": "boolean"},
         "embeddingDisabled": {"type": "boolean"},
         "pinned": {"type": "boolean"},
+        "knownLikers": {
+          "type": "ref",
+          "description":
+              "This property is present only in selected cases, as an optimization.",
+          "ref": "#knownLikers",
+        },
+      },
+    },
+    "knownLikers": {
+      "type": "object",
+      "description": "The post's likers whom you also follow",
+      "required": ["count", "actors"],
+      "properties": {
+        "count": {"type": "integer"},
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "minLength": 0,
+          "maxLength": 5,
+        },
       },
     },
     "threadContext": {
