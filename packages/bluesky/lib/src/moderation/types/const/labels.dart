@@ -7,6 +7,10 @@ import '../interpreted_label_value_definition.dart';
 import '../labels.dart';
 import '../moderation_behavior.dart';
 
+/// The label values `com.atproto.label.defs#labelValue` declares as known.
+///
+/// Kept in step with that lexicon's `knownValues` by hand, so the two can
+/// drift — see [gore], which is here and no longer there.
 enum KnownLabelValue {
   hide('!hide'),
   warn('!warn'),
@@ -16,7 +20,26 @@ enum KnownLabelValue {
   nudity('nudity'),
   graphicMedia('graphic-media'),
 
-  /// Deprecated alias for [graphicMedia].
+  /// Applied to accounts that post automatically.
+  ///
+  /// In the lexicon's `knownValues` and, until now, missing here — so
+  /// [valueOf] answered null for a value the protocol calls known, and a
+  /// caller using this enum to tell a global label from a labeler-defined one
+  /// got the wrong answer.
+  ///
+  /// It has no entry in [kLabels] or [kLabelDefinitions]: the lexicon declares
+  /// the value but not how to interpret it, and inventing a severity and a
+  /// blur here would be this package deciding moderation behaviour the
+  /// protocol does not specify. A `bot` label therefore still flows through
+  /// with no interpreted definition, exactly as before — this changes what the
+  /// enum *says*, not what the moderation engine *does*.
+  bot('bot'),
+
+  /// No longer in the lexicon's `knownValues`, and kept anyway.
+  ///
+  /// It was the earlier spelling of [graphicMedia]. Removing it would drop
+  /// labels that are already applied to existing content on the floor, which
+  /// is worse than carrying a value the protocol has moved past.
   gore('gore');
 
   final String value;
