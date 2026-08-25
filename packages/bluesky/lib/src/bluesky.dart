@@ -46,7 +46,35 @@ sealed class Bluesky {
   /// Note that headers belong to the context too, so an [atproto] carrying a
   /// service proxy header (`atproto-proxy`) sends every `app.bsky.*` call to
   /// that service as well. Pass a client built for `app.bsky.*` traffic.
-  factory Bluesky.fromAtproto(final atp.ATProto atproto) = _Bluesky.fromAtproto;
+  ///
+  /// [additionalHeaders] sends extra headers on this client's `app.bsky.*`
+  /// calls **only**, leaving [atproto]'s own `com.atproto.*` calls alone. The
+  /// session is still shared — the context is derived, not copied — so all
+  /// three guarantees above continue to hold.
+  ///
+  /// ```dart
+  /// final bluesky = Bluesky.fromAtproto(
+  ///   atproto,
+  ///   additionalHeaders: const {
+  ///     'atproto-accept-labelers': 'did:plc:ar7c4by46qjdydhdevvrndac',
+  ///   },
+  /// );
+  /// ```
+  ///
+  /// This is what [Bluesky.fromSession]'s `headers` gives a caller who lets
+  /// this class build the [atp.ATProto]; without it, a caller who builds one
+  /// themselves — which is the whole point of this constructor — had no way to
+  /// set headers on the Bluesky half at all.
+  ///
+  /// Merged through [core.ServiceContext.withAdditionalHeaders] rather than a
+  /// spread, because a spread is key-exact and header names are not: an
+  /// [atproto] already sending `Atproto-Proxy` would keep it alongside a
+  /// lowercase one passed here, and a custom [core.GetClient] forwarding the
+  /// raw map emits both.
+  factory Bluesky.fromAtproto(
+    final atp.ATProto atproto, {
+    final Map<String, String>? additionalHeaders,
+  }) = _Bluesky.fromAtproto;
 
   /// Returns the new instance of [Bluesky].
   ///
@@ -275,12 +303,26 @@ sealed class Bluesky {
 }
 
 final class _Bluesky implements Bluesky {
-  /// Drives every `app.bsky.*` service from [atproto]'s own context.
+  /// Drives every `app.bsky.*` service from [atproto]'s own context, or —
+  /// when [additionalHeaders] is given — from a context derived from it.
   ///
   /// A second context would carry a second copy of the session, and only one
-  /// of the two would ever be refreshed — see [atp.ATProto.ctx].
-  factory _Bluesky.fromAtproto(final atp.ATProto atproto) =>
-      _Bluesky._(atproto.ctx, atproto);
+  /// of the two would ever be refreshed — see [atp.ATProto.ctx]. Deriving
+  /// shares the session state, so that does not happen either way.
+  ///
+  /// With nothing to add, [atproto]'s context is passed through unchanged
+  /// rather than derived from: an empty merge would produce an equivalent
+  /// context, but not the identical one, and callers that passed no headers
+  /// should get exactly what they got before this parameter existed.
+  factory _Bluesky.fromAtproto(
+    final atp.ATProto atproto, {
+    final Map<String, String>? additionalHeaders,
+  }) => _Bluesky._(
+    additionalHeaders == null || additionalHeaders.isEmpty
+        ? atproto.ctx
+        : atproto.ctx.withAdditionalHeaders(additionalHeaders),
+    atproto,
+  );
 
   _Bluesky._(final core.ServiceContext ctx, this.atproto)
     : actor = ActorService(ctx),

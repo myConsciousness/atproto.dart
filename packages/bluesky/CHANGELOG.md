@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.7.0
+
+- feat: `Bluesky.fromAtproto` takes `additionalHeaders`, which sends extra headers on this client's `app.bsky.*` calls only and leaves the `ATProto` it was built from alone. `Bluesky.fromSession` has always taken `headers`; `fromAtproto` took none, so a caller who builds the `ATProto` themselves — the entire reason that constructor exists — could either put the header on the shared `ATProto`, where it also went out on `com.atproto.*` calls that were never meant to carry it, or build a second `ATProto` and lose the single-session guarantee. `atproto-accept-labelers` is the obvious case: the AppView only attaches labels from labelers named in that header, and it has no business on `com.atproto.*`.
+- chore: the header is merged through `ServiceContext.withAdditionalHeaders` on a *derived* context, matching `BlueskyChat.fromAtproto`. Derived rather than copied, so the session stays shared and only one refresh ever spends the single-use token; merged rather than spread, because header names are case-insensitive and a key-exact spread would leave `Atproto-Proxy` alongside a lowercase one for a custom `getClient` to emit twice. Omitting the parameter passes the original context through untouched, so nothing changes for an existing caller.
+
 ## v2.6.4
 
 - feat: added `app.bsky.feed.defs#knownLikers`
