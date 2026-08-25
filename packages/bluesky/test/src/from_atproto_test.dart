@@ -33,6 +33,10 @@ final class _FakePds {
   /// request was addressed to. Null where the request carried no such header.
   final Map<String, String?> proxyHeaderByNsid = {};
 
+  /// Every request header seen on a `GET`, keyed by the NSID the request was
+  /// addressed to — for assertions about headers other than the proxy one.
+  final Map<String, Map<String, String>> headersByNsid = {};
+
   /// Every header name spelled `atproto-proxy` in any casing, keyed by the
   /// NSID the request was addressed to.
   ///
@@ -58,6 +62,7 @@ final class _FakePds {
     final Map<String, String>? headers,
   }) async {
     final nsid = url.path.replaceFirst('/xrpc/', '');
+    headersByNsid[nsid] = {...?headers};
     proxyHeaderByNsid[nsid] = headers?['atproto-proxy'];
     proxyHeaderNamesByNsid[nsid] = [
       ...?headers?.keys.where((e) => e.toLowerCase() == 'atproto-proxy'),
@@ -375,6 +380,116 @@ void main() {
         chat.convo.listConvos(),
         throwsA(isA<core.UnauthorizedException>()),
       );
+    });
+  });
+
+  group('Bluesky.fromAtproto additionalHeaders', () {
+    atp.ATProto atproto(
+      final _FakePds pds, {
+      final Map<String, String>? headers,
+    }) => atp.ATProto.fromSession(
+      pds.initialSession,
+      service: 'pds.test',
+      headers: headers,
+      getClient: pds.get,
+      postClient: pds.post,
+    );
+
+    test('sends them on app.bsky.* and nowhere else', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final bsky = Bluesky.fromAtproto(
+        atp,
+        additionalHeaders: const {'atproto-accept-labelers': 'did:plc:label'},
+      );
+
+      await bsky.feed.getTimeline();
+      await bsky.atproto.server.getSession();
+
+      //! The point of deriving rather than adopting: the caller's own
+      //! `ATProto` keeps sending what it always sent.
+      expect(
+        pds.headersByNsid['app.bsky.feed.getTimeline']?['atproto-accept-labelers'],
+        'did:plc:label',
+      );
+      expect(
+        pds.headersByNsid['com.atproto.server.getSession']?.containsKey(
+          'atproto-accept-labelers',
+        ),
+        isFalse,
+      );
+      expect(identical(bsky.atproto, atp), isTrue);
+    });
+
+    test('shares the session with the context it derived from', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final bsky = Bluesky.fromAtproto(
+        atp,
+        additionalHeaders: const {'atproto-accept-labelers': 'did:plc:label'},
+      );
+
+      await bsky.feed.getTimeline();
+      final response = await atp.server.getSession();
+
+      //! Derived, not copied. Two copies of one session would each try to
+      //! spend the single-use refresh token and the loser would fail.
+      expect(response.status.code, 200);
+      expect(pds.refreshCalls, 1);
+      expect(identical(bsky.session, atp.session), isTrue);
+    });
+
+    test('merges with a header the context already carries', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds, headers: const {'x-caller': 'kept'});
+
+      final bsky = Bluesky.fromAtproto(
+        atp,
+        additionalHeaders: const {'atproto-accept-labelers': 'did:plc:label'},
+      );
+
+      await bsky.feed.getTimeline();
+
+      //! Both survive: `withAdditionalHeaders` merges rather than replaces.
+      final seen = pds.headersByNsid['app.bsky.feed.getTimeline'];
+      expect(seen?['atproto-accept-labelers'], 'did:plc:label');
+      expect(seen?['x-caller'], 'kept');
+    });
+
+    test('a caller header in another casing does not survive twice', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds, headers: const {'Atproto-Proxy': 'did:web:one'});
+
+      final bsky = Bluesky.fromAtproto(
+        atp,
+        additionalHeaders: const {'atproto-proxy': 'did:web:two'},
+      );
+
+      await bsky.feed.getTimeline();
+
+      //! Header names are case-insensitive, so a key-exact spread would leave
+      //! both spellings in the raw map and a custom `GetClient` would emit
+      //! the header twice. The merge collapses them.
+      expect(
+        pds.proxyHeaderNamesByNsid['app.bsky.feed.getTimeline'],
+        hasLength(1),
+      );
+      expect(pds.proxyHeaderByNsid['app.bsky.feed.getTimeline'], 'did:web:two');
+    });
+
+    test('omitting it changes nothing about the context used', () async {
+      final pds = _FakePds();
+      final atp = atproto(pds);
+
+      final bsky = Bluesky.fromAtproto(atp);
+      final withEmpty = Bluesky.fromAtproto(atp, additionalHeaders: const {});
+
+      //! Passing nothing hands `atproto`'s own context straight through, so
+      //! this parameter cannot change what an existing caller sees.
+      expect(identical(bsky.headers, atp.headers), isTrue);
+      expect(identical(withEmpty.headers, atp.headers), isTrue);
     });
   });
 
