@@ -438,10 +438,12 @@ final class HttpIdentityResolver implements IdentityResolver {
   /// The returned map is a fresh decode owned by the caller: it is mutable,
   /// and it is not cached.
   ///
-  /// **The values inside it are not validated.** A `serviceEndpoint` other
-  /// than the PDS one is attacker-controlled text that has passed no scheme or
-  /// host policy. Read one with [serviceEndpointOf], or vet a host you derive
-  /// yourself with [ensureNonReservedHost], before connecting to it.
+  /// **The values inside it are not validated.** Every `serviceEndpoint` in it
+  /// is attacker-controlled text that has passed no scheme or host policy —
+  /// the `#atproto_pds` entry included, since the PDS endpoint is checked only
+  /// on the [resolve] path, where it becomes [ResolvedIdentity.pds]. Read one
+  /// with [serviceEndpointOf], or vet a host you derive yourself with
+  /// [ensureNonReservedHost], before connecting to it.
   ///
   /// Throws an [IdentityException] on a malformed DID, an unsupported DID
   /// method, a transport or host-policy failure, a non-200 response, a body

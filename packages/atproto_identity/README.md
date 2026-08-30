@@ -127,18 +127,19 @@ document describes an account: a feed generator publishes a `did:web` document
 whose only service is `#bsky_fg`, and `resolve(...)` throws on it.
 
 `resolveDidDocument(did)` returns such a document verbatim, as decoded JSON,
-using the same hardened fetch — the host policy, the timeout, the size cap, the
-redirect rules, and, for `did:web`, the binding of the document's `id` to the
-DID you asked for. Only the atproto-specific interpretation is skipped, so no
-`#atproto_pds` service is required:
+using the same hardened fetch — the timeout, the size cap and the redirect cap
+on every fetch, plus, for `did:web`, the host policy above and the binding of
+the document's `id` to the DID you asked for. Only the atproto-specific
+interpretation is skipped, so no `#atproto_pds` service is required:
 
 ```dart
 final document = await resolver.resolveDidDocument('did:web:foryou.club');
 ```
 
-The values inside the document are *not* validated. A `serviceEndpoint` other
-than the PDS one is attacker-controlled text that has passed no scheme or host
-policy, so read one with `serviceEndpointOf` rather than by hand:
+The values inside the document are *not* validated. Every `serviceEndpoint` in
+it — the `#atproto_pds` entry included, since that one is checked only on the
+`resolve(...)` path — is attacker-controlled text that has passed no scheme or
+host policy, so read one with `serviceEndpointOf` rather than by hand:
 
 ```dart
 final endpoint = serviceEndpointOf(
@@ -146,7 +147,7 @@ final endpoint = serviceEndpointOf(
   'did:web:foryou.club',
   id: '#bsky_fg',                // matches `#bsky_fg` and `<did>#bsky_fg`
   type: 'BskyFeedGenerator',     // optional; the entry's type must equal it
-); // https origin (path preserved), or null when no such service is declared
+); // validated https URL, or null when no such service is declared
 ```
 
 `serviceEndpointOf` holds the endpoint to the same bar the resolver applies to a

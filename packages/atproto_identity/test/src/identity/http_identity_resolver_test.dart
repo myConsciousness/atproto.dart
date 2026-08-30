@@ -1147,6 +1147,45 @@ void main() {
       });
     }
 
+    test('scans past non-map, unrelated, and wrong-type entries', () {
+      final document = <String, dynamic>{
+        'id': did,
+        'service': const [
+          'not-a-map',
+          {
+            'id': '#atproto_pds',
+            'type': 'AtprotoPersonalDataServer',
+            'serviceEndpoint': _pds,
+          },
+          {
+            'id': '#bsky_fg',
+            'type': 'SomethingElse',
+            'serviceEndpoint': 'https://wrong.example.com',
+          },
+          {
+            'id': '#bsky_fg',
+            'type': 'BskyFeedGenerator',
+            'serviceEndpoint': 'https://foryou.club/fg',
+          },
+        ],
+      };
+
+      expect(
+        serviceEndpointOf(
+          document,
+          did,
+          id: '#bsky_fg',
+          type: 'BskyFeedGenerator',
+        ),
+        'https://foryou.club/fg',
+      );
+      // Without a type filter the first entry whose id matches wins.
+      expect(
+        serviceEndpointOf(document, did, id: '#bsky_fg'),
+        'https://wrong.example.com',
+      );
+    });
+
     test('throws when a matching service declares no endpoint', () {
       final document = documentWith(const {
         'id': '#bsky_fg',

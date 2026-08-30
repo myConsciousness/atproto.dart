@@ -154,9 +154,9 @@ Every failure — a malformed Bearer header or JWT, an untrusted `alg` (`none`/`
 
 `resolve(...)` reads a DID document *as an atproto identity*, so it requires an `#atproto_pds` service and rejects any document without one. Not every DID document describes an account: a feed generator publishes a `did:web` document whose only service is `#bsky_fg`, and `resolve(...)` throws on it.
 
-**[resolveDidDocument](https://pub.dev/documentation/atproto_identity/latest/atproto_identity/HttpIdentityResolver/resolveDidDocument.html)** returns such a document verbatim, as decoded JSON, through the same hardened fetch — host policy, timeout, size cap, redirect rules, and, for `did:web`, the binding of the document's `id` to the DID you asked for. Only the atproto-specific interpretation is skipped.
+**[resolveDidDocument](https://pub.dev/documentation/atproto_identity/latest/atproto_identity/HttpIdentityResolver/resolveDidDocument.html)** returns such a document verbatim, as decoded JSON, through the same hardened fetch — the timeout, size cap and redirect cap on every fetch, plus, for `did:web`, the host policy and the binding of the document's `id` to the DID you asked for. Only the atproto-specific interpretation is skipped.
 
-The values inside a DID document are **not** validated: a `serviceEndpoint` other than the PDS one is attacker-controlled text that has passed no scheme or host policy. **[serviceEndpointOf](https://pub.dev/documentation/atproto_identity/latest/atproto_identity/serviceEndpointOf.html)** reads one out for you and holds it to the same bar the resolver applies to a PDS endpoint — https only, no credentials, query, or fragment, and no `localhost` or reserved IP literal.
+The values inside a DID document are **not** validated: every `serviceEndpoint` in it — the `#atproto_pds` entry included, since that one is checked only on the `resolve(...)` path — is attacker-controlled text that has passed no scheme or host policy. **[serviceEndpointOf](https://pub.dev/documentation/atproto_identity/latest/atproto_identity/serviceEndpointOf.html)** reads one out for you and holds it to the same bar the resolver applies to a PDS endpoint — https only, no credentials, query, or fragment, and no `localhost` or reserved IP literal.
 
 ```dart
 import 'package:atproto_identity/atproto_identity.dart';

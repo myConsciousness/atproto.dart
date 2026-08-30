@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.1
+
+- **chore**: bump `atproto_identity` to `^0.4.0`.
+
 ## v0.8.0
 
 - **feat**: `revoke` now actually revokes at the authorization server. It was local-only — the session was dropped from the `OAuthSessionStore` and nothing was sent — so after a "log out" the refresh token stayed live at the server for its full lifetime, and anyone holding a copy (a leaked backup, a shared device, a compromised store) could keep minting access tokens. When the server publishes an RFC 7009 `revocation_endpoint`, the refresh token is now POSTed to it with a DPoP proof before the local delete (the refresh token in preference to the access token, since revoking it takes the whole grant down). The call is best-effort: a server that publishes no endpoint is skipped, and a network or server failure never blocks the logout.
