@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.4.0
+
+- **feat**: added `HttpIdentityResolver.resolveDidDocument`, which fetches a DID document and returns it verbatim as a `Map<String, dynamic>`. `resolve` interprets a document as an atproto identity and therefore rejects anything without an `#atproto_pds` service, so a document that is not an account's — a feed generator's `did:web` document, which declares only a `#bsky_fg` service — was unreachable through this package even though the resolver already fetched, size-capped, redirect-checked, and `id`-bound it. The new method reuses that same fetch; only the atproto-specific interpretation is skipped.
+- **feat**: added `serviceEndpointOf`, which reads a service entry out of a raw DID document (matching both the `#bsky_fg` and `<did>#bsky_fg` spellings, optionally on `type`) and returns its `serviceEndpoint` held to the same bar the resolver applies to a PDS endpoint: https-only, no credentials/query/fragment, and no `localhost` or reserved IP literal. Without it, reading a raw document would hand every caller an unvalidated attacker-controlled URL — the gap `ensureNonReservedHost` was added in v0.3.0 to close. Unlike the PDS endpoint the result keeps its path, since DID Core allows one.
+- **security**: the strict DID grammar that `verifyServiceAuth` applies to a JWT's `iss` now also guards every DID document fetch, including one whose DID came back from handle resolution — which validated only the `did:` prefix before the DID was interpolated into the PLC directory URL. A hostile or compromised handle resolver could return `did:plc:x/../../admin` and change the URL the request reached. `resolve` is correspondingly stricter: a DID carrying a path, query, fragment, or whitespace now fails before any request is issued.
+
 ## v0.3.0
 
 - **feat**: added `ensureNonReservedHost`, which applies the same SSRF host policy `HttpIdentityResolver` uses for a PDS endpoint — reject `localhost` and IP literals in loopback, private, link-local, CGNAT, unique-local, multicast, unspecified, or reserved ranges (unless `allowPrivateNetwork`), with the same IP-literal-only limitation. Exposed so a caller that derives a further network target from resolver output can hold it to the same bar; `atproto_oauth` uses it to vet the authorization server taken from PDS metadata.

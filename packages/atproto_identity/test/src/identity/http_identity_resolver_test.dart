@@ -833,4 +833,330 @@ void main() {
       );
     });
   });
+
+  group('resolveDidDocument', () {
+    const feedGeneratorDid = 'did:web:foryou.club';
+    const feedGeneratorDocument = {
+      '@context': ['https://www.w3.org/ns/did/v1'],
+      'id': feedGeneratorDid,
+      'service': [
+        {
+          'id': '#bsky_fg',
+          'type': 'BskyFeedGenerator',
+          'serviceEndpoint': 'https://foryou.club',
+        },
+      ],
+    };
+
+    test('returns a did:plc document verbatim', () async {
+      final client = MockClient(
+        (final request) async => _json({
+          'id': _did,
+          'alsoKnownAs': ['at://$_handle'],
+          'customKey': {'nested': true},
+        }),
+      );
+      final resolver = HttpIdentityResolver(httpClient: client);
+      final document = await resolver.resolveDidDocument(_did);
+
+      expect(document['id'], _did);
+      expect(document['alsoKnownAs'], ['at://$_handle']);
+      // Entries outside the atproto identity model must survive verbatim.
+      expect(document['customKey'], {'nested': true});
+    });
+
+    test('returns a document resolve() cannot map to an identity', () async {
+      final client = MockClient(
+        (final request) async => _json(feedGeneratorDocument),
+      );
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      expect(
+        await resolver.resolveDidDocument(feedGeneratorDid),
+        feedGeneratorDocument,
+      );
+      await expectLater(
+        resolver.resolve(feedGeneratorDid),
+        throwsA(isA<IdentityException>()),
+        reason: 'a feed generator declares no #atproto_pds service',
+      );
+    });
+
+    test('rejects a did:web document whose id does not match', () async {
+      final client = MockClient(
+        (final request) async => _json({'id': 'did:web:evil.example.com'}),
+      );
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      await expectLater(
+        resolver.resolveDidDocument('did:web:feed.example.com'),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('rejects a private did:web host without a request', () async {
+      var requests = 0;
+      final client = MockClient((final request) async {
+        requests++;
+        return _json(feedGeneratorDocument);
+      });
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      await expectLater(
+        resolver.resolveDidDocument('did:web:127.0.0.1'),
+        throwsA(isA<IdentityException>()),
+      );
+      expect(requests, 0, reason: 'the host policy runs before the fetch');
+    });
+
+    test('honours allowedHosts', () async {
+      final client = MockClient(
+        (final request) async => _json({'id': 'did:web:feed.example.com'}),
+      );
+      final resolver = HttpIdentityResolver(
+        httpClient: client,
+        allowedHosts: const {'other.example.com'},
+      );
+
+      await expectLater(
+        resolver.resolveDidDocument('did:web:feed.example.com'),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('rejects an unsupported DID method', () async {
+      var requests = 0;
+      final client = MockClient((final request) async {
+        requests++;
+        return _json(_didDocumentWithPds());
+      });
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      await expectLater(
+        resolver.resolveDidDocument('did:key:z6MkexampleKey'),
+        throwsA(isA<IdentityException>()),
+      );
+      expect(requests, 0);
+    });
+
+    test('rejects a DID that is not syntactically valid', () async {
+      var requests = 0;
+      final client = MockClient((final request) async {
+        requests++;
+        return _json(_didDocumentWithPds());
+      });
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      await expectLater(
+        resolver.resolveDidDocument('did:plc:abc/../../admin'),
+        throwsA(isA<IdentityException>()),
+      );
+      expect(requests, 0, reason: 'a path must never reach the directory URL');
+    });
+
+    test('rejects a path smuggled in through handle resolution', () async {
+      final contacted = <String>[];
+      final client = MockClient((final request) async {
+        contacted.add(request.url.path);
+        if (request.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
+          return _json({'did': 'did:plc:abc/../../admin'});
+        }
+        return _json(_didDocumentWithPds());
+      });
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      await expectLater(
+        resolver.resolve(_handle),
+        throwsA(isA<IdentityException>()),
+      );
+      // The smuggled DID must never reach the PLC directory.
+      expect(contacted, ['/xrpc/com.atproto.identity.resolveHandle']);
+    });
+
+    test('accepts a padded at:// prefixed DID', () async {
+      final client = MockClient((final request) async => _json({'id': _did}));
+      final resolver = HttpIdentityResolver(httpClient: client);
+
+      expect(await resolver.resolveDidDocument('  at://$_did  '), {'id': _did});
+    });
+
+    test('throws ArgumentError on a blank DID', () async {
+      await expectLater(
+        HttpIdentityResolver().resolveDidDocument('   '),
+        throwsA(isA<ArgumentError>()),
+      );
+    });
+
+    test('enforces maxResponseBytes', () async {
+      final huge = '{"padding":"${'a' * 4096}"}';
+      final client = MockClient(
+        (final request) async => http.Response(huge, 200),
+      );
+      final resolver = HttpIdentityResolver(
+        httpClient: client,
+        maxResponseBytes: 1024,
+      );
+
+      await expectLater(
+        resolver.resolveDidDocument(_did),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('composes with signingKeyOf', () async {
+      final client = MockClient(
+        (final request) async => _json({
+          'id': _did,
+          'verificationMethod': [
+            {'id': '$_did#atproto', 'publicKeyMultibase': 'zQ3shSIGNINGKEY'},
+          ],
+        }),
+      );
+      final resolver = HttpIdentityResolver(httpClient: client);
+      final document = await resolver.resolveDidDocument(_did);
+
+      expect(signingKeyOf(document, _did), 'zQ3shSIGNINGKEY');
+    });
+  });
+
+  group('serviceEndpointOf', () {
+    const did = 'did:web:foryou.club';
+
+    Map<String, dynamic> documentWith(final Map<String, Object?> service) {
+      return {
+        'id': did,
+        'service': [service],
+      };
+    }
+
+    test('matches a relative fragment id', () {
+      final document = documentWith(const {
+        'id': '#bsky_fg',
+        'type': 'BskyFeedGenerator',
+        'serviceEndpoint': 'https://foryou.club',
+      });
+
+      expect(
+        serviceEndpointOf(
+          document,
+          did,
+          id: '#bsky_fg',
+          type: 'BskyFeedGenerator',
+        ),
+        'https://foryou.club',
+      );
+    });
+
+    test('matches a fully qualified id', () {
+      final document = documentWith(const {
+        'id': '$did#bsky_fg',
+        'type': 'BskyFeedGenerator',
+        'serviceEndpoint': 'https://foryou.club',
+      });
+
+      expect(
+        serviceEndpointOf(document, did, id: '#bsky_fg'),
+        'https://foryou.club',
+      );
+    });
+
+    test('returns null when no service matches', () {
+      final document = documentWith(const {
+        'id': '#atproto_pds',
+        'type': 'AtprotoPersonalDataServer',
+        'serviceEndpoint': _pds,
+      });
+
+      expect(serviceEndpointOf(document, did, id: '#bsky_fg'), isNull);
+    });
+
+    test('returns null when the document declares no services', () {
+      expect(serviceEndpointOf(const {'id': did}, did, id: '#bsky_fg'), isNull);
+    });
+
+    test('filters on type when one is given', () {
+      final document = documentWith(const {
+        'id': '#bsky_fg',
+        'type': 'SomethingElse',
+        'serviceEndpoint': 'https://foryou.club',
+      });
+
+      expect(
+        serviceEndpointOf(
+          document,
+          did,
+          id: '#bsky_fg',
+          type: 'BskyFeedGenerator',
+        ),
+        isNull,
+      );
+    });
+
+    test('keeps a path and trims a trailing slash', () {
+      final document = documentWith(const {
+        'id': '#bsky_fg',
+        'serviceEndpoint': 'https://foryou.club/fg/',
+      });
+
+      expect(
+        serviceEndpointOf(document, did, id: '#bsky_fg'),
+        'https://foryou.club/fg',
+      );
+    });
+
+    test('rejects a plain http endpoint', () {
+      final document = documentWith(const {
+        'id': '#bsky_fg',
+        'serviceEndpoint': 'http://foryou.club',
+      });
+
+      expect(
+        () => serviceEndpointOf(document, did, id: '#bsky_fg'),
+        throwsA(isA<IdentityException>()),
+      );
+      expect(
+        serviceEndpointOf(
+          document,
+          did,
+          id: '#bsky_fg',
+          allowPrivateNetwork: true,
+        ),
+        'http://foryou.club',
+      );
+    });
+
+    for (final endpoint in const [
+      'https://127.0.0.1',
+      'https://169.254.169.254',
+      'https://localhost:3000',
+      'https://[::1]',
+      'https://evil.example.com@127.0.0.1',
+      'https://foryou.club?a=b',
+      'https://foryou.club#fragment',
+    ]) {
+      test('rejects the endpoint $endpoint', () {
+        final document = documentWith({
+          'id': '#bsky_fg',
+          'serviceEndpoint': endpoint,
+        });
+
+        expect(
+          () => serviceEndpointOf(document, did, id: '#bsky_fg'),
+          throwsA(isA<IdentityException>()),
+        );
+      });
+    }
+
+    test('throws when a matching service declares no endpoint', () {
+      final document = documentWith(const {
+        'id': '#bsky_fg',
+        'type': 'BskyFeedGenerator',
+      });
+
+      expect(
+        () => serviceEndpointOf(document, did, id: '#bsky_fg'),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+  });
 }

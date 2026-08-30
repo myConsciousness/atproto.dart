@@ -11,6 +11,7 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 // Project imports:
+import '../did_syntax.dart';
 import '../identity_exception.dart';
 import '../signing_key.dart';
 import '../types/resolved_identity.dart';
@@ -354,23 +355,13 @@ final class HttpIdentityResolver implements IdentityResolver {
         if (service['type'] != 'AtprotoPersonalDataServer') continue;
         final endpoint = service['serviceEndpoint'];
         if (endpoint is String && endpoint.isNotEmpty) {
-          const what = 'PDS serviceEndpoint';
-          final uri = _parseHttpOrigin(endpoint, what: what);
-          if (uri.userInfo.isNotEmpty || uri.hasQuery || uri.hasFragment) {
-            throw IdentityException(
-              'Invalid $what: "$endpoint" must be a bare origin, without '
-              'credentials, a query, or a fragment',
-            );
-          }
-          if (!uri.isScheme('https') && !allowPrivateNetwork) {
-            throw IdentityException(
-              'Invalid $what: "$endpoint" must use https '
-              '(set allowPrivateNetwork: true to permit plain http)',
-            );
-          }
-          _checkHost(uri.host, what: '$what host', applyAllowlist: false);
-
-          return uri.origin;
+          // Reduced to a bare origin: the atproto spec defines the PDS
+          // endpoint as one, and `ResolvedIdentity.pds` is documented as one.
+          return _validateServiceEndpoint(
+            endpoint,
+            what: 'PDS serviceEndpoint',
+            allowPrivateNetwork: allowPrivateNetwork,
+          ).origin;
         }
       }
     }
@@ -382,14 +373,7 @@ final class HttpIdentityResolver implements IdentityResolver {
 
   @override
   Future<ResolvedIdentity> resolve(final String identity) async {
-    var normalized = identity.trim();
-    if (normalized.startsWith('at://')) {
-      normalized = normalized.substring('at://'.length);
-    }
-    if (normalized.startsWith('@')) normalized = normalized.substring(1);
-    if (normalized.isEmpty) {
-      throw ArgumentError.value(identity, 'identity', 'must not be empty');
-    }
+    final normalized = _normalizeIdentity(identity, name: 'identity');
 
     final String did;
     final String? handle;
@@ -426,6 +410,47 @@ final class HttpIdentityResolver implements IdentityResolver {
     );
   }
 
+  /// Fetches the DID document for [did] and returns it verbatim, as decoded
+  /// JSON.
+  ///
+  /// [did] must be a `did:plc:` or `did:web:` DID (optionally `at://`-prefixed
+  /// and surrounded by whitespace); a handle is not accepted, because
+  /// verifying that a handle and a document claim each other is what [resolve]
+  /// is for, and there is no [ResolvedIdentity] here to carry the result.
+  ///
+  /// Unlike [resolve] this applies no atproto-specific interpretation: no
+  /// `#atproto_pds` service is required and no signing key is extracted, so it
+  /// serves documents that cannot become a [ResolvedIdentity] at all. A feed
+  /// generator's `did:web` document, for instance, declares a `#bsky_fg`
+  /// service and no PDS, and [resolve] rejects it outright.
+  ///
+  /// The transport controls [resolve] uses still apply: [timeout],
+  /// [maxResponseBytes], and the redirect cap for every fetch, plus — for
+  /// `did:web` only — [allowedHosts], [allowPrivateNetwork], https-only
+  /// redirects, and the binding of the document's `id` to [did]. A `did:plc`
+  /// document is fetched from the operator-configured [plcDirectory], which is
+  /// trusted by construction and therefore exempt from the host policy, and is
+  /// not `id`-bound because it is content-addressed. As in [resolve], the
+  /// redirect validation only takes effect on platforms whose HTTP client
+  /// honors `followRedirects = false`; on the web the browser follows
+  /// redirects transparently.
+  ///
+  /// The returned map is a fresh decode owned by the caller: it is mutable,
+  /// and it is not cached.
+  ///
+  /// **The values inside it are not validated.** A `serviceEndpoint` other
+  /// than the PDS one is attacker-controlled text that has passed no scheme or
+  /// host policy. Read one with [serviceEndpointOf], or vet a host you derive
+  /// yourself with [ensureNonReservedHost], before connecting to it.
+  ///
+  /// Throws an [IdentityException] on a malformed DID, an unsupported DID
+  /// method, a transport or host-policy failure, a non-200 response, a body
+  /// that is not a JSON object, or a `did:web` document whose `id` does not
+  /// match [did]; and an [ArgumentError] when [did] is blank.
+  Future<Map<String, dynamic>> resolveDidDocument(final String did) async {
+    return _resolveDidDocument(_normalizeIdentity(did, name: 'did'));
+  }
+
   Future<String> _resolveHandle(final String handle) async {
     final origin = _normalizeHttpOrigin(
       handleResolver,
@@ -452,6 +477,15 @@ final class HttpIdentityResolver implements IdentityResolver {
   }
 
   Future<Map<String, dynamic>> _resolveDidDocument(final String did) async {
+    // The DID arrives either straight from a caller or from `_resolveHandle`,
+    // which checks only the `did:` prefix — and the did:plc branch below
+    // interpolates it into the directory URL. Enforce the DID grammar here, so
+    // that neither path can smuggle a delimiter into the URL a request
+    // actually reaches.
+    if (!isValidDid(did)) {
+      throw IdentityException('Not a syntactically valid DID: "$did"');
+    }
+
     final Uri uri;
     final bool isDidWeb;
     if (did.startsWith('did:plc:')) {
@@ -539,6 +573,23 @@ final class HttpIdentityResolver implements IdentityResolver {
           : [...path, 'did.json'],
     );
   }
+}
+
+/// Trims [identity] and strips a leading `at://` or `@`, so that the same
+/// spellings [HttpIdentityResolver.resolve] accepts also reach
+/// [HttpIdentityResolver.resolveDidDocument]. [name] names the argument in the
+/// [ArgumentError] thrown when nothing is left.
+String _normalizeIdentity(final String identity, {required final String name}) {
+  var normalized = identity.trim();
+  if (normalized.startsWith('at://')) {
+    normalized = normalized.substring('at://'.length);
+  }
+  if (normalized.startsWith('@')) normalized = normalized.substring(1);
+  if (normalized.isEmpty) {
+    throw ArgumentError.value(identity, name, 'must not be empty');
+  }
+
+  return normalized;
 }
 
 /// Parses a port string, returning `null` when it is not a plain decimal
@@ -730,6 +781,86 @@ String ensureNonReservedHost(
   return normalized;
 }
 
+/// Returns the `serviceEndpoint` of the service entry [id] declares in
+/// [didDocument] — validated for use as a network target — or `null` when the
+/// document declares no such service.
+///
+/// Pair it with [HttpIdentityResolver.resolveDidDocument] to reach a service
+/// the atproto identity model does not carry. A feed generator, for instance,
+/// publishes its endpoint as a `#bsky_fg` service and no PDS:
+///
+/// ```dart
+/// final document = await resolver.resolveDidDocument('did:web:foryou.club');
+/// final endpoint = serviceEndpointOf(
+///   document,
+///   'did:web:foryou.club',
+///   id: '#bsky_fg',
+///   type: 'BskyFeedGenerator',
+/// );
+/// ```
+///
+/// [id] is matched against both spellings the atproto DID spec accepts — the
+/// relative fragment (`#bsky_fg`) and the fully qualified form
+/// (`<did>#bsky_fg`) — so pass the fragment together with the [did] the
+/// document describes and either spelling matches. When [type] is given, the
+/// entry's `type` must equal it as well; that is what stops a document from
+/// parking an unrelated service under a well-known fragment.
+///
+/// The endpoint is held to the same bar [HttpIdentityResolver] applies to a
+/// PDS endpoint, because it is attacker-controlled and the caller is about to
+/// connect to it: https only (plain `http` needs [allowPrivateNetwork]), no
+/// credentials, query, or fragment, and a host that is neither `localhost` nor
+/// a reserved IP literal. As everywhere in this package, only IP *literals*
+/// are range-checked — see [ensureNonReservedHost] for that limitation.
+///
+/// Unlike the PDS endpoint, which the spec defines as a bare origin and which
+/// [HttpIdentityResolver] reduces to one, the returned endpoint keeps its path
+/// (minus a trailing `/`): DID Core allows one, and a service that publishes
+/// `https://example.com/fg` means it.
+///
+/// Throws an [IdentityException] when a matching entry declares an endpoint
+/// that is absent, not a string, or fails any of those checks — a service that
+/// matches but cannot be used is a failure, not an absence.
+String? serviceEndpointOf(
+  final Map<String, dynamic> didDocument,
+  final String did, {
+  required final String id,
+  final String? type,
+  final bool allowPrivateNetwork = false,
+}) {
+  final services = didDocument['service'];
+  if (services is! List) return null;
+
+  final qualified = id.startsWith('#') ? '$did$id' : id;
+  for (final service in services) {
+    if (service is! Map) continue;
+    final serviceId = service['id'];
+    if (serviceId != id && serviceId != qualified) continue;
+    if (type != null && service['type'] != type) continue;
+
+    final endpoint = service['serviceEndpoint'];
+    if (endpoint is! String || endpoint.isEmpty) {
+      throw IdentityException(
+        'The "$id" service in the DID document for "$did" declares no usable '
+        '"serviceEndpoint"',
+      );
+    }
+
+    final uri = _validateServiceEndpoint(
+      endpoint,
+      what: '"$id" serviceEndpoint',
+      allowPrivateNetwork: allowPrivateNetwork,
+    );
+    final normalized = uri.toString();
+
+    return normalized.endsWith('/')
+        ? normalized.substring(0, normalized.length - 1)
+        : normalized;
+  }
+
+  return null;
+}
+
 /// Parses a user-supplied host or URL into an `https`/`http` [Uri]. A bare
 /// hostname is treated as `https://<host>`.
 Uri _parseHttpOrigin(final String input, {required final String what}) {
@@ -748,6 +879,46 @@ Uri _parseHttpOrigin(final String input, {required final String what}) {
       uri.host.isEmpty) {
     throw IdentityException('Invalid $what: "$input"');
   }
+
+  return uri;
+}
+
+/// Validates a `serviceEndpoint` taken from a DID document and returns it
+/// parsed.
+///
+/// A `serviceEndpoint` is attacker-controlled for any DID — anyone can
+/// register a `did:plc` and anyone can publish a `did:web` document — and the
+/// caller is about to connect to whatever it names, so it must be an https URL
+/// (plain `http` only with [allowPrivateNetwork]) carrying no credentials,
+/// query, or fragment, on a host that is not `localhost` or a reserved IP
+/// literal. [what] names the endpoint in error messages.
+///
+/// The allowlist is deliberately not applied:
+/// [HttpIdentityResolver.allowedHosts] scopes which `did:web` issuers may be
+/// contacted, not which hosts a legitimate service may live on.
+Uri _validateServiceEndpoint(
+  final String endpoint, {
+  required final String what,
+  required final bool allowPrivateNetwork,
+}) {
+  final uri = _parseHttpOrigin(endpoint, what: what);
+  if (uri.userInfo.isNotEmpty || uri.hasQuery || uri.hasFragment) {
+    throw IdentityException(
+      'Invalid $what: "$endpoint" must not carry credentials, a query, or a '
+      'fragment',
+    );
+  }
+  if (!uri.isScheme('https') && !allowPrivateNetwork) {
+    throw IdentityException(
+      'Invalid $what: "$endpoint" must use https '
+      '(set allowPrivateNetwork: true to permit plain http)',
+    );
+  }
+  ensureNonReservedHost(
+    uri.host,
+    allowPrivateNetwork: allowPrivateNetwork,
+    what: '$what host',
+  );
 
   return uri;
 }

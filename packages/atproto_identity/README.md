@@ -14,6 +14,8 @@ generation, and it depends only on [`http`](https://pub.dev/packages/http) and
 Use it to:
 
 - **Resolve** a handle or DID to its DID, PDS origin, and `#atproto` signing key.
+- **Read** a raw DID document, for identities the atproto model does not
+  describe — a feed generator's `did:web` document, for instance.
 - **Verify** an inbound AppView service-auth JWT (e.g. in a custom feed
   generator or other AppView) and recover the viewer's DID.
 
@@ -21,7 +23,7 @@ Use it to:
 
 ```yaml
 dependencies:
-  atproto_identity: ^0.1.1 # Replace with the actual version
+  atproto_identity: ^0.4.0 # Replace with the actual version
 ```
 
 ## Resolving an identity
@@ -116,6 +118,42 @@ final key = signingKeyOf(didDocument, 'did:plc:...'); // multibase String, or nu
 
 `resolve(...)` already populates `ResolvedIdentity.signingKey` with this value;
 `signingKeyOf` is exported for when you hold a DID document directly.
+
+### Reading a raw DID document
+
+`resolve(...)` interprets a DID document as an atproto identity, so it requires
+an `#atproto_pds` service and rejects any document without one. Not every DID
+document describes an account: a feed generator publishes a `did:web` document
+whose only service is `#bsky_fg`, and `resolve(...)` throws on it.
+
+`resolveDidDocument(did)` returns such a document verbatim, as decoded JSON,
+using the same hardened fetch — the host policy, the timeout, the size cap, the
+redirect rules, and, for `did:web`, the binding of the document's `id` to the
+DID you asked for. Only the atproto-specific interpretation is skipped, so no
+`#atproto_pds` service is required:
+
+```dart
+final document = await resolver.resolveDidDocument('did:web:foryou.club');
+```
+
+The values inside the document are *not* validated. A `serviceEndpoint` other
+than the PDS one is attacker-controlled text that has passed no scheme or host
+policy, so read one with `serviceEndpointOf` rather than by hand:
+
+```dart
+final endpoint = serviceEndpointOf(
+  document,
+  'did:web:foryou.club',
+  id: '#bsky_fg',                // matches `#bsky_fg` and `<did>#bsky_fg`
+  type: 'BskyFeedGenerator',     // optional; the entry's type must equal it
+); // https origin (path preserved), or null when no such service is declared
+```
+
+`serviceEndpointOf` holds the endpoint to the same bar the resolver applies to a
+PDS endpoint — https only, no credentials, query, or fragment, and no
+`localhost` or reserved IP literal — and throws an `IdentityException` when a
+matching service declares an endpoint that fails those checks. If you derive a
+host some other way, vet it with `ensureNonReservedHost` before connecting.
 
 ## Verifying an inbound service-auth JWT
 
