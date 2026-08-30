@@ -9,7 +9,7 @@ environment:
 dependencies:
   bluesky: ^2.8.0
   atproto_core: ^2.4.1
-  atproto_identity: ^0.3.0
+  atproto_identity: ^0.4.0
   shelf: ^1.4.0
   shelf_router: ^1.1.0
 
