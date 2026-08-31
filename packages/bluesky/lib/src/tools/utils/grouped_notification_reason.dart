@@ -6,11 +6,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 /// A class that encapsulates a reason for grouped notification.
+///
+/// Every value `app.bsky.notification.listNotifications#notification.reason`
+/// declares as known has an entry here, plus two this package synthesises and
+/// the lexicon therefore never lists: [customFeedLike] and [unknown]. A test
+/// checks that against the lexicon file itself, so a value added upstream fails
+/// naming that value rather than drifting unnoticed.
 enum GroupedNotificationReason {
   /// Indicates likes.
   like('like'),
 
   /// Indicates likes for custom feed.
+  ///
+  /// Synthesised by this package rather than sent by the AppView: the lexicon
+  /// has no such reason. A `like` whose `reasonSubject` points at an
+  /// `app.bsky.feed.generator` record is relabelled here so that likes on a
+  /// custom feed group apart from likes on a post.
   customFeedLike('customFeedLike'),
 
   /// Indicates reposts.
