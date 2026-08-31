@@ -17,6 +17,13 @@ runs:
       uses: dart-lang/setup-dart@v1
       with:
         sdk: ${{ inputs.sdk }}
+        # setup-dart v1.8.1 resolves its `dart analyze` problem-matcher JSON
+        # against the calling action's directory, which for this composite
+        # action is `.github/actions/setup-dart-cached/` rather than its own.
+        # The file is not there, `::add-matcher::` fails, and the whole step
+        # fails -- skipping `dart pub get` and every job that follows it.
+        # Disable the matcher until upstream resolves the path correctly.
+        problem-matcher: false
 
     - name: Cache pub-cache
       uses: actions/cache@v4
