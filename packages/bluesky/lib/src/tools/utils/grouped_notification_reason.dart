@@ -7,13 +7,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 /// A class that encapsulates a reason for grouped notification.
 ///
-/// Every value `app.bsky.notification.listNotifications#notification.reason`
-/// declares as known has an entry here, plus two this package synthesises and
-/// the lexicon therefore never lists: [customFeedLike] and [unknown]. A test
-/// checks that against the lexicon file itself, so a value added upstream fails
-/// naming that value rather than drifting unnoticed.
+/// This is the grouper's own vocabulary rather than the lexicon mirror — that
+/// is the generated `KnownNotificationReason`, and this enum is reached by
+/// converting from it. It still has to cover every value
+/// `app.bsky.notification.listNotifications#notification.reason` declares as
+/// known, because a reason with no entry here does not fail loudly: [valueOf]
+/// answers [unknown] and the notification groups under the wrong heading. A
+/// test checks the coverage against the lexicon file itself, so a value added
+/// upstream fails naming that value rather than drifting unnoticed.
+///
+/// Two values are synthesised here, and the lexicon therefore never lists
+/// them: [customFeedLike] and [unknown].
 enum GroupedNotificationReason {
   /// Indicates likes.
+  ///
+  /// Narrower than the lexicon's `like`: a like on a feed generator is
+  /// [customFeedLike] instead. The official client makes the same split
+  /// explicit by naming its two members `post-like` and `feedgen-like`;
+  /// renaming this one would break callers, so the narrowing is documented
+  /// here rather than spelled out in the name.
   like('like'),
 
   /// Indicates likes for custom feed.
@@ -22,6 +34,11 @@ enum GroupedNotificationReason {
   /// has no such reason. A `like` whose `reasonSubject` points at an
   /// `app.bsky.feed.generator` record is relabelled here so that likes on a
   /// custom feed group apart from likes on a post.
+  ///
+  /// The official client derives the same category from the same rule and
+  /// calls it `feedgen-like`, and there is no protocol signal to defer to
+  /// instead: the AppView sends a plain `like` and leaves the collection to be
+  /// read off `reasonSubject`.
   customFeedLike('customFeedLike'),
 
   /// Indicates reposts.
