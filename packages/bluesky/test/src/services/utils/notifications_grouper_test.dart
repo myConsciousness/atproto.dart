@@ -975,4 +975,74 @@ void main() {
       expect(() => notifications.groupByHour(61), throwsA(isA<RangeError>()));
     });
   });
+  group('customFeedLike discriminator', () {
+    test(
+      'a post like whose rkey spells the generator NSID is not a feed like',
+      () {
+        // The discriminator searched the whole AT-URI for
+        // `app.bsky.feed.generator`. An rkey may legally contain dots, so a like
+        // on a *post* with that rkey was reported as a feed like.
+        final grouped = _grouper.group(
+          NotificationListNotificationsOutput.fromJson({
+            'notifications': [
+              _notification(
+                did: 'did:plc:aaaa',
+                reason: 'like',
+                reasonSubject:
+                    'at://did:plc:xxxx/app.bsky.feed.post/app.bsky.feed.generator',
+                indexedAt: '2023-04-30T04:00:00.000Z',
+              ),
+            ],
+          }),
+        );
+
+        expect(grouped.notifications.length, 1);
+        expect(grouped.notifications[0].reason, GroupedNotificationReason.like);
+      },
+    );
+
+    test('a like on a generator record is still a feed like', () {
+      // Narrowing the match to the collection segment must not swallow the
+      // case the discriminator exists for.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx/app.bsky.feed.generator/aaaa',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(
+        grouped.notifications[0].reason,
+        GroupedNotificationReason.customFeedLike,
+      );
+    });
+
+    test('a reasonSubject with no collection segment does not throw', () {
+      // `AtUri.collection` throws when there is no collection segment, and the
+      // substring test being replaced never threw. Reading the collection has
+      // to stay non-throwing.
+      final grouped = _grouper.group(
+        NotificationListNotificationsOutput.fromJson({
+          'notifications': [
+            _notification(
+              did: 'did:plc:aaaa',
+              reason: 'like',
+              reasonSubject: 'at://did:plc:xxxx',
+              indexedAt: '2023-04-30T04:00:00.000Z',
+            ),
+          ],
+        }),
+      );
+
+      expect(grouped.notifications.length, 1);
+      expect(grouped.notifications[0].reason, GroupedNotificationReason.like);
+    });
+  });
 }
