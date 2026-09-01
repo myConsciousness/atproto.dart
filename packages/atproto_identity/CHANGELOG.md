@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.4.0
+
+- **fix**: `resolve` now performs bidirectional handle verification the way the atproto DID spec defines it. `alsoKnownAs` is an *ordered* list in which only the first syntactically valid handle is the claimed handle, and every later handle URI is ignored; the check instead asked whether the supplied handle appeared *anywhere* in the list. A DID document listing `["at://alice.example", "at://bob.example"]` therefore verified `bob.example` as well as `alice.example`, so a single account could present several handles as bidirectionally verified when the protocol says exactly one of them is canonical — and a caller using this to answer "is this handle really this account's" got a wrong yes. Entries that are not `at://` URIs, and `at://` entries that are not syntactically valid handles, are now skipped rather than ending the scan, since neither can be the claimed handle.
+- **chore**: depends on `at_primitives` for the handle grammar, rather than restating it, so the syntax rule this fix turns on cannot drift from the one the rest of the workspace enforces.
+
 ## v0.3.0
 
 - **feat**: added `ensureNonReservedHost`, which applies the same SSRF host policy `HttpIdentityResolver` uses for a PDS endpoint — reject `localhost` and IP literals in loopback, private, link-local, CGNAT, unique-local, multicast, unspecified, or reserved ranges (unless `allowPrivateNetwork`), with the same IP-literal-only limitation. Exposed so a caller that derives a further network target from resolver output can hold it to the same bar; `atproto_oauth` uses it to vet the authorization server taken from PDS metadata.

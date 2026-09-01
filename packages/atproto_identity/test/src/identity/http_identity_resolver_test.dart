@@ -833,4 +833,133 @@ void main() {
       );
     });
   });
+
+  group('bidirectional handle verification (alsoKnownAs is ordered)', () {
+    // The claimed handle is the first syntactically valid handle in
+    // `alsoKnownAs`; every later handle URI is ignored. The document is
+    // otherwise a well-formed account document, so only the claim rule is
+    // under test.
+    HttpIdentityResolver resolverFor(final Object? alsoKnownAs) {
+      final client = MockClient((request) async {
+        if (request.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
+          return _json({'did': _did});
+        }
+        if (request.url.path == '/$_did') {
+          return _json({
+            'alsoKnownAs': ?alsoKnownAs,
+            'service': [
+              {
+                'id': '#atproto_pds',
+                'type': 'AtprotoPersonalDataServer',
+                'serviceEndpoint': _pds,
+              },
+            ],
+          });
+        }
+        return http.Response('not found', 404);
+      });
+
+      return HttpIdentityResolver(httpClient: client);
+    }
+
+    test('accepts the first syntactically valid handle', () async {
+      final resolver = resolverFor(['at://$_handle', 'at://bob.example']);
+
+      expect((await resolver.resolve(_handle)).handle, _handle);
+    });
+
+    test('rejects a handle listed after the claimed one', () async {
+      // The regression: a document claiming `alice.example` also verified
+      // `bob.example`, because the check asked only whether the handle
+      // appeared anywhere in the list.
+      final resolver = resolverFor(['at://$_handle', 'at://bob.example']);
+
+      expect(
+        () => resolver.resolve('bob.example'),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('names the claimed handle when rejecting another one', () async {
+      final resolver = resolverFor(['at://$_handle', 'at://bob.example']);
+
+      expect(
+        () => resolver.resolve('bob.example'),
+        throwsA(
+          isA<IdentityException>().having(
+            (final e) => e.message,
+            'message',
+            allOf(contains(_handle), contains('bob.example')),
+          ),
+        ),
+      );
+    });
+
+    test('skips a non-at:// URI rather than ending the scan', () async {
+      // DID Core allows other URI types in `alsoKnownAs`; one appearing first
+      // must not stop the search for the claimed handle.
+      final resolver = resolverFor(['https://$_handle', 'at://$_handle']);
+
+      expect((await resolver.resolve(_handle)).handle, _handle);
+    });
+
+    test('ignores an entry that is not an at:// URI at all', () async {
+      // `alsoKnownAs` holds URIs, and only an `at://` one can name a handle.
+      // A bare domain is a valid *handle* string, so without the scheme check
+      // it would be taken as the claim -- and the real claim below ignored.
+      final resolver = resolverFor(['bob.example', 'at://$_handle']);
+
+      expect((await resolver.resolve(_handle)).handle, _handle);
+    });
+
+    test('rejects a bare-domain entry as if it were the claim', () async {
+      final resolver = resolverFor(['bob.example', 'at://$_handle']);
+
+      expect(
+        () => resolver.resolve('bob.example'),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('skips a syntactically invalid at:// entry', () async {
+      // `not_a_handle` carries an underscore and no dot, so it is not a
+      // possible domain name and cannot be the claimed handle.
+      final resolver = resolverFor(['at://not_a_handle', 'at://$_handle']);
+
+      expect((await resolver.resolve(_handle)).handle, _handle);
+    });
+
+    test('matches the claimed handle case-insensitively', () async {
+      final resolver = resolverFor(['at://ALICE.EXAMPLE']);
+
+      expect((await resolver.resolve(_handle)).handle, _handle);
+    });
+
+    test('rejects when no entry is a syntactically valid handle', () async {
+      final resolver = resolverFor(['https://$_handle', 'at://not_a_handle']);
+
+      expect(
+        () => resolver.resolve(_handle),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('rejects when alsoKnownAs is absent', () async {
+      final resolver = resolverFor(null);
+
+      expect(
+        () => resolver.resolve(_handle),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+
+    test('rejects when alsoKnownAs is not a list', () async {
+      final resolver = resolverFor('at://$_handle');
+
+      expect(
+        () => resolver.resolve(_handle),
+        throwsA(isA<IdentityException>()),
+      );
+    });
+  });
 }

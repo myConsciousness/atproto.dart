@@ -27,7 +27,7 @@ dependencies:
   json_annotation: ^4.9.0
   cbor: ^6.3.7
   multiformats: ^1.4.0
-  atproto_oauth: ^0.8.0
+  atproto_oauth: ^0.8.1
   nanoid: ^1.0.0
   meta: ^1.17.0
 

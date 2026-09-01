@@ -37,6 +37,6 @@ dev_dependencies:
       ref: fix/monorepo-pub-workspaces
   atproto_test:
     path: ../atproto_test
-  atproto_oauth: ^0.8.0
+  atproto_oauth: ^0.8.1
   http: any
   fake_async: ^1.3.3
