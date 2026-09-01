@@ -22,6 +22,7 @@ final class _FakeResolver implements IdentityResolver {
       ResolvedIdentity(
         did: identity,
         pds: 'https://pds.example',
+        handle: handleInvalid,
         signingKey: signingKey,
       );
 }

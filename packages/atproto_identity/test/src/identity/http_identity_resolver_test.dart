@@ -1327,4 +1327,99 @@ void main() {
       );
     });
   });
+  group('DID-initiated handle verification', () {
+    // Records the handles looked up so a test can assert that no lookup
+    // happened at all, which is the difference between "claims nothing" and
+    // "claims something that failed to verify".
+    final lookups = <String>[];
+
+    HttpIdentityResolver resolverFor({
+      final Object? alsoKnownAs,
+      final String? resolvesTo,
+      final int handleStatus = 200,
+    }) {
+      lookups.clear();
+      final client = MockClient((request) async {
+        if (request.url.path == '/xrpc/com.atproto.identity.resolveHandle') {
+          lookups.add(request.url.queryParameters['handle'] ?? '');
+          if (handleStatus != 200) return http.Response('nope', handleStatus);
+          return _json({'did': resolvesTo});
+        }
+        if (request.url.path == '/$_did') {
+          return _json({..._didDocumentWithPds(), 'alsoKnownAs': ?alsoKnownAs});
+        }
+        return http.Response('not found', 404);
+      });
+
+      return HttpIdentityResolver(httpClient: client);
+    }
+
+    test(
+      'returns the claimed handle when it resolves back to the DID',
+      () async {
+        final id = await resolverFor(
+          alsoKnownAs: ['at://$_handle'],
+          resolvesTo: _did,
+        ).resolve(_did);
+
+        expect(id.handle, _handle);
+        expect(lookups, [_handle]);
+      },
+    );
+
+    test(
+      'returns handleInvalid when the claim resolves to another DID',
+      () async {
+        final id = await resolverFor(
+          alsoKnownAs: ['at://$_handle'],
+          resolvesTo: 'did:plc:zzzzzzzzzzzzzzzzzzzzzzzz',
+        ).resolve(_did);
+
+        expect(id.handle, handleInvalid);
+        expect(lookups, [_handle]);
+      },
+    );
+
+    test(
+      'returns handleInvalid without a lookup when nothing is claimed',
+      () async {
+        final id = await resolverFor(resolvesTo: _did).resolve(_did);
+
+        expect(id.handle, handleInvalid);
+        // A document that claims no handle must not cost a round trip.
+        expect(lookups, isEmpty);
+      },
+    );
+
+    test(
+      'returns handleInvalid rather than throwing when the lookup fails',
+      () async {
+        // A handle that stopped resolving is an operational state — usually the
+        // DNS record for a verified domain being removed — and the account is
+        // still valid, so resolution must not fail.
+        final id = await resolverFor(
+          alsoKnownAs: ['at://$_handle'],
+          handleStatus: 500,
+        ).resolve(_did);
+
+        expect(id.handle, handleInvalid);
+        expect(lookups, [_handle]);
+      },
+    );
+
+    test(
+      'treats a document claiming handleInvalid as claiming nothing',
+      () async {
+        // The sentinel is a syntactically valid handle, so honouring a claim of
+        // it would make a verified handle indistinguishable from a failed one.
+        final id = await resolverFor(
+          alsoKnownAs: ['at://$handleInvalid'],
+          resolvesTo: _did,
+        ).resolve(_did);
+
+        expect(id.handle, handleInvalid);
+        expect(lookups, isEmpty);
+      },
+    );
+  });
 }
