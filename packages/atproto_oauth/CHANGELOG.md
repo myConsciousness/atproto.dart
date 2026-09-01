@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.8.3
+
+- **chore!**: moved to `atproto_identity` `^0.6.0`, in which `ResolvedIdentity.handle` stops being nullable and carries `handleInvalid` when no handle verifies. `ResolvedIdentity` is re-exported from this package, so the type change is visible to callers of `atproto_oauth` too.
+- **fix**: `authorize` sends the DID as the `login_hint` when no handle verified. The old code fell back to the DID for a null handle; with the sentinel in place it would otherwise have offered the authorization server `handle.invalid`, which belongs to nobody.
+
 ## v0.8.2
 
 - **chore**: moved to `atproto_identity` `^0.5.0`, which adds `resolveDidDocument` and `serviceEndpointOf` and tightens the DID grammar applied to every document fetch. v0.8.1 is published pinning `^0.4.0`, so without this release an app on `atproto_oauth ^0.8.1` could not reach them.

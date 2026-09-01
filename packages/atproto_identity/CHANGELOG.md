@@ -1,5 +1,15 @@
 # Release Note
 
+## v0.6.0
+
+- **feat!**: `resolve` now verifies the handle when resolution starts from a DID. It previously set `handle` to null and skipped bidirectional verification entirely, so a DID document's `alsoKnownAs` claim was read by nobody: a caller who passed a DID got no handle even when the document claimed one, and no way to learn whether that claim was real. The claimed handle is now resolved back and must return the DID that was asked about.
+- **feat!**: `ResolvedIdentity.handle` is no longer nullable. It carries the new `handleInvalid` constant (`handle.invalid`) when no handle verifies, which is the shape the protocol already defines — `com.atproto.identity.defs#identityInfo` requires the field and documents the same sentinel, and the generated `IdentityInfo` mirrors it. Only this hand-written type disagreed.
+- **feat**: verification never throws on the DID path. A handle that stopped resolving is an operational state — most often a verified domain whose DNS record was removed or misconfigured — and such an account is still valid, so `handle.invalid` is reported instead. Transport failures are caught alongside `IdentityException`, since the handle lookup wraps only timeouts; `Error`s are not caught, so a bug still surfaces. Resolution *from* a handle is unchanged and still throws when the document does not claim it back.
+- **feat**: a DID document claiming `handle.invalid` verbatim is treated as claiming nothing. The string is a syntactically valid handle, so honouring such a claim would make a verified handle indistinguishable from one that failed to verify.
+- **chore**: a document that claims no handle costs no extra request, so this adds a round trip only when there is a claim to check.
+
+**Breaking:** replace `identity.handle == null` with `identity.handle == handleInvalid`, and pass `handle:` when constructing a `ResolvedIdentity` yourself — it is now a required argument, because an identity always reports either a verified handle or the sentinel.
+
 ## v0.5.0
 
 - **feat**: added `HttpIdentityResolver.resolveDidDocument`, which fetches a DID document and returns it verbatim as a `Map<String, dynamic>`. `resolve` interprets a document as an atproto identity and therefore rejects anything without an `#atproto_pds` service, so a document that is not an account's — a feed generator's `did:web` document, which declares only a `#bsky_fg` service — was unreachable through this package even though the resolver already fetched, size-capped, redirect-checked, and `id`-bound it. The new method reuses that same fetch; only the atproto-specific interpretation is skipped.
