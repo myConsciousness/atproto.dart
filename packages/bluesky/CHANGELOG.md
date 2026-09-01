@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.8.1
+
+- fix: the feed generator test behind `GroupedNotificationReason.customFeedLike` compares the AT URI's collection segment instead of searching the whole URI for `app.bsky.feed.generator`. An rkey may legally contain dots, so a like on `at://<did>/app.bsky.feed.post/app.bsky.feed.generator` is a like on a post, and the substring test grouped it as a feed like. **If you relied on the old grouping for such a URI, it now groups as `like`.** The check reads `AtUri.collectionOrNull` rather than `collection` (or the generated `isFeedGenerator`, which is built on it) because those throw when the URI has no collection segment, and the substring test being replaced never threw.
+- docs: `GroupedNotificationReason` says where `customFeedLike` comes from — it is synthesised here rather than mirrored from the lexicon — and that `like` therefore means "a like on something that is not a feed generator".
+- test: `GroupedNotificationReason` is checked against `lexicons/app/bsky/notification/listNotifications.json` directly, so a value added there fails a test naming it instead of drifting unnoticed.
+
 ## v2.8.0
 
 - fix: `KnownLabelValue` was missing `bot`, which `com.atproto.label.defs#labelValue` lists among its `knownValues`. `KnownLabelValue.valueOf('bot')` answered null, so a caller using this enum to tell a global label value from a labeler-defined one got the wrong answer for it. Note that `bot` deliberately gets no entry in `kLabels` or `kLabelDefinitions`: the lexicon declares the value but not how to interpret it, and inventing a severity and a blur here would make this package decide moderation behaviour the protocol does not specify — so a `bot` label still flows through with no interpreted definition, exactly as before. This changes what the enum says, not what the moderation engine does.
