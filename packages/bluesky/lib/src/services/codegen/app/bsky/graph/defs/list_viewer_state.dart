@@ -21,13 +21,16 @@ part 'list_viewer_state.g.dart';
 
 @freezed
 abstract class ListViewerState with _$ListViewerState {
-  static const knownProps = <String>['muted', 'blocked'];
+  static const knownProps = <String>['muted', 'blocked', 'referenceListOptOut'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ListViewerState({
     @Default('app.bsky.graph.defs#listViewerState') String $type,
     bool? muted,
     @AtUriConverter() AtUri? blocked,
+
+    /// The authenticated viewer's app.bsky.graph.referencelistoptout record URI for this reference list. Only set for reference lists. A client can delete this record to undo the opt-out.
+    @AtUriConverter() AtUri? referenceListOptOut,
 
     Map<String, dynamic>? $unknown,
   }) = _ListViewerState;
@@ -46,6 +49,8 @@ extension ListViewerStateExtension on ListViewerState {
   bool get isNotMuted => !isMuted;
   bool get hasBlocked => blocked != null;
   bool get hasNotBlocked => !hasBlocked;
+  bool get hasReferenceListOptOut => referenceListOptOut != null;
+  bool get hasNotReferenceListOptOut => !hasReferenceListOptOut;
 }
 
 final class ListViewerStateConverter

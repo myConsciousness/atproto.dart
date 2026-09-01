@@ -766,6 +766,9 @@ const appBskyGraphMuteActorList = 'app.bsky.graph.muteActorList';
 /// `app.bsky.graph.muteThread`
 const appBskyGraphMuteThread = 'app.bsky.graph.muteThread';
 
+/// `app.bsky.graph.referencelistoptout`
+const appBskyGraphReferencelistoptout = 'app.bsky.graph.referencelistoptout';
+
 /// `app.bsky.graph.searchStarterPacks`
 const appBskyGraphSearchStarterPacks = 'app.bsky.graph.searchStarterPacks';
 

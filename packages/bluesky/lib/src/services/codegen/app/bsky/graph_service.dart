@@ -541,6 +541,7 @@ base class GraphService {
   final GraphListRecordAccessor _list;
   final GraphListblockRecordAccessor _listblock;
   final GraphListitemRecordAccessor _listitem;
+  final GraphReferencelistoptoutRecordAccessor _referencelistoptout;
   final GraphStarterpackRecordAccessor _starterpack;
   final GraphVerificationRecordAccessor _verification;
 
@@ -550,6 +551,7 @@ base class GraphService {
       _list = GraphListRecordAccessor(ctx),
       _listblock = GraphListblockRecordAccessor(ctx),
       _listitem = GraphListitemRecordAccessor(ctx),
+      _referencelistoptout = GraphReferencelistoptoutRecordAccessor(ctx),
       _starterpack = GraphStarterpackRecordAccessor(ctx),
       _verification = GraphVerificationRecordAccessor(ctx);
 
@@ -890,6 +892,10 @@ base class GraphService {
     $headers: $headers,
     $unknown: $unknown,
   );
+
+  /// Record requesting that its author be omitted from the public presentation of a reference list. This record is only enforced when the subject list's current purpose is app.bsky.graph.defs#referencelist. AppView indexes at most one record per actor and list pair, and ignores duplicate records.
+  GraphReferencelistoptoutRecordAccessor get referencelistoptout =>
+      _referencelistoptout;
 
   /// Find starter packs matching search criteria. Does not require auth.
   Future<XRPCResponse<GraphSearchStarterPacksOutput>> searchStarterPacks({
@@ -1532,6 +1538,112 @@ final class GraphListitemRecordAccessor {
   }) async => await comAtprotoRepoDeleteRecord(
     repo: ctx.repo,
     collection: ids.appBskyGraphListitem,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+}
+
+final class GraphReferencelistoptoutRecordAccessor {
+  final ServiceContext ctx;
+
+  const GraphReferencelistoptoutRecordAccessor(this.ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyGraphReferencelistoptout,
+    rkey: rkey,
+    cid: cid,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyGraphReferencelistoptout,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required AtUri subject,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyGraphReferencelistoptout,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      r'$type': 'app.bsky.graph.referencelistoptout',
+      ...?$unknown,
+      'subject': subject.toString(),
+      'createdAt': iso8601(createdAt),
+    },
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required AtUri subject,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyGraphReferencelistoptout,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      r'$type': 'app.bsky.graph.referencelistoptout',
+      ...?$unknown,
+      'subject': subject.toString(),
+      'createdAt': iso8601(createdAt),
+    },
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyGraphReferencelistoptout,
     rkey: rkey,
     swapRecord: swapRecord,
     swapCommit: swapCommit,

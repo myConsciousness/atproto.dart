@@ -35,6 +35,7 @@ import 'graph/listitem.dart';
 import 'graph/mute_actor.dart';
 import 'graph/mute_actor_list.dart';
 import 'graph/mute_thread.dart';
+import 'graph/referencelistoptout.dart';
 import 'graph/search_starter_packs.dart';
 import 'graph/search_starter_packs_v2.dart';
 import 'graph/starterpack.dart';
@@ -73,6 +74,7 @@ final class AppBskyGraphCommand extends Command<void> {
     addSubcommand(MuteActorCommand());
     addSubcommand(MuteActorListCommand());
     addSubcommand(MuteThreadCommand());
+    addSubcommand(ReferencelistoptoutCommand());
     addSubcommand(SearchStarterPacksCommand());
     addSubcommand(SearchStarterPacksV2Command());
     addSubcommand(StarterpackCommand());

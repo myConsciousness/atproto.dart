@@ -42,6 +42,7 @@ description: app.bsky.graph.defs
 | --- | --- | --- | :---: | --- |
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **subject** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
+| **subjectOptedOut** | boolean | - | ❌ | Set to true when the subject has opted out of appearing in the reference list. Only set when the viewer owns the list. |
 
 ## #starterPackView
 
@@ -97,6 +98,7 @@ description: app.bsky.graph.defs
 | --- | --- | --- | :---: | --- |
 | **muted** | boolean | - | ❌ | - |
 | **blocked** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+| **referenceListOptOut** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The authenticated viewer's app.bsky.graph.referencelistoptout record URI for this reference list. Only set for reference lists. A client can delete this record to undo the opt-out. |
 
 ## #notFoundActor
 
