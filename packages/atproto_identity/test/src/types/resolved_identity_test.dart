@@ -15,10 +15,20 @@ void main() {
     expect(id.signingKey, 'zQ3shpubkey');
   });
 
-  test('signingKey and handle default to null', () {
-    const id = ResolvedIdentity(did: 'did:plc:abc', pds: 'https://pds.example');
-    expect(id.handle, isNull);
+  test('signingKey defaults to null but handle is required', () {
+    const id = ResolvedIdentity(
+      did: 'did:plc:abc',
+      pds: 'https://pds.example',
+      handle: handleInvalid,
+    );
+    // `handle` has no default: an identity always reports either a verified
+    // handle or the sentinel, matching `identityInfo` in the lexicon.
+    expect(id.handle, handleInvalid);
     expect(id.signingKey, isNull);
+  });
+
+  test('handleInvalid is the value the atproto handle spec defines', () {
+    expect(handleInvalid, 'handle.invalid');
   });
 
   test('IdentityException carries a message', () {

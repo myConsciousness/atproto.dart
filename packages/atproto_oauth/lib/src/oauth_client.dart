@@ -263,7 +263,13 @@ final class OAuthClient {
 
     // Use the resolved, normalized handle/DID as the login_hint (never the raw
     // input, which may carry `@`/`at://` prefixes or non-canonical casing).
-    final loginHint = resolved.handle ?? resolved.did;
+    //
+    // `handle` is never null, but it carries `handleInvalid` when nothing
+    // verified — that string is not this account's handle and must not be sent
+    // as one, so the DID stands in exactly as it did for the old null handle.
+    final loginHint = resolved.handle == handleInvalid
+        ? resolved.did
+        : resolved.handle;
     if (loginHint.isNotEmpty) {
       bodyParams['login_hint'] = loginHint;
     }

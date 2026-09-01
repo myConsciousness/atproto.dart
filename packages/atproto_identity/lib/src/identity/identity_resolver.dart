@@ -379,26 +379,30 @@ final class HttpIdentityResolver implements IdentityResolver {
     final normalized = _normalizeIdentity(identity, name: 'identity');
 
     final String did;
-    final String? handle;
+    final String? suppliedHandle;
     if (normalized.startsWith('did:')) {
       did = normalized;
-      handle = null;
+      suppliedHandle = null;
     } else {
-      handle = normalized.toLowerCase();
-      did = await _resolveHandle(handle);
+      suppliedHandle = normalized.toLowerCase();
+      did = await _resolveHandle(suppliedHandle);
     }
 
     final didDocument = await _resolveDidDocument(did);
 
-    if (handle != null) {
+    final String handle;
+    if (suppliedHandle != null) {
       final claimed = _claimedHandleOf(didDocument);
-      if (claimed != handle) {
+      if (claimed != suppliedHandle) {
         throw IdentityException(
           'Bidirectional handle verification failed: the DID document for '
           '"$did" claims ${claimed == null ? 'no handle' : '"$claimed"'}, '
-          'not "$handle"',
+          'not "$suppliedHandle"',
         );
       }
+      handle = suppliedHandle;
+    } else {
+      handle = await _verifiedHandleOf(didDocument, did);
     }
 
     return ResolvedIdentity(
@@ -407,6 +411,44 @@ final class HttpIdentityResolver implements IdentityResolver {
       handle: handle,
       signingKey: signingKeyOf(didDocument, did),
     );
+  }
+
+  /// The handle [didDocument] claims, but only when it resolves back to
+  /// [did]; otherwise [handleInvalid].
+  ///
+  /// **Never throws.** A handle that no longer resolves is an operational
+  /// state, not a broken account — the usual cause is the DNS record for a
+  /// verified domain being removed or misconfigured — and the atproto handle
+  /// specification gives that case a value of its own precisely so the
+  /// identity stays usable. Failing the whole resolution here would make every
+  /// account whose DNS broke unresolvable.
+  ///
+  /// [_resolveHandle] wraps only `TimeoutException`, so transport failures
+  /// (`SocketException`, `ClientException`, `HandshakeException`) arrive
+  /// unwrapped; catching `Exception` covers those as well as
+  /// [IdentityException]. `Error`s are deliberately not caught, so a bug here
+  /// still surfaces.
+  Future<String> _verifiedHandleOf(
+    final Map<String, dynamic> didDocument,
+    final String did,
+  ) async {
+    final claimed = _claimedHandleOf(didDocument);
+
+    // A document claiming the sentinel verbatim claims nothing: it is a
+    // syntactically valid handle, so honouring it would make a *verified*
+    // handle indistinguishable from one that failed to verify.
+    if (claimed == null || claimed == handleInvalid) return handleInvalid;
+
+    try {
+      final resolved = await _resolveHandle(claimed);
+
+      // `_resolveHandle` returns the DID exactly as the handle resolver
+      // spelled it, and a DID is case-sensitive, so this is an exact match
+      // against the DID the caller asked about.
+      return resolved.trim() == did ? claimed : handleInvalid;
+    } on Exception catch (_) {
+      return handleInvalid;
+    }
   }
 
   /// Fetches the DID document for [did] and returns it verbatim, as decoded

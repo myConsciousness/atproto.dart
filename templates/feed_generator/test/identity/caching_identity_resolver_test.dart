@@ -14,7 +14,11 @@ final class _CountingResolver implements IdentityResolver {
   @override
   Future<ResolvedIdentity> resolve(final String identity) async {
     calls++;
-    return ResolvedIdentity(did: 'did:plc:$identity', pds: 'https://pds.test');
+    return ResolvedIdentity(
+      did: 'did:plc:$identity',
+      pds: 'https://pds.test',
+      handle: handleInvalid,
+    );
   }
 }
 
@@ -30,7 +34,11 @@ final class _BlockingResolver implements IdentityResolver {
   Future<ResolvedIdentity> resolve(final String identity) async {
     calls++;
     await _gate.future;
-    return ResolvedIdentity(did: identity, pds: 'https://pds.test');
+    return ResolvedIdentity(
+      did: identity,
+      pds: 'https://pds.test',
+      handle: handleInvalid,
+    );
   }
 }
 
@@ -220,6 +228,10 @@ final class _FailingOnceResolver implements IdentityResolver {
     if (_shouldFail()) {
       throw const IdentityException('resolver unavailable');
     }
-    return ResolvedIdentity(did: identity, pds: 'https://pds.test');
+    return ResolvedIdentity(
+      did: identity,
+      pds: 'https://pds.test',
+      handle: handleInvalid,
+    );
   }
 }

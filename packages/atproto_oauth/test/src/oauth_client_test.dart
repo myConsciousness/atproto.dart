@@ -59,6 +59,18 @@ class _FailingIdentityResolver implements IdentityResolver {
   }
 }
 
+/// An [IdentityResolver] that answers with a fixed identity, used to drive the
+/// `login_hint` decision without going through handle resolution.
+class _StubIdentityResolver implements IdentityResolver {
+  const _StubIdentityResolver(this.handle);
+
+  final String handle;
+
+  @override
+  Future<ResolvedIdentity> resolve(final String identity) async =>
+      ResolvedIdentity(did: _sub, pds: _pdsOrigin, handle: handle);
+}
+
 /// A recording mock HTTP client. Each request is routed to [handler]; all
 /// requests are captured in [requests] for assertions.
 class _Recorder {
@@ -327,6 +339,58 @@ void main() {
       // A prefixed / mixed-case identity must be normalized before use as the
       // login_hint (the `@` / `at://` prefixes must never be forwarded).
       await client.authorize('at://@$_handle');
+
+      final fields = Uri.splitQueryString(
+        recorder.requests.firstWhere(_isPar).body,
+      );
+      expect(fields['login_hint'], _handle);
+    });
+
+    test('login_hint falls back to the DID when no handle verified', () async {
+      // `ResolvedIdentity.handle` is never null; it carries `handleInvalid`
+      // when nothing verified — most often a verified domain whose DNS record
+      // was removed. That string is not this account's handle, so sending it
+      // as the `login_hint` would hand the authorization server a handle that
+      // belongs to nobody. The DID stands in instead.
+      final recorder = _Recorder();
+      final client = OAuthClient(
+        _metadata(),
+        identityResolver: const _StubIdentityResolver(handleInvalid),
+        signer: _StubSigner(),
+        httpClient: recorder.build((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isPar(r)) return _json({'request_uri': 'urn:x'}, status: 201);
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await client.authorize(_sub);
+
+      final fields = Uri.splitQueryString(
+        recorder.requests.firstWhere(_isPar).body,
+      );
+      expect(fields['login_hint'], _sub);
+      expect(fields['login_hint'], isNot(handleInvalid));
+    });
+
+    test('login_hint is the verified handle when one verified', () async {
+      final recorder = _Recorder();
+      final client = OAuthClient(
+        _metadata(),
+        identityResolver: const _StubIdentityResolver(_handle),
+        signer: _StubSigner(),
+        httpClient: recorder.build((r) async {
+          final id = _identityRoute(r);
+          if (id != null) return id;
+          if (_isWellKnown(r)) return _json(_serverMetadataDoc());
+          if (_isPar(r)) return _json({'request_uri': 'urn:x'}, status: 201);
+          return http.Response('unexpected', 500);
+        }),
+      );
+
+      await client.authorize(_sub);
 
       final fields = Uri.splitQueryString(
         recorder.requests.firstWhere(_isPar).body,

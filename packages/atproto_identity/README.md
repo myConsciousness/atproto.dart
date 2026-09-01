@@ -41,14 +41,18 @@ Future<void> main() async {
 
   print(identity.did); // did:plc:...
   print(identity.pds); // https://... (origin, no trailing slash)
-  print(identity.handle); // shinyakato.dev
+  print(identity.handle); // shinyakato.dev, or 'handle.invalid'
   print(identity.signingKey); // #atproto publicKeyMultibase, or null
 }
 ```
 
-When resolution starts from a handle, the resolver verifies the DID document
-claims that handle back through `alsoKnownAs` (bidirectional handle
-verification). On any failure it throws an `IdentityException`.
+The resolver performs bidirectional handle verification whichever way you
+enter. From a handle, the DID document must claim it back through
+`alsoKnownAs`, or an `IdentityException` is thrown. From a DID, the handle the
+document claims is resolved back and must return that same DID; anything else
+reports `handle.invalid` instead of throwing, because an account whose handle
+stopped resolving is still a valid account. `handle` is never null — it is
+either a verified handle or `handle.invalid`.
 
 `HttpIdentityResolver` is configurable and injectable:
 

@@ -74,12 +74,16 @@ Future<void> main() async {
 
   print(identity.did);        // did:plc:...
   print(identity.pds);        // https://host (PDS origin, no trailing slash)
-  print(identity.handle);     // shinyakato.dev (null when resolved from a DID)
+  print(identity.handle);     // shinyakato.dev, or 'handle.invalid'
   print(identity.signingKey); // #atproto publicKeyMultibase (null when absent)
 }
 ```
 
-When resolution starts from a handle, the resolver performs **bidirectional handle verification**: the DID document must list `at://<handle>` in its `alsoKnownAs`, otherwise an `IdentityException` is thrown.
+The resolver performs **bidirectional handle verification** in both directions of entry.
+
+Starting from a handle, the DID document must list `at://<handle>` in its `alsoKnownAs`, otherwise an `IdentityException` is thrown.
+
+Starting from a DID, the handle the document claims is resolved back and must return that same DID. Anything else — no claim, a claim that resolves elsewhere, or a handle resolver that cannot be reached — reports `handle.invalid` rather than throwing, because an account whose handle stopped resolving (a removed or misconfigured DNS record, most often) is still a valid account. `handle` is therefore never null; it is either a verified handle or `handle.invalid`, matching `com.atproto.identity.defs#identityInfo`.
 
 ## More Tips 🏄
 
