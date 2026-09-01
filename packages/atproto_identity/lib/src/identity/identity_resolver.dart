@@ -8,6 +8,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 // Package imports:
+import 'package:at_primitives/at_identifier.dart';
 import 'package:http/http.dart' as http;
 
 // Project imports:
@@ -26,7 +27,9 @@ abstract interface class IdentityResolver {
 /// handle→DID via `com.atproto.identity.resolveHandle`, DID document via the
 /// PLC directory (`did:plc`) or well-known/path location (`did:web`), then the
 /// `#atproto_pds` service endpoint. When starting from a handle, verifies the
-/// DID document claims the handle back through `alsoKnownAs`.
+/// DID document claims that handle back: per the atproto DID spec the claimed
+/// handle is the *first* syntactically valid handle in `alsoKnownAs`, so a
+/// handle listed after it does not verify.
 final class HttpIdentityResolver implements IdentityResolver {
   HttpIdentityResolver({
     this.handleResolver = 'https://public.api.bsky.app',
@@ -404,16 +407,12 @@ final class HttpIdentityResolver implements IdentityResolver {
     final didDocument = await _resolveDidDocument(did);
 
     if (handle != null) {
-      final alsoKnownAs = didDocument['alsoKnownAs'];
-      final claimsHandle =
-          alsoKnownAs is List &&
-          alsoKnownAs.whereType<String>().any(
-            (final aka) => aka.toLowerCase() == 'at://$handle',
-          );
-      if (!claimsHandle) {
+      final claimed = _claimedHandleOf(didDocument);
+      if (claimed != handle) {
         throw IdentityException(
           'Bidirectional handle verification failed: the DID document for '
-          '"$did" does not list "at://$handle" in "alsoKnownAs"',
+          '"$did" claims ${claimed == null ? 'no handle' : '"$claimed"'}, '
+          'not "$handle"',
         );
       }
     }
@@ -684,6 +683,34 @@ bool _isProhibitedIpv6(final List<int> b) {
   return (b[0] == 0xfe && (b[1] & 0xc0) == 0x80) || // fe80::/10 link-local
       (b[0] & 0xfe) == 0xfc || // fc00::/7 unique-local
       b[0] == 0xff; // ff00::/8 multicast
+}
+
+/// The handle [didDocument] claims, lowercased, or `null` when it claims none.
+///
+/// Per the atproto DID spec, `alsoKnownAs` is an *ordered* list and only the
+/// first syntactically valid handle in it is the claimed handle; every later
+/// handle URI is ignored, even when the first fails to resolve
+/// bi-directionally. Entries that are not `at://` URIs (DID Core allows other
+/// URI types here) and `at://` entries that are not syntactically valid
+/// handles are skipped rather than ending the scan, since neither can be the
+/// claimed handle.
+///
+/// Reading the first entry instead of scanning for a match is what keeps a
+/// document from claiming several handles at once: an account whose
+/// `alsoKnownAs` is `["at://alice.example", "at://bob.example"]` claims
+/// `alice.example` and nothing else, so resolving `bob.example` against it
+/// must fail even though the string is present.
+String? _claimedHandleOf(final Map<String, dynamic> didDocument) {
+  final alsoKnownAs = didDocument['alsoKnownAs'];
+  if (alsoKnownAs is! List) return null;
+
+  for (final aka in alsoKnownAs.whereType<String>()) {
+    if (!aka.startsWith('at://')) continue;
+    final candidate = aka.substring('at://'.length).toLowerCase();
+    if (isValidHandle(candidate)) return candidate;
+  }
+
+  return null;
 }
 
 /// Holds [host] to the same SSRF policy [HttpIdentityResolver] applies to a PDS
