@@ -170,7 +170,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
       for (final notification in chunk) {
         final reasonSubject = notification.reasonSubject?.toString();
-        final reason = _getGroupedReason(notification, reasonSubject);
+        final reason = _getGroupedReason(notification);
 
         if (!_isGroupable(notification.reason)) {
           groups.add(_buildGroup(notification, reason, ordinal: groups.length));
@@ -322,27 +322,29 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   GroupedNotifications get emptyGroupedNotifications =>
       const GroupedNotifications(notifications: []);
 
-  GroupedNotificationReason _getGroupedReason(
-    final Notification notification,
-    final String? reasonSubject,
-  ) {
+  GroupedNotificationReason _getGroupedReason(final Notification notification) {
     final knownValue = notification.reason.knownValue;
 
     if (knownValue == KnownNotificationReason.like &&
-        _isCustomFeedLike(reasonSubject)) {
+        _isCustomFeedLike(notification.reasonSubject)) {
       return GroupedNotificationReason.customFeedLike;
     }
 
     return GroupedNotificationReason.valueOf(notification.reason.toJson());
   }
 
-  bool _isCustomFeedLike(final String? reasonSubject) {
-    if (reasonSubject == null) {
-      return false;
-    }
-
-    return reasonSubject.contains(ids.appBskyFeedGenerator);
-  }
+  /// Whether this like points at a feed generator record.
+  ///
+  /// Matches the AT URI's collection segment exactly instead of searching the
+  /// whole URI for the NSID. An rkey may legally contain dots, so a like on
+  /// `at://<did>/app.bsky.feed.post/app.bsky.feed.generator` is a post like;
+  /// the substring test this replaces called it a feed like.
+  ///
+  /// Uses [AtUri.collectionOrNull] rather than `collection` (or the generated
+  /// `isFeedGenerator`, which is built on it) because both throw on a URI with
+  /// no collection segment, and the substring test never threw.
+  bool _isCustomFeedLike(final AtUri? reasonSubject) =>
+      reasonSubject?.collectionOrNull?.toString() == ids.appBskyFeedGenerator;
 
   List<List<Notification>> _groupBy(
     final GroupBy? by,
