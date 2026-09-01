@@ -10,6 +10,7 @@ import 'dart:typed_data';
 import 'package:did_plc/did_plc.dart';
 
 // Project imports:
+import 'did_syntax.dart';
 import 'identity/identity_resolver.dart';
 import 'identity_exception.dart';
 import 'signing_key.dart';
@@ -43,11 +44,6 @@ const _clockSkew = Duration(seconds: 30);
 /// accepts values up to year 2286) would otherwise let a leaked token stay
 /// valid for years. Callers may tighten this or opt out with `null`.
 const _defaultMaxTokenLifetime = Duration(minutes: 60);
-
-/// Strict DID grammar (per the DID Core `did:method:id` syntax): rejects
-/// fragments, queries, paths, whitespace, and a trailing `:`/`%` before the
-/// issuer is handed to the resolver.
-final _didPattern = RegExp(r'^did:[a-z]+:[a-zA-Z0-9._:%-]*[a-zA-Z0-9._-]$');
 
 /// Verifies an inbound AppView service-auth JWT from [authorizationHeader] and
 /// returns the issuer (viewer) DID.
@@ -150,7 +146,7 @@ Future<String> verifyServiceAuth(
   }
   // The issuer is attacker-controlled input that drives network resolution;
   // enforce a strict DID grammar before handing it to the resolver.
-  if (!_didPattern.hasMatch(iss)) {
+  if (!isValidDid(iss)) {
     throw IdentityException(
       'JWT "iss" is not a syntactically valid DID: "$iss"',
     );

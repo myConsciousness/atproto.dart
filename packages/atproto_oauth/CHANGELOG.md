@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.8.2
+
+- **chore**: moved to `atproto_identity` `^0.5.0`, which adds `resolveDidDocument` and `serviceEndpointOf` and tightens the DID grammar applied to every document fetch. v0.8.1 is published pinning `^0.4.0`, so without this release an app on `atproto_oauth ^0.8.1` could not reach them.
+
 ## v0.8.1
 
 - **chore**: moved to `atproto_identity` `^0.4.0`, which corrects bidirectional handle verification. v0.8.0 is published pinning `^0.3.0`, so without this release an app on `atproto_oauth ^0.8.0` would stay pinned to the version carrying the bug.

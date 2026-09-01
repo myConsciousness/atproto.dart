@@ -8,12 +8,14 @@ import 'package:atproto_identity/atproto_identity.dart';
 ///
 /// This example shows how to:
 /// - Resolve a handle or DID to its DID, PDS origin, and `#atproto` signing key
+/// - Read a raw DID document that the atproto identity model does not describe
 /// - Verify an inbound AppView service-auth JWT and recover the viewer's DID
 /// - Handle [IdentityException] failures
 Future<void> main(List<String> args) async {
   final resolver = HttpIdentityResolver();
 
   await demonstrateIdentityResolution(resolver);
+  await demonstrateRawDidDocument(resolver);
   demonstrateServiceAuthVerification(resolver);
 }
 
@@ -36,6 +38,43 @@ Future<void> demonstrateIdentityResolution(IdentityResolver resolver) async {
     // Thrown on a malformed identity, a failed lookup, or when bidirectional
     // handle verification does not hold.
     print('Failed to resolve identity: ${e.message}');
+  }
+}
+
+/// Demonstrates reading a DID document that is not an account's.
+///
+/// [demonstrateIdentityResolution] fails on a feed generator: its `did:web`
+/// document declares a `#bsky_fg` service and no PDS, so it cannot become a
+/// [ResolvedIdentity]. [HttpIdentityResolver.resolveDidDocument] returns that
+/// document verbatim through the same hardened fetch, and `serviceEndpointOf`
+/// reads the endpoint out of it — validated, because a `serviceEndpoint` is
+/// attacker-controlled text and this is a host you are about to connect to.
+///
+/// It takes the concrete resolver rather than [IdentityResolver], because
+/// document access is not part of that interface.
+Future<void> demonstrateRawDidDocument(HttpIdentityResolver resolver) async {
+  print('\n=== Raw DID Document ===\n');
+
+  const did = 'did:web:foryou.club';
+
+  try {
+    final document = await resolver.resolveDidDocument(did);
+    final endpoint = serviceEndpointOf(
+      document,
+      did,
+      // Matches both `#bsky_fg` and `<did>#bsky_fg`.
+      id: '#bsky_fg',
+      // Optional; when given, the entry's type must equal it.
+      type: 'BskyFeedGenerator',
+    );
+
+    print('Document id:   ${document['id']}'); // did:web:foryou.club
+    print('Feed endpoint: $endpoint'); // https://... , or null
+  } on IdentityException catch (e) {
+    // Thrown on a malformed DID, an unsupported DID method, a transport or
+    // host-policy failure, a did:web document whose `id` does not match, or a
+    // matching service whose endpoint fails the host policy.
+    print('Failed to read the DID document: ${e.message}');
   }
 }
 
