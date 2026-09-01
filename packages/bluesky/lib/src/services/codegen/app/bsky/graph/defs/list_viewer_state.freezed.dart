@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListViewerState {
 
- String get $type; bool? get muted;@AtUriConverter() AtUri? get blocked; Map<String, dynamic>? get $unknown;
+ String get $type; bool? get muted;@AtUriConverter() AtUri? get blocked;/// The authenticated viewer's app.bsky.graph.referencelistoptout record URI for this reference list. Only set for reference lists. A client can delete this record to undo the opt-out.
+@AtUriConverter() AtUri? get referenceListOptOut; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListViewerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $ListViewerStateCopyWith<ListViewerState> get copyWith => _$ListViewerStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.blocked, blocked) || other.blocked == blocked)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.blocked, blocked) || other.blocked == blocked)&&(identical(other.referenceListOptOut, referenceListOptOut) || other.referenceListOptOut == referenceListOptOut)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,muted,blocked,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,muted,blocked,referenceListOptOut,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked, \$unknown: ${$unknown})';
+  return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked, referenceListOptOut: $referenceListOptOut, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $ListViewerStateCopyWith<$Res>  {
   factory $ListViewerStateCopyWith(ListViewerState value, $Res Function(ListViewerState) _then) = _$ListViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool? muted,@AtUriConverter() AtUri? blocked, Map<String, dynamic>? $unknown
+ String $type, bool? muted,@AtUriConverter() AtUri? blocked,@AtUriConverter() AtUri? referenceListOptOut, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +66,12 @@ class _$ListViewerStateCopyWithImpl<$Res>
 
 /// Create a copy of ListViewerState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? muted = freezed,Object? blocked = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? muted = freezed,Object? blocked = freezed,Object? referenceListOptOut = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool?,blocked: freezed == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
+as AtUri?,referenceListOptOut: freezed == referenceListOptOut ? _self.referenceListOptOut : referenceListOptOut // ignore: cast_nullable_to_non_nullable
 as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -156,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked, @AtUriConverter()  AtUri? referenceListOptOut,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListViewerState() when $default != null:
-return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
+return $default(_that.$type,_that.muted,_that.blocked,_that.referenceListOptOut,_that.$unknown);case _:
   return orElse();
 
 }
@@ -177,10 +179,10 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked, @AtUriConverter()  AtUri? referenceListOptOut,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListViewerState():
-return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
+return $default(_that.$type,_that.muted,_that.blocked,_that.referenceListOptOut,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +199,10 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool? muted, @AtUriConverter()  AtUri? blocked, @AtUriConverter()  AtUri? referenceListOptOut,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListViewerState() when $default != null:
-return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
+return $default(_that.$type,_that.muted,_that.blocked,_that.referenceListOptOut,_that.$unknown);case _:
   return null;
 
 }
@@ -212,12 +214,14 @@ return $default(_that.$type,_that.muted,_that.blocked,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ListViewerState implements ListViewerState {
-  const _ListViewerState({this.$type = 'app.bsky.graph.defs#listViewerState', this.muted, @AtUriConverter() this.blocked, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListViewerState({this.$type = 'app.bsky.graph.defs#listViewerState', this.muted, @AtUriConverter() this.blocked, @AtUriConverter() this.referenceListOptOut, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListViewerState.fromJson(Map<String, dynamic> json) => _$ListViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  bool? muted;
 @override@AtUriConverter() final  AtUri? blocked;
+/// The authenticated viewer's app.bsky.graph.referencelistoptout record URI for this reference list. Only set for reference lists. A client can delete this record to undo the opt-out.
+@override@AtUriConverter() final  AtUri? referenceListOptOut;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -241,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.blocked, blocked) || other.blocked == blocked)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.blocked, blocked) || other.blocked == blocked)&&(identical(other.referenceListOptOut, referenceListOptOut) || other.referenceListOptOut == referenceListOptOut)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,muted,blocked,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,muted,blocked,referenceListOptOut,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked, \$unknown: ${$unknown})';
+  return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked, referenceListOptOut: $referenceListOptOut, \$unknown: ${$unknown})';
 }
 
 
@@ -261,7 +265,7 @@ abstract mixin class _$ListViewerStateCopyWith<$Res> implements $ListViewerState
   factory _$ListViewerStateCopyWith(_ListViewerState value, $Res Function(_ListViewerState) _then) = __$ListViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool? muted,@AtUriConverter() AtUri? blocked, Map<String, dynamic>? $unknown
+ String $type, bool? muted,@AtUriConverter() AtUri? blocked,@AtUriConverter() AtUri? referenceListOptOut, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +282,12 @@ class __$ListViewerStateCopyWithImpl<$Res>
 
 /// Create a copy of ListViewerState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? muted = freezed,Object? blocked = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? muted = freezed,Object? blocked = freezed,Object? referenceListOptOut = freezed,Object? $unknown = freezed,}) {
   return _then(_ListViewerState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,muted: freezed == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
 as bool?,blocked: freezed == blocked ? _self.blocked : blocked // ignore: cast_nullable_to_non_nullable
+as AtUri?,referenceListOptOut: freezed == referenceListOptOut ? _self.referenceListOptOut : referenceListOptOut // ignore: cast_nullable_to_non_nullable
 as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

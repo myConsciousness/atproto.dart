@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListItemView {
 
- String get $type;@AtUriConverter() AtUri get uri;@ProfileViewConverter() ProfileView get subject; Map<String, dynamic>? get $unknown;
+ String get $type;@AtUriConverter() AtUri get uri;@ProfileViewConverter() ProfileView get subject;/// Set to true when the subject has opted out of appearing in the reference list. Only set when the viewer owns the list.
+ bool? get subjectOptedOut; Map<String, dynamic>? get $unknown;
 /// Create a copy of ListItemView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $ListItemViewCopyWith<ListItemView> get copyWith => _$ListItemViewCopyWithImpl<L
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListItemView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListItemView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.subjectOptedOut, subjectOptedOut) || other.subjectOptedOut == subjectOptedOut)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,subject,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,subject,subjectOptedOut,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ListItemView(\$type: ${$type}, uri: $uri, subject: $subject, \$unknown: ${$unknown})';
+  return 'ListItemView(\$type: ${$type}, uri: $uri, subject: $subject, subjectOptedOut: $subjectOptedOut, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $ListItemViewCopyWith<$Res>  {
   factory $ListItemViewCopyWith(ListItemView value, $Res Function(ListItemView) _then) = _$ListItemViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri,@ProfileViewConverter() ProfileView subject, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri,@ProfileViewConverter() ProfileView subject, bool? subjectOptedOut, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +66,13 @@ class _$ListItemViewCopyWithImpl<$Res>
 
 /// Create a copy of ListItemView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? subject = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? subject = null,Object? subjectOptedOut = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
-as ProfileView,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileView,subjectOptedOut: freezed == subjectOptedOut ? _self.subjectOptedOut : subjectOptedOut // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -165,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  bool? subjectOptedOut,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListItemView() when $default != null:
-return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.subject,_that.subjectOptedOut,_that.$unknown);case _:
   return orElse();
 
 }
@@ -186,10 +188,10 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  bool? subjectOptedOut,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ListItemView():
-return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.subject,_that.subjectOptedOut,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +208,10 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri, @ProfileViewConverter()  ProfileView subject,  bool? subjectOptedOut,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ListItemView() when $default != null:
-return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.subject,_that.subjectOptedOut,_that.$unknown);case _:
   return null;
 
 }
@@ -221,12 +223,14 @@ return $default(_that.$type,_that.uri,_that.subject,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _ListItemView implements ListItemView {
-  const _ListItemView({this.$type = 'app.bsky.graph.defs#listItemView', @AtUriConverter() required this.uri, @ProfileViewConverter() required this.subject, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ListItemView({this.$type = 'app.bsky.graph.defs#listItemView', @AtUriConverter() required this.uri, @ProfileViewConverter() required this.subject, this.subjectOptedOut, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ListItemView.fromJson(Map<String, dynamic> json) => _$ListItemViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@AtUriConverter() final  AtUri uri;
 @override@ProfileViewConverter() final  ProfileView subject;
+/// Set to true when the subject has opted out of appearing in the reference list. Only set when the viewer owns the list.
+@override final  bool? subjectOptedOut;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -250,16 +254,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListItemView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListItemView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.subjectOptedOut, subjectOptedOut) || other.subjectOptedOut == subjectOptedOut)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,subject,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,subject,subjectOptedOut,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ListItemView(\$type: ${$type}, uri: $uri, subject: $subject, \$unknown: ${$unknown})';
+  return 'ListItemView(\$type: ${$type}, uri: $uri, subject: $subject, subjectOptedOut: $subjectOptedOut, \$unknown: ${$unknown})';
 }
 
 
@@ -270,7 +274,7 @@ abstract mixin class _$ListItemViewCopyWith<$Res> implements $ListItemViewCopyWi
   factory _$ListItemViewCopyWith(_ListItemView value, $Res Function(_ListItemView) _then) = __$ListItemViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri,@ProfileViewConverter() ProfileView subject, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri,@ProfileViewConverter() ProfileView subject, bool? subjectOptedOut, Map<String, dynamic>? $unknown
 });
 
 
@@ -287,12 +291,13 @@ class __$ListItemViewCopyWithImpl<$Res>
 
 /// Create a copy of ListItemView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? subject = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? subject = null,Object? subjectOptedOut = freezed,Object? $unknown = freezed,}) {
   return _then(_ListItemView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as AtUri,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
-as ProfileView,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as ProfileView,subjectOptedOut: freezed == subjectOptedOut ? _self.subjectOptedOut : subjectOptedOut // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

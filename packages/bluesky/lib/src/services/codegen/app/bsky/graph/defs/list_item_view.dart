@@ -24,13 +24,16 @@ part 'list_item_view.g.dart';
 
 @freezed
 abstract class ListItemView with _$ListItemView {
-  static const knownProps = <String>['uri', 'subject'];
+  static const knownProps = <String>['uri', 'subject', 'subjectOptedOut'];
 
   @JsonSerializable(includeIfNull: false)
   const factory ListItemView({
     @Default('app.bsky.graph.defs#listItemView') String $type,
     @AtUriConverter() required AtUri uri,
     @ProfileViewConverter() required ProfileView subject,
+
+    /// Set to true when the subject has opted out of appearing in the reference list. Only set when the viewer owns the list.
+    bool? subjectOptedOut,
 
     Map<String, dynamic>? $unknown,
   }) = _ListItemView;
@@ -42,6 +45,11 @@ abstract class ListItemView with _$ListItemView {
     if (!object.containsKey('\$type')) return false;
     return object['\$type'] == 'app.bsky.graph.defs#listItemView';
   }
+}
+
+extension ListItemViewExtension on ListItemView {
+  bool get isSubjectOptedOut => subjectOptedOut ?? false;
+  bool get isNotSubjectOptedOut => !isSubjectOptedOut;
 }
 
 final class ListItemViewConverter

@@ -31,6 +31,7 @@ import 'app/bsky/graph/follow/main.dart';
 import 'app/bsky/graph/list/main.dart';
 import 'app/bsky/graph/listblock/main.dart';
 import 'app/bsky/graph/listitem/main.dart';
+import 'app/bsky/graph/referencelistoptout/main.dart';
 import 'app/bsky/graph/starterpack/main.dart';
 import 'app/bsky/graph/verification/main.dart';
 import 'app/bsky/labeler/service/main.dart';
@@ -95,6 +96,11 @@ final class RepoCommitHandler {
   final RepoCommitOnCreate<GraphListitemRecord>? _onCreateGraphListitem;
   final RepoCommitOnUpdate<GraphListitemRecord>? _onUpdateGraphListitem;
   final RepoCommitOnDelete? _onDeleteGraphListitem;
+  final RepoCommitOnCreate<GraphReferencelistoptoutRecord>?
+  _onCreateGraphReferencelistoptout;
+  final RepoCommitOnUpdate<GraphReferencelistoptoutRecord>?
+  _onUpdateGraphReferencelistoptout;
+  final RepoCommitOnDelete? _onDeleteGraphReferencelistoptout;
   final RepoCommitOnCreate<GraphStarterpackRecord>? _onCreateGraphStarterpack;
   final RepoCommitOnUpdate<GraphStarterpackRecord>? _onUpdateGraphStarterpack;
   final RepoCommitOnDelete? _onDeleteGraphStarterpack;
@@ -168,6 +174,11 @@ final class RepoCommitHandler {
     final RepoCommitOnCreate<GraphListitemRecord>? onCreateGraphListitem,
     final RepoCommitOnUpdate<GraphListitemRecord>? onUpdateGraphListitem,
     final RepoCommitOnDelete? onDeleteGraphListitem,
+    final RepoCommitOnCreate<GraphReferencelistoptoutRecord>?
+    onCreateGraphReferencelistoptout,
+    final RepoCommitOnUpdate<GraphReferencelistoptoutRecord>?
+    onUpdateGraphReferencelistoptout,
+    final RepoCommitOnDelete? onDeleteGraphReferencelistoptout,
     final RepoCommitOnCreate<GraphStarterpackRecord>? onCreateGraphStarterpack,
     final RepoCommitOnUpdate<GraphStarterpackRecord>? onUpdateGraphStarterpack,
     final RepoCommitOnDelete? onDeleteGraphStarterpack,
@@ -242,6 +253,9 @@ final class RepoCommitHandler {
        _onCreateGraphListitem = onCreateGraphListitem,
        _onUpdateGraphListitem = onUpdateGraphListitem,
        _onDeleteGraphListitem = onDeleteGraphListitem,
+       _onCreateGraphReferencelistoptout = onCreateGraphReferencelistoptout,
+       _onUpdateGraphReferencelistoptout = onUpdateGraphReferencelistoptout,
+       _onDeleteGraphReferencelistoptout = onDeleteGraphReferencelistoptout,
        _onCreateGraphStarterpack = onCreateGraphStarterpack,
        _onUpdateGraphStarterpack = onUpdateGraphStarterpack,
        _onDeleteGraphStarterpack = onDeleteGraphStarterpack,
@@ -459,6 +473,21 @@ final class RepoCommitHandler {
       await _onCreateGraphListitem?.call(
         RepoCommitCreate<GraphListitemRecord>(
           record: const GraphListitemRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphReferencelistoptout &&
+        GraphReferencelistoptoutRecord.validate(record)) {
+      await _onCreateGraphReferencelistoptout?.call(
+        RepoCommitCreate<GraphReferencelistoptoutRecord>(
+          record: const GraphReferencelistoptoutRecordConverter().fromJson(
+            record,
+          ),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -758,6 +787,22 @@ final class RepoCommitHandler {
       );
       return;
     }
+    if (uri.isGraphReferencelistoptout &&
+        GraphReferencelistoptoutRecord.validate(record)) {
+      await _onUpdateGraphReferencelistoptout?.call(
+        RepoCommitUpdate<GraphReferencelistoptoutRecord>(
+          record: const GraphReferencelistoptoutRecordConverter().fromJson(
+            record,
+          ),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
     if (uri.isGraphStarterpack && GraphStarterpackRecord.validate(record)) {
       await _onUpdateGraphStarterpack?.call(
         RepoCommitUpdate<GraphStarterpackRecord>(
@@ -1013,6 +1058,17 @@ final class RepoCommitHandler {
     }
     if (uri.isGraphListitem) {
       await _onDeleteGraphListitem?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isGraphReferencelistoptout) {
+      await _onDeleteGraphReferencelistoptout?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,

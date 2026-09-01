@@ -4856,6 +4856,12 @@ const appBskyGraphDefs = <String, dynamic>{
       "properties": {
         "uri": {"type": "string", "format": "at-uri"},
         "subject": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"},
+        "subjectOptedOut": {
+          "type": "boolean",
+          "description":
+              "Set to true when the subject has opted out of appearing in the reference list. Only set when the viewer owns the list.",
+          "const": true,
+        },
       },
     },
     "starterPackView": {
@@ -4938,6 +4944,12 @@ const appBskyGraphDefs = <String, dynamic>{
       "properties": {
         "muted": {"type": "boolean"},
         "blocked": {"type": "string", "format": "at-uri"},
+        "referenceListOptOut": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The authenticated viewer's app.bsky.graph.referencelistoptout record URI for this reference list. Only set for reference lists. A client can delete this record to undo the opt-out.",
+        },
       },
     },
     "notFoundActor": {
@@ -5968,6 +5980,33 @@ const appBskyGraphMuteThread = <String, dynamic>{
           "properties": {
             "root": {"type": "string", "format": "at-uri"},
           },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.graph.referencelistoptout`
+const appBskyGraphReferencelistoptout = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.referencelistoptout",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record requesting that its author be omitted from the public presentation of a reference list. This record is only enforced when the subject list's current purpose is app.bsky.graph.defs#referencelist. AppView indexes at most one record per actor and list pair, and ignores duplicate records.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "createdAt"],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "at-uri",
+            "description":
+                "Canonical, DID-based AT URI of the app.bsky.graph.list record from which the author requests omission.",
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
         },
       },
     },
@@ -24285,6 +24324,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphMuteActor,
   appBskyGraphMuteActorList,
   appBskyGraphMuteThread,
+  appBskyGraphReferencelistoptout,
   appBskyGraphSearchStarterPacks,
   appBskyGraphSearchStarterPacksV2,
   appBskyGraphStarterpack,

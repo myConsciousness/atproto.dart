@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.8.2
+
+- feat: added `app.bsky.graph.defs#listItemView.subjectOptedOut`
+- feat: added `app.bsky.graph.defs#listViewerState.referenceListOptOut`
+- feat: added `app.bsky.graph.referencelistoptout`
+- chore: regenerated from synced lexicons
+
 ## v2.8.1
 
 - fix: the feed generator test behind `GroupedNotificationReason.customFeedLike` compares the AT URI's collection segment instead of searching the whole URI for `app.bsky.feed.generator`. An rkey may legally contain dots, so a like on `at://<did>/app.bsky.feed.post/app.bsky.feed.generator` is a like on a post, and the substring test grouped it as a feed like. **If you relied on the old grouping for such a URI, it now groups as `like`.** The check reads `AtUri.collectionOrNull` rather than `collection` (or the generated `isFeedGenerator`, which is built on it) because those throw when the URI has no collection segment, and the substring test being replaced never threw.

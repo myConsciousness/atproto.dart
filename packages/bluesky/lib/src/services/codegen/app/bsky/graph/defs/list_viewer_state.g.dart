@@ -23,6 +23,13 @@ _ListViewerState _$ListViewerStateFromJson(Map json) =>
             const AtUriConverter().fromJson,
           ),
         ),
+        referenceListOptOut: $checkedConvert(
+          'referenceListOptOut',
+          (v) => _$JsonConverterFromJson<String, AtUri>(
+            v,
+            const AtUriConverter().fromJson,
+          ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -37,6 +44,10 @@ Map<String, dynamic> _$ListViewerStateToJson(_ListViewerState instance) =>
       'muted': ?instance.muted,
       'blocked': ?_$JsonConverterToJson<String, AtUri>(
         instance.blocked,
+        const AtUriConverter().toJson,
+      ),
+      'referenceListOptOut': ?_$JsonConverterToJson<String, AtUri>(
+        instance.referenceListOptOut,
         const AtUriConverter().toJson,
       ),
       r'$unknown': ?instance.$unknown,

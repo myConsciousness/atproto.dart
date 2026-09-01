@@ -406,6 +406,11 @@ const appBskyGraphMuteActorList = NSID(ids.appBskyGraphMuteActorList);
 /// `app.bsky.graph.muteThread`
 const appBskyGraphMuteThread = NSID(ids.appBskyGraphMuteThread);
 
+/// `app.bsky.graph.referencelistoptout`
+const appBskyGraphReferencelistoptout = NSID(
+  ids.appBskyGraphReferencelistoptout,
+);
+
 /// `app.bsky.graph.searchStarterPacks`
 const appBskyGraphSearchStarterPacks = NSID(ids.appBskyGraphSearchStarterPacks);
 
