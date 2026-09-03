@@ -63,7 +63,7 @@
   "overrides": {
     "brace-expansion": "^1.1.17",
     "postcss": "^8.5.18",
-    "fast-uri": "^3.1.5",
+    "fast-uri": "^3.1.7",
     "sharp": "^0.35.0",
     "svgo@3.x": "^3.3.4",
     "dompurify": "^3.4.13",
