@@ -23,6 +23,7 @@ import 'moderation/defs/repo_view_detail.dart';
 import 'moderation/emitEvent/report_action.dart';
 import 'moderation/emitEvent/union_main_event.dart';
 import 'moderation/emitEvent/union_main_subject.dart';
+import 'moderation/getAccountPreferences/output.dart';
 import 'moderation/getAccountTimeline/output.dart';
 import 'moderation/getRecords/output.dart';
 import 'moderation/getReporterStats/output.dart';
@@ -96,6 +97,22 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
       'reportAction': const ReportActionConverter().toJson(reportAction),
   },
   to: const ModEventViewConverter().fromJson,
+);
+
+/// Get private preferences for an account. Requires moderator or admin auth.
+Future<XRPCResponse<ModerationGetAccountPreferencesOutput>>
+toolsOzoneModerationGetAccountPreferences({
+  required String did,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneModerationGetAccountPreferences,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, 'did': did},
+  to: const ModerationGetAccountPreferencesOutputConverter().fromJson,
 );
 
 /// Get timeline of all available events of an account. This includes moderation events, account history and did history.
@@ -514,6 +531,21 @@ base class ModerationService {
     modTool: modTool,
     externalId: externalId,
     reportAction: reportAction,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get private preferences for an account. Requires moderator or admin auth.
+  Future<XRPCResponse<ModerationGetAccountPreferencesOutput>>
+  getAccountPreferences({
+    required String did,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationGetAccountPreferences(
+    did: did,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

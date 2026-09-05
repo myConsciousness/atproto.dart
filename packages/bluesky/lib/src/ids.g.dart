@@ -1940,6 +1940,10 @@ const toolsOzoneModerationEmitEvent = 'tools.ozone.moderation.emitEvent';
 const toolsOzoneModerationEmitEventReportAction =
     'tools.ozone.moderation.emitEvent#reportAction';
 
+/// `tools.ozone.moderation.getAccountPreferences`
+const toolsOzoneModerationGetAccountPreferences =
+    'tools.ozone.moderation.getAccountPreferences';
+
 /// `tools.ozone.moderation.getAccountTimeline`
 const toolsOzoneModerationGetAccountTimeline =
     'tools.ozone.moderation.getAccountTimeline';

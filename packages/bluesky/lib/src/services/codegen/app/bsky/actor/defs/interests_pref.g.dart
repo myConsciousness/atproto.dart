@@ -15,6 +15,10 @@ _InterestsPref _$InterestsPrefFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'app.bsky.actor.defs#interestsPref',
         ),
+        updatedAt: $checkedConvert(
+          'updatedAt',
+          (v) => v == null ? null : DateTime.parse(v as String),
+        ),
         tags: $checkedConvert(
           'tags',
           (v) => (v as List<dynamic>).map((e) => e as String).toList(),
@@ -30,6 +34,7 @@ _InterestsPref _$InterestsPrefFromJson(Map json) =>
 Map<String, dynamic> _$InterestsPrefToJson(_InterestsPref instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
+      'updatedAt': iso8601(instance.updatedAt),
       'tags': instance.tags,
       r'$unknown': ?instance.$unknown,
     };

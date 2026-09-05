@@ -1,5 +1,11 @@
 # Release Note
 
+## v2.8.3
+
+- feat: added `app.bsky.actor.defs#interestsPref.updatedAt`
+- feat: added `tools.ozone.moderation.getAccountPreferences`
+- chore: regenerated from synced lexicons
+
 ## v2.8.2
 
 - feat: added `app.bsky.graph.defs#listItemView.subjectOptedOut`

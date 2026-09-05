@@ -229,6 +229,7 @@ Read-only preference containing value(s) inferred from the user's declared birth
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The timestamp when the account owner last updated their interests. |
 | **tags** | array of string | - | ✅ | A list of tags which describe the account owner's interests gathered during onboarding. |
 
 ## #mutedWordTarget
