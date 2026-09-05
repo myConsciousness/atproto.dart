@@ -1038,6 +1038,11 @@ const toolsOzoneModerationEmitEventReportAction = NSID(
   ids.toolsOzoneModerationEmitEventReportAction,
 );
 
+/// `tools.ozone.moderation.getAccountPreferences`
+const toolsOzoneModerationGetAccountPreferences = NSID(
+  ids.toolsOzoneModerationGetAccountPreferences,
+);
+
 /// `tools.ozone.moderation.getAccountTimeline`
 const toolsOzoneModerationGetAccountTimeline = NSID(
   ids.toolsOzoneModerationGetAccountTimeline,

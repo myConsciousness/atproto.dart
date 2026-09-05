@@ -443,6 +443,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | --- | --- | :---: |
 | **[tools.ozone.moderation.cancelScheduledActions](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/cancelScheduledActions.html)** | [Reference](lexicons/tools/ozone/moderation/cancelScheduledActions.md) | ❌ |
 | **[tools.ozone.moderation.emitEvent](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/emitEvent.html)** | [Reference](lexicons/tools/ozone/moderation/emitEvent.md) | ❌ |
+| **[tools.ozone.moderation.getAccountPreferences](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getAccountPreferences.html)** | [Reference](lexicons/tools/ozone/moderation/getAccountPreferences.md) | ❌ |
 | **[tools.ozone.moderation.getAccountTimeline](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getAccountTimeline.html)** | [Reference](lexicons/tools/ozone/moderation/getAccountTimeline.md) | ❌ |
 | **[tools.ozone.moderation.getEvent](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getEvent.html)** | [Reference](lexicons/tools/ozone/moderation/getEvent.md) | ❌ |
 | **[tools.ozone.moderation.getRecord](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getRecord.html)** | [Reference](lexicons/tools/ozone/moderation/getRecord.md) | ❌ |

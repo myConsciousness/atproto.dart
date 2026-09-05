@@ -472,6 +472,12 @@ const appBskyActorDefs = <String, dynamic>{
       "type": "object",
       "required": ["tags"],
       "properties": {
+        "updatedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "The timestamp when the account owner last updated their interests.",
+        },
         "tags": {
           "type": "array",
           "description":
@@ -19654,6 +19660,39 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.moderation.getAccountPreferences`
+const toolsOzoneModerationGetAccountPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getAccountPreferences",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get private preferences for an account. Requires moderator or admin auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#preferences",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.moderation.getAccountTimeline`
 const toolsOzoneModerationGetAccountTimeline = <String, dynamic>{
   "lexicon": 1,
@@ -24556,6 +24595,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneModerationCancelScheduledActions,
   toolsOzoneModerationDefs,
   toolsOzoneModerationEmitEvent,
+  toolsOzoneModerationGetAccountPreferences,
   toolsOzoneModerationGetAccountTimeline,
   toolsOzoneModerationGetEvent,
   toolsOzoneModerationGetRecord,

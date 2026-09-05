@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$InterestsPref {
 
- String get $type; List<String> get tags; Map<String, dynamic>? get $unknown;
+ String get $type;/// The timestamp when the account owner last updated their interests.
+@JsonKey(toJson: iso8601) DateTime? get updatedAt; List<String> get tags; Map<String, dynamic>? get $unknown;
 /// Create a copy of InterestsPref
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $InterestsPrefCopyWith<InterestsPref> get copyWith => _$InterestsPrefCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is InterestsPref&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other.tags, tags)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InterestsPref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.tags, tags)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(tags),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,updatedAt,const DeepCollectionEquality().hash(tags),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'InterestsPref(\$type: ${$type}, tags: $tags, \$unknown: ${$unknown})';
+  return 'InterestsPref(\$type: ${$type}, updatedAt: $updatedAt, tags: $tags, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $InterestsPrefCopyWith<$Res>  {
   factory $InterestsPrefCopyWith(InterestsPref value, $Res Function(InterestsPref) _then) = _$InterestsPrefCopyWithImpl;
 @useResult
 $Res call({
- String $type, List<String> tags, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? updatedAt, List<String> tags, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +66,11 @@ class _$InterestsPrefCopyWithImpl<$Res>
 
 /// Create a copy of InterestsPref
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? tags = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? updatedAt = freezed,Object? tags = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,tags: null == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
+as String,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,tags: null == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<String> tags,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  List<String> tags,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _InterestsPref() when $default != null:
-return $default(_that.$type,_that.tags,_that.$unknown);case _:
+return $default(_that.$type,_that.updatedAt,_that.tags,_that.$unknown);case _:
   return orElse();
 
 }
@@ -176,10 +178,10 @@ return $default(_that.$type,_that.tags,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<String> tags,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  List<String> tags,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _InterestsPref():
-return $default(_that.$type,_that.tags,_that.$unknown);case _:
+return $default(_that.$type,_that.updatedAt,_that.tags,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +198,10 @@ return $default(_that.$type,_that.tags,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<String> tags,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @JsonKey(toJson: iso8601)  DateTime? updatedAt,  List<String> tags,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _InterestsPref() when $default != null:
-return $default(_that.$type,_that.tags,_that.$unknown);case _:
+return $default(_that.$type,_that.updatedAt,_that.tags,_that.$unknown);case _:
   return null;
 
 }
@@ -211,10 +213,12 @@ return $default(_that.$type,_that.tags,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _InterestsPref implements InterestsPref {
-  const _InterestsPref({this.$type = 'app.bsky.actor.defs#interestsPref', required final  List<String> tags, final  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
+  const _InterestsPref({this.$type = 'app.bsky.actor.defs#interestsPref', @JsonKey(toJson: iso8601) this.updatedAt, required final  List<String> tags, final  Map<String, dynamic>? $unknown}): _tags = tags,_$unknown = $unknown;
   factory _InterestsPref.fromJson(Map<String, dynamic> json) => _$InterestsPrefFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// The timestamp when the account owner last updated their interests.
+@override@JsonKey(toJson: iso8601) final  DateTime? updatedAt;
  final  List<String> _tags;
 @override List<String> get tags {
   if (_tags is EqualUnmodifiableListView) return _tags;
@@ -245,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InterestsPref&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other._tags, _tags)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InterestsPref&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._tags, _tags)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(_tags),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,updatedAt,const DeepCollectionEquality().hash(_tags),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'InterestsPref(\$type: ${$type}, tags: $tags, \$unknown: ${$unknown})';
+  return 'InterestsPref(\$type: ${$type}, updatedAt: $updatedAt, tags: $tags, \$unknown: ${$unknown})';
 }
 
 
@@ -265,7 +269,7 @@ abstract mixin class _$InterestsPrefCopyWith<$Res> implements $InterestsPrefCopy
   factory _$InterestsPrefCopyWith(_InterestsPref value, $Res Function(_InterestsPref) _then) = __$InterestsPrefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, List<String> tags, Map<String, dynamic>? $unknown
+ String $type,@JsonKey(toJson: iso8601) DateTime? updatedAt, List<String> tags, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,10 +286,11 @@ class __$InterestsPrefCopyWithImpl<$Res>
 
 /// Create a copy of InterestsPref
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? tags = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? updatedAt = freezed,Object? tags = null,Object? $unknown = freezed,}) {
   return _then(_InterestsPref(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,tags: null == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
+as String,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,tags: null == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
 as List<String>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
