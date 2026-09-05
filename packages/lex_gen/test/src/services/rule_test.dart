@@ -10,6 +10,7 @@ import 'package:test/test.dart';
 import 'package:lex_gen/src/config.dart';
 import 'package:lex_gen/src/services/gen_context.dart';
 import 'package:lex_gen/src/services/rule.dart' as rule;
+import '../test_context.dart';
 
 /// A record-doc fixture whose `main` def is a record (no fragment).
 const _recordDoc = {
@@ -182,6 +183,86 @@ void main() {
       expect(rule.getLexKnownValuesElementName('dynamic'), 'dynamic');
       expect(rule.getLexKnownValuesElementName('spam'), 'spam');
       expect(rule.getLexKnownValuesElementName('nsfw'), 'nsfw');
+    });
+  });
+
+  group('getLexObjectPackagePathFromRef — union prefix vs barrel', () {
+    // A cross-authority ref cannot point at a per-def file: the referenced
+    // package only exports a barrel. Prefixing that barrel with `union_`
+    // yields an import of a file that never exists.
+    test('cross-authority union ref resolves to the barrel, unprefixed', () {
+      expect(
+        rule.getLexObjectPackagePathFromRef(
+          buildTestGenContext(),
+          'tools.ozone.moderation.getAccountPreferences',
+          'app.bsky.actor.defs#preferences',
+          isUnion: true,
+        ),
+        'package:bluesky/app_bsky_actor_defs.dart',
+      );
+    });
+
+    test(
+      'cross-authority bare union ref resolves to the barrel, unprefixed',
+      () {
+        expect(
+          rule.getLexObjectPackagePathFromRef(
+            buildTestGenContext(),
+            'tools.ozone.moderation.defs',
+            'app.bsky.actor.defs',
+            isUnion: true,
+          ),
+          'package:bluesky/app_bsky_actor_defs.dart',
+        );
+      },
+    );
+
+    test('cross-authority non-union ref is unchanged', () {
+      expect(
+        rule.getLexObjectPackagePathFromRef(
+          buildTestGenContext(),
+          'tools.ozone.moderation.getAccountPreferences',
+          'app.bsky.actor.defs#preferences',
+        ),
+        'package:bluesky/app_bsky_actor_defs.dart',
+      );
+    });
+
+    // Within one authority the generator emits per-def files, so the union
+    // file really is `union_<def>.dart` and the prefix must survive.
+    test('same-authority union ref keeps the union_ prefix', () {
+      expect(
+        rule.getLexObjectPackagePathFromRef(
+          buildTestGenContext(),
+          'app.bsky.actor.getPreferences',
+          'app.bsky.actor.defs#preferences',
+          isUnion: true,
+        ),
+        '../../../../app/bsky/actor/defs/union_preferences.dart',
+      );
+    });
+
+    test('same-authority non-union ref has no prefix', () {
+      expect(
+        rule.getLexObjectPackagePathFromRef(
+          buildTestGenContext(),
+          'app.bsky.actor.getPreferences',
+          'app.bsky.actor.defs#preferences',
+        ),
+        '../../../../app/bsky/actor/defs/preferences.dart',
+      );
+    });
+
+    test('local union ref keeps the union_ prefix', () {
+      expect(
+        rule.getLexObjectPackagePathFromRef(
+          buildTestGenContext(),
+          'app.bsky.actor.defs',
+          '#preferences',
+          isUnion: true,
+        ),
+        './union_preferences.dart',
+      );
     });
   });
 }

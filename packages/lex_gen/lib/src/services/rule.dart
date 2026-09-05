@@ -230,14 +230,19 @@ String getLexObjectPackagePathFromRef(
   final samePackage = _isInTheSamePackage(lexiconId, ref);
 
   final fileName = switch (LexRef.parse(ref)) {
-    LocalRef(:final defName) => getLexObjectFileName(defName),
+    LocalRef(:final defName) =>
+      '$fileNamePrefix${getLexObjectFileName(defName)}',
     ForeignRef(:final lexicon, :final defName) =>
-      samePackage ? getLexObjectFileName(defName) : getPackageName(lexicon.raw),
+      samePackage
+          ? '$fileNamePrefix${getLexObjectFileName(defName)}'
+          : getPackageName(lexicon.raw),
     BareRef(:final lexicon) =>
-      samePackage ? getLexObjectFileName('main') : getPackageName(lexicon.raw),
+      samePackage
+          ? '$fileNamePrefix${getLexObjectFileName('main')}'
+          : getPackageName(lexicon.raw),
   };
 
-  return '$relativePath/$fileNamePrefix$fileName.dart';
+  return '$relativePath/$fileName.dart';
 }
 
 String getLexObjectPackagePathFromRefForService(
