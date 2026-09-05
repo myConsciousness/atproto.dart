@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.17
+
+- fix: do not prefix a cross-package barrel import with `union_`
+
 ## v0.4.16
 
 - chore: bump `lexicon` to `^1.2.14`
