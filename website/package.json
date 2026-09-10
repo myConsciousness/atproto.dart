@@ -73,7 +73,7 @@
     "websocket-driver": "^0.7.5",
     "http-proxy-middleware@2.x": "^2.0.10",
     "@babel/core": "^7.29.6",
-    "joi": "^17.13.4",
+    "joi": "^17.13.7",
     "serialize-javascript": "^7.0.5",
     "uuid": "^11.1.1"
   },
