@@ -15,7 +15,6 @@ Enumerate notifications for the requesting account. Requires auth.
 | --- | --- | --- | :---: | --- |
 | **reasons** | array | - | ❌ | A reason that matches the reason property of #notification. |
 | **limit** | integer | - | ❌ | - |
-| **priority** | boolean | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 | **seenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
@@ -27,7 +26,6 @@ Enumerate notifications for the requesting account. Requires auth.
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **notifications** | array of [#notification](#notification) | - | ✅ | - |
-| **priority** | boolean | - | ❌ | - |
 | **seenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #notification

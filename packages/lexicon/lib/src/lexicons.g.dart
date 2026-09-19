@@ -6633,7 +6633,6 @@ const appBskyNotificationGetUnreadCount = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "priority": {"type": "boolean"},
           "seenAt": {"type": "string", "format": "datetime"},
         },
       },
@@ -6720,7 +6719,6 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "minimum": 1,
             "maximum": 100,
           },
-          "priority": {"type": "boolean"},
           "cursor": {"type": "string"},
           "seenAt": {"type": "string", "format": "datetime"},
         },
@@ -6736,7 +6734,6 @@ const appBskyNotificationListNotifications = <String, dynamic>{
               "type": "array",
               "items": {"type": "ref", "ref": "#notification"},
             },
-            "priority": {"type": "boolean"},
             "seenAt": {"type": "string", "format": "datetime"},
           },
         },

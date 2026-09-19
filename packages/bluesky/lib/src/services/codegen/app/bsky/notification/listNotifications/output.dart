@@ -24,18 +24,12 @@ part 'output.g.dart';
 @freezed
 abstract class NotificationListNotificationsOutput
     with _$NotificationListNotificationsOutput {
-  static const knownProps = <String>[
-    'cursor',
-    'notifications',
-    'priority',
-    'seenAt',
-  ];
+  static const knownProps = <String>['cursor', 'notifications', 'seenAt'];
 
   @JsonSerializable(includeIfNull: false)
   const factory NotificationListNotificationsOutput({
     String? cursor,
     @NotificationConverter() required List<Notification> notifications,
-    bool? priority,
     @JsonKey(toJson: iso8601) DateTime? seenAt,
 
     Map<String, dynamic>? $unknown,
@@ -50,8 +44,6 @@ extension NotificationListNotificationsOutputExtension
     on NotificationListNotificationsOutput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
-  bool get isPriority => priority ?? false;
-  bool get isNotPriority => !isPriority;
   bool get hasSeenAt => seenAt != null;
   bool get hasNotSeenAt => !hasSeenAt;
 }

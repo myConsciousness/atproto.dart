@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationListNotificationsOutput {
 
- String? get cursor;@NotificationConverter() List<Notification> get notifications; bool? get priority;@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
+ String? get cursor;@NotificationConverter() List<Notification> get notifications;@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationListNotificationsOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $NotificationListNotificationsOutputCopyWith<NotificationListNotificationsOutput
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationListNotificationsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.notifications, notifications)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationListNotificationsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.notifications, notifications)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(notifications),priority,seenAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(notifications),seenAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'NotificationListNotificationsOutput(cursor: $cursor, notifications: $notifications, priority: $priority, seenAt: $seenAt, \$unknown: ${$unknown})';
+  return 'NotificationListNotificationsOutput(cursor: $cursor, notifications: $notifications, seenAt: $seenAt, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $NotificationListNotificationsOutputCopyWith<$Res>  {
   factory $NotificationListNotificationsOutputCopyWith(NotificationListNotificationsOutput value, $Res Function(NotificationListNotificationsOutput) _then) = _$NotificationListNotificationsOutputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor,@NotificationConverter() List<Notification> notifications, bool? priority,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
+ String? cursor,@NotificationConverter() List<Notification> notifications,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +65,11 @@ class _$NotificationListNotificationsOutputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationListNotificationsOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? notifications = null,Object? priority = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? notifications = null,Object? seenAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,notifications: null == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
-as List<Notification>,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as bool?,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
+as List<Notification>,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -157,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @NotificationConverter()  List<Notification> notifications,  bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @NotificationConverter()  List<Notification> notifications, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsOutput() when $default != null:
-return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_that.$unknown);case _:
+return $default(_that.cursor,_that.notifications,_that.seenAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -178,10 +177,10 @@ return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @NotificationConverter()  List<Notification> notifications,  bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @NotificationConverter()  List<Notification> notifications, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsOutput():
-return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_that.$unknown);case _:
+return $default(_that.cursor,_that.notifications,_that.seenAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +197,10 @@ return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @NotificationConverter()  List<Notification> notifications,  bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @NotificationConverter()  List<Notification> notifications, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsOutput() when $default != null:
-return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_that.$unknown);case _:
+return $default(_that.cursor,_that.notifications,_that.seenAt,_that.$unknown);case _:
   return null;
 
 }
@@ -213,7 +212,7 @@ return $default(_that.cursor,_that.notifications,_that.priority,_that.seenAt,_th
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationListNotificationsOutput implements NotificationListNotificationsOutput {
-  const _NotificationListNotificationsOutput({this.cursor, @NotificationConverter() required final  List<Notification> notifications, this.priority, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _notifications = notifications,_$unknown = $unknown;
+  const _NotificationListNotificationsOutput({this.cursor, @NotificationConverter() required final  List<Notification> notifications, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _notifications = notifications,_$unknown = $unknown;
   factory _NotificationListNotificationsOutput.fromJson(Map<String, dynamic> json) => _$NotificationListNotificationsOutputFromJson(json);
 
 @override final  String? cursor;
@@ -224,7 +223,6 @@ class _NotificationListNotificationsOutput implements NotificationListNotificati
   return EqualUnmodifiableListView(_notifications);
 }
 
-@override final  bool? priority;
 @override@JsonKey(toJson: iso8601) final  DateTime? seenAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -249,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationListNotificationsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._notifications, _notifications)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationListNotificationsOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._notifications, _notifications)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_notifications),priority,seenAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_notifications),seenAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'NotificationListNotificationsOutput(cursor: $cursor, notifications: $notifications, priority: $priority, seenAt: $seenAt, \$unknown: ${$unknown})';
+  return 'NotificationListNotificationsOutput(cursor: $cursor, notifications: $notifications, seenAt: $seenAt, \$unknown: ${$unknown})';
 }
 
 
@@ -269,7 +267,7 @@ abstract mixin class _$NotificationListNotificationsOutputCopyWith<$Res> impleme
   factory _$NotificationListNotificationsOutputCopyWith(_NotificationListNotificationsOutput value, $Res Function(_NotificationListNotificationsOutput) _then) = __$NotificationListNotificationsOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor,@NotificationConverter() List<Notification> notifications, bool? priority,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
+ String? cursor,@NotificationConverter() List<Notification> notifications,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -286,12 +284,11 @@ class __$NotificationListNotificationsOutputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationListNotificationsOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? notifications = null,Object? priority = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? notifications = null,Object? seenAt = freezed,Object? $unknown = freezed,}) {
   return _then(_NotificationListNotificationsOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
 as String?,notifications: null == notifications ? _self._notifications : notifications // ignore: cast_nullable_to_non_nullable
-as List<Notification>,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as bool?,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
+as List<Notification>,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

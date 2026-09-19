@@ -21,11 +21,10 @@ part 'input.g.dart';
 @freezed
 abstract class NotificationGetUnreadCountInput
     with _$NotificationGetUnreadCountInput {
-  static const knownProps = <String>['priority', 'seenAt'];
+  static const knownProps = <String>['seenAt'];
 
   @JsonSerializable(includeIfNull: false)
   const factory NotificationGetUnreadCountInput({
-    bool? priority,
     @JsonKey(toJson: iso8601) DateTime? seenAt,
 
     Map<String, dynamic>? $unknown,
@@ -37,8 +36,6 @@ abstract class NotificationGetUnreadCountInput
 
 extension NotificationGetUnreadCountInputExtension
     on NotificationGetUnreadCountInput {
-  bool get isPriority => priority ?? false;
-  bool get isNotPriority => !isPriority;
   bool get hasSeenAt => seenAt != null;
   bool get hasNotSeenAt => !hasSeenAt;
 }
