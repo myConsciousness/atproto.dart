@@ -13,7 +13,6 @@ _NotificationGetUnreadCountInput _$NotificationGetUnreadCountInputFromJson(
 ) =>
     $checkedCreate('_NotificationGetUnreadCountInput', json, ($checkedConvert) {
       final val = _NotificationGetUnreadCountInput(
-        priority: $checkedConvert('priority', (v) => v as bool?),
         seenAt: $checkedConvert(
           'seenAt',
           (v) => v == null ? null : DateTime.parse(v as String),
@@ -29,7 +28,6 @@ _NotificationGetUnreadCountInput _$NotificationGetUnreadCountInputFromJson(
 Map<String, dynamic> _$NotificationGetUnreadCountInputToJson(
   _NotificationGetUnreadCountInput instance,
 ) => <String, dynamic>{
-  'priority': ?instance.priority,
   'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,
 };

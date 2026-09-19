@@ -21,20 +21,13 @@ part 'input.g.dart';
 @freezed
 abstract class NotificationListNotificationsInput
     with _$NotificationListNotificationsInput {
-  static const knownProps = <String>[
-    'reasons',
-    'limit',
-    'priority',
-    'cursor',
-    'seenAt',
-  ];
+  static const knownProps = <String>['reasons', 'limit', 'cursor', 'seenAt'];
 
   @JsonSerializable(includeIfNull: false)
   const factory NotificationListNotificationsInput({
     /// A reason that matches the reason property of #notification.
     List<String>? reasons,
     @Default(50) int limit,
-    bool? priority,
     String? cursor,
     @JsonKey(toJson: iso8601) DateTime? seenAt,
 
@@ -48,8 +41,6 @@ abstract class NotificationListNotificationsInput
 
 extension NotificationListNotificationsInputExtension
     on NotificationListNotificationsInput {
-  bool get isPriority => priority ?? false;
-  bool get isNotPriority => !isPriority;
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
   bool get hasSeenAt => seenAt != null;

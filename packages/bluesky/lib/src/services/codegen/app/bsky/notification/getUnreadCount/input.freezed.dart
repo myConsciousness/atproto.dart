@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationGetUnreadCountInput {
 
- bool? get priority;@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationGetUnreadCountInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $NotificationGetUnreadCountInputCopyWith<NotificationGetUnreadCountInput> get co
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationGetUnreadCountInput&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationGetUnreadCountInput&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,priority,seenAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,seenAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'NotificationGetUnreadCountInput(priority: $priority, seenAt: $seenAt, \$unknown: ${$unknown})';
+  return 'NotificationGetUnreadCountInput(seenAt: $seenAt, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $NotificationGetUnreadCountInputCopyWith<$Res>  {
   factory $NotificationGetUnreadCountInputCopyWith(NotificationGetUnreadCountInput value, $Res Function(NotificationGetUnreadCountInput) _then) = _$NotificationGetUnreadCountInputCopyWithImpl;
 @useResult
 $Res call({
- bool? priority,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
+@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +65,9 @@ class _$NotificationGetUnreadCountInputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationGetUnreadCountInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? priority = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? seenAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as bool?,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
+seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationGetUnreadCountInput() when $default != null:
-return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
+return $default(_that.seenAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -176,10 +175,10 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationGetUnreadCountInput():
-return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
+return $default(_that.seenAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +195,10 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? priority, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationGetUnreadCountInput() when $default != null:
-return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
+return $default(_that.seenAt,_that.$unknown);case _:
   return null;
 
 }
@@ -211,10 +210,9 @@ return $default(_that.priority,_that.seenAt,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationGetUnreadCountInput implements NotificationGetUnreadCountInput {
-  const _NotificationGetUnreadCountInput({this.priority, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationGetUnreadCountInput({@JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationGetUnreadCountInput.fromJson(Map<String, dynamic> json) => _$NotificationGetUnreadCountInputFromJson(json);
 
-@override final  bool? priority;
 @override@JsonKey(toJson: iso8601) final  DateTime? seenAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -239,16 +237,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationGetUnreadCountInput&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationGetUnreadCountInput&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,priority,seenAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,seenAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'NotificationGetUnreadCountInput(priority: $priority, seenAt: $seenAt, \$unknown: ${$unknown})';
+  return 'NotificationGetUnreadCountInput(seenAt: $seenAt, \$unknown: ${$unknown})';
 }
 
 
@@ -259,7 +257,7 @@ abstract mixin class _$NotificationGetUnreadCountInputCopyWith<$Res> implements 
   factory _$NotificationGetUnreadCountInputCopyWith(_NotificationGetUnreadCountInput value, $Res Function(_NotificationGetUnreadCountInput) _then) = __$NotificationGetUnreadCountInputCopyWithImpl;
 @override @useResult
 $Res call({
- bool? priority,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
+@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -276,10 +274,9 @@ class __$NotificationGetUnreadCountInputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationGetUnreadCountInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? priority = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? seenAt = freezed,Object? $unknown = freezed,}) {
   return _then(_NotificationGetUnreadCountInput(
-priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as bool?,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
+seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

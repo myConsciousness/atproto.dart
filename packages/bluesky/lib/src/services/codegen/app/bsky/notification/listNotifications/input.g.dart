@@ -19,7 +19,6 @@ _$NotificationListNotificationsInputFromJson(Map json) => $checkedCreate(
         (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
       ),
       limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
-      priority: $checkedConvert('priority', (v) => v as bool?),
       cursor: $checkedConvert('cursor', (v) => v as String?),
       seenAt: $checkedConvert(
         'seenAt',
@@ -39,7 +38,6 @@ Map<String, dynamic> _$NotificationListNotificationsInputToJson(
 ) => <String, dynamic>{
   'reasons': ?instance.reasons,
   'limit': instance.limit,
-  'priority': ?instance.priority,
   'cursor': ?instance.cursor,
   'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,

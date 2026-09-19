@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.9.0
+
+- fix!: removed `app.bsky.notification.getUnreadCount.parameters.priority` (BREAKING)
+- fix!: removed `app.bsky.notification.listNotifications.output.priority` (BREAKING)
+- fix!: removed `app.bsky.notification.listNotifications.parameters.priority` (BREAKING)
+- chore: regenerated from synced lexicons
+
 ## v2.8.3
 
 - feat: added `app.bsky.actor.defs#interestsPref.updatedAt`
