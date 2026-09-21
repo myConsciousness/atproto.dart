@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$NotificationListNotificationsInput {
 
 /// A reason that matches the reason property of #notification.
- List<String>? get reasons; int get limit; String? get cursor;@JsonKey(toJson: iso8601) DateTime? get seenAt; Map<String, dynamic>? get $unknown;
+ List<String>? get reasons; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationListNotificationsInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $NotificationListNotificationsInputCopyWith<NotificationListNotificationsInput> 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationListNotificationsInput&&const DeepCollectionEquality().equals(other.reasons, reasons)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationListNotificationsInput&&const DeepCollectionEquality().equals(other.reasons, reasons)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(reasons),limit,cursor,seenAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(reasons),limit,cursor,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'NotificationListNotificationsInput(reasons: $reasons, limit: $limit, cursor: $cursor, seenAt: $seenAt, \$unknown: ${$unknown})';
+  return 'NotificationListNotificationsInput(reasons: $reasons, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $NotificationListNotificationsInputCopyWith<$Res>  {
   factory $NotificationListNotificationsInputCopyWith(NotificationListNotificationsInput value, $Res Function(NotificationListNotificationsInput) _then) = _$NotificationListNotificationsInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? reasons, int limit, String? cursor,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
+ List<String>? reasons, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,13 +66,12 @@ class _$NotificationListNotificationsInputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationListNotificationsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? reasons = freezed,Object? limit = null,Object? cursor = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? reasons = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 reasons: freezed == reasons ? _self.reasons : reasons // ignore: cast_nullable_to_non_nullable
 as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -158,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  String? cursor, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsInput() when $default != null:
-return $default(_that.reasons,_that.limit,_that.cursor,_that.seenAt,_that.$unknown);case _:
+return $default(_that.reasons,_that.limit,_that.cursor,_that.$unknown);case _:
   return orElse();
 
 }
@@ -179,10 +178,10 @@ return $default(_that.reasons,_that.limit,_that.cursor,_that.seenAt,_that.$unkno
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  String? cursor, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? reasons,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsInput():
-return $default(_that.reasons,_that.limit,_that.cursor,_that.seenAt,_that.$unknown);case _:
+return $default(_that.reasons,_that.limit,_that.cursor,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +198,10 @@ return $default(_that.reasons,_that.limit,_that.cursor,_that.seenAt,_that.$unkno
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? reasons,  int limit,  String? cursor, @JsonKey(toJson: iso8601)  DateTime? seenAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? reasons,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListNotificationsInput() when $default != null:
-return $default(_that.reasons,_that.limit,_that.cursor,_that.seenAt,_that.$unknown);case _:
+return $default(_that.reasons,_that.limit,_that.cursor,_that.$unknown);case _:
   return null;
 
 }
@@ -214,7 +213,7 @@ return $default(_that.reasons,_that.limit,_that.cursor,_that.seenAt,_that.$unkno
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationListNotificationsInput implements NotificationListNotificationsInput {
-  const _NotificationListNotificationsInput({final  List<String>? reasons, this.limit = 50, this.cursor, @JsonKey(toJson: iso8601) this.seenAt, final  Map<String, dynamic>? $unknown}): _reasons = reasons,_$unknown = $unknown;
+  const _NotificationListNotificationsInput({final  List<String>? reasons, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _reasons = reasons,_$unknown = $unknown;
   factory _NotificationListNotificationsInput.fromJson(Map<String, dynamic> json) => _$NotificationListNotificationsInputFromJson(json);
 
 /// A reason that matches the reason property of #notification.
@@ -230,7 +229,6 @@ class _NotificationListNotificationsInput implements NotificationListNotificatio
 
 @override@JsonKey() final  int limit;
 @override final  String? cursor;
-@override@JsonKey(toJson: iso8601) final  DateTime? seenAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -254,16 +252,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationListNotificationsInput&&const DeepCollectionEquality().equals(other._reasons, _reasons)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.seenAt, seenAt) || other.seenAt == seenAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationListNotificationsInput&&const DeepCollectionEquality().equals(other._reasons, _reasons)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_reasons),limit,cursor,seenAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_reasons),limit,cursor,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'NotificationListNotificationsInput(reasons: $reasons, limit: $limit, cursor: $cursor, seenAt: $seenAt, \$unknown: ${$unknown})';
+  return 'NotificationListNotificationsInput(reasons: $reasons, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
 }
 
 
@@ -274,7 +272,7 @@ abstract mixin class _$NotificationListNotificationsInputCopyWith<$Res> implemen
   factory _$NotificationListNotificationsInputCopyWith(_NotificationListNotificationsInput value, $Res Function(_NotificationListNotificationsInput) _then) = __$NotificationListNotificationsInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? reasons, int limit, String? cursor,@JsonKey(toJson: iso8601) DateTime? seenAt, Map<String, dynamic>? $unknown
+ List<String>? reasons, int limit, String? cursor, Map<String, dynamic>? $unknown
 });
 
 
@@ -291,13 +289,12 @@ class __$NotificationListNotificationsInputCopyWithImpl<$Res>
 
 /// Create a copy of NotificationListNotificationsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? reasons = freezed,Object? limit = null,Object? cursor = freezed,Object? seenAt = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? reasons = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
   return _then(_NotificationListNotificationsInput(
 reasons: freezed == reasons ? _self._reasons : reasons // ignore: cast_nullable_to_non_nullable
 as List<String>?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
-as String?,seenAt: freezed == seenAt ? _self.seenAt : seenAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

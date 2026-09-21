@@ -6633,6 +6633,10 @@ const appBskyNotificationGetUnreadCount = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
+          "priority": {
+            "type": "boolean",
+            "description": "Deprecated: this parameter is ignored.",
+          },
           "seenAt": {"type": "string", "format": "datetime"},
         },
       },
@@ -6719,8 +6723,17 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "minimum": 1,
             "maximum": 100,
           },
+          "priority": {
+            "type": "boolean",
+            "description": "Deprecated: this parameter is ignored.",
+          },
           "cursor": {"type": "string"},
-          "seenAt": {"type": "string", "format": "datetime"},
+          "seenAt": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Deprecated: this parameter is unsupported and will cause an error.",
+          },
         },
       },
       "output": {
@@ -6733,6 +6746,10 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "notifications": {
               "type": "array",
               "items": {"type": "ref", "ref": "#notification"},
+            },
+            "priority": {
+              "type": "boolean",
+              "description": "Deprecated: this field is no longer populated.",
             },
             "seenAt": {"type": "string", "format": "datetime"},
           },

@@ -22,8 +22,13 @@ final class ListNotificationsCommand extends QueryCommand {
         help: r"Notification reasons to include in response.",
       )
       ..addOption("limit", defaultsTo: "50")
+      ..addFlag("priority", help: r"Deprecated: this parameter is ignored.")
       ..addOption("cursor")
-      ..addOption("seenAt");
+      ..addOption(
+        "seenAt",
+        help:
+            r"Deprecated: this parameter is unsupported and will cause an error.",
+      );
   }
 
   @override
@@ -35,7 +40,7 @@ final class ListNotificationsCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification list-notifications [--reasons=<value>...] [--limit=<value>] [--cursor=<value>] [--seenAt=<value>]";
+      "bsky app-bsky-notification list-notifications [--reasons=<value>...] [--limit=<value>] [--priority] [--cursor=<value>] [--seenAt=<value>]";
 
   @override
   String get methodId => "app.bsky.notification.listNotifications";
@@ -46,6 +51,7 @@ final class ListNotificationsCommand extends QueryCommand {
     "limit":
         int.tryParse(argResults!["limit"]) ??
         usageException('Invalid integer value for option "limit".'),
+    if (argResults!.wasParsed("priority")) "priority": argResults!["priority"],
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
     if (argResults!.wasParsed("seenAt")) "seenAt": argResults!["seenAt"],
   };

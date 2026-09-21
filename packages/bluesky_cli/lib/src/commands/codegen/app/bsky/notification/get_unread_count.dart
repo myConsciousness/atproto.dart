@@ -16,7 +16,9 @@ import '../../../../query_command.dart';
 
 final class GetUnreadCountCommand extends QueryCommand {
   GetUnreadCountCommand() {
-    argParser..addOption("seenAt");
+    argParser
+      ..addFlag("priority", help: r"Deprecated: this parameter is ignored.")
+      ..addOption("seenAt");
   }
 
   @override
@@ -28,13 +30,14 @@ final class GetUnreadCountCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-notification get-unread-count [--seenAt=<value>]";
+      "bsky app-bsky-notification get-unread-count [--priority] [--seenAt=<value>]";
 
   @override
   String get methodId => "app.bsky.notification.getUnreadCount";
 
   @override
   Map<String, dynamic>? get parameters => {
+    if (argResults!.wasParsed("priority")) "priority": argResults!["priority"],
     if (argResults!.wasParsed("seenAt")) "seenAt": argResults!["seenAt"],
   };
 }
