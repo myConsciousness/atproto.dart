@@ -1,5 +1,13 @@
 # Release Note
 
+## v2.9.1
+
+- feat: added `app.bsky.notification.getUnreadCount.parameters.priority`
+- feat: added `app.bsky.notification.listNotifications.output.priority`
+- feat: added `app.bsky.notification.listNotifications.parameters.priority`
+- chore: updated `app.bsky.notification.listNotifications.parameters.seenAt`
+- chore: regenerated from synced lexicons
+
 ## v2.9.0
 
 - fix!: removed `app.bsky.notification.getUnreadCount.parameters.priority` (BREAKING)

@@ -20,10 +20,6 @@ _$NotificationListNotificationsInputFromJson(Map json) => $checkedCreate(
       ),
       limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
       cursor: $checkedConvert('cursor', (v) => v as String?),
-      seenAt: $checkedConvert(
-        'seenAt',
-        (v) => v == null ? null : DateTime.parse(v as String),
-      ),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -39,6 +35,5 @@ Map<String, dynamic> _$NotificationListNotificationsInputToJson(
   'reasons': ?instance.reasons,
   'limit': instance.limit,
   'cursor': ?instance.cursor,
-  'seenAt': iso8601(instance.seenAt),
   r'$unknown': ?instance.$unknown,
 };

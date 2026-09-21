@@ -64,6 +64,7 @@ appBskyNotificationGetPreferences({
 /// Count the number of unread notifications for the requesting account. Requires auth.
 Future<XRPCResponse<NotificationGetUnreadCountOutput>>
 appBskyNotificationGetUnreadCount({
+  bool? priority,
   DateTime? seenAt,
   required ServiceContext $ctx,
   String? $service,
@@ -73,7 +74,11 @@ appBskyNotificationGetUnreadCount({
   ns.appBskyNotificationGetUnreadCount,
   service: $service,
   headers: $headers,
-  parameters: {...?$unknown, if (seenAt != null) 'seenAt': iso8601(seenAt)},
+  parameters: {
+    ...?$unknown,
+    if (priority != null) 'priority': priority,
+    if (seenAt != null) 'seenAt': iso8601(seenAt),
+  },
   to: const NotificationGetUnreadCountOutputConverter().fromJson,
 );
 
@@ -103,6 +108,7 @@ Future<XRPCResponse<NotificationListNotificationsOutput>>
 appBskyNotificationListNotifications({
   List<String>? reasons,
   int? limit,
+  bool? priority,
   String? cursor,
   DateTime? seenAt,
   required ServiceContext $ctx,
@@ -117,6 +123,7 @@ appBskyNotificationListNotifications({
     ...?$unknown,
     if (reasons != null) 'reasons': reasons,
     if (limit != null) 'limit': limit,
+    if (priority != null) 'priority': priority,
     if (cursor != null) 'cursor': cursor,
     if (seenAt != null) 'seenAt': iso8601(seenAt),
   },
@@ -310,11 +317,13 @@ base class NotificationService {
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
   Future<XRPCResponse<NotificationGetUnreadCountOutput>> getUnreadCount({
+    bool? priority,
     DateTime? seenAt,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyNotificationGetUnreadCount(
+    priority: priority,
     seenAt: seenAt,
     $ctx: ctx,
     $service: $service,
@@ -343,6 +352,7 @@ base class NotificationService {
   Future<XRPCResponse<NotificationListNotificationsOutput>> listNotifications({
     List<String>? reasons,
     int? limit,
+    bool? priority,
     String? cursor,
     DateTime? seenAt,
     String? $service,
@@ -351,6 +361,7 @@ base class NotificationService {
   }) async => await appBskyNotificationListNotifications(
     reasons: reasons,
     limit: limit,
+    priority: priority,
     cursor: cursor,
     seenAt: seenAt,
     $ctx: ctx,
