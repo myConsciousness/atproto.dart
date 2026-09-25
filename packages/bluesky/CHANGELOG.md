@@ -1,5 +1,42 @@
 # Release Note
 
+## v2.9.2
+
+- feat: added `app.bsky.feed.defs#feedViewPost.opThreadPostCount`
+- feat: added `app.bsky.feed.defs#feedViewPost.opThreadPostIndex`
+- feat: added `tools.ozone.report.defs#historicalStats.acknowledgedCount`
+- chore: updated `tools.ozone.report.defs#historicalStats.actionRate`
+- chore: updated `tools.ozone.report.defs#historicalStats.actionedCount`
+- feat: added `tools.ozone.report.defs#historicalStats.ahtDurationSec`
+- feat: added `tools.ozone.report.defs#historicalStats.ahtSampleCount`
+- chore: updated `tools.ozone.report.defs#historicalStats.avgHandlingTimeSec`
+- feat: added `tools.ozone.report.defs#historicalStats.avgResolutionTimeSec`
+- feat: added `tools.ozone.report.defs#historicalStats.closedCount`
+- feat: added `tools.ozone.report.defs#historicalStats.labelActionCount`
+- feat: added `tools.ozone.report.defs#historicalStats.resolutionDurationSec`
+- feat: added `tools.ozone.report.defs#historicalStats.resolutionSampleCount`
+- feat: added `tools.ozone.report.defs#historicalStats.tagActionCount`
+- feat: added `tools.ozone.report.defs#historicalStats.takedownActionCount`
+- feat: added `tools.ozone.report.defs#liveStats.acknowledgedCount`
+- chore: updated `tools.ozone.report.defs#liveStats.actionRate`
+- chore: updated `tools.ozone.report.defs#liveStats.actionedCount`
+- feat: added `tools.ozone.report.defs#liveStats.ahtDurationSec`
+- feat: added `tools.ozone.report.defs#liveStats.ahtSampleCount`
+- chore: updated `tools.ozone.report.defs#liveStats.avgHandlingTimeSec`
+- feat: added `tools.ozone.report.defs#liveStats.avgResolutionTimeSec`
+- feat: added `tools.ozone.report.defs#liveStats.closedCount`
+- chore: updated `tools.ozone.report.defs#liveStats.escalatedCount`
+- chore: updated `tools.ozone.report.defs#liveStats.inboundCount`
+- feat: added `tools.ozone.report.defs#liveStats.labelActionCount`
+- feat: added `tools.ozone.report.defs#liveStats.resolutionDurationSec`
+- feat: added `tools.ozone.report.defs#liveStats.resolutionSampleCount`
+- feat: added `tools.ozone.report.defs#liveStats.tagActionCount`
+- feat: added `tools.ozone.report.defs#liveStats.takedownActionCount`
+- chore: updated `tools.ozone.report.defs#reportView.actionEventIds`
+- chore: updated `tools.ozone.report.getLiveStats`
+- chore: updated `tools.ozone.report.refreshStats`
+- chore: regenerated from synced lexicons
+
 ## v2.9.1
 
 - feat: added `app.bsky.notification.getUnreadCount.parameters.priority`

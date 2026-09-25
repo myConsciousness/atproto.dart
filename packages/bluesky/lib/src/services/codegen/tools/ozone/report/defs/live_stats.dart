@@ -23,11 +23,21 @@ part 'live_stats.g.dart';
 abstract class LiveStats with _$LiveStats {
   static const knownProps = <String>[
     'pendingCount',
+    'closedCount',
     'actionedCount',
+    'acknowledgedCount',
     'escalatedCount',
     'inboundCount',
+    'labelActionCount',
+    'tagActionCount',
+    'takedownActionCount',
+    'ahtDurationSec',
+    'ahtSampleCount',
+    'resolutionDurationSec',
+    'resolutionSampleCount',
     'actionRate',
     'avgHandlingTimeSec',
+    'avgResolutionTimeSec',
     'lastUpdated',
   ];
 
@@ -38,20 +48,50 @@ abstract class LiveStats with _$LiveStats {
     /// Number of reports currently not closed.
     int? pendingCount,
 
-    /// Number of reports closed today.
+    /// Number of close transitions.
+    int? closedCount,
+
+    /// Number of closures whose last report action is label, tag, or takedown.
     int? actionedCount,
 
-    /// Number of reports escalated today.
+    /// Number of closures whose last report action is not label, tag, or takedown.
+    int? acknowledgedCount,
+
+    /// Number of reports escalated.
     int? escalatedCount,
 
-    /// Reports received today.
+    /// Reports received.
     int? inboundCount,
 
-    /// Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer.
+    /// Closures whose last report action is a label event.
+    int? labelActionCount,
+
+    /// Closures whose last report action is a tag event.
+    int? tagActionCount,
+
+    /// Closures whose last report action is a takedown event.
+    int? takedownActionCount,
+
+    /// Sum of report assignment-to-close seconds.
+    int? ahtDurationSec,
+
+    /// Number of assigned closed-report samples in ahtDurationSec.
+    int? ahtSampleCount,
+
+    /// Sum of report creation-to-close seconds.
+    int? resolutionDurationSec,
+
+    /// Number of closed-report samples in resolutionDurationSec.
+    int? resolutionSampleCount,
+
+    /// Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.
     int? actionRate,
 
-    /// Average time in seconds from report creation (or moderator assignment) to close.
+    /// Average handling time in seconds from report assignment to close.
     int? avgHandlingTimeSec,
+
+    /// Average resolution time in seconds from report creation to close.
+    int? avgResolutionTimeSec,
 
     /// When these statistics were last computed.
     @JsonKey(toJson: iso8601) DateTime? lastUpdated,
@@ -71,16 +111,36 @@ abstract class LiveStats with _$LiveStats {
 extension LiveStatsExtension on LiveStats {
   bool get hasPendingCount => pendingCount != null;
   bool get hasNotPendingCount => !hasPendingCount;
+  bool get hasClosedCount => closedCount != null;
+  bool get hasNotClosedCount => !hasClosedCount;
   bool get hasActionedCount => actionedCount != null;
   bool get hasNotActionedCount => !hasActionedCount;
+  bool get hasAcknowledgedCount => acknowledgedCount != null;
+  bool get hasNotAcknowledgedCount => !hasAcknowledgedCount;
   bool get hasEscalatedCount => escalatedCount != null;
   bool get hasNotEscalatedCount => !hasEscalatedCount;
   bool get hasInboundCount => inboundCount != null;
   bool get hasNotInboundCount => !hasInboundCount;
+  bool get hasLabelActionCount => labelActionCount != null;
+  bool get hasNotLabelActionCount => !hasLabelActionCount;
+  bool get hasTagActionCount => tagActionCount != null;
+  bool get hasNotTagActionCount => !hasTagActionCount;
+  bool get hasTakedownActionCount => takedownActionCount != null;
+  bool get hasNotTakedownActionCount => !hasTakedownActionCount;
+  bool get hasAhtDurationSec => ahtDurationSec != null;
+  bool get hasNotAhtDurationSec => !hasAhtDurationSec;
+  bool get hasAhtSampleCount => ahtSampleCount != null;
+  bool get hasNotAhtSampleCount => !hasAhtSampleCount;
+  bool get hasResolutionDurationSec => resolutionDurationSec != null;
+  bool get hasNotResolutionDurationSec => !hasResolutionDurationSec;
+  bool get hasResolutionSampleCount => resolutionSampleCount != null;
+  bool get hasNotResolutionSampleCount => !hasResolutionSampleCount;
   bool get hasActionRate => actionRate != null;
   bool get hasNotActionRate => !hasActionRate;
   bool get hasAvgHandlingTimeSec => avgHandlingTimeSec != null;
   bool get hasNotAvgHandlingTimeSec => !hasAvgHandlingTimeSec;
+  bool get hasAvgResolutionTimeSec => avgResolutionTimeSec != null;
+  bool get hasNotAvgResolutionTimeSec => !hasAvgResolutionTimeSec;
   bool get hasLastUpdated => lastUpdated != null;
   bool get hasNotLastUpdated => !hasLastUpdated;
 }

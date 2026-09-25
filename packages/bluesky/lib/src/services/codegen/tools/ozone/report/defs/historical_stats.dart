@@ -25,11 +25,21 @@ abstract class HistoricalStats with _$HistoricalStats {
     'date',
     'computedAt',
     'pendingCount',
+    'closedCount',
     'actionedCount',
+    'acknowledgedCount',
     'escalatedCount',
     'inboundCount',
+    'labelActionCount',
+    'tagActionCount',
+    'takedownActionCount',
+    'ahtDurationSec',
+    'ahtSampleCount',
+    'resolutionDurationSec',
+    'resolutionSampleCount',
     'actionRate',
     'avgHandlingTimeSec',
+    'avgResolutionTimeSec',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -45,8 +55,14 @@ abstract class HistoricalStats with _$HistoricalStats {
     /// Number of reports not closed at time of computation.
     int? pendingCount,
 
-    /// Number of reports closed during this day.
+    /// Number of close transitions during this day.
+    int? closedCount,
+
+    /// Number of closures whose last report action is label, tag, or takedown during this day.
     int? actionedCount,
+
+    /// Number of closures whose last report action is not label, tag, or takedown during this day.
+    int? acknowledgedCount,
 
     /// Number of reports escalated during this day.
     int? escalatedCount,
@@ -54,11 +70,35 @@ abstract class HistoricalStats with _$HistoricalStats {
     /// Reports received during this day.
     int? inboundCount,
 
-    /// Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer.
+    /// Closures whose last report action is a label event during this day.
+    int? labelActionCount,
+
+    /// Closures whose last report action is a tag event during this day.
+    int? tagActionCount,
+
+    /// Closures whose last report action is a takedown event during this day.
+    int? takedownActionCount,
+
+    /// Sum of report assignment-to-close seconds for this day's samples.
+    int? ahtDurationSec,
+
+    /// Number of assigned closed-report samples in ahtDurationSec.
+    int? ahtSampleCount,
+
+    /// Sum of report creation-to-close seconds for this day's samples.
+    int? resolutionDurationSec,
+
+    /// Number of closed-report samples in resolutionDurationSec.
+    int? resolutionSampleCount,
+
+    /// Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.
     int? actionRate,
 
-    /// Average time in seconds from report creation (or moderator assignment) to close.
+    /// Average handling time in seconds from report assignment to close.
     int? avgHandlingTimeSec,
+
+    /// Average resolution time in seconds from report creation to close.
+    int? avgResolutionTimeSec,
 
     Map<String, dynamic>? $unknown,
   }) = _HistoricalStats;
@@ -77,16 +117,36 @@ extension HistoricalStatsExtension on HistoricalStats {
   bool get hasNotComputedAt => !hasComputedAt;
   bool get hasPendingCount => pendingCount != null;
   bool get hasNotPendingCount => !hasPendingCount;
+  bool get hasClosedCount => closedCount != null;
+  bool get hasNotClosedCount => !hasClosedCount;
   bool get hasActionedCount => actionedCount != null;
   bool get hasNotActionedCount => !hasActionedCount;
+  bool get hasAcknowledgedCount => acknowledgedCount != null;
+  bool get hasNotAcknowledgedCount => !hasAcknowledgedCount;
   bool get hasEscalatedCount => escalatedCount != null;
   bool get hasNotEscalatedCount => !hasEscalatedCount;
   bool get hasInboundCount => inboundCount != null;
   bool get hasNotInboundCount => !hasInboundCount;
+  bool get hasLabelActionCount => labelActionCount != null;
+  bool get hasNotLabelActionCount => !hasLabelActionCount;
+  bool get hasTagActionCount => tagActionCount != null;
+  bool get hasNotTagActionCount => !hasTagActionCount;
+  bool get hasTakedownActionCount => takedownActionCount != null;
+  bool get hasNotTakedownActionCount => !hasTakedownActionCount;
+  bool get hasAhtDurationSec => ahtDurationSec != null;
+  bool get hasNotAhtDurationSec => !hasAhtDurationSec;
+  bool get hasAhtSampleCount => ahtSampleCount != null;
+  bool get hasNotAhtSampleCount => !hasAhtSampleCount;
+  bool get hasResolutionDurationSec => resolutionDurationSec != null;
+  bool get hasNotResolutionDurationSec => !hasResolutionDurationSec;
+  bool get hasResolutionSampleCount => resolutionSampleCount != null;
+  bool get hasNotResolutionSampleCount => !hasResolutionSampleCount;
   bool get hasActionRate => actionRate != null;
   bool get hasNotActionRate => !hasActionRate;
   bool get hasAvgHandlingTimeSec => avgHandlingTimeSec != null;
   bool get hasNotAvgHandlingTimeSec => !hasAvgHandlingTimeSec;
+  bool get hasAvgResolutionTimeSec => avgResolutionTimeSec != null;
+  bool get hasNotAvgResolutionTimeSec => !hasAvgResolutionTimeSec;
 }
 
 final class HistoricalStatsConverter
