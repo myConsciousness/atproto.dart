@@ -28,6 +28,8 @@ abstract class FeedViewPost with _$FeedViewPost {
   static const knownProps = <String>[
     'post',
     'reply',
+    'opThreadPostIndex',
+    'opThreadPostCount',
     'reason',
     'feedContext',
     'reqId',
@@ -38,6 +40,12 @@ abstract class FeedViewPost with _$FeedViewPost {
     @Default('app.bsky.feed.defs#feedViewPost') String $type,
     @PostViewConverter() required PostView post,
     @ReplyRefConverter() ReplyRef? reply,
+
+    /// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.
+    int? opThreadPostIndex,
+
+    /// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.
+    int? opThreadPostCount,
     @UFeedViewPostReasonConverter() UFeedViewPostReason? reason,
 
     /// Context provided by feed generator that may be passed back alongside interactions.
@@ -61,6 +69,10 @@ abstract class FeedViewPost with _$FeedViewPost {
 extension FeedViewPostExtension on FeedViewPost {
   bool get hasReply => reply != null;
   bool get hasNotReply => !hasReply;
+  bool get hasOpThreadPostIndex => opThreadPostIndex != null;
+  bool get hasNotOpThreadPostIndex => !hasOpThreadPostIndex;
+  bool get hasOpThreadPostCount => opThreadPostCount != null;
+  bool get hasNotOpThreadPostCount => !hasOpThreadPostCount;
   bool get hasReason => reason != null;
   bool get hasNotReason => !hasReason;
   bool get hasFeedContext => feedContext != null;

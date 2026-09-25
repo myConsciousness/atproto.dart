@@ -3039,6 +3039,16 @@ const appBskyFeedDefs = <String, dynamic>{
       "properties": {
         "post": {"type": "ref", "ref": "#postView"},
         "reply": {"type": "ref", "ref": "#replyRef"},
+        "opThreadPostIndex": {
+          "type": "integer",
+          "description":
+              "The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.",
+        },
+        "opThreadPostCount": {
+          "type": "integer",
+          "description":
+              "The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.",
+        },
         "reason": {
           "type": "union",
           "refs": ["#reasonRepost", "#reasonPin"],
@@ -21773,7 +21783,7 @@ const toolsOzoneReportDefs = <String, dynamic>{
         "actionEventIds": {
           "type": "array",
           "description":
-              "Array of moderation event IDs representing actions taken on this report (sorted DESC, most recent first)",
+              "Array of moderation event IDs representing actions taken on this report, in append order (most recently linked event last)",
           "items": {"type": "integer"},
         },
         "actions": {
@@ -21971,27 +21981,70 @@ const toolsOzoneReportDefs = <String, dynamic>{
           "type": "integer",
           "description": "Number of reports currently not closed.",
         },
+        "closedCount": {
+          "type": "integer",
+          "description": "Number of close transitions.",
+        },
         "actionedCount": {
           "type": "integer",
-          "description": "Number of reports closed today.",
+          "description":
+              "Number of closures whose last report action is label, tag, or takedown.",
+        },
+        "acknowledgedCount": {
+          "type": "integer",
+          "description":
+              "Number of closures whose last report action is not label, tag, or takedown.",
         },
         "escalatedCount": {
           "type": "integer",
-          "description": "Number of reports escalated today.",
+          "description": "Number of reports escalated.",
         },
-        "inboundCount": {
+        "inboundCount": {"type": "integer", "description": "Reports received."},
+        "labelActionCount": {
           "type": "integer",
-          "description": "Reports received today.",
+          "description": "Closures whose last report action is a label event.",
+        },
+        "tagActionCount": {
+          "type": "integer",
+          "description": "Closures whose last report action is a tag event.",
+        },
+        "takedownActionCount": {
+          "type": "integer",
+          "description":
+              "Closures whose last report action is a takedown event.",
+        },
+        "ahtDurationSec": {
+          "type": "integer",
+          "description": "Sum of report assignment-to-close seconds.",
+        },
+        "ahtSampleCount": {
+          "type": "integer",
+          "description":
+              "Number of assigned closed-report samples in ahtDurationSec.",
+        },
+        "resolutionDurationSec": {
+          "type": "integer",
+          "description": "Sum of report creation-to-close seconds.",
+        },
+        "resolutionSampleCount": {
+          "type": "integer",
+          "description":
+              "Number of closed-report samples in resolutionDurationSec.",
         },
         "actionRate": {
           "type": "integer",
           "description":
-              "Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer.",
+              "Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.",
         },
         "avgHandlingTimeSec": {
           "type": "integer",
           "description":
-              "Average time in seconds from report creation (or moderator assignment) to close.",
+              "Average handling time in seconds from report assignment to close.",
+        },
+        "avgResolutionTimeSec": {
+          "type": "integer",
+          "description":
+              "Average resolution time in seconds from report creation to close.",
         },
         "lastUpdated": {
           "type": "string",
@@ -22019,9 +22072,19 @@ const toolsOzoneReportDefs = <String, dynamic>{
           "type": "integer",
           "description": "Number of reports not closed at time of computation.",
         },
+        "closedCount": {
+          "type": "integer",
+          "description": "Number of close transitions during this day.",
+        },
         "actionedCount": {
           "type": "integer",
-          "description": "Number of reports closed during this day.",
+          "description":
+              "Number of closures whose last report action is label, tag, or takedown during this day.",
+        },
+        "acknowledgedCount": {
+          "type": "integer",
+          "description":
+              "Number of closures whose last report action is not label, tag, or takedown during this day.",
         },
         "escalatedCount": {
           "type": "integer",
@@ -22031,15 +22094,55 @@ const toolsOzoneReportDefs = <String, dynamic>{
           "type": "integer",
           "description": "Reports received during this day.",
         },
+        "labelActionCount": {
+          "type": "integer",
+          "description":
+              "Closures whose last report action is a label event during this day.",
+        },
+        "tagActionCount": {
+          "type": "integer",
+          "description":
+              "Closures whose last report action is a tag event during this day.",
+        },
+        "takedownActionCount": {
+          "type": "integer",
+          "description":
+              "Closures whose last report action is a takedown event during this day.",
+        },
+        "ahtDurationSec": {
+          "type": "integer",
+          "description":
+              "Sum of report assignment-to-close seconds for this day's samples.",
+        },
+        "ahtSampleCount": {
+          "type": "integer",
+          "description":
+              "Number of assigned closed-report samples in ahtDurationSec.",
+        },
+        "resolutionDurationSec": {
+          "type": "integer",
+          "description":
+              "Sum of report creation-to-close seconds for this day's samples.",
+        },
+        "resolutionSampleCount": {
+          "type": "integer",
+          "description":
+              "Number of closed-report samples in resolutionDurationSec.",
+        },
         "actionRate": {
           "type": "integer",
           "description":
-              "Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer.",
+              "Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.",
         },
         "avgHandlingTimeSec": {
           "type": "integer",
           "description":
-              "Average time in seconds from report creation (or moderator assignment) to close.",
+              "Average handling time in seconds from report assignment to close.",
+        },
+        "avgResolutionTimeSec": {
+          "type": "integer",
+          "description":
+              "Average resolution time in seconds from report creation to close.",
         },
       },
     },
@@ -22228,7 +22331,7 @@ const toolsOzoneReportGetLiveStats = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Get live report statistics from the past 24 hours. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.",
+          "Get live report statistics for the current UTC calendar day. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -22610,8 +22713,7 @@ const toolsOzoneReportRefreshStats = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
-      "description":
-          "Recompute report statistics for a date range. Useful for backfilling after failures or data corrections.",
+      "description": "Recompute report statistics for a date range.",
       "input": {
         "encoding": "application/json",
         "schema": {

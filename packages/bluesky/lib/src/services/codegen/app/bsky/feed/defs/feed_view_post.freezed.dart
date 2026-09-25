@@ -15,7 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedViewPost {
 
- String get $type;@PostViewConverter() PostView get post;@ReplyRefConverter() ReplyRef? get reply;@UFeedViewPostReasonConverter() UFeedViewPostReason? get reason;/// Context provided by feed generator that may be passed back alongside interactions.
+ String get $type;@PostViewConverter() PostView get post;@ReplyRefConverter() ReplyRef? get reply;/// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.
+ int? get opThreadPostIndex;/// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.
+ int? get opThreadPostCount;@UFeedViewPostReasonConverter() UFeedViewPostReason? get reason;/// Context provided by feed generator that may be passed back alongside interactions.
  String? get feedContext;/// Unique identifier per request that may be passed back alongside interactions.
  String? get reqId; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedViewPost
@@ -30,16 +32,16 @@ $FeedViewPostCopyWith<FeedViewPost> get copyWith => _$FeedViewPostCopyWithImpl<F
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedViewPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.feedContext, feedContext) || other.feedContext == feedContext)&&(identical(other.reqId, reqId) || other.reqId == reqId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedViewPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.feedContext, feedContext) || other.feedContext == feedContext)&&(identical(other.reqId, reqId) || other.reqId == reqId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,post,reply,reason,feedContext,reqId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,post,reply,opThreadPostIndex,opThreadPostCount,reason,feedContext,reqId,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, reason: $reason, feedContext: $feedContext, reqId: $reqId, \$unknown: ${$unknown})';
+  return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, reason: $reason, feedContext: $feedContext, reqId: $reqId, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +52,7 @@ abstract mixin class $FeedViewPostCopyWith<$Res>  {
   factory $FeedViewPostCopyWith(FeedViewPost value, $Res Function(FeedViewPost) _then) = _$FeedViewPostCopyWithImpl;
 @useResult
 $Res call({
- String $type,@PostViewConverter() PostView post,@ReplyRefConverter() ReplyRef? reply,@UFeedViewPostReasonConverter() UFeedViewPostReason? reason, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
+ String $type,@PostViewConverter() PostView post,@ReplyRefConverter() ReplyRef? reply, int? opThreadPostIndex, int? opThreadPostCount,@UFeedViewPostReasonConverter() UFeedViewPostReason? reason, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,12 +69,14 @@ class _$FeedViewPostCopyWithImpl<$Res>
 
 /// Create a copy of FeedViewPost
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? reply = freezed,Object? reason = freezed,Object? feedContext = freezed,Object? reqId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? post = null,Object? reply = freezed,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? reason = freezed,Object? feedContext = freezed,Object? reqId = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as PostView,reply: freezed == reply ? _self.reply : reply // ignore: cast_nullable_to_non_nullable
-as ReplyRef?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as ReplyRef?,opThreadPostIndex: freezed == opThreadPostIndex ? _self.opThreadPostIndex : opThreadPostIndex // ignore: cast_nullable_to_non_nullable
+as int?,opThreadPostCount: freezed == opThreadPostCount ? _self.opThreadPostCount : opThreadPostCount // ignore: cast_nullable_to_non_nullable
+as int?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as UFeedViewPostReason?,feedContext: freezed == feedContext ? _self.feedContext : feedContext // ignore: cast_nullable_to_non_nullable
 as String?,reqId: freezed == reqId ? _self.reqId : reqId // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -194,10 +198,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post, @ReplyRefConverter()  ReplyRef? reply, @UFeedViewPostReasonConverter()  UFeedViewPostReason? reason,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post, @ReplyRefConverter()  ReplyRef? reply,  int? opThreadPostIndex,  int? opThreadPostCount, @UFeedViewPostReasonConverter()  UFeedViewPostReason? reason,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedViewPost() when $default != null:
-return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContext,_that.reqId,_that.$unknown);case _:
+return $default(_that.$type,_that.post,_that.reply,_that.opThreadPostIndex,_that.opThreadPostCount,_that.reason,_that.feedContext,_that.reqId,_that.$unknown);case _:
   return orElse();
 
 }
@@ -215,10 +219,10 @@ return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContex
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post, @ReplyRefConverter()  ReplyRef? reply, @UFeedViewPostReasonConverter()  UFeedViewPostReason? reason,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @PostViewConverter()  PostView post, @ReplyRefConverter()  ReplyRef? reply,  int? opThreadPostIndex,  int? opThreadPostCount, @UFeedViewPostReasonConverter()  UFeedViewPostReason? reason,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedViewPost():
-return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContext,_that.reqId,_that.$unknown);case _:
+return $default(_that.$type,_that.post,_that.reply,_that.opThreadPostIndex,_that.opThreadPostCount,_that.reason,_that.feedContext,_that.reqId,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -235,10 +239,10 @@ return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContex
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @PostViewConverter()  PostView post, @ReplyRefConverter()  ReplyRef? reply, @UFeedViewPostReasonConverter()  UFeedViewPostReason? reason,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @PostViewConverter()  PostView post, @ReplyRefConverter()  ReplyRef? reply,  int? opThreadPostIndex,  int? opThreadPostCount, @UFeedViewPostReasonConverter()  UFeedViewPostReason? reason,  String? feedContext,  String? reqId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedViewPost() when $default != null:
-return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContext,_that.reqId,_that.$unknown);case _:
+return $default(_that.$type,_that.post,_that.reply,_that.opThreadPostIndex,_that.opThreadPostCount,_that.reason,_that.feedContext,_that.reqId,_that.$unknown);case _:
   return null;
 
 }
@@ -250,12 +254,16 @@ return $default(_that.$type,_that.post,_that.reply,_that.reason,_that.feedContex
 
 @JsonSerializable(includeIfNull: false)
 class _FeedViewPost implements FeedViewPost {
-  const _FeedViewPost({this.$type = 'app.bsky.feed.defs#feedViewPost', @PostViewConverter() required this.post, @ReplyRefConverter() this.reply, @UFeedViewPostReasonConverter() this.reason, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedViewPost({this.$type = 'app.bsky.feed.defs#feedViewPost', @PostViewConverter() required this.post, @ReplyRefConverter() this.reply, this.opThreadPostIndex, this.opThreadPostCount, @UFeedViewPostReasonConverter() this.reason, this.feedContext, this.reqId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) => _$FeedViewPostFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@PostViewConverter() final  PostView post;
 @override@ReplyRefConverter() final  ReplyRef? reply;
+/// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.
+@override final  int? opThreadPostIndex;
+/// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.
+@override final  int? opThreadPostCount;
 @override@UFeedViewPostReasonConverter() final  UFeedViewPostReason? reason;
 /// Context provided by feed generator that may be passed back alongside interactions.
 @override final  String? feedContext;
@@ -284,16 +292,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedViewPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.feedContext, feedContext) || other.feedContext == feedContext)&&(identical(other.reqId, reqId) || other.reqId == reqId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedViewPost&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.post, post) || other.post == post)&&(identical(other.reply, reply) || other.reply == reply)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.feedContext, feedContext) || other.feedContext == feedContext)&&(identical(other.reqId, reqId) || other.reqId == reqId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,post,reply,reason,feedContext,reqId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,post,reply,opThreadPostIndex,opThreadPostCount,reason,feedContext,reqId,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, reason: $reason, feedContext: $feedContext, reqId: $reqId, \$unknown: ${$unknown})';
+  return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, reason: $reason, feedContext: $feedContext, reqId: $reqId, \$unknown: ${$unknown})';
 }
 
 
@@ -304,7 +312,7 @@ abstract mixin class _$FeedViewPostCopyWith<$Res> implements $FeedViewPostCopyWi
   factory _$FeedViewPostCopyWith(_FeedViewPost value, $Res Function(_FeedViewPost) _then) = __$FeedViewPostCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@PostViewConverter() PostView post,@ReplyRefConverter() ReplyRef? reply,@UFeedViewPostReasonConverter() UFeedViewPostReason? reason, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
+ String $type,@PostViewConverter() PostView post,@ReplyRefConverter() ReplyRef? reply, int? opThreadPostIndex, int? opThreadPostCount,@UFeedViewPostReasonConverter() UFeedViewPostReason? reason, String? feedContext, String? reqId, Map<String, dynamic>? $unknown
 });
 
 
@@ -321,12 +329,14 @@ class __$FeedViewPostCopyWithImpl<$Res>
 
 /// Create a copy of FeedViewPost
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? post = null,Object? reply = freezed,Object? reason = freezed,Object? feedContext = freezed,Object? reqId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? post = null,Object? reply = freezed,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? reason = freezed,Object? feedContext = freezed,Object? reqId = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedViewPost(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as PostView,reply: freezed == reply ? _self.reply : reply // ignore: cast_nullable_to_non_nullable
-as ReplyRef?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as ReplyRef?,opThreadPostIndex: freezed == opThreadPostIndex ? _self.opThreadPostIndex : opThreadPostIndex // ignore: cast_nullable_to_non_nullable
+as int?,opThreadPostCount: freezed == opThreadPostCount ? _self.opThreadPostCount : opThreadPostCount // ignore: cast_nullable_to_non_nullable
+as int?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as UFeedViewPostReason?,feedContext: freezed == feedContext ? _self.feedContext : feedContext // ignore: cast_nullable_to_non_nullable
 as String?,reqId: freezed == reqId ? _self.reqId : reqId // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

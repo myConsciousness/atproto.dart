@@ -28,6 +28,14 @@ _FeedViewPost _$FeedViewPostFromJson(Map json) => $checkedCreate(
           const ReplyRefConverter().fromJson,
         ),
       ),
+      opThreadPostIndex: $checkedConvert(
+        'opThreadPostIndex',
+        (v) => (v as num?)?.toInt(),
+      ),
+      opThreadPostCount: $checkedConvert(
+        'opThreadPostCount',
+        (v) => (v as num?)?.toInt(),
+      ),
       reason: $checkedConvert(
         'reason',
         (v) =>
@@ -56,6 +64,8 @@ Map<String, dynamic> _$FeedViewPostToJson(
     instance.reply,
     const ReplyRefConverter().toJson,
   ),
+  'opThreadPostIndex': ?instance.opThreadPostIndex,
+  'opThreadPostCount': ?instance.opThreadPostCount,
   'reason': ?_$JsonConverterToJson<Map<String, dynamic>, UFeedViewPostReason>(
     instance.reason,
     const UFeedViewPostReasonConverter().toJson,

@@ -7,7 +7,7 @@ description: tools.ozone.report.getLiveStats
 
 ## #main
 
-Get live report statistics from the past 24 hours. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.
+Get live report statistics for the current UTC calendar day. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.
 
 ### Parameters
 

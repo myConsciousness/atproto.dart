@@ -184,7 +184,7 @@ toolsOzoneReportGetLatestReport({
   to: const ReportGetLatestReportOutputConverter().fromJson,
 );
 
-/// Get live report statistics from the past 24 hours. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.
+/// Get live report statistics for the current UTC calendar day. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.
 Future<XRPCResponse<ReportGetLiveStatsOutput>> toolsOzoneReportGetLiveStats({
   int? queueId,
   String? moderatorDid,
@@ -341,7 +341,7 @@ Future<XRPCResponse<ReportReassignQueueOutput>> toolsOzoneReportReassignQueue({
   to: const ReportReassignQueueOutputConverter().fromJson,
 );
 
-/// Recompute report statistics for a date range. Useful for backfilling after failures or data corrections.
+/// Recompute report statistics for a date range.
 Future<XRPCResponse<EmptyData>> toolsOzoneReportRefreshStats({
   required String startDate,
   required String endDate,
@@ -508,7 +508,7 @@ base class ReportService {
     $unknown: $unknown,
   );
 
-  /// Get live report statistics from the past 24 hours. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.
+  /// Get live report statistics for the current UTC calendar day. Filter by queue, moderator, or report type. Omit all parameters for aggregate stats.
   Future<XRPCResponse<ReportGetLiveStatsOutput>> getLiveStats({
     int? queueId,
     String? moderatorDid,
@@ -642,7 +642,7 @@ base class ReportService {
     $unknown: $unknown,
   );
 
-  /// Recompute report statistics for a date range. Useful for backfilling after failures or data corrections.
+  /// Recompute report statistics for a date range.
   Future<XRPCResponse<EmptyData>> refreshStats({
     required String startDate,
     required String endDate,

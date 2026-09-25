@@ -38,8 +38,7 @@ final class RefreshStatsCommand extends ProcedureCommand {
   final String name = "refresh-stats";
 
   @override
-  final String description =
-      "Recompute report statistics for a date range. Useful for backfilling after failures or data corrections.";
+  final String description = "Recompute report statistics for a date range.";
 
   @override
   final String invocation =

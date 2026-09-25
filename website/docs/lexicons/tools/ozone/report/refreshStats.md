@@ -7,7 +7,7 @@ description: tools.ozone.report.refreshStats
 
 ## #main
 
-Recompute report statistics for a date range. Useful for backfilling after failures or data corrections.
+Recompute report statistics for a date range.
 
 ### Input
 

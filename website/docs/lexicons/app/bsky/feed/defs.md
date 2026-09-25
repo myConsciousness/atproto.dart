@@ -63,6 +63,8 @@ Metadata about this post within the context of the thread it is in.
 | --- | --- | --- | :---: | --- |
 | **post** | [#postView](#postview) | - | ✅ | - |
 | **reply** | [#replyRef](#replyref) | - | ❌ | - |
+| **opThreadPostIndex** | integer | - | ❌ | The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread. |
+| **opThreadPostCount** | integer | - | ❌ | The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread. |
 | **reason** | union of <br/>[#reasonRepost](#reasonrepost)<br/>[#reasonPin](#reasonpin) | - | ❌ | - |
 | **feedContext** | string | - | ❌ | Context provided by feed generator that may be passed back alongside interactions. |
 | **reqId** | string | - | ❌ | Unique identifier per request that may be passed back alongside interactions. |
