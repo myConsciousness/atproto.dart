@@ -40,6 +40,7 @@ import 'com/atproto/temp.dart';
 import 'com/germnetwork/declaration.dart';
 import 'tools/ozone/communication.dart';
 import 'tools/ozone/hosting.dart';
+import 'tools/ozone/inbox.dart';
 import 'tools/ozone/moderation.dart';
 import 'tools/ozone/queue.dart';
 import 'tools/ozone/report.dart';
@@ -90,6 +91,7 @@ List<Command<void>> get lexCommands => [
   ComGermnetworkDeclarationCommand(),
   ToolsOzoneCommunicationCommand(),
   ToolsOzoneHostingCommand(),
+  ToolsOzoneInboxCommand(),
   ToolsOzoneModerationCommand(),
   ToolsOzoneQueueCommand(),
   ToolsOzoneReportCommand(),

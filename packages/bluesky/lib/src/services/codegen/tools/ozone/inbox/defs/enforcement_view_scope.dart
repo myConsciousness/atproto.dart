@@ -1,0 +1,107 @@
+// Copyright (c) 2023-2026, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Package imports:
+import 'package:atproto_core/atproto_core.dart' show Serializable;
+import 'package:atproto_core/internals.dart' show isA;
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'enforcement_view_scope.freezed.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
+@freezed
+sealed class EnforcementViewScope with _$EnforcementViewScope {
+  const EnforcementViewScope._();
+
+  const factory EnforcementViewScope.knownValue({
+    required KnownEnforcementViewScope data,
+  }) = EnforcementViewScopeKnownValue;
+
+  const factory EnforcementViewScope.unknown({required String data}) =
+      EnforcementViewScopeUnknown;
+
+  static EnforcementViewScope? valueOf(final String? value) {
+    if (value == null) return null;
+    final knownValue = KnownEnforcementViewScope.valueOf(value);
+
+    return knownValue != null
+        ? EnforcementViewScope.knownValue(data: knownValue)
+        : EnforcementViewScope.unknown(data: value);
+  }
+
+  String toJson() => const EnforcementViewScopeConverter().toJson(this);
+}
+
+extension EnforcementViewScopeExtension on EnforcementViewScope {
+  bool get isKnownValue => isA<EnforcementViewScopeKnownValue>(this);
+  bool get isNotKnownValue => !isKnownValue;
+  KnownEnforcementViewScope? get knownValue =>
+      isKnownValue ? data as KnownEnforcementViewScope : null;
+  bool get isUnknown => isA<EnforcementViewScopeUnknown>(this);
+  bool get isNotUnknown => !isUnknown;
+  String? get unknown => isUnknown ? data as String : null;
+}
+
+final class EnforcementViewScopeConverter
+    extends JsonConverter<EnforcementViewScope, String> {
+  const EnforcementViewScopeConverter();
+
+  @override
+  EnforcementViewScope fromJson(String json) {
+    try {
+      final knownValue = KnownEnforcementViewScope.valueOf(json);
+      if (knownValue != null) {
+        return EnforcementViewScope.knownValue(data: knownValue);
+      }
+
+      return EnforcementViewScope.unknown(data: json);
+    } catch (_) {
+      return EnforcementViewScope.unknown(data: json);
+    }
+  }
+
+  @override
+  String toJson(EnforcementViewScope object) => switch (object) {
+    EnforcementViewScopeKnownValue(:final data) => data.value,
+    EnforcementViewScopeUnknown(:final data) => data,
+  };
+}
+
+enum KnownEnforcementViewScope implements Serializable {
+  @JsonValue('network')
+  network('network'),
+  @JsonValue('app')
+  app('app'),
+  @JsonValue('labelOnly')
+  labelOnly('labelOnly');
+
+  @override
+  final String value;
+
+  const KnownEnforcementViewScope(this.value);
+
+  static bool isKnownValue(final String value) {
+    return valueOf(value) != null;
+  }
+
+  static KnownEnforcementViewScope? valueOf(final String? value) {
+    if (value == null) return null;
+
+    for (final v in values) {
+      if (v.value == value) {
+        return v;
+      }
+    }
+
+    return null;
+  }
+}

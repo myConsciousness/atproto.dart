@@ -20,6 +20,7 @@ Update queue properties.
 | **enabled** | boolean | - | ❌ | Enable or disable the queue |
 | **description** | string | - | ❌ | Optional description of the queue |
 | **recommendedPolicies** | array of string | - | ❌ | Policy keys to recommend when actioning reports in this queue |
+| **recommendedLabels** | array of string | - | ❌ | Labels to recommend for this queue and use as fallback appeal routing mappings |
 
 ### Output
 

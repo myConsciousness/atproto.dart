@@ -1015,6 +1015,26 @@ const toolsOzoneHostingGetAccountHistoryPasswordUpdated = NSID(
   ids.toolsOzoneHostingGetAccountHistoryPasswordUpdated,
 );
 
+/// `tools.ozone.inbox.appealActionedSubject`
+const toolsOzoneInboxAppealActionedSubject = NSID(
+  ids.toolsOzoneInboxAppealActionedSubject,
+);
+
+/// `tools.ozone.inbox.appealActionedSubject#actionRef`
+const toolsOzoneInboxAppealActionedSubjectActionRef = NSID(
+  ids.toolsOzoneInboxAppealActionedSubjectActionRef,
+);
+
+/// `tools.ozone.inbox.appealActionedSubject#labelRef`
+const toolsOzoneInboxAppealActionedSubjectLabelRef = NSID(
+  ids.toolsOzoneInboxAppealActionedSubjectLabelRef,
+);
+
+/// `tools.ozone.inbox.appealActionedSubject#takedownRef`
+const toolsOzoneInboxAppealActionedSubjectTakedownRef = NSID(
+  ids.toolsOzoneInboxAppealActionedSubjectTakedownRef,
+);
+
 /// `tools.ozone.moderation.cancelScheduledActions`
 const toolsOzoneModerationCancelScheduledActions = NSID(
   ids.toolsOzoneModerationCancelScheduledActions,

@@ -1693,6 +1693,38 @@ const toolsOzoneHostingGetAccountHistoryHandleUpdated =
 const toolsOzoneHostingGetAccountHistoryPasswordUpdated =
     'tools.ozone.hosting.getAccountHistory#passwordUpdated';
 
+/// `tools.ozone.inbox.appealActionedSubject`
+const toolsOzoneInboxAppealActionedSubject =
+    'tools.ozone.inbox.appealActionedSubject';
+
+/// `tools.ozone.inbox.appealActionedSubject#actionRef`
+const toolsOzoneInboxAppealActionedSubjectActionRef =
+    'tools.ozone.inbox.appealActionedSubject#actionRef';
+
+/// `tools.ozone.inbox.appealActionedSubject#labelRef`
+const toolsOzoneInboxAppealActionedSubjectLabelRef =
+    'tools.ozone.inbox.appealActionedSubject#labelRef';
+
+/// `tools.ozone.inbox.appealActionedSubject#takedownRef`
+const toolsOzoneInboxAppealActionedSubjectTakedownRef =
+    'tools.ozone.inbox.appealActionedSubject#takedownRef';
+
+/// `tools.ozone.inbox.defs`
+const toolsOzoneInboxDefs = 'tools.ozone.inbox.defs';
+
+/// `tools.ozone.inbox.defs#actionView`
+const toolsOzoneInboxDefsActionView = 'tools.ozone.inbox.defs#actionView';
+
+/// `tools.ozone.inbox.defs#appealView`
+const toolsOzoneInboxDefsAppealView = 'tools.ozone.inbox.defs#appealView';
+
+/// `tools.ozone.inbox.defs#enforcementView`
+const toolsOzoneInboxDefsEnforcementView =
+    'tools.ozone.inbox.defs#enforcementView';
+
+/// `tools.ozone.inbox.defs#subjectView`
+const toolsOzoneInboxDefsSubjectView = 'tools.ozone.inbox.defs#subjectView';
+
 /// `tools.ozone.moderation.cancelScheduledActions`
 const toolsOzoneModerationCancelScheduledActions =
     'tools.ozone.moderation.cancelScheduledActions';

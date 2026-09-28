@@ -28,6 +28,11 @@ final class UpdateQueueCommand extends ProcedureCommand {
       ..addMultiOption(
         "recommendedPolicies",
         help: r"Policy keys to recommend when actioning reports in this queue",
+      )
+      ..addMultiOption(
+        "recommendedLabels",
+        help:
+            r"Labels to recommend for this queue and use as fallback appeal routing mappings",
       );
   }
 
@@ -39,7 +44,7 @@ final class UpdateQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue update-queue --queueId=<value> [--name=<value>] [--enabled] [--description=<value>] [--recommendedPolicies=<value>...]";
+      "bsky tools-ozone-queue update-queue --queueId=<value> [--name=<value>] [--enabled] [--description=<value>] [--recommendedPolicies=<value>...] [--recommendedLabels=<value>...]";
 
   @override
   String get methodId => "tools.ozone.queue.updateQueue";
@@ -55,5 +60,7 @@ final class UpdateQueueCommand extends ProcedureCommand {
       "description": argResults!["description"],
     if (argResults!.wasParsed("recommendedPolicies"))
       "recommendedPolicies": argResults!["recommendedPolicies"],
+    if (argResults!.wasParsed("recommendedLabels"))
+      "recommendedLabels": argResults!["recommendedLabels"],
   };
 }

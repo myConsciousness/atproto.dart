@@ -36,6 +36,10 @@ _QueueView _$QueueViewFromJson(Map json) => $checkedCreate('_QueueView', json, (
       'recommendedPolicies',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
+    recommendedLabels: $checkedConvert(
+      'recommendedLabels',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
     createdBy: $checkedConvert('createdBy', (v) => v as String),
     createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
     updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
@@ -68,6 +72,7 @@ Map<String, dynamic> _$QueueViewToJson(_QueueView instance) =>
       'reportTypes': ?instance.reportTypes,
       'description': ?instance.description,
       'recommendedPolicies': ?instance.recommendedPolicies,
+      'recommendedLabels': ?instance.recommendedLabels,
       'createdBy': instance.createdBy,
       'createdAt': iso8601(instance.createdAt),
       'updatedAt': iso8601(instance.updatedAt),
