@@ -17,6 +17,7 @@ Get a list of quotes for a given post.
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | If supplied, filters to quotes of specific version (by CID) of the post record. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
+| **sort** | string | latest<br/>top | ❌ | Ordering of results. 'latest' (default when unset) is newest first; 'top' orders quotes by their like count. |
 
 ### Output
 

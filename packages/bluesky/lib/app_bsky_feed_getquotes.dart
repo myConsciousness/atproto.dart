@@ -12,4 +12,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/codegen/app/bsky/feed/getQuotes/input.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/getQuotes/main_sort.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/getQuotes/output.dart';

@@ -13,6 +13,7 @@
 
 export 'package:bluesky/src/services/codegen/tools/ozone/communication_service.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/hosting_service.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/inbox_service.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/moderation_service.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/queue_service.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/report_service.dart';

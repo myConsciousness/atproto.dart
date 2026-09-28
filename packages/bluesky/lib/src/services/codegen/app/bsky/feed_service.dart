@@ -37,6 +37,7 @@ import 'feed/getLikes/output.dart';
 import 'feed/getListFeed/output.dart';
 import 'feed/getPostThread/output.dart';
 import 'feed/getPosts/output.dart';
+import 'feed/getQuotes/main_sort.dart';
 import 'feed/getQuotes/output.dart';
 import 'feed/getRepostedBy/output.dart';
 import 'feed/getSuggestedFeeds/output.dart';
@@ -313,6 +314,7 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
   String? cid,
   int? limit,
   String? cursor,
+  FeedGetQuotesSort? sort,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -327,6 +329,7 @@ Future<XRPCResponse<FeedGetQuotesOutput>> appBskyFeedGetQuotes({
     if (cid != null) 'cid': cid,
     if (limit != null) 'limit': limit,
     if (cursor != null) 'cursor': cursor,
+    if (sort != null) 'sort': sort.toJson(),
   },
   to: const FeedGetQuotesOutputConverter().fromJson,
 );
@@ -769,6 +772,7 @@ base class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    FeedGetQuotesSort? sort,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -777,6 +781,7 @@ base class FeedService {
     cid: cid,
     limit: limit,
     cursor: cursor,
+    sort: sort,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

@@ -437,6 +437,12 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | --- | --- | :---: |
 | **[tools.ozone.hosting.getAccountHistory](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/HostingService/getAccountHistory.html)** | [Reference](lexicons/tools/ozone/hosting/getAccountHistory.md) | ✅ |
 
+### tools.ozone.inbox
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[tools.ozone.inbox.appealActionedSubject](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/appealActionedSubject.html)** | [Reference](lexicons/tools/ozone/inbox/appealActionedSubject.md) | ❌ |
+
 ### tools.ozone.moderation
 
 | Method | Docs | Paging (cursor) |

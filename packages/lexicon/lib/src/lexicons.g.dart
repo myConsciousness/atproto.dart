@@ -4005,6 +4005,12 @@ const appBskyFeedGetQuotes = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "sort": {
+            "type": "string",
+            "description":
+                "Ordering of results. 'latest' (default when unset) is newest first; 'top' orders quotes by their like count.",
+            "knownValues": ["latest", "top"],
+          },
         },
       },
       "output": {
@@ -18278,6 +18284,226 @@ const toolsOzoneHostingGetAccountHistory = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.inbox.appealActionedSubject`
+const toolsOzoneInboxAppealActionedSubject = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.appealActionedSubject",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Appeal a moderation action affecting the user's account or content.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject"],
+          "properties": {
+            "action": {
+              "type": "union",
+              "description": "Moderation action being appealed.",
+              "refs": ["#actionRef", "#labelRef", "#takedownRef"],
+              "closed": true,
+            },
+            "subject": {
+              "type": "union",
+              "description": "Subject being appealed.",
+              "refs": [
+                "com.atproto.admin.defs#repoRef",
+                "com.atproto.repo.strongRef",
+              ],
+            },
+            "reason": {
+              "type": "string",
+              "description": "Optional explanation supplied by the user.",
+              "maxLength": 20000,
+              "maxGraphemes": 2000,
+            },
+            "modTool": {
+              "type": "ref",
+              "ref": "com.atproto.moderation.createReport#modTool",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.inbox.defs#subjectView"},
+      },
+      "errors": [
+        {
+          "name": "InvalidAppealSubject",
+          "description": "Invalid appeal subject input.",
+        },
+        {
+          "name": "AlreadyAppealed",
+          "description": "An active appeal already exists for this action.",
+        },
+        {
+          "name": "NotAppealable",
+          "description": "The subject cannot be appealed.",
+        },
+        {
+          "name": "AppealWindowExpired",
+          "description": "The appeal window for this action has closed.",
+        },
+      ],
+    },
+    "actionRef": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description":
+              "ID of the moderation action being appealed, available via actions in mod inbox.",
+          "minimum": 1,
+        },
+      },
+    },
+    "labelRef": {
+      "type": "object",
+      "required": ["val"],
+      "properties": {
+        "val": {
+          "type": "string",
+          "description": "Label being appealed.",
+          "minLength": 1,
+        },
+      },
+    },
+    "takedownRef": {"type": "object", "properties": {}},
+  },
+};
+
+/// `tools.ozone.inbox.defs`
+const toolsOzoneInboxDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.defs",
+  "defs": {
+    "subjectView": {
+      "type": "object",
+      "description":
+          "A subject belonging to the viewer that has moderation actions against it.",
+      "required": ["src", "subject", "enforcement", "createdAt", "updatedAt"],
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the moderation service that took the actions.",
+        },
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+          ],
+        },
+        "enforcement": {"type": "ref", "ref": "#enforcementView"},
+        "appeal": {"type": "ref", "ref": "#appealView"},
+        "availableActions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "knownValues": ["appeal"],
+          },
+        },
+        "latestAction": {"type": "ref", "ref": "#actionView"},
+        "actionCount": {"type": "integer"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "enforcementView": {
+      "type": "object",
+      "description": "The current enforcement state of a subject.",
+      "required": ["state"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "knownValues": [
+            "none",
+            "labeled",
+            "removed",
+            "suspended",
+            "takendown",
+          ],
+        },
+        "scope": {
+          "type": "string",
+          "knownValues": ["network", "app", "labelOnly"],
+        },
+        "expiresAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "description":
+              "Active label values on the subject, excluding negated and expired labels.",
+          "items": {"type": "string"},
+        },
+      },
+    },
+    "appealView": {
+      "type": "object",
+      "description":
+          "The state of the viewer's appeal against the actions on a subject.",
+      "required": ["state"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "knownValues": [
+            "none",
+            "pending",
+            "resolved",
+            "superseded",
+            "expired",
+          ],
+        },
+        "appealedAt": {"type": "string", "format": "datetime"},
+        "resolvedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the appeal's report was closed.",
+        },
+        "note": {
+          "type": "string",
+          "description":
+              "Moderator explanation, from the publicNote on the closing activity. Absent if none was written.",
+        },
+        "appealableUntil": {"type": "string", "format": "datetime"},
+      },
+    },
+    "actionView": {
+      "type": "object",
+      "description": "A single moderation action taken against a subject.",
+      "required": ["id", "type", "createdAt"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Action ID (moderation event ID).",
+        },
+        "type": {"type": "string", "description": "Public action type."},
+        "scope": {
+          "type": "string",
+          "knownValues": ["network", "app", "labelOnly"],
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "reversedAt": {"type": "string", "format": "datetime"},
+        "expiresAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "description": "Label values, for labelApplied/labelRemoved.",
+          "items": {"type": "string"},
+        },
+        "policies": {
+          "type": "array",
+          "description": "Policies that were applied in this action.",
+          "items": {"type": "string"},
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.moderation.cancelScheduledActions`
 const toolsOzoneModerationCancelScheduledActions = <String, dynamic>{
   "lexicon": 1,
@@ -20810,6 +21036,12 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
                   "Policy keys to recommend when actioning reports in this queue",
               "items": {"type": "string"},
             },
+            "recommendedLabels": {
+              "type": "array",
+              "description":
+                  "Labels to recommend for this queue and use as fallback appeal routing mappings",
+              "items": {"type": "string"},
+            },
           },
         },
       },
@@ -20886,6 +21118,12 @@ const toolsOzoneQueueDefs = <String, dynamic>{
           "type": "array",
           "description":
               "Policy keys recommended when actioning reports in this queue",
+          "items": {"type": "string"},
+        },
+        "recommendedLabels": {
+          "type": "array",
+          "description":
+              "Labels recommended for this queue and used as a fallback when routing label appeals",
           "items": {"type": "string"},
         },
         "createdBy": {
@@ -21263,6 +21501,12 @@ const toolsOzoneQueueUpdateQueue = <String, dynamic>{
                   "Policy keys to recommend when actioning reports in this queue",
               "items": {"type": "string"},
             },
+            "recommendedLabels": {
+              "type": "array",
+              "description":
+                  "Labels to recommend for this queue and use as fallback appeal routing mappings",
+              "items": {"type": "string"},
+            },
           },
         },
       },
@@ -21281,6 +21525,11 @@ const toolsOzoneQueueUpdateQueue = <String, dynamic>{
           "name": "InvalidRecommendedPolicies",
           "description":
               "One or more recommended policy keys do not exist in the configured policy list",
+        },
+        {
+          "name": "ConflictingQueue",
+          "description":
+              "The queue configuration conflicts with an existing queue",
         },
       ],
     },
@@ -24708,6 +24957,8 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneCommunicationListTemplates,
   toolsOzoneCommunicationUpdateTemplate,
   toolsOzoneHostingGetAccountHistory,
+  toolsOzoneInboxAppealActionedSubject,
+  toolsOzoneInboxDefs,
   toolsOzoneModerationCancelScheduledActions,
   toolsOzoneModerationDefs,
   toolsOzoneModerationEmitEvent,

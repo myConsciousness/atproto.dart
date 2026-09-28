@@ -1,5 +1,22 @@
 # Release Note
 
+## v2.9.3
+
+- feat: added `app.bsky.feed.getQuotes.parameters.sort`
+- feat: added `tools.ozone.inbox.appealActionedSubject#actionRef`
+- feat: added `tools.ozone.inbox.appealActionedSubject#labelRef`
+- feat: added `tools.ozone.inbox.appealActionedSubject`
+- feat: added `tools.ozone.inbox.appealActionedSubject#takedownRef`
+- feat: added `tools.ozone.inbox.defs#actionView`
+- feat: added `tools.ozone.inbox.defs#appealView`
+- feat: added `tools.ozone.inbox.defs#enforcementView`
+- feat: added `tools.ozone.inbox.defs#subjectView`
+- feat: added `tools.ozone.queue.createQueue.input.recommendedLabels`
+- feat: added `tools.ozone.queue.defs#queueView.recommendedLabels`
+- feat: added `tools.ozone.queue.updateQueue.errors.ConflictingQueue`
+- feat: added `tools.ozone.queue.updateQueue.input.recommendedLabels`
+- chore: regenerated from synced lexicons
+
 ## v2.9.2
 
 - feat: added `app.bsky.feed.defs#feedViewPost.opThreadPostCount`

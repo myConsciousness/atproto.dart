@@ -21,6 +21,7 @@ Create a new moderation queue. A queue can have optional matching criteria that 
 | **reportTypes** | array of string | - | ❌ | Report reason types (fully qualified NSIDs) |
 | **description** | string | - | ❌ | Optional description of the queue |
 | **recommendedPolicies** | array of string | - | ❌ | Policy keys to recommend when actioning reports in this queue |
+| **recommendedLabels** | array of string | - | ❌ | Labels to recommend for this queue and use as fallback appeal routing mappings |
 
 ### Output
 

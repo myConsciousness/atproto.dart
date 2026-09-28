@@ -16,6 +16,7 @@ description: tools.ozone.queue.defs
 | **reportTypes** | array of string | - | ❌ | Report reason types this queue accepts (fully qualified NSIDs) |
 | **description** | string | - | ❌ | Optional description of the queue |
 | **recommendedPolicies** | array of string | - | ❌ | Policy keys recommended when actioning reports in this queue |
+| **recommendedLabels** | array of string | - | ❌ | Labels recommended for this queue and used as a fallback when routing label appeals |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of moderator who created this queue |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
