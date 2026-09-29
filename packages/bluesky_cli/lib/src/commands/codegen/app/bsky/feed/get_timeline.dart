@@ -23,7 +23,12 @@ final class GetTimelineCommand extends QueryCommand {
             r"Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.",
       )
       ..addOption("limit", defaultsTo: "50")
-      ..addOption("cursor");
+      ..addOption("cursor")
+      ..addOption(
+        "since",
+        help:
+            r"Return only items newer than the position identified by this cursor value, newest first. Use the startCursor from a previous response. The item at that position is not returned because the caller already holds it. When the bounded range is exhausted, the returned cursor equals this value so that pagination continues below the boundary.",
+      );
   }
 
   @override
@@ -35,7 +40,7 @@ final class GetTimelineCommand extends QueryCommand {
 
   @override
   final String invocation =
-      "bsky app-bsky-feed get-timeline [--algorithm=<value>] [--limit=<value>] [--cursor=<value>]";
+      "bsky app-bsky-feed get-timeline [--algorithm=<value>] [--limit=<value>] [--cursor=<value>] [--since=<value>]";
 
   @override
   String get methodId => "app.bsky.feed.getTimeline";
@@ -48,5 +53,6 @@ final class GetTimelineCommand extends QueryCommand {
         int.tryParse(argResults!["limit"]) ??
         usageException('Invalid integer value for option "limit".'),
     if (argResults!.wasParsed("cursor")) "cursor": argResults!["cursor"],
+    if (argResults!.wasParsed("since")) "since": argResults!["since"],
   };
 }

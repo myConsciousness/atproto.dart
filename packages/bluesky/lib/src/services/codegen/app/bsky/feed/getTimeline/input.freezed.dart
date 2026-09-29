@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$FeedGetTimelineInput {
 
 /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
- String? get algorithm; int get limit; String? get cursor; Map<String, dynamic>? get $unknown;
+ String? get algorithm; int get limit; String? get cursor;/// Return only items newer than the position identified by this cursor value, newest first. Use the startCursor from a previous response. The item at that position is not returned because the caller already holds it. When the bounded range is exhausted, the returned cursor equals this value so that pagination continues below the boundary.
+ String? get since; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetTimelineInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +30,16 @@ $FeedGetTimelineInputCopyWith<FeedGetTimelineInput> get copyWith => _$FeedGetTim
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedGetTimelineInput&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedGetTimelineInput&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.since, since) || other.since == since)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,algorithm,limit,cursor,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,algorithm,limit,cursor,since,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'FeedGetTimelineInput(algorithm: $algorithm, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+  return 'FeedGetTimelineInput(algorithm: $algorithm, limit: $limit, cursor: $cursor, since: $since, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +50,7 @@ abstract mixin class $FeedGetTimelineInputCopyWith<$Res>  {
   factory $FeedGetTimelineInputCopyWith(FeedGetTimelineInput value, $Res Function(FeedGetTimelineInput) _then) = _$FeedGetTimelineInputCopyWithImpl;
 @useResult
 $Res call({
- String? algorithm, int limit, String? cursor, Map<String, dynamic>? $unknown
+ String? algorithm, int limit, String? cursor, String? since, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +67,12 @@ class _$FeedGetTimelineInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetTimelineInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? algorithm = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? algorithm = freezed,Object? limit = null,Object? cursor = freezed,Object? since = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 algorithm: freezed == algorithm ? _self.algorithm : algorithm // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -157,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? algorithm,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? algorithm,  int limit,  String? cursor,  String? since,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetTimelineInput() when $default != null:
-return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
+return $default(_that.algorithm,_that.limit,_that.cursor,_that.since,_that.$unknown);case _:
   return orElse();
 
 }
@@ -178,10 +180,10 @@ return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? algorithm,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? algorithm,  int limit,  String? cursor,  String? since,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetTimelineInput():
-return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
+return $default(_that.algorithm,_that.limit,_that.cursor,_that.since,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +200,10 @@ return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? algorithm,  int limit,  String? cursor,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? algorithm,  int limit,  String? cursor,  String? since,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetTimelineInput() when $default != null:
-return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
+return $default(_that.algorithm,_that.limit,_that.cursor,_that.since,_that.$unknown);case _:
   return null;
 
 }
@@ -213,13 +215,15 @@ return $default(_that.algorithm,_that.limit,_that.cursor,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetTimelineInput implements FeedGetTimelineInput {
-  const _FeedGetTimelineInput({this.algorithm, this.limit = 50, this.cursor, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _FeedGetTimelineInput({this.algorithm, this.limit = 50, this.cursor, this.since, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _FeedGetTimelineInput.fromJson(Map<String, dynamic> json) => _$FeedGetTimelineInputFromJson(json);
 
 /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
 @override final  String? algorithm;
 @override@JsonKey() final  int limit;
 @override final  String? cursor;
+/// Return only items newer than the position identified by this cursor value, newest first. Use the startCursor from a previous response. The item at that position is not returned because the caller already holds it. When the bounded range is exhausted, the returned cursor equals this value so that pagination continues below the boundary.
+@override final  String? since;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedGetTimelineInput&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedGetTimelineInput&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.since, since) || other.since == since)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,algorithm,limit,cursor,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,algorithm,limit,cursor,since,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'FeedGetTimelineInput(algorithm: $algorithm, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+  return 'FeedGetTimelineInput(algorithm: $algorithm, limit: $limit, cursor: $cursor, since: $since, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +267,7 @@ abstract mixin class _$FeedGetTimelineInputCopyWith<$Res> implements $FeedGetTim
   factory _$FeedGetTimelineInputCopyWith(_FeedGetTimelineInput value, $Res Function(_FeedGetTimelineInput) _then) = __$FeedGetTimelineInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? algorithm, int limit, String? cursor, Map<String, dynamic>? $unknown
+ String? algorithm, int limit, String? cursor, String? since, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,11 +284,12 @@ class __$FeedGetTimelineInputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetTimelineInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? algorithm = freezed,Object? limit = null,Object? cursor = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? algorithm = freezed,Object? limit = null,Object? cursor = freezed,Object? since = freezed,Object? $unknown = freezed,}) {
   return _then(_FeedGetTimelineInput(
 algorithm: freezed == algorithm ? _self.algorithm : algorithm // ignore: cast_nullable_to_non_nullable
 as String?,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,since: freezed == since ? _self.since : since // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

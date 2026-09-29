@@ -1,5 +1,13 @@
 # Release Note
 
+## v2.9.4
+
+- feat: added `app.bsky.feed.getListFeed.output.startCursor`
+- feat: added `app.bsky.feed.getListFeed.parameters.since`
+- feat: added `app.bsky.feed.getTimeline.output.startCursor`
+- feat: added `app.bsky.feed.getTimeline.parameters.since`
+- chore: regenerated from synced lexicons
+
 ## v2.9.3
 
 - feat: added `app.bsky.feed.getQuotes.parameters.sort`
