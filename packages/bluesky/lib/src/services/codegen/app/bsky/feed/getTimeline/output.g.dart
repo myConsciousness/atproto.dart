@@ -12,6 +12,7 @@ _FeedGetTimelineOutput _$FeedGetTimelineOutputFromJson(Map json) =>
     $checkedCreate('_FeedGetTimelineOutput', json, ($checkedConvert) {
       final val = _FeedGetTimelineOutput(
         cursor: $checkedConvert('cursor', (v) => v as String?),
+        startCursor: $checkedConvert('startCursor', (v) => v as String?),
         feed: $checkedConvert(
           'feed',
           (v) => (v as List<dynamic>)
@@ -34,6 +35,7 @@ Map<String, dynamic> _$FeedGetTimelineOutputToJson(
   _FeedGetTimelineOutput instance,
 ) => <String, dynamic>{
   'cursor': ?instance.cursor,
+  'startCursor': ?instance.startCursor,
   'feed': instance.feed.map(const FeedViewPostConverter().toJson).toList(),
   r'$unknown': ?instance.$unknown,
 };

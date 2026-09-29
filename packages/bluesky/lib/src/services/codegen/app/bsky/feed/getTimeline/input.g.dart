@@ -14,6 +14,7 @@ _FeedGetTimelineInput _$FeedGetTimelineInputFromJson(Map json) =>
         algorithm: $checkedConvert('algorithm', (v) => v as String?),
         limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
+        since: $checkedConvert('since', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -28,5 +29,6 @@ Map<String, dynamic> _$FeedGetTimelineInputToJson(
   'algorithm': ?instance.algorithm,
   'limit': instance.limit,
   'cursor': ?instance.cursor,
+  'since': ?instance.since,
   r'$unknown': ?instance.$unknown,
 };

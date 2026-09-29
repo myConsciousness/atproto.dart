@@ -17,6 +17,7 @@ _FeedGetListFeedInput _$FeedGetListFeedInputFromJson(Map json) =>
         ),
         limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
         cursor: $checkedConvert('cursor', (v) => v as String?),
+        since: $checkedConvert('since', (v) => v as String?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -31,5 +32,6 @@ Map<String, dynamic> _$FeedGetListFeedInputToJson(
   'list': const AtUriConverter().toJson(instance.list),
   'limit': instance.limit,
   'cursor': ?instance.cursor,
+  'since': ?instance.since,
   r'$unknown': ?instance.$unknown,
 };

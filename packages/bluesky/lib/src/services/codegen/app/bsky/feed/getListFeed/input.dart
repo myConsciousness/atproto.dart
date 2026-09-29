@@ -21,7 +21,7 @@ part 'input.g.dart';
 
 @freezed
 abstract class FeedGetListFeedInput with _$FeedGetListFeedInput {
-  static const knownProps = <String>['list', 'limit', 'cursor'];
+  static const knownProps = <String>['list', 'limit', 'cursor', 'since'];
 
   @JsonSerializable(includeIfNull: false)
   const factory FeedGetListFeedInput({
@@ -29,6 +29,9 @@ abstract class FeedGetListFeedInput with _$FeedGetListFeedInput {
     @AtUriConverter() required AtUri list,
     @Default(50) int limit,
     String? cursor,
+
+    /// Return only items newer than the position identified by this cursor value, newest first. Use the startCursor from a previous response. The item at that position is not returned because the caller already holds it. When the bounded range is exhausted, the returned cursor equals this value so that pagination continues below the boundary.
+    String? since,
 
     Map<String, dynamic>? $unknown,
   }) = _FeedGetListFeedInput;
@@ -40,6 +43,8 @@ abstract class FeedGetListFeedInput with _$FeedGetListFeedInput {
 extension FeedGetListFeedInputExtension on FeedGetListFeedInput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
+  bool get hasSince => since != null;
+  bool get hasNotSince => !hasSince;
 }
 
 final class FeedGetListFeedInputConverter

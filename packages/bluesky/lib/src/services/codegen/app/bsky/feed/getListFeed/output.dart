@@ -23,11 +23,14 @@ part 'output.g.dart';
 
 @freezed
 abstract class FeedGetListFeedOutput with _$FeedGetListFeedOutput {
-  static const knownProps = <String>['cursor', 'feed'];
+  static const knownProps = <String>['cursor', 'startCursor', 'feed'];
 
   @JsonSerializable(includeIfNull: false)
   const factory FeedGetListFeedOutput({
     String? cursor,
+
+    /// Cursor identifying the newest item in this page. Pass it as since on a later request to fetch only newer content.
+    String? startCursor,
     @FeedViewPostConverter() required List<FeedViewPost> feed,
 
     Map<String, dynamic>? $unknown,
@@ -40,6 +43,8 @@ abstract class FeedGetListFeedOutput with _$FeedGetListFeedOutput {
 extension FeedGetListFeedOutputExtension on FeedGetListFeedOutput {
   bool get hasCursor => cursor != null;
   bool get hasNotCursor => !hasCursor;
+  bool get hasStartCursor => startCursor != null;
+  bool get hasNotStartCursor => !hasStartCursor;
 }
 
 final class FeedGetListFeedOutputConverter

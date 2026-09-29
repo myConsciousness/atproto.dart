@@ -3847,6 +3847,11 @@ const appBskyFeedGetListFeed = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "since": {
+            "type": "string",
+            "description":
+                "Return only items newer than the position identified by this cursor value, newest first. Use the startCursor from a previous response. The item at that position is not returned because the caller already holds it. When the bounded range is exhausted, the returned cursor equals this value so that pagination continues below the boundary.",
+          },
         },
       },
       "output": {
@@ -3856,6 +3861,11 @@ const appBskyFeedGetListFeed = <String, dynamic>{
           "required": ["feed"],
           "properties": {
             "cursor": {"type": "string"},
+            "startCursor": {
+              "type": "string",
+              "description":
+                  "Cursor identifying the newest item in this page. Pass it as since on a later request to fetch only newer content.",
+            },
             "feed": {
               "type": "array",
               "items": {
@@ -4154,6 +4164,11 @@ const appBskyFeedGetTimeline = <String, dynamic>{
             "maximum": 100,
           },
           "cursor": {"type": "string"},
+          "since": {
+            "type": "string",
+            "description":
+                "Return only items newer than the position identified by this cursor value, newest first. Use the startCursor from a previous response. The item at that position is not returned because the caller already holds it. When the bounded range is exhausted, the returned cursor equals this value so that pagination continues below the boundary.",
+          },
         },
       },
       "output": {
@@ -4163,6 +4178,11 @@ const appBskyFeedGetTimeline = <String, dynamic>{
           "required": ["feed"],
           "properties": {
             "cursor": {"type": "string"},
+            "startCursor": {
+              "type": "string",
+              "description":
+                  "Cursor identifying the newest item in this page. Pass it as since on a later request to fetch only newer content.",
+            },
             "feed": {
               "type": "array",
               "items": {

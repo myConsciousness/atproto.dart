@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetTimelineOutput {
 
- String? get cursor;@FeedViewPostConverter() List<FeedViewPost> get feed; Map<String, dynamic>? get $unknown;
+ String? get cursor;/// Cursor identifying the newest item in this page. Pass it as since on a later request to fetch only newer content.
+ String? get startCursor;@FeedViewPostConverter() List<FeedViewPost> get feed; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetTimelineOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $FeedGetTimelineOutputCopyWith<FeedGetTimelineOutput> get copyWith => _$FeedGetT
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedGetTimelineOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other.feed, feed)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedGetTimelineOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.startCursor, startCursor) || other.startCursor == startCursor)&&const DeepCollectionEquality().equals(other.feed, feed)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(feed),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,cursor,startCursor,const DeepCollectionEquality().hash(feed),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'FeedGetTimelineOutput(cursor: $cursor, feed: $feed, \$unknown: ${$unknown})';
+  return 'FeedGetTimelineOutput(cursor: $cursor, startCursor: $startCursor, feed: $feed, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $FeedGetTimelineOutputCopyWith<$Res>  {
   factory $FeedGetTimelineOutputCopyWith(FeedGetTimelineOutput value, $Res Function(FeedGetTimelineOutput) _then) = _$FeedGetTimelineOutputCopyWithImpl;
 @useResult
 $Res call({
- String? cursor,@FeedViewPostConverter() List<FeedViewPost> feed, Map<String, dynamic>? $unknown
+ String? cursor, String? startCursor,@FeedViewPostConverter() List<FeedViewPost> feed, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,9 +66,10 @@ class _$FeedGetTimelineOutputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetTimelineOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? feed = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? cursor = freezed,Object? startCursor = freezed,Object? feed = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,startCursor: freezed == startCursor ? _self.startCursor : startCursor // ignore: cast_nullable_to_non_nullable
 as String?,feed: null == feed ? _self.feed : feed // ignore: cast_nullable_to_non_nullable
 as List<FeedViewPost>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -155,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor, @FeedViewPostConverter()  List<FeedViewPost> feed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? cursor,  String? startCursor, @FeedViewPostConverter()  List<FeedViewPost> feed,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedGetTimelineOutput() when $default != null:
-return $default(_that.cursor,_that.feed,_that.$unknown);case _:
+return $default(_that.cursor,_that.startCursor,_that.feed,_that.$unknown);case _:
   return orElse();
 
 }
@@ -176,10 +178,10 @@ return $default(_that.cursor,_that.feed,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor, @FeedViewPostConverter()  List<FeedViewPost> feed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? cursor,  String? startCursor, @FeedViewPostConverter()  List<FeedViewPost> feed,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetTimelineOutput():
-return $default(_that.cursor,_that.feed,_that.$unknown);case _:
+return $default(_that.cursor,_that.startCursor,_that.feed,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +198,10 @@ return $default(_that.cursor,_that.feed,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor, @FeedViewPostConverter()  List<FeedViewPost> feed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? cursor,  String? startCursor, @FeedViewPostConverter()  List<FeedViewPost> feed,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedGetTimelineOutput() when $default != null:
-return $default(_that.cursor,_that.feed,_that.$unknown);case _:
+return $default(_that.cursor,_that.startCursor,_that.feed,_that.$unknown);case _:
   return null;
 
 }
@@ -211,10 +213,12 @@ return $default(_that.cursor,_that.feed,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _FeedGetTimelineOutput implements FeedGetTimelineOutput {
-  const _FeedGetTimelineOutput({this.cursor, @FeedViewPostConverter() required final  List<FeedViewPost> feed, final  Map<String, dynamic>? $unknown}): _feed = feed,_$unknown = $unknown;
+  const _FeedGetTimelineOutput({this.cursor, this.startCursor, @FeedViewPostConverter() required final  List<FeedViewPost> feed, final  Map<String, dynamic>? $unknown}): _feed = feed,_$unknown = $unknown;
   factory _FeedGetTimelineOutput.fromJson(Map<String, dynamic> json) => _$FeedGetTimelineOutputFromJson(json);
 
 @override final  String? cursor;
+/// Cursor identifying the newest item in this page. Pass it as since on a later request to fetch only newer content.
+@override final  String? startCursor;
  final  List<FeedViewPost> _feed;
 @override@FeedViewPostConverter() List<FeedViewPost> get feed {
   if (_feed is EqualUnmodifiableListView) return _feed;
@@ -245,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedGetTimelineOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&const DeepCollectionEquality().equals(other._feed, _feed)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedGetTimelineOutput&&(identical(other.cursor, cursor) || other.cursor == cursor)&&(identical(other.startCursor, startCursor) || other.startCursor == startCursor)&&const DeepCollectionEquality().equals(other._feed, _feed)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,cursor,const DeepCollectionEquality().hash(_feed),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,cursor,startCursor,const DeepCollectionEquality().hash(_feed),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'FeedGetTimelineOutput(cursor: $cursor, feed: $feed, \$unknown: ${$unknown})';
+  return 'FeedGetTimelineOutput(cursor: $cursor, startCursor: $startCursor, feed: $feed, \$unknown: ${$unknown})';
 }
 
 
@@ -265,7 +269,7 @@ abstract mixin class _$FeedGetTimelineOutputCopyWith<$Res> implements $FeedGetTi
   factory _$FeedGetTimelineOutputCopyWith(_FeedGetTimelineOutput value, $Res Function(_FeedGetTimelineOutput) _then) = __$FeedGetTimelineOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String? cursor,@FeedViewPostConverter() List<FeedViewPost> feed, Map<String, dynamic>? $unknown
+ String? cursor, String? startCursor,@FeedViewPostConverter() List<FeedViewPost> feed, Map<String, dynamic>? $unknown
 });
 
 
@@ -282,9 +286,10 @@ class __$FeedGetTimelineOutputCopyWithImpl<$Res>
 
 /// Create a copy of FeedGetTimelineOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? feed = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cursor = freezed,Object? startCursor = freezed,Object? feed = null,Object? $unknown = freezed,}) {
   return _then(_FeedGetTimelineOutput(
 cursor: freezed == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as String?,startCursor: freezed == startCursor ? _self.startCursor : startCursor // ignore: cast_nullable_to_non_nullable
 as String?,feed: null == feed ? _self._feed : feed // ignore: cast_nullable_to_non_nullable
 as List<FeedViewPost>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
