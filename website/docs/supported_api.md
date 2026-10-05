@@ -287,6 +287,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[app.bsky.notification.declaration](https://pub.dev/documentation/bluesky/latest/app_bsky_services/NotificationService/declaration.html)** | [Reference](lexicons/app/bsky/notification/declaration.md) | ❌ |
+| **[app.bsky.notification.getGroupedNotifications](https://pub.dev/documentation/bluesky/latest/app_bsky_services/NotificationService/getGroupedNotifications.html)** | [Reference](lexicons/app/bsky/notification/getGroupedNotifications.md) | ✅ |
 | **[app.bsky.notification.getPreferences](https://pub.dev/documentation/bluesky/latest/app_bsky_services/NotificationService/getPreferences.html)** | [Reference](lexicons/app/bsky/notification/getPreferences.md) | ❌ |
 | **[app.bsky.notification.getUnreadCount](https://pub.dev/documentation/bluesky/latest/app_bsky_services/NotificationService/getUnreadCount.html)** | [Reference](lexicons/app/bsky/notification/getUnreadCount.md) | ❌ |
 | **[app.bsky.notification.listActivitySubscriptions](https://pub.dev/documentation/bluesky/latest/app_bsky_services/NotificationService/listActivitySubscriptions.html)** | [Reference](lexicons/app/bsky/notification/listActivitySubscriptions.md) | ✅ |

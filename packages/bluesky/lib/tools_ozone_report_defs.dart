@@ -19,6 +19,9 @@ export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/queue_activ
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/queue_activity_previous_status.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/assignment_activity.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/assignment_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/unassignment_activity.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/unassignment_activity_previous_status.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/unassignment_activity_next_status.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/escalation_activity.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/escalation_activity_previous_status.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/report/defs/close_activity.dart';

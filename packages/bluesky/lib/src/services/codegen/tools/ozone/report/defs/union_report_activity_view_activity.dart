@@ -18,6 +18,7 @@ import './escalation_activity.dart';
 import './note_activity.dart';
 import './queue_activity.dart';
 import './reopen_activity.dart';
+import './unassignment_activity.dart';
 
 part 'union_report_activity_view_activity.freezed.dart';
 
@@ -35,6 +36,9 @@ sealed class UReportActivityViewActivity with _$UReportActivityViewActivity {
   const factory UReportActivityViewActivity.assignmentActivity({
     required AssignmentActivity data,
   }) = UReportActivityViewActivityAssignmentActivity;
+  const factory UReportActivityViewActivity.unassignmentActivity({
+    required UnassignmentActivity data,
+  }) = UReportActivityViewActivityUnassignmentActivity;
   const factory UReportActivityViewActivity.escalationActivity({
     required EscalationActivity data,
   }) = UReportActivityViewActivityEscalationActivity;
@@ -67,6 +71,11 @@ extension UReportActivityViewActivityExtension on UReportActivityViewActivity {
   bool get isNotAssignmentActivity => !isAssignmentActivity;
   AssignmentActivity? get assignmentActivity =>
       isAssignmentActivity ? data as AssignmentActivity : null;
+  bool get isUnassignmentActivity =>
+      isA<UReportActivityViewActivityUnassignmentActivity>(this);
+  bool get isNotUnassignmentActivity => !isUnassignmentActivity;
+  UnassignmentActivity? get unassignmentActivity =>
+      isUnassignmentActivity ? data as UnassignmentActivity : null;
   bool get isEscalationActivity =>
       isA<UReportActivityViewActivityEscalationActivity>(this);
   bool get isNotEscalationActivity => !isEscalationActivity;
@@ -109,6 +118,11 @@ final class UReportActivityViewActivityConverter
         data: const AssignmentActivityConverter().fromJson(json),
       );
     }
+    if (UnassignmentActivity.validate(json)) {
+      return UReportActivityViewActivity.unassignmentActivity(
+        data: const UnassignmentActivityConverter().fromJson(json),
+      );
+    }
     if (EscalationActivity.validate(json)) {
       return UReportActivityViewActivity.escalationActivity(
         data: const EscalationActivityConverter().fromJson(json),
@@ -144,6 +158,8 @@ final class UReportActivityViewActivityConverter
           const QueueActivityConverter().toJson(data),
         UReportActivityViewActivityAssignmentActivity(:final data) =>
           const AssignmentActivityConverter().toJson(data),
+        UReportActivityViewActivityUnassignmentActivity(:final data) =>
+          const UnassignmentActivityConverter().toJson(data),
         UReportActivityViewActivityEscalationActivity(:final data) =>
           const EscalationActivityConverter().toJson(data),
         UReportActivityViewActivityCloseActivity(:final data) =>
