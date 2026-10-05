@@ -448,6 +448,137 @@ const appBskyLabelerService = NSID(ids.appBskyLabelerService);
 /// `app.bsky.notification.declaration`
 const appBskyNotificationDeclaration = NSID(ids.appBskyNotificationDeclaration);
 
+/// `app.bsky.notification.getGroupedNotifications`
+const appBskyNotificationGetGroupedNotifications = NSID(
+  ids.appBskyNotificationGetGroupedNotifications,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#contactMatchNotification`
+const appBskyNotificationGetGroupedNotificationsContactMatchNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsContactMatchNotification,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#followBackNotification`
+const appBskyNotificationGetGroupedNotificationsFollowBackNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsFollowBackNotification,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#followGroup`
+const appBskyNotificationGetGroupedNotificationsFollowGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsFollowGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#followItem`
+const appBskyNotificationGetGroupedNotificationsFollowItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsFollowItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#generatorLikeGroup`
+const appBskyNotificationGetGroupedNotificationsGeneratorLikeGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsGeneratorLikeGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#generatorLikeItem`
+const appBskyNotificationGetGroupedNotificationsGeneratorLikeItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsGeneratorLikeItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#group`
+const appBskyNotificationGetGroupedNotificationsGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#likeGroup`
+const appBskyNotificationGetGroupedNotificationsLikeGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsLikeGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#likeItem`
+const appBskyNotificationGetGroupedNotificationsLikeItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsLikeItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#likeViaRepostGroup`
+const appBskyNotificationGetGroupedNotificationsLikeViaRepostGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsLikeViaRepostGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#likeViaRepostItem`
+const appBskyNotificationGetGroupedNotificationsLikeViaRepostItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsLikeViaRepostItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#mentionNotification`
+const appBskyNotificationGetGroupedNotificationsMentionNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsMentionNotification,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostLikeGroup`
+const appBskyNotificationGetGroupedNotificationsMultiPostLikeGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsMultiPostLikeGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostLikeItem`
+const appBskyNotificationGetGroupedNotificationsMultiPostLikeItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsMultiPostLikeItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#quoteNotification`
+const appBskyNotificationGetGroupedNotificationsQuoteNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsQuoteNotification,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#replyNotification`
+const appBskyNotificationGetGroupedNotificationsReplyNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsReplyNotification,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#repostGroup`
+const appBskyNotificationGetGroupedNotificationsRepostGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsRepostGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#repostItem`
+const appBskyNotificationGetGroupedNotificationsRepostItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsRepostItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#repostViaRepostGroup`
+const appBskyNotificationGetGroupedNotificationsRepostViaRepostGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsRepostViaRepostGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#repostViaRepostItem`
+const appBskyNotificationGetGroupedNotificationsRepostViaRepostItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsRepostViaRepostItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#starterPackJoinedNotification`
+const appBskyNotificationGetGroupedNotificationsStarterPackJoinedNotification =
+    NSID(
+      ids.appBskyNotificationGetGroupedNotificationsStarterPackJoinedNotification,
+    );
+
+/// `app.bsky.notification.getGroupedNotifications#subscribedPostGroup`
+const appBskyNotificationGetGroupedNotificationsSubscribedPostGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsSubscribedPostGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#subscribedPostItem`
+const appBskyNotificationGetGroupedNotificationsSubscribedPostItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsSubscribedPostItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#unverifiedNotification`
+const appBskyNotificationGetGroupedNotificationsUnverifiedNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsUnverifiedNotification,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#verifiedNotification`
+const appBskyNotificationGetGroupedNotificationsVerifiedNotification = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsVerifiedNotification,
+);
+
 /// `app.bsky.notification.getPreferences`
 const appBskyNotificationGetPreferences = NSID(
   ids.appBskyNotificationGetPreferences,

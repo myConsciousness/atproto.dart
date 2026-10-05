@@ -1,5 +1,37 @@
 # Release Note
 
+## v2.10.0
+
+- feat: added `app.bsky.notification.getGroupedNotifications#contactMatchNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#followBackNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#followGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#followItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#generatorLikeGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#generatorLikeItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#group`
+- feat: added `app.bsky.notification.getGroupedNotifications#likeGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#likeItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#likeViaRepostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#likeViaRepostItem`
+- feat: added `app.bsky.notification.getGroupedNotifications`
+- feat: added `app.bsky.notification.getGroupedNotifications#mentionNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostLikeGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostLikeItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#quoteNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#replyNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#repostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#repostItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#repostViaRepostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#repostViaRepostItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#starterPackJoinedNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#subscribedPostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#subscribedPostItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#unverifiedNotification`
+- feat: added `app.bsky.notification.getGroupedNotifications#verifiedNotification`
+- fix!: `tools.ozone.report.defs#reportActivityView.activity` changed type (union([#queueActivity, #assignmentActivity, #escalationActivity, #closeActivity, #reopenActivity, #noteActivity]) -> union([#queueActivity, #assignmentActivity, #unassignmentActivity, #escalationActivity, #closeActivity, #reopenActivity, #noteActivity])) (BREAKING)
+- feat: added `tools.ozone.report.defs#unassignmentActivity`
+- chore: regenerated from synced lexicons
+
 ## v2.9.4
 
 - feat: added `app.bsky.feed.getListFeed.output.startCursor`

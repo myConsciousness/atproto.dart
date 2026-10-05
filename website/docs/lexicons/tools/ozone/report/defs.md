@@ -222,6 +222,15 @@ Activity recording a moderator being assigned to a report.
 | --- | --- | --- | :---: | --- |
 | **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status before this activity. Populated automatically from the report row; not required in input. |
 
+## #unassignmentActivity
+
+Activity recording a moderator being unassigned from a report.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **previousStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status immediately before the moderator was unassigned. May be absent on older activities. |
+| **nextStatus** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ❌ | The report's status immediately after the moderator was unassigned. May equal previousStatus if unassignment did not change the report's status, or be absent on older activities. |
+
 ## #escalationActivity
 
 Activity recording a report being escalated.
@@ -258,7 +267,7 @@ A single activity entry on a report.
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | Activity ID |
 | **reportId** | integer | - | ✅ | ID of the report this activity belongs to |
-| **activity** | union of <br/>[#queueActivity](#queueactivity)<br/>[#assignmentActivity](#assignmentactivity)<br/>[#escalationActivity](#escalationactivity)<br/>[#closeActivity](#closeactivity)<br/>[#reopenActivity](#reopenactivity)<br/>[#noteActivity](#noteactivity) | - | ✅ | - |
+| **activity** | union of <br/>[#queueActivity](#queueactivity)<br/>[#assignmentActivity](#assignmentactivity)<br/>[#unassignmentActivity](#unassignmentactivity)<br/>[#escalationActivity](#escalationactivity)<br/>[#closeActivity](#closeactivity)<br/>[#reopenActivity](#reopenactivity)<br/>[#noteActivity](#noteactivity) | - | ✅ | - |
 | **internalNote** | string | - | ❌ | Optional moderator-only note. Not visible to reporters. |
 | **publicNote** | string | - | ❌ | Optional public note, potentially visible to the reporter. |
 | **meta** | unknown | - | ❌ | Extensible JSON payload for loose activity-specific metadata (e.g. assignmentId). |

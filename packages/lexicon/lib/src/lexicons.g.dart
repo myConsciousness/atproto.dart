@@ -6630,6 +6630,362 @@ const appBskyNotificationDefs = <String, dynamic>{
   },
 };
 
+/// `app.bsky.notification.getGroupedNotifications`
+const appBskyNotificationGetGroupedNotifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.getGroupedNotifications",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "[UNSTABLE - DO NOT USE THIS ENDPOINT WHILE THIS NOTE IS HERE] Enumerate notifications for the requesting account, pre-grouped for rendering. Supersedes listNotifications. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "feed": {
+            "type": "string",
+            "description":
+                "Which notification feed to return. Grouping behavior varies by feed: notifications about follows might be grouped in 'all' and ungrouped (or rather, in single-item groups) in 'followers'.",
+            "default": "all",
+            "maxLength": 32,
+            "knownValues": [
+              "all",
+              "people-i-follow",
+              "conversations",
+              "followers",
+              "activity",
+            ],
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of groups to return.",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 50,
+          },
+          "cursor": {"type": "string", "maxLength": 1024},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["groups"],
+          "properties": {
+            "cursor": {"type": "string", "maxLength": 1024},
+            "groups": {
+              "type": "array",
+              "description":
+                  "Notification groups or individual notifications, newest first. Clients should ignore kinds they do not recognize. Grouping behavior depends on the kind and selected feed.",
+              "items": {"type": "ref", "ref": "#group"},
+            },
+            "seenAt": {"type": "string", "format": "datetime"},
+            "relatedViews": {
+              "type": "array",
+              "description":
+                  "Reusable views referenced by notifications. Views shared across notifications appear once to avoid duplication. Each group contributes only its first 10 of each related view to this array. Ex: for a group containing likes in a post, we might have a large number of likeItem (e.g., 50) in a group, but only the profile views for the newest 10 items will be included here.",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "app.bsky.actor.defs#profileViewDetailed",
+                  "app.bsky.feed.defs#blockedPost",
+                  "app.bsky.feed.defs#generatorView",
+                  "app.bsky.feed.defs#notFoundPost",
+                  "app.bsky.feed.defs#postView",
+                  "app.bsky.graph.defs#starterPackView",
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "group": {
+      "type": "object",
+      "description":
+          "Contains common metadata and kind-specific data for a notification group or individual notification.",
+      "required": ["id", "isRead", "indexedAt", "count", "kind"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 256},
+        "isRead": {"type": "boolean"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "count": {"type": "integer", "minimum": 1},
+        "kind": {
+          "type": "union",
+          "refs": [
+            "#likeGroup",
+            "#multiPostLikeGroup",
+            "#repostGroup",
+            "#likeViaRepostGroup",
+            "#repostViaRepostGroup",
+            "#followGroup",
+            "#subscribedPostGroup",
+            "#generatorLikeGroup",
+            "#replyNotification",
+            "#quoteNotification",
+            "#mentionNotification",
+            "#followBackNotification",
+            "#verifiedNotification",
+            "#unverifiedNotification",
+            "#starterPackJoinedNotification",
+            "#contactMatchNotification",
+          ],
+        },
+      },
+    },
+    "likeGroup": {
+      "type": "object",
+      "description": "Group of likes by different actors on the same post.",
+      "required": ["post", "items"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#likeItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "likeItem": {
+      "type": "object",
+      "description": "One actor who liked the group's post.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "multiPostLikeGroup": {
+      "type": "object",
+      "description": "Group of likes by the same actor on different posts.",
+      "required": ["actor", "items"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#multiPostLikeItem"},
+          "minLength": 2,
+        },
+      },
+    },
+    "multiPostLikeItem": {
+      "type": "object",
+      "description": "One post which was liked by the group's actor.",
+      "required": ["post"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "repostGroup": {
+      "type": "object",
+      "description": "Group of reposts by different actors of the same post.",
+      "required": ["post", "items"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#repostItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "repostItem": {
+      "type": "object",
+      "description": "One actor who reposted the group's post.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "likeViaRepostGroup": {
+      "type": "object",
+      "description":
+          "Group of likes by different actors on the same post via the requesting account's repost.",
+      "required": ["post", "viaRepost", "items"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "viaRepost": {"type": "string", "format": "at-uri"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#likeViaRepostItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "likeViaRepostItem": {
+      "type": "object",
+      "description":
+          "One actor who liked the group's post via the requesting account's repost.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "repostViaRepostGroup": {
+      "type": "object",
+      "description":
+          "Group of reposts by different actors of the same post via the requesting account's repost.",
+      "required": ["post", "viaRepost", "items"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "viaRepost": {"type": "string", "format": "at-uri"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#repostViaRepostItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "repostViaRepostItem": {
+      "type": "object",
+      "description":
+          "One actor who reposted the group's post via the requesting account's repost.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "followGroup": {
+      "type": "object",
+      "description": "Group of actors who followed the requesting account.",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#followItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "followItem": {
+      "type": "object",
+      "description":
+          "An actor who followed the requesting account, possibly via a starter pack.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "starterPack": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "subscribedPostGroup": {
+      "type": "object",
+      "description":
+          "Group of new posts by actors the requesting account subscribes to.",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#subscribedPostItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "subscribedPostItem": {
+      "type": "object",
+      "description":
+          "One new post by an actor the requesting account subscribes to.",
+      "required": ["actor", "post"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "post": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "generatorLikeGroup": {
+      "type": "object",
+      "description":
+          "Group of likes by different actors on the same feed generator.",
+      "required": ["generator", "items"],
+      "properties": {
+        "generator": {"type": "string", "format": "at-uri"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#generatorLikeItem"},
+          "minLength": 1,
+        },
+      },
+    },
+    "generatorLikeItem": {
+      "type": "object",
+      "description": "One actor who liked the feed generator in the group.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "replyNotification": {
+      "type": "object",
+      "description":
+          "A reply to a post by the requesting account or to a thread they are participating in.",
+      "required": ["post", "parent"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "parent": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "quoteNotification": {
+      "type": "object",
+      "description": "A post quoting a post by the requesting account.",
+      "required": ["post"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "parent": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "mentionNotification": {
+      "type": "object",
+      "description": "A post mentioning the requesting account.",
+      "required": ["post"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "parent": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "followBackNotification": {
+      "type": "object",
+      "description":
+          "An actor followed the requesting account back, possibly via a starter pack.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "starterPack": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "verifiedNotification": {
+      "type": "object",
+      "description": "An actor verified the requesting account.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "unverifiedNotification": {
+      "type": "object",
+      "description": "A verification of the requesting account was removed.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "starterPackJoinedNotification": {
+      "type": "object",
+      "description":
+          "An actor joined Bluesky via a starter pack created by the requesting account.",
+      "required": ["actor", "starterPack"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "starterPack": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "contactMatchNotification": {
+      "type": "object",
+      "description": "A contact of the requesting account joined Bluesky.",
+      "required": ["actor"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+  },
+};
+
 /// `app.bsky.notification.getPreferences`
 const appBskyNotificationGetPreferences = <String, dynamic>{
   "lexicon": 1,
@@ -22125,6 +22481,25 @@ const toolsOzoneReportDefs = <String, dynamic>{
         },
       },
     },
+    "unassignmentActivity": {
+      "type": "object",
+      "description":
+          "Activity recording a moderator being unassigned from a report.",
+      "properties": {
+        "previousStatus": {
+          "type": "string",
+          "description":
+              "The report's status immediately before the moderator was unassigned. May be absent on older activities.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+        "nextStatus": {
+          "type": "string",
+          "description":
+              "The report's status immediately after the moderator was unassigned. May equal previousStatus if unassignment did not change the report's status, or be absent on older activities.",
+          "knownValues": ["open", "closed", "escalated", "queued", "assigned"],
+        },
+      },
+    },
     "escalationActivity": {
       "type": "object",
       "description": "Activity recording a report being escalated.",
@@ -22191,6 +22566,7 @@ const toolsOzoneReportDefs = <String, dynamic>{
           "refs": [
             "#queueActivity",
             "#assignmentActivity",
+            "#unassignmentActivity",
             "#escalationActivity",
             "#closeActivity",
             "#reopenActivity",
@@ -24761,6 +25137,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyLabelerService,
   appBskyNotificationDeclaration,
   appBskyNotificationDefs,
+  appBskyNotificationGetGroupedNotifications,
   appBskyNotificationGetPreferences,
   appBskyNotificationGetUnreadCount,
   appBskyNotificationListActivitySubscriptions,
