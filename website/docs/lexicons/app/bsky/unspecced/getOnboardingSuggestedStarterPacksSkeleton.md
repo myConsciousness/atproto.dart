@@ -23,3 +23,4 @@ Get a skeleton of suggested starterpacks for onboarding. Intended to be called a
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **starterPacks** | array of string | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

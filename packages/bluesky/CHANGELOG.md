@@ -1,5 +1,15 @@
 # Release Note
 
+## v2.10.1
+
+- feat: added `app.bsky.unspecced.getOnboardingSuggestedStarterPacks.output.recIdStr`
+- feat: added `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton.output.recIdStr`
+- feat: added `app.bsky.unspecced.getSuggestedFeeds.output.recIdStr`
+- feat: added `app.bsky.unspecced.getSuggestedFeedsSkeleton.output.recIdStr`
+- feat: added `app.bsky.unspecced.getSuggestedStarterPacks.output.recIdStr`
+- feat: added `app.bsky.unspecced.getSuggestedStarterPacksSkeleton.output.recIdStr`
+- chore: regenerated from synced lexicons
+
 ## v2.10.0
 
 - feat: added `app.bsky.notification.getGroupedNotifications#contactMatchNotification`

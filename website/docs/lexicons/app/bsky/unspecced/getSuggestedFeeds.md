@@ -22,3 +22,4 @@ Get a list of suggested feeds
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

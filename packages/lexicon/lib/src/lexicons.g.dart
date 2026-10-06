@@ -7801,6 +7801,11 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacks = <String, dynamic>{
                 "ref": "app.bsky.graph.defs#starterPackView",
               },
             },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
           },
         },
       },
@@ -7843,6 +7848,11 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = <String, dyna
             "starterPacks": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -8134,6 +8144,11 @@ const appBskyUnspeccedGetSuggestedFeeds = <String, dynamic>{
                 "ref": "app.bsky.feed.defs#generatorView",
               },
             },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
           },
         },
       },
@@ -8176,6 +8191,11 @@ const appBskyUnspeccedGetSuggestedFeedsSkeleton = <String, dynamic>{
             "feeds": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -8268,6 +8288,11 @@ const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
                 "ref": "app.bsky.graph.defs#starterPackView",
               },
             },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
           },
         },
       },
@@ -8310,6 +8335,11 @@ const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
             "starterPacks": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },

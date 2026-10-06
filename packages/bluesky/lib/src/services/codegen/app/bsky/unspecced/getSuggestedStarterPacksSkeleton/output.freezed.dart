@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetSuggestedStarterPacksSkeletonOutput {
 
-@AtUriConverter() List<AtUri> get starterPacks; Map<String, dynamic>? get $unknown;
+@AtUriConverter() List<AtUri> get starterPacks;/// Snowflake for this recommendation, use when submitting recommendation events.
+ String? get recIdStr; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<UnspeccedGetSuggestedSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedStarterPacksSkeletonOutput&&const DeepCollectionEquality().equals(other.starterPacks, starterPacks)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedStarterPacksSkeletonOutput&&const DeepCollectionEquality().equals(other.starterPacks, starterPacks)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(starterPacks),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(starterPacks),recIdStr,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$R
   factory $UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith(UnspeccedGetSuggestedStarterPacksSkeletonOutput value, $Res Function(UnspeccedGetSuggestedStarterPacksSkeletonOutput) _then) = _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl;
 @useResult
 $Res call({
-@AtUriConverter() List<AtUri> starterPacks, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> starterPacks, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +66,11 @@ class _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? starterPacks = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? starterPacks = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 starterPacks: null == starterPacks ? _self.starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
-as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> starterPacks,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> starterPacks,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedStarterPacksSkeletonOutput() when $default != null:
-return $default(_that.starterPacks,_that.$unknown);case _:
+return $default(_that.starterPacks,_that.recIdStr,_that.$unknown);case _:
   return orElse();
 
 }
@@ -175,10 +177,10 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> starterPacks,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AtUriConverter()  List<AtUri> starterPacks,  String? recIdStr,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedStarterPacksSkeletonOutput():
-return $default(_that.starterPacks,_that.$unknown);case _:
+return $default(_that.starterPacks,_that.recIdStr,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +197,10 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> starterPacks,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AtUriConverter()  List<AtUri> starterPacks,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedStarterPacksSkeletonOutput() when $default != null:
-return $default(_that.starterPacks,_that.$unknown);case _:
+return $default(_that.starterPacks,_that.recIdStr,_that.$unknown);case _:
   return null;
 
 }
@@ -210,7 +212,7 @@ return $default(_that.starterPacks,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedStarterPacksSkeletonOutput implements UnspeccedGetSuggestedStarterPacksSkeletonOutput {
-  const _UnspeccedGetSuggestedStarterPacksSkeletonOutput({@AtUriConverter() required final  List<AtUri> starterPacks, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
+  const _UnspeccedGetSuggestedStarterPacksSkeletonOutput({@AtUriConverter() required final  List<AtUri> starterPacks, this.recIdStr, final  Map<String, dynamic>? $unknown}): _starterPacks = starterPacks,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedStarterPacksSkeletonOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedStarterPacksSkeletonOutputFromJson(json);
 
  final  List<AtUri> _starterPacks;
@@ -220,6 +222,8 @@ class _UnspeccedGetSuggestedStarterPacksSkeletonOutput implements UnspeccedGetSu
   return EqualUnmodifiableListView(_starterPacks);
 }
 
+/// Snowflake for this recommendation, use when submitting recommendation events.
+@override final  String? recIdStr;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedStarterPacksSkeletonOutput&&const DeepCollectionEquality().equals(other._starterPacks, _starterPacks)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedStarterPacksSkeletonOutput&&const DeepCollectionEquality().equals(other._starterPacks, _starterPacks)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_starterPacks),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_starterPacks),recIdStr,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestedStarterPacksSkeletonOutput(starterPacks: $starterPacks, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +267,7 @@ abstract mixin class _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith<$
   factory _$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWith(_UnspeccedGetSuggestedStarterPacksSkeletonOutput value, $Res Function(_UnspeccedGetSuggestedStarterPacksSkeletonOutput) _then) = __$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@AtUriConverter() List<AtUri> starterPacks, Map<String, dynamic>? $unknown
+@AtUriConverter() List<AtUri> starterPacks, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,10 +284,11 @@ class __$UnspeccedGetSuggestedStarterPacksSkeletonOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedStarterPacksSkeletonOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? starterPacks = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? starterPacks = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestedStarterPacksSkeletonOutput(
 starterPacks: null == starterPacks ? _self._starterPacks : starterPacks // ignore: cast_nullable_to_non_nullable
-as List<AtUri>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<AtUri>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

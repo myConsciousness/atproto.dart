@@ -23,3 +23,4 @@ Get a skeleton of suggested feeds. Intended to be called and hydrated by app.bsk
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **feeds** | array of string | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

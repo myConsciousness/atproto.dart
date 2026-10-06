@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetSuggestedFeedsOutput {
 
-@GeneratorViewConverter() List<GeneratorView> get feeds; Map<String, dynamic>? get $unknown;
+@GeneratorViewConverter() List<GeneratorView> get feeds;/// Snowflake for this recommendation, use when submitting recommendation events.
+ String? get recIdStr; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetSuggestedFeedsOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $UnspeccedGetSuggestedFeedsOutputCopyWith<UnspeccedGetSuggestedFeedsOutput> get 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedFeedsOutput&&const DeepCollectionEquality().equals(other.feeds, feeds)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetSuggestedFeedsOutput&&const DeepCollectionEquality().equals(other.feeds, feeds)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(feeds),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(feeds),recIdStr,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestedFeedsOutput(feeds: $feeds, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestedFeedsOutput(feeds: $feeds, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $UnspeccedGetSuggestedFeedsOutputCopyWith<$Res>  {
   factory $UnspeccedGetSuggestedFeedsOutputCopyWith(UnspeccedGetSuggestedFeedsOutput value, $Res Function(UnspeccedGetSuggestedFeedsOutput) _then) = _$UnspeccedGetSuggestedFeedsOutputCopyWithImpl;
 @useResult
 $Res call({
-@GeneratorViewConverter() List<GeneratorView> feeds, Map<String, dynamic>? $unknown
+@GeneratorViewConverter() List<GeneratorView> feeds, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +66,11 @@ class _$UnspeccedGetSuggestedFeedsOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedFeedsOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? feeds = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? feeds = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 feeds: null == feeds ? _self.feeds : feeds // ignore: cast_nullable_to_non_nullable
-as List<GeneratorView>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<GeneratorView>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@GeneratorViewConverter()  List<GeneratorView> feeds,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@GeneratorViewConverter()  List<GeneratorView> feeds,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedFeedsOutput() when $default != null:
-return $default(_that.feeds,_that.$unknown);case _:
+return $default(_that.feeds,_that.recIdStr,_that.$unknown);case _:
   return orElse();
 
 }
@@ -175,10 +177,10 @@ return $default(_that.feeds,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@GeneratorViewConverter()  List<GeneratorView> feeds,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@GeneratorViewConverter()  List<GeneratorView> feeds,  String? recIdStr,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedFeedsOutput():
-return $default(_that.feeds,_that.$unknown);case _:
+return $default(_that.feeds,_that.recIdStr,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +197,10 @@ return $default(_that.feeds,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@GeneratorViewConverter()  List<GeneratorView> feeds,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@GeneratorViewConverter()  List<GeneratorView> feeds,  String? recIdStr,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetSuggestedFeedsOutput() when $default != null:
-return $default(_that.feeds,_that.$unknown);case _:
+return $default(_that.feeds,_that.recIdStr,_that.$unknown);case _:
   return null;
 
 }
@@ -210,7 +212,7 @@ return $default(_that.feeds,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetSuggestedFeedsOutput implements UnspeccedGetSuggestedFeedsOutput {
-  const _UnspeccedGetSuggestedFeedsOutput({@GeneratorViewConverter() required final  List<GeneratorView> feeds, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
+  const _UnspeccedGetSuggestedFeedsOutput({@GeneratorViewConverter() required final  List<GeneratorView> feeds, this.recIdStr, final  Map<String, dynamic>? $unknown}): _feeds = feeds,_$unknown = $unknown;
   factory _UnspeccedGetSuggestedFeedsOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetSuggestedFeedsOutputFromJson(json);
 
  final  List<GeneratorView> _feeds;
@@ -220,6 +222,8 @@ class _UnspeccedGetSuggestedFeedsOutput implements UnspeccedGetSuggestedFeedsOut
   return EqualUnmodifiableListView(_feeds);
 }
 
+/// Snowflake for this recommendation, use when submitting recommendation events.
+@override final  String? recIdStr;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -243,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedFeedsOutput&&const DeepCollectionEquality().equals(other._feeds, _feeds)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetSuggestedFeedsOutput&&const DeepCollectionEquality().equals(other._feeds, _feeds)&&(identical(other.recIdStr, recIdStr) || other.recIdStr == recIdStr)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_feeds),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_feeds),recIdStr,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetSuggestedFeedsOutput(feeds: $feeds, \$unknown: ${$unknown})';
+  return 'UnspeccedGetSuggestedFeedsOutput(feeds: $feeds, recIdStr: $recIdStr, \$unknown: ${$unknown})';
 }
 
 
@@ -263,7 +267,7 @@ abstract mixin class _$UnspeccedGetSuggestedFeedsOutputCopyWith<$Res> implements
   factory _$UnspeccedGetSuggestedFeedsOutputCopyWith(_UnspeccedGetSuggestedFeedsOutput value, $Res Function(_UnspeccedGetSuggestedFeedsOutput) _then) = __$UnspeccedGetSuggestedFeedsOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@GeneratorViewConverter() List<GeneratorView> feeds, Map<String, dynamic>? $unknown
+@GeneratorViewConverter() List<GeneratorView> feeds, String? recIdStr, Map<String, dynamic>? $unknown
 });
 
 
@@ -280,10 +284,11 @@ class __$UnspeccedGetSuggestedFeedsOutputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetSuggestedFeedsOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? feeds = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? feeds = null,Object? recIdStr = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetSuggestedFeedsOutput(
 feeds: null == feeds ? _self._feeds : feeds // ignore: cast_nullable_to_non_nullable
-as List<GeneratorView>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<GeneratorView>,recIdStr: freezed == recIdStr ? _self.recIdStr : recIdStr // ignore: cast_nullable_to_non_nullable
+as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

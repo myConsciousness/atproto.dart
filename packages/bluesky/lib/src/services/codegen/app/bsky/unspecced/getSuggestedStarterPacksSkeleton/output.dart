@@ -22,11 +22,14 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedStarterPacksSkeletonOutput
     with _$UnspeccedGetSuggestedStarterPacksSkeletonOutput {
-  static const knownProps = <String>['starterPacks'];
+  static const knownProps = <String>['starterPacks', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedStarterPacksSkeletonOutput({
     @AtUriConverter() required List<AtUri> starterPacks,
+
+    /// Snowflake for this recommendation, use when submitting recommendation events.
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedStarterPacksSkeletonOutput;
@@ -34,6 +37,12 @@ abstract class UnspeccedGetSuggestedStarterPacksSkeletonOutput
   factory UnspeccedGetSuggestedStarterPacksSkeletonOutput.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetSuggestedStarterPacksSkeletonOutputFromJson(json);
+}
+
+extension UnspeccedGetSuggestedStarterPacksSkeletonOutputExtension
+    on UnspeccedGetSuggestedStarterPacksSkeletonOutput {
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class UnspeccedGetSuggestedStarterPacksSkeletonOutputConverter
