@@ -24,11 +24,14 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetSuggestedFeedsOutput
     with _$UnspeccedGetSuggestedFeedsOutput {
-  static const knownProps = <String>['feeds'];
+  static const knownProps = <String>['feeds', 'recIdStr'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetSuggestedFeedsOutput({
     @GeneratorViewConverter() required List<GeneratorView> feeds,
+
+    /// Snowflake for this recommendation, use when submitting recommendation events.
+    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetSuggestedFeedsOutput;
@@ -36,6 +39,12 @@ abstract class UnspeccedGetSuggestedFeedsOutput
   factory UnspeccedGetSuggestedFeedsOutput.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetSuggestedFeedsOutputFromJson(json);
+}
+
+extension UnspeccedGetSuggestedFeedsOutputExtension
+    on UnspeccedGetSuggestedFeedsOutput {
+  bool get hasRecIdStr => recIdStr != null;
+  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class UnspeccedGetSuggestedFeedsOutputConverter
