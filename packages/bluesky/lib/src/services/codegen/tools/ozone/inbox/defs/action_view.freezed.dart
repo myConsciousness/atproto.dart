@@ -17,7 +17,7 @@ mixin _$ActionView {
 
  String get $type;/// Action ID (moderation event ID).
  int get id;/// Public action type.
- String get type;@ActionViewScopeConverter() ActionViewScope? get scope;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime? get reversedAt;@JsonKey(toJson: iso8601) DateTime? get expiresAt; List<String>? get labels; List<String>? get policies; Map<String, dynamic>? get $unknown;
+ String get type;@ActionViewScopeConverter() ActionViewScope? get scope;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime? get reversedAt;@JsonKey(toJson: iso8601) DateTime? get expiresAt; List<String>? get labels;@PolicyViewConverter() List<PolicyView>? get policies; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActionView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -50,7 +50,7 @@ abstract mixin class $ActionViewCopyWith<$Res>  {
   factory $ActionViewCopyWith(ActionView value, $Res Function(ActionView) _then) = _$ActionViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, String type,@ActionViewScopeConverter() ActionViewScope? scope,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? reversedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, List<String>? labels, List<String>? policies, Map<String, dynamic>? $unknown
+ String $type, int id, String type,@ActionViewScopeConverter() ActionViewScope? scope,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? reversedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, List<String>? labels,@PolicyViewConverter() List<PolicyView>? policies, Map<String, dynamic>? $unknown
 });
 
 
@@ -78,7 +78,7 @@ as DateTime,reversedAt: freezed == reversedAt ? _self.reversedAt : reversedAt //
 as DateTime?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as List<String>?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<PolicyView>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -176,7 +176,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String type, @ActionViewScopeConverter()  ActionViewScope? scope, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? reversedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  List<String>? labels,  List<String>? policies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String type, @ActionViewScopeConverter()  ActionViewScope? scope, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? reversedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  List<String>? labels, @PolicyViewConverter()  List<PolicyView>? policies,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActionView() when $default != null:
 return $default(_that.$type,_that.id,_that.type,_that.scope,_that.createdAt,_that.reversedAt,_that.expiresAt,_that.labels,_that.policies,_that.$unknown);case _:
@@ -197,7 +197,7 @@ return $default(_that.$type,_that.id,_that.type,_that.scope,_that.createdAt,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String type, @ActionViewScopeConverter()  ActionViewScope? scope, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? reversedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  List<String>? labels,  List<String>? policies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String type, @ActionViewScopeConverter()  ActionViewScope? scope, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? reversedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  List<String>? labels, @PolicyViewConverter()  List<PolicyView>? policies,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActionView():
 return $default(_that.$type,_that.id,_that.type,_that.scope,_that.createdAt,_that.reversedAt,_that.expiresAt,_that.labels,_that.policies,_that.$unknown);case _:
@@ -217,7 +217,7 @@ return $default(_that.$type,_that.id,_that.type,_that.scope,_that.createdAt,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String type, @ActionViewScopeConverter()  ActionViewScope? scope, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? reversedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  List<String>? labels,  List<String>? policies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String type, @ActionViewScopeConverter()  ActionViewScope? scope, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime? reversedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  List<String>? labels, @PolicyViewConverter()  List<PolicyView>? policies,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActionView() when $default != null:
 return $default(_that.$type,_that.id,_that.type,_that.scope,_that.createdAt,_that.reversedAt,_that.expiresAt,_that.labels,_that.policies,_that.$unknown);case _:
@@ -232,7 +232,7 @@ return $default(_that.$type,_that.id,_that.type,_that.scope,_that.createdAt,_tha
 
 @JsonSerializable(includeIfNull: false)
 class _ActionView implements ActionView {
-  const _ActionView({this.$type = 'tools.ozone.inbox.defs#actionView', required this.id, required this.type, @ActionViewScopeConverter() this.scope, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.reversedAt, @JsonKey(toJson: iso8601) this.expiresAt, final  List<String>? labels, final  List<String>? policies, final  Map<String, dynamic>? $unknown}): _labels = labels,_policies = policies,_$unknown = $unknown;
+  const _ActionView({this.$type = 'tools.ozone.inbox.defs#actionView', required this.id, required this.type, @ActionViewScopeConverter() this.scope, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) this.reversedAt, @JsonKey(toJson: iso8601) this.expiresAt, final  List<String>? labels, @PolicyViewConverter() final  List<PolicyView>? policies, final  Map<String, dynamic>? $unknown}): _labels = labels,_policies = policies,_$unknown = $unknown;
   factory _ActionView.fromJson(Map<String, dynamic> json) => _$ActionViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -253,8 +253,8 @@ class _ActionView implements ActionView {
   return EqualUnmodifiableListView(value);
 }
 
- final  List<String>? _policies;
-@override List<String>? get policies {
+ final  List<PolicyView>? _policies;
+@override@PolicyViewConverter() List<PolicyView>? get policies {
   final value = _policies;
   if (value == null) return null;
   if (_policies is EqualUnmodifiableListView) return _policies;
@@ -305,7 +305,7 @@ abstract mixin class _$ActionViewCopyWith<$Res> implements $ActionViewCopyWith<$
   factory _$ActionViewCopyWith(_ActionView value, $Res Function(_ActionView) _then) = __$ActionViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, String type,@ActionViewScopeConverter() ActionViewScope? scope,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? reversedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, List<String>? labels, List<String>? policies, Map<String, dynamic>? $unknown
+ String $type, int id, String type,@ActionViewScopeConverter() ActionViewScope? scope,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime? reversedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, List<String>? labels,@PolicyViewConverter() List<PolicyView>? policies, Map<String, dynamic>? $unknown
 });
 
 
@@ -333,7 +333,7 @@ as DateTime,reversedAt: freezed == reversedAt ? _self.reversedAt : reversedAt //
 as DateTime?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
 as List<String>?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<PolicyView>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

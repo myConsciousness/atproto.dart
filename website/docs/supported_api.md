@@ -443,6 +443,16 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[tools.ozone.inbox.appealActionedSubject](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/appealActionedSubject.html)** | [Reference](lexicons/tools/ozone/inbox/appealActionedSubject.md) | ❌ |
+| **[tools.ozone.inbox.getAccountStatus](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getAccountStatus.html)** | [Reference](lexicons/tools/ozone/inbox/getAccountStatus.md) | ❌ |
+| **[tools.ozone.inbox.getActionedSubject](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getActionedSubject.html)** | [Reference](lexicons/tools/ozone/inbox/getActionedSubject.md) | ❌ |
+| **[tools.ozone.inbox.getNotificationPreferences](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getNotificationPreferences.html)** | [Reference](lexicons/tools/ozone/inbox/getNotificationPreferences.md) | ❌ |
+| **[tools.ozone.inbox.getReport](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getReport.html)** | [Reference](lexicons/tools/ozone/inbox/getReport.md) | ❌ |
+| **[tools.ozone.inbox.getUnreadCount](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getUnreadCount.html)** | [Reference](lexicons/tools/ozone/inbox/getUnreadCount.md) | ❌ |
+| **[tools.ozone.inbox.listActionedSubjects](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/listActionedSubjects.html)** | [Reference](lexicons/tools/ozone/inbox/listActionedSubjects.md) | ✅ |
+| **[tools.ozone.inbox.listNotifications](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/listNotifications.html)** | [Reference](lexicons/tools/ozone/inbox/listNotifications.md) | ✅ |
+| **[tools.ozone.inbox.listReports](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/listReports.html)** | [Reference](lexicons/tools/ozone/inbox/listReports.md) | ✅ |
+| **[tools.ozone.inbox.putNotificationPreferences](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/putNotificationPreferences.html)** | [Reference](lexicons/tools/ozone/inbox/putNotificationPreferences.md) | ❌ |
+| **[tools.ozone.inbox.updateSeen](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/updateSeen.html)** | [Reference](lexicons/tools/ozone/inbox/updateSeen.md) | ❌ |
 
 ### tools.ozone.moderation
 
@@ -511,6 +521,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[tools.ozone.server.getCapabilities](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ServerService/getCapabilities.html)** | [Reference](lexicons/tools/ozone/server/getCapabilities.md) | ❌ |
 | **[tools.ozone.server.getConfig](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ServerService/getConfig.html)** | [Reference](lexicons/tools/ozone/server/getConfig.md) | ❌ |
 
 ### tools.ozone.set

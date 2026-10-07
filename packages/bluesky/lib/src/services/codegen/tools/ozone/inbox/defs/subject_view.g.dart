@@ -55,6 +55,7 @@ _SubjectView _$SubjectViewFromJson(
     actionCount: $checkedConvert('actionCount', (v) => (v as num?)?.toInt()),
     createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
     updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
+    isRead: $checkedConvert('isRead', (v) => v as bool),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -84,6 +85,7 @@ Map<String, dynamic> _$SubjectViewToJson(
   'actionCount': ?instance.actionCount,
   'createdAt': iso8601(instance.createdAt),
   'updatedAt': iso8601(instance.updatedAt),
+  'isRead': instance.isRead,
   r'$unknown': ?instance.$unknown,
 };
 

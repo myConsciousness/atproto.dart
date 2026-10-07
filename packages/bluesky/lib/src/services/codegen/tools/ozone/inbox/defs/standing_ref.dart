@@ -1,0 +1,65 @@
+// Copyright (c) 2023-2026, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Package imports:
+import 'package:atproto_core/internals.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import './standing_ref_previous_standing.dart';
+import './standing_ref_standing.dart';
+
+part 'standing_ref.freezed.dart';
+part 'standing_ref.g.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
+@freezed
+abstract class StandingRef with _$StandingRef {
+  static const knownProps = <String>['standing', 'previousStanding'];
+
+  @JsonSerializable(includeIfNull: false)
+  const factory StandingRef({
+    @Default('tools.ozone.inbox.defs#standingRef') String $type,
+    @StandingRefStandingConverter() required StandingRefStanding standing,
+    @StandingRefPreviousStandingConverter()
+    StandingRefPreviousStanding? previousStanding,
+
+    Map<String, dynamic>? $unknown,
+  }) = _StandingRef;
+
+  factory StandingRef.fromJson(Map<String, Object?> json) =>
+      _$StandingRefFromJson(json);
+
+  static bool validate(final Map<String, dynamic> object) {
+    if (!object.containsKey('\$type')) return false;
+    return object['\$type'] == 'tools.ozone.inbox.defs#standingRef';
+  }
+}
+
+extension StandingRefExtension on StandingRef {
+  bool get hasPreviousStanding => previousStanding != null;
+  bool get hasNotPreviousStanding => !hasPreviousStanding;
+}
+
+final class StandingRefConverter
+    extends JsonConverter<StandingRef, Map<String, dynamic>> {
+  const StandingRefConverter();
+
+  @override
+  StandingRef fromJson(Map<String, dynamic> json) {
+    return StandingRef.fromJson(translate(json, StandingRef.knownProps));
+  }
+
+  @override
+  Map<String, dynamic> toJson(StandingRef object) =>
+      untranslate(object.toJson());
+}

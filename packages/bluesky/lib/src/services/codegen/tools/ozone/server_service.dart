@@ -13,11 +13,26 @@ import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
+import 'server/getCapabilities/output.dart';
 import 'server/getConfig/output.dart';
 
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
+
+Future<XRPCResponse<ServerGetCapabilitiesOutput>>
+toolsOzoneServerGetCapabilities({
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneServerGetCapabilities,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown},
+  to: const ServerGetCapabilitiesOutputConverter().fromJson,
+);
 
 /// Get details about ozone's server configuration.
 Future<XRPCResponse<ServerGetConfigOutput>> toolsOzoneServerGetConfig({
@@ -39,6 +54,17 @@ base class ServerService {
   final ServiceContext ctx;
 
   ServerService(this.ctx);
+
+  Future<XRPCResponse<ServerGetCapabilitiesOutput>> getCapabilities({
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneServerGetCapabilities(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
 
   /// Get details about ozone's server configuration.
   Future<XRPCResponse<ServerGetConfigOutput>> getConfig({

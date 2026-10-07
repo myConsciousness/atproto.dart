@@ -28,7 +28,6 @@ abstract class AppealView with _$AppealView {
     'state',
     'appealedAt',
     'resolvedAt',
-    'note',
     'appealableUntil',
   ];
 
@@ -40,9 +39,6 @@ abstract class AppealView with _$AppealView {
 
     /// When the appeal's report was closed.
     @JsonKey(toJson: iso8601) DateTime? resolvedAt,
-
-    /// Moderator explanation, from the publicNote on the closing activity. Absent if none was written.
-    String? note,
     @JsonKey(toJson: iso8601) DateTime? appealableUntil,
 
     Map<String, dynamic>? $unknown,
@@ -62,8 +58,6 @@ extension AppealViewExtension on AppealView {
   bool get hasNotAppealedAt => !hasAppealedAt;
   bool get hasResolvedAt => resolvedAt != null;
   bool get hasNotResolvedAt => !hasResolvedAt;
-  bool get hasNote => note != null;
-  bool get hasNotNote => !hasNote;
   bool get hasAppealableUntil => appealableUntil != null;
   bool get hasNotAppealableUntil => !hasAppealableUntil;
 }

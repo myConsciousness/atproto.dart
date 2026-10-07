@@ -15,7 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ModEventReport {
 
- String get $type; String? get comment;/// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
+ String get $type;/// Moderator who submitted this appeal on behalf of the affected account. Returned by moderator event APIs.
+ String? get appealSubmittedBy;/// Action reference type recorded when this appeal was submitted.
+ String? get appealActionType; int? get appealActionId; String? get appealLabel; String? get comment;/// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
  bool? get isReporterMuted;@ReasonTypeConverter() ReasonType get reportType; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventReport
 /// with the given fields replaced by the non-null parameter values.
@@ -29,16 +31,16 @@ $ModEventReportCopyWith<ModEventReport> get copyWith => _$ModEventReportCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventReport&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.isReporterMuted, isReporterMuted) || other.isReporterMuted == isReporterMuted)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventReport&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.appealSubmittedBy, appealSubmittedBy) || other.appealSubmittedBy == appealSubmittedBy)&&(identical(other.appealActionType, appealActionType) || other.appealActionType == appealActionType)&&(identical(other.appealActionId, appealActionId) || other.appealActionId == appealActionId)&&(identical(other.appealLabel, appealLabel) || other.appealLabel == appealLabel)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.isReporterMuted, isReporterMuted) || other.isReporterMuted == isReporterMuted)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,isReporterMuted,reportType,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,appealSubmittedBy,appealActionType,appealActionId,appealLabel,comment,isReporterMuted,reportType,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModEventReport(\$type: ${$type}, comment: $comment, isReporterMuted: $isReporterMuted, reportType: $reportType, \$unknown: ${$unknown})';
+  return 'ModEventReport(\$type: ${$type}, appealSubmittedBy: $appealSubmittedBy, appealActionType: $appealActionType, appealActionId: $appealActionId, appealLabel: $appealLabel, comment: $comment, isReporterMuted: $isReporterMuted, reportType: $reportType, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +51,7 @@ abstract mixin class $ModEventReportCopyWith<$Res>  {
   factory $ModEventReportCopyWith(ModEventReport value, $Res Function(ModEventReport) _then) = _$ModEventReportCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, bool? isReporterMuted,@ReasonTypeConverter() ReasonType reportType, Map<String, dynamic>? $unknown
+ String $type, String? appealSubmittedBy, String? appealActionType, int? appealActionId, String? appealLabel, String? comment, bool? isReporterMuted,@ReasonTypeConverter() ReasonType reportType, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,10 +68,14 @@ class _$ModEventReportCopyWithImpl<$Res>
 
 /// Create a copy of ModEventReport
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? isReporterMuted = freezed,Object? reportType = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? appealSubmittedBy = freezed,Object? appealActionType = freezed,Object? appealActionId = freezed,Object? appealLabel = freezed,Object? comment = freezed,Object? isReporterMuted = freezed,Object? reportType = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String,appealSubmittedBy: freezed == appealSubmittedBy ? _self.appealSubmittedBy : appealSubmittedBy // ignore: cast_nullable_to_non_nullable
+as String?,appealActionType: freezed == appealActionType ? _self.appealActionType : appealActionType // ignore: cast_nullable_to_non_nullable
+as String?,appealActionId: freezed == appealActionId ? _self.appealActionId : appealActionId // ignore: cast_nullable_to_non_nullable
+as int?,appealLabel: freezed == appealLabel ? _self.appealLabel : appealLabel // ignore: cast_nullable_to_non_nullable
+as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,isReporterMuted: freezed == isReporterMuted ? _self.isReporterMuted : isReporterMuted // ignore: cast_nullable_to_non_nullable
 as bool?,reportType: null == reportType ? _self.reportType : reportType // ignore: cast_nullable_to_non_nullable
 as ReasonType,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -167,10 +173,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool? isReporterMuted, @ReasonTypeConverter()  ReasonType reportType,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? appealSubmittedBy,  String? appealActionType,  int? appealActionId,  String? appealLabel,  String? comment,  bool? isReporterMuted, @ReasonTypeConverter()  ReasonType reportType,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventReport() when $default != null:
-return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType,_that.$unknown);case _:
+return $default(_that.$type,_that.appealSubmittedBy,_that.appealActionType,_that.appealActionId,_that.appealLabel,_that.comment,_that.isReporterMuted,_that.reportType,_that.$unknown);case _:
   return orElse();
 
 }
@@ -188,10 +194,10 @@ return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  bool? isReporterMuted, @ReasonTypeConverter()  ReasonType reportType,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? appealSubmittedBy,  String? appealActionType,  int? appealActionId,  String? appealLabel,  String? comment,  bool? isReporterMuted, @ReasonTypeConverter()  ReasonType reportType,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventReport():
-return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType,_that.$unknown);case _:
+return $default(_that.$type,_that.appealSubmittedBy,_that.appealActionType,_that.appealActionId,_that.appealLabel,_that.comment,_that.isReporterMuted,_that.reportType,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +214,10 @@ return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  bool? isReporterMuted, @ReasonTypeConverter()  ReasonType reportType,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? appealSubmittedBy,  String? appealActionType,  int? appealActionId,  String? appealLabel,  String? comment,  bool? isReporterMuted, @ReasonTypeConverter()  ReasonType reportType,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventReport() when $default != null:
-return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType,_that.$unknown);case _:
+return $default(_that.$type,_that.appealSubmittedBy,_that.appealActionType,_that.appealActionId,_that.appealLabel,_that.comment,_that.isReporterMuted,_that.reportType,_that.$unknown);case _:
   return null;
 
 }
@@ -223,10 +229,16 @@ return $default(_that.$type,_that.comment,_that.isReporterMuted,_that.reportType
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventReport implements ModEventReport {
-  const _ModEventReport({this.$type = 'tools.ozone.moderation.defs#modEventReport', this.comment, this.isReporterMuted, @ReasonTypeConverter() required this.reportType, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ModEventReport({this.$type = 'tools.ozone.moderation.defs#modEventReport', this.appealSubmittedBy, this.appealActionType, this.appealActionId, this.appealLabel, this.comment, this.isReporterMuted, @ReasonTypeConverter() required this.reportType, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ModEventReport.fromJson(Map<String, dynamic> json) => _$ModEventReportFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// Moderator who submitted this appeal on behalf of the affected account. Returned by moderator event APIs.
+@override final  String? appealSubmittedBy;
+/// Action reference type recorded when this appeal was submitted.
+@override final  String? appealActionType;
+@override final  int? appealActionId;
+@override final  String? appealLabel;
 @override final  String? comment;
 /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
 @override final  bool? isReporterMuted;
@@ -254,16 +266,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventReport&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.isReporterMuted, isReporterMuted) || other.isReporterMuted == isReporterMuted)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventReport&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.appealSubmittedBy, appealSubmittedBy) || other.appealSubmittedBy == appealSubmittedBy)&&(identical(other.appealActionType, appealActionType) || other.appealActionType == appealActionType)&&(identical(other.appealActionId, appealActionId) || other.appealActionId == appealActionId)&&(identical(other.appealLabel, appealLabel) || other.appealLabel == appealLabel)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.isReporterMuted, isReporterMuted) || other.isReporterMuted == isReporterMuted)&&(identical(other.reportType, reportType) || other.reportType == reportType)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,isReporterMuted,reportType,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,appealSubmittedBy,appealActionType,appealActionId,appealLabel,comment,isReporterMuted,reportType,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModEventReport(\$type: ${$type}, comment: $comment, isReporterMuted: $isReporterMuted, reportType: $reportType, \$unknown: ${$unknown})';
+  return 'ModEventReport(\$type: ${$type}, appealSubmittedBy: $appealSubmittedBy, appealActionType: $appealActionType, appealActionId: $appealActionId, appealLabel: $appealLabel, comment: $comment, isReporterMuted: $isReporterMuted, reportType: $reportType, \$unknown: ${$unknown})';
 }
 
 
@@ -274,7 +286,7 @@ abstract mixin class _$ModEventReportCopyWith<$Res> implements $ModEventReportCo
   factory _$ModEventReportCopyWith(_ModEventReport value, $Res Function(_ModEventReport) _then) = __$ModEventReportCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, bool? isReporterMuted,@ReasonTypeConverter() ReasonType reportType, Map<String, dynamic>? $unknown
+ String $type, String? appealSubmittedBy, String? appealActionType, int? appealActionId, String? appealLabel, String? comment, bool? isReporterMuted,@ReasonTypeConverter() ReasonType reportType, Map<String, dynamic>? $unknown
 });
 
 
@@ -291,10 +303,14 @@ class __$ModEventReportCopyWithImpl<$Res>
 
 /// Create a copy of ModEventReport
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? isReporterMuted = freezed,Object? reportType = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? appealSubmittedBy = freezed,Object? appealActionType = freezed,Object? appealActionId = freezed,Object? appealLabel = freezed,Object? comment = freezed,Object? isReporterMuted = freezed,Object? reportType = null,Object? $unknown = freezed,}) {
   return _then(_ModEventReport(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String,appealSubmittedBy: freezed == appealSubmittedBy ? _self.appealSubmittedBy : appealSubmittedBy // ignore: cast_nullable_to_non_nullable
+as String?,appealActionType: freezed == appealActionType ? _self.appealActionType : appealActionType // ignore: cast_nullable_to_non_nullable
+as String?,appealActionId: freezed == appealActionId ? _self.appealActionId : appealActionId // ignore: cast_nullable_to_non_nullable
+as int?,appealLabel: freezed == appealLabel ? _self.appealLabel : appealLabel // ignore: cast_nullable_to_non_nullable
+as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,isReporterMuted: freezed == isReporterMuted ? _self.isReporterMuted : isReporterMuted // ignore: cast_nullable_to_non_nullable
 as bool?,reportType: null == reportType ? _self.reportType : reportType // ignore: cast_nullable_to_non_nullable
 as ReasonType,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

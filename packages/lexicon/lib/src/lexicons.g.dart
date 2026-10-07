@@ -18791,7 +18791,14 @@ const toolsOzoneInboxDefs = <String, dynamic>{
       "type": "object",
       "description":
           "A subject belonging to the viewer that has moderation actions against it.",
-      "required": ["src", "subject", "enforcement", "createdAt", "updatedAt"],
+      "required": [
+        "src",
+        "subject",
+        "enforcement",
+        "isRead",
+        "createdAt",
+        "updatedAt",
+      ],
       "properties": {
         "src": {
           "type": "string",
@@ -18818,6 +18825,7 @@ const toolsOzoneInboxDefs = <String, dynamic>{
         "actionCount": {"type": "integer"},
         "createdAt": {"type": "string", "format": "datetime"},
         "updatedAt": {"type": "string", "format": "datetime"},
+        "isRead": {"type": "boolean"},
       },
     },
     "enforcementView": {
@@ -18870,11 +18878,6 @@ const toolsOzoneInboxDefs = <String, dynamic>{
           "format": "datetime",
           "description": "When the appeal's report was closed.",
         },
-        "note": {
-          "type": "string",
-          "description":
-              "Moderator explanation, from the publicNote on the closing activity. Absent if none was written.",
-        },
         "appealableUntil": {"type": "string", "format": "datetime"},
       },
     },
@@ -18902,8 +18905,835 @@ const toolsOzoneInboxDefs = <String, dynamic>{
         },
         "policies": {
           "type": "array",
-          "description": "Policies that were applied in this action.",
+          "description": "Policies applied by a takedown action.",
+          "items": {"type": "ref", "ref": "#policyView"},
+        },
+      },
+    },
+    "policyView": {
+      "type": "object",
+      "required": ["key", "displayName", "link"],
+      "properties": {
+        "key": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string", "format": "uri"},
+      },
+    },
+    "subjectViewDetail": {
+      "type": "object",
+      "description":
+          "A subject with a page of its action history and an aggregate report summary. Follow cursor to retrieve older actions; enforcement and appeal describe the current subject state on every page.",
+      "required": [
+        "src",
+        "subject",
+        "enforcement",
+        "isRead",
+        "actions",
+        "createdAt",
+        "updatedAt",
+      ],
+      "properties": {
+        "src": {"type": "string", "format": "did"},
+        "isRead": {"type": "boolean"},
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+          ],
+        },
+        "record": {
+          "type": "unknown",
+          "description":
+              "Raw record JSON for the subject, when the subject is a record and the record is available.",
+        },
+        "enforcement": {"type": "ref", "ref": "#enforcementView"},
+        "appeal": {"type": "ref", "ref": "#appealView"},
+        "availableActions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "knownValues": ["appeal"],
+          },
+        },
+        "actions": {
+          "type": "array",
+          "description":
+              "A page of action history, most recent first. Reversal timestamps include changes outside this page.",
+          "items": {"type": "ref", "ref": "#actionView"},
+          "maxLength": 100,
+        },
+        "cursor": {
+          "type": "string",
+          "description":
+              "Cursor for the next page of action history. Omitted when no older actions remain.",
+        },
+        "reports": {
+          "type": "ref",
+          "description":
+              "Omitted when the subject has never been reported, e.g. proactive enforcement.",
+          "ref": "#reportsSummary",
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "reportsSummary": {
+      "type": "object",
+      "description":
+          "Aggregate view of reports filed against this subject. Deliberately carries no report IDs, no count, and no reporter identities.",
+      "required": ["reasonTypes", "firstReportedOn", "lastReportedOn"],
+      "properties": {
+        "reasonTypes": {
+          "type": "array",
+          "description":
+              "Distinct reason types reported, deduplicated and unordered. Excludes reasonAppeal.",
           "items": {"type": "string"},
+        },
+        "firstReportedOn": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Day of the earliest report, truncated to midnight UTC. Render as a date; the time component is not meaningful.",
+        },
+        "lastReportedOn": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Day of the most recent report, truncated to midnight UTC. Render as a date; the time component is not meaningful.",
+        },
+      },
+    },
+    "notification": {
+      "type": "object",
+      "required": ["id", "reason", "target", "isRead", "createdAt"],
+      "properties": {
+        "id": {"type": "integer"},
+        "reason": {
+          "type": "string",
+          "knownValues": [
+            "reportResolved",
+            "reportReopened",
+            "actionTaken",
+            "actionReversed",
+            "appealResolved",
+            "standingChanged",
+          ],
+        },
+        "target": {
+          "type": "union",
+          "refs": ["#reportRef", "#subjectRef", "#standingRef"],
+        },
+        "isRead": {"type": "boolean"},
+        "createdAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "notificationPreferences": {
+      "type": "object",
+      "required": ["push"],
+      "properties": {
+        "push": {"type": "boolean"},
+      },
+    },
+    "reportRef": {
+      "type": "object",
+      "description":
+          "Reference to a report by its report table ID, as used by getReport and Ozone's report detail page.",
+      "required": ["reportId"],
+      "properties": {
+        "reportId": {"type": "integer"},
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+          ],
+        },
+        "status": {
+          "type": "string",
+          "knownValues": ["pending", "resolved"],
+        },
+      },
+    },
+    "subjectRef": {
+      "type": "object",
+      "required": ["subject"],
+      "properties": {
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+          ],
+        },
+        "actionType": {"type": "string"},
+        "actionId": {"type": "integer"},
+      },
+    },
+    "standingRef": {
+      "type": "object",
+      "required": ["standing"],
+      "properties": {
+        "standing": {
+          "type": "string",
+          "knownValues": ["good", "warning", "atRisk"],
+        },
+        "previousStanding": {
+          "type": "string",
+          "knownValues": ["good", "warning", "atRisk"],
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.getAccountStatus`
+const toolsOzoneInboxGetAccountStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.getAccountStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the authenticated account's current standing with this moderation service.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Only Ozone staff can read another account; this does not change its read state.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["src", "standing", "updatedAt"],
+          "properties": {
+            "src": {
+              "type": "string",
+              "format": "did",
+              "description":
+                  "DID of the moderation service returning this status.",
+            },
+            "standing": {
+              "type": "string",
+              "knownValues": ["good", "warning", "atRisk"],
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "Newest account-status update or strike timestamp used to derive this standing, or the Unix epoch when neither exists. This is not a standing-transition timestamp; expiry can change standing without changing this value.",
+            },
+            "expiresAt": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "Time at which the current suspension expires. Present only for a temporary suspension.",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.getActionedSubject`
+const toolsOzoneInboxGetActionedSubject = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.getActionedSubject",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a subject belonging to the authenticated account, including its moderation action history from this moderation service.",
+      "parameters": {
+        "type": "params",
+        "required": ["subject"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Defaults to the authenticated account; another account requires an active moderator, triage, or admin credential.",
+          },
+          "subject": {
+            "type": "string",
+            "format": "uri",
+            "description": "DID or AT-URI of the subject to retrieve.",
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of actions to return.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {
+            "type": "string",
+            "description":
+                "Opaque cursor for the next page of this subject's action history.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "tools.ozone.inbox.defs#subjectViewDetail",
+        },
+      },
+      "errors": [
+        {
+          "name": "NotFound",
+          "description":
+              "No subject was found, or the authenticated account does not own the subject.",
+        },
+      ],
+    },
+  },
+};
+
+/// `tools.ozone.inbox.getNotificationPreferences`
+const toolsOzoneInboxGetNotificationPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.getNotificationPreferences",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Only Ozone staff can read another account; this does not change its read state.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "tools.ozone.inbox.defs#notificationPreferences",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.getReport`
+const toolsOzoneInboxGetReport = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.getReport",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a moderation report submitted by the authenticated account to this moderation service.",
+      "parameters": {
+        "type": "params",
+        "required": ["id"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Reporter to preview. Defaults to the authenticated account; another account requires an active moderator, triage, or admin credential.",
+          },
+          "id": {
+            "type": "integer",
+            "description":
+                "Report ID (report table ID), as returned by listReports.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["report"],
+          "properties": {
+            "report": {"type": "ref", "ref": "#reportView"},
+            "resolution": {
+              "type": "ref",
+              "description": "Present only when the report is resolved.",
+              "ref": "#resolutionView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "NotFound",
+          "description":
+              "No report was found, or the authenticated account did not submit it.",
+        },
+      ],
+    },
+    "reportView": {
+      "type": "object",
+      "required": [
+        "src",
+        "id",
+        "reasonType",
+        "subject",
+        "status",
+        "createdAt",
+        "updatedAt",
+      ],
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "DID of the moderation service that received the report.",
+        },
+        "id": {
+          "type": "integer",
+          "description":
+              "Report ID (report table ID), used by Ozone's report detail page.",
+        },
+        "reasonType": {
+          "type": "string",
+          "description":
+              "The exact fully-qualified reason NSID submitted with and stored on the report.",
+        },
+        "reason": {"type": "string", "maxLength": 20000, "maxGraphemes": 2000},
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+            "chat.bsky.convo.defs#messageRef",
+            "chat.bsky.convo.defs#convoRef",
+          ],
+        },
+        "record": {
+          "type": "unknown",
+          "description":
+              "Raw record JSON for the subject, when the subject is a record and the record is available.",
+        },
+        "status": {
+          "type": "string",
+          "knownValues": ["pending", "resolved"],
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "resolutionView": {
+      "type": "object",
+      "required": ["outcome", "resolvedAt"],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "knownValues": ["actionTaken", "noAction", "other"],
+        },
+        "actionTaken": {
+          "type": "string",
+          "description":
+              "Public action associated with this report's resolution. See the public action vocabulary table.",
+        },
+        "scope": {
+          "type": "string",
+          "knownValues": ["network", "app", "labelOnly"],
+        },
+        "resolvedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.getUnreadCount`
+const toolsOzoneInboxGetUnreadCount = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.getUnreadCount",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "section": {
+            "type": "string",
+            "knownValues": ["reports", "subjects", "accountStatus"],
+          },
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Only Ozone staff can read another account; this does not change its read state.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["unreadCounts"],
+          "properties": {
+            "unreadCounts": {"type": "ref", "ref": "#unreadCounts"},
+          },
+        },
+      },
+    },
+    "unreadCounts": {
+      "type": "object",
+      "required": ["total"],
+      "properties": {
+        "total": {"type": "integer", "minimum": 0},
+        "reports": {"type": "integer", "minimum": 0},
+        "subjects": {"type": "integer", "minimum": 0},
+        "accountStatus": {"type": "integer", "minimum": 0, "maximum": 1},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.listActionedSubjects`
+const toolsOzoneInboxListActionedSubjects = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.listActionedSubjects",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "List subjects belonging to the authenticated account that have moderation actions from this moderation service.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Defaults to the authenticated account; another account requires an active moderator, triage, or admin credential.",
+          },
+          "filter": {
+            "type": "string",
+            "description":
+                "Filter subject activity. pending includes subjects whose latest appeal report is not closed; resolved includes subjects whose latest appeal report is closed. unread includes subjects whose public updatedAt is after the subjects section's seenAt watermark.",
+            "default": "all",
+            "enum": ["all", "pending", "resolved", "unread"],
+          },
+          "sortField": {
+            "type": "string",
+            "default": "updatedAt",
+            "enum": ["createdAt", "updatedAt"],
+          },
+          "sortDirection": {
+            "type": "string",
+            "default": "desc",
+            "enum": ["asc", "desc"],
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {
+            "type": "string",
+            "description": "An opaque cursor for pagination.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subjects"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "subjects": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.inbox.defs#subjectView",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.listNotifications`
+const toolsOzoneInboxListNotifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.listNotifications",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "section": {
+            "type": "string",
+            "knownValues": ["reports", "subjects", "accountStatus"],
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "knownValues": [
+                "reportResolved",
+                "reportReopened",
+                "actionTaken",
+                "actionReversed",
+                "appealResolved",
+                "standingChanged",
+              ],
+            },
+          },
+          "unreadOnly": {"type": "boolean", "default": false},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string"},
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Only Ozone staff can read another account; this does not change its read state.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["notifications"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "notifications": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.inbox.defs#notification",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.listReports`
+const toolsOzoneInboxListReports = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.listReports",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "List moderation reports submitted by the authenticated account to this moderation service.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Account to preview. Defaults to the authenticated account; another account requires an active moderator, triage, or admin credential.",
+          },
+          "filter": {
+            "type": "string",
+            "description":
+                "Filter report activity. unread includes reports whose updatedAt is after the reports section's seenAt watermark.",
+            "default": "all",
+            "enum": ["all", "pending", "resolved", "unread"],
+          },
+          "sortField": {
+            "type": "string",
+            "default": "updatedAt",
+            "enum": ["createdAt", "updatedAt"],
+          },
+          "sortDirection": {
+            "type": "string",
+            "default": "desc",
+            "enum": ["asc", "desc"],
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {
+            "type": "string",
+            "description": "An opaque cursor for pagination.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["reports"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "reports": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#reportView"},
+            },
+          },
+        },
+      },
+    },
+    "reportView": {
+      "type": "object",
+      "required": [
+        "src",
+        "id",
+        "isRead",
+        "reasonType",
+        "subject",
+        "status",
+        "createdAt",
+        "updatedAt",
+      ],
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "DID of the moderation service that received the report.",
+        },
+        "id": {
+          "type": "integer",
+          "description":
+              "Report ID (report table ID), used by getReport and Ozone's report detail page.",
+        },
+        "isRead": {"type": "boolean"},
+        "reasonType": {
+          "type": "string",
+          "description":
+              "The exact fully-qualified reason NSID submitted with and stored on the report.",
+        },
+        "reason": {"type": "string", "maxLength": 20000, "maxGraphemes": 2000},
+        "lastActionTaken": {
+          "type": "string",
+          "description":
+              "Public action associated with this report's transition to resolved. See the public action vocabulary table.",
+        },
+        "scope": {
+          "type": "string",
+          "knownValues": ["network", "app", "labelOnly"],
+        },
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+            "chat.bsky.convo.defs#messageRef",
+            "chat.bsky.convo.defs#convoRef",
+          ],
+        },
+        "status": {
+          "type": "string",
+          "knownValues": ["pending", "resolved"],
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.putNotificationPreferences`
+const toolsOzoneInboxPutNotificationPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.putNotificationPreferences",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["push"],
+          "properties": {
+            "push": {"type": "boolean"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["preferences"],
+          "properties": {
+            "preferences": {
+              "type": "ref",
+              "ref": "tools.ozone.inbox.defs#notificationPreferences",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.updateSeen`
+const toolsOzoneInboxUpdateSeen = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.updateSeen",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["sections"],
+          "properties": {
+            "sections": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "knownValues": ["reports", "subjects", "accountStatus"],
+              },
+              "minLength": 1,
+            },
+            "seenAt": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "Mark each requested section read up to this instant. Defaults to server time and is clamped to server time when in the future. Newer existing watermarks are preserved independently for each section.",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["seenAt"],
+          "properties": {
+            "seenAt": {
+              "type": "string",
+              "format": "datetime",
+              "description":
+                  "The earliest resulting watermark across the requested sections, in UTC. Every requested section is read through this instant; individual sections may already have newer watermarks.",
+            },
+          },
         },
       },
     },
@@ -19442,6 +20272,19 @@ const toolsOzoneModerationDefs = <String, dynamic>{
       "description": "Report a subject",
       "required": ["reportType"],
       "properties": {
+        "appealSubmittedBy": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "Moderator who submitted this appeal on behalf of the affected account. Returned by moderator event APIs.",
+        },
+        "appealActionType": {
+          "type": "string",
+          "description":
+              "Action reference type recorded when this appeal was submitted.",
+        },
+        "appealActionId": {"type": "integer"},
+        "appealLabel": {"type": "string"},
         "comment": {"type": "string"},
         "isReporterMuted": {
           "type": "boolean",
@@ -23872,6 +24715,40 @@ const toolsOzoneSafelinkUpdateRule = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.server.getCapabilities`
+const toolsOzoneServerGetCapabilities = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.server.getCapabilities",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "notifications": {"type": "ref", "ref": "#notificationConfig"},
+          },
+        },
+      },
+    },
+    "notificationConfig": {
+      "type": "object",
+      "required": ["channels"],
+      "properties": {
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "knownValues": ["inApp", "push"],
+          },
+          "minLength": 1,
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.server.getConfig`
 const toolsOzoneServerGetConfig = <String, dynamic>{
   "lexicon": 1,
@@ -25386,6 +26263,16 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneHostingGetAccountHistory,
   toolsOzoneInboxAppealActionedSubject,
   toolsOzoneInboxDefs,
+  toolsOzoneInboxGetAccountStatus,
+  toolsOzoneInboxGetActionedSubject,
+  toolsOzoneInboxGetNotificationPreferences,
+  toolsOzoneInboxGetReport,
+  toolsOzoneInboxGetUnreadCount,
+  toolsOzoneInboxListActionedSubjects,
+  toolsOzoneInboxListNotifications,
+  toolsOzoneInboxListReports,
+  toolsOzoneInboxPutNotificationPreferences,
+  toolsOzoneInboxUpdateSeen,
   toolsOzoneModerationCancelScheduledActions,
   toolsOzoneModerationDefs,
   toolsOzoneModerationEmitEvent,
@@ -25433,6 +26320,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneSafelinkQueryRules,
   toolsOzoneSafelinkRemoveRule,
   toolsOzoneSafelinkUpdateRule,
+  toolsOzoneServerGetCapabilities,
   toolsOzoneServerGetConfig,
   toolsOzoneSetAddValues,
   toolsOzoneSetDefs,

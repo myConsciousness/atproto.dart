@@ -15,6 +15,19 @@ _ModEventReport _$ModEventReportFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'tools.ozone.moderation.defs#modEventReport',
         ),
+        appealSubmittedBy: $checkedConvert(
+          'appealSubmittedBy',
+          (v) => v as String?,
+        ),
+        appealActionType: $checkedConvert(
+          'appealActionType',
+          (v) => v as String?,
+        ),
+        appealActionId: $checkedConvert(
+          'appealActionId',
+          (v) => (v as num?)?.toInt(),
+        ),
+        appealLabel: $checkedConvert('appealLabel', (v) => v as String?),
         comment: $checkedConvert('comment', (v) => v as String?),
         isReporterMuted: $checkedConvert('isReporterMuted', (v) => v as bool?),
         reportType: $checkedConvert(
@@ -32,6 +45,10 @@ _ModEventReport _$ModEventReportFromJson(Map json) =>
 Map<String, dynamic> _$ModEventReportToJson(_ModEventReport instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
+      'appealSubmittedBy': ?instance.appealSubmittedBy,
+      'appealActionType': ?instance.appealActionType,
+      'appealActionId': ?instance.appealActionId,
+      'appealLabel': ?instance.appealLabel,
       'comment': ?instance.comment,
       'isReporterMuted': ?instance.isReporterMuted,
       'reportType': const ReasonTypeConverter().toJson(instance.reportType),

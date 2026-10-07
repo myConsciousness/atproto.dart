@@ -23,6 +23,10 @@ part 'mod_event_report.g.dart';
 @freezed
 abstract class ModEventReport with _$ModEventReport {
   static const knownProps = <String>[
+    'appealSubmittedBy',
+    'appealActionType',
+    'appealActionId',
+    'appealLabel',
     'comment',
     'isReporterMuted',
     'reportType',
@@ -31,6 +35,14 @@ abstract class ModEventReport with _$ModEventReport {
   @JsonSerializable(includeIfNull: false)
   const factory ModEventReport({
     @Default('tools.ozone.moderation.defs#modEventReport') String $type,
+
+    /// Moderator who submitted this appeal on behalf of the affected account. Returned by moderator event APIs.
+    String? appealSubmittedBy,
+
+    /// Action reference type recorded when this appeal was submitted.
+    String? appealActionType,
+    int? appealActionId,
+    String? appealLabel,
     String? comment,
 
     /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
@@ -50,6 +62,14 @@ abstract class ModEventReport with _$ModEventReport {
 }
 
 extension ModEventReportExtension on ModEventReport {
+  bool get hasAppealSubmittedBy => appealSubmittedBy != null;
+  bool get hasNotAppealSubmittedBy => !hasAppealSubmittedBy;
+  bool get hasAppealActionType => appealActionType != null;
+  bool get hasNotAppealActionType => !hasAppealActionType;
+  bool get hasAppealActionId => appealActionId != null;
+  bool get hasNotAppealActionId => !hasAppealActionId;
+  bool get hasAppealLabel => appealLabel != null;
+  bool get hasNotAppealLabel => !hasAppealLabel;
   bool get hasComment => comment != null;
   bool get hasNotComment => !hasComment;
   bool get isIsReporterMuted => isReporterMuted ?? false;
