@@ -1826,8 +1826,85 @@ const toolsOzoneInboxDefsAppealView = 'tools.ozone.inbox.defs#appealView';
 const toolsOzoneInboxDefsEnforcementView =
     'tools.ozone.inbox.defs#enforcementView';
 
+/// `tools.ozone.inbox.defs#notification`
+const toolsOzoneInboxDefsNotification = 'tools.ozone.inbox.defs#notification';
+
+/// `tools.ozone.inbox.defs#notificationPreferences`
+const toolsOzoneInboxDefsNotificationPreferences =
+    'tools.ozone.inbox.defs#notificationPreferences';
+
+/// `tools.ozone.inbox.defs#policyView`
+const toolsOzoneInboxDefsPolicyView = 'tools.ozone.inbox.defs#policyView';
+
+/// `tools.ozone.inbox.defs#reportRef`
+const toolsOzoneInboxDefsReportRef = 'tools.ozone.inbox.defs#reportRef';
+
+/// `tools.ozone.inbox.defs#reportsSummary`
+const toolsOzoneInboxDefsReportsSummary =
+    'tools.ozone.inbox.defs#reportsSummary';
+
+/// `tools.ozone.inbox.defs#standingRef`
+const toolsOzoneInboxDefsStandingRef = 'tools.ozone.inbox.defs#standingRef';
+
+/// `tools.ozone.inbox.defs#subjectRef`
+const toolsOzoneInboxDefsSubjectRef = 'tools.ozone.inbox.defs#subjectRef';
+
 /// `tools.ozone.inbox.defs#subjectView`
 const toolsOzoneInboxDefsSubjectView = 'tools.ozone.inbox.defs#subjectView';
+
+/// `tools.ozone.inbox.defs#subjectViewDetail`
+const toolsOzoneInboxDefsSubjectViewDetail =
+    'tools.ozone.inbox.defs#subjectViewDetail';
+
+/// `tools.ozone.inbox.getAccountStatus`
+const toolsOzoneInboxGetAccountStatus = 'tools.ozone.inbox.getAccountStatus';
+
+/// `tools.ozone.inbox.getActionedSubject`
+const toolsOzoneInboxGetActionedSubject =
+    'tools.ozone.inbox.getActionedSubject';
+
+/// `tools.ozone.inbox.getNotificationPreferences`
+const toolsOzoneInboxGetNotificationPreferences =
+    'tools.ozone.inbox.getNotificationPreferences';
+
+/// `tools.ozone.inbox.getReport`
+const toolsOzoneInboxGetReport = 'tools.ozone.inbox.getReport';
+
+/// `tools.ozone.inbox.getReport#reportView`
+const toolsOzoneInboxGetReportReportView =
+    'tools.ozone.inbox.getReport#reportView';
+
+/// `tools.ozone.inbox.getReport#resolutionView`
+const toolsOzoneInboxGetReportResolutionView =
+    'tools.ozone.inbox.getReport#resolutionView';
+
+/// `tools.ozone.inbox.getUnreadCount`
+const toolsOzoneInboxGetUnreadCount = 'tools.ozone.inbox.getUnreadCount';
+
+/// `tools.ozone.inbox.getUnreadCount#unreadCounts`
+const toolsOzoneInboxGetUnreadCountUnreadCounts =
+    'tools.ozone.inbox.getUnreadCount#unreadCounts';
+
+/// `tools.ozone.inbox.listActionedSubjects`
+const toolsOzoneInboxListActionedSubjects =
+    'tools.ozone.inbox.listActionedSubjects';
+
+/// `tools.ozone.inbox.listNotifications`
+const toolsOzoneInboxListNotifications = 'tools.ozone.inbox.listNotifications';
+
+/// `tools.ozone.inbox.listReports`
+const toolsOzoneInboxListReports = 'tools.ozone.inbox.listReports';
+
+/// `tools.ozone.inbox.listReports#reportView`
+const toolsOzoneInboxListReportsReportView =
+    'tools.ozone.inbox.listReports#reportView';
+
+/// `tools.ozone.inbox.putNotificationPreferences`
+const toolsOzoneInboxPutNotificationPreferences =
+    'tools.ozone.inbox.putNotificationPreferences';
+
+/// `tools.ozone.inbox.updateSeen`
+const toolsOzoneInboxUpdateSeen = 'tools.ozone.inbox.updateSeen';
 
 /// `tools.ozone.moderation.cancelScheduledActions`
 const toolsOzoneModerationCancelScheduledActions =
@@ -2478,6 +2555,13 @@ const toolsOzoneSafelinkRemoveRule = 'tools.ozone.safelink.removeRule';
 
 /// `tools.ozone.safelink.updateRule`
 const toolsOzoneSafelinkUpdateRule = 'tools.ozone.safelink.updateRule';
+
+/// `tools.ozone.server.getCapabilities`
+const toolsOzoneServerGetCapabilities = 'tools.ozone.server.getCapabilities';
+
+/// `tools.ozone.server.getCapabilities#notificationConfig`
+const toolsOzoneServerGetCapabilitiesNotificationConfig =
+    'tools.ozone.server.getCapabilities#notificationConfig';
 
 /// `tools.ozone.server.getConfig`
 const toolsOzoneServerGetConfig = 'tools.ozone.server.getConfig';

@@ -1,5 +1,40 @@
 # Release Note
 
+## v2.11.0
+
+- fix!: `tools.ozone.inbox.defs#actionView.policies` changed type (array<string> -> array<ref(#policyView)>) (BREAKING)
+- fix!: removed `tools.ozone.inbox.defs#appealView.note` (BREAKING)
+- feat: added `tools.ozone.inbox.defs#notification`
+- feat: added `tools.ozone.inbox.defs#notificationPreferences`
+- feat: added `tools.ozone.inbox.defs#policyView`
+- feat: added `tools.ozone.inbox.defs#reportRef`
+- feat: added `tools.ozone.inbox.defs#reportsSummary`
+- feat: added `tools.ozone.inbox.defs#standingRef`
+- feat: added `tools.ozone.inbox.defs#subjectRef`
+- feat: added `tools.ozone.inbox.defs#subjectView.isRead`
+- feat: added `tools.ozone.inbox.defs#subjectViewDetail`
+- feat: added `tools.ozone.inbox.getAccountStatus`
+- feat: added `tools.ozone.inbox.getActionedSubject`
+- feat: added `tools.ozone.inbox.getNotificationPreferences`
+- feat: added `tools.ozone.inbox.getReport`
+- feat: added `tools.ozone.inbox.getReport#reportView`
+- feat: added `tools.ozone.inbox.getReport#resolutionView`
+- feat: added `tools.ozone.inbox.getUnreadCount`
+- feat: added `tools.ozone.inbox.getUnreadCount#unreadCounts`
+- feat: added `tools.ozone.inbox.listActionedSubjects`
+- feat: added `tools.ozone.inbox.listNotifications`
+- feat: added `tools.ozone.inbox.listReports`
+- feat: added `tools.ozone.inbox.listReports#reportView`
+- feat: added `tools.ozone.inbox.putNotificationPreferences`
+- feat: added `tools.ozone.inbox.updateSeen`
+- feat: added `tools.ozone.moderation.defs#modEventReport.appealActionId`
+- feat: added `tools.ozone.moderation.defs#modEventReport.appealActionType`
+- feat: added `tools.ozone.moderation.defs#modEventReport.appealLabel`
+- feat: added `tools.ozone.moderation.defs#modEventReport.appealSubmittedBy`
+- feat: added `tools.ozone.server.getCapabilities`
+- feat: added `tools.ozone.server.getCapabilities#notificationConfig`
+- chore: regenerated from synced lexicons
+
 ## v2.10.1
 
 - feat: added `app.bsky.unspecced.getOnboardingSuggestedStarterPacks.output.recIdStr`

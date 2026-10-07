@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './action_view_scope.dart';
+import './policy_view.dart';
 
 part 'action_view.freezed.dart';
 part 'action_view.g.dart';
@@ -49,7 +50,7 @@ abstract class ActionView with _$ActionView {
     @JsonKey(toJson: iso8601) DateTime? reversedAt,
     @JsonKey(toJson: iso8601) DateTime? expiresAt,
     List<String>? labels,
-    List<String>? policies,
+    @PolicyViewConverter() List<PolicyView>? policies,
 
     Map<String, dynamic>? $unknown,
   }) = _ActionView;

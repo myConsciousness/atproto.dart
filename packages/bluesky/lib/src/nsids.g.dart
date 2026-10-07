@@ -1166,6 +1166,68 @@ const toolsOzoneInboxAppealActionedSubjectTakedownRef = NSID(
   ids.toolsOzoneInboxAppealActionedSubjectTakedownRef,
 );
 
+/// `tools.ozone.inbox.getAccountStatus`
+const toolsOzoneInboxGetAccountStatus = NSID(
+  ids.toolsOzoneInboxGetAccountStatus,
+);
+
+/// `tools.ozone.inbox.getActionedSubject`
+const toolsOzoneInboxGetActionedSubject = NSID(
+  ids.toolsOzoneInboxGetActionedSubject,
+);
+
+/// `tools.ozone.inbox.getNotificationPreferences`
+const toolsOzoneInboxGetNotificationPreferences = NSID(
+  ids.toolsOzoneInboxGetNotificationPreferences,
+);
+
+/// `tools.ozone.inbox.getReport`
+const toolsOzoneInboxGetReport = NSID(ids.toolsOzoneInboxGetReport);
+
+/// `tools.ozone.inbox.getReport#reportView`
+const toolsOzoneInboxGetReportReportView = NSID(
+  ids.toolsOzoneInboxGetReportReportView,
+);
+
+/// `tools.ozone.inbox.getReport#resolutionView`
+const toolsOzoneInboxGetReportResolutionView = NSID(
+  ids.toolsOzoneInboxGetReportResolutionView,
+);
+
+/// `tools.ozone.inbox.getUnreadCount`
+const toolsOzoneInboxGetUnreadCount = NSID(ids.toolsOzoneInboxGetUnreadCount);
+
+/// `tools.ozone.inbox.getUnreadCount#unreadCounts`
+const toolsOzoneInboxGetUnreadCountUnreadCounts = NSID(
+  ids.toolsOzoneInboxGetUnreadCountUnreadCounts,
+);
+
+/// `tools.ozone.inbox.listActionedSubjects`
+const toolsOzoneInboxListActionedSubjects = NSID(
+  ids.toolsOzoneInboxListActionedSubjects,
+);
+
+/// `tools.ozone.inbox.listNotifications`
+const toolsOzoneInboxListNotifications = NSID(
+  ids.toolsOzoneInboxListNotifications,
+);
+
+/// `tools.ozone.inbox.listReports`
+const toolsOzoneInboxListReports = NSID(ids.toolsOzoneInboxListReports);
+
+/// `tools.ozone.inbox.listReports#reportView`
+const toolsOzoneInboxListReportsReportView = NSID(
+  ids.toolsOzoneInboxListReportsReportView,
+);
+
+/// `tools.ozone.inbox.putNotificationPreferences`
+const toolsOzoneInboxPutNotificationPreferences = NSID(
+  ids.toolsOzoneInboxPutNotificationPreferences,
+);
+
+/// `tools.ozone.inbox.updateSeen`
+const toolsOzoneInboxUpdateSeen = NSID(ids.toolsOzoneInboxUpdateSeen);
+
 /// `tools.ozone.moderation.cancelScheduledActions`
 const toolsOzoneModerationCancelScheduledActions = NSID(
   ids.toolsOzoneModerationCancelScheduledActions,
@@ -1371,6 +1433,16 @@ const toolsOzoneSafelinkRemoveRule = NSID(ids.toolsOzoneSafelinkRemoveRule);
 
 /// `tools.ozone.safelink.updateRule`
 const toolsOzoneSafelinkUpdateRule = NSID(ids.toolsOzoneSafelinkUpdateRule);
+
+/// `tools.ozone.server.getCapabilities`
+const toolsOzoneServerGetCapabilities = NSID(
+  ids.toolsOzoneServerGetCapabilities,
+);
+
+/// `tools.ozone.server.getCapabilities#notificationConfig`
+const toolsOzoneServerGetCapabilitiesNotificationConfig = NSID(
+  ids.toolsOzoneServerGetCapabilitiesNotificationConfig,
+);
 
 /// `tools.ozone.server.getConfig`
 const toolsOzoneServerGetConfig = NSID(ids.toolsOzoneServerGetConfig);

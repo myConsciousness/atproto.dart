@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$SubjectView {
 
  String get $type;/// DID of the moderation service that took the actions.
- String get src;@USubjectViewSubjectConverter() USubjectViewSubject get subject;@EnforcementViewConverter() EnforcementView get enforcement;@AppealViewConverter() AppealView? get appeal;@SubjectViewAvailableActionsConverter() List<SubjectViewAvailableActions>? get availableActions;@ActionViewConverter() ActionView? get latestAction; int? get actionCount;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
+ String get src;@USubjectViewSubjectConverter() USubjectViewSubject get subject;@EnforcementViewConverter() EnforcementView get enforcement;@AppealViewConverter() AppealView? get appeal;@SubjectViewAvailableActionsConverter() List<SubjectViewAvailableActions>? get availableActions;@ActionViewConverter() ActionView? get latestAction; int? get actionCount;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt; bool get isRead; Map<String, dynamic>? get $unknown;
 /// Create a copy of SubjectView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $SubjectViewCopyWith<SubjectView> get copyWith => _$SubjectViewCopyWithImpl<Subj
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.enforcement, enforcement) || other.enforcement == enforcement)&&(identical(other.appeal, appeal) || other.appeal == appeal)&&const DeepCollectionEquality().equals(other.availableActions, availableActions)&&(identical(other.latestAction, latestAction) || other.latestAction == latestAction)&&(identical(other.actionCount, actionCount) || other.actionCount == actionCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.enforcement, enforcement) || other.enforcement == enforcement)&&(identical(other.appeal, appeal) || other.appeal == appeal)&&const DeepCollectionEquality().equals(other.availableActions, availableActions)&&(identical(other.latestAction, latestAction) || other.latestAction == latestAction)&&(identical(other.actionCount, actionCount) || other.actionCount == actionCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isRead, isRead) || other.isRead == isRead)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,src,subject,enforcement,appeal,const DeepCollectionEquality().hash(availableActions),latestAction,actionCount,createdAt,updatedAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,src,subject,enforcement,appeal,const DeepCollectionEquality().hash(availableActions),latestAction,actionCount,createdAt,updatedAt,isRead,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'SubjectView(\$type: ${$type}, src: $src, subject: $subject, enforcement: $enforcement, appeal: $appeal, availableActions: $availableActions, latestAction: $latestAction, actionCount: $actionCount, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+  return 'SubjectView(\$type: ${$type}, src: $src, subject: $subject, enforcement: $enforcement, appeal: $appeal, availableActions: $availableActions, latestAction: $latestAction, actionCount: $actionCount, createdAt: $createdAt, updatedAt: $updatedAt, isRead: $isRead, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $SubjectViewCopyWith<$Res>  {
   factory $SubjectViewCopyWith(SubjectView value, $Res Function(SubjectView) _then) = _$SubjectViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String src,@USubjectViewSubjectConverter() USubjectViewSubject subject,@EnforcementViewConverter() EnforcementView enforcement,@AppealViewConverter() AppealView? appeal,@SubjectViewAvailableActionsConverter() List<SubjectViewAvailableActions>? availableActions,@ActionViewConverter() ActionView? latestAction, int? actionCount,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String src,@USubjectViewSubjectConverter() USubjectViewSubject subject,@EnforcementViewConverter() EnforcementView enforcement,@AppealViewConverter() AppealView? appeal,@SubjectViewAvailableActionsConverter() List<SubjectViewAvailableActions>? availableActions,@ActionViewConverter() ActionView? latestAction, int? actionCount,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool isRead, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,7 +66,7 @@ class _$SubjectViewCopyWithImpl<$Res>
 
 /// Create a copy of SubjectView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? src = null,Object? subject = null,Object? enforcement = null,Object? appeal = freezed,Object? availableActions = freezed,Object? latestAction = freezed,Object? actionCount = freezed,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? src = null,Object? subject = null,Object? enforcement = null,Object? appeal = freezed,Object? availableActions = freezed,Object? latestAction = freezed,Object? actionCount = freezed,Object? createdAt = null,Object? updatedAt = null,Object? isRead = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,8 @@ as List<SubjectViewAvailableActions>?,latestAction: freezed == latestAction ? _s
 as ActionView?,actionCount: freezed == actionCount ? _self.actionCount : actionCount // ignore: cast_nullable_to_non_nullable
 as int?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
-as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as DateTime,isRead: null == isRead ? _self.isRead : isRead // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -206,10 +207,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String src, @USubjectViewSubjectConverter()  USubjectViewSubject subject, @EnforcementViewConverter()  EnforcementView enforcement, @AppealViewConverter()  AppealView? appeal, @SubjectViewAvailableActionsConverter()  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter()  ActionView? latestAction,  int? actionCount, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String src, @USubjectViewSubjectConverter()  USubjectViewSubject subject, @EnforcementViewConverter()  EnforcementView enforcement, @AppealViewConverter()  AppealView? appeal, @SubjectViewAvailableActionsConverter()  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter()  ActionView? latestAction,  int? actionCount, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool isRead,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SubjectView() when $default != null:
-return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appeal,_that.availableActions,_that.latestAction,_that.actionCount,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appeal,_that.availableActions,_that.latestAction,_that.actionCount,_that.createdAt,_that.updatedAt,_that.isRead,_that.$unknown);case _:
   return orElse();
 
 }
@@ -227,10 +228,10 @@ return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String src, @USubjectViewSubjectConverter()  USubjectViewSubject subject, @EnforcementViewConverter()  EnforcementView enforcement, @AppealViewConverter()  AppealView? appeal, @SubjectViewAvailableActionsConverter()  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter()  ActionView? latestAction,  int? actionCount, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String src, @USubjectViewSubjectConverter()  USubjectViewSubject subject, @EnforcementViewConverter()  EnforcementView enforcement, @AppealViewConverter()  AppealView? appeal, @SubjectViewAvailableActionsConverter()  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter()  ActionView? latestAction,  int? actionCount, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool isRead,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SubjectView():
-return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appeal,_that.availableActions,_that.latestAction,_that.actionCount,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appeal,_that.availableActions,_that.latestAction,_that.actionCount,_that.createdAt,_that.updatedAt,_that.isRead,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -247,10 +248,10 @@ return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String src, @USubjectViewSubjectConverter()  USubjectViewSubject subject, @EnforcementViewConverter()  EnforcementView enforcement, @AppealViewConverter()  AppealView? appeal, @SubjectViewAvailableActionsConverter()  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter()  ActionView? latestAction,  int? actionCount, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String src, @USubjectViewSubjectConverter()  USubjectViewSubject subject, @EnforcementViewConverter()  EnforcementView enforcement, @AppealViewConverter()  AppealView? appeal, @SubjectViewAvailableActionsConverter()  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter()  ActionView? latestAction,  int? actionCount, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool isRead,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SubjectView() when $default != null:
-return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appeal,_that.availableActions,_that.latestAction,_that.actionCount,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appeal,_that.availableActions,_that.latestAction,_that.actionCount,_that.createdAt,_that.updatedAt,_that.isRead,_that.$unknown);case _:
   return null;
 
 }
@@ -262,7 +263,7 @@ return $default(_that.$type,_that.src,_that.subject,_that.enforcement,_that.appe
 
 @JsonSerializable(includeIfNull: false)
 class _SubjectView implements SubjectView {
-  const _SubjectView({this.$type = 'tools.ozone.inbox.defs#subjectView', required this.src, @USubjectViewSubjectConverter() required this.subject, @EnforcementViewConverter() required this.enforcement, @AppealViewConverter() this.appeal, @SubjectViewAvailableActionsConverter() final  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter() this.latestAction, this.actionCount, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _availableActions = availableActions,_$unknown = $unknown;
+  const _SubjectView({this.$type = 'tools.ozone.inbox.defs#subjectView', required this.src, @USubjectViewSubjectConverter() required this.subject, @EnforcementViewConverter() required this.enforcement, @AppealViewConverter() this.appeal, @SubjectViewAvailableActionsConverter() final  List<SubjectViewAvailableActions>? availableActions, @ActionViewConverter() this.latestAction, this.actionCount, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, required this.isRead, final  Map<String, dynamic>? $unknown}): _availableActions = availableActions,_$unknown = $unknown;
   factory _SubjectView.fromJson(Map<String, dynamic> json) => _$SubjectViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -284,6 +285,7 @@ class _SubjectView implements SubjectView {
 @override final  int? actionCount;
 @override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
+@override final  bool isRead;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -307,16 +309,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.enforcement, enforcement) || other.enforcement == enforcement)&&(identical(other.appeal, appeal) || other.appeal == appeal)&&const DeepCollectionEquality().equals(other._availableActions, _availableActions)&&(identical(other.latestAction, latestAction) || other.latestAction == latestAction)&&(identical(other.actionCount, actionCount) || other.actionCount == actionCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.enforcement, enforcement) || other.enforcement == enforcement)&&(identical(other.appeal, appeal) || other.appeal == appeal)&&const DeepCollectionEquality().equals(other._availableActions, _availableActions)&&(identical(other.latestAction, latestAction) || other.latestAction == latestAction)&&(identical(other.actionCount, actionCount) || other.actionCount == actionCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.isRead, isRead) || other.isRead == isRead)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,src,subject,enforcement,appeal,const DeepCollectionEquality().hash(_availableActions),latestAction,actionCount,createdAt,updatedAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,src,subject,enforcement,appeal,const DeepCollectionEquality().hash(_availableActions),latestAction,actionCount,createdAt,updatedAt,isRead,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'SubjectView(\$type: ${$type}, src: $src, subject: $subject, enforcement: $enforcement, appeal: $appeal, availableActions: $availableActions, latestAction: $latestAction, actionCount: $actionCount, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+  return 'SubjectView(\$type: ${$type}, src: $src, subject: $subject, enforcement: $enforcement, appeal: $appeal, availableActions: $availableActions, latestAction: $latestAction, actionCount: $actionCount, createdAt: $createdAt, updatedAt: $updatedAt, isRead: $isRead, \$unknown: ${$unknown})';
 }
 
 
@@ -327,7 +329,7 @@ abstract mixin class _$SubjectViewCopyWith<$Res> implements $SubjectViewCopyWith
   factory _$SubjectViewCopyWith(_SubjectView value, $Res Function(_SubjectView) _then) = __$SubjectViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String src,@USubjectViewSubjectConverter() USubjectViewSubject subject,@EnforcementViewConverter() EnforcementView enforcement,@AppealViewConverter() AppealView? appeal,@SubjectViewAvailableActionsConverter() List<SubjectViewAvailableActions>? availableActions,@ActionViewConverter() ActionView? latestAction, int? actionCount,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String src,@USubjectViewSubjectConverter() USubjectViewSubject subject,@EnforcementViewConverter() EnforcementView enforcement,@AppealViewConverter() AppealView? appeal,@SubjectViewAvailableActionsConverter() List<SubjectViewAvailableActions>? availableActions,@ActionViewConverter() ActionView? latestAction, int? actionCount,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool isRead, Map<String, dynamic>? $unknown
 });
 
 
@@ -344,7 +346,7 @@ class __$SubjectViewCopyWithImpl<$Res>
 
 /// Create a copy of SubjectView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? src = null,Object? subject = null,Object? enforcement = null,Object? appeal = freezed,Object? availableActions = freezed,Object? latestAction = freezed,Object? actionCount = freezed,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? src = null,Object? subject = null,Object? enforcement = null,Object? appeal = freezed,Object? availableActions = freezed,Object? latestAction = freezed,Object? actionCount = freezed,Object? createdAt = null,Object? updatedAt = null,Object? isRead = null,Object? $unknown = freezed,}) {
   return _then(_SubjectView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
@@ -356,7 +358,8 @@ as List<SubjectViewAvailableActions>?,latestAction: freezed == latestAction ? _s
 as ActionView?,actionCount: freezed == actionCount ? _self.actionCount : actionCount // ignore: cast_nullable_to_non_nullable
 as int?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
-as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as DateTime,isRead: null == isRead ? _self.isRead : isRead // ignore: cast_nullable_to_non_nullable
+as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

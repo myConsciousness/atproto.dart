@@ -11,6 +11,7 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'server/get_capabilities.dart';
 import 'server/get_config.dart';
 
 // **************************************************************************
@@ -19,6 +20,7 @@ import 'server/get_config.dart';
 
 final class ToolsOzoneServerCommand extends Command<void> {
   ToolsOzoneServerCommand() {
+    addSubcommand(GetCapabilitiesCommand());
     addSubcommand(GetConfigCommand());
   }
 

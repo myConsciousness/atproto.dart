@@ -38,6 +38,7 @@ abstract class SubjectView with _$SubjectView {
     'actionCount',
     'createdAt',
     'updatedAt',
+    'isRead',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -55,6 +56,7 @@ abstract class SubjectView with _$SubjectView {
     int? actionCount,
     @JsonKey(toJson: iso8601) required DateTime createdAt,
     @JsonKey(toJson: iso8601) required DateTime updatedAt,
+    required bool isRead,
 
     Map<String, dynamic>? $unknown,
   }) = _SubjectView;
@@ -75,6 +77,8 @@ extension SubjectViewExtension on SubjectView {
   bool get hasNotLatestAction => !hasLatestAction;
   bool get hasActionCount => actionCount != null;
   bool get hasNotActionCount => !hasActionCount;
+  bool get isIsRead => isRead;
+  bool get isNotIsRead => !isIsRead;
 }
 
 final class SubjectViewConverter

@@ -12,6 +12,16 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'inbox/appeal_actioned_subject.dart';
+import 'inbox/get_account_status.dart';
+import 'inbox/get_actioned_subject.dart';
+import 'inbox/get_notification_preferences.dart';
+import 'inbox/get_report.dart';
+import 'inbox/get_unread_count.dart';
+import 'inbox/list_actioned_subjects.dart';
+import 'inbox/list_notifications.dart';
+import 'inbox/list_reports.dart';
+import 'inbox/put_notification_preferences.dart';
+import 'inbox/update_seen.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,6 +30,16 @@ import 'inbox/appeal_actioned_subject.dart';
 final class ToolsOzoneInboxCommand extends Command<void> {
   ToolsOzoneInboxCommand() {
     addSubcommand(AppealActionedSubjectCommand());
+    addSubcommand(GetAccountStatusCommand());
+    addSubcommand(GetActionedSubjectCommand());
+    addSubcommand(GetNotificationPreferencesCommand());
+    addSubcommand(GetReportCommand());
+    addSubcommand(GetUnreadCountCommand());
+    addSubcommand(ListActionedSubjectsCommand());
+    addSubcommand(ListNotificationsCommand());
+    addSubcommand(ListReportsCommand());
+    addSubcommand(PutNotificationPreferencesCommand());
+    addSubcommand(UpdateSeenCommand());
   }
 
   @override
