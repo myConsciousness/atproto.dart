@@ -18,3 +18,10 @@ export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_extern
 export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_external_source.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_external_source_theme.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/external/color_r_g_b.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_article.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_article_publication.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_article_publication_theme.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_gallery.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/union_view_gallery_items.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_gallery_image.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/external/view_livestream.dart';

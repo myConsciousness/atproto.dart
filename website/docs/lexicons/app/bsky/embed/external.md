@@ -77,3 +77,90 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 | **r** | integer | - | ✅ | - |
 | **g** | integer | - | ✅ | - |
 | **b** | integer | - | ✅ | - |
+
+## #viewArticle
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
+| **title** | string | - | ✅ | - |
+| **description** | string | - | ✅ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **associatedRefs** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **associatedProfiles** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | - |
+| **image** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **publisher** | [#viewArticlePublication](#viewarticlepublication) | - | ❌ | - |
+| **readingTime** | integer | - | ❌ | - |
+| **likeCount** | integer | - | ❌ | - |
+| **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+
+## #viewArticlePublication
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
+| **title** | string | - | ✅ | - |
+| **description** | string | - | ✅ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **associatedRefs** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **associatedProfiles** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | - |
+| **logo** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **image** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **theme** | [#viewArticlePublicationTheme](#viewarticlepublicationtheme) | - | ❌ | - |
+| **subscriptionCount** | integer | - | ❌ | - |
+| **subscribers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+
+## #viewArticlePublicationTheme
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **background** | string | - | ❌ | Hex color string, if available. Example: '#ffffff'. |
+| **foreground** | string | - | ❌ | Hex color string, if available. Example: '#ffffff'. |
+| **accent** | string | - | ❌ | Hex color string, if available. Example: '#ffffff'. |
+| **accentForeground** | string | - | ❌ | Hex color string, if available. Example: '#ffffff'. |
+
+## #viewGallery
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
+| **title** | string | - | ✅ | - |
+| **description** | string | - | ✅ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **associatedRefs** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **associatedProfiles** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | - |
+| **items** | array of union<br/>[#viewGalleryImage](#viewgalleryimage) | - | ✅ | The media items in the gallery. Each item may be of a different type, but all types must be supported by the client. |
+| **likeCount** | integer | - | ❌ | - |
+| **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+
+## #viewGalleryImage
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **thumbnail** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View. |
+| **fullsize** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View. |
+| **alt** | string | - | ❌ | Alt text description of the image, for accessibility. |
+| **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
+
+## #viewLivestream
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
+| **title** | string | - | ✅ | - |
+| **description** | string | - | ✅ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **associatedRefs** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **associatedProfiles** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | - |
+| **image** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **active** | boolean | - | ✅ | True if the livestream is currently active at the time this view is served, false if it has ended. |
+| **startedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **endedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |

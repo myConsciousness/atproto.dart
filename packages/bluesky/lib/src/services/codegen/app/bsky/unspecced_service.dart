@@ -14,6 +14,7 @@ import 'package:atproto_core/internals.dart' show protected;
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import 'unspecced/defs/age_assurance_state.dart';
+import 'unspecced/getAtmosphereExploreTab/output.dart';
 import 'unspecced/getConfig/output.dart';
 import 'unspecced/getOnboardingSuggestedStarterPacks/output.dart';
 import 'unspecced/getOnboardingSuggestedStarterPacksSkeleton/output.dart';
@@ -61,6 +62,29 @@ Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedGetAgeAssuranceState({
   headers: $headers,
   parameters: {...?$unknown},
   to: const AgeAssuranceStateConverter().fromJson,
+);
+
+/// Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.
+Future<XRPCResponse<UnspeccedGetAtmosphereExploreTabOutput>>
+appBskyUnspeccedGetAtmosphereExploreTab({
+  List<String>? langs,
+  String? countryCode,
+  String? regionCode,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereExploreTab,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (langs != null) 'langs': langs,
+    if (countryCode != null) 'countryCode': countryCode,
+    if (regionCode != null) 'regionCode': regionCode,
+  },
+  to: const UnspeccedGetAtmosphereExploreTabOutputConverter().fromJson,
 );
 
 /// Get miscellaneous runtime configuration.
@@ -700,6 +724,25 @@ base class UnspeccedService {
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyUnspeccedGetAgeAssuranceState(
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.
+  Future<XRPCResponse<UnspeccedGetAtmosphereExploreTabOutput>>
+  getAtmosphereExploreTab({
+    List<String>? langs,
+    String? countryCode,
+    String? regionCode,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereExploreTab(
+    langs: langs,
+    countryCode: countryCode,
+    regionCode: regionCode,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

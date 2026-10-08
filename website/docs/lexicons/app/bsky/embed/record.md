@@ -30,6 +30,8 @@ description: app.bsky.embed.record
 | **repostCount** | integer | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **quoteCount** | integer | - | ❌ | - |
+| **opThreadPostIndex** | integer | - | ❌ | The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread. |
+| **opThreadPostCount** | integer | - | ❌ | The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread. |
 | **embeds** | array of union<br/>[app.bsky.embed.images#view](../../../../lexicons/app/bsky/embed/images.md#view)<br/>[app.bsky.embed.video#view](../../../../lexicons/app/bsky/embed/video.md#view)<br/>[app.bsky.embed.gallery#view](../../../../lexicons/app/bsky/embed/gallery.md#view)<br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view)<br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br/>[app.bsky.embed.recordWithMedia#view](../../../../lexicons/app/bsky/embed/recordWithMedia.md#view) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 

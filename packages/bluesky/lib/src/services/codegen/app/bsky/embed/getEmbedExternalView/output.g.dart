@@ -21,6 +21,14 @@ _EmbedGetEmbedExternalViewOutput _$EmbedGetEmbedExternalViewOutputFromJson(
         const EmbedExternalViewConverter().fromJson,
       ),
     ),
+    data: $checkedConvert(
+      'data',
+      (v) =>
+          _$JsonConverterFromJson<
+            Map<String, dynamic>,
+            UEmbedGetEmbedExternalViewData
+          >(v, const UEmbedGetEmbedExternalViewDataConverter().fromJson),
+    ),
     associatedRefs: $checkedConvert(
       'associatedRefs',
       (v) => (v as List<dynamic>?)
@@ -52,6 +60,11 @@ Map<String, dynamic> _$EmbedGetEmbedExternalViewOutputToJson(
     instance.view,
     const EmbedExternalViewConverter().toJson,
   ),
+  'data':
+      ?_$JsonConverterToJson<
+        Map<String, dynamic>,
+        UEmbedGetEmbedExternalViewData
+      >(instance.data, const UEmbedGetEmbedExternalViewDataConverter().toJson),
   'associatedRefs': ?instance.associatedRefs
       ?.map(const RepoStrongRefConverter().toJson)
       .toList(),

@@ -190,6 +190,11 @@ Information about the moderator currently assigned to a report.
 | **status** | string | open<br/>closed<br/>escalated<br/>queued<br/>assigned | ✅ | Current status of the report |
 | **subject** | [tools.ozone.moderation.defs#subjectView](../../../../lexicons/tools/ozone/moderation/defs.md#subjectview) | - | ✅ | - |
 | **reportType** | [com.atproto.moderation.defs#reasonType](../../../../lexicons/com/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
+| **priorityLevel** | string | - | ❌ | Priority level assigned to the report. |
+| **priorityScore** | integer | - | ❌ | Report priority score. Higher scores have higher priority. |
+| **priorityTargetMinutes** | integer | - | ❌ | Target resolution duration in minutes. |
+| **resolutionTimeSec** | integer | - | ❌ | Time from report creation to its last closure. |
+| **priorityTargetMet** | boolean | - | ❌ | Whether the current closure occurred within the report's snapshotted target. |
 | **reportedBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the user who made the report |
 | **reporter** | [tools.ozone.moderation.defs#subjectView](../../../../lexicons/tools/ozone/moderation/defs.md#subjectview) | - | ✅ | - |
 | **comment** | string | - | ❌ | Comment provided by the reporter |
@@ -283,7 +288,11 @@ Live statistics for reports for the current calendar day, filterable by queue, m
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **pendingCount** | integer | - | ❌ | Number of reports currently not closed. |
+| **pendingCount** | integer | - | ❌ | Number of unmuted reports currently not closed. |
+| **closureTargetOverdueCount** | integer | - | ❌ | Unmuted pending reports past their closure target. |
+| **closureTargetMetCount** | integer | - | ❌ | Reports whose closure meets their closure target. |
+| **closureTargetMissedCount** | integer | - | ❌ | Reports whose closure exceeds their closure target. |
+| **closureTargetMetRate** | integer | - | ❌ | Percent of reports meeting their closure target. |
 | **closedCount** | integer | - | ❌ | Number of close transitions. |
 | **actionedCount** | integer | - | ❌ | Number of closures whose last report action is label, tag, or takedown. |
 | **acknowledgedCount** | integer | - | ❌ | Number of closures whose last report action is not label, tag, or takedown. |
@@ -309,7 +318,11 @@ A single daily snapshot of report statistics for a calendar date.
 | --- | --- | --- | :---: | --- |
 | **date** | string | - | ✅ | The calendar date this snapshot covers (YYYY-MM-DD). |
 | **computedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When this snapshot was last computed. |
-| **pendingCount** | integer | - | ❌ | Number of reports not closed at time of computation. |
+| **pendingCount** | integer | - | ❌ | Number of unmuted reports not closed at the end of this UTC day, or at computation time for the current day. |
+| **closureTargetOverdueCount** | integer | - | ❌ | Unmuted pending reports past their closure target at the snapshot time. |
+| **closureTargetMetCount** | integer | - | ❌ | Reports whose closure meets their closure target. |
+| **closureTargetMissedCount** | integer | - | ❌ | Reports whose closure exceeds their closure target. |
+| **closureTargetMetRate** | integer | - | ❌ | Percent of reports meeting their closure target. |
 | **closedCount** | integer | - | ❌ | Number of close transitions during this day. |
 | **actionedCount** | integer | - | ❌ | Number of closures whose last report action is label, tag, or takedown during this day. |
 | **acknowledgedCount** | integer | - | ❌ | Number of closures whose last report action is not label, tag, or takedown during this day. |

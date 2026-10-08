@@ -22,6 +22,22 @@ _HistoricalStats _$HistoricalStatsFromJson(
       (v) => v == null ? null : DateTime.parse(v as String),
     ),
     pendingCount: $checkedConvert('pendingCount', (v) => (v as num?)?.toInt()),
+    closureTargetOverdueCount: $checkedConvert(
+      'closureTargetOverdueCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMetCount: $checkedConvert(
+      'closureTargetMetCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMissedCount: $checkedConvert(
+      'closureTargetMissedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMetRate: $checkedConvert(
+      'closureTargetMetRate',
+      (v) => (v as num?)?.toInt(),
+    ),
     closedCount: $checkedConvert('closedCount', (v) => (v as num?)?.toInt()),
     actionedCount: $checkedConvert(
       'actionedCount',
@@ -87,6 +103,10 @@ Map<String, dynamic> _$HistoricalStatsToJson(_HistoricalStats instance) =>
       'date': instance.date,
       'computedAt': iso8601(instance.computedAt),
       'pendingCount': ?instance.pendingCount,
+      'closureTargetOverdueCount': ?instance.closureTargetOverdueCount,
+      'closureTargetMetCount': ?instance.closureTargetMetCount,
+      'closureTargetMissedCount': ?instance.closureTargetMissedCount,
+      'closureTargetMetRate': ?instance.closureTargetMetRate,
       'closedCount': ?instance.closedCount,
       'actionedCount': ?instance.actionedCount,
       'acknowledgedCount': ?instance.acknowledgedCount,

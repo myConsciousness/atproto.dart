@@ -15,13 +15,13 @@ Use [com.atproto.repo.createRecord](../../../lexicons/com/atproto/repo/createRec
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **url** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Base publication url (ex: https://standard.site). The canonical document URL is formed by combining this value with the document path. |
+| **icon** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | Square image to identify the publication. Should be at least 256x256. |
+| **name** | string | - | ✅ | Name of the publication. |
+| **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **basicTheme** | [site.standard.theme.basic](../../../lexicons/site/standard/theme/basic.md#main) | - | ❌ | - |
 | **description** | string | - | ❌ | Brief description of the publication. |
-| **icon** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | Square image to identify the publication. Should be at least 256x256. |
-| **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
-| **name** | string | - | ✅ | Name of the publication. |
 | **preferences** | [#preferences](#preferences) | - | ❌ | - |
-| **url** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Base publication url (ex: https://standard.site). The canonical document URL is formed by combining this value with the document path. |
 
 ### Output
 

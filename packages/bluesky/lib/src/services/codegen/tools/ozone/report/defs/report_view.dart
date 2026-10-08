@@ -35,6 +35,11 @@ abstract class ReportView with _$ReportView {
     'status',
     'subject',
     'reportType',
+    'priorityLevel',
+    'priorityScore',
+    'priorityTargetMinutes',
+    'resolutionTimeSec',
+    'priorityTargetMet',
     'reportedBy',
     'reporter',
     'comment',
@@ -70,6 +75,21 @@ abstract class ReportView with _$ReportView {
 
     /// Type of report
     @ReasonTypeConverter() required ReasonType reportType,
+
+    /// Priority level assigned to the report.
+    String? priorityLevel,
+
+    /// Report priority score. Higher scores have higher priority.
+    int? priorityScore,
+
+    /// Target resolution duration in minutes.
+    int? priorityTargetMinutes,
+
+    /// Time from report creation to its last closure.
+    int? resolutionTimeSec,
+
+    /// Whether the current closure occurred within the report's snapshotted target.
+    bool? priorityTargetMet,
 
     /// DID of the user who made the report
     required String reportedBy,
@@ -125,6 +145,16 @@ abstract class ReportView with _$ReportView {
 }
 
 extension ReportViewExtension on ReportView {
+  bool get hasPriorityLevel => priorityLevel != null;
+  bool get hasNotPriorityLevel => !hasPriorityLevel;
+  bool get hasPriorityScore => priorityScore != null;
+  bool get hasNotPriorityScore => !hasPriorityScore;
+  bool get hasPriorityTargetMinutes => priorityTargetMinutes != null;
+  bool get hasNotPriorityTargetMinutes => !hasPriorityTargetMinutes;
+  bool get hasResolutionTimeSec => resolutionTimeSec != null;
+  bool get hasNotResolutionTimeSec => !hasResolutionTimeSec;
+  bool get isPriorityTargetMet => priorityTargetMet ?? false;
+  bool get isNotPriorityTargetMet => !isPriorityTargetMet;
   bool get hasComment => comment != null;
   bool get hasNotComment => !hasComment;
   bool get hasUpdatedAt => updatedAt != null;

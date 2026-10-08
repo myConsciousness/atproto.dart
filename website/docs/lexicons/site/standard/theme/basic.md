@@ -16,9 +16,9 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **accent** | union of <br/>[site.standard.theme.color#rgb](../../../../lexicons/site/standard/theme/color.md#rgb) | - | ✅ | - |
-| **accentForeground** | union of <br/>[site.standard.theme.color#rgb](../../../../lexicons/site/standard/theme/color.md#rgb) | - | ✅ | - |
 | **background** | union of <br/>[site.standard.theme.color#rgb](../../../../lexicons/site/standard/theme/color.md#rgb) | - | ✅ | - |
 | **foreground** | union of <br/>[site.standard.theme.color#rgb](../../../../lexicons/site/standard/theme/color.md#rgb) | - | ✅ | - |
+| **accentForeground** | union of <br/>[site.standard.theme.color#rgb](../../../../lexicons/site/standard/theme/color.md#rgb) | - | ✅ | - |
 
 ### Output
 
