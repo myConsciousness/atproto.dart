@@ -1,5 +1,45 @@
 # Release Note
 
+## v2.11.1
+
+- feat: added `app.bsky.embed.external#viewArticle`
+- feat: added `app.bsky.embed.external#viewArticlePublication`
+- feat: added `app.bsky.embed.external#viewArticlePublicationTheme`
+- feat: added `app.bsky.embed.external#viewGallery`
+- feat: added `app.bsky.embed.external#viewGalleryImage`
+- feat: added `app.bsky.embed.external#viewLivestream`
+- feat: added `app.bsky.embed.getEmbedExternalView.output.data`
+- feat: added `app.bsky.embed.record#viewRecord.opThreadPostCount`
+- feat: added `app.bsky.embed.record#viewRecord.opThreadPostIndex`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#announcementBanner`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#appCard`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#articleItem`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#galleryItem`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#publicationItem`
+- feat: added `tools.ozone.queue.defs#queueStats.closureTargetMetCount`
+- feat: added `tools.ozone.queue.defs#queueStats.closureTargetMetRate`
+- feat: added `tools.ozone.queue.defs#queueStats.closureTargetMissedCount`
+- feat: added `tools.ozone.queue.defs#queueStats.closureTargetOverdueCount`
+- chore: updated `tools.ozone.queue.defs#queueStats.pendingCount`
+- feat: added `tools.ozone.report.defs#historicalStats.closureTargetMetCount`
+- feat: added `tools.ozone.report.defs#historicalStats.closureTargetMetRate`
+- feat: added `tools.ozone.report.defs#historicalStats.closureTargetMissedCount`
+- feat: added `tools.ozone.report.defs#historicalStats.closureTargetOverdueCount`
+- chore: updated `tools.ozone.report.defs#historicalStats.pendingCount`
+- feat: added `tools.ozone.report.defs#liveStats.closureTargetMetCount`
+- feat: added `tools.ozone.report.defs#liveStats.closureTargetMetRate`
+- feat: added `tools.ozone.report.defs#liveStats.closureTargetMissedCount`
+- feat: added `tools.ozone.report.defs#liveStats.closureTargetOverdueCount`
+- chore: updated `tools.ozone.report.defs#liveStats.pendingCount`
+- feat: added `tools.ozone.report.defs#reportView.priorityLevel`
+- feat: added `tools.ozone.report.defs#reportView.priorityScore`
+- feat: added `tools.ozone.report.defs#reportView.priorityTargetMet`
+- feat: added `tools.ozone.report.defs#reportView.priorityTargetMinutes`
+- feat: added `tools.ozone.report.defs#reportView.resolutionTimeSec`
+- chore: regenerated from synced lexicons
+
 ## v2.11.0
 
 - fix!: `tools.ozone.inbox.defs#actionView.policies` changed type (array<string> -> array<ref(#policyView)>) (BREAKING)

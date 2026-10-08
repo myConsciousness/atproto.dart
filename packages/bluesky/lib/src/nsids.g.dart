@@ -117,6 +117,21 @@ const appBskyEmbedExternalExternal = NSID(ids.appBskyEmbedExternalExternal);
 /// `app.bsky.embed.external#view`
 const appBskyEmbedExternalView = NSID(ids.appBskyEmbedExternalView);
 
+/// `app.bsky.embed.external#viewArticle`
+const appBskyEmbedExternalViewArticle = NSID(
+  ids.appBskyEmbedExternalViewArticle,
+);
+
+/// `app.bsky.embed.external#viewArticlePublication`
+const appBskyEmbedExternalViewArticlePublication = NSID(
+  ids.appBskyEmbedExternalViewArticlePublication,
+);
+
+/// `app.bsky.embed.external#viewArticlePublicationTheme`
+const appBskyEmbedExternalViewArticlePublicationTheme = NSID(
+  ids.appBskyEmbedExternalViewArticlePublicationTheme,
+);
+
 /// `app.bsky.embed.external#viewExternal`
 const appBskyEmbedExternalViewExternal = NSID(
   ids.appBskyEmbedExternalViewExternal,
@@ -130,6 +145,21 @@ const appBskyEmbedExternalViewExternalSource = NSID(
 /// `app.bsky.embed.external#viewExternalSourceTheme`
 const appBskyEmbedExternalViewExternalSourceTheme = NSID(
   ids.appBskyEmbedExternalViewExternalSourceTheme,
+);
+
+/// `app.bsky.embed.external#viewGallery`
+const appBskyEmbedExternalViewGallery = NSID(
+  ids.appBskyEmbedExternalViewGallery,
+);
+
+/// `app.bsky.embed.external#viewGalleryImage`
+const appBskyEmbedExternalViewGalleryImage = NSID(
+  ids.appBskyEmbedExternalViewGalleryImage,
+);
+
+/// `app.bsky.embed.external#viewLivestream`
+const appBskyEmbedExternalViewLivestream = NSID(
+  ids.appBskyEmbedExternalViewLivestream,
 );
 
 /// `app.bsky.embed.gallery`
@@ -650,6 +680,41 @@ const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 /// `app.bsky.unspecced.getAgeAssuranceState`
 const appBskyUnspeccedGetAgeAssuranceState = NSID(
   ids.appBskyUnspeccedGetAgeAssuranceState,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab`
+const appBskyUnspeccedGetAtmosphereExploreTab = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTab,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#announcementBanner`
+const appBskyUnspeccedGetAtmosphereExploreTabAnnouncementBanner = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTabAnnouncementBanner,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#appCard`
+const appBskyUnspeccedGetAtmosphereExploreTabAppCard = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTabAppCard,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#articleItem`
+const appBskyUnspeccedGetAtmosphereExploreTabArticleItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTabArticleItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#galleryItem`
+const appBskyUnspeccedGetAtmosphereExploreTabGalleryItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTabGalleryItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem`
+const appBskyUnspeccedGetAtmosphereExploreTabLivestreamItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTabLivestreamItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#publicationItem`
+const appBskyUnspeccedGetAtmosphereExploreTabPublicationItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreTabPublicationItem,
 );
 
 /// `app.bsky.unspecced.getConfig`

@@ -17,6 +17,22 @@ _QueueStats _$QueueStatsFromJson(
       (v) => v as String? ?? 'tools.ozone.queue.defs#queueStats',
     ),
     pendingCount: $checkedConvert('pendingCount', (v) => (v as num?)?.toInt()),
+    closureTargetOverdueCount: $checkedConvert(
+      'closureTargetOverdueCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMetCount: $checkedConvert(
+      'closureTargetMetCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMissedCount: $checkedConvert(
+      'closureTargetMissedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMetRate: $checkedConvert(
+      'closureTargetMetRate',
+      (v) => (v as num?)?.toInt(),
+    ),
     actionedCount: $checkedConvert(
       'actionedCount',
       (v) => (v as num?)?.toInt(),
@@ -47,6 +63,10 @@ Map<String, dynamic> _$QueueStatsToJson(_QueueStats instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'pendingCount': ?instance.pendingCount,
+      'closureTargetOverdueCount': ?instance.closureTargetOverdueCount,
+      'closureTargetMetCount': ?instance.closureTargetMetCount,
+      'closureTargetMissedCount': ?instance.closureTargetMissedCount,
+      'closureTargetMetRate': ?instance.closureTargetMetRate,
       'actionedCount': ?instance.actionedCount,
       'escalatedCount': ?instance.escalatedCount,
       'inboundCount': ?instance.inboundCount,

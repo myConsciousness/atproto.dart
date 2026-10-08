@@ -353,6 +353,17 @@ const appBskyEmbedExternalExternal = 'app.bsky.embed.external#external';
 /// `app.bsky.embed.external#view`
 const appBskyEmbedExternalView = 'app.bsky.embed.external#view';
 
+/// `app.bsky.embed.external#viewArticle`
+const appBskyEmbedExternalViewArticle = 'app.bsky.embed.external#viewArticle';
+
+/// `app.bsky.embed.external#viewArticlePublication`
+const appBskyEmbedExternalViewArticlePublication =
+    'app.bsky.embed.external#viewArticlePublication';
+
+/// `app.bsky.embed.external#viewArticlePublicationTheme`
+const appBskyEmbedExternalViewArticlePublicationTheme =
+    'app.bsky.embed.external#viewArticlePublicationTheme';
+
 /// `app.bsky.embed.external#viewExternal`
 const appBskyEmbedExternalViewExternal = 'app.bsky.embed.external#viewExternal';
 
@@ -363,6 +374,17 @@ const appBskyEmbedExternalViewExternalSource =
 /// `app.bsky.embed.external#viewExternalSourceTheme`
 const appBskyEmbedExternalViewExternalSourceTheme =
     'app.bsky.embed.external#viewExternalSourceTheme';
+
+/// `app.bsky.embed.external#viewGallery`
+const appBskyEmbedExternalViewGallery = 'app.bsky.embed.external#viewGallery';
+
+/// `app.bsky.embed.external#viewGalleryImage`
+const appBskyEmbedExternalViewGalleryImage =
+    'app.bsky.embed.external#viewGalleryImage';
+
+/// `app.bsky.embed.external#viewLivestream`
+const appBskyEmbedExternalViewLivestream =
+    'app.bsky.embed.external#viewLivestream';
 
 /// `app.bsky.embed.gallery`
 const appBskyEmbedGallery = 'app.bsky.embed.gallery';
@@ -1065,6 +1087,34 @@ const appBskyUnspeccedDefsTrendingTopic =
 /// `app.bsky.unspecced.getAgeAssuranceState`
 const appBskyUnspeccedGetAgeAssuranceState =
     'app.bsky.unspecced.getAgeAssuranceState';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab`
+const appBskyUnspeccedGetAtmosphereExploreTab =
+    'app.bsky.unspecced.getAtmosphereExploreTab';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#announcementBanner`
+const appBskyUnspeccedGetAtmosphereExploreTabAnnouncementBanner =
+    'app.bsky.unspecced.getAtmosphereExploreTab#announcementBanner';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#appCard`
+const appBskyUnspeccedGetAtmosphereExploreTabAppCard =
+    'app.bsky.unspecced.getAtmosphereExploreTab#appCard';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#articleItem`
+const appBskyUnspeccedGetAtmosphereExploreTabArticleItem =
+    'app.bsky.unspecced.getAtmosphereExploreTab#articleItem';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#galleryItem`
+const appBskyUnspeccedGetAtmosphereExploreTabGalleryItem =
+    'app.bsky.unspecced.getAtmosphereExploreTab#galleryItem';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem`
+const appBskyUnspeccedGetAtmosphereExploreTabLivestreamItem =
+    'app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#publicationItem`
+const appBskyUnspeccedGetAtmosphereExploreTabPublicationItem =
+    'app.bsky.unspecced.getAtmosphereExploreTab#publicationItem';
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';

@@ -25,6 +25,10 @@ abstract class HistoricalStats with _$HistoricalStats {
     'date',
     'computedAt',
     'pendingCount',
+    'closureTargetOverdueCount',
+    'closureTargetMetCount',
+    'closureTargetMissedCount',
+    'closureTargetMetRate',
     'closedCount',
     'actionedCount',
     'acknowledgedCount',
@@ -52,8 +56,20 @@ abstract class HistoricalStats with _$HistoricalStats {
     /// When this snapshot was last computed.
     @JsonKey(toJson: iso8601) DateTime? computedAt,
 
-    /// Number of reports not closed at time of computation.
+    /// Number of unmuted reports not closed at the end of this UTC day, or at computation time for the current day.
     int? pendingCount,
+
+    /// Unmuted pending reports past their closure target at the snapshot time.
+    int? closureTargetOverdueCount,
+
+    /// Reports whose closure meets their closure target.
+    int? closureTargetMetCount,
+
+    /// Reports whose closure exceeds their closure target.
+    int? closureTargetMissedCount,
+
+    /// Percent of reports meeting their closure target.
+    int? closureTargetMetRate,
 
     /// Number of close transitions during this day.
     int? closedCount,
@@ -117,6 +133,14 @@ extension HistoricalStatsExtension on HistoricalStats {
   bool get hasNotComputedAt => !hasComputedAt;
   bool get hasPendingCount => pendingCount != null;
   bool get hasNotPendingCount => !hasPendingCount;
+  bool get hasClosureTargetOverdueCount => closureTargetOverdueCount != null;
+  bool get hasNotClosureTargetOverdueCount => !hasClosureTargetOverdueCount;
+  bool get hasClosureTargetMetCount => closureTargetMetCount != null;
+  bool get hasNotClosureTargetMetCount => !hasClosureTargetMetCount;
+  bool get hasClosureTargetMissedCount => closureTargetMissedCount != null;
+  bool get hasNotClosureTargetMissedCount => !hasClosureTargetMissedCount;
+  bool get hasClosureTargetMetRate => closureTargetMetRate != null;
+  bool get hasNotClosureTargetMetRate => !hasClosureTargetMetRate;
   bool get hasClosedCount => closedCount != null;
   bool get hasNotClosedCount => !hasClosedCount;
   bool get hasActionedCount => actionedCount != null;

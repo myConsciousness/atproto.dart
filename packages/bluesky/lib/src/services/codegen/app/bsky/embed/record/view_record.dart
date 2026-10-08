@@ -36,6 +36,8 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     'repostCount',
     'likeCount',
     'quoteCount',
+    'opThreadPostIndex',
+    'opThreadPostCount',
     'embeds',
     'indexedAt',
   ];
@@ -52,6 +54,12 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     int? repostCount,
     int? likeCount,
     int? quoteCount,
+
+    /// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.
+    int? opThreadPostIndex,
+
+    /// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.
+    int? opThreadPostCount,
     @UEmbedRecordViewRecordEmbedsConverter()
     List<UEmbedRecordViewRecordEmbeds>? embeds,
     @JsonKey(toJson: iso8601) required DateTime indexedAt,
@@ -77,6 +85,10 @@ extension EmbedRecordViewRecordExtension on EmbedRecordViewRecord {
   bool get hasNotLikeCount => !hasLikeCount;
   bool get hasQuoteCount => quoteCount != null;
   bool get hasNotQuoteCount => !hasQuoteCount;
+  bool get hasOpThreadPostIndex => opThreadPostIndex != null;
+  bool get hasNotOpThreadPostIndex => !hasOpThreadPostIndex;
+  bool get hasOpThreadPostCount => opThreadPostCount != null;
+  bool get hasNotOpThreadPostCount => !hasOpThreadPostCount;
 }
 
 final class EmbedRecordViewRecordConverter

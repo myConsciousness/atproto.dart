@@ -304,6 +304,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[app.bsky.unspecced.getAgeAssuranceState](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/getAgeAssuranceState.html)** | [Reference](lexicons/app/bsky/unspecced/getAgeAssuranceState.md) | ❌ |
+| **[app.bsky.unspecced.getAtmosphereExploreTab](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/getAtmosphereExploreTab.html)** | [Reference](lexicons/app/bsky/unspecced/getAtmosphereExploreTab.md) | ❌ |
 | **[app.bsky.unspecced.getConfig](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/getConfig.html)** | [Reference](lexicons/app/bsky/unspecced/getConfig.md) | ❌ |
 | **[app.bsky.unspecced.getOnboardingSuggestedStarterPacks](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/getOnboardingSuggestedStarterPacks.html)** | [Reference](lexicons/app/bsky/unspecced/getOnboardingSuggestedStarterPacks.md) | ❌ |
 | **[app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton](https://pub.dev/documentation/bluesky/latest/app_bsky_services/UnspeccedService/getOnboardingSuggestedStarterPacksSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getOnboardingSuggestedStarterPacksSkeleton.md) | ❌ |

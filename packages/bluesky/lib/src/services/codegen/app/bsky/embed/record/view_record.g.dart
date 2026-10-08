@@ -39,6 +39,14 @@ _EmbedRecordViewRecord _$EmbedRecordViewRecordFromJson(
     repostCount: $checkedConvert('repostCount', (v) => (v as num?)?.toInt()),
     likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
     quoteCount: $checkedConvert('quoteCount', (v) => (v as num?)?.toInt()),
+    opThreadPostIndex: $checkedConvert(
+      'opThreadPostIndex',
+      (v) => (v as num?)?.toInt(),
+    ),
+    opThreadPostCount: $checkedConvert(
+      'opThreadPostCount',
+      (v) => (v as num?)?.toInt(),
+    ),
     embeds: $checkedConvert(
       'embeds',
       (v) => (v as List<dynamic>?)
@@ -71,6 +79,8 @@ Map<String, dynamic> _$EmbedRecordViewRecordToJson(
   'repostCount': ?instance.repostCount,
   'likeCount': ?instance.likeCount,
   'quoteCount': ?instance.quoteCount,
+  'opThreadPostIndex': ?instance.opThreadPostIndex,
+  'opThreadPostCount': ?instance.opThreadPostCount,
   'embeds': ?instance.embeds
       ?.map(const UEmbedRecordViewRecordEmbedsConverter().toJson)
       .toList(),

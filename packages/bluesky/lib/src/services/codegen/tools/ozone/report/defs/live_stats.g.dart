@@ -17,6 +17,22 @@ _LiveStats _$LiveStatsFromJson(Map json) => $checkedCreate('_LiveStats', json, (
       (v) => v as String? ?? 'tools.ozone.report.defs#liveStats',
     ),
     pendingCount: $checkedConvert('pendingCount', (v) => (v as num?)?.toInt()),
+    closureTargetOverdueCount: $checkedConvert(
+      'closureTargetOverdueCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMetCount: $checkedConvert(
+      'closureTargetMetCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMissedCount: $checkedConvert(
+      'closureTargetMissedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    closureTargetMetRate: $checkedConvert(
+      'closureTargetMetRate',
+      (v) => (v as num?)?.toInt(),
+    ),
     closedCount: $checkedConvert('closedCount', (v) => (v as num?)?.toInt()),
     actionedCount: $checkedConvert(
       'actionedCount',
@@ -84,6 +100,10 @@ Map<String, dynamic> _$LiveStatsToJson(_LiveStats instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'pendingCount': ?instance.pendingCount,
+      'closureTargetOverdueCount': ?instance.closureTargetOverdueCount,
+      'closureTargetMetCount': ?instance.closureTargetMetCount,
+      'closureTargetMissedCount': ?instance.closureTargetMissedCount,
+      'closureTargetMetRate': ?instance.closureTargetMetRate,
       'closedCount': ?instance.closedCount,
       'actionedCount': ?instance.actionedCount,
       'acknowledgedCount': ?instance.acknowledgedCount,

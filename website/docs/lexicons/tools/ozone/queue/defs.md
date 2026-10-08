@@ -28,7 +28,11 @@ description: tools.ozone.queue.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **pendingCount** | integer | - | ❌ | Number of reports in 'open' status |
+| **pendingCount** | integer | - | ❌ | Number of unmuted reports currently not closed. |
+| **closureTargetOverdueCount** | integer | - | ❌ | Unmuted pending reports past their closure target. |
+| **closureTargetMetCount** | integer | - | ❌ | Reports whose closure meets their closure target. |
+| **closureTargetMissedCount** | integer | - | ❌ | Reports whose closure exceeds their closure target. |
+| **closureTargetMetRate** | integer | - | ❌ | Percent of reports meeting their closure target. |
 | **actionedCount** | integer | - | ❌ | Number of reports in 'closed' status |
 | **escalatedCount** | integer | - | ❌ | Number of reports in 'escalated' status |
 | **inboundCount** | integer | - | ❌ | Reports received in this queue in the last 24 hours. |

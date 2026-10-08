@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$EmbedGetEmbedExternalViewOutput {
 
 /// Hydrated view of the embed. Present only when the resolved records back the requested URL and supply enough information to populate the required `viewExternal` fields. Omitted alongside the rest of the response when no records resolved or validation failed.
-@EmbedExternalViewConverter() EmbedExternalView? get view;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs; List<Map<String, dynamic>>? get associatedRecords; Map<String, dynamic>? get $unknown;
+@EmbedExternalViewConverter() EmbedExternalView? get view;@UEmbedGetEmbedExternalViewDataConverter() UEmbedGetEmbedExternalViewData? get data;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs; List<Map<String, dynamic>>? get associatedRecords; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedGetEmbedExternalViewOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $EmbedGetEmbedExternalViewOutputCopyWith<EmbedGetEmbedExternalViewOutput> get co
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedGetEmbedExternalViewOutput&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.associatedRecords, associatedRecords)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedGetEmbedExternalViewOutput&&(identical(other.view, view) || other.view == view)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.associatedRecords, associatedRecords)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,view,const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash(associatedRecords),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,view,data,const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash(associatedRecords),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedGetEmbedExternalViewOutput(view: $view, associatedRefs: $associatedRefs, associatedRecords: $associatedRecords, \$unknown: ${$unknown})';
+  return 'EmbedGetEmbedExternalViewOutput(view: $view, data: $data, associatedRefs: $associatedRefs, associatedRecords: $associatedRecords, \$unknown: ${$unknown})';
 }
 
 
@@ -49,11 +49,11 @@ abstract mixin class $EmbedGetEmbedExternalViewOutputCopyWith<$Res>  {
   factory $EmbedGetEmbedExternalViewOutputCopyWith(EmbedGetEmbedExternalViewOutput value, $Res Function(EmbedGetEmbedExternalViewOutput) _then) = _$EmbedGetEmbedExternalViewOutputCopyWithImpl;
 @useResult
 $Res call({
-@EmbedExternalViewConverter() EmbedExternalView? view,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, List<Map<String, dynamic>>? associatedRecords, Map<String, dynamic>? $unknown
+@EmbedExternalViewConverter() EmbedExternalView? view,@UEmbedGetEmbedExternalViewDataConverter() UEmbedGetEmbedExternalViewData? data,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, List<Map<String, dynamic>>? associatedRecords, Map<String, dynamic>? $unknown
 });
 
 
-$EmbedExternalViewCopyWith<$Res>? get view;
+$EmbedExternalViewCopyWith<$Res>? get view;$UEmbedGetEmbedExternalViewDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -66,10 +66,11 @@ class _$EmbedGetEmbedExternalViewOutputCopyWithImpl<$Res>
 
 /// Create a copy of EmbedGetEmbedExternalViewOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? view = freezed,Object? associatedRefs = freezed,Object? associatedRecords = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? view = freezed,Object? data = freezed,Object? associatedRefs = freezed,Object? associatedRecords = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 view: freezed == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
-as EmbedExternalView?,associatedRefs: freezed == associatedRefs ? _self.associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
+as EmbedExternalView?,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as UEmbedGetEmbedExternalViewData?,associatedRefs: freezed == associatedRefs ? _self.associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
 as List<RepoStrongRef>?,associatedRecords: freezed == associatedRecords ? _self.associatedRecords : associatedRecords // ignore: cast_nullable_to_non_nullable
 as List<Map<String, dynamic>>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -86,6 +87,18 @@ $EmbedExternalViewCopyWith<$Res>? get view {
 
   return $EmbedExternalViewCopyWith<$Res>(_self.view!, (value) {
     return _then(_self.copyWith(view: value));
+  });
+}/// Create a copy of EmbedGetEmbedExternalViewOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UEmbedGetEmbedExternalViewDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
+
+  return $UEmbedGetEmbedExternalViewDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -169,10 +182,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@EmbedExternalViewConverter()  EmbedExternalView? view, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  List<Map<String, dynamic>>? associatedRecords,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@EmbedExternalViewConverter()  EmbedExternalView? view, @UEmbedGetEmbedExternalViewDataConverter()  UEmbedGetEmbedExternalViewData? data, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  List<Map<String, dynamic>>? associatedRecords,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedGetEmbedExternalViewOutput() when $default != null:
-return $default(_that.view,_that.associatedRefs,_that.associatedRecords,_that.$unknown);case _:
+return $default(_that.view,_that.data,_that.associatedRefs,_that.associatedRecords,_that.$unknown);case _:
   return orElse();
 
 }
@@ -190,10 +203,10 @@ return $default(_that.view,_that.associatedRefs,_that.associatedRecords,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@EmbedExternalViewConverter()  EmbedExternalView? view, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  List<Map<String, dynamic>>? associatedRecords,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@EmbedExternalViewConverter()  EmbedExternalView? view, @UEmbedGetEmbedExternalViewDataConverter()  UEmbedGetEmbedExternalViewData? data, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  List<Map<String, dynamic>>? associatedRecords,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedGetEmbedExternalViewOutput():
-return $default(_that.view,_that.associatedRefs,_that.associatedRecords,_that.$unknown);case _:
+return $default(_that.view,_that.data,_that.associatedRefs,_that.associatedRecords,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +223,10 @@ return $default(_that.view,_that.associatedRefs,_that.associatedRecords,_that.$u
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@EmbedExternalViewConverter()  EmbedExternalView? view, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  List<Map<String, dynamic>>? associatedRecords,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@EmbedExternalViewConverter()  EmbedExternalView? view, @UEmbedGetEmbedExternalViewDataConverter()  UEmbedGetEmbedExternalViewData? data, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs,  List<Map<String, dynamic>>? associatedRecords,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedGetEmbedExternalViewOutput() when $default != null:
-return $default(_that.view,_that.associatedRefs,_that.associatedRecords,_that.$unknown);case _:
+return $default(_that.view,_that.data,_that.associatedRefs,_that.associatedRecords,_that.$unknown);case _:
   return null;
 
 }
@@ -225,11 +238,12 @@ return $default(_that.view,_that.associatedRefs,_that.associatedRecords,_that.$u
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedGetEmbedExternalViewOutput implements EmbedGetEmbedExternalViewOutput {
-  const _EmbedGetEmbedExternalViewOutput({@EmbedExternalViewConverter() this.view, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, final  List<Map<String, dynamic>>? associatedRecords, final  Map<String, dynamic>? $unknown}): _associatedRefs = associatedRefs,_associatedRecords = associatedRecords,_$unknown = $unknown;
+  const _EmbedGetEmbedExternalViewOutput({@EmbedExternalViewConverter() this.view, @UEmbedGetEmbedExternalViewDataConverter() this.data, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, final  List<Map<String, dynamic>>? associatedRecords, final  Map<String, dynamic>? $unknown}): _associatedRefs = associatedRefs,_associatedRecords = associatedRecords,_$unknown = $unknown;
   factory _EmbedGetEmbedExternalViewOutput.fromJson(Map<String, dynamic> json) => _$EmbedGetEmbedExternalViewOutputFromJson(json);
 
 /// Hydrated view of the embed. Present only when the resolved records back the requested URL and supply enough information to populate the required `viewExternal` fields. Omitted alongside the rest of the response when no records resolved or validation failed.
 @override@EmbedExternalViewConverter() final  EmbedExternalView? view;
+@override@UEmbedGetEmbedExternalViewDataConverter() final  UEmbedGetEmbedExternalViewData? data;
  final  List<RepoStrongRef>? _associatedRefs;
 @override@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs {
   final value = _associatedRefs;
@@ -271,16 +285,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedGetEmbedExternalViewOutput&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._associatedRecords, _associatedRecords)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedGetEmbedExternalViewOutput&&(identical(other.view, view) || other.view == view)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._associatedRecords, _associatedRecords)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,view,const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_associatedRecords),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,view,data,const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_associatedRecords),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedGetEmbedExternalViewOutput(view: $view, associatedRefs: $associatedRefs, associatedRecords: $associatedRecords, \$unknown: ${$unknown})';
+  return 'EmbedGetEmbedExternalViewOutput(view: $view, data: $data, associatedRefs: $associatedRefs, associatedRecords: $associatedRecords, \$unknown: ${$unknown})';
 }
 
 
@@ -291,11 +305,11 @@ abstract mixin class _$EmbedGetEmbedExternalViewOutputCopyWith<$Res> implements 
   factory _$EmbedGetEmbedExternalViewOutputCopyWith(_EmbedGetEmbedExternalViewOutput value, $Res Function(_EmbedGetEmbedExternalViewOutput) _then) = __$EmbedGetEmbedExternalViewOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@EmbedExternalViewConverter() EmbedExternalView? view,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, List<Map<String, dynamic>>? associatedRecords, Map<String, dynamic>? $unknown
+@EmbedExternalViewConverter() EmbedExternalView? view,@UEmbedGetEmbedExternalViewDataConverter() UEmbedGetEmbedExternalViewData? data,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs, List<Map<String, dynamic>>? associatedRecords, Map<String, dynamic>? $unknown
 });
 
 
-@override $EmbedExternalViewCopyWith<$Res>? get view;
+@override $EmbedExternalViewCopyWith<$Res>? get view;@override $UEmbedGetEmbedExternalViewDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -308,10 +322,11 @@ class __$EmbedGetEmbedExternalViewOutputCopyWithImpl<$Res>
 
 /// Create a copy of EmbedGetEmbedExternalViewOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? view = freezed,Object? associatedRefs = freezed,Object? associatedRecords = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? view = freezed,Object? data = freezed,Object? associatedRefs = freezed,Object? associatedRecords = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedGetEmbedExternalViewOutput(
 view: freezed == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
-as EmbedExternalView?,associatedRefs: freezed == associatedRefs ? _self._associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
+as EmbedExternalView?,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as UEmbedGetEmbedExternalViewData?,associatedRefs: freezed == associatedRefs ? _self._associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
 as List<RepoStrongRef>?,associatedRecords: freezed == associatedRecords ? _self._associatedRecords : associatedRecords // ignore: cast_nullable_to_non_nullable
 as List<Map<String, dynamic>>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -329,6 +344,18 @@ $EmbedExternalViewCopyWith<$Res>? get view {
 
   return $EmbedExternalViewCopyWith<$Res>(_self.view!, (value) {
     return _then(_self.copyWith(view: value));
+  });
+}/// Create a copy of EmbedGetEmbedExternalViewOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UEmbedGetEmbedExternalViewDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
+
+  return $UEmbedGetEmbedExternalViewDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

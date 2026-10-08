@@ -17,8 +17,12 @@ mixin _$HistoricalStats {
 
  String get $type;/// The calendar date this snapshot covers (YYYY-MM-DD).
  String get date;/// When this snapshot was last computed.
-@JsonKey(toJson: iso8601) DateTime? get computedAt;/// Number of reports not closed at time of computation.
- int? get pendingCount;/// Number of close transitions during this day.
+@JsonKey(toJson: iso8601) DateTime? get computedAt;/// Number of unmuted reports not closed at the end of this UTC day, or at computation time for the current day.
+ int? get pendingCount;/// Unmuted pending reports past their closure target at the snapshot time.
+ int? get closureTargetOverdueCount;/// Reports whose closure meets their closure target.
+ int? get closureTargetMetCount;/// Reports whose closure exceeds their closure target.
+ int? get closureTargetMissedCount;/// Percent of reports meeting their closure target.
+ int? get closureTargetMetRate;/// Number of close transitions during this day.
  int? get closedCount;/// Number of closures whose last report action is label, tag, or takedown during this day.
  int? get actionedCount;/// Number of closures whose last report action is not label, tag, or takedown during this day.
  int? get acknowledgedCount;/// Number of reports escalated during this day.
@@ -46,16 +50,16 @@ $HistoricalStatsCopyWith<HistoricalStats> get copyWith => _$HistoricalStatsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricalStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.date, date) || other.date == date)&&(identical(other.computedAt, computedAt) || other.computedAt == computedAt)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closedCount, closedCount) || other.closedCount == closedCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.acknowledgedCount, acknowledgedCount) || other.acknowledgedCount == acknowledgedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.labelActionCount, labelActionCount) || other.labelActionCount == labelActionCount)&&(identical(other.tagActionCount, tagActionCount) || other.tagActionCount == tagActionCount)&&(identical(other.takedownActionCount, takedownActionCount) || other.takedownActionCount == takedownActionCount)&&(identical(other.ahtDurationSec, ahtDurationSec) || other.ahtDurationSec == ahtDurationSec)&&(identical(other.ahtSampleCount, ahtSampleCount) || other.ahtSampleCount == ahtSampleCount)&&(identical(other.resolutionDurationSec, resolutionDurationSec) || other.resolutionDurationSec == resolutionDurationSec)&&(identical(other.resolutionSampleCount, resolutionSampleCount) || other.resolutionSampleCount == resolutionSampleCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.avgResolutionTimeSec, avgResolutionTimeSec) || other.avgResolutionTimeSec == avgResolutionTimeSec)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricalStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.date, date) || other.date == date)&&(identical(other.computedAt, computedAt) || other.computedAt == computedAt)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.closedCount, closedCount) || other.closedCount == closedCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.acknowledgedCount, acknowledgedCount) || other.acknowledgedCount == acknowledgedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.labelActionCount, labelActionCount) || other.labelActionCount == labelActionCount)&&(identical(other.tagActionCount, tagActionCount) || other.tagActionCount == tagActionCount)&&(identical(other.takedownActionCount, takedownActionCount) || other.takedownActionCount == takedownActionCount)&&(identical(other.ahtDurationSec, ahtDurationSec) || other.ahtDurationSec == ahtDurationSec)&&(identical(other.ahtSampleCount, ahtSampleCount) || other.ahtSampleCount == ahtSampleCount)&&(identical(other.resolutionDurationSec, resolutionDurationSec) || other.resolutionDurationSec == resolutionDurationSec)&&(identical(other.resolutionSampleCount, resolutionSampleCount) || other.resolutionSampleCount == resolutionSampleCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.avgResolutionTimeSec, avgResolutionTimeSec) || other.avgResolutionTimeSec == avgResolutionTimeSec)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,$type,date,computedAt,pendingCount,closedCount,actionedCount,acknowledgedCount,escalatedCount,inboundCount,labelActionCount,tagActionCount,takedownActionCount,ahtDurationSec,ahtSampleCount,resolutionDurationSec,resolutionSampleCount,actionRate,avgHandlingTimeSec,avgResolutionTimeSec,const DeepCollectionEquality().hash($unknown)]);
+int get hashCode => Object.hashAll([runtimeType,$type,date,computedAt,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,closedCount,actionedCount,acknowledgedCount,escalatedCount,inboundCount,labelActionCount,tagActionCount,takedownActionCount,ahtDurationSec,ahtSampleCount,resolutionDurationSec,resolutionSampleCount,actionRate,avgHandlingTimeSec,avgResolutionTimeSec,const DeepCollectionEquality().hash($unknown)]);
 
 @override
 String toString() {
-  return 'HistoricalStats(\$type: ${$type}, date: $date, computedAt: $computedAt, pendingCount: $pendingCount, closedCount: $closedCount, actionedCount: $actionedCount, acknowledgedCount: $acknowledgedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, labelActionCount: $labelActionCount, tagActionCount: $tagActionCount, takedownActionCount: $takedownActionCount, ahtDurationSec: $ahtDurationSec, ahtSampleCount: $ahtSampleCount, resolutionDurationSec: $resolutionDurationSec, resolutionSampleCount: $resolutionSampleCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, avgResolutionTimeSec: $avgResolutionTimeSec, \$unknown: ${$unknown})';
+  return 'HistoricalStats(\$type: ${$type}, date: $date, computedAt: $computedAt, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, closedCount: $closedCount, actionedCount: $actionedCount, acknowledgedCount: $acknowledgedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, labelActionCount: $labelActionCount, tagActionCount: $tagActionCount, takedownActionCount: $takedownActionCount, ahtDurationSec: $ahtDurationSec, ahtSampleCount: $ahtSampleCount, resolutionDurationSec: $resolutionDurationSec, resolutionSampleCount: $resolutionSampleCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, avgResolutionTimeSec: $avgResolutionTimeSec, \$unknown: ${$unknown})';
 }
 
 
@@ -66,7 +70,7 @@ abstract mixin class $HistoricalStatsCopyWith<$Res>  {
   factory $HistoricalStatsCopyWith(HistoricalStats value, $Res Function(HistoricalStats) _then) = _$HistoricalStatsCopyWithImpl;
 @useResult
 $Res call({
- String $type, String date,@JsonKey(toJson: iso8601) DateTime? computedAt, int? pendingCount, int? closedCount, int? actionedCount, int? acknowledgedCount, int? escalatedCount, int? inboundCount, int? labelActionCount, int? tagActionCount, int? takedownActionCount, int? ahtDurationSec, int? ahtSampleCount, int? resolutionDurationSec, int? resolutionSampleCount, int? actionRate, int? avgHandlingTimeSec, int? avgResolutionTimeSec, Map<String, dynamic>? $unknown
+ String $type, String date,@JsonKey(toJson: iso8601) DateTime? computedAt, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? closedCount, int? actionedCount, int? acknowledgedCount, int? escalatedCount, int? inboundCount, int? labelActionCount, int? tagActionCount, int? takedownActionCount, int? ahtDurationSec, int? ahtSampleCount, int? resolutionDurationSec, int? resolutionSampleCount, int? actionRate, int? avgHandlingTimeSec, int? avgResolutionTimeSec, Map<String, dynamic>? $unknown
 });
 
 
@@ -83,12 +87,16 @@ class _$HistoricalStatsCopyWithImpl<$Res>
 
 /// Create a copy of HistoricalStats
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? date = null,Object? computedAt = freezed,Object? pendingCount = freezed,Object? closedCount = freezed,Object? actionedCount = freezed,Object? acknowledgedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? labelActionCount = freezed,Object? tagActionCount = freezed,Object? takedownActionCount = freezed,Object? ahtDurationSec = freezed,Object? ahtSampleCount = freezed,Object? resolutionDurationSec = freezed,Object? resolutionSampleCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? avgResolutionTimeSec = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? date = null,Object? computedAt = freezed,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? closedCount = freezed,Object? actionedCount = freezed,Object? acknowledgedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? labelActionCount = freezed,Object? tagActionCount = freezed,Object? takedownActionCount = freezed,Object? ahtDurationSec = freezed,Object? ahtSampleCount = freezed,Object? resolutionDurationSec = freezed,Object? resolutionSampleCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? avgResolutionTimeSec = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,computedAt: freezed == computedAt ? _self.computedAt : computedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,pendingCount: freezed == pendingCount ? _self.pendingCount : pendingCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetOverdueCount: freezed == closureTargetOverdueCount ? _self.closureTargetOverdueCount : closureTargetOverdueCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetCount: freezed == closureTargetMetCount ? _self.closureTargetMetCount : closureTargetMetCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMissedCount: freezed == closureTargetMissedCount ? _self.closureTargetMissedCount : closureTargetMissedCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetRate: freezed == closureTargetMetRate ? _self.closureTargetMetRate : closureTargetMetRate // ignore: cast_nullable_to_non_nullable
 as int?,closedCount: freezed == closedCount ? _self.closedCount : closedCount // ignore: cast_nullable_to_non_nullable
 as int?,actionedCount: freezed == actionedCount ? _self.actionedCount : actionedCount // ignore: cast_nullable_to_non_nullable
 as int?,acknowledgedCount: freezed == acknowledgedCount ? _self.acknowledgedCount : acknowledgedCount // ignore: cast_nullable_to_non_nullable
@@ -190,10 +198,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HistoricalStats() when $default != null:
-return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.$unknown);case _:
+return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.$unknown);case _:
   return orElse();
 
 }
@@ -211,10 +219,10 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _HistoricalStats():
-return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.$unknown);case _:
+return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -231,10 +239,10 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String date, @JsonKey(toJson: iso8601)  DateTime? computedAt,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _HistoricalStats() when $default != null:
-return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.$unknown);case _:
+return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.$unknown);case _:
   return null;
 
 }
@@ -246,7 +254,7 @@ return $default(_that.$type,_that.date,_that.computedAt,_that.pendingCount,_that
 
 @JsonSerializable(includeIfNull: false)
 class _HistoricalStats implements HistoricalStats {
-  const _HistoricalStats({this.$type = 'tools.ozone.report.defs#historicalStats', required this.date, @JsonKey(toJson: iso8601) this.computedAt, this.pendingCount, this.closedCount, this.actionedCount, this.acknowledgedCount, this.escalatedCount, this.inboundCount, this.labelActionCount, this.tagActionCount, this.takedownActionCount, this.ahtDurationSec, this.ahtSampleCount, this.resolutionDurationSec, this.resolutionSampleCount, this.actionRate, this.avgHandlingTimeSec, this.avgResolutionTimeSec, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _HistoricalStats({this.$type = 'tools.ozone.report.defs#historicalStats', required this.date, @JsonKey(toJson: iso8601) this.computedAt, this.pendingCount, this.closureTargetOverdueCount, this.closureTargetMetCount, this.closureTargetMissedCount, this.closureTargetMetRate, this.closedCount, this.actionedCount, this.acknowledgedCount, this.escalatedCount, this.inboundCount, this.labelActionCount, this.tagActionCount, this.takedownActionCount, this.ahtDurationSec, this.ahtSampleCount, this.resolutionDurationSec, this.resolutionSampleCount, this.actionRate, this.avgHandlingTimeSec, this.avgResolutionTimeSec, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _HistoricalStats.fromJson(Map<String, dynamic> json) => _$HistoricalStatsFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -254,8 +262,16 @@ class _HistoricalStats implements HistoricalStats {
 @override final  String date;
 /// When this snapshot was last computed.
 @override@JsonKey(toJson: iso8601) final  DateTime? computedAt;
-/// Number of reports not closed at time of computation.
+/// Number of unmuted reports not closed at the end of this UTC day, or at computation time for the current day.
 @override final  int? pendingCount;
+/// Unmuted pending reports past their closure target at the snapshot time.
+@override final  int? closureTargetOverdueCount;
+/// Reports whose closure meets their closure target.
+@override final  int? closureTargetMetCount;
+/// Reports whose closure exceeds their closure target.
+@override final  int? closureTargetMissedCount;
+/// Percent of reports meeting their closure target.
+@override final  int? closureTargetMetRate;
 /// Number of close transitions during this day.
 @override final  int? closedCount;
 /// Number of closures whose last report action is label, tag, or takedown during this day.
@@ -309,16 +325,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricalStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.date, date) || other.date == date)&&(identical(other.computedAt, computedAt) || other.computedAt == computedAt)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closedCount, closedCount) || other.closedCount == closedCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.acknowledgedCount, acknowledgedCount) || other.acknowledgedCount == acknowledgedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.labelActionCount, labelActionCount) || other.labelActionCount == labelActionCount)&&(identical(other.tagActionCount, tagActionCount) || other.tagActionCount == tagActionCount)&&(identical(other.takedownActionCount, takedownActionCount) || other.takedownActionCount == takedownActionCount)&&(identical(other.ahtDurationSec, ahtDurationSec) || other.ahtDurationSec == ahtDurationSec)&&(identical(other.ahtSampleCount, ahtSampleCount) || other.ahtSampleCount == ahtSampleCount)&&(identical(other.resolutionDurationSec, resolutionDurationSec) || other.resolutionDurationSec == resolutionDurationSec)&&(identical(other.resolutionSampleCount, resolutionSampleCount) || other.resolutionSampleCount == resolutionSampleCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.avgResolutionTimeSec, avgResolutionTimeSec) || other.avgResolutionTimeSec == avgResolutionTimeSec)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricalStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.date, date) || other.date == date)&&(identical(other.computedAt, computedAt) || other.computedAt == computedAt)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.closedCount, closedCount) || other.closedCount == closedCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.acknowledgedCount, acknowledgedCount) || other.acknowledgedCount == acknowledgedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.labelActionCount, labelActionCount) || other.labelActionCount == labelActionCount)&&(identical(other.tagActionCount, tagActionCount) || other.tagActionCount == tagActionCount)&&(identical(other.takedownActionCount, takedownActionCount) || other.takedownActionCount == takedownActionCount)&&(identical(other.ahtDurationSec, ahtDurationSec) || other.ahtDurationSec == ahtDurationSec)&&(identical(other.ahtSampleCount, ahtSampleCount) || other.ahtSampleCount == ahtSampleCount)&&(identical(other.resolutionDurationSec, resolutionDurationSec) || other.resolutionDurationSec == resolutionDurationSec)&&(identical(other.resolutionSampleCount, resolutionSampleCount) || other.resolutionSampleCount == resolutionSampleCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.avgResolutionTimeSec, avgResolutionTimeSec) || other.avgResolutionTimeSec == avgResolutionTimeSec)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,$type,date,computedAt,pendingCount,closedCount,actionedCount,acknowledgedCount,escalatedCount,inboundCount,labelActionCount,tagActionCount,takedownActionCount,ahtDurationSec,ahtSampleCount,resolutionDurationSec,resolutionSampleCount,actionRate,avgHandlingTimeSec,avgResolutionTimeSec,const DeepCollectionEquality().hash(_$unknown)]);
+int get hashCode => Object.hashAll([runtimeType,$type,date,computedAt,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,closedCount,actionedCount,acknowledgedCount,escalatedCount,inboundCount,labelActionCount,tagActionCount,takedownActionCount,ahtDurationSec,ahtSampleCount,resolutionDurationSec,resolutionSampleCount,actionRate,avgHandlingTimeSec,avgResolutionTimeSec,const DeepCollectionEquality().hash(_$unknown)]);
 
 @override
 String toString() {
-  return 'HistoricalStats(\$type: ${$type}, date: $date, computedAt: $computedAt, pendingCount: $pendingCount, closedCount: $closedCount, actionedCount: $actionedCount, acknowledgedCount: $acknowledgedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, labelActionCount: $labelActionCount, tagActionCount: $tagActionCount, takedownActionCount: $takedownActionCount, ahtDurationSec: $ahtDurationSec, ahtSampleCount: $ahtSampleCount, resolutionDurationSec: $resolutionDurationSec, resolutionSampleCount: $resolutionSampleCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, avgResolutionTimeSec: $avgResolutionTimeSec, \$unknown: ${$unknown})';
+  return 'HistoricalStats(\$type: ${$type}, date: $date, computedAt: $computedAt, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, closedCount: $closedCount, actionedCount: $actionedCount, acknowledgedCount: $acknowledgedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, labelActionCount: $labelActionCount, tagActionCount: $tagActionCount, takedownActionCount: $takedownActionCount, ahtDurationSec: $ahtDurationSec, ahtSampleCount: $ahtSampleCount, resolutionDurationSec: $resolutionDurationSec, resolutionSampleCount: $resolutionSampleCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, avgResolutionTimeSec: $avgResolutionTimeSec, \$unknown: ${$unknown})';
 }
 
 
@@ -329,7 +345,7 @@ abstract mixin class _$HistoricalStatsCopyWith<$Res> implements $HistoricalStats
   factory _$HistoricalStatsCopyWith(_HistoricalStats value, $Res Function(_HistoricalStats) _then) = __$HistoricalStatsCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String date,@JsonKey(toJson: iso8601) DateTime? computedAt, int? pendingCount, int? closedCount, int? actionedCount, int? acknowledgedCount, int? escalatedCount, int? inboundCount, int? labelActionCount, int? tagActionCount, int? takedownActionCount, int? ahtDurationSec, int? ahtSampleCount, int? resolutionDurationSec, int? resolutionSampleCount, int? actionRate, int? avgHandlingTimeSec, int? avgResolutionTimeSec, Map<String, dynamic>? $unknown
+ String $type, String date,@JsonKey(toJson: iso8601) DateTime? computedAt, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? closedCount, int? actionedCount, int? acknowledgedCount, int? escalatedCount, int? inboundCount, int? labelActionCount, int? tagActionCount, int? takedownActionCount, int? ahtDurationSec, int? ahtSampleCount, int? resolutionDurationSec, int? resolutionSampleCount, int? actionRate, int? avgHandlingTimeSec, int? avgResolutionTimeSec, Map<String, dynamic>? $unknown
 });
 
 
@@ -346,12 +362,16 @@ class __$HistoricalStatsCopyWithImpl<$Res>
 
 /// Create a copy of HistoricalStats
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? date = null,Object? computedAt = freezed,Object? pendingCount = freezed,Object? closedCount = freezed,Object? actionedCount = freezed,Object? acknowledgedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? labelActionCount = freezed,Object? tagActionCount = freezed,Object? takedownActionCount = freezed,Object? ahtDurationSec = freezed,Object? ahtSampleCount = freezed,Object? resolutionDurationSec = freezed,Object? resolutionSampleCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? avgResolutionTimeSec = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? date = null,Object? computedAt = freezed,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? closedCount = freezed,Object? actionedCount = freezed,Object? acknowledgedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? labelActionCount = freezed,Object? tagActionCount = freezed,Object? takedownActionCount = freezed,Object? ahtDurationSec = freezed,Object? ahtSampleCount = freezed,Object? resolutionDurationSec = freezed,Object? resolutionSampleCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? avgResolutionTimeSec = freezed,Object? $unknown = freezed,}) {
   return _then(_HistoricalStats(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,computedAt: freezed == computedAt ? _self.computedAt : computedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,pendingCount: freezed == pendingCount ? _self.pendingCount : pendingCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetOverdueCount: freezed == closureTargetOverdueCount ? _self.closureTargetOverdueCount : closureTargetOverdueCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetCount: freezed == closureTargetMetCount ? _self.closureTargetMetCount : closureTargetMetCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMissedCount: freezed == closureTargetMissedCount ? _self.closureTargetMissedCount : closureTargetMissedCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetRate: freezed == closureTargetMetRate ? _self.closureTargetMetRate : closureTargetMetRate // ignore: cast_nullable_to_non_nullable
 as int?,closedCount: freezed == closedCount ? _self.closedCount : closedCount // ignore: cast_nullable_to_non_nullable
 as int?,actionedCount: freezed == actionedCount ? _self.actionedCount : actionedCount // ignore: cast_nullable_to_non_nullable
 as int?,acknowledgedCount: freezed == acknowledgedCount ? _self.acknowledgedCount : acknowledgedCount // ignore: cast_nullable_to_non_nullable

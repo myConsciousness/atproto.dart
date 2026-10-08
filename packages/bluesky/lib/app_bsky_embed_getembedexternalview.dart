@@ -13,3 +13,4 @@
 
 export 'package:bluesky/src/services/codegen/app/bsky/embed/getEmbedExternalView/input.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/embed/getEmbedExternalView/output.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/embed/getEmbedExternalView/union_main_data.dart';

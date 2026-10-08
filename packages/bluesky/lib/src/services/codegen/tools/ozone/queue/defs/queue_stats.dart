@@ -22,6 +22,10 @@ part 'queue_stats.g.dart';
 abstract class QueueStats with _$QueueStats {
   static const knownProps = <String>[
     'pendingCount',
+    'closureTargetOverdueCount',
+    'closureTargetMetCount',
+    'closureTargetMissedCount',
+    'closureTargetMetRate',
     'actionedCount',
     'escalatedCount',
     'inboundCount',
@@ -34,8 +38,20 @@ abstract class QueueStats with _$QueueStats {
   const factory QueueStats({
     @Default('tools.ozone.queue.defs#queueStats') String $type,
 
-    /// Number of reports in 'open' status
+    /// Number of unmuted reports currently not closed.
     int? pendingCount,
+
+    /// Unmuted pending reports past their closure target.
+    int? closureTargetOverdueCount,
+
+    /// Reports whose closure meets their closure target.
+    int? closureTargetMetCount,
+
+    /// Reports whose closure exceeds their closure target.
+    int? closureTargetMissedCount,
+
+    /// Percent of reports meeting their closure target.
+    int? closureTargetMetRate,
 
     /// Number of reports in 'closed' status
     int? actionedCount,
@@ -70,6 +86,14 @@ abstract class QueueStats with _$QueueStats {
 extension QueueStatsExtension on QueueStats {
   bool get hasPendingCount => pendingCount != null;
   bool get hasNotPendingCount => !hasPendingCount;
+  bool get hasClosureTargetOverdueCount => closureTargetOverdueCount != null;
+  bool get hasNotClosureTargetOverdueCount => !hasClosureTargetOverdueCount;
+  bool get hasClosureTargetMetCount => closureTargetMetCount != null;
+  bool get hasNotClosureTargetMetCount => !hasClosureTargetMetCount;
+  bool get hasClosureTargetMissedCount => closureTargetMissedCount != null;
+  bool get hasNotClosureTargetMissedCount => !hasClosureTargetMissedCount;
+  bool get hasClosureTargetMetRate => closureTargetMetRate != null;
+  bool get hasNotClosureTargetMetRate => !hasClosureTargetMetRate;
   bool get hasActionedCount => actionedCount != null;
   bool get hasNotActionedCount => !hasActionedCount;
   bool get hasEscalatedCount => escalatedCount != null;

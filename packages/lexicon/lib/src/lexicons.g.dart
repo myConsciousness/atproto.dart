@@ -2501,6 +2501,214 @@ const appBskyEmbedExternal = <String, dynamic>{
         "b": {"type": "integer", "minimum": 0, "maximum": 255},
       },
     },
+    "viewArticle": {
+      "type": "object",
+      "required": ["uri", "title", "description"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "associatedRefs": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+        "associatedProfiles": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+        },
+        "image": {"type": "string", "format": "uri"},
+        "publisher": {"type": "ref", "ref": "#viewArticlePublication"},
+        "readingTime": {"type": "integer", "minimum": 1},
+        "likeCount": {"type": "integer", "minimum": 0},
+        "likers": {
+          "type": "array",
+          "description":
+              "Available profile previews. Selected deterministically by DID; not a ranking.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "maxLength": 3,
+        },
+      },
+    },
+    "viewArticlePublication": {
+      "type": "object",
+      "required": ["uri", "title", "description"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "associatedRefs": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+        "associatedProfiles": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+        },
+        "logo": {"type": "string", "format": "uri"},
+        "image": {"type": "string", "format": "uri"},
+        "theme": {"type": "ref", "ref": "#viewArticlePublicationTheme"},
+        "subscriptionCount": {"type": "integer", "minimum": 0},
+        "subscribers": {
+          "type": "array",
+          "description":
+              "Available profile previews. Selected deterministically by DID; not a ranking.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "maxLength": 3,
+        },
+      },
+    },
+    "viewArticlePublicationTheme": {
+      "type": "object",
+      "properties": {
+        "background": {
+          "type": "string",
+          "description": "Hex color string, if available. Example: '#ffffff'.",
+        },
+        "foreground": {
+          "type": "string",
+          "description": "Hex color string, if available. Example: '#ffffff'.",
+        },
+        "accent": {
+          "type": "string",
+          "description": "Hex color string, if available. Example: '#ffffff'.",
+        },
+        "accentForeground": {
+          "type": "string",
+          "description": "Hex color string, if available. Example: '#ffffff'.",
+        },
+      },
+    },
+    "viewGallery": {
+      "type": "object",
+      "required": ["uri", "title", "description", "items"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "associatedRefs": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+        "associatedProfiles": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+        },
+        "items": {
+          "type": "array",
+          "description":
+              "The media items in the gallery. Each item may be of a different type, but all types must be supported by the client.",
+          "items": {
+            "type": "union",
+            "refs": ["#viewGalleryImage"],
+          },
+        },
+        "likeCount": {"type": "integer", "minimum": 0},
+        "likers": {
+          "type": "array",
+          "description":
+              "Available profile previews. Selected deterministically by DID; not a ranking.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "maxLength": 3,
+        },
+      },
+    },
+    "viewGalleryImage": {
+      "type": "object",
+      "required": ["thumbnail", "fullsize"],
+      "properties": {
+        "thumbnail": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.",
+        },
+        "fullsize": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.",
+        },
+        "alt": {
+          "type": "string",
+          "description":
+              "Alt text description of the image, for accessibility.",
+        },
+        "aspectRatio": {
+          "type": "ref",
+          "ref": "app.bsky.embed.defs#aspectRatio",
+        },
+      },
+    },
+    "viewLivestream": {
+      "type": "object",
+      "required": ["uri", "title", "description", "active"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
+        "associatedRefs": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+        "associatedProfiles": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+        },
+        "image": {"type": "string", "format": "uri"},
+        "active": {
+          "type": "boolean",
+          "description":
+              "True if the livestream is currently active at the time this view is served, false if it has ended.",
+        },
+        "startedAt": {"type": "string", "format": "datetime"},
+        "endedAt": {"type": "string", "format": "datetime"},
+      },
+    },
   },
 };
 
@@ -2630,6 +2838,17 @@ const appBskyEmbedGetEmbedExternalView = <String, dynamic>{
               "description":
                   "Hydrated view of the embed. Present only when the resolved records back the requested URL and supply enough information to populate the required `viewExternal` fields. Omitted alongside the rest of the response when no records resolved or validation failed.",
               "ref": "app.bsky.embed.external#view",
+            },
+            "data": {
+              "type": "union",
+              "description":
+                  "Preferred to #view. Hydrated data of the embed. Present only when the resolved records back the requested URL and supply enough information to populate the required fields. Omitted alongside the rest of the response when no records resolved or validation failed.",
+              "refs": [
+                "app.bsky.embed.external#viewArticle",
+                "app.bsky.embed.external#viewArticlePublication",
+                "app.bsky.embed.external#viewGallery",
+                "app.bsky.embed.external#viewLivestream",
+              ],
             },
             "associatedRefs": {
               "type": "array",
@@ -2784,6 +3003,16 @@ const appBskyEmbedRecord = <String, dynamic>{
         "repostCount": {"type": "integer"},
         "likeCount": {"type": "integer"},
         "quoteCount": {"type": "integer"},
+        "opThreadPostIndex": {
+          "type": "integer",
+          "description":
+              "The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.",
+        },
+        "opThreadPostCount": {
+          "type": "integer",
+          "description":
+              "The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.",
+        },
         "embeds": {
           "type": "array",
           "items": {
@@ -7727,6 +7956,144 @@ const appBskyUnspeccedGetAgeAssuranceState = <String, dynamic>{
           "type": "ref",
           "ref": "app.bsky.unspecced.defs#ageAssuranceState",
         },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab`
+const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereExploreTab",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "langs": {
+            "type": "array",
+            "description": "Preferred languages. Currently ignored.",
+            "items": {"type": "string", "format": "language"},
+          },
+          "countryCode": {
+            "type": "string",
+            "description":
+                "The ISO 3166-1 alpha-2 country code used to select curated content.",
+          },
+          "regionCode": {
+            "type": "string",
+            "description":
+                "The ISO 3166-2 region code used to select curated content.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "articles",
+            "publications",
+            "photos",
+            "livestreams",
+            "apps",
+          ],
+          "properties": {
+            "announcementBanner": {"type": "ref", "ref": "#announcementBanner"},
+            "articles": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#articleItem"},
+            },
+            "publications": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#publicationItem"},
+            },
+            "photos": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#galleryItem"},
+            },
+            "livestreams": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#livestreamItem"},
+            },
+            "apps": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#appCard"},
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+    },
+    "articleItem": {
+      "type": "object",
+      "required": ["featured", "view"],
+      "properties": {
+        "featured": {"type": "boolean"},
+        "view": {"type": "ref", "ref": "app.bsky.embed.external#viewArticle"},
+      },
+    },
+    "publicationItem": {
+      "type": "object",
+      "required": ["featured", "view"],
+      "properties": {
+        "featured": {"type": "boolean"},
+        "view": {
+          "type": "ref",
+          "ref": "app.bsky.embed.external#viewArticlePublication",
+        },
+      },
+    },
+    "galleryItem": {
+      "type": "object",
+      "required": ["featured", "view"],
+      "properties": {
+        "featured": {"type": "boolean"},
+        "view": {"type": "ref", "ref": "app.bsky.embed.external#viewGallery"},
+      },
+    },
+    "livestreamItem": {
+      "type": "object",
+      "required": ["featured", "view"],
+      "properties": {
+        "featured": {"type": "boolean"},
+        "view": {
+          "type": "ref",
+          "ref": "app.bsky.embed.external#viewLivestream",
+        },
+      },
+    },
+    "announcementBanner": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "maxLength": 4096},
+        "title": {"type": "string", "maxLength": 4096},
+        "description": {"type": "string", "maxLength": 4096},
+        "url": {"type": "string", "format": "uri", "maxLength": 4096},
+        "image": {"type": "string", "format": "uri", "maxLength": 4096},
+        "overlayColor": {"type": "string", "maxLength": 4096},
+        "textColor": {"type": "string", "maxLength": 4096},
+      },
+    },
+    "appCard": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "maxLength": 4096},
+        "title": {"type": "string", "maxLength": 4096},
+        "description": {"type": "string", "maxLength": 4096},
+        "logo": {"type": "string", "format": "uri", "maxLength": 4096},
+        "backgroundImage": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 4096,
+        },
+        "overlayColor": {"type": "string", "maxLength": 4096},
+        "textColor": {"type": "string", "maxLength": 4096},
+        "url": {"type": "string", "format": "uri", "maxLength": 4096},
+        "category": {"type": "string", "maxLength": 4096},
       },
     },
   },
@@ -18077,24 +18444,600 @@ const comGermnetworkDeclaration = <String, dynamic>{
   },
 };
 
+/// `place.stream.badge.defs`
+const placeStreamBadgeDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "place.stream.badge.defs",
+  "defs": {
+    "bot": {
+      "type": "token",
+      "description":
+          "This user is a bot. Self-applied via place.stream.chat.profile selfLabels.",
+    },
+    "mod": {
+      "type": "token",
+      "description": "This user is a moderator. Displayed with a sword icon.",
+    },
+    "vip": {
+      "type": "token",
+      "description": "This user is a very important person.",
+    },
+    "event": {
+      "type": "token",
+      "description":
+          "This user has won or earned a special event or contest badge.",
+    },
+    "streamer": {
+      "type": "token",
+      "description": "This user is the streamer. Displayed with a star icon.",
+    },
+    "badgeSlot": {
+      "type": "object",
+      "description":
+          "A display slot containing available issuance-based badges and which one (if any) is currently selected.",
+      "required": ["available"],
+      "properties": {
+        "selected": {
+          "type": "ref",
+          "description": "The currently selected badge in this slot, if any.",
+          "ref": "#badgeIssuanceView",
+        },
+        "available": {
+          "type": "array",
+          "description": "All badges available for this slot.",
+          "items": {"type": "ref", "ref": "#badgeIssuanceView"},
+        },
+      },
+    },
+    "badgeView": {
+      "type": "object",
+      "description":
+          "View of a badge record, with fields resolved for display. If the DID in issuer is not the current streamplace node, the signature field shall be required.",
+      "required": ["badgeType", "issuer", "recipient"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name from the badge definition.",
+        },
+        "issuer": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the badge issuer.",
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Resolved image URL for the badge icon.",
+        },
+        "badgeType": {
+          "type": "string",
+          "knownValues": [
+            "place.stream.badge.defs#mod",
+            "place.stream.badge.defs#streamer",
+            "place.stream.badge.defs#vip",
+            "place.stream.badge.defs#event",
+            "place.stream.badge.defs#bot",
+          ],
+        },
+        "recipient": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the badge recipient.",
+        },
+        "signature": {
+          "type": "string",
+          "description":
+              "TODO: Cryptographic signature of the badge (of a place.stream.key).",
+        },
+        "description": {
+          "type": "string",
+          "description": "Description from the badge definition.",
+        },
+      },
+    },
+    "badgeIssuanceView": {
+      "type": "object",
+      "description":
+          "A resolved view of a badge issuance, including def fields for display.",
+      "required": ["issuanceUri", "badgeType", "issuer"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name from the badge definition.",
+        },
+        "issuer": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the badge issuer.",
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Resolved image URL for the badge icon.",
+        },
+        "selected": {
+          "type": "boolean",
+          "description":
+              "Whether this badge is currently in the user's chat profile selection.",
+        },
+        "badgeType": {
+          "type": "string",
+          "knownValues": [
+            "place.stream.badge.defs#vip",
+            "place.stream.badge.defs#event",
+          ],
+        },
+        "description": {
+          "type": "string",
+          "description": "Description from the badge definition.",
+        },
+        "issuanceCid": {
+          "type": "string",
+          "description": "CID of the place.stream.badge.issuance record.",
+        },
+        "issuanceUri": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "AT URI of the place.stream.badge.issuance record.",
+        },
+      },
+    },
+  },
+};
+
+/// `place.stream.chat.defs`
+const placeStreamChatDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "place.stream.chat.defs",
+  "defs": {
+    "messageView": {
+      "type": "object",
+      "required": ["uri", "cid", "author", "record", "indexedAt"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "uri": {"type": "string", "format": "at-uri"},
+        "author": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "badges": {
+          "type": "array",
+          "description":
+              "Up to 3 badge tokens to display with the message. First badge is server-controlled, remaining badges are user-settable. Tokens are looked up in badges.json for display info.",
+          "items": {"type": "ref", "ref": "place.stream.badge.defs#badgeView"},
+          "maxLength": 3,
+        },
+        "record": {"type": "unknown"},
+        "deleted": {
+          "type": "boolean",
+          "description":
+              "If true, this message has been deleted or labeled and should be cleared from the cache",
+        },
+        "replyTo": {
+          "type": "union",
+          "refs": ["#messageView"],
+        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "chatProfile": {"type": "ref", "ref": "place.stream.chat.profile"},
+      },
+    },
+    "pinnedRecordView": {
+      "type": "object",
+      "description": "View of a pinned chat record with hydrated message data.",
+      "required": ["uri", "cid", "record", "indexedAt"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "uri": {"type": "string", "format": "at-uri"},
+        "record": {"type": "ref", "ref": "place.stream.chat.pinnedRecord"},
+        "message": {"type": "ref", "ref": "#messageView"},
+        "pinnedBy": {"type": "ref", "ref": "place.stream.chat.profile"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
+/// `place.stream.chat.pinnedRecord`
+const placeStreamChatPinnedRecord = <String, dynamic>{
+  "lexicon": 1,
+  "id": "place.stream.chat.pinnedRecord",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "Record pinning a chat message for prominent display.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["pinnedMessage", "createdAt"],
+        "properties": {
+          "pinnedBy": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the user who pinned the message.",
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When this pin was created.",
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Optional expiration time. If set, the pin is considered inactive after this time.",
+          },
+          "pinnedMessage": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the pinned chat message.",
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `place.stream.chat.profile`
+const placeStreamChatProfile = <String, dynamic>{
+  "lexicon": 1,
+  "id": "place.stream.chat.profile",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record containing customizations for a user's chat profile.",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "properties": {
+          "color": {"type": "ref", "ref": "#color"},
+          "badges": {
+            "type": "ref",
+            "description": "Badge selections for display in chat.",
+            "ref": "#badgeSelections",
+          },
+          "selfLabels": {
+            "type": "array",
+            "description": "Self-applied labels for this profile, e.g. 'bot'.",
+            "items": {"type": "ref", "ref": "#selfLabel"},
+            "maxLength": 10,
+          },
+        },
+      },
+    },
+    "color": {
+      "type": "object",
+      "description": "Customizations for the color of a user's name in chat",
+      "required": ["red", "green", "blue"],
+      "properties": {
+        "red": {"type": "integer", "minimum": 0, "maximum": 255},
+        "blue": {"type": "integer", "minimum": 0, "maximum": 255},
+        "green": {"type": "integer", "minimum": 0, "maximum": 255},
+      },
+    },
+    "selfLabel": {
+      "type": "string",
+      "description": "Label that a user can apply to their own profile.",
+      "knownValues": ["bot"],
+    },
+    "badgeSelections": {
+      "type": "object",
+      "description": "Selected badges for display in chat, organized by slot.",
+      "properties": {
+        "global": {
+          "type": "ref",
+          "description": "Selected globally-issued badge (e.g. event badge).",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "streamer": {
+          "type": "array",
+          "description":
+              "Selected streamer-issued badges, one per streamer channel.",
+          "items": {"type": "ref", "ref": "#streamerBadgeSelection"},
+          "maxLength": 20,
+        },
+      },
+    },
+    "streamerBadgeSelection": {
+      "type": "object",
+      "description": "A selected badge for a specific streamer's channel.",
+      "required": ["streamer", "badge"],
+      "properties": {
+        "badge": {
+          "type": "ref",
+          "description":
+              "Strong reference to the selected place.stream.badge.issuance record.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "streamer": {
+          "type": "string",
+          "format": "did",
+          "description":
+              "DID of the streamer whose channel this selection applies to.",
+        },
+      },
+    },
+  },
+};
+
+/// `place.stream.defs`
+const placeStreamDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "place.stream.defs",
+  "defs": {
+    "blockView": {
+      "type": "object",
+      "required": ["uri", "cid", "blocker", "record", "indexedAt"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "uri": {"type": "string", "format": "at-uri"},
+        "record": {"type": "ref", "ref": "app.bsky.graph.block"},
+        "blocker": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "rendition": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string"},
+      },
+    },
+    "renditions": {
+      "type": "object",
+      "required": ["renditions"],
+      "properties": {
+        "renditions": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#rendition"},
+        },
+      },
+    },
+    "activityGame": {
+      "type": "object",
+      "description":
+          "A game from the gamesgamesgamesgames catalog, identified by its AT URI.",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "name": {
+          "type": "string",
+          "description": "Cached display name of the game.",
+        },
+      },
+    },
+    "activityLabel": {
+      "type": "object",
+      "description": "A non-game activity with a well-known label.",
+      "required": ["label"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "knownValues": [
+            "events",
+            "just_chatting",
+            "podcasting",
+            "music",
+            "art",
+            "software_dev",
+            "cooking",
+            "miniatures",
+            "makers_crafting",
+            "fitness",
+            "sports",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `place.stream.livestream`
+const placeStreamLivestream = <String, dynamic>{
+  "lexicon": 1,
+  "id": "place.stream.livestream",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "Record announcing a livestream is happening",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["title", "createdAt"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description":
+                "The URL where this stream can be found. This is primarily a hint for other Streamplace nodes to locate and replicate the stream.",
+          },
+          "post": {
+            "type": "ref",
+            "description": "The post that announced this livestream.",
+            "ref": "com.atproto.repo.strongRef",
+          },
+          "tags": {
+            "type": "array",
+            "description":
+                "Freeform tags for this stream. Each tag must be alphanumeric (a-z, A-Z, 0-9) plus colon. Tags with colons indicate a specific tag group (e.g. 'lang:en' indicates the stream's primary language).",
+            "items": {"type": "string", "maxLength": 640, "maxGraphemes": 64},
+            "maxLength": 10,
+          },
+          "agent": {
+            "type": "string",
+            "description":
+                "The source of the livestream, if available, in a User Agent format: `<product> / <product-version> <comment>` e.g. Streamplace/0.7.5 iOS",
+          },
+          "thumb": {
+            "type": "blob",
+            "accept": ["image/*"],
+            "maxSize": 1000000,
+          },
+          "title": {
+            "type": "string",
+            "description":
+                "The title of the livestream, as it will be announced to followers.",
+            "maxLength": 1400,
+            "maxGraphemes": 140,
+          },
+          "endedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Client-declared timestamp when this livestream ended. Ended livestreams are not supposed to start up again.",
+          },
+          "activity": {
+            "type": "union",
+            "description": "The game or activity being streamed.",
+            "refs": [
+              "place.stream.defs#activityGame",
+              "place.stream.defs#activityLabel",
+            ],
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Client-declared timestamp when this livestream started.",
+          },
+          "lastSeenAt": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Client-declared timestamp when this livestream was last seen by the Streamplace station.",
+          },
+          "canonicalUrl": {
+            "type": "string",
+            "format": "uri",
+            "description":
+                "The primary URL where this livestream can be viewed, if available.",
+          },
+          "idleTimeoutSeconds": {
+            "type": "integer",
+            "description":
+                "Time in seconds after which this livestream should be automatically ended if idle. Zero means no timeout.",
+          },
+          "notificationSettings": {
+            "type": "ref",
+            "ref": "place.stream.livestream#notificationSettings",
+          },
+        },
+      },
+    },
+    "viewerCount": {
+      "type": "object",
+      "required": ["count"],
+      "properties": {
+        "count": {"type": "integer"},
+      },
+    },
+    "livestreamView": {
+      "type": "object",
+      "required": ["uri", "cid", "author", "record", "indexedAt"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "uri": {"type": "string", "format": "at-uri"},
+        "author": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "record": {"type": "unknown"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "viewerCount": {
+          "type": "ref",
+          "description":
+              "The number of viewers watching this livestream. Use when you can't reasonably use #viewerCount directly.",
+          "ref": "#viewerCount",
+        },
+      },
+    },
+    "teleportArrival": {
+      "type": "object",
+      "required": ["teleportUri", "source", "viewerCount", "startsAt"],
+      "properties": {
+        "source": {
+          "type": "ref",
+          "description": "The streamer who is teleporting their viewers here",
+          "ref": "app.bsky.actor.defs#profileViewBasic",
+        },
+        "startsAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When this teleport started",
+        },
+        "chatProfile": {
+          "type": "ref",
+          "description": "The chat profile of the source streamer",
+          "ref": "place.stream.chat.profile",
+        },
+        "teleportUri": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "The URI of the teleport record",
+        },
+        "viewerCount": {
+          "type": "integer",
+          "description": "How many viewers are arriving from this teleport",
+        },
+      },
+    },
+    "teleportCanceled": {
+      "type": "object",
+      "required": ["teleportUri", "reason"],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "description": "Why this teleport was canceled",
+          "enum": ["deleted", "denied", "expired"],
+        },
+        "teleportUri": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "The URI of the teleport record that was canceled",
+        },
+      },
+    },
+    "streamplaceAnything": {
+      "type": "object",
+      "required": ["livestream"],
+      "properties": {
+        "livestream": {
+          "type": "union",
+          "refs": [
+            "#livestreamView",
+            "#viewerCount",
+            "#teleportArrival",
+            "#teleportCanceled",
+            "place.stream.defs#blockView",
+            "place.stream.defs#renditions",
+            "place.stream.defs#rendition",
+            "place.stream.chat.defs#messageView",
+            "place.stream.chat.defs#pinnedRecordView",
+          ],
+        },
+      },
+    },
+    "notificationSettings": {
+      "type": "object",
+      "properties": {
+        "pushNotification": {
+          "type": "boolean",
+          "description":
+              "Whether this livestream should trigger a push notification to followers.",
+        },
+      },
+    },
+  },
+};
+
 /// `site.standard.document`
 const siteStandardDocument = <String, dynamic>{
   "lexicon": 1,
   "id": "site.standard.document",
   "defs": {
-    "contributor": {
-      "type": "object",
-      "required": ["did"],
-      "properties": {
-        "did": {"type": "string", "format": "did"},
-        "displayName": {
-          "type": "string",
-          "maxLength": 1000,
-          "maxGraphemes": 100,
-        },
-        "role": {"type": "string", "maxLength": 1000, "maxGraphemes": 100},
-      },
-    },
     "main": {
       "type": "record",
       "description":
@@ -18104,57 +19047,10 @@ const siteStandardDocument = <String, dynamic>{
         "type": "object",
         "required": ["site", "title", "publishedAt"],
         "properties": {
-          "bskyPostRef": {
-            "type": "ref",
-            "description":
-                "Strong reference to a Bluesky post. Useful to keep track of comments off-platform.",
-            "ref": "com.atproto.repo.strongRef",
-          },
-          "content": {
-            "type": "union",
-            "description":
-                "Open union used to define the record's content. Each entry must specify a \$type and may be extended with other lexicons to support additional content formats.",
-            "refs": [],
-            "closed": false,
-          },
-          "contributors": {
-            "type": "array",
-            "items": {"type": "ref", "ref": "#contributor"},
-          },
-          "coverImage": {
-            "type": "blob",
-            "description":
-                "Image to used for thumbnail or cover image. Less than 1MB is size.",
-            "accept": ["image/*"],
-            "maxSize": 1000000,
-          },
-          "description": {
-            "type": "string",
-            "description": "A brief description or excerpt from the document.",
-            "maxLength": 30000,
-            "maxGraphemes": 3000,
-          },
-          "labels": {
-            "type": "union",
-            "description":
-                "Self-label values for this post. Effectively content warnings.",
-            "refs": ["com.atproto.label.defs#selfLabels"],
-          },
-          "links": {
-            "type": "union",
-            "description":
-                "Array of values describing relationships between this document and external resources",
-            "refs": [],
-          },
           "path": {
             "type": "string",
             "description":
                 "Combine with site or publication url to construct a canonical URL to the document. Prepend with a leading slash.",
-          },
-          "publishedAt": {
-            "type": "string",
-            "format": "datetime",
-            "description": "Timestamp of the documents publish time.",
           },
           "site": {
             "type": "string",
@@ -18168,10 +19064,11 @@ const siteStandardDocument = <String, dynamic>{
                 "Array of strings used to tag or categorize the document. Avoid prepending tags with hashtags.",
             "items": {"type": "string", "maxLength": 1280, "maxGraphemes": 128},
           },
-          "textContent": {
-            "type": "string",
+          "links": {
+            "type": "union",
             "description":
-                "Plaintext representation of the documents contents. Should not contain markdown or other formatting.",
+                "Array of values describing relationships between this document and external resources",
+            "refs": [],
           },
           "title": {
             "type": "string",
@@ -18179,11 +19076,70 @@ const siteStandardDocument = <String, dynamic>{
             "maxLength": 5000,
             "maxGraphemes": 500,
           },
+          "labels": {
+            "type": "union",
+            "description":
+                "Self-label values for this post. Effectively content warnings.",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
+          "content": {
+            "type": "union",
+            "description":
+                "Open union used to define the record's content. Each entry must specify a \$type and may be extended with other lexicons to support additional content formats.",
+            "refs": [],
+            "closed": false,
+          },
           "updatedAt": {
             "type": "string",
             "format": "datetime",
             "description": "Timestamp of the documents last edit.",
           },
+          "coverImage": {
+            "type": "blob",
+            "description":
+                "Image to used for thumbnail or cover image. Less than 1MB is size.",
+            "accept": ["image/*"],
+            "maxSize": 1000000,
+          },
+          "bskyPostRef": {
+            "type": "ref",
+            "description":
+                "Strong reference to a Bluesky post. Useful to keep track of comments off-platform.",
+            "ref": "com.atproto.repo.strongRef",
+          },
+          "description": {
+            "type": "string",
+            "description": "A brief description or excerpt from the document.",
+            "maxLength": 30000,
+            "maxGraphemes": 3000,
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Timestamp of the documents publish time.",
+          },
+          "textContent": {
+            "type": "string",
+            "description":
+                "Plaintext representation of the documents contents. Should not contain markdown or other formatting.",
+          },
+          "contributors": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "#contributor"},
+          },
+        },
+      },
+    },
+    "contributor": {
+      "type": "object",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "role": {"type": "string", "maxLength": 1000, "maxGraphemes": 100},
+        "displayName": {
+          "type": "string",
+          "maxLength": 1000,
+          "maxGraphemes": 100,
         },
       },
     },
@@ -18203,13 +19159,13 @@ const siteStandardGraphRecommend = <String, dynamic>{
         "type": "object",
         "required": ["document", "createdAt"],
         "properties": {
-          "createdAt": {"type": "string", "format": "datetime"},
           "document": {
             "type": "string",
             "format": "at-uri",
             "description":
                 "AT-URI reference to the document record being recommended (ex: at://did:plc:abc123/site.standard.document/xyz789).",
           },
+          "createdAt": {"type": "string", "format": "datetime"},
         },
       },
     },
@@ -18256,6 +19212,31 @@ const siteStandardPublication = <String, dynamic>{
         "type": "object",
         "required": ["url", "name"],
         "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description":
+                "Base publication url (ex: https://standard.site). The canonical document URL is formed by combining this value with the document path.",
+          },
+          "icon": {
+            "type": "blob",
+            "description":
+                "Square image to identify the publication. Should be at least 256x256.",
+            "accept": ["image/*"],
+            "maxSize": 1000000,
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the publication.",
+            "maxLength": 5000,
+            "maxGraphemes": 500,
+          },
+          "labels": {
+            "type": "union",
+            "description":
+                "Self-label values for this publication. Effectively content warnings.",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
           "basicTheme": {
             "type": "ref",
             "description":
@@ -18268,36 +19249,11 @@ const siteStandardPublication = <String, dynamic>{
             "maxLength": 30000,
             "maxGraphemes": 3000,
           },
-          "icon": {
-            "type": "blob",
-            "description":
-                "Square image to identify the publication. Should be at least 256x256.",
-            "accept": ["image/*"],
-            "maxSize": 1000000,
-          },
-          "labels": {
-            "type": "union",
-            "description":
-                "Self-label values for this publication. Effectively content warnings.",
-            "refs": ["com.atproto.label.defs#selfLabels"],
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the publication.",
-            "maxLength": 5000,
-            "maxGraphemes": 500,
-          },
           "preferences": {
             "type": "ref",
             "description":
                 "Object containing platform specific preferences (with a few shared properties).",
             "ref": "#preferences",
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description":
-                "Base publication url (ex: https://standard.site). The canonical document URL is formed by combining this value with the document path.",
           },
         },
       },
@@ -18335,11 +19291,6 @@ const siteStandardThemeBasic = <String, dynamic>{
             "description": "Color used for links and button backgrounds.",
             "refs": ["site.standard.theme.color#rgb"],
           },
-          "accentForeground": {
-            "type": "union",
-            "description": "Color used for button text.",
-            "refs": ["site.standard.theme.color#rgb"],
-          },
           "background": {
             "type": "union",
             "description": "Color used for content background.",
@@ -18348,6 +19299,11 @@ const siteStandardThemeBasic = <String, dynamic>{
           "foreground": {
             "type": "union",
             "description": "Color used for content text.",
+            "refs": ["site.standard.theme.color#rgb"],
+          },
+          "accentForeground": {
+            "type": "union",
+            "description": "Color used for button text.",
             "refs": ["site.standard.theme.color#rgb"],
           },
         },
@@ -18378,6 +19334,126 @@ const siteStandardThemeColor = <String, dynamic>{
         "b": {"type": "integer", "minimum": 0, "maximum": 255},
         "g": {"type": "integer", "minimum": 0, "maximum": 255},
         "r": {"type": "integer", "minimum": 0, "maximum": 255},
+      },
+    },
+  },
+};
+
+/// `social.grain.defs`
+const socialGrainDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "social.grain.defs",
+  "defs": {
+    "aspectRatio": {
+      "type": "object",
+      "description":
+          "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+      },
+    },
+  },
+};
+
+/// `social.grain.favorite`
+const socialGrainFavorite = <String, dynamic>{
+  "lexicon": 1,
+  "id": "social.grain.favorite",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["createdAt", "subject"],
+        "properties": {
+          "subject": {"type": "string", "format": "at-uri"},
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `social.grain.gallery`
+const socialGrainGallery = <String, dynamic>{
+  "lexicon": 1,
+  "id": "social.grain.gallery",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["title", "createdAt"],
+        "properties": {
+          "title": {"type": "string", "maxLength": 100},
+          "labels": {
+            "type": "union",
+            "description":
+                "Self-label values for this post. Effectively content warnings.",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+          "description": {"type": "string", "maxLength": 1000},
+        },
+      },
+    },
+  },
+};
+
+/// `social.grain.gallery.item`
+const socialGrainGalleryItem = <String, dynamic>{
+  "lexicon": 1,
+  "id": "social.grain.gallery.item",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["createdAt", "gallery", "item"],
+        "properties": {
+          "item": {"type": "string", "format": "at-uri"},
+          "gallery": {"type": "string", "format": "at-uri"},
+          "position": {"type": "integer", "default": 0},
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
+/// `social.grain.photo`
+const socialGrainPhoto = <String, dynamic>{
+  "lexicon": 1,
+  "id": "social.grain.photo",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["photo", "alt"],
+        "properties": {
+          "alt": {
+            "type": "string",
+            "description":
+                "Alt text description of the image, for accessibility.",
+          },
+          "photo": {
+            "type": "blob",
+            "accept": ["image/*"],
+            "maxSize": 1000000,
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+          "aspectRatio": {
+            "type": "ref",
+            "ref": "social.grain.defs#aspectRatio",
+          },
+        },
       },
     },
   },
@@ -22404,7 +23480,28 @@ const toolsOzoneQueueDefs = <String, dynamic>{
       "properties": {
         "pendingCount": {
           "type": "integer",
-          "description": "Number of reports in 'open' status",
+          "description": "Number of unmuted reports currently not closed.",
+        },
+        "closureTargetOverdueCount": {
+          "type": "integer",
+          "description": "Unmuted pending reports past their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMetCount": {
+          "type": "integer",
+          "description": "Reports whose closure meets their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMissedCount": {
+          "type": "integer",
+          "description": "Reports whose closure exceeds their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMetRate": {
+          "type": "integer",
+          "description": "Percent of reports meeting their closure target.",
+          "minimum": 0,
+          "maximum": 100,
         },
         "actionedCount": {
           "type": "integer",
@@ -23249,6 +24346,33 @@ const toolsOzoneReportDefs = <String, dynamic>{
           "description": "Type of report",
           "ref": "com.atproto.moderation.defs#reasonType",
         },
+        "priorityLevel": {
+          "type": "string",
+          "description": "Priority level assigned to the report.",
+        },
+        "priorityScore": {
+          "type": "integer",
+          "description":
+              "Report priority score. Higher scores have higher priority.",
+          "minimum": 0,
+          "maximum": 100,
+        },
+        "priorityTargetMinutes": {
+          "type": "integer",
+          "description": "Target resolution duration in minutes.",
+          "minimum": 1,
+          "maximum": 2147483647,
+        },
+        "resolutionTimeSec": {
+          "type": "integer",
+          "description": "Time from report creation to its last closure.",
+          "minimum": 0,
+        },
+        "priorityTargetMet": {
+          "type": "boolean",
+          "description":
+              "Whether the current closure occurred within the report's snapshotted target.",
+        },
         "reportedBy": {
           "type": "string",
           "format": "did",
@@ -23497,7 +24621,28 @@ const toolsOzoneReportDefs = <String, dynamic>{
       "properties": {
         "pendingCount": {
           "type": "integer",
-          "description": "Number of reports currently not closed.",
+          "description": "Number of unmuted reports currently not closed.",
+        },
+        "closureTargetOverdueCount": {
+          "type": "integer",
+          "description": "Unmuted pending reports past their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMetCount": {
+          "type": "integer",
+          "description": "Reports whose closure meets their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMissedCount": {
+          "type": "integer",
+          "description": "Reports whose closure exceeds their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMetRate": {
+          "type": "integer",
+          "description": "Percent of reports meeting their closure target.",
+          "minimum": 0,
+          "maximum": 100,
         },
         "closedCount": {
           "type": "integer",
@@ -23588,7 +24733,30 @@ const toolsOzoneReportDefs = <String, dynamic>{
         },
         "pendingCount": {
           "type": "integer",
-          "description": "Number of reports not closed at time of computation.",
+          "description":
+              "Number of unmuted reports not closed at the end of this UTC day, or at computation time for the current day.",
+        },
+        "closureTargetOverdueCount": {
+          "type": "integer",
+          "description":
+              "Unmuted pending reports past their closure target at the snapshot time.",
+          "minimum": 0,
+        },
+        "closureTargetMetCount": {
+          "type": "integer",
+          "description": "Reports whose closure meets their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMissedCount": {
+          "type": "integer",
+          "description": "Reports whose closure exceeds their closure target.",
+          "minimum": 0,
+        },
+        "closureTargetMetRate": {
+          "type": "integer",
+          "description": "Percent of reports meeting their closure target.",
+          "minimum": 0,
+          "maximum": 100,
         },
         "closedCount": {
           "type": "integer",
@@ -26058,6 +27226,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyRichtextFacet,
   appBskyUnspeccedDefs,
   appBskyUnspeccedGetAgeAssuranceState,
+  appBskyUnspeccedGetAtmosphereExploreTab,
   appBskyUnspeccedGetConfig,
   appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
   appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
@@ -26249,12 +27418,23 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoTempRequestPhoneVerification,
   comAtprotoTempRevokeAccountCredentials,
   comGermnetworkDeclaration,
+  placeStreamBadgeDefs,
+  placeStreamChatDefs,
+  placeStreamChatPinnedRecord,
+  placeStreamChatProfile,
+  placeStreamDefs,
+  placeStreamLivestream,
   siteStandardDocument,
   siteStandardGraphRecommend,
   siteStandardGraphSubscription,
   siteStandardPublication,
   siteStandardThemeBasic,
   siteStandardThemeColor,
+  socialGrainDefs,
+  socialGrainFavorite,
+  socialGrainGallery,
+  socialGrainGalleryItem,
+  socialGrainPhoto,
   toolsOzoneCommunicationCreateTemplate,
   toolsOzoneCommunicationDefs,
   toolsOzoneCommunicationDeleteTemplate,

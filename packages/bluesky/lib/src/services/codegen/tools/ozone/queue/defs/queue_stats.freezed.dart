@@ -15,8 +15,12 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$QueueStats {
 
- String get $type;/// Number of reports in 'open' status
- int? get pendingCount;/// Number of reports in 'closed' status
+ String get $type;/// Number of unmuted reports currently not closed.
+ int? get pendingCount;/// Unmuted pending reports past their closure target.
+ int? get closureTargetOverdueCount;/// Reports whose closure meets their closure target.
+ int? get closureTargetMetCount;/// Reports whose closure exceeds their closure target.
+ int? get closureTargetMissedCount;/// Percent of reports meeting their closure target.
+ int? get closureTargetMetRate;/// Number of reports in 'closed' status
  int? get actionedCount;/// Number of reports in 'escalated' status
  int? get escalatedCount;/// Reports received in this queue in the last 24 hours.
  int? get inboundCount;/// Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. Absent when inboundCount is 0.
@@ -35,16 +39,16 @@ $QueueStatsCopyWith<QueueStats> get copyWith => _$QueueStatsCopyWithImpl<QueueSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,pendingCount,actionedCount,escalatedCount,inboundCount,actionRate,avgHandlingTimeSec,lastUpdated,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,actionedCount,escalatedCount,inboundCount,actionRate,avgHandlingTimeSec,lastUpdated,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, actionedCount: $actionedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
+  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, actionedCount: $actionedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
 }
 
 
@@ -55,7 +59,7 @@ abstract mixin class $QueueStatsCopyWith<$Res>  {
   factory $QueueStatsCopyWith(QueueStats value, $Res Function(QueueStats) _then) = _$QueueStatsCopyWithImpl;
 @useResult
 $Res call({
- String $type, int? pendingCount, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
+ String $type, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
 });
 
 
@@ -72,10 +76,14 @@ class _$QueueStatsCopyWithImpl<$Res>
 
 /// Create a copy of QueueStats
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? pendingCount = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pendingCount: freezed == pendingCount ? _self.pendingCount : pendingCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetOverdueCount: freezed == closureTargetOverdueCount ? _self.closureTargetOverdueCount : closureTargetOverdueCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetCount: freezed == closureTargetMetCount ? _self.closureTargetMetCount : closureTargetMetCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMissedCount: freezed == closureTargetMissedCount ? _self.closureTargetMissedCount : closureTargetMissedCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetRate: freezed == closureTargetMetRate ? _self.closureTargetMetRate : closureTargetMetRate // ignore: cast_nullable_to_non_nullable
 as int?,actionedCount: freezed == actionedCount ? _self.actionedCount : actionedCount // ignore: cast_nullable_to_non_nullable
 as int?,escalatedCount: freezed == escalatedCount ? _self.escalatedCount : escalatedCount // ignore: cast_nullable_to_non_nullable
 as int?,inboundCount: freezed == inboundCount ? _self.inboundCount : inboundCount // ignore: cast_nullable_to_non_nullable
@@ -168,10 +176,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _QueueStats() when $default != null:
-return $default(_that.$type,_that.pendingCount,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
+return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
   return orElse();
 
 }
@@ -189,10 +197,10 @@ return $default(_that.$type,_that.pendingCount,_that.actionedCount,_that.escalat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _QueueStats():
-return $default(_that.$type,_that.pendingCount,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
+return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +217,10 @@ return $default(_that.$type,_that.pendingCount,_that.actionedCount,_that.escalat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? pendingCount,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _QueueStats() when $default != null:
-return $default(_that.$type,_that.pendingCount,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
+return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
   return null;
 
 }
@@ -224,12 +232,20 @@ return $default(_that.$type,_that.pendingCount,_that.actionedCount,_that.escalat
 
 @JsonSerializable(includeIfNull: false)
 class _QueueStats implements QueueStats {
-  const _QueueStats({this.$type = 'tools.ozone.queue.defs#queueStats', this.pendingCount, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec, @JsonKey(toJson: iso8601) this.lastUpdated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _QueueStats({this.$type = 'tools.ozone.queue.defs#queueStats', this.pendingCount, this.closureTargetOverdueCount, this.closureTargetMetCount, this.closureTargetMissedCount, this.closureTargetMetRate, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec, @JsonKey(toJson: iso8601) this.lastUpdated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _QueueStats.fromJson(Map<String, dynamic> json) => _$QueueStatsFromJson(json);
 
 @override@JsonKey() final  String $type;
-/// Number of reports in 'open' status
+/// Number of unmuted reports currently not closed.
 @override final  int? pendingCount;
+/// Unmuted pending reports past their closure target.
+@override final  int? closureTargetOverdueCount;
+/// Reports whose closure meets their closure target.
+@override final  int? closureTargetMetCount;
+/// Reports whose closure exceeds their closure target.
+@override final  int? closureTargetMissedCount;
+/// Percent of reports meeting their closure target.
+@override final  int? closureTargetMetRate;
 /// Number of reports in 'closed' status
 @override final  int? actionedCount;
 /// Number of reports in 'escalated' status
@@ -265,16 +281,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,pendingCount,actionedCount,escalatedCount,inboundCount,actionRate,avgHandlingTimeSec,lastUpdated,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,actionedCount,escalatedCount,inboundCount,actionRate,avgHandlingTimeSec,lastUpdated,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, actionedCount: $actionedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
+  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, actionedCount: $actionedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
 }
 
 
@@ -285,7 +301,7 @@ abstract mixin class _$QueueStatsCopyWith<$Res> implements $QueueStatsCopyWith<$
   factory _$QueueStatsCopyWith(_QueueStats value, $Res Function(_QueueStats) _then) = __$QueueStatsCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int? pendingCount, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
+ String $type, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
 });
 
 
@@ -302,10 +318,14 @@ class __$QueueStatsCopyWithImpl<$Res>
 
 /// Create a copy of QueueStats
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? pendingCount = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
   return _then(_QueueStats(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pendingCount: freezed == pendingCount ? _self.pendingCount : pendingCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetOverdueCount: freezed == closureTargetOverdueCount ? _self.closureTargetOverdueCount : closureTargetOverdueCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetCount: freezed == closureTargetMetCount ? _self.closureTargetMetCount : closureTargetMetCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMissedCount: freezed == closureTargetMissedCount ? _self.closureTargetMissedCount : closureTargetMissedCount // ignore: cast_nullable_to_non_nullable
+as int?,closureTargetMetRate: freezed == closureTargetMetRate ? _self.closureTargetMetRate : closureTargetMetRate // ignore: cast_nullable_to_non_nullable
 as int?,actionedCount: freezed == actionedCount ? _self.actionedCount : actionedCount // ignore: cast_nullable_to_non_nullable
 as int?,escalatedCount: freezed == escalatedCount ? _self.escalatedCount : escalatedCount // ignore: cast_nullable_to_non_nullable
 as int?,inboundCount: freezed == inboundCount ? _self.inboundCount : inboundCount // ignore: cast_nullable_to_non_nullable

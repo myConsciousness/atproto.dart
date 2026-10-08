@@ -15,8 +15,8 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **document** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | AT-URI reference to the document record being recommended (ex: at://did:plc:abc123/site.standard.document/xyz789). |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ### Output
 

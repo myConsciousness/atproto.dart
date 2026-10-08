@@ -23,6 +23,10 @@ part 'live_stats.g.dart';
 abstract class LiveStats with _$LiveStats {
   static const knownProps = <String>[
     'pendingCount',
+    'closureTargetOverdueCount',
+    'closureTargetMetCount',
+    'closureTargetMissedCount',
+    'closureTargetMetRate',
     'closedCount',
     'actionedCount',
     'acknowledgedCount',
@@ -45,8 +49,20 @@ abstract class LiveStats with _$LiveStats {
   const factory LiveStats({
     @Default('tools.ozone.report.defs#liveStats') String $type,
 
-    /// Number of reports currently not closed.
+    /// Number of unmuted reports currently not closed.
     int? pendingCount,
+
+    /// Unmuted pending reports past their closure target.
+    int? closureTargetOverdueCount,
+
+    /// Reports whose closure meets their closure target.
+    int? closureTargetMetCount,
+
+    /// Reports whose closure exceeds their closure target.
+    int? closureTargetMissedCount,
+
+    /// Percent of reports meeting their closure target.
+    int? closureTargetMetRate,
 
     /// Number of close transitions.
     int? closedCount,
@@ -111,6 +127,14 @@ abstract class LiveStats with _$LiveStats {
 extension LiveStatsExtension on LiveStats {
   bool get hasPendingCount => pendingCount != null;
   bool get hasNotPendingCount => !hasPendingCount;
+  bool get hasClosureTargetOverdueCount => closureTargetOverdueCount != null;
+  bool get hasNotClosureTargetOverdueCount => !hasClosureTargetOverdueCount;
+  bool get hasClosureTargetMetCount => closureTargetMetCount != null;
+  bool get hasNotClosureTargetMetCount => !hasClosureTargetMetCount;
+  bool get hasClosureTargetMissedCount => closureTargetMissedCount != null;
+  bool get hasNotClosureTargetMissedCount => !hasClosureTargetMissedCount;
+  bool get hasClosureTargetMetRate => closureTargetMetRate != null;
+  bool get hasNotClosureTargetMetRate => !hasClosureTargetMetRate;
   bool get hasClosedCount => closedCount != null;
   bool get hasNotClosedCount => !hasClosedCount;
   bool get hasActionedCount => actionedCount != null;
