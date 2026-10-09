@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../app/bsky/graph/defs/starter_pack_view_basic.dart';
 import './profile_associated.dart';
+import './profile_link_view.dart';
 import './status_view.dart';
 import './verification_state.dart';
 import './viewer_state.dart';
@@ -48,6 +49,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     'viewer',
     'labels',
     'pinnedPost',
+    'links',
     'verification',
     'status',
     'debug',
@@ -74,6 +76,7 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
     @RepoStrongRefConverter() RepoStrongRef? pinnedPost,
+    @ProfileLinkViewConverter() List<ProfileLinkView>? links,
     @VerificationStateConverter() VerificationState? verification,
     @StatusViewConverter() StatusView? status,
     Map<String, dynamic>? debug,

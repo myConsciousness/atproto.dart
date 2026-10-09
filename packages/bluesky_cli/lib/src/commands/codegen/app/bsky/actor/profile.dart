@@ -63,6 +63,12 @@ mixin _ProfileCommandRecordArgs on Command<void> {
       )
       ..addOption("joinedViaStarterPack")
       ..addOption("pinnedPost")
+      ..addMultiOption(
+        "links",
+        help:
+            r"Links shown on the profile, in display order. Each ref points to an app.bsky.actor.link record in this repo.",
+        splitCommas: false,
+      )
       ..addOption("createdAt");
   }
 
@@ -73,6 +79,14 @@ mixin _ProfileCommandRecordArgs on Command<void> {
       return jsonDecode(raw);
     } on FormatException catch (e) {
       usageException('Invalid JSON for option "$name": ${e.message}');
+    }
+  }
+
+  Object? _decodeJsonItem(final String name, final String raw) {
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON in option "$name": ${e.message}');
     }
   }
 }
@@ -92,7 +106,7 @@ final class _CreateProfileCommand extends CreateRecordCommand
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile create [--displayName=<value>] [--description=<value>] [--pronouns=<value>] [--website=<value>] [--avatar=<value>] [--banner=<value>] [--labels=<value>] [--joinedViaStarterPack=<value>] [--pinnedPost=<value>] [--createdAt=<value>]";
+      "bsky app-bsky-actor profile create [--displayName=<value>] [--description=<value>] [--pronouns=<value>] [--website=<value>] [--avatar=<value>] [--banner=<value>] [--labels=<value>] [--joinedViaStarterPack=<value>] [--pinnedPost=<value>] [--links=<value>...] [--createdAt=<value>]";
 
   @override
   String? get rkey => "self";
@@ -116,6 +130,10 @@ final class _CreateProfileCommand extends CreateRecordCommand
       "joinedViaStarterPack": _decodeJson("joinedViaStarterPack"),
     if (argResults!.wasParsed("pinnedPost"))
       "pinnedPost": _decodeJson("pinnedPost"),
+    if (argResults!.wasParsed("links"))
+      "links": (argResults!["links"] as List<String>)
+          .map((e) => _decodeJsonItem("links", e))
+          .toList(),
     if (argResults!.wasParsed("createdAt"))
       "createdAt": argResults!["createdAt"],
   };
@@ -135,7 +153,7 @@ final class _PutProfileCommand extends PutRecordCommand
 
   @override
   final String invocation =
-      "bsky app-bsky-actor profile put [--displayName=<value>] [--description=<value>] [--pronouns=<value>] [--website=<value>] [--avatar=<value>] [--banner=<value>] [--labels=<value>] [--joinedViaStarterPack=<value>] [--pinnedPost=<value>] [--createdAt=<value>]";
+      "bsky app-bsky-actor profile put [--displayName=<value>] [--description=<value>] [--pronouns=<value>] [--website=<value>] [--avatar=<value>] [--banner=<value>] [--labels=<value>] [--joinedViaStarterPack=<value>] [--pinnedPost=<value>] [--links=<value>...] [--createdAt=<value>]";
 
   @override
   String? get rkey => "self";
@@ -159,6 +177,10 @@ final class _PutProfileCommand extends PutRecordCommand
       "joinedViaStarterPack": _decodeJson("joinedViaStarterPack"),
     if (argResults!.wasParsed("pinnedPost"))
       "pinnedPost": _decodeJson("pinnedPost"),
+    if (argResults!.wasParsed("links"))
+      "links": (argResults!["links"] as List<String>)
+          .map((e) => _decodeJsonItem("links", e))
+          .toList(),
     if (argResults!.wasParsed("createdAt"))
       "createdAt": argResults!["createdAt"],
   };

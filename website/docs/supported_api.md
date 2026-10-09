@@ -158,6 +158,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.actor.getProfile](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/getProfile.html)** | [Reference](lexicons/app/bsky/actor/getProfile.md) | ❌ |
 | **[app.bsky.actor.getProfiles](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/getProfiles.html)** | [Reference](lexicons/app/bsky/actor/getProfiles.md) | ❌ |
 | **[app.bsky.actor.getSuggestions](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/getSuggestions.html)** | [Reference](lexicons/app/bsky/actor/getSuggestions.md) | ✅ |
+| **[app.bsky.actor.link](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/link.html)** | [Reference](lexicons/app/bsky/actor/link.md) | ❌ |
 | **[app.bsky.actor.profile](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/profile.html)** | [Reference](lexicons/app/bsky/actor/profile.md) | ❌ |
 | **[app.bsky.actor.putPreferences](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/putPreferences.html)** | [Reference](lexicons/app/bsky/actor/putPreferences.md) | ❌ |
 | **[app.bsky.actor.searchActors](https://pub.dev/documentation/bluesky/latest/app_bsky_services/ActorService/searchActors.html)** | [Reference](lexicons/app/bsky/actor/searchActors.md) | ✅ |

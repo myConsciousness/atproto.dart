@@ -63,6 +63,7 @@ description: app.bsky.actor.defs
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **pinnedPost** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **links** | array of [#profileLinkView](#profilelinkview) | - | ❌ | The profile's links, in display order. Links that were taken down or don't resolve are left out. |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
 | **status** | [#statusView](#statusview) | - | ❌ | - |
 | **debug** | unknown | - | ❌ | Debug information for internal development |
@@ -92,6 +93,16 @@ description: app.bsky.actor.defs
 | --- | --- | --- | :---: | --- |
 | **messageMeUrl** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **showButtonTo** | string | usersIFollow<br/>everyone | ✅ | - |
+
+## #profileLinkView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | The app.bsky.actor.link record, e.g. for reporting the link. |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
+| **url** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | The link destination. |
+| **title** | string | - | ❌ | - |
+| **icon** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | Image URL for the destination site's icon. |
 
 ## #profileAssociatedActivitySubscription
 

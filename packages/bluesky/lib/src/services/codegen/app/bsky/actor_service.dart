@@ -179,12 +179,14 @@ base class ActorService {
 
   final ActorContentVisibilityDeclarationRecordAccessor
   _contentVisibilityDeclaration;
+  final ActorLinkRecordAccessor _link;
   final ActorProfileRecordAccessor _profile;
   final ActorStatusRecordAccessor _status;
 
   ActorService(this.ctx)
     : _contentVisibilityDeclaration =
           ActorContentVisibilityDeclarationRecordAccessor(ctx),
+      _link = ActorLinkRecordAccessor(ctx),
       _profile = ActorProfileRecordAccessor(ctx),
       _status = ActorStatusRecordAccessor(ctx);
 
@@ -247,6 +249,9 @@ base class ActorService {
     $headers: $headers,
     $unknown: $unknown,
   );
+
+  /// A link shown on the account's profile. The profile record's links field sets which links are shown, and in what order.
+  ActorLinkRecordAccessor get link => _link;
 
   /// A declaration of a Bluesky account profile.
   ActorProfileRecordAccessor get profile => _profile;
@@ -409,6 +414,120 @@ final class ActorContentVisibilityDeclarationRecordAccessor {
   );
 }
 
+final class ActorLinkRecordAccessor {
+  final ServiceContext ctx;
+
+  const ActorLinkRecordAccessor(this.ctx);
+
+  Future<XRPCResponse<RepoGetRecordOutput>> get({
+    required String repo,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoGetRecord(
+    repo: repo,
+    collection: ids.appBskyActorLink,
+    rkey: rkey,
+    cid: cid,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoListRecordsOutput>> list({
+    required String repo,
+    int? limit,
+    String? cursor,
+    bool? reverse,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoListRecords(
+    repo: repo,
+    collection: ids.appBskyActorLink,
+    limit: limit,
+    cursor: cursor,
+    reverse: reverse,
+    $ctx: ctx,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  Future<XRPCResponse<RepoCreateRecordOutput>> create({
+    required String url,
+    String? title,
+    Blob? icon,
+    DateTime? createdAt,
+    String? rkey,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoCreateRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyActorLink,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      r'$type': 'app.bsky.actor.link',
+      ...?$unknown,
+      'url': url,
+      if (title != null) 'title': title,
+      if (icon != null) 'icon': icon,
+      'createdAt': iso8601(createdAt),
+    },
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoPutRecordOutput>> put({
+    required String url,
+    String? title,
+    Blob? icon,
+    DateTime? createdAt,
+    required String rkey,
+    bool? validate,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoPutRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyActorLink,
+    rkey: rkey,
+    validate: validate,
+    record: {
+      r'$type': 'app.bsky.actor.link',
+      ...?$unknown,
+      'url': url,
+      if (title != null) 'title': title,
+      if (icon != null) 'icon': icon,
+      'createdAt': iso8601(createdAt),
+    },
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+
+  Future<XRPCResponse<RepoDeleteRecordOutput>> delete({
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await comAtprotoRepoDeleteRecord(
+    repo: ctx.repo,
+    collection: ids.appBskyActorLink,
+    rkey: rkey,
+    swapRecord: swapRecord,
+    swapCommit: swapCommit,
+    $ctx: ctx,
+    $headers: $headers,
+  );
+}
+
 final class ActorProfileRecordAccessor {
   final ServiceContext ctx;
 
@@ -458,6 +577,7 @@ final class ActorProfileRecordAccessor {
     UActorProfileLabels? labels,
     RepoStrongRef? joinedViaStarterPack,
     RepoStrongRef? pinnedPost,
+    List<RepoStrongRef>? links,
     DateTime? createdAt,
     String rkey = 'self',
     bool? validate,
@@ -485,6 +605,10 @@ final class ActorProfileRecordAccessor {
         ),
       if (pinnedPost != null)
         'pinnedPost': const RepoStrongRefConverter().toJson(pinnedPost),
+      if (links != null)
+        'links': links
+            .map((e) => const RepoStrongRefConverter().toJson(e))
+            .toList(),
       if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapCommit: swapCommit,
@@ -502,6 +626,7 @@ final class ActorProfileRecordAccessor {
     UActorProfileLabels? labels,
     RepoStrongRef? joinedViaStarterPack,
     RepoStrongRef? pinnedPost,
+    List<RepoStrongRef>? links,
     DateTime? createdAt,
     String rkey = 'self',
     bool? validate,
@@ -530,6 +655,10 @@ final class ActorProfileRecordAccessor {
         ),
       if (pinnedPost != null)
         'pinnedPost': const RepoStrongRefConverter().toJson(pinnedPost),
+      if (links != null)
+        'links': links
+            .map((e) => const RepoStrongRefConverter().toJson(e))
+            .toList(),
       if (createdAt != null) 'createdAt': iso8601(createdAt),
     },
     swapRecord: swapRecord,

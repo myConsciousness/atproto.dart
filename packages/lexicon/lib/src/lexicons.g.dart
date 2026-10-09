@@ -122,6 +122,12 @@ const appBskyActorDefs = <String, dynamic>{
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
         },
         "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "links": {
+          "type": "array",
+          "description":
+              "The profile's links, in display order. Links that were taken down or don't resolve are left out.",
+          "items": {"type": "ref", "ref": "#profileLinkView"},
+        },
         "verification": {"type": "ref", "ref": "#verificationState"},
         "status": {"type": "ref", "ref": "#statusView"},
         "debug": {
@@ -167,6 +173,30 @@ const appBskyActorDefs = <String, dynamic>{
         "showButtonTo": {
           "type": "string",
           "knownValues": ["usersIFollow", "everyone"],
+        },
+      },
+    },
+    "profileLinkView": {
+      "type": "object",
+      "required": ["uri", "cid", "url"],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The app.bsky.actor.link record, e.g. for reporting the link.",
+        },
+        "cid": {"type": "string", "format": "cid"},
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link destination.",
+        },
+        "title": {"type": "string", "maxLength": 320, "maxGraphemes": 40},
+        "icon": {
+          "type": "string",
+          "format": "uri",
+          "description": "Image URL for the destination site's icon.",
         },
       },
     },
@@ -878,6 +908,46 @@ const appBskyActorGetSuggestions = <String, dynamic>{
   },
 };
 
+/// `app.bsky.actor.link`
+const appBskyActorLink = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.actor.link",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "A link shown on the account's profile. The profile record's links field sets which links are shown, and in what order.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["url", "createdAt"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The link destination, an https URL.",
+          },
+          "title": {
+            "type": "string",
+            "description":
+                "Optional label for the link. Clients can fall back to the destination's domain.",
+            "maxLength": 320,
+            "maxGraphemes": 40,
+          },
+          "icon": {
+            "type": "blob",
+            "description":
+                "The destination site's icon, uploaded when the link is saved.",
+            "accept": ["image/png", "image/jpeg", "image/webp"],
+            "maxSize": 100000,
+          },
+          "createdAt": {"type": "string", "format": "datetime"},
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.actor.profile`
 const appBskyActorProfile = <String, dynamic>{
   "lexicon": 1,
@@ -933,6 +1003,13 @@ const appBskyActorProfile = <String, dynamic>{
             "ref": "com.atproto.repo.strongRef",
           },
           "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+          "links": {
+            "type": "array",
+            "description":
+                "Links shown on the profile, in display order. Each ref points to an app.bsky.actor.link record in this repo.",
+            "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+            "maxLength": 10,
+          },
           "createdAt": {"type": "string", "format": "datetime"},
         },
       },
@@ -27113,6 +27190,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyActorGetProfile,
   appBskyActorGetProfiles,
   appBskyActorGetSuggestions,
+  appBskyActorLink,
   appBskyActorProfile,
   appBskyActorPutPreferences,
   appBskyActorSearchActors,

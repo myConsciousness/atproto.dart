@@ -18,6 +18,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import 'app/bsky/actor/contentVisibilityDeclaration/main.dart';
+import 'app/bsky/actor/link/main.dart';
 import 'app/bsky/actor/profile/main.dart';
 import 'app/bsky/actor/status/main.dart';
 import 'app/bsky/feed/generator/main.dart';
@@ -57,6 +58,9 @@ final class RepoCommitHandler {
   final RepoCommitOnUpdate<ActorContentVisibilityDeclarationRecord>?
   _onUpdateActorContentVisibilityDeclaration;
   final RepoCommitOnDelete? _onDeleteActorContentVisibilityDeclaration;
+  final RepoCommitOnCreate<ActorLinkRecord>? _onCreateActorLink;
+  final RepoCommitOnUpdate<ActorLinkRecord>? _onUpdateActorLink;
+  final RepoCommitOnDelete? _onDeleteActorLink;
   final RepoCommitOnCreate<ActorProfileRecord>? _onCreateActorProfile;
   final RepoCommitOnUpdate<ActorProfileRecord>? _onUpdateActorProfile;
   final RepoCommitOnDelete? _onDeleteActorProfile;
@@ -135,6 +139,9 @@ final class RepoCommitHandler {
     final RepoCommitOnUpdate<ActorContentVisibilityDeclarationRecord>?
     onUpdateActorContentVisibilityDeclaration,
     final RepoCommitOnDelete? onDeleteActorContentVisibilityDeclaration,
+    final RepoCommitOnCreate<ActorLinkRecord>? onCreateActorLink,
+    final RepoCommitOnUpdate<ActorLinkRecord>? onUpdateActorLink,
+    final RepoCommitOnDelete? onDeleteActorLink,
     final RepoCommitOnCreate<ActorProfileRecord>? onCreateActorProfile,
     final RepoCommitOnUpdate<ActorProfileRecord>? onUpdateActorProfile,
     final RepoCommitOnDelete? onDeleteActorProfile,
@@ -214,6 +221,9 @@ final class RepoCommitHandler {
            onUpdateActorContentVisibilityDeclaration,
        _onDeleteActorContentVisibilityDeclaration =
            onDeleteActorContentVisibilityDeclaration,
+       _onCreateActorLink = onCreateActorLink,
+       _onUpdateActorLink = onUpdateActorLink,
+       _onDeleteActorLink = onDeleteActorLink,
        _onCreateActorProfile = onCreateActorProfile,
        _onUpdateActorProfile = onUpdateActorProfile,
        _onDeleteActorProfile = onDeleteActorProfile,
@@ -317,6 +327,18 @@ final class RepoCommitHandler {
         RepoCommitCreate<ActorContentVisibilityDeclarationRecord>(
           record: const ActorContentVisibilityDeclarationRecordConverter()
               .fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isActorLink && ActorLinkRecord.validate(record)) {
+      await _onCreateActorLink?.call(
+        RepoCommitCreate<ActorLinkRecord>(
+          record: const ActorLinkRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -609,6 +631,19 @@ final class RepoCommitHandler {
         RepoCommitUpdate<ActorContentVisibilityDeclarationRecord>(
           record: const ActorContentVisibilityDeclarationRecordConverter()
               .fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isActorLink && ActorLinkRecord.validate(record)) {
+      await _onUpdateActorLink?.call(
+        RepoCommitUpdate<ActorLinkRecord>(
+          record: const ActorLinkRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -915,6 +950,17 @@ final class RepoCommitHandler {
 
     if (uri.isActorContentVisibilityDeclaration) {
       await _onDeleteActorContentVisibilityDeclaration?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isActorLink) {
+      await _onDeleteActorLink?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,
