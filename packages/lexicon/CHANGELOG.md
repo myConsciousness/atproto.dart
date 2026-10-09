@@ -1,5 +1,9 @@
 # Release Note
 
+## v1.2.25
+
+- chore: regenerated from synced lexicons
+
 ## v1.2.24
 
 - chore: regenerated from synced lexicons

@@ -29,6 +29,9 @@ const appBskyActorGetProfiles = NSID(ids.appBskyActorGetProfiles);
 /// `app.bsky.actor.getSuggestions`
 const appBskyActorGetSuggestions = NSID(ids.appBskyActorGetSuggestions);
 
+/// `app.bsky.actor.link`
+const appBskyActorLink = NSID(ids.appBskyActorLink);
+
 /// `app.bsky.actor.profile`
 const appBskyActorProfile = NSID(ids.appBskyActorProfile);
 

@@ -20,6 +20,7 @@ export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associa
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_chat_allow_group_invites.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_germ.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_germ_show_button_to.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_link_view.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_activity_subscription.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/profile_associated_activity_subscription_allow_subscriptions.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/actor/defs/viewer_state.dart';

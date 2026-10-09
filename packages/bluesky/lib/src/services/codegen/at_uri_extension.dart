@@ -23,6 +23,12 @@ extension AtUriExtension on AtUri {
   bool get isNotActorContentVisibilityDeclaration =>
       !isActorContentVisibilityDeclaration;
 
+  /// Returns true if this uri is `app.bsky.actor.link`, otherwise false.
+  bool get isActorLink => collection.toString() == 'app.bsky.actor.link';
+
+  /// Returns true if this uri is not `app.bsky.actor.link`, otherwise false.
+  bool get isNotActorLink => !isActorLink;
+
   /// Returns true if this uri is `app.bsky.actor.profile`, otherwise false.
   bool get isActorProfile => collection.toString() == 'app.bsky.actor.profile';
 

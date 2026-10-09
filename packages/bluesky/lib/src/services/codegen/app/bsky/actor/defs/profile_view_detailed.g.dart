@@ -75,6 +75,16 @@ _ProfileViewDetailed _$ProfileViewDetailedFromJson(
         const RepoStrongRefConverter().fromJson,
       ),
     ),
+    links: $checkedConvert(
+      'links',
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => const ProfileLinkViewConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    ),
     verification: $checkedConvert(
       'verification',
       (v) => _$JsonConverterFromJson<Map<String, dynamic>, VerificationState>(
@@ -136,6 +146,9 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
     instance.pinnedPost,
     const RepoStrongRefConverter().toJson,
   ),
+  'links': ?instance.links
+      ?.map(const ProfileLinkViewConverter().toJson)
+      .toList(),
   'verification':
       ?_$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
         instance.verification,

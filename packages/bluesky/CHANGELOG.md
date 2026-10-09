@@ -1,5 +1,13 @@
 # Release Note
 
+## v2.11.2
+
+- feat: added `app.bsky.actor.defs#profileLinkView`
+- feat: added `app.bsky.actor.defs#profileViewDetailed.links`
+- feat: added `app.bsky.actor.link`
+- feat: added `app.bsky.actor.profile.links`
+- chore: regenerated from synced lexicons
+
 ## v2.11.1
 
 - feat: added `app.bsky.embed.external#viewArticle`

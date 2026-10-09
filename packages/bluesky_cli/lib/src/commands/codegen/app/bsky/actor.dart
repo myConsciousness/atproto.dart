@@ -16,6 +16,7 @@ import 'actor/get_preferences.dart';
 import 'actor/get_profile.dart';
 import 'actor/get_profiles.dart';
 import 'actor/get_suggestions.dart';
+import 'actor/link.dart';
 import 'actor/profile.dart';
 import 'actor/put_preferences.dart';
 import 'actor/search_actors.dart';
@@ -33,6 +34,7 @@ final class AppBskyActorCommand extends Command<void> {
     addSubcommand(GetProfileCommand());
     addSubcommand(GetProfilesCommand());
     addSubcommand(GetSuggestionsCommand());
+    addSubcommand(LinkCommand());
     addSubcommand(ProfileCommand());
     addSubcommand(PutPreferencesCommand());
     addSubcommand(SearchActorsCommand());

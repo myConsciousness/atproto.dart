@@ -57,6 +57,16 @@ _ActorProfileRecord _$ActorProfileRecordFromJson(Map json) => $checkedCreate(
           const RepoStrongRefConverter().fromJson,
         ),
       ),
+      links: $checkedConvert(
+        'links',
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) => const RepoStrongRefConverter().fromJson(
+                e as Map<String, dynamic>,
+              ),
+            )
+            .toList(),
+      ),
       createdAt: $checkedConvert(
         'createdAt',
         (v) => v == null ? null : DateTime.parse(v as String),
@@ -99,6 +109,7 @@ Map<String, dynamic> _$ActorProfileRecordToJson(
     instance.pinnedPost,
     const RepoStrongRefConverter().toJson,
   ),
+  'links': ?instance.links?.map(const RepoStrongRefConverter().toJson).toList(),
   'createdAt': iso8601(instance.createdAt),
   r'$unknown': ?instance.$unknown,
 };

@@ -90,6 +90,9 @@ const appBskyActorDefsProfileAssociatedChat =
 const appBskyActorDefsProfileAssociatedGerm =
     'app.bsky.actor.defs#profileAssociatedGerm';
 
+/// `app.bsky.actor.defs#profileLinkView`
+const appBskyActorDefsProfileLinkView = 'app.bsky.actor.defs#profileLinkView';
+
 /// `app.bsky.actor.defs#profileView`
 const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
 
@@ -140,6 +143,9 @@ const appBskyActorGetProfiles = 'app.bsky.actor.getProfiles';
 
 /// `app.bsky.actor.getSuggestions`
 const appBskyActorGetSuggestions = 'app.bsky.actor.getSuggestions';
+
+/// `app.bsky.actor.link`
+const appBskyActorLink = 'app.bsky.actor.link';
 
 /// `app.bsky.actor.profile`
 const appBskyActorProfile = 'app.bsky.actor.profile';
