@@ -1,5 +1,17 @@
 # Release Note
 
+## v2.12.0
+
+- fix!: `app.bsky.notification.getGroupedNotifications#group.kind` changed type (union([#likeGroup, #multiPostLikeGroup, #repostGroup, #likeViaRepostGroup, #repostViaRepostGroup, #followGroup, #subscribedPostGroup, #generatorLikeGroup, #replyNotification, #quoteNotification, #mentionNotification, #followBackNotification, #verifiedNotification, #unverifiedNotification, #starterPackJoinedNotification, #contactMatchNotification]) -> union([#likeGroup, #multiPostLikeGroup, #multiPostRepostGroup, #multiPostLikeViaRepostGroup, #multiPostRepostViaRepostGroup, #repostGroup, #likeViaRepostGroup, #repostViaRepostGroup, #followGroup, #subscribedPostGroup, #generatorLikeGroup, #replyNotification, #quoteNotification, #mentionNotification, #followBackNotification, #verifiedNotification, #unverifiedNotification, #starterPackJoinedNotification, #contactMatchNotification])) (BREAKING)
+- fix!: `app.bsky.notification.getGroupedNotifications.output.relatedViews` changed type (array<union([app.bsky.actor.defs#profileViewDetailed, app.bsky.feed.defs#blockedPost, app.bsky.feed.defs#generatorView, app.bsky.feed.defs#notFoundPost, app.bsky.feed.defs#postView, app.bsky.graph.defs#starterPackView])> -> array<union([app.bsky.actor.defs#profileViewBasic, app.bsky.feed.defs#blockedPost, app.bsky.feed.defs#generatorView, app.bsky.feed.defs#notFoundPost, app.bsky.feed.defs#postView, app.bsky.graph.defs#starterPackViewBasic])>) (BREAKING)
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostLikeViaRepostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostLikeViaRepostItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostRepostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostRepostItem`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostRepostViaRepostGroup`
+- feat: added `app.bsky.notification.getGroupedNotifications#multiPostRepostViaRepostItem`
+- chore: regenerated from synced lexicons
+
 ## v2.11.2
 
 - feat: added `app.bsky.actor.defs#profileLinkView`

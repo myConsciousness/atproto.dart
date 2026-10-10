@@ -6993,12 +6993,12 @@ const appBskyNotificationGetGroupedNotifications = <String, dynamic>{
               "items": {
                 "type": "union",
                 "refs": [
-                  "app.bsky.actor.defs#profileViewDetailed",
+                  "app.bsky.actor.defs#profileViewBasic",
                   "app.bsky.feed.defs#blockedPost",
                   "app.bsky.feed.defs#generatorView",
                   "app.bsky.feed.defs#notFoundPost",
                   "app.bsky.feed.defs#postView",
-                  "app.bsky.graph.defs#starterPackView",
+                  "app.bsky.graph.defs#starterPackViewBasic",
                 ],
               },
             },
@@ -7021,6 +7021,9 @@ const appBskyNotificationGetGroupedNotifications = <String, dynamic>{
           "refs": [
             "#likeGroup",
             "#multiPostLikeGroup",
+            "#multiPostRepostGroup",
+            "#multiPostLikeViaRepostGroup",
+            "#multiPostRepostViaRepostGroup",
             "#repostGroup",
             "#likeViaRepostGroup",
             "#repostViaRepostGroup",
@@ -7079,6 +7082,75 @@ const appBskyNotificationGetGroupedNotifications = <String, dynamic>{
       "required": ["post"],
       "properties": {
         "post": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "multiPostRepostGroup": {
+      "type": "object",
+      "description": "Group of reposts by the same actor of different posts.",
+      "required": ["actor", "items"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#multiPostRepostItem"},
+          "minLength": 2,
+        },
+      },
+    },
+    "multiPostRepostItem": {
+      "type": "object",
+      "description": "One post which was reposted by the group's actor.",
+      "required": ["post"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "multiPostLikeViaRepostGroup": {
+      "type": "object",
+      "description":
+          "Group of likes by the same actor on different posts via the requesting account's reposts.",
+      "required": ["actor", "items"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#multiPostLikeViaRepostItem"},
+          "minLength": 2,
+        },
+      },
+    },
+    "multiPostLikeViaRepostItem": {
+      "type": "object",
+      "description":
+          "One post which was liked by the group's actor via the requesting account's repost.",
+      "required": ["post", "viaRepost"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "viaRepost": {"type": "string", "format": "at-uri"},
+      },
+    },
+    "multiPostRepostViaRepostGroup": {
+      "type": "object",
+      "description":
+          "Group of reposts by the same actor of different posts via the requesting account's reposts.",
+      "required": ["actor", "items"],
+      "properties": {
+        "actor": {"type": "string", "format": "did"},
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#multiPostRepostViaRepostItem"},
+          "minLength": 2,
+        },
+      },
+    },
+    "multiPostRepostViaRepostItem": {
+      "type": "object",
+      "description":
+          "One post which was reposted by the group's actor via the requesting account's repost.",
+      "required": ["post", "viaRepost"],
+      "properties": {
+        "post": {"type": "string", "format": "at-uri"},
+        "viaRepost": {"type": "string", "format": "at-uri"},
       },
     },
     "repostGroup": {

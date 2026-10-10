@@ -21,6 +21,12 @@ export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNot
 export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/like_item.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_like_group.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_like_item.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_repost_group.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_repost_item.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_like_via_repost_group.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_like_via_repost_item.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_repost_via_repost_group.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/multi_post_repost_via_repost_item.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/repost_group.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/repost_item.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/notification/getGroupedNotifications/like_via_repost_group.dart';

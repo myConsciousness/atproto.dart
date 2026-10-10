@@ -55,16 +55,16 @@ extension UNotificationGetGroupedNotificationsRelatedViewsPatterns on UNotificat
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed value)?  profileViewDetailed,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsBlockedPost value)?  blockedPost,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsGeneratorView value)?  generatorView,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost value)?  notFoundPost,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsPostView value)?  postView,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsStarterPackView value)?  starterPackView,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsUnknown value)?  unknown,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic value)?  profileViewBasic,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsBlockedPost value)?  blockedPost,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsGeneratorView value)?  generatorView,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost value)?  notFoundPost,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsPostView value)?  postView,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic value)?  starterPackViewBasic,TResult Function( UNotificationGetGroupedNotificationsRelatedViewsUnknown value)?  unknown,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed() when profileViewDetailed != null:
-return profileViewDetailed(_that);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
+case UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
 return blockedPost(_that);case UNotificationGetGroupedNotificationsRelatedViewsGeneratorView() when generatorView != null:
 return generatorView(_that);case UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost() when notFoundPost != null:
 return notFoundPost(_that);case UNotificationGetGroupedNotificationsRelatedViewsPostView() when postView != null:
-return postView(_that);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackView() when starterPackView != null:
-return starterPackView(_that);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
+return postView(_that);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic() when starterPackViewBasic != null:
+return starterPackViewBasic(_that);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
 return unknown(_that);case _:
   return orElse();
 
@@ -83,16 +83,16 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed value)  profileViewDetailed,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsBlockedPost value)  blockedPost,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsGeneratorView value)  generatorView,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost value)  notFoundPost,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsPostView value)  postView,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsStarterPackView value)  starterPackView,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsUnknown value)  unknown,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic value)  profileViewBasic,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsBlockedPost value)  blockedPost,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsGeneratorView value)  generatorView,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost value)  notFoundPost,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsPostView value)  postView,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic value)  starterPackViewBasic,required TResult Function( UNotificationGetGroupedNotificationsRelatedViewsUnknown value)  unknown,}){
 final _that = this;
 switch (_that) {
-case UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed():
-return profileViewDetailed(_that);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost():
+case UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic():
+return profileViewBasic(_that);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost():
 return blockedPost(_that);case UNotificationGetGroupedNotificationsRelatedViewsGeneratorView():
 return generatorView(_that);case UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost():
 return notFoundPost(_that);case UNotificationGetGroupedNotificationsRelatedViewsPostView():
-return postView(_that);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackView():
-return starterPackView(_that);case UNotificationGetGroupedNotificationsRelatedViewsUnknown():
+return postView(_that);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic():
+return starterPackViewBasic(_that);case UNotificationGetGroupedNotificationsRelatedViewsUnknown():
 return unknown(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -107,16 +107,16 @@ return unknown(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed value)?  profileViewDetailed,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsBlockedPost value)?  blockedPost,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsGeneratorView value)?  generatorView,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost value)?  notFoundPost,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsPostView value)?  postView,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsStarterPackView value)?  starterPackView,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsUnknown value)?  unknown,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic value)?  profileViewBasic,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsBlockedPost value)?  blockedPost,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsGeneratorView value)?  generatorView,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost value)?  notFoundPost,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsPostView value)?  postView,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic value)?  starterPackViewBasic,TResult? Function( UNotificationGetGroupedNotificationsRelatedViewsUnknown value)?  unknown,}){
 final _that = this;
 switch (_that) {
-case UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed() when profileViewDetailed != null:
-return profileViewDetailed(_that);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
+case UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
 return blockedPost(_that);case UNotificationGetGroupedNotificationsRelatedViewsGeneratorView() when generatorView != null:
 return generatorView(_that);case UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost() when notFoundPost != null:
 return notFoundPost(_that);case UNotificationGetGroupedNotificationsRelatedViewsPostView() when postView != null:
-return postView(_that);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackView() when starterPackView != null:
-return starterPackView(_that);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
+return postView(_that);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic() when starterPackViewBasic != null:
+return starterPackViewBasic(_that);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
 return unknown(_that);case _:
   return null;
 
@@ -134,15 +134,15 @@ return unknown(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ProfileViewDetailed data)?  profileViewDetailed,TResult Function( BlockedPost data)?  blockedPost,TResult Function( GeneratorView data)?  generatorView,TResult Function( NotFoundPost data)?  notFoundPost,TResult Function( PostView data)?  postView,TResult Function( StarterPackView data)?  starterPackView,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ProfileViewBasic data)?  profileViewBasic,TResult Function( BlockedPost data)?  blockedPost,TResult Function( GeneratorView data)?  generatorView,TResult Function( NotFoundPost data)?  notFoundPost,TResult Function( PostView data)?  postView,TResult Function( StarterPackViewBasic data)?  starterPackViewBasic,TResult Function( Map<String, dynamic> data)?  unknown,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed() when profileViewDetailed != null:
-return profileViewDetailed(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
+case UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
 return blockedPost(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsGeneratorView() when generatorView != null:
 return generatorView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost() when notFoundPost != null:
 return notFoundPost(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsPostView() when postView != null:
-return postView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackView() when starterPackView != null:
-return starterPackView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
+return postView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic() when starterPackViewBasic != null:
+return starterPackViewBasic(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return orElse();
 
@@ -161,15 +161,15 @@ return unknown(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ProfileViewDetailed data)  profileViewDetailed,required TResult Function( BlockedPost data)  blockedPost,required TResult Function( GeneratorView data)  generatorView,required TResult Function( NotFoundPost data)  notFoundPost,required TResult Function( PostView data)  postView,required TResult Function( StarterPackView data)  starterPackView,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ProfileViewBasic data)  profileViewBasic,required TResult Function( BlockedPost data)  blockedPost,required TResult Function( GeneratorView data)  generatorView,required TResult Function( NotFoundPost data)  notFoundPost,required TResult Function( PostView data)  postView,required TResult Function( StarterPackViewBasic data)  starterPackViewBasic,required TResult Function( Map<String, dynamic> data)  unknown,}) {final _that = this;
 switch (_that) {
-case UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed():
-return profileViewDetailed(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost():
+case UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic():
+return profileViewBasic(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost():
 return blockedPost(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsGeneratorView():
 return generatorView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost():
 return notFoundPost(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsPostView():
-return postView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackView():
-return starterPackView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsUnknown():
+return postView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic():
+return starterPackViewBasic(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsUnknown():
 return unknown(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -184,15 +184,15 @@ return unknown(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ProfileViewDetailed data)?  profileViewDetailed,TResult? Function( BlockedPost data)?  blockedPost,TResult? Function( GeneratorView data)?  generatorView,TResult? Function( NotFoundPost data)?  notFoundPost,TResult? Function( PostView data)?  postView,TResult? Function( StarterPackView data)?  starterPackView,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ProfileViewBasic data)?  profileViewBasic,TResult? Function( BlockedPost data)?  blockedPost,TResult? Function( GeneratorView data)?  generatorView,TResult? Function( NotFoundPost data)?  notFoundPost,TResult? Function( PostView data)?  postView,TResult? Function( StarterPackViewBasic data)?  starterPackViewBasic,TResult? Function( Map<String, dynamic> data)?  unknown,}) {final _that = this;
 switch (_that) {
-case UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed() when profileViewDetailed != null:
-return profileViewDetailed(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
+case UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic() when profileViewBasic != null:
+return profileViewBasic(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsBlockedPost() when blockedPost != null:
 return blockedPost(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsGeneratorView() when generatorView != null:
 return generatorView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsNotFoundPost() when notFoundPost != null:
 return notFoundPost(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsPostView() when postView != null:
-return postView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackView() when starterPackView != null:
-return starterPackView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
+return postView(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic() when starterPackViewBasic != null:
+return starterPackViewBasic(_that.data);case UNotificationGetGroupedNotificationsRelatedViewsUnknown() when unknown != null:
 return unknown(_that.data);case _:
   return null;
 
@@ -204,23 +204,23 @@ return unknown(_that.data);case _:
 /// @nodoc
 
 
-class UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed extends UNotificationGetGroupedNotificationsRelatedViews {
-  const UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed({required this.data}): super._();
+class UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic extends UNotificationGetGroupedNotificationsRelatedViews {
+  const UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic({required this.data}): super._();
   
 
-@override final  ProfileViewDetailed data;
+@override final  ProfileViewBasic data;
 
 /// Create a copy of UNotificationGetGroupedNotificationsRelatedViews
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWith<UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed> get copyWith => _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWithImpl<UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed>(this, _$identity);
+$UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWith<UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic> get copyWith => _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWithImpl<UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -229,38 +229,38 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'UNotificationGetGroupedNotificationsRelatedViews.profileViewDetailed(data: $data)';
+  return 'UNotificationGetGroupedNotificationsRelatedViews.profileViewBasic(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWith<$Res> implements $UNotificationGetGroupedNotificationsRelatedViewsCopyWith<$Res> {
-  factory $UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWith(UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed value, $Res Function(UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed) _then) = _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWithImpl;
+abstract mixin class $UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWith<$Res> implements $UNotificationGetGroupedNotificationsRelatedViewsCopyWith<$Res> {
+  factory $UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWith(UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic value, $Res Function(UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic) _then) = _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWithImpl;
 @useResult
 $Res call({
- ProfileViewDetailed data
+ ProfileViewBasic data
 });
 
 
-$ProfileViewDetailedCopyWith<$Res> get data;
+$ProfileViewBasicCopyWith<$Res> get data;
 
 }
 /// @nodoc
-class _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWithImpl<$Res>
-    implements $UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWith<$Res> {
-  _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailedCopyWithImpl(this._self, this._then);
+class _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWithImpl<$Res>
+    implements $UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWith<$Res> {
+  _$UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasicCopyWithImpl(this._self, this._then);
 
-  final UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed _self;
-  final $Res Function(UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed) _then;
+  final UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic _self;
+  final $Res Function(UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic) _then;
 
 /// Create a copy of UNotificationGetGroupedNotificationsRelatedViews
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed(
+  return _then(UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as ProfileViewDetailed,
+as ProfileViewBasic,
   ));
 }
 
@@ -268,9 +268,9 @@ as ProfileViewDetailed,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ProfileViewDetailedCopyWith<$Res> get data {
+$ProfileViewBasicCopyWith<$Res> get data {
   
-  return $ProfileViewDetailedCopyWith<$Res>(_self.data, (value) {
+  return $ProfileViewBasicCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }
@@ -579,23 +579,23 @@ $PostViewCopyWith<$Res> get data {
 /// @nodoc
 
 
-class UNotificationGetGroupedNotificationsRelatedViewsStarterPackView extends UNotificationGetGroupedNotificationsRelatedViews {
-  const UNotificationGetGroupedNotificationsRelatedViewsStarterPackView({required this.data}): super._();
+class UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic extends UNotificationGetGroupedNotificationsRelatedViews {
+  const UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic({required this.data}): super._();
   
 
-@override final  StarterPackView data;
+@override final  StarterPackViewBasic data;
 
 /// Create a copy of UNotificationGetGroupedNotificationsRelatedViews
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWith<UNotificationGetGroupedNotificationsRelatedViewsStarterPackView> get copyWith => _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWithImpl<UNotificationGetGroupedNotificationsRelatedViewsStarterPackView>(this, _$identity);
+$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWith<UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic> get copyWith => _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWithImpl<UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UNotificationGetGroupedNotificationsRelatedViewsStarterPackView&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic&&(identical(other.data, data) || other.data == data));
 }
 
 
@@ -604,38 +604,38 @@ int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'UNotificationGetGroupedNotificationsRelatedViews.starterPackView(data: $data)';
+  return 'UNotificationGetGroupedNotificationsRelatedViews.starterPackViewBasic(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWith<$Res> implements $UNotificationGetGroupedNotificationsRelatedViewsCopyWith<$Res> {
-  factory $UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWith(UNotificationGetGroupedNotificationsRelatedViewsStarterPackView value, $Res Function(UNotificationGetGroupedNotificationsRelatedViewsStarterPackView) _then) = _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWithImpl;
+abstract mixin class $UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWith<$Res> implements $UNotificationGetGroupedNotificationsRelatedViewsCopyWith<$Res> {
+  factory $UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWith(UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic value, $Res Function(UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic) _then) = _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWithImpl;
 @useResult
 $Res call({
- StarterPackView data
+ StarterPackViewBasic data
 });
 
 
-$StarterPackViewCopyWith<$Res> get data;
+$StarterPackViewBasicCopyWith<$Res> get data;
 
 }
 /// @nodoc
-class _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWithImpl<$Res>
-    implements $UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWith<$Res> {
-  _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewCopyWithImpl(this._self, this._then);
+class _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWithImpl<$Res>
+    implements $UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWith<$Res> {
+  _$UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasicCopyWithImpl(this._self, this._then);
 
-  final UNotificationGetGroupedNotificationsRelatedViewsStarterPackView _self;
-  final $Res Function(UNotificationGetGroupedNotificationsRelatedViewsStarterPackView) _then;
+  final UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic _self;
+  final $Res Function(UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic) _then;
 
 /// Create a copy of UNotificationGetGroupedNotificationsRelatedViews
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(UNotificationGetGroupedNotificationsRelatedViewsStarterPackView(
+  return _then(UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic(
 data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as StarterPackView,
+as StarterPackViewBasic,
   ));
 }
 
@@ -643,9 +643,9 @@ as StarterPackView,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$StarterPackViewCopyWith<$Res> get data {
+$StarterPackViewBasicCopyWith<$Res> get data {
   
-  return $StarterPackViewCopyWith<$Res>(_self.data, (value) {
+  return $StarterPackViewBasicCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

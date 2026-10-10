@@ -12,12 +12,12 @@ import 'package:atproto_core/internals.dart' show isA;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../../../../app/bsky/actor/defs/profile_view_detailed.dart';
+import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../../app/bsky/feed/defs/blocked_post.dart';
 import '../../../../app/bsky/feed/defs/generator_view.dart';
 import '../../../../app/bsky/feed/defs/not_found_post.dart';
 import '../../../../app/bsky/feed/defs/post_view.dart';
-import '../../../../app/bsky/graph/defs/starter_pack_view.dart';
+import '../../../../app/bsky/graph/defs/starter_pack_view_basic.dart';
 
 part 'union_main_related_views.freezed.dart';
 
@@ -30,9 +30,9 @@ sealed class UNotificationGetGroupedNotificationsRelatedViews
     with _$UNotificationGetGroupedNotificationsRelatedViews {
   const UNotificationGetGroupedNotificationsRelatedViews._();
 
-  const factory UNotificationGetGroupedNotificationsRelatedViews.profileViewDetailed({
-    required ProfileViewDetailed data,
-  }) = UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed;
+  const factory UNotificationGetGroupedNotificationsRelatedViews.profileViewBasic({
+    required ProfileViewBasic data,
+  }) = UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic;
   const factory UNotificationGetGroupedNotificationsRelatedViews.blockedPost({
     required BlockedPost data,
   }) = UNotificationGetGroupedNotificationsRelatedViewsBlockedPost;
@@ -45,9 +45,9 @@ sealed class UNotificationGetGroupedNotificationsRelatedViews
   const factory UNotificationGetGroupedNotificationsRelatedViews.postView({
     required PostView data,
   }) = UNotificationGetGroupedNotificationsRelatedViewsPostView;
-  const factory UNotificationGetGroupedNotificationsRelatedViews.starterPackView({
-    required StarterPackView data,
-  }) = UNotificationGetGroupedNotificationsRelatedViewsStarterPackView;
+  const factory UNotificationGetGroupedNotificationsRelatedViews.starterPackViewBasic({
+    required StarterPackViewBasic data,
+  }) = UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic;
 
   const factory UNotificationGetGroupedNotificationsRelatedViews.unknown({
     required Map<String, dynamic> data,
@@ -61,13 +61,13 @@ sealed class UNotificationGetGroupedNotificationsRelatedViews
 
 extension UNotificationGetGroupedNotificationsRelatedViewsExtension
     on UNotificationGetGroupedNotificationsRelatedViews {
-  bool get isProfileViewDetailed =>
-      isA<UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed>(
+  bool get isProfileViewBasic =>
+      isA<UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic>(
         this,
       );
-  bool get isNotProfileViewDetailed => !isProfileViewDetailed;
-  ProfileViewDetailed? get profileViewDetailed =>
-      isProfileViewDetailed ? data as ProfileViewDetailed : null;
+  bool get isNotProfileViewBasic => !isProfileViewBasic;
+  ProfileViewBasic? get profileViewBasic =>
+      isProfileViewBasic ? data as ProfileViewBasic : null;
   bool get isBlockedPost =>
       isA<UNotificationGetGroupedNotificationsRelatedViewsBlockedPost>(this);
   bool get isNotBlockedPost => !isBlockedPost;
@@ -86,13 +86,13 @@ extension UNotificationGetGroupedNotificationsRelatedViewsExtension
       isA<UNotificationGetGroupedNotificationsRelatedViewsPostView>(this);
   bool get isNotPostView => !isPostView;
   PostView? get postView => isPostView ? data as PostView : null;
-  bool get isStarterPackView =>
-      isA<UNotificationGetGroupedNotificationsRelatedViewsStarterPackView>(
+  bool get isStarterPackViewBasic =>
+      isA<UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic>(
         this,
       );
-  bool get isNotStarterPackView => !isStarterPackView;
-  StarterPackView? get starterPackView =>
-      isStarterPackView ? data as StarterPackView : null;
+  bool get isNotStarterPackViewBasic => !isStarterPackViewBasic;
+  StarterPackViewBasic? get starterPackViewBasic =>
+      isStarterPackViewBasic ? data as StarterPackViewBasic : null;
   bool get isUnknown =>
       isA<UNotificationGetGroupedNotificationsRelatedViewsUnknown>(this);
   bool get isNotUnknown => !isUnknown;
@@ -112,9 +112,9 @@ final class UNotificationGetGroupedNotificationsRelatedViewsConverter
   UNotificationGetGroupedNotificationsRelatedViews fromJson(
     Map<String, dynamic> json,
   ) {
-    if (ProfileViewDetailed.validate(json)) {
-      return UNotificationGetGroupedNotificationsRelatedViews.profileViewDetailed(
-        data: const ProfileViewDetailedConverter().fromJson(json),
+    if (ProfileViewBasic.validate(json)) {
+      return UNotificationGetGroupedNotificationsRelatedViews.profileViewBasic(
+        data: const ProfileViewBasicConverter().fromJson(json),
       );
     }
     if (BlockedPost.validate(json)) {
@@ -137,9 +137,9 @@ final class UNotificationGetGroupedNotificationsRelatedViewsConverter
         data: const PostViewConverter().fromJson(json),
       );
     }
-    if (StarterPackView.validate(json)) {
-      return UNotificationGetGroupedNotificationsRelatedViews.starterPackView(
-        data: const StarterPackViewConverter().fromJson(json),
+    if (StarterPackViewBasic.validate(json)) {
+      return UNotificationGetGroupedNotificationsRelatedViews.starterPackViewBasic(
+        data: const StarterPackViewBasicConverter().fromJson(json),
       );
     }
 
@@ -154,10 +154,10 @@ final class UNotificationGetGroupedNotificationsRelatedViewsConverter
   Map<String, dynamic> toJson(
     UNotificationGetGroupedNotificationsRelatedViews object,
   ) => switch (object) {
-    UNotificationGetGroupedNotificationsRelatedViewsProfileViewDetailed(
+    UNotificationGetGroupedNotificationsRelatedViewsProfileViewBasic(
       :final data,
     ) =>
-      const ProfileViewDetailedConverter().toJson(data),
+      const ProfileViewBasicConverter().toJson(data),
     UNotificationGetGroupedNotificationsRelatedViewsBlockedPost(:final data) =>
       const BlockedPostConverter().toJson(data),
     UNotificationGetGroupedNotificationsRelatedViewsGeneratorView(
@@ -168,10 +168,10 @@ final class UNotificationGetGroupedNotificationsRelatedViewsConverter
       const NotFoundPostConverter().toJson(data),
     UNotificationGetGroupedNotificationsRelatedViewsPostView(:final data) =>
       const PostViewConverter().toJson(data),
-    UNotificationGetGroupedNotificationsRelatedViewsStarterPackView(
+    UNotificationGetGroupedNotificationsRelatedViewsStarterPackViewBasic(
       :final data,
     ) =>
-      const StarterPackViewConverter().toJson(data),
+      const StarterPackViewBasicConverter().toJson(data),
 
     UNotificationGetGroupedNotificationsRelatedViewsUnknown(:final data) =>
       data,
