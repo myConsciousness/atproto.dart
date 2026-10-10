@@ -20,6 +20,9 @@ import './like_group.dart';
 import './like_via_repost_group.dart';
 import './mention_notification.dart';
 import './multi_post_like_group.dart';
+import './multi_post_like_via_repost_group.dart';
+import './multi_post_repost_group.dart';
+import './multi_post_repost_via_repost_group.dart';
 import './quote_notification.dart';
 import './reply_notification.dart';
 import './repost_group.dart';
@@ -44,6 +47,15 @@ sealed class UGroupKind with _$UGroupKind {
   const factory UGroupKind.multiPostLikeGroup({
     required MultiPostLikeGroup data,
   }) = UGroupKindMultiPostLikeGroup;
+  const factory UGroupKind.multiPostRepostGroup({
+    required MultiPostRepostGroup data,
+  }) = UGroupKindMultiPostRepostGroup;
+  const factory UGroupKind.multiPostLikeViaRepostGroup({
+    required MultiPostLikeViaRepostGroup data,
+  }) = UGroupKindMultiPostLikeViaRepostGroup;
+  const factory UGroupKind.multiPostRepostViaRepostGroup({
+    required MultiPostRepostViaRepostGroup data,
+  }) = UGroupKindMultiPostRepostViaRepostGroup;
   const factory UGroupKind.repostGroup({required RepostGroup data}) =
       UGroupKindRepostGroup;
   const factory UGroupKind.likeViaRepostGroup({
@@ -99,6 +111,25 @@ extension UGroupKindExtension on UGroupKind {
   bool get isNotMultiPostLikeGroup => !isMultiPostLikeGroup;
   MultiPostLikeGroup? get multiPostLikeGroup =>
       isMultiPostLikeGroup ? data as MultiPostLikeGroup : null;
+  bool get isMultiPostRepostGroup => isA<UGroupKindMultiPostRepostGroup>(this);
+  bool get isNotMultiPostRepostGroup => !isMultiPostRepostGroup;
+  MultiPostRepostGroup? get multiPostRepostGroup =>
+      isMultiPostRepostGroup ? data as MultiPostRepostGroup : null;
+  bool get isMultiPostLikeViaRepostGroup =>
+      isA<UGroupKindMultiPostLikeViaRepostGroup>(this);
+  bool get isNotMultiPostLikeViaRepostGroup => !isMultiPostLikeViaRepostGroup;
+  MultiPostLikeViaRepostGroup? get multiPostLikeViaRepostGroup =>
+      isMultiPostLikeViaRepostGroup
+      ? data as MultiPostLikeViaRepostGroup
+      : null;
+  bool get isMultiPostRepostViaRepostGroup =>
+      isA<UGroupKindMultiPostRepostViaRepostGroup>(this);
+  bool get isNotMultiPostRepostViaRepostGroup =>
+      !isMultiPostRepostViaRepostGroup;
+  MultiPostRepostViaRepostGroup? get multiPostRepostViaRepostGroup =>
+      isMultiPostRepostViaRepostGroup
+      ? data as MultiPostRepostViaRepostGroup
+      : null;
   bool get isRepostGroup => isA<UGroupKindRepostGroup>(this);
   bool get isNotRepostGroup => !isRepostGroup;
   RepostGroup? get repostGroup => isRepostGroup ? data as RepostGroup : null;
@@ -180,6 +211,21 @@ final class UGroupKindConverter
     if (MultiPostLikeGroup.validate(json)) {
       return UGroupKind.multiPostLikeGroup(
         data: const MultiPostLikeGroupConverter().fromJson(json),
+      );
+    }
+    if (MultiPostRepostGroup.validate(json)) {
+      return UGroupKind.multiPostRepostGroup(
+        data: const MultiPostRepostGroupConverter().fromJson(json),
+      );
+    }
+    if (MultiPostLikeViaRepostGroup.validate(json)) {
+      return UGroupKind.multiPostLikeViaRepostGroup(
+        data: const MultiPostLikeViaRepostGroupConverter().fromJson(json),
+      );
+    }
+    if (MultiPostRepostViaRepostGroup.validate(json)) {
+      return UGroupKind.multiPostRepostViaRepostGroup(
+        data: const MultiPostRepostViaRepostGroupConverter().fromJson(json),
       );
     }
     if (RepostGroup.validate(json)) {
@@ -265,6 +311,12 @@ final class UGroupKindConverter
     UGroupKindLikeGroup(:final data) => const LikeGroupConverter().toJson(data),
     UGroupKindMultiPostLikeGroup(:final data) =>
       const MultiPostLikeGroupConverter().toJson(data),
+    UGroupKindMultiPostRepostGroup(:final data) =>
+      const MultiPostRepostGroupConverter().toJson(data),
+    UGroupKindMultiPostLikeViaRepostGroup(:final data) =>
+      const MultiPostLikeViaRepostGroupConverter().toJson(data),
+    UGroupKindMultiPostRepostViaRepostGroup(:final data) =>
+      const MultiPostRepostViaRepostGroupConverter().toJson(data),
     UGroupKindRepostGroup(:final data) => const RepostGroupConverter().toJson(
       data,
     ),

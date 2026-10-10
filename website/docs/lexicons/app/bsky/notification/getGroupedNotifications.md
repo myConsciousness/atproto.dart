@@ -26,7 +26,7 @@ description: app.bsky.notification.getGroupedNotifications
 | **cursor** | string | - | ❌ | - |
 | **groups** | array of [#group](#group) | - | ✅ | Notification groups or individual notifications, newest first. Clients should ignore kinds they do not recognize. Grouping behavior depends on the kind and selected feed. |
 | **seenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
-| **relatedViews** | array of union<br/>[app.bsky.actor.defs#profileViewDetailed](../../../../lexicons/app/bsky/actor/defs.md#profileviewdetailed)<br/>[app.bsky.feed.defs#blockedPost](../../../../lexicons/app/bsky/feed/defs.md#blockedpost)<br/>[app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview)<br/>[app.bsky.feed.defs#notFoundPost](../../../../lexicons/app/bsky/feed/defs.md#notfoundpost)<br/>[app.bsky.feed.defs#postView](../../../../lexicons/app/bsky/feed/defs.md#postview)<br/>[app.bsky.graph.defs#starterPackView](../../../../lexicons/app/bsky/graph/defs.md#starterpackview) | - | ❌ | Reusable views referenced by notifications. Views shared across notifications appear once to avoid duplication. Each group contributes only its first 10 of each related view to this array. Ex: for a group containing likes in a post, we might have a large number of likeItem (e.g., 50) in a group, but only the profile views for the newest 10 items will be included here. |
+| **relatedViews** | array of union<br/>[app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic)<br/>[app.bsky.feed.defs#blockedPost](../../../../lexicons/app/bsky/feed/defs.md#blockedpost)<br/>[app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview)<br/>[app.bsky.feed.defs#notFoundPost](../../../../lexicons/app/bsky/feed/defs.md#notfoundpost)<br/>[app.bsky.feed.defs#postView](../../../../lexicons/app/bsky/feed/defs.md#postview)<br/>[app.bsky.graph.defs#starterPackViewBasic](../../../../lexicons/app/bsky/graph/defs.md#starterpackviewbasic) | - | ❌ | Reusable views referenced by notifications. Views shared across notifications appear once to avoid duplication. Each group contributes only its first 10 of each related view to this array. Ex: for a group containing likes in a post, we might have a large number of likeItem (e.g., 50) in a group, but only the profile views for the newest 10 items will be included here. |
 
 ## #group
 
@@ -38,7 +38,7 @@ Contains common metadata and kind-specific data for a notification group or indi
 | **isRead** | boolean | - | ✅ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **count** | integer | - | ✅ | - |
-| **kind** | union of <br/>[#likeGroup](#likegroup)<br/>[#multiPostLikeGroup](#multipostlikegroup)<br/>[#repostGroup](#repostgroup)<br/>[#likeViaRepostGroup](#likeviarepostgroup)<br/>[#repostViaRepostGroup](#repostviarepostgroup)<br/>[#followGroup](#followgroup)<br/>[#subscribedPostGroup](#subscribedpostgroup)<br/>[#generatorLikeGroup](#generatorlikegroup)<br/>[#replyNotification](#replynotification)<br/>[#quoteNotification](#quotenotification)<br/>[#mentionNotification](#mentionnotification)<br/>[#followBackNotification](#followbacknotification)<br/>[#verifiedNotification](#verifiednotification)<br/>[#unverifiedNotification](#unverifiednotification)<br/>[#starterPackJoinedNotification](#starterpackjoinednotification)<br/>[#contactMatchNotification](#contactmatchnotification) | - | ✅ | - |
+| **kind** | union of <br/>[#likeGroup](#likegroup)<br/>[#multiPostLikeGroup](#multipostlikegroup)<br/>[#multiPostRepostGroup](#multipostrepostgroup)<br/>[#multiPostLikeViaRepostGroup](#multipostlikeviarepostgroup)<br/>[#multiPostRepostViaRepostGroup](#multipostrepostviarepostgroup)<br/>[#repostGroup](#repostgroup)<br/>[#likeViaRepostGroup](#likeviarepostgroup)<br/>[#repostViaRepostGroup](#repostviarepostgroup)<br/>[#followGroup](#followgroup)<br/>[#subscribedPostGroup](#subscribedpostgroup)<br/>[#generatorLikeGroup](#generatorlikegroup)<br/>[#replyNotification](#replynotification)<br/>[#quoteNotification](#quotenotification)<br/>[#mentionNotification](#mentionnotification)<br/>[#followBackNotification](#followbacknotification)<br/>[#verifiedNotification](#verifiednotification)<br/>[#unverifiedNotification](#unverifiednotification)<br/>[#starterPackJoinedNotification](#starterpackjoinednotification)<br/>[#contactMatchNotification](#contactmatchnotification) | - | ✅ | - |
 
 ## #likeGroup
 
@@ -73,6 +73,59 @@ One post which was liked by the group's actor.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+
+## #multiPostRepostGroup
+
+Group of reposts by the same actor of different posts.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **actor** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **items** | array of [#multiPostRepostItem](#multipostrepostitem) | - | ✅ | - |
+
+## #multiPostRepostItem
+
+One post which was reposted by the group's actor.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+
+## #multiPostLikeViaRepostGroup
+
+Group of likes by the same actor on different posts via the requesting account's reposts.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **actor** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **items** | array of [#multiPostLikeViaRepostItem](#multipostlikeviarepostitem) | - | ✅ | - |
+
+## #multiPostLikeViaRepostItem
+
+One post which was liked by the group's actor via the requesting account's repost.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **viaRepost** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+
+## #multiPostRepostViaRepostGroup
+
+Group of reposts by the same actor of different posts via the requesting account's reposts.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **actor** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **items** | array of [#multiPostRepostViaRepostItem](#multipostrepostviarepostitem) | - | ✅ | - |
+
+## #multiPostRepostViaRepostItem
+
+One post which was reposted by the group's actor via the requesting account's repost.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **viaRepost** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 
 ## #repostGroup
 

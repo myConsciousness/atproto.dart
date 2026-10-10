@@ -556,6 +556,40 @@ const appBskyNotificationGetGroupedNotificationsMultiPostLikeItem = NSID(
   ids.appBskyNotificationGetGroupedNotificationsMultiPostLikeItem,
 );
 
+/// `app.bsky.notification.getGroupedNotifications#multiPostLikeViaRepostGroup`
+const appBskyNotificationGetGroupedNotificationsMultiPostLikeViaRepostGroup =
+    NSID(
+      ids.appBskyNotificationGetGroupedNotificationsMultiPostLikeViaRepostGroup,
+    );
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostLikeViaRepostItem`
+const appBskyNotificationGetGroupedNotificationsMultiPostLikeViaRepostItem =
+    NSID(
+      ids.appBskyNotificationGetGroupedNotificationsMultiPostLikeViaRepostItem,
+    );
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostRepostGroup`
+const appBskyNotificationGetGroupedNotificationsMultiPostRepostGroup = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsMultiPostRepostGroup,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostRepostItem`
+const appBskyNotificationGetGroupedNotificationsMultiPostRepostItem = NSID(
+  ids.appBskyNotificationGetGroupedNotificationsMultiPostRepostItem,
+);
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostRepostViaRepostGroup`
+const appBskyNotificationGetGroupedNotificationsMultiPostRepostViaRepostGroup =
+    NSID(
+      ids.appBskyNotificationGetGroupedNotificationsMultiPostRepostViaRepostGroup,
+    );
+
+/// `app.bsky.notification.getGroupedNotifications#multiPostRepostViaRepostItem`
+const appBskyNotificationGetGroupedNotificationsMultiPostRepostViaRepostItem =
+    NSID(
+      ids.appBskyNotificationGetGroupedNotificationsMultiPostRepostViaRepostItem,
+    );
+
 /// `app.bsky.notification.getGroupedNotifications#quoteNotification`
 const appBskyNotificationGetGroupedNotificationsQuoteNotification = NSID(
   ids.appBskyNotificationGetGroupedNotificationsQuoteNotification,
