@@ -31,16 +31,20 @@ abstract class EmbedGetEmbedExternalViewOutput
     'data',
     'associatedRefs',
     'associatedRecords',
+    'unverifiedAssociatedRefs',
+    'unverifiedAssociatedRecords',
   ];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedGetEmbedExternalViewOutput({
-    /// Hydrated view of the embed. Present only when the resolved records back the requested URL and supply enough information to populate the required `viewExternal` fields. Omitted alongside the rest of the response when no records resolved or validation failed.
+    /// Legacy hydrated view of the embed, returned for Standard.site records only. Present only when validation passed and the records supply enough information to populate the required `viewExternal` fields.
     @EmbedExternalViewConverter() EmbedExternalView? view,
     @UEmbedGetEmbedExternalViewDataConverter()
     UEmbedGetEmbedExternalViewData? data,
     @RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,
     List<Map<String, dynamic>>? associatedRecords,
+    @RepoStrongRefConverter() List<RepoStrongRef>? unverifiedAssociatedRefs,
+    List<Map<String, dynamic>>? unverifiedAssociatedRecords,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedGetEmbedExternalViewOutput;

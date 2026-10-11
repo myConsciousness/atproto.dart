@@ -45,6 +45,22 @@ _EmbedGetEmbedExternalViewOutput _$EmbedGetEmbedExternalViewOutputFromJson(
           ?.map((e) => Map<String, dynamic>.from(e as Map))
           .toList(),
     ),
+    unverifiedAssociatedRefs: $checkedConvert(
+      'unverifiedAssociatedRefs',
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => const RepoStrongRefConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    ),
+    unverifiedAssociatedRecords: $checkedConvert(
+      'unverifiedAssociatedRecords',
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Map<String, dynamic>.from(e as Map))
+          .toList(),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -69,6 +85,10 @@ Map<String, dynamic> _$EmbedGetEmbedExternalViewOutputToJson(
       ?.map(const RepoStrongRefConverter().toJson)
       .toList(),
   'associatedRecords': ?instance.associatedRecords,
+  'unverifiedAssociatedRefs': ?instance.unverifiedAssociatedRefs
+      ?.map(const RepoStrongRefConverter().toJson)
+      .toList(),
+  'unverifiedAssociatedRecords': ?instance.unverifiedAssociatedRecords,
   r'$unknown': ?instance.$unknown,
 };
 

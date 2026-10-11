@@ -1,5 +1,19 @@
 # Release Note
 
+## v2.12.1
+
+- chore: updated `app.bsky.embed.getEmbedExternalView`
+- chore: updated `app.bsky.embed.getEmbedExternalView.output.associatedRecords`
+- chore: updated `app.bsky.embed.getEmbedExternalView.output.associatedRefs`
+- chore: updated `app.bsky.embed.getEmbedExternalView.output.data`
+- feat: added `app.bsky.embed.getEmbedExternalView.output.unverifiedAssociatedRecords`
+- feat: added `app.bsky.embed.getEmbedExternalView.output.unverifiedAssociatedRefs`
+- chore: updated `app.bsky.embed.getEmbedExternalView.output.view`
+- feat: added `app.bsky.embed.getEmbedExternalView.parameters.canonicalUri`
+- chore: `app.bsky.embed.getEmbedExternalView.parameters.uris` is now optional
+- chore: updated `app.bsky.embed.getEmbedExternalView.parameters.url`
+- chore: regenerated from synced lexicons
+
 ## v2.12.0
 
 - fix!: `app.bsky.notification.getGroupedNotifications#group.kind` changed type (union([#likeGroup, #multiPostLikeGroup, #repostGroup, #likeViaRepostGroup, #repostViaRepostGroup, #followGroup, #subscribedPostGroup, #generatorLikeGroup, #replyNotification, #quoteNotification, #mentionNotification, #followBackNotification, #verifiedNotification, #unverifiedNotification, #starterPackJoinedNotification, #contactMatchNotification]) -> union([#likeGroup, #multiPostLikeGroup, #multiPostRepostGroup, #multiPostLikeViaRepostGroup, #multiPostRepostViaRepostGroup, #repostGroup, #likeViaRepostGroup, #repostViaRepostGroup, #followGroup, #subscribedPostGroup, #generatorLikeGroup, #replyNotification, #quoteNotification, #mentionNotification, #followBackNotification, #verifiedNotification, #unverifiedNotification, #starterPackJoinedNotification, #contactMatchNotification])) (BREAKING)

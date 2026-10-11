@@ -22,19 +22,28 @@ part 'input.g.dart';
 @freezed
 abstract class EmbedGetEmbedExternalViewInput
     with _$EmbedGetEmbedExternalViewInput {
-  static const knownProps = <String>['url', 'uris'];
+  static const knownProps = <String>['url', 'canonicalUri', 'uris'];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedGetEmbedExternalViewInput({
-    /// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`. May be used for validation in the future.
+    /// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`, and validated against the resolved records.
     required String url,
-    @AtUriConverter() required List<AtUri> uris,
+
+    /// The canonical AT URI of the atproto record found on the webpage. When provided, takes precedence over `uris`, which is then ignored.
+    @AtUriConverter() AtUri? canonicalUri,
+    @AtUriConverter() List<AtUri>? uris,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedGetEmbedExternalViewInput;
 
   factory EmbedGetEmbedExternalViewInput.fromJson(Map<String, Object?> json) =>
       _$EmbedGetEmbedExternalViewInputFromJson(json);
+}
+
+extension EmbedGetEmbedExternalViewInputExtension
+    on EmbedGetEmbedExternalViewInput {
+  bool get hasCanonicalUri => canonicalUri != null;
+  bool get hasNotCanonicalUri => !hasCanonicalUri;
 }
 
 final class EmbedGetEmbedExternalViewInputConverter

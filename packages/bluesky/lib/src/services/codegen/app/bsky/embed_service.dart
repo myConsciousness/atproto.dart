@@ -19,11 +19,12 @@ import 'embed/getEmbedExternalView/output.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Resolve one or more AT-URIs into the data needed to render an enhanced external embed. Returns `associatedRefs` (strongRefs to embed into a post's external.associatedRefs), the raw `associatedRecords`, and a hydrated `view`. The response is empty (`{}`) when no records were resolvable, or when validation determined the resolved records don't actually back the requested URL; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.
+/// Resolve one AT-URI record into the data needed to render an enhanced external embed. The records are validated against the requested `url` before any view is built. When validation passes, returns `data`, `associatedRefs` (strongRefs to embed into a post's external.associatedRefs) and the raw `associatedRecords`, plus a legacy `view` for Standard.site records only. When validation fails, only `unverifiedAssociatedRefs` and `unverifiedAssociatedRecords` are returned and no view or data is built. The response is empty (`{}`) when no record URI was usable or the record could not be resolved; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.
 Future<XRPCResponse<EmbedGetEmbedExternalViewOutput>>
 appBskyEmbedGetEmbedExternalView({
   required String url,
-  required List<AtUri> uris,
+  AtUri? canonicalUri,
+  List<AtUri>? uris,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -35,7 +36,8 @@ appBskyEmbedGetEmbedExternalView({
   parameters: {
     ...?$unknown,
     'url': url,
-    'uris': uris.map((e) => e.toString()).toList(),
+    if (canonicalUri != null) 'canonicalUri': canonicalUri.toString(),
+    if (uris != null) 'uris': uris.map((e) => e.toString()).toList(),
   },
   to: const EmbedGetEmbedExternalViewOutputConverter().fromJson,
 );
@@ -47,15 +49,17 @@ base class EmbedService {
 
   EmbedService(this.ctx);
 
-  /// Resolve one or more AT-URIs into the data needed to render an enhanced external embed. Returns `associatedRefs` (strongRefs to embed into a post's external.associatedRefs), the raw `associatedRecords`, and a hydrated `view`. The response is empty (`{}`) when no records were resolvable, or when validation determined the resolved records don't actually back the requested URL; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.
+  /// Resolve one AT-URI record into the data needed to render an enhanced external embed. The records are validated against the requested `url` before any view is built. When validation passes, returns `data`, `associatedRefs` (strongRefs to embed into a post's external.associatedRefs) and the raw `associatedRecords`, plus a legacy `view` for Standard.site records only. When validation fails, only `unverifiedAssociatedRefs` and `unverifiedAssociatedRecords` are returned and no view or data is built. The response is empty (`{}`) when no record URI was usable or the record could not be resolved; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.
   Future<XRPCResponse<EmbedGetEmbedExternalViewOutput>> getEmbedExternalView({
     required String url,
-    required List<AtUri> uris,
+    AtUri? canonicalUri,
+    List<AtUri>? uris,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyEmbedGetEmbedExternalView(
     url: url,
+    canonicalUri: canonicalUri,
     uris: uris,
     $ctx: ctx,
     $service: $service,
