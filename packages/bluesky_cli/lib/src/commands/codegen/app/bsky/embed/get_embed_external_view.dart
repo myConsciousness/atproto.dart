@@ -20,13 +20,18 @@ final class GetEmbedExternalViewCommand extends QueryCommand {
       ..addOption(
         "url",
         help:
-            r"The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`. May be used for validation in the future.",
+            r"The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`, and validated against the resolved records.",
         mandatory: true,
+      )
+      ..addOption(
+        "canonicalUri",
+        help:
+            r"The canonical AT URI of the atproto record found on the webpage. When provided, takes precedence over `uris`, which is then ignored.",
       )
       ..addMultiOption(
         "uris",
         help:
-            r"AT-URIs of any Atmosphere records that can be resolved and used to construct #externalView views. Example: a site.standard.document and optionally its associated site.standard.publication.",
+            r"Legacy input for Standard.site callers, ignored when `canonicalUri` is provided. A single record is selected from it: the first site.standard.document URI, otherwise the first site.standard.publication URI. Other entries are ignored; a document's publication is discovered from the document itself.",
       );
   }
 
@@ -35,11 +40,11 @@ final class GetEmbedExternalViewCommand extends QueryCommand {
 
   @override
   final String description =
-      "Resolve one or more AT-URIs into the data needed to render an enhanced external embed. Returns `associatedRefs` (strongRefs to embed into a post's external.associatedRefs), the raw `associatedRecords`, and a hydrated `view`. The response is empty (`{}`) when no records were resolvable, or when validation determined the resolved records don't actually back the requested URL; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.";
+      "Resolve one AT-URI record into the data needed to render an enhanced external embed. The records are validated against the requested `url` before any view is built. When validation passes, returns `data`, `associatedRefs` (strongRefs to embed into a post's external.associatedRefs) and the raw `associatedRecords`, plus a legacy `view` for Standard.site records only. When validation fails, only `unverifiedAssociatedRefs` and `unverifiedAssociatedRecords` are returned and no view or data is built. The response is empty (`{}`) when no record URI was usable or the record could not be resolved; clients should fall back to their own link-card rendering in that case and skip writing strongRefs to the post.";
 
   @override
   final String invocation =
-      "bsky app-bsky-embed get-embed-external-view --url=<value> [--uris=<value>...]";
+      "bsky app-bsky-embed get-embed-external-view --url=<value> [--canonicalUri=<value>] [--uris=<value>...]";
 
   @override
   String get methodId => "app.bsky.embed.getEmbedExternalView";
@@ -47,12 +52,8 @@ final class GetEmbedExternalViewCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     "url": argResults!["url"],
-    "uris": _requireNonEmpty("uris", argResults!["uris"]),
+    if (argResults!.wasParsed("canonicalUri"))
+      "canonicalUri": argResults!["canonicalUri"],
+    if (argResults!.wasParsed("uris")) "uris": argResults!["uris"],
   };
-  List<T> _requireNonEmpty<T>(final String name, final List<T> values) {
-    if (values.isEmpty) {
-      usageException('Option "$name" is required and must not be empty.');
-    }
-    return values;
-  }
 }

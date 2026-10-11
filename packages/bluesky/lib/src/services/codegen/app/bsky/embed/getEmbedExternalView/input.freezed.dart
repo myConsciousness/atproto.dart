@@ -15,8 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedGetEmbedExternalViewInput {
 
-/// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`. May be used for validation in the future.
- String get url;@AtUriConverter() List<AtUri> get uris; Map<String, dynamic>? get $unknown;
+/// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`, and validated against the resolved records.
+ String get url;/// The canonical AT URI of the atproto record found on the webpage. When provided, takes precedence over `uris`, which is then ignored.
+@AtUriConverter() AtUri? get canonicalUri;@AtUriConverter() List<AtUri>? get uris; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedGetEmbedExternalViewInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +30,16 @@ $EmbedGetEmbedExternalViewInputCopyWith<EmbedGetEmbedExternalViewInput> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedGetEmbedExternalViewInput&&(identical(other.url, url) || other.url == url)&&const DeepCollectionEquality().equals(other.uris, uris)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedGetEmbedExternalViewInput&&(identical(other.url, url) || other.url == url)&&(identical(other.canonicalUri, canonicalUri) || other.canonicalUri == canonicalUri)&&const DeepCollectionEquality().equals(other.uris, uris)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,const DeepCollectionEquality().hash(uris),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,url,canonicalUri,const DeepCollectionEquality().hash(uris),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedGetEmbedExternalViewInput(url: $url, uris: $uris, \$unknown: ${$unknown})';
+  return 'EmbedGetEmbedExternalViewInput(url: $url, canonicalUri: $canonicalUri, uris: $uris, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +50,7 @@ abstract mixin class $EmbedGetEmbedExternalViewInputCopyWith<$Res>  {
   factory $EmbedGetEmbedExternalViewInputCopyWith(EmbedGetEmbedExternalViewInput value, $Res Function(EmbedGetEmbedExternalViewInput) _then) = _$EmbedGetEmbedExternalViewInputCopyWithImpl;
 @useResult
 $Res call({
- String url,@AtUriConverter() List<AtUri> uris, Map<String, dynamic>? $unknown
+ String url,@AtUriConverter() AtUri? canonicalUri,@AtUriConverter() List<AtUri>? uris, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +67,12 @@ class _$EmbedGetEmbedExternalViewInputCopyWithImpl<$Res>
 
 /// Create a copy of EmbedGetEmbedExternalViewInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? uris = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? canonicalUri = freezed,Object? uris = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as String,uris: null == uris ? _self.uris : uris // ignore: cast_nullable_to_non_nullable
-as List<AtUri>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,canonicalUri: freezed == canonicalUri ? _self.canonicalUri : canonicalUri // ignore: cast_nullable_to_non_nullable
+as AtUri?,uris: freezed == uris ? _self.uris : uris // ignore: cast_nullable_to_non_nullable
+as List<AtUri>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String url, @AtUriConverter()  List<AtUri> uris,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String url, @AtUriConverter()  AtUri? canonicalUri, @AtUriConverter()  List<AtUri>? uris,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedGetEmbedExternalViewInput() when $default != null:
-return $default(_that.url,_that.uris,_that.$unknown);case _:
+return $default(_that.url,_that.canonicalUri,_that.uris,_that.$unknown);case _:
   return orElse();
 
 }
@@ -177,10 +179,10 @@ return $default(_that.url,_that.uris,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String url, @AtUriConverter()  List<AtUri> uris,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String url, @AtUriConverter()  AtUri? canonicalUri, @AtUriConverter()  List<AtUri>? uris,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedGetEmbedExternalViewInput():
-return $default(_that.url,_that.uris,_that.$unknown);case _:
+return $default(_that.url,_that.canonicalUri,_that.uris,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +199,10 @@ return $default(_that.url,_that.uris,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String url, @AtUriConverter()  List<AtUri> uris,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String url, @AtUriConverter()  AtUri? canonicalUri, @AtUriConverter()  List<AtUri>? uris,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedGetEmbedExternalViewInput() when $default != null:
-return $default(_that.url,_that.uris,_that.$unknown);case _:
+return $default(_that.url,_that.canonicalUri,_that.uris,_that.$unknown);case _:
   return null;
 
 }
@@ -212,16 +214,20 @@ return $default(_that.url,_that.uris,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedGetEmbedExternalViewInput implements EmbedGetEmbedExternalViewInput {
-  const _EmbedGetEmbedExternalViewInput({required this.url, @AtUriConverter() required final  List<AtUri> uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
+  const _EmbedGetEmbedExternalViewInput({required this.url, @AtUriConverter() this.canonicalUri, @AtUriConverter() final  List<AtUri>? uris, final  Map<String, dynamic>? $unknown}): _uris = uris,_$unknown = $unknown;
   factory _EmbedGetEmbedExternalViewInput.fromJson(Map<String, dynamic> json) => _$EmbedGetEmbedExternalViewInputFromJson(json);
 
-/// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`. May be used for validation in the future.
+/// The canonical web URL the embed represents (typically the URL the user pasted into the composer). Used as the returned view's `uri`, and validated against the resolved records.
 @override final  String url;
- final  List<AtUri> _uris;
-@override@AtUriConverter() List<AtUri> get uris {
+/// The canonical AT URI of the atproto record found on the webpage. When provided, takes precedence over `uris`, which is then ignored.
+@override@AtUriConverter() final  AtUri? canonicalUri;
+ final  List<AtUri>? _uris;
+@override@AtUriConverter() List<AtUri>? get uris {
+  final value = _uris;
+  if (value == null) return null;
   if (_uris is EqualUnmodifiableListView) return _uris;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_uris);
+  return EqualUnmodifiableListView(value);
 }
 
  final  Map<String, dynamic>? _$unknown;
@@ -247,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedGetEmbedExternalViewInput&&(identical(other.url, url) || other.url == url)&&const DeepCollectionEquality().equals(other._uris, _uris)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedGetEmbedExternalViewInput&&(identical(other.url, url) || other.url == url)&&(identical(other.canonicalUri, canonicalUri) || other.canonicalUri == canonicalUri)&&const DeepCollectionEquality().equals(other._uris, _uris)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,const DeepCollectionEquality().hash(_uris),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,url,canonicalUri,const DeepCollectionEquality().hash(_uris),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedGetEmbedExternalViewInput(url: $url, uris: $uris, \$unknown: ${$unknown})';
+  return 'EmbedGetEmbedExternalViewInput(url: $url, canonicalUri: $canonicalUri, uris: $uris, \$unknown: ${$unknown})';
 }
 
 
@@ -267,7 +273,7 @@ abstract mixin class _$EmbedGetEmbedExternalViewInputCopyWith<$Res> implements $
   factory _$EmbedGetEmbedExternalViewInputCopyWith(_EmbedGetEmbedExternalViewInput value, $Res Function(_EmbedGetEmbedExternalViewInput) _then) = __$EmbedGetEmbedExternalViewInputCopyWithImpl;
 @override @useResult
 $Res call({
- String url,@AtUriConverter() List<AtUri> uris, Map<String, dynamic>? $unknown
+ String url,@AtUriConverter() AtUri? canonicalUri,@AtUriConverter() List<AtUri>? uris, Map<String, dynamic>? $unknown
 });
 
 
@@ -284,11 +290,12 @@ class __$EmbedGetEmbedExternalViewInputCopyWithImpl<$Res>
 
 /// Create a copy of EmbedGetEmbedExternalViewInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? url = null,Object? uris = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? url = null,Object? canonicalUri = freezed,Object? uris = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedGetEmbedExternalViewInput(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as String,uris: null == uris ? _self._uris : uris // ignore: cast_nullable_to_non_nullable
-as List<AtUri>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String,canonicalUri: freezed == canonicalUri ? _self.canonicalUri : canonicalUri // ignore: cast_nullable_to_non_nullable
+as AtUri?,uris: freezed == uris ? _self._uris : uris // ignore: cast_nullable_to_non_nullable
+as List<AtUri>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
