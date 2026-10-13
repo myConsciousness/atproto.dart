@@ -1,5 +1,22 @@
 # Release Note
 
+## v2.13.0
+
+- feat: added `app.bsky.actor.defs#profileLinkView.labels`
+- feat: added `app.bsky.actor.link.labels`
+- chore: updated `tools.ozone.inbox.defs#notificationPreferences`
+- feat: added `tools.ozone.inbox.defs#notificationPreferences.account`
+- feat: added `tools.ozone.inbox.defs#notificationPreferences.labels`
+- fix!: removed `tools.ozone.inbox.defs#notificationPreferences.push` (BREAKING)
+- feat: added `tools.ozone.inbox.defs#notificationPreferences.reports`
+- chore: updated `tools.ozone.inbox.getNotificationPreferences`
+- chore: updated `tools.ozone.inbox.putNotificationPreferences`
+- feat: added `tools.ozone.inbox.putNotificationPreferences.input.account`
+- feat: added `tools.ozone.inbox.putNotificationPreferences.input.labels`
+- fix!: removed `tools.ozone.inbox.putNotificationPreferences.input.push` (BREAKING)
+- feat: added `tools.ozone.inbox.putNotificationPreferences.input.reports`
+- chore: regenerated from synced lexicons
+
 ## v2.12.1
 
 - chore: updated `app.bsky.embed.getEmbedExternalView`

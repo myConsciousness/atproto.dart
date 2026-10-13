@@ -7,6 +7,8 @@ description: tools.ozone.inbox.getNotificationPreferences
 
 ## #main
 
+Get moderation push notification preferences for report outcomes, account actions, and labeling. Returns all three categories, defaulting to enabled for an account without saved preferences.
+
 ### Parameters
 
 | Property | Type | Known Values | Required | Description |

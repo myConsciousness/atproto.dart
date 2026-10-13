@@ -18,14 +18,23 @@ part 'notification_preferences.g.dart';
 // LexGenerator
 // **************************************************************************
 
+/// Push notification preferences by moderation notification category. These preferences do not hide in-app inbox activity. Each category defaults to enabled.
 @freezed
 abstract class NotificationPreferences with _$NotificationPreferences {
-  static const knownProps = <String>['push'];
+  static const knownProps = <String>['reports', 'account', 'labels'];
 
   @JsonSerializable(includeIfNull: false)
   const factory NotificationPreferences({
     @Default('tools.ozone.inbox.defs#notificationPreferences') String $type,
-    required bool push,
+
+    /// Notify about outcomes of reports filed by the account (reportResolved and reportReopened).
+    required bool reports,
+
+    /// Notify about moderation actions against the account or its content, action reversals, appeal outcomes, and standing changes. Label application and removal are controlled by labels.
+    required bool account,
+
+    /// Notify when labels are applied to or removed from the account or its content (labelApplied and labelRemoved actions).
+    required bool labels,
 
     Map<String, dynamic>? $unknown,
   }) = _NotificationPreferences;
@@ -40,8 +49,12 @@ abstract class NotificationPreferences with _$NotificationPreferences {
 }
 
 extension NotificationPreferencesExtension on NotificationPreferences {
-  bool get isPush => push;
-  bool get isNotPush => !isPush;
+  bool get isReports => reports;
+  bool get isNotReports => !isReports;
+  bool get isAccount => account;
+  bool get isNotAccount => !isAccount;
+  bool get isLabels => labels;
+  bool get isNotLabels => !isLabels;
 }
 
 final class NotificationPreferencesConverter

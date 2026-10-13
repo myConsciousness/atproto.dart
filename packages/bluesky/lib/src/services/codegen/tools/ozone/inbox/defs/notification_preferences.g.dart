@@ -16,7 +16,9 @@ _NotificationPreferences _$NotificationPreferencesFromJson(Map json) =>
           (v) =>
               v as String? ?? 'tools.ozone.inbox.defs#notificationPreferences',
         ),
-        push: $checkedConvert('push', (v) => v as bool),
+        reports: $checkedConvert('reports', (v) => v as bool),
+        account: $checkedConvert('account', (v) => v as bool),
+        labels: $checkedConvert('labels', (v) => v as bool),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -29,6 +31,8 @@ Map<String, dynamic> _$NotificationPreferencesToJson(
   _NotificationPreferences instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
-  'push': instance.push,
+  'reports': instance.reports,
+  'account': instance.account,
+  'labels': instance.labels,
   r'$unknown': ?instance.$unknown,
 };

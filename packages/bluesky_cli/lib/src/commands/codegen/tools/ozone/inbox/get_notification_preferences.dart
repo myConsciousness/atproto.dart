@@ -27,7 +27,8 @@ final class GetNotificationPreferencesCommand extends QueryCommand {
   final String name = "get-notification-preferences";
 
   @override
-  final String description = "";
+  final String description =
+      "Get moderation push notification preferences for report outcomes, account actions, and labeling. Returns all three categories, defaulting to enabled for an account without saved preferences.";
 
   @override
   final String invocation =

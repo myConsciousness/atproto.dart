@@ -26,6 +26,7 @@ import 'actor/defs/union_preferences.dart';
 import 'actor/getPreferences/output.dart';
 import 'actor/getProfiles/output.dart';
 import 'actor/getSuggestions/output.dart';
+import 'actor/link/union_main_labels.dart';
 import 'actor/profile/union_main_labels.dart';
 import 'actor/searchActors/output.dart';
 import 'actor/searchActorsTypeahead/output.dart';
@@ -458,6 +459,7 @@ final class ActorLinkRecordAccessor {
     String? title,
     Blob? icon,
     DateTime? createdAt,
+    UActorLinkLabels? labels,
     String? rkey,
     bool? validate,
     String? swapCommit,
@@ -475,6 +477,7 @@ final class ActorLinkRecordAccessor {
       if (title != null) 'title': title,
       if (icon != null) 'icon': icon,
       'createdAt': iso8601(createdAt),
+      if (labels != null) 'labels': labels.toJson(),
     },
     swapCommit: swapCommit,
     $ctx: ctx,
@@ -486,6 +489,7 @@ final class ActorLinkRecordAccessor {
     String? title,
     Blob? icon,
     DateTime? createdAt,
+    UActorLinkLabels? labels,
     required String rkey,
     bool? validate,
     String? swapRecord,
@@ -504,6 +508,7 @@ final class ActorLinkRecordAccessor {
       if (title != null) 'title': title,
       if (icon != null) 'icon': icon,
       'createdAt': iso8601(createdAt),
+      if (labels != null) 'labels': labels.toJson(),
     },
     swapRecord: swapRecord,
     swapCommit: swapCommit,

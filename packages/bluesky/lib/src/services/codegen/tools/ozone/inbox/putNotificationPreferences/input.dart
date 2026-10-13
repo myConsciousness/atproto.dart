@@ -21,11 +21,18 @@ part 'input.g.dart';
 @freezed
 abstract class InboxPutNotificationPreferencesInput
     with _$InboxPutNotificationPreferencesInput {
-  static const knownProps = <String>['push'];
+  static const knownProps = <String>['reports', 'account', 'labels'];
 
   @JsonSerializable(includeIfNull: false)
   const factory InboxPutNotificationPreferencesInput({
-    required bool push,
+    /// Notify about outcomes of reports filed by the account.
+    bool? reports,
+
+    /// Notify about moderation actions against the account or its content, excluding labeling.
+    bool? account,
+
+    /// Notify about labels applied to or removed from the account or its content.
+    bool? labels,
 
     Map<String, dynamic>? $unknown,
   }) = _InboxPutNotificationPreferencesInput;
@@ -37,8 +44,12 @@ abstract class InboxPutNotificationPreferencesInput
 
 extension InboxPutNotificationPreferencesInputExtension
     on InboxPutNotificationPreferencesInput {
-  bool get isPush => push;
-  bool get isNotPush => !isPush;
+  bool get isReports => reports ?? false;
+  bool get isNotReports => !isReports;
+  bool get isAccount => account ?? false;
+  bool get isNotAccount => !isAccount;
+  bool get isLabels => labels ?? false;
+  bool get isNotLabels => !isLabels;
 }
 
 final class InboxPutNotificationPreferencesInputConverter

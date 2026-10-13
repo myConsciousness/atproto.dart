@@ -103,6 +103,7 @@ description: app.bsky.actor.defs
 | **url** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | The link destination. |
 | **title** | string | - | ❌ | - |
 | **icon** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | Image URL for the destination site's icon. |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 
 ## #profileAssociatedActivitySubscription
 

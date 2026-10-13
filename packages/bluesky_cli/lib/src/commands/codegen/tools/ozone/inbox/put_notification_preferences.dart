@@ -16,22 +16,41 @@ import '../../../../procedure_command.dart';
 
 final class PutNotificationPreferencesCommand extends ProcedureCommand {
   PutNotificationPreferencesCommand() {
-    argParser..addFlag("push");
+    argParser
+      ..addFlag(
+        "reports",
+        help: r"Notify about outcomes of reports filed by the account.",
+      )
+      ..addFlag(
+        "account",
+        help:
+            r"Notify about moderation actions against the account or its content, excluding labeling.",
+      )
+      ..addFlag(
+        "labels",
+        help:
+            r"Notify about labels applied to or removed from the account or its content.",
+      );
   }
 
   @override
   final String name = "put-notification-preferences";
 
   @override
-  final String description = "";
+  final String description =
+      "Update the authenticated account's moderation push notification preferences. Only provided categories are updated; omitted categories retain their values. At least one category must be provided. Returns all three preferences. These preferences do not hide in-app inbox activity.";
 
   @override
   final String invocation =
-      "bsky tools-ozone-inbox put-notification-preferences [--push]";
+      "bsky tools-ozone-inbox put-notification-preferences [--reports] [--account] [--labels]";
 
   @override
   String get methodId => "tools.ozone.inbox.putNotificationPreferences";
 
   @override
-  Map<String, dynamic>? get body => {"push": argResults!["push"]};
+  Map<String, dynamic>? get body => {
+    if (argResults!.wasParsed("reports")) "reports": argResults!["reports"],
+    if (argResults!.wasParsed("account")) "account": argResults!["account"],
+    if (argResults!.wasParsed("labels")) "labels": argResults!["labels"],
+  };
 }

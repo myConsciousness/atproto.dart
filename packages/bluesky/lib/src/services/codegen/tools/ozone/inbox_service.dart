@@ -100,6 +100,8 @@ Future<XRPCResponse<SubjectViewDetail>> toolsOzoneInboxGetActionedSubject({
   },
   to: const SubjectViewDetailConverter().fromJson,
 );
+
+/// Get moderation push notification preferences for report outcomes, account actions, and labeling. Returns all three categories, defaulting to enabled for an account without saved preferences.
 Future<XRPCResponse<InboxGetNotificationPreferencesOutput>>
 toolsOzoneInboxGetNotificationPreferences({
   String? did,
@@ -232,9 +234,13 @@ Future<XRPCResponse<InboxListReportsOutput>> toolsOzoneInboxListReports({
   },
   to: const InboxListReportsOutputConverter().fromJson,
 );
+
+/// Update the authenticated account's moderation push notification preferences. Only provided categories are updated; omitted categories retain their values. At least one category must be provided. Returns all three preferences. These preferences do not hide in-app inbox activity.
 Future<XRPCResponse<InboxPutNotificationPreferencesOutput>>
 toolsOzoneInboxPutNotificationPreferences({
-  required bool push,
+  bool? reports,
+  bool? account,
+  bool? labels,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -243,7 +249,12 @@ toolsOzoneInboxPutNotificationPreferences({
   ns.toolsOzoneInboxPutNotificationPreferences,
   service: $service,
   headers: {'Content-type': 'application/json', ...?$headers},
-  body: {...?$unknown, 'push': push},
+  body: {
+    ...?$unknown,
+    if (reports != null) 'reports': reports,
+    if (account != null) 'account': account,
+    if (labels != null) 'labels': labels,
+  },
   to: const InboxPutNotificationPreferencesOutputConverter().fromJson,
 );
 Future<XRPCResponse<InboxUpdateSeenOutput>> toolsOzoneInboxUpdateSeen({
@@ -325,6 +336,8 @@ base class InboxService {
     $headers: $headers,
     $unknown: $unknown,
   );
+
+  /// Get moderation push notification preferences for report outcomes, account actions, and labeling. Returns all three categories, defaulting to enabled for an account without saved preferences.
   Future<XRPCResponse<InboxGetNotificationPreferencesOutput>>
   getNotificationPreferences({
     String? did,
@@ -438,14 +451,20 @@ base class InboxService {
     $headers: $headers,
     $unknown: $unknown,
   );
+
+  /// Update the authenticated account's moderation push notification preferences. Only provided categories are updated; omitted categories retain their values. At least one category must be provided. Returns all three preferences. These preferences do not hide in-app inbox activity.
   Future<XRPCResponse<InboxPutNotificationPreferencesOutput>>
   putNotificationPreferences({
-    required bool push,
+    bool? reports,
+    bool? account,
+    bool? labels,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await toolsOzoneInboxPutNotificationPreferences(
-    push: push,
+    reports: reports,
+    account: account,
+    labels: labels,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

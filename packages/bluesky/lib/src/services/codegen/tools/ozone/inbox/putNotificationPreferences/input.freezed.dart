@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$InboxPutNotificationPreferencesInput {
 
- bool get push; Map<String, dynamic>? get $unknown;
+/// Notify about outcomes of reports filed by the account.
+ bool? get reports;/// Notify about moderation actions against the account or its content, excluding labeling.
+ bool? get account;/// Notify about labels applied to or removed from the account or its content.
+ bool? get labels; Map<String, dynamic>? get $unknown;
 /// Create a copy of InboxPutNotificationPreferencesInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +31,16 @@ $InboxPutNotificationPreferencesInputCopyWith<InboxPutNotificationPreferencesInp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is InboxPutNotificationPreferencesInput&&(identical(other.push, push) || other.push == push)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InboxPutNotificationPreferencesInput&&(identical(other.reports, reports) || other.reports == reports)&&(identical(other.account, account) || other.account == account)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,push,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,reports,account,labels,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'InboxPutNotificationPreferencesInput(push: $push, \$unknown: ${$unknown})';
+  return 'InboxPutNotificationPreferencesInput(reports: $reports, account: $account, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +51,7 @@ abstract mixin class $InboxPutNotificationPreferencesInputCopyWith<$Res>  {
   factory $InboxPutNotificationPreferencesInputCopyWith(InboxPutNotificationPreferencesInput value, $Res Function(InboxPutNotificationPreferencesInput) _then) = _$InboxPutNotificationPreferencesInputCopyWithImpl;
 @useResult
 $Res call({
- bool push, Map<String, dynamic>? $unknown
+ bool? reports, bool? account, bool? labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +68,12 @@ class _$InboxPutNotificationPreferencesInputCopyWithImpl<$Res>
 
 /// Create a copy of InboxPutNotificationPreferencesInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? push = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? reports = freezed,Object? account = freezed,Object? labels = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
-push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
-as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+reports: freezed == reports ? _self.reports : reports // ignore: cast_nullable_to_non_nullable
+as bool?,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as bool?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -154,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool push,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? reports,  bool? account,  bool? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _InboxPutNotificationPreferencesInput() when $default != null:
-return $default(_that.push,_that.$unknown);case _:
+return $default(_that.reports,_that.account,_that.labels,_that.$unknown);case _:
   return orElse();
 
 }
@@ -175,10 +180,10 @@ return $default(_that.push,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool push,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? reports,  bool? account,  bool? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _InboxPutNotificationPreferencesInput():
-return $default(_that.push,_that.$unknown);case _:
+return $default(_that.reports,_that.account,_that.labels,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +200,10 @@ return $default(_that.push,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool push,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? reports,  bool? account,  bool? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _InboxPutNotificationPreferencesInput() when $default != null:
-return $default(_that.push,_that.$unknown);case _:
+return $default(_that.reports,_that.account,_that.labels,_that.$unknown);case _:
   return null;
 
 }
@@ -210,10 +215,15 @@ return $default(_that.push,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _InboxPutNotificationPreferencesInput implements InboxPutNotificationPreferencesInput {
-  const _InboxPutNotificationPreferencesInput({required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _InboxPutNotificationPreferencesInput({this.reports, this.account, this.labels, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _InboxPutNotificationPreferencesInput.fromJson(Map<String, dynamic> json) => _$InboxPutNotificationPreferencesInputFromJson(json);
 
-@override final  bool push;
+/// Notify about outcomes of reports filed by the account.
+@override final  bool? reports;
+/// Notify about moderation actions against the account or its content, excluding labeling.
+@override final  bool? account;
+/// Notify about labels applied to or removed from the account or its content.
+@override final  bool? labels;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -237,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InboxPutNotificationPreferencesInput&&(identical(other.push, push) || other.push == push)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InboxPutNotificationPreferencesInput&&(identical(other.reports, reports) || other.reports == reports)&&(identical(other.account, account) || other.account == account)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,push,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,reports,account,labels,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'InboxPutNotificationPreferencesInput(push: $push, \$unknown: ${$unknown})';
+  return 'InboxPutNotificationPreferencesInput(reports: $reports, account: $account, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -257,7 +267,7 @@ abstract mixin class _$InboxPutNotificationPreferencesInputCopyWith<$Res> implem
   factory _$InboxPutNotificationPreferencesInputCopyWith(_InboxPutNotificationPreferencesInput value, $Res Function(_InboxPutNotificationPreferencesInput) _then) = __$InboxPutNotificationPreferencesInputCopyWithImpl;
 @override @useResult
 $Res call({
- bool push, Map<String, dynamic>? $unknown
+ bool? reports, bool? account, bool? labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -274,10 +284,12 @@ class __$InboxPutNotificationPreferencesInputCopyWithImpl<$Res>
 
 /// Create a copy of InboxPutNotificationPreferencesInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? push = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? reports = freezed,Object? account = freezed,Object? labels = freezed,Object? $unknown = freezed,}) {
   return _then(_InboxPutNotificationPreferencesInput(
-push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
-as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+reports: freezed == reports ? _self.reports : reports // ignore: cast_nullable_to_non_nullable
+as bool?,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as bool?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

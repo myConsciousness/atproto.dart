@@ -19,6 +19,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **title** | string | - | ❌ | Optional label for the link. Clients can fall back to the destination's domain. |
 | **icon** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | The destination site's icon, uploaded when the link is saved. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 
 ### Output
 
