@@ -18,7 +18,7 @@ mixin _$ProfileLinkView {
  String get $type;/// The app.bsky.actor.link record, e.g. for reporting the link.
 @AtUriConverter() AtUri get uri; String get cid;/// The link destination.
  String get url; String? get title;/// Image URL for the destination site's icon.
- String? get icon; Map<String, dynamic>? get $unknown;
+ String? get icon;@LabelConverter() List<Label>? get labels; Map<String, dynamic>? get $unknown;
 /// Create a copy of ProfileLinkView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +31,16 @@ $ProfileLinkViewCopyWith<ProfileLinkView> get copyWith => _$ProfileLinkViewCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileLinkView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileLinkView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other.labels, labels)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,cid,url,title,icon,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,cid,url,title,icon,const DeepCollectionEquality().hash(labels),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ProfileLinkView(\$type: ${$type}, uri: $uri, cid: $cid, url: $url, title: $title, icon: $icon, \$unknown: ${$unknown})';
+  return 'ProfileLinkView(\$type: ${$type}, uri: $uri, cid: $cid, url: $url, title: $title, icon: $icon, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -51,7 +51,7 @@ abstract mixin class $ProfileLinkViewCopyWith<$Res>  {
   factory $ProfileLinkViewCopyWith(ProfileLinkView value, $Res Function(ProfileLinkView) _then) = _$ProfileLinkViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, String url, String? title, String? icon, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, String url, String? title, String? icon,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +68,7 @@ class _$ProfileLinkViewCopyWithImpl<$Res>
 
 /// Create a copy of ProfileLinkView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? labels = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,8 @@ as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_null
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,icon: freezed == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as List<Label>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -162,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String url,  String? title,  String? icon,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String url,  String? title,  String? icon, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileLinkView() when $default != null:
-return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon,_that.labels,_that.$unknown);case _:
   return orElse();
 
 }
@@ -183,10 +184,10 @@ return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String url,  String? title,  String? icon,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String url,  String? title,  String? icon, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileLinkView():
-return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon,_that.labels,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -203,10 +204,10 @@ return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String url,  String? title,  String? icon,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid,  String url,  String? title,  String? icon, @LabelConverter()  List<Label>? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileLinkView() when $default != null:
-return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon,_that.labels,_that.$unknown);case _:
   return null;
 
 }
@@ -218,7 +219,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.url,_that.title,_that.icon
 
 @JsonSerializable(includeIfNull: false)
 class _ProfileLinkView implements ProfileLinkView {
-  const _ProfileLinkView({this.$type = 'app.bsky.actor.defs#profileLinkView', @AtUriConverter() required this.uri, required this.cid, required this.url, this.title, this.icon, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ProfileLinkView({this.$type = 'app.bsky.actor.defs#profileLinkView', @AtUriConverter() required this.uri, required this.cid, required this.url, this.title, this.icon, @LabelConverter() final  List<Label>? labels, final  Map<String, dynamic>? $unknown}): _labels = labels,_$unknown = $unknown;
   factory _ProfileLinkView.fromJson(Map<String, dynamic> json) => _$ProfileLinkViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -230,6 +231,15 @@ class _ProfileLinkView implements ProfileLinkView {
 @override final  String? title;
 /// Image URL for the destination site's icon.
 @override final  String? icon;
+ final  List<Label>? _labels;
+@override@LabelConverter() List<Label>? get labels {
+  final value = _labels;
+  if (value == null) return null;
+  if (_labels is EqualUnmodifiableListView) return _labels;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -253,16 +263,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileLinkView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileLinkView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&const DeepCollectionEquality().equals(other._labels, _labels)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,cid,url,title,icon,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,cid,url,title,icon,const DeepCollectionEquality().hash(_labels),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ProfileLinkView(\$type: ${$type}, uri: $uri, cid: $cid, url: $url, title: $title, icon: $icon, \$unknown: ${$unknown})';
+  return 'ProfileLinkView(\$type: ${$type}, uri: $uri, cid: $cid, url: $url, title: $title, icon: $icon, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -273,7 +283,7 @@ abstract mixin class _$ProfileLinkViewCopyWith<$Res> implements $ProfileLinkView
   factory _$ProfileLinkViewCopyWith(_ProfileLinkView value, $Res Function(_ProfileLinkView) _then) = __$ProfileLinkViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid, String url, String? title, String? icon, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid, String url, String? title, String? icon,@LabelConverter() List<Label>? labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,7 +300,7 @@ class __$ProfileLinkViewCopyWithImpl<$Res>
 
 /// Create a copy of ProfileLinkView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? labels = freezed,Object? $unknown = freezed,}) {
   return _then(_ProfileLinkView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
@@ -298,7 +308,8 @@ as AtUri,cid: null == cid ? _self.cid : cid // ignore: cast_nullable_to_non_null
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,icon: freezed == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,labels: freezed == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
+as List<Label>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

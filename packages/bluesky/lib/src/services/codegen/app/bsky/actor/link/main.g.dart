@@ -28,6 +28,14 @@ _ActorLinkRecord _$ActorLinkRecordFromJson(Map json) =>
           'createdAt',
           (v) => DateTime.parse(v as String),
         ),
+        labels: $checkedConvert(
+          'labels',
+          (v) =>
+              _$JsonConverterFromJson<Map<String, dynamic>, UActorLinkLabels>(
+                v,
+                const UActorLinkLabelsConverter().fromJson,
+              ),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -46,6 +54,10 @@ Map<String, dynamic> _$ActorLinkRecordToJson(_ActorLinkRecord instance) =>
         const BlobConverter().toJson,
       ),
       'createdAt': iso8601(instance.createdAt),
+      'labels': ?_$JsonConverterToJson<Map<String, dynamic>, UActorLinkLabels>(
+        instance.labels,
+        const UActorLinkLabelsConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
 

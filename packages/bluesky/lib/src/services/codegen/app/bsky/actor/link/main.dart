@@ -12,6 +12,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './union_main_labels.dart';
+
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -22,7 +25,13 @@ part 'main.g.dart';
 /// A link shown on the account's profile. The profile record's links field sets which links are shown, and in what order.
 @freezed
 abstract class ActorLinkRecord with _$ActorLinkRecord {
-  static const knownProps = <String>['url', 'title', 'icon', 'createdAt'];
+  static const knownProps = <String>[
+    'url',
+    'title',
+    'icon',
+    'createdAt',
+    'labels',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory ActorLinkRecord({
@@ -37,6 +46,7 @@ abstract class ActorLinkRecord with _$ActorLinkRecord {
     /// The destination site's icon, uploaded when the link is saved.
     @BlobConverter() Blob? icon,
     @JsonKey(toJson: iso8601) required DateTime createdAt,
+    @UActorLinkLabelsConverter() UActorLinkLabels? labels,
 
     Map<String, dynamic>? $unknown,
   }) = _ActorLinkRecord;
@@ -55,6 +65,8 @@ extension ActorLinkRecordExtension on ActorLinkRecord {
   bool get hasNotTitle => !hasTitle;
   bool get hasIcon => icon != null;
   bool get hasNotIcon => !hasIcon;
+  bool get hasLabels => labels != null;
+  bool get hasNotLabels => !hasLabels;
 }
 
 final class ActorLinkRecordConverter

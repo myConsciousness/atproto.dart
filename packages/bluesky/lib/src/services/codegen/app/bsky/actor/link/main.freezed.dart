@@ -18,7 +18,7 @@ mixin _$ActorLinkRecord {
  String get $type;/// The link destination, an https URL.
  String get url;/// Optional label for the link. Clients can fall back to the destination's domain.
  String? get title;/// The destination site's icon, uploaded when the link is saved.
-@BlobConverter() Blob? get icon;@JsonKey(toJson: iso8601) DateTime get createdAt; Map<String, dynamic>? get $unknown;
+@BlobConverter() Blob? get icon;@JsonKey(toJson: iso8601) DateTime get createdAt;@UActorLinkLabelsConverter() UActorLinkLabels? get labels; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorLinkRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +31,16 @@ $ActorLinkRecordCopyWith<ActorLinkRecord> get copyWith => _$ActorLinkRecordCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorLinkRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorLinkRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,url,title,icon,createdAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,url,title,icon,createdAt,labels,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ActorLinkRecord(\$type: ${$type}, url: $url, title: $title, icon: $icon, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'ActorLinkRecord(\$type: ${$type}, url: $url, title: $title, icon: $icon, createdAt: $createdAt, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -51,11 +51,11 @@ abstract mixin class $ActorLinkRecordCopyWith<$Res>  {
   factory $ActorLinkRecordCopyWith(ActorLinkRecord value, $Res Function(ActorLinkRecord) _then) = _$ActorLinkRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String url, String? title,@BlobConverter() Blob? icon,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String url, String? title,@BlobConverter() Blob? icon,@JsonKey(toJson: iso8601) DateTime createdAt,@UActorLinkLabelsConverter() UActorLinkLabels? labels, Map<String, dynamic>? $unknown
 });
 
 
-$BlobCopyWith<$Res>? get icon;
+$BlobCopyWith<$Res>? get icon;$UActorLinkLabelsCopyWith<$Res>? get labels;
 
 }
 /// @nodoc
@@ -68,14 +68,15 @@ class _$ActorLinkRecordCopyWithImpl<$Res>
 
 /// Create a copy of ActorLinkRecord
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? createdAt = null,Object? labels = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,icon: freezed == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
 as Blob?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as DateTime,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as UActorLinkLabels?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -90,6 +91,18 @@ $BlobCopyWith<$Res>? get icon {
 
   return $BlobCopyWith<$Res>(_self.icon!, (value) {
     return _then(_self.copyWith(icon: value));
+  });
+}/// Create a copy of ActorLinkRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UActorLinkLabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+    return null;
+  }
+
+  return $UActorLinkLabelsCopyWith<$Res>(_self.labels!, (value) {
+    return _then(_self.copyWith(labels: value));
   });
 }
 }
@@ -173,10 +186,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String url,  String? title, @BlobConverter()  Blob? icon, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String url,  String? title, @BlobConverter()  Blob? icon, @JsonKey(toJson: iso8601)  DateTime createdAt, @UActorLinkLabelsConverter()  UActorLinkLabels? labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorLinkRecord() when $default != null:
-return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_that.labels,_that.$unknown);case _:
   return orElse();
 
 }
@@ -194,10 +207,10 @@ return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String url,  String? title, @BlobConverter()  Blob? icon, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String url,  String? title, @BlobConverter()  Blob? icon, @JsonKey(toJson: iso8601)  DateTime createdAt, @UActorLinkLabelsConverter()  UActorLinkLabels? labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorLinkRecord():
-return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_that.labels,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +227,10 @@ return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String url,  String? title, @BlobConverter()  Blob? icon, @JsonKey(toJson: iso8601)  DateTime createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String url,  String? title, @BlobConverter()  Blob? icon, @JsonKey(toJson: iso8601)  DateTime createdAt, @UActorLinkLabelsConverter()  UActorLinkLabels? labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorLinkRecord() when $default != null:
-return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_that.labels,_that.$unknown);case _:
   return null;
 
 }
@@ -229,7 +242,7 @@ return $default(_that.$type,_that.url,_that.title,_that.icon,_that.createdAt,_th
 
 @JsonSerializable(includeIfNull: false)
 class _ActorLinkRecord implements ActorLinkRecord {
-  const _ActorLinkRecord({this.$type = 'app.bsky.actor.link', required this.url, this.title, @BlobConverter() this.icon, @JsonKey(toJson: iso8601) required this.createdAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ActorLinkRecord({this.$type = 'app.bsky.actor.link', required this.url, this.title, @BlobConverter() this.icon, @JsonKey(toJson: iso8601) required this.createdAt, @UActorLinkLabelsConverter() this.labels, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _ActorLinkRecord.fromJson(Map<String, dynamic> json) => _$ActorLinkRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -240,6 +253,7 @@ class _ActorLinkRecord implements ActorLinkRecord {
 /// The destination site's icon, uploaded when the link is saved.
 @override@BlobConverter() final  Blob? icon;
 @override@JsonKey(toJson: iso8601) final  DateTime createdAt;
+@override@UActorLinkLabelsConverter() final  UActorLinkLabels? labels;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -263,16 +277,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorLinkRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorLinkRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.title, title) || other.title == title)&&(identical(other.icon, icon) || other.icon == icon)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,url,title,icon,createdAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,url,title,icon,createdAt,labels,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ActorLinkRecord(\$type: ${$type}, url: $url, title: $title, icon: $icon, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'ActorLinkRecord(\$type: ${$type}, url: $url, title: $title, icon: $icon, createdAt: $createdAt, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -283,11 +297,11 @@ abstract mixin class _$ActorLinkRecordCopyWith<$Res> implements $ActorLinkRecord
   factory _$ActorLinkRecordCopyWith(_ActorLinkRecord value, $Res Function(_ActorLinkRecord) _then) = __$ActorLinkRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String url, String? title,@BlobConverter() Blob? icon,@JsonKey(toJson: iso8601) DateTime createdAt, Map<String, dynamic>? $unknown
+ String $type, String url, String? title,@BlobConverter() Blob? icon,@JsonKey(toJson: iso8601) DateTime createdAt,@UActorLinkLabelsConverter() UActorLinkLabels? labels, Map<String, dynamic>? $unknown
 });
 
 
-@override $BlobCopyWith<$Res>? get icon;
+@override $BlobCopyWith<$Res>? get icon;@override $UActorLinkLabelsCopyWith<$Res>? get labels;
 
 }
 /// @nodoc
@@ -300,14 +314,15 @@ class __$ActorLinkRecordCopyWithImpl<$Res>
 
 /// Create a copy of ActorLinkRecord
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? createdAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? url = null,Object? title = freezed,Object? icon = freezed,Object? createdAt = null,Object? labels = freezed,Object? $unknown = freezed,}) {
   return _then(_ActorLinkRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,icon: freezed == icon ? _self.icon : icon // ignore: cast_nullable_to_non_nullable
 as Blob?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as DateTime,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as UActorLinkLabels?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -323,6 +338,18 @@ $BlobCopyWith<$Res>? get icon {
 
   return $BlobCopyWith<$Res>(_self.icon!, (value) {
     return _then(_self.copyWith(icon: value));
+  });
+}/// Create a copy of ActorLinkRecord
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UActorLinkLabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+    return null;
+  }
+
+  return $UActorLinkLabelsCopyWith<$Res>(_self.labels!, (value) {
+    return _then(_self.copyWith(labels: value));
   });
 }
 }

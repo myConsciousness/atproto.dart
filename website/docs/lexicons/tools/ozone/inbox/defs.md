@@ -108,9 +108,13 @@ Aggregate view of reports filed against this subject. Deliberately carries no re
 
 ## #notificationPreferences
 
+Push notification preferences by moderation notification category. These preferences do not hide in-app inbox activity. Each category defaults to enabled.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **push** | boolean | - | ✅ | - |
+| **reports** | boolean | - | ✅ | Notify about outcomes of reports filed by the account (reportResolved and reportReopened). |
+| **account** | boolean | - | ✅ | Notify about moderation actions against the account or its content, action reversals, appeal outcomes, and standing changes. Label application and removal are controlled by labels. |
+| **labels** | boolean | - | ✅ | Notify when labels are applied to or removed from the account or its content (labelApplied and labelRemoved actions). |
 
 ## #reportRef
 

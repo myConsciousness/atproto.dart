@@ -23,6 +23,15 @@ _ProfileLinkView _$ProfileLinkViewFromJson(Map json) =>
         url: $checkedConvert('url', (v) => v as String),
         title: $checkedConvert('title', (v) => v as String?),
         icon: $checkedConvert('icon', (v) => v as String?),
+        labels: $checkedConvert(
+          'labels',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) =>
+                    const LabelConverter().fromJson(e as Map<String, dynamic>),
+              )
+              .toList(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -39,5 +48,6 @@ Map<String, dynamic> _$ProfileLinkViewToJson(_ProfileLinkView instance) =>
       'url': instance.url,
       'title': ?instance.title,
       'icon': ?instance.icon,
+      'labels': ?instance.labels?.map(const LabelConverter().toJson).toList(),
       r'$unknown': ?instance.$unknown,
     };

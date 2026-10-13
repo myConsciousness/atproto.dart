@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationPreferences {
 
- String get $type; bool get push; Map<String, dynamic>? get $unknown;
+ String get $type;/// Notify about outcomes of reports filed by the account (reportResolved and reportReopened).
+ bool get reports;/// Notify about moderation actions against the account or its content, action reversals, appeal outcomes, and standing changes. Label application and removal are controlled by labels.
+ bool get account;/// Notify when labels are applied to or removed from the account or its content (labelApplied and labelRemoved actions).
+ bool get labels; Map<String, dynamic>? get $unknown;
 /// Create a copy of NotificationPreferences
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +31,16 @@ $NotificationPreferencesCopyWith<NotificationPreferences> get copyWith => _$Noti
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationPreferences&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.push, push) || other.push == push)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationPreferences&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.reports, reports) || other.reports == reports)&&(identical(other.account, account) || other.account == account)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,push,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,reports,account,labels,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'NotificationPreferences(\$type: ${$type}, push: $push, \$unknown: ${$unknown})';
+  return 'NotificationPreferences(\$type: ${$type}, reports: $reports, account: $account, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +51,7 @@ abstract mixin class $NotificationPreferencesCopyWith<$Res>  {
   factory $NotificationPreferencesCopyWith(NotificationPreferences value, $Res Function(NotificationPreferences) _then) = _$NotificationPreferencesCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool push, Map<String, dynamic>? $unknown
+ String $type, bool reports, bool account, bool labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,10 +68,12 @@ class _$NotificationPreferencesCopyWithImpl<$Res>
 
 /// Create a copy of NotificationPreferences
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? push = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? reports = null,Object? account = null,Object? labels = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
+as String,reports: null == reports ? _self.reports : reports // ignore: cast_nullable_to_non_nullable
+as bool,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as bool,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -155,10 +160,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool push,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool reports,  bool account,  bool labels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationPreferences() when $default != null:
-return $default(_that.$type,_that.push,_that.$unknown);case _:
+return $default(_that.$type,_that.reports,_that.account,_that.labels,_that.$unknown);case _:
   return orElse();
 
 }
@@ -176,10 +181,10 @@ return $default(_that.$type,_that.push,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool push,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool reports,  bool account,  bool labels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationPreferences():
-return $default(_that.$type,_that.push,_that.$unknown);case _:
+return $default(_that.$type,_that.reports,_that.account,_that.labels,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +201,10 @@ return $default(_that.$type,_that.push,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool push,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool reports,  bool account,  bool labels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationPreferences() when $default != null:
-return $default(_that.$type,_that.push,_that.$unknown);case _:
+return $default(_that.$type,_that.reports,_that.account,_that.labels,_that.$unknown);case _:
   return null;
 
 }
@@ -211,11 +216,16 @@ return $default(_that.$type,_that.push,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _NotificationPreferences implements NotificationPreferences {
-  const _NotificationPreferences({this.$type = 'tools.ozone.inbox.defs#notificationPreferences', required this.push, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _NotificationPreferences({this.$type = 'tools.ozone.inbox.defs#notificationPreferences', required this.reports, required this.account, required this.labels, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _NotificationPreferences.fromJson(Map<String, dynamic> json) => _$NotificationPreferencesFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  bool push;
+/// Notify about outcomes of reports filed by the account (reportResolved and reportReopened).
+@override final  bool reports;
+/// Notify about moderation actions against the account or its content, action reversals, appeal outcomes, and standing changes. Label application and removal are controlled by labels.
+@override final  bool account;
+/// Notify when labels are applied to or removed from the account or its content (labelApplied and labelRemoved actions).
+@override final  bool labels;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -239,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationPreferences&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.push, push) || other.push == push)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotificationPreferences&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.reports, reports) || other.reports == reports)&&(identical(other.account, account) || other.account == account)&&(identical(other.labels, labels) || other.labels == labels)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,push,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,reports,account,labels,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'NotificationPreferences(\$type: ${$type}, push: $push, \$unknown: ${$unknown})';
+  return 'NotificationPreferences(\$type: ${$type}, reports: $reports, account: $account, labels: $labels, \$unknown: ${$unknown})';
 }
 
 
@@ -259,7 +269,7 @@ abstract mixin class _$NotificationPreferencesCopyWith<$Res> implements $Notific
   factory _$NotificationPreferencesCopyWith(_NotificationPreferences value, $Res Function(_NotificationPreferences) _then) = __$NotificationPreferencesCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool push, Map<String, dynamic>? $unknown
+ String $type, bool reports, bool account, bool labels, Map<String, dynamic>? $unknown
 });
 
 
@@ -276,10 +286,12 @@ class __$NotificationPreferencesCopyWithImpl<$Res>
 
 /// Create a copy of NotificationPreferences
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? push = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? reports = null,Object? account = null,Object? labels = null,Object? $unknown = freezed,}) {
   return _then(_NotificationPreferences(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,push: null == push ? _self.push : push // ignore: cast_nullable_to_non_nullable
+as String,reports: null == reports ? _self.reports : reports // ignore: cast_nullable_to_non_nullable
+as bool,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as bool,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));

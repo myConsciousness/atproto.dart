@@ -9,6 +9,7 @@
 
 // Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // Package imports:
 import 'package:args/command_runner.dart';
@@ -57,7 +58,18 @@ mixin _LinkCommandRecordArgs on Command<void> {
         "icon",
         help: r"The destination site's icon, uploaded when the link is saved.",
       )
-      ..addOption("createdAt", mandatory: true);
+      ..addOption("createdAt", mandatory: true)
+      ..addOption("labels", help: r"Self-label values for this link.");
+  }
+
+  Object? _decodeJson(final String name) {
+    final raw = argResults![name];
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw);
+    } on FormatException catch (e) {
+      usageException('Invalid JSON for option "$name": ${e.message}');
+    }
   }
 }
 
@@ -76,7 +88,7 @@ final class _CreateLinkCommand extends CreateRecordCommand
 
   @override
   final String invocation =
-      "bsky app-bsky-actor link create --url=<value> [--title=<value>] [--icon=<value>] --createdAt=<value> [--rkey=<value>]";
+      "bsky app-bsky-actor link create --url=<value> [--title=<value>] [--icon=<value>] --createdAt=<value> [--labels=<value>] [--rkey=<value>]";
 
   @override
   String? get rkey => argResults!['rkey'];
@@ -91,6 +103,7 @@ final class _CreateLinkCommand extends CreateRecordCommand
     if (argResults!.wasParsed("title")) "title": argResults!["title"],
     if (argResults!.wasParsed("icon")) "icon": argResults!["icon"],
     "createdAt": argResults!["createdAt"],
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
   };
 }
 
@@ -109,7 +122,7 @@ final class _PutLinkCommand extends PutRecordCommand
 
   @override
   final String invocation =
-      "bsky app-bsky-actor link put --url=<value> [--title=<value>] [--icon=<value>] --createdAt=<value> --rkey=<value>";
+      "bsky app-bsky-actor link put --url=<value> [--title=<value>] [--icon=<value>] --createdAt=<value> [--labels=<value>] --rkey=<value>";
 
   @override
   String? get rkey => argResults!['rkey'];
@@ -124,6 +137,7 @@ final class _PutLinkCommand extends PutRecordCommand
     if (argResults!.wasParsed("title")) "title": argResults!["title"],
     if (argResults!.wasParsed("icon")) "icon": argResults!["icon"],
     "createdAt": argResults!["createdAt"],
+    if (argResults!.wasParsed("labels")) "labels": _decodeJson("labels"),
   };
 }
 

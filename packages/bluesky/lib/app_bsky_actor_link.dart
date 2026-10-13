@@ -12,3 +12,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/codegen/app/bsky/actor/link/main.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/actor/link/union_main_labels.dart';

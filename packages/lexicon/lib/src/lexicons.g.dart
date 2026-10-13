@@ -198,6 +198,10 @@ const appBskyActorDefs = <String, dynamic>{
           "format": "uri",
           "description": "Image URL for the destination site's icon.",
         },
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"},
+        },
       },
     },
     "profileAssociatedActivitySubscription": {
@@ -942,6 +946,11 @@ const appBskyActorLink = <String, dynamic>{
             "maxSize": 100000,
           },
           "createdAt": {"type": "string", "format": "datetime"},
+          "labels": {
+            "type": "union",
+            "description": "Self-label values for this link.",
+            "refs": ["com.atproto.label.defs#selfLabels"],
+          },
         },
       },
     },
@@ -20275,9 +20284,25 @@ const toolsOzoneInboxDefs = <String, dynamic>{
     },
     "notificationPreferences": {
       "type": "object",
-      "required": ["push"],
+      "description":
+          "Push notification preferences by moderation notification category. These preferences do not hide in-app inbox activity. Each category defaults to enabled.",
+      "required": ["reports", "account", "labels"],
       "properties": {
-        "push": {"type": "boolean"},
+        "reports": {
+          "type": "boolean",
+          "description":
+              "Notify about outcomes of reports filed by the account (reportResolved and reportReopened).",
+        },
+        "account": {
+          "type": "boolean",
+          "description":
+              "Notify about moderation actions against the account or its content, action reversals, appeal outcomes, and standing changes. Label application and removal are controlled by labels.",
+        },
+        "labels": {
+          "type": "boolean",
+          "description":
+              "Notify when labels are applied to or removed from the account or its content (labelApplied and labelRemoved actions).",
+        },
       },
     },
     "reportRef": {
@@ -20450,6 +20475,8 @@ const toolsOzoneInboxGetNotificationPreferences = <String, dynamic>{
   "defs": {
     "main": {
       "type": "query",
+      "description":
+          "Get moderation push notification preferences for report outcomes, account actions, and labeling. Returns all three categories, defaulting to enabled for an account without saved preferences.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -20909,13 +20936,28 @@ const toolsOzoneInboxPutNotificationPreferences = <String, dynamic>{
   "defs": {
     "main": {
       "type": "procedure",
+      "description":
+          "Update the authenticated account's moderation push notification preferences. Only provided categories are updated; omitted categories retain their values. At least one category must be provided. Returns all three preferences. These preferences do not hide in-app inbox activity.",
       "input": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["push"],
           "properties": {
-            "push": {"type": "boolean"},
+            "reports": {
+              "type": "boolean",
+              "description":
+                  "Notify about outcomes of reports filed by the account.",
+            },
+            "account": {
+              "type": "boolean",
+              "description":
+                  "Notify about moderation actions against the account or its content, excluding labeling.",
+            },
+            "labels": {
+              "type": "boolean",
+              "description":
+                  "Notify about labels applied to or removed from the account or its content.",
+            },
           },
         },
       },
