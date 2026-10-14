@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$AppealView {
 
  String get $type;@AppealViewStateConverter() AppealViewState get state;@JsonKey(toJson: iso8601) DateTime? get appealedAt;/// When the appeal's report was closed.
-@JsonKey(toJson: iso8601) DateTime? get resolvedAt;@JsonKey(toJson: iso8601) DateTime? get appealableUntil; Map<String, dynamic>? get $unknown;
+@JsonKey(toJson: iso8601) DateTime? get resolvedAt;/// Decision on a resolved appeal.
+@AppealViewOutcomeConverter() AppealViewOutcome? get outcome;@JsonKey(toJson: iso8601) DateTime? get appealableUntil; Map<String, dynamic>? get $unknown;
 /// Create a copy of AppealView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +30,16 @@ $AppealViewCopyWith<AppealView> get copyWith => _$AppealViewCopyWithImpl<AppealV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppealView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.state, state) || other.state == state)&&(identical(other.appealedAt, appealedAt) || other.appealedAt == appealedAt)&&(identical(other.resolvedAt, resolvedAt) || other.resolvedAt == resolvedAt)&&(identical(other.appealableUntil, appealableUntil) || other.appealableUntil == appealableUntil)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppealView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.state, state) || other.state == state)&&(identical(other.appealedAt, appealedAt) || other.appealedAt == appealedAt)&&(identical(other.resolvedAt, resolvedAt) || other.resolvedAt == resolvedAt)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&(identical(other.appealableUntil, appealableUntil) || other.appealableUntil == appealableUntil)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,state,appealedAt,resolvedAt,appealableUntil,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,state,appealedAt,resolvedAt,outcome,appealableUntil,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'AppealView(\$type: ${$type}, state: $state, appealedAt: $appealedAt, resolvedAt: $resolvedAt, appealableUntil: $appealableUntil, \$unknown: ${$unknown})';
+  return 'AppealView(\$type: ${$type}, state: $state, appealedAt: $appealedAt, resolvedAt: $resolvedAt, outcome: $outcome, appealableUntil: $appealableUntil, \$unknown: ${$unknown})';
 }
 
 
@@ -49,11 +50,11 @@ abstract mixin class $AppealViewCopyWith<$Res>  {
   factory $AppealViewCopyWith(AppealView value, $Res Function(AppealView) _then) = _$AppealViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AppealViewStateConverter() AppealViewState state,@JsonKey(toJson: iso8601) DateTime? appealedAt,@JsonKey(toJson: iso8601) DateTime? resolvedAt,@JsonKey(toJson: iso8601) DateTime? appealableUntil, Map<String, dynamic>? $unknown
+ String $type,@AppealViewStateConverter() AppealViewState state,@JsonKey(toJson: iso8601) DateTime? appealedAt,@JsonKey(toJson: iso8601) DateTime? resolvedAt,@AppealViewOutcomeConverter() AppealViewOutcome? outcome,@JsonKey(toJson: iso8601) DateTime? appealableUntil, Map<String, dynamic>? $unknown
 });
 
 
-$AppealViewStateCopyWith<$Res> get state;
+$AppealViewStateCopyWith<$Res> get state;$AppealViewOutcomeCopyWith<$Res>? get outcome;
 
 }
 /// @nodoc
@@ -66,13 +67,14 @@ class _$AppealViewCopyWithImpl<$Res>
 
 /// Create a copy of AppealView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? state = null,Object? appealedAt = freezed,Object? resolvedAt = freezed,Object? appealableUntil = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? state = null,Object? appealedAt = freezed,Object? resolvedAt = freezed,Object? outcome = freezed,Object? appealableUntil = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
 as AppealViewState,appealedAt: freezed == appealedAt ? _self.appealedAt : appealedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,resolvedAt: freezed == resolvedAt ? _self.resolvedAt : resolvedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,appealableUntil: freezed == appealableUntil ? _self.appealableUntil : appealableUntil // ignore: cast_nullable_to_non_nullable
+as DateTime?,outcome: freezed == outcome ? _self.outcome : outcome // ignore: cast_nullable_to_non_nullable
+as AppealViewOutcome?,appealableUntil: freezed == appealableUntil ? _self.appealableUntil : appealableUntil // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -85,6 +87,18 @@ $AppealViewStateCopyWith<$Res> get state {
   
   return $AppealViewStateCopyWith<$Res>(_self.state, (value) {
     return _then(_self.copyWith(state: value));
+  });
+}/// Create a copy of AppealView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppealViewOutcomeCopyWith<$Res>? get outcome {
+    if (_self.outcome == null) {
+    return null;
+  }
+
+  return $AppealViewOutcomeCopyWith<$Res>(_self.outcome!, (value) {
+    return _then(_self.copyWith(outcome: value));
   });
 }
 }
@@ -168,10 +182,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AppealViewStateConverter()  AppealViewState state, @JsonKey(toJson: iso8601)  DateTime? appealedAt, @JsonKey(toJson: iso8601)  DateTime? resolvedAt, @JsonKey(toJson: iso8601)  DateTime? appealableUntil,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AppealViewStateConverter()  AppealViewState state, @JsonKey(toJson: iso8601)  DateTime? appealedAt, @JsonKey(toJson: iso8601)  DateTime? resolvedAt, @AppealViewOutcomeConverter()  AppealViewOutcome? outcome, @JsonKey(toJson: iso8601)  DateTime? appealableUntil,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppealView() when $default != null:
-return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.appealableUntil,_that.$unknown);case _:
+return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.outcome,_that.appealableUntil,_that.$unknown);case _:
   return orElse();
 
 }
@@ -189,10 +203,10 @@ return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AppealViewStateConverter()  AppealViewState state, @JsonKey(toJson: iso8601)  DateTime? appealedAt, @JsonKey(toJson: iso8601)  DateTime? resolvedAt, @JsonKey(toJson: iso8601)  DateTime? appealableUntil,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AppealViewStateConverter()  AppealViewState state, @JsonKey(toJson: iso8601)  DateTime? appealedAt, @JsonKey(toJson: iso8601)  DateTime? resolvedAt, @AppealViewOutcomeConverter()  AppealViewOutcome? outcome, @JsonKey(toJson: iso8601)  DateTime? appealableUntil,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _AppealView():
-return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.appealableUntil,_that.$unknown);case _:
+return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.outcome,_that.appealableUntil,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +223,10 @@ return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AppealViewStateConverter()  AppealViewState state, @JsonKey(toJson: iso8601)  DateTime? appealedAt, @JsonKey(toJson: iso8601)  DateTime? resolvedAt, @JsonKey(toJson: iso8601)  DateTime? appealableUntil,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AppealViewStateConverter()  AppealViewState state, @JsonKey(toJson: iso8601)  DateTime? appealedAt, @JsonKey(toJson: iso8601)  DateTime? resolvedAt, @AppealViewOutcomeConverter()  AppealViewOutcome? outcome, @JsonKey(toJson: iso8601)  DateTime? appealableUntil,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _AppealView() when $default != null:
-return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.appealableUntil,_that.$unknown);case _:
+return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.outcome,_that.appealableUntil,_that.$unknown);case _:
   return null;
 
 }
@@ -224,7 +238,7 @@ return $default(_that.$type,_that.state,_that.appealedAt,_that.resolvedAt,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _AppealView implements AppealView {
-  const _AppealView({this.$type = 'tools.ozone.inbox.defs#appealView', @AppealViewStateConverter() required this.state, @JsonKey(toJson: iso8601) this.appealedAt, @JsonKey(toJson: iso8601) this.resolvedAt, @JsonKey(toJson: iso8601) this.appealableUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _AppealView({this.$type = 'tools.ozone.inbox.defs#appealView', @AppealViewStateConverter() required this.state, @JsonKey(toJson: iso8601) this.appealedAt, @JsonKey(toJson: iso8601) this.resolvedAt, @AppealViewOutcomeConverter() this.outcome, @JsonKey(toJson: iso8601) this.appealableUntil, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _AppealView.fromJson(Map<String, dynamic> json) => _$AppealViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -232,6 +246,8 @@ class _AppealView implements AppealView {
 @override@JsonKey(toJson: iso8601) final  DateTime? appealedAt;
 /// When the appeal's report was closed.
 @override@JsonKey(toJson: iso8601) final  DateTime? resolvedAt;
+/// Decision on a resolved appeal.
+@override@AppealViewOutcomeConverter() final  AppealViewOutcome? outcome;
 @override@JsonKey(toJson: iso8601) final  DateTime? appealableUntil;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -256,16 +272,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppealView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.state, state) || other.state == state)&&(identical(other.appealedAt, appealedAt) || other.appealedAt == appealedAt)&&(identical(other.resolvedAt, resolvedAt) || other.resolvedAt == resolvedAt)&&(identical(other.appealableUntil, appealableUntil) || other.appealableUntil == appealableUntil)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppealView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.state, state) || other.state == state)&&(identical(other.appealedAt, appealedAt) || other.appealedAt == appealedAt)&&(identical(other.resolvedAt, resolvedAt) || other.resolvedAt == resolvedAt)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&(identical(other.appealableUntil, appealableUntil) || other.appealableUntil == appealableUntil)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,state,appealedAt,resolvedAt,appealableUntil,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,state,appealedAt,resolvedAt,outcome,appealableUntil,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'AppealView(\$type: ${$type}, state: $state, appealedAt: $appealedAt, resolvedAt: $resolvedAt, appealableUntil: $appealableUntil, \$unknown: ${$unknown})';
+  return 'AppealView(\$type: ${$type}, state: $state, appealedAt: $appealedAt, resolvedAt: $resolvedAt, outcome: $outcome, appealableUntil: $appealableUntil, \$unknown: ${$unknown})';
 }
 
 
@@ -276,11 +292,11 @@ abstract mixin class _$AppealViewCopyWith<$Res> implements $AppealViewCopyWith<$
   factory _$AppealViewCopyWith(_AppealView value, $Res Function(_AppealView) _then) = __$AppealViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AppealViewStateConverter() AppealViewState state,@JsonKey(toJson: iso8601) DateTime? appealedAt,@JsonKey(toJson: iso8601) DateTime? resolvedAt,@JsonKey(toJson: iso8601) DateTime? appealableUntil, Map<String, dynamic>? $unknown
+ String $type,@AppealViewStateConverter() AppealViewState state,@JsonKey(toJson: iso8601) DateTime? appealedAt,@JsonKey(toJson: iso8601) DateTime? resolvedAt,@AppealViewOutcomeConverter() AppealViewOutcome? outcome,@JsonKey(toJson: iso8601) DateTime? appealableUntil, Map<String, dynamic>? $unknown
 });
 
 
-@override $AppealViewStateCopyWith<$Res> get state;
+@override $AppealViewStateCopyWith<$Res> get state;@override $AppealViewOutcomeCopyWith<$Res>? get outcome;
 
 }
 /// @nodoc
@@ -293,13 +309,14 @@ class __$AppealViewCopyWithImpl<$Res>
 
 /// Create a copy of AppealView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? state = null,Object? appealedAt = freezed,Object? resolvedAt = freezed,Object? appealableUntil = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? state = null,Object? appealedAt = freezed,Object? resolvedAt = freezed,Object? outcome = freezed,Object? appealableUntil = freezed,Object? $unknown = freezed,}) {
   return _then(_AppealView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
 as AppealViewState,appealedAt: freezed == appealedAt ? _self.appealedAt : appealedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,resolvedAt: freezed == resolvedAt ? _self.resolvedAt : resolvedAt // ignore: cast_nullable_to_non_nullable
-as DateTime?,appealableUntil: freezed == appealableUntil ? _self.appealableUntil : appealableUntil // ignore: cast_nullable_to_non_nullable
+as DateTime?,outcome: freezed == outcome ? _self.outcome : outcome // ignore: cast_nullable_to_non_nullable
+as AppealViewOutcome?,appealableUntil: freezed == appealableUntil ? _self.appealableUntil : appealableUntil // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -313,6 +330,18 @@ $AppealViewStateCopyWith<$Res> get state {
   
   return $AppealViewStateCopyWith<$Res>(_self.state, (value) {
     return _then(_self.copyWith(state: value));
+  });
+}/// Create a copy of AppealView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppealViewOutcomeCopyWith<$Res>? get outcome {
+    if (_self.outcome == null) {
+    return null;
+  }
+
+  return $AppealViewOutcomeCopyWith<$Res>(_self.outcome!, (value) {
+    return _then(_self.copyWith(outcome: value));
   });
 }
 }

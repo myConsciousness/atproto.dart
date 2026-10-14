@@ -27,6 +27,13 @@ _AppealView _$AppealViewFromJson(Map json) =>
           'resolvedAt',
           (v) => v == null ? null : DateTime.parse(v as String),
         ),
+        outcome: $checkedConvert(
+          'outcome',
+          (v) => _$JsonConverterFromJson<String, AppealViewOutcome>(
+            v,
+            const AppealViewOutcomeConverter().fromJson,
+          ),
+        ),
         appealableUntil: $checkedConvert(
           'appealableUntil',
           (v) => v == null ? null : DateTime.parse(v as String),
@@ -45,6 +52,20 @@ Map<String, dynamic> _$AppealViewToJson(_AppealView instance) =>
       'state': const AppealViewStateConverter().toJson(instance.state),
       'appealedAt': iso8601(instance.appealedAt),
       'resolvedAt': iso8601(instance.resolvedAt),
+      'outcome': ?_$JsonConverterToJson<String, AppealViewOutcome>(
+        instance.outcome,
+        const AppealViewOutcomeConverter().toJson,
+      ),
       'appealableUntil': iso8601(instance.appealableUntil),
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

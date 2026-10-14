@@ -213,6 +213,7 @@ One new post by an actor the requesting account subscribes to.
 | --- | --- | --- | :---: | --- |
 | **actor** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **parent** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The post this one replies to, if it is a reply. |
 
 ## #generatorLikeGroup
 

@@ -42,6 +42,7 @@ The state of the viewer's appeal against the actions on a subject.
 | **state** | string | none<br/>pending<br/>resolved<br/>superseded<br/>expired | ✅ | - |
 | **appealedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **resolvedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the appeal's report was closed. |
+| **outcome** | string | approved<br/>denied | ❌ | Decision on a resolved appeal. |
 | **appealableUntil** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #actionView
@@ -130,6 +131,7 @@ Reference to a report by its report table ID, as used by getReport and Ozone's r
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **appealOutcome** | string | approved<br/>denied | ❌ | Decision captured when an appealResolved notification was created. Omitted when the outcome is unknown. |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **actionType** | string | - | ❌ | - |
 | **actionId** | integer | - | ❌ | - |

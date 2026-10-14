@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.13.1
+
+- feat: added `app.bsky.notification.getGroupedNotifications#subscribedPostItem.parent`
+- feat: added `tools.ozone.inbox.defs#appealView.outcome`
+- feat: added `tools.ozone.inbox.defs#subjectRef.appealOutcome`
+- chore: regenerated from synced lexicons
+
 ## v2.13.0
 
 - feat: added `app.bsky.actor.defs#profileLinkView.labels`

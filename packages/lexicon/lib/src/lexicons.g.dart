@@ -7294,6 +7294,11 @@ const appBskyNotificationGetGroupedNotifications = <String, dynamic>{
       "properties": {
         "actor": {"type": "string", "format": "did"},
         "post": {"type": "string", "format": "at-uri"},
+        "parent": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "The post this one replies to, if it is a reply.",
+        },
       },
     },
     "generatorLikeGroup": {
@@ -20132,6 +20137,11 @@ const toolsOzoneInboxDefs = <String, dynamic>{
           "format": "datetime",
           "description": "When the appeal's report was closed.",
         },
+        "outcome": {
+          "type": "string",
+          "description": "Decision on a resolved appeal.",
+          "knownValues": ["approved", "denied"],
+        },
         "appealableUntil": {"type": "string", "format": "datetime"},
       },
     },
@@ -20329,6 +20339,12 @@ const toolsOzoneInboxDefs = <String, dynamic>{
       "type": "object",
       "required": ["subject"],
       "properties": {
+        "appealOutcome": {
+          "type": "string",
+          "description":
+              "Decision captured when an appealResolved notification was created. Omitted when the outcome is unknown.",
+          "knownValues": ["approved", "denied"],
+        },
         "subject": {
           "type": "union",
           "refs": [

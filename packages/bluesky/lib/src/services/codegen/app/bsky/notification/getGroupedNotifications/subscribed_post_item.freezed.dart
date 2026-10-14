@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SubscribedPostItem {
 
- String get $type; String get actor;@AtUriConverter() AtUri get post; Map<String, dynamic>? get $unknown;
+ String get $type; String get actor;@AtUriConverter() AtUri get post;/// The post this one replies to, if it is a reply.
+@AtUriConverter() AtUri? get parent; Map<String, dynamic>? get $unknown;
 /// Create a copy of SubscribedPostItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $SubscribedPostItemCopyWith<SubscribedPostItem> get copyWith => _$SubscribedPost
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubscribedPostItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.post, post) || other.post == post)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubscribedPostItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.post, post) || other.post == post)&&(identical(other.parent, parent) || other.parent == parent)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,actor,post,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,actor,post,parent,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'SubscribedPostItem(\$type: ${$type}, actor: $actor, post: $post, \$unknown: ${$unknown})';
+  return 'SubscribedPostItem(\$type: ${$type}, actor: $actor, post: $post, parent: $parent, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +49,7 @@ abstract mixin class $SubscribedPostItemCopyWith<$Res>  {
   factory $SubscribedPostItemCopyWith(SubscribedPostItem value, $Res Function(SubscribedPostItem) _then) = _$SubscribedPostItemCopyWithImpl;
 @useResult
 $Res call({
- String $type, String actor,@AtUriConverter() AtUri post, Map<String, dynamic>? $unknown
+ String $type, String actor,@AtUriConverter() AtUri post,@AtUriConverter() AtUri? parent, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,12 +66,13 @@ class _$SubscribedPostItemCopyWithImpl<$Res>
 
 /// Create a copy of SubscribedPostItem
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? actor = null,Object? post = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? actor = null,Object? post = null,Object? parent = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as AtUri,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,parent: freezed == parent ? _self.parent : parent // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actor, @AtUriConverter()  AtUri post,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String actor, @AtUriConverter()  AtUri post, @AtUriConverter()  AtUri? parent,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SubscribedPostItem() when $default != null:
-return $default(_that.$type,_that.actor,_that.post,_that.$unknown);case _:
+return $default(_that.$type,_that.actor,_that.post,_that.parent,_that.$unknown);case _:
   return orElse();
 
 }
@@ -177,10 +179,10 @@ return $default(_that.$type,_that.actor,_that.post,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actor, @AtUriConverter()  AtUri post,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String actor, @AtUriConverter()  AtUri post, @AtUriConverter()  AtUri? parent,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SubscribedPostItem():
-return $default(_that.$type,_that.actor,_that.post,_that.$unknown);case _:
+return $default(_that.$type,_that.actor,_that.post,_that.parent,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +199,10 @@ return $default(_that.$type,_that.actor,_that.post,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actor, @AtUriConverter()  AtUri post,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String actor, @AtUriConverter()  AtUri post, @AtUriConverter()  AtUri? parent,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SubscribedPostItem() when $default != null:
-return $default(_that.$type,_that.actor,_that.post,_that.$unknown);case _:
+return $default(_that.$type,_that.actor,_that.post,_that.parent,_that.$unknown);case _:
   return null;
 
 }
@@ -212,12 +214,14 @@ return $default(_that.$type,_that.actor,_that.post,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _SubscribedPostItem implements SubscribedPostItem {
-  const _SubscribedPostItem({this.$type = 'app.bsky.notification.getGroupedNotifications#subscribedPostItem', required this.actor, @AtUriConverter() required this.post, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SubscribedPostItem({this.$type = 'app.bsky.notification.getGroupedNotifications#subscribedPostItem', required this.actor, @AtUriConverter() required this.post, @AtUriConverter() this.parent, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SubscribedPostItem.fromJson(Map<String, dynamic> json) => _$SubscribedPostItemFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override final  String actor;
 @override@AtUriConverter() final  AtUri post;
+/// The post this one replies to, if it is a reply.
+@override@AtUriConverter() final  AtUri? parent;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -241,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubscribedPostItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.post, post) || other.post == post)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubscribedPostItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.post, post) || other.post == post)&&(identical(other.parent, parent) || other.parent == parent)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,actor,post,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,actor,post,parent,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'SubscribedPostItem(\$type: ${$type}, actor: $actor, post: $post, \$unknown: ${$unknown})';
+  return 'SubscribedPostItem(\$type: ${$type}, actor: $actor, post: $post, parent: $parent, \$unknown: ${$unknown})';
 }
 
 
@@ -261,7 +265,7 @@ abstract mixin class _$SubscribedPostItemCopyWith<$Res> implements $SubscribedPo
   factory _$SubscribedPostItemCopyWith(_SubscribedPostItem value, $Res Function(_SubscribedPostItem) _then) = __$SubscribedPostItemCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String actor,@AtUriConverter() AtUri post, Map<String, dynamic>? $unknown
+ String $type, String actor,@AtUriConverter() AtUri post,@AtUriConverter() AtUri? parent, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,12 +282,13 @@ class __$SubscribedPostItemCopyWithImpl<$Res>
 
 /// Create a copy of SubscribedPostItem
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? actor = null,Object? post = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? actor = null,Object? post = null,Object? parent = freezed,Object? $unknown = freezed,}) {
   return _then(_SubscribedPostItem(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
-as AtUri,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri,parent: freezed == parent ? _self.parent : parent // ignore: cast_nullable_to_non_nullable
+as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

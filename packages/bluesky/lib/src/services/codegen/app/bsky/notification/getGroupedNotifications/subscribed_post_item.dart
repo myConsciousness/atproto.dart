@@ -22,7 +22,7 @@ part 'subscribed_post_item.g.dart';
 /// One new post by an actor the requesting account subscribes to.
 @freezed
 abstract class SubscribedPostItem with _$SubscribedPostItem {
-  static const knownProps = <String>['actor', 'post'];
+  static const knownProps = <String>['actor', 'post', 'parent'];
 
   @JsonSerializable(includeIfNull: false)
   const factory SubscribedPostItem({
@@ -30,6 +30,9 @@ abstract class SubscribedPostItem with _$SubscribedPostItem {
     String $type,
     required String actor,
     @AtUriConverter() required AtUri post,
+
+    /// The post this one replies to, if it is a reply.
+    @AtUriConverter() AtUri? parent,
 
     Map<String, dynamic>? $unknown,
   }) = _SubscribedPostItem;
@@ -42,6 +45,11 @@ abstract class SubscribedPostItem with _$SubscribedPostItem {
     return object['\$type'] ==
         'app.bsky.notification.getGroupedNotifications#subscribedPostItem';
   }
+}
+
+extension SubscribedPostItemExtension on SubscribedPostItem {
+  bool get hasParent => parent != null;
+  bool get hasNotParent => !hasParent;
 }
 
 final class SubscribedPostItemConverter
