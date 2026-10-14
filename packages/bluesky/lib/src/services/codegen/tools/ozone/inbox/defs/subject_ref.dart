@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './subject_ref_appeal_outcome.dart';
 import './union_subject_ref_subject.dart';
 
 part 'subject_ref.freezed.dart';
@@ -23,11 +24,19 @@ part 'subject_ref.g.dart';
 
 @freezed
 abstract class SubjectRef with _$SubjectRef {
-  static const knownProps = <String>['subject', 'actionType', 'actionId'];
+  static const knownProps = <String>[
+    'appealOutcome',
+    'subject',
+    'actionType',
+    'actionId',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory SubjectRef({
     @Default('tools.ozone.inbox.defs#subjectRef') String $type,
+
+    /// Decision captured when an appealResolved notification was created. Omitted when the outcome is unknown.
+    @SubjectRefAppealOutcomeConverter() SubjectRefAppealOutcome? appealOutcome,
     @USubjectRefSubjectConverter() required USubjectRefSubject subject,
     String? actionType,
     int? actionId,
@@ -45,6 +54,8 @@ abstract class SubjectRef with _$SubjectRef {
 }
 
 extension SubjectRefExtension on SubjectRef {
+  bool get hasAppealOutcome => appealOutcome != null;
+  bool get hasNotAppealOutcome => !hasAppealOutcome;
   bool get hasActionType => actionType != null;
   bool get hasNotActionType => !hasActionType;
   bool get hasActionId => actionId != null;

@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './appeal_view_outcome.dart';
 import './appeal_view_state.dart';
 
 part 'appeal_view.freezed.dart';
@@ -28,6 +29,7 @@ abstract class AppealView with _$AppealView {
     'state',
     'appealedAt',
     'resolvedAt',
+    'outcome',
     'appealableUntil',
   ];
 
@@ -39,6 +41,9 @@ abstract class AppealView with _$AppealView {
 
     /// When the appeal's report was closed.
     @JsonKey(toJson: iso8601) DateTime? resolvedAt,
+
+    /// Decision on a resolved appeal.
+    @AppealViewOutcomeConverter() AppealViewOutcome? outcome,
     @JsonKey(toJson: iso8601) DateTime? appealableUntil,
 
     Map<String, dynamic>? $unknown,
@@ -58,6 +63,8 @@ extension AppealViewExtension on AppealView {
   bool get hasNotAppealedAt => !hasAppealedAt;
   bool get hasResolvedAt => resolvedAt != null;
   bool get hasNotResolvedAt => !hasResolvedAt;
+  bool get hasOutcome => outcome != null;
+  bool get hasNotOutcome => !hasOutcome;
   bool get hasAppealableUntil => appealableUntil != null;
   bool get hasNotAppealableUntil => !hasAppealableUntil;
 }

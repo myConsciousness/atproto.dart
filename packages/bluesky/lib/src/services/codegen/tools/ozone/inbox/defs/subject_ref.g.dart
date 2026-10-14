@@ -15,6 +15,13 @@ _SubjectRef _$SubjectRefFromJson(Map json) =>
           r'$type',
           (v) => v as String? ?? 'tools.ozone.inbox.defs#subjectRef',
         ),
+        appealOutcome: $checkedConvert(
+          'appealOutcome',
+          (v) => _$JsonConverterFromJson<String, SubjectRefAppealOutcome>(
+            v,
+            const SubjectRefAppealOutcomeConverter().fromJson,
+          ),
+        ),
         subject: $checkedConvert(
           'subject',
           (v) => const USubjectRefSubjectConverter().fromJson(
@@ -34,8 +41,22 @@ _SubjectRef _$SubjectRefFromJson(Map json) =>
 Map<String, dynamic> _$SubjectRefToJson(_SubjectRef instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
+      'appealOutcome': ?_$JsonConverterToJson<String, SubjectRefAppealOutcome>(
+        instance.appealOutcome,
+        const SubjectRefAppealOutcomeConverter().toJson,
+      ),
       'subject': const USubjectRefSubjectConverter().toJson(instance.subject),
       'actionType': ?instance.actionType,
       'actionId': ?instance.actionId,
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

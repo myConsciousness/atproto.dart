@@ -24,6 +24,13 @@ _SubscribedPostItem _$SubscribedPostItemFromJson(Map json) => $checkedCreate(
         'post',
         (v) => const AtUriConverter().fromJson(v as String),
       ),
+      parent: $checkedConvert(
+        'parent',
+        (v) => _$JsonConverterFromJson<String, AtUri>(
+          v,
+          const AtUriConverter().fromJson,
+        ),
+      ),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -38,5 +45,19 @@ Map<String, dynamic> _$SubscribedPostItemToJson(_SubscribedPostItem instance) =>
       r'$type': instance.$type,
       'actor': instance.actor,
       'post': const AtUriConverter().toJson(instance.post),
+      'parent': ?_$JsonConverterToJson<String, AtUri>(
+        instance.parent,
+        const AtUriConverter().toJson,
+      ),
       r'$unknown': ?instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

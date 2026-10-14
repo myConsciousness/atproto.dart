@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SubjectRef {
 
- String get $type;@USubjectRefSubjectConverter() USubjectRefSubject get subject; String? get actionType; int? get actionId; Map<String, dynamic>? get $unknown;
+ String get $type;/// Decision captured when an appealResolved notification was created. Omitted when the outcome is unknown.
+@SubjectRefAppealOutcomeConverter() SubjectRefAppealOutcome? get appealOutcome;@USubjectRefSubjectConverter() USubjectRefSubject get subject; String? get actionType; int? get actionId; Map<String, dynamic>? get $unknown;
 /// Create a copy of SubjectRef
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $SubjectRefCopyWith<SubjectRef> get copyWith => _$SubjectRefCopyWithImpl<Subject
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectRef&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.actionId, actionId) || other.actionId == actionId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectRef&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.appealOutcome, appealOutcome) || other.appealOutcome == appealOutcome)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.actionId, actionId) || other.actionId == actionId)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,subject,actionType,actionId,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,appealOutcome,subject,actionType,actionId,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'SubjectRef(\$type: ${$type}, subject: $subject, actionType: $actionType, actionId: $actionId, \$unknown: ${$unknown})';
+  return 'SubjectRef(\$type: ${$type}, appealOutcome: $appealOutcome, subject: $subject, actionType: $actionType, actionId: $actionId, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +49,11 @@ abstract mixin class $SubjectRefCopyWith<$Res>  {
   factory $SubjectRefCopyWith(SubjectRef value, $Res Function(SubjectRef) _then) = _$SubjectRefCopyWithImpl;
 @useResult
 $Res call({
- String $type,@USubjectRefSubjectConverter() USubjectRefSubject subject, String? actionType, int? actionId, Map<String, dynamic>? $unknown
+ String $type,@SubjectRefAppealOutcomeConverter() SubjectRefAppealOutcome? appealOutcome,@USubjectRefSubjectConverter() USubjectRefSubject subject, String? actionType, int? actionId, Map<String, dynamic>? $unknown
 });
 
 
-$USubjectRefSubjectCopyWith<$Res> get subject;
+$SubjectRefAppealOutcomeCopyWith<$Res>? get appealOutcome;$USubjectRefSubjectCopyWith<$Res> get subject;
 
 }
 /// @nodoc
@@ -65,10 +66,11 @@ class _$SubjectRefCopyWithImpl<$Res>
 
 /// Create a copy of SubjectRef
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? subject = null,Object? actionType = freezed,Object? actionId = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? appealOutcome = freezed,Object? subject = null,Object? actionType = freezed,Object? actionId = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
+as String,appealOutcome: freezed == appealOutcome ? _self.appealOutcome : appealOutcome // ignore: cast_nullable_to_non_nullable
+as SubjectRefAppealOutcome?,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as USubjectRefSubject,actionType: freezed == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
 as String?,actionId: freezed == actionId ? _self.actionId : actionId // ignore: cast_nullable_to_non_nullable
 as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -76,6 +78,18 @@ as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of SubjectRef
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SubjectRefAppealOutcomeCopyWith<$Res>? get appealOutcome {
+    if (_self.appealOutcome == null) {
+    return null;
+  }
+
+  return $SubjectRefAppealOutcomeCopyWith<$Res>(_self.appealOutcome!, (value) {
+    return _then(_self.copyWith(appealOutcome: value));
+  });
+}/// Create a copy of SubjectRef
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -166,10 +180,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @USubjectRefSubjectConverter()  USubjectRefSubject subject,  String? actionType,  int? actionId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @SubjectRefAppealOutcomeConverter()  SubjectRefAppealOutcome? appealOutcome, @USubjectRefSubjectConverter()  USubjectRefSubject subject,  String? actionType,  int? actionId,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SubjectRef() when $default != null:
-return $default(_that.$type,_that.subject,_that.actionType,_that.actionId,_that.$unknown);case _:
+return $default(_that.$type,_that.appealOutcome,_that.subject,_that.actionType,_that.actionId,_that.$unknown);case _:
   return orElse();
 
 }
@@ -187,10 +201,10 @@ return $default(_that.$type,_that.subject,_that.actionType,_that.actionId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @USubjectRefSubjectConverter()  USubjectRefSubject subject,  String? actionType,  int? actionId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @SubjectRefAppealOutcomeConverter()  SubjectRefAppealOutcome? appealOutcome, @USubjectRefSubjectConverter()  USubjectRefSubject subject,  String? actionType,  int? actionId,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SubjectRef():
-return $default(_that.$type,_that.subject,_that.actionType,_that.actionId,_that.$unknown);case _:
+return $default(_that.$type,_that.appealOutcome,_that.subject,_that.actionType,_that.actionId,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +221,10 @@ return $default(_that.$type,_that.subject,_that.actionType,_that.actionId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @USubjectRefSubjectConverter()  USubjectRefSubject subject,  String? actionType,  int? actionId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @SubjectRefAppealOutcomeConverter()  SubjectRefAppealOutcome? appealOutcome, @USubjectRefSubjectConverter()  USubjectRefSubject subject,  String? actionType,  int? actionId,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SubjectRef() when $default != null:
-return $default(_that.$type,_that.subject,_that.actionType,_that.actionId,_that.$unknown);case _:
+return $default(_that.$type,_that.appealOutcome,_that.subject,_that.actionType,_that.actionId,_that.$unknown);case _:
   return null;
 
 }
@@ -222,10 +236,12 @@ return $default(_that.$type,_that.subject,_that.actionType,_that.actionId,_that.
 
 @JsonSerializable(includeIfNull: false)
 class _SubjectRef implements SubjectRef {
-  const _SubjectRef({this.$type = 'tools.ozone.inbox.defs#subjectRef', @USubjectRefSubjectConverter() required this.subject, this.actionType, this.actionId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SubjectRef({this.$type = 'tools.ozone.inbox.defs#subjectRef', @SubjectRefAppealOutcomeConverter() this.appealOutcome, @USubjectRefSubjectConverter() required this.subject, this.actionType, this.actionId, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SubjectRef.fromJson(Map<String, dynamic> json) => _$SubjectRefFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// Decision captured when an appealResolved notification was created. Omitted when the outcome is unknown.
+@override@SubjectRefAppealOutcomeConverter() final  SubjectRefAppealOutcome? appealOutcome;
 @override@USubjectRefSubjectConverter() final  USubjectRefSubject subject;
 @override final  String? actionType;
 @override final  int? actionId;
@@ -252,16 +268,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectRef&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.actionId, actionId) || other.actionId == actionId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectRef&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.appealOutcome, appealOutcome) || other.appealOutcome == appealOutcome)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.actionId, actionId) || other.actionId == actionId)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,subject,actionType,actionId,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,appealOutcome,subject,actionType,actionId,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'SubjectRef(\$type: ${$type}, subject: $subject, actionType: $actionType, actionId: $actionId, \$unknown: ${$unknown})';
+  return 'SubjectRef(\$type: ${$type}, appealOutcome: $appealOutcome, subject: $subject, actionType: $actionType, actionId: $actionId, \$unknown: ${$unknown})';
 }
 
 
@@ -272,11 +288,11 @@ abstract mixin class _$SubjectRefCopyWith<$Res> implements $SubjectRefCopyWith<$
   factory _$SubjectRefCopyWith(_SubjectRef value, $Res Function(_SubjectRef) _then) = __$SubjectRefCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@USubjectRefSubjectConverter() USubjectRefSubject subject, String? actionType, int? actionId, Map<String, dynamic>? $unknown
+ String $type,@SubjectRefAppealOutcomeConverter() SubjectRefAppealOutcome? appealOutcome,@USubjectRefSubjectConverter() USubjectRefSubject subject, String? actionType, int? actionId, Map<String, dynamic>? $unknown
 });
 
 
-@override $USubjectRefSubjectCopyWith<$Res> get subject;
+@override $SubjectRefAppealOutcomeCopyWith<$Res>? get appealOutcome;@override $USubjectRefSubjectCopyWith<$Res> get subject;
 
 }
 /// @nodoc
@@ -289,10 +305,11 @@ class __$SubjectRefCopyWithImpl<$Res>
 
 /// Create a copy of SubjectRef
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? subject = null,Object? actionType = freezed,Object? actionId = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? appealOutcome = freezed,Object? subject = null,Object? actionType = freezed,Object? actionId = freezed,Object? $unknown = freezed,}) {
   return _then(_SubjectRef(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
+as String,appealOutcome: freezed == appealOutcome ? _self.appealOutcome : appealOutcome // ignore: cast_nullable_to_non_nullable
+as SubjectRefAppealOutcome?,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as USubjectRefSubject,actionType: freezed == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
 as String?,actionId: freezed == actionId ? _self.actionId : actionId // ignore: cast_nullable_to_non_nullable
 as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -301,6 +318,18 @@ as Map<String, dynamic>?,
 }
 
 /// Create a copy of SubjectRef
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SubjectRefAppealOutcomeCopyWith<$Res>? get appealOutcome {
+    if (_self.appealOutcome == null) {
+    return null;
+  }
+
+  return $SubjectRefAppealOutcomeCopyWith<$Res>(_self.appealOutcome!, (value) {
+    return _then(_self.copyWith(appealOutcome: value));
+  });
+}/// Create a copy of SubjectRef
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

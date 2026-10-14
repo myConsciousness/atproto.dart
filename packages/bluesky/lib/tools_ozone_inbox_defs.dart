@@ -19,6 +19,7 @@ export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/enforcement_
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/enforcement_view_scope.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/appeal_view.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/appeal_view_state.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/appeal_view_outcome.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/action_view.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/action_view_scope.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/policy_view.dart';
@@ -35,6 +36,7 @@ export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/union_report
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/report_ref_status.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/subject_ref.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/union_subject_ref_subject.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/subject_ref_appeal_outcome.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/standing_ref.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/standing_ref_standing.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/standing_ref_previous_standing.dart';
