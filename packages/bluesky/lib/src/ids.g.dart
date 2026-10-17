@@ -1118,6 +1118,14 @@ const appBskyUnspeccedDefsTrendingTopic =
 const appBskyUnspeccedGetAgeAssuranceState =
     'app.bsky.unspecced.getAgeAssuranceState';
 
+/// `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations`
+const appBskyUnspeccedGetAtmosphereExploreArticleRecommendations =
+    'app.bsky.unspecced.getAtmosphereExploreArticleRecommendations';
+
+/// `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations#article`
+const appBskyUnspeccedGetAtmosphereExploreArticleRecommendationsArticle =
+    'app.bsky.unspecced.getAtmosphereExploreArticleRecommendations#article';
+
 /// `app.bsky.unspecced.getAtmosphereExploreTab`
 const appBskyUnspeccedGetAtmosphereExploreTab =
     'app.bsky.unspecced.getAtmosphereExploreTab';
@@ -1134,17 +1142,33 @@ const appBskyUnspeccedGetAtmosphereExploreTabAppCard =
 const appBskyUnspeccedGetAtmosphereExploreTabArticleItem =
     'app.bsky.unspecced.getAtmosphereExploreTab#articleItem';
 
+/// `app.bsky.unspecced.getAtmosphereExploreTab#articleList`
+const appBskyUnspeccedGetAtmosphereExploreTabArticleList =
+    'app.bsky.unspecced.getAtmosphereExploreTab#articleList';
+
 /// `app.bsky.unspecced.getAtmosphereExploreTab#galleryItem`
 const appBskyUnspeccedGetAtmosphereExploreTabGalleryItem =
     'app.bsky.unspecced.getAtmosphereExploreTab#galleryItem';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#galleryList`
+const appBskyUnspeccedGetAtmosphereExploreTabGalleryList =
+    'app.bsky.unspecced.getAtmosphereExploreTab#galleryList';
 
 /// `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem`
 const appBskyUnspeccedGetAtmosphereExploreTabLivestreamItem =
     'app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem';
 
+/// `app.bsky.unspecced.getAtmosphereExploreTab#livestreamList`
+const appBskyUnspeccedGetAtmosphereExploreTabLivestreamList =
+    'app.bsky.unspecced.getAtmosphereExploreTab#livestreamList';
+
 /// `app.bsky.unspecced.getAtmosphereExploreTab#publicationItem`
 const appBskyUnspeccedGetAtmosphereExploreTabPublicationItem =
     'app.bsky.unspecced.getAtmosphereExploreTab#publicationItem';
+
+/// `app.bsky.unspecced.getAtmosphereExploreTab#publicationList`
+const appBskyUnspeccedGetAtmosphereExploreTabPublicationList =
+    'app.bsky.unspecced.getAtmosphereExploreTab#publicationList';
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';

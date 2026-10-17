@@ -33,8 +33,13 @@ _QueueStats _$QueueStatsFromJson(
       'closureTargetMetRate',
       (v) => (v as num?)?.toInt(),
     ),
+    closedCount: $checkedConvert('closedCount', (v) => (v as num?)?.toInt()),
     actionedCount: $checkedConvert(
       'actionedCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    acknowledgedCount: $checkedConvert(
+      'acknowledgedCount',
       (v) => (v as num?)?.toInt(),
     ),
     escalatedCount: $checkedConvert(
@@ -42,9 +47,41 @@ _QueueStats _$QueueStatsFromJson(
       (v) => (v as num?)?.toInt(),
     ),
     inboundCount: $checkedConvert('inboundCount', (v) => (v as num?)?.toInt()),
+    labelActionCount: $checkedConvert(
+      'labelActionCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    tagActionCount: $checkedConvert(
+      'tagActionCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    takedownActionCount: $checkedConvert(
+      'takedownActionCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    ahtDurationSec: $checkedConvert(
+      'ahtDurationSec',
+      (v) => (v as num?)?.toInt(),
+    ),
+    ahtSampleCount: $checkedConvert(
+      'ahtSampleCount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    resolutionDurationSec: $checkedConvert(
+      'resolutionDurationSec',
+      (v) => (v as num?)?.toInt(),
+    ),
+    resolutionSampleCount: $checkedConvert(
+      'resolutionSampleCount',
+      (v) => (v as num?)?.toInt(),
+    ),
     actionRate: $checkedConvert('actionRate', (v) => (v as num?)?.toInt()),
     avgHandlingTimeSec: $checkedConvert(
       'avgHandlingTimeSec',
+      (v) => (v as num?)?.toInt(),
+    ),
+    avgResolutionTimeSec: $checkedConvert(
+      'avgResolutionTimeSec',
       (v) => (v as num?)?.toInt(),
     ),
     lastUpdated: $checkedConvert(
@@ -67,11 +104,21 @@ Map<String, dynamic> _$QueueStatsToJson(_QueueStats instance) =>
       'closureTargetMetCount': ?instance.closureTargetMetCount,
       'closureTargetMissedCount': ?instance.closureTargetMissedCount,
       'closureTargetMetRate': ?instance.closureTargetMetRate,
+      'closedCount': ?instance.closedCount,
       'actionedCount': ?instance.actionedCount,
+      'acknowledgedCount': ?instance.acknowledgedCount,
       'escalatedCount': ?instance.escalatedCount,
       'inboundCount': ?instance.inboundCount,
+      'labelActionCount': ?instance.labelActionCount,
+      'tagActionCount': ?instance.tagActionCount,
+      'takedownActionCount': ?instance.takedownActionCount,
+      'ahtDurationSec': ?instance.ahtDurationSec,
+      'ahtSampleCount': ?instance.ahtSampleCount,
+      'resolutionDurationSec': ?instance.resolutionDurationSec,
+      'resolutionSampleCount': ?instance.resolutionSampleCount,
       'actionRate': ?instance.actionRate,
       'avgHandlingTimeSec': ?instance.avgHandlingTimeSec,
+      'avgResolutionTimeSec': ?instance.avgResolutionTimeSec,
       'lastUpdated': iso8601(instance.lastUpdated),
       r'$unknown': ?instance.$unknown,
     };

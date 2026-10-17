@@ -24,43 +24,22 @@ _$UnspeccedGetAtmosphereExploreTabOutputFromJson(Map json) => $checkedCreate(
       ),
       articles: $checkedConvert(
         'articles',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const ArticleItemConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
+        (v) => const ArticleListConverter().fromJson(v as Map<String, dynamic>),
       ),
       publications: $checkedConvert(
         'publications',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const PublicationItemConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
+        (v) => const PublicationListConverter().fromJson(
+          v as Map<String, dynamic>,
+        ),
       ),
       photos: $checkedConvert(
         'photos',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const GalleryItemConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
+        (v) => const GalleryListConverter().fromJson(v as Map<String, dynamic>),
       ),
       livestreams: $checkedConvert(
         'livestreams',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const LivestreamItemConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
+        (v) =>
+            const LivestreamListConverter().fromJson(v as Map<String, dynamic>),
       ),
       apps: $checkedConvert(
         'apps',
@@ -88,16 +67,12 @@ Map<String, dynamic> _$UnspeccedGetAtmosphereExploreTabOutputToJson(
         instance.announcementBanner,
         const AnnouncementBannerConverter().toJson,
       ),
-  'articles': instance.articles
-      .map(const ArticleItemConverter().toJson)
-      .toList(),
-  'publications': instance.publications
-      .map(const PublicationItemConverter().toJson)
-      .toList(),
-  'photos': instance.photos.map(const GalleryItemConverter().toJson).toList(),
-  'livestreams': instance.livestreams
-      .map(const LivestreamItemConverter().toJson)
-      .toList(),
+  'articles': const ArticleListConverter().toJson(instance.articles),
+  'publications': const PublicationListConverter().toJson(
+    instance.publications,
+  ),
+  'photos': const GalleryListConverter().toJson(instance.photos),
+  'livestreams': const LivestreamListConverter().toJson(instance.livestreams),
   'apps': instance.apps.map(const AppCardConverter().toJson).toList(),
   r'$unknown': ?instance.$unknown,
 };

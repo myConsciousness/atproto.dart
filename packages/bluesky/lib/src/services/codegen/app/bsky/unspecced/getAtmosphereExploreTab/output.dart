@@ -14,10 +14,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import './announcement_banner.dart';
 import './app_card.dart';
-import './article_item.dart';
-import './gallery_item.dart';
-import './livestream_item.dart';
-import './publication_item.dart';
+import './article_list.dart';
+import './gallery_list.dart';
+import './livestream_list.dart';
+import './publication_list.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -41,10 +41,10 @@ abstract class UnspeccedGetAtmosphereExploreTabOutput
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetAtmosphereExploreTabOutput({
     @AnnouncementBannerConverter() AnnouncementBanner? announcementBanner,
-    @ArticleItemConverter() required List<ArticleItem> articles,
-    @PublicationItemConverter() required List<PublicationItem> publications,
-    @GalleryItemConverter() required List<GalleryItem> photos,
-    @LivestreamItemConverter() required List<LivestreamItem> livestreams,
+    @ArticleListConverter() required ArticleList articles,
+    @PublicationListConverter() required PublicationList publications,
+    @GalleryListConverter() required GalleryList photos,
+    @LivestreamListConverter() required LivestreamList livestreams,
     @AppCardConverter() required List<AppCard> apps,
 
     Map<String, dynamic>? $unknown,

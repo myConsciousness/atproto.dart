@@ -14,6 +14,7 @@ import 'package:atproto_core/internals.dart' show protected;
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import 'unspecced/defs/age_assurance_state.dart';
+import 'unspecced/getAtmosphereExploreArticleRecommendations/output.dart';
 import 'unspecced/getAtmosphereExploreTab/output.dart';
 import 'unspecced/getConfig/output.dart';
 import 'unspecced/getOnboardingSuggestedStarterPacks/output.dart';
@@ -64,7 +65,29 @@ Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedGetAgeAssuranceState({
   to: const AgeAssuranceStateConverter().fromJson,
 );
 
-/// Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.
+/// Get a skeleton of recommended Atmosphere Explore articles. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab
+Future<XRPCResponse<UnspeccedGetAtmosphereExploreArticleRecommendationsOutput>>
+appBskyUnspeccedGetAtmosphereExploreArticleRecommendations({
+  String? viewer,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereExploreArticleRecommendations,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetAtmosphereExploreArticleRecommendationsOutputConverter()
+      .fromJson,
+);
+
+/// Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.
 Future<XRPCResponse<UnspeccedGetAtmosphereExploreTabOutput>>
 appBskyUnspeccedGetAtmosphereExploreTab({
   List<String>? langs,
@@ -730,7 +753,26 @@ base class UnspeccedService {
     $unknown: $unknown,
   );
 
-  /// Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.
+  /// Get a skeleton of recommended Atmosphere Explore articles. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab
+  Future<
+    XRPCResponse<UnspeccedGetAtmosphereExploreArticleRecommendationsOutput>
+  >
+  getAtmosphereExploreArticleRecommendations({
+    String? viewer,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereExploreArticleRecommendations(
+    viewer: viewer,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.
   Future<XRPCResponse<UnspeccedGetAtmosphereExploreTabOutput>>
   getAtmosphereExploreTab({
     List<String>? langs,

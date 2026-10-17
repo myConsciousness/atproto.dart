@@ -26,11 +26,21 @@ abstract class QueueStats with _$QueueStats {
     'closureTargetMetCount',
     'closureTargetMissedCount',
     'closureTargetMetRate',
+    'closedCount',
     'actionedCount',
+    'acknowledgedCount',
     'escalatedCount',
     'inboundCount',
+    'labelActionCount',
+    'tagActionCount',
+    'takedownActionCount',
+    'ahtDurationSec',
+    'ahtSampleCount',
+    'resolutionDurationSec',
+    'resolutionSampleCount',
     'actionRate',
     'avgHandlingTimeSec',
+    'avgResolutionTimeSec',
     'lastUpdated',
   ];
 
@@ -53,22 +63,52 @@ abstract class QueueStats with _$QueueStats {
     /// Percent of reports meeting their closure target.
     int? closureTargetMetRate,
 
-    /// Number of reports in 'closed' status
+    /// Number of reports whose current closure falls within this UTC calendar day.
+    int? closedCount,
+
+    /// Number of closures whose last report action is label, tag, or takedown.
     int? actionedCount,
 
-    /// Number of reports in 'escalated' status
+    /// Number of closures whose last report action is not label, tag, or takedown.
+    int? acknowledgedCount,
+
+    /// Number of report escalation events during this UTC calendar day.
     int? escalatedCount,
 
-    /// Reports received in this queue in the last 24 hours.
+    /// Reports received in this queue during this UTC calendar day.
     int? inboundCount,
 
-    /// Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. Absent when inboundCount is 0.
+    /// Closures whose last report action is a label event.
+    int? labelActionCount,
+
+    /// Closures whose last report action is a tag event.
+    int? tagActionCount,
+
+    /// Closures whose last report action is a takedown event.
+    int? takedownActionCount,
+
+    /// Sum of report assignment-to-close seconds.
+    int? ahtDurationSec,
+
+    /// Number of assigned closed-report samples in ahtDurationSec.
+    int? ahtSampleCount,
+
+    /// Sum of report creation-to-close seconds.
+    int? resolutionDurationSec,
+
+    /// Number of closed-report samples in resolutionDurationSec.
+    int? resolutionSampleCount,
+
+    /// Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.
     int? actionRate,
 
-    /// Average time in seconds from report creation to close, for reports closed in this period.
+    /// Average handling time in seconds from report assignment to close.
     int? avgHandlingTimeSec,
 
-    /// When these statistics were last computed
+    /// Average resolution time in seconds from report creation to close.
+    int? avgResolutionTimeSec,
+
+    /// When these statistics were last computed.
     @JsonKey(toJson: iso8601) DateTime? lastUpdated,
 
     Map<String, dynamic>? $unknown,
@@ -94,16 +134,36 @@ extension QueueStatsExtension on QueueStats {
   bool get hasNotClosureTargetMissedCount => !hasClosureTargetMissedCount;
   bool get hasClosureTargetMetRate => closureTargetMetRate != null;
   bool get hasNotClosureTargetMetRate => !hasClosureTargetMetRate;
+  bool get hasClosedCount => closedCount != null;
+  bool get hasNotClosedCount => !hasClosedCount;
   bool get hasActionedCount => actionedCount != null;
   bool get hasNotActionedCount => !hasActionedCount;
+  bool get hasAcknowledgedCount => acknowledgedCount != null;
+  bool get hasNotAcknowledgedCount => !hasAcknowledgedCount;
   bool get hasEscalatedCount => escalatedCount != null;
   bool get hasNotEscalatedCount => !hasEscalatedCount;
   bool get hasInboundCount => inboundCount != null;
   bool get hasNotInboundCount => !hasInboundCount;
+  bool get hasLabelActionCount => labelActionCount != null;
+  bool get hasNotLabelActionCount => !hasLabelActionCount;
+  bool get hasTagActionCount => tagActionCount != null;
+  bool get hasNotTagActionCount => !hasTagActionCount;
+  bool get hasTakedownActionCount => takedownActionCount != null;
+  bool get hasNotTakedownActionCount => !hasTakedownActionCount;
+  bool get hasAhtDurationSec => ahtDurationSec != null;
+  bool get hasNotAhtDurationSec => !hasAhtDurationSec;
+  bool get hasAhtSampleCount => ahtSampleCount != null;
+  bool get hasNotAhtSampleCount => !hasAhtSampleCount;
+  bool get hasResolutionDurationSec => resolutionDurationSec != null;
+  bool get hasNotResolutionDurationSec => !hasResolutionDurationSec;
+  bool get hasResolutionSampleCount => resolutionSampleCount != null;
+  bool get hasNotResolutionSampleCount => !hasResolutionSampleCount;
   bool get hasActionRate => actionRate != null;
   bool get hasNotActionRate => !hasActionRate;
   bool get hasAvgHandlingTimeSec => avgHandlingTimeSec != null;
   bool get hasNotAvgHandlingTimeSec => !hasAvgHandlingTimeSec;
+  bool get hasAvgResolutionTimeSec => avgResolutionTimeSec != null;
+  bool get hasNotAvgResolutionTimeSec => !hasAvgResolutionTimeSec;
   bool get hasLastUpdated => lastUpdated != null;
   bool get hasNotLastUpdated => !hasLastUpdated;
 }

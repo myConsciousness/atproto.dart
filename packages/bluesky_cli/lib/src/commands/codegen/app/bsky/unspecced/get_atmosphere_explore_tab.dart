@@ -19,7 +19,8 @@ final class GetAtmosphereExploreTabCommand extends QueryCommand {
     argParser
       ..addMultiOption(
         "langs",
-        help: r"Preferred languages. Currently ignored.",
+        help:
+            r"Preferred languages for article recommendations when algorithmic recommendations are enabled. Ignored otherwise.",
       )
       ..addOption(
         "countryCode",
@@ -37,7 +38,7 @@ final class GetAtmosphereExploreTabCommand extends QueryCommand {
 
   @override
   final String description =
-      "Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.";
+      "Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.";
 
   @override
   final String invocation =
