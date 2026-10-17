@@ -20,12 +20,22 @@ mixin _$QueueStats {
  int? get closureTargetOverdueCount;/// Reports whose closure meets their closure target.
  int? get closureTargetMetCount;/// Reports whose closure exceeds their closure target.
  int? get closureTargetMissedCount;/// Percent of reports meeting their closure target.
- int? get closureTargetMetRate;/// Number of reports in 'closed' status
- int? get actionedCount;/// Number of reports in 'escalated' status
- int? get escalatedCount;/// Reports received in this queue in the last 24 hours.
- int? get inboundCount;/// Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. Absent when inboundCount is 0.
- int? get actionRate;/// Average time in seconds from report creation to close, for reports closed in this period.
- int? get avgHandlingTimeSec;/// When these statistics were last computed
+ int? get closureTargetMetRate;/// Number of reports whose current closure falls within this UTC calendar day.
+ int? get closedCount;/// Number of closures whose last report action is label, tag, or takedown.
+ int? get actionedCount;/// Number of closures whose last report action is not label, tag, or takedown.
+ int? get acknowledgedCount;/// Number of report escalation events during this UTC calendar day.
+ int? get escalatedCount;/// Reports received in this queue during this UTC calendar day.
+ int? get inboundCount;/// Closures whose last report action is a label event.
+ int? get labelActionCount;/// Closures whose last report action is a tag event.
+ int? get tagActionCount;/// Closures whose last report action is a takedown event.
+ int? get takedownActionCount;/// Sum of report assignment-to-close seconds.
+ int? get ahtDurationSec;/// Number of assigned closed-report samples in ahtDurationSec.
+ int? get ahtSampleCount;/// Sum of report creation-to-close seconds.
+ int? get resolutionDurationSec;/// Number of closed-report samples in resolutionDurationSec.
+ int? get resolutionSampleCount;/// Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.
+ int? get actionRate;/// Average handling time in seconds from report assignment to close.
+ int? get avgHandlingTimeSec;/// Average resolution time in seconds from report creation to close.
+ int? get avgResolutionTimeSec;/// When these statistics were last computed.
 @JsonKey(toJson: iso8601) DateTime? get lastUpdated; Map<String, dynamic>? get $unknown;
 /// Create a copy of QueueStats
 /// with the given fields replaced by the non-null parameter values.
@@ -39,16 +49,16 @@ $QueueStatsCopyWith<QueueStats> get copyWith => _$QueueStatsCopyWithImpl<QueueSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.closedCount, closedCount) || other.closedCount == closedCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.acknowledgedCount, acknowledgedCount) || other.acknowledgedCount == acknowledgedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.labelActionCount, labelActionCount) || other.labelActionCount == labelActionCount)&&(identical(other.tagActionCount, tagActionCount) || other.tagActionCount == tagActionCount)&&(identical(other.takedownActionCount, takedownActionCount) || other.takedownActionCount == takedownActionCount)&&(identical(other.ahtDurationSec, ahtDurationSec) || other.ahtDurationSec == ahtDurationSec)&&(identical(other.ahtSampleCount, ahtSampleCount) || other.ahtSampleCount == ahtSampleCount)&&(identical(other.resolutionDurationSec, resolutionDurationSec) || other.resolutionDurationSec == resolutionDurationSec)&&(identical(other.resolutionSampleCount, resolutionSampleCount) || other.resolutionSampleCount == resolutionSampleCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.avgResolutionTimeSec, avgResolutionTimeSec) || other.avgResolutionTimeSec == avgResolutionTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,actionedCount,escalatedCount,inboundCount,actionRate,avgHandlingTimeSec,lastUpdated,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hashAll([runtimeType,$type,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,closedCount,actionedCount,acknowledgedCount,escalatedCount,inboundCount,labelActionCount,tagActionCount,takedownActionCount,ahtDurationSec,ahtSampleCount,resolutionDurationSec,resolutionSampleCount,actionRate,avgHandlingTimeSec,avgResolutionTimeSec,lastUpdated,const DeepCollectionEquality().hash($unknown)]);
 
 @override
 String toString() {
-  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, actionedCount: $actionedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
+  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, closedCount: $closedCount, actionedCount: $actionedCount, acknowledgedCount: $acknowledgedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, labelActionCount: $labelActionCount, tagActionCount: $tagActionCount, takedownActionCount: $takedownActionCount, ahtDurationSec: $ahtDurationSec, ahtSampleCount: $ahtSampleCount, resolutionDurationSec: $resolutionDurationSec, resolutionSampleCount: $resolutionSampleCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, avgResolutionTimeSec: $avgResolutionTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
 }
 
 
@@ -59,7 +69,7 @@ abstract mixin class $QueueStatsCopyWith<$Res>  {
   factory $QueueStatsCopyWith(QueueStats value, $Res Function(QueueStats) _then) = _$QueueStatsCopyWithImpl;
 @useResult
 $Res call({
- String $type, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
+ String $type, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? closedCount, int? actionedCount, int? acknowledgedCount, int? escalatedCount, int? inboundCount, int? labelActionCount, int? tagActionCount, int? takedownActionCount, int? ahtDurationSec, int? ahtSampleCount, int? resolutionDurationSec, int? resolutionSampleCount, int? actionRate, int? avgHandlingTimeSec, int? avgResolutionTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
 });
 
 
@@ -76,7 +86,7 @@ class _$QueueStatsCopyWithImpl<$Res>
 
 /// Create a copy of QueueStats
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? closedCount = freezed,Object? actionedCount = freezed,Object? acknowledgedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? labelActionCount = freezed,Object? tagActionCount = freezed,Object? takedownActionCount = freezed,Object? ahtDurationSec = freezed,Object? ahtSampleCount = freezed,Object? resolutionDurationSec = freezed,Object? resolutionSampleCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? avgResolutionTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pendingCount: freezed == pendingCount ? _self.pendingCount : pendingCount // ignore: cast_nullable_to_non_nullable
@@ -84,11 +94,21 @@ as int?,closureTargetOverdueCount: freezed == closureTargetOverdueCount ? _self.
 as int?,closureTargetMetCount: freezed == closureTargetMetCount ? _self.closureTargetMetCount : closureTargetMetCount // ignore: cast_nullable_to_non_nullable
 as int?,closureTargetMissedCount: freezed == closureTargetMissedCount ? _self.closureTargetMissedCount : closureTargetMissedCount // ignore: cast_nullable_to_non_nullable
 as int?,closureTargetMetRate: freezed == closureTargetMetRate ? _self.closureTargetMetRate : closureTargetMetRate // ignore: cast_nullable_to_non_nullable
+as int?,closedCount: freezed == closedCount ? _self.closedCount : closedCount // ignore: cast_nullable_to_non_nullable
 as int?,actionedCount: freezed == actionedCount ? _self.actionedCount : actionedCount // ignore: cast_nullable_to_non_nullable
+as int?,acknowledgedCount: freezed == acknowledgedCount ? _self.acknowledgedCount : acknowledgedCount // ignore: cast_nullable_to_non_nullable
 as int?,escalatedCount: freezed == escalatedCount ? _self.escalatedCount : escalatedCount // ignore: cast_nullable_to_non_nullable
 as int?,inboundCount: freezed == inboundCount ? _self.inboundCount : inboundCount // ignore: cast_nullable_to_non_nullable
+as int?,labelActionCount: freezed == labelActionCount ? _self.labelActionCount : labelActionCount // ignore: cast_nullable_to_non_nullable
+as int?,tagActionCount: freezed == tagActionCount ? _self.tagActionCount : tagActionCount // ignore: cast_nullable_to_non_nullable
+as int?,takedownActionCount: freezed == takedownActionCount ? _self.takedownActionCount : takedownActionCount // ignore: cast_nullable_to_non_nullable
+as int?,ahtDurationSec: freezed == ahtDurationSec ? _self.ahtDurationSec : ahtDurationSec // ignore: cast_nullable_to_non_nullable
+as int?,ahtSampleCount: freezed == ahtSampleCount ? _self.ahtSampleCount : ahtSampleCount // ignore: cast_nullable_to_non_nullable
+as int?,resolutionDurationSec: freezed == resolutionDurationSec ? _self.resolutionDurationSec : resolutionDurationSec // ignore: cast_nullable_to_non_nullable
+as int?,resolutionSampleCount: freezed == resolutionSampleCount ? _self.resolutionSampleCount : resolutionSampleCount // ignore: cast_nullable_to_non_nullable
 as int?,actionRate: freezed == actionRate ? _self.actionRate : actionRate // ignore: cast_nullable_to_non_nullable
 as int?,avgHandlingTimeSec: freezed == avgHandlingTimeSec ? _self.avgHandlingTimeSec : avgHandlingTimeSec // ignore: cast_nullable_to_non_nullable
+as int?,avgResolutionTimeSec: freezed == avgResolutionTimeSec ? _self.avgResolutionTimeSec : avgResolutionTimeSec // ignore: cast_nullable_to_non_nullable
 as int?,lastUpdated: freezed == lastUpdated ? _self.lastUpdated : lastUpdated // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -176,10 +196,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _QueueStats() when $default != null:
-return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
+return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.lastUpdated,_that.$unknown);case _:
   return orElse();
 
 }
@@ -197,10 +217,10 @@ return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _QueueStats():
-return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
+return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.lastUpdated,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -217,10 +237,10 @@ return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? actionedCount,  int? escalatedCount,  int? inboundCount,  int? actionRate,  int? avgHandlingTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int? pendingCount,  int? closureTargetOverdueCount,  int? closureTargetMetCount,  int? closureTargetMissedCount,  int? closureTargetMetRate,  int? closedCount,  int? actionedCount,  int? acknowledgedCount,  int? escalatedCount,  int? inboundCount,  int? labelActionCount,  int? tagActionCount,  int? takedownActionCount,  int? ahtDurationSec,  int? ahtSampleCount,  int? resolutionDurationSec,  int? resolutionSampleCount,  int? actionRate,  int? avgHandlingTimeSec,  int? avgResolutionTimeSec, @JsonKey(toJson: iso8601)  DateTime? lastUpdated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _QueueStats() when $default != null:
-return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.actionedCount,_that.escalatedCount,_that.inboundCount,_that.actionRate,_that.avgHandlingTimeSec,_that.lastUpdated,_that.$unknown);case _:
+return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_that.closureTargetMetCount,_that.closureTargetMissedCount,_that.closureTargetMetRate,_that.closedCount,_that.actionedCount,_that.acknowledgedCount,_that.escalatedCount,_that.inboundCount,_that.labelActionCount,_that.tagActionCount,_that.takedownActionCount,_that.ahtDurationSec,_that.ahtSampleCount,_that.resolutionDurationSec,_that.resolutionSampleCount,_that.actionRate,_that.avgHandlingTimeSec,_that.avgResolutionTimeSec,_that.lastUpdated,_that.$unknown);case _:
   return null;
 
 }
@@ -232,7 +252,7 @@ return $default(_that.$type,_that.pendingCount,_that.closureTargetOverdueCount,_
 
 @JsonSerializable(includeIfNull: false)
 class _QueueStats implements QueueStats {
-  const _QueueStats({this.$type = 'tools.ozone.queue.defs#queueStats', this.pendingCount, this.closureTargetOverdueCount, this.closureTargetMetCount, this.closureTargetMissedCount, this.closureTargetMetRate, this.actionedCount, this.escalatedCount, this.inboundCount, this.actionRate, this.avgHandlingTimeSec, @JsonKey(toJson: iso8601) this.lastUpdated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _QueueStats({this.$type = 'tools.ozone.queue.defs#queueStats', this.pendingCount, this.closureTargetOverdueCount, this.closureTargetMetCount, this.closureTargetMissedCount, this.closureTargetMetRate, this.closedCount, this.actionedCount, this.acknowledgedCount, this.escalatedCount, this.inboundCount, this.labelActionCount, this.tagActionCount, this.takedownActionCount, this.ahtDurationSec, this.ahtSampleCount, this.resolutionDurationSec, this.resolutionSampleCount, this.actionRate, this.avgHandlingTimeSec, this.avgResolutionTimeSec, @JsonKey(toJson: iso8601) this.lastUpdated, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _QueueStats.fromJson(Map<String, dynamic> json) => _$QueueStatsFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -246,17 +266,37 @@ class _QueueStats implements QueueStats {
 @override final  int? closureTargetMissedCount;
 /// Percent of reports meeting their closure target.
 @override final  int? closureTargetMetRate;
-/// Number of reports in 'closed' status
+/// Number of reports whose current closure falls within this UTC calendar day.
+@override final  int? closedCount;
+/// Number of closures whose last report action is label, tag, or takedown.
 @override final  int? actionedCount;
-/// Number of reports in 'escalated' status
+/// Number of closures whose last report action is not label, tag, or takedown.
+@override final  int? acknowledgedCount;
+/// Number of report escalation events during this UTC calendar day.
 @override final  int? escalatedCount;
-/// Reports received in this queue in the last 24 hours.
+/// Reports received in this queue during this UTC calendar day.
 @override final  int? inboundCount;
-/// Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. Absent when inboundCount is 0.
+/// Closures whose last report action is a label event.
+@override final  int? labelActionCount;
+/// Closures whose last report action is a tag event.
+@override final  int? tagActionCount;
+/// Closures whose last report action is a takedown event.
+@override final  int? takedownActionCount;
+/// Sum of report assignment-to-close seconds.
+@override final  int? ahtDurationSec;
+/// Number of assigned closed-report samples in ahtDurationSec.
+@override final  int? ahtSampleCount;
+/// Sum of report creation-to-close seconds.
+@override final  int? resolutionDurationSec;
+/// Number of closed-report samples in resolutionDurationSec.
+@override final  int? resolutionSampleCount;
+/// Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.
 @override final  int? actionRate;
-/// Average time in seconds from report creation to close, for reports closed in this period.
+/// Average handling time in seconds from report assignment to close.
 @override final  int? avgHandlingTimeSec;
-/// When these statistics were last computed
+/// Average resolution time in seconds from report creation to close.
+@override final  int? avgResolutionTimeSec;
+/// When these statistics were last computed.
 @override@JsonKey(toJson: iso8601) final  DateTime? lastUpdated;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -281,16 +321,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueStats&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.pendingCount, pendingCount) || other.pendingCount == pendingCount)&&(identical(other.closureTargetOverdueCount, closureTargetOverdueCount) || other.closureTargetOverdueCount == closureTargetOverdueCount)&&(identical(other.closureTargetMetCount, closureTargetMetCount) || other.closureTargetMetCount == closureTargetMetCount)&&(identical(other.closureTargetMissedCount, closureTargetMissedCount) || other.closureTargetMissedCount == closureTargetMissedCount)&&(identical(other.closureTargetMetRate, closureTargetMetRate) || other.closureTargetMetRate == closureTargetMetRate)&&(identical(other.closedCount, closedCount) || other.closedCount == closedCount)&&(identical(other.actionedCount, actionedCount) || other.actionedCount == actionedCount)&&(identical(other.acknowledgedCount, acknowledgedCount) || other.acknowledgedCount == acknowledgedCount)&&(identical(other.escalatedCount, escalatedCount) || other.escalatedCount == escalatedCount)&&(identical(other.inboundCount, inboundCount) || other.inboundCount == inboundCount)&&(identical(other.labelActionCount, labelActionCount) || other.labelActionCount == labelActionCount)&&(identical(other.tagActionCount, tagActionCount) || other.tagActionCount == tagActionCount)&&(identical(other.takedownActionCount, takedownActionCount) || other.takedownActionCount == takedownActionCount)&&(identical(other.ahtDurationSec, ahtDurationSec) || other.ahtDurationSec == ahtDurationSec)&&(identical(other.ahtSampleCount, ahtSampleCount) || other.ahtSampleCount == ahtSampleCount)&&(identical(other.resolutionDurationSec, resolutionDurationSec) || other.resolutionDurationSec == resolutionDurationSec)&&(identical(other.resolutionSampleCount, resolutionSampleCount) || other.resolutionSampleCount == resolutionSampleCount)&&(identical(other.actionRate, actionRate) || other.actionRate == actionRate)&&(identical(other.avgHandlingTimeSec, avgHandlingTimeSec) || other.avgHandlingTimeSec == avgHandlingTimeSec)&&(identical(other.avgResolutionTimeSec, avgResolutionTimeSec) || other.avgResolutionTimeSec == avgResolutionTimeSec)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,actionedCount,escalatedCount,inboundCount,actionRate,avgHandlingTimeSec,lastUpdated,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hashAll([runtimeType,$type,pendingCount,closureTargetOverdueCount,closureTargetMetCount,closureTargetMissedCount,closureTargetMetRate,closedCount,actionedCount,acknowledgedCount,escalatedCount,inboundCount,labelActionCount,tagActionCount,takedownActionCount,ahtDurationSec,ahtSampleCount,resolutionDurationSec,resolutionSampleCount,actionRate,avgHandlingTimeSec,avgResolutionTimeSec,lastUpdated,const DeepCollectionEquality().hash(_$unknown)]);
 
 @override
 String toString() {
-  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, actionedCount: $actionedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
+  return 'QueueStats(\$type: ${$type}, pendingCount: $pendingCount, closureTargetOverdueCount: $closureTargetOverdueCount, closureTargetMetCount: $closureTargetMetCount, closureTargetMissedCount: $closureTargetMissedCount, closureTargetMetRate: $closureTargetMetRate, closedCount: $closedCount, actionedCount: $actionedCount, acknowledgedCount: $acknowledgedCount, escalatedCount: $escalatedCount, inboundCount: $inboundCount, labelActionCount: $labelActionCount, tagActionCount: $tagActionCount, takedownActionCount: $takedownActionCount, ahtDurationSec: $ahtDurationSec, ahtSampleCount: $ahtSampleCount, resolutionDurationSec: $resolutionDurationSec, resolutionSampleCount: $resolutionSampleCount, actionRate: $actionRate, avgHandlingTimeSec: $avgHandlingTimeSec, avgResolutionTimeSec: $avgResolutionTimeSec, lastUpdated: $lastUpdated, \$unknown: ${$unknown})';
 }
 
 
@@ -301,7 +341,7 @@ abstract mixin class _$QueueStatsCopyWith<$Res> implements $QueueStatsCopyWith<$
   factory _$QueueStatsCopyWith(_QueueStats value, $Res Function(_QueueStats) _then) = __$QueueStatsCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? actionedCount, int? escalatedCount, int? inboundCount, int? actionRate, int? avgHandlingTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
+ String $type, int? pendingCount, int? closureTargetOverdueCount, int? closureTargetMetCount, int? closureTargetMissedCount, int? closureTargetMetRate, int? closedCount, int? actionedCount, int? acknowledgedCount, int? escalatedCount, int? inboundCount, int? labelActionCount, int? tagActionCount, int? takedownActionCount, int? ahtDurationSec, int? ahtSampleCount, int? resolutionDurationSec, int? resolutionSampleCount, int? actionRate, int? avgHandlingTimeSec, int? avgResolutionTimeSec,@JsonKey(toJson: iso8601) DateTime? lastUpdated, Map<String, dynamic>? $unknown
 });
 
 
@@ -318,7 +358,7 @@ class __$QueueStatsCopyWithImpl<$Res>
 
 /// Create a copy of QueueStats
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? actionedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? pendingCount = freezed,Object? closureTargetOverdueCount = freezed,Object? closureTargetMetCount = freezed,Object? closureTargetMissedCount = freezed,Object? closureTargetMetRate = freezed,Object? closedCount = freezed,Object? actionedCount = freezed,Object? acknowledgedCount = freezed,Object? escalatedCount = freezed,Object? inboundCount = freezed,Object? labelActionCount = freezed,Object? tagActionCount = freezed,Object? takedownActionCount = freezed,Object? ahtDurationSec = freezed,Object? ahtSampleCount = freezed,Object? resolutionDurationSec = freezed,Object? resolutionSampleCount = freezed,Object? actionRate = freezed,Object? avgHandlingTimeSec = freezed,Object? avgResolutionTimeSec = freezed,Object? lastUpdated = freezed,Object? $unknown = freezed,}) {
   return _then(_QueueStats(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,pendingCount: freezed == pendingCount ? _self.pendingCount : pendingCount // ignore: cast_nullable_to_non_nullable
@@ -326,11 +366,21 @@ as int?,closureTargetOverdueCount: freezed == closureTargetOverdueCount ? _self.
 as int?,closureTargetMetCount: freezed == closureTargetMetCount ? _self.closureTargetMetCount : closureTargetMetCount // ignore: cast_nullable_to_non_nullable
 as int?,closureTargetMissedCount: freezed == closureTargetMissedCount ? _self.closureTargetMissedCount : closureTargetMissedCount // ignore: cast_nullable_to_non_nullable
 as int?,closureTargetMetRate: freezed == closureTargetMetRate ? _self.closureTargetMetRate : closureTargetMetRate // ignore: cast_nullable_to_non_nullable
+as int?,closedCount: freezed == closedCount ? _self.closedCount : closedCount // ignore: cast_nullable_to_non_nullable
 as int?,actionedCount: freezed == actionedCount ? _self.actionedCount : actionedCount // ignore: cast_nullable_to_non_nullable
+as int?,acknowledgedCount: freezed == acknowledgedCount ? _self.acknowledgedCount : acknowledgedCount // ignore: cast_nullable_to_non_nullable
 as int?,escalatedCount: freezed == escalatedCount ? _self.escalatedCount : escalatedCount // ignore: cast_nullable_to_non_nullable
 as int?,inboundCount: freezed == inboundCount ? _self.inboundCount : inboundCount // ignore: cast_nullable_to_non_nullable
+as int?,labelActionCount: freezed == labelActionCount ? _self.labelActionCount : labelActionCount // ignore: cast_nullable_to_non_nullable
+as int?,tagActionCount: freezed == tagActionCount ? _self.tagActionCount : tagActionCount // ignore: cast_nullable_to_non_nullable
+as int?,takedownActionCount: freezed == takedownActionCount ? _self.takedownActionCount : takedownActionCount // ignore: cast_nullable_to_non_nullable
+as int?,ahtDurationSec: freezed == ahtDurationSec ? _self.ahtDurationSec : ahtDurationSec // ignore: cast_nullable_to_non_nullable
+as int?,ahtSampleCount: freezed == ahtSampleCount ? _self.ahtSampleCount : ahtSampleCount // ignore: cast_nullable_to_non_nullable
+as int?,resolutionDurationSec: freezed == resolutionDurationSec ? _self.resolutionDurationSec : resolutionDurationSec // ignore: cast_nullable_to_non_nullable
+as int?,resolutionSampleCount: freezed == resolutionSampleCount ? _self.resolutionSampleCount : resolutionSampleCount // ignore: cast_nullable_to_non_nullable
 as int?,actionRate: freezed == actionRate ? _self.actionRate : actionRate // ignore: cast_nullable_to_non_nullable
 as int?,avgHandlingTimeSec: freezed == avgHandlingTimeSec ? _self.avgHandlingTimeSec : avgHandlingTimeSec // ignore: cast_nullable_to_non_nullable
+as int?,avgResolutionTimeSec: freezed == avgResolutionTimeSec ? _self.avgResolutionTimeSec : avgResolutionTimeSec // ignore: cast_nullable_to_non_nullable
 as int?,lastUpdated: freezed == lastUpdated ? _self.lastUpdated : lastUpdated // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'unspecced/get_age_assurance_state.dart';
+import 'unspecced/get_atmosphere_explore_article_recommendations.dart';
 import 'unspecced/get_atmosphere_explore_tab.dart';
 import 'unspecced/get_config.dart';
 import 'unspecced/get_onboarding_suggested_starter_packs.dart';
@@ -50,6 +51,7 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
     addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetAtmosphereExploreArticleRecommendationsCommand());
     addSubcommand(GetAtmosphereExploreTabCommand());
     addSubcommand(GetConfigCommand());
     addSubcommand(GetOnboardingSuggestedStarterPacksCommand());

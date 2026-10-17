@@ -7,7 +7,7 @@ description: app.bsky.unspecced.getAtmosphereExploreTab
 
 ## #main
 
-Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.
+Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.
 
 ### Parameters
 
@@ -24,11 +24,39 @@ Get curated Atmosphere Explore content. Authentication is optional; authenticate
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **announcementBanner** | [#announcementBanner](#announcementbanner) | - | ❌ | - |
-| **articles** | array of [#articleItem](#articleitem) | - | ✅ | - |
-| **publications** | array of [#publicationItem](#publicationitem) | - | ✅ | - |
-| **photos** | array of [#galleryItem](#galleryitem) | - | ✅ | - |
-| **livestreams** | array of [#livestreamItem](#livestreamitem) | - | ✅ | - |
+| **articles** | [#articleList](#articlelist) | - | ✅ | - |
+| **publications** | [#publicationList](#publicationlist) | - | ✅ | - |
+| **photos** | [#galleryList](#gallerylist) | - | ✅ | - |
+| **livestreams** | [#livestreamList](#livestreamlist) | - | ✅ | - |
 | **apps** | array of [#appCard](#appcard) | - | ✅ | - |
+
+## #articleList
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of [#articleItem](#articleitem) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended. |
+
+## #publicationList
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of [#publicationItem](#publicationitem) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended. |
+
+## #galleryList
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of [#galleryItem](#galleryitem) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended. |
+
+## #livestreamList
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of [#livestreamItem](#livestreamitem) | - | ✅ | - |
+| **recIdStr** | string | - | ❌ | Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended. |
 
 ## #articleItem
 

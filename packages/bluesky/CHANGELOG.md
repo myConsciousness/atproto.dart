@@ -1,5 +1,37 @@
 # Release Note
 
+## v2.14.0
+
+- feat: added `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations#article`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#articleList`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#galleryList`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#livestreamList`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab`
+- fix!: `app.bsky.unspecced.getAtmosphereExploreTab.output.articles` changed type (array<ref(#articleItem)> -> ref(#articleList)) (BREAKING)
+- fix!: `app.bsky.unspecced.getAtmosphereExploreTab.output.livestreams` changed type (array<ref(#livestreamItem)> -> ref(#livestreamList)) (BREAKING)
+- fix!: `app.bsky.unspecced.getAtmosphereExploreTab.output.photos` changed type (array<ref(#galleryItem)> -> ref(#galleryList)) (BREAKING)
+- fix!: `app.bsky.unspecced.getAtmosphereExploreTab.output.publications` changed type (array<ref(#publicationItem)> -> ref(#publicationList)) (BREAKING)
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab.parameters.langs`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#publicationList`
+- feat: added `tools.ozone.queue.defs#queueStats.acknowledgedCount`
+- chore: updated `tools.ozone.queue.defs#queueStats.actionRate`
+- chore: updated `tools.ozone.queue.defs#queueStats.actionedCount`
+- feat: added `tools.ozone.queue.defs#queueStats.ahtDurationSec`
+- feat: added `tools.ozone.queue.defs#queueStats.ahtSampleCount`
+- chore: updated `tools.ozone.queue.defs#queueStats.avgHandlingTimeSec`
+- feat: added `tools.ozone.queue.defs#queueStats.avgResolutionTimeSec`
+- feat: added `tools.ozone.queue.defs#queueStats.closedCount`
+- chore: updated `tools.ozone.queue.defs#queueStats.escalatedCount`
+- chore: updated `tools.ozone.queue.defs#queueStats.inboundCount`
+- feat: added `tools.ozone.queue.defs#queueStats.labelActionCount`
+- chore: updated `tools.ozone.queue.defs#queueStats.lastUpdated`
+- feat: added `tools.ozone.queue.defs#queueStats.resolutionDurationSec`
+- feat: added `tools.ozone.queue.defs#queueStats.resolutionSampleCount`
+- feat: added `tools.ozone.queue.defs#queueStats.tagActionCount`
+- feat: added `tools.ozone.queue.defs#queueStats.takedownActionCount`
+- chore: regenerated from synced lexicons
+
 ## v2.13.1
 
 - feat: added `app.bsky.notification.getGroupedNotifications#subscribedPostItem.parent`

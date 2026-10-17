@@ -8144,6 +8144,62 @@ const appBskyUnspeccedGetAgeAssuranceState = <String, dynamic>{
   },
 };
 
+/// `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations`
+const appBskyUnspeccedGetAtmosphereExploreArticleRecommendations = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereExploreArticleRecommendations",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of recommended Atmosphere Explore articles. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["articles", "recIdStr"],
+          "properties": {
+            "articles": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#article"},
+              "maxLength": 100,
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+    "article": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+      },
+    },
+  },
+};
+
 /// `app.bsky.unspecced.getAtmosphereExploreTab`
 const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
   "lexicon": 1,
@@ -8152,13 +8208,14 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Get curated Atmosphere Explore content. Authentication is optional; authenticated requests include viewer-specific profile state.",
+          "Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.",
       "parameters": {
         "type": "params",
         "properties": {
           "langs": {
             "type": "array",
-            "description": "Preferred languages. Currently ignored.",
+            "description":
+                "Preferred languages for article recommendations when algorithmic recommendations are enabled. Ignored otherwise.",
             "items": {"type": "string", "format": "language"},
           },
           "countryCode": {
@@ -8186,28 +8243,76 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
           ],
           "properties": {
             "announcementBanner": {"type": "ref", "ref": "#announcementBanner"},
-            "articles": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#articleItem"},
-            },
-            "publications": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#publicationItem"},
-            },
-            "photos": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#galleryItem"},
-            },
-            "livestreams": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "#livestreamItem"},
-            },
+            "articles": {"type": "ref", "ref": "#articleList"},
+            "publications": {"type": "ref", "ref": "#publicationList"},
+            "photos": {"type": "ref", "ref": "#galleryList"},
+            "livestreams": {"type": "ref", "ref": "#livestreamList"},
             "apps": {
               "type": "array",
               "items": {"type": "ref", "ref": "#appCard"},
               "maxLength": 100,
             },
           },
+        },
+      },
+    },
+    "articleList": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#articleItem"},
+        },
+        "recIdStr": {
+          "type": "string",
+          "description":
+              "Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended.",
+        },
+      },
+    },
+    "publicationList": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#publicationItem"},
+        },
+        "recIdStr": {
+          "type": "string",
+          "description":
+              "Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended.",
+        },
+      },
+    },
+    "galleryList": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#galleryItem"},
+        },
+        "recIdStr": {
+          "type": "string",
+          "description":
+              "Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended.",
+        },
+      },
+    },
+    "livestreamList": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#livestreamItem"},
+        },
+        "recIdStr": {
+          "type": "string",
+          "description":
+              "Snowflake for this list's recommendation, use when submitting recommendation events. Omitted when the list is not algorithmically recommended.",
         },
       },
     },
@@ -19619,7 +19724,7 @@ const socialGrainPhoto = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": ["photo", "alt"],
+        "required": ["photo"],
         "properties": {
           "alt": {
             "type": "string",
@@ -23730,32 +23835,81 @@ const toolsOzoneQueueDefs = <String, dynamic>{
           "minimum": 0,
           "maximum": 100,
         },
+        "closedCount": {
+          "type": "integer",
+          "description":
+              "Number of reports whose current closure falls within this UTC calendar day.",
+        },
         "actionedCount": {
           "type": "integer",
-          "description": "Number of reports in 'closed' status",
+          "description":
+              "Number of closures whose last report action is label, tag, or takedown.",
+        },
+        "acknowledgedCount": {
+          "type": "integer",
+          "description":
+              "Number of closures whose last report action is not label, tag, or takedown.",
         },
         "escalatedCount": {
           "type": "integer",
-          "description": "Number of reports in 'escalated' status",
+          "description":
+              "Number of report escalation events during this UTC calendar day.",
         },
         "inboundCount": {
           "type": "integer",
-          "description": "Reports received in this queue in the last 24 hours.",
+          "description":
+              "Reports received in this queue during this UTC calendar day.",
+        },
+        "labelActionCount": {
+          "type": "integer",
+          "description": "Closures whose last report action is a label event.",
+        },
+        "tagActionCount": {
+          "type": "integer",
+          "description": "Closures whose last report action is a tag event.",
+        },
+        "takedownActionCount": {
+          "type": "integer",
+          "description":
+              "Closures whose last report action is a takedown event.",
+        },
+        "ahtDurationSec": {
+          "type": "integer",
+          "description": "Sum of report assignment-to-close seconds.",
+        },
+        "ahtSampleCount": {
+          "type": "integer",
+          "description":
+              "Number of assigned closed-report samples in ahtDurationSec.",
+        },
+        "resolutionDurationSec": {
+          "type": "integer",
+          "description": "Sum of report creation-to-close seconds.",
+        },
+        "resolutionSampleCount": {
+          "type": "integer",
+          "description":
+              "Number of closed-report samples in resolutionDurationSec.",
         },
         "actionRate": {
           "type": "integer",
           "description":
-              "Percentage of reports actioned (actionedCount / inboundCount * 100), rounded to nearest integer. Absent when inboundCount is 0.",
+              "Percentage of closures actioned (actionedCount / closedCount * 100), rounded to nearest integer.",
         },
         "avgHandlingTimeSec": {
           "type": "integer",
           "description":
-              "Average time in seconds from report creation to close, for reports closed in this period.",
+              "Average handling time in seconds from report assignment to close.",
+        },
+        "avgResolutionTimeSec": {
+          "type": "integer",
+          "description":
+              "Average resolution time in seconds from report creation to close.",
         },
         "lastUpdated": {
           "type": "string",
           "format": "datetime",
-          "description": "When these statistics were last computed",
+          "description": "When these statistics were last computed.",
         },
       },
     },
@@ -27454,6 +27608,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyRichtextFacet,
   appBskyUnspeccedDefs,
   appBskyUnspeccedGetAgeAssuranceState,
+  appBskyUnspeccedGetAtmosphereExploreArticleRecommendations,
   appBskyUnspeccedGetAtmosphereExploreTab,
   appBskyUnspeccedGetConfig,
   appBskyUnspeccedGetOnboardingSuggestedStarterPacks,

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetAtmosphereExploreTabOutput {
 
-@AnnouncementBannerConverter() AnnouncementBanner? get announcementBanner;@ArticleItemConverter() List<ArticleItem> get articles;@PublicationItemConverter() List<PublicationItem> get publications;@GalleryItemConverter() List<GalleryItem> get photos;@LivestreamItemConverter() List<LivestreamItem> get livestreams;@AppCardConverter() List<AppCard> get apps; Map<String, dynamic>? get $unknown;
+@AnnouncementBannerConverter() AnnouncementBanner? get announcementBanner;@ArticleListConverter() ArticleList get articles;@PublicationListConverter() PublicationList get publications;@GalleryListConverter() GalleryList get photos;@LivestreamListConverter() LivestreamList get livestreams;@AppCardConverter() List<AppCard> get apps; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,12 +28,12 @@ $UnspeccedGetAtmosphereExploreTabOutputCopyWith<UnspeccedGetAtmosphereExploreTab
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetAtmosphereExploreTabOutput&&(identical(other.announcementBanner, announcementBanner) || other.announcementBanner == announcementBanner)&&const DeepCollectionEquality().equals(other.articles, articles)&&const DeepCollectionEquality().equals(other.publications, publications)&&const DeepCollectionEquality().equals(other.photos, photos)&&const DeepCollectionEquality().equals(other.livestreams, livestreams)&&const DeepCollectionEquality().equals(other.apps, apps)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetAtmosphereExploreTabOutput&&(identical(other.announcementBanner, announcementBanner) || other.announcementBanner == announcementBanner)&&(identical(other.articles, articles) || other.articles == articles)&&(identical(other.publications, publications) || other.publications == publications)&&(identical(other.photos, photos) || other.photos == photos)&&(identical(other.livestreams, livestreams) || other.livestreams == livestreams)&&const DeepCollectionEquality().equals(other.apps, apps)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,announcementBanner,const DeepCollectionEquality().hash(articles),const DeepCollectionEquality().hash(publications),const DeepCollectionEquality().hash(photos),const DeepCollectionEquality().hash(livestreams),const DeepCollectionEquality().hash(apps),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,announcementBanner,articles,publications,photos,livestreams,const DeepCollectionEquality().hash(apps),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
@@ -48,11 +48,11 @@ abstract mixin class $UnspeccedGetAtmosphereExploreTabOutputCopyWith<$Res>  {
   factory $UnspeccedGetAtmosphereExploreTabOutputCopyWith(UnspeccedGetAtmosphereExploreTabOutput value, $Res Function(UnspeccedGetAtmosphereExploreTabOutput) _then) = _$UnspeccedGetAtmosphereExploreTabOutputCopyWithImpl;
 @useResult
 $Res call({
-@AnnouncementBannerConverter() AnnouncementBanner? announcementBanner,@ArticleItemConverter() List<ArticleItem> articles,@PublicationItemConverter() List<PublicationItem> publications,@GalleryItemConverter() List<GalleryItem> photos,@LivestreamItemConverter() List<LivestreamItem> livestreams,@AppCardConverter() List<AppCard> apps, Map<String, dynamic>? $unknown
+@AnnouncementBannerConverter() AnnouncementBanner? announcementBanner,@ArticleListConverter() ArticleList articles,@PublicationListConverter() PublicationList publications,@GalleryListConverter() GalleryList photos,@LivestreamListConverter() LivestreamList livestreams,@AppCardConverter() List<AppCard> apps, Map<String, dynamic>? $unknown
 });
 
 
-$AnnouncementBannerCopyWith<$Res>? get announcementBanner;
+$AnnouncementBannerCopyWith<$Res>? get announcementBanner;$ArticleListCopyWith<$Res> get articles;$PublicationListCopyWith<$Res> get publications;$GalleryListCopyWith<$Res> get photos;$LivestreamListCopyWith<$Res> get livestreams;
 
 }
 /// @nodoc
@@ -69,10 +69,10 @@ class _$UnspeccedGetAtmosphereExploreTabOutputCopyWithImpl<$Res>
   return _then(_self.copyWith(
 announcementBanner: freezed == announcementBanner ? _self.announcementBanner : announcementBanner // ignore: cast_nullable_to_non_nullable
 as AnnouncementBanner?,articles: null == articles ? _self.articles : articles // ignore: cast_nullable_to_non_nullable
-as List<ArticleItem>,publications: null == publications ? _self.publications : publications // ignore: cast_nullable_to_non_nullable
-as List<PublicationItem>,photos: null == photos ? _self.photos : photos // ignore: cast_nullable_to_non_nullable
-as List<GalleryItem>,livestreams: null == livestreams ? _self.livestreams : livestreams // ignore: cast_nullable_to_non_nullable
-as List<LivestreamItem>,apps: null == apps ? _self.apps : apps // ignore: cast_nullable_to_non_nullable
+as ArticleList,publications: null == publications ? _self.publications : publications // ignore: cast_nullable_to_non_nullable
+as PublicationList,photos: null == photos ? _self.photos : photos // ignore: cast_nullable_to_non_nullable
+as GalleryList,livestreams: null == livestreams ? _self.livestreams : livestreams // ignore: cast_nullable_to_non_nullable
+as LivestreamList,apps: null == apps ? _self.apps : apps // ignore: cast_nullable_to_non_nullable
 as List<AppCard>,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -88,6 +88,42 @@ $AnnouncementBannerCopyWith<$Res>? get announcementBanner {
 
   return $AnnouncementBannerCopyWith<$Res>(_self.announcementBanner!, (value) {
     return _then(_self.copyWith(announcementBanner: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ArticleListCopyWith<$Res> get articles {
+  
+  return $ArticleListCopyWith<$Res>(_self.articles, (value) {
+    return _then(_self.copyWith(articles: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PublicationListCopyWith<$Res> get publications {
+  
+  return $PublicationListCopyWith<$Res>(_self.publications, (value) {
+    return _then(_self.copyWith(publications: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$GalleryListCopyWith<$Res> get photos {
+  
+  return $GalleryListCopyWith<$Res>(_self.photos, (value) {
+    return _then(_self.copyWith(photos: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LivestreamListCopyWith<$Res> get livestreams {
+  
+  return $LivestreamListCopyWith<$Res>(_self.livestreams, (value) {
+    return _then(_self.copyWith(livestreams: value));
   });
 }
 }
@@ -171,7 +207,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AnnouncementBannerConverter()  AnnouncementBanner? announcementBanner, @ArticleItemConverter()  List<ArticleItem> articles, @PublicationItemConverter()  List<PublicationItem> publications, @GalleryItemConverter()  List<GalleryItem> photos, @LivestreamItemConverter()  List<LivestreamItem> livestreams, @AppCardConverter()  List<AppCard> apps,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@AnnouncementBannerConverter()  AnnouncementBanner? announcementBanner, @ArticleListConverter()  ArticleList articles, @PublicationListConverter()  PublicationList publications, @GalleryListConverter()  GalleryList photos, @LivestreamListConverter()  LivestreamList livestreams, @AppCardConverter()  List<AppCard> apps,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetAtmosphereExploreTabOutput() when $default != null:
 return $default(_that.announcementBanner,_that.articles,_that.publications,_that.photos,_that.livestreams,_that.apps,_that.$unknown);case _:
@@ -192,7 +228,7 @@ return $default(_that.announcementBanner,_that.articles,_that.publications,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AnnouncementBannerConverter()  AnnouncementBanner? announcementBanner, @ArticleItemConverter()  List<ArticleItem> articles, @PublicationItemConverter()  List<PublicationItem> publications, @GalleryItemConverter()  List<GalleryItem> photos, @LivestreamItemConverter()  List<LivestreamItem> livestreams, @AppCardConverter()  List<AppCard> apps,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@AnnouncementBannerConverter()  AnnouncementBanner? announcementBanner, @ArticleListConverter()  ArticleList articles, @PublicationListConverter()  PublicationList publications, @GalleryListConverter()  GalleryList photos, @LivestreamListConverter()  LivestreamList livestreams, @AppCardConverter()  List<AppCard> apps,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetAtmosphereExploreTabOutput():
 return $default(_that.announcementBanner,_that.articles,_that.publications,_that.photos,_that.livestreams,_that.apps,_that.$unknown);case _:
@@ -212,7 +248,7 @@ return $default(_that.announcementBanner,_that.articles,_that.publications,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AnnouncementBannerConverter()  AnnouncementBanner? announcementBanner, @ArticleItemConverter()  List<ArticleItem> articles, @PublicationItemConverter()  List<PublicationItem> publications, @GalleryItemConverter()  List<GalleryItem> photos, @LivestreamItemConverter()  List<LivestreamItem> livestreams, @AppCardConverter()  List<AppCard> apps,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@AnnouncementBannerConverter()  AnnouncementBanner? announcementBanner, @ArticleListConverter()  ArticleList articles, @PublicationListConverter()  PublicationList publications, @GalleryListConverter()  GalleryList photos, @LivestreamListConverter()  LivestreamList livestreams, @AppCardConverter()  List<AppCard> apps,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetAtmosphereExploreTabOutput() when $default != null:
 return $default(_that.announcementBanner,_that.articles,_that.publications,_that.photos,_that.livestreams,_that.apps,_that.$unknown);case _:
@@ -227,38 +263,14 @@ return $default(_that.announcementBanner,_that.articles,_that.publications,_that
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetAtmosphereExploreTabOutput implements UnspeccedGetAtmosphereExploreTabOutput {
-  const _UnspeccedGetAtmosphereExploreTabOutput({@AnnouncementBannerConverter() this.announcementBanner, @ArticleItemConverter() required final  List<ArticleItem> articles, @PublicationItemConverter() required final  List<PublicationItem> publications, @GalleryItemConverter() required final  List<GalleryItem> photos, @LivestreamItemConverter() required final  List<LivestreamItem> livestreams, @AppCardConverter() required final  List<AppCard> apps, final  Map<String, dynamic>? $unknown}): _articles = articles,_publications = publications,_photos = photos,_livestreams = livestreams,_apps = apps,_$unknown = $unknown;
+  const _UnspeccedGetAtmosphereExploreTabOutput({@AnnouncementBannerConverter() this.announcementBanner, @ArticleListConverter() required this.articles, @PublicationListConverter() required this.publications, @GalleryListConverter() required this.photos, @LivestreamListConverter() required this.livestreams, @AppCardConverter() required final  List<AppCard> apps, final  Map<String, dynamic>? $unknown}): _apps = apps,_$unknown = $unknown;
   factory _UnspeccedGetAtmosphereExploreTabOutput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetAtmosphereExploreTabOutputFromJson(json);
 
 @override@AnnouncementBannerConverter() final  AnnouncementBanner? announcementBanner;
- final  List<ArticleItem> _articles;
-@override@ArticleItemConverter() List<ArticleItem> get articles {
-  if (_articles is EqualUnmodifiableListView) return _articles;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_articles);
-}
-
- final  List<PublicationItem> _publications;
-@override@PublicationItemConverter() List<PublicationItem> get publications {
-  if (_publications is EqualUnmodifiableListView) return _publications;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_publications);
-}
-
- final  List<GalleryItem> _photos;
-@override@GalleryItemConverter() List<GalleryItem> get photos {
-  if (_photos is EqualUnmodifiableListView) return _photos;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_photos);
-}
-
- final  List<LivestreamItem> _livestreams;
-@override@LivestreamItemConverter() List<LivestreamItem> get livestreams {
-  if (_livestreams is EqualUnmodifiableListView) return _livestreams;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_livestreams);
-}
-
+@override@ArticleListConverter() final  ArticleList articles;
+@override@PublicationListConverter() final  PublicationList publications;
+@override@GalleryListConverter() final  GalleryList photos;
+@override@LivestreamListConverter() final  LivestreamList livestreams;
  final  List<AppCard> _apps;
 @override@AppCardConverter() List<AppCard> get apps {
   if (_apps is EqualUnmodifiableListView) return _apps;
@@ -289,12 +301,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetAtmosphereExploreTabOutput&&(identical(other.announcementBanner, announcementBanner) || other.announcementBanner == announcementBanner)&&const DeepCollectionEquality().equals(other._articles, _articles)&&const DeepCollectionEquality().equals(other._publications, _publications)&&const DeepCollectionEquality().equals(other._photos, _photos)&&const DeepCollectionEquality().equals(other._livestreams, _livestreams)&&const DeepCollectionEquality().equals(other._apps, _apps)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetAtmosphereExploreTabOutput&&(identical(other.announcementBanner, announcementBanner) || other.announcementBanner == announcementBanner)&&(identical(other.articles, articles) || other.articles == articles)&&(identical(other.publications, publications) || other.publications == publications)&&(identical(other.photos, photos) || other.photos == photos)&&(identical(other.livestreams, livestreams) || other.livestreams == livestreams)&&const DeepCollectionEquality().equals(other._apps, _apps)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,announcementBanner,const DeepCollectionEquality().hash(_articles),const DeepCollectionEquality().hash(_publications),const DeepCollectionEquality().hash(_photos),const DeepCollectionEquality().hash(_livestreams),const DeepCollectionEquality().hash(_apps),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,announcementBanner,articles,publications,photos,livestreams,const DeepCollectionEquality().hash(_apps),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
@@ -309,11 +321,11 @@ abstract mixin class _$UnspeccedGetAtmosphereExploreTabOutputCopyWith<$Res> impl
   factory _$UnspeccedGetAtmosphereExploreTabOutputCopyWith(_UnspeccedGetAtmosphereExploreTabOutput value, $Res Function(_UnspeccedGetAtmosphereExploreTabOutput) _then) = __$UnspeccedGetAtmosphereExploreTabOutputCopyWithImpl;
 @override @useResult
 $Res call({
-@AnnouncementBannerConverter() AnnouncementBanner? announcementBanner,@ArticleItemConverter() List<ArticleItem> articles,@PublicationItemConverter() List<PublicationItem> publications,@GalleryItemConverter() List<GalleryItem> photos,@LivestreamItemConverter() List<LivestreamItem> livestreams,@AppCardConverter() List<AppCard> apps, Map<String, dynamic>? $unknown
+@AnnouncementBannerConverter() AnnouncementBanner? announcementBanner,@ArticleListConverter() ArticleList articles,@PublicationListConverter() PublicationList publications,@GalleryListConverter() GalleryList photos,@LivestreamListConverter() LivestreamList livestreams,@AppCardConverter() List<AppCard> apps, Map<String, dynamic>? $unknown
 });
 
 
-@override $AnnouncementBannerCopyWith<$Res>? get announcementBanner;
+@override $AnnouncementBannerCopyWith<$Res>? get announcementBanner;@override $ArticleListCopyWith<$Res> get articles;@override $PublicationListCopyWith<$Res> get publications;@override $GalleryListCopyWith<$Res> get photos;@override $LivestreamListCopyWith<$Res> get livestreams;
 
 }
 /// @nodoc
@@ -329,11 +341,11 @@ class __$UnspeccedGetAtmosphereExploreTabOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? announcementBanner = freezed,Object? articles = null,Object? publications = null,Object? photos = null,Object? livestreams = null,Object? apps = null,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetAtmosphereExploreTabOutput(
 announcementBanner: freezed == announcementBanner ? _self.announcementBanner : announcementBanner // ignore: cast_nullable_to_non_nullable
-as AnnouncementBanner?,articles: null == articles ? _self._articles : articles // ignore: cast_nullable_to_non_nullable
-as List<ArticleItem>,publications: null == publications ? _self._publications : publications // ignore: cast_nullable_to_non_nullable
-as List<PublicationItem>,photos: null == photos ? _self._photos : photos // ignore: cast_nullable_to_non_nullable
-as List<GalleryItem>,livestreams: null == livestreams ? _self._livestreams : livestreams // ignore: cast_nullable_to_non_nullable
-as List<LivestreamItem>,apps: null == apps ? _self._apps : apps // ignore: cast_nullable_to_non_nullable
+as AnnouncementBanner?,articles: null == articles ? _self.articles : articles // ignore: cast_nullable_to_non_nullable
+as ArticleList,publications: null == publications ? _self.publications : publications // ignore: cast_nullable_to_non_nullable
+as PublicationList,photos: null == photos ? _self.photos : photos // ignore: cast_nullable_to_non_nullable
+as GalleryList,livestreams: null == livestreams ? _self.livestreams : livestreams // ignore: cast_nullable_to_non_nullable
+as LivestreamList,apps: null == apps ? _self._apps : apps // ignore: cast_nullable_to_non_nullable
 as List<AppCard>,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -350,6 +362,42 @@ $AnnouncementBannerCopyWith<$Res>? get announcementBanner {
 
   return $AnnouncementBannerCopyWith<$Res>(_self.announcementBanner!, (value) {
     return _then(_self.copyWith(announcementBanner: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ArticleListCopyWith<$Res> get articles {
+  
+  return $ArticleListCopyWith<$Res>(_self.articles, (value) {
+    return _then(_self.copyWith(articles: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PublicationListCopyWith<$Res> get publications {
+  
+  return $PublicationListCopyWith<$Res>(_self.publications, (value) {
+    return _then(_self.copyWith(publications: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$GalleryListCopyWith<$Res> get photos {
+  
+  return $GalleryListCopyWith<$Res>(_self.photos, (value) {
+    return _then(_self.copyWith(photos: value));
+  });
+}/// Create a copy of UnspeccedGetAtmosphereExploreTabOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LivestreamListCopyWith<$Res> get livestreams {
+  
+  return $LivestreamListCopyWith<$Res>(_self.livestreams, (value) {
+    return _then(_self.copyWith(livestreams: value));
   });
 }
 }
