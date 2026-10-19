@@ -11,20 +11,37 @@ import 'package:http/http.dart' as http;
 // Project imports:
 import 'utils.dart';
 
-const _repository = 'bluesky-social/atproto';
 const _ref = 'main';
 
-/// Directories in [_repository] that hold lexicon documents, in precedence
-/// order. A path found under an earlier root wins over the same path under a
-/// later one.
+/// Where lexicon documents are read from, in order. Each namespace (the first
+/// two path segments, e.g. `app/bsky`) is taken from exactly one root: the
+/// root that lists it in [LexiconRoot.namespaces], or else the first root
+/// without such a list that provides it.
 ///
-/// Upstream keeps only the namespaces it authors (`com.atproto`,
-/// `tools.ozone`) in the root `lexicons/` directory. Everything else
-/// (`app.bsky`, `chat.bsky`, `com.germnetwork`, ...) is installed per package
-/// by `lex-install`, and the AppView's install directory is the complete set.
-/// Together the two cover exactly what the root directory held before the
-/// split.
-const _lexiconRoots = ['lexicons/', 'packages/bsky/lexicons/'];
+/// Every namespace comes from its canonical source:
+///
+/// - `com.atproto` and `tools.ozone` are authored in bluesky-social/atproto.
+/// - `app.bsky` and `chat.bsky` are authored in bluesky-social/bsky.
+///   bluesky-social/atproto only keeps installed copies of them, with local
+///   overrides for its AppView applied on top.
+/// - Third-party namespaces (`social.grain`, `site.standard`, ...) are
+///   published by their owners and resolved over the network. The PDS install
+///   directory holds the publisher's schemas: unlike the AppView, the PDS
+///   validates writes and therefore excludes the compatibility overrides
+///   that relax them for reads.
+const lexiconRoots = [
+  LexiconRoot(
+    'bluesky-social/atproto',
+    'lexicons/',
+    namespaces: {'com/atproto', 'tools/ozone'},
+  ),
+  LexiconRoot(
+    'bluesky-social/bsky',
+    'lexicons/',
+    namespaces: {'app/bsky', 'chat/bsky'},
+  ),
+  LexiconRoot('bluesky-social/atproto', 'packages/pds/lexicons/'),
+];
 
 /// Git tree mode for a symbolic link. `lex-install` writes overridden
 /// lexicons as symlinks into `lexicons-overrides/`.
@@ -50,14 +67,17 @@ Future<void> main() async {
   final client = http.Client();
 
   try {
-    // A single recursive Git Trees API call replaces per-directory
-    // Contents API calls.
-    final tree = await _getTree(client);
-    final sources = selectLexiconSources(tree);
+    // A single recursive Git Trees API call per repository replaces
+    // per-directory Contents API calls.
+    final trees = {
+      for (final repository in {for (final r in lexiconRoots) r.repository})
+        repository: await _getTree(client, repository),
+    };
+    final sources = selectLexiconSources(lexiconRoots, trees);
     if (sources.isEmpty) {
       throw StateError(
-        'No lexicon files found in $_repository. This might indicate a '
-        'network issue or repository structure change.',
+        'No lexicon files found upstream. This might indicate a network '
+        'issue or repository structure change.',
       );
     }
 
@@ -69,16 +89,19 @@ Future<void> main() async {
     if (missing.isNotEmpty) {
       throw StateError(
         'Upstream no longer provides these vendored namespaces: '
-        '${missing.join(', ')}. This usually means $_repository moved its '
-        'lexicons; update _lexiconRoots. If a namespace was removed on '
+        '${missing.join(', ')}. This usually means upstream moved its '
+        'lexicons; update lexiconRoots. If a namespace was removed on '
         'purpose, delete it under $lexiconsPath/ in a reviewed change first.',
       );
     }
 
     final regularBlobs = {
-      for (final entry in tree)
-        if (entry['type'] == 'blob' && entry['mode'] != _symlinkMode)
-          entry['path'] as String,
+      for (final MapEntry(key: repository, value: tree) in trees.entries)
+        repository: {
+          for (final entry in tree)
+            if (entry['type'] == 'blob' && entry['mode'] != _symlinkMode)
+              entry['path'] as String,
+        },
     };
 
     logInfo('Found ${sources.length} lexicon files to download');
@@ -103,12 +126,12 @@ Future<void> main() async {
             final downloaded = await _downloadLexicon(
               client,
               source,
-              regularBlobs,
+              regularBlobs[source.repository]!,
             );
             if (!downloaded) skipped++;
           } catch (e) {
-            logWarning('Failed to download ${source.upstreamPath}: $e');
-            failures.add(source.upstreamPath);
+            logWarning('Failed to download $source: $e');
+            failures.add('$source');
           }
         }),
       );
@@ -133,12 +156,15 @@ Future<void> main() async {
   }
 }
 
-/// Lists every entry in the official repository using a single recursive Git
-/// Trees API call.
-Future<List<Map<String, dynamic>>> _getTree(http.Client client) async {
+/// Lists every entry in [repository] using a single recursive Git Trees API
+/// call.
+Future<List<Map<String, dynamic>>> _getTree(
+  http.Client client,
+  String repository,
+) async {
   final token = Platform.environment['GITHUB_TOKEN'];
   final uri = Uri.parse(
-    'https://api.github.com/repos/$_repository/git/trees/$_ref?recursive=1',
+    'https://api.github.com/repos/$repository/git/trees/$_ref?recursive=1',
   );
 
   final response = await _withRetry(() async {
@@ -162,12 +188,12 @@ Future<List<Map<String, dynamic>>> _getTree(http.Client client) async {
     }
 
     return response;
-  }, label: 'Git tree listing');
+  }, label: 'Git tree listing for $repository');
 
   final json = jsonDecode(response.body) as Map<String, dynamic>;
   if (json['truncated'] == true) {
     throw StateError(
-      'Git tree response for $_repository was truncated; the repository has '
+      'Git tree response for $repository was truncated; the repository has '
       'grown too large for a recursive tree listing.',
     );
   }
@@ -175,13 +201,34 @@ Future<List<Map<String, dynamic>>> _getTree(http.Client client) async {
   return (json['tree'] as List).cast<Map<String, dynamic>>();
 }
 
+/// A directory in an upstream repository that holds lexicon documents.
+final class LexiconRoot {
+  const LexiconRoot(this.repository, this.directory, {this.namespaces});
+
+  /// GitHub repository, e.g. `bluesky-social/atproto`.
+  final String repository;
+
+  /// Directory inside [repository], with a trailing slash.
+  final String directory;
+
+  /// Namespaces this root is canonical for. They are taken from this root
+  /// only: if it stops providing one, the namespace goes missing rather than
+  /// falling back to another root's copy. Null takes every namespace that no
+  /// root claims.
+  final Set<String>? namespaces;
+}
+
 /// A lexicon document to sync.
 final class LexiconSource {
   const LexiconSource({
+    required this.repository,
     required this.localPath,
     required this.upstreamPath,
     required this.isSymlink,
   });
+
+  /// GitHub repository the document is read from.
+  final String repository;
 
   /// Path relative to the local lexicons directory, e.g.
   /// `app/bsky/feed/post.json`.
@@ -192,42 +239,66 @@ final class LexiconSource {
 
   /// Whether [upstreamPath] is a symlink whose content names the real file.
   final bool isSymlink;
+
+  @override
+  String toString() => '$repository:$upstreamPath';
 }
 
-/// Picks the lexicon documents to sync from a recursive Git tree listing.
+/// Picks the lexicon documents to sync from recursive Git tree listings,
+/// keyed by repository.
 ///
-/// Every `*.json` blob under one of [_lexiconRoots] is mapped to the same
-/// relative path locally. When two roots provide the same path, the earlier
-/// root wins. Namespaces in [_excludedNamespaces] are dropped.
-List<LexiconSource> selectLexiconSources(List<Map<String, dynamic>> tree) {
-  final selected = <String, LexiconSource>{};
+/// Every `*.json` blob under a root's directory is mapped to the same
+/// relative path locally. A namespace listed by a root belongs to that root
+/// alone; any other namespace belongs to the first unrestricted root in
+/// [roots] that provides it. Files are taken from the owning root only, so a
+/// stale or partial copy elsewhere can neither add files to a namespace,
+/// replace them, nor stand in for it when its canonical source disappears.
+/// Namespaces in [_excludedNamespaces] are dropped.
+List<LexiconSource> selectLexiconSources(
+  List<LexiconRoot> roots,
+  Map<String, List<Map<String, dynamic>>> trees,
+) {
+  final candidates = [
+    for (final root in roots)
+      [
+        for (final entry in trees[root.repository] ?? const [])
+          if (entry['type'] == 'blob' &&
+              (entry['path'] as String).startsWith(root.directory) &&
+              (entry['path'] as String).endsWith('.json'))
+            (
+              entry: entry,
+              localPath: (entry['path'] as String).substring(
+                root.directory.length,
+              ),
+            ),
+      ].where((c) {
+        return !_excludedNamespaces.any((ns) => c.localPath.startsWith('$ns/'));
+      }).toList(),
+  ];
 
-  for (final root in _lexiconRoots) {
-    for (final entry in tree) {
-      final path = entry['path'] as String;
-      if (entry['type'] != 'blob' ||
-          !path.startsWith(root) ||
-          !path.endsWith('.json')) {
-        continue;
-      }
-
-      final localPath = path.substring(root.length);
-      if (_excludedNamespaces.any((ns) => localPath.startsWith('$ns/'))) {
-        continue;
-      }
-
-      selected.putIfAbsent(
-        localPath,
-        () => LexiconSource(
-          localPath: localPath,
-          upstreamPath: path,
-          isSymlink: entry['mode'] == _symlinkMode,
-        ),
-      );
+  final owners = <String, int>{
+    for (var i = 0; i < roots.length; i++)
+      for (final namespace in roots[i].namespaces ?? const <String>{})
+        namespace: i,
+  };
+  for (var i = 0; i < roots.length; i++) {
+    if (roots[i].namespaces != null) continue;
+    for (final c in candidates[i]) {
+      owners.putIfAbsent(namespaceOf(c.localPath), () => i);
     }
   }
 
-  return selected.values.toList();
+  return [
+    for (var i = 0; i < roots.length; i++)
+      for (final c in candidates[i])
+        if (owners[namespaceOf(c.localPath)] == i)
+          LexiconSource(
+            repository: roots[i].repository,
+            localPath: c.localPath,
+            upstreamPath: c.entry['path'] as String,
+            isSymlink: c.entry['mode'] == _symlinkMode,
+          ),
+  ];
 }
 
 /// Returns the namespace of a lexicon path relative to the lexicons
@@ -297,26 +368,27 @@ Future<bool> _downloadLexicon(
   LexiconSource source,
   Set<String> regularBlobs,
 ) async {
+  final repository = source.repository;
   var path = source.upstreamPath;
   if (source.isSymlink) {
-    final target = utf8.decode(await _downloadRaw(client, path));
+    final target = utf8.decode(await _downloadRaw(client, repository, path));
     path = resolveSymlinkTarget(path, target);
     if (!regularBlobs.contains(path)) {
       throw StateError(
-        'Symlink ${source.upstreamPath} points to $path, which is not a '
-        'regular file in $_repository.',
+        'Symlink $source points to $path, which is not a regular file in '
+        '$repository.',
       );
     }
   }
 
-  final bytes = await _downloadRaw(client, path);
+  final bytes = await _downloadRaw(client, repository, path);
 
   // Skip lexicons whose type the code generator can't process (e.g.
   // `permission-set`). The official codegen excludes these too by globbing
   // `*/*` for the large namespaces; filtering by type here keeps root-level
   // files such as `app.bsky.auth*` out of the generated output.
   if (_isUnsupportedLexicon(bytes)) {
-    logInfo('Skipped unsupported lexicon: ${source.upstreamPath}');
+    logInfo('Skipped unsupported lexicon: $source');
     return false;
   }
 
@@ -327,10 +399,14 @@ Future<bool> _downloadLexicon(
   return true;
 }
 
-/// Downloads [path] from the official repository.
-Future<List<int>> _downloadRaw(http.Client client, String path) async {
+/// Downloads [path] from [repository].
+Future<List<int>> _downloadRaw(
+  http.Client client,
+  String repository,
+  String path,
+) async {
   final uri = Uri.parse(
-    'https://raw.githubusercontent.com/$_repository/$_ref/$path',
+    'https://raw.githubusercontent.com/$repository/$_ref/$path',
   );
 
   final response = await _withRetry(() async {
