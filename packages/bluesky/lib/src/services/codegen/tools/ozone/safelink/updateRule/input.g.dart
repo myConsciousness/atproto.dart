@@ -24,6 +24,10 @@ _SafelinkUpdateRuleInput _$SafelinkUpdateRuleInputFromJson(Map json) =>
           'reason',
           (v) => const ReasonTypeConverter().fromJson(v as String),
         ),
+        source: $checkedConvert(
+          'source',
+          (v) => v as String? ?? 'ozone/default',
+        ),
         comment: $checkedConvert('comment', (v) => v as String?),
         createdBy: $checkedConvert('createdBy', (v) => v as String?),
         $unknown: $checkedConvert(
@@ -41,6 +45,7 @@ Map<String, dynamic> _$SafelinkUpdateRuleInputToJson(
   'pattern': const PatternTypeConverter().toJson(instance.pattern),
   'action': const ActionTypeConverter().toJson(instance.action),
   'reason': const ReasonTypeConverter().toJson(instance.reason),
+  'source': instance.source,
   'comment': ?instance.comment,
   'createdBy': ?instance.createdBy,
   r'$unknown': ?instance.$unknown,

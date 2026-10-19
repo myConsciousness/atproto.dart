@@ -1563,6 +1563,14 @@ const toolsOzoneSafelinkQueryRules = NSID(ids.toolsOzoneSafelinkQueryRules);
 /// `tools.ozone.safelink.removeRule`
 const toolsOzoneSafelinkRemoveRule = NSID(ids.toolsOzoneSafelinkRemoveRule);
 
+/// `tools.ozone.safelink.syncSource`
+const toolsOzoneSafelinkSyncSource = NSID(ids.toolsOzoneSafelinkSyncSource);
+
+/// `tools.ozone.safelink.syncSource#sourceRule`
+const toolsOzoneSafelinkSyncSourceSourceRule = NSID(
+  ids.toolsOzoneSafelinkSyncSourceSourceRule,
+);
+
 /// `tools.ozone.safelink.updateRule`
 const toolsOzoneSafelinkUpdateRule = NSID(ids.toolsOzoneSafelinkUpdateRule);
 

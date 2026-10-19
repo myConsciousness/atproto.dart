@@ -23,13 +23,22 @@ part 'input.g.dart';
 
 @freezed
 abstract class SafelinkRemoveRuleInput with _$SafelinkRemoveRuleInput {
-  static const knownProps = <String>['url', 'pattern', 'comment', 'createdBy'];
+  static const knownProps = <String>[
+    'url',
+    'pattern',
+    'source',
+    'comment',
+    'createdBy',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory SafelinkRemoveRuleInput({
     /// The URL or domain to remove the rule for
     required String url,
     @PatternTypeConverter() required PatternType pattern,
+
+    /// Source of the rule to remove
+    @Default('ozone/default') String source,
 
     /// Optional comment about why the rule is being removed
     String? comment,
