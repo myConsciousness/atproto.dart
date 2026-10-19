@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$UrlRule {
 
  String get $type;/// The URL or domain to apply the rule to
- String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// Optional comment about the decision
+ String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// Source of the rule
+ String get source;/// Optional comment about the decision
  String? get comment;/// DID of the user added the rule.
  String get createdBy;/// Timestamp when the rule was created
 @JsonKey(toJson: iso8601) DateTime get createdAt;/// Timestamp when the rule was last updated
@@ -33,16 +34,16 @@ $UrlRuleCopyWith<UrlRule> get copyWith => _$UrlRuleCopyWithImpl<UrlRule>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UrlRule&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UrlRule&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.source, source) || other.source == source)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,url,pattern,action,reason,comment,createdBy,createdAt,updatedAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,url,pattern,action,reason,source,comment,createdBy,createdAt,updatedAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UrlRule(\$type: ${$type}, url: $url, pattern: $pattern, action: $action, reason: $reason, comment: $comment, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+  return 'UrlRule(\$type: ${$type}, url: $url, pattern: $pattern, action: $action, reason: $reason, source: $source, comment: $comment, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
 }
 
 
@@ -53,7 +54,7 @@ abstract mixin class $UrlRuleCopyWith<$Res>  {
   factory $UrlRuleCopyWith(UrlRule value, $Res Function(UrlRule) _then) = _$UrlRuleCopyWithImpl;
 @useResult
 $Res call({
- String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String source, String? comment, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,14 +71,15 @@ class _$UrlRuleCopyWithImpl<$Res>
 
 /// Create a copy of UrlRule
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? comment = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? source = null,Object? comment = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,pattern: null == pattern ? _self.pattern : pattern // ignore: cast_nullable_to_non_nullable
 as PatternType,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as ActionType,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
-as ReasonType,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as ReasonType,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -194,10 +196,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UrlRule() when $default != null:
-return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -215,10 +217,10 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UrlRule():
-return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -235,10 +237,10 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String? comment,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UrlRule() when $default != null:
-return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.comment,_that.createdBy,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
   return null;
 
 }
@@ -250,7 +252,7 @@ return $default(_that.$type,_that.url,_that.pattern,_that.action,_that.reason,_t
 
 @JsonSerializable(includeIfNull: false)
 class _UrlRule implements UrlRule {
-  const _UrlRule({this.$type = 'tools.ozone.safelink.defs#urlRule', required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _UrlRule({this.$type = 'tools.ozone.safelink.defs#urlRule', required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.source = 'ozone/default', this.comment, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _UrlRule.fromJson(Map<String, dynamic> json) => _$UrlRuleFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -259,6 +261,8 @@ class _UrlRule implements UrlRule {
 @override@PatternTypeConverter() final  PatternType pattern;
 @override@ActionTypeConverter() final  ActionType action;
 @override@ReasonTypeConverter() final  ReasonType reason;
+/// Source of the rule
+@override@JsonKey() final  String source;
 /// Optional comment about the decision
 @override final  String? comment;
 /// DID of the user added the rule.
@@ -290,16 +294,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UrlRule&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UrlRule&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.source, source) || other.source == source)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,url,pattern,action,reason,comment,createdBy,createdAt,updatedAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,url,pattern,action,reason,source,comment,createdBy,createdAt,updatedAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UrlRule(\$type: ${$type}, url: $url, pattern: $pattern, action: $action, reason: $reason, comment: $comment, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+  return 'UrlRule(\$type: ${$type}, url: $url, pattern: $pattern, action: $action, reason: $reason, source: $source, comment: $comment, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
 }
 
 
@@ -310,7 +314,7 @@ abstract mixin class _$UrlRuleCopyWith<$Res> implements $UrlRuleCopyWith<$Res> {
   factory _$UrlRuleCopyWith(_UrlRule value, $Res Function(_UrlRule) _then) = __$UrlRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String source, String? comment, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -327,14 +331,15 @@ class __$UrlRuleCopyWithImpl<$Res>
 
 /// Create a copy of UrlRule
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? comment = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? source = null,Object? comment = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
   return _then(_UrlRule(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,pattern: null == pattern ? _self.pattern : pattern // ignore: cast_nullable_to_non_nullable
 as PatternType,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as ActionType,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
-as ReasonType,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as ReasonType,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable

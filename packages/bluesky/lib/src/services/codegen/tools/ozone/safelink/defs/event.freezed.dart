@@ -17,7 +17,8 @@ mixin _$Event {
 
  String get $type;/// Auto-incrementing row ID
  int get id;@EventTypeConverter() EventType get eventType;/// The URL that this rule applies to
- String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// DID of the user who created this rule
+ String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// Source of the decision
+ String get source;/// DID of the user who created this rule
  String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt;/// Optional comment about the decision
  String? get comment; Map<String, dynamic>? get $unknown;
 /// Create a copy of Event
@@ -32,16 +33,16 @@ $EventCopyWith<Event> get copyWith => _$EventCopyWithImpl<Event>(this as Event, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Event&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Event&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.source, source) || other.source == source)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,eventType,url,pattern,action,reason,createdBy,createdAt,comment,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,eventType,url,pattern,action,reason,source,createdBy,createdAt,comment,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'Event(\$type: ${$type}, id: $id, eventType: $eventType, url: $url, pattern: $pattern, action: $action, reason: $reason, createdBy: $createdBy, createdAt: $createdAt, comment: $comment, \$unknown: ${$unknown})';
+  return 'Event(\$type: ${$type}, id: $id, eventType: $eventType, url: $url, pattern: $pattern, action: $action, reason: $reason, source: $source, createdBy: $createdBy, createdAt: $createdAt, comment: $comment, \$unknown: ${$unknown})';
 }
 
 
@@ -52,7 +53,7 @@ abstract mixin class $EventCopyWith<$Res>  {
   factory $EventCopyWith(Event value, $Res Function(Event) _then) = _$EventCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
+ String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String source, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,7 +70,7 @@ class _$EventCopyWithImpl<$Res>
 
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? eventType = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? createdBy = null,Object? createdAt = null,Object? comment = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? eventType = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? source = null,Object? createdBy = null,Object? createdAt = null,Object? comment = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -78,7 +79,8 @@ as EventType,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_
 as String,pattern: null == pattern ? _self.pattern : pattern // ignore: cast_nullable_to_non_nullable
 as PatternType,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as ActionType,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
-as ReasonType,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
+as ReasonType,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -203,10 +205,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
-return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
   return orElse();
 
 }
@@ -224,10 +226,10 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _Event():
-return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -244,10 +246,10 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @EventTypeConverter()  EventType eventType,  String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt,  String? comment,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
-return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.createdBy,_that.createdAt,_that.comment,_that.$unknown);case _:
   return null;
 
 }
@@ -259,7 +261,7 @@ return $default(_that.$type,_that.id,_that.eventType,_that.url,_that.pattern,_th
 
 @JsonSerializable(includeIfNull: false)
 class _Event implements Event {
-  const _Event({this.$type = 'tools.ozone.safelink.defs#event', required this.id, @EventTypeConverter() required this.eventType, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _Event({this.$type = 'tools.ozone.safelink.defs#event', required this.id, @EventTypeConverter() required this.eventType, required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.source = 'ozone/default', required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, this.comment, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -271,6 +273,8 @@ class _Event implements Event {
 @override@PatternTypeConverter() final  PatternType pattern;
 @override@ActionTypeConverter() final  ActionType action;
 @override@ReasonTypeConverter() final  ReasonType reason;
+/// Source of the decision
+@override@JsonKey() final  String source;
 /// DID of the user who created this rule
 @override final  String createdBy;
 @override@JsonKey(toJson: iso8601) final  DateTime createdAt;
@@ -299,16 +303,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Event&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Event&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.eventType, eventType) || other.eventType == eventType)&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.source, source) || other.source == source)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,eventType,url,pattern,action,reason,createdBy,createdAt,comment,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,eventType,url,pattern,action,reason,source,createdBy,createdAt,comment,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'Event(\$type: ${$type}, id: $id, eventType: $eventType, url: $url, pattern: $pattern, action: $action, reason: $reason, createdBy: $createdBy, createdAt: $createdAt, comment: $comment, \$unknown: ${$unknown})';
+  return 'Event(\$type: ${$type}, id: $id, eventType: $eventType, url: $url, pattern: $pattern, action: $action, reason: $reason, source: $source, createdBy: $createdBy, createdAt: $createdAt, comment: $comment, \$unknown: ${$unknown})';
 }
 
 
@@ -319,7 +323,7 @@ abstract mixin class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   factory _$EventCopyWith(_Event value, $Res Function(_Event) _then) = __$EventCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
+ String $type, int id,@EventTypeConverter() EventType eventType, String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String source, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt, String? comment, Map<String, dynamic>? $unknown
 });
 
 
@@ -336,7 +340,7 @@ class __$EventCopyWithImpl<$Res>
 
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? eventType = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? createdBy = null,Object? createdAt = null,Object? comment = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? eventType = null,Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? source = null,Object? createdBy = null,Object? createdAt = null,Object? comment = freezed,Object? $unknown = freezed,}) {
   return _then(_Event(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -345,7 +349,8 @@ as EventType,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_
 as String,pattern: null == pattern ? _self.pattern : pattern // ignore: cast_nullable_to_non_nullable
 as PatternType,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as ActionType,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
-as ReasonType,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
+as ReasonType,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String,createdBy: null == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable

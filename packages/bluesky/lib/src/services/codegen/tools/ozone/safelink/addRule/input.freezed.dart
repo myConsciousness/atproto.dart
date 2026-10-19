@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$SafelinkAddRuleInput {
 
 /// The URL or domain to apply the rule to
- String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// Optional comment about the decision
+ String get url;@PatternTypeConverter() PatternType get pattern;@ActionTypeConverter() ActionType get action;@ReasonTypeConverter() ReasonType get reason;/// Source of the rule
+ String get source;/// Optional comment about the decision
  String? get comment;/// Author DID. Only respected when using admin auth
  String? get createdBy; Map<String, dynamic>? get $unknown;
 /// Create a copy of SafelinkAddRuleInput
@@ -31,16 +32,16 @@ $SafelinkAddRuleInputCopyWith<SafelinkAddRuleInput> get copyWith => _$SafelinkAd
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SafelinkAddRuleInput&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SafelinkAddRuleInput&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.source, source) || other.source == source)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,pattern,action,reason,comment,createdBy,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,url,pattern,action,reason,source,comment,createdBy,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'SafelinkAddRuleInput(url: $url, pattern: $pattern, action: $action, reason: $reason, comment: $comment, createdBy: $createdBy, \$unknown: ${$unknown})';
+  return 'SafelinkAddRuleInput(url: $url, pattern: $pattern, action: $action, reason: $reason, source: $source, comment: $comment, createdBy: $createdBy, \$unknown: ${$unknown})';
 }
 
 
@@ -51,7 +52,7 @@ abstract mixin class $SafelinkAddRuleInputCopyWith<$Res>  {
   factory $SafelinkAddRuleInputCopyWith(SafelinkAddRuleInput value, $Res Function(SafelinkAddRuleInput) _then) = _$SafelinkAddRuleInputCopyWithImpl;
 @useResult
 $Res call({
- String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String? createdBy, Map<String, dynamic>? $unknown
+ String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String source, String? comment, String? createdBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,13 +69,14 @@ class _$SafelinkAddRuleInputCopyWithImpl<$Res>
 
 /// Create a copy of SafelinkAddRuleInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? comment = freezed,Object? createdBy = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? source = null,Object? comment = freezed,Object? createdBy = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,pattern: null == pattern ? _self.pattern : pattern // ignore: cast_nullable_to_non_nullable
 as PatternType,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as ActionType,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
-as ReasonType,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as ReasonType,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -189,10 +191,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String? createdBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String? comment,  String? createdBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SafelinkAddRuleInput() when $default != null:
-return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.$unknown);case _:
+return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.comment,_that.createdBy,_that.$unknown);case _:
   return orElse();
 
 }
@@ -210,10 +212,10 @@ return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String? createdBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String? comment,  String? createdBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SafelinkAddRuleInput():
-return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.$unknown);case _:
+return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.comment,_that.createdBy,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -230,10 +232,10 @@ return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String? comment,  String? createdBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String url, @PatternTypeConverter()  PatternType pattern, @ActionTypeConverter()  ActionType action, @ReasonTypeConverter()  ReasonType reason,  String source,  String? comment,  String? createdBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SafelinkAddRuleInput() when $default != null:
-return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,_that.createdBy,_that.$unknown);case _:
+return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.source,_that.comment,_that.createdBy,_that.$unknown);case _:
   return null;
 
 }
@@ -245,7 +247,7 @@ return $default(_that.url,_that.pattern,_that.action,_that.reason,_that.comment,
 
 @JsonSerializable(includeIfNull: false)
 class _SafelinkAddRuleInput implements SafelinkAddRuleInput {
-  const _SafelinkAddRuleInput({required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.comment, this.createdBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _SafelinkAddRuleInput({required this.url, @PatternTypeConverter() required this.pattern, @ActionTypeConverter() required this.action, @ReasonTypeConverter() required this.reason, this.source = 'ozone/default', this.comment, this.createdBy, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _SafelinkAddRuleInput.fromJson(Map<String, dynamic> json) => _$SafelinkAddRuleInputFromJson(json);
 
 /// The URL or domain to apply the rule to
@@ -253,6 +255,8 @@ class _SafelinkAddRuleInput implements SafelinkAddRuleInput {
 @override@PatternTypeConverter() final  PatternType pattern;
 @override@ActionTypeConverter() final  ActionType action;
 @override@ReasonTypeConverter() final  ReasonType reason;
+/// Source of the rule
+@override@JsonKey() final  String source;
 /// Optional comment about the decision
 @override final  String? comment;
 /// Author DID. Only respected when using admin auth
@@ -280,16 +284,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SafelinkAddRuleInput&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SafelinkAddRuleInput&&(identical(other.url, url) || other.url == url)&&(identical(other.pattern, pattern) || other.pattern == pattern)&&(identical(other.action, action) || other.action == action)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.source, source) || other.source == source)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,pattern,action,reason,comment,createdBy,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,url,pattern,action,reason,source,comment,createdBy,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'SafelinkAddRuleInput(url: $url, pattern: $pattern, action: $action, reason: $reason, comment: $comment, createdBy: $createdBy, \$unknown: ${$unknown})';
+  return 'SafelinkAddRuleInput(url: $url, pattern: $pattern, action: $action, reason: $reason, source: $source, comment: $comment, createdBy: $createdBy, \$unknown: ${$unknown})';
 }
 
 
@@ -300,7 +304,7 @@ abstract mixin class _$SafelinkAddRuleInputCopyWith<$Res> implements $SafelinkAd
   factory _$SafelinkAddRuleInputCopyWith(_SafelinkAddRuleInput value, $Res Function(_SafelinkAddRuleInput) _then) = __$SafelinkAddRuleInputCopyWithImpl;
 @override @useResult
 $Res call({
- String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String? comment, String? createdBy, Map<String, dynamic>? $unknown
+ String url,@PatternTypeConverter() PatternType pattern,@ActionTypeConverter() ActionType action,@ReasonTypeConverter() ReasonType reason, String source, String? comment, String? createdBy, Map<String, dynamic>? $unknown
 });
 
 
@@ -317,13 +321,14 @@ class __$SafelinkAddRuleInputCopyWithImpl<$Res>
 
 /// Create a copy of SafelinkAddRuleInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? comment = freezed,Object? createdBy = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? url = null,Object? pattern = null,Object? action = null,Object? reason = null,Object? source = null,Object? comment = freezed,Object? createdBy = freezed,Object? $unknown = freezed,}) {
   return _then(_SafelinkAddRuleInput(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,pattern: null == pattern ? _self.pattern : pattern // ignore: cast_nullable_to_non_nullable
 as PatternType,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as ActionType,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
-as ReasonType,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as ReasonType,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,

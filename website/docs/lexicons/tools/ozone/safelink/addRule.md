@@ -19,6 +19,7 @@ Add a new URL safety rule
 | **pattern** | [tools.ozone.safelink.defs#patternType](../../../../lexicons/tools/ozone/safelink/defs.md#patterntype) | - | ✅ | - |
 | **action** | [tools.ozone.safelink.defs#actionType](../../../../lexicons/tools/ozone/safelink/defs.md#actiontype) | - | ✅ | - |
 | **reason** | [tools.ozone.safelink.defs#reasonType](../../../../lexicons/tools/ozone/safelink/defs.md#reasontype) | - | ✅ | - |
+| **source** | string | - | ❌ | Source of the rule |
 | **comment** | string | - | ❌ | Optional comment about the decision |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Author DID. Only respected when using admin auth |
 

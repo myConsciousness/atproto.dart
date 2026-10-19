@@ -15,6 +15,7 @@ import 'safelink/add_rule.dart';
 import 'safelink/query_events.dart';
 import 'safelink/query_rules.dart';
 import 'safelink/remove_rule.dart';
+import 'safelink/sync_source.dart';
 import 'safelink/update_rule.dart';
 
 // **************************************************************************
@@ -27,6 +28,7 @@ final class ToolsOzoneSafelinkCommand extends Command<void> {
     addSubcommand(QueryEventsCommand());
     addSubcommand(QueryRulesCommand());
     addSubcommand(RemoveRuleCommand());
+    addSubcommand(SyncSourceCommand());
     addSubcommand(UpdateRuleCommand());
   }
 

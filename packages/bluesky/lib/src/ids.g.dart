@@ -2657,6 +2657,13 @@ const toolsOzoneSafelinkQueryRules = 'tools.ozone.safelink.queryRules';
 /// `tools.ozone.safelink.removeRule`
 const toolsOzoneSafelinkRemoveRule = 'tools.ozone.safelink.removeRule';
 
+/// `tools.ozone.safelink.syncSource`
+const toolsOzoneSafelinkSyncSource = 'tools.ozone.safelink.syncSource';
+
+/// `tools.ozone.safelink.syncSource#sourceRule`
+const toolsOzoneSafelinkSyncSourceSourceRule =
+    'tools.ozone.safelink.syncSource#sourceRule';
+
 /// `tools.ozone.safelink.updateRule`
 const toolsOzoneSafelinkUpdateRule = 'tools.ozone.safelink.updateRule';
 

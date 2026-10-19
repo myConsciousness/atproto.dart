@@ -34,6 +34,7 @@ abstract class Event with _$Event {
     'pattern',
     'action',
     'reason',
+    'source',
     'createdBy',
     'createdAt',
     'comment',
@@ -52,6 +53,9 @@ abstract class Event with _$Event {
     @PatternTypeConverter() required PatternType pattern,
     @ActionTypeConverter() required ActionType action,
     @ReasonTypeConverter() required ReasonType reason,
+
+    /// Source of the decision
+    @Default('ozone/default') String source,
 
     /// DID of the user who created this rule
     required String createdBy,

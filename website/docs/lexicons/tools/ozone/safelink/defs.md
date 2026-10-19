@@ -17,6 +17,7 @@ An event for URL safety decisions
 | **pattern** | [#patternType](#patterntype) | - | ✅ | - |
 | **action** | [#actionType](#actiontype) | - | ✅ | - |
 | **reason** | [#reasonType](#reasontype) | - | ✅ | - |
+| **source** | string | - | ❌ | Source of the decision |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the user who created this rule |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **comment** | string | - | ❌ | Optional comment about the decision |
@@ -47,7 +48,7 @@ An event for URL safety decisions
 
 ## #urlRule
 
-Input for creating a URL safety rule
+An active URL safety rule
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -55,6 +56,7 @@ Input for creating a URL safety rule
 | **pattern** | [#patternType](#patterntype) | - | ✅ | - |
 | **action** | [#actionType](#actiontype) | - | ✅ | - |
 | **reason** | [#reasonType](#reasontype) | - | ✅ | - |
+| **source** | string | - | ❌ | Source of the rule |
 | **comment** | string | - | ❌ | Optional comment about the decision |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the user added the rule. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp when the rule was created |
