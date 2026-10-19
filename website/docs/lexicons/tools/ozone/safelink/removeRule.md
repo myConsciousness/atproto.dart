@@ -17,6 +17,7 @@ Remove an existing URL safety rule
 | --- | --- | --- | :---: | --- |
 | **url** | string | - | ✅ | The URL or domain to remove the rule for |
 | **pattern** | [tools.ozone.safelink.defs#patternType](../../../../lexicons/tools/ozone/safelink/defs.md#patterntype) | - | ✅ | - |
+| **source** | string | - | ❌ | Source of the rule to remove |
 | **comment** | string | - | ❌ | Optional comment about why the rule is being removed |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Optional DID of the user. Only respected when using admin auth. |
 

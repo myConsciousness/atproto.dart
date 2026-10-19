@@ -16,6 +16,10 @@ _SafelinkRemoveRuleInput _$SafelinkRemoveRuleInputFromJson(Map json) =>
           'pattern',
           (v) => const PatternTypeConverter().fromJson(v as String),
         ),
+        source: $checkedConvert(
+          'source',
+          (v) => v as String? ?? 'ozone/default',
+        ),
         comment: $checkedConvert('comment', (v) => v as String?),
         createdBy: $checkedConvert('createdBy', (v) => v as String?),
         $unknown: $checkedConvert(
@@ -31,6 +35,7 @@ Map<String, dynamic> _$SafelinkRemoveRuleInputToJson(
 ) => <String, dynamic>{
   'url': instance.url,
   'pattern': const PatternTypeConverter().toJson(instance.pattern),
+  'source': instance.source,
   'comment': ?instance.comment,
   'createdBy': ?instance.createdBy,
   r'$unknown': ?instance.$unknown,

@@ -19,6 +19,7 @@ Update an existing URL safety rule
 | **pattern** | [tools.ozone.safelink.defs#patternType](../../../../lexicons/tools/ozone/safelink/defs.md#patterntype) | - | ✅ | - |
 | **action** | [tools.ozone.safelink.defs#actionType](../../../../lexicons/tools/ozone/safelink/defs.md#actiontype) | - | ✅ | - |
 | **reason** | [tools.ozone.safelink.defs#reasonType](../../../../lexicons/tools/ozone/safelink/defs.md#reasontype) | - | ✅ | - |
+| **source** | string | - | ❌ | Source of the rule to update |
 | **comment** | string | - | ❌ | Optional comment about the update |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Optional DID to credit as the creator. Only respected for admin_token authentication. |
 

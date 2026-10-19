@@ -21,6 +21,8 @@ import 'safelink/queryEvents/main_sort_direction.dart';
 import 'safelink/queryEvents/output.dart';
 import 'safelink/queryRules/main_sort_direction.dart';
 import 'safelink/queryRules/output.dart';
+import 'safelink/syncSource/output.dart';
+import 'safelink/syncSource/source_rule.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -32,6 +34,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
   required PatternType pattern,
   required ActionType action,
   required ReasonType reason,
+  String? source,
   String? comment,
   String? createdBy,
   required ServiceContext $ctx,
@@ -48,6 +51,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkAddRule({
     'pattern': const PatternTypeConverter().toJson(pattern),
     'action': const ActionTypeConverter().toJson(action),
     'reason': const ReasonTypeConverter().toJson(reason),
+    if (source != null) 'source': source,
     if (comment != null) 'comment': comment,
     if (createdBy != null) 'createdBy': createdBy,
   },
@@ -116,6 +120,7 @@ Future<XRPCResponse<SafelinkQueryRulesOutput>> toolsOzoneSafelinkQueryRules({
 Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
   required String url,
   required PatternType pattern,
+  String? source,
   String? comment,
   String? createdBy,
   required ServiceContext $ctx,
@@ -130,10 +135,31 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkRemoveRule({
     ...?$unknown,
     'url': url,
     'pattern': const PatternTypeConverter().toJson(pattern),
+    if (source != null) 'source': source,
     if (comment != null) 'comment': comment,
     if (createdBy != null) 'createdBy': createdBy,
   },
   to: const EventConverter().fromJson,
+);
+
+/// Replace stored rules for one source from a complete snapshot. Existing rules owned by another source remain unchanged.
+Future<XRPCResponse<SafelinkSyncSourceOutput>> toolsOzoneSafelinkSyncSource({
+  required String source,
+  required List<SourceRule> rules,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneSafelinkSyncSource,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'source': source,
+    'rules': rules.map((e) => const SourceRuleConverter().toJson(e)).toList(),
+  },
+  to: const SafelinkSyncSourceOutputConverter().fromJson,
 );
 
 /// Update an existing URL safety rule
@@ -142,6 +168,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
   required PatternType pattern,
   required ActionType action,
   required ReasonType reason,
+  String? source,
   String? comment,
   String? createdBy,
   required ServiceContext $ctx,
@@ -158,6 +185,7 @@ Future<XRPCResponse<Event>> toolsOzoneSafelinkUpdateRule({
     'pattern': const PatternTypeConverter().toJson(pattern),
     'action': const ActionTypeConverter().toJson(action),
     'reason': const ReasonTypeConverter().toJson(reason),
+    if (source != null) 'source': source,
     if (comment != null) 'comment': comment,
     if (createdBy != null) 'createdBy': createdBy,
   },
@@ -177,6 +205,7 @@ base class SafelinkService {
     required PatternType pattern,
     required ActionType action,
     required ReasonType reason,
+    String? source,
     String? comment,
     String? createdBy,
     String? $service,
@@ -187,6 +216,7 @@ base class SafelinkService {
     pattern: pattern,
     action: action,
     reason: reason,
+    source: source,
     comment: comment,
     createdBy: createdBy,
     $ctx: ctx,
@@ -249,6 +279,7 @@ base class SafelinkService {
   Future<XRPCResponse<Event>> removeRule({
     required String url,
     required PatternType pattern,
+    String? source,
     String? comment,
     String? createdBy,
     String? $service,
@@ -257,8 +288,25 @@ base class SafelinkService {
   }) async => await toolsOzoneSafelinkRemoveRule(
     url: url,
     pattern: pattern,
+    source: source,
     comment: comment,
     createdBy: createdBy,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Replace stored rules for one source from a complete snapshot. Existing rules owned by another source remain unchanged.
+  Future<XRPCResponse<SafelinkSyncSourceOutput>> syncSource({
+    required String source,
+    required List<SourceRule> rules,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneSafelinkSyncSource(
+    source: source,
+    rules: rules,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -271,6 +319,7 @@ base class SafelinkService {
     required PatternType pattern,
     required ActionType action,
     required ReasonType reason,
+    String? source,
     String? comment,
     String? createdBy,
     String? $service,
@@ -281,6 +330,7 @@ base class SafelinkService {
     pattern: pattern,
     action: action,
     reason: reason,
+    source: source,
     comment: comment,
     createdBy: createdBy,
     $ctx: ctx,

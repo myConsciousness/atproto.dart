@@ -1,5 +1,19 @@
 # Release Note
 
+## v2.14.1
+
+- feat: added `tools.ozone.safelink.addRule.errors.RuleSourceConflict`
+- feat: added `tools.ozone.safelink.addRule.input.source`
+- feat: added `tools.ozone.safelink.defs#event.source`
+- chore: updated `tools.ozone.safelink.defs#urlRule`
+- feat: added `tools.ozone.safelink.defs#urlRule.source`
+- feat: added `tools.ozone.safelink.removeRule.input.source`
+- feat: added `tools.ozone.safelink.syncSource`
+- feat: added `tools.ozone.safelink.syncSource#sourceRule`
+- feat: added `tools.ozone.safelink.updateRule.errors.RuleSourceConflict`
+- feat: added `tools.ozone.safelink.updateRule.input.source`
+- chore: regenerated from synced lexicons
+
 ## v2.14.0
 
 - feat: added `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations#article`

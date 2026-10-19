@@ -30,6 +30,7 @@ abstract class SafelinkAddRuleInput with _$SafelinkAddRuleInput {
     'pattern',
     'action',
     'reason',
+    'source',
     'comment',
     'createdBy',
   ];
@@ -41,6 +42,9 @@ abstract class SafelinkAddRuleInput with _$SafelinkAddRuleInput {
     @PatternTypeConverter() required PatternType pattern,
     @ActionTypeConverter() required ActionType action,
     @ReasonTypeConverter() required ReasonType reason,
+
+    /// Source of the rule
+    @Default('ozone/default') String source,
 
     /// Optional comment about the decision
     String? comment,

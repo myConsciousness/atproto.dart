@@ -518,6 +518,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[tools.ozone.safelink.queryEvents](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/SafelinkService/queryEvents.html)** | [Reference](lexicons/tools/ozone/safelink/queryEvents.md) | ❌ |
 | **[tools.ozone.safelink.queryRules](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/SafelinkService/queryRules.html)** | [Reference](lexicons/tools/ozone/safelink/queryRules.md) | ❌ |
 | **[tools.ozone.safelink.removeRule](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/SafelinkService/removeRule.html)** | [Reference](lexicons/tools/ozone/safelink/removeRule.md) | ❌ |
+| **[tools.ozone.safelink.syncSource](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/SafelinkService/syncSource.html)** | [Reference](lexicons/tools/ozone/safelink/syncSource.md) | ❌ |
 | **[tools.ozone.safelink.updateRule](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/SafelinkService/updateRule.html)** | [Reference](lexicons/tools/ozone/safelink/updateRule.md) | ❌ |
 
 ### tools.ozone.server

@@ -23,7 +23,7 @@ part 'url_rule.g.dart';
 // LexGenerator
 // **************************************************************************
 
-/// Input for creating a URL safety rule
+/// An active URL safety rule
 @freezed
 abstract class UrlRule with _$UrlRule {
   static const knownProps = <String>[
@@ -31,6 +31,7 @@ abstract class UrlRule with _$UrlRule {
     'pattern',
     'action',
     'reason',
+    'source',
     'comment',
     'createdBy',
     'createdAt',
@@ -46,6 +47,9 @@ abstract class UrlRule with _$UrlRule {
     @PatternTypeConverter() required PatternType pattern,
     @ActionTypeConverter() required ActionType action,
     @ReasonTypeConverter() required ReasonType reason,
+
+    /// Source of the rule
+    @Default('ozone/default') String source,
 
     /// Optional comment about the decision
     String? comment,

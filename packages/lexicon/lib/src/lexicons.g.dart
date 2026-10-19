@@ -25882,6 +25882,12 @@ const toolsOzoneSafelinkAddRule = <String, dynamic>{
               "type": "ref",
               "ref": "tools.ozone.safelink.defs#reasonType",
             },
+            "source": {
+              "type": "string",
+              "description": "Source of the rule",
+              "default": "ozone/default",
+              "maxLength": 128,
+            },
             "comment": {
               "type": "string",
               "description": "Optional comment about the decision",
@@ -25903,6 +25909,11 @@ const toolsOzoneSafelinkAddRule = <String, dynamic>{
         {
           "name": "RuleAlreadyExists",
           "description": "A rule for this URL/domain already exists",
+        },
+        {
+          "name": "RuleSourceConflict",
+          "description":
+              "A rule for this URL/domain is owned by another source",
         },
       ],
     },
@@ -25937,6 +25948,11 @@ const toolsOzoneSafelinkDefs = <String, dynamic>{
         "pattern": {"type": "ref", "ref": "#patternType"},
         "action": {"type": "ref", "ref": "#actionType"},
         "reason": {"type": "ref", "ref": "#reasonType"},
+        "source": {
+          "type": "string",
+          "description": "Source of the decision",
+          "default": "ozone/default",
+        },
         "createdBy": {
           "type": "string",
           "format": "did",
@@ -25967,7 +25983,7 @@ const toolsOzoneSafelinkDefs = <String, dynamic>{
     },
     "urlRule": {
       "type": "object",
-      "description": "Input for creating a URL safety rule",
+      "description": "An active URL safety rule",
       "required": [
         "url",
         "pattern",
@@ -25985,6 +26001,11 @@ const toolsOzoneSafelinkDefs = <String, dynamic>{
         "pattern": {"type": "ref", "ref": "#patternType"},
         "action": {"type": "ref", "ref": "#actionType"},
         "reason": {"type": "ref", "ref": "#reasonType"},
+        "source": {
+          "type": "string",
+          "description": "Source of the rule",
+          "default": "ozone/default",
+        },
         "comment": {
           "type": "string",
           "description": "Optional comment about the decision",
@@ -26179,6 +26200,12 @@ const toolsOzoneSafelinkRemoveRule = <String, dynamic>{
               "type": "ref",
               "ref": "tools.ozone.safelink.defs#patternType",
             },
+            "source": {
+              "type": "string",
+              "description": "Source of the rule to remove",
+              "default": "ozone/default",
+              "maxLength": 128,
+            },
             "comment": {
               "type": "string",
               "description":
@@ -26203,6 +26230,69 @@ const toolsOzoneSafelinkRemoveRule = <String, dynamic>{
           "description": "No active rule found for this URL/domain",
         },
       ],
+    },
+  },
+};
+
+/// `tools.ozone.safelink.syncSource`
+const toolsOzoneSafelinkSyncSource = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.safelink.syncSource",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Replace stored rules for one source from a complete snapshot. Existing rules owned by another source remain unchanged.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["source", "rules"],
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "Source whose rules are being synchronized",
+              "maxLength": 128,
+            },
+            "rules": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#sourceRule"},
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["added", "updated", "removed", "events"],
+          "properties": {
+            "added": {"type": "integer"},
+            "updated": {"type": "integer"},
+            "removed": {"type": "integer"},
+            "events": {"type": "integer"},
+          },
+        },
+      },
+    },
+    "sourceRule": {
+      "type": "object",
+      "required": ["url", "pattern", "action", "reason"],
+      "properties": {
+        "url": {"type": "string"},
+        "pattern": {
+          "type": "ref",
+          "ref": "tools.ozone.safelink.defs#patternType",
+        },
+        "action": {
+          "type": "ref",
+          "ref": "tools.ozone.safelink.defs#actionType",
+        },
+        "reason": {
+          "type": "ref",
+          "ref": "tools.ozone.safelink.defs#reasonType",
+        },
+      },
     },
   },
 };
@@ -26237,6 +26327,12 @@ const toolsOzoneSafelinkUpdateRule = <String, dynamic>{
               "type": "ref",
               "ref": "tools.ozone.safelink.defs#reasonType",
             },
+            "source": {
+              "type": "string",
+              "description": "Source of the rule to update",
+              "default": "ozone/default",
+              "maxLength": 128,
+            },
             "comment": {
               "type": "string",
               "description": "Optional comment about the update",
@@ -26258,6 +26354,11 @@ const toolsOzoneSafelinkUpdateRule = <String, dynamic>{
         {
           "name": "RuleNotFound",
           "description": "No active rule found for this URL/domain",
+        },
+        {
+          "name": "RuleSourceConflict",
+          "description":
+              "A rule for this URL/domain is owned by another source",
         },
       ],
     },
@@ -27882,6 +27983,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneSafelinkQueryEvents,
   toolsOzoneSafelinkQueryRules,
   toolsOzoneSafelinkRemoveRule,
+  toolsOzoneSafelinkSyncSource,
   toolsOzoneSafelinkUpdateRule,
   toolsOzoneServerGetCapabilities,
   toolsOzoneServerGetConfig,
