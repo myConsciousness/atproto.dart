@@ -11,7 +11,9 @@
         "schema": {
           "type": "object",
           "required": ["convoId"],
-          "properties": { "convoId": { "type": "string" } }
+          "properties": {
+            "convoId": { "type": "string" }
+          }
         }
       },
       "output": {

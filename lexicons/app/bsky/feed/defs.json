@@ -140,7 +140,10 @@
         "indexedAt": { "type": "string", "format": "datetime" }
       }
     },
-    "reasonPin": { "type": "object", "properties": {} },
+    "reasonPin": {
+      "type": "object",
+      "properties": {}
+    },
     "threadViewPost": {
       "type": "object",
       "required": ["post"],
@@ -223,7 +226,9 @@
     },
     "generatorViewerState": {
       "type": "object",
-      "properties": { "like": { "type": "string", "format": "at-uri" } }
+      "properties": {
+        "like": { "type": "string", "format": "at-uri" }
+      }
     },
     "skeletonFeedPost": {
       "type": "object",
@@ -244,9 +249,14 @@
     "skeletonReasonRepost": {
       "type": "object",
       "required": ["repost"],
-      "properties": { "repost": { "type": "string", "format": "at-uri" } }
+      "properties": {
+        "repost": { "type": "string", "format": "at-uri" }
+      }
     },
-    "skeletonReasonPin": { "type": "object", "properties": {} },
+    "skeletonReasonPin": {
+      "type": "object",
+      "properties": {}
+    },
     "threadgateView": {
       "type": "object",
       "properties": {

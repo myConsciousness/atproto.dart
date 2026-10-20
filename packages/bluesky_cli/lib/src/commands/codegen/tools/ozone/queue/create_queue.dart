@@ -29,11 +29,20 @@ final class CreateQueueCommand extends ProcedureCommand {
       ..addOption(
         "collection",
         help:
-            r"Collection name for record subjects. Required if subjectTypes includes 'record'.",
+            r"Collection name for record subjects. Omit to accept every collection.",
       )
       ..addMultiOption(
         "reportTypes",
         help: r"Report reason types (fully qualified NSIDs)",
+      )
+      ..addMultiOption(
+        "reporterTags",
+        help: r"Match any listed tag on the account submitting the report.",
+      )
+      ..addMultiOption(
+        "accountTags",
+        help:
+            r"Match any of these tags on the account that is being reported against.",
       )
       ..addOption("description", help: r"Optional description of the queue")
       ..addMultiOption(
@@ -52,11 +61,11 @@ final class CreateQueueCommand extends ProcedureCommand {
 
   @override
   final String description =
-      "Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.";
+      "Create a new moderation queue. A queue with omitted or empty subjectTypes or reportTypes must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.";
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--description=<value>] [--recommendedPolicies=<value>...] [--recommendedLabels=<value>...]";
+      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--reporterTags=<value>...] [--accountTags=<value>...] [--description=<value>] [--recommendedPolicies=<value>...] [--recommendedLabels=<value>...]";
 
   @override
   String get methodId => "tools.ozone.queue.createQueue";
@@ -70,6 +79,10 @@ final class CreateQueueCommand extends ProcedureCommand {
       "collection": argResults!["collection"],
     if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
+    if (argResults!.wasParsed("reporterTags"))
+      "reporterTags": argResults!["reporterTags"],
+    if (argResults!.wasParsed("accountTags"))
+      "accountTags": argResults!["accountTags"],
     if (argResults!.wasParsed("description"))
       "description": argResults!["description"],
     if (argResults!.wasParsed("recommendedPolicies"))

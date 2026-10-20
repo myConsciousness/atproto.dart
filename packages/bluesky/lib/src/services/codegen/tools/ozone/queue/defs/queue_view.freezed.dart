@@ -17,8 +17,8 @@ mixin _$QueueView {
 
  String get $type;/// Queue ID
  int get id;/// Display name of the queue
- String get name;@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? get subjectTypes;/// Collection name for record subjects (e.g., 'app.bsky.feed.post')
- String? get collection; List<String>? get reportTypes;/// Optional description of the queue
+ String get name;@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? get subjectTypes;/// Collection name for record subjects. Omit to accept every collection.
+ String? get collection; List<String>? get reportTypes; List<String>? get reporterTags; List<String>? get accountTags;/// Optional description of the queue
  String? get description; List<String>? get recommendedPolicies; List<String>? get recommendedLabels;/// DID of moderator who created this queue
  String get createdBy;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt;/// Whether this queue is currently active
  bool get enabled;/// When the queue was deleted, if applicable
@@ -36,16 +36,16 @@ $QueueViewCopyWith<QueueView> get copyWith => _$QueueViewCopyWithImpl<QueueView>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.subjectTypes, subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.recommendedPolicies, recommendedPolicies)&&const DeepCollectionEquality().equals(other.recommendedLabels, recommendedLabels)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.deletedAt, deletedAt) || other.deletedAt == deletedAt)&&(identical(other.stats, stats) || other.stats == stats)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.subjectTypes, subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.reporterTags, reporterTags)&&const DeepCollectionEquality().equals(other.accountTags, accountTags)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.recommendedPolicies, recommendedPolicies)&&const DeepCollectionEquality().equals(other.recommendedLabels, recommendedLabels)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.deletedAt, deletedAt) || other.deletedAt == deletedAt)&&(identical(other.stats, stats) || other.stats == stats)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,name,const DeepCollectionEquality().hash(subjectTypes),collection,const DeepCollectionEquality().hash(reportTypes),description,const DeepCollectionEquality().hash(recommendedPolicies),const DeepCollectionEquality().hash(recommendedLabels),createdBy,createdAt,updatedAt,enabled,deletedAt,stats,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,name,const DeepCollectionEquality().hash(subjectTypes),collection,const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(reporterTags),const DeepCollectionEquality().hash(accountTags),description,const DeepCollectionEquality().hash(recommendedPolicies),const DeepCollectionEquality().hash(recommendedLabels),createdBy,createdAt,updatedAt,enabled,deletedAt,stats,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'QueueView(\$type: ${$type}, id: $id, name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, enabled: $enabled, deletedAt: $deletedAt, stats: $stats, \$unknown: ${$unknown})';
+  return 'QueueView(\$type: ${$type}, id: $id, name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, reporterTags: $reporterTags, accountTags: $accountTags, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, enabled: $enabled, deletedAt: $deletedAt, stats: $stats, \$unknown: ${$unknown})';
 }
 
 
@@ -56,7 +56,7 @@ abstract mixin class $QueueViewCopyWith<$Res>  {
   factory $QueueViewCopyWith(QueueView value, $Res Function(QueueView) _then) = _$QueueViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
+ String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, List<String>? reporterTags, List<String>? accountTags, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
 });
 
 
@@ -73,7 +73,7 @@ class _$QueueViewCopyWithImpl<$Res>
 
 /// Create a copy of QueueView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? reporterTags = freezed,Object? accountTags = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -81,6 +81,8 @@ as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nu
 as String,subjectTypes: freezed == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
 as List<QueueViewSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
 as String?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as List<String>?,reporterTags: freezed == reporterTags ? _self.reporterTags : reporterTags // ignore: cast_nullable_to_non_nullable
+as List<String>?,accountTags: freezed == accountTags ? _self.accountTags : accountTags // ignore: cast_nullable_to_non_nullable
 as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,recommendedPolicies: freezed == recommendedPolicies ? _self.recommendedPolicies : recommendedPolicies // ignore: cast_nullable_to_non_nullable
 as List<String>?,recommendedLabels: freezed == recommendedLabels ? _self.recommendedLabels : recommendedLabels // ignore: cast_nullable_to_non_nullable
@@ -185,10 +187,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _QueueView() when $default != null:
-return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
   return orElse();
 
 }
@@ -206,10 +208,10 @@ return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collect
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _QueueView():
-return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -226,10 +228,10 @@ return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collect
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id,  String name, @QueueViewSubjectTypesConverter()  List<QueueViewSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  String createdBy, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  bool enabled, @JsonKey(toJson: iso8601)  DateTime? deletedAt, @QueueStatsConverter()  QueueStats stats,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _QueueView() when $default != null:
-return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.createdBy,_that.createdAt,_that.updatedAt,_that.enabled,_that.deletedAt,_that.stats,_that.$unknown);case _:
   return null;
 
 }
@@ -241,7 +243,7 @@ return $default(_that.$type,_that.id,_that.name,_that.subjectTypes,_that.collect
 
 @JsonSerializable(includeIfNull: false)
 class _QueueView implements QueueView {
-  const _QueueView({this.$type = 'tools.ozone.queue.defs#queueView', required this.id, required this.name, @QueueViewSubjectTypesConverter() final  List<QueueViewSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, this.description, final  List<String>? recommendedPolicies, final  List<String>? recommendedLabels, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, required this.enabled, @JsonKey(toJson: iso8601) this.deletedAt, @QueueStatsConverter() required this.stats, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_recommendedPolicies = recommendedPolicies,_recommendedLabels = recommendedLabels,_$unknown = $unknown;
+  const _QueueView({this.$type = 'tools.ozone.queue.defs#queueView', required this.id, required this.name, @QueueViewSubjectTypesConverter() final  List<QueueViewSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, final  List<String>? reporterTags, final  List<String>? accountTags, this.description, final  List<String>? recommendedPolicies, final  List<String>? recommendedLabels, required this.createdBy, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, required this.enabled, @JsonKey(toJson: iso8601) this.deletedAt, @QueueStatsConverter() required this.stats, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_reporterTags = reporterTags,_accountTags = accountTags,_recommendedPolicies = recommendedPolicies,_recommendedLabels = recommendedLabels,_$unknown = $unknown;
   factory _QueueView.fromJson(Map<String, dynamic> json) => _$QueueViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -258,13 +260,31 @@ class _QueueView implements QueueView {
   return EqualUnmodifiableListView(value);
 }
 
-/// Collection name for record subjects (e.g., 'app.bsky.feed.post')
+/// Collection name for record subjects. Omit to accept every collection.
 @override final  String? collection;
  final  List<String>? _reportTypes;
 @override List<String>? get reportTypes {
   final value = _reportTypes;
   if (value == null) return null;
   if (_reportTypes is EqualUnmodifiableListView) return _reportTypes;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+ final  List<String>? _reporterTags;
+@override List<String>? get reporterTags {
+  final value = _reporterTags;
+  if (value == null) return null;
+  if (_reporterTags is EqualUnmodifiableListView) return _reporterTags;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+ final  List<String>? _accountTags;
+@override List<String>? get accountTags {
+  final value = _accountTags;
+  if (value == null) return null;
+  if (_accountTags is EqualUnmodifiableListView) return _accountTags;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(value);
 }
@@ -322,16 +342,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other._subjectTypes, _subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._recommendedPolicies, _recommendedPolicies)&&const DeepCollectionEquality().equals(other._recommendedLabels, _recommendedLabels)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.deletedAt, deletedAt) || other.deletedAt == deletedAt)&&(identical(other.stats, stats) || other.stats == stats)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other._subjectTypes, _subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._reporterTags, _reporterTags)&&const DeepCollectionEquality().equals(other._accountTags, _accountTags)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._recommendedPolicies, _recommendedPolicies)&&const DeepCollectionEquality().equals(other._recommendedLabels, _recommendedLabels)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.deletedAt, deletedAt) || other.deletedAt == deletedAt)&&(identical(other.stats, stats) || other.stats == stats)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,id,name,const DeepCollectionEquality().hash(_subjectTypes),collection,const DeepCollectionEquality().hash(_reportTypes),description,const DeepCollectionEquality().hash(_recommendedPolicies),const DeepCollectionEquality().hash(_recommendedLabels),createdBy,createdAt,updatedAt,enabled,deletedAt,stats,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,id,name,const DeepCollectionEquality().hash(_subjectTypes),collection,const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_reporterTags),const DeepCollectionEquality().hash(_accountTags),description,const DeepCollectionEquality().hash(_recommendedPolicies),const DeepCollectionEquality().hash(_recommendedLabels),createdBy,createdAt,updatedAt,enabled,deletedAt,stats,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'QueueView(\$type: ${$type}, id: $id, name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, enabled: $enabled, deletedAt: $deletedAt, stats: $stats, \$unknown: ${$unknown})';
+  return 'QueueView(\$type: ${$type}, id: $id, name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, reporterTags: $reporterTags, accountTags: $accountTags, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, createdBy: $createdBy, createdAt: $createdAt, updatedAt: $updatedAt, enabled: $enabled, deletedAt: $deletedAt, stats: $stats, \$unknown: ${$unknown})';
 }
 
 
@@ -342,7 +362,7 @@ abstract mixin class _$QueueViewCopyWith<$Res> implements $QueueViewCopyWith<$Re
   factory _$QueueViewCopyWith(_QueueView value, $Res Function(_QueueView) _then) = __$QueueViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
+ String $type, int id, String name,@QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, List<String>? reporterTags, List<String>? accountTags, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, String createdBy,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, bool enabled,@JsonKey(toJson: iso8601) DateTime? deletedAt,@QueueStatsConverter() QueueStats stats, Map<String, dynamic>? $unknown
 });
 
 
@@ -359,7 +379,7 @@ class __$QueueViewCopyWithImpl<$Res>
 
 /// Create a copy of QueueView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? reporterTags = freezed,Object? accountTags = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? createdBy = null,Object? createdAt = null,Object? updatedAt = null,Object? enabled = null,Object? deletedAt = freezed,Object? stats = null,Object? $unknown = freezed,}) {
   return _then(_QueueView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -367,6 +387,8 @@ as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nu
 as String,subjectTypes: freezed == subjectTypes ? _self._subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
 as List<QueueViewSubjectTypes>?,collection: freezed == collection ? _self.collection : collection // ignore: cast_nullable_to_non_nullable
 as String?,reportTypes: freezed == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as List<String>?,reporterTags: freezed == reporterTags ? _self._reporterTags : reporterTags // ignore: cast_nullable_to_non_nullable
+as List<String>?,accountTags: freezed == accountTags ? _self._accountTags : accountTags // ignore: cast_nullable_to_non_nullable
 as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,recommendedPolicies: freezed == recommendedPolicies ? _self._recommendedPolicies : recommendedPolicies // ignore: cast_nullable_to_non_nullable
 as List<String>?,recommendedLabels: freezed == recommendedLabels ? _self._recommendedLabels : recommendedLabels // ignore: cast_nullable_to_non_nullable

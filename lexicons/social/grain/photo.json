@@ -6,7 +6,7 @@
       "type": "record",
       "record": {
         "type": "object",
-        "required": ["photo"],
+        "required": ["photo", "alt"],
         "properties": {
           "alt": {
             "type": "string",

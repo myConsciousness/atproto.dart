@@ -47,7 +47,10 @@
           "type": "ref",
           "ref": "app.bsky.graph.defs#starterPackView"
         },
-        "listItem": { "type": "ref", "ref": "app.bsky.graph.defs#listItemView" }
+        "listItem": {
+          "type": "ref",
+          "ref": "app.bsky.graph.defs#listItemView"
+        }
       }
     }
   }

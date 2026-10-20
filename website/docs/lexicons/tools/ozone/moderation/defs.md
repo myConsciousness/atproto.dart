@@ -159,6 +159,7 @@ Revert take down action on a subject
 | **policies** | array of string | - | ❌ | Names/Keywords of the policy infraction for which takedown is being reversed. |
 | **severityLevel** | string | - | ❌ | Severity level of the violation. Usually set from the last policy infraction's severity. |
 | **strikeCount** | integer | - | ❌ | Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity. |
+| **strikeExpiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the strike should expire. If not provided, the strike never expires. |
 
 ## #modEventResolveAppeal
 

@@ -1,5 +1,27 @@
 # Release Note
 
+## v2.15.0
+
+- chore: updated `app.bsky.graph.getFollowers.parameters.sort`
+- chore: updated `app.bsky.graph.getFollows.parameters.sort`
+- fix!: removed `app.bsky.unspecced.getOnboardingSuggestedStarterPacks.output.recIdStr` (BREAKING)
+- fix!: removed `app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton.output.recIdStr` (BREAKING)
+- fix!: removed `app.bsky.unspecced.getSuggestedFeeds.output.recIdStr` (BREAKING)
+- fix!: removed `app.bsky.unspecced.getSuggestedFeedsSkeleton.output.recIdStr` (BREAKING)
+- fix!: removed `app.bsky.unspecced.getSuggestedStarterPacks.output.recIdStr` (BREAKING)
+- fix!: removed `app.bsky.unspecced.getSuggestedStarterPacksSkeleton.output.recIdStr` (BREAKING)
+- feat: added `chat.bsky.convo.leaveConvo.errors.AlreadyLeftConvo`
+- feat: added `tools.ozone.moderation.defs#modEventReverseTakedown.strikeExpiresAt`
+- chore: updated `tools.ozone.queue.createQueue`
+- feat: added `tools.ozone.queue.createQueue.input.accountTags`
+- chore: updated `tools.ozone.queue.createQueue.input.collection`
+- chore: updated `tools.ozone.queue.createQueue.input.reportTypes`
+- feat: added `tools.ozone.queue.createQueue.input.reporterTags`
+- feat: added `tools.ozone.queue.defs#queueView.accountTags`
+- chore: updated `tools.ozone.queue.defs#queueView.collection`
+- feat: added `tools.ozone.queue.defs#queueView.reporterTags`
+- chore: regenerated from synced lexicons
+
 ## v2.14.1
 
 - feat: added `tools.ozone.safelink.addRule.errors.RuleSourceConflict`

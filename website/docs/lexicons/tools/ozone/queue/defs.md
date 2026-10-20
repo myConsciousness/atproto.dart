@@ -12,8 +12,10 @@ description: tools.ozone.queue.defs
 | **id** | integer | - | ✅ | Queue ID |
 | **name** | string | - | ✅ | Display name of the queue |
 | **subjectTypes** | array of string | - | ❌ | Subject types this queue accepts. |
-| **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects (e.g., 'app.bsky.feed.post') |
+| **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects. Omit to accept every collection. |
 | **reportTypes** | array of string | - | ❌ | Report reason types this queue accepts (fully qualified NSIDs) |
+| **reporterTags** | array of string | - | ❌ | Match any listed tag on the account submitting the report. |
+| **accountTags** | array of string | - | ❌ | Match tags on the account that is being reported against. For record subjects, use the author account. Match any listed tag. |
 | **description** | string | - | ❌ | Optional description of the queue |
 | **recommendedPolicies** | array of string | - | ❌ | Policy keys recommended when actioning reports in this queue |
 | **recommendedLabels** | array of string | - | ❌ | Labels recommended for this queue and used as a fallback when routing label appeals |

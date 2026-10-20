@@ -7,7 +7,7 @@ description: tools.ozone.queue.createQueue
 
 ## #main
 
-Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.
+Create a new moderation queue. A queue with omitted or empty subjectTypes or reportTypes must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.
 
 ### Input
 
@@ -17,8 +17,10 @@ Create a new moderation queue. A queue can have optional matching criteria that 
 | --- | --- | --- | :---: | --- |
 | **name** | string | - | ✅ | Display name for the queue (must be unique) |
 | **subjectTypes** | array of string | - | ❌ | Subject types this queue accepts |
-| **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects. Required if subjectTypes includes 'record'. |
+| **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ❌ | Collection name for record subjects. Omit to accept every collection. |
 | **reportTypes** | array of string | - | ❌ | Report reason types (fully qualified NSIDs) |
+| **reporterTags** | array of string | - | ❌ | Match any listed tag on the account submitting the report. |
+| **accountTags** | array of string | - | ❌ | Match any of these tags on the account that is being reported against. |
 | **description** | string | - | ❌ | Optional description of the queue |
 | **recommendedPolicies** | array of string | - | ❌ | Policy keys to recommend when actioning reports in this queue |
 | **recommendedLabels** | array of string | - | ❌ | Labels to recommend for this queue and use as fallback appeal routing mappings |

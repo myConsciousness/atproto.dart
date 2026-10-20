@@ -5,7 +5,10 @@
     "main": {
       "type": "query",
       "description": "Gets the user's current contact import status. Requires authentication.",
-      "parameters": { "type": "params", "properties": {} },
+      "parameters": {
+        "type": "params",
+        "properties": {}
+      },
       "output": {
         "encoding": "application/json",
         "schema": {
@@ -19,7 +22,14 @@
           }
         }
       },
-      "errors": [{ "name": "InvalidDid" }, { "name": "InternalError" }]
+      "errors": [
+        {
+          "name": "InvalidDid"
+        },
+        {
+          "name": "InternalError"
+        }
+      ]
     }
   }
 }

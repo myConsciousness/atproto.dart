@@ -20,7 +20,6 @@ _$UnspeccedGetSuggestedFeedsSkeletonOutputFromJson(Map json) => $checkedCreate(
             .map((e) => const AtUriConverter().fromJson(e as String))
             .toList(),
       ),
-      recIdStr: $checkedConvert('recIdStr', (v) => v as String?),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -34,6 +33,5 @@ Map<String, dynamic> _$UnspeccedGetSuggestedFeedsSkeletonOutputToJson(
   _UnspeccedGetSuggestedFeedsSkeletonOutput instance,
 ) => <String, dynamic>{
   'feeds': instance.feeds.map(const AtUriConverter().toJson).toList(),
-  'recIdStr': ?instance.recIdStr,
   r'$unknown': ?instance.$unknown,
 };

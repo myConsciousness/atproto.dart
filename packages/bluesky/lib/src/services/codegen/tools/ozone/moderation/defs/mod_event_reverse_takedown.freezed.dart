@@ -18,7 +18,8 @@ mixin _$ModEventReverseTakedown {
  String get $type;/// Describe reasoning behind the reversal.
  String? get comment; List<String>? get policies;/// Severity level of the violation. Usually set from the last policy infraction's severity.
  String? get severityLevel;/// Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity.
- int? get strikeCount; Map<String, dynamic>? get $unknown;
+ int? get strikeCount;/// When the strike should expire. If not provided, the strike never expires.
+@JsonKey(toJson: iso8601) DateTime? get strikeExpiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ModEventReverseTakedown
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +32,16 @@ $ModEventReverseTakedownCopyWith<ModEventReverseTakedown> get copyWith => _$ModE
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventReverseTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.policies, policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ModEventReverseTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.policies, policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,const DeepCollectionEquality().hash(policies),severityLevel,strikeCount,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,comment,const DeepCollectionEquality().hash(policies),severityLevel,strikeCount,strikeExpiresAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ModEventReverseTakedown(\$type: ${$type}, comment: $comment, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, \$unknown: ${$unknown})';
+  return 'ModEventReverseTakedown(\$type: ${$type}, comment: $comment, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -51,7 +52,7 @@ abstract mixin class $ModEventReverseTakedownCopyWith<$Res>  {
   factory $ModEventReverseTakedownCopyWith(ModEventReverseTakedown value, $Res Function(ModEventReverseTakedown) _then) = _$ModEventReverseTakedownCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? comment, List<String>? policies, String? severityLevel, int? strikeCount, Map<String, dynamic>? $unknown
+ String $type, String? comment, List<String>? policies, String? severityLevel, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,14 +69,15 @@ class _$ModEventReverseTakedownCopyWithImpl<$Res>
 
 /// Create a copy of ModEventReverseTakedown
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,policies: freezed == policies ? _self.policies : policies // ignore: cast_nullable_to_non_nullable
 as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
 as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -161,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ModEventReverseTakedown() when $default != null:
-return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -182,10 +184,10 @@ return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ModEventReverseTakedown():
-return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +204,10 @@ return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? comment,  List<String>? policies,  String? severityLevel,  int? strikeCount, @JsonKey(toJson: iso8601)  DateTime? strikeExpiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ModEventReverseTakedown() when $default != null:
-return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.$unknown);case _:
+return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_that.strikeCount,_that.strikeExpiresAt,_that.$unknown);case _:
   return null;
 
 }
@@ -217,7 +219,7 @@ return $default(_that.$type,_that.comment,_that.policies,_that.severityLevel,_th
 
 @JsonSerializable(includeIfNull: false)
 class _ModEventReverseTakedown implements ModEventReverseTakedown {
-  const _ModEventReverseTakedown({this.$type = 'tools.ozone.moderation.defs#modEventReverseTakedown', this.comment, final  List<String>? policies, this.severityLevel, this.strikeCount, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
+  const _ModEventReverseTakedown({this.$type = 'tools.ozone.moderation.defs#modEventReverseTakedown', this.comment, final  List<String>? policies, this.severityLevel, this.strikeCount, @JsonKey(toJson: iso8601) this.strikeExpiresAt, final  Map<String, dynamic>? $unknown}): _policies = policies,_$unknown = $unknown;
   factory _ModEventReverseTakedown.fromJson(Map<String, dynamic> json) => _$ModEventReverseTakedownFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -236,6 +238,8 @@ class _ModEventReverseTakedown implements ModEventReverseTakedown {
 @override final  String? severityLevel;
 /// Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity.
 @override final  int? strikeCount;
+/// When the strike should expire. If not provided, the strike never expires.
+@override@JsonKey(toJson: iso8601) final  DateTime? strikeExpiresAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -259,16 +263,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventReverseTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._policies, _policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ModEventReverseTakedown&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other._policies, _policies)&&(identical(other.severityLevel, severityLevel) || other.severityLevel == severityLevel)&&(identical(other.strikeCount, strikeCount) || other.strikeCount == strikeCount)&&(identical(other.strikeExpiresAt, strikeExpiresAt) || other.strikeExpiresAt == strikeExpiresAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,comment,const DeepCollectionEquality().hash(_policies),severityLevel,strikeCount,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,comment,const DeepCollectionEquality().hash(_policies),severityLevel,strikeCount,strikeExpiresAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ModEventReverseTakedown(\$type: ${$type}, comment: $comment, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, \$unknown: ${$unknown})';
+  return 'ModEventReverseTakedown(\$type: ${$type}, comment: $comment, policies: $policies, severityLevel: $severityLevel, strikeCount: $strikeCount, strikeExpiresAt: $strikeExpiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -279,7 +283,7 @@ abstract mixin class _$ModEventReverseTakedownCopyWith<$Res> implements $ModEven
   factory _$ModEventReverseTakedownCopyWith(_ModEventReverseTakedown value, $Res Function(_ModEventReverseTakedown) _then) = __$ModEventReverseTakedownCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? comment, List<String>? policies, String? severityLevel, int? strikeCount, Map<String, dynamic>? $unknown
+ String $type, String? comment, List<String>? policies, String? severityLevel, int? strikeCount,@JsonKey(toJson: iso8601) DateTime? strikeExpiresAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -296,14 +300,15 @@ class __$ModEventReverseTakedownCopyWithImpl<$Res>
 
 /// Create a copy of ModEventReverseTakedown
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? comment = freezed,Object? policies = freezed,Object? severityLevel = freezed,Object? strikeCount = freezed,Object? strikeExpiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_ModEventReverseTakedown(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,policies: freezed == policies ? _self._policies : policies // ignore: cast_nullable_to_non_nullable
 as List<String>?,severityLevel: freezed == severityLevel ? _self.severityLevel : severityLevel // ignore: cast_nullable_to_non_nullable
 as String?,strikeCount: freezed == strikeCount ? _self.strikeCount : strikeCount // ignore: cast_nullable_to_non_nullable
-as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as int?,strikeExpiresAt: freezed == strikeExpiresAt ? _self.strikeExpiresAt : strikeExpiresAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
