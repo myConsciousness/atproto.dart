@@ -9,7 +9,10 @@
         "type": "params",
         "required": ["subject"],
         "properties": {
-          "subject": { "type": "string", "format": "did" },
+          "subject": {
+            "type": "string",
+            "format": "did"
+          },
           "limit": {
             "type": "integer",
             "minimum": 1,

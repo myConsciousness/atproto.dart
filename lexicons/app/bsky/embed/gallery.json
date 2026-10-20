@@ -23,7 +23,11 @@
       "type": "object",
       "required": ["image", "alt", "aspectRatio"],
       "properties": {
-        "image": { "type": "blob", "accept": ["image/*"], "maxSize": 2000000 },
+        "image": {
+          "type": "blob",
+          "accept": ["image/*"],
+          "maxSize": 2000000
+        },
         "alt": {
           "type": "string",
           "description": "Alt text description of the image, for accessibility."
@@ -40,7 +44,10 @@
       "properties": {
         "items": {
           "type": "array",
-          "items": { "type": "union", "refs": ["#viewImage"] }
+          "items": {
+            "type": "union",
+            "refs": ["#viewImage"]
+          }
         }
       }
     },

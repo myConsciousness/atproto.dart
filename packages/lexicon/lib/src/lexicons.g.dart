@@ -5517,6 +5517,7 @@ const appBskyGraphGetFollowers = <String, dynamic>{
           "cursor": {"type": "string"},
           "sort": {
             "type": "string",
+            "description": "Sort order of the returned followers.",
             "knownValues": ["latest", "top"],
           },
         },
@@ -5569,6 +5570,7 @@ const appBskyGraphGetFollows = <String, dynamic>{
           "cursor": {"type": "string"},
           "sort": {
             "type": "string",
+            "description": "Sort order of the returned follows.",
             "knownValues": ["latest", "top"],
           },
         },
@@ -8456,11 +8458,6 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacks = <String, dynamic>{
                 "ref": "app.bsky.graph.defs#starterPackView",
               },
             },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
           },
         },
       },
@@ -8503,11 +8500,6 @@ const appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton = <String, dyna
             "starterPacks": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -8799,11 +8791,6 @@ const appBskyUnspeccedGetSuggestedFeeds = <String, dynamic>{
                 "ref": "app.bsky.feed.defs#generatorView",
               },
             },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
           },
         },
       },
@@ -8846,11 +8833,6 @@ const appBskyUnspeccedGetSuggestedFeedsSkeleton = <String, dynamic>{
             "feeds": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -8943,11 +8925,6 @@ const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
                 "ref": "app.bsky.graph.defs#starterPackView",
               },
             },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
-            },
           },
         },
       },
@@ -8990,11 +8967,6 @@ const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
             "starterPacks": {
               "type": "array",
               "items": {"type": "string", "format": "at-uri"},
-            },
-            "recIdStr": {
-              "type": "string",
-              "description":
-                  "Snowflake for this recommendation, use when submitting recommendation events.",
             },
           },
         },
@@ -12093,6 +12065,11 @@ const chatBskyConvoLeaveConvo = <String, dynamic>{
       },
       "errors": [
         {"name": "InvalidConvo"},
+        {
+          "name": "AlreadyLeftConvo",
+          "description":
+              "The user has already left the conversation and is not back in (a direct conversation can be restarted by a new message, which allows leaving again).",
+        },
         {
           "name": "OwnerCannotLeave",
           "description":
@@ -19724,7 +19701,7 @@ const socialGrainPhoto = <String, dynamic>{
       "key": "tid",
       "record": {
         "type": "object",
-        "required": ["photo"],
+        "required": ["photo", "alt"],
         "properties": {
           "alt": {
             "type": "string",
@@ -21653,6 +21630,12 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "type": "integer",
           "description":
               "Number of strikes to subtract from the user's strike count. Usually set from the last policy infraction's severity.",
+        },
+        "strikeExpiresAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the strike should expire. If not provided, the strike never expires.",
         },
       },
     },
@@ -23652,7 +23635,7 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "Create a new moderation queue. A queue can have optional matching criteria that ozone's queue router will use to match reports. A queue with no criteria must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.",
+          "Create a new moderation queue. A queue with omitted or empty subjectTypes or reportTypes must have reports assigned to it manually via (1) `modTool.meta.queueId` in `tools.ozone.moderation.emitEvent` or (2) `tools.ozone.report.reassignQueue`.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -23675,12 +23658,25 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
               "type": "string",
               "format": "nsid",
               "description":
-                  "Collection name for record subjects. Required if subjectTypes includes 'record'.",
+                  "Collection name for record subjects. Omit to accept every collection.",
             },
             "reportTypes": {
               "type": "array",
               "description": "Report reason types (fully qualified NSIDs)",
               "items": {"type": "string"},
+            },
+            "reporterTags": {
+              "type": "array",
+              "description":
+                  "Match any listed tag on the account submitting the report.",
+              "items": {"type": "string", "minLength": 1},
+              "maxLength": 25,
+            },
+            "accountTags": {
+              "type": "array",
+              "description":
+                  "Match any of these tags on the account that is being reported against.",
+              "items": {"type": "string", "minLength": 1},
               "maxLength": 25,
             },
             "description": {
@@ -23759,13 +23755,27 @@ const toolsOzoneQueueDefs = <String, dynamic>{
           "type": "string",
           "format": "nsid",
           "description":
-              "Collection name for record subjects (e.g., 'app.bsky.feed.post')",
+              "Collection name for record subjects. Omit to accept every collection.",
         },
         "reportTypes": {
           "type": "array",
           "description":
               "Report reason types this queue accepts (fully qualified NSIDs)",
           "items": {"type": "string"},
+        },
+        "reporterTags": {
+          "type": "array",
+          "description":
+              "Match any listed tag on the account submitting the report.",
+          "items": {"type": "string", "minLength": 1},
+          "maxLength": 25,
+        },
+        "accountTags": {
+          "type": "array",
+          "description":
+              "Match tags on the account that is being reported against. For record subjects, use the author account. Match any listed tag.",
+          "items": {"type": "string", "minLength": 1},
+          "maxLength": 25,
         },
         "description": {
           "type": "string",

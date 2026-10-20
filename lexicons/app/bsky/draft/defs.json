@@ -12,7 +12,10 @@
           "type": "string",
           "format": "tid"
         },
-        "draft": { "type": "ref", "ref": "#draft" }
+        "draft": {
+          "type": "ref",
+          "ref": "#draft"
+        }
       }
     },
     "draft": {
@@ -35,7 +38,10 @@
           "type": "array",
           "minLength": 1,
           "maxLength": 100,
-          "items": { "type": "ref", "ref": "#draftPost" }
+          "items": {
+            "type": "ref",
+            "ref": "#draftPost"
+          }
         },
         "langs": {
           "type": "array",
@@ -89,7 +95,10 @@
           "items": { "type": "ref", "ref": "#draftEmbedImage" },
           "maxLength": 4
         },
-        "embedGallery": { "type": "ref", "ref": "#draftEmbedGallery" },
+        "embedGallery": {
+          "type": "ref",
+          "ref": "#draftEmbedGallery"
+        },
         "embedVideos": {
           "type": "array",
           "items": { "type": "ref", "ref": "#draftEmbedVideo" },
@@ -107,6 +116,7 @@
         }
       }
     },
+
     "draftView": {
       "description": "View to present drafts data to users.",
       "type": "object",
@@ -117,7 +127,10 @@
           "type": "string",
           "format": "tid"
         },
-        "draft": { "type": "ref", "ref": "#draft" },
+        "draft": {
+          "type": "ref",
+          "ref": "#draft"
+        },
         "createdAt": {
           "description": "The time the draft was created.",
           "type": "string",
@@ -130,6 +143,7 @@
         }
       }
     },
+
     "draftEmbedLocalRef": {
       "type": "object",
       "required": ["path"],
@@ -146,15 +160,25 @@
       "type": "object",
       "required": ["lang", "content"],
       "properties": {
-        "lang": { "type": "string", "format": "language" },
-        "content": { "type": "string", "maxLength": 10000 }
+        "lang": {
+          "type": "string",
+          "format": "language"
+        },
+        "content": {
+          "type": "string",
+          "maxLength": 10000
+        }
       }
     },
+
     "draftEmbedGallery": {
       "type": "object",
       "required": ["items"],
       "properties": {
-        "items": { "type": "ref", "ref": "#draftEmbedGalleryItems" }
+        "items": {
+          "type": "ref",
+          "ref": "#draftEmbedGalleryItems"
+        }
       }
     },
     "draftEmbedGalleryItems": {
@@ -167,19 +191,34 @@
       "type": "object",
       "required": ["localRef"],
       "properties": {
-        "localRef": { "type": "ref", "ref": "#draftEmbedLocalRef" },
-        "alt": { "type": "string", "maxGraphemes": 2000 }
+        "localRef": {
+          "type": "ref",
+          "ref": "#draftEmbedLocalRef"
+        },
+        "alt": {
+          "type": "string",
+          "maxGraphemes": 2000
+        }
       }
     },
     "draftEmbedVideo": {
       "type": "object",
       "required": ["localRef"],
       "properties": {
-        "localRef": { "type": "ref", "ref": "#draftEmbedLocalRef" },
-        "alt": { "type": "string", "maxGraphemes": 2000 },
+        "localRef": {
+          "type": "ref",
+          "ref": "#draftEmbedLocalRef"
+        },
+        "alt": {
+          "type": "string",
+          "maxGraphemes": 2000
+        },
         "captions": {
           "type": "array",
-          "items": { "type": "ref", "ref": "#draftEmbedCaption" },
+          "items": {
+            "type": "ref",
+            "ref": "#draftEmbedCaption"
+          },
           "maxLength": 20
         }
       }
@@ -187,7 +226,9 @@
     "draftEmbedExternal": {
       "type": "object",
       "required": ["uri"],
-      "properties": { "uri": { "type": "string", "format": "uri" } }
+      "properties": {
+        "uri": { "type": "string", "format": "uri" }
+      }
     },
     "draftEmbedRecord": {
       "type": "object",

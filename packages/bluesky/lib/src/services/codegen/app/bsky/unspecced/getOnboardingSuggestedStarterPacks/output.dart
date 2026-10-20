@@ -24,14 +24,11 @@ part 'output.g.dart';
 @freezed
 abstract class UnspeccedGetOnboardingSuggestedStarterPacksOutput
     with _$UnspeccedGetOnboardingSuggestedStarterPacksOutput {
-  static const knownProps = <String>['starterPacks', 'recIdStr'];
+  static const knownProps = <String>['starterPacks'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetOnboardingSuggestedStarterPacksOutput({
     @StarterPackViewConverter() required List<StarterPackView> starterPacks,
-
-    /// Snowflake for this recommendation, use when submitting recommendation events.
-    String? recIdStr,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetOnboardingSuggestedStarterPacksOutput;
@@ -39,12 +36,6 @@ abstract class UnspeccedGetOnboardingSuggestedStarterPacksOutput
   factory UnspeccedGetOnboardingSuggestedStarterPacksOutput.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetOnboardingSuggestedStarterPacksOutputFromJson(json);
-}
-
-extension UnspeccedGetOnboardingSuggestedStarterPacksOutputExtension
-    on UnspeccedGetOnboardingSuggestedStarterPacksOutput {
-  bool get hasRecIdStr => recIdStr != null;
-  bool get hasNotRecIdStr => !hasRecIdStr;
 }
 
 final class UnspeccedGetOnboardingSuggestedStarterPacksOutputConverter

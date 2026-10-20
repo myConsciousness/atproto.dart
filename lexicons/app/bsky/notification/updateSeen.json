@@ -10,7 +10,9 @@
         "schema": {
           "type": "object",
           "required": ["seenAt"],
-          "properties": { "seenAt": { "type": "string", "format": "datetime" } }
+          "properties": {
+            "seenAt": { "type": "string", "format": "datetime" }
+          }
         }
       }
     }

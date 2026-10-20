@@ -20,7 +20,7 @@ final class GetFollowsCommand extends QueryCommand {
       ..addOption("actor", mandatory: true)
       ..addOption("limit", defaultsTo: "50")
       ..addOption("cursor")
-      ..addOption("sort");
+      ..addOption("sort", help: r"Sort order of the returned follows.");
   }
 
   @override

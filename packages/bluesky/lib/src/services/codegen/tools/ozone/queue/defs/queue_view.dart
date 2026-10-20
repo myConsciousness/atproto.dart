@@ -30,6 +30,8 @@ abstract class QueueView with _$QueueView {
     'subjectTypes',
     'collection',
     'reportTypes',
+    'reporterTags',
+    'accountTags',
     'description',
     'recommendedPolicies',
     'recommendedLabels',
@@ -52,9 +54,11 @@ abstract class QueueView with _$QueueView {
     required String name,
     @QueueViewSubjectTypesConverter() List<QueueViewSubjectTypes>? subjectTypes,
 
-    /// Collection name for record subjects (e.g., 'app.bsky.feed.post')
+    /// Collection name for record subjects. Omit to accept every collection.
     String? collection,
     List<String>? reportTypes,
+    List<String>? reporterTags,
+    List<String>? accountTags,
 
     /// Optional description of the queue
     String? description,

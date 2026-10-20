@@ -18,7 +18,9 @@
         "schema": {
           "type": "object",
           "required": ["code"],
-          "properties": { "code": { "type": "string" } }
+          "properties": {
+            "code": { "type": "string" }
+          }
         }
       },
       "output": {

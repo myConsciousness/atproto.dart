@@ -22,4 +22,3 @@ Get a list of suggested starterpacks
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **starterPacks** | array of [app.bsky.graph.defs#starterPackView](../../../../lexicons/app/bsky/graph/defs.md#starterpackview) | - | ✅ | - |
-| **recIdStr** | string | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |

@@ -13,7 +13,7 @@ Use [com.atproto.repo.createRecord](../../../lexicons/com/atproto/repo/createRec
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **alt** | string | - | ❌ | Alt text description of the image, for accessibility. |
+| **alt** | string | - | ✅ | Alt text description of the image, for accessibility. |
 | **photo** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **aspectRatio** | [social.grain.defs#aspectRatio](../../../lexicons/social/grain/defs.md#aspectratio) | - | ❌ | - |

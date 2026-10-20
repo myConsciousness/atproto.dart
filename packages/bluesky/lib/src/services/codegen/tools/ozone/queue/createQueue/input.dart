@@ -28,6 +28,8 @@ abstract class QueueCreateQueueInput with _$QueueCreateQueueInput {
     'subjectTypes',
     'collection',
     'reportTypes',
+    'reporterTags',
+    'accountTags',
     'description',
     'recommendedPolicies',
     'recommendedLabels',
@@ -40,9 +42,11 @@ abstract class QueueCreateQueueInput with _$QueueCreateQueueInput {
     @QueueCreateQueueSubjectTypesConverter()
     List<QueueCreateQueueSubjectTypes>? subjectTypes,
 
-    /// Collection name for record subjects. Required if subjectTypes includes 'record'.
+    /// Collection name for record subjects. Omit to accept every collection.
     String? collection,
     List<String>? reportTypes,
+    List<String>? reporterTags,
+    List<String>? accountTags,
 
     /// Optional description of the queue
     String? description,

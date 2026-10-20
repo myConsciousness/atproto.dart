@@ -29,7 +29,10 @@
             ],
             "default": "posts_with_replies"
           },
-          "includePins": { "type": "boolean", "default": false }
+          "includePins": {
+            "type": "boolean",
+            "default": false
+          }
         }
       },
       "output": {

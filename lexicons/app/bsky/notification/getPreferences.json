@@ -5,7 +5,10 @@
     "main": {
       "type": "query",
       "description": "Get notification-related preferences for an account. Requires auth.",
-      "parameters": { "type": "params", "properties": {} },
+      "parameters": {
+        "type": "params",
+        "properties": {}
+      },
       "output": {
         "encoding": "application/json",
         "schema": {

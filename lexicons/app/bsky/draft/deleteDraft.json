@@ -10,7 +10,12 @@
         "schema": {
           "type": "object",
           "required": ["id"],
-          "properties": { "id": { "type": "string", "format": "tid" } }
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "tid"
+            }
+          }
         }
       }
     }

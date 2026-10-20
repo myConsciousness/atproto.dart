@@ -41,7 +41,10 @@
             "groups": {
               "type": "array",
               "description": "Notification groups or individual notifications, newest first. Clients should ignore kinds they do not recognize. Grouping behavior depends on the kind and selected feed.",
-              "items": { "type": "ref", "ref": "#group" }
+              "items": {
+                "type": "ref",
+                "ref": "#group"
+              }
             },
             "seenAt": { "type": "string", "format": "datetime" },
             "relatedViews": {
@@ -107,7 +110,10 @@
         "items": {
           "type": "array",
           "minLength": 1,
-          "items": { "type": "ref", "ref": "#likeItem" }
+          "items": {
+            "type": "ref",
+            "ref": "#likeItem"
+          }
         }
       }
     },
@@ -115,7 +121,9 @@
       "type": "object",
       "description": "One actor who liked the group's post.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "multiPostLikeGroup": {
       "type": "object",
@@ -134,7 +142,9 @@
       "type": "object",
       "description": "One post which was liked by the group's actor.",
       "required": ["post"],
-      "properties": { "post": { "type": "string", "format": "at-uri" } }
+      "properties": {
+        "post": { "type": "string", "format": "at-uri" }
+      }
     },
     "multiPostRepostGroup": {
       "type": "object",
@@ -153,7 +163,9 @@
       "type": "object",
       "description": "One post which was reposted by the group's actor.",
       "required": ["post"],
-      "properties": { "post": { "type": "string", "format": "at-uri" } }
+      "properties": {
+        "post": { "type": "string", "format": "at-uri" }
+      }
     },
     "multiPostLikeViaRepostGroup": {
       "type": "object",
@@ -216,7 +228,9 @@
       "type": "object",
       "description": "One actor who reposted the group's post.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "likeViaRepostGroup": {
       "type": "object",
@@ -236,7 +250,9 @@
       "type": "object",
       "description": "One actor who liked the group's post via the requesting account's repost.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "repostViaRepostGroup": {
       "type": "object",
@@ -256,7 +272,9 @@
       "type": "object",
       "description": "One actor who reposted the group's post via the requesting account's repost.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "followGroup": {
       "type": "object",
@@ -276,7 +294,10 @@
       "required": ["actor"],
       "properties": {
         "actor": { "type": "string", "format": "did" },
-        "starterPack": { "type": "string", "format": "at-uri" }
+        "starterPack": {
+          "type": "string",
+          "format": "at-uri"
+        }
       }
     },
     "subscribedPostGroup": {
@@ -322,7 +343,9 @@
       "type": "object",
       "description": "One actor who liked the feed generator in the group.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "replyNotification": {
       "type": "object",
@@ -330,7 +353,10 @@
       "required": ["post", "parent"],
       "properties": {
         "post": { "type": "string", "format": "at-uri" },
-        "parent": { "type": "string", "format": "at-uri" }
+        "parent": {
+          "type": "string",
+          "format": "at-uri"
+        }
       }
     },
     "quoteNotification": {
@@ -339,7 +365,10 @@
       "required": ["post"],
       "properties": {
         "post": { "type": "string", "format": "at-uri" },
-        "parent": { "type": "string", "format": "at-uri" }
+        "parent": {
+          "type": "string",
+          "format": "at-uri"
+        }
       }
     },
     "mentionNotification": {
@@ -348,7 +377,10 @@
       "required": ["post"],
       "properties": {
         "post": { "type": "string", "format": "at-uri" },
-        "parent": { "type": "string", "format": "at-uri" }
+        "parent": {
+          "type": "string",
+          "format": "at-uri"
+        }
       }
     },
     "followBackNotification": {
@@ -364,13 +396,17 @@
       "type": "object",
       "description": "An actor verified the requesting account.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "unverifiedNotification": {
       "type": "object",
       "description": "A verification of the requesting account was removed.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     },
     "starterPackJoinedNotification": {
       "type": "object",
@@ -378,14 +414,19 @@
       "required": ["actor", "starterPack"],
       "properties": {
         "actor": { "type": "string", "format": "did" },
-        "starterPack": { "type": "string", "format": "at-uri" }
+        "starterPack": {
+          "type": "string",
+          "format": "at-uri"
+        }
       }
     },
     "contactMatchNotification": {
       "type": "object",
       "description": "A contact of the requesting account joined Bluesky.",
       "required": ["actor"],
-      "properties": { "actor": { "type": "string", "format": "did" } }
+      "properties": {
+        "actor": { "type": "string", "format": "did" }
+      }
     }
   }
 }
