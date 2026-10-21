@@ -1,5 +1,13 @@
 # Release Note
 
+## v2.15.1
+
+- feat: added `tools.ozone.queue.createQueue.input.strictAccess`
+- feat: added `tools.ozone.queue.defs#queueView.strictAccess`
+- feat: added `tools.ozone.queue.updateQueue.input.strictAccess`
+- feat: added `tools.ozone.safelink.queryRules.input.source`
+- chore: regenerated from synced lexicons
+
 ## v2.15.0
 
 - chore: updated `app.bsky.graph.getFollowers.parameters.sort`

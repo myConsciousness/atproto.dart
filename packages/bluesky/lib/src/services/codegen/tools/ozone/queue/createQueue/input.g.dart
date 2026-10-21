@@ -44,6 +44,7 @@ _QueueCreateQueueInput _$QueueCreateQueueInputFromJson(Map json) =>
           'recommendedLabels',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
         ),
+        strictAccess: $checkedConvert('strictAccess', (v) => v as bool?),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -66,5 +67,6 @@ Map<String, dynamic> _$QueueCreateQueueInputToJson(
   'description': ?instance.description,
   'recommendedPolicies': ?instance.recommendedPolicies,
   'recommendedLabels': ?instance.recommendedLabels,
+  'strictAccess': ?instance.strictAccess,
   r'$unknown': ?instance.$unknown,
 };

@@ -33,6 +33,7 @@ abstract class QueueCreateQueueInput with _$QueueCreateQueueInput {
     'description',
     'recommendedPolicies',
     'recommendedLabels',
+    'strictAccess',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -53,6 +54,9 @@ abstract class QueueCreateQueueInput with _$QueueCreateQueueInput {
     List<String>? recommendedPolicies,
     List<String>? recommendedLabels,
 
+    /// Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.
+    bool? strictAccess,
+
     Map<String, dynamic>? $unknown,
   }) = _QueueCreateQueueInput;
 
@@ -65,6 +69,8 @@ extension QueueCreateQueueInputExtension on QueueCreateQueueInput {
   bool get hasNotCollection => !hasCollection;
   bool get hasDescription => description != null;
   bool get hasNotDescription => !hasDescription;
+  bool get isStrictAccess => strictAccess ?? false;
+  bool get isNotStrictAccess => !isStrictAccess;
 }
 
 final class QueueCreateQueueInputConverter

@@ -60,6 +60,7 @@ _QueueView _$QueueViewFromJson(Map json) => $checkedCreate('_QueueView', json, (
       'stats',
       (v) => const QueueStatsConverter().fromJson(v as Map<String, dynamic>),
     ),
+    strictAccess: $checkedConvert('strictAccess', (v) => v as bool?),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -89,5 +90,6 @@ Map<String, dynamic> _$QueueViewToJson(_QueueView instance) =>
       'enabled': instance.enabled,
       'deletedAt': iso8601(instance.deletedAt),
       'stats': const QueueStatsConverter().toJson(instance.stats),
+      'strictAccess': ?instance.strictAccess,
       r'$unknown': ?instance.$unknown,
     };

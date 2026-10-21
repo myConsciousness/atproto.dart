@@ -27,6 +27,7 @@ abstract class QueueUpdateQueueInput with _$QueueUpdateQueueInput {
     'description',
     'recommendedPolicies',
     'recommendedLabels',
+    'strictAccess',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -45,6 +46,9 @@ abstract class QueueUpdateQueueInput with _$QueueUpdateQueueInput {
     List<String>? recommendedPolicies,
     List<String>? recommendedLabels,
 
+    /// Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.
+    bool? strictAccess,
+
     Map<String, dynamic>? $unknown,
   }) = _QueueUpdateQueueInput;
 
@@ -59,6 +63,8 @@ extension QueueUpdateQueueInputExtension on QueueUpdateQueueInput {
   bool get isNotEnabled => !isEnabled;
   bool get hasDescription => description != null;
   bool get hasNotDescription => !hasDescription;
+  bool get isStrictAccess => strictAccess ?? false;
+  bool get isNotStrictAccess => !isStrictAccess;
 }
 
 final class QueueUpdateQueueInputConverter

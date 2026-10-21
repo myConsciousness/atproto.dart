@@ -53,6 +53,11 @@ final class CreateQueueCommand extends ProcedureCommand {
         "recommendedLabels",
         help:
             r"Labels to recommend for this queue and use as fallback appeal routing mappings",
+      )
+      ..addFlag(
+        "strictAccess",
+        help:
+            r"Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.",
       );
   }
 
@@ -65,7 +70,7 @@ final class CreateQueueCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--reporterTags=<value>...] [--accountTags=<value>...] [--description=<value>] [--recommendedPolicies=<value>...] [--recommendedLabels=<value>...]";
+      "bsky tools-ozone-queue create-queue --name=<value> [--subjectTypes=<value>...] [--collection=<value>] [--reportTypes=<value>...] [--reporterTags=<value>...] [--accountTags=<value>...] [--description=<value>] [--recommendedPolicies=<value>...] [--recommendedLabels=<value>...] [--strictAccess]";
 
   @override
   String get methodId => "tools.ozone.queue.createQueue";
@@ -89,5 +94,7 @@ final class CreateQueueCommand extends ProcedureCommand {
       "recommendedPolicies": argResults!["recommendedPolicies"],
     if (argResults!.wasParsed("recommendedLabels"))
       "recommendedLabels": argResults!["recommendedLabels"],
+    if (argResults!.wasParsed("strictAccess"))
+      "strictAccess": argResults!["strictAccess"],
   };
 }

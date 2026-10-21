@@ -27,6 +27,10 @@ final class QueryRulesCommand extends ProcedureCommand {
       ..addOption("patternType", help: r"Filter by pattern type")
       ..addMultiOption("actions", help: r"Filter by action types")
       ..addOption("reason", help: r"Filter by reason type")
+      ..addOption(
+        "source",
+        help: r"Filter by exact rule source. Omit to include all sources.",
+      )
       ..addOption("createdBy", help: r"Filter by rule creator")
       ..addOption("sortDirection", help: r"Sort direction", defaultsTo: "desc");
   }
@@ -39,7 +43,7 @@ final class QueryRulesCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-safelink query-rules [--cursor=<value>] [--limit=<value>] [--urls=<value>...] [--patternType=<value>] [--actions=<value>...] [--reason=<value>] [--createdBy=<value>] [--sortDirection=<value>]";
+      "bsky tools-ozone-safelink query-rules [--cursor=<value>] [--limit=<value>] [--urls=<value>...] [--patternType=<value>] [--actions=<value>...] [--reason=<value>] [--source=<value>] [--createdBy=<value>] [--sortDirection=<value>]";
 
   @override
   String get methodId => "tools.ozone.safelink.queryRules";
@@ -55,6 +59,7 @@ final class QueryRulesCommand extends ProcedureCommand {
       "patternType": argResults!["patternType"],
     if (argResults!.wasParsed("actions")) "actions": argResults!["actions"],
     if (argResults!.wasParsed("reason")) "reason": argResults!["reason"],
+    if (argResults!.wasParsed("source")) "source": argResults!["source"],
     if (argResults!.wasParsed("createdBy"))
       "createdBy": argResults!["createdBy"],
     "sortDirection": argResults!["sortDirection"],

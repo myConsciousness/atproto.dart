@@ -18,7 +18,8 @@ mixin _$QueueCreateQueueInput {
 /// Display name for the queue (must be unique)
  String get name;@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? get subjectTypes;/// Collection name for record subjects. Omit to accept every collection.
  String? get collection; List<String>? get reportTypes; List<String>? get reporterTags; List<String>? get accountTags;/// Optional description of the queue
- String? get description; List<String>? get recommendedPolicies; List<String>? get recommendedLabels; Map<String, dynamic>? get $unknown;
+ String? get description; List<String>? get recommendedPolicies; List<String>? get recommendedLabels;/// Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.
+ bool? get strictAccess; Map<String, dynamic>? get $unknown;
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +32,16 @@ $QueueCreateQueueInputCopyWith<QueueCreateQueueInput> get copyWith => _$QueueCre
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueCreateQueueInput&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.subjectTypes, subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.reporterTags, reporterTags)&&const DeepCollectionEquality().equals(other.accountTags, accountTags)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.recommendedPolicies, recommendedPolicies)&&const DeepCollectionEquality().equals(other.recommendedLabels, recommendedLabels)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is QueueCreateQueueInput&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.subjectTypes, subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.reporterTags, reporterTags)&&const DeepCollectionEquality().equals(other.accountTags, accountTags)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.recommendedPolicies, recommendedPolicies)&&const DeepCollectionEquality().equals(other.recommendedLabels, recommendedLabels)&&(identical(other.strictAccess, strictAccess) || other.strictAccess == strictAccess)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,const DeepCollectionEquality().hash(subjectTypes),collection,const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(reporterTags),const DeepCollectionEquality().hash(accountTags),description,const DeepCollectionEquality().hash(recommendedPolicies),const DeepCollectionEquality().hash(recommendedLabels),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,name,const DeepCollectionEquality().hash(subjectTypes),collection,const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(reporterTags),const DeepCollectionEquality().hash(accountTags),description,const DeepCollectionEquality().hash(recommendedPolicies),const DeepCollectionEquality().hash(recommendedLabels),strictAccess,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'QueueCreateQueueInput(name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, reporterTags: $reporterTags, accountTags: $accountTags, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, \$unknown: ${$unknown})';
+  return 'QueueCreateQueueInput(name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, reporterTags: $reporterTags, accountTags: $accountTags, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, strictAccess: $strictAccess, \$unknown: ${$unknown})';
 }
 
 
@@ -51,7 +52,7 @@ abstract mixin class $QueueCreateQueueInputCopyWith<$Res>  {
   factory $QueueCreateQueueInputCopyWith(QueueCreateQueueInput value, $Res Function(QueueCreateQueueInput) _then) = _$QueueCreateQueueInputCopyWithImpl;
 @useResult
 $Res call({
- String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, List<String>? reporterTags, List<String>? accountTags, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, Map<String, dynamic>? $unknown
+ String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, List<String>? reporterTags, List<String>? accountTags, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, bool? strictAccess, Map<String, dynamic>? $unknown
 });
 
 
@@ -68,7 +69,7 @@ class _$QueueCreateQueueInputCopyWithImpl<$Res>
 
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? reporterTags = freezed,Object? accountTags = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? reporterTags = freezed,Object? accountTags = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? strictAccess = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,subjectTypes: freezed == subjectTypes ? _self.subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
@@ -79,7 +80,8 @@ as List<String>?,accountTags: freezed == accountTags ? _self.accountTags : accou
 as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,recommendedPolicies: freezed == recommendedPolicies ? _self.recommendedPolicies : recommendedPolicies // ignore: cast_nullable_to_non_nullable
 as List<String>?,recommendedLabels: freezed == recommendedLabels ? _self.recommendedLabels : recommendedLabels // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,strictAccess: freezed == strictAccess ? _self.strictAccess : strictAccess // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -165,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  bool? strictAccess,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _QueueCreateQueueInput() when $default != null:
-return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.$unknown);case _:
+return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.strictAccess,_that.$unknown);case _:
   return orElse();
 
 }
@@ -186,10 +188,10 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  bool? strictAccess,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _QueueCreateQueueInput():
-return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.$unknown);case _:
+return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.strictAccess,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +208,10 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @QueueCreateQueueSubjectTypesConverter()  List<QueueCreateQueueSubjectTypes>? subjectTypes,  String? collection,  List<String>? reportTypes,  List<String>? reporterTags,  List<String>? accountTags,  String? description,  List<String>? recommendedPolicies,  List<String>? recommendedLabels,  bool? strictAccess,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _QueueCreateQueueInput() when $default != null:
-return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.$unknown);case _:
+return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes,_that.reporterTags,_that.accountTags,_that.description,_that.recommendedPolicies,_that.recommendedLabels,_that.strictAccess,_that.$unknown);case _:
   return null;
 
 }
@@ -221,7 +223,7 @@ return $default(_that.name,_that.subjectTypes,_that.collection,_that.reportTypes
 
 @JsonSerializable(includeIfNull: false)
 class _QueueCreateQueueInput implements QueueCreateQueueInput {
-  const _QueueCreateQueueInput({required this.name, @QueueCreateQueueSubjectTypesConverter() final  List<QueueCreateQueueSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, final  List<String>? reporterTags, final  List<String>? accountTags, this.description, final  List<String>? recommendedPolicies, final  List<String>? recommendedLabels, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_reporterTags = reporterTags,_accountTags = accountTags,_recommendedPolicies = recommendedPolicies,_recommendedLabels = recommendedLabels,_$unknown = $unknown;
+  const _QueueCreateQueueInput({required this.name, @QueueCreateQueueSubjectTypesConverter() final  List<QueueCreateQueueSubjectTypes>? subjectTypes, this.collection, final  List<String>? reportTypes, final  List<String>? reporterTags, final  List<String>? accountTags, this.description, final  List<String>? recommendedPolicies, final  List<String>? recommendedLabels, this.strictAccess, final  Map<String, dynamic>? $unknown}): _subjectTypes = subjectTypes,_reportTypes = reportTypes,_reporterTags = reporterTags,_accountTags = accountTags,_recommendedPolicies = recommendedPolicies,_recommendedLabels = recommendedLabels,_$unknown = $unknown;
   factory _QueueCreateQueueInput.fromJson(Map<String, dynamic> json) => _$QueueCreateQueueInputFromJson(json);
 
 /// Display name for the queue (must be unique)
@@ -284,6 +286,8 @@ class _QueueCreateQueueInput implements QueueCreateQueueInput {
   return EqualUnmodifiableListView(value);
 }
 
+/// Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.
+@override final  bool? strictAccess;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -307,16 +311,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueCreateQueueInput&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other._subjectTypes, _subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._reporterTags, _reporterTags)&&const DeepCollectionEquality().equals(other._accountTags, _accountTags)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._recommendedPolicies, _recommendedPolicies)&&const DeepCollectionEquality().equals(other._recommendedLabels, _recommendedLabels)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _QueueCreateQueueInput&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other._subjectTypes, _subjectTypes)&&(identical(other.collection, collection) || other.collection == collection)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._reporterTags, _reporterTags)&&const DeepCollectionEquality().equals(other._accountTags, _accountTags)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._recommendedPolicies, _recommendedPolicies)&&const DeepCollectionEquality().equals(other._recommendedLabels, _recommendedLabels)&&(identical(other.strictAccess, strictAccess) || other.strictAccess == strictAccess)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,const DeepCollectionEquality().hash(_subjectTypes),collection,const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_reporterTags),const DeepCollectionEquality().hash(_accountTags),description,const DeepCollectionEquality().hash(_recommendedPolicies),const DeepCollectionEquality().hash(_recommendedLabels),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,name,const DeepCollectionEquality().hash(_subjectTypes),collection,const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_reporterTags),const DeepCollectionEquality().hash(_accountTags),description,const DeepCollectionEquality().hash(_recommendedPolicies),const DeepCollectionEquality().hash(_recommendedLabels),strictAccess,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'QueueCreateQueueInput(name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, reporterTags: $reporterTags, accountTags: $accountTags, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, \$unknown: ${$unknown})';
+  return 'QueueCreateQueueInput(name: $name, subjectTypes: $subjectTypes, collection: $collection, reportTypes: $reportTypes, reporterTags: $reporterTags, accountTags: $accountTags, description: $description, recommendedPolicies: $recommendedPolicies, recommendedLabels: $recommendedLabels, strictAccess: $strictAccess, \$unknown: ${$unknown})';
 }
 
 
@@ -327,7 +331,7 @@ abstract mixin class _$QueueCreateQueueInputCopyWith<$Res> implements $QueueCrea
   factory _$QueueCreateQueueInputCopyWith(_QueueCreateQueueInput value, $Res Function(_QueueCreateQueueInput) _then) = __$QueueCreateQueueInputCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, List<String>? reporterTags, List<String>? accountTags, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, Map<String, dynamic>? $unknown
+ String name,@QueueCreateQueueSubjectTypesConverter() List<QueueCreateQueueSubjectTypes>? subjectTypes, String? collection, List<String>? reportTypes, List<String>? reporterTags, List<String>? accountTags, String? description, List<String>? recommendedPolicies, List<String>? recommendedLabels, bool? strictAccess, Map<String, dynamic>? $unknown
 });
 
 
@@ -344,7 +348,7 @@ class __$QueueCreateQueueInputCopyWithImpl<$Res>
 
 /// Create a copy of QueueCreateQueueInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? reporterTags = freezed,Object? accountTags = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? subjectTypes = freezed,Object? collection = freezed,Object? reportTypes = freezed,Object? reporterTags = freezed,Object? accountTags = freezed,Object? description = freezed,Object? recommendedPolicies = freezed,Object? recommendedLabels = freezed,Object? strictAccess = freezed,Object? $unknown = freezed,}) {
   return _then(_QueueCreateQueueInput(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,subjectTypes: freezed == subjectTypes ? _self._subjectTypes : subjectTypes // ignore: cast_nullable_to_non_nullable
@@ -355,7 +359,8 @@ as List<String>?,accountTags: freezed == accountTags ? _self._accountTags : acco
 as List<String>?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,recommendedPolicies: freezed == recommendedPolicies ? _self._recommendedPolicies : recommendedPolicies // ignore: cast_nullable_to_non_nullable
 as List<String>?,recommendedLabels: freezed == recommendedLabels ? _self._recommendedLabels : recommendedLabels // ignore: cast_nullable_to_non_nullable
-as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,strictAccess: freezed == strictAccess ? _self.strictAccess : strictAccess // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
