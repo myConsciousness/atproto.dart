@@ -24,6 +24,7 @@ Create a new moderation queue. A queue with omitted or empty subjectTypes or rep
 | **description** | string | - | ❌ | Optional description of the queue |
 | **recommendedPolicies** | array of string | - | ❌ | Policy keys to recommend when actioning reports in this queue |
 | **recommendedLabels** | array of string | - | ❌ | Labels to recommend for this queue and use as fallback appeal routing mappings |
+| **strictAccess** | boolean | - | ❌ | Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged. |
 
 ### Output
 

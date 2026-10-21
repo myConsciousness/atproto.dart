@@ -23,6 +23,7 @@ _SafelinkQueryRulesInput _$SafelinkQueryRulesInputFromJson(Map json) =>
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
         ),
         reason: $checkedConvert('reason', (v) => v as String?),
+        source: $checkedConvert('source', (v) => v as String?),
         createdBy: $checkedConvert('createdBy', (v) => v as String?),
         sortDirection: $checkedConvert(
           'sortDirection',
@@ -51,6 +52,7 @@ Map<String, dynamic> _$SafelinkQueryRulesInputToJson(
   'patternType': ?instance.patternType,
   'actions': ?instance.actions,
   'reason': ?instance.reason,
+  'source': ?instance.source,
   'createdBy': ?instance.createdBy,
   'sortDirection': const SafelinkQueryRulesSortDirectionConverter().toJson(
     instance.sortDirection,

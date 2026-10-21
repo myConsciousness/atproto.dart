@@ -30,6 +30,7 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
     'patternType',
     'actions',
     'reason',
+    'source',
     'createdBy',
     'sortDirection',
   ];
@@ -49,6 +50,9 @@ abstract class SafelinkQueryRulesInput with _$SafelinkQueryRulesInput {
 
     /// Filter by reason type
     String? reason,
+
+    /// Filter by exact rule source. Omit to include all sources.
+    String? source,
 
     /// Filter by rule creator
     String? createdBy,
@@ -76,6 +80,8 @@ extension SafelinkQueryRulesInputExtension on SafelinkQueryRulesInput {
   bool get hasNotPatternType => !hasPatternType;
   bool get hasReason => reason != null;
   bool get hasNotReason => !hasReason;
+  bool get hasSource => source != null;
+  bool get hasNotSource => !hasSource;
   bool get hasCreatedBy => createdBy != null;
   bool get hasNotCreatedBy => !hasCreatedBy;
 }

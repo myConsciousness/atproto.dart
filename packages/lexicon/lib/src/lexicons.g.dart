@@ -23695,6 +23695,11 @@ const toolsOzoneQueueCreateQueue = <String, dynamic>{
                   "Labels to recommend for this queue and use as fallback appeal routing mappings",
               "items": {"type": "string"},
             },
+            "strictAccess": {
+              "type": "boolean",
+              "description":
+                  "Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.",
+            },
           },
         },
       },
@@ -23813,6 +23818,11 @@ const toolsOzoneQueueDefs = <String, dynamic>{
           "type": "ref",
           "description": "Statistics about this queue",
           "ref": "#queueStats",
+        },
+        "strictAccess": {
+          "type": "boolean",
+          "description":
+              "Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.",
         },
       },
     },
@@ -24243,6 +24253,11 @@ const toolsOzoneQueueUpdateQueue = <String, dynamic>{
               "description":
                   "Labels to recommend for this queue and use as fallback appeal routing mappings",
               "items": {"type": "string"},
+            },
+            "strictAccess": {
+              "type": "boolean",
+              "description":
+                  "Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged.",
             },
           },
         },
@@ -26148,6 +26163,12 @@ const toolsOzoneSafelinkQueryRules = <String, dynamic>{
             "reason": {
               "type": "string",
               "description": "Filter by reason type",
+            },
+            "source": {
+              "type": "string",
+              "description":
+                  "Filter by exact rule source. Omit to include all sources.",
+              "maxLength": 128,
             },
             "createdBy": {
               "type": "string",

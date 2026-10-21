@@ -25,6 +25,7 @@ description: tools.ozone.queue.defs
 | **enabled** | boolean | - | ✅ | Whether this queue is currently active |
 | **deletedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the queue was deleted, if applicable |
 | **stats** | [#queueStats](#queuestats) | - | ✅ | - |
+| **strictAccess** | boolean | - | ❌ | Admins can always list this queue and browse its reports. Other roles require an active queue assignment. Individual report and moderation event access is unchanged. |
 
 ## #queueStats
 

@@ -21,6 +21,7 @@ Query URL safety rules
 | **patternType** | string | - | ❌ | Filter by pattern type |
 | **actions** | array of string | - | ❌ | Filter by action types |
 | **reason** | string | - | ❌ | Filter by reason type |
+| **source** | string | - | ❌ | Filter by exact rule source. Omit to include all sources. |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Filter by rule creator |
 | **sortDirection** | string | asc<br/>desc | ❌ | Sort direction |
 
