@@ -50,7 +50,7 @@ description: app.bsky.actor.defs
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
 | **pronouns** | string | - | ❌ | - |
-| **website** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **website** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | Deprecated: use links instead. |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **banner** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **followersCount** | integer | - | ❌ | - |

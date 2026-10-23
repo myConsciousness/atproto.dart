@@ -21,7 +21,6 @@ _ProfileViewDetailed _$ProfileViewDetailedFromJson(
     displayName: $checkedConvert('displayName', (v) => v as String?),
     description: $checkedConvert('description', (v) => v as String?),
     pronouns: $checkedConvert('pronouns', (v) => v as String?),
-    website: $checkedConvert('website', (v) => v as String?),
     avatar: $checkedConvert('avatar', (v) => v as String?),
     banner: $checkedConvert('banner', (v) => v as String?),
     followersCount: $checkedConvert(
@@ -120,7 +119,6 @@ Map<String, dynamic> _$ProfileViewDetailedToJson(
   'displayName': ?instance.displayName,
   'description': ?instance.description,
   'pronouns': ?instance.pronouns,
-  'website': ?instance.website,
   'avatar': ?instance.avatar,
   'banner': ?instance.banner,
   'followersCount': ?instance.followersCount,
