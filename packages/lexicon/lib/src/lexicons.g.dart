@@ -103,7 +103,11 @@ const appBskyActorDefs = <String, dynamic>{
           "maxGraphemes": 256,
         },
         "pronouns": {"type": "string"},
-        "website": {"type": "string", "format": "uri"},
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Deprecated: use links instead.",
+        },
         "avatar": {"type": "string", "format": "uri"},
         "banner": {"type": "string", "format": "uri"},
         "followersCount": {"type": "integer"},
@@ -986,7 +990,11 @@ const appBskyActorProfile = <String, dynamic>{
             "maxLength": 200,
             "maxGraphemes": 20,
           },
-          "website": {"type": "string", "format": "uri"},
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "Deprecated: use links instead.",
+          },
           "avatar": {
             "type": "blob",
             "description":
@@ -24367,6 +24375,12 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
               "format": "uri",
               "description":
                   "Subject DID (account-level reports) or AT-URI (record-level reports) whose reports should be closed.",
+            },
+            "includeAllOwned": {
+              "type": "boolean",
+              "description":
+                  "If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.",
+              "default": false,
             },
             "reportTypes": {
               "type": "array",

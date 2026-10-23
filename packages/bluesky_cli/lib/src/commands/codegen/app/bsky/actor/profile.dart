@@ -46,7 +46,7 @@ mixin _ProfileCommandRecordArgs on Command<void> {
       ..addOption("displayName")
       ..addOption("description", help: r"Free-form profile description text.")
       ..addOption("pronouns", help: r"Free-form pronouns text.")
-      ..addOption("website")
+      ..addOption("website", help: r"Deprecated: use links instead.")
       ..addOption(
         "avatar",
         help:

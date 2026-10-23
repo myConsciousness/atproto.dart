@@ -17,7 +17,7 @@ mixin _$ActorProfileRecord {
 
  String get $type; String? get displayName;/// Free-form profile description text.
  String? get description;/// Free-form pronouns text.
- String? get pronouns; String? get website;/// Small image to be displayed next to posts from account. AKA, 'profile picture'
+ String? get pronouns;/// Small image to be displayed next to posts from account. AKA, 'profile picture'
 @BlobConverter() Blob? get avatar;/// Larger horizontal image to display behind profile view.
 @BlobConverter() Blob? get banner;@UActorProfileLabelsConverter() UActorProfileLabels? get labels;@RepoStrongRefConverter() RepoStrongRef? get joinedViaStarterPack;@RepoStrongRefConverter() RepoStrongRef? get pinnedPost;@RepoStrongRefConverter() List<RepoStrongRef>? get links;@JsonKey(toJson: iso8601) DateTime? get createdAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ActorProfileRecord
@@ -32,16 +32,16 @@ $ActorProfileRecordCopyWith<ActorProfileRecord> get copyWith => _$ActorProfileRe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorProfileRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.pronouns, pronouns) || other.pronouns == pronouns)&&(identical(other.website, website) || other.website == website)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.joinedViaStarterPack, joinedViaStarterPack) || other.joinedViaStarterPack == joinedViaStarterPack)&&(identical(other.pinnedPost, pinnedPost) || other.pinnedPost == pinnedPost)&&const DeepCollectionEquality().equals(other.links, links)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActorProfileRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.pronouns, pronouns) || other.pronouns == pronouns)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.joinedViaStarterPack, joinedViaStarterPack) || other.joinedViaStarterPack == joinedViaStarterPack)&&(identical(other.pinnedPost, pinnedPost) || other.pinnedPost == pinnedPost)&&const DeepCollectionEquality().equals(other.links, links)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,displayName,description,pronouns,website,avatar,banner,labels,joinedViaStarterPack,pinnedPost,const DeepCollectionEquality().hash(links),createdAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,displayName,description,pronouns,avatar,banner,labels,joinedViaStarterPack,pinnedPost,const DeepCollectionEquality().hash(links),createdAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ActorProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, pronouns: $pronouns, website: $website, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost, links: $links, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'ActorProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, pronouns: $pronouns, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost, links: $links, createdAt: $createdAt, \$unknown: ${$unknown})';
 }
 
 
@@ -52,7 +52,7 @@ abstract mixin class $ActorProfileRecordCopyWith<$Res>  {
   factory $ActorProfileRecordCopyWith(ActorProfileRecord value, $Res Function(ActorProfileRecord) _then) = _$ActorProfileRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type, String? displayName, String? description, String? pronouns, String? website,@BlobConverter() Blob? avatar,@BlobConverter() Blob? banner,@UActorProfileLabelsConverter() UActorProfileLabels? labels,@RepoStrongRefConverter() RepoStrongRef? joinedViaStarterPack,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@RepoStrongRefConverter() List<RepoStrongRef>? links,@JsonKey(toJson: iso8601) DateTime? createdAt, Map<String, dynamic>? $unknown
+ String $type, String? displayName, String? description, String? pronouns,@BlobConverter() Blob? avatar,@BlobConverter() Blob? banner,@UActorProfileLabelsConverter() UActorProfileLabels? labels,@RepoStrongRefConverter() RepoStrongRef? joinedViaStarterPack,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@RepoStrongRefConverter() List<RepoStrongRef>? links,@JsonKey(toJson: iso8601) DateTime? createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -69,13 +69,12 @@ class _$ActorProfileRecordCopyWithImpl<$Res>
 
 /// Create a copy of ActorProfileRecord
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? displayName = freezed,Object? description = freezed,Object? pronouns = freezed,Object? website = freezed,Object? avatar = freezed,Object? banner = freezed,Object? labels = freezed,Object? joinedViaStarterPack = freezed,Object? pinnedPost = freezed,Object? links = freezed,Object? createdAt = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? displayName = freezed,Object? description = freezed,Object? pronouns = freezed,Object? avatar = freezed,Object? banner = freezed,Object? labels = freezed,Object? joinedViaStarterPack = freezed,Object? pinnedPost = freezed,Object? links = freezed,Object? createdAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,pronouns: freezed == pronouns ? _self.pronouns : pronouns // ignore: cast_nullable_to_non_nullable
-as String?,website: freezed == website ? _self.website : website // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as Blob?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
 as Blob?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
@@ -229,10 +228,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? displayName,  String? description,  String? pronouns,  String? website, @BlobConverter()  Blob? avatar, @BlobConverter()  Blob? banner, @UActorProfileLabelsConverter()  UActorProfileLabels? labels, @RepoStrongRefConverter()  RepoStrongRef? joinedViaStarterPack, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @RepoStrongRefConverter()  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? displayName,  String? description,  String? pronouns, @BlobConverter()  Blob? avatar, @BlobConverter()  Blob? banner, @UActorProfileLabelsConverter()  UActorProfileLabels? labels, @RepoStrongRefConverter()  RepoStrongRef? joinedViaStarterPack, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @RepoStrongRefConverter()  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActorProfileRecord() when $default != null:
-return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.labels,_that.joinedViaStarterPack,_that.pinnedPost,_that.links,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_that.avatar,_that.banner,_that.labels,_that.joinedViaStarterPack,_that.pinnedPost,_that.links,_that.createdAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -250,10 +249,10 @@ return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? displayName,  String? description,  String? pronouns,  String? website, @BlobConverter()  Blob? avatar, @BlobConverter()  Blob? banner, @UActorProfileLabelsConverter()  UActorProfileLabels? labels, @RepoStrongRefConverter()  RepoStrongRef? joinedViaStarterPack, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @RepoStrongRefConverter()  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? displayName,  String? description,  String? pronouns, @BlobConverter()  Blob? avatar, @BlobConverter()  Blob? banner, @UActorProfileLabelsConverter()  UActorProfileLabels? labels, @RepoStrongRefConverter()  RepoStrongRef? joinedViaStarterPack, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @RepoStrongRefConverter()  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ActorProfileRecord():
-return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.labels,_that.joinedViaStarterPack,_that.pinnedPost,_that.links,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_that.avatar,_that.banner,_that.labels,_that.joinedViaStarterPack,_that.pinnedPost,_that.links,_that.createdAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -270,10 +269,10 @@ return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? displayName,  String? description,  String? pronouns,  String? website, @BlobConverter()  Blob? avatar, @BlobConverter()  Blob? banner, @UActorProfileLabelsConverter()  UActorProfileLabels? labels, @RepoStrongRefConverter()  RepoStrongRef? joinedViaStarterPack, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @RepoStrongRefConverter()  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? displayName,  String? description,  String? pronouns, @BlobConverter()  Blob? avatar, @BlobConverter()  Blob? banner, @UActorProfileLabelsConverter()  UActorProfileLabels? labels, @RepoStrongRefConverter()  RepoStrongRef? joinedViaStarterPack, @RepoStrongRefConverter()  RepoStrongRef? pinnedPost, @RepoStrongRefConverter()  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601)  DateTime? createdAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ActorProfileRecord() when $default != null:
-return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_that.website,_that.avatar,_that.banner,_that.labels,_that.joinedViaStarterPack,_that.pinnedPost,_that.links,_that.createdAt,_that.$unknown);case _:
+return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_that.avatar,_that.banner,_that.labels,_that.joinedViaStarterPack,_that.pinnedPost,_that.links,_that.createdAt,_that.$unknown);case _:
   return null;
 
 }
@@ -285,7 +284,7 @@ return $default(_that.$type,_that.displayName,_that.description,_that.pronouns,_
 
 @JsonSerializable(includeIfNull: false)
 class _ActorProfileRecord implements ActorProfileRecord {
-  const _ActorProfileRecord({this.$type = 'app.bsky.actor.profile', this.displayName, this.description, this.pronouns, this.website, @BlobConverter() this.avatar, @BlobConverter() this.banner, @UActorProfileLabelsConverter() this.labels, @RepoStrongRefConverter() this.joinedViaStarterPack, @RepoStrongRefConverter() this.pinnedPost, @RepoStrongRefConverter() final  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601) this.createdAt, final  Map<String, dynamic>? $unknown}): _links = links,_$unknown = $unknown;
+  const _ActorProfileRecord({this.$type = 'app.bsky.actor.profile', this.displayName, this.description, this.pronouns, @BlobConverter() this.avatar, @BlobConverter() this.banner, @UActorProfileLabelsConverter() this.labels, @RepoStrongRefConverter() this.joinedViaStarterPack, @RepoStrongRefConverter() this.pinnedPost, @RepoStrongRefConverter() final  List<RepoStrongRef>? links, @JsonKey(toJson: iso8601) this.createdAt, final  Map<String, dynamic>? $unknown}): _links = links,_$unknown = $unknown;
   factory _ActorProfileRecord.fromJson(Map<String, dynamic> json) => _$ActorProfileRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -294,7 +293,6 @@ class _ActorProfileRecord implements ActorProfileRecord {
 @override final  String? description;
 /// Free-form pronouns text.
 @override final  String? pronouns;
-@override final  String? website;
 /// Small image to be displayed next to posts from account. AKA, 'profile picture'
 @override@BlobConverter() final  Blob? avatar;
 /// Larger horizontal image to display behind profile view.
@@ -335,16 +333,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorProfileRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.pronouns, pronouns) || other.pronouns == pronouns)&&(identical(other.website, website) || other.website == website)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.joinedViaStarterPack, joinedViaStarterPack) || other.joinedViaStarterPack == joinedViaStarterPack)&&(identical(other.pinnedPost, pinnedPost) || other.pinnedPost == pinnedPost)&&const DeepCollectionEquality().equals(other._links, _links)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActorProfileRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.description, description) || other.description == description)&&(identical(other.pronouns, pronouns) || other.pronouns == pronouns)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.joinedViaStarterPack, joinedViaStarterPack) || other.joinedViaStarterPack == joinedViaStarterPack)&&(identical(other.pinnedPost, pinnedPost) || other.pinnedPost == pinnedPost)&&const DeepCollectionEquality().equals(other._links, _links)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,displayName,description,pronouns,website,avatar,banner,labels,joinedViaStarterPack,pinnedPost,const DeepCollectionEquality().hash(_links),createdAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,displayName,description,pronouns,avatar,banner,labels,joinedViaStarterPack,pinnedPost,const DeepCollectionEquality().hash(_links),createdAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ActorProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, pronouns: $pronouns, website: $website, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost, links: $links, createdAt: $createdAt, \$unknown: ${$unknown})';
+  return 'ActorProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, pronouns: $pronouns, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost, links: $links, createdAt: $createdAt, \$unknown: ${$unknown})';
 }
 
 
@@ -355,7 +353,7 @@ abstract mixin class _$ActorProfileRecordCopyWith<$Res> implements $ActorProfile
   factory _$ActorProfileRecordCopyWith(_ActorProfileRecord value, $Res Function(_ActorProfileRecord) _then) = __$ActorProfileRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String? displayName, String? description, String? pronouns, String? website,@BlobConverter() Blob? avatar,@BlobConverter() Blob? banner,@UActorProfileLabelsConverter() UActorProfileLabels? labels,@RepoStrongRefConverter() RepoStrongRef? joinedViaStarterPack,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@RepoStrongRefConverter() List<RepoStrongRef>? links,@JsonKey(toJson: iso8601) DateTime? createdAt, Map<String, dynamic>? $unknown
+ String $type, String? displayName, String? description, String? pronouns,@BlobConverter() Blob? avatar,@BlobConverter() Blob? banner,@UActorProfileLabelsConverter() UActorProfileLabels? labels,@RepoStrongRefConverter() RepoStrongRef? joinedViaStarterPack,@RepoStrongRefConverter() RepoStrongRef? pinnedPost,@RepoStrongRefConverter() List<RepoStrongRef>? links,@JsonKey(toJson: iso8601) DateTime? createdAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -372,13 +370,12 @@ class __$ActorProfileRecordCopyWithImpl<$Res>
 
 /// Create a copy of ActorProfileRecord
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? displayName = freezed,Object? description = freezed,Object? pronouns = freezed,Object? website = freezed,Object? avatar = freezed,Object? banner = freezed,Object? labels = freezed,Object? joinedViaStarterPack = freezed,Object? pinnedPost = freezed,Object? links = freezed,Object? createdAt = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? displayName = freezed,Object? description = freezed,Object? pronouns = freezed,Object? avatar = freezed,Object? banner = freezed,Object? labels = freezed,Object? joinedViaStarterPack = freezed,Object? pinnedPost = freezed,Object? links = freezed,Object? createdAt = freezed,Object? $unknown = freezed,}) {
   return _then(_ActorProfileRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,pronouns: freezed == pronouns ? _self.pronouns : pronouns // ignore: cast_nullable_to_non_nullable
-as String?,website: freezed == website ? _self.website : website // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as Blob?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
 as Blob?,labels: freezed == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable

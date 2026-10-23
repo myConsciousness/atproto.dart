@@ -22,6 +22,7 @@ part 'input.g.dart';
 abstract class ReportCloseReportsInput with _$ReportCloseReportsInput {
   static const knownProps = <String>[
     'subject',
+    'includeAllOwned',
     'reportTypes',
     'internalNote',
     'isAutomated',
@@ -31,6 +32,9 @@ abstract class ReportCloseReportsInput with _$ReportCloseReportsInput {
   const factory ReportCloseReportsInput({
     /// Subject DID (account-level reports) or AT-URI (record-level reports) whose reports should be closed.
     required String subject,
+
+    /// If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.
+    @Default(false) bool includeAllOwned,
     List<String>? reportTypes,
 
     /// Optional moderator-only note recorded on each close activity. Not visible to reporters.
@@ -47,6 +51,8 @@ abstract class ReportCloseReportsInput with _$ReportCloseReportsInput {
 }
 
 extension ReportCloseReportsInputExtension on ReportCloseReportsInput {
+  bool get isIncludeAllOwned => includeAllOwned;
+  bool get isNotIncludeAllOwned => !isIncludeAllOwned;
   bool get hasInternalNote => internalNote != null;
   bool get hasNotInternalNote => !hasInternalNote;
   bool get isIsAutomated => isAutomated;

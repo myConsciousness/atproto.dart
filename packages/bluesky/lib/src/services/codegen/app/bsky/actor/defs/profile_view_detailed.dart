@@ -36,7 +36,6 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     'displayName',
     'description',
     'pronouns',
-    'website',
     'avatar',
     'banner',
     'followersCount',
@@ -63,7 +62,6 @@ abstract class ProfileViewDetailed with _$ProfileViewDetailed {
     String? displayName,
     String? description,
     String? pronouns,
-    String? website,
     String? avatar,
     String? banner,
     int? followersCount,
@@ -100,8 +98,6 @@ extension ProfileViewDetailedExtension on ProfileViewDetailed {
   bool get hasNotDescription => !hasDescription;
   bool get hasPronouns => pronouns != null;
   bool get hasNotPronouns => !hasPronouns;
-  bool get hasWebsite => website != null;
-  bool get hasNotWebsite => !hasWebsite;
   bool get hasAvatar => avatar != null;
   bool get hasNotAvatar => !hasAvatar;
   bool get hasBanner => banner != null;

@@ -12,6 +12,10 @@ _ReportCloseReportsInput _$ReportCloseReportsInputFromJson(Map json) =>
     $checkedCreate('_ReportCloseReportsInput', json, ($checkedConvert) {
       final val = _ReportCloseReportsInput(
         subject: $checkedConvert('subject', (v) => v as String),
+        includeAllOwned: $checkedConvert(
+          'includeAllOwned',
+          (v) => v as bool? ?? false,
+        ),
         reportTypes: $checkedConvert(
           'reportTypes',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -30,6 +34,7 @@ Map<String, dynamic> _$ReportCloseReportsInputToJson(
   _ReportCloseReportsInput instance,
 ) => <String, dynamic>{
   'subject': instance.subject,
+  'includeAllOwned': instance.includeAllOwned,
   'reportTypes': ?instance.reportTypes,
   'internalNote': ?instance.internalNote,
   'isAutomated': instance.isAutomated,

@@ -23,6 +23,12 @@ final class CloseReportsCommand extends ProcedureCommand {
             r"Subject DID (account-level reports) or AT-URI (record-level reports) whose reports should be closed.",
         mandatory: true,
       )
+      ..addFlag(
+        "includeAllOwned",
+        help:
+            r"If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.",
+        defaultsTo: false,
+      )
       ..addMultiOption(
         "reportTypes",
         help:
@@ -50,7 +56,7 @@ final class CloseReportsCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report close-reports --subject=<value> [--reportTypes=<value>...] [--internalNote=<value>] [--isAutomated]";
+      "bsky tools-ozone-report close-reports --subject=<value> [--includeAllOwned] [--reportTypes=<value>...] [--internalNote=<value>] [--isAutomated]";
 
   @override
   String get methodId => "tools.ozone.report.closeReports";
@@ -58,6 +64,7 @@ final class CloseReportsCommand extends ProcedureCommand {
   @override
   Map<String, dynamic>? get body => {
     "subject": argResults!["subject"],
+    "includeAllOwned": argResults!["includeAllOwned"],
     if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
     if (argResults!.wasParsed("internalNote"))

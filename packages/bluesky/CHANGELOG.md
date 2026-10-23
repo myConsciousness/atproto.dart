@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.15.2
+
+- chore: updated `app.bsky.actor.defs#profileViewDetailed.website`
+- chore: updated `app.bsky.actor.profile.website`
+- feat: added `tools.ozone.report.closeReports.input.includeAllOwned`
+- chore: regenerated from synced lexicons
+
 ## v2.15.1
 
 - feat: added `tools.ozone.queue.createQueue.input.strictAccess`

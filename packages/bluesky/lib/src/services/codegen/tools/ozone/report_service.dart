@@ -61,6 +61,7 @@ Future<XRPCResponse<AssignmentView>> toolsOzoneReportAssignModerator({
 /// Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
 Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
   required String subject,
+  bool? includeAllOwned,
   List<String>? reportTypes,
   String? internalNote,
   bool? isAutomated,
@@ -75,6 +76,7 @@ Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
   body: {
     ...?$unknown,
     'subject': subject,
+    if (includeAllOwned != null) 'includeAllOwned': includeAllOwned,
     if (reportTypes != null) 'reportTypes': reportTypes,
     if (internalNote != null) 'internalNote': internalNote,
     if (isAutomated != null) 'isAutomated': isAutomated,
@@ -407,6 +409,7 @@ base class ReportService {
   /// Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
   Future<XRPCResponse<ReportCloseReportsOutput>> closeReports({
     required String subject,
+    bool? includeAllOwned,
     List<String>? reportTypes,
     String? internalNote,
     bool? isAutomated,
@@ -415,6 +418,7 @@ base class ReportService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneReportCloseReports(
     subject: subject,
+    includeAllOwned: includeAllOwned,
     reportTypes: reportTypes,
     internalNote: internalNote,
     isAutomated: isAutomated,
