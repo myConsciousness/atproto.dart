@@ -21,6 +21,7 @@ Register an activity on a report. For state-change activity types, validates the
 | **internalNote** | string | - | ❌ | Optional moderator-only note. Not visible to reporters. |
 | **publicNote** | string | - | ❌ | Optional public-facing note, potentially visible to the reporter. |
 | **isAutomated** | boolean | - | ❌ | Set true when this activity is triggered by an automated process. Defaults to false. |
+| **meta** | unknown | - | ❌ | Optional metadata for the report activities. Lifecycle and resolution fields are controlled by the service. |
 
 ### Output
 

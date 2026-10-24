@@ -41,3 +41,4 @@ Target specific reports when emitting a moderation event
 | **types** | array of string | - | ❌ | Target reports matching these report types on the subject (fully qualified NSIDs) |
 | **all** | boolean | - | ❌ | Target ALL reports on the subject |
 | **note** | string | - | ❌ | Note to send to reporter(s) when actioning their report |
+| **isAutomated** | boolean | - | ❌ | Set true when the report activities are created by an automated process. |
