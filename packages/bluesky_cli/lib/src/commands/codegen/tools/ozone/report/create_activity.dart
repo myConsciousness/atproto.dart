@@ -49,6 +49,11 @@ final class CreateActivityCommand extends ProcedureCommand {
         help:
             r"Set true when this activity is triggered by an automated process. Defaults to false.",
         defaultsTo: false,
+      )
+      ..addOption(
+        "meta",
+        help:
+            r"Optional metadata for the report activities. Lifecycle and resolution fields are controlled by the service.",
       );
   }
 
@@ -61,7 +66,7 @@ final class CreateActivityCommand extends ProcedureCommand {
 
   @override
   final String invocation =
-      "bsky tools-ozone-report create-activity [--reportId=<value>] [--eventId=<value>] --activity=<value> [--internalNote=<value>] [--publicNote=<value>] [--isAutomated]";
+      "bsky tools-ozone-report create-activity [--reportId=<value>] [--eventId=<value>] --activity=<value> [--internalNote=<value>] [--publicNote=<value>] [--isAutomated] [--meta=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.createActivity";
@@ -82,6 +87,7 @@ final class CreateActivityCommand extends ProcedureCommand {
     if (argResults!.wasParsed("publicNote"))
       "publicNote": argResults!["publicNote"],
     "isAutomated": argResults!["isAutomated"],
+    if (argResults!.wasParsed("meta")) "meta": _decodeJson("meta"),
   };
   Object? _decodeJson(final String name) {
     final raw = argResults![name];

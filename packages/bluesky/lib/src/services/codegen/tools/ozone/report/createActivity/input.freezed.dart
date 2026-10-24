@@ -20,7 +20,7 @@ mixin _$ReportCreateActivityInput {
  int? get eventId;@UReportCreateActivityActivityConverter() UReportCreateActivityActivity get activity;/// Optional moderator-only note. Not visible to reporters.
  String? get internalNote;/// Optional public-facing note, potentially visible to the reporter.
  String? get publicNote;/// Set true when this activity is triggered by an automated process. Defaults to false.
- bool get isAutomated; Map<String, dynamic>? get $unknown;
+ bool get isAutomated; Map<String, dynamic>? get meta; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportCreateActivityInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -33,16 +33,16 @@ $ReportCreateActivityInputCopyWith<ReportCreateActivityInput> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportCreateActivityInput&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportCreateActivityInput&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other.meta, meta)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,reportId,eventId,activity,internalNote,publicNote,isAutomated,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,reportId,eventId,activity,internalNote,publicNote,isAutomated,const DeepCollectionEquality().hash(meta),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ReportCreateActivityInput(reportId: $reportId, eventId: $eventId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, isAutomated: $isAutomated, \$unknown: ${$unknown})';
+  return 'ReportCreateActivityInput(reportId: $reportId, eventId: $eventId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, isAutomated: $isAutomated, meta: $meta, \$unknown: ${$unknown})';
 }
 
 
@@ -53,7 +53,7 @@ abstract mixin class $ReportCreateActivityInputCopyWith<$Res>  {
   factory $ReportCreateActivityInputCopyWith(ReportCreateActivityInput value, $Res Function(ReportCreateActivityInput) _then) = _$ReportCreateActivityInputCopyWithImpl;
 @useResult
 $Res call({
- int? reportId, int? eventId,@UReportCreateActivityActivityConverter() UReportCreateActivityActivity activity, String? internalNote, String? publicNote, bool isAutomated, Map<String, dynamic>? $unknown
+ int? reportId, int? eventId,@UReportCreateActivityActivityConverter() UReportCreateActivityActivity activity, String? internalNote, String? publicNote, bool isAutomated, Map<String, dynamic>? meta, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,7 +70,7 @@ class _$ReportCreateActivityInputCopyWithImpl<$Res>
 
 /// Create a copy of ReportCreateActivityInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? reportId = freezed,Object? eventId = freezed,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? isAutomated = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? reportId = freezed,Object? eventId = freezed,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? isAutomated = null,Object? meta = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 reportId: freezed == reportId ? _self.reportId : reportId // ignore: cast_nullable_to_non_nullable
 as int?,eventId: freezed == eventId ? _self.eventId : eventId // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,8 @@ as int?,activity: null == activity ? _self.activity : activity // ignore: cast_n
 as UReportCreateActivityActivity,internalNote: freezed == internalNote ? _self.internalNote : internalNote // ignore: cast_nullable_to_non_nullable
 as String?,publicNote: freezed == publicNote ? _self.publicNote : publicNote // ignore: cast_nullable_to_non_nullable
 as String?,isAutomated: null == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
-as bool,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as bool,meta: freezed == meta ? _self.meta : meta // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -173,10 +174,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? reportId,  int? eventId, @UReportCreateActivityActivityConverter()  UReportCreateActivityActivity activity,  String? internalNote,  String? publicNote,  bool isAutomated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? reportId,  int? eventId, @UReportCreateActivityActivityConverter()  UReportCreateActivityActivity activity,  String? internalNote,  String? publicNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportCreateActivityInput() when $default != null:
-return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_that.publicNote,_that.isAutomated,_that.$unknown);case _:
+return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_that.publicNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
   return orElse();
 
 }
@@ -194,10 +195,10 @@ return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? reportId,  int? eventId, @UReportCreateActivityActivityConverter()  UReportCreateActivityActivity activity,  String? internalNote,  String? publicNote,  bool isAutomated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? reportId,  int? eventId, @UReportCreateActivityActivityConverter()  UReportCreateActivityActivity activity,  String? internalNote,  String? publicNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportCreateActivityInput():
-return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_that.publicNote,_that.isAutomated,_that.$unknown);case _:
+return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_that.publicNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +215,10 @@ return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? reportId,  int? eventId, @UReportCreateActivityActivityConverter()  UReportCreateActivityActivity activity,  String? internalNote,  String? publicNote,  bool isAutomated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? reportId,  int? eventId, @UReportCreateActivityActivityConverter()  UReportCreateActivityActivity activity,  String? internalNote,  String? publicNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportCreateActivityInput() when $default != null:
-return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_that.publicNote,_that.isAutomated,_that.$unknown);case _:
+return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_that.publicNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
   return null;
 
 }
@@ -229,7 +230,7 @@ return $default(_that.reportId,_that.eventId,_that.activity,_that.internalNote,_
 
 @JsonSerializable(includeIfNull: false)
 class _ReportCreateActivityInput implements ReportCreateActivityInput {
-  const _ReportCreateActivityInput({this.reportId, this.eventId, @UReportCreateActivityActivityConverter() required this.activity, this.internalNote, this.publicNote, this.isAutomated = false, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _ReportCreateActivityInput({this.reportId, this.eventId, @UReportCreateActivityActivityConverter() required this.activity, this.internalNote, this.publicNote, this.isAutomated = false, final  Map<String, dynamic>? meta, final  Map<String, dynamic>? $unknown}): _meta = meta,_$unknown = $unknown;
   factory _ReportCreateActivityInput.fromJson(Map<String, dynamic> json) => _$ReportCreateActivityInputFromJson(json);
 
 /// ID of the report to record activity on. Exactly one of reportId or eventId must be provided.
@@ -243,6 +244,15 @@ class _ReportCreateActivityInput implements ReportCreateActivityInput {
 @override final  String? publicNote;
 /// Set true when this activity is triggered by an automated process. Defaults to false.
 @override@JsonKey() final  bool isAutomated;
+ final  Map<String, dynamic>? _meta;
+@override Map<String, dynamic>? get meta {
+  final value = _meta;
+  if (value == null) return null;
+  if (_meta is EqualUnmodifiableMapView) return _meta;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -266,16 +276,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportCreateActivityInput&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportCreateActivityInput&&(identical(other.reportId, reportId) || other.reportId == reportId)&&(identical(other.eventId, eventId) || other.eventId == eventId)&&(identical(other.activity, activity) || other.activity == activity)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.publicNote, publicNote) || other.publicNote == publicNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other._meta, _meta)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,reportId,eventId,activity,internalNote,publicNote,isAutomated,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,reportId,eventId,activity,internalNote,publicNote,isAutomated,const DeepCollectionEquality().hash(_meta),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ReportCreateActivityInput(reportId: $reportId, eventId: $eventId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, isAutomated: $isAutomated, \$unknown: ${$unknown})';
+  return 'ReportCreateActivityInput(reportId: $reportId, eventId: $eventId, activity: $activity, internalNote: $internalNote, publicNote: $publicNote, isAutomated: $isAutomated, meta: $meta, \$unknown: ${$unknown})';
 }
 
 
@@ -286,7 +296,7 @@ abstract mixin class _$ReportCreateActivityInputCopyWith<$Res> implements $Repor
   factory _$ReportCreateActivityInputCopyWith(_ReportCreateActivityInput value, $Res Function(_ReportCreateActivityInput) _then) = __$ReportCreateActivityInputCopyWithImpl;
 @override @useResult
 $Res call({
- int? reportId, int? eventId,@UReportCreateActivityActivityConverter() UReportCreateActivityActivity activity, String? internalNote, String? publicNote, bool isAutomated, Map<String, dynamic>? $unknown
+ int? reportId, int? eventId,@UReportCreateActivityActivityConverter() UReportCreateActivityActivity activity, String? internalNote, String? publicNote, bool isAutomated, Map<String, dynamic>? meta, Map<String, dynamic>? $unknown
 });
 
 
@@ -303,7 +313,7 @@ class __$ReportCreateActivityInputCopyWithImpl<$Res>
 
 /// Create a copy of ReportCreateActivityInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? reportId = freezed,Object? eventId = freezed,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? isAutomated = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? reportId = freezed,Object? eventId = freezed,Object? activity = null,Object? internalNote = freezed,Object? publicNote = freezed,Object? isAutomated = null,Object? meta = freezed,Object? $unknown = freezed,}) {
   return _then(_ReportCreateActivityInput(
 reportId: freezed == reportId ? _self.reportId : reportId // ignore: cast_nullable_to_non_nullable
 as int?,eventId: freezed == eventId ? _self.eventId : eventId // ignore: cast_nullable_to_non_nullable
@@ -311,7 +321,8 @@ as int?,activity: null == activity ? _self.activity : activity // ignore: cast_n
 as UReportCreateActivityActivity,internalNote: freezed == internalNote ? _self.internalNote : internalNote // ignore: cast_nullable_to_non_nullable
 as String?,publicNote: freezed == publicNote ? _self.publicNote : publicNote // ignore: cast_nullable_to_non_nullable
 as String?,isAutomated: null == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
-as bool,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as bool,meta: freezed == meta ? _self._meta : meta // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

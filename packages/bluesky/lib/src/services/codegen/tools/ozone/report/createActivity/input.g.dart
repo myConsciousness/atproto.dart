@@ -22,6 +22,10 @@ _ReportCreateActivityInput _$ReportCreateActivityInputFromJson(Map json) =>
         internalNote: $checkedConvert('internalNote', (v) => v as String?),
         publicNote: $checkedConvert('publicNote', (v) => v as String?),
         isAutomated: $checkedConvert('isAutomated', (v) => v as bool? ?? false),
+        meta: $checkedConvert(
+          'meta',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -41,5 +45,6 @@ Map<String, dynamic> _$ReportCreateActivityInputToJson(
   'internalNote': ?instance.internalNote,
   'publicNote': ?instance.publicNote,
   'isAutomated': instance.isAutomated,
+  'meta': ?instance.meta,
   r'$unknown': ?instance.$unknown,
 };

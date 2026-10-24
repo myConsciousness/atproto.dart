@@ -1,5 +1,14 @@
 # Release Note
 
+## v2.15.3
+
+- feat: added `tools.ozone.moderation.emitEvent#reportAction.isAutomated`
+- feat: added `tools.ozone.report.closeReports.input.excludedReportTypes`
+- feat: added `tools.ozone.report.closeReports.input.meta`
+- chore: updated `tools.ozone.report.closeReports.input.reportTypes`
+- feat: added `tools.ozone.report.createActivity.input.meta`
+- chore: regenerated from synced lexicons
+
 ## v2.15.2
 
 - chore: updated `app.bsky.actor.defs#profileViewDetailed.website`

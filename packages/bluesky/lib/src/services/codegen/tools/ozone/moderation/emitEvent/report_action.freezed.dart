@@ -17,7 +17,8 @@ mixin _$ReportAction {
 
  String get $type; List<int>? get ids; List<String>? get types;/// Target ALL reports on the subject
  bool? get all;/// Note to send to reporter(s) when actioning their report
- String? get note; Map<String, dynamic>? get $unknown;
+ String? get note;/// Set true when the report activities are created by an automated process.
+ bool? get isAutomated; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportAction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +31,16 @@ $ReportActionCopyWith<ReportAction> get copyWith => _$ReportActionCopyWithImpl<R
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportAction&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other.ids, ids)&&const DeepCollectionEquality().equals(other.types, types)&&(identical(other.all, all) || other.all == all)&&(identical(other.note, note) || other.note == note)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportAction&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other.ids, ids)&&const DeepCollectionEquality().equals(other.types, types)&&(identical(other.all, all) || other.all == all)&&(identical(other.note, note) || other.note == note)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(ids),const DeepCollectionEquality().hash(types),all,note,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(ids),const DeepCollectionEquality().hash(types),all,note,isAutomated,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ReportAction(\$type: ${$type}, ids: $ids, types: $types, all: $all, note: $note, \$unknown: ${$unknown})';
+  return 'ReportAction(\$type: ${$type}, ids: $ids, types: $types, all: $all, note: $note, isAutomated: $isAutomated, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +51,7 @@ abstract mixin class $ReportActionCopyWith<$Res>  {
   factory $ReportActionCopyWith(ReportAction value, $Res Function(ReportAction) _then) = _$ReportActionCopyWithImpl;
 @useResult
 $Res call({
- String $type, List<int>? ids, List<String>? types, bool? all, String? note, Map<String, dynamic>? $unknown
+ String $type, List<int>? ids, List<String>? types, bool? all, String? note, bool? isAutomated, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,14 +68,15 @@ class _$ReportActionCopyWithImpl<$Res>
 
 /// Create a copy of ReportAction
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? ids = freezed,Object? types = freezed,Object? all = freezed,Object? note = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? ids = freezed,Object? types = freezed,Object? all = freezed,Object? note = freezed,Object? isAutomated = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,ids: freezed == ids ? _self.ids : ids // ignore: cast_nullable_to_non_nullable
 as List<int>?,types: freezed == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
 as List<String>?,all: freezed == all ? _self.all : all // ignore: cast_nullable_to_non_nullable
 as bool?,note: freezed == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,isAutomated: freezed == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -160,10 +162,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<int>? ids,  List<String>? types,  bool? all,  String? note,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  List<int>? ids,  List<String>? types,  bool? all,  String? note,  bool? isAutomated,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportAction() when $default != null:
-return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$unknown);case _:
+return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.isAutomated,_that.$unknown);case _:
   return orElse();
 
 }
@@ -181,10 +183,10 @@ return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<int>? ids,  List<String>? types,  bool? all,  String? note,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  List<int>? ids,  List<String>? types,  bool? all,  String? note,  bool? isAutomated,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportAction():
-return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$unknown);case _:
+return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.isAutomated,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +203,10 @@ return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$un
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<int>? ids,  List<String>? types,  bool? all,  String? note,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  List<int>? ids,  List<String>? types,  bool? all,  String? note,  bool? isAutomated,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportAction() when $default != null:
-return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$unknown);case _:
+return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.isAutomated,_that.$unknown);case _:
   return null;
 
 }
@@ -216,7 +218,7 @@ return $default(_that.$type,_that.ids,_that.types,_that.all,_that.note,_that.$un
 
 @JsonSerializable(includeIfNull: false)
 class _ReportAction implements ReportAction {
-  const _ReportAction({this.$type = 'tools.ozone.moderation.emitEvent#reportAction', final  List<int>? ids, final  List<String>? types, this.all, this.note, final  Map<String, dynamic>? $unknown}): _ids = ids,_types = types,_$unknown = $unknown;
+  const _ReportAction({this.$type = 'tools.ozone.moderation.emitEvent#reportAction', final  List<int>? ids, final  List<String>? types, this.all, this.note, this.isAutomated, final  Map<String, dynamic>? $unknown}): _ids = ids,_types = types,_$unknown = $unknown;
   factory _ReportAction.fromJson(Map<String, dynamic> json) => _$ReportActionFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -242,6 +244,8 @@ class _ReportAction implements ReportAction {
 @override final  bool? all;
 /// Note to send to reporter(s) when actioning their report
 @override final  String? note;
+/// Set true when the report activities are created by an automated process.
+@override final  bool? isAutomated;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -265,16 +269,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportAction&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other._ids, _ids)&&const DeepCollectionEquality().equals(other._types, _types)&&(identical(other.all, all) || other.all == all)&&(identical(other.note, note) || other.note == note)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportAction&&(identical(other.$type, $type) || other.$type == $type)&&const DeepCollectionEquality().equals(other._ids, _ids)&&const DeepCollectionEquality().equals(other._types, _types)&&(identical(other.all, all) || other.all == all)&&(identical(other.note, note) || other.note == note)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(_ids),const DeepCollectionEquality().hash(_types),all,note,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,const DeepCollectionEquality().hash(_ids),const DeepCollectionEquality().hash(_types),all,note,isAutomated,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ReportAction(\$type: ${$type}, ids: $ids, types: $types, all: $all, note: $note, \$unknown: ${$unknown})';
+  return 'ReportAction(\$type: ${$type}, ids: $ids, types: $types, all: $all, note: $note, isAutomated: $isAutomated, \$unknown: ${$unknown})';
 }
 
 
@@ -285,7 +289,7 @@ abstract mixin class _$ReportActionCopyWith<$Res> implements $ReportActionCopyWi
   factory _$ReportActionCopyWith(_ReportAction value, $Res Function(_ReportAction) _then) = __$ReportActionCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, List<int>? ids, List<String>? types, bool? all, String? note, Map<String, dynamic>? $unknown
+ String $type, List<int>? ids, List<String>? types, bool? all, String? note, bool? isAutomated, Map<String, dynamic>? $unknown
 });
 
 
@@ -302,14 +306,15 @@ class __$ReportActionCopyWithImpl<$Res>
 
 /// Create a copy of ReportAction
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? ids = freezed,Object? types = freezed,Object? all = freezed,Object? note = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? ids = freezed,Object? types = freezed,Object? all = freezed,Object? note = freezed,Object? isAutomated = freezed,Object? $unknown = freezed,}) {
   return _then(_ReportAction(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,ids: freezed == ids ? _self._ids : ids // ignore: cast_nullable_to_non_nullable
 as List<int>?,types: freezed == types ? _self._types : types // ignore: cast_nullable_to_non_nullable
 as List<String>?,all: freezed == all ? _self.all : all // ignore: cast_nullable_to_non_nullable
 as bool?,note: freezed == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as String?,isAutomated: freezed == isAutomated ? _self.isAutomated : isAutomated // ignore: cast_nullable_to_non_nullable
+as bool?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

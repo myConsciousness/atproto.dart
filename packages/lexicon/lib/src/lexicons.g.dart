@@ -22553,6 +22553,11 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
           "description":
               "Note to send to reporter(s) when actioning their report",
         },
+        "isAutomated": {
+          "type": "boolean",
+          "description":
+              "Set true when the report activities are created by an automated process.",
+        },
       },
     },
   },
@@ -24385,7 +24390,13 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
             "reportTypes": {
               "type": "array",
               "description":
-                  "If specified, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted, all non-closed reports on the subject are targeted.",
+                  "If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all non-closed reports in the requested subject scope are targeted, except excludedReportTypes.",
+              "items": {"type": "string"},
+            },
+            "excludedReportTypes": {
+              "type": "array",
+              "description":
+                  "Reports of these types (fully qualified reason NSIDs) are excluded from closure and left unchanged. When omitted or empty, no report types are excluded.",
               "items": {"type": "string"},
             },
             "internalNote": {
@@ -24398,6 +24409,11 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
               "description":
                   "Set true when this action is triggered by an automated process. Defaults to false.",
               "default": false,
+            },
+            "meta": {
+              "type": "unknown",
+              "description":
+                  "Optional metadata for the report activities. Lifecycle and resolution fields are controlled by the service.",
             },
           },
         },
@@ -24477,6 +24493,11 @@ const toolsOzoneReportCreateActivity = <String, dynamic>{
               "description":
                   "Set true when this activity is triggered by an automated process. Defaults to false.",
               "default": false,
+            },
+            "meta": {
+              "type": "unknown",
+              "description":
+                  "Optional metadata for the report activities. Lifecycle and resolution fields are controlled by the service.",
             },
           },
         },

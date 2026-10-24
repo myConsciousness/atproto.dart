@@ -30,6 +30,7 @@ abstract class ReportCreateActivityInput with _$ReportCreateActivityInput {
     'internalNote',
     'publicNote',
     'isAutomated',
+    'meta',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -50,6 +51,7 @@ abstract class ReportCreateActivityInput with _$ReportCreateActivityInput {
 
     /// Set true when this activity is triggered by an automated process. Defaults to false.
     @Default(false) bool isAutomated,
+    Map<String, dynamic>? meta,
 
     Map<String, dynamic>? $unknown,
   }) = _ReportCreateActivityInput;
@@ -69,6 +71,8 @@ extension ReportCreateActivityInputExtension on ReportCreateActivityInput {
   bool get hasNotPublicNote => !hasPublicNote;
   bool get isIsAutomated => isAutomated;
   bool get isNotIsAutomated => !isIsAutomated;
+  bool get hasMeta => meta != null;
+  bool get hasNotMeta => !hasMeta;
 }
 
 final class ReportCreateActivityInputConverter
