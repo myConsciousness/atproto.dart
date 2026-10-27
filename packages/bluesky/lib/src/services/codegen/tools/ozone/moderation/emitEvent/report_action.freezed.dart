@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ReportAction {
 
- String get $type; List<int>? get ids; List<String>? get types;/// Target ALL reports on the subject
+ String get $type; List<int>? get ids; List<String>? get types;/// Target ALL reports on the subject. Excludes assigned and escalated reports.
  bool? get all;/// Note to send to reporter(s) when actioning their report
  String? get note;/// Set true when the report activities are created by an automated process.
  bool? get isAutomated; Map<String, dynamic>? get $unknown;
@@ -240,7 +240,7 @@ class _ReportAction implements ReportAction {
   return EqualUnmodifiableListView(value);
 }
 
-/// Target ALL reports on the subject
+/// Target ALL reports on the subject. Excludes assigned and escalated reports.
 @override final  bool? all;
 /// Note to send to reporter(s) when actioning their report
 @override final  String? note;

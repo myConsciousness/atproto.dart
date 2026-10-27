@@ -562,6 +562,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[tools.ozone.team.addMember](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/TeamService/addMember.html)** | [Reference](lexicons/tools/ozone/team/addMember.md) | ❌ |
 | **[tools.ozone.team.deleteMember](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/TeamService/deleteMember.html)** | [Reference](lexicons/tools/ozone/team/deleteMember.md) | ❌ |
 | **[tools.ozone.team.listMembers](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/TeamService/listMembers.html)** | [Reference](lexicons/tools/ozone/team/listMembers.md) | ✅ |
+| **[tools.ozone.team.listOnlineMembers](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/TeamService/listOnlineMembers.html)** | [Reference](lexicons/tools/ozone/team/listOnlineMembers.md) | ❌ |
 | **[tools.ozone.team.updateMember](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/TeamService/updateMember.html)** | [Reference](lexicons/tools/ozone/team/updateMember.md) | ❌ |
 
 ### tools.ozone.verification

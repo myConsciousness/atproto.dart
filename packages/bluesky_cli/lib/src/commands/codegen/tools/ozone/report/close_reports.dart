@@ -35,7 +35,7 @@ final class CloseReportsCommand extends ProcedureCommand {
       ..addMultiOption(
         "reportTypes",
         help:
-            r"If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all non-closed reports in the requested subject scope are targeted, except excludedReportTypes.",
+            r"If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned and escalated reports are always excluded.",
       )
       ..addMultiOption(
         "excludedReportTypes",
@@ -65,7 +65,7 @@ final class CloseReportsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      "Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.";
+      "Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.";
 
   @override
   final String invocation =

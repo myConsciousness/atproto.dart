@@ -22541,12 +22541,13 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
         "types": {
           "type": "array",
           "description":
-              "Target reports matching these report types on the subject (fully qualified NSIDs)",
+              "Target reports matching these report types on the subject (fully qualified NSIDs). Excludes assigned and escalated reports.",
           "items": {"type": "string"},
         },
         "all": {
           "type": "boolean",
-          "description": "Target ALL reports on the subject",
+          "description":
+              "Target ALL reports on the subject. Excludes assigned and escalated reports.",
         },
         "note": {
           "type": "string",
@@ -24368,7 +24369,7 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "Close all reports on a subject matching the given criteria. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.",
+          "Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -24390,7 +24391,7 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
             "reportTypes": {
               "type": "array",
               "description":
-                  "If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all non-closed reports in the requested subject scope are targeted, except excludedReportTypes.",
+                  "If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned and escalated reports are always excluded.",
               "items": {"type": "string"},
             },
             "excludedReportTypes": {
@@ -27280,6 +27281,52 @@ const toolsOzoneTeamListMembers = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.team.listOnlineMembers`
+const toolsOzoneTeamListOnlineMembers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.listOnlineMembers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "List recent active team members, ordered by latest activity.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["members"],
+          "properties": {
+            "members": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#onlineMember"},
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+    },
+    "onlineMember": {
+      "type": "object",
+      "required": ["did", "lastActive"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "lastActive": {"type": "string", "format": "datetime"},
+      },
+    },
+  },
+};
+
 /// `tools.ozone.team.updateMember`
 const toolsOzoneTeamUpdateMember = <String, dynamic>{
   "lexicon": 1,
@@ -28072,6 +28119,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneTeamDefs,
   toolsOzoneTeamDeleteMember,
   toolsOzoneTeamListMembers,
+  toolsOzoneTeamListOnlineMembers,
   toolsOzoneTeamUpdateMember,
   toolsOzoneVerificationDefs,
   toolsOzoneVerificationGrantVerifications,

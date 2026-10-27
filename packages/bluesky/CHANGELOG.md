@@ -1,5 +1,15 @@
 # Release Note
 
+## v2.15.4
+
+- chore: updated `tools.ozone.moderation.emitEvent#reportAction.all`
+- chore: updated `tools.ozone.moderation.emitEvent#reportAction.types`
+- chore: updated `tools.ozone.report.closeReports`
+- chore: updated `tools.ozone.report.closeReports.input.reportTypes`
+- feat: added `tools.ozone.team.listOnlineMembers`
+- feat: added `tools.ozone.team.listOnlineMembers#onlineMember`
+- chore: regenerated from synced lexicons
+
 ## v2.15.3
 
 - feat: added `tools.ozone.moderation.emitEvent#reportAction.isAutomated`

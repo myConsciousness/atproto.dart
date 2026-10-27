@@ -2776,6 +2776,13 @@ const toolsOzoneTeamDeleteMember = 'tools.ozone.team.deleteMember';
 /// `tools.ozone.team.listMembers`
 const toolsOzoneTeamListMembers = 'tools.ozone.team.listMembers';
 
+/// `tools.ozone.team.listOnlineMembers`
+const toolsOzoneTeamListOnlineMembers = 'tools.ozone.team.listOnlineMembers';
+
+/// `tools.ozone.team.listOnlineMembers#onlineMember`
+const toolsOzoneTeamListOnlineMembersOnlineMember =
+    'tools.ozone.team.listOnlineMembers#onlineMember';
+
 /// `tools.ozone.team.updateMember`
 const toolsOzoneTeamUpdateMember = 'tools.ozone.team.updateMember';
 
