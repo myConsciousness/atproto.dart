@@ -38,7 +38,7 @@ Target specific reports when emitting a moderation event
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **ids** | array of integer | - | ❌ | Target specific report IDs |
-| **types** | array of string | - | ❌ | Target reports matching these report types on the subject (fully qualified NSIDs) |
-| **all** | boolean | - | ❌ | Target ALL reports on the subject |
+| **types** | array of string | - | ❌ | Target reports matching these report types on the subject (fully qualified NSIDs). Excludes assigned and escalated reports. |
+| **all** | boolean | - | ❌ | Target ALL reports on the subject. Excludes assigned and escalated reports. |
 | **note** | string | - | ❌ | Note to send to reporter(s) when actioning their report |
 | **isAutomated** | boolean | - | ❌ | Set true when the report activities are created by an automated process. |

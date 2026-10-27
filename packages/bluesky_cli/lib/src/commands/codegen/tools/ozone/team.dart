@@ -14,6 +14,7 @@ import 'package:args/command_runner.dart';
 import 'team/add_member.dart';
 import 'team/delete_member.dart';
 import 'team/list_members.dart';
+import 'team/list_online_members.dart';
 import 'team/update_member.dart';
 
 // **************************************************************************
@@ -25,6 +26,7 @@ final class ToolsOzoneTeamCommand extends Command<void> {
     addSubcommand(AddMemberCommand());
     addSubcommand(DeleteMemberCommand());
     addSubcommand(ListMembersCommand());
+    addSubcommand(ListOnlineMembersCommand());
     addSubcommand(UpdateMemberCommand());
   }
 

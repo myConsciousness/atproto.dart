@@ -35,7 +35,7 @@ abstract class ReportAction with _$ReportAction {
     List<int>? ids,
     List<String>? types,
 
-    /// Target ALL reports on the subject
+    /// Target ALL reports on the subject. Excludes assigned and escalated reports.
     bool? all,
 
     /// Note to send to reporter(s) when actioning their report

@@ -1653,6 +1653,16 @@ const toolsOzoneTeamDeleteMember = NSID(ids.toolsOzoneTeamDeleteMember);
 /// `tools.ozone.team.listMembers`
 const toolsOzoneTeamListMembers = NSID(ids.toolsOzoneTeamListMembers);
 
+/// `tools.ozone.team.listOnlineMembers`
+const toolsOzoneTeamListOnlineMembers = NSID(
+  ids.toolsOzoneTeamListOnlineMembers,
+);
+
+/// `tools.ozone.team.listOnlineMembers#onlineMember`
+const toolsOzoneTeamListOnlineMembersOnlineMember = NSID(
+  ids.toolsOzoneTeamListOnlineMembersOnlineMember,
+);
+
 /// `tools.ozone.team.updateMember`
 const toolsOzoneTeamUpdateMember = NSID(ids.toolsOzoneTeamUpdateMember);
 
