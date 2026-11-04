@@ -144,6 +144,9 @@ const comAtprotoLabelDefsSelfLabels = 'com.atproto.label.defs#selfLabels';
 /// `com.atproto.label.queryLabels`
 const comAtprotoLabelQueryLabels = 'com.atproto.label.queryLabels';
 
+/// `com.atproto.label.record`
+const comAtprotoLabelRecord = 'com.atproto.label.record';
+
 /// `com.atproto.label.subscribeLabels`
 const comAtprotoLabelSubscribeLabels = 'com.atproto.label.subscribeLabels';
 

@@ -119,6 +119,9 @@ const comAtprotoIdentityUpdateHandle = NSID(ids.comAtprotoIdentityUpdateHandle);
 /// `com.atproto.label.queryLabels`
 const comAtprotoLabelQueryLabels = NSID(ids.comAtprotoLabelQueryLabels);
 
+/// `com.atproto.label.record`
+const comAtprotoLabelRecord = NSID(ids.comAtprotoLabelRecord);
+
 /// `com.atproto.label.subscribeLabels`
 const comAtprotoLabelSubscribeLabels = NSID(ids.comAtprotoLabelSubscribeLabels);
 

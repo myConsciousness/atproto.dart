@@ -47,6 +47,7 @@ sidebar_position: 4
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[com.atproto.label.queryLabels](https://pub.dev/documentation/atproto/latest/com_atproto_services/LabelService/queryLabels.html)** | [Reference](lexicons/com/atproto/label/queryLabels.md) | ✅ |
+| **[com.atproto.label.record](https://pub.dev/documentation/atproto/latest/com_atproto_services/LabelService/record.html)** | [Reference](lexicons/com/atproto/label/record.md) | ❌ |
 | **[com.atproto.label.subscribeLabels](https://pub.dev/documentation/atproto/latest/com_atproto_services/LabelService/subscribeLabels.html)** | [Reference](lexicons/com/atproto/label/subscribeLabels.md) | ✅ |
 
 ### com.atproto.lexicon

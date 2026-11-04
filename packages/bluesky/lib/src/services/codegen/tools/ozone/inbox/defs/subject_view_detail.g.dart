@@ -28,6 +28,13 @@ _SubjectViewDetail _$SubjectViewDetailFromJson(
       'record',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
     ),
+    account: $checkedConvert(
+      'account',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, AccountPreview>(
+        v,
+        const AccountPreviewConverter().fromJson,
+      ),
+    ),
     enforcement: $checkedConvert(
       'enforcement',
       (v) =>
@@ -87,6 +94,10 @@ Map<String, dynamic> _$SubjectViewDetailToJson(
     instance.subject,
   ),
   'record': ?instance.record,
+  'account': ?_$JsonConverterToJson<Map<String, dynamic>, AccountPreview>(
+    instance.account,
+    const AccountPreviewConverter().toJson,
+  ),
   'enforcement': const EnforcementViewConverter().toJson(instance.enforcement),
   'appeal': ?_$JsonConverterToJson<Map<String, dynamic>, AppealView>(
     instance.appeal,

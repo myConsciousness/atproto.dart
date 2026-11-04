@@ -11,6 +11,7 @@
 import 'dart:async';
 
 // Package imports:
+import 'package:atproto/com_atproto_label_record.dart';
 import 'package:atproto/com_atproto_lexicon_schema.dart';
 import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 import 'package:atproto/com_germnetwork_declaration.dart';
@@ -122,6 +123,9 @@ final class RepoCommitHandler {
   final RepoCommitOnCreate<ActorDeclarationRecord>? _onCreateActorDeclaration;
   final RepoCommitOnUpdate<ActorDeclarationRecord>? _onUpdateActorDeclaration;
   final RepoCommitOnDelete? _onDeleteActorDeclaration;
+  final RepoCommitOnCreate<LabelRecordRecord>? _onCreateLabelRecord;
+  final RepoCommitOnUpdate<LabelRecordRecord>? _onUpdateLabelRecord;
+  final RepoCommitOnDelete? _onDeleteLabelRecord;
   final RepoCommitOnCreate<LexiconSchemaRecord>? _onCreateLexiconSchema;
   final RepoCommitOnUpdate<LexiconSchemaRecord>? _onUpdateLexiconSchema;
   final RepoCommitOnDelete? _onDeleteLexiconSchema;
@@ -205,6 +209,9 @@ final class RepoCommitHandler {
     final RepoCommitOnCreate<ActorDeclarationRecord>? onCreateActorDeclaration,
     final RepoCommitOnUpdate<ActorDeclarationRecord>? onUpdateActorDeclaration,
     final RepoCommitOnDelete? onDeleteActorDeclaration,
+    final RepoCommitOnCreate<LabelRecordRecord>? onCreateLabelRecord,
+    final RepoCommitOnUpdate<LabelRecordRecord>? onUpdateLabelRecord,
+    final RepoCommitOnDelete? onDeleteLabelRecord,
     final RepoCommitOnCreate<LexiconSchemaRecord>? onCreateLexiconSchema,
     final RepoCommitOnUpdate<LexiconSchemaRecord>? onUpdateLexiconSchema,
     final RepoCommitOnDelete? onDeleteLexiconSchema,
@@ -281,6 +288,9 @@ final class RepoCommitHandler {
        _onCreateActorDeclaration = onCreateActorDeclaration,
        _onUpdateActorDeclaration = onUpdateActorDeclaration,
        _onDeleteActorDeclaration = onDeleteActorDeclaration,
+       _onCreateLabelRecord = onCreateLabelRecord,
+       _onUpdateLabelRecord = onUpdateLabelRecord,
+       _onDeleteLabelRecord = onDeleteLabelRecord,
        _onCreateLexiconSchema = onCreateLexiconSchema,
        _onUpdateLexiconSchema = onUpdateLexiconSchema,
        _onDeleteLexiconSchema = onDeleteLexiconSchema,
@@ -573,6 +583,18 @@ final class RepoCommitHandler {
       await _onCreateActorDeclaration?.call(
         RepoCommitCreate<ActorDeclarationRecord>(
           record: const ActorDeclarationRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+        ),
+      );
+      return;
+    }
+    if (uri.isLabelRecord && LabelRecordRecord.validate(record)) {
+      await _onCreateLabelRecord?.call(
+        RepoCommitCreate<LabelRecordRecord>(
+          record: const LabelRecordRecordConverter().fromJson(record),
           uri: uri,
           cid: op.cid,
           author: data.repo,
@@ -906,6 +928,19 @@ final class RepoCommitHandler {
       );
       return;
     }
+    if (uri.isLabelRecord && LabelRecordRecord.validate(record)) {
+      await _onUpdateLabelRecord?.call(
+        RepoCommitUpdate<LabelRecordRecord>(
+          record: const LabelRecordRecordConverter().fromJson(record),
+          uri: uri,
+          cid: op.cid,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
     if (uri.isLexiconSchema && LexiconSchemaRecord.validate(record)) {
       await _onUpdateLexiconSchema?.call(
         RepoCommitUpdate<LexiconSchemaRecord>(
@@ -1170,6 +1205,17 @@ final class RepoCommitHandler {
     }
     if (uri.isActorDeclaration) {
       await _onDeleteActorDeclaration?.call(
+        RepoCommitDelete(
+          uri: uri,
+          author: data.repo,
+          cursor: data.seq,
+          createdAt: data.time,
+        ),
+      );
+      return;
+    }
+    if (uri.isLabelRecord) {
+      await _onDeleteLabelRecord?.call(
         RepoCommitDelete(
           uri: uri,
           author: data.repo,

@@ -153,6 +153,12 @@ extension AtUriExtension on AtUri {
   /// Returns true if this uri is not `chat.bsky.actor.declaration`, otherwise false.
   bool get isNotActorDeclaration => !isActorDeclaration;
 
+  /// Returns true if this uri is `com.atproto.label.record`, otherwise false.
+  bool get isLabelRecord => collection.toString() == 'com.atproto.label.record';
+
+  /// Returns true if this uri is not `com.atproto.label.record`, otherwise false.
+  bool get isNotLabelRecord => !isLabelRecord;
+
   /// Returns true if this uri is `com.atproto.lexicon.schema`, otherwise false.
   bool get isLexiconSchema =>
       collection.toString() == 'com.atproto.lexicon.schema';

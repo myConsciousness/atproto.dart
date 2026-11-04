@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.5.1
+
+- feat: added `com.atproto.label.record`
+- chore: regenerated from synced lexicons
+
 ## v2.5.0
 
 - feat: added `Firehose`, a durable `com.atproto.sync.subscribeRepos` consumer. It connects, hands each decoded message to a handler, reconnects with exponential backoff and jitter when the relay drops the connection, and — the part that was missing — persists how far it got so a restart resumes instead of skipping to the live edge. `subscribeReposAsMessages` is unchanged; `Firehose` is a layer on top of it, not a replacement.

@@ -26,6 +26,7 @@ export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/policy_view.
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/subject_view_detail.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/union_subject_view_detail_subject.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/subject_view_detail_available_actions.dart';
+export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/account_preview.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/reports_summary.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/notification.dart';
 export 'package:bluesky/src/services/codegen/tools/ozone/inbox/defs/union_notification_target.dart';

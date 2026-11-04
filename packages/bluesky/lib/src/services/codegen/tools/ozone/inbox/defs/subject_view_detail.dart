@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './account_preview.dart';
 import './action_view.dart';
 import './appeal_view.dart';
 import './enforcement_view.dart';
@@ -34,6 +35,7 @@ abstract class SubjectViewDetail with _$SubjectViewDetail {
     'isRead',
     'subject',
     'record',
+    'account',
     'enforcement',
     'appeal',
     'availableActions',
@@ -52,6 +54,9 @@ abstract class SubjectViewDetail with _$SubjectViewDetail {
     @USubjectViewDetailSubjectConverter()
     required USubjectViewDetailSubject subject,
     Map<String, dynamic>? record,
+
+    /// Best-effort current profile information for an account subject.
+    @AccountPreviewConverter() AccountPreview? account,
     @EnforcementViewConverter() required EnforcementView enforcement,
     @AppealViewConverter() AppealView? appeal,
     @SubjectViewDetailAvailableActionsConverter()
@@ -83,6 +88,8 @@ extension SubjectViewDetailExtension on SubjectViewDetail {
   bool get isNotIsRead => !isIsRead;
   bool get hasRecord => record != null;
   bool get hasNotRecord => !hasRecord;
+  bool get hasAccount => account != null;
+  bool get hasNotAccount => !hasAccount;
   bool get hasAppeal => appeal != null;
   bool get hasNotAppeal => !hasAppeal;
   bool get hasCursor => cursor != null;

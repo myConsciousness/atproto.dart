@@ -1,5 +1,14 @@
 # Release Note
 
+## v2.15.5
+
+- feat: added `tools.ozone.inbox.defs#accountPreview`
+- feat: added `tools.ozone.inbox.defs#subjectViewDetail.account`
+- feat: added `tools.ozone.inbox.getAccountStatus.output.enforcement`
+- feat: added `tools.ozone.inbox.getAccountStatus.output.hasActiveStrikes`
+- chore: regenerated from synced lexicons
+- chore: bump `atproto` to `^2.5.1`
+
 ## v2.15.4
 
 - chore: updated `tools.ozone.moderation.emitEvent#reportAction.all`
