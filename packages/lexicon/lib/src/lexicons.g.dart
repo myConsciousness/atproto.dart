@@ -15563,6 +15563,55 @@ const comAtprotoLabelQueryLabels = <String, dynamic>{
   },
 };
 
+/// `com.atproto.label.record`
+const comAtprotoLabelRecord = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.label.record",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Metadata tag on an atproto resource (eg, repo or record), published as a record in the labeler's repository. Currently ONLY intended to be used in atproto space repos, not the public broadcast repository. For public data, continue to use signed label objects. This guidance may be updated in the future.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["uri", "val", "cts"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "uri",
+            "description":
+                "URI of the record, repository (account), or other resource that this label applies to. Currently only intended for use in the context of atproto spaces.",
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "Optionally, CID specifying the specific version of 'uri' resource this label applies to.",
+          },
+          "val": {
+            "type": "string",
+            "description":
+                "The short string name of the value or type of this label.",
+            "maxLength": 128,
+          },
+          "cts": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Timestamp when this label was created.",
+          },
+          "exp": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Timestamp at which this label expires (no longer applies).",
+          },
+        },
+      },
+    },
+  },
+};
+
 /// `com.atproto.label.subscribeLabels`
 const comAtprotoLabelSubscribeLabels = <String, dynamic>{
   "lexicon": 1,
@@ -20301,6 +20350,12 @@ const toolsOzoneInboxDefs = <String, dynamic>{
           "description":
               "Raw record JSON for the subject, when the subject is a record and the record is available.",
         },
+        "account": {
+          "type": "ref",
+          "description":
+              "Best-effort current profile information for an account subject.",
+          "ref": "#accountPreview",
+        },
         "enforcement": {"type": "ref", "ref": "#enforcementView"},
         "appeal": {"type": "ref", "ref": "#appealView"},
         "availableActions": {
@@ -20330,6 +20385,18 @@ const toolsOzoneInboxDefs = <String, dynamic>{
         },
         "createdAt": {"type": "string", "format": "datetime"},
         "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "accountPreview": {
+      "type": "object",
+      "description":
+          "Current account information, when available; this is not a snapshot of the account at the time of the action.",
+      "properties": {
+        "handle": {"type": "string", "format": "handle"},
+        "profile": {
+          "type": "unknown",
+          "description": "Raw app.bsky.actor.profile record, when available.",
+        },
       },
     },
     "reportsSummary": {
@@ -20498,6 +20565,17 @@ const toolsOzoneInboxGetAccountStatus = <String, dynamic>{
             "standing": {
               "type": "string",
               "knownValues": ["good", "warning", "atRisk"],
+            },
+            "hasActiveStrikes": {
+              "type": "boolean",
+              "description":
+                  "Whether the account currently has any active strikes.",
+            },
+            "enforcement": {
+              "type": "ref",
+              "description":
+                  "Current account takedown or suspension, independent of strike standing.",
+              "ref": "tools.ozone.inbox.defs#enforcementView",
             },
             "updatedAt": {
               "type": "string",
@@ -27947,6 +28025,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoIdentityUpdateHandle,
   comAtprotoLabelDefs,
   comAtprotoLabelQueryLabels,
+  comAtprotoLabelRecord,
   comAtprotoLabelSubscribeLabels,
   comAtprotoLexiconResolveLexicon,
   comAtprotoLexiconSchema,

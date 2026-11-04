@@ -1920,6 +1920,10 @@ const toolsOzoneInboxAppealActionedSubjectTakedownRef =
 /// `tools.ozone.inbox.defs`
 const toolsOzoneInboxDefs = 'tools.ozone.inbox.defs';
 
+/// `tools.ozone.inbox.defs#accountPreview`
+const toolsOzoneInboxDefsAccountPreview =
+    'tools.ozone.inbox.defs#accountPreview';
+
 /// `tools.ozone.inbox.defs#actionView`
 const toolsOzoneInboxDefsActionView = 'tools.ozone.inbox.defs#actionView';
 

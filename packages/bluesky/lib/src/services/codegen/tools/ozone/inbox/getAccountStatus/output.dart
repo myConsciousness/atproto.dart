@@ -12,6 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../../tools/ozone/inbox/defs/enforcement_view.dart';
 import './main_standing.dart';
 
 part 'output.freezed.dart';
@@ -26,6 +27,8 @@ abstract class InboxGetAccountStatusOutput with _$InboxGetAccountStatusOutput {
   static const knownProps = <String>[
     'src',
     'standing',
+    'hasActiveStrikes',
+    'enforcement',
     'updatedAt',
     'expiresAt',
   ];
@@ -36,6 +39,12 @@ abstract class InboxGetAccountStatusOutput with _$InboxGetAccountStatusOutput {
     required String src,
     @InboxGetAccountStatusStandingConverter()
     required InboxGetAccountStatusStanding standing,
+
+    /// Whether the account currently has any active strikes.
+    bool? hasActiveStrikes,
+
+    /// Current account takedown or suspension, independent of strike standing.
+    @EnforcementViewConverter() EnforcementView? enforcement,
 
     /// Newest account-status update or strike timestamp used to derive this standing, or the Unix epoch when neither exists. This is not a standing-transition timestamp; expiry can change standing without changing this value.
     @JsonKey(toJson: iso8601) required DateTime updatedAt,
@@ -51,6 +60,8 @@ abstract class InboxGetAccountStatusOutput with _$InboxGetAccountStatusOutput {
 }
 
 extension InboxGetAccountStatusOutputExtension on InboxGetAccountStatusOutput {
+  bool get hasEnforcement => enforcement != null;
+  bool get hasNotEnforcement => !hasEnforcement;
   bool get hasExpiresAt => expiresAt != null;
   bool get hasNotExpiresAt => !hasExpiresAt;
 }

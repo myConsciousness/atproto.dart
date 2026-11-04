@@ -16,7 +16,9 @@ T _$identity<T>(T value) => value;
 mixin _$InboxGetAccountStatusOutput {
 
 /// DID of the moderation service returning this status.
- String get src;@InboxGetAccountStatusStandingConverter() InboxGetAccountStatusStanding get standing;/// Newest account-status update or strike timestamp used to derive this standing, or the Unix epoch when neither exists. This is not a standing-transition timestamp; expiry can change standing without changing this value.
+ String get src;@InboxGetAccountStatusStandingConverter() InboxGetAccountStatusStanding get standing;/// Whether the account currently has any active strikes.
+ bool? get hasActiveStrikes;/// Current account takedown or suspension, independent of strike standing.
+@EnforcementViewConverter() EnforcementView? get enforcement;/// Newest account-status update or strike timestamp used to derive this standing, or the Unix epoch when neither exists. This is not a standing-transition timestamp; expiry can change standing without changing this value.
 @JsonKey(toJson: iso8601) DateTime get updatedAt;/// Time at which the current suspension expires. Present only for a temporary suspension.
 @JsonKey(toJson: iso8601) DateTime? get expiresAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of InboxGetAccountStatusOutput
@@ -31,16 +33,16 @@ $InboxGetAccountStatusOutputCopyWith<InboxGetAccountStatusOutput> get copyWith =
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is InboxGetAccountStatusOutput&&(identical(other.src, src) || other.src == src)&&(identical(other.standing, standing) || other.standing == standing)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InboxGetAccountStatusOutput&&(identical(other.src, src) || other.src == src)&&(identical(other.standing, standing) || other.standing == standing)&&(identical(other.hasActiveStrikes, hasActiveStrikes) || other.hasActiveStrikes == hasActiveStrikes)&&(identical(other.enforcement, enforcement) || other.enforcement == enforcement)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,src,standing,updatedAt,expiresAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,src,standing,hasActiveStrikes,enforcement,updatedAt,expiresAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'InboxGetAccountStatusOutput(src: $src, standing: $standing, updatedAt: $updatedAt, expiresAt: $expiresAt, \$unknown: ${$unknown})';
+  return 'InboxGetAccountStatusOutput(src: $src, standing: $standing, hasActiveStrikes: $hasActiveStrikes, enforcement: $enforcement, updatedAt: $updatedAt, expiresAt: $expiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -51,11 +53,11 @@ abstract mixin class $InboxGetAccountStatusOutputCopyWith<$Res>  {
   factory $InboxGetAccountStatusOutputCopyWith(InboxGetAccountStatusOutput value, $Res Function(InboxGetAccountStatusOutput) _then) = _$InboxGetAccountStatusOutputCopyWithImpl;
 @useResult
 $Res call({
- String src,@InboxGetAccountStatusStandingConverter() InboxGetAccountStatusStanding standing,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String src,@InboxGetAccountStatusStandingConverter() InboxGetAccountStatusStanding standing, bool? hasActiveStrikes,@EnforcementViewConverter() EnforcementView? enforcement,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 
-$InboxGetAccountStatusStandingCopyWith<$Res> get standing;
+$InboxGetAccountStatusStandingCopyWith<$Res> get standing;$EnforcementViewCopyWith<$Res>? get enforcement;
 
 }
 /// @nodoc
@@ -68,11 +70,13 @@ class _$InboxGetAccountStatusOutputCopyWithImpl<$Res>
 
 /// Create a copy of InboxGetAccountStatusOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? src = null,Object? standing = null,Object? updatedAt = null,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? src = null,Object? standing = null,Object? hasActiveStrikes = freezed,Object? enforcement = freezed,Object? updatedAt = null,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
 as String,standing: null == standing ? _self.standing : standing // ignore: cast_nullable_to_non_nullable
-as InboxGetAccountStatusStanding,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as InboxGetAccountStatusStanding,hasActiveStrikes: freezed == hasActiveStrikes ? _self.hasActiveStrikes : hasActiveStrikes // ignore: cast_nullable_to_non_nullable
+as bool?,enforcement: freezed == enforcement ? _self.enforcement : enforcement // ignore: cast_nullable_to_non_nullable
+as EnforcementView?,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -86,6 +90,18 @@ $InboxGetAccountStatusStandingCopyWith<$Res> get standing {
   
   return $InboxGetAccountStatusStandingCopyWith<$Res>(_self.standing, (value) {
     return _then(_self.copyWith(standing: value));
+  });
+}/// Create a copy of InboxGetAccountStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EnforcementViewCopyWith<$Res>? get enforcement {
+    if (_self.enforcement == null) {
+    return null;
+  }
+
+  return $EnforcementViewCopyWith<$Res>(_self.enforcement!, (value) {
+    return _then(_self.copyWith(enforcement: value));
   });
 }
 }
@@ -169,10 +185,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String src, @InboxGetAccountStatusStandingConverter()  InboxGetAccountStatusStanding standing, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String src, @InboxGetAccountStatusStandingConverter()  InboxGetAccountStatusStanding standing,  bool? hasActiveStrikes, @EnforcementViewConverter()  EnforcementView? enforcement, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _InboxGetAccountStatusOutput() when $default != null:
-return $default(_that.src,_that.standing,_that.updatedAt,_that.expiresAt,_that.$unknown);case _:
+return $default(_that.src,_that.standing,_that.hasActiveStrikes,_that.enforcement,_that.updatedAt,_that.expiresAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -190,10 +206,10 @@ return $default(_that.src,_that.standing,_that.updatedAt,_that.expiresAt,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String src, @InboxGetAccountStatusStandingConverter()  InboxGetAccountStatusStanding standing, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String src, @InboxGetAccountStatusStandingConverter()  InboxGetAccountStatusStanding standing,  bool? hasActiveStrikes, @EnforcementViewConverter()  EnforcementView? enforcement, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _InboxGetAccountStatusOutput():
-return $default(_that.src,_that.standing,_that.updatedAt,_that.expiresAt,_that.$unknown);case _:
+return $default(_that.src,_that.standing,_that.hasActiveStrikes,_that.enforcement,_that.updatedAt,_that.expiresAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +226,10 @@ return $default(_that.src,_that.standing,_that.updatedAt,_that.expiresAt,_that.$
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String src, @InboxGetAccountStatusStandingConverter()  InboxGetAccountStatusStanding standing, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String src, @InboxGetAccountStatusStandingConverter()  InboxGetAccountStatusStanding standing,  bool? hasActiveStrikes, @EnforcementViewConverter()  EnforcementView? enforcement, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime? expiresAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _InboxGetAccountStatusOutput() when $default != null:
-return $default(_that.src,_that.standing,_that.updatedAt,_that.expiresAt,_that.$unknown);case _:
+return $default(_that.src,_that.standing,_that.hasActiveStrikes,_that.enforcement,_that.updatedAt,_that.expiresAt,_that.$unknown);case _:
   return null;
 
 }
@@ -225,12 +241,16 @@ return $default(_that.src,_that.standing,_that.updatedAt,_that.expiresAt,_that.$
 
 @JsonSerializable(includeIfNull: false)
 class _InboxGetAccountStatusOutput implements InboxGetAccountStatusOutput {
-  const _InboxGetAccountStatusOutput({required this.src, @InboxGetAccountStatusStandingConverter() required this.standing, @JsonKey(toJson: iso8601) required this.updatedAt, @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _InboxGetAccountStatusOutput({required this.src, @InboxGetAccountStatusStandingConverter() required this.standing, this.hasActiveStrikes, @EnforcementViewConverter() this.enforcement, @JsonKey(toJson: iso8601) required this.updatedAt, @JsonKey(toJson: iso8601) this.expiresAt, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _InboxGetAccountStatusOutput.fromJson(Map<String, dynamic> json) => _$InboxGetAccountStatusOutputFromJson(json);
 
 /// DID of the moderation service returning this status.
 @override final  String src;
 @override@InboxGetAccountStatusStandingConverter() final  InboxGetAccountStatusStanding standing;
+/// Whether the account currently has any active strikes.
+@override final  bool? hasActiveStrikes;
+/// Current account takedown or suspension, independent of strike standing.
+@override@EnforcementViewConverter() final  EnforcementView? enforcement;
 /// Newest account-status update or strike timestamp used to derive this standing, or the Unix epoch when neither exists. This is not a standing-transition timestamp; expiry can change standing without changing this value.
 @override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
 /// Time at which the current suspension expires. Present only for a temporary suspension.
@@ -258,16 +278,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InboxGetAccountStatusOutput&&(identical(other.src, src) || other.src == src)&&(identical(other.standing, standing) || other.standing == standing)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InboxGetAccountStatusOutput&&(identical(other.src, src) || other.src == src)&&(identical(other.standing, standing) || other.standing == standing)&&(identical(other.hasActiveStrikes, hasActiveStrikes) || other.hasActiveStrikes == hasActiveStrikes)&&(identical(other.enforcement, enforcement) || other.enforcement == enforcement)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,src,standing,updatedAt,expiresAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,src,standing,hasActiveStrikes,enforcement,updatedAt,expiresAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'InboxGetAccountStatusOutput(src: $src, standing: $standing, updatedAt: $updatedAt, expiresAt: $expiresAt, \$unknown: ${$unknown})';
+  return 'InboxGetAccountStatusOutput(src: $src, standing: $standing, hasActiveStrikes: $hasActiveStrikes, enforcement: $enforcement, updatedAt: $updatedAt, expiresAt: $expiresAt, \$unknown: ${$unknown})';
 }
 
 
@@ -278,11 +298,11 @@ abstract mixin class _$InboxGetAccountStatusOutputCopyWith<$Res> implements $Inb
   factory _$InboxGetAccountStatusOutputCopyWith(_InboxGetAccountStatusOutput value, $Res Function(_InboxGetAccountStatusOutput) _then) = __$InboxGetAccountStatusOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String src,@InboxGetAccountStatusStandingConverter() InboxGetAccountStatusStanding standing,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
+ String src,@InboxGetAccountStatusStandingConverter() InboxGetAccountStatusStanding standing, bool? hasActiveStrikes,@EnforcementViewConverter() EnforcementView? enforcement,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime? expiresAt, Map<String, dynamic>? $unknown
 });
 
 
-@override $InboxGetAccountStatusStandingCopyWith<$Res> get standing;
+@override $InboxGetAccountStatusStandingCopyWith<$Res> get standing;@override $EnforcementViewCopyWith<$Res>? get enforcement;
 
 }
 /// @nodoc
@@ -295,11 +315,13 @@ class __$InboxGetAccountStatusOutputCopyWithImpl<$Res>
 
 /// Create a copy of InboxGetAccountStatusOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? src = null,Object? standing = null,Object? updatedAt = null,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? src = null,Object? standing = null,Object? hasActiveStrikes = freezed,Object? enforcement = freezed,Object? updatedAt = null,Object? expiresAt = freezed,Object? $unknown = freezed,}) {
   return _then(_InboxGetAccountStatusOutput(
 src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
 as String,standing: null == standing ? _self.standing : standing // ignore: cast_nullable_to_non_nullable
-as InboxGetAccountStatusStanding,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as InboxGetAccountStatusStanding,hasActiveStrikes: freezed == hasActiveStrikes ? _self.hasActiveStrikes : hasActiveStrikes // ignore: cast_nullable_to_non_nullable
+as bool?,enforcement: freezed == enforcement ? _self.enforcement : enforcement // ignore: cast_nullable_to_non_nullable
+as EnforcementView?,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -314,6 +336,18 @@ $InboxGetAccountStatusStandingCopyWith<$Res> get standing {
   
   return $InboxGetAccountStatusStandingCopyWith<$Res>(_self.standing, (value) {
     return _then(_self.copyWith(standing: value));
+  });
+}/// Create a copy of InboxGetAccountStatusOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EnforcementViewCopyWith<$Res>? get enforcement {
+    if (_self.enforcement == null) {
+    return null;
+  }
+
+  return $EnforcementViewCopyWith<$Res>(_self.enforcement!, (value) {
+    return _then(_self.copyWith(enforcement: value));
   });
 }
 }

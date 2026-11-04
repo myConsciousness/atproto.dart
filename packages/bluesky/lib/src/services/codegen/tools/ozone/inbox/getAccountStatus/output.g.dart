@@ -18,6 +18,14 @@ _InboxGetAccountStatusOutput _$InboxGetAccountStatusOutputFromJson(
       (v) =>
           const InboxGetAccountStatusStandingConverter().fromJson(v as String),
     ),
+    hasActiveStrikes: $checkedConvert('hasActiveStrikes', (v) => v as bool?),
+    enforcement: $checkedConvert(
+      'enforcement',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, EnforcementView>(
+        v,
+        const EnforcementViewConverter().fromJson,
+      ),
+    ),
     updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
     expiresAt: $checkedConvert(
       'expiresAt',
@@ -38,7 +46,22 @@ Map<String, dynamic> _$InboxGetAccountStatusOutputToJson(
   'standing': const InboxGetAccountStatusStandingConverter().toJson(
     instance.standing,
   ),
+  'hasActiveStrikes': ?instance.hasActiveStrikes,
+  'enforcement': ?_$JsonConverterToJson<Map<String, dynamic>, EnforcementView>(
+    instance.enforcement,
+    const EnforcementViewConverter().toJson,
+  ),
   'updatedAt': iso8601(instance.updatedAt),
   'expiresAt': iso8601(instance.expiresAt),
   r'$unknown': ?instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

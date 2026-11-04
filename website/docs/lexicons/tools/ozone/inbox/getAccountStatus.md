@@ -23,5 +23,7 @@ Get the authenticated account's current standing with this moderation service.
 | --- | --- | --- | :---: | --- |
 | **src** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the moderation service returning this status. |
 | **standing** | string | good<br/>warning<br/>atRisk | ✅ | - |
+| **hasActiveStrikes** | boolean | - | ❌ | Whether the account currently has any active strikes. |
+| **enforcement** | [tools.ozone.inbox.defs#enforcementView](../../../../lexicons/tools/ozone/inbox/defs.md#enforcementview) | - | ❌ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Newest account-status update or strike timestamp used to derive this standing, or the Unix epoch when neither exists. This is not a standing-transition timestamp; expiry can change standing without changing this value. |
 | **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Time at which the current suspension expires. Present only for a temporary suspension. |

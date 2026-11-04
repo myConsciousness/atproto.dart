@@ -12,6 +12,7 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'label/query_labels.dart';
+import 'label/record.dart';
 
 // **************************************************************************
 // LexGenerator
@@ -20,6 +21,7 @@ import 'label/query_labels.dart';
 final class ComAtprotoLabelCommand extends Command<void> {
   ComAtprotoLabelCommand() {
     addSubcommand(QueryLabelsCommand());
+    addSubcommand(RecordCommand());
   }
 
   @override

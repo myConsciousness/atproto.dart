@@ -78,6 +78,7 @@ A subject with a page of its action history and an aggregate report summary. Fol
 | **isRead** | boolean | - | ✅ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **record** | unknown | - | ❌ | Raw record JSON for the subject, when the subject is a record and the record is available. |
+| **account** | [#accountPreview](#accountpreview) | - | ❌ | - |
 | **enforcement** | [#enforcementView](#enforcementview) | - | ✅ | - |
 | **appeal** | [#appealView](#appealview) | - | ❌ | - |
 | **availableActions** | array of string | - | ❌ | - |
@@ -86,6 +87,15 @@ A subject with a page of its action history and an aggregate report summary. Fol
 | **reports** | [#reportsSummary](#reportssummary) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #accountPreview
+
+Current account information, when available; this is not a snapshot of the account at the time of the action.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ❌ | - |
+| **profile** | unknown | - | ❌ | Raw app.bsky.actor.profile record, when available. |
 
 ## #reportsSummary
 
