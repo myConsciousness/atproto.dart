@@ -22627,6 +22627,11 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
           "description":
               "Target ALL reports on the subject. Excludes assigned and escalated reports.",
         },
+        "allOwned": {
+          "type": "boolean",
+          "description":
+              "Target all eligible reports on the account and its owned subjects, including records, messages, and conversations. Only valid for account subjects and events that close reports. Excludes assigned, escalated, and actively assigned reports unless explicitly targeted by ID.",
+        },
         "note": {
           "type": "string",
           "description":
@@ -24447,7 +24452,7 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.",
+          "Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -24477,6 +24482,12 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
               "description":
                   "Reports of these types (fully qualified reason NSIDs) are excluded from closure and left unchanged. When omitted or empty, no report types are excluded.",
               "items": {"type": "string"},
+            },
+            "actionEventId": {
+              "type": "integer",
+              "description":
+                  "Optional existing moderation event that closes reports. It must target the exact subject or its owning account; account-wide closure requires an account event. The event is linked to each closed report and may predate the report. The link does not imply the action is still in effect.",
+              "minimum": 1,
             },
             "internalNote": {
               "type": "string",

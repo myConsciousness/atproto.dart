@@ -7,7 +7,7 @@ description: tools.ozone.report.closeReports
 
 ## #main
 
-Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
+Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.
 
 ### Input
 
@@ -19,6 +19,7 @@ Close eligible reports on a subject matching the given criteria. Assigned and es
 | **includeAllOwned** | boolean | - | ❌ | If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID. |
 | **reportTypes** | array of string | - | ❌ | If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned and escalated reports are always excluded. |
 | **excludedReportTypes** | array of string | - | ❌ | Reports of these types (fully qualified reason NSIDs) are excluded from closure and left unchanged. When omitted or empty, no report types are excluded. |
+| **actionEventId** | integer | - | ❌ | Optional existing moderation event that closes reports. It must target the exact subject or its owning account; account-wide closure requires an account event. The event is linked to each closed report and may predate the report. The link does not imply the action is still in effect. |
 | **internalNote** | string | - | ❌ | Optional moderator-only note recorded on each close activity. Not visible to reporters. |
 | **isAutomated** | boolean | - | ❌ | Set true when this action is triggered by an automated process. Defaults to false. |
 | **meta** | unknown | - | ❌ | Optional metadata for the report activities. Lifecycle and resolution fields are controlled by the service. |
