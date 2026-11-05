@@ -25,6 +25,7 @@ abstract class ReportAction with _$ReportAction {
     'ids',
     'types',
     'all',
+    'allOwned',
     'note',
     'isAutomated',
   ];
@@ -37,6 +38,9 @@ abstract class ReportAction with _$ReportAction {
 
     /// Target ALL reports on the subject. Excludes assigned and escalated reports.
     bool? all,
+
+    /// Target all eligible reports on the account and its owned subjects, including records, messages, and conversations. Only valid for account subjects and events that close reports. Excludes assigned, escalated, and actively assigned reports unless explicitly targeted by ID.
+    bool? allOwned,
 
     /// Note to send to reporter(s) when actioning their report
     String? note,
@@ -59,6 +63,8 @@ abstract class ReportAction with _$ReportAction {
 extension ReportActionExtension on ReportAction {
   bool get isAll => all ?? false;
   bool get isNotAll => !isAll;
+  bool get isAllOwned => allOwned ?? false;
+  bool get isNotAllOwned => !isAllOwned;
   bool get hasNote => note != null;
   bool get hasNotNote => !hasNote;
   bool get isIsAutomated => isAutomated ?? false;

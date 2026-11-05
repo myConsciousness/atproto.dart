@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.41
+
+- chore: bump `lexicon` to `^1.2.38`
+
 ## v0.4.40
 
 - chore: bump `lexicon` to `^1.2.37`

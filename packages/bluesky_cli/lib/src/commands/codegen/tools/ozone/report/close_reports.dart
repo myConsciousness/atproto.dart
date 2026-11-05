@@ -43,6 +43,11 @@ final class CloseReportsCommand extends ProcedureCommand {
             r"Reports of these types (fully qualified reason NSIDs) are excluded from closure and left unchanged. When omitted or empty, no report types are excluded.",
       )
       ..addOption(
+        "actionEventId",
+        help:
+            r"Optional existing moderation event that closes reports. It must target the exact subject or its owning account; account-wide closure requires an account event. The event is linked to each closed report and may predate the report. The link does not imply the action is still in effect.",
+      )
+      ..addOption(
         "internalNote",
         help:
             r"Optional moderator-only note recorded on each close activity. Not visible to reporters.",
@@ -65,11 +70,11 @@ final class CloseReportsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      "Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.";
+      "Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.";
 
   @override
   final String invocation =
-      "bsky tools-ozone-report close-reports --subject=<value> [--includeAllOwned] [--reportTypes=<value>...] [--excludedReportTypes=<value>...] [--internalNote=<value>] [--isAutomated] [--meta=<value>]";
+      "bsky tools-ozone-report close-reports --subject=<value> [--includeAllOwned] [--reportTypes=<value>...] [--excludedReportTypes=<value>...] [--actionEventId=<value>] [--internalNote=<value>] [--isAutomated] [--meta=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.closeReports";
@@ -82,6 +87,10 @@ final class CloseReportsCommand extends ProcedureCommand {
       "reportTypes": argResults!["reportTypes"],
     if (argResults!.wasParsed("excludedReportTypes"))
       "excludedReportTypes": argResults!["excludedReportTypes"],
+    if (argResults!.wasParsed("actionEventId"))
+      "actionEventId":
+          int.tryParse(argResults!["actionEventId"]) ??
+          usageException('Invalid integer value for option "actionEventId".'),
     if (argResults!.wasParsed("internalNote"))
       "internalNote": argResults!["internalNote"],
     "isAutomated": argResults!["isAutomated"],

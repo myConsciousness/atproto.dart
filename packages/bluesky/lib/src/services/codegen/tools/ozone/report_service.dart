@@ -58,12 +58,13 @@ Future<XRPCResponse<AssignmentView>> toolsOzoneReportAssignModerator({
   to: const AssignmentViewConverter().fromJson,
 );
 
-/// Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
+/// Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.
 Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
   required String subject,
   bool? includeAllOwned,
   List<String>? reportTypes,
   List<String>? excludedReportTypes,
+  int? actionEventId,
   String? internalNote,
   bool? isAutomated,
   Map<String, dynamic>? meta,
@@ -81,6 +82,7 @@ Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
     if (includeAllOwned != null) 'includeAllOwned': includeAllOwned,
     if (reportTypes != null) 'reportTypes': reportTypes,
     if (excludedReportTypes != null) 'excludedReportTypes': excludedReportTypes,
+    if (actionEventId != null) 'actionEventId': actionEventId,
     if (internalNote != null) 'internalNote': internalNote,
     if (isAutomated != null) 'isAutomated': isAutomated,
     if (meta != null) 'meta': meta,
@@ -412,12 +414,13 @@ base class ReportService {
     $unknown: $unknown,
   );
 
-  /// Close eligible reports on a subject matching the given criteria. Assigned and escalated reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently. Intended for automated flows that resolve reports without taking action on the subject.
+  /// Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.
   Future<XRPCResponse<ReportCloseReportsOutput>> closeReports({
     required String subject,
     bool? includeAllOwned,
     List<String>? reportTypes,
     List<String>? excludedReportTypes,
+    int? actionEventId,
     String? internalNote,
     bool? isAutomated,
     Map<String, dynamic>? meta,
@@ -429,6 +432,7 @@ base class ReportService {
     includeAllOwned: includeAllOwned,
     reportTypes: reportTypes,
     excludedReportTypes: excludedReportTypes,
+    actionEventId: actionEventId,
     internalNote: internalNote,
     isAutomated: isAutomated,
     meta: meta,

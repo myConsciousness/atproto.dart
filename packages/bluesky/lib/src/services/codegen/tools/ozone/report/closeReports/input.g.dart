@@ -24,6 +24,10 @@ _ReportCloseReportsInput _$ReportCloseReportsInputFromJson(Map json) =>
           'excludedReportTypes',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
         ),
+        actionEventId: $checkedConvert(
+          'actionEventId',
+          (v) => (v as num?)?.toInt(),
+        ),
         internalNote: $checkedConvert('internalNote', (v) => v as String?),
         isAutomated: $checkedConvert('isAutomated', (v) => v as bool? ?? false),
         meta: $checkedConvert(
@@ -45,6 +49,7 @@ Map<String, dynamic> _$ReportCloseReportsInputToJson(
   'includeAllOwned': instance.includeAllOwned,
   'reportTypes': ?instance.reportTypes,
   'excludedReportTypes': ?instance.excludedReportTypes,
+  'actionEventId': ?instance.actionEventId,
   'internalNote': ?instance.internalNote,
   'isAutomated': instance.isAutomated,
   'meta': ?instance.meta,

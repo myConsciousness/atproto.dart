@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.15.6
+
+- feat: added `tools.ozone.moderation.emitEvent#reportAction.allOwned`
+- chore: updated `tools.ozone.report.closeReports`
+- feat: added `tools.ozone.report.closeReports.input.actionEventId`
+- chore: regenerated from synced lexicons
+
 ## v2.15.5
 
 - feat: added `tools.ozone.inbox.defs#accountPreview`
