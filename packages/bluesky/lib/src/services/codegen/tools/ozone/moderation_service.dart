@@ -371,9 +371,6 @@ toolsOzoneModerationQueryStatuses({
   String? cursor,
   List<String>? collections,
   ModerationQueryStatusesSubjectType? subjectType,
-  int? minAccountSuspendCount,
-  int? minReportedRecordsCount,
-  int? minTakendownRecordsCount,
   int? minPriorityScore,
   int? minStrikeCount,
   ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
@@ -422,12 +419,6 @@ toolsOzoneModerationQueryStatuses({
     if (cursor != null) 'cursor': cursor,
     if (collections != null) 'collections': collections,
     if (subjectType != null) 'subjectType': subjectType.toJson(),
-    if (minAccountSuspendCount != null)
-      'minAccountSuspendCount': minAccountSuspendCount,
-    if (minReportedRecordsCount != null)
-      'minReportedRecordsCount': minReportedRecordsCount,
-    if (minTakendownRecordsCount != null)
-      'minTakendownRecordsCount': minTakendownRecordsCount,
     if (minPriorityScore != null) 'minPriorityScore': minPriorityScore,
     if (minStrikeCount != null) 'minStrikeCount': minStrikeCount,
     if (ageAssuranceState != null)
@@ -781,9 +772,6 @@ base class ModerationService {
     String? cursor,
     List<String>? collections,
     ModerationQueryStatusesSubjectType? subjectType,
-    int? minAccountSuspendCount,
-    int? minReportedRecordsCount,
-    int? minTakendownRecordsCount,
     int? minPriorityScore,
     int? minStrikeCount,
     ModerationQueryStatusesAgeAssuranceState? ageAssuranceState,
@@ -821,9 +809,6 @@ base class ModerationService {
     cursor: cursor,
     collections: collections,
     subjectType: subjectType,
-    minAccountSuspendCount: minAccountSuspendCount,
-    minReportedRecordsCount: minReportedRecordsCount,
-    minTakendownRecordsCount: minTakendownRecordsCount,
     minPriorityScore: minPriorityScore,
     minStrikeCount: minStrikeCount,
     ageAssuranceState: ageAssuranceState,

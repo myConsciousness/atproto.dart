@@ -81,20 +81,6 @@ _SubjectStatusView _$SubjectStatusViewFromJson(
       'tags',
       (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
     ),
-    accountStats: $checkedConvert(
-      'accountStats',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, AccountStats>(
-        v,
-        const AccountStatsConverter().fromJson,
-      ),
-    ),
-    recordsStats: $checkedConvert(
-      'recordsStats',
-      (v) => _$JsonConverterFromJson<Map<String, dynamic>, RecordsStats>(
-        v,
-        const RecordsStatsConverter().fromJson,
-      ),
-    ),
     accountStrike: $checkedConvert(
       'accountStrike',
       (v) => _$JsonConverterFromJson<Map<String, dynamic>, AccountStrike>(
@@ -161,14 +147,6 @@ Map<String, dynamic> _$SubjectStatusViewToJson(
   'appealed': ?instance.appealed,
   'suspendUntil': iso8601(instance.suspendUntil),
   'tags': ?instance.tags,
-  'accountStats': ?_$JsonConverterToJson<Map<String, dynamic>, AccountStats>(
-    instance.accountStats,
-    const AccountStatsConverter().toJson,
-  ),
-  'recordsStats': ?_$JsonConverterToJson<Map<String, dynamic>, RecordsStats>(
-    instance.recordsStats,
-    const RecordsStatsConverter().toJson,
-  ),
   'accountStrike': ?_$JsonConverterToJson<Map<String, dynamic>, AccountStrike>(
     instance.accountStrike,
     const AccountStrikeConverter().toJson,

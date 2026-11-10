@@ -12,9 +12,7 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import './account_stats.dart';
 import './account_strike.dart';
-import './records_stats.dart';
 import './subject_review_state.dart';
 import './subject_status_view_age_assurance_state.dart';
 import './subject_status_view_age_assurance_updated_by.dart';
@@ -51,8 +49,6 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     'appealed',
     'suspendUntil',
     'tags',
-    'accountStats',
-    'recordsStats',
     'accountStrike',
     'ageAssuranceState',
     'ageAssuranceUpdatedBy',
@@ -94,12 +90,6 @@ abstract class SubjectStatusView with _$SubjectStatusView {
     bool? appealed,
     @JsonKey(toJson: iso8601) DateTime? suspendUntil,
     List<String>? tags,
-
-    /// Statistics related to the account subject
-    @AccountStatsConverter() AccountStats? accountStats,
-
-    /// Statistics related to the record subjects authored by the subject's account
-    @RecordsStatsConverter() RecordsStats? recordsStats,
 
     /// Strike information for the account (account-level only)
     @AccountStrikeConverter() AccountStrike? accountStrike,
@@ -151,10 +141,6 @@ extension SubjectStatusViewExtension on SubjectStatusView {
   bool get isNotAppealed => !isAppealed;
   bool get hasSuspendUntil => suspendUntil != null;
   bool get hasNotSuspendUntil => !hasSuspendUntil;
-  bool get hasAccountStats => accountStats != null;
-  bool get hasNotAccountStats => !hasAccountStats;
-  bool get hasRecordsStats => recordsStats != null;
-  bool get hasNotRecordsStats => !hasRecordsStats;
   bool get hasAccountStrike => accountStrike != null;
   bool get hasNotAccountStrike => !hasAccountStrike;
   bool get hasAgeAssuranceState => ageAssuranceState != null;

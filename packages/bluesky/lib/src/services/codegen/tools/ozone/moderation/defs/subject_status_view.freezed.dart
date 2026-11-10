@@ -21,9 +21,7 @@ mixin _$SubjectStatusView {
  String? get comment;/// Numeric value representing the level of priority. Higher score means higher priority.
  int? get priorityScore;@JsonKey(toJson: iso8601) DateTime? get muteUntil;@JsonKey(toJson: iso8601) DateTime? get muteReportingUntil; String? get lastReviewedBy;@JsonKey(toJson: iso8601) DateTime? get lastReviewedAt;@JsonKey(toJson: iso8601) DateTime? get lastReportedAt;/// Timestamp referencing when the author of the subject appealed a moderation action
 @JsonKey(toJson: iso8601) DateTime? get lastAppealedAt; bool? get takendown;/// True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators.
- bool? get appealed;@JsonKey(toJson: iso8601) DateTime? get suspendUntil; List<String>? get tags;/// Statistics related to the account subject
-@AccountStatsConverter() AccountStats? get accountStats;/// Statistics related to the record subjects authored by the subject's account
-@RecordsStatsConverter() RecordsStats? get recordsStats;/// Strike information for the account (account-level only)
+ bool? get appealed;@JsonKey(toJson: iso8601) DateTime? get suspendUntil; List<String>? get tags;/// Strike information for the account (account-level only)
 @AccountStrikeConverter() AccountStrike? get accountStrike;/// Current age assurance state of the subject.
 @SubjectStatusViewAgeAssuranceStateConverter() SubjectStatusViewAgeAssuranceState? get ageAssuranceState;/// Whether or not the last successful update to age assurance was made by the user or admin.
 @SubjectStatusViewAgeAssuranceUpdatedByConverter() SubjectStatusViewAgeAssuranceUpdatedBy? get ageAssuranceUpdatedBy; Map<String, dynamic>? get $unknown;
@@ -39,16 +37,16 @@ $SubjectStatusViewCopyWith<SubjectStatusView> get copyWith => _$SubjectStatusVie
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectStatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.hosting, hosting) || other.hosting == hosting)&&const DeepCollectionEquality().equals(other.subjectBlobCids, subjectBlobCids)&&(identical(other.subjectRepoHandle, subjectRepoHandle) || other.subjectRepoHandle == subjectRepoHandle)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reviewState, reviewState) || other.reviewState == reviewState)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.priorityScore, priorityScore) || other.priorityScore == priorityScore)&&(identical(other.muteUntil, muteUntil) || other.muteUntil == muteUntil)&&(identical(other.muteReportingUntil, muteReportingUntil) || other.muteReportingUntil == muteReportingUntil)&&(identical(other.lastReviewedBy, lastReviewedBy) || other.lastReviewedBy == lastReviewedBy)&&(identical(other.lastReviewedAt, lastReviewedAt) || other.lastReviewedAt == lastReviewedAt)&&(identical(other.lastReportedAt, lastReportedAt) || other.lastReportedAt == lastReportedAt)&&(identical(other.lastAppealedAt, lastAppealedAt) || other.lastAppealedAt == lastAppealedAt)&&(identical(other.takendown, takendown) || other.takendown == takendown)&&(identical(other.appealed, appealed) || other.appealed == appealed)&&(identical(other.suspendUntil, suspendUntil) || other.suspendUntil == suspendUntil)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.accountStats, accountStats) || other.accountStats == accountStats)&&(identical(other.recordsStats, recordsStats) || other.recordsStats == recordsStats)&&(identical(other.accountStrike, accountStrike) || other.accountStrike == accountStrike)&&(identical(other.ageAssuranceState, ageAssuranceState) || other.ageAssuranceState == ageAssuranceState)&&(identical(other.ageAssuranceUpdatedBy, ageAssuranceUpdatedBy) || other.ageAssuranceUpdatedBy == ageAssuranceUpdatedBy)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubjectStatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.hosting, hosting) || other.hosting == hosting)&&const DeepCollectionEquality().equals(other.subjectBlobCids, subjectBlobCids)&&(identical(other.subjectRepoHandle, subjectRepoHandle) || other.subjectRepoHandle == subjectRepoHandle)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reviewState, reviewState) || other.reviewState == reviewState)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.priorityScore, priorityScore) || other.priorityScore == priorityScore)&&(identical(other.muteUntil, muteUntil) || other.muteUntil == muteUntil)&&(identical(other.muteReportingUntil, muteReportingUntil) || other.muteReportingUntil == muteReportingUntil)&&(identical(other.lastReviewedBy, lastReviewedBy) || other.lastReviewedBy == lastReviewedBy)&&(identical(other.lastReviewedAt, lastReviewedAt) || other.lastReviewedAt == lastReviewedAt)&&(identical(other.lastReportedAt, lastReportedAt) || other.lastReportedAt == lastReportedAt)&&(identical(other.lastAppealedAt, lastAppealedAt) || other.lastAppealedAt == lastAppealedAt)&&(identical(other.takendown, takendown) || other.takendown == takendown)&&(identical(other.appealed, appealed) || other.appealed == appealed)&&(identical(other.suspendUntil, suspendUntil) || other.suspendUntil == suspendUntil)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.accountStrike, accountStrike) || other.accountStrike == accountStrike)&&(identical(other.ageAssuranceState, ageAssuranceState) || other.ageAssuranceState == ageAssuranceState)&&(identical(other.ageAssuranceUpdatedBy, ageAssuranceUpdatedBy) || other.ageAssuranceUpdatedBy == ageAssuranceUpdatedBy)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,$type,id,subject,hosting,const DeepCollectionEquality().hash(subjectBlobCids),subjectRepoHandle,updatedAt,createdAt,reviewState,comment,priorityScore,muteUntil,muteReportingUntil,lastReviewedBy,lastReviewedAt,lastReportedAt,lastAppealedAt,takendown,appealed,suspendUntil,const DeepCollectionEquality().hash(tags),accountStats,recordsStats,accountStrike,ageAssuranceState,ageAssuranceUpdatedBy,const DeepCollectionEquality().hash($unknown)]);
+int get hashCode => Object.hashAll([runtimeType,$type,id,subject,hosting,const DeepCollectionEquality().hash(subjectBlobCids),subjectRepoHandle,updatedAt,createdAt,reviewState,comment,priorityScore,muteUntil,muteReportingUntil,lastReviewedBy,lastReviewedAt,lastReportedAt,lastAppealedAt,takendown,appealed,suspendUntil,const DeepCollectionEquality().hash(tags),accountStrike,ageAssuranceState,ageAssuranceUpdatedBy,const DeepCollectionEquality().hash($unknown)]);
 
 @override
 String toString() {
-  return 'SubjectStatusView(\$type: ${$type}, id: $id, subject: $subject, hosting: $hosting, subjectBlobCids: $subjectBlobCids, subjectRepoHandle: $subjectRepoHandle, updatedAt: $updatedAt, createdAt: $createdAt, reviewState: $reviewState, comment: $comment, priorityScore: $priorityScore, muteUntil: $muteUntil, muteReportingUntil: $muteReportingUntil, lastReviewedBy: $lastReviewedBy, lastReviewedAt: $lastReviewedAt, lastReportedAt: $lastReportedAt, lastAppealedAt: $lastAppealedAt, takendown: $takendown, appealed: $appealed, suspendUntil: $suspendUntil, tags: $tags, accountStats: $accountStats, recordsStats: $recordsStats, accountStrike: $accountStrike, ageAssuranceState: $ageAssuranceState, ageAssuranceUpdatedBy: $ageAssuranceUpdatedBy, \$unknown: ${$unknown})';
+  return 'SubjectStatusView(\$type: ${$type}, id: $id, subject: $subject, hosting: $hosting, subjectBlobCids: $subjectBlobCids, subjectRepoHandle: $subjectRepoHandle, updatedAt: $updatedAt, createdAt: $createdAt, reviewState: $reviewState, comment: $comment, priorityScore: $priorityScore, muteUntil: $muteUntil, muteReportingUntil: $muteReportingUntil, lastReviewedBy: $lastReviewedBy, lastReviewedAt: $lastReviewedAt, lastReportedAt: $lastReportedAt, lastAppealedAt: $lastAppealedAt, takendown: $takendown, appealed: $appealed, suspendUntil: $suspendUntil, tags: $tags, accountStrike: $accountStrike, ageAssuranceState: $ageAssuranceState, ageAssuranceUpdatedBy: $ageAssuranceUpdatedBy, \$unknown: ${$unknown})';
 }
 
 
@@ -59,11 +57,11 @@ abstract mixin class $SubjectStatusViewCopyWith<$Res>  {
   factory $SubjectStatusViewCopyWith(SubjectStatusView value, $Res Function(SubjectStatusView) _then) = _$SubjectStatusViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, int id,@USubjectStatusViewSubjectConverter() USubjectStatusViewSubject subject,@USubjectStatusViewHostingConverter() USubjectStatusViewHosting? hosting, List<String>? subjectBlobCids, String? subjectRepoHandle,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime createdAt,@SubjectReviewStateConverter() SubjectReviewState reviewState, String? comment, int? priorityScore,@JsonKey(toJson: iso8601) DateTime? muteUntil,@JsonKey(toJson: iso8601) DateTime? muteReportingUntil, String? lastReviewedBy,@JsonKey(toJson: iso8601) DateTime? lastReviewedAt,@JsonKey(toJson: iso8601) DateTime? lastReportedAt,@JsonKey(toJson: iso8601) DateTime? lastAppealedAt, bool? takendown, bool? appealed,@JsonKey(toJson: iso8601) DateTime? suspendUntil, List<String>? tags,@AccountStatsConverter() AccountStats? accountStats,@RecordsStatsConverter() RecordsStats? recordsStats,@AccountStrikeConverter() AccountStrike? accountStrike,@SubjectStatusViewAgeAssuranceStateConverter() SubjectStatusViewAgeAssuranceState? ageAssuranceState,@SubjectStatusViewAgeAssuranceUpdatedByConverter() SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy, Map<String, dynamic>? $unknown
+ String $type, int id,@USubjectStatusViewSubjectConverter() USubjectStatusViewSubject subject,@USubjectStatusViewHostingConverter() USubjectStatusViewHosting? hosting, List<String>? subjectBlobCids, String? subjectRepoHandle,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime createdAt,@SubjectReviewStateConverter() SubjectReviewState reviewState, String? comment, int? priorityScore,@JsonKey(toJson: iso8601) DateTime? muteUntil,@JsonKey(toJson: iso8601) DateTime? muteReportingUntil, String? lastReviewedBy,@JsonKey(toJson: iso8601) DateTime? lastReviewedAt,@JsonKey(toJson: iso8601) DateTime? lastReportedAt,@JsonKey(toJson: iso8601) DateTime? lastAppealedAt, bool? takendown, bool? appealed,@JsonKey(toJson: iso8601) DateTime? suspendUntil, List<String>? tags,@AccountStrikeConverter() AccountStrike? accountStrike,@SubjectStatusViewAgeAssuranceStateConverter() SubjectStatusViewAgeAssuranceState? ageAssuranceState,@SubjectStatusViewAgeAssuranceUpdatedByConverter() SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy, Map<String, dynamic>? $unknown
 });
 
 
-$USubjectStatusViewSubjectCopyWith<$Res> get subject;$USubjectStatusViewHostingCopyWith<$Res>? get hosting;$SubjectReviewStateCopyWith<$Res> get reviewState;$AccountStatsCopyWith<$Res>? get accountStats;$RecordsStatsCopyWith<$Res>? get recordsStats;$AccountStrikeCopyWith<$Res>? get accountStrike;$SubjectStatusViewAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;$SubjectStatusViewAgeAssuranceUpdatedByCopyWith<$Res>? get ageAssuranceUpdatedBy;
+$USubjectStatusViewSubjectCopyWith<$Res> get subject;$USubjectStatusViewHostingCopyWith<$Res>? get hosting;$SubjectReviewStateCopyWith<$Res> get reviewState;$AccountStrikeCopyWith<$Res>? get accountStrike;$SubjectStatusViewAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;$SubjectStatusViewAgeAssuranceUpdatedByCopyWith<$Res>? get ageAssuranceUpdatedBy;
 
 }
 /// @nodoc
@@ -76,7 +74,7 @@ class _$SubjectStatusViewCopyWithImpl<$Res>
 
 /// Create a copy of SubjectStatusView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? subject = null,Object? hosting = freezed,Object? subjectBlobCids = freezed,Object? subjectRepoHandle = freezed,Object? updatedAt = null,Object? createdAt = null,Object? reviewState = null,Object? comment = freezed,Object? priorityScore = freezed,Object? muteUntil = freezed,Object? muteReportingUntil = freezed,Object? lastReviewedBy = freezed,Object? lastReviewedAt = freezed,Object? lastReportedAt = freezed,Object? lastAppealedAt = freezed,Object? takendown = freezed,Object? appealed = freezed,Object? suspendUntil = freezed,Object? tags = freezed,Object? accountStats = freezed,Object? recordsStats = freezed,Object? accountStrike = freezed,Object? ageAssuranceState = freezed,Object? ageAssuranceUpdatedBy = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? id = null,Object? subject = null,Object? hosting = freezed,Object? subjectBlobCids = freezed,Object? subjectRepoHandle = freezed,Object? updatedAt = null,Object? createdAt = null,Object? reviewState = null,Object? comment = freezed,Object? priorityScore = freezed,Object? muteUntil = freezed,Object? muteReportingUntil = freezed,Object? lastReviewedBy = freezed,Object? lastReviewedAt = freezed,Object? lastReportedAt = freezed,Object? lastAppealedAt = freezed,Object? takendown = freezed,Object? appealed = freezed,Object? suspendUntil = freezed,Object? tags = freezed,Object? accountStrike = freezed,Object? ageAssuranceState = freezed,Object? ageAssuranceUpdatedBy = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -99,9 +97,7 @@ as DateTime?,takendown: freezed == takendown ? _self.takendown : takendown // ig
 as bool?,appealed: freezed == appealed ? _self.appealed : appealed // ignore: cast_nullable_to_non_nullable
 as bool?,suspendUntil: freezed == suspendUntil ? _self.suspendUntil : suspendUntil // ignore: cast_nullable_to_non_nullable
 as DateTime?,tags: freezed == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>?,accountStats: freezed == accountStats ? _self.accountStats : accountStats // ignore: cast_nullable_to_non_nullable
-as AccountStats?,recordsStats: freezed == recordsStats ? _self.recordsStats : recordsStats // ignore: cast_nullable_to_non_nullable
-as RecordsStats?,accountStrike: freezed == accountStrike ? _self.accountStrike : accountStrike // ignore: cast_nullable_to_non_nullable
+as List<String>?,accountStrike: freezed == accountStrike ? _self.accountStrike : accountStrike // ignore: cast_nullable_to_non_nullable
 as AccountStrike?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
 as SubjectStatusViewAgeAssuranceState?,ageAssuranceUpdatedBy: freezed == ageAssuranceUpdatedBy ? _self.ageAssuranceUpdatedBy : ageAssuranceUpdatedBy // ignore: cast_nullable_to_non_nullable
 as SubjectStatusViewAgeAssuranceUpdatedBy?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -137,30 +133,6 @@ $SubjectReviewStateCopyWith<$Res> get reviewState {
   
   return $SubjectReviewStateCopyWith<$Res>(_self.reviewState, (value) {
     return _then(_self.copyWith(reviewState: value));
-  });
-}/// Create a copy of SubjectStatusView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$AccountStatsCopyWith<$Res>? get accountStats {
-    if (_self.accountStats == null) {
-    return null;
-  }
-
-  return $AccountStatsCopyWith<$Res>(_self.accountStats!, (value) {
-    return _then(_self.copyWith(accountStats: value));
-  });
-}/// Create a copy of SubjectStatusView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$RecordsStatsCopyWith<$Res>? get recordsStats {
-    if (_self.recordsStats == null) {
-    return null;
-  }
-
-  return $RecordsStatsCopyWith<$Res>(_self.recordsStats!, (value) {
-    return _then(_self.copyWith(recordsStats: value));
   });
 }/// Create a copy of SubjectStatusView
 /// with the given fields replaced by the non-null parameter values.
@@ -280,10 +252,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @USubjectStatusViewSubjectConverter()  USubjectStatusViewSubject subject, @USubjectStatusViewHostingConverter()  USubjectStatusViewHosting? hosting,  List<String>? subjectBlobCids,  String? subjectRepoHandle, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @SubjectReviewStateConverter()  SubjectReviewState reviewState,  String? comment,  int? priorityScore, @JsonKey(toJson: iso8601)  DateTime? muteUntil, @JsonKey(toJson: iso8601)  DateTime? muteReportingUntil,  String? lastReviewedBy, @JsonKey(toJson: iso8601)  DateTime? lastReviewedAt, @JsonKey(toJson: iso8601)  DateTime? lastReportedAt, @JsonKey(toJson: iso8601)  DateTime? lastAppealedAt,  bool? takendown,  bool? appealed, @JsonKey(toJson: iso8601)  DateTime? suspendUntil,  List<String>? tags, @AccountStatsConverter()  AccountStats? accountStats, @RecordsStatsConverter()  RecordsStats? recordsStats, @AccountStrikeConverter()  AccountStrike? accountStrike, @SubjectStatusViewAgeAssuranceStateConverter()  SubjectStatusViewAgeAssuranceState? ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter()  SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  int id, @USubjectStatusViewSubjectConverter()  USubjectStatusViewSubject subject, @USubjectStatusViewHostingConverter()  USubjectStatusViewHosting? hosting,  List<String>? subjectBlobCids,  String? subjectRepoHandle, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @SubjectReviewStateConverter()  SubjectReviewState reviewState,  String? comment,  int? priorityScore, @JsonKey(toJson: iso8601)  DateTime? muteUntil, @JsonKey(toJson: iso8601)  DateTime? muteReportingUntil,  String? lastReviewedBy, @JsonKey(toJson: iso8601)  DateTime? lastReviewedAt, @JsonKey(toJson: iso8601)  DateTime? lastReportedAt, @JsonKey(toJson: iso8601)  DateTime? lastAppealedAt,  bool? takendown,  bool? appealed, @JsonKey(toJson: iso8601)  DateTime? suspendUntil,  List<String>? tags, @AccountStrikeConverter()  AccountStrike? accountStrike, @SubjectStatusViewAgeAssuranceStateConverter()  SubjectStatusViewAgeAssuranceState? ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter()  SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SubjectStatusView() when $default != null:
-return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBlobCids,_that.subjectRepoHandle,_that.updatedAt,_that.createdAt,_that.reviewState,_that.comment,_that.priorityScore,_that.muteUntil,_that.muteReportingUntil,_that.lastReviewedBy,_that.lastReviewedAt,_that.lastReportedAt,_that.lastAppealedAt,_that.takendown,_that.appealed,_that.suspendUntil,_that.tags,_that.accountStats,_that.recordsStats,_that.accountStrike,_that.ageAssuranceState,_that.ageAssuranceUpdatedBy,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBlobCids,_that.subjectRepoHandle,_that.updatedAt,_that.createdAt,_that.reviewState,_that.comment,_that.priorityScore,_that.muteUntil,_that.muteReportingUntil,_that.lastReviewedBy,_that.lastReviewedAt,_that.lastReportedAt,_that.lastAppealedAt,_that.takendown,_that.appealed,_that.suspendUntil,_that.tags,_that.accountStrike,_that.ageAssuranceState,_that.ageAssuranceUpdatedBy,_that.$unknown);case _:
   return orElse();
 
 }
@@ -301,10 +273,10 @@ return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBl
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @USubjectStatusViewSubjectConverter()  USubjectStatusViewSubject subject, @USubjectStatusViewHostingConverter()  USubjectStatusViewHosting? hosting,  List<String>? subjectBlobCids,  String? subjectRepoHandle, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @SubjectReviewStateConverter()  SubjectReviewState reviewState,  String? comment,  int? priorityScore, @JsonKey(toJson: iso8601)  DateTime? muteUntil, @JsonKey(toJson: iso8601)  DateTime? muteReportingUntil,  String? lastReviewedBy, @JsonKey(toJson: iso8601)  DateTime? lastReviewedAt, @JsonKey(toJson: iso8601)  DateTime? lastReportedAt, @JsonKey(toJson: iso8601)  DateTime? lastAppealedAt,  bool? takendown,  bool? appealed, @JsonKey(toJson: iso8601)  DateTime? suspendUntil,  List<String>? tags, @AccountStatsConverter()  AccountStats? accountStats, @RecordsStatsConverter()  RecordsStats? recordsStats, @AccountStrikeConverter()  AccountStrike? accountStrike, @SubjectStatusViewAgeAssuranceStateConverter()  SubjectStatusViewAgeAssuranceState? ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter()  SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  int id, @USubjectStatusViewSubjectConverter()  USubjectStatusViewSubject subject, @USubjectStatusViewHostingConverter()  USubjectStatusViewHosting? hosting,  List<String>? subjectBlobCids,  String? subjectRepoHandle, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @SubjectReviewStateConverter()  SubjectReviewState reviewState,  String? comment,  int? priorityScore, @JsonKey(toJson: iso8601)  DateTime? muteUntil, @JsonKey(toJson: iso8601)  DateTime? muteReportingUntil,  String? lastReviewedBy, @JsonKey(toJson: iso8601)  DateTime? lastReviewedAt, @JsonKey(toJson: iso8601)  DateTime? lastReportedAt, @JsonKey(toJson: iso8601)  DateTime? lastAppealedAt,  bool? takendown,  bool? appealed, @JsonKey(toJson: iso8601)  DateTime? suspendUntil,  List<String>? tags, @AccountStrikeConverter()  AccountStrike? accountStrike, @SubjectStatusViewAgeAssuranceStateConverter()  SubjectStatusViewAgeAssuranceState? ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter()  SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _SubjectStatusView():
-return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBlobCids,_that.subjectRepoHandle,_that.updatedAt,_that.createdAt,_that.reviewState,_that.comment,_that.priorityScore,_that.muteUntil,_that.muteReportingUntil,_that.lastReviewedBy,_that.lastReviewedAt,_that.lastReportedAt,_that.lastAppealedAt,_that.takendown,_that.appealed,_that.suspendUntil,_that.tags,_that.accountStats,_that.recordsStats,_that.accountStrike,_that.ageAssuranceState,_that.ageAssuranceUpdatedBy,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBlobCids,_that.subjectRepoHandle,_that.updatedAt,_that.createdAt,_that.reviewState,_that.comment,_that.priorityScore,_that.muteUntil,_that.muteReportingUntil,_that.lastReviewedBy,_that.lastReviewedAt,_that.lastReportedAt,_that.lastAppealedAt,_that.takendown,_that.appealed,_that.suspendUntil,_that.tags,_that.accountStrike,_that.ageAssuranceState,_that.ageAssuranceUpdatedBy,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -321,10 +293,10 @@ return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBl
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @USubjectStatusViewSubjectConverter()  USubjectStatusViewSubject subject, @USubjectStatusViewHostingConverter()  USubjectStatusViewHosting? hosting,  List<String>? subjectBlobCids,  String? subjectRepoHandle, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @SubjectReviewStateConverter()  SubjectReviewState reviewState,  String? comment,  int? priorityScore, @JsonKey(toJson: iso8601)  DateTime? muteUntil, @JsonKey(toJson: iso8601)  DateTime? muteReportingUntil,  String? lastReviewedBy, @JsonKey(toJson: iso8601)  DateTime? lastReviewedAt, @JsonKey(toJson: iso8601)  DateTime? lastReportedAt, @JsonKey(toJson: iso8601)  DateTime? lastAppealedAt,  bool? takendown,  bool? appealed, @JsonKey(toJson: iso8601)  DateTime? suspendUntil,  List<String>? tags, @AccountStatsConverter()  AccountStats? accountStats, @RecordsStatsConverter()  RecordsStats? recordsStats, @AccountStrikeConverter()  AccountStrike? accountStrike, @SubjectStatusViewAgeAssuranceStateConverter()  SubjectStatusViewAgeAssuranceState? ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter()  SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  int id, @USubjectStatusViewSubjectConverter()  USubjectStatusViewSubject subject, @USubjectStatusViewHostingConverter()  USubjectStatusViewHosting? hosting,  List<String>? subjectBlobCids,  String? subjectRepoHandle, @JsonKey(toJson: iso8601)  DateTime updatedAt, @JsonKey(toJson: iso8601)  DateTime createdAt, @SubjectReviewStateConverter()  SubjectReviewState reviewState,  String? comment,  int? priorityScore, @JsonKey(toJson: iso8601)  DateTime? muteUntil, @JsonKey(toJson: iso8601)  DateTime? muteReportingUntil,  String? lastReviewedBy, @JsonKey(toJson: iso8601)  DateTime? lastReviewedAt, @JsonKey(toJson: iso8601)  DateTime? lastReportedAt, @JsonKey(toJson: iso8601)  DateTime? lastAppealedAt,  bool? takendown,  bool? appealed, @JsonKey(toJson: iso8601)  DateTime? suspendUntil,  List<String>? tags, @AccountStrikeConverter()  AccountStrike? accountStrike, @SubjectStatusViewAgeAssuranceStateConverter()  SubjectStatusViewAgeAssuranceState? ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter()  SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _SubjectStatusView() when $default != null:
-return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBlobCids,_that.subjectRepoHandle,_that.updatedAt,_that.createdAt,_that.reviewState,_that.comment,_that.priorityScore,_that.muteUntil,_that.muteReportingUntil,_that.lastReviewedBy,_that.lastReviewedAt,_that.lastReportedAt,_that.lastAppealedAt,_that.takendown,_that.appealed,_that.suspendUntil,_that.tags,_that.accountStats,_that.recordsStats,_that.accountStrike,_that.ageAssuranceState,_that.ageAssuranceUpdatedBy,_that.$unknown);case _:
+return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBlobCids,_that.subjectRepoHandle,_that.updatedAt,_that.createdAt,_that.reviewState,_that.comment,_that.priorityScore,_that.muteUntil,_that.muteReportingUntil,_that.lastReviewedBy,_that.lastReviewedAt,_that.lastReportedAt,_that.lastAppealedAt,_that.takendown,_that.appealed,_that.suspendUntil,_that.tags,_that.accountStrike,_that.ageAssuranceState,_that.ageAssuranceUpdatedBy,_that.$unknown);case _:
   return null;
 
 }
@@ -336,7 +308,7 @@ return $default(_that.$type,_that.id,_that.subject,_that.hosting,_that.subjectBl
 
 @JsonSerializable(includeIfNull: false)
 class _SubjectStatusView implements SubjectStatusView {
-  const _SubjectStatusView({this.$type = 'tools.ozone.moderation.defs#subjectStatusView', required this.id, @USubjectStatusViewSubjectConverter() required this.subject, @USubjectStatusViewHostingConverter() this.hosting, final  List<String>? subjectBlobCids, this.subjectRepoHandle, @JsonKey(toJson: iso8601) required this.updatedAt, @JsonKey(toJson: iso8601) required this.createdAt, @SubjectReviewStateConverter() required this.reviewState, this.comment, this.priorityScore, @JsonKey(toJson: iso8601) this.muteUntil, @JsonKey(toJson: iso8601) this.muteReportingUntil, this.lastReviewedBy, @JsonKey(toJson: iso8601) this.lastReviewedAt, @JsonKey(toJson: iso8601) this.lastReportedAt, @JsonKey(toJson: iso8601) this.lastAppealedAt, this.takendown, this.appealed, @JsonKey(toJson: iso8601) this.suspendUntil, final  List<String>? tags, @AccountStatsConverter() this.accountStats, @RecordsStatsConverter() this.recordsStats, @AccountStrikeConverter() this.accountStrike, @SubjectStatusViewAgeAssuranceStateConverter() this.ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter() this.ageAssuranceUpdatedBy, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_tags = tags,_$unknown = $unknown;
+  const _SubjectStatusView({this.$type = 'tools.ozone.moderation.defs#subjectStatusView', required this.id, @USubjectStatusViewSubjectConverter() required this.subject, @USubjectStatusViewHostingConverter() this.hosting, final  List<String>? subjectBlobCids, this.subjectRepoHandle, @JsonKey(toJson: iso8601) required this.updatedAt, @JsonKey(toJson: iso8601) required this.createdAt, @SubjectReviewStateConverter() required this.reviewState, this.comment, this.priorityScore, @JsonKey(toJson: iso8601) this.muteUntil, @JsonKey(toJson: iso8601) this.muteReportingUntil, this.lastReviewedBy, @JsonKey(toJson: iso8601) this.lastReviewedAt, @JsonKey(toJson: iso8601) this.lastReportedAt, @JsonKey(toJson: iso8601) this.lastAppealedAt, this.takendown, this.appealed, @JsonKey(toJson: iso8601) this.suspendUntil, final  List<String>? tags, @AccountStrikeConverter() this.accountStrike, @SubjectStatusViewAgeAssuranceStateConverter() this.ageAssuranceState, @SubjectStatusViewAgeAssuranceUpdatedByConverter() this.ageAssuranceUpdatedBy, final  Map<String, dynamic>? $unknown}): _subjectBlobCids = subjectBlobCids,_tags = tags,_$unknown = $unknown;
   factory _SubjectStatusView.fromJson(Map<String, dynamic> json) => _$SubjectStatusViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -382,10 +354,6 @@ class _SubjectStatusView implements SubjectStatusView {
   return EqualUnmodifiableListView(value);
 }
 
-/// Statistics related to the account subject
-@override@AccountStatsConverter() final  AccountStats? accountStats;
-/// Statistics related to the record subjects authored by the subject's account
-@override@RecordsStatsConverter() final  RecordsStats? recordsStats;
 /// Strike information for the account (account-level only)
 @override@AccountStrikeConverter() final  AccountStrike? accountStrike;
 /// Current age assurance state of the subject.
@@ -415,16 +383,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectStatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.hosting, hosting) || other.hosting == hosting)&&const DeepCollectionEquality().equals(other._subjectBlobCids, _subjectBlobCids)&&(identical(other.subjectRepoHandle, subjectRepoHandle) || other.subjectRepoHandle == subjectRepoHandle)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reviewState, reviewState) || other.reviewState == reviewState)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.priorityScore, priorityScore) || other.priorityScore == priorityScore)&&(identical(other.muteUntil, muteUntil) || other.muteUntil == muteUntil)&&(identical(other.muteReportingUntil, muteReportingUntil) || other.muteReportingUntil == muteReportingUntil)&&(identical(other.lastReviewedBy, lastReviewedBy) || other.lastReviewedBy == lastReviewedBy)&&(identical(other.lastReviewedAt, lastReviewedAt) || other.lastReviewedAt == lastReviewedAt)&&(identical(other.lastReportedAt, lastReportedAt) || other.lastReportedAt == lastReportedAt)&&(identical(other.lastAppealedAt, lastAppealedAt) || other.lastAppealedAt == lastAppealedAt)&&(identical(other.takendown, takendown) || other.takendown == takendown)&&(identical(other.appealed, appealed) || other.appealed == appealed)&&(identical(other.suspendUntil, suspendUntil) || other.suspendUntil == suspendUntil)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.accountStats, accountStats) || other.accountStats == accountStats)&&(identical(other.recordsStats, recordsStats) || other.recordsStats == recordsStats)&&(identical(other.accountStrike, accountStrike) || other.accountStrike == accountStrike)&&(identical(other.ageAssuranceState, ageAssuranceState) || other.ageAssuranceState == ageAssuranceState)&&(identical(other.ageAssuranceUpdatedBy, ageAssuranceUpdatedBy) || other.ageAssuranceUpdatedBy == ageAssuranceUpdatedBy)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubjectStatusView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.id, id) || other.id == id)&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.hosting, hosting) || other.hosting == hosting)&&const DeepCollectionEquality().equals(other._subjectBlobCids, _subjectBlobCids)&&(identical(other.subjectRepoHandle, subjectRepoHandle) || other.subjectRepoHandle == subjectRepoHandle)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.reviewState, reviewState) || other.reviewState == reviewState)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.priorityScore, priorityScore) || other.priorityScore == priorityScore)&&(identical(other.muteUntil, muteUntil) || other.muteUntil == muteUntil)&&(identical(other.muteReportingUntil, muteReportingUntil) || other.muteReportingUntil == muteReportingUntil)&&(identical(other.lastReviewedBy, lastReviewedBy) || other.lastReviewedBy == lastReviewedBy)&&(identical(other.lastReviewedAt, lastReviewedAt) || other.lastReviewedAt == lastReviewedAt)&&(identical(other.lastReportedAt, lastReportedAt) || other.lastReportedAt == lastReportedAt)&&(identical(other.lastAppealedAt, lastAppealedAt) || other.lastAppealedAt == lastAppealedAt)&&(identical(other.takendown, takendown) || other.takendown == takendown)&&(identical(other.appealed, appealed) || other.appealed == appealed)&&(identical(other.suspendUntil, suspendUntil) || other.suspendUntil == suspendUntil)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.accountStrike, accountStrike) || other.accountStrike == accountStrike)&&(identical(other.ageAssuranceState, ageAssuranceState) || other.ageAssuranceState == ageAssuranceState)&&(identical(other.ageAssuranceUpdatedBy, ageAssuranceUpdatedBy) || other.ageAssuranceUpdatedBy == ageAssuranceUpdatedBy)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,$type,id,subject,hosting,const DeepCollectionEquality().hash(_subjectBlobCids),subjectRepoHandle,updatedAt,createdAt,reviewState,comment,priorityScore,muteUntil,muteReportingUntil,lastReviewedBy,lastReviewedAt,lastReportedAt,lastAppealedAt,takendown,appealed,suspendUntil,const DeepCollectionEquality().hash(_tags),accountStats,recordsStats,accountStrike,ageAssuranceState,ageAssuranceUpdatedBy,const DeepCollectionEquality().hash(_$unknown)]);
+int get hashCode => Object.hashAll([runtimeType,$type,id,subject,hosting,const DeepCollectionEquality().hash(_subjectBlobCids),subjectRepoHandle,updatedAt,createdAt,reviewState,comment,priorityScore,muteUntil,muteReportingUntil,lastReviewedBy,lastReviewedAt,lastReportedAt,lastAppealedAt,takendown,appealed,suspendUntil,const DeepCollectionEquality().hash(_tags),accountStrike,ageAssuranceState,ageAssuranceUpdatedBy,const DeepCollectionEquality().hash(_$unknown)]);
 
 @override
 String toString() {
-  return 'SubjectStatusView(\$type: ${$type}, id: $id, subject: $subject, hosting: $hosting, subjectBlobCids: $subjectBlobCids, subjectRepoHandle: $subjectRepoHandle, updatedAt: $updatedAt, createdAt: $createdAt, reviewState: $reviewState, comment: $comment, priorityScore: $priorityScore, muteUntil: $muteUntil, muteReportingUntil: $muteReportingUntil, lastReviewedBy: $lastReviewedBy, lastReviewedAt: $lastReviewedAt, lastReportedAt: $lastReportedAt, lastAppealedAt: $lastAppealedAt, takendown: $takendown, appealed: $appealed, suspendUntil: $suspendUntil, tags: $tags, accountStats: $accountStats, recordsStats: $recordsStats, accountStrike: $accountStrike, ageAssuranceState: $ageAssuranceState, ageAssuranceUpdatedBy: $ageAssuranceUpdatedBy, \$unknown: ${$unknown})';
+  return 'SubjectStatusView(\$type: ${$type}, id: $id, subject: $subject, hosting: $hosting, subjectBlobCids: $subjectBlobCids, subjectRepoHandle: $subjectRepoHandle, updatedAt: $updatedAt, createdAt: $createdAt, reviewState: $reviewState, comment: $comment, priorityScore: $priorityScore, muteUntil: $muteUntil, muteReportingUntil: $muteReportingUntil, lastReviewedBy: $lastReviewedBy, lastReviewedAt: $lastReviewedAt, lastReportedAt: $lastReportedAt, lastAppealedAt: $lastAppealedAt, takendown: $takendown, appealed: $appealed, suspendUntil: $suspendUntil, tags: $tags, accountStrike: $accountStrike, ageAssuranceState: $ageAssuranceState, ageAssuranceUpdatedBy: $ageAssuranceUpdatedBy, \$unknown: ${$unknown})';
 }
 
 
@@ -435,11 +403,11 @@ abstract mixin class _$SubjectStatusViewCopyWith<$Res> implements $SubjectStatus
   factory _$SubjectStatusViewCopyWith(_SubjectStatusView value, $Res Function(_SubjectStatusView) _then) = __$SubjectStatusViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, int id,@USubjectStatusViewSubjectConverter() USubjectStatusViewSubject subject,@USubjectStatusViewHostingConverter() USubjectStatusViewHosting? hosting, List<String>? subjectBlobCids, String? subjectRepoHandle,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime createdAt,@SubjectReviewStateConverter() SubjectReviewState reviewState, String? comment, int? priorityScore,@JsonKey(toJson: iso8601) DateTime? muteUntil,@JsonKey(toJson: iso8601) DateTime? muteReportingUntil, String? lastReviewedBy,@JsonKey(toJson: iso8601) DateTime? lastReviewedAt,@JsonKey(toJson: iso8601) DateTime? lastReportedAt,@JsonKey(toJson: iso8601) DateTime? lastAppealedAt, bool? takendown, bool? appealed,@JsonKey(toJson: iso8601) DateTime? suspendUntil, List<String>? tags,@AccountStatsConverter() AccountStats? accountStats,@RecordsStatsConverter() RecordsStats? recordsStats,@AccountStrikeConverter() AccountStrike? accountStrike,@SubjectStatusViewAgeAssuranceStateConverter() SubjectStatusViewAgeAssuranceState? ageAssuranceState,@SubjectStatusViewAgeAssuranceUpdatedByConverter() SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy, Map<String, dynamic>? $unknown
+ String $type, int id,@USubjectStatusViewSubjectConverter() USubjectStatusViewSubject subject,@USubjectStatusViewHostingConverter() USubjectStatusViewHosting? hosting, List<String>? subjectBlobCids, String? subjectRepoHandle,@JsonKey(toJson: iso8601) DateTime updatedAt,@JsonKey(toJson: iso8601) DateTime createdAt,@SubjectReviewStateConverter() SubjectReviewState reviewState, String? comment, int? priorityScore,@JsonKey(toJson: iso8601) DateTime? muteUntil,@JsonKey(toJson: iso8601) DateTime? muteReportingUntil, String? lastReviewedBy,@JsonKey(toJson: iso8601) DateTime? lastReviewedAt,@JsonKey(toJson: iso8601) DateTime? lastReportedAt,@JsonKey(toJson: iso8601) DateTime? lastAppealedAt, bool? takendown, bool? appealed,@JsonKey(toJson: iso8601) DateTime? suspendUntil, List<String>? tags,@AccountStrikeConverter() AccountStrike? accountStrike,@SubjectStatusViewAgeAssuranceStateConverter() SubjectStatusViewAgeAssuranceState? ageAssuranceState,@SubjectStatusViewAgeAssuranceUpdatedByConverter() SubjectStatusViewAgeAssuranceUpdatedBy? ageAssuranceUpdatedBy, Map<String, dynamic>? $unknown
 });
 
 
-@override $USubjectStatusViewSubjectCopyWith<$Res> get subject;@override $USubjectStatusViewHostingCopyWith<$Res>? get hosting;@override $SubjectReviewStateCopyWith<$Res> get reviewState;@override $AccountStatsCopyWith<$Res>? get accountStats;@override $RecordsStatsCopyWith<$Res>? get recordsStats;@override $AccountStrikeCopyWith<$Res>? get accountStrike;@override $SubjectStatusViewAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;@override $SubjectStatusViewAgeAssuranceUpdatedByCopyWith<$Res>? get ageAssuranceUpdatedBy;
+@override $USubjectStatusViewSubjectCopyWith<$Res> get subject;@override $USubjectStatusViewHostingCopyWith<$Res>? get hosting;@override $SubjectReviewStateCopyWith<$Res> get reviewState;@override $AccountStrikeCopyWith<$Res>? get accountStrike;@override $SubjectStatusViewAgeAssuranceStateCopyWith<$Res>? get ageAssuranceState;@override $SubjectStatusViewAgeAssuranceUpdatedByCopyWith<$Res>? get ageAssuranceUpdatedBy;
 
 }
 /// @nodoc
@@ -452,7 +420,7 @@ class __$SubjectStatusViewCopyWithImpl<$Res>
 
 /// Create a copy of SubjectStatusView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? subject = null,Object? hosting = freezed,Object? subjectBlobCids = freezed,Object? subjectRepoHandle = freezed,Object? updatedAt = null,Object? createdAt = null,Object? reviewState = null,Object? comment = freezed,Object? priorityScore = freezed,Object? muteUntil = freezed,Object? muteReportingUntil = freezed,Object? lastReviewedBy = freezed,Object? lastReviewedAt = freezed,Object? lastReportedAt = freezed,Object? lastAppealedAt = freezed,Object? takendown = freezed,Object? appealed = freezed,Object? suspendUntil = freezed,Object? tags = freezed,Object? accountStats = freezed,Object? recordsStats = freezed,Object? accountStrike = freezed,Object? ageAssuranceState = freezed,Object? ageAssuranceUpdatedBy = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? id = null,Object? subject = null,Object? hosting = freezed,Object? subjectBlobCids = freezed,Object? subjectRepoHandle = freezed,Object? updatedAt = null,Object? createdAt = null,Object? reviewState = null,Object? comment = freezed,Object? priorityScore = freezed,Object? muteUntil = freezed,Object? muteReportingUntil = freezed,Object? lastReviewedBy = freezed,Object? lastReviewedAt = freezed,Object? lastReportedAt = freezed,Object? lastAppealedAt = freezed,Object? takendown = freezed,Object? appealed = freezed,Object? suspendUntil = freezed,Object? tags = freezed,Object? accountStrike = freezed,Object? ageAssuranceState = freezed,Object? ageAssuranceUpdatedBy = freezed,Object? $unknown = freezed,}) {
   return _then(_SubjectStatusView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
@@ -475,9 +443,7 @@ as DateTime?,takendown: freezed == takendown ? _self.takendown : takendown // ig
 as bool?,appealed: freezed == appealed ? _self.appealed : appealed // ignore: cast_nullable_to_non_nullable
 as bool?,suspendUntil: freezed == suspendUntil ? _self.suspendUntil : suspendUntil // ignore: cast_nullable_to_non_nullable
 as DateTime?,tags: freezed == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>?,accountStats: freezed == accountStats ? _self.accountStats : accountStats // ignore: cast_nullable_to_non_nullable
-as AccountStats?,recordsStats: freezed == recordsStats ? _self.recordsStats : recordsStats // ignore: cast_nullable_to_non_nullable
-as RecordsStats?,accountStrike: freezed == accountStrike ? _self.accountStrike : accountStrike // ignore: cast_nullable_to_non_nullable
+as List<String>?,accountStrike: freezed == accountStrike ? _self.accountStrike : accountStrike // ignore: cast_nullable_to_non_nullable
 as AccountStrike?,ageAssuranceState: freezed == ageAssuranceState ? _self.ageAssuranceState : ageAssuranceState // ignore: cast_nullable_to_non_nullable
 as SubjectStatusViewAgeAssuranceState?,ageAssuranceUpdatedBy: freezed == ageAssuranceUpdatedBy ? _self.ageAssuranceUpdatedBy : ageAssuranceUpdatedBy // ignore: cast_nullable_to_non_nullable
 as SubjectStatusViewAgeAssuranceUpdatedBy?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -514,30 +480,6 @@ $SubjectReviewStateCopyWith<$Res> get reviewState {
   
   return $SubjectReviewStateCopyWith<$Res>(_self.reviewState, (value) {
     return _then(_self.copyWith(reviewState: value));
-  });
-}/// Create a copy of SubjectStatusView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$AccountStatsCopyWith<$Res>? get accountStats {
-    if (_self.accountStats == null) {
-    return null;
-  }
-
-  return $AccountStatsCopyWith<$Res>(_self.accountStats!, (value) {
-    return _then(_self.copyWith(accountStats: value));
-  });
-}/// Create a copy of SubjectStatusView
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$RecordsStatsCopyWith<$Res>? get recordsStats {
-    if (_self.recordsStats == null) {
-    return null;
-  }
-
-  return $RecordsStatsCopyWith<$Res>(_self.recordsStats!, (value) {
-    return _then(_self.copyWith(recordsStats: value));
   });
 }/// Create a copy of SubjectStatusView
 /// with the given fields replaced by the non-null parameter values.
