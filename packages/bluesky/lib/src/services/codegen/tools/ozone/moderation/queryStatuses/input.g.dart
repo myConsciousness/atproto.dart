@@ -104,18 +104,6 @@ _ModerationQueryStatusesInput _$ModerationQueryStatusesInputFromJson(
             const ModerationQueryStatusesSubjectTypeConverter().fromJson,
           ),
     ),
-    minAccountSuspendCount: $checkedConvert(
-      'minAccountSuspendCount',
-      (v) => (v as num?)?.toInt(),
-    ),
-    minReportedRecordsCount: $checkedConvert(
-      'minReportedRecordsCount',
-      (v) => (v as num?)?.toInt(),
-    ),
-    minTakendownRecordsCount: $checkedConvert(
-      'minTakendownRecordsCount',
-      (v) => (v as num?)?.toInt(),
-    ),
     minPriorityScore: $checkedConvert(
       'minPriorityScore',
       (v) => (v as num?)?.toInt(),
@@ -184,9 +172,6 @@ Map<String, dynamic> _$ModerationQueryStatusesInputToJson(
         instance.subjectType,
         const ModerationQueryStatusesSubjectTypeConverter().toJson,
       ),
-  'minAccountSuspendCount': ?instance.minAccountSuspendCount,
-  'minReportedRecordsCount': ?instance.minReportedRecordsCount,
-  'minTakendownRecordsCount': ?instance.minTakendownRecordsCount,
   'minPriorityScore': ?instance.minPriorityScore,
   'minStrikeCount': ?instance.minStrikeCount,
   'ageAssuranceState':

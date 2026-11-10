@@ -1,5 +1,17 @@
 # Release Note
 
+## v2.16.0
+
+- fix!: removed `tools.ozone.moderation.defs#accountStats` (BREAKING)
+- fix!: removed `tools.ozone.moderation.defs#recordsStats` (BREAKING)
+- fix!: removed `tools.ozone.moderation.defs#subjectStatusView.accountStats` (BREAKING)
+- fix!: removed `tools.ozone.moderation.defs#subjectStatusView.recordsStats` (BREAKING)
+- fix!: removed `tools.ozone.moderation.queryStatuses.parameters.minAccountSuspendCount` (BREAKING)
+- fix!: removed `tools.ozone.moderation.queryStatuses.parameters.minReportedRecordsCount` (BREAKING)
+- fix!: removed `tools.ozone.moderation.queryStatuses.parameters.minTakendownRecordsCount` (BREAKING)
+- chore: updated `tools.ozone.moderation.queryStatuses.parameters.sortField`
+- chore: regenerated from synced lexicons
+
 ## v2.15.6
 
 - feat: added `tools.ozone.moderation.emitEvent#reportAction.allOwned`

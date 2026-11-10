@@ -2037,10 +2037,6 @@ const toolsOzoneModerationDefsAccountEvent =
 const toolsOzoneModerationDefsAccountHosting =
     'tools.ozone.moderation.defs#accountHosting';
 
-/// `tools.ozone.moderation.defs#accountStats`
-const toolsOzoneModerationDefsAccountStats =
-    'tools.ozone.moderation.defs#accountStats';
-
 /// `tools.ozone.moderation.defs#accountStrike`
 const toolsOzoneModerationDefsAccountStrike =
     'tools.ozone.moderation.defs#accountStrike';
@@ -2178,10 +2174,6 @@ const toolsOzoneModerationDefsRecordViewDetail =
 /// `tools.ozone.moderation.defs#recordViewNotFound`
 const toolsOzoneModerationDefsRecordViewNotFound =
     'tools.ozone.moderation.defs#recordViewNotFound';
-
-/// `tools.ozone.moderation.defs#recordsStats`
-const toolsOzoneModerationDefsRecordsStats =
-    'tools.ozone.moderation.defs#recordsStats';
 
 /// `tools.ozone.moderation.defs#repoView`
 const toolsOzoneModerationDefsRepoView = 'tools.ozone.moderation.defs#repoView';

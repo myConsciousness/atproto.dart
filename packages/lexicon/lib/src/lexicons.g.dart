@@ -21473,17 +21473,6 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "type": "array",
           "items": {"type": "string"},
         },
-        "accountStats": {
-          "type": "ref",
-          "description": "Statistics related to the account subject",
-          "ref": "#accountStats",
-        },
-        "recordsStats": {
-          "type": "ref",
-          "description":
-              "Statistics related to the record subjects authored by the subject's account",
-          "ref": "#recordsStats",
-        },
         "accountStrike": {
           "type": "ref",
           "description":
@@ -21518,74 +21507,6 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "repo": {"type": "ref", "ref": "#repoViewDetail"},
         "profile": {"type": "union", "refs": []},
         "record": {"type": "ref", "ref": "#recordViewDetail"},
-      },
-    },
-    "accountStats": {
-      "type": "object",
-      "description": "Statistics about a particular account subject",
-      "properties": {
-        "reportCount": {
-          "type": "integer",
-          "description": "Total number of reports on the account",
-        },
-        "appealCount": {
-          "type": "integer",
-          "description":
-              "Total number of appeals against a moderation action on the account",
-        },
-        "suspendCount": {
-          "type": "integer",
-          "description": "Number of times the account was suspended",
-        },
-        "escalateCount": {
-          "type": "integer",
-          "description": "Number of times the account was escalated",
-        },
-        "takedownCount": {
-          "type": "integer",
-          "description": "Number of times the account was taken down",
-        },
-      },
-    },
-    "recordsStats": {
-      "type": "object",
-      "description": "Statistics about a set of record subject items",
-      "properties": {
-        "totalReports": {
-          "type": "integer",
-          "description":
-              "Cumulative sum of the number of reports on the items in the set",
-        },
-        "reportedCount": {
-          "type": "integer",
-          "description": "Number of items that were reported at least once",
-        },
-        "escalatedCount": {
-          "type": "integer",
-          "description": "Number of items that were escalated at least once",
-        },
-        "appealedCount": {
-          "type": "integer",
-          "description": "Number of items that were appealed at least once",
-        },
-        "subjectCount": {
-          "type": "integer",
-          "description": "Total number of item in the set",
-        },
-        "pendingCount": {
-          "type": "integer",
-          "description":
-              "Number of item currently in \"reviewOpen\" or \"reviewEscalated\" state",
-        },
-        "processedCount": {
-          "type": "integer",
-          "description":
-              "Number of item currently in \"reviewNone\" or \"reviewClosed\" state",
-        },
-        "takendownCount": {
-          "type": "integer",
-          "description": "Number of item currently taken down",
-        },
       },
     },
     "accountStrike": {
@@ -23381,13 +23302,15 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
           },
           "sortField": {
             "type": "string",
+            "description":
+                "The reportedRecordsCount and takendownRecordsCount values are deprecated and use lastReportedAt instead.",
             "default": "lastReportedAt",
             "enum": [
               "lastReviewedAt",
               "lastReportedAt",
+              "priorityScore",
               "reportedRecordsCount",
               "takendownRecordsCount",
-              "priorityScore",
             ],
           },
           "sortDirection": {
@@ -23435,21 +23358,6 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
             "description":
                 "If specified, subjects of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
             "knownValues": ["account", "record", "conversation"],
-          },
-          "minAccountSuspendCount": {
-            "type": "integer",
-            "description":
-                "If specified, only subjects that belong to an account that has at least this many suspensions will be returned.",
-          },
-          "minReportedRecordsCount": {
-            "type": "integer",
-            "description":
-                "If specified, only subjects that belong to an account that has at least this many reported records will be returned.",
-          },
-          "minTakendownRecordsCount": {
-            "type": "integer",
-            "description":
-                "If specified, only subjects that belong to an account that has at least this many taken down records will be returned.",
           },
           "minPriorityScore": {
             "type": "integer",

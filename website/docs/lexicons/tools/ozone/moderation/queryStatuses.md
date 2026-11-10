@@ -33,7 +33,7 @@ View moderation statuses of subjects (record or repo).
 | **reviewState** | string | [tools.ozone.moderation.defs#reviewOpen](../../../../lexicons/tools/ozone/moderation/defs.md#reviewopen)<br/>[tools.ozone.moderation.defs#reviewClosed](../../../../lexicons/tools/ozone/moderation/defs.md#reviewclosed)<br/>[tools.ozone.moderation.defs#reviewEscalated](../../../../lexicons/tools/ozone/moderation/defs.md#reviewescalated)<br/>[tools.ozone.moderation.defs#reviewNone](../../../../lexicons/tools/ozone/moderation/defs.md#reviewnone) | ❌ | Specify when fetching subjects in a certain state |
 | **ignoreSubjects** | array of [uri](https://atproto.com/specs/lexicon#uri) | - | ❌ | - |
 | **lastReviewedBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Get all subject statuses that were reviewed by a specific moderator |
-| **sortField** | string | - | ❌ | - |
+| **sortField** | string | - | ❌ | The reportedRecordsCount and takendownRecordsCount values are deprecated and use lastReportedAt instead. |
 | **sortDirection** | string | - | ❌ | - |
 | **takendown** | boolean | - | ❌ | Get subjects that were taken down |
 | **appealed** | boolean | - | ❌ | Get subjects in unresolved appealed status |
@@ -43,9 +43,6 @@ View moderation statuses of subjects (record or repo).
 | **cursor** | string | - | ❌ | - |
 | **collections** | array of [nsid](https://atproto.com/specs/nsid) | - | ❌ | - |
 | **subjectType** | string | account<br/>record<br/>conversation | ❌ | If specified, subjects of the given type (account, record, or conversation) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored. |
-| **minAccountSuspendCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many suspensions will be returned. |
-| **minReportedRecordsCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many reported records will be returned. |
-| **minTakendownRecordsCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many taken down records will be returned. |
 | **minPriorityScore** | integer | - | ❌ | If specified, only subjects that have priority score value above the given value will be returned. |
 | **minStrikeCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many active strikes will be returned. |
 | **ageAssuranceState** | string | pending<br/>assured<br/>unknown<br/>reset<br/>blocked | ❌ | If specified, only subjects with the given age assurance state will be returned. |
