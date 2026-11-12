@@ -10,6 +10,8 @@ import '../../../services/codegen/app/bsky/actor/defs/profile_link_view.dart';
 
 part 'moderation_subject_profile_link.freezed.dart';
 
+/// An `app.bsky.actor.defs#profileLinkView` to moderate: a link shown on a
+/// profile, backed by an `app.bsky.actor.link` record.
 @Freezed(fromJson: false, toJson: false)
 sealed class ModerationSubjectProfileLink with _$ModerationSubjectProfileLink {
   const factory ModerationSubjectProfileLink.profileLinkView({
