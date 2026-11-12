@@ -9,7 +9,10 @@ export 'package:bluesky/src/moderation.dart'
         moderateNotification,
         moderateFeedGenerator,
         moderateUserList,
-        moderateStatus;
+        moderateStatus,
+        moderateExternalView,
+        moderateViewExternal,
+        moderateProfileLink;
 
 export 'package:bluesky/src/moderation/decision.dart' show ModerationDecision;
 export 'package:bluesky/src/moderation/utils.dart'
@@ -51,3 +54,5 @@ export 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile
 export 'package:bluesky/src/moderation/types/subjects/moderation_subject_notification.dart';
 export 'package:bluesky/src/moderation/types/subjects/moderation_subject_feed_generator.dart';
 export 'package:bluesky/src/moderation/types/subjects/moderation_subject_user_list.dart';
+export 'package:bluesky/src/moderation/types/subjects/moderation_subject_external_view.dart';
+export 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile_link.dart';

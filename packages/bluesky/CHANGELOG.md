@@ -1,5 +1,12 @@
 # Release Note
 
+## v2.17.0
+
+- feat: added `moderateExternalView` and `ModerationSubjectExternalView` to moderate `app.bsky.embed.external` views, including the article, publication, gallery and livestream views
+- feat: added `moderateViewExternal` to moderate an `app.bsky.embed.external#viewExternal`
+- feat: added `moderateProfileLink` and `ModerationSubjectProfileLink` to moderate an `app.bsky.actor.defs#profileLinkView`
+- feat: added `mergeModUIResults` to merge several `ModerationUI` results into one
+
 ## v2.16.0
 
 - fix!: removed `tools.ozone.moderation.defs#accountStats` (BREAKING)

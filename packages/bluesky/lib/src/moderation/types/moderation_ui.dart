@@ -27,3 +27,34 @@ extension ModerationUIExtension on ModerationUI {
   bool get alert => alerts.isNotEmpty;
   bool get inform => informs.isNotEmpty;
 }
+
+/// Merges several [ModerationUI] results into one, for a UI element that is
+/// subject to more than one moderation decision or context.
+///
+/// Null entries are skipped. Causes are concatenated in argument order and
+/// are not re-sorted. [ModerationUI.noOverride] is true if any input has it.
+ModerationUI mergeModUIResults(final List<ModerationUI?> uis) {
+  var noOverride = false;
+  final filters = <ModerationCause>[];
+  final blurs = <ModerationCause>[];
+  final alerts = <ModerationCause>[];
+  final informs = <ModerationCause>[];
+
+  for (final ui in uis) {
+    if (ui == null) continue;
+
+    noOverride = noOverride || ui.noOverride;
+    filters.addAll(ui.filters);
+    blurs.addAll(ui.blurs);
+    alerts.addAll(ui.alerts);
+    informs.addAll(ui.informs);
+  }
+
+  return ModerationUI(
+    noOverride: noOverride,
+    filters: filters,
+    blurs: blurs,
+    alerts: alerts,
+    informs: informs,
+  );
+}
