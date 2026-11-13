@@ -41,5 +41,7 @@ Target specific reports when emitting a moderation event
 | **types** | array of string | - | ❌ | Target reports matching these report types on the subject (fully qualified NSIDs). Excludes assigned and escalated reports. |
 | **all** | boolean | - | ❌ | Target ALL reports on the subject. Excludes assigned and escalated reports. |
 | **allOwned** | boolean | - | ❌ | Target all eligible reports on the account and its owned subjects, including records, messages, and conversations. Only valid for account subjects and events that close reports. Excludes assigned, escalated, and actively assigned reports unless explicitly targeted by ID. |
+| **subjects** | array of union<br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | Expands report targeting to include additional subjects. Requires event subject to be an account. Mutually exclusive with `subjectTypes`. |
+| **subjectTypes** | array of string | - | ❌ | Expands report targeting to include owned subjects of these types. Requires event subject to be an account. Mutually exclusive with `subjects`. |
 | **note** | string | - | ❌ | Note to send to reporter(s) when actioning their report |
 | **isAutomated** | boolean | - | ❌ | Set true when the report activities are created by an automated process. |

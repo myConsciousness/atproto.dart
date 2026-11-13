@@ -19,6 +19,7 @@ description: app.bsky.feed.defs
 | **repostCount** | integer | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **quoteCount** | integer | - | ❌ | - |
+| **viewCount** | integer | - | ❌ | Approximate number of times the post has been viewed. Only included in authenticated responses to the post's author when eligible to see the count. Counts less than 100 are omitted. |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |

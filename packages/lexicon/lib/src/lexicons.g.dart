@@ -3318,6 +3318,11 @@ const appBskyFeedDefs = <String, dynamic>{
         "repostCount": {"type": "integer"},
         "likeCount": {"type": "integer"},
         "quoteCount": {"type": "integer"},
+        "viewCount": {
+          "type": "integer",
+          "description":
+              "Approximate number of times the post has been viewed. Only included in authenticated responses to the post's author when eligible to see the count. Counts less than 100 are omitted.",
+        },
         "indexedAt": {"type": "string", "format": "datetime"},
         "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
@@ -4526,6 +4531,58 @@ const appBskyFeedGetTimeline = <String, dynamic>{
               "description":
                   "Cursor identifying the newest item in this page. Pass it as since on a later request to fetch only newer content.",
             },
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#feedViewPost",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.feed.hydrateFeedSkeleton`
+const appBskyFeedHydrateFeedSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.hydrateFeedSkeleton",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Hydrate a feed skeleton, as returned by app.bsky.feed.getFeedSkeleton, into a feed, as returned by app.bsky.feed.getFeed.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#skeletonFeedPost",
+              },
+              "maxLength": 100,
+            },
+            "reqId": {
+              "type": "string",
+              "description":
+                  "Unique identifier per request that may be passed back alongside interactions. Set on each item of the output feed.",
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
             "feed": {
               "type": "array",
               "items": {
@@ -22553,6 +22610,29 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
           "description":
               "Target all eligible reports on the account and its owned subjects, including records, messages, and conversations. Only valid for account subjects and events that close reports. Excludes assigned, escalated, and actively assigned reports unless explicitly targeted by ID.",
         },
+        "subjects": {
+          "type": "array",
+          "description":
+              "Expands report targeting to include additional subjects. Requires event subject to be an account. Mutually exclusive with `subjectTypes`.",
+          "items": {
+            "type": "union",
+            "refs": [
+              "com.atproto.admin.defs#repoRef",
+              "com.atproto.repo.strongRef",
+            ],
+          },
+          "maxLength": 100,
+        },
+        "subjectTypes": {
+          "type": "array",
+          "description":
+              "Expands report targeting to include owned subjects of these types. Requires event subject to be an account. Mutually exclusive with `subjects`.",
+          "items": {
+            "type": "string",
+            "enum": ["account", "record", "message", "conversation"],
+          },
+          "maxLength": 4,
+        },
         "note": {
           "type": "string",
           "description":
@@ -25639,6 +25719,87 @@ const toolsOzoneReportQueryActivities = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.report.queryModeratorActivity`
+const toolsOzoneReportQueryModeratorActivity = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.queryModeratorActivity",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Read authorized moderator events and report activity in one chronological history.",
+      "parameters": {
+        "type": "params",
+        "required": ["moderator", "createdAfter", "createdBefore"],
+        "properties": {
+          "moderator": {"type": "string", "format": "did"},
+          "createdAfter": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Inclusive UTC lower bound.",
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Exclusive UTC upper bound.",
+          },
+          "types": {
+            "type": "array",
+            "items": {"type": "string"},
+            "maxLength": 40,
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "cursor": {"type": "string", "maxLength": 512},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["rows"],
+          "properties": {
+            "rows": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#activityRow"},
+            },
+            "cursor": {"type": "string"},
+          },
+        },
+      },
+    },
+    "activityRow": {
+      "type": "object",
+      "required": ["source", "id", "createdAt", "createdBy", "type"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["event", "activity"],
+        },
+        "id": {"type": "integer"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "createdBy": {"type": "string", "format": "did"},
+        "type": {"type": "string"},
+        "subject": {"type": "string"},
+        "reportId": {"type": "integer"},
+        "actionEventId": {"type": "integer"},
+        "event": {
+          "type": "ref",
+          "ref": "tools.ozone.moderation.defs#modEventView",
+        },
+        "activity": {
+          "type": "ref",
+          "ref": "tools.ozone.report.defs#reportActivityView",
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.report.queryReports`
 const toolsOzoneReportQueryReports = <String, dynamic>{
   "lexicon": 1,
@@ -27759,6 +27920,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedGetRepostedBy,
   appBskyFeedGetSuggestedFeeds,
   appBskyFeedGetTimeline,
+  appBskyFeedHydrateFeedSkeleton,
   appBskyFeedLike,
   appBskyFeedPost,
   appBskyFeedPostgate,
@@ -28085,6 +28247,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneReportGetReport,
   toolsOzoneReportListActivities,
   toolsOzoneReportQueryActivities,
+  toolsOzoneReportQueryModeratorActivity,
   toolsOzoneReportQueryReports,
   toolsOzoneReportReassignQueue,
   toolsOzoneReportRefreshStats,

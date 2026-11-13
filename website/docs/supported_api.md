@@ -231,6 +231,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.feed.getRepostedBy](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getRepostedBy.html)** | [Reference](lexicons/app/bsky/feed/getRepostedBy.md) | ✅ |
 | **[app.bsky.feed.getSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getSuggestedFeeds.html)** | [Reference](lexicons/app/bsky/feed/getSuggestedFeeds.md) | ✅ |
 | **[app.bsky.feed.getTimeline](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getTimeline.html)** | [Reference](lexicons/app/bsky/feed/getTimeline.md) | ✅ |
+| **[app.bsky.feed.hydrateFeedSkeleton](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/hydrateFeedSkeleton.html)** | [Reference](lexicons/app/bsky/feed/hydrateFeedSkeleton.md) | ❌ |
 | **[app.bsky.feed.like](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/like.html)** | [Reference](lexicons/app/bsky/feed/like.md) | ❌ |
 | **[app.bsky.feed.post](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/post.html)** | [Reference](lexicons/app/bsky/feed/post.md) | ❌ |
 | **[app.bsky.feed.postgate](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/postgate.html)** | [Reference](lexicons/app/bsky/feed/postgate.md) | ❌ |
@@ -506,6 +507,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[tools.ozone.report.getReport](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/getReport.html)** | [Reference](lexicons/tools/ozone/report/getReport.md) | ❌ |
 | **[tools.ozone.report.listActivities](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/listActivities.html)** | [Reference](lexicons/tools/ozone/report/listActivities.md) | ✅ |
 | **[tools.ozone.report.queryActivities](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/queryActivities.html)** | [Reference](lexicons/tools/ozone/report/queryActivities.md) | ✅ |
+| **[tools.ozone.report.queryModeratorActivity](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/queryModeratorActivity.html)** | [Reference](lexicons/tools/ozone/report/queryModeratorActivity.md) | ✅ |
 | **[tools.ozone.report.queryReports](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/queryReports.html)** | [Reference](lexicons/tools/ozone/report/queryReports.md) | ✅ |
 | **[tools.ozone.report.reassignQueue](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/reassignQueue.html)** | [Reference](lexicons/tools/ozone/report/reassignQueue.md) | ❌ |
 | **[tools.ozone.report.refreshStats](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ReportService/refreshStats.html)** | [Reference](lexicons/tools/ozone/report/refreshStats.md) | ❌ |

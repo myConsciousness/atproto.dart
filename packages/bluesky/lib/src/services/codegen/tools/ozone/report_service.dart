@@ -25,6 +25,7 @@ import 'report/getLatestReport/output.dart';
 import 'report/getLiveStats/output.dart';
 import 'report/listActivities/output.dart';
 import 'report/queryActivities/output.dart';
+import 'report/queryModeratorActivity/output.dart';
 import 'report/queryReports/main_status.dart';
 import 'report/queryReports/main_subject_type.dart';
 import 'report/queryReports/output.dart';
@@ -281,6 +282,35 @@ toolsOzoneReportQueryActivities({
     if (cursor != null) 'cursor': cursor,
   },
   to: const ReportQueryActivitiesOutputConverter().fromJson,
+);
+
+/// Read authorized moderator events and report activity in one chronological history.
+Future<XRPCResponse<ReportQueryModeratorActivityOutput>>
+toolsOzoneReportQueryModeratorActivity({
+  required String moderator,
+  required DateTime createdAfter,
+  required DateTime createdBefore,
+  List<String>? types,
+  int? limit,
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneReportQueryModeratorActivity,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'moderator': moderator,
+    'createdAfter': iso8601(createdAfter),
+    'createdBefore': iso8601(createdBefore),
+    if (types != null) 'types': types,
+    if (limit != null) 'limit': limit,
+    if (cursor != null) 'cursor': cursor,
+  },
+  to: const ReportQueryModeratorActivityOutputConverter().fromJson,
 );
 
 /// View moderation reports. Reports are individual instances of content being reported, as opposed to subject statuses which aggregate reports at the subject level.
@@ -594,6 +624,31 @@ base class ReportService {
     createdAfter: createdAfter,
     createdBefore: createdBefore,
     sortDirection: sortDirection,
+    limit: limit,
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Read authorized moderator events and report activity in one chronological history.
+  Future<XRPCResponse<ReportQueryModeratorActivityOutput>>
+  queryModeratorActivity({
+    required String moderator,
+    required DateTime createdAfter,
+    required DateTime createdBefore,
+    List<String>? types,
+    int? limit,
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneReportQueryModeratorActivity(
+    moderator: moderator,
+    createdAfter: createdAfter,
+    createdBefore: createdBefore,
+    types: types,
     limit: limit,
     cursor: cursor,
     $ctx: ctx,

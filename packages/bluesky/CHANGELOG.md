@@ -1,5 +1,15 @@
 # Release Note
 
+## v2.17.1
+
+- feat: added `app.bsky.feed.defs#postView.viewCount`
+- feat: added `app.bsky.feed.hydrateFeedSkeleton`
+- feat: added `tools.ozone.moderation.emitEvent#reportAction.subjectTypes`
+- feat: added `tools.ozone.moderation.emitEvent#reportAction.subjects`
+- feat: added `tools.ozone.report.queryModeratorActivity#activityRow`
+- feat: added `tools.ozone.report.queryModeratorActivity`
+- chore: regenerated from synced lexicons
+
 ## v2.17.0
 
 - feat: added `moderateExternalView` and `ModerationSubjectExternalView` to moderate `app.bsky.embed.external` views, including the article, publication, gallery and livestream views
