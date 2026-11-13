@@ -21,6 +21,7 @@ import 'report/get_live_stats.dart';
 import 'report/get_report.dart';
 import 'report/list_activities.dart';
 import 'report/query_activities.dart';
+import 'report/query_moderator_activity.dart';
 import 'report/query_reports.dart';
 import 'report/reassign_queue.dart';
 import 'report/refresh_stats.dart';
@@ -42,6 +43,7 @@ final class ToolsOzoneReportCommand extends Command<void> {
     addSubcommand(GetReportCommand());
     addSubcommand(ListActivitiesCommand());
     addSubcommand(QueryActivitiesCommand());
+    addSubcommand(QueryModeratorActivityCommand());
     addSubcommand(QueryReportsCommand());
     addSubcommand(ReassignQueueCommand());
     addSubcommand(RefreshStatsCommand());

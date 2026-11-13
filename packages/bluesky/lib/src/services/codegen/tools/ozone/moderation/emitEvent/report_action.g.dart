@@ -26,6 +26,20 @@ _ReportAction _$ReportActionFromJson(Map json) =>
         ),
         all: $checkedConvert('all', (v) => v as bool?),
         allOwned: $checkedConvert('allOwned', (v) => v as bool?),
+        subjects: $checkedConvert(
+          'subjects',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const UReportActionSubjectsConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        subjectTypes: $checkedConvert(
+          'subjectTypes',
+          (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+        ),
         note: $checkedConvert('note', (v) => v as String?),
         isAutomated: $checkedConvert('isAutomated', (v) => v as bool?),
         $unknown: $checkedConvert(
@@ -43,6 +57,10 @@ Map<String, dynamic> _$ReportActionToJson(_ReportAction instance) =>
       'types': ?instance.types,
       'all': ?instance.all,
       'allOwned': ?instance.allOwned,
+      'subjects': ?instance.subjects
+          ?.map(const UReportActionSubjectsConverter().toJson)
+          .toList(),
+      'subjectTypes': ?instance.subjectTypes,
       'note': ?instance.note,
       'isAutomated': ?instance.isAutomated,
       r'$unknown': ?instance.$unknown,

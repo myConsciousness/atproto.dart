@@ -22,6 +22,7 @@ import 'package:atproto_core/internals.dart' show protected;
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import 'feed/defs/interaction.dart';
+import 'feed/defs/skeleton_feed_post.dart';
 import 'feed/describeFeedGenerator/output.dart';
 import 'feed/generator/main_content_mode.dart';
 import 'feed/generator/union_main_labels.dart';
@@ -42,6 +43,7 @@ import 'feed/getQuotes/output.dart';
 import 'feed/getRepostedBy/output.dart';
 import 'feed/getSuggestedFeeds/output.dart';
 import 'feed/getTimeline/output.dart';
+import 'feed/hydrateFeedSkeleton/output.dart';
 import 'feed/post/reply_ref.dart';
 import 'feed/post/union_main_embed.dart';
 import 'feed/post/union_main_labels.dart';
@@ -402,6 +404,29 @@ Future<XRPCResponse<FeedGetTimelineOutput>> appBskyFeedGetTimeline({
     if (since != null) 'since': since,
   },
   to: const FeedGetTimelineOutputConverter().fromJson,
+);
+
+/// Hydrate a feed skeleton, as returned by app.bsky.feed.getFeedSkeleton, into a feed, as returned by app.bsky.feed.getFeed.
+Future<XRPCResponse<FeedHydrateFeedSkeletonOutput>>
+appBskyFeedHydrateFeedSkeleton({
+  required List<SkeletonFeedPost> feed,
+  String? reqId,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyFeedHydrateFeedSkeleton,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'feed': feed
+        .map((e) => const SkeletonFeedPostConverter().toJson(e))
+        .toList(),
+    if (reqId != null) 'reqId': reqId,
+  },
+  to: const FeedHydrateFeedSkeletonOutputConverter().fromJson,
 );
 
 /// Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.
@@ -844,6 +869,22 @@ base class FeedService {
     limit: limit,
     cursor: cursor,
     since: since,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Hydrate a feed skeleton, as returned by app.bsky.feed.getFeedSkeleton, into a feed, as returned by app.bsky.feed.getFeed.
+  Future<XRPCResponse<FeedHydrateFeedSkeletonOutput>> hydrateFeedSkeleton({
+    required List<SkeletonFeedPost> feed,
+    String? reqId,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedHydrateFeedSkeleton(
+    feed: feed,
+    reqId: reqId,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

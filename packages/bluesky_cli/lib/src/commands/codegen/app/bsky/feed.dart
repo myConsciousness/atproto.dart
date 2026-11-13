@@ -28,6 +28,7 @@ import 'feed/get_quotes.dart';
 import 'feed/get_reposted_by.dart';
 import 'feed/get_suggested_feeds.dart';
 import 'feed/get_timeline.dart';
+import 'feed/hydrate_feed_skeleton.dart';
 import 'feed/like.dart';
 import 'feed/post.dart';
 import 'feed/postgate.dart';
@@ -60,6 +61,7 @@ final class AppBskyFeedCommand extends Command<void> {
     addSubcommand(GetRepostedByCommand());
     addSubcommand(GetSuggestedFeedsCommand());
     addSubcommand(GetTimelineCommand());
+    addSubcommand(HydrateFeedSkeletonCommand());
     addSubcommand(LikeCommand());
     addSubcommand(PostCommand());
     addSubcommand(PostgateCommand());

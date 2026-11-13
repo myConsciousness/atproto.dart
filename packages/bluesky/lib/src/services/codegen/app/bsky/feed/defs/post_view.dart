@@ -39,6 +39,7 @@ abstract class PostView with _$PostView {
     'repostCount',
     'likeCount',
     'quoteCount',
+    'viewCount',
     'indexedAt',
     'viewer',
     'labels',
@@ -59,6 +60,9 @@ abstract class PostView with _$PostView {
     int? repostCount,
     int? likeCount,
     int? quoteCount,
+
+    /// Approximate number of times the post has been viewed. Only included in authenticated responses to the post's author when eligible to see the count. Counts less than 100 are omitted.
+    int? viewCount,
     @JsonKey(toJson: iso8601) required DateTime indexedAt,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
@@ -90,6 +94,8 @@ extension PostViewExtension on PostView {
   bool get hasNotLikeCount => !hasLikeCount;
   bool get hasQuoteCount => quoteCount != null;
   bool get hasNotQuoteCount => !hasQuoteCount;
+  bool get hasViewCount => viewCount != null;
+  bool get hasNotViewCount => !hasViewCount;
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
   bool get hasThreadgate => threadgate != null;

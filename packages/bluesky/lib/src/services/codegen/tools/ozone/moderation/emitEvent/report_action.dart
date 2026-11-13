@@ -11,6 +11,9 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import './union_report_action_subjects.dart';
+
 part 'report_action.freezed.dart';
 part 'report_action.g.dart';
 
@@ -26,6 +29,8 @@ abstract class ReportAction with _$ReportAction {
     'types',
     'all',
     'allOwned',
+    'subjects',
+    'subjectTypes',
     'note',
     'isAutomated',
   ];
@@ -41,6 +46,8 @@ abstract class ReportAction with _$ReportAction {
 
     /// Target all eligible reports on the account and its owned subjects, including records, messages, and conversations. Only valid for account subjects and events that close reports. Excludes assigned, escalated, and actively assigned reports unless explicitly targeted by ID.
     bool? allOwned,
+    @UReportActionSubjectsConverter() List<UReportActionSubjects>? subjects,
+    List<String>? subjectTypes,
 
     /// Note to send to reporter(s) when actioning their report
     String? note,

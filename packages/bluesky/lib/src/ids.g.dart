@@ -621,6 +621,9 @@ const appBskyFeedGetSuggestedFeeds = 'app.bsky.feed.getSuggestedFeeds';
 /// `app.bsky.feed.getTimeline`
 const appBskyFeedGetTimeline = 'app.bsky.feed.getTimeline';
 
+/// `app.bsky.feed.hydrateFeedSkeleton`
+const appBskyFeedHydrateFeedSkeleton = 'app.bsky.feed.hydrateFeedSkeleton';
+
 /// `app.bsky.feed.like`
 const appBskyFeedLike = 'app.bsky.feed.like';
 
@@ -2605,6 +2608,14 @@ const toolsOzoneReportListActivities = 'tools.ozone.report.listActivities';
 
 /// `tools.ozone.report.queryActivities`
 const toolsOzoneReportQueryActivities = 'tools.ozone.report.queryActivities';
+
+/// `tools.ozone.report.queryModeratorActivity`
+const toolsOzoneReportQueryModeratorActivity =
+    'tools.ozone.report.queryModeratorActivity';
+
+/// `tools.ozone.report.queryModeratorActivity#activityRow`
+const toolsOzoneReportQueryModeratorActivityActivityRow =
+    'tools.ozone.report.queryModeratorActivity#activityRow';
 
 /// `tools.ozone.report.queryReports`
 const toolsOzoneReportQueryReports = 'tools.ozone.report.queryReports';

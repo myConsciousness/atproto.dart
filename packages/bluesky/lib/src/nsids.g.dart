@@ -295,6 +295,9 @@ const appBskyFeedGetSuggestedFeeds = NSID(ids.appBskyFeedGetSuggestedFeeds);
 /// `app.bsky.feed.getTimeline`
 const appBskyFeedGetTimeline = NSID(ids.appBskyFeedGetTimeline);
 
+/// `app.bsky.feed.hydrateFeedSkeleton`
+const appBskyFeedHydrateFeedSkeleton = NSID(ids.appBskyFeedHydrateFeedSkeleton);
+
 /// `app.bsky.feed.like`
 const appBskyFeedLike = NSID(ids.appBskyFeedLike);
 
@@ -1535,6 +1538,16 @@ const toolsOzoneReportListActivities = NSID(ids.toolsOzoneReportListActivities);
 /// `tools.ozone.report.queryActivities`
 const toolsOzoneReportQueryActivities = NSID(
   ids.toolsOzoneReportQueryActivities,
+);
+
+/// `tools.ozone.report.queryModeratorActivity`
+const toolsOzoneReportQueryModeratorActivity = NSID(
+  ids.toolsOzoneReportQueryModeratorActivity,
+);
+
+/// `tools.ozone.report.queryModeratorActivity#activityRow`
+const toolsOzoneReportQueryModeratorActivityActivityRow = NSID(
+  ids.toolsOzoneReportQueryModeratorActivityActivityRow,
 );
 
 /// `tools.ozone.report.queryReports`
