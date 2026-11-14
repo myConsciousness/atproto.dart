@@ -295,9 +295,6 @@ const appBskyFeedGetSuggestedFeeds = NSID(ids.appBskyFeedGetSuggestedFeeds);
 /// `app.bsky.feed.getTimeline`
 const appBskyFeedGetTimeline = NSID(ids.appBskyFeedGetTimeline);
 
-/// `app.bsky.feed.hydrateFeedSkeleton`
-const appBskyFeedHydrateFeedSkeleton = NSID(ids.appBskyFeedHydrateFeedSkeleton);
-
 /// `app.bsky.feed.like`
 const appBskyFeedLike = NSID(ids.appBskyFeedLike);
 
