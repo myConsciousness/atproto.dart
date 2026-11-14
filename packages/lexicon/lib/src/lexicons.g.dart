@@ -4545,58 +4545,6 @@ const appBskyFeedGetTimeline = <String, dynamic>{
   },
 };
 
-/// `app.bsky.feed.hydrateFeedSkeleton`
-const appBskyFeedHydrateFeedSkeleton = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.hydrateFeedSkeleton",
-  "defs": {
-    "main": {
-      "type": "procedure",
-      "description":
-          "Hydrate a feed skeleton, as returned by app.bsky.feed.getFeedSkeleton, into a feed, as returned by app.bsky.feed.getFeed.",
-      "input": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#skeletonFeedPost",
-              },
-              "maxLength": 100,
-            },
-            "reqId": {
-              "type": "string",
-              "description":
-                  "Unique identifier per request that may be passed back alongside interactions. Set on each item of the output feed.",
-              "maxLength": 100,
-            },
-          },
-        },
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "feed": {
-              "type": "array",
-              "items": {
-                "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
 /// `app.bsky.feed.like`
 const appBskyFeedLike = <String, dynamic>{
   "lexicon": 1,
@@ -27920,7 +27868,6 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedGetRepostedBy,
   appBskyFeedGetSuggestedFeeds,
   appBskyFeedGetTimeline,
-  appBskyFeedHydrateFeedSkeleton,
   appBskyFeedLike,
   appBskyFeedPost,
   appBskyFeedPostgate,

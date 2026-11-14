@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.18.0
+
+- fix!: removed `app.bsky.feed.hydrateFeedSkeleton` (BREAKING)
+- chore: regenerated from synced lexicons
+
 ## v2.17.1
 
 - feat: added `app.bsky.feed.defs#postView.viewCount`
