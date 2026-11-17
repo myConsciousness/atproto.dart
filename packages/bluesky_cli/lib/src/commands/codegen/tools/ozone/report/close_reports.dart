@@ -32,10 +32,15 @@ final class CloseReportsCommand extends ProcedureCommand {
             r"If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.",
         defaultsTo: false,
       )
+      ..addOption(
+        "reportId",
+        help:
+            r"An explicitly targeted report in the requested subject scope. It is included even if assigned, escalated, or not in reportTypes; excludedReportTypes still applies.",
+      )
       ..addMultiOption(
         "reportTypes",
         help:
-            r"If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned and escalated reports are always excluded.",
+            r"If nonempty, eligible reports of the given report types (fully qualified reason NSIDs) are closed, in addition to reportId. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned, escalated, and actively assigned reports are excluded unless explicitly targeted by reportId.",
       )
       ..addMultiOption(
         "excludedReportTypes",
@@ -70,11 +75,11 @@ final class CloseReportsCommand extends ProcedureCommand {
 
   @override
   final String description =
-      "Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.";
+      "Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded unless explicitly targeted by reportId. Reports whose current status does not permit a transition to closed are skipped silently.";
 
   @override
   final String invocation =
-      "bsky tools-ozone-report close-reports --subject=<value> [--includeAllOwned] [--reportTypes=<value>...] [--excludedReportTypes=<value>...] [--actionEventId=<value>] [--internalNote=<value>] [--isAutomated] [--meta=<value>]";
+      "bsky tools-ozone-report close-reports --subject=<value> [--includeAllOwned] [--reportId=<value>] [--reportTypes=<value>...] [--excludedReportTypes=<value>...] [--actionEventId=<value>] [--internalNote=<value>] [--isAutomated] [--meta=<value>]";
 
   @override
   String get methodId => "tools.ozone.report.closeReports";
@@ -83,6 +88,10 @@ final class CloseReportsCommand extends ProcedureCommand {
   Map<String, dynamic>? get body => {
     "subject": argResults!["subject"],
     "includeAllOwned": argResults!["includeAllOwned"],
+    if (argResults!.wasParsed("reportId"))
+      "reportId":
+          int.tryParse(argResults!["reportId"]) ??
+          usageException('Invalid integer value for option "reportId".'),
     if (argResults!.wasParsed("reportTypes"))
       "reportTypes": argResults!["reportTypes"],
     if (argResults!.wasParsed("excludedReportTypes"))

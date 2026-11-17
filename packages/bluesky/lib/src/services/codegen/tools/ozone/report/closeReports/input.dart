@@ -23,6 +23,7 @@ abstract class ReportCloseReportsInput with _$ReportCloseReportsInput {
   static const knownProps = <String>[
     'subject',
     'includeAllOwned',
+    'reportId',
     'reportTypes',
     'excludedReportTypes',
     'actionEventId',
@@ -38,6 +39,9 @@ abstract class ReportCloseReportsInput with _$ReportCloseReportsInput {
 
     /// If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.
     @Default(false) bool includeAllOwned,
+
+    /// An explicitly targeted report in the requested subject scope. It is included even if assigned, escalated, or not in reportTypes; excludedReportTypes still applies.
+    int? reportId,
     List<String>? reportTypes,
     List<String>? excludedReportTypes,
 
@@ -61,6 +65,8 @@ abstract class ReportCloseReportsInput with _$ReportCloseReportsInput {
 extension ReportCloseReportsInputExtension on ReportCloseReportsInput {
   bool get isIncludeAllOwned => includeAllOwned;
   bool get isNotIncludeAllOwned => !isIncludeAllOwned;
+  bool get hasReportId => reportId != null;
+  bool get hasNotReportId => !hasReportId;
   bool get hasActionEventId => actionEventId != null;
   bool get hasNotActionEventId => !hasActionEventId;
   bool get hasInternalNote => internalNote != null;

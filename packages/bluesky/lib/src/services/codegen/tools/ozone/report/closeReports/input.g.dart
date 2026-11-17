@@ -16,6 +16,7 @@ _ReportCloseReportsInput _$ReportCloseReportsInputFromJson(Map json) =>
           'includeAllOwned',
           (v) => v as bool? ?? false,
         ),
+        reportId: $checkedConvert('reportId', (v) => (v as num?)?.toInt()),
         reportTypes: $checkedConvert(
           'reportTypes',
           (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -47,6 +48,7 @@ Map<String, dynamic> _$ReportCloseReportsInputToJson(
 ) => <String, dynamic>{
   'subject': instance.subject,
   'includeAllOwned': instance.includeAllOwned,
+  'reportId': ?instance.reportId,
   'reportTypes': ?instance.reportTypes,
   'excludedReportTypes': ?instance.excludedReportTypes,
   'actionEventId': ?instance.actionEventId,

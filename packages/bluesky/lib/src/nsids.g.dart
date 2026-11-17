@@ -1278,6 +1278,16 @@ const toolsOzoneHostingGetAccountHistoryPasswordUpdated = NSID(
   ids.toolsOzoneHostingGetAccountHistoryPasswordUpdated,
 );
 
+/// `tools.ozone.inbox.ackPushNotifications`
+const toolsOzoneInboxAckPushNotifications = NSID(
+  ids.toolsOzoneInboxAckPushNotifications,
+);
+
+/// `tools.ozone.inbox.ackPushNotifications#item`
+const toolsOzoneInboxAckPushNotificationsItem = NSID(
+  ids.toolsOzoneInboxAckPushNotificationsItem,
+);
+
 /// `tools.ozone.inbox.appealActionedSubject`
 const toolsOzoneInboxAppealActionedSubject = NSID(
   ids.toolsOzoneInboxAppealActionedSubject,
@@ -1298,6 +1308,16 @@ const toolsOzoneInboxAppealActionedSubjectTakedownRef = NSID(
   ids.toolsOzoneInboxAppealActionedSubjectTakedownRef,
 );
 
+/// `tools.ozone.inbox.claimPushNotifications`
+const toolsOzoneInboxClaimPushNotifications = NSID(
+  ids.toolsOzoneInboxClaimPushNotifications,
+);
+
+/// `tools.ozone.inbox.claimPushNotifications#item`
+const toolsOzoneInboxClaimPushNotificationsItem = NSID(
+  ids.toolsOzoneInboxClaimPushNotificationsItem,
+);
+
 /// `tools.ozone.inbox.getAccountStatus`
 const toolsOzoneInboxGetAccountStatus = NSID(
   ids.toolsOzoneInboxGetAccountStatus,
@@ -1311,6 +1331,11 @@ const toolsOzoneInboxGetActionedSubject = NSID(
 /// `tools.ozone.inbox.getNotificationPreferences`
 const toolsOzoneInboxGetNotificationPreferences = NSID(
   ids.toolsOzoneInboxGetNotificationPreferences,
+);
+
+/// `tools.ozone.inbox.getPushPreference`
+const toolsOzoneInboxGetPushPreference = NSID(
+  ids.toolsOzoneInboxGetPushPreference,
 );
 
 /// `tools.ozone.inbox.getReport`
@@ -1381,6 +1406,19 @@ const toolsOzoneModerationEmitEvent = NSID(ids.toolsOzoneModerationEmitEvent);
 /// `tools.ozone.moderation.emitEvent#reportAction`
 const toolsOzoneModerationEmitEventReportAction = NSID(
   ids.toolsOzoneModerationEmitEventReportAction,
+);
+
+/// `tools.ozone.moderation.emitEvents`
+const toolsOzoneModerationEmitEvents = NSID(ids.toolsOzoneModerationEmitEvents);
+
+/// `tools.ozone.moderation.emitEvents#failedEvent`
+const toolsOzoneModerationEmitEventsFailedEvent = NSID(
+  ids.toolsOzoneModerationEmitEventsFailedEvent,
+);
+
+/// `tools.ozone.moderation.emitEvents#subjectEntry`
+const toolsOzoneModerationEmitEventsSubjectEntry = NSID(
+  ids.toolsOzoneModerationEmitEventsSubjectEntry,
 );
 
 /// `tools.ozone.moderation.getAccountPreferences`

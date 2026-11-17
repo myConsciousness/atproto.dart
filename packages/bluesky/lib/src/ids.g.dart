@@ -1901,6 +1901,14 @@ const toolsOzoneHostingGetAccountHistoryHandleUpdated =
 const toolsOzoneHostingGetAccountHistoryPasswordUpdated =
     'tools.ozone.hosting.getAccountHistory#passwordUpdated';
 
+/// `tools.ozone.inbox.ackPushNotifications`
+const toolsOzoneInboxAckPushNotifications =
+    'tools.ozone.inbox.ackPushNotifications';
+
+/// `tools.ozone.inbox.ackPushNotifications#item`
+const toolsOzoneInboxAckPushNotificationsItem =
+    'tools.ozone.inbox.ackPushNotifications#item';
+
 /// `tools.ozone.inbox.appealActionedSubject`
 const toolsOzoneInboxAppealActionedSubject =
     'tools.ozone.inbox.appealActionedSubject';
@@ -1916,6 +1924,14 @@ const toolsOzoneInboxAppealActionedSubjectLabelRef =
 /// `tools.ozone.inbox.appealActionedSubject#takedownRef`
 const toolsOzoneInboxAppealActionedSubjectTakedownRef =
     'tools.ozone.inbox.appealActionedSubject#takedownRef';
+
+/// `tools.ozone.inbox.claimPushNotifications`
+const toolsOzoneInboxClaimPushNotifications =
+    'tools.ozone.inbox.claimPushNotifications';
+
+/// `tools.ozone.inbox.claimPushNotifications#item`
+const toolsOzoneInboxClaimPushNotificationsItem =
+    'tools.ozone.inbox.claimPushNotifications#item';
 
 /// `tools.ozone.inbox.defs`
 const toolsOzoneInboxDefs = 'tools.ozone.inbox.defs';
@@ -1974,6 +1990,9 @@ const toolsOzoneInboxGetActionedSubject =
 /// `tools.ozone.inbox.getNotificationPreferences`
 const toolsOzoneInboxGetNotificationPreferences =
     'tools.ozone.inbox.getNotificationPreferences';
+
+/// `tools.ozone.inbox.getPushPreference`
+const toolsOzoneInboxGetPushPreference = 'tools.ozone.inbox.getPushPreference';
 
 /// `tools.ozone.inbox.getReport`
 const toolsOzoneInboxGetReport = 'tools.ozone.inbox.getReport';
@@ -2252,6 +2271,17 @@ const toolsOzoneModerationEmitEvent = 'tools.ozone.moderation.emitEvent';
 /// `tools.ozone.moderation.emitEvent#reportAction`
 const toolsOzoneModerationEmitEventReportAction =
     'tools.ozone.moderation.emitEvent#reportAction';
+
+/// `tools.ozone.moderation.emitEvents`
+const toolsOzoneModerationEmitEvents = 'tools.ozone.moderation.emitEvents';
+
+/// `tools.ozone.moderation.emitEvents#failedEvent`
+const toolsOzoneModerationEmitEventsFailedEvent =
+    'tools.ozone.moderation.emitEvents#failedEvent';
+
+/// `tools.ozone.moderation.emitEvents#subjectEntry`
+const toolsOzoneModerationEmitEventsSubjectEntry =
+    'tools.ozone.moderation.emitEvents#subjectEntry';
 
 /// `tools.ozone.moderation.getAccountPreferences`
 const toolsOzoneModerationGetAccountPreferences =
